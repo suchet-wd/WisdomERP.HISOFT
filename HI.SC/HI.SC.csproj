@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BC80C06D-81FC-4BFC-B2FB-3AB068C12CD3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HI.SC</RootNamespace>
+    <AssemblyName>HI.SC</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v20.1.Export, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConverterUtility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="wAutoRawmatFree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wAutoRawmatFree.Designer.cs">
+      <DependentUpon>wAutoRawmatFree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wSamStyle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wSamStyle.designer.cs">
+      <DependentUpon>wSamStyle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wSamStylePopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wSamStylePopup.designer.cs">
+      <DependentUpon>wSamStylePopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wSourcingFactory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wSourcingFactory.Designer.cs">
+      <DependentUpon>wSourcingFactory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wSourcing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wSourcing.Designer.cs">
+      <DependentUpon>wSourcing.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HI.Conn\HI.Conn.csproj">
+      <Project>{7a2db722-b4b4-4c9a-b624-4763812ca5ab}</Project>
+      <Name>HI.Conn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.MG\HI.MG.csproj">
+      <Project>{5a72d3b5-c544-4835-a1fc-df6eff9c973a}</Project>
+      <Name>HI.MG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.PO\HI.PO.vbproj">
+      <Project>{CF0F74F7-1C58-4CC9-8919-1D6BFE67C041}</Project>
+      <Name>HI.PO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.RP\HI.RP.vbproj">
+      <Project>{28B2EF85-307C-4E24-AFCF-926E6ABE3424}</Project>
+      <Name>HI.RP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.SE\HI.SE.vbproj">
+      <Project>{7CF7AE7B-9C3E-4E5D-9015-1C5FD4EE16B9}</Project>
+      <Name>HI.SE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.ST\HI.ST.csproj">
+      <Project>{42e244bb-ed4a-4579-819d-c00ef4898907}</Project>
+      <Name>HI.ST</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.TL\HI.TL.vbproj">
+      <Project>{5DE5B459-1226-40CD-9581-434C43D61B66}</Project>
+      <Name>HI.TL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.UL\HI.UL.csproj">
+      <Project>{e9d7341b-e2d4-4a59-b328-79e51f3c0138}</Project>
+      <Name>HI.UL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="wAutoRawmatFree.resx">
+      <DependentUpon>wAutoRawmatFree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wSamStyle.resx">
+      <DependentUpon>wSamStyle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wSamStylePopup.resx">
+      <DependentUpon>wSamStylePopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wSourcingFactory.resx">
+      <DependentUpon>wSourcingFactory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wSourcing.resx">
+      <DependentUpon>wSourcing.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Provider=SQLNCLI10.1;Data Source=CHAINIWEST\HT_PROJECT;Persist Security Info=True;Password=1234;User ID=sa;Initial Catalog=HITECH_MERCHAN" IsAppSettingsProperty="false" Modifier="Assembly" Name="CHAINIWEST\HT_PROJECT.HITECH_MERCHAN" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TMERTMPRTableAdapter" GeneratorDataComponentClassName="TMERTMPRTableAdapter" Name="TMERTMPR" UserDataComponentName="TMERTMPRTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CHAINIWEST\HT_PROJECT.HITECH_MERCHAN" DbObjectName="HITECH_MERCHAN.dbo.TMERTMPR" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT 
+                         FTInsUser, FDInsDate, FTInsTime, FTUpdUser, FDUpdDate, FTUpdTime, FNHSysStyleId, FNSeq, FNMerMatSeq, FNHSysMerMatId, FNHSysRawMatId, FNColorWaySeq, FNHSysRawMatColorId, 
+                         FNRawMatColorSeq, FNHSysMatColorId, FNMatColorSeq, FTRawMatColorCode, FTMatColorCode, FTRawMatColorNameEN, FTRawMatColorNameTH, FTMatColorNameEN, FTMatColorNameTH, 
+                         FNSieBreakDownSeq, FNHSysRawMatSizeId, FNRawMatSizeSeq, FNHSysMatSizeId, FNMatSizeSeq, FTRawMatSizeCode, FTMatSizeCode, FTRawMatSizeNameEN, FTRawMatSizeNameTH, FTMatSizeNameEN, 
+                         FTMatSizeNameTH, FTOrderNo1, FTSubOrderNo1, FNConSmp, FNConSmpPlus, FTMainMatCode, FNHSysMerMatId_None, FTMainMatNameTH, FTFabricFrontSize, FTStyleCode, FNHSysUnitId, FTUnitCode, 
+                         FNHSysBuyId, FTOrderNo, FTSubOrderNo, FNQuantity, FNQuantityExtra, FNUsedQuantity, FNUsedPlusQuantity, FNPRQuantity, FNPRTotalPrice, FNHSysSuplId, FTStateNominate, FNPrice, FNHSysCurId, 
+                         FTSuplCode, FTCurCode, FNHSysCustId, FDOrderDate, FDShipDate, FNStateChange, CASE WHEN
+                             (SELECT        COUNT(*)
+                               FROM            HITECH_PURCHASE.dbo.TPURTOrder_Sourcing SC
+                               WHERE        SC.FTOrderNo + '|' + SC.FTSubOrderNo + '|' + CAST(SC.FNHSysRawMatId AS VARCHAR(20)) = MPR.FTOrderNo + '|' + MPR.FTSubOrderNo + '|' + CAST(MPR.FNHSysRawMatId AS VARCHAR(20))) 
+                         &gt; 0 THEN '1' ELSE '0' END AS FNStateSourcing
+FROM            dbo.TMERTMPR AS MPR</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FTInsUser" DataSetColumn="FTInsUser" />
+              <Mapping SourceColumn="FDInsDate" DataSetColumn="FDInsDate" />
+              <Mapping SourceColumn="FTInsTime" DataSetColumn="FTInsTime" />
+              <Mapping SourceColumn="FTUpdUser" DataSetColumn="FTUpdUser" />
+              <Mapping SourceColumn="FDUpdDate" DataSetColumn="FDUpdDate" />
+              <Mapping SourceColumn="FTUpdTime" DataSetColumn="FTUpdTime" />
+              <Mapping SourceColumn="FNHSysStyleId" DataSetColumn="FNHSysStyleId" />
+              <Mapping SourceColumn="FNSeq" DataSetColumn="FNSeq" />
+              <Mapping SourceColumn="FNMerMatSeq" DataSetColumn="FNMerMatSeq" />
+              <Mapping SourceColumn="FNHSysMerMatId" DataSetColumn="FNHSysMerMatId" />
+              <Mapping SourceColumn="FNHSysRawMatId" DataSetColumn="FNHSysRawMatId" />
+              <Mapping SourceColumn="FNColorWaySeq" DataSetColumn="FNColorWaySeq" />
+              <Mapping SourceColumn="FNHSysRawMatColorId" DataSetColumn="FNHSysRawMatColorId" />
+              <Mapping SourceColumn="FNRawMatColorSeq" DataSetColumn="FNRawMatColorSeq" />
+              <Mapping SourceColumn="FNHSysMatColorId" DataSetColumn="FNHSysMatColorId" />
+              <Mapping SourceColumn="FNMatColorSeq" DataSetColumn="FNMatColorSeq" />
+              <Mapping SourceColumn="FTRawMatColorCode" DataSetColumn="FTRawMatColorCode" />
+              <Mapping SourceColumn="FTMatColorCode" DataSetColumn="FTMatColorCode" />
+              <Mapping SourceColumn="FTRawMatColorNameEN" DataSetColumn="FTRawMatColorNameEN" />
+              <Mapping SourceColumn="FTRawMatColorNameTH" DataSetColumn="FTRawMatColorNameTH" />
+              <Mapping SourceColumn="FTMatColorNameEN" DataSetColumn="FTMatColorNameEN" />
+              <Mapping SourceColumn="FTMatColorNameTH" DataSetColumn="FTMatColorNameTH" />
+              <Mapping SourceColumn="FNSieBreakDownSeq" DataSetColumn="FNSieBreakDownSeq" />
+              <Mapping SourceColumn="FNHSysRawMatSizeId" DataSetColumn="FNHSysRawMatSizeId" />
+              <Mapping SourceColumn="FNRawMatSizeSeq" DataSetColumn="FNRawMatSizeSeq" />
+              <Mapping SourceColumn="FNHSysMatSizeId" DataSetColumn="FNHSysMatSizeId" />
+              <Mapping SourceColumn="FNMatSizeSeq" DataSetColumn="FNMatSizeSeq" />
+              <Mapping SourceColumn="FTRawMatSizeCode" DataSetColumn="FTRawMatSizeCode" />
+              <Mapping SourceColumn="FTMatSizeCode" DataSetColumn="FTMatSizeCode" />
+              <Mapping SourceColumn="FTRawMatSizeNameEN" DataSetColumn="FTRawMatSizeNameEN" />
+              <Mapping SourceColumn="FTRawMatSizeNameTH" DataSetColumn="FTRawMatSizeNameTH" />
+              <Mapping SourceColumn="FTMatSizeNameEN" DataSetColumn="FTMatSizeNameEN" />
+              <Mapping SourceColumn="FTMatSizeNameTH" DataSetColumn="FTMatSizeNameTH" />
+              <Mapping SourceColumn="FTOrderNo1" DataSetColumn="FTOrderNo1" />
+              <Mapping SourceColumn="FTSubOrderNo1" DataSetColumn="FTSubOrderNo1" />
+              <Mapping SourceColumn="FNConSmp" DataSetColumn="FNConSmp" />
+              <Mapping SourceColumn="FNConSmpPlus" DataSetColumn="FNConSmpPlus" />
+              <Mapping SourceColumn="FTMainMatCode" DataSetColumn="FTMainMatCode" />
+              <Mapping SourceColumn="FNHSysMerMatId_None" DataSetColumn="FNHSysMerMatId_None" />
+              <Mapping SourceColumn="FTMainMatNameTH" DataSetColumn="FTMainMatNameTH" />
+              <Mapping SourceColumn="FTFabricFrontSize" DataSetColumn="FTFabricFrontSize" />
+              <Mapping SourceColumn="FTStyleCode" DataSetColumn="FTStyleCode" />
+              <Mapping SourceColumn="FNHSysUnitId" DataSetColumn="FNHSysUnitId" />
+              <Mapping SourceColumn="FTUnitCode" DataSetColumn="FTUnitCode" />
+              <Mapping SourceColumn="FNHSysBuyId" DataSetColumn="FNHSysBuyId" />
+              <Mapping SourceColumn="FTOrderNo" DataSetColumn="FTOrderNo" />
+              <Mapping SourceColumn="FTSubOrderNo" DataSetColumn="FTSubOrderNo" />
+              <Mapping SourceColumn="FNQuantity" DataSetColumn="FNQuantity" />
+              <Mapping SourceColumn="FNQuantityExtra" DataSetColumn="FNQuantityExtra" />
+              <Mapping SourceColumn="FNUsedQuantity" DataSetColumn="FNUsedQuantity" />
+              <Mapping SourceColumn="FNUsedPlusQuantity" DataSetColumn="FNUsedPlusQuantity" />
+              <Mapping SourceColumn="FNPRQuantity" DataSetColumn="FNPRQuantity" />
+              <Mapping SourceColumn="FNPRTotalPrice" DataSetColumn="FNPRTotalPrice" />
+              <Mapping SourceColumn="FNHSysSuplId" DataSetColumn="FNHSysSuplId" />
+              <Mapping SourceColumn="FTStateNominate" DataSetColumn="FTStateNominate" />
+              <Mapping SourceColumn="FNPrice" DataSetColumn="FNPrice" />
+              <Mapping SourceColumn="FNHSysCurId" DataSetColumn="FNHSysCurId" />
+              <Mapping SourceColumn="FTSuplCode" DataSetColumn="FTSuplCode" />
+              <Mapping SourceColumn="FTCurCode" DataSetColumn="FTCurCode" />
+              <Mapping SourceColumn="FNHSysCustId" DataSetColumn="FNHSysCustId" />
+              <Mapping SourceColumn="FDOrderDate" DataSetColumn="FDOrderDate" />
+              <Mapping SourceColumn="FDShipDate" DataSetColumn="FDShipDate" />
+              <Mapping SourceColumn="FNStateChange" DataSetColumn="FNStateChange" />
+              <Mapping SourceColumn="FNStateSourcing" DataSetColumn="FNStateSourcing" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TMERTMPR" msprop:Generator_TableClassName="TMERTMPRDataTable" msprop:Generator_TableVarName="tableTMERTMPR" msprop:Generator_TablePropName="TMERTMPR" msprop:Generator_RowDeletingName="TMERTMPRRowDeleting" msprop:Generator_RowChangingName="TMERTMPRRowChanging" msprop:Generator_RowEvHandlerName="TMERTMPRRowChangeEventHandler" msprop:Generator_RowDeletedName="TMERTMPRRowDeleted" msprop:Generator_UserTableName="TMERTMPR" msprop:Generator_RowChangedName="TMERTMPRRowChanged" msprop:Generator_RowEvArgName="TMERTMPRRowChangeEvent" msprop:Generator_RowClassName="TMERTMPRRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FTInsUser" msprop:Generator_ColumnVarNameInTable="columnFTInsUser" msprop:Generator_ColumnPropNameInRow="FTInsUser" msprop:Generator_ColumnPropNameInTable="FTInsUserColumn" msprop:Generator_UserColumnName="FTInsUser" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FDInsDate" msprop:Generator_ColumnVarNameInTable="columnFDInsDate" msprop:Generator_ColumnPropNameInRow="FDInsDate" msprop:Generator_ColumnPropNameInTable="FDInsDateColumn" msprop:Generator_UserColumnName="FDInsDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTInsTime" msprop:Generator_ColumnVarNameInTable="columnFTInsTime" msprop:Generator_ColumnPropNameInRow="FTInsTime" msprop:Generator_ColumnPropNameInTable="FTInsTimeColumn" msprop:Generator_UserColumnName="FTInsTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTUpdUser" msprop:Generator_ColumnVarNameInTable="columnFTUpdUser" msprop:Generator_ColumnPropNameInRow="FTUpdUser" msprop:Generator_ColumnPropNameInTable="FTUpdUserColumn" msprop:Generator_UserColumnName="FTUpdUser" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FDUpdDate" msprop:Generator_ColumnVarNameInTable="columnFDUpdDate" msprop:Generator_ColumnPropNameInRow="FDUpdDate" msprop:Generator_ColumnPropNameInTable="FDUpdDateColumn" msprop:Generator_UserColumnName="FDUpdDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTUpdTime" msprop:Generator_ColumnVarNameInTable="columnFTUpdTime" msprop:Generator_ColumnPropNameInRow="FTUpdTime" msprop:Generator_ColumnPropNameInTable="FTUpdTimeColumn" msprop:Generator_UserColumnName="FTUpdTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FNHSysStyleId" msprop:Generator_ColumnVarNameInTable="columnFNHSysStyleId" msprop:Generator_ColumnPropNameInRow="FNHSysStyleId" msprop:Generator_ColumnPropNameInTable="FNHSysStyleIdColumn" msprop:Generator_UserColumnName="FNHSysStyleId" type="xs:int" />
+              <xs:element name="FNSeq" msprop:Generator_ColumnVarNameInTable="columnFNSeq" msprop:Generator_ColumnPropNameInRow="FNSeq" msprop:Generator_ColumnPropNameInTable="FNSeqColumn" msprop:Generator_UserColumnName="FNSeq" type="xs:decimal" />
+              <xs:element name="FNMerMatSeq" msprop:Generator_ColumnVarNameInTable="columnFNMerMatSeq" msprop:Generator_ColumnPropNameInRow="FNMerMatSeq" msprop:Generator_ColumnPropNameInTable="FNMerMatSeqColumn" msprop:Generator_UserColumnName="FNMerMatSeq" type="xs:decimal" />
+              <xs:element name="FNHSysMerMatId" msprop:Generator_ColumnVarNameInTable="columnFNHSysMerMatId" msprop:Generator_ColumnPropNameInRow="FNHSysMerMatId" msprop:Generator_ColumnPropNameInTable="FNHSysMerMatIdColumn" msprop:Generator_UserColumnName="FNHSysMerMatId" type="xs:int" />
+              <xs:element name="FNHSysRawMatId" msprop:Generator_ColumnVarNameInTable="columnFNHSysRawMatId" msprop:Generator_ColumnPropNameInRow="FNHSysRawMatId" msprop:Generator_ColumnPropNameInTable="FNHSysRawMatIdColumn" msprop:Generator_UserColumnName="FNHSysRawMatId" type="xs:int" />
+              <xs:element name="FNColorWaySeq" msprop:Generator_ColumnVarNameInTable="columnFNColorWaySeq" msprop:Generator_ColumnPropNameInRow="FNColorWaySeq" msprop:Generator_ColumnPropNameInTable="FNColorWaySeqColumn" msprop:Generator_UserColumnName="FNColorWaySeq" type="xs:int" minOccurs="0" />
+              <xs:element name="FNHSysRawMatColorId" msprop:Generator_ColumnVarNameInTable="columnFNHSysRawMatColorId" msprop:Generator_ColumnPropNameInRow="FNHSysRawMatColorId" msprop:Generator_ColumnPropNameInTable="FNHSysRawMatColorIdColumn" msprop:Generator_UserColumnName="FNHSysRawMatColorId" type="xs:int" minOccurs="0" />
+              <xs:element name="FNRawMatColorSeq" msprop:Generator_ColumnVarNameInTable="columnFNRawMatColorSeq" msprop:Generator_ColumnPropNameInRow="FNRawMatColorSeq" msprop:Generator_ColumnPropNameInTable="FNRawMatColorSeqColumn" msprop:Generator_UserColumnName="FNRawMatColorSeq" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FNHSysMatColorId" msprop:Generator_ColumnVarNameInTable="columnFNHSysMatColorId" msprop:Generator_ColumnPropNameInRow="FNHSysMatColorId" msprop:Generator_ColumnPropNameInTable="FNHSysMatColorIdColumn" msprop:Generator_UserColumnName="FNHSysMatColorId" type="xs:int" minOccurs="0" />
+              <xs:element name="FNMatColorSeq" msprop:Generator_ColumnVarNameInTable="columnFNMatColorSeq" msprop:Generator_ColumnPropNameInRow="FNMatColorSeq" msprop:Generator_ColumnPropNameInTable="FNMatColorSeqColumn" msprop:Generator_UserColumnName="FNMatColorSeq" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FTRawMatColorCode" msprop:Generator_ColumnVarNameInTable="columnFTRawMatColorCode" msprop:Generator_ColumnPropNameInRow="FTRawMatColorCode" msprop:Generator_ColumnPropNameInTable="FTRawMatColorCodeColumn" msprop:Generator_UserColumnName="FTRawMatColorCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTMatColorCode" msprop:Generator_ColumnVarNameInTable="columnFTMatColorCode" msprop:Generator_ColumnPropNameInRow="FTMatColorCode" msprop:Generator_ColumnPropNameInTable="FTMatColorCodeColumn" msprop:Generator_UserColumnName="FTMatColorCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTRawMatColorNameEN" msprop:Generator_ColumnVarNameInTable="columnFTRawMatColorNameEN" msprop:Generator_ColumnPropNameInRow="FTRawMatColorNameEN" msprop:Generator_ColumnPropNameInTable="FTRawMatColorNameENColumn" msprop:Generator_UserColumnName="FTRawMatColorNameEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTRawMatColorNameTH" msprop:Generator_ColumnVarNameInTable="columnFTRawMatColorNameTH" msprop:Generator_ColumnPropNameInRow="FTRawMatColorNameTH" msprop:Generator_ColumnPropNameInTable="FTRawMatColorNameTHColumn" msprop:Generator_UserColumnName="FTRawMatColorNameTH" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTMatColorNameEN" msprop:Generator_ColumnVarNameInTable="columnFTMatColorNameEN" msprop:Generator_ColumnPropNameInRow="FTMatColorNameEN" msprop:Generator_ColumnPropNameInTable="FTMatColorNameENColumn" msprop:Generator_UserColumnName="FTMatColorNameEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTMatColorNameTH" msprop:Generator_ColumnVarNameInTable="columnFTMatColorNameTH" msprop:Generator_ColumnPropNameInRow="FTMatColorNameTH" msprop:Generator_ColumnPropNameInTable="FTMatColorNameTHColumn" msprop:Generator_UserColumnName="FTMatColorNameTH" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FNSieBreakDownSeq" msprop:Generator_ColumnVarNameInTable="columnFNSieBreakDownSeq" msprop:Generator_ColumnPropNameInRow="FNSieBreakDownSeq" msprop:Generator_ColumnPropNameInTable="FNSieBreakDownSeqColumn" msprop:Generator_UserColumnName="FNSieBreakDownSeq" type="xs:int" minOccurs="0" />
+              <xs:element name="FNHSysRawMatSizeId" msprop:Generator_ColumnVarNameInTable="columnFNHSysRawMatSizeId" msprop:Generator_ColumnPropNameInRow="FNHSysRawMatSizeId" msprop:Generator_ColumnPropNameInTable="FNHSysRawMatSizeIdColumn" msprop:Generator_UserColumnName="FNHSysRawMatSizeId" type="xs:int" minOccurs="0" />
+              <xs:element name="FNRawMatSizeSeq" msprop:Generator_ColumnVarNameInTable="columnFNRawMatSizeSeq" msprop:Generator_ColumnPropNameInRow="FNRawMatSizeSeq" msprop:Generator_ColumnPropNameInTable="FNRawMatSizeSeqColumn" msprop:Generator_UserColumnName="FNRawMatSizeSeq" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FNHSysMatSizeId" msprop:Generator_ColumnVarNameInTable="columnFNHSysMatSizeId" msprop:Generator_ColumnPropNameInRow="FNHSysMatSizeId" msprop:Generator_ColumnPropNameInTable="FNHSysMatSizeIdColumn" msprop:Generator_UserColumnName="FNHSysMatSizeId" type="xs:int" minOccurs="0" />
+              <xs:element name="FNMatSizeSeq" msprop:Generator_ColumnVarNameInTable="columnFNMatSizeSeq" msprop:Generator_ColumnPropNameInRow="FNMatSizeSeq" msprop:Generator_ColumnPropNameInTable="FNMatSizeSeqColumn" msprop:Generator_UserColumnName="FNMatSizeSeq" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FTRawMatSizeCode" msprop:Generator_ColumnVarNameInTable="columnFTRawMatSizeCode" msprop:Generator_ColumnPropNameInRow="FTRawMatSizeCode" msprop:Generator_ColumnPropNameInTable="FTRawMatSizeCodeColumn" msprop:Generator_UserColumnName="FTRawMatSizeCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTMatSizeCode" msprop:Generator_ColumnVarNameInTable="columnFTMatSizeCode" msprop:Generator_ColumnPropNameInRow="FTMatSizeCode" msprop:Generator_ColumnPropNameInTable="FTMatSizeCodeColumn" msprop:Generator_UserColumnName="FTMatSizeCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTRawMatSizeNameEN" msprop:Generator_ColumnVarNameInTable="columnFTRawMatSizeNameEN" msprop:Generator_ColumnPropNameInRow="FTRawMatSizeNameEN" msprop:Generator_ColumnPropNameInTable="FTRawMatSizeNameENColumn" msprop:Generator_UserColumnName="FTRawMatSizeNameEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTRawMatSizeNameTH" msprop:Generator_ColumnVarNameInTable="columnFTRawMatSizeNameTH" msprop:Generator_ColumnPropNameInRow="FTRawMatSizeNameTH" msprop:Generator_ColumnPropNameInTable="FTRawMatSizeNameTHColumn" msprop:Generator_UserColumnName="FTRawMatSizeNameTH" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTMatSizeNameEN" msprop:Generator_ColumnVarNameInTable="columnFTMatSizeNameEN" msprop:Generator_ColumnPropNameInRow="FTMatSizeNameEN" msprop:Generator_ColumnPropNameInTable="FTMatSizeNameENColumn" msprop:Generator_UserColumnName="FTMatSizeNameEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTMatSizeNameTH" msprop:Generator_ColumnVarNameInTable="columnFTMatSizeNameTH" msprop:Generator_ColumnPropNameInRow="FTMatSizeNameTH" msprop:Generator_ColumnPropNameInTable="FTMatSizeNameTHColumn" msprop:Generator_UserColumnName="FTMatSizeNameTH" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTOrderNo1" msprop:Generator_ColumnVarNameInTable="columnFTOrderNo1" msprop:Generator_ColumnPropNameInRow="FTOrderNo1" msprop:Generator_ColumnPropNameInTable="FTOrderNo1Column" msprop:Generator_UserColumnName="FTOrderNo1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTSubOrderNo1" msprop:Generator_ColumnVarNameInTable="columnFTSubOrderNo1" msprop:Generator_ColumnPropNameInRow="FTSubOrderNo1" msprop:Generator_ColumnPropNameInTable="FTSubOrderNo1Column" msprop:Generator_UserColumnName="FTSubOrderNo1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FNConSmp" msprop:Generator_ColumnVarNameInTable="columnFNConSmp" msprop:Generator_ColumnPropNameInRow="FNConSmp" msprop:Generator_ColumnPropNameInTable="FNConSmpColumn" msprop:Generator_UserColumnName="FNConSmp" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FNConSmpPlus" msprop:Generator_ColumnVarNameInTable="columnFNConSmpPlus" msprop:Generator_ColumnPropNameInRow="FNConSmpPlus" msprop:Generator_ColumnPropNameInTable="FNConSmpPlusColumn" msprop:Generator_UserColumnName="FNConSmpPlus" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FTMainMatCode" msprop:Generator_ColumnVarNameInTable="columnFTMainMatCode" msprop:Generator_ColumnPropNameInRow="FTMainMatCode" msprop:Generator_ColumnPropNameInTable="FTMainMatCodeColumn" msprop:Generator_UserColumnName="FTMainMatCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FNHSysMerMatId_None" msprop:Generator_ColumnVarNameInTable="columnFNHSysMerMatId_None" msprop:Generator_ColumnPropNameInRow="FNHSysMerMatId_None" msprop:Generator_ColumnPropNameInTable="FNHSysMerMatId_NoneColumn" msprop:Generator_UserColumnName="FNHSysMerMatId_None" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTMainMatNameTH" msprop:Generator_ColumnVarNameInTable="columnFTMainMatNameTH" msprop:Generator_ColumnPropNameInRow="FTMainMatNameTH" msprop:Generator_ColumnPropNameInTable="FTMainMatNameTHColumn" msprop:Generator_UserColumnName="FTMainMatNameTH" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTFabricFrontSize" msprop:Generator_ColumnVarNameInTable="columnFTFabricFrontSize" msprop:Generator_ColumnPropNameInRow="FTFabricFrontSize" msprop:Generator_ColumnPropNameInTable="FTFabricFrontSizeColumn" msprop:Generator_UserColumnName="FTFabricFrontSize" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTStyleCode" msprop:Generator_ColumnVarNameInTable="columnFTStyleCode" msprop:Generator_ColumnPropNameInRow="FTStyleCode" msprop:Generator_ColumnPropNameInTable="FTStyleCodeColumn" msprop:Generator_UserColumnName="FTStyleCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FNHSysUnitId" msprop:Generator_ColumnVarNameInTable="columnFNHSysUnitId" msprop:Generator_ColumnPropNameInRow="FNHSysUnitId" msprop:Generator_ColumnPropNameInTable="FNHSysUnitIdColumn" msprop:Generator_UserColumnName="FNHSysUnitId" type="xs:int" minOccurs="0" />
+              <xs:element name="FTUnitCode" msprop:Generator_ColumnVarNameInTable="columnFTUnitCode" msprop:Generator_ColumnPropNameInRow="FTUnitCode" msprop:Generator_ColumnPropNameInTable="FTUnitCodeColumn" msprop:Generator_UserColumnName="FTUnitCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FNHSysBuyId" msprop:Generator_ColumnVarNameInTable="columnFNHSysBuyId" msprop:Generator_ColumnPropNameInRow="FNHSysBuyId" msprop:Generator_ColumnPropNameInTable="FNHSysBuyIdColumn" msprop:Generator_UserColumnName="FNHSysBuyId" type="xs:int" minOccurs="0" />
+              <xs:element name="FTOrderNo" msprop:Generator_ColumnVarNameInTable="columnFTOrderNo" msprop:Generator_ColumnPropNameInRow="FTOrderNo" msprop:Generator_ColumnPropNameInTable="FTOrderNoColumn" msprop:Generator_UserColumnName="FTOrderNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTSubOrderNo" msprop:Generator_ColumnVarNameInTable="columnFTSubOrderNo" msprop:Generator_ColumnPropNameInRow="FTSubOrderNo" msprop:Generator_ColumnPropNameInTable="FTSubOrderNoColumn" msprop:Generator_UserColumnName="FTSubOrderNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FNQuantity" msprop:Generator_ColumnVarNameInTable="columnFNQuantity" msprop:Generator_ColumnPropNameInRow="FNQuantity" msprop:Generator_ColumnPropNameInTable="FNQuantityColumn" msprop:Generator_UserColumnName="FNQuantity" type="xs:int" />
+              <xs:element name="FNQuantityExtra" msprop:Generator_ColumnVarNameInTable="columnFNQuantityExtra" msprop:Generator_ColumnPropNameInRow="FNQuantityExtra" msprop:Generator_ColumnPropNameInTable="FNQuantityExtraColumn" msprop:Generator_UserColumnName="FNQuantityExtra" type="xs:decimal" />
+              <xs:element name="FNUsedQuantity" msprop:Generator_ColumnVarNameInTable="columnFNUsedQuantity" msprop:Generator_ColumnPropNameInRow="FNUsedQuantity" msprop:Generator_ColumnPropNameInTable="FNUsedQuantityColumn" msprop:Generator_UserColumnName="FNUsedQuantity" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FNUsedPlusQuantity" msprop:Generator_ColumnVarNameInTable="columnFNUsedPlusQuantity" msprop:Generator_ColumnPropNameInRow="FNUsedPlusQuantity" msprop:Generator_ColumnPropNameInTable="FNUsedPlusQuantityColumn" msprop:Generator_UserColumnName="FNUsedPlusQuantity" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FNPRQuantity" msprop:Generator_ColumnVarNameInTable="columnFNPRQuantity" msprop:Generator_ColumnPropNameInRow="FNPRQuantity" msprop:Generator_ColumnPropNameInTable="FNPRQuantityColumn" msprop:Generator_UserColumnName="FNPRQuantity" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FNPRTotalPrice" msprop:Generator_ColumnVarNameInTable="columnFNPRTotalPrice" msprop:Generator_ColumnPropNameInRow="FNPRTotalPrice" msprop:Generator_ColumnPropNameInTable="FNPRTotalPriceColumn" msprop:Generator_UserColumnName="FNPRTotalPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FNHSysSuplId" msprop:Generator_ColumnVarNameInTable="columnFNHSysSuplId" msprop:Generator_ColumnPropNameInRow="FNHSysSuplId" msprop:Generator_ColumnPropNameInTable="FNHSysSuplIdColumn" msprop:Generator_UserColumnName="FNHSysSuplId" type="xs:int" minOccurs="0" />
+              <xs:element name="FTStateNominate" msprop:Generator_ColumnVarNameInTable="columnFTStateNominate" msprop:Generator_ColumnPropNameInRow="FTStateNominate" msprop:Generator_ColumnPropNameInTable="FTStateNominateColumn" msprop:Generator_UserColumnName="FTStateNominate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FNPrice" msprop:Generator_ColumnVarNameInTable="columnFNPrice" msprop:Generator_ColumnPropNameInRow="FNPrice" msprop:Generator_ColumnPropNameInTable="FNPriceColumn" msprop:Generator_UserColumnName="FNPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FNHSysCurId" msprop:Generator_ColumnVarNameInTable="columnFNHSysCurId" msprop:Generator_ColumnPropNameInRow="FNHSysCurId" msprop:Generator_ColumnPropNameInTable="FNHSysCurIdColumn" msprop:Generator_UserColumnName="FNHSysCurId" type="xs:int" minOccurs="0" />
+              <xs:element name="FTSuplCode" msprop:Generator_ColumnVarNameInTable="columnFTSuplCode" msprop:Generator_ColumnPropNameInRow="FTSuplCode" msprop:Generator_ColumnPropNameInTable="FTSuplCodeColumn" msprop:Generator_UserColumnName="FTSuplCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FTCurCode" msprop:Generator_ColumnVarNameInTable="columnFTCurCode" msprop:Generator_ColumnPropNameInRow="FTCurCode" msprop:Generator_ColumnPropNameInTable="FTCurCodeColumn" msprop:Generator_UserColumnName="FTCurCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FNHSysCustId" msprop:Generator_ColumnVarNameInTable="columnFNHSysCustId" msprop:Generator_ColumnPropNameInRow="FNHSysCustId" msprop:Generator_ColumnPropNameInTable="FNHSysCustIdColumn" msprop:Generator_UserColumnName="FNHSysCustId" type="xs:int" minOccurs="0" />
+              <xs:element name="FDOrderDate" msprop:Generator_ColumnVarNameInTable="columnFDOrderDate" msprop:Generator_ColumnPropNameInRow="FDOrderDate" msprop:Generator_ColumnPropNameInTable="FDOrderDateColumn" msprop:Generator_UserColumnName="FDOrderDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FDShipDate" msprop:Generator_ColumnVarNameInTable="columnFDShipDate" msprop:Generator_ColumnPropNameInRow="FDShipDate" msprop:Generator_ColumnPropNameInTable="FDShipDateColumn" msprop:Generator_UserColumnName="FDShipDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FNStateChange" msprop:Generator_ColumnVarNameInTable="columnFNStateChange" msprop:Generator_ColumnPropNameInRow="FNStateChange" msprop:Generator_ColumnPropNameInTable="FNStateChangeColumn" msprop:Generator_UserColumnName="FNStateChange" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FNStateSourcing" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFNStateSourcing" msprop:Generator_ColumnPropNameInRow="FNStateSourcing" msprop:Generator_ColumnPropNameInTable="FNStateSourcingColumn" msprop:Generator_UserColumnName="FNStateSourcing" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,658 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A8F850E4-5694-44E6-93E7-09FDB3617E74}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HI.Export</RootNamespace>
+    <AssemblyName>HI.Export</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>HI.Export.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>HI.Export.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.Designer.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v16.1.Drawing, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v16.1.UI, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1.Extensions, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1.UI, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1.Wizard, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraMap.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPdfViewer.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v16.1.Extensions, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpreadsheet.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office14\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Export\wActualShip.designer.vb">
+      <DependentUpon>wActualShip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Export\wActualShip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export\wDynamicBrowseSelectInfo.designer.vb">
+      <DependentUpon>wDynamicBrowseSelectInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Export\wDynamicBrowseSelectInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export\wExportInvPkg.Designer.vb">
+      <DependentUpon>wExportInvPkg.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Export\wExportInvPkg.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export\wExportPackInfo.Designer.vb">
+      <DependentUpon>wExportPackInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Export\wExportPackInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export\wExportToCustomer.Designer.vb">
+      <DependentUpon>wExportToCustomer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Export\wExportToCustomer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export\wExportToCustomer_bak.Designer.vb">
+      <DependentUpon>wExportToCustomer_bak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Export\wExportToCustomer_bak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export\wInvoiceSelectPoup.Designer.vb">
+      <DependentUpon>wInvoiceSelectPoup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Export\wInvoiceSelectPoup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export\wReportExportPopup.Designer.vb">
+      <DependentUpon>wReportExportPopup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Export\wReportExportPopup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExcel\wAcceptPckPland.designer.vb">
+      <DependentUpon>wAcceptPckPland.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExcel\wAcceptPckPland.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExcel\wBookingTracking.designer.vb">
+      <DependentUpon>wBookingTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExcel\wBookingTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExcel\wCreateInvForBooking.Designer.vb">
+      <DependentUpon>wCreateInvForBooking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExcel\wCreateInvForBooking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExcel\wInvoiceTracking.designer.vb">
+      <DependentUpon>wInvoiceTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExcel\wInvoiceTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExcel\wPckPlandExportExcel.designer.vb">
+      <DependentUpon>wPckPlandExportExcel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExcel\wPckPlandExportExcel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExcel\wPckPlandTracking.Designer.vb">
+      <DependentUpon>wPckPlandTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExcel\wPckPlandTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExcel\wImportPckPland.Designer.vb">
+      <DependentUpon>wImportPckPland.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExcel\wImportPckPland.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExcel\wImportPckPlandOtherCust.Designer.vb">
+      <DependentUpon>wImportPckPlandOtherCust.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExcel\wImportPckPlandOtherCust.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExcel\wAddMainMat.Designer.vb">
+      <DependentUpon>wAddMainMat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExcel\wAddMainMat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExcel\wPckPlandEditByColorWay.designer.vb">
+      <DependentUpon>wPckPlandEditByColorWay.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExcel\wPckPlandEditByColorWay.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExcel\wImportBooking.Designer.vb">
+      <DependentUpon>wImportBooking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExcel\wImportBooking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wCountryForwarderMasterAdd.Designer.vb">
+      <DependentUpon>wCountryForwarderMasterAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wCountryForwarderMasterAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wCountryForwarderMaster.Designer.vb">
+      <DependentUpon>wCountryForwarderMaster.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wCountryForwarderMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\wInvTruckSheetMerge.designer.vb">
+      <DependentUpon>wInvTruckSheetMerge.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\wInvTruckSheetMerge.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\wInvTruckSheetApproved.designer.vb">
+      <DependentUpon>wInvTruckSheetApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\wInvTruckSheetApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\wInvTruckSheet.designer.vb">
+      <DependentUpon>wInvTruckSheet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\wInvTruckSheet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\wFGMoveLocation.Designer.vb">
+      <DependentUpon>wFGMoveLocation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\wFGMoveLocation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\wPopupTruckWay.Designer.vb">
+      <DependentUpon>wPopupTruckWay.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\wPopupTruckWay.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\wPopupSelectItemTrucksheet.Designer.vb">
+      <DependentUpon>wPopupSelectItemTrucksheet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\wPopupSelectItemTrucksheet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\wTruckSheetTrack.Designer.vb">
+      <DependentUpon>wTruckSheetTrack.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\wTruckSheetTrack.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\wPopupSelectItem.Designer.vb">
+      <DependentUpon>wPopupSelectItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\wPopupSelectItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wCMInvoiceExportTracking.Designer.vb">
+      <DependentUpon>wCMInvoiceExportTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wCMInvoiceExportTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wExpCMInvoice.Designer.vb">
+      <DependentUpon>wExpCMInvoice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wExpCMInvoice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wExpCMInvoiceBook.designer.vb">
+      <DependentUpon>wExpCMInvoiceBook.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wExpCMInvoiceBook.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wExpCMInvoicePost.designer.vb">
+      <DependentUpon>wExpCMInvoicePost.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wExpCMInvoicePost.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wExpTruckSheet.Designer.vb">
+      <DependentUpon>wExpTruckSheet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wExpTruckSheet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wExpTruckSheetPopup.Designer.vb">
+      <DependentUpon>wExpTruckSheetPopup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wExpTruckSheetPopup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wFactoryCMInvoiceTracking.Designer.vb">
+      <DependentUpon>wFactoryCMInvoiceTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wFactoryCMInvoiceTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wFactoryInvoiceCMInvoiceExport.Designer.vb">
+      <DependentUpon>wFactoryInvoiceCMInvoiceExport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wFactoryInvoiceCMInvoiceExport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wPackingPlanPop.Designer.vb">
+      <DependentUpon>wPackingPlanPop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wPackingPlanPop.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wTransactionValueWorkSheet.Designer.vb">
+      <DependentUpon>wTransactionValueWorkSheet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wTransactionValueWorkSheet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wFactoryInvoiceCM.Designer.vb">
+      <DependentUpon>wFactoryInvoiceCM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wFactoryInvoiceCM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="wTruckSheetScanBarcode.designer.vb">
+      <DependentUpon>wTruckSheetScanBarcode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wTruckSheetScanBarcode.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wXMLCreateInvoiceData.Designer.vb">
+      <DependentUpon>wXMLCreateInvoiceData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wXMLCreateInvoiceData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Export\wActualShip.resx">
+      <DependentUpon>wActualShip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export\wDynamicBrowseSelectInfo.resx">
+      <DependentUpon>wDynamicBrowseSelectInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export\wExportInvPkg.resx">
+      <DependentUpon>wExportInvPkg.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export\wExportPackInfo.resx">
+      <DependentUpon>wExportPackInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export\wExportToCustomer.resx">
+      <DependentUpon>wExportToCustomer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export\wExportToCustomer_bak.resx">
+      <DependentUpon>wExportToCustomer_bak.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export\wInvoiceSelectPoup.resx">
+      <DependentUpon>wInvoiceSelectPoup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export\wReportExportPopup.resx">
+      <DependentUpon>wReportExportPopup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExcel\wAcceptPckPland.resx">
+      <DependentUpon>wAcceptPckPland.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExcel\wBookingTracking.resx">
+      <DependentUpon>wBookingTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExcel\wCreateInvForBooking.resx">
+      <DependentUpon>wCreateInvForBooking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExcel\wInvoiceTracking.resx">
+      <DependentUpon>wInvoiceTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExcel\wPckPlandExportExcel.resx">
+      <DependentUpon>wPckPlandExportExcel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExcel\wPckPlandTracking.resx">
+      <DependentUpon>wPckPlandTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExcel\wImportPckPland.resx">
+      <DependentUpon>wImportPckPland.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExcel\wImportPckPlandOtherCust.resx">
+      <DependentUpon>wImportPckPlandOtherCust.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExcel\wAddMainMat.resx">
+      <DependentUpon>wAddMainMat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExcel\wPckPlandEditByColorWay.resx">
+      <DependentUpon>wPckPlandEditByColorWay.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExcel\wImportBooking.resx">
+      <DependentUpon>wImportBooking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wCountryForwarderMasterAdd.resx">
+      <DependentUpon>wCountryForwarderMasterAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wCountryForwarderMaster.resx">
+      <DependentUpon>wCountryForwarderMaster.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\wInvTruckSheetMerge.resx">
+      <DependentUpon>wInvTruckSheetMerge.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\wInvTruckSheetApproved.resx">
+      <DependentUpon>wInvTruckSheetApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\wInvTruckSheet.resx">
+      <DependentUpon>wInvTruckSheet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\wFGMoveLocation.resx">
+      <DependentUpon>wFGMoveLocation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\wPopupTruckWay.resx">
+      <DependentUpon>wPopupTruckWay.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\wPopupSelectItemTrucksheet.resx">
+      <DependentUpon>wPopupSelectItemTrucksheet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\wTruckSheetTrack.resx">
+      <DependentUpon>wTruckSheetTrack.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\wPopupSelectItem.resx">
+      <DependentUpon>wPopupSelectItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wCMInvoiceExportTracking.resx">
+      <DependentUpon>wCMInvoiceExportTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wExpCMInvoice.resx">
+      <DependentUpon>wExpCMInvoice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wExpCMInvoiceBook.resx">
+      <DependentUpon>wExpCMInvoiceBook.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wExpCMInvoicePost.resx">
+      <DependentUpon>wExpCMInvoicePost.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wExpTruckSheet.resx">
+      <DependentUpon>wExpTruckSheet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wExpTruckSheetPopup.resx">
+      <DependentUpon>wExpTruckSheetPopup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wFactoryCMInvoiceTracking.resx">
+      <DependentUpon>wFactoryCMInvoiceTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wFactoryInvoiceCMInvoiceExport.resx">
+      <DependentUpon>wFactoryInvoiceCMInvoiceExport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wPackingPlanPop.resx">
+      <DependentUpon>wPackingPlanPop.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wTransactionValueWorkSheet.resx">
+      <DependentUpon>wTransactionValueWorkSheet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wFactoryInvoiceCM.resx">
+      <DependentUpon>wFactoryInvoiceCM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wTruckSheetScanBarcode.resx">
+      <DependentUpon>wTruckSheetScanBarcode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wXMLCreateInvoiceData.resx">
+      <DependentUpon>wXMLCreateInvoiceData.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Resources\EntrustCertificationAuthority-L1K.CRT" />
+    <None Include="Resources\EntrustRootCertificationAuthority-G2.CRT" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HI.Auditor\HI.Auditor.csproj">
+      <Project>{62c22e9b-5edc-4363-8b71-78b3345e44d0}</Project>
+      <Name>HI.Auditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Conn\HI.Conn.csproj">
+      <Project>{7a2db722-b4b4-4c9a-b624-4763812ca5ab}</Project>
+      <Name>HI.Conn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Delegate\HI.Delegate.vbproj">
+      <Project>{a6701b43-7e52-4f8b-9cbd-420007049a21}</Project>
+      <Name>HI.Delegate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.ENUM\HI.ENM.vbproj">
+      <Project>{4fe1a025-bb21-4bf3-a117-e4bfc5c5218e}</Project>
+      <Name>HI.ENM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Mail\HI.Mail.vbproj">
+      <Project>{9be39d94-559a-47c9-b0fa-23048a54f1dd}</Project>
+      <Name>HI.Mail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.MG\HI.MG.csproj">
+      <Project>{5a72d3b5-c544-4835-a1fc-df6eff9c973a}</Project>
+      <Name>HI.MG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.RP\HI.RP.vbproj">
+      <Project>{28b2ef85-307c-4e24-afcf-926e6abe3424}</Project>
+      <Name>HI.RP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.SE\HI.SE.vbproj">
+      <Project>{7cf7ae7b-9c3e-4e5d-9015-1c5fd4ee16b9}</Project>
+      <Name>HI.SE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.ST\HI.ST.csproj">
+      <Project>{42e244bb-ed4a-4579-819d-c00ef4898907}</Project>
+      <Name>HI.ST</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.TL\HI.TL.vbproj">
+      <Project>{5de5b459-1226-40cd-9581-434c43d61b66}</Project>
+      <Name>HI.TL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.UL\HI.UL.csproj">
+      <Project>{e9d7341b-e2d4-4a59-b328-79e51f3c0138}</Project>
+      <Name>HI.UL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\imgfalse.png" />
+    <Content Include="bin\Debug\imgtrue.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{508D907F-3A0E-46F5-B722-50F5E478D75F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HI.ASSET</RootNamespace>
+    <AssemblyName>HI.ASSET</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>HI.ASSET.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>HI.ASSET.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v20.1.Export, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Spreadsheet.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v20.1.Extensions, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v20.1.UI, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v20.1.Wizard, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v20.1.Drawing, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPdfViewer.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v20.1.UI, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v20.1.Extensions, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Images.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v20.1.Extensions, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v20.1.Reporting, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v20.1.Reporting.Extensions, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpreadsheet.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Master\AddEditAsset.designer.vb">
+      <DependentUpon>AddEditAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\AddEditAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wAddEditAssetModel.designer.vb">
+      <DependentUpon>wAddEditAssetModel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wAddEditAssetModel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wAddEditPart.designer.vb">
+      <DependentUpon>wAddEditPart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wAddEditPart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wAddItemAssetAppPO.designer.vb">
+      <DependentUpon>wAddItemAssetAppPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wAddItemAssetAppPO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wAddItemAssetLevel.Designer.vb">
+      <DependentUpon>wAddItemAssetLevel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wAddItemAssetLevel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wAddItemAssetSafety.Designer.vb">
+      <DependentUpon>wAddItemAssetSafety.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wAddItemAssetSafety.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wAsset.designer.vb">
+      <DependentUpon>wAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wAssetAppPO.Designer.vb">
+      <DependentUpon>wAssetAppPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wAssetAppPO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wAssetLevel.Designer.vb">
+      <DependentUpon>wAssetLevel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wAssetLevel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wAssetModel.Designer.vb">
+      <DependentUpon>wAssetModel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wAssetModel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wAssetPart.Designer.vb">
+      <DependentUpon>wAssetPart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wAssetPart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wAssetPRPO.Designer.vb">
+      <DependentUpon>wAssetPRPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wAssetPRPO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wAssetSafety.Designer.vb">
+      <DependentUpon>wAssetSafety.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wAssetSafety.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Tracking\StockCardAsset.designer.vb">
+      <DependentUpon>StockCardAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\StockCardAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wApprovedTracking.Designer.vb">
+      <DependentUpon>wApprovedTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wApprovedTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wAssetOnhand.Designer.vb">
+      <DependentUpon>wAssetOnhand.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wAssetOnhand.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wStockCardAsset.Designer.vb">
+      <DependentUpon>wStockCardAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wStockCardAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\BarcodeAsset.vb" />
+    <Compile Include="Transaction\wAddItemIssue.Designer.vb">
+      <DependentUpon>wAddItemIssue.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAddItemIssue.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAdditemMasterPop.Designer.vb">
+      <DependentUpon>wAdditemMasterPop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAdditemMasterPop.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAddItemPOAsset.designer.vb">
+      <DependentUpon>wAddItemPOAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAddItemPOAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAddItemPOServiceAsset.designer.vb">
+      <DependentUpon>wAddItemPOServiceAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAddItemPOServiceAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAddItemPRServiceAsset.designer.vb">
+      <DependentUpon>wAddItemPRServiceAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAddItemPRServiceAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAddRequestAsset.designer.vb">
+      <DependentUpon>wAddRequestAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAddRequestAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wGenerateBarcodeAsset.designer.vb">
+      <DependentUpon>wGenerateBarcodeAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wGenerateBarcodeAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wIssueAsset.Designer.vb">
+      <DependentUpon>wIssueAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wIssueAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wListAutoPurchaseAssetNo.Designer.vb">
+      <DependentUpon>wListAutoPurchaseAssetNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wListAutoPurchaseAssetNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseByPRAsset.Designer.vb">
+      <DependentUpon>wPurchaseByPRAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseByPRAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaserAsset.Designer.vb">
+      <DependentUpon>wPurchaserAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaserAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaserAssetRevise.designer.vb">
+      <DependentUpon>wPurchaserAssetRevise.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaserAssetRevise.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaserByPRPopupAsset.Designer.vb">
+      <DependentUpon>wPurchaserByPRPopupAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaserByPRPopupAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaserByPRPopupServiceAsset.Designer.vb">
+      <DependentUpon>wPurchaserByPRPopupServiceAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaserByPRPopupServiceAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseRequestAsset.Designer.vb">
+      <DependentUpon>wPurchaseRequestAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseRequestAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaserServiceAsset.Designer.vb">
+      <DependentUpon>wPurchaserServiceAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaserServiceAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceiveAsset.Designer.vb">
+      <DependentUpon>wReceiveAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceiveAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceiveItemAsset.Designer.vb">
+      <DependentUpon>wReceiveItemAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceiveItemAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceiveMultipleAsset.Designer.vb">
+      <DependentUpon>wReceiveMultipleAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceiveMultipleAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceiveUnitAsset.designer.vb">
+      <DependentUpon>wReceiveUnitAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceiveUnitAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReturnToStockAsset.Designer.vb">
+      <DependentUpon>wReturnToStockAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReturnToStockAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReturnToSupplierAsset.Designer.vb">
+      <DependentUpon>wReturnToSupplierAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReturnToSupplierAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wStockAdjustAddItemAsset.designer.vb">
+      <DependentUpon>wStockAdjustAddItemAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wStockAdjustAddItemAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wStockAdjustAsset.Designer.vb">
+      <DependentUpon>wStockAdjustAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wStockAdjustAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wTransferAsset.Designer.vb">
+      <DependentUpon>wTransferAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wTransferAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wTransferAssetAddBarRcv.Designer.vb">
+      <DependentUpon>wTransferAssetAddBarRcv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wTransferAssetAddBarRcv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wTransferAssetApprove.Designer.vb">
+      <DependentUpon>wTransferAssetApprove.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wTransferAssetApprove.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Master\AddEditAsset.resx">
+      <DependentUpon>AddEditAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wAddEditAssetModel.resx">
+      <DependentUpon>wAddEditAssetModel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wAddEditPart.resx">
+      <DependentUpon>wAddEditPart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wAddItemAssetAppPO.resx">
+      <DependentUpon>wAddItemAssetAppPO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wAddItemAssetLevel.resx">
+      <DependentUpon>wAddItemAssetLevel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wAddItemAssetSafety.resx">
+      <DependentUpon>wAddItemAssetSafety.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wAsset.resx">
+      <DependentUpon>wAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wAssetAppPO.resx">
+      <DependentUpon>wAssetAppPO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wAssetLevel.resx">
+      <DependentUpon>wAssetLevel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wAssetModel.resx">
+      <DependentUpon>wAssetModel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wAssetPart.resx">
+      <DependentUpon>wAssetPart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wAssetPRPO.resx">
+      <DependentUpon>wAssetPRPO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wAssetSafety.resx">
+      <DependentUpon>wAssetSafety.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\StockCardAsset.resx">
+      <DependentUpon>StockCardAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wApprovedTracking.resx">
+      <DependentUpon>wApprovedTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wAssetOnhand.resx">
+      <DependentUpon>wAssetOnhand.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wStockCardAsset.resx">
+      <DependentUpon>wStockCardAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAddItemIssue.resx">
+      <DependentUpon>wAddItemIssue.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAdditemMasterPop.resx">
+      <DependentUpon>wAdditemMasterPop.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAddItemPOAsset.resx">
+      <DependentUpon>wAddItemPOAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAddItemPOServiceAsset.resx">
+      <DependentUpon>wAddItemPOServiceAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAddItemPRServiceAsset.resx">
+      <DependentUpon>wAddItemPRServiceAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAddRequestAsset.resx">
+      <DependentUpon>wAddRequestAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wGenerateBarcodeAsset.resx">
+      <DependentUpon>wGenerateBarcodeAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wIssueAsset.resx">
+      <DependentUpon>wIssueAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wListAutoPurchaseAssetNo.resx">
+      <DependentUpon>wListAutoPurchaseAssetNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseByPRAsset.resx">
+      <DependentUpon>wPurchaseByPRAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaserAsset.resx">
+      <DependentUpon>wPurchaserAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaserAssetRevise.resx">
+      <DependentUpon>wPurchaserAssetRevise.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaserByPRPopupAsset.resx">
+      <DependentUpon>wPurchaserByPRPopupAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaserByPRPopupServiceAsset.resx">
+      <DependentUpon>wPurchaserByPRPopupServiceAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseRequestAsset.resx">
+      <DependentUpon>wPurchaseRequestAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaserServiceAsset.resx">
+      <DependentUpon>wPurchaserServiceAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceiveAsset.resx">
+      <DependentUpon>wReceiveAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceiveItemAsset.resx">
+      <DependentUpon>wReceiveItemAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceiveMultipleAsset.resx">
+      <DependentUpon>wReceiveMultipleAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceiveUnitAsset.resx">
+      <DependentUpon>wReceiveUnitAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReturnToStockAsset.resx">
+      <DependentUpon>wReturnToStockAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReturnToSupplierAsset.resx">
+      <DependentUpon>wReturnToSupplierAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wStockAdjustAddItemAsset.resx">
+      <DependentUpon>wStockAdjustAddItemAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wStockAdjustAsset.resx">
+      <DependentUpon>wStockAdjustAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wTransferAsset.resx">
+      <DependentUpon>wTransferAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wTransferAssetAddBarRcv.resx">
+      <DependentUpon>wTransferAssetAddBarRcv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wTransferAssetApprove.resx">
+      <DependentUpon>wTransferAssetApprove.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HI.Auditor\HI.Auditor.csproj">
+      <Project>{62c22e9b-5edc-4363-8b71-78b3345e44d0}</Project>
+      <Name>HI.Auditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Conn\HI.Conn.csproj">
+      <Project>{7a2db722-b4b4-4c9a-b624-4763812ca5ab}</Project>
+      <Name>HI.Conn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Delegate\HI.Delegate.vbproj">
+      <Project>{a6701b43-7e52-4f8b-9cbd-420007049a21}</Project>
+      <Name>HI.Delegate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.ENUM\HI.ENM.vbproj">
+      <Project>{4fe1a025-bb21-4bf3-a117-e4bfc5c5218e}</Project>
+      <Name>HI.ENM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Mail\HI.Mail.vbproj">
+      <Project>{9be39d94-559a-47c9-b0fa-23048a54f1dd}</Project>
+      <Name>HI.Mail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.MG\HI.MG.csproj">
+      <Project>{5a72d3b5-c544-4835-a1fc-df6eff9c973a}</Project>
+      <Name>HI.MG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.RP\HI.RP.vbproj">
+      <Project>{28b2ef85-307c-4e24-afcf-926e6abe3424}</Project>
+      <Name>HI.RP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.SE\HI.SE.vbproj">
+      <Project>{7cf7ae7b-9c3e-4e5d-9015-1c5fd4ee16b9}</Project>
+      <Name>HI.SE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.ST\HI.ST.csproj">
+      <Project>{42e244bb-ed4a-4579-819d-c00ef4898907}</Project>
+      <Name>HI.ST</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.TLF\HI.TLF.vbproj">
+      <Project>{3aad5845-dd63-4c10-82a6-b86ff10ab739}</Project>
+      <Name>HI.TLF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.TL\HI.TL.vbproj">
+      <Project>{5de5b459-1226-40cd-9581-434c43d61b66}</Project>
+      <Name>HI.TL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.UCTR\HI.UCTR.vbproj">
+      <Project>{b5991daf-4e40-46ab-ab0c-075a00867248}</Project>
+      <Name>HI.UCTR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.UL\HI.UL.csproj">
+      <Project>{e9d7341b-e2d4-4a59-b328-79e51f3c0138}</Project>
+      <Name>HI.UL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

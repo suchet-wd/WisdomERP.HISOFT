@@ -1,0 +1,595 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E0F8B4FA-7B0D-4107-8969-2EC9ECA59AA8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HI.BI</RootNamespace>
+    <AssemblyName>HI.BI</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>HI.BI.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>HI.BI.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.Win.C1FlexGrid.4, Version=4.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1FlexGrid.4.Design, Version=4.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1FlexGrid.Classic.4, Version=4.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.BonusSkins.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v16.1.Win, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v16.1.UI, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Images.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Map.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v16.1.Drawing, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.SharePoint.2013.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Snap.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Snap.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Snap.v16.1.Extensions, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.SpellChecker.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Spreadsheet.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v16.1.UI, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1.Wizard, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1.Extensions, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1.UI, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraMap.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v16.1.Extensions, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v16.1.Extensions, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v16.1.Extensions, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v16.1.Reporting, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v16.1.Reporting.Extensions, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpellChecker.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpreadsheet.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraWizard.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.OracleClient">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Design">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dashboard\AbsentDashboard.Designer.vb">
+      <DependentUpon>AbsentDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\AbsentDashboard.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dashboard\AbsentDashboardSub.Designer.vb">
+      <DependentUpon>AbsentDashboardSub.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\AbsentDashboardSub.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dashboard\DesignerDashboard.Designer.vb">
+      <DependentUpon>DesignerDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\DesignerDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\DesignerFormDashboard.Designer.vb">
+      <DependentUpon>DesignerFormDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\DesignerFormDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\wAbsentDashboard_Old.Designer.vb">
+      <DependentUpon>wAbsentDashboard_Old.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\wAbsentDashboard_Old.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\wAbsentDashboard.Designer.vb">
+      <DependentUpon>wAbsentDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\wAbsentDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\wAbsentDashboardFilter.Designer.vb">
+      <DependentUpon>wAbsentDashboardFilter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\wAbsentDashboardFilter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\wDashBoardAddName.Designer.vb">
+      <DependentUpon>wDashBoardAddName.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\wDashBoardAddName.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\wListDashboardTemplate.Designer.vb">
+      <DependentUpon>wListDashboardTemplate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\wListDashboardTemplate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial\wFinancialData.designer.vb">
+      <DependentUpon>wFinancialData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Financial\wFinancialData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HITECH_PRODUCTIONDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HITECH_PRODUCTIONDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HITECH_PRODUCTIONDataSet.vb">
+      <DependentUpon>HITECH_PRODUCTIONDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HR\wHRBIOTTracking.Designer.vb">
+      <DependentUpon>wHRBIOTTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HR\wHRBIOTTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR\wHRProdEmpWorkDaily.Designer.vb">
+      <DependentUpon>wHRProdEmpWorkDaily.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HR\wHRProdEmpWorkDaily.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR\wHRBIEmpLate.Designer.vb">
+      <DependentUpon>wHRBIEmpLate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HR\wHRBIEmpLate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR\wHRBIManpower.Designer.vb">
+      <DependentUpon>wHRBIManpower.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HR\wHRBIManpower.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\wBIReceiveSummary.Designer.vb">
+      <DependentUpon>wBIReceiveSummary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\wBIReceiveSummary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="HR\wHRBIWageSummary.Designer.vb">
+      <DependentUpon>wHRBIWageSummary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HR\wHRBIWageSummary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\wMERBIOrderSummary.Designer.vb">
+      <DependentUpon>wMERBIOrderSummary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\wMERBIOrderSummary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\wDashboardProdOutput.Designer.vb">
+      <DependentUpon>wDashboardProdOutput.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Production\wDashboardProdOutput.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\wEarningEmpSwingData.Designer.vb">
+      <DependentUpon>wEarningEmpSwingData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Production\wEarningEmpSwingData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\wWIPTemplateBU.Designer.vb">
+      <DependentUpon>wWIPTemplateBU.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Production\wWIPTemplateBU.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\wWIPTemplate.Designer.vb">
+      <DependentUpon>wWIPTemplate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Production\wWIPTemplate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase\wBIPurchaseOrderAdditonal.Designer.vb">
+      <DependentUpon>wBIPurchaseOrderAdditonal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase\wBIPurchaseOrderAdditonal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase\wBIPurchaseOrder.Designer.vb">
+      <DependentUpon>wBIPurchaseOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase\wBIPurchaseOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TakeHomePay\wTakeHomePay.Designer.vb">
+      <DependentUpon>wTakeHomePay.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TakeHomePay\wTakeHomePay.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UITakeHomePayRawData.Designer.vb">
+      <DependentUpon>UITakeHomePayRawData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UITakeHomePayRawData.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="wOrderLeadTimeDataInfo.designer.vb">
+      <DependentUpon>wOrderLeadTimeDataInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wOrderLeadTimeDataInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wDataForDashboardSoun.Designer.vb">
+      <DependentUpon>wDataForDashboardSoun.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wDataForDashboardSoun.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dashboard\AbsentDashboard.resx">
+      <DependentUpon>AbsentDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\AbsentDashboardSub.resx">
+      <DependentUpon>AbsentDashboardSub.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\DesignerDashboard.resx">
+      <DependentUpon>DesignerDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\DesignerFormDashboard.resx">
+      <DependentUpon>DesignerFormDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\wAbsentDashboard_Old.resx">
+      <DependentUpon>wAbsentDashboard_Old.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\wAbsentDashboard.resx">
+      <DependentUpon>wAbsentDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\wAbsentDashboardFilter.resx">
+      <DependentUpon>wAbsentDashboardFilter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\wDashBoardAddName.resx">
+      <DependentUpon>wDashBoardAddName.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\wListDashboardTemplate.resx">
+      <DependentUpon>wListDashboardTemplate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial\wFinancialData.resx">
+      <DependentUpon>wFinancialData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR\wHRBIOTTracking.resx">
+      <DependentUpon>wHRBIOTTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR\wHRProdEmpWorkDaily.resx">
+      <DependentUpon>wHRProdEmpWorkDaily.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR\wHRBIEmpLate.resx">
+      <DependentUpon>wHRBIEmpLate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR\wHRBIManpower.resx">
+      <DependentUpon>wHRBIManpower.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\wBIReceiveSummary.resx">
+      <DependentUpon>wBIReceiveSummary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR\wHRBIWageSummary.resx">
+      <DependentUpon>wHRBIWageSummary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\wMERBIOrderSummary.resx">
+      <DependentUpon>wMERBIOrderSummary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\wDashboardProdOutput.resx">
+      <DependentUpon>wDashboardProdOutput.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\wEarningEmpSwingData.resx">
+      <DependentUpon>wEarningEmpSwingData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\wWIPTemplateBU.resx">
+      <DependentUpon>wWIPTemplateBU.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\wWIPTemplate.resx">
+      <DependentUpon>wWIPTemplate.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchase\wBIPurchaseOrderAdditonal.resx">
+      <DependentUpon>wBIPurchaseOrderAdditonal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchase\wBIPurchaseOrder.resx">
+      <DependentUpon>wBIPurchaseOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TakeHomePay\wTakeHomePay.resx">
+      <DependentUpon>wTakeHomePay.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UITakeHomePayRawData.resx">
+      <DependentUpon>UITakeHomePayRawData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wOrderLeadTimeDataInfo.resx">
+      <DependentUpon>wOrderLeadTimeDataInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wDataForDashboardSoun.resx">
+      <DependentUpon>wDataForDashboardSoun.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="HITECH_PRODUCTIONDataSet.xsc">
+      <DependentUpon>HITECH_PRODUCTIONDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HITECH_PRODUCTIONDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HITECH_PRODUCTIONDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HITECH_PRODUCTIONDataSet.xss">
+      <DependentUpon>HITECH_PRODUCTIONDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HI.Conn\HI.Conn.csproj">
+      <Project>{7a2db722-b4b4-4c9a-b624-4763812ca5ab}</Project>
+      <Name>HI.Conn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.MG\HI.MG.csproj">
+      <Project>{5a72d3b5-c544-4835-a1fc-df6eff9c973a}</Project>
+      <Name>HI.MG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.RP\HI.RP.vbproj">
+      <Project>{28b2ef85-307c-4e24-afcf-926e6abe3424}</Project>
+      <Name>HI.RP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.ST\HI.ST.csproj">
+      <Project>{42e244bb-ed4a-4579-819d-c00ef4898907}</Project>
+      <Name>HI.ST</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.TL\HI.TL.vbproj">
+      <Project>{5de5b459-1226-40cd-9581-434c43d61b66}</Project>
+      <Name>HI.TL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.UL\HI.UL.csproj">
+      <Project>{e9d7341b-e2d4-4a59-b328-79e51f3c0138}</Project>
+      <Name>HI.UL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

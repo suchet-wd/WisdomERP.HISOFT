@@ -1,0 +1,1190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{B3D8B7F7-BED3-4524-B8F0-71ABA2FBD31E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HI.INVEN</RootNamespace>
+    <AssemblyName>HI.INVEN</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>HI.INVEN.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>HI.INVEN.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Spreadsheet.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1.UI, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1.Wizard, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v16.1.UI, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v16.1.Extensions, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpreadsheet.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\wBarcodeAPI.Designer.vb">
+      <DependentUpon>wBarcodeAPI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="API\wBarcodeAPI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Barcode.vb" />
+    <Compile Include="Import\wImportReceiveFormatYRC.Designer.vb">
+      <DependentUpon>wImportReceiveFormatYRC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportReceiveFormatYRC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportReceiveFormatNanyang.Designer.vb">
+      <DependentUpon>wImportReceiveFormatNanyang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportReceiveFormatNanyang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportReceiveNo.Designer.vb">
+      <DependentUpon>wImportReceiveNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportReceiveNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportReceiveFormatYRCSelectWH.Designer.vb">
+      <DependentUpon>wImportReceiveFormatYRCSelectWH.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportReceiveFormatYRCSelectWH.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wReScanCheckImportNanyang.Designer.vb">
+      <DependentUpon>wReScanCheckImportNanyang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wReScanCheckImportNanyang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wGenWHRawMatLocation.designer.vb">
+      <DependentUpon>wGenWHRawMatLocation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wGenWHRawMatLocation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\WHRawMatLocation.Designer.vb">
+      <DependentUpon>WHRawMatLocation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\WHRawMatLocation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\WHRawMatLocationAddEdit.Designer.vb">
+      <DependentUpon>WHRawMatLocationAddEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\WHRawMatLocationAddEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wMaterialMappingSuplRefAddItem.designer.vb">
+      <DependentUpon>wMaterialMappingSuplRefAddItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wMaterialMappingSuplRefAddItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wMaterialMappingSuplRef.Designer.vb">
+      <DependentUpon>wMaterialMappingSuplRef.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wMaterialMappingSuplRef.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wReportStockOnhandListBarcode.Designer.vb">
+      <DependentUpon>wReportStockOnhandListBarcode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wReportStockOnhandListBarcode.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wINVENReportAdjustedTransaction.designer.vb">
+      <DependentUpon>wINVENReportAdjustedTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wINVENReportAdjustedTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wINVENReportIssueTransaction.designer.vb">
+      <DependentUpon>wINVENReportIssueTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wINVENReportIssueTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wINVENReportReceiveTransaction.designer.vb">
+      <DependentUpon>wINVENReportReceiveTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wINVENReportReceiveTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wINVENReportReturnSupplier.designer.vb">
+      <DependentUpon>wINVENReportReturnSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wINVENReportReturnSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wINVENReportReturnToStockTransaction.designer.vb">
+      <DependentUpon>wINVENReportReturnToStockTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wINVENReportReturnToStockTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wINVENReportSaleTerminateTransaction.designer.vb">
+      <DependentUpon>wINVENReportSaleTerminateTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wINVENReportSaleTerminateTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wINVENReportTransferOrderTransaction.designer.vb">
+      <DependentUpon>wINVENReportTransferOrderTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wINVENReportTransferOrderTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wINVENReportTransferToStockCenterTransaction.designer.vb">
+      <DependentUpon>wINVENReportTransferToStockCenterTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wINVENReportTransferToStockCenterTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wINVENTransferWarehouseTransaction.designer.vb">
+      <DependentUpon>wINVENTransferWarehouseTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wINVENTransferWarehouseTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wInvReservedRecommend.Designer.vb">
+      <DependentUpon>wInvReservedRecommend.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wInvReservedRecommend.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wReportActualCostByOrder.Designer.vb">
+      <DependentUpon>wReportActualCostByOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wReportActualCostByOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wReportQCAcc.designer.vb">
+      <DependentUpon>wReportQCAcc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wReportQCAcc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wReportReceive.Designer.vb">
+      <DependentUpon>wReportReceive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wReportReceive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wReportReservedTracking.Designer.vb">
+      <DependentUpon>wReportReservedTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wReportReservedTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wReportStockOnhand.Designer.vb">
+      <DependentUpon>wReportStockOnhand.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wReportStockOnhand.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wReportStockOnhandForAcc.Designer.vb">
+      <DependentUpon>wReportStockOnhandForAcc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wReportStockOnhandForAcc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wReservedAutoPopUp.Designer.vb">
+      <DependentUpon>wReservedAutoPopUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wReservedAutoPopUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wWIPReport1.Designer.vb">
+      <DependentUpon>wWIPReport1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wWIPReport1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\ReservedOutstanding.designer.vb">
+      <DependentUpon>ReservedOutstanding.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\ReservedOutstanding.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wINVENTranferWHIntransitTracking.Designer.vb">
+      <DependentUpon>wINVENTranferWHIntransitTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wINVENTranferWHIntransitTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wQCRollFabricTracking.Designer.vb">
+      <DependentUpon>wQCRollFabricTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wQCRollFabricTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wQCFabricTracking.Designer.vb">
+      <DependentUpon>wQCFabricTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wQCFabricTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wQCAccTracking.Designer.vb">
+      <DependentUpon>wQCAccTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wQCAccTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wRcvToAccTracking.Designer.vb">
+      <DependentUpon>wRcvToAccTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wRcvToAccTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wReceivedHistoryTracking.designer.vb">
+      <DependentUpon>wReceivedHistoryTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wReceivedHistoryTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wStockCheckStock.designer.vb">
+      <DependentUpon>wStockCheckStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wStockCheckStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAutoIssue.Designer.vb">
+      <DependentUpon>wAutoIssue.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAutoIssue.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wConversion.Designer.vb">
+      <DependentUpon>wConversion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wConversion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wConversionAddItem.Designer.vb">
+      <DependentUpon>wConversionAddItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wConversionAddItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wDCPrepareCFMToCar.Designer.vb">
+      <DependentUpon>wDCPrepareCFMToCar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wDCPrepareCFMToCar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wDCPreparePackingList.Designer.vb">
+      <DependentUpon>wDCPreparePackingList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wDCPreparePackingList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wExportProductionCard.designer.vb">
+      <DependentUpon>wExportProductionCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wExportProductionCard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wMoveLocation.Designer.vb">
+      <DependentUpon>wMoveLocation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wMoveLocation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wDCPrepareIssue.Designer.vb">
+      <DependentUpon>wDCPrepareIssue.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wDCPrepareIssue.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wIssueApproveReceive.Designer.vb">
+      <DependentUpon>wIssueApproveReceive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wIssueApproveReceive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPopupQCFabricBarcodeList.Designer.vb">
+      <DependentUpon>wPopupQCFabricBarcodeList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPopupQCFabricBarcodeList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPopupQCFabricBarcode.Designer.vb">
+      <DependentUpon>wPopupQCFabricBarcode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPopupQCFabricBarcode.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPopupCalc.Designer.vb">
+      <DependentUpon>wPopupCalc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPopupCalc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wDCPrepareIssueAddBarRcv.Designer.vb">
+      <DependentUpon>wDCPrepareIssueAddBarRcv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wDCPrepareIssueAddBarRcv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wDCPreparePackingListAddItems.Designer.vb">
+      <DependentUpon>wDCPreparePackingListAddItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wDCPreparePackingListAddItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceiveAutoIssue.Designer.vb">
+      <DependentUpon>wReceiveAutoIssue.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceiveAutoIssue.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wDCPrepareCFMToCarAppWH.Designer.vb">
+      <DependentUpon>wDCPrepareCFMToCarAppWH.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wDCPrepareCFMToCarAppWH.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wTransferWHToWHInvoiceRemark.Designer.vb">
+      <DependentUpon>wTransferWHToWHInvoiceRemark.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wTransferWHToWHInvoiceRemark.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wQCAccessoryInspec.Designer.vb">
+      <DependentUpon>wQCAccessoryInspec.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wQCAccessoryInspec.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wQCBarcodeFabricInspec.Designer.vb">
+      <DependentUpon>wQCBarcodeFabricInspec.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wQCBarcodeFabricInspec.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wQCFabricInspecRoll.Designer.vb">
+      <DependentUpon>wQCFabricInspecRoll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wQCFabricInspecRoll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceiveGenerateBarcodeGrpPrint.Designer.vb">
+      <DependentUpon>wReceiveGenerateBarcodeGrpPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceiveGenerateBarcodeGrpPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceiveGenerateBarcodeGrp.Designer.vb">
+      <DependentUpon>wReceiveGenerateBarcodeGrp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceiveGenerateBarcodeGrp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReserveAutoPO.Designer.vb">
+      <DependentUpon>wReserveAutoPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReserveAutoPO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wTransferOrderAddBarcode.Designer.vb">
+      <DependentUpon>wTransferOrderAddBarcode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wTransferOrderAddBarcode.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wSearchBarcodeAcc.designer.vb">
+      <DependentUpon>wSearchBarcodeAcc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wSearchBarcodeAcc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wTransferCenterAutoReserve.Designer.vb">
+      <DependentUpon>wTransferCenterAutoReserve.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wTransferCenterAutoReserve.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wRcvToAccPopup.designer.vb">
+      <DependentUpon>wRcvToAccPopup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wRcvToAccPopup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wSendDocToAccApprove.designer.vb">
+      <DependentUpon>wSendDocToAccApprove.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wSendDocToAccApprove.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wTransferOrderAutoTransferToWH.Designer.vb">
+      <DependentUpon>wTransferOrderAutoTransferToWH.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wTransferOrderAutoTransferToWH.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wQCFabricInspec.Designer.vb">
+      <DependentUpon>wQCFabricInspec.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wQCFabricInspec.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wQCFabricInspecAddBarcode.Designer.vb">
+      <DependentUpon>wQCFabricInspecAddBarcode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wQCFabricInspecAddBarcode.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wQCFabricInspecAddRawmat.Designer.vb">
+      <DependentUpon>wQCFabricInspecAddRawmat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wQCFabricInspecAddRawmat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wTransferWHToWHAddBarRcv.Designer.vb">
+      <DependentUpon>wTransferWHToWHAddBarRcv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wTransferWHToWHAddBarRcv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wQCAcc.Designer.vb">
+      <DependentUpon>wQCAcc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wQCAcc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceiveAutoTransferToWH.Designer.vb">
+      <DependentUpon>wReceiveAutoTransferToWH.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceiveAutoTransferToWH.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceiveAutoTransferToCenter.Designer.vb">
+      <DependentUpon>wReceiveAutoTransferToCenter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceiveAutoTransferToCenter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceiveMultiple.Designer.vb">
+      <DependentUpon>wReceiveMultiple.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceiveMultiple.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wINVENStockCard.Designer.vb">
+      <DependentUpon>wINVENStockCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wINVENStockCard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wINVENStockOnhand.Designer.vb">
+      <DependentUpon>wINVENStockOnhand.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wINVENStockOnhand.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wReportInvenOrderTracking.Designer.vb">
+      <DependentUpon>wReportInvenOrderTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wReportInvenOrderTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReturnToSupplierAfterIssue.Designer.vb">
+      <DependentUpon>wReturnToSupplierAfterIssue.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReturnToSupplierAfterIssue.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockValidate.vb" />
+    <Compile Include="Transaction\wFormListBarcodeTransaction.Designer.vb">
+      <DependentUpon>wFormListBarcodeTransaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wFormListBarcodeTransaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wStockAdjustAddItem.designer.vb">
+      <DependentUpon>wStockAdjustAddItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wStockAdjustAddItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wSaleAndTerminate.Designer.vb">
+      <DependentUpon>wSaleAndTerminate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wSaleAndTerminate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wScrapBarcode.Designer.vb">
+      <DependentUpon>wScrapBarcode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wScrapBarcode.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReserveItemPopup.Designer.vb">
+      <DependentUpon>wReserveItemPopup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReserveItemPopup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wTransferOrder.Designer.vb">
+      <DependentUpon>wTransferOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wTransferOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Transaction\wGenerateBarcodeInven.Designer.vb">
+      <DependentUpon>wGenerateBarcodeInven.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wGenerateBarcodeInven.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wIssue.Designer.vb">
+      <DependentUpon>wIssue.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wIssue.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceive.Designer.vb">
+      <DependentUpon>wReceive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceiveItem.Designer.vb">
+      <DependentUpon>wReceiveItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceiveItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReserve.Designer.vb">
+      <DependentUpon>wReserve.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReserve.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReturnToStock.Designer.vb">
+      <DependentUpon>wReturnToStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReturnToStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReturnToSupplier.Designer.vb">
+      <DependentUpon>wReturnToSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReturnToSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wSearchBarcode.Designer.vb">
+      <DependentUpon>wSearchBarcode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wSearchBarcode.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wStockAdjust.Designer.vb">
+      <DependentUpon>wStockAdjust.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wStockAdjust.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wTransferWHToStockCenter.Designer.vb">
+      <DependentUpon>wTransferWHToStockCenter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wTransferWHToStockCenter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wTransferWHToWH.Designer.vb">
+      <DependentUpon>wTransferWHToWH.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wTransferWHToWH.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wTransferWHToWHApprove.Designer.vb">
+      <DependentUpon>wTransferWHToWHApprove.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wTransferWHToWHApprove.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wINVENOrderTracking.Designer.vb">
+      <DependentUpon>wINVENOrderTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wINVENOrderTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceiveUnitMaterial.Designer.vb">
+      <DependentUpon>wReceiveUnitMaterial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceiveUnitMaterial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ICCondition.Designer.vb">
+      <DependentUpon>ICCondition.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ICCondition.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\UQCFabricSummay.Designer.vb">
+      <DependentUpon>UQCFabricSummay.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UQCFabricSummay.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WMS\WMSControl.Designer.vb">
+      <DependentUpon>WMSControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WMS\WMSControl.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WMS\ULocation.Designer.vb">
+      <DependentUpon>ULocation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WMS\ULocation.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WMS\UWMSLocation.Designer.vb">
+      <DependentUpon>UWMSLocation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WMS\UWMSLocation.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="API\wBarcodeAPI.resx">
+      <DependentUpon>wBarcodeAPI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportReceiveFormatYRC.resx">
+      <DependentUpon>wImportReceiveFormatYRC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportReceiveFormatNanyang.resx">
+      <DependentUpon>wImportReceiveFormatNanyang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportReceiveNo.resx">
+      <DependentUpon>wImportReceiveNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportReceiveFormatYRCSelectWH.resx">
+      <DependentUpon>wImportReceiveFormatYRCSelectWH.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wReScanCheckImportNanyang.resx">
+      <DependentUpon>wReScanCheckImportNanyang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wGenWHRawMatLocation.resx">
+      <DependentUpon>wGenWHRawMatLocation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\WHRawMatLocation.resx">
+      <DependentUpon>WHRawMatLocation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\WHRawMatLocationAddEdit.resx">
+      <DependentUpon>WHRawMatLocationAddEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wMaterialMappingSuplRefAddItem.resx">
+      <DependentUpon>wMaterialMappingSuplRefAddItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wMaterialMappingSuplRef.resx">
+      <DependentUpon>wMaterialMappingSuplRef.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wReportStockOnhandListBarcode.resx">
+      <DependentUpon>wReportStockOnhandListBarcode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wINVENReportAdjustedTransaction.resx">
+      <DependentUpon>wINVENReportAdjustedTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wINVENReportIssueTransaction.resx">
+      <DependentUpon>wINVENReportIssueTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wINVENReportReceiveTransaction.resx">
+      <DependentUpon>wINVENReportReceiveTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wINVENReportReturnSupplier.resx">
+      <DependentUpon>wINVENReportReturnSupplier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wINVENReportReturnToStockTransaction.resx">
+      <DependentUpon>wINVENReportReturnToStockTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wINVENReportSaleTerminateTransaction.resx">
+      <DependentUpon>wINVENReportSaleTerminateTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wINVENReportTransferOrderTransaction.resx">
+      <DependentUpon>wINVENReportTransferOrderTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wINVENReportTransferToStockCenterTransaction.resx">
+      <DependentUpon>wINVENReportTransferToStockCenterTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wINVENTransferWarehouseTransaction.resx">
+      <DependentUpon>wINVENTransferWarehouseTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wInvReservedRecommend.resx">
+      <DependentUpon>wInvReservedRecommend.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wReportActualCostByOrder.resx">
+      <DependentUpon>wReportActualCostByOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wReportQCAcc.resx">
+      <DependentUpon>wReportQCAcc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wReportReceive.resx">
+      <DependentUpon>wReportReceive.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wReportReservedTracking.resx">
+      <DependentUpon>wReportReservedTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wReportStockOnhand.resx">
+      <DependentUpon>wReportStockOnhand.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wReportStockOnhandForAcc.resx">
+      <DependentUpon>wReportStockOnhandForAcc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wReservedAutoPopUp.resx">
+      <DependentUpon>wReservedAutoPopUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wWIPReport1.resx">
+      <DependentUpon>wWIPReport1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\ReservedOutstanding.resx">
+      <DependentUpon>ReservedOutstanding.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wINVENTranferWHIntransitTracking.resx">
+      <DependentUpon>wINVENTranferWHIntransitTracking.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wQCRollFabricTracking.resx">
+      <DependentUpon>wQCRollFabricTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wQCFabricTracking.resx">
+      <DependentUpon>wQCFabricTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wQCAccTracking.resx">
+      <DependentUpon>wQCAccTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wRcvToAccTracking.resx">
+      <DependentUpon>wRcvToAccTracking.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wReceivedHistoryTracking.resx">
+      <DependentUpon>wReceivedHistoryTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wStockCheckStock.resx">
+      <DependentUpon>wStockCheckStock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAutoIssue.resx">
+      <DependentUpon>wAutoIssue.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wConversion.resx">
+      <DependentUpon>wConversion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wConversionAddItem.resx">
+      <DependentUpon>wConversionAddItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wDCPrepareCFMToCar.resx">
+      <DependentUpon>wDCPrepareCFMToCar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wDCPreparePackingList.resx">
+      <DependentUpon>wDCPreparePackingList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wExportProductionCard.resx">
+      <DependentUpon>wExportProductionCard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wMoveLocation.resx">
+      <DependentUpon>wMoveLocation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wDCPrepareIssue.resx">
+      <DependentUpon>wDCPrepareIssue.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wIssueApproveReceive.resx">
+      <DependentUpon>wIssueApproveReceive.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPopupQCFabricBarcodeList.resx">
+      <DependentUpon>wPopupQCFabricBarcodeList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPopupQCFabricBarcode.resx">
+      <DependentUpon>wPopupQCFabricBarcode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPopupCalc.resx">
+      <DependentUpon>wPopupCalc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wDCPrepareIssueAddBarRcv.resx">
+      <DependentUpon>wDCPrepareIssueAddBarRcv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wDCPreparePackingListAddItems.resx">
+      <DependentUpon>wDCPreparePackingListAddItems.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceiveAutoIssue.resx">
+      <DependentUpon>wReceiveAutoIssue.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wDCPrepareCFMToCarAppWH.resx">
+      <DependentUpon>wDCPrepareCFMToCarAppWH.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wTransferWHToWHInvoiceRemark.resx">
+      <DependentUpon>wTransferWHToWHInvoiceRemark.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wQCAccessoryInspec.resx">
+      <DependentUpon>wQCAccessoryInspec.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wQCBarcodeFabricInspec.resx">
+      <DependentUpon>wQCBarcodeFabricInspec.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wQCFabricInspecRoll.resx">
+      <DependentUpon>wQCFabricInspecRoll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceiveGenerateBarcodeGrpPrint.resx">
+      <DependentUpon>wReceiveGenerateBarcodeGrpPrint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceiveGenerateBarcodeGrp.resx">
+      <DependentUpon>wReceiveGenerateBarcodeGrp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReserveAutoPO.resx">
+      <DependentUpon>wReserveAutoPO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wTransferOrderAddBarcode.resx">
+      <DependentUpon>wTransferOrderAddBarcode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wSearchBarcodeAcc.resx">
+      <DependentUpon>wSearchBarcodeAcc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wTransferCenterAutoReserve.resx">
+      <DependentUpon>wTransferCenterAutoReserve.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wRcvToAccPopup.resx">
+      <DependentUpon>wRcvToAccPopup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wSendDocToAccApprove.resx">
+      <DependentUpon>wSendDocToAccApprove.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wTransferOrderAutoTransferToWH.resx">
+      <DependentUpon>wTransferOrderAutoTransferToWH.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wQCFabricInspec.resx">
+      <DependentUpon>wQCFabricInspec.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wQCFabricInspecAddBarcode.resx">
+      <DependentUpon>wQCFabricInspecAddBarcode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wQCFabricInspecAddRawmat.resx">
+      <DependentUpon>wQCFabricInspecAddRawmat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wTransferWHToWHAddBarRcv.resx">
+      <DependentUpon>wTransferWHToWHAddBarRcv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wQCAcc.resx">
+      <DependentUpon>wQCAcc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceiveAutoTransferToWH.resx">
+      <DependentUpon>wReceiveAutoTransferToWH.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceiveAutoTransferToCenter.resx">
+      <DependentUpon>wReceiveAutoTransferToCenter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceiveMultiple.resx">
+      <DependentUpon>wReceiveMultiple.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wINVENStockCard.resx">
+      <DependentUpon>wINVENStockCard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wINVENStockOnhand.resx">
+      <DependentUpon>wINVENStockOnhand.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wReportInvenOrderTracking.resx">
+      <DependentUpon>wReportInvenOrderTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReturnToSupplierAfterIssue.resx">
+      <DependentUpon>wReturnToSupplierAfterIssue.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="Transaction\wFormListBarcodeTransaction.resx">
+      <DependentUpon>wFormListBarcodeTransaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wStockAdjustAddItem.resx">
+      <DependentUpon>wStockAdjustAddItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wSaleAndTerminate.resx">
+      <DependentUpon>wSaleAndTerminate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wScrapBarcode.resx">
+      <DependentUpon>wScrapBarcode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wGenerateBarcodeInven.resx">
+      <DependentUpon>wGenerateBarcodeInven.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wIssue.resx">
+      <DependentUpon>wIssue.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceive.resx">
+      <DependentUpon>wReceive.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceiveItem.resx">
+      <DependentUpon>wReceiveItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReserve.resx">
+      <DependentUpon>wReserve.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReserveItemPopup.resx">
+      <DependentUpon>wReserveItemPopup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReturnToStock.resx">
+      <DependentUpon>wReturnToStock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReturnToSupplier.resx">
+      <DependentUpon>wReturnToSupplier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wSearchBarcode.resx">
+      <DependentUpon>wSearchBarcode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wStockAdjust.resx">
+      <DependentUpon>wStockAdjust.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wTransferOrder.resx">
+      <DependentUpon>wTransferOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wTransferWHToStockCenter.resx">
+      <DependentUpon>wTransferWHToStockCenter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wTransferWHToWH.resx">
+      <DependentUpon>wTransferWHToWH.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wTransferWHToWHApprove.resx">
+      <DependentUpon>wTransferWHToWHApprove.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wINVENOrderTracking.resx">
+      <DependentUpon>wINVENOrderTracking.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceiveUnitMaterial.resx">
+      <DependentUpon>wReceiveUnitMaterial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ICCondition.resx">
+      <DependentUpon>ICCondition.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UQCFabricSummay.resx">
+      <DependentUpon>UQCFabricSummay.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WMS\WMSControl.resx">
+      <DependentUpon>WMSControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WMS\ULocation.resx">
+      <DependentUpon>ULocation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WMS\UWMSLocation.resx">
+      <DependentUpon>UWMSLocation.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HI.Auditor\HI.Auditor.csproj">
+      <Project>{62c22e9b-5edc-4363-8b71-78b3345e44d0}</Project>
+      <Name>HI.Auditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Conn\HI.Conn.csproj">
+      <Project>{7a2db722-b4b4-4c9a-b624-4763812ca5ab}</Project>
+      <Name>HI.Conn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Delegate\HI.Delegate.vbproj">
+      <Project>{a6701b43-7e52-4f8b-9cbd-420007049a21}</Project>
+      <Name>HI.Delegate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.ENUM\HI.ENM.vbproj">
+      <Project>{4fe1a025-bb21-4bf3-a117-e4bfc5c5218e}</Project>
+      <Name>HI.ENM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Mail\HI.Mail.vbproj">
+      <Project>{9be39d94-559a-47c9-b0fa-23048a54f1dd}</Project>
+      <Name>HI.Mail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.MET\HI.APP.vbproj">
+      <Project>{92e02475-fc93-4255-a953-4049ff6586f5}</Project>
+      <Name>HI.APP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.MG\HI.MG.csproj">
+      <Project>{5a72d3b5-c544-4835-a1fc-df6eff9c973a}</Project>
+      <Name>HI.MG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.RP\HI.RP.vbproj">
+      <Project>{28B2EF85-307C-4E24-AFCF-926E6ABE3424}</Project>
+      <Name>HI.RP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.SE\HI.SE.vbproj">
+      <Project>{7CF7AE7B-9C3E-4E5D-9015-1C5FD4EE16B9}</Project>
+      <Name>HI.SE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.ST\HI.ST.csproj">
+      <Project>{42e244bb-ed4a-4579-819d-c00ef4898907}</Project>
+      <Name>HI.ST</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.TLF\HI.TLF.vbproj">
+      <Project>{3aad5845-dd63-4c10-82a6-b86ff10ab739}</Project>
+      <Name>HI.TLF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.TL\HI.TL.vbproj">
+      <Project>{5DE5B459-1226-40CD-9581-434C43D61B66}</Project>
+      <Name>HI.TL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.UL\HI.UL.csproj">
+      <Project>{e9d7341b-e2d4-4a59-b328-79e51f3c0138}</Project>
+      <Name>HI.UL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

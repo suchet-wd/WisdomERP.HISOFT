@@ -1,0 +1,1506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{C8F227BA-FABB-464F-B083-F6BB5971D095}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HI.MER</RootNamespace>
+    <AssemblyName>HI.MER</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>HI.MER.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>HI.MER.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Docs.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v20.1.Drawing, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v20.1.Export, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Spreadsheet.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPdfViewer.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Images.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpreadsheet.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HI.ENM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\HI.ENUM\bin\Debug\HI.ENM.dll</HintPath>
+    </Reference>
+    <Reference Include="HI.Mail">
+      <HintPath>..\HI.Mail\bin\Debug\HI.Mail.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\..\DLL\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="SautinSoft.PdfFocus">
+      <HintPath>..\..\DLL\SautinSoft.PdfFocus.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\csOrder.vb" />
+    <Compile Include="DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.vb">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FactoryHub\wFactoryHubImportOrderToWisdom.designer.vb">
+      <DependentUpon>wFactoryHubImportOrderToWisdom.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FactoryHub\wFactoryHubImportOrderToWisdom.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FactoryHub\wFactoryHubImportOrder .designer.vb">
+      <DependentUpon>wFactoryHubImportOrder .vb</DependentUpon>
+    </Compile>
+    <Compile Include="FactoryHub\wFactoryHubImportOrder .vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FactoryHub\wFactoryHubOrder.designer.vb">
+      <DependentUpon>wFactoryHubOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FactoryHub\wFactoryHubOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FactoryHub\wFactoryHubListOrderNo.Designer.vb">
+      <DependentUpon>wFactoryHubListOrderNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FactoryHub\wFactoryHubListOrderNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FactoryHub\wFactoryHubMappingSize.Designer.vb">
+      <DependentUpon>wFactoryHubMappingSize.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FactoryHub\wFactoryHubMappingSize.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FactoryHub\wFactoryHubStylePopup.Designer.vb">
+      <DependentUpon>wFactoryHubStylePopup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FactoryHub\wFactoryHubStylePopup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wConvertExcelNIKEPO.Designer.vb">
+      <DependentUpon>wConvertExcelNIKEPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wConvertExcelNIKEPO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wConvertFileExcelNIKEPORowColumn.Designer.vb">
+      <DependentUpon>wConvertFileExcelNIKEPORowColumn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wConvertFileExcelNIKEPORowColumn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportExcelNIKEPOTracking.designer.vb">
+      <DependentUpon>wImportExcelNIKEPOTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportExcelNIKEPOTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportExcelNIKEPOMappingSize.Designer.vb">
+      <DependentUpon>wImportExcelNIKEPOMappingSize.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportExcelNIKEPOMappingSize.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportExcelNIKEPO.Designer.vb">
+      <DependentUpon>wImportExcelNIKEPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportExcelNIKEPO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportExcelDivert.Designer.vb">
+      <DependentUpon>wImportExcelDivert.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportExcelDivert.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wCheckFileImportOrder.Designer.vb">
+      <DependentUpon>wCheckFileImportOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wCheckFileImportOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportQPPQRS.Designer.vb">
+      <DependentUpon>wImportQPPQRS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportQPPQRS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportExcelStyle.designer.vb">
+      <DependentUpon>wImportExcelStyle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportExcelStyle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportCostSheet.Designer.vb">
+      <DependentUpon>wImportCostSheet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportCostSheet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportExcelGacDate.Designer.vb">
+      <DependentUpon>wImportExcelGacDate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportExcelGacDate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportExcelNetPrice.Designer.vb">
+      <DependentUpon>wImportExcelNetPrice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportExcelNetPrice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportExcelPriceAndSurcharge.designer.vb">
+      <DependentUpon>wImportExcelPriceAndSurcharge.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportExcelPriceAndSurcharge.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportCustomerPOSaleMan.Designer.vb">
+      <DependentUpon>wImportCustomerPOSaleMan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportCustomerPOSaleMan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportOrderDemandPull.Designer.vb">
+      <DependentUpon>wImportOrderDemandPull.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportOrderDemandPull.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportCraft.Designer.vb">
+      <DependentUpon>wImportCraft.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportCraft.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wListCheckExportXML.Designer.vb">
+      <DependentUpon>wListCheckExportXML.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wListCheckExportXML.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wListCustomerPONetPriceDiff.Designer.vb">
+      <DependentUpon>wListCustomerPONetPriceDiff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wListCustomerPONetPriceDiff.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wMapColorAndSizeImportOrderTarget.Designer.vb">
+      <DependentUpon>wMapColorAndSizeImportOrderTarget.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wMapColorAndSizeImportOrderTarget.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wAdjustFOBPriceOrder.Designer.vb">
+      <DependentUpon>wAdjustFOBPriceOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wAdjustFOBPriceOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportOrderTarget.Designer.vb">
+      <DependentUpon>wImportOrderTarget.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportOrderTarget.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportExcelStylePopup.Designer.vb">
+      <DependentUpon>wImportExcelStylePopup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportExcelStylePopup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wConfigMappingBreakdownSizeAddEdit.Designer.vb">
+      <DependentUpon>wConfigMappingBreakdownSizeAddEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wConfigMappingBreakdownSizeAddEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wConfigMappingBreakdownSize.Designer.vb">
+      <DependentUpon>wConfigMappingBreakdownSize.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wConfigMappingBreakdownSize.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wCopyPacking.designer.vb">
+      <DependentUpon>wCopyPacking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wCopyPacking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wCopySewing.Designer.vb">
+      <DependentUpon>wCopySewing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wCopySewing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wPacking.designer.vb">
+      <DependentUpon>wPacking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wPacking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wSewing.Designer.vb">
+      <DependentUpon>wSewing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wSewing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RD\wCopySMVSamOperation.designer.vb">
+      <DependentUpon>wCopySMVSamOperation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RD\wCopySMVSamOperation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RD\wCopyGTMSamOperation.designer.vb">
+      <DependentUpon>wCopyGTMSamOperation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RD\wCopyGTMSamOperation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RD\wCopyGESamOperation.designer.vb">
+      <DependentUpon>wCopyGESamOperation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RD\wCopyGESamOperation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RD\wCopyRDSamOperation.designer.vb">
+      <DependentUpon>wCopyRDSamOperation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RD\wCopyRDSamOperation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RD\wRDSamFactoryTracking.designer.vb">
+      <DependentUpon>wRDSamFactoryTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RD\wRDSamFactoryTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RD\wRDSamAppTracking.designer.vb">
+      <DependentUpon>wRDSamAppTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RD\wRDSamAppTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RD\wSMVSamOperation.Designer.vb">
+      <DependentUpon>wSMVSamOperation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RD\wSMVSamOperation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RD\wGTMSamOperation.Designer.vb">
+      <DependentUpon>wGTMSamOperation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RD\wGTMSamOperation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RD\wGESamOperation.Designer.vb">
+      <DependentUpon>wGESamOperation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RD\wGESamOperation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RD\wRDSamOperation.Designer.vb">
+      <DependentUpon>wRDSamOperation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RD\wRDSamOperation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wReportMERFactoryOrderNo.Designer.vb">
+      <DependentUpon>wReportMERFactoryOrderNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wReportMERFactoryOrderNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wReportMERFactorySubOrderNo.Designer.vb">
+      <DependentUpon>wReportMERFactorySubOrderNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wReportMERFactorySubOrderNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wCloseSMPOrder.designer.vb">
+      <DependentUpon>wCloseSMPOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wCloseSMPOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPManageOrderAddItemMaster.Designer.vb">
+      <DependentUpon>wSMPManageOrderAddItemMaster.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPManageOrderAddItemMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPManageOrderBomItem.Designer.vb">
+      <DependentUpon>wSMPManageOrderBomItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPManageOrderBomItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCreateOrderSampleBomItem.Designer.vb">
+      <DependentUpon>wSMPCreateOrderSampleBomItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCreateOrderSampleBomItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCreateOrderSampleNew.Designer.vb">
+      <DependentUpon>wSMPCreateOrderSampleNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCreateOrderSampleNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPMCTracking.designer.vb">
+      <DependentUpon>wSMPMCTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPMCTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPQCSendSupl.designer.vb">
+      <DependentUpon>wSMPQCSendSupl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPQCSendSupl.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPRetSuplItem.Designer.vb">
+      <DependentUpon>wSMPRetSuplItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPRetSuplItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPReceiveAddItem.designer.vb">
+      <DependentUpon>wSMPReceiveAddItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPReceiveAddItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPRetSupl.Designer.vb">
+      <DependentUpon>wSMPRetSupl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPRetSupl.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPSetMaterailFree.Designer.vb">
+      <DependentUpon>wSMPSetMaterailFree.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPSetMaterailFree.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPOrderAddFile.designer.vb">
+      <DependentUpon>wSMPOrderAddFile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPOrderAddFile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wCopySMPOrder.designer.vb">
+      <DependentUpon>wCopySMPOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wCopySMPOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPOrderStatusTrack.designer.vb">
+      <DependentUpon>wSMPOrderStatusTrack.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPOrderStatusTrack.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPProductionCutStatus.Designer.vb">
+      <DependentUpon>wSMPProductionCutStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPProductionCutStatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPMasterPlan.Designer.vb">
+      <DependentUpon>wSMPMasterPlan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPMasterPlan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPOrderAddPart.designer.vb">
+      <DependentUpon>wSMPOrderAddPart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPOrderAddPart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPStockCard.Designer.vb">
+      <DependentUpon>wSMPStockCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPStockCard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPManageOrder.Designer.vb">
+      <DependentUpon>wSMPManageOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPManageOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPStockOnhand.Designer.vb">
+      <DependentUpon>wSMPStockOnhand.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPStockOnhand.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPTransferOrderItem.Designer.vb">
+      <DependentUpon>wSMPTransferOrderItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPTransferOrderItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPReceiveFromIssueItem.Designer.vb">
+      <DependentUpon>wSMPReceiveFromIssueItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPReceiveFromIssueItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPTransferOrder.Designer.vb">
+      <DependentUpon>wSMPTransferOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPTransferOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPReturnStockItem.Designer.vb">
+      <DependentUpon>wSMPReturnStockItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPReturnStockItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPReceiveFromIssue.Designer.vb">
+      <DependentUpon>wSMPReceiveFromIssue.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPReceiveFromIssue.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPIssueItem.Designer.vb">
+      <DependentUpon>wSMPIssueItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPIssueItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPReturnStock.Designer.vb">
+      <DependentUpon>wSMPReturnStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPReturnStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPIssue.Designer.vb">
+      <DependentUpon>wSMPIssue.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPIssue.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPReceive.Designer.vb">
+      <DependentUpon>wSMPReceive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPReceive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPReceiveItem.Designer.vb">
+      <DependentUpon>wSMPReceiveItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPReceiveItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCalculateCut.Designer.vb">
+      <DependentUpon>wSMPCalculateCut.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCalculateCut.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPPurchaseAddItem.designer.vb">
+      <DependentUpon>wSMPPurchaseAddItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPPurchaseAddItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCalculate.Designer.vb">
+      <DependentUpon>wSMPCalculate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCalculate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCreatePriceMultiple.Designer.vb">
+      <DependentUpon>wSMPCreatePriceMultiple.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCreatePriceMultiple.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCreateSamData.Designer.vb">
+      <DependentUpon>wSMPCreateSamData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCreateSamData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPStatusTracking.Designer.vb">
+      <DependentUpon>wSMPStatusTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPStatusTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPProductionQCStatus.Designer.vb">
+      <DependentUpon>wSMPProductionQCStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPProductionQCStatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPProductionStatus.Designer.vb">
+      <DependentUpon>wSMPProductionStatus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPProductionStatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPPurchase.Designer.vb">
+      <DependentUpon>wSMPPurchase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPPurchase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCreateTeamSaw.Designer.vb">
+      <DependentUpon>wSMPCreateTeamSaw.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCreateTeamSaw.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCreateTeamSawAdd.Designer.vb">
+      <DependentUpon>wSMPCreateTeamSawAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCreateTeamSawAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\PurchasingTrackingForDepartment.designer.vb">
+      <DependentUpon>PurchasingTrackingForDepartment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\PurchasingTrackingForDepartment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wCustomerOrderValueTracking.Designer.vb">
+      <DependentUpon>wCustomerOrderValueTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wCustomerOrderValueTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wCMPOTracking.Designer.vb">
+      <DependentUpon>wCMPOTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wCMPOTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wCostSheetTracking.designer.vb">
+      <DependentUpon>wCostSheetTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wCostSheetTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wDivertTrack.designer.vb">
+      <DependentUpon>wDivertTrack.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wDivertTrack.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wSubOrderCancelTracking.designer.vb">
+      <DependentUpon>wSubOrderCancelTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wSubOrderCancelTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wWIPDemandPullQuantityTracking.designer.vb">
+      <DependentUpon>wWIPDemandPullQuantityTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wWIPDemandPullQuantityTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAddDivertOrderSubComponent.designer.vb">
+      <DependentUpon>wAddDivertOrderSubComponent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAddDivertOrderSubComponent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wCMPriceStyleBySeason.Designer.vb">
+      <DependentUpon>wCMPriceStyleBySeason.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wCMPriceStyleBySeason.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wCopyCostSheet.Designer.vb">
+      <DependentUpon>wCopyCostSheet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wCopyCostSheet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wCopyDivertOrder.designer.vb">
+      <DependentUpon>wCopyDivertOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wCopyDivertOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wCostSheet.designer.vb">
+      <DependentUpon>wCostSheet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wCostSheet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wCalculateOrderCarton.designer.vb">
+      <DependentUpon>wCalculateOrderCarton.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wCalculateOrderCarton.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wOrder_CVN.designer.vb">
+      <DependentUpon>wOrder_CVN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wOrder_CVN.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wQARiskStyle.Designer.vb">
+      <DependentUpon>wQARiskStyle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wQARiskStyle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wSubOrderCancelBreakdown.designer.vb">
+      <DependentUpon>wSubOrderCancelBreakdown.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wSubOrderCancelBreakdown.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wSubOrderCancel.designer.vb">
+      <DependentUpon>wSubOrderCancel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wSubOrderCancel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\USmpPart.Designer.vb">
+      <DependentUpon>USmpPart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\USmpPart.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ValidateExportXML.vb" />
+    <Compile Include="Transaction\wAddOrderSubComponent.Designer.vb">
+      <DependentUpon>wAddOrderSubComponent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAddOrderSubComponent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wAdjustAfterImportOrdervb.Designer.vb">
+      <DependentUpon>wAdjustAfterImportOrdervb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wAdjustAfterImportOrdervb.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wCombineBreakDown.Designer.vb">
+      <DependentUpon>wCombineBreakDown.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wCombineBreakDown.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wCopyOrder.Designer.vb">
+      <DependentUpon>wCopyOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wCopyOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wCopyOrderSub.Designer.vb">
+      <DependentUpon>wCopyOrderSub.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wCopyOrderSub.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wCopySubOrderOther.Designer.vb">
+      <DependentUpon>wCopySubOrderOther.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wCopySubOrderOther.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wCustOrderValueClassifyHistory.Designer.vb">
+      <DependentUpon>wCustOrderValueClassifyHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wCustOrderValueClassifyHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wDemandPullQuantiry.Designer.vb">
+      <DependentUpon>wDemandPullQuantiry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wDemandPullQuantiry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wDivertOrderDistination.designer.vb">
+      <DependentUpon>wDivertOrderDistination.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wDivertOrderDistination.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wDivertOrderSub.Designer.vb">
+      <DependentUpon>wDivertOrderSub.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wDivertOrderSub.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportOrder.Designer.vb">
+      <DependentUpon>wImportOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wChangeColorway.Designer.vb">
+      <DependentUpon>wChangeColorway.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wChangeColorway.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wImportSalesman.Designer.vb">
+      <DependentUpon>wImportSalesman.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportSalesman.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wInsertSeqPackingProc.Designer.vb">
+      <DependentUpon>wInsertSeqPackingProc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wInsertSeqPackingProc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wInsertSeqSewingProc.Designer.vb">
+      <DependentUpon>wInsertSeqSewingProc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wInsertSeqSewingProc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wListCompleteCopyOrder.Designer.vb">
+      <DependentUpon>wListCompleteCopyOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wListCompleteCopyOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wListCompleteCopySubOrder.Designer.vb">
+      <DependentUpon>wListCompleteCopySubOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wListCompleteCopySubOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wMapSizeImportOrder.Designer.vb">
+      <DependentUpon>wMapSizeImportOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wMapSizeImportOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wOrderAcknowledgeInfo.Designer.vb">
+      <DependentUpon>wOrderAcknowledgeInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wOrderAcknowledgeInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wImportFromOrder.Designer.vb">
+      <DependentUpon>wImportFromOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wImportFromOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Transaction\wCMPriceStyleByCustomerPO.Designer.vb">
+      <DependentUpon>wCMPriceStyleByCustomerPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wCMPriceStyleByCustomerPO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wOrder.designer.vb">
+      <DependentUpon>wOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wOrderApprovedInfo.Designer.vb">
+      <DependentUpon>wOrderApprovedInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wOrderApprovedInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wOrderListingInfo.Designer.vb">
+      <DependentUpon>wOrderListingInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wOrderListingInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wOrderReviseHistoryInfo.Designer.vb">
+      <DependentUpon>wOrderReviseHistoryInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wOrderReviseHistoryInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import\wReadPDFTarget.Designer.vb">
+      <DependentUpon>wReadPDFTarget.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wReadPDFTarget.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wOrderExtractDestination.designer.vb">
+      <DependentUpon>wOrderExtractDestination.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wOrderExtractDestination.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPopupCreateOrderCombine.Designer.vb">
+      <DependentUpon>wPopupCreateOrderCombine.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPopupCreateOrderCombine.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wRejectOrder.Designer.vb">
+      <DependentUpon>wRejectOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wRejectOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FactoryHub\wFactoryHubImportOrderToWisdom.resx">
+      <DependentUpon>wFactoryHubImportOrderToWisdom.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FactoryHub\wFactoryHubImportOrder .resx">
+      <DependentUpon>wFactoryHubImportOrder .vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FactoryHub\wFactoryHubOrder.resx">
+      <DependentUpon>wFactoryHubOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FactoryHub\wFactoryHubListOrderNo.resx">
+      <DependentUpon>wFactoryHubListOrderNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FactoryHub\wFactoryHubMappingSize.resx">
+      <DependentUpon>wFactoryHubMappingSize.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FactoryHub\wFactoryHubStylePopup.resx">
+      <DependentUpon>wFactoryHubStylePopup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wConvertExcelNIKEPO.resx">
+      <DependentUpon>wConvertExcelNIKEPO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wConvertFileExcelNIKEPORowColumn.resx">
+      <DependentUpon>wConvertFileExcelNIKEPORowColumn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportExcelNIKEPOTracking.resx">
+      <DependentUpon>wImportExcelNIKEPOTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportExcelNIKEPOMappingSize.resx">
+      <DependentUpon>wImportExcelNIKEPOMappingSize.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportExcelNIKEPO.resx">
+      <DependentUpon>wImportExcelNIKEPO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportExcelDivert.resx">
+      <DependentUpon>wImportExcelDivert.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wCheckFileImportOrder.resx">
+      <DependentUpon>wCheckFileImportOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportQPPQRS.resx">
+      <DependentUpon>wImportQPPQRS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportExcelStyle.resx">
+      <DependentUpon>wImportExcelStyle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportCostSheet.resx">
+      <DependentUpon>wImportCostSheet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportExcelGacDate.resx">
+      <DependentUpon>wImportExcelGacDate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportExcelNetPrice.resx">
+      <DependentUpon>wImportExcelNetPrice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportExcelPriceAndSurcharge.resx">
+      <DependentUpon>wImportExcelPriceAndSurcharge.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportCustomerPOSaleMan.resx">
+      <DependentUpon>wImportCustomerPOSaleMan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportOrderDemandPull.resx">
+      <DependentUpon>wImportOrderDemandPull.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportCraft.resx">
+      <DependentUpon>wImportCraft.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wListCheckExportXML.resx">
+      <DependentUpon>wListCheckExportXML.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wListCustomerPONetPriceDiff.resx">
+      <DependentUpon>wListCustomerPONetPriceDiff.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wMapColorAndSizeImportOrderTarget.resx">
+      <DependentUpon>wMapColorAndSizeImportOrderTarget.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wAdjustFOBPriceOrder.resx">
+      <DependentUpon>wAdjustFOBPriceOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportOrderTarget.resx">
+      <DependentUpon>wImportOrderTarget.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportExcelStylePopup.resx">
+      <DependentUpon>wImportExcelStylePopup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wConfigMappingBreakdownSizeAddEdit.resx">
+      <DependentUpon>wConfigMappingBreakdownSizeAddEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wConfigMappingBreakdownSize.resx">
+      <DependentUpon>wConfigMappingBreakdownSize.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wCopyPacking.resx">
+      <DependentUpon>wCopyPacking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wCopySewing.resx">
+      <DependentUpon>wCopySewing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wPacking.resx">
+      <DependentUpon>wPacking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wSewing.resx">
+      <DependentUpon>wSewing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RD\wCopySMVSamOperation.resx">
+      <DependentUpon>wCopySMVSamOperation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RD\wCopyGTMSamOperation.resx">
+      <DependentUpon>wCopyGTMSamOperation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RD\wCopyGESamOperation.resx">
+      <DependentUpon>wCopyGESamOperation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RD\wCopyRDSamOperation.resx">
+      <DependentUpon>wCopyRDSamOperation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RD\wRDSamFactoryTracking.resx">
+      <DependentUpon>wRDSamFactoryTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RD\wRDSamAppTracking.resx">
+      <DependentUpon>wRDSamAppTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RD\wSMVSamOperation.resx">
+      <DependentUpon>wSMVSamOperation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RD\wGTMSamOperation.resx">
+      <DependentUpon>wGTMSamOperation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RD\wGESamOperation.resx">
+      <DependentUpon>wGESamOperation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RD\wRDSamOperation.resx">
+      <DependentUpon>wRDSamOperation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wReportMERFactoryOrderNo.resx">
+      <DependentUpon>wReportMERFactoryOrderNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wReportMERFactorySubOrderNo.resx">
+      <DependentUpon>wReportMERFactorySubOrderNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wCloseSMPOrder.resx">
+      <DependentUpon>wCloseSMPOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPManageOrderAddItemMaster.resx">
+      <DependentUpon>wSMPManageOrderAddItemMaster.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPManageOrderBomItem.resx">
+      <DependentUpon>wSMPManageOrderBomItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPCreateOrderSampleBomItem.resx">
+      <DependentUpon>wSMPCreateOrderSampleBomItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPCreateOrderSampleNew.resx">
+      <DependentUpon>wSMPCreateOrderSampleNew.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPMCTracking.resx">
+      <DependentUpon>wSMPMCTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPQCSendSupl.resx">
+      <DependentUpon>wSMPQCSendSupl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPRetSuplItem.resx">
+      <DependentUpon>wSMPRetSuplItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPReceiveAddItem.resx">
+      <DependentUpon>wSMPReceiveAddItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPRetSupl.resx">
+      <DependentUpon>wSMPRetSupl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPSetMaterailFree.resx">
+      <DependentUpon>wSMPSetMaterailFree.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPOrderAddFile.resx">
+      <DependentUpon>wSMPOrderAddFile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wCopySMPOrder.resx">
+      <DependentUpon>wCopySMPOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPOrderStatusTrack.resx">
+      <DependentUpon>wSMPOrderStatusTrack.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPProductionCutStatus.resx">
+      <DependentUpon>wSMPProductionCutStatus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPMasterPlan.resx">
+      <DependentUpon>wSMPMasterPlan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPOrderAddPart.resx">
+      <DependentUpon>wSMPOrderAddPart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPStockCard.resx">
+      <DependentUpon>wSMPStockCard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPManageOrder.resx">
+      <DependentUpon>wSMPManageOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPStockOnhand.resx">
+      <DependentUpon>wSMPStockOnhand.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPTransferOrderItem.resx">
+      <DependentUpon>wSMPTransferOrderItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPReceiveFromIssueItem.resx">
+      <DependentUpon>wSMPReceiveFromIssueItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPTransferOrder.resx">
+      <DependentUpon>wSMPTransferOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPReturnStockItem.resx">
+      <DependentUpon>wSMPReturnStockItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPReceiveFromIssue.resx">
+      <DependentUpon>wSMPReceiveFromIssue.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPIssueItem.resx">
+      <DependentUpon>wSMPIssueItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPReturnStock.resx">
+      <DependentUpon>wSMPReturnStock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPIssue.resx">
+      <DependentUpon>wSMPIssue.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPReceive.resx">
+      <DependentUpon>wSMPReceive.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPReceiveItem.resx">
+      <DependentUpon>wSMPReceiveItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPCalculateCut.resx">
+      <DependentUpon>wSMPCalculateCut.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPPurchaseAddItem.resx">
+      <DependentUpon>wSMPPurchaseAddItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPCalculate.resx">
+      <DependentUpon>wSMPCalculate.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPCreatePriceMultiple.resx">
+      <DependentUpon>wSMPCreatePriceMultiple.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPCreateSamData.resx">
+      <DependentUpon>wSMPCreateSamData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPStatusTracking.resx">
+      <DependentUpon>wSMPStatusTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPProductionQCStatus.resx">
+      <DependentUpon>wSMPProductionQCStatus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPProductionStatus.resx">
+      <DependentUpon>wSMPProductionStatus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPPurchase.resx">
+      <DependentUpon>wSMPPurchase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPCreateTeamSaw.resx">
+      <DependentUpon>wSMPCreateTeamSaw.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPCreateTeamSawAdd.resx">
+      <DependentUpon>wSMPCreateTeamSawAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\PurchasingTrackingForDepartment.resx">
+      <DependentUpon>PurchasingTrackingForDepartment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wCustomerOrderValueTracking.resx">
+      <DependentUpon>wCustomerOrderValueTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wCMPOTracking.resx">
+      <DependentUpon>wCMPOTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wCostSheetTracking.resx">
+      <DependentUpon>wCostSheetTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wDivertTrack.resx">
+      <DependentUpon>wDivertTrack.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wSubOrderCancelTracking.resx">
+      <DependentUpon>wSubOrderCancelTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wWIPDemandPullQuantityTracking.resx">
+      <DependentUpon>wWIPDemandPullQuantityTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAddDivertOrderSubComponent.resx">
+      <DependentUpon>wAddDivertOrderSubComponent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAddOrderSubComponent.resx">
+      <DependentUpon>wAddOrderSubComponent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wAdjustAfterImportOrdervb.resx">
+      <DependentUpon>wAdjustAfterImportOrdervb.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wCMPriceStyleBySeason.resx">
+      <DependentUpon>wCMPriceStyleBySeason.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wCombineBreakDown.resx">
+      <DependentUpon>wCombineBreakDown.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wCopyCostSheet.resx">
+      <DependentUpon>wCopyCostSheet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wCopyDivertOrder.resx">
+      <DependentUpon>wCopyDivertOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wCopyOrder.resx">
+      <DependentUpon>wCopyOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wCopyOrderSub.resx">
+      <DependentUpon>wCopyOrderSub.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wCopySubOrderOther.resx">
+      <DependentUpon>wCopySubOrderOther.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wCustOrderValueClassifyHistory.resx">
+      <DependentUpon>wCustOrderValueClassifyHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wCostSheet.resx">
+      <DependentUpon>wCostSheet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wDemandPullQuantiry.resx">
+      <DependentUpon>wDemandPullQuantiry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wCalculateOrderCarton.resx">
+      <DependentUpon>wCalculateOrderCarton.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wOrder_CVN.resx">
+      <DependentUpon>wOrder_CVN.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wQARiskStyle.resx">
+      <DependentUpon>wQARiskStyle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wSubOrderCancelBreakdown.resx">
+      <DependentUpon>wSubOrderCancelBreakdown.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wDivertOrderDistination.resx">
+      <DependentUpon>wDivertOrderDistination.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wDivertOrderSub.resx">
+      <DependentUpon>wDivertOrderSub.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportOrder.resx">
+      <DependentUpon>wImportOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wChangeColorway.resx">
+      <DependentUpon>wChangeColorway.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportSalesman.resx">
+      <DependentUpon>wImportSalesman.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wInsertSeqPackingProc.resx">
+      <DependentUpon>wInsertSeqPackingProc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wInsertSeqSewingProc.resx">
+      <DependentUpon>wInsertSeqSewingProc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wListCompleteCopyOrder.resx">
+      <DependentUpon>wListCompleteCopyOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wListCompleteCopySubOrder.resx">
+      <DependentUpon>wListCompleteCopySubOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wMapSizeImportOrder.resx">
+      <DependentUpon>wMapSizeImportOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wOrderAcknowledgeInfo.resx">
+      <DependentUpon>wOrderAcknowledgeInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wImportFromOrder.resx">
+      <DependentUpon>wImportFromOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wCMPriceStyleByCustomerPO.resx">
+      <DependentUpon>wCMPriceStyleByCustomerPO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wOrder.resx">
+      <DependentUpon>wOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wOrderApprovedInfo.resx">
+      <DependentUpon>wOrderApprovedInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wOrderListingInfo.resx">
+      <DependentUpon>wOrderListingInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wOrderReviseHistoryInfo.resx">
+      <DependentUpon>wOrderReviseHistoryInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wReadPDFTarget.resx">
+      <DependentUpon>wReadPDFTarget.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wSubOrderCancel.resx">
+      <DependentUpon>wSubOrderCancel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wOrderExtractDestination.resx">
+      <DependentUpon>wOrderExtractDestination.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPopupCreateOrderCombine.resx">
+      <DependentUpon>wPopupCreateOrderCombine.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wRejectOrder.resx">
+      <DependentUpon>wRejectOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\USmpPart.resx">
+      <DependentUpon>USmpPart.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BomStructure\BomStructure.csproj">
+      <Project>{7114e8ad-0486-4d29-ae60-b5725a218956}</Project>
+      <Name>BomStructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Auditor\HI.Auditor.csproj">
+      <Project>{62c22e9b-5edc-4363-8b71-78b3345e44d0}</Project>
+      <Name>HI.Auditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Conn\HI.Conn.csproj">
+      <Project>{7a2db722-b4b4-4c9a-b624-4763812ca5ab}</Project>
+      <Name>HI.Conn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Delegate\HI.Delegate.vbproj">
+      <Project>{a6701b43-7e52-4f8b-9cbd-420007049a21}</Project>
+      <Name>HI.Delegate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.MET\HI.APP.vbproj">
+      <Project>{92E02475-FC93-4255-A953-4049FF6586F5}</Project>
+      <Name>HI.APP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.MG\HI.MG.csproj">
+      <Project>{5a72d3b5-c544-4835-a1fc-df6eff9c973a}</Project>
+      <Name>HI.MG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.RP\HI.RP.vbproj">
+      <Project>{28B2EF85-307C-4E24-AFCF-926E6ABE3424}</Project>
+      <Name>HI.RP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.ST\HI.ST.csproj">
+      <Project>{42e244bb-ed4a-4579-819d-c00ef4898907}</Project>
+      <Name>HI.ST</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.TL\HI.TL.vbproj">
+      <Project>{5DE5B459-1226-40CD-9581-434C43D61B66}</Project>
+      <Name>HI.TL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.UL\HI.UL.csproj">
+      <Project>{e9d7341b-e2d4-4a59-b328-79e51f3c0138}</Project>
+      <Name>HI.UL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

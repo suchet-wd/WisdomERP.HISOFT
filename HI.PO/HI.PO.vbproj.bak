@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{CF0F74F7-1C58-4CC9-8919-1D6BFE67C041}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HI.PO</RootNamespace>
+    <AssemblyName>HI.PO</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>HI.PO.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>HI.PO.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Spreadsheet.v16.1.Core, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpreadsheet.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Report\wReportPO.Designer.vb">
+      <DependentUpon>wReportPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wReportPO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wReportPOTracking.Designer.vb">
+      <DependentUpon>wReportPOTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wReportPOTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\ExportQRSQPP.designer.vb">
+      <DependentUpon>ExportQRSQPP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\ExportQRSQPP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wOptiplantracking.designer.vb">
+      <DependentUpon>wOptiplantracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wOptiplantracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wSourcingInfomation.designer.vb">
+      <DependentUpon>wSourcingInfomation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wSourcingInfomation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAddItemPOByItem.designer.vb">
+      <DependentUpon>wAddItemPOByItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAddItemPOByItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAddItemPOFactory.designer.vb">
+      <DependentUpon>wAddItemPOFactory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAddItemPOFactory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAddItemPOByItemListOrder.designer.vb">
+      <DependentUpon>wAddItemPOByItemListOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAddItemPOByItemListOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAutoGeneratePOFactory.Designer.vb">
+      <DependentUpon>wAutoGeneratePOFactory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAutoGeneratePOFactory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wExportPOItemExcel.designer.vb">
+      <DependentUpon>wExportPOItemExcel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wExportPOItemExcel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wExportExcelAvery.designer.vb">
+      <DependentUpon>wExportExcelAvery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wExportExcelAvery.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wExportExcelFileMin.designer.vb">
+      <DependentUpon>wExportExcelFileMin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wExportExcelFileMin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\ExportSalemanGTMExcelFile.designer.vb">
+      <DependentUpon>ExportSalemanGTMExcelFile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\ExportSalemanGTMExcelFile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wExportExcelFilePOImport.designer.vb">
+      <DependentUpon>wExportExcelFilePOImport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wExportExcelFilePOImport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseConsolidation.Designer.vb">
+      <DependentUpon>wPurchaseConsolidation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseConsolidation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAddRequest.designer.vb">
+      <DependentUpon>wAddRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAddRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAutoGeneratePOChangeUnit.Designer.vb">
+      <DependentUpon>wAutoGeneratePOChangeUnit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAutoGeneratePOChangeUnit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseRequestTracking.Designer.vb">
+      <DependentUpon>wPurchaseRequestTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseRequestTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseOrderFactory.Designer.vb">
+      <DependentUpon>wPurchaseOrderFactory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseOrderFactory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseOrderByPR.Designer.vb">
+      <DependentUpon>wPurchaseOrderByPR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseOrderByPR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseOrderByPRPoup.Designer.vb">
+      <DependentUpon>wPurchaseOrderByPRPoup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseOrderByPRPoup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseRequest.Designer.vb">
+      <DependentUpon>wPurchaseRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseServiceAddItem.designer.vb">
+      <DependentUpon>wPurchaseServiceAddItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseServiceAddItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAddItemPO.designer.vb">
+      <DependentUpon>wAddItemPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAddItemPO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wAutoGeneratePO.Designer.vb">
+      <DependentUpon>wAutoGeneratePO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wAutoGeneratePO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wExportYRCExcel.Designer.vb">
+      <DependentUpon>wExportYRCExcel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wExportYRCExcel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseReviseRemark.Designer.vb">
+      <DependentUpon>wPurchaseReviseRemark.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseReviseRemark.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseService.Designer.vb">
+      <DependentUpon>wPurchaseService.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseService.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseTracking.Designer.vb">
+      <DependentUpon>wPurchaseTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wListAutoPurchaseOrderNo.Designer.vb">
+      <DependentUpon>wListAutoPurchaseOrderNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wListAutoPurchaseOrderNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseOrder.Designer.vb">
+      <DependentUpon>wPurchaseOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceiveService.Designer.vb">
+      <DependentUpon>wReceiveService.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceiveService.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReceiveServiceItem.Designer.vb">
+      <DependentUpon>wReceiveServiceItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReceiveServiceItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wReservePO.Designer.vb">
+      <DependentUpon>wReservePO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wReservePO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\POCondition.Designer.vb">
+      <DependentUpon>POCondition.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI\POCondition.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wReportPO.resx">
+      <DependentUpon>wReportPO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wReportPOTracking.resx">
+      <DependentUpon>wReportPOTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\ExportQRSQPP.resx">
+      <DependentUpon>ExportQRSQPP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wOptiplantracking.resx">
+      <DependentUpon>wOptiplantracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wSourcingInfomation.resx">
+      <DependentUpon>wSourcingInfomation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAddItemPOByItem.resx">
+      <DependentUpon>wAddItemPOByItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAddItemPOFactory.resx">
+      <DependentUpon>wAddItemPOFactory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAddItemPOByItemListOrder.resx">
+      <DependentUpon>wAddItemPOByItemListOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAutoGeneratePOFactory.resx">
+      <DependentUpon>wAutoGeneratePOFactory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wExportPOItemExcel.resx">
+      <DependentUpon>wExportPOItemExcel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wExportExcelAvery.resx">
+      <DependentUpon>wExportExcelAvery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wExportExcelFileMin.resx">
+      <DependentUpon>wExportExcelFileMin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\ExportSalemanGTMExcelFile.resx">
+      <DependentUpon>ExportSalemanGTMExcelFile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wExportExcelFilePOImport.resx">
+      <DependentUpon>wExportExcelFilePOImport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseConsolidation.resx">
+      <DependentUpon>wPurchaseConsolidation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAddRequest.resx">
+      <DependentUpon>wAddRequest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAutoGeneratePOChangeUnit.resx">
+      <DependentUpon>wAutoGeneratePOChangeUnit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseRequestTracking.resx">
+      <DependentUpon>wPurchaseRequestTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseOrderFactory.resx">
+      <DependentUpon>wPurchaseOrderFactory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseOrderByPR.resx">
+      <DependentUpon>wPurchaseOrderByPR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseOrderByPRPoup.resx">
+      <DependentUpon>wPurchaseOrderByPRPoup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseRequest.resx">
+      <DependentUpon>wPurchaseRequest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseServiceAddItem.resx">
+      <DependentUpon>wPurchaseServiceAddItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAddItemPO.resx">
+      <DependentUpon>wAddItemPO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wAutoGeneratePO.resx">
+      <DependentUpon>wAutoGeneratePO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wExportYRCExcel.resx">
+      <DependentUpon>wExportYRCExcel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseReviseRemark.resx">
+      <DependentUpon>wPurchaseReviseRemark.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseService.resx">
+      <DependentUpon>wPurchaseService.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseTracking.resx">
+      <DependentUpon>wPurchaseTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wListAutoPurchaseOrderNo.resx">
+      <DependentUpon>wListAutoPurchaseOrderNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseOrder.resx">
+      <DependentUpon>wPurchaseOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceiveService.resx">
+      <DependentUpon>wReceiveService.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReceiveServiceItem.resx">
+      <DependentUpon>wReceiveServiceItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wReservePO.resx">
+      <DependentUpon>wReservePO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\POCondition.resx">
+      <DependentUpon>POCondition.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HI.Auditor\HI.Auditor.csproj">
+      <Project>{62c22e9b-5edc-4363-8b71-78b3345e44d0}</Project>
+      <Name>HI.Auditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Conn\HI.Conn.csproj">
+      <Project>{7a2db722-b4b4-4c9a-b624-4763812ca5ab}</Project>
+      <Name>HI.Conn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Delegate\HI.Delegate.vbproj">
+      <Project>{a6701b43-7e52-4f8b-9cbd-420007049a21}</Project>
+      <Name>HI.Delegate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.ENUM\HI.ENM.vbproj">
+      <Project>{4fe1a025-bb21-4bf3-a117-e4bfc5c5218e}</Project>
+      <Name>HI.ENM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.MG\HI.MG.csproj">
+      <Project>{5a72d3b5-c544-4835-a1fc-df6eff9c973a}</Project>
+      <Name>HI.MG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.RP\HI.RP.vbproj">
+      <Project>{28B2EF85-307C-4E24-AFCF-926E6ABE3424}</Project>
+      <Name>HI.RP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.SE\HI.SE.vbproj">
+      <Project>{7CF7AE7B-9C3E-4E5D-9015-1C5FD4EE16B9}</Project>
+      <Name>HI.SE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.ST\HI.ST.csproj">
+      <Project>{42e244bb-ed4a-4579-819d-c00ef4898907}</Project>
+      <Name>HI.ST</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.TLF\HI.TLF.vbproj">
+      <Project>{3AAD5845-DD63-4C10-82A6-B86FF10AB739}</Project>
+      <Name>HI.TLF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.TL\HI.TL.vbproj">
+      <Project>{5DE5B459-1226-40CD-9581-434C43D61B66}</Project>
+      <Name>HI.TL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.UL\HI.UL.csproj">
+      <Project>{e9d7341b-e2d4-4a59-b328-79e51f3c0138}</Project>
+      <Name>HI.UL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

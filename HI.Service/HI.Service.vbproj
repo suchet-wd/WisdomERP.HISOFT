@@ -1,0 +1,697 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DFA77086-CAF8-4D6E-B57A-30FD04A54237}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
+    <RootNamespace>HI.Service</RootNamespace>
+    <AssemblyName>HI.Service</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>HI.Service.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>HI.Service.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v20.1.Drawing, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v20.1.Export, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Spreadsheet.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPdfViewer.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Images.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpreadsheet.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\Microsoft.Office.Interop.Outlook.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClsConvertPDF.vb" />
+    <Compile Include="ClsService.vb" />
+    <Compile Include="StyleRiskCritical.Designer.vb">
+      <DependentUpon>StyleRiskCritical.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StyleRiskCritical.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC\EfkaInfo.Designer.vb">
+      <DependentUpon>EfkaInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UC\EfkaInfo.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\QACritical.Designer.vb">
+      <DependentUpon>QACritical.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UC\QACritical.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="wAddItemPOAsset.designer.vb">
+      <DependentUpon>wAddItemPOAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wAddItemPOAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wAddItemPOFactory.designer.vb">
+      <DependentUpon>wAddItemPOFactory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wAddItemPOFactory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wAddItemPOServiceAsset.designer.vb">
+      <DependentUpon>wAddItemPOServiceAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wAddItemPOServiceAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wAddItemPRServiceAsset.designer.vb">
+      <DependentUpon>wAddItemPRServiceAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wAddItemPRServiceAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wAddRequest.designer.vb">
+      <DependentUpon>wAddRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wAddRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wAddRequestAsset.designer.vb">
+      <DependentUpon>wAddRequestAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wAddRequestAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wDirectorApprovedAsset.designer.vb">
+      <DependentUpon>wDirectorApprovedAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wDirectorApprovedAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wDirectorApprovedAssetPR.designer.vb">
+      <DependentUpon>wDirectorApprovedAssetPR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wDirectorApprovedAssetPR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wEmployeeLeave.designer.vb">
+      <DependentUpon>wEmployeeLeave.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wEmployeeLeave.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wLeaveApproved.designer.vb">
+      <DependentUpon>wLeaveApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wLeaveApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wOrderCostApproved.designer.vb">
+      <DependentUpon>wOrderCostApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wOrderCostApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wPRFactoryApproved.designer.vb">
+      <DependentUpon>wPRFactoryApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wPRFactoryApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ucShowDoc.designer.vb">
+      <DependentUpon>ucShowDoc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ucShowDoc.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="wDCFactoryApproved.designer.vb">
+      <DependentUpon>wDCFactoryApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wDCFactoryApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wPurchaseOrderFactory.Designer.vb">
+      <DependentUpon>wPurchaseOrderFactory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wPurchaseOrderFactory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wPurchaserAsset.Designer.vb">
+      <DependentUpon>wPurchaserAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wPurchaserAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wPurchaserAssetRevise.Designer.vb">
+      <DependentUpon>wPurchaserAssetRevise.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wPurchaserAssetRevise.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wPurchaseRequest.Designer.vb">
+      <DependentUpon>wPurchaseRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wPurchaseRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wPurchaseRequestAsset.Designer.vb">
+      <DependentUpon>wPurchaseRequestAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wPurchaseRequestAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wPurchaserServiceAsset.Designer.vb">
+      <DependentUpon>wPurchaserServiceAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wPurchaserServiceAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wPurchaseService.Designer.vb">
+      <DependentUpon>wPurchaseService.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wPurchaseService.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wPurchaseServiceAddItem.designer.vb">
+      <DependentUpon>wPurchaseServiceAddItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wPurchaseServiceAddItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wQAFinalLeaderApproved.designer.vb">
+      <DependentUpon>wQAFinalLeaderApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wQAFinalLeaderApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wLineLeaderApproved.designer.vb">
+      <DependentUpon>wLineLeaderApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wLineLeaderApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wFactoryManagerApproved.designer.vb">
+      <DependentUpon>wFactoryManagerApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wFactoryManagerApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wDirectorApproved_OLD.designer.vb">
+      <DependentUpon>wDirectorApproved_OLD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wDirectorApproved_OLD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wDirectorApproved.designer.vb">
+      <DependentUpon>wDirectorApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wDirectorApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="wAddItemPO.designer.vb">
+      <DependentUpon>wAddItemPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wAddItemPO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wMerChandiserManagerApproved.designer.vb">
+      <DependentUpon>wMerChandiserManagerApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wMerChandiserManagerApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wPurchaseReviseRemark.Designer.vb">
+      <DependentUpon>wPurchaseReviseRemark.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wPurchaseReviseRemark.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wReportLeavePopup.designer.vb">
+      <DependentUpon>wReportLeavePopup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wReportLeavePopup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wSafetyApprovedAssetPR.designer.vb">
+      <DependentUpon>wSafetyApprovedAssetPR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wSafetyApprovedAssetPR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wShowRejectDC.Designer.vb">
+      <DependentUpon>wShowRejectDC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wShowRejectDC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wRDSamApproved.designer.vb">
+      <DependentUpon>wRDSamApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wRDSamApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wSMPIncentiveManagerApproved.designer.vb">
+      <DependentUpon>wSMPIncentiveManagerApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wSMPIncentiveManagerApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wSMPIncentiveApproved.designer.vb">
+      <DependentUpon>wSMPIncentiveApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wSMPIncentiveApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wSMPPurchase.Designer.vb">
+      <DependentUpon>wSMPPurchase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wSMPPurchase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wSMPPurchaseAddItem.designer.vb">
+      <DependentUpon>wSMPPurchaseAddItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wSMPPurchaseAddItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wSupervisorApproved.designer.vb">
+      <DependentUpon>wSupervisorApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wSupervisorApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wPurchaseOrder.Designer.vb">
+      <DependentUpon>wPurchaseOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wPurchaseOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wShowData.designer.vb">
+      <DependentUpon>wShowData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wShowData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wShowReject.Designer.vb">
+      <DependentUpon>wShowReject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wShowReject.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wSupervisorApprovedAsset.designer.vb">
+      <DependentUpon>wSupervisorApprovedAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wSupervisorApprovedAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wSupervisorApprovedAssetPR.designer.vb">
+      <DependentUpon>wSupervisorApprovedAssetPR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wSupervisorApprovedAssetPR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wSupervisorApproved_Old.Designer.vb">
+      <DependentUpon>wSupervisorApproved_Old.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wSupervisorApproved_Old.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wWHManegerApproved.designer.vb">
+      <DependentUpon>wWHManegerApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wWHManegerApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="StyleRiskCritical.resx">
+      <DependentUpon>StyleRiskCritical.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\EfkaInfo.resx">
+      <DependentUpon>EfkaInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\QACritical.resx">
+      <DependentUpon>QACritical.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wAddItemPOAsset.resx">
+      <DependentUpon>wAddItemPOAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wAddItemPOFactory.resx">
+      <DependentUpon>wAddItemPOFactory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wAddItemPOServiceAsset.resx">
+      <DependentUpon>wAddItemPOServiceAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wAddItemPRServiceAsset.resx">
+      <DependentUpon>wAddItemPRServiceAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wAddRequest.resx">
+      <DependentUpon>wAddRequest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wAddRequestAsset.resx">
+      <DependentUpon>wAddRequestAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wDirectorApprovedAsset.resx">
+      <DependentUpon>wDirectorApprovedAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wDirectorApprovedAssetPR.resx">
+      <DependentUpon>wDirectorApprovedAssetPR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wEmployeeLeave.resx">
+      <DependentUpon>wEmployeeLeave.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wLeaveApproved.resx">
+      <DependentUpon>wLeaveApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wOrderCostApproved.resx">
+      <DependentUpon>wOrderCostApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wPRFactoryApproved.resx">
+      <DependentUpon>wPRFactoryApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucShowDoc.resx">
+      <DependentUpon>ucShowDoc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wDCFactoryApproved.resx">
+      <DependentUpon>wDCFactoryApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wPurchaseOrderFactory.resx">
+      <DependentUpon>wPurchaseOrderFactory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wPurchaserAsset.resx">
+      <DependentUpon>wPurchaserAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wPurchaserAssetRevise.resx">
+      <DependentUpon>wPurchaserAssetRevise.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wPurchaseRequest.resx">
+      <DependentUpon>wPurchaseRequest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wPurchaseRequestAsset.resx">
+      <DependentUpon>wPurchaseRequestAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wPurchaserServiceAsset.resx">
+      <DependentUpon>wPurchaserServiceAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wPurchaseService.resx">
+      <DependentUpon>wPurchaseService.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wPurchaseServiceAddItem.resx">
+      <DependentUpon>wPurchaseServiceAddItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wQAFinalLeaderApproved.resx">
+      <DependentUpon>wQAFinalLeaderApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wLineLeaderApproved.resx">
+      <DependentUpon>wLineLeaderApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wFactoryManagerApproved.resx">
+      <DependentUpon>wFactoryManagerApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wDirectorApproved_OLD.resx">
+      <DependentUpon>wDirectorApproved_OLD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wDirectorApproved.resx">
+      <DependentUpon>wDirectorApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wAddItemPO.resx">
+      <DependentUpon>wAddItemPO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wMerChandiserManagerApproved.resx">
+      <DependentUpon>wMerChandiserManagerApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wPurchaseReviseRemark.resx">
+      <DependentUpon>wPurchaseReviseRemark.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wReportLeavePopup.resx">
+      <DependentUpon>wReportLeavePopup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wSafetyApprovedAssetPR.resx">
+      <DependentUpon>wSafetyApprovedAssetPR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wShowRejectDC.resx">
+      <DependentUpon>wShowRejectDC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wRDSamApproved.resx">
+      <DependentUpon>wRDSamApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wSMPIncentiveManagerApproved.resx">
+      <DependentUpon>wSMPIncentiveManagerApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wSMPIncentiveApproved.resx">
+      <DependentUpon>wSMPIncentiveApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wSMPPurchase.resx">
+      <DependentUpon>wSMPPurchase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wSMPPurchaseAddItem.resx">
+      <DependentUpon>wSMPPurchaseAddItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wSupervisorApproved.resx">
+      <DependentUpon>wSupervisorApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wPurchaseOrder.resx">
+      <DependentUpon>wPurchaseOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wShowData.resx">
+      <DependentUpon>wShowData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wShowReject.resx">
+      <DependentUpon>wShowReject.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wSupervisorApprovedAsset.resx">
+      <DependentUpon>wSupervisorApprovedAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wSupervisorApprovedAssetPR.resx">
+      <DependentUpon>wSupervisorApprovedAssetPR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wSupervisorApproved_Old.resx">
+      <DependentUpon>wSupervisorApproved_Old.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wWHManegerApproved.resx">
+      <DependentUpon>wWHManegerApproved.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HI.ACC\HI.ACC.vbproj">
+      <Project>{dcecfe50-8407-4e68-aa7a-d797fc0ac1b3}</Project>
+      <Name>HI.ACC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Conn\HI.Conn.csproj">
+      <Project>{7a2db722-b4b4-4c9a-b624-4763812ca5ab}</Project>
+      <Name>HI.Conn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.Delegate\HI.Delegate.vbproj">
+      <Project>{a6701b43-7e52-4f8b-9cbd-420007049a21}</Project>
+      <Name>HI.Delegate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.ENUM\HI.ENM.vbproj">
+      <Project>{4fe1a025-bb21-4bf3-a117-e4bfc5c5218e}</Project>
+      <Name>HI.ENM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.HRCAL\HI.HRCAL.vbproj">
+      <Project>{956d45a8-e9fc-487d-9faa-bc30fc86016d}</Project>
+      <Name>HI.HRCAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.MG\HI.MG.csproj">
+      <Project>{5a72d3b5-c544-4835-a1fc-df6eff9c973a}</Project>
+      <Name>HI.MG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.RP\HI.RP.vbproj">
+      <Project>{28b2ef85-307c-4e24-afcf-926e6abe3424}</Project>
+      <Name>HI.RP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.ST\HI.ST.csproj">
+      <Project>{42e244bb-ed4a-4579-819d-c00ef4898907}</Project>
+      <Name>HI.ST</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.TL\HI.TL.vbproj">
+      <Project>{5de5b459-1226-40cd-9581-434c43d61b66}</Project>
+      <Name>HI.TL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HI.UL\HI.UL.csproj">
+      <Project>{e9d7341b-e2d4-4a59-b328-79e51f3c0138}</Project>
+      <Name>HI.UL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
