@@ -386,9 +386,7 @@
     <Content Include="24.ico" />
     <Content Include="6-10-2556 14-38-01.ico" />
     <Content Include="96.ico" />
-    <Content Include="bin\Debug\Database.xml">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="bin\Debug\Database.xml" />
     <Content Include="bin\Debug\NikeFileInvoice.xml" />
     <Content Include="Wisdom.ico" />
     <Content Include="Wisdom_logo_Hires.ico" />

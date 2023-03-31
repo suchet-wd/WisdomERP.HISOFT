@@ -40,10 +40,6 @@ namespace HI.Track
             this.barDockingMenuItem1 = new DevExpress.XtraBars.BarDockingMenuItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.FTCusCode = new DevExpress.XtraEditors.ButtonEdit();
-            this.ogbmainprocbutton = new DevExpress.XtraEditors.PanelControl();
-            this.ocmClear = new DevExpress.XtraEditors.SimpleButton();
-            this.ocmLoadData = new DevExpress.XtraEditors.SimpleButton();
-            this.ocmExit = new DevExpress.XtraEditors.SimpleButton();
             this.ogcMain = new DevExpress.XtraGrid.GridControl();
             this.ogvMain = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.MCusCode = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,42 +48,39 @@ namespace HI.Track
             this.DCusCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CusName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TaxID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.wRptTrackTestlayoutControl1ConvertedLayout = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.otcitem = new DevExpress.XtraLayout.TabbedControlGroup();
-            this.ogcCriteriaitem = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.panelControl1item = new DevExpress.XtraLayout.LayoutControlItem();
-            this.TabMainitem = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.ogbMainitem = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.ogcMainitem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.TabDetailitem = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.ogbDetailitem = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.ogcDetailitem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.FTCusCodeitem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ogbmainprocbuttonitem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ogbmainprocbutton = new DevExpress.XtraEditors.PanelControl();
+            this.ocmClear = new DevExpress.XtraEditors.SimpleButton();
+            this.ocmLoadData = new DevExpress.XtraEditors.SimpleButton();
+            this.ocmExit = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FTCusCode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ogbmainprocbutton)).BeginInit();
-            this.ogbmainprocbutton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ogcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogvMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogcDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogvDetail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wRptTrackTestlayoutControl1ConvertedLayout)).BeginInit();
-            this.wRptTrackTestlayoutControl1ConvertedLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.otcitem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ogcCriteriaitem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1item)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TabMainitem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ogbMainitem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ogcMainitem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TabDetailitem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ogbDetailitem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ogcDetailitem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FTCusCodeitem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ogbmainprocbuttonitem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ogbmainprocbutton)).BeginInit();
+            this.ogbmainprocbutton.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
+            this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
+            this.groupControl4.SuspendLayout();
             this.SuspendLayout();
             // 
             // barManager1
@@ -164,66 +157,29 @@ namespace HI.Track
             // panelControl1
             // 
             this.panelControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelControl1.Location = new System.Drawing.Point(12, 12);
+            this.panelControl1.Location = new System.Drawing.Point(2, 2);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1, 514);
             this.panelControl1.TabIndex = 5;
             // 
             // FTCusCode
             // 
-            this.FTCusCode.Location = new System.Drawing.Point(125, 45);
+            this.FTCusCode.Location = new System.Drawing.Point(113, 26);
             this.FTCusCode.MenuManager = this.barManager1;
             this.FTCusCode.Name = "FTCusCode";
             this.FTCusCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.FTCusCode.Size = new System.Drawing.Size(68, 20);
-            this.FTCusCode.StyleController = this.wRptTrackTestlayoutControl1ConvertedLayout;
+            this.FTCusCode.Size = new System.Drawing.Size(231, 20);
             this.FTCusCode.TabIndex = 7;
-            // 
-            // ogbmainprocbutton
-            // 
-            this.ogbmainprocbutton.Controls.Add(this.ocmClear);
-            this.ogbmainprocbutton.Controls.Add(this.ocmLoadData);
-            this.ogbmainprocbutton.Controls.Add(this.ocmExit);
-            this.ogbmainprocbutton.Location = new System.Drawing.Point(197, 45);
-            this.ogbmainprocbutton.Name = "ogbmainprocbutton";
-            this.ogbmainprocbutton.Size = new System.Drawing.Size(615, 20);
-            this.ogbmainprocbutton.TabIndex = 8;
-            // 
-            // ocmClear
-            // 
-            this.ocmClear.Location = new System.Drawing.Point(96, 5);
-            this.ocmClear.Name = "ocmClear";
-            this.ocmClear.Size = new System.Drawing.Size(75, 23);
-            this.ocmClear.TabIndex = 2;
-            this.ocmClear.Text = "Clear";
-            this.ocmClear.Click += new System.EventHandler(this.ocmClear_Click);
-            // 
-            // ocmLoadData
-            // 
-            this.ocmLoadData.Location = new System.Drawing.Point(5, 5);
-            this.ocmLoadData.Name = "ocmLoadData";
-            this.ocmLoadData.Size = new System.Drawing.Size(75, 23);
-            this.ocmLoadData.TabIndex = 1;
-            this.ocmLoadData.Text = "Load Data";
-            this.ocmLoadData.Click += new System.EventHandler(this.ocmLoadData_Click);
-            // 
-            // ocmExit
-            // 
-            this.ocmExit.Location = new System.Drawing.Point(186, 5);
-            this.ocmExit.Name = "ocmExit";
-            this.ocmExit.Size = new System.Drawing.Size(75, 23);
-            this.ocmExit.TabIndex = 0;
-            this.ocmExit.Text = "Exit";
-            this.ocmExit.Click += new System.EventHandler(this.ocmExit_Click);
             // 
             // ogcMain
             // 
-            this.ogcMain.Location = new System.Drawing.Point(41, 149);
+            this.ogcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ogcMain.Location = new System.Drawing.Point(2, 23);
             this.ogcMain.MainView = this.ogvMain;
             this.ogcMain.MenuManager = this.barManager1;
             this.ogcMain.Name = "ogcMain";
-            this.ogcMain.Size = new System.Drawing.Size(759, 353);
+            this.ogcMain.Size = new System.Drawing.Size(826, 415);
             this.ogcMain.TabIndex = 0;
             this.ogcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.ogvMain});
@@ -245,7 +201,7 @@ namespace HI.Track
             // 
             // ogcDetail
             // 
-            this.ogcDetail.Location = new System.Drawing.Point(41, 149);
+            this.ogcDetail.Location = new System.Drawing.Point(2, 22);
             this.ogcDetail.MainView = this.ogvDetail;
             this.ogcDetail.MenuManager = this.barManager1;
             this.ogcDetail.Name = "ogcDetail";
@@ -287,140 +243,130 @@ namespace HI.Track
             this.TaxID.Visible = true;
             this.TaxID.VisibleIndex = 2;
             // 
-            // wRptTrackTestlayoutControl1ConvertedLayout
+            // ogbmainprocbutton
             // 
-            this.wRptTrackTestlayoutControl1ConvertedLayout.Controls.Add(this.ogcMain);
-            this.wRptTrackTestlayoutControl1ConvertedLayout.Controls.Add(this.ogcDetail);
-            this.wRptTrackTestlayoutControl1ConvertedLayout.Controls.Add(this.FTCusCode);
-            this.wRptTrackTestlayoutControl1ConvertedLayout.Controls.Add(this.ogbmainprocbutton);
-            this.wRptTrackTestlayoutControl1ConvertedLayout.Controls.Add(this.panelControl1);
-            this.wRptTrackTestlayoutControl1ConvertedLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wRptTrackTestlayoutControl1ConvertedLayout.Location = new System.Drawing.Point(0, 0);
-            this.wRptTrackTestlayoutControl1ConvertedLayout.Name = "wRptTrackTestlayoutControl1ConvertedLayout";
-            this.wRptTrackTestlayoutControl1ConvertedLayout.Root = this.layoutControlGroup1;
-            this.wRptTrackTestlayoutControl1ConvertedLayout.Size = new System.Drawing.Size(836, 538);
-            this.wRptTrackTestlayoutControl1ConvertedLayout.TabIndex = 18;
+            this.ogbmainprocbutton.Controls.Add(this.ocmClear);
+            this.ogbmainprocbutton.Controls.Add(this.ocmLoadData);
+            this.ogbmainprocbutton.Controls.Add(this.ocmExit);
+            this.ogbmainprocbutton.Location = new System.Drawing.Point(542, 26);
+            this.ogbmainprocbutton.Name = "ogbmainprocbutton";
+            this.ogbmainprocbutton.Size = new System.Drawing.Size(280, 37);
+            this.ogbmainprocbutton.TabIndex = 8;
             // 
-            // layoutControlGroup1
+            // ocmClear
             // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.otcitem,
-            this.ogcCriteriaitem,
-            this.panelControl1item});
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(836, 538);
-            this.layoutControlGroup1.TextVisible = false;
+            this.ocmClear.Location = new System.Drawing.Point(96, 5);
+            this.ocmClear.Name = "ocmClear";
+            this.ocmClear.Size = new System.Drawing.Size(75, 23);
+            this.ocmClear.TabIndex = 2;
+            this.ocmClear.Text = "Clear";
+            this.ocmClear.Click += new System.EventHandler(this.ocmClear_Click);
             // 
-            // otcitem
+            // ocmLoadData
             // 
-            this.otcitem.Location = new System.Drawing.Point(5, 69);
-            this.otcitem.Name = "otcitem";
-            this.otcitem.SelectedTabPage = this.TabDetailitem;
-            this.otcitem.Size = new System.Drawing.Size(811, 449);
-            this.otcitem.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.TabMainitem,
-            this.TabDetailitem});
+            this.ocmLoadData.Location = new System.Drawing.Point(5, 5);
+            this.ocmLoadData.Name = "ocmLoadData";
+            this.ocmLoadData.Size = new System.Drawing.Size(75, 23);
+            this.ocmLoadData.TabIndex = 1;
+            this.ocmLoadData.Text = "Load Data";
+            this.ocmLoadData.Click += new System.EventHandler(this.ocmLoadData_Click);
             // 
-            // ogcCriteriaitem
+            // ocmExit
             // 
-            this.ogcCriteriaitem.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.FTCusCodeitem,
-            this.ogbmainprocbuttonitem});
-            this.ogcCriteriaitem.Location = new System.Drawing.Point(5, 0);
-            this.ogcCriteriaitem.Name = "ogcCriteriaitem";
-            this.ogcCriteriaitem.Size = new System.Drawing.Size(811, 69);
-            this.ogcCriteriaitem.Text = "Criteria";
+            this.ocmExit.Location = new System.Drawing.Point(186, 5);
+            this.ocmExit.Name = "ocmExit";
+            this.ocmExit.Size = new System.Drawing.Size(75, 23);
+            this.ocmExit.TabIndex = 0;
+            this.ocmExit.Text = "Exit";
+            this.ocmExit.Click += new System.EventHandler(this.ocmExit_Click);
             // 
-            // panelControl1item
+            // groupControl1
             // 
-            this.panelControl1item.Control = this.panelControl1;
-            this.panelControl1item.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1item.Name = "panelControl1item";
-            this.panelControl1item.Size = new System.Drawing.Size(5, 518);
-            this.panelControl1item.TextSize = new System.Drawing.Size(0, 0);
-            this.panelControl1item.TextVisible = false;
+            this.groupControl1.CaptionLocation = DevExpress.Utils.Locations.Top;
+            this.groupControl1.Controls.Add(this.xtraTabControl1);
+            this.groupControl1.Controls.Add(this.groupControl4);
+            this.groupControl1.Controls.Add(this.panelControl1);
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.ShowCaption = false;
+            this.groupControl1.Size = new System.Drawing.Size(836, 538);
+            this.groupControl1.TabIndex = 23;
+            this.groupControl1.Text = "layoutControlGroup1";
             // 
-            // TabMainitem
+            // xtraTabControl1
             // 
-            this.TabMainitem.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.ogbMainitem});
-            this.TabMainitem.Location = new System.Drawing.Point(0, 0);
-            this.TabMainitem.Name = "TabMainitem";
-            this.TabMainitem.Size = new System.Drawing.Size(787, 402);
-            this.TabMainitem.Text = "Main";
+            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl1.Location = new System.Drawing.Point(2, 71);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.Size = new System.Drawing.Size(832, 465);
+            this.xtraTabControl1.TabIndex = 0;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage1,
+            this.xtraTabPage2});
             // 
-            // ogbMainitem
+            // xtraTabPage1
             // 
-            this.ogbMainitem.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.ogcMainitem});
-            this.ogbMainitem.Location = new System.Drawing.Point(0, 0);
-            this.ogbMainitem.Name = "ogbMainitem";
-            this.ogbMainitem.Size = new System.Drawing.Size(787, 402);
-            this.ogbMainitem.Text = "Main";
+            this.xtraTabPage1.Controls.Add(this.groupControl2);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(830, 440);
+            this.xtraTabPage1.Text = "Main";
             // 
-            // ogcMainitem
+            // groupControl2
             // 
-            this.ogcMainitem.Control = this.ogcMain;
-            this.ogcMainitem.Location = new System.Drawing.Point(0, 0);
-            this.ogcMainitem.Name = "ogcMainitem";
-            this.ogcMainitem.Size = new System.Drawing.Size(763, 357);
-            this.ogcMainitem.TextSize = new System.Drawing.Size(0, 0);
-            this.ogcMainitem.TextVisible = false;
+            this.groupControl2.CaptionLocation = DevExpress.Utils.Locations.Top;
+            this.groupControl2.Controls.Add(this.ogcMain);
+            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl2.Location = new System.Drawing.Point(0, 0);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(830, 440);
+            this.groupControl2.TabIndex = 0;
+            this.groupControl2.Text = "Main";
             // 
-            // TabDetailitem
+            // xtraTabPage2
             // 
-            this.TabDetailitem.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.ogbDetailitem});
-            this.TabDetailitem.Location = new System.Drawing.Point(0, 0);
-            this.TabDetailitem.Name = "TabDetailitem";
-            this.TabDetailitem.Size = new System.Drawing.Size(787, 402);
-            this.TabDetailitem.Text = "Detail";
+            this.xtraTabPage2.Controls.Add(this.groupControl3);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(830, 440);
+            this.xtraTabPage2.Text = "Detail";
             // 
-            // ogbDetailitem
+            // groupControl3
             // 
-            this.ogbDetailitem.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.ogcDetailitem});
-            this.ogbDetailitem.Location = new System.Drawing.Point(0, 0);
-            this.ogbDetailitem.Name = "ogbDetailitem";
-            this.ogbDetailitem.Size = new System.Drawing.Size(787, 402);
-            this.ogbDetailitem.Text = "Detail";
+            this.groupControl3.CaptionLocation = DevExpress.Utils.Locations.Top;
+            this.groupControl3.Controls.Add(this.ogcDetail);
+            this.groupControl3.Location = new System.Drawing.Point(0, 0);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(787, 402);
+            this.groupControl3.TabIndex = 0;
+            this.groupControl3.Text = "Detail";
             // 
-            // ogcDetailitem
+            // groupControl4
             // 
-            this.ogcDetailitem.Control = this.ogcDetail;
-            this.ogcDetailitem.Location = new System.Drawing.Point(0, 0);
-            this.ogcDetailitem.Name = "ogcDetailitem";
-            this.ogcDetailitem.Size = new System.Drawing.Size(763, 357);
-            this.ogcDetailitem.TextSize = new System.Drawing.Size(0, 0);
-            this.ogcDetailitem.TextVisible = false;
+            this.groupControl4.CaptionLocation = DevExpress.Utils.Locations.Top;
+            this.groupControl4.Controls.Add(this.labelControl1);
+            this.groupControl4.Controls.Add(this.FTCusCode);
+            this.groupControl4.Controls.Add(this.ogbmainprocbutton);
+            this.groupControl4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl4.Location = new System.Drawing.Point(2, 2);
+            this.groupControl4.Name = "groupControl4";
+            this.groupControl4.Size = new System.Drawing.Size(832, 69);
+            this.groupControl4.TabIndex = 1;
+            this.groupControl4.Text = "Criteria";
             // 
-            // FTCusCodeitem
+            // labelControl1
             // 
-            this.FTCusCodeitem.Control = this.FTCusCode;
-            this.FTCusCodeitem.Location = new System.Drawing.Point(0, 0);
-            this.FTCusCodeitem.Name = "FTCusCodeitem";
-            this.FTCusCodeitem.Size = new System.Drawing.Size(168, 24);
-            this.FTCusCodeitem.Text = "Customer Code : ";
-            this.FTCusCodeitem.TextLocation = DevExpress.Utils.Locations.Left;
-            this.FTCusCodeitem.TextSize = new System.Drawing.Size(84, 13);
-            // 
-            // ogbmainprocbuttonitem
-            // 
-            this.ogbmainprocbuttonitem.Control = this.ogbmainprocbutton;
-            this.ogbmainprocbuttonitem.Location = new System.Drawing.Point(168, 0);
-            this.ogbmainprocbuttonitem.Name = "ogbmainprocbuttonitem";
-            this.ogbmainprocbuttonitem.Size = new System.Drawing.Size(619, 24);
-            this.ogbmainprocbuttonitem.TextSize = new System.Drawing.Size(0, 0);
-            this.ogbmainprocbuttonitem.TextVisible = false;
+            this.labelControl1.Location = new System.Drawing.Point(7, 29);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(84, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Customer Code : ";
             // 
             // wRptTrackTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 558);
-            this.Controls.Add(this.wRptTrackTestlayoutControl1ConvertedLayout);
+            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -430,26 +376,25 @@ namespace HI.Track
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FTCusCode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ogbmainprocbutton)).EndInit();
-            this.ogbmainprocbutton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ogcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogvMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogcDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogvDetail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wRptTrackTestlayoutControl1ConvertedLayout)).EndInit();
-            this.wRptTrackTestlayoutControl1ConvertedLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.otcitem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ogcCriteriaitem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1item)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TabMainitem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ogbMainitem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ogcMainitem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TabDetailitem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ogbDetailitem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ogcDetailitem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FTCusCodeitem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ogbmainprocbuttonitem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ogbmainprocbutton)).EndInit();
+            this.ogbmainprocbutton.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
+            this.xtraTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
+            this.groupControl4.ResumeLayout(false);
+            this.groupControl4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -479,18 +424,13 @@ namespace HI.Track
         private DevExpress.XtraGrid.GridControl ogcMain;
         private DevExpress.XtraGrid.Views.Grid.GridView ogvMain;
         private DevExpress.XtraGrid.Columns.GridColumn MCusCode;
-        private DevExpress.XtraLayout.LayoutControl wRptTrackTestlayoutControl1ConvertedLayout;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraLayout.TabbedControlGroup otcitem;
-        private DevExpress.XtraLayout.LayoutControlGroup TabDetailitem;
-        private DevExpress.XtraLayout.LayoutControlGroup ogbDetailitem;
-        private DevExpress.XtraLayout.LayoutControlItem ogcDetailitem;
-        private DevExpress.XtraLayout.LayoutControlGroup TabMainitem;
-        private DevExpress.XtraLayout.LayoutControlGroup ogbMainitem;
-        private DevExpress.XtraLayout.LayoutControlItem ogcMainitem;
-        private DevExpress.XtraLayout.LayoutControlGroup ogcCriteriaitem;
-        private DevExpress.XtraLayout.LayoutControlItem FTCusCodeitem;
-        private DevExpress.XtraLayout.LayoutControlItem ogbmainprocbuttonitem;
-        private DevExpress.XtraLayout.LayoutControlItem panelControl1item;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private DevExpress.XtraEditors.GroupControl groupControl3;
+        private DevExpress.XtraEditors.GroupControl groupControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

@@ -78,7 +78,9 @@ namespace HI.Track
             this.FTMerPLT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTMerMFG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTStatus = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.GSeqnum = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryFTState = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.repositorySeqnumIs1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ogcCriteria)).BeginInit();
             this.ogcCriteria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FNHSysSeasonIdTo.Properties)).BeginInit();
@@ -92,6 +94,7 @@ namespace HI.Track
             ((System.ComponentModel.ISupportInitialize)(this.ogcDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogvDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryFTState)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositorySeqnumIs1)).BeginInit();
             this.SuspendLayout();
             // 
             // ogcCriteria
@@ -266,7 +269,8 @@ namespace HI.Track
             this.ogcDetail.MainView = this.ogvDetail;
             this.ogcDetail.Name = "ogcDetail";
             this.ogcDetail.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryFTState});
+            this.repositoryFTState,
+            this.repositorySeqnumIs1});
             this.ogcDetail.Size = new System.Drawing.Size(1023, 454);
             this.ogcDetail.TabIndex = 0;
             this.ogcDetail.Tag = "2|";
@@ -288,7 +292,8 @@ namespace HI.Track
             this.FTMfgLT,
             this.FTMerPLT,
             this.FTMerMFG,
-            this.FTStatus});
+            this.FTStatus,
+            this.GSeqnum});
             this.ogvDetail.GridControl = this.ogcDetail;
             this.ogvDetail.Name = "ogvDetail";
             this.ogvDetail.OptionsView.ShowGroupPanel = false;
@@ -427,12 +432,18 @@ namespace HI.Track
             this.FTStatus.AppearanceCell.Options.UseTextOptions = true;
             this.FTStatus.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.FTStatus.Caption = "FTStatus";
-            this.FTStatus.ColumnEdit = this.repositoryFTState;
             this.FTStatus.FieldName = "FTStatus";
             this.FTStatus.Name = "FTStatus";
             this.FTStatus.Visible = true;
             this.FTStatus.VisibleIndex = 12;
             this.FTStatus.Width = 191;
+            // 
+            // GSeqnum
+            // 
+            this.GSeqnum.Caption = "Seqnum";
+            this.GSeqnum.FieldName = "Seqnum";
+            this.GSeqnum.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.GSeqnum.Name = "GSeqnum";
             // 
             // repositoryFTState
             // 
@@ -440,6 +451,12 @@ namespace HI.Track
             this.repositoryFTState.Name = "repositoryFTState";
             this.repositoryFTState.ValueChecked = "1";
             this.repositoryFTState.ValueUnchecked = "0";
+            // 
+            // repositorySeqnumIs1
+            // 
+            this.repositorySeqnumIs1.AutoHeight = false;
+            this.repositorySeqnumIs1.Name = "repositorySeqnumIs1";
+            this.repositorySeqnumIs1.ValueChecked = "1";
             // 
             // wProdLTTracking
             // 
@@ -463,6 +480,7 @@ namespace HI.Track
             ((System.ComponentModel.ISupportInitialize)(this.ogcDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogvDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryFTState)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositorySeqnumIs1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -499,5 +517,7 @@ namespace HI.Track
         private DevExpress.XtraGrid.Columns.GridColumn FTMerMFG;
         private DevExpress.XtraGrid.Columns.GridColumn FTStatus;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryFTState;
+        private DevExpress.XtraGrid.Columns.GridColumn GSeqnum;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositorySeqnumIs1;
     }
 }

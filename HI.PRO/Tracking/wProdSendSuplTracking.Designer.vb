@@ -100,6 +100,12 @@ Partial Class wProdSendSuplTracking
         Dim SerializableAppearanceObject60 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbheader = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
+        Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
+        Me.ocmpreview = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmsavelayout = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmload = New DevExpress.XtraEditors.SimpleButton()
         Me.otbx = New DevExpress.XtraTab.XtraTabControl()
         Me.otpcompany = New DevExpress.XtraTab.XtraTabPage()
         Me.ogccmp = New DevExpress.XtraGrid.GridControl()
@@ -207,13 +213,15 @@ Partial Class wProdSendSuplTracking
         Me.FTPORef1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GFTSendApproveBy = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GFTSendApproveDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GFTSendApproveBal = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GFTSendApproveQty = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GFTRcvApproveBy = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GFTRcvApproveDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GFTRcvApproveQty = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GFTRcvApproveBal = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
-        Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
-        Me.ocmpreview = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmsavelayout = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmload = New DevExpress.XtraEditors.SimpleButton()
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.ControlContainer1 = New DevExpress.XtraBars.Docking.ControlContainer()
         Me.DateEdit1 = New DevExpress.XtraEditors.DateEdit()
@@ -266,6 +274,8 @@ Partial Class wProdSendSuplTracking
         Me.LabelControl20 = New DevExpress.XtraEditors.LabelControl()
         Me.ogbheader.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
+        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ogbmainprocbutton.SuspendLayout()
         CType(Me.otbx, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.otbx.SuspendLayout()
         Me.otpcompany.SuspendLayout()
@@ -310,8 +320,6 @@ Partial Class wProdSendSuplTracking
         CType(Me.ogcbybundle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvbybundle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbmainprocbutton.SuspendLayout()
         Me.DockPanel1.SuspendLayout()
         Me.ControlContainer1.SuspendLayout()
         CType(Me.DateEdit1.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -381,6 +389,7 @@ Partial Class wProdSendSuplTracking
         '
         'DockPanel1_Container
         '
+        Me.DockPanel1_Container.Controls.Add(Me.ogbmainprocbutton)
         Me.DockPanel1_Container.Controls.Add(Me.otbx)
         Me.DockPanel1_Container.Controls.Add(Me.FNReportGridMergeFormat)
         Me.DockPanel1_Container.Controls.Add(Me.FNReportGridMergeFormat_lbl)
@@ -413,6 +422,65 @@ Partial Class wProdSendSuplTracking
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
         Me.DockPanel1_Container.Size = New System.Drawing.Size(1463, 235)
         Me.DockPanel1_Container.TabIndex = 0
+        '
+        'ogbmainprocbutton
+        '
+        Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmpreview)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmsavelayout)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(13, 191)
+        Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(531, 41)
+        Me.ogbmainprocbutton.TabIndex = 387
+        Me.ogbmainprocbutton.Tag = "2|"
+        '
+        'ocmpreview
+        '
+        Me.ocmpreview.Location = New System.Drawing.Point(330, 7)
+        Me.ocmpreview.Name = "ocmpreview"
+        Me.ocmpreview.Size = New System.Drawing.Size(95, 23)
+        Me.ocmpreview.TabIndex = 333
+        Me.ocmpreview.Text = "Preview"
+        '
+        'ocmsavelayout
+        '
+        Me.ocmsavelayout.Location = New System.Drawing.Point(106, 7)
+        Me.ocmsavelayout.Name = "ocmsavelayout"
+        Me.ocmsavelayout.Size = New System.Drawing.Size(117, 23)
+        Me.ocmsavelayout.TabIndex = 332
+        Me.ocmsavelayout.Text = "savelayoutgrid"
+        '
+        'ocmexit
+        '
+        Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmexit.Location = New System.Drawing.Point(431, 7)
+        Me.ocmexit.Name = "ocmexit"
+        Me.ocmexit.Size = New System.Drawing.Size(95, 25)
+        Me.ocmexit.TabIndex = 96
+        Me.ocmexit.TabStop = False
+        Me.ocmexit.Tag = "2|"
+        Me.ocmexit.Text = "EXIT"
+        '
+        'ocmclear
+        '
+        Me.ocmclear.Location = New System.Drawing.Point(5, 5)
+        Me.ocmclear.Name = "ocmclear"
+        Me.ocmclear.Size = New System.Drawing.Size(95, 25)
+        Me.ocmclear.TabIndex = 95
+        Me.ocmclear.TabStop = False
+        Me.ocmclear.Tag = "2|"
+        Me.ocmclear.Text = "CLEAR"
+        '
+        'ocmload
+        '
+        Me.ocmload.Location = New System.Drawing.Point(229, 7)
+        Me.ocmload.Name = "ocmload"
+        Me.ocmload.Size = New System.Drawing.Size(95, 23)
+        Me.ocmload.TabIndex = 329
+        Me.ocmload.Text = "Load Data"
         '
         'otbx
         '
@@ -1573,7 +1641,7 @@ Partial Class wProdSendSuplTracking
         '
         'ogvbybundle
         '
-        Me.ogvbybundle.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GFTStyleCode, Me.GFTOrderNo, Me.GFTCmpCode, Me.GFTCmpName, Me.GFTColorway, Me.GFTSizeBreakDown, Me.FNBunbleSeq, Me.FTPOLineItemNo, Me.C3FTOrderProdNo, Me.FTBarcodeBundleNo, Me.FTBarcodeSendSuplNo, Me.GFTSenSuplTypeName, Me.GFTPartName, Me.GFNQuantity, Me.GFTSendSuplNo, Me.GFDSendSuplDate, Me.GFTSuplCode, Me.GFTSuplName, Me.GFNSendSuplState, Me.GFNSendQuantity, Me.GFNTotalRcvQuantity, Me.GFTRcvSuplNo, Me.GFDRcvSuplDate, Me.GFNRcvQuantity, Me.GFNBalRcvSupl, Me.FTPORef1, Me.GridColumn1, Me.GridColumn2})
+        Me.ogvbybundle.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GFTStyleCode, Me.GFTOrderNo, Me.GFTCmpCode, Me.GFTCmpName, Me.GFTColorway, Me.GFTSizeBreakDown, Me.FNBunbleSeq, Me.FTPOLineItemNo, Me.C3FTOrderProdNo, Me.FTBarcodeBundleNo, Me.FTBarcodeSendSuplNo, Me.GFTSenSuplTypeName, Me.GFTPartName, Me.GFNQuantity, Me.GFTSendSuplNo, Me.GFDSendSuplDate, Me.GFTSuplCode, Me.GFTSuplName, Me.GFNSendSuplState, Me.GFNSendQuantity, Me.GFNTotalRcvQuantity, Me.GFTSendApproveBy, Me.GFTSendApproveDate, Me.GFTSendApproveBal, Me.GFTSendApproveQty, Me.GFTRcvSuplNo, Me.GFDRcvSuplDate, Me.GFNRcvQuantity, Me.GFNBalRcvSupl, Me.FTPORef1, Me.GridColumn1, Me.GridColumn2, Me.GFTRcvApproveBy, Me.GFTRcvApproveDate, Me.GFTRcvApproveQty, Me.GFTRcvApproveBal})
         Me.ogvbybundle.GridControl = Me.ogcbybundle
         Me.ogvbybundle.Name = "ogvbybundle"
         Me.ogvbybundle.OptionsCustomization.AllowQuickHideColumns = False
@@ -2031,70 +2099,137 @@ Partial Class wProdSendSuplTracking
         Me.GridColumn2.VisibleIndex = 21
         Me.GridColumn2.Width = 105
         '
+        'GFTSendApproveBy
+        '
+        Me.GFTSendApproveBy.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTSendApproveBy.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GFTSendApproveBy.Caption = "FTSendApproveBy"
+        Me.GFTSendApproveBy.FieldName = "FTSendApproveBy"
+        Me.GFTSendApproveBy.Name = "GFTSendApproveBy"
+        Me.GFTSendApproveBy.OptionsColumn.AllowEdit = False
+        Me.GFTSendApproveBy.OptionsColumn.AllowMove = False
+        Me.GFTSendApproveBy.OptionsColumn.AllowShowHide = False
+        Me.GFTSendApproveBy.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GFTSendApproveBy.Visible = True
+        Me.GFTSendApproveBy.VisibleIndex = 25
+        '
+        'GFTSendApproveDate
+        '
+        Me.GFTSendApproveDate.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTSendApproveDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GFTSendApproveDate.Caption = "FTSendApproveDate"
+        Me.GFTSendApproveDate.DisplayFormat.FormatString = "dd/MM/yyyy"
+        Me.GFTSendApproveDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.GFTSendApproveDate.FieldName = "FTSendApproveDate"
+        Me.GFTSendApproveDate.Name = "GFTSendApproveDate"
+        Me.GFTSendApproveDate.OptionsColumn.AllowEdit = False
+        Me.GFTSendApproveDate.OptionsColumn.AllowMove = False
+        Me.GFTSendApproveDate.OptionsColumn.AllowShowHide = False
+        Me.GFTSendApproveDate.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GFTSendApproveDate.Visible = True
+        Me.GFTSendApproveDate.VisibleIndex = 26
+        Me.GFTSendApproveDate.Width = 80
+        '
+        'GFTSendApproveBal
+        '
+        Me.GFTSendApproveBal.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTSendApproveBal.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GFTSendApproveBal.Caption = "FTSendApproveBal"
+        Me.GFTSendApproveBal.DisplayFormat.FormatString = "{0:n0}"
+        Me.GFTSendApproveBal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GFTSendApproveBal.FieldName = "FTSendApproveBal"
+        Me.GFTSendApproveBal.Name = "GFTSendApproveBal"
+        Me.GFTSendApproveBal.OptionsColumn.AllowEdit = False
+        Me.GFTSendApproveBal.OptionsColumn.AllowMove = False
+        Me.GFTSendApproveBal.OptionsColumn.AllowShowHide = False
+        Me.GFTSendApproveBal.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GFTSendApproveBal.Visible = True
+        Me.GFTSendApproveBal.VisibleIndex = 28
+        '
+        'GFTSendApproveQty
+        '
+        Me.GFTSendApproveQty.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTSendApproveQty.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GFTSendApproveQty.Caption = "FTSendApproveQty"
+        Me.GFTSendApproveQty.DisplayFormat.FormatString = "{0:n0}"
+        Me.GFTSendApproveQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GFTSendApproveQty.FieldName = "FTSendApproveQty"
+        Me.GFTSendApproveQty.Name = "GFTSendApproveQty"
+        Me.GFTSendApproveQty.OptionsColumn.AllowEdit = False
+        Me.GFTSendApproveQty.OptionsColumn.AllowMove = False
+        Me.GFTSendApproveQty.OptionsColumn.AllowShowHide = False
+        Me.GFTSendApproveQty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GFTSendApproveQty.Visible = True
+        Me.GFTSendApproveQty.VisibleIndex = 27
+        '
+        'GFTRcvApproveBy
+        '
+        Me.GFTRcvApproveBy.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTRcvApproveBy.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GFTRcvApproveBy.Caption = "FTRcvApproveBy"
+        Me.GFTRcvApproveBy.FieldName = "FTRcvApproveBy"
+        Me.GFTRcvApproveBy.Name = "GFTRcvApproveBy"
+        Me.GFTRcvApproveBy.OptionsColumn.AllowEdit = False
+        Me.GFTRcvApproveBy.OptionsColumn.AllowMove = False
+        Me.GFTRcvApproveBy.OptionsColumn.AllowShowHide = False
+        Me.GFTRcvApproveBy.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GFTRcvApproveBy.Visible = True
+        Me.GFTRcvApproveBy.VisibleIndex = 30
+        '
+        'GFTRcvApproveDate
+        '
+        Me.GFTRcvApproveDate.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTRcvApproveDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GFTRcvApproveDate.Caption = "FTRcvApproveDate"
+        Me.GFTRcvApproveDate.DisplayFormat.FormatString = "dd/MM/yyyy"
+        Me.GFTRcvApproveDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.GFTRcvApproveDate.FieldName = "FTRcvApproveDate"
+        Me.GFTRcvApproveDate.Name = "GFTRcvApproveDate"
+        Me.GFTRcvApproveDate.OptionsColumn.AllowEdit = False
+        Me.GFTRcvApproveDate.OptionsColumn.AllowMove = False
+        Me.GFTRcvApproveDate.OptionsColumn.AllowShowHide = False
+        Me.GFTRcvApproveDate.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GFTRcvApproveDate.Visible = True
+        Me.GFTRcvApproveDate.VisibleIndex = 29
+        Me.GFTRcvApproveDate.Width = 80
+        '
+        'GFTRcvApproveQty
+        '
+        Me.GFTRcvApproveQty.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTRcvApproveQty.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GFTRcvApproveQty.Caption = "FTRcvApproveQty"
+        Me.GFTRcvApproveQty.DisplayFormat.FormatString = "{0:n0}"
+        Me.GFTRcvApproveQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GFTRcvApproveQty.FieldName = "FTRcvApproveQty"
+        Me.GFTRcvApproveQty.Name = "GFTRcvApproveQty"
+        Me.GFTRcvApproveQty.OptionsColumn.AllowEdit = False
+        Me.GFTRcvApproveQty.OptionsColumn.AllowMove = False
+        Me.GFTRcvApproveQty.OptionsColumn.AllowShowHide = False
+        Me.GFTRcvApproveQty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GFTRcvApproveQty.Visible = True
+        Me.GFTRcvApproveQty.VisibleIndex = 31
+        '
+        'GFTRcvApproveBal
+        '
+        Me.GFTRcvApproveBal.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTRcvApproveBal.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GFTRcvApproveBal.Caption = "FTRcvApproveBal"
+        Me.GFTRcvApproveBal.DisplayFormat.FormatString = "{0:n0}"
+        Me.GFTRcvApproveBal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GFTRcvApproveBal.FieldName = "FTRcvApproveBal"
+        Me.GFTRcvApproveBal.Name = "GFTRcvApproveBal"
+        Me.GFTRcvApproveBal.OptionsColumn.AllowEdit = False
+        Me.GFTRcvApproveBal.OptionsColumn.AllowMove = False
+        Me.GFTRcvApproveBal.OptionsColumn.AllowShowHide = False
+        Me.GFTRcvApproveBal.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GFTRcvApproveBal.Visible = True
+        Me.GFTRcvApproveBal.VisibleIndex = 32
+        '
         'oDockManager
         '
         Me.oDockManager.Form = Me
         Me.oDockManager.RootPanels.AddRange(New DevExpress.XtraBars.Docking.DockPanel() {Me.ogbheader})
         Me.oDockManager.TopZIndexControls.AddRange(New String() {"DevExpress.XtraBars.BarDockControl", "DevExpress.XtraBars.StandaloneBarDockControl", "System.Windows.Forms.StatusBar", "DevExpress.XtraBars.Ribbon.RibbonStatusBar", "DevExpress.XtraBars.Ribbon.RibbonControl"})
-        '
-        'ogbmainprocbutton
-        '
-        Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmpreview)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmsavelayout)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(231, 292)
-        Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(1082, 118)
-        Me.ogbmainprocbutton.TabIndex = 387
-        Me.ogbmainprocbutton.Tag = "2|"
-        '
-        'ocmpreview
-        '
-        Me.ocmpreview.Location = New System.Drawing.Point(248, 14)
-        Me.ocmpreview.Name = "ocmpreview"
-        Me.ocmpreview.Size = New System.Drawing.Size(117, 23)
-        Me.ocmpreview.TabIndex = 333
-        Me.ocmpreview.Text = "Preview"
-        '
-        'ocmsavelayout
-        '
-        Me.ocmsavelayout.Location = New System.Drawing.Point(507, 12)
-        Me.ocmsavelayout.Name = "ocmsavelayout"
-        Me.ocmsavelayout.Size = New System.Drawing.Size(117, 23)
-        Me.ocmsavelayout.TabIndex = 332
-        Me.ocmsavelayout.Text = "savelayoutgrid"
-        '
-        'ocmexit
-        '
-        Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(969, 11)
-        Me.ocmexit.Name = "ocmexit"
-        Me.ocmexit.Size = New System.Drawing.Size(95, 25)
-        Me.ocmexit.TabIndex = 96
-        Me.ocmexit.TabStop = False
-        Me.ocmexit.Tag = "2|"
-        Me.ocmexit.Text = "EXIT"
-        '
-        'ocmclear
-        '
-        Me.ocmclear.Location = New System.Drawing.Point(14, 10)
-        Me.ocmclear.Name = "ocmclear"
-        Me.ocmclear.Size = New System.Drawing.Size(95, 25)
-        Me.ocmclear.TabIndex = 95
-        Me.ocmclear.TabStop = False
-        Me.ocmclear.Tag = "2|"
-        Me.ocmclear.Text = "CLEAR"
-        '
-        'ocmload
-        '
-        Me.ocmload.Location = New System.Drawing.Point(114, 14)
-        Me.ocmload.Name = "ocmload"
-        Me.ocmload.Size = New System.Drawing.Size(117, 23)
-        Me.ocmload.TabIndex = 329
-        Me.ocmload.Text = "Load Data"
         '
         'DockPanel1
         '
@@ -2959,13 +3094,14 @@ Partial Class wProdSendSuplTracking
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1469, 633)
-        Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.ogbdetail)
         Me.Controls.Add(Me.ogbheader)
         Me.Name = "wProdSendSuplTracking"
         Me.Text = "Production Send Suplier Tracking"
         Me.ogbheader.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
+        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ogbmainprocbutton.ResumeLayout(False)
         CType(Me.otbx, System.ComponentModel.ISupportInitialize).EndInit()
         Me.otbx.ResumeLayout(False)
         Me.otpcompany.ResumeLayout(False)
@@ -3010,8 +3146,6 @@ Partial Class wProdSendSuplTracking
         CType(Me.ogcbybundle, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogvbybundle, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ogbmainprocbutton.ResumeLayout(False)
         Me.DockPanel1.ResumeLayout(False)
         Me.ControlContainer1.ResumeLayout(False)
         CType(Me.DateEdit1.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3221,4 +3355,12 @@ Partial Class wProdSendSuplTracking
     Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents sFTNikePOLineItem As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GFTSendApproveBy As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GFTSendApproveDate As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GFTRcvApproveBy As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GFTRcvApproveDate As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GFTSendApproveBal As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GFTSendApproveQty As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GFTRcvApproveQty As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GFTRcvApproveBal As DevExpress.XtraGrid.Columns.GridColumn
 End Class
