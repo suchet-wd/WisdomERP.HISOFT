@@ -125,11 +125,11 @@
     <Compile Include="Tracking\wTestControl.Designer.cs">
       <DependentUpon>wTestControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tracking\wTracking.cs">
+    <Compile Include="Tracking\wPayrollListingMonthly.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tracking\wTracking.Designer.cs">
-      <DependentUpon>wTracking.cs</DependentUpon>
+    <Compile Include="Tracking\wPayrollListingMonthly.Designer.cs">
+      <DependentUpon>wPayrollListingMonthly.cs</DependentUpon>
     </Compile>
     <Compile Include="Tracking\wTrackProdLT.cs">
       <SubType>Form</SubType>
@@ -159,8 +159,8 @@
     <EmbeddedResource Include="Tracking\wTestControl.resx">
       <DependentUpon>wTestControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tracking\wTracking.resx">
-      <DependentUpon>wTracking.cs</DependentUpon>
+    <EmbeddedResource Include="Tracking\wPayrollListingMonthly.resx">
+      <DependentUpon>wPayrollListingMonthly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tracking\wTrackProdLT.resx">
       <DependentUpon>wTrackProdLT.cs</DependentUpon>

@@ -72,7 +72,7 @@ namespace HI.Track
                     }
 
                     //_Qry += "ORDER BY FTSeason , FTMerPLT DESC";
-                    _Qry += "ORDER BY FTSeason,	FTUse, RMDS.FTMATERIALTYPE, Seqnum";
+                    _Qry += " ORDER BY FTSeason, FTUse, RMDS.FTMATERIALTYPE, Seqnum ";
 
                     // ----- Remove Duplicate -----
                     DataTable dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT);

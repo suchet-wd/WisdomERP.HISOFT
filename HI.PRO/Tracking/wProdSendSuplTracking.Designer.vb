@@ -206,6 +206,10 @@ Partial Class wProdSendSuplTracking
         Me.GFNSendSuplState = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GFNSendQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GFNTotalRcvQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GFTSendApproveBy = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GFTSendApproveDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GFTSendApproveBal = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GFTSendApproveQty = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GFTRcvSuplNo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GFDRcvSuplDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GFNRcvQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -213,10 +217,6 @@ Partial Class wProdSendSuplTracking
         Me.FTPORef1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GFTSendApproveBy = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GFTSendApproveDate = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GFTSendApproveBal = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GFTSendApproveQty = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GFTRcvApproveBy = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GFTRcvApproveDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GFTRcvApproveQty = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -1220,6 +1220,8 @@ Partial Class wProdSendSuplTracking
         '
         'FTStyleCode
         '
+        Me.FTStyleCode.AppearanceCell.Options.UseTextOptions = True
+        Me.FTStyleCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTStyleCode.AppearanceHeader.Options.UseTextOptions = True
         Me.FTStyleCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTStyleCode.Caption = "FTStyleCode"
@@ -1238,6 +1240,8 @@ Partial Class wProdSendSuplTracking
         '
         'CFTOrderNo
         '
+        Me.CFTOrderNo.AppearanceCell.Options.UseTextOptions = True
+        Me.CFTOrderNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CFTOrderNo.AppearanceHeader.Options.UseTextOptions = True
         Me.CFTOrderNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CFTOrderNo.Caption = "FTOrderNo"
@@ -1257,6 +1261,8 @@ Partial Class wProdSendSuplTracking
         '
         'FTCmpCode
         '
+        Me.FTCmpCode.AppearanceCell.Options.UseTextOptions = True
+        Me.FTCmpCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTCmpCode.Caption = "FTCmpCode"
         Me.FTCmpCode.FieldName = "FTCmpCode"
         Me.FTCmpCode.Name = "FTCmpCode"
@@ -1390,6 +1396,8 @@ Partial Class wProdSendSuplTracking
         '
         'FDSendSuplDate
         '
+        Me.FDSendSuplDate.AppearanceCell.Options.UseTextOptions = True
+        Me.FDSendSuplDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FDSendSuplDate.Caption = "FDSendSuplDate"
         Me.FDSendSuplDate.DisplayFormat.FormatString = "dd/MM/yyyy"
         Me.FDSendSuplDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
@@ -1408,6 +1416,8 @@ Partial Class wProdSendSuplTracking
         '
         'FTSuplCode
         '
+        Me.FTSuplCode.AppearanceCell.Options.UseTextOptions = True
+        Me.FTSuplCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTSuplCode.Caption = "FTSuplCode"
         Me.FTSuplCode.FieldName = "FTSuplCode"
         Me.FTSuplCode.Name = "FTSuplCode"
@@ -1507,6 +1517,8 @@ Partial Class wProdSendSuplTracking
         '
         'FDRcvSuplDate
         '
+        Me.FDRcvSuplDate.AppearanceCell.Options.UseTextOptions = True
+        Me.FDRcvSuplDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FDRcvSuplDate.Caption = "FDRcvSuplDate"
         Me.FDRcvSuplDate.DisplayFormat.FormatString = "dd/MM/yyyy"
         Me.FDRcvSuplDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
@@ -1583,6 +1595,8 @@ Partial Class wProdSendSuplTracking
         '
         'FTRcvSuplBy
         '
+        Me.FTRcvSuplBy.AppearanceCell.Options.UseTextOptions = True
+        Me.FTRcvSuplBy.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTRcvSuplBy.Caption = "FTRcvSuplBy"
         Me.FTRcvSuplBy.FieldName = "FTRcvSuplBy"
         Me.FTRcvSuplBy.MinWidth = 21
@@ -1596,6 +1610,8 @@ Partial Class wProdSendSuplTracking
         '
         'FTSendSuplBy
         '
+        Me.FTSendSuplBy.AppearanceCell.Options.UseTextOptions = True
+        Me.FTSendSuplBy.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTSendSuplBy.Caption = "FTSendSuplBy"
         Me.FTSendSuplBy.FieldName = "FTSendSuplBy"
         Me.FTSendSuplBy.MinWidth = 21
@@ -1654,6 +1670,8 @@ Partial Class wProdSendSuplTracking
         '
         'GFTStyleCode
         '
+        Me.GFTStyleCode.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTStyleCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GFTStyleCode.AppearanceHeader.Options.UseTextOptions = True
         Me.GFTStyleCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GFTStyleCode.Caption = "FTStyleCode"
@@ -1671,6 +1689,8 @@ Partial Class wProdSendSuplTracking
         '
         'GFTOrderNo
         '
+        Me.GFTOrderNo.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTOrderNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GFTOrderNo.AppearanceHeader.Options.UseTextOptions = True
         Me.GFTOrderNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GFTOrderNo.Caption = "FTOrderNo"
@@ -1690,6 +1710,8 @@ Partial Class wProdSendSuplTracking
         '
         'GFTCmpCode
         '
+        Me.GFTCmpCode.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTCmpCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GFTCmpCode.Caption = "FTCmpCode"
         Me.GFTCmpCode.FieldName = "FTCmpCode"
         Me.GFTCmpCode.Name = "GFTCmpCode"
@@ -1786,6 +1808,8 @@ Partial Class wProdSendSuplTracking
         '
         'C3FTOrderProdNo
         '
+        Me.C3FTOrderProdNo.AppearanceCell.Options.UseTextOptions = True
+        Me.C3FTOrderProdNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.C3FTOrderProdNo.Caption = "FO .Prod No"
         Me.C3FTOrderProdNo.FieldName = "FTOrderProdNo"
         Me.C3FTOrderProdNo.Name = "C3FTOrderProdNo"
@@ -1797,6 +1821,8 @@ Partial Class wProdSendSuplTracking
         '
         'FTBarcodeBundleNo
         '
+        Me.FTBarcodeBundleNo.AppearanceCell.Options.UseTextOptions = True
+        Me.FTBarcodeBundleNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTBarcodeBundleNo.Caption = "FTBarcodeBundleNo"
         Me.FTBarcodeBundleNo.FieldName = "FTBarcodeBundleNo"
         Me.FTBarcodeBundleNo.Name = "FTBarcodeBundleNo"
@@ -1804,6 +1830,8 @@ Partial Class wProdSendSuplTracking
         '
         'FTBarcodeSendSuplNo
         '
+        Me.FTBarcodeSendSuplNo.AppearanceCell.Options.UseTextOptions = True
+        Me.FTBarcodeSendSuplNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTBarcodeSendSuplNo.Caption = "Barcode Send Supplier"
         Me.FTBarcodeSendSuplNo.FieldName = "FTBarcodeSendSuplNo"
         Me.FTBarcodeSendSuplNo.Name = "FTBarcodeSendSuplNo"
@@ -1882,6 +1910,8 @@ Partial Class wProdSendSuplTracking
         '
         'GFDSendSuplDate
         '
+        Me.GFDSendSuplDate.AppearanceCell.Options.UseTextOptions = True
+        Me.GFDSendSuplDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GFDSendSuplDate.Caption = "FDSendSuplDate"
         Me.GFDSendSuplDate.DisplayFormat.FormatString = "dd/MM/yyyy"
         Me.GFDSendSuplDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
@@ -1900,6 +1930,8 @@ Partial Class wProdSendSuplTracking
         '
         'GFTSuplCode
         '
+        Me.GFTSuplCode.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTSuplCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GFTSuplCode.Caption = "FTSuplCode"
         Me.GFTSuplCode.FieldName = "FTSuplCode"
         Me.GFTSuplCode.Name = "GFTSuplCode"
@@ -1968,6 +2000,8 @@ Partial Class wProdSendSuplTracking
         '
         'GFNTotalRcvQuantity
         '
+        Me.GFNTotalRcvQuantity.AppearanceCell.Options.UseTextOptions = True
+        Me.GFNTotalRcvQuantity.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.GFNTotalRcvQuantity.Caption = "FNTotalRcvQuantity"
         Me.GFNTotalRcvQuantity.DisplayFormat.FormatString = "{n:n0}"
         Me.GFNTotalRcvQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
@@ -1981,8 +2015,78 @@ Partial Class wProdSendSuplTracking
         Me.GFNTotalRcvQuantity.OptionsColumn.ReadOnly = True
         Me.GFNTotalRcvQuantity.OptionsColumn.ShowInCustomizationForm = False
         '
+        'GFTSendApproveBy
+        '
+        Me.GFTSendApproveBy.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTSendApproveBy.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GFTSendApproveBy.Caption = "FTSendApproveBy"
+        Me.GFTSendApproveBy.FieldName = "FTSendApproveBy"
+        Me.GFTSendApproveBy.Name = "GFTSendApproveBy"
+        Me.GFTSendApproveBy.OptionsColumn.AllowEdit = False
+        Me.GFTSendApproveBy.OptionsColumn.AllowMove = False
+        Me.GFTSendApproveBy.OptionsColumn.AllowShowHide = False
+        Me.GFTSendApproveBy.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GFTSendApproveBy.Visible = True
+        Me.GFTSendApproveBy.VisibleIndex = 20
+        Me.GFTSendApproveBy.Width = 117
+        '
+        'GFTSendApproveDate
+        '
+        Me.GFTSendApproveDate.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTSendApproveDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GFTSendApproveDate.Caption = "FTSendApproveDate"
+        Me.GFTSendApproveDate.DisplayFormat.FormatString = "dd/MM/yyyy"
+        Me.GFTSendApproveDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.GFTSendApproveDate.FieldName = "FTSendApproveDate"
+        Me.GFTSendApproveDate.Name = "GFTSendApproveDate"
+        Me.GFTSendApproveDate.OptionsColumn.AllowEdit = False
+        Me.GFTSendApproveDate.OptionsColumn.AllowMove = False
+        Me.GFTSendApproveDate.OptionsColumn.AllowShowHide = False
+        Me.GFTSendApproveDate.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GFTSendApproveDate.Visible = True
+        Me.GFTSendApproveDate.VisibleIndex = 21
+        Me.GFTSendApproveDate.Width = 120
+        '
+        'GFTSendApproveBal
+        '
+        Me.GFTSendApproveBal.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTSendApproveBal.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.GFTSendApproveBal.Caption = "FTSendApproveBal"
+        Me.GFTSendApproveBal.DisplayFormat.FormatString = "{0:n0}"
+        Me.GFTSendApproveBal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GFTSendApproveBal.FieldName = "FTSendApproveBal"
+        Me.GFTSendApproveBal.Name = "GFTSendApproveBal"
+        Me.GFTSendApproveBal.OptionsColumn.AllowEdit = False
+        Me.GFTSendApproveBal.OptionsColumn.AllowMove = False
+        Me.GFTSendApproveBal.OptionsColumn.AllowShowHide = False
+        Me.GFTSendApproveBal.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GFTSendApproveBal.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FTSendApproveBal", "{0:n0}")})
+        Me.GFTSendApproveBal.Visible = True
+        Me.GFTSendApproveBal.VisibleIndex = 23
+        Me.GFTSendApproveBal.Width = 120
+        '
+        'GFTSendApproveQty
+        '
+        Me.GFTSendApproveQty.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTSendApproveQty.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.GFTSendApproveQty.Caption = "FTSendApproveQty"
+        Me.GFTSendApproveQty.DisplayFormat.FormatString = "{0:n0}"
+        Me.GFTSendApproveQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GFTSendApproveQty.FieldName = "FTSendApproveQty"
+        Me.GFTSendApproveQty.Name = "GFTSendApproveQty"
+        Me.GFTSendApproveQty.OptionsColumn.AllowEdit = False
+        Me.GFTSendApproveQty.OptionsColumn.AllowMove = False
+        Me.GFTSendApproveQty.OptionsColumn.AllowShowHide = False
+        Me.GFTSendApproveQty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GFTSendApproveQty.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FTSendApproveQty", "{0:n0}")})
+        Me.GFTSendApproveQty.Visible = True
+        Me.GFTSendApproveQty.VisibleIndex = 22
+        Me.GFTSendApproveQty.Width = 115
+        '
         'GFTRcvSuplNo
         '
+        Me.GFTRcvSuplNo.AppearanceCell.Options.UseTextOptions = True
+        Me.GFTRcvSuplNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GFTRcvSuplNo.Caption = "FTRcvSuplNo"
         Me.GFTRcvSuplNo.FieldName = "FTRcvSuplNo"
         Me.GFTRcvSuplNo.Name = "GFTRcvSuplNo"
@@ -1994,11 +2098,13 @@ Partial Class wProdSendSuplTracking
         Me.GFTRcvSuplNo.OptionsColumn.ReadOnly = True
         Me.GFTRcvSuplNo.OptionsColumn.ShowInCustomizationForm = False
         Me.GFTRcvSuplNo.Visible = True
-        Me.GFTRcvSuplNo.VisibleIndex = 20
+        Me.GFTRcvSuplNo.VisibleIndex = 24
         Me.GFTRcvSuplNo.Width = 100
         '
         'GFDRcvSuplDate
         '
+        Me.GFDRcvSuplDate.AppearanceCell.Options.UseTextOptions = True
+        Me.GFDRcvSuplDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GFDRcvSuplDate.Caption = "FDRcvSuplDate"
         Me.GFDRcvSuplDate.DisplayFormat.FormatString = "dd/MM/yyyy"
         Me.GFDRcvSuplDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
@@ -2012,7 +2118,7 @@ Partial Class wProdSendSuplTracking
         Me.GFDRcvSuplDate.OptionsColumn.ReadOnly = True
         Me.GFDRcvSuplDate.OptionsColumn.ShowInCustomizationForm = False
         Me.GFDRcvSuplDate.Visible = True
-        Me.GFDRcvSuplDate.VisibleIndex = 22
+        Me.GFDRcvSuplDate.VisibleIndex = 26
         Me.GFDRcvSuplDate.Width = 80
         '
         'GFNRcvQuantity
@@ -2033,7 +2139,7 @@ Partial Class wProdSendSuplTracking
         Me.GFNRcvQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.GFNRcvQuantity.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNRcvQuantity", "{0:n0}")})
         Me.GFNRcvQuantity.Visible = True
-        Me.GFNRcvQuantity.VisibleIndex = 23
+        Me.GFNRcvQuantity.VisibleIndex = 27
         Me.GFNRcvQuantity.Width = 90
         '
         'GFNBalRcvSupl
@@ -2054,11 +2160,13 @@ Partial Class wProdSendSuplTracking
         Me.GFNBalRcvSupl.OptionsColumn.ShowInCustomizationForm = False
         Me.GFNBalRcvSupl.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNBalRcvSupl", "{0:n0}")})
         Me.GFNBalRcvSupl.Visible = True
-        Me.GFNBalRcvSupl.VisibleIndex = 24
+        Me.GFNBalRcvSupl.VisibleIndex = 28
         Me.GFNBalRcvSupl.Width = 90
         '
         'FTPORef1
         '
+        Me.FTPORef1.AppearanceCell.Options.UseTextOptions = True
+        Me.FTPORef1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTPORef1.Caption = "FTPORef1"
         Me.FTPORef1.FieldName = "FTPORef"
         Me.FTPORef1.Name = "FTPORef1"
@@ -2075,6 +2183,8 @@ Partial Class wProdSendSuplTracking
         '
         'GridColumn1
         '
+        Me.GridColumn1.AppearanceCell.Options.UseTextOptions = True
+        Me.GridColumn1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn1.Caption = "FTSendSuplBy"
         Me.GridColumn1.FieldName = "FTSendSuplBy"
         Me.GridColumn1.MinWidth = 21
@@ -2088,6 +2198,8 @@ Partial Class wProdSendSuplTracking
         '
         'GridColumn2
         '
+        Me.GridColumn2.AppearanceCell.Options.UseTextOptions = True
+        Me.GridColumn2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn2.Caption = "FTRcvSuplBy"
         Me.GridColumn2.FieldName = "FTRcvSuplBy"
         Me.GridColumn2.MinWidth = 21
@@ -2096,71 +2208,8 @@ Partial Class wProdSendSuplTracking
         Me.GridColumn2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn2.Visible = True
-        Me.GridColumn2.VisibleIndex = 21
+        Me.GridColumn2.VisibleIndex = 25
         Me.GridColumn2.Width = 105
-        '
-        'GFTSendApproveBy
-        '
-        Me.GFTSendApproveBy.AppearanceCell.Options.UseTextOptions = True
-        Me.GFTSendApproveBy.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GFTSendApproveBy.Caption = "FTSendApproveBy"
-        Me.GFTSendApproveBy.FieldName = "FTSendApproveBy"
-        Me.GFTSendApproveBy.Name = "GFTSendApproveBy"
-        Me.GFTSendApproveBy.OptionsColumn.AllowEdit = False
-        Me.GFTSendApproveBy.OptionsColumn.AllowMove = False
-        Me.GFTSendApproveBy.OptionsColumn.AllowShowHide = False
-        Me.GFTSendApproveBy.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GFTSendApproveBy.Visible = True
-        Me.GFTSendApproveBy.VisibleIndex = 25
-        '
-        'GFTSendApproveDate
-        '
-        Me.GFTSendApproveDate.AppearanceCell.Options.UseTextOptions = True
-        Me.GFTSendApproveDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GFTSendApproveDate.Caption = "FTSendApproveDate"
-        Me.GFTSendApproveDate.DisplayFormat.FormatString = "dd/MM/yyyy"
-        Me.GFTSendApproveDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.GFTSendApproveDate.FieldName = "FTSendApproveDate"
-        Me.GFTSendApproveDate.Name = "GFTSendApproveDate"
-        Me.GFTSendApproveDate.OptionsColumn.AllowEdit = False
-        Me.GFTSendApproveDate.OptionsColumn.AllowMove = False
-        Me.GFTSendApproveDate.OptionsColumn.AllowShowHide = False
-        Me.GFTSendApproveDate.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GFTSendApproveDate.Visible = True
-        Me.GFTSendApproveDate.VisibleIndex = 26
-        Me.GFTSendApproveDate.Width = 80
-        '
-        'GFTSendApproveBal
-        '
-        Me.GFTSendApproveBal.AppearanceCell.Options.UseTextOptions = True
-        Me.GFTSendApproveBal.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GFTSendApproveBal.Caption = "FTSendApproveBal"
-        Me.GFTSendApproveBal.DisplayFormat.FormatString = "{0:n0}"
-        Me.GFTSendApproveBal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GFTSendApproveBal.FieldName = "FTSendApproveBal"
-        Me.GFTSendApproveBal.Name = "GFTSendApproveBal"
-        Me.GFTSendApproveBal.OptionsColumn.AllowEdit = False
-        Me.GFTSendApproveBal.OptionsColumn.AllowMove = False
-        Me.GFTSendApproveBal.OptionsColumn.AllowShowHide = False
-        Me.GFTSendApproveBal.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GFTSendApproveBal.Visible = True
-        Me.GFTSendApproveBal.VisibleIndex = 28
-        '
-        'GFTSendApproveQty
-        '
-        Me.GFTSendApproveQty.AppearanceCell.Options.UseTextOptions = True
-        Me.GFTSendApproveQty.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GFTSendApproveQty.Caption = "FTSendApproveQty"
-        Me.GFTSendApproveQty.DisplayFormat.FormatString = "{0:n0}"
-        Me.GFTSendApproveQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GFTSendApproveQty.FieldName = "FTSendApproveQty"
-        Me.GFTSendApproveQty.Name = "GFTSendApproveQty"
-        Me.GFTSendApproveQty.OptionsColumn.AllowEdit = False
-        Me.GFTSendApproveQty.OptionsColumn.AllowMove = False
-        Me.GFTSendApproveQty.OptionsColumn.AllowShowHide = False
-        Me.GFTSendApproveQty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GFTSendApproveQty.Visible = True
-        Me.GFTSendApproveQty.VisibleIndex = 27
         '
         'GFTRcvApproveBy
         '
@@ -2175,6 +2224,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTRcvApproveBy.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GFTRcvApproveBy.Visible = True
         Me.GFTRcvApproveBy.VisibleIndex = 30
+        Me.GFTRcvApproveBy.Width = 99
         '
         'GFTRcvApproveDate
         '
@@ -2191,12 +2241,12 @@ Partial Class wProdSendSuplTracking
         Me.GFTRcvApproveDate.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GFTRcvApproveDate.Visible = True
         Me.GFTRcvApproveDate.VisibleIndex = 29
-        Me.GFTRcvApproveDate.Width = 80
+        Me.GFTRcvApproveDate.Width = 115
         '
         'GFTRcvApproveQty
         '
         Me.GFTRcvApproveQty.AppearanceCell.Options.UseTextOptions = True
-        Me.GFTRcvApproveQty.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GFTRcvApproveQty.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.GFTRcvApproveQty.Caption = "FTRcvApproveQty"
         Me.GFTRcvApproveQty.DisplayFormat.FormatString = "{0:n0}"
         Me.GFTRcvApproveQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
@@ -2206,13 +2256,15 @@ Partial Class wProdSendSuplTracking
         Me.GFTRcvApproveQty.OptionsColumn.AllowMove = False
         Me.GFTRcvApproveQty.OptionsColumn.AllowShowHide = False
         Me.GFTRcvApproveQty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GFTRcvApproveQty.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FTRcvApproveQty", "{0:n0}")})
         Me.GFTRcvApproveQty.Visible = True
         Me.GFTRcvApproveQty.VisibleIndex = 31
+        Me.GFTRcvApproveQty.Width = 101
         '
         'GFTRcvApproveBal
         '
         Me.GFTRcvApproveBal.AppearanceCell.Options.UseTextOptions = True
-        Me.GFTRcvApproveBal.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GFTRcvApproveBal.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.GFTRcvApproveBal.Caption = "FTRcvApproveBal"
         Me.GFTRcvApproveBal.DisplayFormat.FormatString = "{0:n0}"
         Me.GFTRcvApproveBal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
@@ -2222,8 +2274,10 @@ Partial Class wProdSendSuplTracking
         Me.GFTRcvApproveBal.OptionsColumn.AllowMove = False
         Me.GFTRcvApproveBal.OptionsColumn.AllowShowHide = False
         Me.GFTRcvApproveBal.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GFTRcvApproveBal.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FTRcvApproveBal", "{0:n0}")})
         Me.GFTRcvApproveBal.Visible = True
         Me.GFTRcvApproveBal.VisibleIndex = 32
+        Me.GFTRcvApproveBal.Width = 95
         '
         'oDockManager
         '
