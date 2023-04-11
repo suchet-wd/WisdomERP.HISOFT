@@ -38,10 +38,11 @@ namespace HI.Track
                     _Qry += "SELECT DISTINCT '20' + RIGHT(Sea.FTSeasonCode,2) + LEFT(Sea.FTSeasonCode,2) as FTDmndSesn, " +
                         " S.FTStyleCode + '20' + RIGHT(Sea.FTSeasonCode,2) + LEFT(Sea.FTSeasonCode,2) as FTSeason, " +
                         " S.FTStyleNameEN as FTProdDesc, FTUse as FTProdCat, FTMSC as FTLeague, S.FTStyleCode as FTStyleCode, " +
-                        " row_number ( ) OVER ( partition BY Sea.FTSeasonCode, FTUse, RMDS.FTMATERIALTYPE ORDER BY FNPurchasingLT DESC ) AS Seqnum, " +
-                        " CASE WHEN RMDS.FTLiaisonOfficeCode = 'TH' THEN RMDS.FNPurchasingLT + " + (_PoTime + _RawMatfromTH) +
-                        " ELSE RMDS.FNPurchasingLT + " + (_PoTime + _RawMatfromOversea) + " END AS FTMerPLT, " +
-                        " RMDS.FTMATERIALTYPE as FTGrpDesc, RMDS.FTSMState as FTStatus " +
+                        //" row_number ( ) OVER ( partition BY Sea.FTSeasonCode, FTUse, RMDS.FTMATERIALTYPE ORDER BY FNPurchasingLT DESC ) AS Seqnum, " +
+                        " row_number ( ) OVER ( partition BY Sea.FTSeasonCode,S.FTStyleCode ORDER BY FNPurchasingLT DESC ) AS Seqnum, " +
+                        " CASE WHEN RMDS.FTLiaisonOfficeCode = 'TH' THEN ISNULL(RMDS.FNPurchasingLT,0) + " + (_PoTime + _RawMatfromTH) +
+                        " ELSE ISNULL(RMDS.FNPurchasingLT,0) + " + (_PoTime + _RawMatfromOversea) + " END AS FTMerPLT, " +
+                        " RMDS.FTMATERIALTYPE as FTGrpDesc, RMDS.FTSMState as FTStatus , ISNULL(CS.FNLeadtime, 0) as FNLeadtime" +
 
                         " FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet AS CS WITH(NOLOCK) " +
                         " INNER JOIN [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_Detail as CSD WITH(NOLOCK) ON CS.FTCostSheetNo = CSD.FTCostSheetNo " +
@@ -71,8 +72,8 @@ namespace HI.Track
                         _Qry += " AND CS.FNHSysStyleId<=" + HI.UL.ULF.rpQuoted((string)FNHSysStyleIdTo.Properties.Tag) + " ";
                     }
 
-                    //_Qry += "ORDER BY FTSeason , FTMerPLT DESC";
-                    _Qry += " ORDER BY FTSeason, FTUse, RMDS.FTMATERIALTYPE, Seqnum ";
+                    _Qry += "ORDER BY FTSeason , FTMerPLT DESC";
+                    //_Qry += " ORDER BY FTSeason, FTUse, RMDS.FTMATERIALTYPE, Seqnum ";
 
                     // ----- Remove Duplicate -----
                     DataTable dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT);

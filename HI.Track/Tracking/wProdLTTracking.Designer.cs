@@ -76,7 +76,7 @@ namespace HI.Track
             this.FTPromptLT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTMfgLT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTMerPLT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.FTMerMFG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FNLeadtime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GSeqnum = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryFTState = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -291,7 +291,7 @@ namespace HI.Track
             this.FTPromptLT,
             this.FTMfgLT,
             this.FTMerPLT,
-            this.FTMerMFG,
+            this.FNLeadtime,
             this.FTStatus,
             this.GSeqnum});
             this.ogvDetail.GridControl = this.ogcDetail;
@@ -347,8 +347,6 @@ namespace HI.Track
             this.FTGrpDesc.Caption = "FTGrpDesc";
             this.FTGrpDesc.FieldName = "FTGrpDesc";
             this.FTGrpDesc.Name = "FTGrpDesc";
-            this.FTGrpDesc.Visible = true;
-            this.FTGrpDesc.VisibleIndex = 4;
             this.FTGrpDesc.Width = 197;
             // 
             // FTProdCat
@@ -358,8 +356,6 @@ namespace HI.Track
             this.FTProdCat.Caption = "FTProdCat";
             this.FTProdCat.FieldName = "FTProdCat";
             this.FTProdCat.Name = "FTProdCat";
-            this.FTProdCat.Visible = true;
-            this.FTProdCat.VisibleIndex = 5;
             this.FTProdCat.Width = 266;
             // 
             // FTLeague
@@ -369,8 +365,6 @@ namespace HI.Track
             this.FTLeague.Caption = "FTLeague";
             this.FTLeague.FieldName = "FTLeague";
             this.FTLeague.Name = "FTLeague";
-            this.FTLeague.Visible = true;
-            this.FTLeague.VisibleIndex = 6;
             this.FTLeague.Width = 121;
             // 
             // FTSCMCode
@@ -380,8 +374,6 @@ namespace HI.Track
             this.FTSCMCode.Caption = "FTSCMCode";
             this.FTSCMCode.FieldName = "FTSCMCode";
             this.FTSCMCode.Name = "FTSCMCode";
-            this.FTSCMCode.Visible = true;
-            this.FTSCMCode.VisibleIndex = 7;
             // 
             // FTPromptLT
             // 
@@ -390,8 +382,6 @@ namespace HI.Track
             this.FTPromptLT.Caption = "FTPromptLT";
             this.FTPromptLT.FieldName = "FTPromptLT";
             this.FTPromptLT.Name = "FTPromptLT";
-            this.FTPromptLT.Visible = true;
-            this.FTPromptLT.VisibleIndex = 8;
             this.FTPromptLT.Width = 47;
             // 
             // FTMfgLT
@@ -401,8 +391,6 @@ namespace HI.Track
             this.FTMfgLT.Caption = "FTMfgLT";
             this.FTMfgLT.FieldName = "FTMfgLT";
             this.FTMfgLT.Name = "FTMfgLT";
-            this.FTMfgLT.Visible = true;
-            this.FTMfgLT.VisibleIndex = 9;
             this.FTMfgLT.Width = 31;
             // 
             // FTMerPLT
@@ -413,19 +401,16 @@ namespace HI.Track
             this.FTMerPLT.FieldName = "FTMerPLT";
             this.FTMerPLT.Name = "FTMerPLT";
             this.FTMerPLT.Visible = true;
-            this.FTMerPLT.VisibleIndex = 10;
+            this.FTMerPLT.VisibleIndex = 4;
             this.FTMerPLT.Width = 31;
             // 
-            // FTMerMFG
+            // FNLeadtime
             // 
-            this.FTMerMFG.AppearanceCell.Options.UseTextOptions = true;
-            this.FTMerMFG.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.FTMerMFG.Caption = "FTMerMFG";
-            this.FTMerMFG.FieldName = "FTMerMFG";
-            this.FTMerMFG.Name = "FTMerMFG";
-            this.FTMerMFG.Visible = true;
-            this.FTMerMFG.VisibleIndex = 11;
-            this.FTMerMFG.Width = 31;
+            this.FNLeadtime.Caption = "FNLeadtime";
+            this.FNLeadtime.FieldName = "FNLeadtime";
+            this.FNLeadtime.Name = "FNLeadtime";
+            this.FNLeadtime.Visible = true;
+            this.FNLeadtime.VisibleIndex = 5;
             // 
             // FTStatus
             // 
@@ -434,8 +419,6 @@ namespace HI.Track
             this.FTStatus.Caption = "FTStatus";
             this.FTStatus.FieldName = "FTStatus";
             this.FTStatus.Name = "FTStatus";
-            this.FTStatus.Visible = true;
-            this.FTStatus.VisibleIndex = 12;
             this.FTStatus.Width = 191;
             // 
             // GSeqnum
@@ -514,10 +497,10 @@ namespace HI.Track
         private DevExpress.XtraGrid.Columns.GridColumn FTPromptLT;
         private DevExpress.XtraGrid.Columns.GridColumn FTMfgLT;
         private DevExpress.XtraGrid.Columns.GridColumn FTMerPLT;
-        private DevExpress.XtraGrid.Columns.GridColumn FTMerMFG;
         private DevExpress.XtraGrid.Columns.GridColumn FTStatus;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryFTState;
         private DevExpress.XtraGrid.Columns.GridColumn GSeqnum;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositorySeqnumIs1;
+        private DevExpress.XtraGrid.Columns.GridColumn FNLeadtime;
     }
 }

@@ -29,11 +29,6 @@ namespace HI.Track
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions13 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject49 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject50 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject51 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject52 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -89,12 +84,10 @@ namespace HI.Track
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject43 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject44 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.ogcCriteria = new DevExpress.XtraEditors.GroupControl();
             this.FNMonth = new DevExpress.XtraEditors.ComboBoxEdit();
             this.FTPayTerm_lbl = new DevExpress.XtraEditors.LabelControl();
-            this.FTPayTerm = new DevExpress.XtraEditors.ButtonEdit();
-            this.FDCalDateBegin = new DevExpress.XtraEditors.TextEdit();
             this.FDCalDateEnd = new DevExpress.XtraEditors.TextEdit();
             this.FNHSysEmpIdTo_None = new DevExpress.XtraEditors.TextEdit();
             this.FNHSysUnitSectIdTo_None = new DevExpress.XtraEditors.TextEdit();
@@ -152,6 +145,7 @@ namespace HI.Track
             this.FTSectName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTUnitSectName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTPositName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTAccountGroupCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTEmpTypeCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTDeptCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTDivisonCode = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -178,6 +172,14 @@ namespace HI.Track
             this.FNPayLeaveOtherBaht = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FHolidayBaht = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FNIncentiveAmt = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.F008 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.F009 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.F014 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.F016 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.F017 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.F043 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.F032 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.F050 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FNTotalAdd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FNTotalAddOther = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FNTotalExpense = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -187,19 +189,31 @@ namespace HI.Track
             this.FNSocial = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FNTotalRecalTAX = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FNTax = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.F112 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.F113 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FNNetpay = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.FTAccountGroupCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTAccountGroupName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTStateHRSent = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ReposFTStateHRSent = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.FTUserHRSent = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTDateHRSent = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTTimeHRSent = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTStateEmployeeAccept = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ReposFTStateEmployeeAccept = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.FTUserEmployeeAccept = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTDateEmployeeAccept = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTTimeEmployeeAccept = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTStateHRAccept = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ReposFTStateHRAccept = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.FTUseHRAccept = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTDateHRAccept = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTTimeHRAccept = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RepositoryFTSelect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.RepositoryFTApproveState = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.ReposFTStateEmployeeAccept = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.ReposFTStateHRSent = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.ReposFTStateHRAccept = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.FDCalDateBegin = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ogcCriteria)).BeginInit();
             this.ogcCriteria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FNMonth.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FTPayTerm.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FDCalDateBegin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FDCalDateEnd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FNHSysEmpIdTo_None.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FNHSysUnitSectIdTo_None.Properties)).BeginInit();
@@ -232,19 +246,18 @@ namespace HI.Track
             this.GroupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ogc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReposFTStateHRSent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReposFTStateEmployeeAccept)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReposFTStateHRAccept)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepositoryFTSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepositoryFTApproveState)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ReposFTStateEmployeeAccept)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ReposFTStateHRSent)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ReposFTStateHRAccept)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FDCalDateBegin.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ogcCriteria
             // 
-            this.ogcCriteria.Controls.Add(this.ogbmainprocbutton);
             this.ogcCriteria.Controls.Add(this.FNMonth);
             this.ogcCriteria.Controls.Add(this.FTPayTerm_lbl);
-            this.ogcCriteria.Controls.Add(this.FTPayTerm);
             this.ogcCriteria.Controls.Add(this.FDCalDateBegin);
             this.ogcCriteria.Controls.Add(this.FDCalDateEnd);
             this.ogcCriteria.Controls.Add(this.FNHSysEmpIdTo_None);
@@ -296,7 +309,7 @@ namespace HI.Track
             // 
             this.FNMonth.EditValue = "";
             this.FNMonth.EnterMoveNextControl = true;
-            this.FNMonth.Location = new System.Drawing.Point(659, 51);
+            this.FNMonth.Location = new System.Drawing.Point(706, 51);
             this.FNMonth.Name = "FNMonth";
             this.FNMonth.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.FNMonth.Properties.Appearance.Options.UseBackColor = true;
@@ -327,41 +340,16 @@ namespace HI.Track
             this.FTPayTerm_lbl.Appearance.Options.UseTextOptions = true;
             this.FTPayTerm_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.FTPayTerm_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.FTPayTerm_lbl.Location = new System.Drawing.Point(597, 53);
+            this.FTPayTerm_lbl.Location = new System.Drawing.Point(600, 53);
             this.FTPayTerm_lbl.Name = "FTPayTerm_lbl";
-            this.FTPayTerm_lbl.Size = new System.Drawing.Size(56, 15);
+            this.FTPayTerm_lbl.Size = new System.Drawing.Size(100, 15);
             this.FTPayTerm_lbl.TabIndex = 434;
             this.FTPayTerm_lbl.Tag = "2|";
             this.FTPayTerm_lbl.Text = "Month :";
             // 
-            // FTPayTerm
-            // 
-            this.FTPayTerm.EditValue = "";
-            this.FTPayTerm.Location = new System.Drawing.Point(882, 51);
-            this.FTPayTerm.Name = "FTPayTerm";
-            this.FTPayTerm.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions13, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject49, serializableAppearanceObject50, serializableAppearanceObject51, serializableAppearanceObject52, "", "151", null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.FTPayTerm.Properties.Tag = "";
-            this.FTPayTerm.Size = new System.Drawing.Size(76, 20);
-            this.FTPayTerm.TabIndex = 433;
-            this.FTPayTerm.Tag = "2|";
-            this.FTPayTerm.Visible = false;
-            // 
-            // FDCalDateBegin
-            // 
-            this.FDCalDateBegin.Location = new System.Drawing.Point(784, 52);
-            this.FDCalDateBegin.Name = "FDCalDateBegin";
-            this.FDCalDateBegin.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
-            this.FDCalDateBegin.Properties.Appearance.Options.UseBackColor = true;
-            this.FDCalDateBegin.Properties.ReadOnly = true;
-            this.FDCalDateBegin.Size = new System.Drawing.Size(85, 20);
-            this.FDCalDateBegin.TabIndex = 432;
-            this.FDCalDateBegin.Tag = "2|";
-            this.FDCalDateBegin.Visible = false;
-            // 
             // FDCalDateEnd
             // 
-            this.FDCalDateEnd.Location = new System.Drawing.Point(873, 51);
+            this.FDCalDateEnd.Location = new System.Drawing.Point(876, 52);
             this.FDCalDateEnd.Name = "FDCalDateEnd";
             this.FDCalDateEnd.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
             this.FDCalDateEnd.Properties.Appearance.Options.UseBackColor = true;
@@ -375,7 +363,7 @@ namespace HI.Track
             // 
             this.FNHSysEmpIdTo_None.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.FNHSysEmpIdTo_None.Location = new System.Drawing.Point(597, 165);
+            this.FNHSysEmpIdTo_None.Location = new System.Drawing.Point(600, 165);
             this.FNHSysEmpIdTo_None.Name = "FNHSysEmpIdTo_None";
             this.FNHSysEmpIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
             this.FNHSysEmpIdTo_None.Properties.Appearance.Options.UseBackColor = true;
@@ -388,7 +376,7 @@ namespace HI.Track
             // 
             this.FNHSysUnitSectIdTo_None.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.FNHSysUnitSectIdTo_None.Location = new System.Drawing.Point(597, 143);
+            this.FNHSysUnitSectIdTo_None.Location = new System.Drawing.Point(600, 143);
             this.FNHSysUnitSectIdTo_None.Name = "FNHSysUnitSectIdTo_None";
             this.FNHSysUnitSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
             this.FNHSysUnitSectIdTo_None.Properties.Appearance.Options.UseBackColor = true;
@@ -401,7 +389,7 @@ namespace HI.Track
             // 
             this.FNHSysSectIdTo_None.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.FNHSysSectIdTo_None.Location = new System.Drawing.Point(597, 121);
+            this.FNHSysSectIdTo_None.Location = new System.Drawing.Point(600, 121);
             this.FNHSysSectIdTo_None.Name = "FNHSysSectIdTo_None";
             this.FNHSysSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
             this.FNHSysSectIdTo_None.Properties.Appearance.Options.UseBackColor = true;
@@ -414,7 +402,7 @@ namespace HI.Track
             // 
             this.FNHSysDivisonIdTo_None.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.FNHSysDivisonIdTo_None.Location = new System.Drawing.Point(597, 98);
+            this.FNHSysDivisonIdTo_None.Location = new System.Drawing.Point(600, 98);
             this.FNHSysDivisonIdTo_None.Name = "FNHSysDivisonIdTo_None";
             this.FNHSysDivisonIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
             this.FNHSysDivisonIdTo_None.Properties.Appearance.Options.UseBackColor = true;
@@ -427,7 +415,7 @@ namespace HI.Track
             // 
             this.FNHSysDeptIdTo_None.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.FNHSysDeptIdTo_None.Location = new System.Drawing.Point(597, 75);
+            this.FNHSysDeptIdTo_None.Location = new System.Drawing.Point(600, 75);
             this.FNHSysDeptIdTo_None.Name = "FNHSysDeptIdTo_None";
             this.FNHSysDeptIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
             this.FNHSysDeptIdTo_None.Properties.Appearance.Options.UseBackColor = true;
@@ -516,9 +504,12 @@ namespace HI.Track
             // 
             this.FNHSysEmpIdTo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.FNHSysEmpIdTo_lbl.Appearance.Options.UseForeColor = true;
-            this.FNHSysEmpIdTo_lbl.Location = new System.Drawing.Point(386, 169);
+            this.FNHSysEmpIdTo_lbl.Appearance.Options.UseTextOptions = true;
+            this.FNHSysEmpIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FNHSysEmpIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FNHSysEmpIdTo_lbl.Location = new System.Drawing.Point(375, 169);
             this.FNHSysEmpIdTo_lbl.Name = "FNHSysEmpIdTo_lbl";
-            this.FNHSysEmpIdTo_lbl.Size = new System.Drawing.Size(74, 13);
+            this.FNHSysEmpIdTo_lbl.Size = new System.Drawing.Size(100, 13);
             this.FNHSysEmpIdTo_lbl.TabIndex = 25;
             this.FNHSysEmpIdTo_lbl.Text = "End Employee :";
             // 
@@ -526,9 +517,12 @@ namespace HI.Track
             // 
             this.FNHSysUnitSectIdTo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.FNHSysUnitSectIdTo_lbl.Appearance.Options.UseForeColor = true;
-            this.FNHSysUnitSectIdTo_lbl.Location = new System.Drawing.Point(389, 146);
+            this.FNHSysUnitSectIdTo_lbl.Appearance.Options.UseTextOptions = true;
+            this.FNHSysUnitSectIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FNHSysUnitSectIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FNHSysUnitSectIdTo_lbl.Location = new System.Drawing.Point(375, 146);
             this.FNHSysUnitSectIdTo_lbl.Name = "FNHSysUnitSectIdTo_lbl";
-            this.FNHSysUnitSectIdTo_lbl.Size = new System.Drawing.Size(71, 13);
+            this.FNHSysUnitSectIdTo_lbl.Size = new System.Drawing.Size(100, 13);
             this.FNHSysUnitSectIdTo_lbl.TabIndex = 24;
             this.FNHSysUnitSectIdTo_lbl.Text = "End Unit Sect :";
             // 
@@ -536,9 +530,12 @@ namespace HI.Track
             // 
             this.FNHSysSectIdTo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.FNHSysSectIdTo_lbl.Appearance.Options.UseForeColor = true;
-            this.FNHSysSectIdTo_lbl.Location = new System.Drawing.Point(411, 124);
+            this.FNHSysSectIdTo_lbl.Appearance.Options.UseTextOptions = true;
+            this.FNHSysSectIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FNHSysSectIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FNHSysSectIdTo_lbl.Location = new System.Drawing.Point(375, 124);
             this.FNHSysSectIdTo_lbl.Name = "FNHSysSectIdTo_lbl";
-            this.FNHSysSectIdTo_lbl.Size = new System.Drawing.Size(49, 13);
+            this.FNHSysSectIdTo_lbl.Size = new System.Drawing.Size(100, 13);
             this.FNHSysSectIdTo_lbl.TabIndex = 23;
             this.FNHSysSectIdTo_lbl.Text = "End Sect :";
             // 
@@ -546,9 +543,12 @@ namespace HI.Track
             // 
             this.FNHSysDivisonIdTo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.FNHSysDivisonIdTo_lbl.Appearance.Options.UseForeColor = true;
-            this.FNHSysDivisonIdTo_lbl.Location = new System.Drawing.Point(396, 101);
+            this.FNHSysDivisonIdTo_lbl.Appearance.Options.UseTextOptions = true;
+            this.FNHSysDivisonIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FNHSysDivisonIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FNHSysDivisonIdTo_lbl.Location = new System.Drawing.Point(375, 101);
             this.FNHSysDivisonIdTo_lbl.Name = "FNHSysDivisonIdTo_lbl";
-            this.FNHSysDivisonIdTo_lbl.Size = new System.Drawing.Size(64, 13);
+            this.FNHSysDivisonIdTo_lbl.Size = new System.Drawing.Size(100, 13);
             this.FNHSysDivisonIdTo_lbl.TabIndex = 22;
             this.FNHSysDivisonIdTo_lbl.Text = "End Division :";
             // 
@@ -556,9 +556,12 @@ namespace HI.Track
             // 
             this.FNHSysDeptIdTo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.FNHSysDeptIdTo_lbl.Appearance.Options.UseForeColor = true;
-            this.FNHSysDeptIdTo_lbl.Location = new System.Drawing.Point(375, 80);
+            this.FNHSysDeptIdTo_lbl.Appearance.Options.UseTextOptions = true;
+            this.FNHSysDeptIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FNHSysDeptIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FNHSysDeptIdTo_lbl.Location = new System.Drawing.Point(375, 78);
             this.FNHSysDeptIdTo_lbl.Name = "FNHSysDeptIdTo_lbl";
-            this.FNHSysDeptIdTo_lbl.Size = new System.Drawing.Size(85, 13);
+            this.FNHSysDeptIdTo_lbl.Size = new System.Drawing.Size(100, 13);
             this.FNHSysDeptIdTo_lbl.TabIndex = 21;
             this.FNHSysDeptIdTo_lbl.Text = "End Department :";
             // 
@@ -566,15 +569,18 @@ namespace HI.Track
             // 
             this.FTPayYear_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.FTPayYear_lbl.Appearance.Options.UseForeColor = true;
-            this.FTPayYear_lbl.Location = new System.Drawing.Point(431, 55);
+            this.FTPayYear_lbl.Appearance.Options.UseTextOptions = true;
+            this.FTPayYear_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FTPayYear_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FTPayYear_lbl.Location = new System.Drawing.Point(375, 53);
             this.FTPayYear_lbl.Name = "FTPayYear_lbl";
-            this.FTPayYear_lbl.Size = new System.Drawing.Size(29, 13);
+            this.FTPayYear_lbl.Size = new System.Drawing.Size(100, 13);
             this.FTPayYear_lbl.TabIndex = 20;
             this.FTPayYear_lbl.Text = "Year :";
             // 
             // FNHSysEmpIdTo
             // 
-            this.FNHSysEmpIdTo.Location = new System.Drawing.Point(466, 166);
+            this.FNHSysEmpIdTo.Location = new System.Drawing.Point(480, 166);
             this.FNHSysEmpIdTo.Name = "FNHSysEmpIdTo";
             this.FNHSysEmpIdTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "63", null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -584,7 +590,7 @@ namespace HI.Track
             // 
             // FNHSysUnitSectIdTo
             // 
-            this.FNHSysUnitSectIdTo.Location = new System.Drawing.Point(466, 143);
+            this.FNHSysUnitSectIdTo.Location = new System.Drawing.Point(480, 143);
             this.FNHSysUnitSectIdTo.Name = "FNHSysUnitSectIdTo";
             this.FNHSysUnitSectIdTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", "62", null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -594,7 +600,7 @@ namespace HI.Track
             // 
             // FNHSysSectIdTo
             // 
-            this.FNHSysSectIdTo.Location = new System.Drawing.Point(466, 121);
+            this.FNHSysSectIdTo.Location = new System.Drawing.Point(480, 121);
             this.FNHSysSectIdTo.Name = "FNHSysSectIdTo";
             this.FNHSysSectIdTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", "61", null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -604,7 +610,7 @@ namespace HI.Track
             // 
             // FNHSysDivisonIdTo
             // 
-            this.FNHSysDivisonIdTo.Location = new System.Drawing.Point(466, 98);
+            this.FNHSysDivisonIdTo.Location = new System.Drawing.Point(480, 98);
             this.FNHSysDivisonIdTo.Name = "FNHSysDivisonIdTo";
             this.FNHSysDivisonIdTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", "60", null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -614,7 +620,7 @@ namespace HI.Track
             // 
             // FNHSysDeptIdTo
             // 
-            this.FNHSysDeptIdTo.Location = new System.Drawing.Point(466, 75);
+            this.FNHSysDeptIdTo.Location = new System.Drawing.Point(480, 75);
             this.FNHSysDeptIdTo.Name = "FNHSysDeptIdTo";
             this.FNHSysDeptIdTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", "59", null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -624,7 +630,7 @@ namespace HI.Track
             // 
             // FTPayYear
             // 
-            this.FTPayYear.Location = new System.Drawing.Point(466, 51);
+            this.FTPayYear.Location = new System.Drawing.Point(480, 51);
             this.FTPayYear.Name = "FTPayYear";
             this.FTPayYear.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -701,9 +707,12 @@ namespace HI.Track
             // 
             this.FNHSysEmpId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.FNHSysEmpId_lbl.Appearance.Options.UseForeColor = true;
-            this.FNHSysEmpId_lbl.Location = new System.Drawing.Point(23, 169);
+            this.FNHSysEmpId_lbl.Appearance.Options.UseTextOptions = true;
+            this.FNHSysEmpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FNHSysEmpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FNHSysEmpId_lbl.Location = new System.Drawing.Point(5, 170);
             this.FNHSysEmpId_lbl.Name = "FNHSysEmpId_lbl";
-            this.FNHSysEmpId_lbl.Size = new System.Drawing.Size(80, 13);
+            this.FNHSysEmpId_lbl.Size = new System.Drawing.Size(100, 13);
             this.FNHSysEmpId_lbl.TabIndex = 6;
             this.FNHSysEmpId_lbl.Text = "Start Employee :";
             // 
@@ -711,9 +720,12 @@ namespace HI.Track
             // 
             this.FNHSysUnitSectId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.FNHSysUnitSectId_lbl.Appearance.Options.UseForeColor = true;
-            this.FNHSysUnitSectId_lbl.Location = new System.Drawing.Point(26, 146);
+            this.FNHSysUnitSectId_lbl.Appearance.Options.UseTextOptions = true;
+            this.FNHSysUnitSectId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FNHSysUnitSectId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FNHSysUnitSectId_lbl.Location = new System.Drawing.Point(5, 147);
             this.FNHSysUnitSectId_lbl.Name = "FNHSysUnitSectId_lbl";
-            this.FNHSysUnitSectId_lbl.Size = new System.Drawing.Size(77, 13);
+            this.FNHSysUnitSectId_lbl.Size = new System.Drawing.Size(100, 13);
             this.FNHSysUnitSectId_lbl.TabIndex = 5;
             this.FNHSysUnitSectId_lbl.Text = "Start Unit Sect :";
             // 
@@ -721,9 +733,12 @@ namespace HI.Track
             // 
             this.FNHSysSectId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.FNHSysSectId_lbl.Appearance.Options.UseForeColor = true;
-            this.FNHSysSectId_lbl.Location = new System.Drawing.Point(48, 123);
+            this.FNHSysSectId_lbl.Appearance.Options.UseTextOptions = true;
+            this.FNHSysSectId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FNHSysSectId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FNHSysSectId_lbl.Location = new System.Drawing.Point(5, 124);
             this.FNHSysSectId_lbl.Name = "FNHSysSectId_lbl";
-            this.FNHSysSectId_lbl.Size = new System.Drawing.Size(55, 13);
+            this.FNHSysSectId_lbl.Size = new System.Drawing.Size(100, 13);
             this.FNHSysSectId_lbl.TabIndex = 4;
             this.FNHSysSectId_lbl.Text = "Start Sect :";
             // 
@@ -731,9 +746,12 @@ namespace HI.Track
             // 
             this.FNHSysDivisonId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.FNHSysDivisonId_lbl.Appearance.Options.UseForeColor = true;
-            this.FNHSysDivisonId_lbl.Location = new System.Drawing.Point(29, 100);
+            this.FNHSysDivisonId_lbl.Appearance.Options.UseTextOptions = true;
+            this.FNHSysDivisonId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FNHSysDivisonId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FNHSysDivisonId_lbl.Location = new System.Drawing.Point(5, 101);
             this.FNHSysDivisonId_lbl.Name = "FNHSysDivisonId_lbl";
-            this.FNHSysDivisonId_lbl.Size = new System.Drawing.Size(74, 13);
+            this.FNHSysDivisonId_lbl.Size = new System.Drawing.Size(100, 13);
             this.FNHSysDivisonId_lbl.TabIndex = 3;
             this.FNHSysDivisonId_lbl.Text = "Start Devision :";
             // 
@@ -741,9 +759,12 @@ namespace HI.Track
             // 
             this.FNHSysDeptId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.FNHSysDeptId_lbl.Appearance.Options.UseForeColor = true;
-            this.FNHSysDeptId_lbl.Location = new System.Drawing.Point(12, 78);
+            this.FNHSysDeptId_lbl.Appearance.Options.UseTextOptions = true;
+            this.FNHSysDeptId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FNHSysDeptId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FNHSysDeptId_lbl.Location = new System.Drawing.Point(5, 78);
             this.FNHSysDeptId_lbl.Name = "FNHSysDeptId_lbl";
-            this.FNHSysDeptId_lbl.Size = new System.Drawing.Size(91, 13);
+            this.FNHSysDeptId_lbl.Size = new System.Drawing.Size(100, 13);
             this.FNHSysDeptId_lbl.TabIndex = 2;
             this.FNHSysDeptId_lbl.Text = "Start Department :";
             // 
@@ -751,9 +772,12 @@ namespace HI.Track
             // 
             this.FNHSysEmpTypeId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.FNHSysEmpTypeId_lbl.Appearance.Options.UseForeColor = true;
-            this.FNHSysEmpTypeId_lbl.Location = new System.Drawing.Point(23, 54);
+            this.FNHSysEmpTypeId_lbl.Appearance.Options.UseTextOptions = true;
+            this.FNHSysEmpTypeId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FNHSysEmpTypeId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FNHSysEmpTypeId_lbl.Location = new System.Drawing.Point(5, 55);
             this.FNHSysEmpTypeId_lbl.Name = "FNHSysEmpTypeId_lbl";
-            this.FNHSysEmpTypeId_lbl.Size = new System.Drawing.Size(80, 13);
+            this.FNHSysEmpTypeId_lbl.Size = new System.Drawing.Size(100, 13);
             this.FNHSysEmpTypeId_lbl.TabIndex = 1;
             this.FNHSysEmpTypeId_lbl.Text = "Employee Type :";
             // 
@@ -761,9 +785,12 @@ namespace HI.Track
             // 
             this.FNHSysCmpId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.FNHSysCmpId_lbl.Appearance.Options.UseForeColor = true;
-            this.FNHSysCmpId_lbl.Location = new System.Drawing.Point(51, 30);
+            this.FNHSysCmpId_lbl.Appearance.Options.UseTextOptions = true;
+            this.FNHSysCmpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FNHSysCmpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FNHSysCmpId_lbl.Location = new System.Drawing.Point(5, 30);
             this.FNHSysCmpId_lbl.Name = "FNHSysCmpId_lbl";
-            this.FNHSysCmpId_lbl.Size = new System.Drawing.Size(52, 13);
+            this.FNHSysCmpId_lbl.Size = new System.Drawing.Size(100, 13);
             this.FNHSysCmpId_lbl.TabIndex = 0;
             this.FNHSysCmpId_lbl.Text = "Company :";
             // 
@@ -773,7 +800,7 @@ namespace HI.Track
             this.ogbmainprocbutton.Controls.Add(this.ocmexit);
             this.ogbmainprocbutton.Controls.Add(this.ocmclear);
             this.ogbmainprocbutton.Controls.Add(this.ocmload);
-            this.ogbmainprocbutton.Location = new System.Drawing.Point(841, 123);
+            this.ogbmainprocbutton.Location = new System.Drawing.Point(12, 334);
             this.ogbmainprocbutton.Name = "ogbmainprocbutton";
             this.ogbmainprocbutton.Size = new System.Drawing.Size(197, 62);
             this.ogbmainprocbutton.TabIndex = 388;
@@ -823,6 +850,7 @@ namespace HI.Track
             // 
             this.GroupControl1.AppearanceCaption.Options.UseTextOptions = true;
             this.GroupControl1.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.GroupControl1.Controls.Add(this.ogbmainprocbutton);
             this.GroupControl1.Controls.Add(this.ogc);
             this.GroupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GroupControl1.Location = new System.Drawing.Point(0, 194);
@@ -834,9 +862,9 @@ namespace HI.Track
             // ogc
             // 
             this.ogc.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.ogc.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.ogc.Location = new System.Drawing.Point(2, 23);
             this.ogc.MainView = this.ogv;
             this.ogc.Name = "ogc";
@@ -847,7 +875,7 @@ namespace HI.Track
             this.ReposFTStateHRSent,
             this.ReposFTStateHRAccept});
             this.ogc.Size = new System.Drawing.Size(1046, 400);
-            this.ogc.TabIndex = 3;
+            this.ogc.TabIndex = 4;
             this.ogc.TabStop = false;
             this.ogc.Tag = "2|";
             this.ogc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -866,6 +894,7 @@ namespace HI.Track
             this.FTSectName,
             this.FTUnitSectName,
             this.FTPositName,
+            this.FTAccountGroupCode,
             this.FTEmpTypeCode,
             this.FTDeptCode,
             this.FTDivisonCode,
@@ -892,6 +921,14 @@ namespace HI.Track
             this.FNPayLeaveOtherBaht,
             this.FHolidayBaht,
             this.FNIncentiveAmt,
+            this.F008,
+            this.F009,
+            this.F014,
+            this.F016,
+            this.F017,
+            this.F043,
+            this.F032,
+            this.F050,
             this.FNTotalAdd,
             this.FNTotalAddOther,
             this.FNTotalExpense,
@@ -901,9 +938,22 @@ namespace HI.Track
             this.FNSocial,
             this.FNTotalRecalTAX,
             this.FNTax,
+            this.F112,
+            this.F113,
             this.FNNetpay,
-            this.FTAccountGroupCode,
-            this.FTAccountGroupName});
+            this.FTAccountGroupName,
+            this.FTStateHRSent,
+            this.FTUserHRSent,
+            this.FTDateHRSent,
+            this.FTTimeHRSent,
+            this.FTStateEmployeeAccept,
+            this.FTUserEmployeeAccept,
+            this.FTDateEmployeeAccept,
+            this.FTTimeEmployeeAccept,
+            this.FTStateHRAccept,
+            this.FTUseHRAccept,
+            this.FTDateHRAccept,
+            this.FTTimeHRAccept});
             this.ogv.DetailHeight = 284;
             this.ogv.GridControl = this.ogc;
             this.ogv.Name = "ogv";
@@ -915,8 +965,6 @@ namespace HI.Track
             // 
             // ColFNHSysEmpID
             // 
-            this.ColFNHSysEmpID.AppearanceCell.Options.UseTextOptions = true;
-            this.ColFNHSysEmpID.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ColFNHSysEmpID.AppearanceHeader.Options.UseTextOptions = true;
             this.ColFNHSysEmpID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ColFNHSysEmpID.Caption = "FNHSysEmpID";
@@ -924,7 +972,6 @@ namespace HI.Track
             this.ColFNHSysEmpID.MinWidth = 17;
             this.ColFNHSysEmpID.Name = "ColFNHSysEmpID";
             this.ColFNHSysEmpID.OptionsColumn.AllowEdit = false;
-            this.ColFNHSysEmpID.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
             this.ColFNHSysEmpID.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.ColFNHSysEmpID.OptionsColumn.ReadOnly = true;
             this.ColFNHSysEmpID.OptionsColumn.TabStop = false;
@@ -943,7 +990,6 @@ namespace HI.Track
             this.FTEmpCode.Name = "FTEmpCode";
             this.FTEmpCode.OptionsColumn.AllowEdit = false;
             this.FTEmpCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTEmpCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
             this.FTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTEmpCode.OptionsColumn.ReadOnly = true;
             this.FTEmpCode.OptionsColumn.TabStop = false;
@@ -963,13 +1009,12 @@ namespace HI.Track
             this.FTEmpName.Name = "FTEmpName";
             this.FTEmpName.OptionsColumn.AllowEdit = false;
             this.FTEmpName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTEmpName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
             this.FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTEmpName.OptionsColumn.ReadOnly = true;
             this.FTEmpName.OptionsColumn.TabStop = false;
             this.FTEmpName.Visible = true;
             this.FTEmpName.VisibleIndex = 1;
-            this.FTEmpName.Width = 150;
+            this.FTEmpName.Width = 147;
             // 
             // FTEmpStatusName
             // 
@@ -983,10 +1028,9 @@ namespace HI.Track
             this.FTEmpStatusName.Name = "FTEmpStatusName";
             this.FTEmpStatusName.OptionsColumn.AllowEdit = false;
             this.FTEmpStatusName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTEmpStatusName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
             this.FTEmpStatusName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTEmpStatusName.OptionsColumn.ReadOnly = true;
-            this.FTEmpStatusName.Width = 80;
+            this.FTEmpStatusName.Width = 77;
             // 
             // FTEmpTypeName
             // 
@@ -1000,10 +1044,9 @@ namespace HI.Track
             this.FTEmpTypeName.Name = "FTEmpTypeName";
             this.FTEmpTypeName.OptionsColumn.AllowEdit = false;
             this.FTEmpTypeName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTEmpTypeName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FTEmpTypeName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTEmpTypeName.OptionsColumn.ReadOnly = true;
-            this.FTEmpTypeName.Width = 130;
+            this.FTEmpTypeName.Width = 137;
             // 
             // FTDeptName
             // 
@@ -1017,10 +1060,9 @@ namespace HI.Track
             this.FTDeptName.Name = "FTDeptName";
             this.FTDeptName.OptionsColumn.AllowEdit = false;
             this.FTDeptName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTDeptName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FTDeptName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTDeptName.OptionsColumn.ReadOnly = true;
-            this.FTDeptName.Width = 150;
+            this.FTDeptName.Width = 163;
             // 
             // FTDivisonName
             // 
@@ -1034,7 +1076,6 @@ namespace HI.Track
             this.FTDivisonName.Name = "FTDivisonName";
             this.FTDivisonName.OptionsColumn.AllowEdit = false;
             this.FTDivisonName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTDivisonName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FTDivisonName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTDivisonName.OptionsColumn.ReadOnly = true;
             this.FTDivisonName.Width = 140;
@@ -1051,10 +1092,9 @@ namespace HI.Track
             this.FTSectName.Name = "FTSectName";
             this.FTSectName.OptionsColumn.AllowEdit = false;
             this.FTSectName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTSectName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FTSectName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTSectName.OptionsColumn.ReadOnly = true;
-            this.FTSectName.Width = 140;
+            this.FTSectName.Width = 142;
             // 
             // FTUnitSectName
             // 
@@ -1068,7 +1108,6 @@ namespace HI.Track
             this.FTUnitSectName.Name = "FTUnitSectName";
             this.FTUnitSectName.OptionsColumn.AllowEdit = false;
             this.FTUnitSectName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTUnitSectName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FTUnitSectName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTUnitSectName.OptionsColumn.ReadOnly = true;
             this.FTUnitSectName.Width = 135;
@@ -1085,10 +1124,23 @@ namespace HI.Track
             this.FTPositName.Name = "FTPositName";
             this.FTPositName.OptionsColumn.AllowEdit = false;
             this.FTPositName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTPositName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FTPositName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTPositName.OptionsColumn.ReadOnly = true;
-            this.FTPositName.Width = 150;
+            this.FTPositName.Width = 153;
+            // 
+            // FTAccountGroupCode
+            // 
+            this.FTAccountGroupCode.AppearanceCell.Options.UseTextOptions = true;
+            this.FTAccountGroupCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.FTAccountGroupCode.Caption = "FTAccountGroupCode";
+            this.FTAccountGroupCode.FieldName = "FTAccountGroupCode";
+            this.FTAccountGroupCode.MinWidth = 21;
+            this.FTAccountGroupCode.Name = "FTAccountGroupCode";
+            this.FTAccountGroupCode.OptionsColumn.AllowEdit = false;
+            this.FTAccountGroupCode.OptionsColumn.ReadOnly = true;
+            this.FTAccountGroupCode.Visible = true;
+            this.FTAccountGroupCode.VisibleIndex = 7;
+            this.FTAccountGroupCode.Width = 81;
             // 
             // FTEmpTypeCode
             // 
@@ -1102,12 +1154,11 @@ namespace HI.Track
             this.FTEmpTypeCode.Name = "FTEmpTypeCode";
             this.FTEmpTypeCode.OptionsColumn.AllowEdit = false;
             this.FTEmpTypeCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTEmpTypeCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FTEmpTypeCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTEmpTypeCode.OptionsColumn.ReadOnly = true;
             this.FTEmpTypeCode.Visible = true;
             this.FTEmpTypeCode.VisibleIndex = 2;
-            this.FTEmpTypeCode.Width = 70;
+            this.FTEmpTypeCode.Width = 69;
             // 
             // FTDeptCode
             // 
@@ -1121,12 +1172,11 @@ namespace HI.Track
             this.FTDeptCode.Name = "FTDeptCode";
             this.FTDeptCode.OptionsColumn.AllowEdit = false;
             this.FTDeptCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTDeptCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FTDeptCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTDeptCode.OptionsColumn.ReadOnly = true;
             this.FTDeptCode.Visible = true;
             this.FTDeptCode.VisibleIndex = 3;
-            this.FTDeptCode.Width = 70;
+            this.FTDeptCode.Width = 64;
             // 
             // FTDivisonCode
             // 
@@ -1140,12 +1190,11 @@ namespace HI.Track
             this.FTDivisonCode.Name = "FTDivisonCode";
             this.FTDivisonCode.OptionsColumn.AllowEdit = false;
             this.FTDivisonCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTDivisonCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FTDivisonCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTDivisonCode.OptionsColumn.ReadOnly = true;
             this.FTDivisonCode.Visible = true;
             this.FTDivisonCode.VisibleIndex = 4;
-            this.FTDivisonCode.Width = 70;
+            this.FTDivisonCode.Width = 72;
             // 
             // FTSectCode
             // 
@@ -1159,12 +1208,11 @@ namespace HI.Track
             this.FTSectCode.Name = "FTSectCode";
             this.FTSectCode.OptionsColumn.AllowEdit = false;
             this.FTSectCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTSectCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FTSectCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTSectCode.OptionsColumn.ReadOnly = true;
             this.FTSectCode.Visible = true;
             this.FTSectCode.VisibleIndex = 5;
-            this.FTSectCode.Width = 70;
+            this.FTSectCode.Width = 64;
             // 
             // FTUnitSectCode
             // 
@@ -1178,12 +1226,11 @@ namespace HI.Track
             this.FTUnitSectCode.Name = "FTUnitSectCode";
             this.FTUnitSectCode.OptionsColumn.AllowEdit = false;
             this.FTUnitSectCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTUnitSectCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FTUnitSectCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTUnitSectCode.OptionsColumn.ReadOnly = true;
             this.FTUnitSectCode.Visible = true;
             this.FTUnitSectCode.VisibleIndex = 6;
-            this.FTUnitSectCode.Width = 70;
+            this.FTUnitSectCode.Width = 64;
             // 
             // FTPositCode
             // 
@@ -1197,7 +1244,6 @@ namespace HI.Track
             this.FTPositCode.Name = "FTPositCode";
             this.FTPositCode.OptionsColumn.AllowEdit = false;
             this.FTPositCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FTPositCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FTPositCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FTPositCode.OptionsColumn.ReadOnly = true;
             this.FTPositCode.Visible = true;
@@ -1216,10 +1262,9 @@ namespace HI.Track
             this.FNEmpStatus.Name = "FNEmpStatus";
             this.FNEmpStatus.OptionsColumn.AllowEdit = false;
             this.FNEmpStatus.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNEmpStatus.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNEmpStatus.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNEmpStatus.OptionsColumn.ReadOnly = true;
-            this.FNEmpStatus.Width = 70;
+            this.FNEmpStatus.Width = 64;
             // 
             // FNSalary
             // 
@@ -1235,12 +1280,11 @@ namespace HI.Track
             this.FNSalary.Name = "FNSalary";
             this.FNSalary.OptionsColumn.AllowEdit = false;
             this.FNSalary.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNSalary.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNSalary.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNSalary.OptionsColumn.ReadOnly = true;
             this.FNSalary.Visible = true;
             this.FNSalary.VisibleIndex = 9;
-            this.FNSalary.Width = 80;
+            this.FNSalary.Width = 64;
             // 
             // FNWorkingDay
             // 
@@ -1253,12 +1297,11 @@ namespace HI.Track
             this.FNWorkingDay.MinWidth = 17;
             this.FNWorkingDay.Name = "FNWorkingDay";
             this.FNWorkingDay.OptionsColumn.AllowEdit = false;
-            this.FNWorkingDay.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNWorkingDay.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNWorkingDay.OptionsColumn.ReadOnly = true;
             this.FNWorkingDay.Visible = true;
             this.FNWorkingDay.VisibleIndex = 10;
-            this.FNWorkingDay.Width = 70;
+            this.FNWorkingDay.Width = 64;
             // 
             // FNWorkingHour
             // 
@@ -1274,10 +1317,9 @@ namespace HI.Track
             this.FNWorkingHour.Name = "FNWorkingHour";
             this.FNWorkingHour.OptionsColumn.AllowEdit = false;
             this.FNWorkingHour.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNWorkingHour.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNWorkingHour.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNWorkingHour.OptionsColumn.ReadOnly = true;
-            this.FNWorkingHour.Width = 70;
+            this.FNWorkingHour.Width = 64;
             // 
             // FNOt1
             // 
@@ -1293,12 +1335,11 @@ namespace HI.Track
             this.FNOt1.Name = "FNOt1";
             this.FNOt1.OptionsColumn.AllowEdit = false;
             this.FNOt1.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNOt1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNOt1.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNOt1.OptionsColumn.ReadOnly = true;
             this.FNOt1.Visible = true;
             this.FNOt1.VisibleIndex = 11;
-            this.FNOt1.Width = 70;
+            this.FNOt1.Width = 64;
             // 
             // FNOt15
             // 
@@ -1314,12 +1355,11 @@ namespace HI.Track
             this.FNOt15.Name = "FNOt15";
             this.FNOt15.OptionsColumn.AllowEdit = false;
             this.FNOt15.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNOt15.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNOt15.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNOt15.OptionsColumn.ReadOnly = true;
             this.FNOt15.Visible = true;
             this.FNOt15.VisibleIndex = 12;
-            this.FNOt15.Width = 70;
+            this.FNOt15.Width = 64;
             // 
             // FNOt2
             // 
@@ -1335,12 +1375,11 @@ namespace HI.Track
             this.FNOt2.Name = "FNOt2";
             this.FNOt2.OptionsColumn.AllowEdit = false;
             this.FNOt2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNOt2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNOt2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNOt2.OptionsColumn.ReadOnly = true;
             this.FNOt2.Visible = true;
             this.FNOt2.VisibleIndex = 13;
-            this.FNOt2.Width = 70;
+            this.FNOt2.Width = 64;
             // 
             // FNOt3
             // 
@@ -1356,12 +1395,11 @@ namespace HI.Track
             this.FNOt3.Name = "FNOt3";
             this.FNOt3.OptionsColumn.AllowEdit = false;
             this.FNOt3.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNOt3.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNOt3.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNOt3.OptionsColumn.ReadOnly = true;
             this.FNOt3.Visible = true;
             this.FNOt3.VisibleIndex = 14;
-            this.FNOt3.Width = 70;
+            this.FNOt3.Width = 64;
             // 
             // FNOt4
             // 
@@ -1377,12 +1415,11 @@ namespace HI.Track
             this.FNOt4.Name = "FNOt4";
             this.FNOt4.OptionsColumn.AllowEdit = false;
             this.FNOt4.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNOt4.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNOt4.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNOt4.OptionsColumn.ReadOnly = true;
             this.FNOt4.Visible = true;
             this.FNOt4.VisibleIndex = 15;
-            this.FNOt4.Width = 70;
+            this.FNOt4.Width = 64;
             // 
             // FCBaht
             // 
@@ -1398,12 +1435,11 @@ namespace HI.Track
             this.FCBaht.Name = "FCBaht";
             this.FCBaht.OptionsColumn.AllowEdit = false;
             this.FCBaht.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FCBaht.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FCBaht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FCBaht.OptionsColumn.ReadOnly = true;
             this.FCBaht.Visible = true;
             this.FCBaht.VisibleIndex = 16;
-            this.FCBaht.Width = 80;
+            this.FCBaht.Width = 64;
             // 
             // FCOt1_Baht
             // 
@@ -1419,12 +1455,11 @@ namespace HI.Track
             this.FCOt1_Baht.Name = "FCOt1_Baht";
             this.FCOt1_Baht.OptionsColumn.AllowEdit = false;
             this.FCOt1_Baht.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FCOt1_Baht.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FCOt1_Baht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FCOt1_Baht.OptionsColumn.ReadOnly = true;
             this.FCOt1_Baht.Visible = true;
             this.FCOt1_Baht.VisibleIndex = 17;
-            this.FCOt1_Baht.Width = 80;
+            this.FCOt1_Baht.Width = 64;
             // 
             // FCOt15_Baht
             // 
@@ -1440,12 +1475,11 @@ namespace HI.Track
             this.FCOt15_Baht.Name = "FCOt15_Baht";
             this.FCOt15_Baht.OptionsColumn.AllowEdit = false;
             this.FCOt15_Baht.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FCOt15_Baht.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FCOt15_Baht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FCOt15_Baht.OptionsColumn.ReadOnly = true;
             this.FCOt15_Baht.Visible = true;
             this.FCOt15_Baht.VisibleIndex = 18;
-            this.FCOt15_Baht.Width = 80;
+            this.FCOt15_Baht.Width = 64;
             // 
             // FCOt2_Baht
             // 
@@ -1461,12 +1495,11 @@ namespace HI.Track
             this.FCOt2_Baht.Name = "FCOt2_Baht";
             this.FCOt2_Baht.OptionsColumn.AllowEdit = false;
             this.FCOt2_Baht.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FCOt2_Baht.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FCOt2_Baht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FCOt2_Baht.OptionsColumn.ReadOnly = true;
             this.FCOt2_Baht.Visible = true;
             this.FCOt2_Baht.VisibleIndex = 19;
-            this.FCOt2_Baht.Width = 80;
+            this.FCOt2_Baht.Width = 64;
             // 
             // FCOt3_Baht
             // 
@@ -1482,12 +1515,11 @@ namespace HI.Track
             this.FCOt3_Baht.Name = "FCOt3_Baht";
             this.FCOt3_Baht.OptionsColumn.AllowEdit = false;
             this.FCOt3_Baht.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FCOt3_Baht.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FCOt3_Baht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FCOt3_Baht.OptionsColumn.ReadOnly = true;
             this.FCOt3_Baht.Visible = true;
             this.FCOt3_Baht.VisibleIndex = 20;
-            this.FCOt3_Baht.Width = 80;
+            this.FCOt3_Baht.Width = 64;
             // 
             // FCOt4_Baht
             // 
@@ -1503,12 +1535,11 @@ namespace HI.Track
             this.FCOt4_Baht.Name = "FCOt4_Baht";
             this.FCOt4_Baht.OptionsColumn.AllowEdit = false;
             this.FCOt4_Baht.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FCOt4_Baht.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FCOt4_Baht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FCOt4_Baht.OptionsColumn.ReadOnly = true;
             this.FCOt4_Baht.Visible = true;
             this.FCOt4_Baht.VisibleIndex = 21;
-            this.FCOt4_Baht.Width = 80;
+            this.FCOt4_Baht.Width = 64;
             // 
             // FCNetBaht
             // 
@@ -1523,12 +1554,11 @@ namespace HI.Track
             this.FCNetBaht.MinWidth = 17;
             this.FCNetBaht.Name = "FCNetBaht";
             this.FCNetBaht.OptionsColumn.AllowEdit = false;
-            this.FCNetBaht.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FCNetBaht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FCNetBaht.OptionsColumn.ReadOnly = true;
             this.FCNetBaht.Visible = true;
             this.FCNetBaht.VisibleIndex = 22;
-            this.FCNetBaht.Width = 80;
+            this.FCNetBaht.Width = 84;
             // 
             // FNPayLeaveVacationBaht
             // 
@@ -1544,12 +1574,11 @@ namespace HI.Track
             this.FNPayLeaveVacationBaht.Name = "FNPayLeaveVacationBaht";
             this.FNPayLeaveVacationBaht.OptionsColumn.AllowEdit = false;
             this.FNPayLeaveVacationBaht.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNPayLeaveVacationBaht.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNPayLeaveVacationBaht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNPayLeaveVacationBaht.OptionsColumn.ReadOnly = true;
             this.FNPayLeaveVacationBaht.Visible = true;
             this.FNPayLeaveVacationBaht.VisibleIndex = 23;
-            this.FNPayLeaveVacationBaht.Width = 80;
+            this.FNPayLeaveVacationBaht.Width = 64;
             // 
             // FNPayLeaveOtherBaht
             // 
@@ -1565,12 +1594,11 @@ namespace HI.Track
             this.FNPayLeaveOtherBaht.Name = "FNPayLeaveOtherBaht";
             this.FNPayLeaveOtherBaht.OptionsColumn.AllowEdit = false;
             this.FNPayLeaveOtherBaht.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNPayLeaveOtherBaht.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNPayLeaveOtherBaht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNPayLeaveOtherBaht.OptionsColumn.ReadOnly = true;
             this.FNPayLeaveOtherBaht.Visible = true;
             this.FNPayLeaveOtherBaht.VisibleIndex = 24;
-            this.FNPayLeaveOtherBaht.Width = 80;
+            this.FNPayLeaveOtherBaht.Width = 64;
             // 
             // FHolidayBaht
             // 
@@ -1586,12 +1614,11 @@ namespace HI.Track
             this.FHolidayBaht.Name = "FHolidayBaht";
             this.FHolidayBaht.OptionsColumn.AllowEdit = false;
             this.FHolidayBaht.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FHolidayBaht.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FHolidayBaht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FHolidayBaht.OptionsColumn.ReadOnly = true;
             this.FHolidayBaht.Visible = true;
             this.FHolidayBaht.VisibleIndex = 25;
-            this.FHolidayBaht.Width = 80;
+            this.FHolidayBaht.Width = 64;
             // 
             // FNIncentiveAmt
             // 
@@ -1606,12 +1633,107 @@ namespace HI.Track
             this.FNIncentiveAmt.MinWidth = 17;
             this.FNIncentiveAmt.Name = "FNIncentiveAmt";
             this.FNIncentiveAmt.OptionsColumn.AllowEdit = false;
-            this.FNIncentiveAmt.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNIncentiveAmt.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNIncentiveAmt.OptionsColumn.ReadOnly = true;
             this.FNIncentiveAmt.Visible = true;
             this.FNIncentiveAmt.VisibleIndex = 26;
-            this.FNIncentiveAmt.Width = 80;
+            this.FNIncentiveAmt.Width = 69;
+            // 
+            // F008
+            // 
+            this.F008.Caption = "008";
+            this.F008.FieldName = "008";
+            this.F008.MinWidth = 21;
+            this.F008.Name = "F008";
+            this.F008.OptionsColumn.AllowEdit = false;
+            this.F008.OptionsColumn.ReadOnly = true;
+            this.F008.Visible = true;
+            this.F008.VisibleIndex = 27;
+            this.F008.Width = 81;
+            // 
+            // F009
+            // 
+            this.F009.Caption = "009";
+            this.F009.FieldName = "009";
+            this.F009.MinWidth = 21;
+            this.F009.Name = "F009";
+            this.F009.OptionsColumn.AllowEdit = false;
+            this.F009.OptionsColumn.ReadOnly = true;
+            this.F009.Visible = true;
+            this.F009.VisibleIndex = 28;
+            this.F009.Width = 81;
+            // 
+            // F014
+            // 
+            this.F014.Caption = "014";
+            this.F014.FieldName = "014";
+            this.F014.MinWidth = 21;
+            this.F014.Name = "F014";
+            this.F014.OptionsColumn.AllowEdit = false;
+            this.F014.OptionsColumn.ReadOnly = true;
+            this.F014.Visible = true;
+            this.F014.VisibleIndex = 29;
+            this.F014.Width = 81;
+            // 
+            // F016
+            // 
+            this.F016.Caption = "016";
+            this.F016.FieldName = "016";
+            this.F016.MinWidth = 21;
+            this.F016.Name = "F016";
+            this.F016.OptionsColumn.AllowEdit = false;
+            this.F016.OptionsColumn.ReadOnly = true;
+            this.F016.Visible = true;
+            this.F016.VisibleIndex = 30;
+            this.F016.Width = 81;
+            // 
+            // F017
+            // 
+            this.F017.Caption = "017";
+            this.F017.FieldName = "017";
+            this.F017.MinWidth = 21;
+            this.F017.Name = "F017";
+            this.F017.OptionsColumn.AllowEdit = false;
+            this.F017.OptionsColumn.ReadOnly = true;
+            this.F017.Visible = true;
+            this.F017.VisibleIndex = 31;
+            this.F017.Width = 81;
+            // 
+            // F043
+            // 
+            this.F043.Caption = "043";
+            this.F043.FieldName = "043";
+            this.F043.MinWidth = 21;
+            this.F043.Name = "F043";
+            this.F043.OptionsColumn.AllowEdit = false;
+            this.F043.OptionsColumn.ReadOnly = true;
+            this.F043.Visible = true;
+            this.F043.VisibleIndex = 32;
+            this.F043.Width = 81;
+            // 
+            // F032
+            // 
+            this.F032.Caption = "032";
+            this.F032.FieldName = "032";
+            this.F032.MinWidth = 21;
+            this.F032.Name = "F032";
+            this.F032.OptionsColumn.AllowEdit = false;
+            this.F032.OptionsColumn.ReadOnly = true;
+            this.F032.Visible = true;
+            this.F032.VisibleIndex = 33;
+            this.F032.Width = 81;
+            // 
+            // F050
+            // 
+            this.F050.Caption = "050";
+            this.F050.FieldName = "050";
+            this.F050.MinWidth = 21;
+            this.F050.Name = "F050";
+            this.F050.OptionsColumn.AllowEdit = false;
+            this.F050.OptionsColumn.ReadOnly = true;
+            this.F050.Visible = true;
+            this.F050.VisibleIndex = 34;
+            this.F050.Width = 81;
             // 
             // FNTotalAdd
             // 
@@ -1627,12 +1749,11 @@ namespace HI.Track
             this.FNTotalAdd.Name = "FNTotalAdd";
             this.FNTotalAdd.OptionsColumn.AllowEdit = false;
             this.FNTotalAdd.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNTotalAdd.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNTotalAdd.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNTotalAdd.OptionsColumn.ReadOnly = true;
             this.FNTotalAdd.Visible = true;
-            this.FNTotalAdd.VisibleIndex = 27;
-            this.FNTotalAdd.Width = 80;
+            this.FNTotalAdd.VisibleIndex = 35;
+            this.FNTotalAdd.Width = 64;
             // 
             // FNTotalAddOther
             // 
@@ -1648,12 +1769,11 @@ namespace HI.Track
             this.FNTotalAddOther.Name = "FNTotalAddOther";
             this.FNTotalAddOther.OptionsColumn.AllowEdit = false;
             this.FNTotalAddOther.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNTotalAddOther.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNTotalAddOther.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNTotalAddOther.OptionsColumn.ReadOnly = true;
             this.FNTotalAddOther.Visible = true;
-            this.FNTotalAddOther.VisibleIndex = 28;
-            this.FNTotalAddOther.Width = 80;
+            this.FNTotalAddOther.VisibleIndex = 36;
+            this.FNTotalAddOther.Width = 64;
             // 
             // FNTotalExpense
             // 
@@ -1669,12 +1789,11 @@ namespace HI.Track
             this.FNTotalExpense.Name = "FNTotalExpense";
             this.FNTotalExpense.OptionsColumn.AllowEdit = false;
             this.FNTotalExpense.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNTotalExpense.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNTotalExpense.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNTotalExpense.OptionsColumn.ReadOnly = true;
             this.FNTotalExpense.Visible = true;
-            this.FNTotalExpense.VisibleIndex = 29;
-            this.FNTotalExpense.Width = 80;
+            this.FNTotalExpense.VisibleIndex = 37;
+            this.FNTotalExpense.Width = 64;
             // 
             // FNTotalExpenseOther
             // 
@@ -1690,12 +1809,11 @@ namespace HI.Track
             this.FNTotalExpenseOther.Name = "FNTotalExpenseOther";
             this.FNTotalExpenseOther.OptionsColumn.AllowEdit = false;
             this.FNTotalExpenseOther.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNTotalExpenseOther.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNTotalExpenseOther.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNTotalExpenseOther.OptionsColumn.ReadOnly = true;
             this.FNTotalExpenseOther.Visible = true;
-            this.FNTotalExpenseOther.VisibleIndex = 30;
-            this.FNTotalExpenseOther.Width = 80;
+            this.FNTotalExpenseOther.VisibleIndex = 38;
+            this.FNTotalExpenseOther.Width = 64;
             // 
             // FNTotalIncome
             // 
@@ -1711,12 +1829,11 @@ namespace HI.Track
             this.FNTotalIncome.Name = "FNTotalIncome";
             this.FNTotalIncome.OptionsColumn.AllowEdit = false;
             this.FNTotalIncome.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNTotalIncome.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNTotalIncome.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNTotalIncome.OptionsColumn.ReadOnly = true;
             this.FNTotalIncome.Visible = true;
-            this.FNTotalIncome.VisibleIndex = 31;
-            this.FNTotalIncome.Width = 80;
+            this.FNTotalIncome.VisibleIndex = 39;
+            this.FNTotalIncome.Width = 64;
             // 
             // FNTotalRecalSSO
             // 
@@ -1731,11 +1848,10 @@ namespace HI.Track
             this.FNTotalRecalSSO.MinWidth = 17;
             this.FNTotalRecalSSO.Name = "FNTotalRecalSSO";
             this.FNTotalRecalSSO.OptionsColumn.AllowEdit = false;
-            this.FNTotalRecalSSO.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNTotalRecalSSO.OptionsColumn.ReadOnly = true;
             this.FNTotalRecalSSO.Visible = true;
-            this.FNTotalRecalSSO.VisibleIndex = 32;
-            this.FNTotalRecalSSO.Width = 80;
+            this.FNTotalRecalSSO.VisibleIndex = 40;
+            this.FNTotalRecalSSO.Width = 64;
             // 
             // FNSocial
             // 
@@ -1751,12 +1867,11 @@ namespace HI.Track
             this.FNSocial.Name = "FNSocial";
             this.FNSocial.OptionsColumn.AllowEdit = false;
             this.FNSocial.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNSocial.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNSocial.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNSocial.OptionsColumn.ReadOnly = true;
             this.FNSocial.Visible = true;
-            this.FNSocial.VisibleIndex = 33;
-            this.FNSocial.Width = 70;
+            this.FNSocial.VisibleIndex = 41;
+            this.FNSocial.Width = 64;
             // 
             // FNTotalRecalTAX
             // 
@@ -1767,11 +1882,10 @@ namespace HI.Track
             this.FNTotalRecalTAX.MinWidth = 17;
             this.FNTotalRecalTAX.Name = "FNTotalRecalTAX";
             this.FNTotalRecalTAX.OptionsColumn.AllowEdit = false;
-            this.FNTotalRecalTAX.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNTotalRecalTAX.OptionsColumn.ReadOnly = true;
             this.FNTotalRecalTAX.Visible = true;
-            this.FNTotalRecalTAX.VisibleIndex = 34;
-            this.FNTotalRecalTAX.Width = 70;
+            this.FNTotalRecalTAX.VisibleIndex = 42;
+            this.FNTotalRecalTAX.Width = 64;
             // 
             // FNTax
             // 
@@ -1787,12 +1901,39 @@ namespace HI.Track
             this.FNTax.Name = "FNTax";
             this.FNTax.OptionsColumn.AllowEdit = false;
             this.FNTax.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNTax.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNTax.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNTax.OptionsColumn.ReadOnly = true;
             this.FNTax.Visible = true;
-            this.FNTax.VisibleIndex = 35;
-            this.FNTax.Width = 70;
+            this.FNTax.VisibleIndex = 43;
+            this.FNTax.Width = 64;
+            // 
+            // F112
+            // 
+            this.F112.Caption = "112";
+            this.F112.DisplayFormat.FormatString = "{0:n2}";
+            this.F112.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.F112.FieldName = "112";
+            this.F112.MinWidth = 17;
+            this.F112.Name = "F112";
+            this.F112.OptionsColumn.AllowEdit = false;
+            this.F112.OptionsColumn.ReadOnly = true;
+            this.F112.Visible = true;
+            this.F112.VisibleIndex = 44;
+            this.F112.Width = 64;
+            // 
+            // F113
+            // 
+            this.F113.Caption = "113";
+            this.F113.DisplayFormat.FormatString = "{0:n2}";
+            this.F113.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.F113.FieldName = "113";
+            this.F113.MinWidth = 17;
+            this.F113.Name = "F113";
+            this.F113.OptionsColumn.AllowEdit = false;
+            this.F113.OptionsColumn.ReadOnly = true;
+            this.F113.Visible = true;
+            this.F113.VisibleIndex = 45;
+            this.F113.Width = 64;
             // 
             // FNNetpay
             // 
@@ -1808,27 +1949,11 @@ namespace HI.Track
             this.FNNetpay.Name = "FNNetpay";
             this.FNNetpay.OptionsColumn.AllowEdit = false;
             this.FNNetpay.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            this.FNNetpay.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.FNNetpay.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.FNNetpay.OptionsColumn.ReadOnly = true;
             this.FNNetpay.Visible = true;
-            this.FNNetpay.VisibleIndex = 36;
-            this.FNNetpay.Width = 80;
-            // 
-            // FTAccountGroupCode
-            // 
-            this.FTAccountGroupCode.AppearanceCell.Options.UseTextOptions = true;
-            this.FTAccountGroupCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.FTAccountGroupCode.Caption = "FTAccountGroupCode";
-            this.FTAccountGroupCode.FieldName = "FTAccountGroupCode";
-            this.FTAccountGroupCode.MinWidth = 21;
-            this.FTAccountGroupCode.Name = "FTAccountGroupCode";
-            this.FTAccountGroupCode.OptionsColumn.AllowEdit = false;
-            this.FTAccountGroupCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.FTAccountGroupCode.OptionsColumn.ReadOnly = true;
-            this.FTAccountGroupCode.Visible = true;
-            this.FTAccountGroupCode.VisibleIndex = 7;
-            this.FTAccountGroupCode.Width = 80;
+            this.FNNetpay.VisibleIndex = 46;
+            this.FNNetpay.Width = 64;
             // 
             // FTAccountGroupName
             // 
@@ -1836,8 +1961,177 @@ namespace HI.Track
             this.FTAccountGroupName.FieldName = "FTAccountGroupName";
             this.FTAccountGroupName.MinWidth = 21;
             this.FTAccountGroupName.Name = "FTAccountGroupName";
-            this.FTAccountGroupName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.FTAccountGroupName.Width = 80;
+            this.FTAccountGroupName.Width = 81;
+            // 
+            // FTStateHRSent
+            // 
+            this.FTStateHRSent.Caption = "FTStateHRSent";
+            this.FTStateHRSent.ColumnEdit = this.ReposFTStateHRSent;
+            this.FTStateHRSent.FieldName = "FTStateHRSent";
+            this.FTStateHRSent.MinWidth = 21;
+            this.FTStateHRSent.Name = "FTStateHRSent";
+            this.FTStateHRSent.Width = 81;
+            // 
+            // ReposFTStateHRSent
+            // 
+            this.ReposFTStateHRSent.AutoHeight = false;
+            this.ReposFTStateHRSent.Name = "ReposFTStateHRSent";
+            this.ReposFTStateHRSent.ValueChecked = "1";
+            this.ReposFTStateHRSent.ValueUnchecked = "0";
+            // 
+            // FTUserHRSent
+            // 
+            this.FTUserHRSent.Caption = "FTUserHRSent";
+            this.FTUserHRSent.FieldName = "FTUserHRSent";
+            this.FTUserHRSent.MinWidth = 21;
+            this.FTUserHRSent.Name = "FTUserHRSent";
+            this.FTUserHRSent.OptionsColumn.AllowEdit = false;
+            this.FTUserHRSent.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.FTUserHRSent.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.FTUserHRSent.OptionsColumn.AllowMove = false;
+            this.FTUserHRSent.OptionsColumn.ReadOnly = true;
+            this.FTUserHRSent.Width = 81;
+            // 
+            // FTDateHRSent
+            // 
+            this.FTDateHRSent.Caption = "FTDateHRSent";
+            this.FTDateHRSent.FieldName = "FTDateHRSent";
+            this.FTDateHRSent.MinWidth = 21;
+            this.FTDateHRSent.Name = "FTDateHRSent";
+            this.FTDateHRSent.OptionsColumn.AllowEdit = false;
+            this.FTDateHRSent.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.FTDateHRSent.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.FTDateHRSent.OptionsColumn.AllowMove = false;
+            this.FTDateHRSent.OptionsColumn.ReadOnly = true;
+            this.FTDateHRSent.Width = 81;
+            // 
+            // FTTimeHRSent
+            // 
+            this.FTTimeHRSent.Caption = "FTTimeHRSent";
+            this.FTTimeHRSent.FieldName = "FTTimeHRSent";
+            this.FTTimeHRSent.MinWidth = 21;
+            this.FTTimeHRSent.Name = "FTTimeHRSent";
+            this.FTTimeHRSent.OptionsColumn.AllowEdit = false;
+            this.FTTimeHRSent.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.FTTimeHRSent.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.FTTimeHRSent.OptionsColumn.AllowMove = false;
+            this.FTTimeHRSent.OptionsColumn.ReadOnly = true;
+            this.FTTimeHRSent.Width = 81;
+            // 
+            // FTStateEmployeeAccept
+            // 
+            this.FTStateEmployeeAccept.Caption = "FTStateEmployeeAccept";
+            this.FTStateEmployeeAccept.ColumnEdit = this.ReposFTStateEmployeeAccept;
+            this.FTStateEmployeeAccept.FieldName = "FTStateEmployeeAccept";
+            this.FTStateEmployeeAccept.MinWidth = 21;
+            this.FTStateEmployeeAccept.Name = "FTStateEmployeeAccept";
+            this.FTStateEmployeeAccept.OptionsColumn.AllowEdit = false;
+            this.FTStateEmployeeAccept.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.FTStateEmployeeAccept.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.FTStateEmployeeAccept.OptionsColumn.AllowMove = false;
+            this.FTStateEmployeeAccept.OptionsColumn.ReadOnly = true;
+            this.FTStateEmployeeAccept.Width = 81;
+            // 
+            // ReposFTStateEmployeeAccept
+            // 
+            this.ReposFTStateEmployeeAccept.AutoHeight = false;
+            this.ReposFTStateEmployeeAccept.Name = "ReposFTStateEmployeeAccept";
+            this.ReposFTStateEmployeeAccept.ValueChecked = "1";
+            this.ReposFTStateEmployeeAccept.ValueUnchecked = "0";
+            // 
+            // FTUserEmployeeAccept
+            // 
+            this.FTUserEmployeeAccept.Caption = "FTUserEmployeeAccept";
+            this.FTUserEmployeeAccept.FieldName = "FTUserEmployeeAccept";
+            this.FTUserEmployeeAccept.MinWidth = 21;
+            this.FTUserEmployeeAccept.Name = "FTUserEmployeeAccept";
+            this.FTUserEmployeeAccept.OptionsColumn.AllowEdit = false;
+            this.FTUserEmployeeAccept.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.FTUserEmployeeAccept.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.FTUserEmployeeAccept.OptionsColumn.AllowMove = false;
+            this.FTUserEmployeeAccept.OptionsColumn.ReadOnly = true;
+            this.FTUserEmployeeAccept.Width = 81;
+            // 
+            // FTDateEmployeeAccept
+            // 
+            this.FTDateEmployeeAccept.Caption = "FTDateEmployeeAccept";
+            this.FTDateEmployeeAccept.FieldName = "FTDateEmployeeAccept";
+            this.FTDateEmployeeAccept.MinWidth = 21;
+            this.FTDateEmployeeAccept.Name = "FTDateEmployeeAccept";
+            this.FTDateEmployeeAccept.OptionsColumn.AllowEdit = false;
+            this.FTDateEmployeeAccept.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.FTDateEmployeeAccept.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.FTDateEmployeeAccept.OptionsColumn.AllowMove = false;
+            this.FTDateEmployeeAccept.OptionsColumn.ReadOnly = true;
+            this.FTDateEmployeeAccept.Width = 81;
+            // 
+            // FTTimeEmployeeAccept
+            // 
+            this.FTTimeEmployeeAccept.Caption = "FTTimeEmployeeAccept";
+            this.FTTimeEmployeeAccept.FieldName = "FTTimeEmployeeAccept";
+            this.FTTimeEmployeeAccept.MinWidth = 21;
+            this.FTTimeEmployeeAccept.Name = "FTTimeEmployeeAccept";
+            this.FTTimeEmployeeAccept.OptionsColumn.AllowEdit = false;
+            this.FTTimeEmployeeAccept.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.FTTimeEmployeeAccept.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.FTTimeEmployeeAccept.OptionsColumn.AllowMove = false;
+            this.FTTimeEmployeeAccept.OptionsColumn.ReadOnly = true;
+            this.FTTimeEmployeeAccept.Width = 81;
+            // 
+            // FTStateHRAccept
+            // 
+            this.FTStateHRAccept.Caption = "FTStateHRAccept";
+            this.FTStateHRAccept.ColumnEdit = this.ReposFTStateHRAccept;
+            this.FTStateHRAccept.FieldName = "FTStateHRAccept";
+            this.FTStateHRAccept.MinWidth = 21;
+            this.FTStateHRAccept.Name = "FTStateHRAccept";
+            this.FTStateHRAccept.Width = 81;
+            // 
+            // ReposFTStateHRAccept
+            // 
+            this.ReposFTStateHRAccept.AutoHeight = false;
+            this.ReposFTStateHRAccept.Name = "ReposFTStateHRAccept";
+            this.ReposFTStateHRAccept.ValueChecked = "1";
+            this.ReposFTStateHRAccept.ValueUnchecked = "0";
+            // 
+            // FTUseHRAccept
+            // 
+            this.FTUseHRAccept.Caption = "FTUseHRAccept";
+            this.FTUseHRAccept.FieldName = "FTUseHRAccept";
+            this.FTUseHRAccept.MinWidth = 21;
+            this.FTUseHRAccept.Name = "FTUseHRAccept";
+            this.FTUseHRAccept.OptionsColumn.AllowEdit = false;
+            this.FTUseHRAccept.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.FTUseHRAccept.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.FTUseHRAccept.OptionsColumn.AllowMove = false;
+            this.FTUseHRAccept.OptionsColumn.ReadOnly = true;
+            this.FTUseHRAccept.Width = 81;
+            // 
+            // FTDateHRAccept
+            // 
+            this.FTDateHRAccept.Caption = "FTDateHRAccept";
+            this.FTDateHRAccept.FieldName = "FTDateHRAccept";
+            this.FTDateHRAccept.MinWidth = 21;
+            this.FTDateHRAccept.Name = "FTDateHRAccept";
+            this.FTDateHRAccept.OptionsColumn.AllowEdit = false;
+            this.FTDateHRAccept.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.FTDateHRAccept.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.FTDateHRAccept.OptionsColumn.AllowMove = false;
+            this.FTDateHRAccept.OptionsColumn.ReadOnly = true;
+            this.FTDateHRAccept.Width = 81;
+            // 
+            // FTTimeHRAccept
+            // 
+            this.FTTimeHRAccept.Caption = "FTTimeHRAccept";
+            this.FTTimeHRAccept.FieldName = "FTTimeHRAccept";
+            this.FTTimeHRAccept.MinWidth = 21;
+            this.FTTimeHRAccept.Name = "FTTimeHRAccept";
+            this.FTTimeHRAccept.OptionsColumn.AllowEdit = false;
+            this.FTTimeHRAccept.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.FTTimeHRAccept.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.FTTimeHRAccept.OptionsColumn.AllowMove = false;
+            this.FTTimeHRAccept.OptionsColumn.ReadOnly = true;
+            this.FTTimeHRAccept.Width = 81;
             // 
             // RepositoryFTSelect
             // 
@@ -1855,26 +2149,17 @@ namespace HI.Track
             this.RepositoryFTApproveState.ValueChecked = "1";
             this.RepositoryFTApproveState.ValueUnchecked = "0";
             // 
-            // ReposFTStateEmployeeAccept
+            // FDCalDateBegin
             // 
-            this.ReposFTStateEmployeeAccept.AutoHeight = false;
-            this.ReposFTStateEmployeeAccept.Name = "ReposFTStateEmployeeAccept";
-            this.ReposFTStateEmployeeAccept.ValueChecked = "1";
-            this.ReposFTStateEmployeeAccept.ValueUnchecked = "0";
-            // 
-            // ReposFTStateHRSent
-            // 
-            this.ReposFTStateHRSent.AutoHeight = false;
-            this.ReposFTStateHRSent.Name = "ReposFTStateHRSent";
-            this.ReposFTStateHRSent.ValueChecked = "1";
-            this.ReposFTStateHRSent.ValueUnchecked = "0";
-            // 
-            // ReposFTStateHRAccept
-            // 
-            this.ReposFTStateHRAccept.AutoHeight = false;
-            this.ReposFTStateHRAccept.Name = "ReposFTStateHRAccept";
-            this.ReposFTStateHRAccept.ValueChecked = "1";
-            this.ReposFTStateHRAccept.ValueUnchecked = "0";
+            this.FDCalDateBegin.Location = new System.Drawing.Point(787, 52);
+            this.FDCalDateBegin.Name = "FDCalDateBegin";
+            this.FDCalDateBegin.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
+            this.FDCalDateBegin.Properties.Appearance.Options.UseBackColor = true;
+            this.FDCalDateBegin.Properties.ReadOnly = true;
+            this.FDCalDateBegin.Size = new System.Drawing.Size(85, 20);
+            this.FDCalDateBegin.TabIndex = 432;
+            this.FDCalDateBegin.Tag = "2|";
+            this.FDCalDateBegin.Visible = false;
             // 
             // wPayrollListingMonthly
             // 
@@ -1884,14 +2169,11 @@ namespace HI.Track
             this.Controls.Add(this.GroupControl1);
             this.Controls.Add(this.ogcCriteria);
             this.Name = "wPayrollListingMonthly";
-            this.Text = "wTracking";
+            this.Text = "wPayrollListingMonthly";
             this.Load += new System.EventHandler(this.wPayrollListingMonthly_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ogcCriteria)).EndInit();
             this.ogcCriteria.ResumeLayout(false);
-            this.ogcCriteria.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FNMonth.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FTPayTerm.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FDCalDateBegin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FDCalDateEnd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FNHSysEmpIdTo_None.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FNHSysUnitSectIdTo_None.Properties)).EndInit();
@@ -1924,11 +2206,12 @@ namespace HI.Track
             this.GroupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ogc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReposFTStateHRSent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReposFTStateEmployeeAccept)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReposFTStateHRAccept)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepositoryFTSelect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepositoryFTApproveState)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ReposFTStateEmployeeAccept)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ReposFTStateHRSent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ReposFTStateHRAccept)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FDCalDateBegin.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1937,7 +2220,6 @@ namespace HI.Track
 
         private DevExpress.XtraEditors.GroupControl ogcCriteria;
         internal DevExpress.XtraEditors.LabelControl FTPayTerm_lbl;
-        internal DevExpress.XtraEditors.TextEdit FDCalDateBegin;
         internal DevExpress.XtraEditors.TextEdit FDCalDateEnd;
         internal DevExpress.XtraEditors.TextEdit FNHSysEmpIdTo_None;
         internal DevExpress.XtraEditors.TextEdit FNHSysUnitSectIdTo_None;
@@ -1982,6 +2264,8 @@ namespace HI.Track
         internal DevExpress.XtraEditors.SimpleButton ocmclear;
         internal DevExpress.XtraEditors.SimpleButton ocmload;
         internal DevExpress.XtraEditors.GroupControl GroupControl1;
+        internal DevExpress.XtraEditors.TextEdit FNHSysCmpId_None;
+        internal DevExpress.XtraEditors.ComboBoxEdit FNMonth;
         internal DevExpress.XtraGrid.GridControl ogc;
         internal DevExpress.XtraGrid.Views.Grid.GridView ogv;
         internal DevExpress.XtraGrid.Columns.GridColumn ColFNHSysEmpID;
@@ -2020,6 +2304,14 @@ namespace HI.Track
         internal DevExpress.XtraGrid.Columns.GridColumn FNPayLeaveOtherBaht;
         internal DevExpress.XtraGrid.Columns.GridColumn FHolidayBaht;
         internal DevExpress.XtraGrid.Columns.GridColumn FNIncentiveAmt;
+        internal DevExpress.XtraGrid.Columns.GridColumn F008;
+        internal DevExpress.XtraGrid.Columns.GridColumn F009;
+        internal DevExpress.XtraGrid.Columns.GridColumn F014;
+        internal DevExpress.XtraGrid.Columns.GridColumn F016;
+        internal DevExpress.XtraGrid.Columns.GridColumn F017;
+        internal DevExpress.XtraGrid.Columns.GridColumn F043;
+        internal DevExpress.XtraGrid.Columns.GridColumn F032;
+        internal DevExpress.XtraGrid.Columns.GridColumn F050;
         internal DevExpress.XtraGrid.Columns.GridColumn FNTotalAdd;
         internal DevExpress.XtraGrid.Columns.GridColumn FNTotalAddOther;
         internal DevExpress.XtraGrid.Columns.GridColumn FNTotalExpense;
@@ -2029,16 +2321,28 @@ namespace HI.Track
         internal DevExpress.XtraGrid.Columns.GridColumn FNSocial;
         internal DevExpress.XtraGrid.Columns.GridColumn FNTotalRecalTAX;
         internal DevExpress.XtraGrid.Columns.GridColumn FNTax;
+        internal DevExpress.XtraGrid.Columns.GridColumn F112;
+        internal DevExpress.XtraGrid.Columns.GridColumn F113;
         internal DevExpress.XtraGrid.Columns.GridColumn FNNetpay;
         internal DevExpress.XtraGrid.Columns.GridColumn FTAccountGroupCode;
         internal DevExpress.XtraGrid.Columns.GridColumn FTAccountGroupName;
+        internal DevExpress.XtraGrid.Columns.GridColumn FTStateHRSent;
         internal DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ReposFTStateHRSent;
+        internal DevExpress.XtraGrid.Columns.GridColumn FTUserHRSent;
+        internal DevExpress.XtraGrid.Columns.GridColumn FTDateHRSent;
+        internal DevExpress.XtraGrid.Columns.GridColumn FTTimeHRSent;
+        internal DevExpress.XtraGrid.Columns.GridColumn FTStateEmployeeAccept;
         internal DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ReposFTStateEmployeeAccept;
+        internal DevExpress.XtraGrid.Columns.GridColumn FTUserEmployeeAccept;
+        internal DevExpress.XtraGrid.Columns.GridColumn FTDateEmployeeAccept;
+        internal DevExpress.XtraGrid.Columns.GridColumn FTTimeEmployeeAccept;
+        internal DevExpress.XtraGrid.Columns.GridColumn FTStateHRAccept;
         internal DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ReposFTStateHRAccept;
+        internal DevExpress.XtraGrid.Columns.GridColumn FTUseHRAccept;
+        internal DevExpress.XtraGrid.Columns.GridColumn FTDateHRAccept;
+        internal DevExpress.XtraGrid.Columns.GridColumn FTTimeHRAccept;
         internal DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit RepositoryFTSelect;
         internal DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit RepositoryFTApproveState;
-        internal DevExpress.XtraEditors.TextEdit FNHSysCmpId_None;
-        internal DevExpress.XtraEditors.ComboBoxEdit FNMonth;
-        internal DevExpress.XtraEditors.ButtonEdit FTPayTerm;
+        internal DevExpress.XtraEditors.TextEdit FDCalDateBegin;
     }
 }
