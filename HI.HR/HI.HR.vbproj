@@ -979,6 +979,12 @@
     <Compile Include="Tracking\wEmployeeLeaveOfYear.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Tracking\wPayrollListingMonthly_LA.Designer.vb">
+      <DependentUpon>wPayrollListingMonthly_LA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wPayrollListingMonthly_LA.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Tracking\wRptEmpDailyWage.designer.vb">
       <DependentUpon>wRptEmpDailyWage.vb</DependentUpon>
     </Compile>
@@ -1789,6 +1795,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tracking\wEmployeeLeaveOfYear.resx">
       <DependentUpon>wEmployeeLeaveOfYear.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wPayrollListingMonthly_LA.resx">
+      <DependentUpon>wPayrollListingMonthly_LA.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tracking\wRptEmpDailyWage.resx">
       <DependentUpon>wRptEmpDailyWage.vb</DependentUpon>

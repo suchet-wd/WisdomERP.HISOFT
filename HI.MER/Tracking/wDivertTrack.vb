@@ -165,18 +165,23 @@ Public Class wDivertTrack
         Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS SB with(NOLOCK) ON S.FTOrderNo=SB.FTOrderNo and S.FTSubOrderNo=SB.FTSubOrderNo"
         Qry &= vbCrLf & "INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS O with(NOLOCK) ON S.FTOrderNo=O.FTOrderNo"
         Qry &= vbCrLf & "where S.FTOrderNo<>''"
+
         If Me.FTOrderNo.Text <> "" Then
             Qry &= vbCrLf & "and S.FTOrderNo='" & Me.FTOrderNo.Text & "'"
         End If
+
         If Me.FTCustomerPO.Text <> "" Then
             Qry &= vbCrLf & "and S.FTPORef='" & Me.FTCustomerPO.Text & "'"
         End If
+
         If OrderKey <> "" Then
             Qry &= vbCrLf & "and S.FTOrderNo='" & OrderKey & "'"
         End If
+
         If OrderSubKey <> "" Then
             Qry &= vbCrLf & "and S.FTSubOrderNo='" & OrderSubKey & "'"
         End If
+
         Qry &= vbCrLf & "group by S.FTSubOrderNo,SB.FTSizeBreakDown,S.FTSubOrderNoDivertRef,S.FTPORef,S.FTOrderNo,SB.FTColorway,O.FTPORef )AS B"
         Qry &= vbCrLf & "where B.FTPORef<>''"
         'end modify

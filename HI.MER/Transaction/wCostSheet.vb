@@ -19,6 +19,11 @@ Imports DevExpress.XtraGrid.Views.Base
 Imports excel = Microsoft.Office.Interop.Excel
 Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.Spreadsheet
+Imports Microsoft.Win32
+Imports Newtonsoft.Json
+Imports System.Net
+Imports DevExpress.XtraTab
+Imports System.Text
 
 Public Class wCostSheet
 
@@ -27,11 +32,10 @@ Public Class wCostSheet
     Private _RowDcng As Boolean = False
     Private _FormHeader As New List(Of HI.TL.DynamicForm)()
     Private _FormGridDetail As New List(Of HI.TL.DynamicGrid)()
-
     Private _DataInfo As DataTable
     Private tW_SysPath As String = Application.StartupPath & IIf(Microsoft.VisualBasic.Right(Application.StartupPath, 1) = "\", "", "\") & "Images"
     Private _SysPath As String = Application.StartupPath & IIf(Microsoft.VisualBasic.Right(Application.StartupPath, 1) = "\", "", "\")
-
+    Private _AppCBDJsonPath As String = Application.StartupPath & IIf(Microsoft.VisualBasic.Right(Application.StartupPath, 1) = "\", "", "\") & "CBDJson"
     Private _ProcLoad As Boolean = False
     Private _FormLoad As Boolean = True
     Private _oDtPacking As DataTable
@@ -44,7 +48,7 @@ Public Class wCostSheet
     Dim dtStyleDetail As DataTable
 
     Private _CopyCostSheet As wCopyCostSheet
-
+    Private _SendJson As wCostSheetExportJSon
 
     Private Enum TabIndexs As Integer
         FabricDetail = 0
@@ -70,6 +74,17 @@ Public Class wCostSheet
         Catch ex As Exception
         End Try
         Call HI.ST.Lang.SP_SETxLanguage(_CopyCostSheet)
+
+
+        _SendJson = New wCostSheetExportJSon
+
+        HI.TL.HandlerControl.AddHandlerObj(_SendJson)
+
+        Try
+            Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleID, _SendJson.Name.ToString.Trim, _SendJson)
+        Catch ex As Exception
+        End Try
+        Call HI.ST.Lang.SP_SETxLanguage(_SendJson)
 
         Call PrepareForm()
 
@@ -103,6 +118,13 @@ Public Class wCostSheet
 
         Next
         RepositoryItemGridLookUpEditItemMulti.View.EndInit()
+
+        AddHandler RepositoryItemGridLookUpEditFTMainMatCode.View.Click, AddressOf GridLookViewFabric_Click
+        AddHandler RepositoryItemGridLookUpEditFTMainMatCodeTrim.View.Click, AddressOf GridLookViewTrim_Click
+        AddHandler RepositoryItemGridLookUpEditFTMainMatCodePacking.View.Click, AddressOf GridLookViewPacking_Click
+        AddHandler RepositoryItemGridLookUpEditItemMulti.View.Click, AddressOf GridLookViewTeamMulti_Click
+
+
     End Sub
 
 #Region "Property"
@@ -511,7 +533,7 @@ Public Class wCostSheet
                       FNL4Country1Extended, FNL4Country2Exc, FNL4Country2Final, FNL4Country2Extended, FNL4Country3, FNL4Country3Cur, FNL4Country3Exc, FNL4Country3Final, FNL4Country3Extended, 
                       FNTotalFabAmt, FNTotalAccAmt, FNChargeFabAmt, FNChargeAccAmt, FNProcessMatCost, FNProcessLaborCost, FNPackagingAmt, FNOtherCostAmt, FNCMP, FNGrandTotal, FNExtendedPer, 
                       FNExtendedFOB, FNTrinUsageAllowPer, FNL4LTotalFabric, FNL4LTotalTrim, FNL4LChargeFabric, FNL4LChargeTrim, FNL4LProMatCost, FNL4LProLaborCost, FNL4LPackaging, FNL4LOtherCost, 
-                      FNL4LCMP, FNL4LFinalFOB, FNL4LExtendedFOB    "
+                      FNL4LCMP, FNL4LFinalFOB, FNL4LExtendedFOB ,FTFileName,FNLeadtime   "
         _Str &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet With(NOLOCK)"
         _Str &= vbCrLf & " WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(Key.ToString) & "' AND FTCostSheetNo <>'' "
 
@@ -576,7 +598,15 @@ Public Class wCostSheet
         Call LoadDocumentDetail(Key.ToString)
 
         Call LoadDataInfo2(Key.ToString)
+        '  Call Calculate(FNCMP, New System.EventArgs)
         Call SumAmt()
+        Call ShowFileName()
+
+
+        _Str = " Update  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet SET FTFileName='" & HI.UL.ULF.rpQuoted(FTFileName.Text) & "'  WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(Key.ToString) & "' "
+        HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+        otb.SelectedTabPageIndex = 0
 
         _ProcLoad = False
         _FormLoad = False
@@ -592,6 +622,119 @@ Public Class wCostSheet
     End Function
 
 
+    Private Function CheckVerifyDataGrid() As Boolean
+
+        Dim StateCheck As Boolean = True
+
+        Dim pcaption As String = "Uit"
+
+        With CType(ogcfabric.DataSource, DataTable)
+            .AcceptChanges()
+
+            For I As Integer = 1 To 15
+
+                If .Select("FTMainMatCode<>'' AND  FTUnitCode  ='' ").Length > 0 Then
+                    HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, pcaption)
+                    Return False
+                End If
+
+            Next
+
+        End With
+
+        With CType(ogctrims.DataSource, DataTable)
+            .AcceptChanges()
+
+            For I As Integer = 1 To 15
+
+                If .Select("FTMainMatCode<>'' AND  FTUnitCode  ='' ").Length > 0 Then
+                    HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, pcaption)
+                    Return False
+                End If
+
+            Next
+
+        End With
+
+        With CType(ogcprocessmat.DataSource, DataTable)
+            .AcceptChanges()
+
+            For I As Integer = 1 To 15
+
+                If .Select("FTPROCESSSUBTYPE<>'' AND  FTUnitCode  ='' ").Length > 0 Then
+                    HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, pcaption)
+                    Return False
+                End If
+
+            Next
+
+        End With
+
+        With CType(ogcprocesslabor.DataSource, DataTable)
+            .AcceptChanges()
+
+            For I As Integer = 1 To 15
+
+                If .Select("FTPROCESSSUBTYPE<>'' AND  FTUnitCode  ='' ").Length > 0 Then
+                    HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, pcaption)
+                    Return False
+                End If
+
+            Next
+
+        End With
+
+        With CType(ogcpack.DataSource, DataTable)
+            .AcceptChanges()
+
+            For I As Integer = 1 To 15
+
+                If .Select("FTMainMatCode<>'' AND  FTUnitCode  ='' ").Length > 0 Then
+                    HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, pcaption)
+                    Return False
+                End If
+
+            Next
+
+        End With
+
+        Return StateCheck
+
+    End Function
+
+    Private Function CheckVerifyMulti() As Boolean
+
+        Dim StateCheck As Boolean = True
+        With CType(ogcteamMulti.DataSource, DataTable)
+            .AcceptChanges()
+
+            For I As Integer = 1 To 15
+
+                Dim pcaption As String = "Item ON TRIM/ PROCESS #" & I.ToString
+
+                If .Select("FTProcesssubType" & I.ToString & "<>'' AND  FTItem" & I.ToString & "  ='' ").Length > 0 Then
+
+                    HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, pcaption)
+                    Return False
+                End If
+
+                If .Select("FNUnitPrice" & I.ToString & " > 0 AND  FTItem" & I.ToString & "  ='' ").Length > 0 Then
+                    HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, pcaption)
+                    Return False
+                End If
+
+
+                'If .Select("FNUnitPrice" & I.ToString & " =''  AND  FTItem" & I.ToString & "  <>'' ").Length > 0 Then
+                '    HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, pcaption)
+                '    Return False
+                'End If
+            Next
+
+        End With
+
+        Return StateCheck
+
+    End Function
 
     Private Function VerifyData() As Boolean
 
@@ -611,9 +754,22 @@ Public Class wCostSheet
 
                                         If FTLOProductDeveloper.Text.Trim <> "" Then
 
-                                            Return True
+
+                                            If CheckVerifyDataGrid() Then
+                                                Dim StateVerifyMulti As Boolean = False
+
+                                                If Me.otpTeamMulti.PageVisible Then
+                                                    StateVerifyMulti = CheckVerifyMulti()
+                                                Else
+                                                    StateVerifyMulti = True
+                                                End If
+
+                                                Return StateVerifyMulti
+
+                                            End If
+
                                         Else
-                                            HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, FTLOProductDeveloper_lbl.Text)
+                                                HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, FTLOProductDeveloper_lbl.Text)
                                             FTLOProductDeveloper.Focus()
                                         End If
 
@@ -755,6 +911,20 @@ Public Class wCostSheet
         FNTrinUsageAllowPer.Value = 3.0
 
         LoadMaster()
+
+        otb.SelectedTabPageIndex = 0
+        Try
+            FTPicName.Image = Nothing
+        Catch ex As Exception
+
+        End Try
+
+
+        Try
+            PdfViewer1.CloseDocument()
+        Catch ex As Exception
+
+        End Try
 
         _FormLoad = False
 
@@ -906,7 +1076,7 @@ Public Class wCostSheet
                 _Str &= vbCrLf & ",  FNISTeamMulti, FNCostSheetColor, FNCostSheetSize, FNCostSheetBuyType,  FNCostSheetQuotedType, FTDateQuoted, FNCostSheetSampleRound, FNHSysStyleIdTo, FTQuotedLog, FNL4Country1, FNL4Country1Cur,"
                 _Str &= vbCrLf & "    FNL4Country1Exc, FNL4Country1Final, FNL4Country1Extended, FNL4Country2, FNL4Country2Cur, FNL4Country2Exc, FNL4Country2Final, FNL4Country2Extended, FNL4Country3, FNL4Country3Cur, FNL4Country3Exc,"
                 _Str &= vbCrLf & "    FNL4Country3Final, FNL4Country3Extended, FNProcessMatCost , FNProcessLaborCost, FNGrandTotal, FNExtendedPer, FNExtendedFOB, FNTrinUsageAllowPer, FNL4LTotalFabric, FNL4LTotalTrim, FNL4LChargeFabric, FNL4LChargeTrim,"
-                _Str &= vbCrLf & "    FNL4LProMatCost, FNL4LProLaborCost, FNL4LPackaging, FNL4LOtherCost, FNL4LCMP, FNL4LFinalFOB, FNL4LExtendedFOB )"
+                _Str &= vbCrLf & "    FNL4LProMatCost, FNL4LProLaborCost, FNL4LPackaging, FNL4LOtherCost, FNL4LCMP, FNL4LFinalFOB, FNL4LExtendedFOB,FTFileName ,FNLeadtime)"
 
                 _Str &= vbCrLf & "Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                 _Str &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
@@ -1014,8 +1184,8 @@ Public Class wCostSheet
                 _Str &= vbCrLf & "," & Me.FNL4LFinalFOB.Value & " AS FNL4LFinalFOB"
                 _Str &= vbCrLf & "," & Me.FNL4LExtendedFOB.Value & " AS FNL4LExtendedFOB"
 
-
-
+                _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTFileName.Text.Trim) & "'"
+                _Str &= vbCrLf & "," & Me.FNLeadtime.Value & " AS FNLeadtime"
                 'If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                 '    HI.Conn.SQLConn.Tran.Rollback()
                 '    HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
@@ -1126,7 +1296,8 @@ Public Class wCostSheet
                 _Str &= vbCrLf & ",FNL4LCMP=" & Me.FNL4LCMP.Value
                 _Str &= vbCrLf & ",FNL4LFinalFOB=" & Me.FNL4LFinalFOB.Value
                 _Str &= vbCrLf & ",FNL4LExtendedFOB=" & Me.FNL4LExtendedFOB.Value
-
+                _Str &= vbCrLf & ",FTFileName='" & HI.UL.ULF.rpQuoted(Me.FTFileName.Text.Trim) & "'"
+                _Str &= vbCrLf & ",FNLeadtime=" & Me.FNLeadtime.Value & " "
 
                 _Str &= vbCrLf & "WHERE FTCostSheetNo= '" & _Key & "' "
                 '_Str &= vbCrLf & "WHERE FTCostSheetNo= '" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "' AND FNRevised ='" & FNRevised.Value & "'"
@@ -1173,7 +1344,7 @@ Public Class wCostSheet
                 Dim _Seq As Integer = 0
                 Dim _ogc As Object
 
-                For _tl As Integer = 1 To 8
+                For _tl As Integer = 1 To 7
 
                     _ogc = Nothing
                     _Seq = 0
@@ -1200,22 +1371,22 @@ Public Class wCostSheet
                         Case 7
                             'Save BEMIS
                             _ogc = ogcbemis
-                        Case 8
-                            'Save Team Multi
+                            'Case 8
+                            '    'Save Team Multi
 
-                            If Me.otpTeamMulti.PageVisible Then
-                                _ogc = ogcteamMulti
+                            '    If Me.otpTeamMulti.PageVisible Then
+                            '        _ogc = ogcteamMulti
 
-                            Else
-
-
-                                _Qry = "Delete From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail"
-                                _Qry &= vbCrLf & "WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "' AND FNCostType = '" & _tl & "' "
+                            '    Else
 
 
-                                HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
+                            '        _Qry = "Delete From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail"
+                            '        _Qry &= vbCrLf & "WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "' AND FNCostType = '" & _tl & "' "
 
-                            End If
+
+                            '        HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
+
+                            '    End If
                     End Select
 
 
@@ -1449,15 +1620,172 @@ Public Class wCostSheet
                         HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
                     End If
                 Next
-            Catch ex As Exception
 
+
+
+                If Me.otpTeamMulti.PageVisible Then
+                    _Seq = 0
+                    Dim dtmulti As DataTable
+                    With CType(ogcteamMulti.DataSource, DataTable)
+                        .AcceptChanges()
+                        dtmulti = .Copy
+                    End With
+
+
+                    For Each R As DataRow In dtmulti.Select("FNSeq>0", "FNSeq")
+
+
+                        _Seq += +1
+                        _Qry = "UPDATE [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail_TeamMulti"
+                        _Qry &= vbCrLf & "SET FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                        _Qry &= vbCrLf & ",FDUpdDate=" & HI.UL.ULDate.FormatDateDB
+                        _Qry &= vbCrLf & ",FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+
+                        _Qry &= vbCrLf & ",FTMSC='" & HI.UL.ULF.rpQuoted(FTMSC.Text.Trim) & "'"
+                        _Qry &= vbCrLf & ", FTSeason='" & HI.UL.ULF.rpQuoted(FNHSysSeasonId.Text.Trim) & "'"
+                        _Qry &= vbCrLf & ", FTStyleCode='" & HI.UL.ULF.rpQuoted(R!FTStyleCode.ToString) & "'"
+                        _Qry &= vbCrLf & ", FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                        _Qry &= vbCrLf & ", FTTeamName='" & HI.UL.ULF.rpQuoted(R!FTTeamName.ToString) & "'"
+                        _Qry &= vbCrLf & ", FNBaseFOB=" & FNGrandTotal.Value & ""
+                        _Qry &= vbCrLf & ", FNAllowancePer=" & FNTrinUsageAllowPer.Value & " "
+
+
+                        For I As Integer = 1 To 15
+
+                            _Qry &= vbCrLf & ",FTItem" & I.ToString & "='" & HI.UL.ULF.rpQuoted(R.Item("FTItem" & I.ToString).ToString) & "' "
+                            _Qry &= vbCrLf & ",FTProcesssubType" & I.ToString & "='" & HI.UL.ULF.rpQuoted(R.Item("FTProcesssubType" & I.ToString).ToString) & "'  "
+                            _Qry &= vbCrLf & ",FTDescription" & I.ToString & "='" & HI.UL.ULF.rpQuoted(R.Item("FTDescription" & I.ToString).ToString) & "'   "
+                            _Qry &= vbCrLf & ",FTSuplCode" & I.ToString & "='" & HI.UL.ULF.rpQuoted(R.Item("FTSuplCode" & I.ToString).ToString) & "'  "
+                            _Qry &= vbCrLf & ",FNUnitPrice" & I.ToString & "=" & Val(R.Item("FNUnitPrice" & I.ToString).ToString) & " "
+                            _Qry &= vbCrLf & ",FNCIF" & I.ToString & "=" & Val(R.Item("FNCIF" & I.ToString).ToString) & " "
+                            _Qry &= vbCrLf & ",FNUSAGECOST" & I.ToString & "=" & Val(R.Item("FNUSAGECOST" & I.ToString).ToString) & " "
+                            _Qry &= vbCrLf & ",FNHandlingChargePercent" & I.ToString & "=" & Val(R.Item("FNHandlingChargePercent" & I.ToString).ToString) & " "
+                            _Qry &= vbCrLf & ",FNHandlingChargeCost" & I.ToString & "= " & Val(R.Item("FNHandlingChargeCost" & I.ToString).ToString) & ""
+                            _Qry &= vbCrLf & ",FNTotalCost" & I.ToString & "=" & Val(R.Item("FNTotalCost" & I.ToString).ToString) & " "
+                            _Qry &= vbCrLf & ",FNImportDutyPecent" & I.ToString & "=" & Val(R.Item("FNImportDutyPecent" & I.ToString).ToString) & " "
+
+                        Next
+
+                        _Qry &= vbCrLf & ",FNTotalUsgeCost=" & Val(R!FNTotalUsgeCost.ToString) & " "
+                        _Qry &= vbCrLf & ",FNTotalHandlingChargeCost=" & Val(R!FNTotalHandlingChargeCost.ToString) & " "
+                        _Qry &= vbCrLf & ",FNFINALFOB=" & Val(R!FNFINALFOB.ToString) & " "
+                        _Qry &= vbCrLf & ",FNEXTENDEDSIZEFOB=" & Val(R!FNEXTENDEDSIZEFOB.ToString) & " "
+                        _Qry &= vbCrLf & ",FTL4LORDERCNTY1='" & HI.UL.ULF.rpQuoted(R!FTL4LORDERCNTY1.ToString) & "'  "
+                        _Qry &= vbCrLf & " ,FTL4LCURRENCYFOB1='" & HI.UL.ULF.rpQuoted(R!FTL4LCURRENCYFOB1.ToString) & "'"
+                        _Qry &= vbCrLf & ",FNEXTENDSIZEFOBL4L1=" & Val(R!FNEXTENDSIZEFOBL4L1.ToString) & " "
+                        _Qry &= vbCrLf & ", FTL4LORDERCNTY2='" & HI.UL.ULF.rpQuoted(R!FTL4LORDERCNTY2.ToString) & "' "
+                        _Qry &= vbCrLf & ",FTL4LCURRENCYFOB2='" & HI.UL.ULF.rpQuoted(R!FTL4LCURRENCYFOB2.ToString) & "'  "
+                        _Qry &= vbCrLf & ",FNEXTENDSIZEFOBL4L2=" & Val(R!FNEXTENDSIZEFOBL4L2.ToString) & " "
+                        _Qry &= vbCrLf & ",FTL4LORDERCNTY3='" & HI.UL.ULF.rpQuoted(R!FTL4LORDERCNTY3.ToString) & "'  "
+                        _Qry &= vbCrLf & ",FTL4LCURRENCYFOB3='" & HI.UL.ULF.rpQuoted(R!FTL4LCURRENCYFOB3.ToString) & "'  "
+                        _Qry &= vbCrLf & ",FNEXTENDSIZEFOBL4L3=" & Val(R!FNEXTENDSIZEFOBL4L3.ToString) & " "
+                        _Qry &= vbCrLf & ",FTPRODUCTDEVELOPER='" & HI.UL.ULF.rpQuoted(R!FTPRODUCTDEVELOPER.ToString) & "'  "
+                        _Qry &= vbCrLf & ",FTRemark='" & HI.UL.ULF.rpQuoted(R!FTRemark.ToString) & "'   "
+
+                        _Qry &= vbCrLf & "WHERE FTCostSheetNo='" & _Key & "'"
+                        _Qry &= vbCrLf & " AND  FNSeq=" & _Seq
+
+                        If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                            _Qry = "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail_TeamMulti"
+                            _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNRevised, FNVersion, FNSeq, FTMSC, FTSeason, FTStyleCode, FTColorway, FTTeamName, FNBaseFOB, FNAllowancePer, FTItem1, FTProcesssubType1, "
+                            _Qry &= vbCrLf & "  FTDescription1, FTSuplCode1, FNUnitPrice1, FNCIF1, FNUSAGECOST1, FNHandlingChargePercent1, FNHandlingChargeCost1, FNTotalCost1, FNImportDutyPecent1, FTItem2, FTProcesssubType2, FTDescription2, FTSuplCode2, "
+                            _Qry &= vbCrLf & "  FNUnitPrice2, FNCIF2, FNUSAGECOST2, FNHandlingChargePercent2, FNHandlingChargeCost2, FNTotalCost2, FNImportDutyPecent2, FTItem3, FTProcesssubType3, FTDescription3, FTSuplCode3, FNUnitPrice3, FNCIF3, "
+                            _Qry &= vbCrLf & "  FNUSAGECOST3, FNHandlingChargePercent3, FNHandlingChargeCost3, FNTotalCost3, FNImportDutyPecent3, FTItem4, FTProcesssubType4, FTDescription4, FTSuplCode4, FNUnitPrice4, FNCIF4, FNUSAGECOST4, "
+                            _Qry &= vbCrLf & "  FNHandlingChargePercent4, FNHandlingChargeCost4, FNTotalCost4, FNImportDutyPecent4, FTItem5, FTProcesssubType5, FTDescription5, FTSuplCode5, FNUnitPrice5, FNCIF5, FNUSAGECOST5, FNHandlingChargePercent5, "
+                            _Qry &= vbCrLf & "  FNHandlingChargeCost5, FNTotalCost5, FNImportDutyPecent5, FTItem6, FTProcesssubType6, FTDescription6, FTSuplCode6, FNUnitPrice6, FNCIF6, FNUSAGECOST6, FNHandlingChargePercent6, FNHandlingChargeCost6, "
+                            _Qry &= vbCrLf & "  FNTotalCost6, FNImportDutyPecent6, FTItem7, FTProcesssubType7, FTDescription7, FTSuplCode7, FNUnitPrice7, FNCIF7, FNUSAGECOST7, FNHandlingChargePercent7, FNHandlingChargeCost7, FNTotalCost7, "
+                            _Qry &= vbCrLf & "   FNImportDutyPecent7, FTItem8, FTProcesssubType8, FTDescription8, FTSuplCode8, FNUnitPrice8, FNCIF8, FNUSAGECOST8, FNHandlingChargePercent8, FNHandlingChargeCost8, FNTotalCost8, FNImportDutyPecent8, FTItem9, "
+                            _Qry &= vbCrLf & "  FTProcesssubType9, FTDescription9, FTSuplCode9, FNUnitPrice9, FNCIF9, FNUSAGECOST9, FNHandlingChargePercent9, FNHandlingChargeCost9, FNTotalCost9, FNImportDutyPecent9, FTItem10, FTProcesssubType10, "
+                            _Qry &= vbCrLf & "  FTDescription10, FTSuplCode10, FNUnitPrice10, FNCIF10, FNUSAGECOST10, FNHandlingChargePercent10, FNHandlingChargeCost10, FNTotalCost10, FNImportDutyPecent10, FTItem11, FTProcesssubType11, FTDescription11, "
+                            _Qry &= vbCrLf & "  FTSuplCode11, FNUnitPrice11, FNCIF11, FNUSAGECOST11, FNHandlingChargePercent11, FNHandlingChargeCost11, FNTotalCost11, FNImportDutyPecent11, FTItem12, FTProcesssubType12, FTDescription12, FTSuplCode12, "
+                            _Qry &= vbCrLf & "  FNUnitPrice12, FNCIF12, FNUSAGECOST12, FNHandlingChargePercent12, FNHandlingChargeCost12, FNTotalCost12, FNImportDutyPecent12, FTItem13, FTProcesssubType13, FTDescription13, FTSuplCode13, FNUnitPrice13, "
+                            _Qry &= vbCrLf & "  FNCIF13, FNUSAGECOST13, FNHandlingChargePercent13, FNHandlingChargeCost13, FNTotalCost13, FNImportDutyPecent13, FTItem14, FTProcesssubType14, FTDescription14, FTSuplCode14, FNUnitPrice14, FNCIF14, "
+                            _Qry &= vbCrLf & "  FNUSAGECOST14, FNHandlingChargePercent14, FNHandlingChargeCost14, FNTotalCost14, FNImportDutyPecent14, FTItem15, FTProcesssubType15, FTDescription15, FTSuplCode15, FNUnitPrice15, FNCIF15, FNUSAGECOST15, "
+                            _Qry &= vbCrLf & "  FNHandlingChargePercent15, FNHandlingChargeCost15, FNTotalCost15, FNImportDutyPecent15, FNTotalUsgeCost, FNTotalHandlingChargeCost, FNFINALFOB, FNEXTENDEDSIZEFOB, FTL4LORDERCNTY1, "
+                            _Qry &= vbCrLf & "  FTL4LCURRENCYFOB1, FNEXTENDSIZEFOBL4L1, FTL4LORDERCNTY2, FTL4LCURRENCYFOB2, FNEXTENDSIZEFOBL4L2, FTL4LORDERCNTY3, FTL4LCURRENCYFOB3, FNEXTENDSIZEFOBL4L3, FTPRODUCTDEVELOPER, "
+                            _Qry &= vbCrLf & "  FTRemark"
+                            _Qry &= vbCrLf & ")"
+                            _Qry &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                            _Qry &= vbCrLf & ",'" & _Key & "'"
+                            _Qry &= vbCrLf & ",0"
+                            _Qry &= vbCrLf & "," & CDbl("0" & FNVersion.Value)
+                            _Qry &= vbCrLf & "," & _Seq
+                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTMSC.Text.Trim) & "'"
+                            _Qry &= vbCrLf & ", '" & HI.UL.ULF.rpQuoted(FNHSysSeasonId.Text.Trim) & "'"
+                            _Qry &= vbCrLf & ", '" & HI.UL.ULF.rpQuoted(R!FTStyleCode.ToString) & "'"
+                            _Qry &= vbCrLf & ", '" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                            _Qry &= vbCrLf & ", '" & HI.UL.ULF.rpQuoted(R!FTTeamName.ToString) & "'"
+                            _Qry &= vbCrLf & "," & FNGrandTotal.Value & ""
+                            _Qry &= vbCrLf & "," & FNTrinUsageAllowPer.Value & " "
+
+
+                            For I As Integer = 1 To 15
+
+                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R.Item("FTItem" & I.ToString).ToString) & "' "
+                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R.Item("FTProcesssubType" & I.ToString).ToString) & "'  "
+                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R.Item("FTDescription" & I.ToString).ToString) & "'   "
+                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R.Item("FTSuplCode" & I.ToString).ToString) & "'  "
+                                _Qry &= vbCrLf & "," & Val(R.Item("FNUnitPrice" & I.ToString).ToString) & " "
+                                _Qry &= vbCrLf & "," & Val(R.Item("FNCIF" & I.ToString).ToString) & " "
+                                _Qry &= vbCrLf & "," & Val(R.Item("FNUSAGECOST" & I.ToString).ToString) & " "
+                                _Qry &= vbCrLf & "," & Val(R.Item("FNHandlingChargePercent" & I.ToString).ToString) & " "
+                                _Qry &= vbCrLf & "," & Val(R.Item("FNHandlingChargeCost" & I.ToString).ToString) & ""
+                                _Qry &= vbCrLf & "," & Val(R.Item("FNTotalCost" & I.ToString).ToString) & " "
+                                _Qry &= vbCrLf & "," & Val(R.Item("FNImportDutyPecent" & I.ToString).ToString) & " "
+
+                            Next
+
+
+                            _Qry &= vbCrLf & "," & Val(R!FNTotalUsgeCost.ToString) & " "
+                            _Qry &= vbCrLf & "," & Val(R!FNTotalHandlingChargeCost.ToString) & " "
+                            _Qry &= vbCrLf & "," & Val(R!FNFINALFOB.ToString) & " "
+                            _Qry &= vbCrLf & "," & Val(R!FNEXTENDEDSIZEFOB.ToString) & " "
+                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTL4LORDERCNTY1.ToString) & "'  "
+                            _Qry &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(R!FTL4LCURRENCYFOB1.ToString) & "'"
+                            _Qry &= vbCrLf & "," & Val(R!FNEXTENDSIZEFOBL4L1.ToString) & " "
+                            _Qry &= vbCrLf & ", '" & HI.UL.ULF.rpQuoted(R!FTL4LORDERCNTY2.ToString) & "' "
+                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTL4LCURRENCYFOB2.ToString) & "'  "
+                            _Qry &= vbCrLf & "," & Val(R!FNEXTENDSIZEFOBL4L2.ToString) & " "
+                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTL4LORDERCNTY3.ToString) & "'  "
+                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTL4LCURRENCYFOB3.ToString) & "'  "
+                            _Qry &= vbCrLf & "," & Val(R!FNEXTENDSIZEFOBL4L3.ToString) & " "
+                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTPRODUCTDEVELOPER.ToString) & "'  "
+                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTRemark.ToString) & "'   "
+
+
+                            If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                                HI.Conn.SQLConn.Tran.Rollback()
+                                HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                                HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                                Return False
+                            End If
+
+                        End If
+                    Next
+
+                    _Qry = "Delete From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail_TeamMulti"
+                    _Qry &= vbCrLf & "WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "'  "
+                    _Qry &= vbCrLf & "AND FNSeq >" & _Seq
+
+                    HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
+
+                Else
+                    _Qry = " Delete From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail_TeamMulti"
+                    _Qry &= vbCrLf & "WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "'  "
+                    HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
+
+                End If
+
+            Catch ex As Exception
             End Try
 
             HI.Conn.SQLConn.Tran.Commit()
             HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
             HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
 
-
+            Call SavePictureImmage()
 
             'If (_Revise = False) Then
             For Each Obj As Object In Me.Controls.Find(_FormHeader(0).MainKey, True)
@@ -1629,6 +1957,11 @@ Public Class wCostSheet
             _Str = "Delete From  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(Me.FTCostSheetNo.Text) & "' " 'AND FNRevised ='" & Me.FNRevised.Value & "'"
             HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
 
+
+
+            _Str = "Delete From  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail_TeamMulti WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(Me.FTCostSheetNo.Text) & "' " 'AND FNRevised ='" & Me.FNRevised.Value & "'"
+            HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
+
             HI.Conn.SQLConn.Tran.Commit()
             HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
             HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
@@ -1669,7 +2002,6 @@ Public Class wCostSheet
 
         'Dim _Qry As String = ""
         'Dim Dt As DataTable
-
         '_Qry = "  Select FNRevised ,FTCostSheetNo"
         '_Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet With(NOLOCK)"
         '_Qry &= vbCrLf & " WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "'"
@@ -1815,30 +2147,30 @@ Public Class wCostSheet
 
         Try
 
-            Try
-                Dim proc = Process.GetProcessesByName("excel")
-                For ix As Integer = 0 To proc.Count - 1
-                    proc(ix).Kill()
-                Next ix
-            Catch ex As Exception
-            End Try
+            'Try
+            '    Dim proc = Process.GetProcessesByName("excel")
+            '    For ix As Integer = 0 To proc.Count - 1
+            '        proc(ix).Kill()
+            '    Next ix
+            'Catch ex As Exception
+            'End Try
 
-            'Dim stream As New FileStream(_FileName, FileMode.Open)
-            'Dim length As Long = stream.Length
-            'Dim data(length) As Byte 'New Byte(length)
-            'stream.Read(data, 0, Integer.Parse(length))
+            ''Dim stream As New FileStream(_FileName, FileMode.Open)
+            ''Dim length As Long = stream.Length
+            ''Dim data(length) As Byte 'New Byte(length)
+            ''stream.Read(data, 0, Integer.Parse(length))
 
-            ' opshet.LoadDocument(data, DevExpress.Spreadsheet.DocumentFormat.Xlsx)
+            '' opshet.LoadDocument(data, DevExpress.Spreadsheet.DocumentFormat.Xlsx)
 
-            Try
+            'Try
 
-                Dim proc = Process.GetProcessesByName("excel")
-                For ix As Integer = 0 To proc.Count - 1
-                    proc(ix).Kill()
-                Next ix
+            '    Dim proc = Process.GetProcessesByName("excel")
+            '    For ix As Integer = 0 To proc.Count - 1
+            '        proc(ix).Kill()
+            '    Next ix
 
-            Catch ex As Exception
-            End Try
+            'Catch ex As Exception
+            'End Try
         Catch ex As Exception
         End Try
 
@@ -1871,8 +2203,6 @@ Public Class wCostSheet
             Dim pFileName As String = _Path & "\ExportExcel\CostSheetExcelRptCostSheet.xlsm"
 
             '  Dim pFileName As String = _Path & "\ExportExcel\CostSheetExcelRptCostSheet2.xlsx"
-
-
 
             ' _FileName = _Path & "\ExportExcel\SU23-HIT-DV6613-Y-ALL_SOLID-ALL_REG_SIZE-RB-8.xlsm"
 
@@ -2424,12 +2754,21 @@ Public Class wCostSheet
                 If FNISTeamMulti.SelectedIndex = 1 Then
 
                     Try
-                        dttmp = _Dt.Select("FNCostType=8", "FNSeq").CopyToDataTable
 
-                        Dim grp As List(Of String) = (dttmp.Select("FTTeam<>''", "FTTeam").CopyToDataTable).AsEnumerable() _
-                                                      .Select(Function(r) r.Field(Of String)("FTTeam")) _
-                                                      .Distinct() _
-                                                      .ToList()
+                        _Qry = "  Select C.* "
+                        _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail_TeamMulti As C With (NOLOCK)  "
+                        _Qry &= vbCrLf & " WHERE C.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "' "
+                        _Qry &= vbCrLf & " ORDER BY FNSeq "
+
+
+                        _Dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                        'dttmp = _Dt.Select("FNCostType=8", "FNSeq").CopyToDataTable
+
+                        'Dim grp As List(Of String) = (dttmp.Select("FTTeam<>''", "FTTeam").CopyToDataTable).AsEnumerable() _
+                        '                              .Select(Function(r) r.Field(Of String)("FTTeam")) _
+                        '                              .Distinct() _
+                        '                              .ToList()
 
                         RowIdx = 7 + ExcellAddRow
                         Dim ColIndex As Integer = 0
@@ -2440,83 +2779,55 @@ Public Class wCostSheet
 
                         With st
 
-                            '  .Cells(2, 4 + ExcellAdd).Value = (FNTrinUsageAllowPer.Text)
+                            ColIndex = 0
 
-                            For Each Rxm As String In grp
-                                ColIndex = 0
+                            For Each Rm1 As DataRow In _Dt.Rows
 
-                                For Each Rm1 As DataRow In dttmp.Select("FTTeam='" & HI.UL.ULF.rpQuoted(Rxm) & "'", "FNSeq")
-
-                                    .Cells(RowIdx, 0 + ExcellAdd).Value = (FTMSC.Text)
-                                    '.Cells(RowIdx, 1 + ExcellAdd).Value = (FNHSysSeasonId.Text)
-                                    .Cells(RowIdx, 2 + ExcellAdd).Value = (Rm1!FTStyleCode.ToString)
-                                    .Cells(RowIdx, 3 + ExcellAdd).Value = (Rm1!FTMainMatColorCode.ToString)
-                                    .Cells(RowIdx, 4 + ExcellAdd).Value = (Rm1!FTTeamName.ToString)
-                                    '.Cells(RowIdx, 5 + ExcellAdd).Value = (FNGrandTotal.Text)
-
-                                    .Cells(RowIdx, 184 + ExcellAdd).Value = (Rm1!FTPRODUCTDEVELOPER.ToString)
+                                .Cells(RowIdx, 0 + ExcellAdd).Value = (FTMSC.Text)
+                                '.Cells(RowIdx, 1 + ExcellAdd).Value = (FNHSysSeasonId.Text)
+                                .Cells(RowIdx, 2 + ExcellAdd).Value = (Rm1!FTStyleCode.ToString)
+                                .Cells(RowIdx, 3 + ExcellAdd).Value = (Rm1!FTColorway.ToString)
+                                .Cells(RowIdx, 4 + ExcellAdd).Value = (Rm1!FTTeamName.ToString)
 
 
-                                    Exit For
-
-                                Next
+                                '.Cells(RowIdx, 198).Value = (Rm1!FTPRODUCTDEVELOPER.ToString)
 
                                 ColIndex = 6
                                 WriteCol = ColIndex + ExcellAdd
 
-                                For Each Rm1 As DataRow In dttmp.Select("FTTeam='" & HI.UL.ULF.rpQuoted(Rxm) & "'", "FNSeq")
+                                For pColIdx As Integer = 1 To 15
 
+                                    .Cells(RowIdx, WriteCol).Value = (Rm1.Item("FTItem" & pColIdx.ToString).ToString)
+                                    .Cells(RowIdx, WriteCol + 1).Value = (Rm1.Item("FTProcesssubType" & pColIdx.ToString).ToString)
+                                    .Cells(RowIdx, WriteCol + 2).Value = (Rm1.Item("FTDescription" & pColIdx.ToString).ToString)
+                                    .Cells(RowIdx, WriteCol + 3).Value = (Rm1.Item("FTSuplCode" & pColIdx.ToString).ToString)
 
-                                    .Cells(RowIdx, WriteCol).Value = (Rm1!FTMainMatCode.ToString)
-                                    .Cells(RowIdx, WriteCol + 1).Value = (Rm1!FTPROCESSSUBTYPE.ToString)
-                                    .Cells(RowIdx, WriteCol + 2).Value = (Rm1!FTMainMatName.ToString)
-                                    .Cells(RowIdx, WriteCol + 3).Value = (Rm1!FTSuplCode.ToString)
-
-                                    If Val(Rm1!FNCostPerUOM.ToString) > 0 Then
-                                        .Cells(RowIdx, WriteCol + 4).Value = (Decimal.Parse(Format(Val(Rm1!FNCostPerUOM.ToString), "0.0000")))
+                                    If Val((Rm1.Item("FNUnitPrice" & pColIdx.ToString).ToString)) > 0 Then
+                                        .Cells(RowIdx, WriteCol + 4).Value = (Decimal.Parse(Format(Val((Rm1.Item("FNUnitPrice" & pColIdx.ToString).ToString)), "0.0000")))
                                     End If
 
-                                    If Val(Rm1!FNCIF.ToString) > 0 Then
-                                        .Cells(RowIdx, WriteCol + 5).Value = (Decimal.Parse(Format(Val(Rm1!FNCIF.ToString), "0.0000")))
+                                    If Val((Rm1.Item("FNCIF" & pColIdx.ToString).ToString)) > 0 Then
+                                        .Cells(RowIdx, WriteCol + 5).Value = (Decimal.Parse(Format(Val((Rm1.Item("FNCIF" & pColIdx.ToString).ToString)), "0.0000")))
                                     End If
 
-                                    ' .Cells(RowIdx,ColIndex + 6)=(Format(Val(Rm1!FNUSAGECOST.ToString), "0.00"))
 
-                                    If Val(Rm1!FNHANDLINGCHARGEPERCENT.ToString) > 0 Then
-                                        .Cells(RowIdx, WriteCol + 7).Value = (Decimal.Parse(Format(Val(Rm1!FNHANDLINGCHARGEPERCENT.ToString) / 100.0, "0.00")))
+                                    If Val((Rm1.Item("FNHandlingChargePercent" & pColIdx.ToString).ToString)) > 0 Then
+                                        .Cells(RowIdx, WriteCol + 7).Value = (Decimal.Parse(Format(Val((Rm1.Item("FNHandlingChargePercent" & pColIdx.ToString).ToString)) / 100.0, "0.00")))
                                     End If
 
-                                    ' .Cells(RowIdx,ColIndex + 7)=(Format(Val(Rm1!FNHANDLINGCHARGEPERCENT.ToString), "0.00"))
-                                    ' .Cells(RowIdx,ColIndex + 8)=(Format(Val(Rm1!FNHANDLINGCHARGECOST.ToString), "0.0000"))
-                                    ' .Cells(RowIdx,ColIndex + 9)=(Format(Val(Rm1!FNHANDLINGCHARGECOST.ToString) + Val(Rm1!FNUSAGECOST.ToString), "0.0000"))
-
-                                    If Val(Rm1!FNIMPORTDUTYPERCENT.ToString) > 0 Then
-                                        .Cells(RowIdx, WriteCol + 10).Value = (Decimal.Parse(Format(Val(Rm1!FNIMPORTDUTYPERCENT.ToString) / 100.0, "0.00")))
+                                    If Val((Rm1.Item("FNImportDutyPecent" & pColIdx.ToString).ToString)) > 0 Then
+                                        .Cells(RowIdx, WriteCol + 10).Value = (Decimal.Parse(Format(Val((Rm1.Item("FNImportDutyPecent" & pColIdx.ToString).ToString)) / 100.0, "0.00")))
                                     End If
 
-                                    ' .Cells(RowIdx,ColIndex + 10)=(Format(Val(Rm1!FNIMPORTDUTYPERCENT.ToString), "0.00"))
 
                                     WriteCol = WriteCol + SkipCol
-
                                 Next
 
                                 RowIdx = RowIdx + 1
 
                             Next
 
-
                         End With
-                        'With opshet.ActiveWorksheet
-
-                        'End With
-                        'With xlBookTmp.Worksheets(2)
-                        '    .Cells(1,2)=(FNHSysVenderPramId.Text
-                        '    .Cells(2,2)=(FNHSysStyleId.Text
-                        '    .Cells(3,2)=(FNHSysStyleId_None.Text
-
-                        '    .Cells(5,2)=(FNHSysSeasonId.Text
-                        'End With
-
 
                     Catch ex As Exception
                         Dim msg As String = ex.Message
@@ -2524,10 +2835,7 @@ Public Class wCostSheet
 
                 End If
 
-
-
             End With
-
 
             'With xlBookTmp.Worksheets(2)
             '.Cells(1, 1).Value = "Test2"
@@ -2544,39 +2852,38 @@ Public Class wCostSheet
 
             _Spls.Close()
 
-
             Try
 
-                Try
-                    Dim proc = Process.GetProcessesByName("excel")
-                    For ix As Integer = 0 To proc.Count - 1
-                        proc(ix).Kill()
-                    Next ix
-                Catch ex As Exception
-                End Try
+                'Try
+                '    Dim proc = Process.GetProcessesByName("excel")
+                '    For ix As Integer = 0 To proc.Count - 1
+                '        proc(ix).Kill()
+                '    Next ix
+                'Catch ex As Exception
+                'End Try
 
-                'Dim stream As New FileStream(_FileName, FileMode.Open)
-                'Dim length As Long = stream.Length
-                'Dim data(length) As Byte 'New Byte(length)
-                'stream.Read(data, 0, Integer.Parse(length))
+                ''Dim stream As New FileStream(_FileName, FileMode.Open)
+                ''Dim length As Long = stream.Length
+                ''Dim data(length) As Byte 'New Byte(length)
+                ''stream.Read(data, 0, Integer.Parse(length))
 
-                ' opshet.LoadDocument(data, DevExpress.Spreadsheet.DocumentFormat.Xlsx)
+                '' opshet.LoadDocument(data, DevExpress.Spreadsheet.DocumentFormat.Xlsx)
 
-                Try
+                'Try
 
-                    Dim proc = Process.GetProcessesByName("excel")
-                    For ix As Integer = 0 To proc.Count - 1
-                        proc(ix).Kill()
-                    Next ix
+                '    Dim proc = Process.GetProcessesByName("excel")
+                '    For ix As Integer = 0 To proc.Count - 1
+                '        proc(ix).Kill()
+                '    Next ix
 
-                Catch ex As Exception
-                End Try
+                'Catch ex As Exception
+                'End Try
             Catch ex As Exception
             End Try
 
             HI.MG.ShowMsg.mInfo("Write Data Complete !!!", 1610100587, Me.Text, , MessageBoxIcon.Information)
 
-            Process.Start(_FileName)
+            ' Process.Start(_FileName)
 
 
         Catch ex As Exception
@@ -2586,7 +2893,7 @@ Public Class wCostSheet
 
                 oExcel = Nothing
                 xlBookTmp = Nothing
-                ST = Nothing
+                st = Nothing
             Catch ex2 As Exception
 
             End Try
@@ -4423,7 +4730,7 @@ Public Class wCostSheet
                         mdataTable = .Copy
                     End With
 
-                    If mdataTable.Select("FTMainMatCode=''").Length > 0 Then
+                    If mdataTable.Select("FTStyleCode=''").Length > 0 Then
                         Exit Sub
                     End If
 
@@ -4456,18 +4763,45 @@ Public Class wCostSheet
 
             Next
 
+            dr.Item("FNAllowancePer") = 3.0
+
             Select Case otb.SelectedTabPageIndex
                 Case 7
-                    dr.Item("FTMainMatColorCode") = FNCostSheetColor.Text
-                    dr.Item("FTTeamName") = FNHSysStyleId_None.Text
+
+                    dr.Item("FNBaseFOB") = Format(Val(FNGrandTotal.Value), "0.00")
+                    dr.Item("FTMSC") = FTMSC.Text
+                    dr.Item("FTSeason") = FNHSysSeasonId.Text
+                    ' dr.Item("FTStyleCode") = FNHSysStyleId.Text
+                    dr.Item("FTColorway") = FNCostSheetColor.Text
+                    ' dr.Item("FTTeamName") = FNHSysStyleId_None.Text
                     dr.Item("FNAllowancePer") = FNTrinUsageAllowPer.Value
+                    dr.Item("FTPRODUCTDEVELOPER") = FTLOProductDeveloper.Text.Trim
+
+                    dr.Item("FTL4LORDERCNTY1") = FNL4Country1.Text.Trim
+
+
+                    dr.Item("FTL4LORDERCNTY2") = FNL4Country2.Text.Trim
+
+
+                    dr.Item("FTL4LORDERCNTY3") = FNL4Country3.Text.Trim
+
+
+                Case 3
+                    dr.Item("FNMarkerUsed") = 1
                 Case Else
             End Select
 
             dr.Item("FNSeq") = LastMatSeq
-            dr.Item("FNCostType") = _ct
-            dr.Item("FNHSysMainMatId") = 0
             dr.Item("FNRevised") = FNRevised.Value
+
+            Select Case otb.SelectedTabPageIndex
+                Case 7
+                Case Else
+                    dr.Item("FNCostType") = _ct
+                    dr.Item("FNHSysMainMatId") = 0
+                    dr.Item("FTRMDSSeason") = FNHSysSeasonId.Text.Trim
+            End Select
+
 
             dtStyleDetail.Rows.Add(dr)
 
@@ -4596,15 +4930,18 @@ Public Class wCostSheet
 
 
             Try
+
                 With CType(Me.ogccmp.DataSource, DataTable)
                     .AcceptChanges()
 
                     For Each R As DataRow In .Rows
+
                         pCMP = pCMP + Decimal.Parse(Format(R!FNCMPCOST, "0.0000"))
 
                     Next
 
                 End With
+
             Catch ex As Exception
 
             End Try
@@ -4618,7 +4955,6 @@ Public Class wCostSheet
             FNPackagingAmt.Value = pPackagingAmt
             FNCMP.Value = pCMP
 
-
             Call Calculate(FNTotalFabAmt, Nothing)
 
         Catch ex As Exception
@@ -4630,7 +4966,7 @@ Public Class wCostSheet
         Dim _AboveAmt As Double = 0
         Dim _LessAmt As Double = 0
 
-        FNNormalSizeAmt.Value = FNTotalFabAmt.Value + FNTotalAccAmt.Value + FNChargeFabAmt.Value + FNChargeFabAmt.Value + FNChargeAccAmt.Value + FNProcessMatCost.Value + FNProcessLaborCost.Value + +FNPackagingAmt.Value + FNOtherCostAmt.Value + FNCMP.Value
+        FNNormalSizeAmt.Value = Decimal.Parse(Format(FNTotalFabAmt.Value + FNTotalAccAmt.Value + FNChargeFabAmt.Value + FNChargeAccAmt.Value + FNProcessMatCost.Value + FNProcessLaborCost.Value + FNPackagingAmt.Value + FNOtherCostAmt.Value + FNCMP.Value, "0.00"))
         _Gtotal = FNNormalSizeAmt.Value
 
 
@@ -4703,12 +5039,10 @@ Public Class wCostSheet
         'AddHandler RepositoryFTUnitCode_S.ButtonClick, AddressOf HI.TL.HandlerControl.DynamicResponButtoneSysHide_ButtonClick
         'Table Packaging
 
-
         RemoveHandler FTCostSheetNo.EditValueChanged, AddressOf HI.TL.HandlerControl.DynamicButtonedit_EditValueChanged
         RemoveHandler FTCostSheetNo.Leave, AddressOf HI.TL.HandlerControl.DynamicButtonedit_LeaveOnly
 
         FNHSysCmpId.Text = HI.ST.SysInfo.CmpID.ToString
-
 
         RepositoryItemGridLookUpEditFTMainMatCode.View.OptionsView.ShowAutoFilterRow = True
         RepositoryItemGridLookUpEditFTMainMatCodeTrim.View.OptionsView.ShowAutoFilterRow = True
@@ -4754,30 +5088,49 @@ Public Class wCostSheet
 
         LoadMaster()
 
+        otb.SelectedTabPageIndex = 0
+        Tabchange()
         _FormLoad = False
     End Sub
 
     Private Sub FNHSysStyleId_EditValueChanged(sender As Object, e As EventArgs) Handles FNHSysStyleId.EditValueChanged
-        If Me.InvokeRequired Then
+
+        If (Me.InvokeRequired) Then
             Me.Invoke(New HI.Delegate.Dele.ButtonEdit_ValueChanged(AddressOf FNHSysStyleId_EditValueChanged), New Object() {sender, e})
+        Else
+
+
+            ShowFileName()
         End If
+
     End Sub
 
     Public Sub LoadDataInfo2(ByVal Key As Object) 'load detail in gridview from DB
         Try
             Dim _Qry As String = ""
             Dim _oDt As DataTable
+            Dim _oDtMulti As DataTable
             Dim _DocNo As String = ""
-            Dim _tDt As New DataTable
-            Dim _sDt As New DataTable
-            Dim _pDt As New DataTable
+
+            Try
+                FTPicName.Image = Nothing
+            Catch ex As Exception
+
+            End Try
+
+
+            Try
+                PdfViewer1.CloseDocument()
+            Catch ex As Exception
+
+            End Try
 
 
             _Qry = "  Select   C.FTInsUser, C.FDInsDate, C.FTInsTime, C.FTUpdUser, C.FDUpdDate, C.FTUpdTime, C.FTCostSheetNo, C.FNRevised, C.FNVersion, C.FNCostType, C.FNSeq, C.FNHSysMainMatId, C.FNHSysSuplId, "
             _Qry &= vbCrLf & "     C.FNCostPerPiece, C.FNExten, C.FNExtenPer, C.FNNetExten, C.FNChinaOrderCost, C.FNMalaysiaOrderCost, C.FNThailandOrderCost, C.FNJapanOrderCost, C.FTSize, C.FTMainMatCode, "
             _Qry &= vbCrLf & "     C.FTMainMatColorCode, C.FTMainMatName, C.FTSuplCode, C.TTLG, C.FTUse, C.FNWeight, C.FNWidth, C.FTWidthUnit, C.FNMarkerEff, C.FNMarkerUsed, C.FNAllowancePer, C.FNTotalUsed, "
             _Qry &= vbCrLf & "    C.FTRMDSSeason, C.FNRMDSStatus, C.FNHSysUnitId, C.FTUnitCode, C.FNCostPerUOM, C.FNCIF, C.FNUSAGECOST, C.FNHANDLINGCHARGEPERCENT, C.FNHANDLINGCHARGECOST, "
-                    _Qry &= vbCrLf & "    C.FNIMPORTDUTYPERCENT, C.FNImportDuty, C.FTPROCESSSUBTYPE, C.FNHSysProcessMatId, C.FNSTANDARDALLOWEDMINUTES, C.FNEFFICIENCYPERCENT, C.FNPROFITPERCENT, "
+            _Qry &= vbCrLf & "    C.FNIMPORTDUTYPERCENT, C.FNImportDuty, C.FTPROCESSSUBTYPE, C.FNHSysProcessMatId, C.FNSTANDARDALLOWEDMINUTES, C.FNEFFICIENCYPERCENT, C.FNPROFITPERCENT, "
             _Qry &= vbCrLf & "    C.FNCMPCOST, C.FTBMCCODE, C.FTBEMISITEM, C.FNFULLWIDTH, C.FNSLITTINGWIDTH, C.FNREQUIREDLENGTH, C.FNNETUSAGEINFULLWIDTH, C.FNPRICEINMETER, "
             _Qry &= vbCrLf & "    C.FNBEMISSLITTINGUPCHARGE, C.FNPRICEPERSLITTINGWITDH, C.FTRemark, C.FNTOTALUSAGECOST, C.FNTOTALHANDINGCHANGECOST, C.FNFINALFOB, C.FNEXTENDEDSIZEFOB, "
             _Qry &= vbCrLf & "    C.FNTOTALTRIMPROCESSCOST, C.FTL4LORDERCNTY1, C.FTL4LCURRENCYFOB1, C.FNEXTENDSIZEFOBL4L1, C.FTL4LORDERCNTY2, C.FTL4LCURRENCYFOB2, C.FNEXTENDSIZEFOBL4L2, "
@@ -4842,41 +5195,48 @@ Public Class wCostSheet
                 Me.ogcbemis.DataSource = dttmp.Copy
             End Try
 
-            Try
-                Me.ogcteamMulti.DataSource = _oDt.Select("FNCostType='8'", "FNSeq").CopyToDataTable
-            Catch ex As Exception
 
-                Me.ogcteamMulti.DataSource = dttmp.Copy
-            End Try
+            _Qry = "    select *  "
+            _Qry &= vbCrLf & "  FROM    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail_TeamMulti As C With (NOLOCK) "
+            _Qry &= vbCrLf & " WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(Me.FTCostSheetNo.Text) & "' "
+            _Qry &= vbCrLf & "  ORDER BY FNSeq"
+
+            _oDtMulti = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+            Me.ogcteamMulti.DataSource = _oDtMulti
+
+
+            _Qry = "    select TOP 1 *  "
+            _Qry &= vbCrLf & "  FROM    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_File As C With (NOLOCK) "
+            _Qry &= vbCrLf & " WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(Me.FTCostSheetNo.Text) & "' "
+
+
+            Dim dtFile As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT)
 
 
 
-            'For _CT As Integer = 1 To 8
-            '    _Qry = "  Select C.* "
-            '    _Qry &= vbCrLf & "  FROM    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail As C With (NOLOCK) LEFT OUTER JOIN"
-            '    _Qry &= vbCrLf & "          [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit As U With(NOLOCK) On C.FNHSysUnitId = U.FNHSysUnitId LEFT OUTER JOIN"
-            '    _Qry &= vbCrLf & "          [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSupplier As S With(NOLOCK) On C.FNHSysSuplId = S.FNHSysSuplId LEFT OUTER JOIN"
-            '    _Qry &= vbCrLf & "          [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMainMat As M With(NOLOCK) On C.FNHSysMainMatId = M.FNHSysMainMatId "
-            '    _Qry &= vbCrLf & " WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(Me.FTCostSheetNo.Text) & "' AND FNCostType='" & _CT & "'"
+            For Each R As DataRow In dtFile.Rows
 
-            '    'fill gridview by datatable
-            '    Select Case _CT
-            '        Case 1
-            '            _oDt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT)
-            '            Me.ogcfabric.DataSource = _oDt
-            '        Case 2
-            '            _oDt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT)
-            '            Me.ogctrims.DataSource = _oDt
-            '        Case 3
-            '            _oDt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT)
-            '            Me.ogcnosew.DataSource = _oDt
-            '        Case 4
-            '            _oDt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT)
-            '            Me.ogcpack.DataSource = _oDt
-            '    End Select
-            'Next
+                Try
+                    FTPicName.Image = Image.FromStream(New MemoryStream(CType(R!FBFileImage, Byte())))
+                Catch ex As Exception
+                    FTPicName.Image = Nothing
+                End Try
+
+
+                Try
+                    PdfViewer1.LoadDocument(New MemoryStream(CType(R!FBFileMark, Byte())))
+                Catch ex As Exception
+                    PdfViewer1.CloseDocument()
+                End Try
+
+
+            Next
+
         Catch ex As Exception
         End Try
+
+        Me.otb.SelectedTabPageIndex = 0
 
     End Sub
 
@@ -5031,25 +5391,29 @@ Public Class wCostSheet
             Me.ogctrims.DataSource = Nothing
             Me.ogcnosew.DataSource = Nothing
             Me.ogcpack.DataSource = Nothing
+
             Call LoadDataInfo(Me.FTCostSheetNo.Text)
+
         Catch ex As Exception
         End Try
     End Sub
 
     Private Sub FTStateActive_CheckedChanged(sender As Object, e As EventArgs) Handles FTStateActive.CheckedChanged
+
         If (FTStateActive.Checked.ToString() = "True") Then
             ActState = "1"
         Else
             ActState = "0"
         End If
+
     End Sub
 
     Private Sub Fabcal_EditValueChanging(sender As Object, e As DevExpress.XtraEditors.Controls.ChangingEventArgs) Handles FabRepositoryMarkUseNetSuage.EditValueChanging, FabRepositoryPerAllowCalcEdit.EditValueChanging,
                                                                                                                                         FabRepositoryCostNetPrice.EditValueChanging, FabRepositoryItemCalcFNHANDLINGCHARGEPERCENT.EditValueChanging, FabRepositoryItemCalcFNIMPORTDUTYPERCENT.EditValueChanging, FabRepositoryCifCalcEditCIF.EditValueChanging
         Try
-
             With Me.ogvfabric
                 If .FocusedRowHandle < 0 Or .FocusedRowHandle > .RowCount - 1 Then Exit Sub
+
                 If e.NewValue >= 0 Then
                     e.Cancel = False
                     .SetFocusedRowCellValue(.FocusedColumn.FieldName, e.NewValue)
@@ -5066,7 +5430,6 @@ Public Class wCostSheet
                     Dim TotalUsed As Decimal = 0
                     Dim ImportDyty As Decimal = 0
 
-
                     _AllowPer = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNAllowancePer").ToString)
                     _MarkerUse = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNMarkerUsed").ToString)
                     UnitPrice = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNCostPerUOM").ToString)
@@ -5074,14 +5437,11 @@ Public Class wCostSheet
                     Handlingchangeper = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNHANDLINGCHARGEPERCENT").ToString)
                     importdutyper = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNIMPORTDUTYPERCENT").ToString)
 
-
-
                     TotalUsed = _MarkerUse + Decimal.Parse(Format(((_MarkerUse * _AllowPer) / 100.0), "0.0000"))
                     UsageCost = Decimal.Parse(Format((UnitPrice + CiF) * TotalUsed, "0.0000"))
                     Handlingchange = Decimal.Parse(Format(((UsageCost * Handlingchangeper) / 100.0), "0.0000"))
 
                     ImportDyty = Decimal.Parse(Format((((UsageCost + Handlingchange) * importdutyper) / 100.0), "0.0000"))
-
 
                     .SetRowCellValue(.FocusedRowHandle, "FNTotalUsed", TotalUsed)
                     .SetRowCellValue(.FocusedRowHandle, "FNUSAGECOST", UsageCost)
@@ -5095,11 +5455,8 @@ Public Class wCostSheet
 
                 End If
 
-
-
-
-
             End With
+
         Catch ex As Exception
         End Try
     End Sub
@@ -5149,15 +5506,12 @@ Public Class wCostSheet
                     .SetRowCellValue(.FocusedRowHandle, "FNHANDLINGCHARGECOST", Handlingchange)
                     .SetRowCellValue(.FocusedRowHandle, "FNImportDuty", ImportDyty)
 
-
                     Call SumAmt()
+
                 Else
                     e.Cancel = True
 
                 End If
-
-
-
 
                 'Call SumAmt()
             End With
@@ -5379,6 +5733,7 @@ Public Class wCostSheet
 
     Private Sub TeamMulti_EditValueChanging(sender As Object, e As DevExpress.XtraEditors.Controls.ChangingEventArgs) Handles RepositoryItemCalcEditMultiFNCostPerUOM.EditValueChanging, RepositoryItemCalcEditMultiFNCIF.EditValueChanging,
                                                                                                                                         RepositoryItemCalcEditMultiFNUSAGECOST.EditValueChanging, RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.EditValueChanging, RepositoryItemCalcEditMultiFNHANDLINGCHARGECOST.EditValueChanging
+
         Try
 
             With Me.ogvteamMulti
@@ -5386,7 +5741,23 @@ Public Class wCostSheet
                 If e.NewValue >= 0 Then
                     e.Cancel = False
                     .SetFocusedRowCellValue(.FocusedColumn.FieldName, e.NewValue)
+                    Dim ColIndex As String = ""
 
+
+                    Select Case True
+                        Case .FocusedColumn.FieldName.Contains("FNUnitPrice")
+                            ColIndex = .FocusedColumn.FieldName.Replace("FNUnitPrice", "")
+                        Case .FocusedColumn.FieldName.Contains("FNCIF")
+                            ColIndex = .FocusedColumn.FieldName.Replace("FNCIF", "")
+                        Case .FocusedColumn.FieldName.Contains("FNUSAGECOST")
+                            ColIndex = .FocusedColumn.FieldName.Replace("FNUSAGECOST", "")
+                        Case .FocusedColumn.FieldName.Contains("FNHandlingChargePercent")
+                            ColIndex = .FocusedColumn.FieldName.Replace("FNHandlingChargePercent", "")
+                        Case .FocusedColumn.FieldName.Contains("FNHandlingChargeCost")
+                            ColIndex = .FocusedColumn.FieldName.Replace("FNHandlingChargeCost", "")
+                        Case .FocusedColumn.FieldName.Contains("FTItem")
+                            ColIndex = .FocusedColumn.FieldName.Replace("FTItem", "")
+                    End Select
 
                     Dim _AllowPer As Decimal = 0
                     Dim _MarkerUse As Decimal = 0
@@ -5399,13 +5770,33 @@ Public Class wCostSheet
                     Dim TotalUsed As Decimal = 0
                     Dim ImportDyty As Decimal = 0
 
+                    Dim TotalUsedsage As Decimal = 0
+                    Dim TotalHandling As Decimal = 0
+                    Dim FinalFOB As Decimal = 0
+                    Dim pFNExtendedPer As Decimal = 0
+                    Dim pFINALFOB As Decimal = 0
+                    Dim pFINALFOB2 As Decimal = 0
 
-                    _AllowPer = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNAllowancePer").ToString)
+                    _AllowPer = FNTrinUsageAllowPer.Value ' Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNAllowancePer").ToString)
+
+                    Dim pFTProcessMatCode As String = .GetRowCellValue(.FocusedRowHandle, "FTProcesssubType" & ColIndex).ToString
+                    Dim cmdstring As String = "select top 1 FTStateTeamMultiNotAllowwance from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMProcessMaterial As X WITH(NOLOCK) WHERE FTProcessMatCode='" & HI.UL.ULF.rpQuoted(pFTProcessMatCode) & "' "
+
+                    If HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_MASTER, "") = "1" Then
+                        _AllowPer = 0
+                    End If
+
+                    'If .GetRowCellValue(.FocusedRowHandle, "FTProcesssubType" & ColIndex).ToString.ToUpper.Contains("HEAT TRANSFER APPLICATION") Or .GetRowCellValue(.FocusedRowHandle, "FTProcesssubType" & ColIndex).ToString.ToUpper.Contains("DIRECT EMBOSS_DIRECT DEBOSS") Then
+                    '    _AllowPer = 0
+                    'End If
+
+                    pFNExtendedPer = FNExtendedPer.Value
+
                     _MarkerUse = 1.0 ' Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNMarkerUsed").ToString)
-                    UnitPrice = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNCostPerUOM").ToString)
-                    CiF = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNCIF").ToString)
-                    Handlingchangeper = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNHANDLINGCHARGEPERCENT").ToString)
-                    importdutyper = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNIMPORTDUTYPERCENT").ToString)
+                    UnitPrice = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNUnitPrice" & ColIndex).ToString)
+                    CiF = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNCIF" & ColIndex).ToString)
+                    Handlingchangeper = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNHandlingChargePercent" & ColIndex).ToString)
+                    importdutyper = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNImportDutyPecent" & ColIndex).ToString)
 
                     Dim mPer As Decimal = 100.0
 
@@ -5415,10 +5806,73 @@ Public Class wCostSheet
 
                     ImportDyty = Decimal.Parse(Format((((UsageCost + Handlingchange))), "0.0000"))
 
-                    .SetRowCellValue(.FocusedRowHandle, "FNTotalUsed", TotalUsed)
-                    .SetRowCellValue(.FocusedRowHandle, "FNUSAGECOST", UsageCost)
-                    .SetRowCellValue(.FocusedRowHandle, "FNHANDLINGCHARGECOST", Handlingchange)
-                    .SetRowCellValue(.FocusedRowHandle, "FNTOTALTRIMPROCESSCOST", ImportDyty)
+                    .SetRowCellValue(.FocusedRowHandle, "FNUSAGECOST" & ColIndex, UsageCost)
+                    .SetRowCellValue(.FocusedRowHandle, "FNHandlingChargeCost" & ColIndex, Handlingchange)
+                    .SetRowCellValue(.FocusedRowHandle, "FNTotalCost" & ColIndex, ImportDyty)
+
+                    For I As Integer = 1 To 15
+
+                        TotalUsedsage = TotalUsedsage + Val(.GetRowCellValue(.FocusedRowHandle, "FNUSAGECOST" & I.ToString))
+                        TotalHandling = TotalHandling + Val(.GetRowCellValue(.FocusedRowHandle, "FNHandlingChargeCost" & I.ToString))
+
+                    Next
+
+                    pFINALFOB2 = Decimal.Parse(FNGrandTotal.Value + TotalUsedsage + TotalHandling)
+                    'pFINALFOB = Decimal.Parse(Format(FNGrandTotal.Value + TotalUsedsage + TotalHandling, "0.00"))
+
+                    pFINALFOB = Decimal.Parse(Format(pFINALFOB2, "0.00"))
+
+                    TotalUsedsage = Decimal.Parse(Format(TotalUsedsage, "0.0000"))
+                    TotalHandling = Decimal.Parse(Format(TotalHandling, "0.0000"))
+
+                    .SetRowCellValue(.FocusedRowHandle, "FNTotalUsgeCost", TotalUsedsage)
+                    .SetRowCellValue(.FocusedRowHandle, "FNTotalHandlingChargeCost", TotalHandling)
+                    .SetRowCellValue(.FocusedRowHandle, "FNFINALFOB", pFINALFOB)
+
+                    Dim pEXTENDEDSIZEFOB As Decimal = 0
+                    If pFNExtendedPer > 0 Then
+                        pEXTENDEDSIZEFOB = Decimal.Parse(Format(((pFINALFOB) * (1.0 + (pFNExtendedPer / 100.0))), "0.00"))
+                    End If
+
+                    .SetRowCellValue(.FocusedRowHandle, "FNEXTENDEDSIZEFOB", pEXTENDEDSIZEFOB)
+
+                    Dim pFTL4LCURRENCYFOB1 As Decimal = 0
+                    Dim pFNEXTENDSIZEFOBL4L1 As Decimal = 0
+
+                    If FNL4Country1Finalm.Value > 0 Then
+                        pFTL4LCURRENCYFOB1 = Decimal.Parse(Format(((pFINALFOB2) * FNL4Country1Exc.Value), "0.00"))
+                        pFNEXTENDSIZEFOBL4L1 = Decimal.Parse(Format((pFTL4LCURRENCYFOB1 * (1.0 + (pFNExtendedPer / 100.0))), "0.00"))
+                    End If
+
+                    .SetRowCellValue(.FocusedRowHandle, "FTL4LCURRENCYFOB1", pFTL4LCURRENCYFOB1)
+                    .SetRowCellValue(.FocusedRowHandle, "FNEXTENDSIZEFOBL4L1", pFNEXTENDSIZEFOBL4L1)
+
+                    Dim pFTL4LCURRENCYFOB2 As Decimal = 0
+                    Dim pFNEXTENDSIZEFOBL4L2 As Decimal = 0
+
+                    If FNL4Country2Finalm.Value > 0 Then
+
+                        pFTL4LCURRENCYFOB2 = Decimal.Parse(Format(((pFINALFOB2) * FNL4Country2Exc.Value), "0.00"))
+                        pFNEXTENDSIZEFOBL4L2 = Decimal.Parse(Format((pFTL4LCURRENCYFOB2 * (1.0 + (pFNExtendedPer / 100.0))), "0.00"))
+
+                    End If
+
+                    .SetRowCellValue(.FocusedRowHandle, "FTL4LCURRENCYFOB2", pFTL4LCURRENCYFOB2)
+                    .SetRowCellValue(.FocusedRowHandle, "FNEXTENDSIZEFOBL4L2", pFNEXTENDSIZEFOBL4L2)
+
+
+                    Dim pFTL4LCURRENCYFOB3 As Decimal = 0
+                    Dim pFNEXTENDSIZEFOBL4L3 As Decimal = 0
+
+                    If FNL4Country3Finalm.Value > 0 Then
+
+                        pFTL4LCURRENCYFOB3 = Decimal.Parse(Format(((pFINALFOB2) * FNL4Country3Exc.Value), "0.00"))
+                        pFNEXTENDSIZEFOBL4L3 = Decimal.Parse(Format((pFTL4LCURRENCYFOB3 * (1.0 + (pFNExtendedPer / 100.0))), "0.00"))
+
+                    End If
+
+                    .SetRowCellValue(.FocusedRowHandle, "FTL4LCURRENCYFOB3", pFTL4LCURRENCYFOB3)
+                    .SetRowCellValue(.FocusedRowHandle, "FNEXTENDSIZEFOBL4L3", pFNEXTENDSIZEFOBL4L3)
 
                 Else
                     e.Cancel = True
@@ -6079,7 +6533,9 @@ Public Class wCostSheet
                     Case "MYR"
                         .SetRowCellValue(.FocusedRowHandle, "FNMalaysiaOrderCost", (_Exten + _Charge + _ImD) / _ExRate)
                 End Select
+
                 Call SumAmt()
+
             End With
         Catch ex As Exception
         End Try
@@ -6138,7 +6594,7 @@ Public Class wCostSheet
     End Sub
 
     Private Sub FTLOProductDeveloper_EditValueChanged(sender As Object, e As EventArgs) Handles FTLOProductDeveloper.EditValueChanged
-
+        Call UpdateMiltidata()
     End Sub
 
     Private Sub FNL4Country1Cur_EditValueChanged(sender As Object, e As EventArgs) Handles FNL4Country1Cur.EditValueChanged
@@ -6167,7 +6623,7 @@ Public Class wCostSheet
 
         End Select
 
-
+        Call UpdateMiltidata()
     End Sub
 
     Private Sub FNL4Country2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FNL4Country2.SelectedIndexChanged
@@ -6193,7 +6649,7 @@ Public Class wCostSheet
                 FNL4Country2Cur.Text = ""
 
         End Select
-
+        Call UpdateMiltidata()
     End Sub
 
     Private Sub FNL4Country3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FNL4Country3.SelectedIndexChanged
@@ -6209,10 +6665,17 @@ Public Class wCostSheet
                 FNL4Country3Cur.Text = ""
 
         End Select
+
+
+        Call UpdateMiltidata()
+
     End Sub
 
     Private Sub FNISTeamMulti_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FNISTeamMulti.SelectedIndexChanged
         otpTeamMulti.PageVisible = (FNISTeamMulti.SelectedIndex = 1)
+
+        ShowFileName()
+
     End Sub
 
     Private Sub FNHSysStyleIdTo_EditValueChanged(sender As Object, e As EventArgs) Handles FNHSysStyleIdTo.EditValueChanged
@@ -6230,15 +6693,23 @@ Public Class wCostSheet
 
         'cmd = "SELECT   FTCusItemCodeRef AS FTMainMatCode, Max(FNHSysMainMatId) AS FNHSysMainMatId, MAX(LEFT(FTMainMatNameEN,200)) AS FTMainMatName from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMainMat WITH(NOLOCK) WHERE FTStateActive='1' AND ISNULL(FTCusItemCodeRef,'') <>'' group by FTCusItemCodeRef Order by FTCusItemCodeRef "
 
-        cmd = " SELECT A.* FROM ( SELECT   FTMat AS FTMainMatCode, 0 AS FNHSysMainMatId, MAX(LEFT(FTMaterialDescription,200)) AS FTMainMatName,FTSupplierLocationCode AS FTSuplCode,FTLiaisonOfficeCode As FTCOFO,FTRMDSSESNCD AS FTSeason,(FTMatColor) AS FTMatColor "
-        cmd &= vbCrLf & " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.THITRMDSMasterFile WITH(NOLOCK) "
-        cmd &= vbCrLf & " group by FTMat,FTSupplierLocationCode,FTLiaisonOfficeCode,FTRMDSSESNCD ,FTMatColor"
+        cmd = " SELECT A.* FROM ( SELECT   A.FTMat AS FTMainMatCode, 0 AS FNHSysMainMatId, MAX(LEFT(A.FTMaterialDescription,200)) AS FTMainMatName,A.FTSupplierLocationCode AS FTSuplCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO) As FTCOFO,A.FTRMDSSESNCD AS FTSeason,(A.FTMatColor) AS FTMatColor,MAX(LEFT(A.FTSMStatus,1)) As FTSMStatus "
+        cmd &= vbCrLf & " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.THITRMDSMasterFile AS A WITH(NOLOCK) "
+        cmd &= vbCrLf & "  OUTER APPLY (SELECT TOP 1  CCOF2.FTCOFOCode   "
+        cmd &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO AS CCOF WITH(NOLOCK) "
+        cmd &= vbCrLf & "   INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO AS CCOF2 WITH(NOLOCK) ON CCOF.FNHSysCOFOIdTo = CCOF2.FNHSysCOFOId"
+        cmd &= vbCrLf & "   WHERE  CCOF.FTCOFOCode =A.FTMCO "
+        cmd &= vbCrLf & "   ) AS CCOF "
+
+
+        cmd &= vbCrLf & " group by A.FTMat,A.FTSupplierLocationCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO),A.FTRMDSSESNCD ,A.FTMatColor"
         cmd &= vbCrLf & " UNION "
-        cmd &= vbCrLf & " SELECT   M.FTCusItemCodeRef AS FTMainMatCode, Max(M.FNHSysMainMatId) AS FNHSysMainMatId, MAX(LEFT(M.FTMainMatNameEN,200)) AS FTMainMatName,ISNULL(S.FTNikeVenderCode,'') AS FTSuplCode,ISNULL(S.FTCOFOCode,'') AS FTCOFO,'' ,'' AS FTMatColor"
+        cmd &= vbCrLf & " SELECT   M.FTCusItemCodeRef AS FTMainMatCode, Max(M.FNHSysMainMatId) AS FNHSysMainMatId, MAX(LEFT(M.FTMainMatNameEN,200)) AS FTMainMatName,ISNULL(S.FTNikeVenderCode,'') AS FTSuplCode,ISNULL(S.FTCOFOCode,'') AS FTCOFO,'' ,'' AS FTMatColor,'' As FTSMStatus"
         cmd &= vbCrLf & "  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMainMat AS M WITH(NOLOCK) "
-        cmd &= vbCrLf & "  OUTER APPLY (SELECT TOP 1  S.FTNikeVenderCode,SCOFO.FTCOFOCode   "
+        cmd &= vbCrLf & "  OUTER APPLY (SELECT TOP 1  S.FTNikeVenderCode,CASE WHEN ISNULL(CCOF2.FTCOFOCode,'') ='' THEN SCOFO.FTCOFOCode  ELSE CCOF2.FTCOFOCode END AS FTCOFOCode   "
         cmd &= vbCrLf & "   FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSupplier AS S WITH(NOLOCK) "
         cmd &= vbCrLf & "   LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO AS SCOFO WITH(NOLOCK) ON S.FNHSysCOFOId =SCOFO.FNHSysCOFOId "
+        cmd &= vbCrLf & "   LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO AS CCOF2 WITH(NOLOCK) ON SCOFO.FNHSysCOFOIdTo = CCOF2.FNHSysCOFOId"
         cmd &= vbCrLf & "   WHERE S.FNHSysSuplId = M.FNHSysSuplId  "
         cmd &= vbCrLf & "   ) AS S "
         cmd &= vbCrLf & "  WHERE M.FTStateActive='1' AND ISNULL(M.FTCusItemCodeRef,'') <>'' AND M.FNDataMatType IN (1,2) "
@@ -6267,7 +6738,6 @@ Public Class wCostSheet
 
         RepositoryItemGridLookUpEditItemMulti.PopupFormSize = New Size(500, 850)
 
-
         'cmd = "SELECT   A.FTNikeVenderCode AS FTSuplCode, MAX(A.FNHSysSuplId) AS FNHSysSuplId, MAX(A.FTSuplNameEN) AS FTSuplName "
         'cmd &= vbCrLf & "  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSupplier AS A WITH(NOLOCK)"
         'cmd &= vbCrLf & "  Outer Apply()  "
@@ -6275,10 +6745,17 @@ Public Class wCostSheet
         'cmd &= vbCrLf & "  group by  A.FTNikeVenderCode "
         'cmd &= vbCrLf & "  Order  by A.FTNikeVenderCode "
 
-        cmd = "SELECT   FTSupplierLocationCode AS FTSuplCode,FTLiaisonOfficeCode As FTCOFO,0 AS FNHSysSuplId,MAX(FTSupplierLocationName) as FTSuplName "
-        cmd &= vbCrLf & " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.THITRMDSMasterFile WITH(NOLOCK) "
-        cmd &= vbCrLf & " group by FTSupplierLocationCode,FTLiaisonOfficeCode "
-        cmd &= vbCrLf & " ORDER BY FTSupplierLocationCode,FTLiaisonOfficeCode "
+        cmd = "SELECT   A.FTSupplierLocationCode AS FTSuplCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO) As FTCOFO,0 AS FNHSysSuplId,MAX(A.FTSupplierLocationName) as FTSuplName "
+        cmd &= vbCrLf & " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.THITRMDSMasterFile  AS A WITH(NOLOCK) "
+
+        cmd &= vbCrLf & "  OUTER APPLY (SELECT TOP 1  CCOF2.FTCOFOCode   "
+        cmd &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO AS CCOF WITH(NOLOCK) "
+        cmd &= vbCrLf & "   INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO AS CCOF2 WITH(NOLOCK) ON CCOF.FNHSysCOFOIdTo = CCOF2.FNHSysCOFOId"
+        cmd &= vbCrLf & "   WHERE  CCOF.FTCOFOCode =A.FTMCO "
+        cmd &= vbCrLf & "   ) AS CCOF "
+
+        cmd &= vbCrLf & " group by A.FTSupplierLocationCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO) "
+        cmd &= vbCrLf & " ORDER BY A.FTSupplierLocationCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO) "
 
         dt = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_MASTER)
 
@@ -6289,7 +6766,9 @@ Public Class wCostSheet
         RepositoryItemGridLookUpEditFTSuplCodePack.DataSource = dt.Copy
         RepositoryItemGridLookUpEditFTSuplCodeMulti.DataSource = dt.Copy
 
-        cmd = "SELECT Lower(FTUnitCode) AS FTUnitCode, FNHSysUnitId from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit WITH(NOLOCK) WHERE FTStateActive='1'  Order by FTUnitCode "
+        'cmd = "SELECT Lower(FTUnitCode) AS FTUnitCode, FNHSysUnitId from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit WITH(NOLOCK) WHERE FTStateActive='1' AND FTStateUnitCBD='1' Order by FTUnitCode "
+
+        cmd = "SELECT (FTUnitCode) AS FTUnitCode, FNHSysUnitId from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit WITH(NOLOCK) WHERE FTStateActive='1' AND FTStateUnitCBD='1' Order by FTUnitCode "
 
         dt = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_MASTER)
 
@@ -6299,7 +6778,7 @@ Public Class wCostSheet
         RepositoryItemGridLookUpEditFTUnitCodeWidthunitPack.DataSource = dt.Copy
         RepositoryItemGridLookUpEditFTUnitCodeLabor.DataSource = dt.Copy
 
-        cmd = "SELECT FTUnitCode AS FTUnitCode, FNHSysUnitId from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit WITH(NOLOCK) WHERE FTStateActive='1'  Order by FTUnitCode "
+        cmd = "SELECT FTUnitCode AS FTUnitCode, FNHSysUnitId from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit WITH(NOLOCK) WHERE FTStateActive='1' AND FTStateUnitCBD='1' Order by FTUnitCode "
 
         dt = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_MASTER)
         RepositoryItemGridLookUpEditUOMWidth.DataSource = dt.Copy
@@ -6315,8 +6794,6 @@ Public Class wCostSheet
         RepositoryItemGridLookUpEditFTCOFOProcessMat.DataSource = dt.Copy
         RepositoryItemGridLookUpEditFTCOFOTrim.DataSource = dt.Copy
         RepositoryItemGridLookUpEditFTCOFOPack.DataSource = dt.Copy
-
-
 
         cmd = "SELECT  FNHSysProcessMatId, FTProcessMatCode,  FTStateActive, FTProcessMatNameEN, FTDefualtItem from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMProcessMaterial WITH(NOLOCK) WHERE FTStateActive='1'  Order by FTProcessMatCode "
 
@@ -6370,7 +6847,7 @@ Public Class wCostSheet
 
     End Sub
 
-    Private Sub RepositoryItemGridLookUpEditFTMainMatCode_EditValueChanged(sender As Object, e As EventArgs) Handles RepositoryItemGridLookUpEditFTMainMatCode.EditValueChanged, RepositoryItemGridLookUpEditFTMainMatCodeTrim.EditValueChanged, RepositoryItemGridLookUpEditFTMainMatCodePacking.EditValueChanged, RepositoryItemGridLookUpEditItemMulti.EditValueChanged
+    Private Sub RepositoryItemGridLookUpEditFTMainMatCode_EditValueChanged(sender As Object, e As EventArgs) Handles RepositoryItemGridLookUpEditFTMainMatCode.EditValueChanged, RepositoryItemGridLookUpEditFTMainMatCodeTrim.EditValueChanged, RepositoryItemGridLookUpEditFTMainMatCodePacking.EditValueChanged
         Try
             Dim MatCode As String = ""
             With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
@@ -6378,33 +6855,1013 @@ Public Class wCostSheet
 
                 Dim obj As DevExpress.XtraEditors.GridLookUpEdit = DirectCast(sender, DevExpress.XtraEditors.GridLookUpEdit)
 
+                Dim View As GridView = DirectCast(obj.Properties.View, GridView)
+                If (View Is Nothing) Then
+                    Exit Sub
+                End If
+
+                Dim rh As Integer = View.FocusedRowHandle
+
+
+
+
                 Dim ProdId As Integer = Val(obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNHSysMainMatId").ToString())
                 MatCode = (obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTMainMatCode").ToString())
 
                 Dim pCOFO As String = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTCOFO").ToString
 
                 Dim RMatColor As String = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTMatColor").ToString
-                Dim RSeason As String = ""
-                '  .SetFocusedRowCellValue("FTMainMatCode", MatCode)
+                Dim RSeason As String = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTSeason").ToString
+                ''  .SetFocusedRowCellValue("FTMainMatCode", MatCode)
+
+                Dim suplCode As String = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTSuplCode").ToString
                 .SetFocusedRowCellValue("FNHSysMainMatId", ProdId)
                 .SetFocusedRowCellValue("FTMainMatName", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTMainMatName").ToString)
-                .SetFocusedRowCellValue("FTSuplCode", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTSuplCode").ToString)
+                .SetFocusedRowCellValue("FTSuplCode", suplCode)
                 .SetFocusedRowCellValue("TTLG", pCOFO)
                 .SetFocusedRowCellValue("FTMainMatCode", MatCode)
+                .SetFocusedRowCellValue("FTMainMatColorCode", RMatColor)
 
+                Try
+                    'RSeason = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTSeason").ToString
+                    .SetFocusedRowCellValue("FTRMDSSeason", RSeason)
+                Catch ex As Exception
+
+                End Try
+                'AND  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' 
+
+                If RSeason = "" Then
+                    RSeason = FNHSysSeasonId.Text.Trim
+                End If
+                Dim Ptice As Decimal = 0
+                Dim PriceStatus As String = ""
+                Dim dtPrice As DataTable
+                Dim pUOM As String = ""
+
+                Dim cmdstring As String = ""
+
+                cmdstring = " select top 2 CASE WHEN SRFP.FTSupplierLocationName Like N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,ISNULL(U.FTUnitCode,'') AS FTPRICINGSTARDARDUOM  "
+                cmdstring &= vbCrLf & "  from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK)  "
+                cmdstring &= vbCrLf & "  Outer apply (select top 1 U.FTUnitCode FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit AS U WITH(NOLOCK) WHERE U.FTUnitCode =SRFP.FTPRICINGSTARDARDUOM AND  U.FTStateActive='1' AND U.FTStateUnitCBD='1') AS U "
+                cmdstring &= vbCrLf & "  WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' "
+                cmdstring &= vbCrLf & "  And  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' "
+                cmdstring &= vbCrLf & "  And SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' "
+                cmdstring &= vbCrLf & "  And (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' ) "
+                cmdstring &= vbCrLf & " ORDER BY FTMatColor DESC "
+
+                dtPrice = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
+
+
+                For Each R As DataRow In dtPrice.Rows
+                    Ptice = Val(R!FNSTDPrice.ToString)
+                    PriceStatus = Microsoft.VisualBasic.Left(R!FTSMStatus.ToString, 1)
+                    pUOM = R!FTPRICINGSTARDARDUOM.ToString.Trim
+
+                    Exit For
+                Next
+
+                dtPrice.Dispose()
+
+                .SetFocusedRowCellValue("FNCostPerUOM", Ptice)
+                .SetFocusedRowCellValue("FNRMDSStatus", PriceStatus)
+                .SetFocusedRowCellValue("FTUnitCode", pUOM)
+
+
+                Select Case .Name
+                    Case "ogvfabric"
+
+                        Call Fabcal_EditValueChanging(FabRepositoryCostNetPrice, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+                        Call RepositoryItemGridLookUpEditCFCO_EditValueChanged(RepositoryItemGridLookUpEditCFCO, New EventArgs)
+
+                        Dim RMDSItemDesc As String = ""
+                        cmdstring = "select top 1 SRFP.FTMaterialDescription from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK) WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' AND SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' "
+
+                        RMDSItemDesc = HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN, "")
+
+
+                        If RMDSItemDesc.IndexOf("Wt (g/m2)") > 0 Then
+
+                            Dim strWeight As String = Mid(RMDSItemDesc, RMDSItemDesc.IndexOf("Wt (g/m2)"), 25)
+
+
+                            If strWeight.Split(":").Length = 2 Then
+                                strWeight = strWeight.Split(":")(1)
+
+                                If strWeight.Split(";").Length = 2 Then
+                                    strWeight = strWeight.Split(";")(0).Trim()
+
+                                    .SetFocusedRowCellValue("FNWeight", strWeight)
+                                End If
+
+                            End If
+
+                        End If
+
+                        If RMDSItemDesc.IndexOf("W (cm)") > 0 Then
+                            Dim strWidth As String = Mid(RMDSItemDesc, RMDSItemDesc.IndexOf("W (cm)"), 20)
+
+                            If strWidth.Split(":").Length = 2 Then
+                                strWidth = strWidth.Split(":")(1)
+
+                                If strWidth.Split(";").Length = 2 Then
+                                    strWidth = strWidth.Split(";")(0).Trim()
+
+                                    .SetFocusedRowCellValue("FNWidth", strWidth)
+                                End If
+
+                            End If
+
+
+                        End If
+
+                    Case "ogvtrims"
+
+                        Call Acccal_EditValueChanging(TrimsFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+                        Call RepositoryItemGridLookUpEditCFCO_EditValueChanged(RepositoryItemGridLookUpEditFTCOFOTrim, New EventArgs)
+
+                    Case "ogcpack"
+
+                        Call Packcal_EditValueChanging(PackFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+                        Call RepositoryItemGridLookUpEditCFCO_EditValueChanged(RepositoryItemGridLookUpEditFTCOFOPack, New EventArgs)
+                    Case "ogvteamMulti"
+                        'Call RepositoryItemGridLookUpEditCFCO_EditValueChanged(RepositoryItemGridLookUp, New EventArgs)
+                End Select
+
+
+                If pCOFO <> "" Then
+
+                    cmdstring = "SELECT  FNHSysCOFOId, FTCOFOCode AS FTCOFO,FTCOFONameEN As FTCOFOName,  FTStateActive, FNFabricPer, FNAccPer, FNImportDuty,FNImportDutyAcc,FNHandlingChandeFab,FNHandlingChandeAcc "
+                    cmdstring &= vbCrLf & " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO WITH(NOLOCK) "
+                    cmdstring &= vbCrLf & " WHERE FTCOFOCode='" & HI.UL.ULF.rpQuoted(pCOFO) & "' "
+                    cmdstring &= vbCrLf & "  Order by FTCOFOCode "
+
+                    Dim dt As DataTable = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MASTER)
+
+                    For Each Rm As DataRow In dt.Rows
+
+                        Select Case .Name
+                            Case "ogvfabric"
+
+                                .SetFocusedRowCellValue("FNCIF", Rm!FNFabricPer.ToString)
+                                .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", Rm!FNHandlingChandeFab.ToString)
+                                .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", Rm!FNImportDuty.ToString)
+
+                                Call Fabcal_EditValueChanging(FabRepositoryCostNetPrice, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+
+                            Case "ogvtrims"
+
+                                .SetFocusedRowCellValue("FNCIF", Rm!FNAccPer.ToString)
+                                .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", Rm!FNHandlingChandeAcc.ToString)
+                                .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", Rm!FNImportDutyAcc.ToString)
+
+                                Call Acccal_EditValueChanging(TrimsFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+
+                            Case "ogvpack"
+
+                                .SetFocusedRowCellValue("FNCIF", Rm!FNAccPer.ToString)
+                                .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", Rm!FNHandlingChandeAcc.ToString)
+                                .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", Rm!FNImportDutyAcc.ToString)
+
+                                Call Packcal_EditValueChanging(PackFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+                            Case "ogvteamMulti"
+
+
+                                Dim FColName As String = .FocusedColumn.FieldName
+                                Dim ColIdx As String = FColName.Replace("FTItem", "")
+
+
+                                .SetFocusedRowCellValue("FNCIF" & ColIdx, Rm!FNAccPer.ToString)
+                                .SetFocusedRowCellValue("FNHandlingChargePercent" & ColIdx, Rm!FNHandlingChandeAcc.ToString)
+                                .SetFocusedRowCellValue("FNHandlingChargeCost" & ColIdx, Rm!FNImportDutyAcc.ToString)
+                        End Select
+
+                    Next
+
+                    dt.Dispose()
+
+                End If
+
+                Try
+                    obj.Properties.View.ClearColumnsFilter()
+                Catch ex As Exception
+
+                End Try
+
+            End With
+
+            CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).SetFocusedRowCellValue("FTMainMatCode", MatCode)
+            'Dim sMatCode22 As String = CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).GetFocusedRowCellValue("FTMainMatCode").ToString
+            CType(sender.Parent.DataSource, DataTable).AcceptChanges()
+            'Dim sMatCode As String = CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).GetFocusedRowCellValue("FTMainMatCode").ToString
+            'Dim MMs As String = ""
+            Call SumAmt()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub RepositoryItemGridLookUpEditFTMainMatCodeTeamMulti_EditValueChanged(sender As Object, e As EventArgs) Handles RepositoryItemGridLookUpEditItemMulti.EditValueChanged
+        Try
+            Dim MatCode As String = ""
+            Dim ColIdx As String = ""
+
+            With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
+                If .FocusedRowHandle < 0 Then Exit Sub
+
+                Dim obj As DevExpress.XtraEditors.GridLookUpEdit = DirectCast(sender, DevExpress.XtraEditors.GridLookUpEdit)
+
+                Dim View As GridView = DirectCast(obj.Properties.View, GridView)
+                If (View Is Nothing) Then
+                    Exit Sub
+                End If
+
+
+
+                Dim FColName As String = .FocusedColumn.FieldName
+                ColIdx = FColName.Replace("FTItem", "")
+
+                Dim ProdId As Integer = Val(obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNHSysMainMatId").ToString())
+                MatCode = (obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTMainMatCode").ToString())
+
+                Dim pCOFO As String = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTCOFO").ToString
+
+                Dim RMatColor As String = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTMatColor").ToString
+                Dim RSeason As String = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTSeason").ToString
+                Dim suplCode As String = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTSuplCode").ToString
+                .SetFocusedRowCellValue("FTDescription" & ColIdx, obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTMainMatName").ToString)
+                .SetFocusedRowCellValue("FTSuplCode" & ColIdx, suplCode)
+
+                .SetFocusedRowCellValue("FTItem" & ColIdx, MatCode)
+
+                'AND  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' 
+                If RSeason = "" Then
+                    RSeason = FNHSysSeasonId.Text.Trim
+                End If
+                Dim Ptice As Decimal = 0
+                Dim PriceStatus As String = ""
+                Dim dtPrice As DataTable
+                Dim pUOM As String = ""
+
+                Dim cmdstring As String = "select top 2 CASE WHEN SRFP.FTSupplierLocationName LIKE N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,FTPRICINGSTARDARDUOM    from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK) WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' AND  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "'  AND SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' AND (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' )  ORDER BY FTMatColor DESC "
+
+                dtPrice = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
+
+                For Each R As DataRow In dtPrice.Rows
+                    Ptice = Val(R!FNSTDPrice.ToString)
+                    PriceStatus = Microsoft.VisualBasic.Left(R!FTSMStatus.ToString, 1)
+                    pUOM = R!FTPRICINGSTARDARDUOM.ToString.Trim
+
+                    Exit For
+                Next
+
+                dtPrice.Dispose()
+
+                .SetFocusedRowCellValue("FNUnitPrice" & ColIdx, Ptice)
+
+
+                If pCOFO <> "" Then
+
+                    cmdstring = "SELECT  FNHSysCOFOId, FTCOFOCode AS FTCOFO,FTCOFONameEN As FTCOFOName,  FTStateActive, FNFabricPer, FNAccPer, FNImportDuty,FNImportDutyAcc,FNHandlingChandeFab,FNHandlingChandeAcc "
+                    cmdstring &= vbCrLf & " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO WITH(NOLOCK) "
+                    cmdstring &= vbCrLf & " WHERE FTCOFOCode='" & HI.UL.ULF.rpQuoted(pCOFO) & "' "
+                    cmdstring &= vbCrLf & "  Order by FTCOFOCode "
+
+                    Dim dt As DataTable = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MASTER)
+
+                    For Each Rm As DataRow In dt.Rows
+
+                        .SetFocusedRowCellValue("FNCIF" & ColIdx, Rm!FNAccPer.ToString)
+                        .SetFocusedRowCellValue("FNHandlingChargePercent" & ColIdx, Rm!FNHandlingChandeAcc.ToString)
+                        .SetFocusedRowCellValue("FNHandlingChargeCost" & ColIdx, Rm!FNImportDutyAcc.ToString)
+
+                    Next
+
+                    dt.Dispose()
+
+                End If
+
+                Try
+                    obj.Properties.View.ClearColumnsFilter()
+                Catch ex As Exception
+
+                End Try
+
+            End With
+
+            CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).SetFocusedRowCellValue("FTItem" & ColIdx, MatCode)
+            'Dim sMatCode22 As String = CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).GetFocusedRowCellValue("FTMainMatCode").ToString
+            CType(sender.Parent.DataSource, DataTable).AcceptChanges()
+            'Dim sMatCode As String = CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).GetFocusedRowCellValue("FTMainMatCode").ToString
+            'Dim MMs As String = ""
+            Call SumAmt()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+
+    Private Sub RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMat_EditValueChanged(sender As Object, e As EventArgs) Handles RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMat.EditValueChanged, RepositoryItemGridLookUpEditFTPROCESSSUBTYPELabor.EditValueChanged
+        Try
+
+            With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
+                If .FocusedRowHandle < 0 Then Exit Sub
+
+                Dim obj As DevExpress.XtraEditors.GridLookUpEdit = DirectCast(sender, DevExpress.XtraEditors.GridLookUpEdit)
+
+                Select Case .Name
+                    Case "ogvteamMulti"
+                    Case Else
+                        .SetFocusedRowCellValue("FNHSysMainMatId", 0)
+
+                        .SetFocusedRowCellValue("FTMainMatCode", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTDefualtItem").ToString)
+                        .SetFocusedRowCellValue("FTMainMatName", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTProcessMatNameEN").ToString)
+                End Select
+
+                'If sender.name.ToString.ToLower = "RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti".ToLower Then
+                'Else
+                '    .SetFocusedRowCellValue("FNHSysMainMatId", 0)
+
+                '    .SetFocusedRowCellValue("FTMainMatCode", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTDefualtItem").ToString)
+                '    .SetFocusedRowCellValue("FTMainMatName", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTProcessMatNameEN").ToString)
+                'End If
+
+                'Dim _AllowPer As Decimal = 0
+
+                '_AllowPer = FNTrinUsageAllowPer.Value
+
+                'Dim pFTProcessMatCode As String = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTDefualtItem").ToString()
+                'Dim cmdstring As String = "select top 1 FTStateTeamMultiNotAllowwance from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMProcessMaterial As X WITH(NOLOCK) WHERE FTProcessMatCode='" & HI.UL.ULF.rpQuoted(pFTProcessMatCode) & "' "
+
+                'If HI.Conn.SQLConn.GetField(cmdstring, cmdstring, "") = "1" Then
+                '    _AllowPer = 0
+                'End If
+
+                Try
+                    obj.Properties.View.ClearColumnsFilter()
+                Catch ex As Exception
+                End Try
+
+            End With
+
+            CType(sender.Parent.DataSource, DataTable).AcceptChanges()
+            Call SumAmt()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+
+    Private Sub RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMatMulti_EditValueChanged(sender As Object, e As EventArgs) Handles RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti.EditValueChanged
+        Try
+            Dim pFTProcessMatCode As String = ""
+            With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
+                If .FocusedRowHandle < 0 Then Exit Sub
+
+                Dim obj As DevExpress.XtraEditors.GridLookUpEdit = DirectCast(sender, DevExpress.XtraEditors.GridLookUpEdit)
+
+                Select Case .Name
+                    Case "ogvteamMulti"
+                    Case Else
+                        .SetFocusedRowCellValue("FNHSysMainMatId", 0)
+
+                        .SetFocusedRowCellValue("FTMainMatCode", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTDefualtItem").ToString)
+                        .SetFocusedRowCellValue("FTMainMatName", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTProcessMatNameEN").ToString)
+                End Select
+
+
+                pFTProcessMatCode = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTDefualtItem").ToString()
+
+                Try
+                    obj.Properties.View.ClearColumnsFilter()
+                Catch ex As Exception
+                End Try
+
+            End With
+
+            CType(sender.Parent.DataSource, DataTable).AcceptChanges()
+
+            Try
+
+                With Me.ogvteamMulti
+
+
+                    Dim ColIndex As String = ""
+
+
+                        Select Case True
+                            Case .FocusedColumn.FieldName.Contains("FNUnitPrice")
+                                ColIndex = .FocusedColumn.FieldName.Replace("FNUnitPrice", "")
+                            Case .FocusedColumn.FieldName.Contains("FNCIF")
+                                ColIndex = .FocusedColumn.FieldName.Replace("FNCIF", "")
+                            Case .FocusedColumn.FieldName.Contains("FNUSAGECOST")
+                                ColIndex = .FocusedColumn.FieldName.Replace("FNUSAGECOST", "")
+                            Case .FocusedColumn.FieldName.Contains("FNHandlingChargePercent")
+                                ColIndex = .FocusedColumn.FieldName.Replace("FNHandlingChargePercent", "")
+                            Case .FocusedColumn.FieldName.Contains("FNHandlingChargeCost")
+                                ColIndex = .FocusedColumn.FieldName.Replace("FNHandlingChargeCost", "")
+                            Case .FocusedColumn.FieldName.Contains("FTItem")
+                                ColIndex = .FocusedColumn.FieldName.Replace("FTItem", "")
+                            Case .FocusedColumn.FieldName.Contains("FTProcesssubType")
+                                ColIndex = .FocusedColumn.FieldName.Replace("FTProcesssubType", "")
+                        End Select
+
+                        Dim _AllowPer As Decimal = 0
+                        Dim _MarkerUse As Decimal = 0
+                        Dim UnitPrice As Decimal = 0
+                        Dim Handlingchangeper As Decimal = 0
+                        Dim importdutyper As Decimal = 0
+                        Dim CiF As Decimal = 0
+                        Dim Handlingchange As Decimal = 0
+                        Dim UsageCost As Decimal = 0
+                        Dim TotalUsed As Decimal = 0
+                        Dim ImportDyty As Decimal = 0
+
+                        Dim TotalUsedsage As Decimal = 0
+                        Dim TotalHandling As Decimal = 0
+                        Dim FinalFOB As Decimal = 0
+                        Dim pFNExtendedPer As Decimal = 0
+                        Dim pFINALFOB As Decimal = 0
+                        Dim pFINALFOB2 As Decimal = 0
+
+                        _AllowPer = FNTrinUsageAllowPer.Value ' Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNAllowancePer").ToString)
+
+
+                        Dim cmdstring As String = "select top 1 FTStateTeamMultiNotAllowwance from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMProcessMaterial As X WITH(NOLOCK) WHERE FTProcessMatCode='" & HI.UL.ULF.rpQuoted(pFTProcessMatCode) & "' "
+
+                    If HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_MASTER, "") = "1" Then
+                        _AllowPer = 0
+                    End If
+
+                    'If .GetRowCellValue(.FocusedRowHandle, "FTProcesssubType" & ColIndex).ToString.ToUpper.Contains("HEAT TRANSFER APPLICATION") Or .GetRowCellValue(.FocusedRowHandle, "FTProcesssubType" & ColIndex).ToString.ToUpper.Contains("DIRECT EMBOSS_DIRECT DEBOSS") Then
+                    '    _AllowPer = 0
+                    'End If
+
+                    pFNExtendedPer = FNExtendedPer.Value
+
+                        _MarkerUse = 1.0 ' Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNMarkerUsed").ToString)
+                        UnitPrice = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNUnitPrice" & ColIndex).ToString)
+                        CiF = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNCIF" & ColIndex).ToString)
+                        Handlingchangeper = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNHandlingChargePercent" & ColIndex).ToString)
+                        importdutyper = Decimal.Parse("0" & .GetRowCellValue(.FocusedRowHandle, "FNImportDutyPecent" & ColIndex).ToString)
+
+                        Dim mPer As Decimal = 100.0
+
+                        TotalUsed = _MarkerUse + Decimal.Parse(Format(((_MarkerUse * _AllowPer) / mPer), "0.0000"))
+                        UsageCost = Decimal.Parse(Format((UnitPrice + CiF) * TotalUsed, "0.0000"))
+                        Handlingchange = Decimal.Parse(Format(((UsageCost * Handlingchangeper) / mPer), "0.0000"))
+
+                        ImportDyty = Decimal.Parse(Format((((UsageCost + Handlingchange))), "0.0000"))
+
+                        .SetRowCellValue(.FocusedRowHandle, "FNUSAGECOST" & ColIndex, UsageCost)
+                        .SetRowCellValue(.FocusedRowHandle, "FNHandlingChargeCost" & ColIndex, Handlingchange)
+                        .SetRowCellValue(.FocusedRowHandle, "FNTotalCost" & ColIndex, ImportDyty)
+
+                        For I As Integer = 1 To 15
+
+                            TotalUsedsage = TotalUsedsage + Val(.GetRowCellValue(.FocusedRowHandle, "FNUSAGECOST" & I.ToString))
+                            TotalHandling = TotalHandling + Val(.GetRowCellValue(.FocusedRowHandle, "FNHandlingChargeCost" & I.ToString))
+
+                        Next
+
+                        pFINALFOB2 = Decimal.Parse(FNGrandTotal.Value + TotalUsedsage + TotalHandling)
+                        'pFINALFOB = Decimal.Parse(Format(FNGrandTotal.Value + TotalUsedsage + TotalHandling, "0.00"))
+
+                        pFINALFOB = Decimal.Parse(Format(pFINALFOB2, "0.00"))
+
+                        TotalUsedsage = Decimal.Parse(Format(TotalUsedsage, "0.0000"))
+                        TotalHandling = Decimal.Parse(Format(TotalHandling, "0.0000"))
+
+                        .SetRowCellValue(.FocusedRowHandle, "FNTotalUsgeCost", TotalUsedsage)
+                        .SetRowCellValue(.FocusedRowHandle, "FNTotalHandlingChargeCost", TotalHandling)
+                        .SetRowCellValue(.FocusedRowHandle, "FNFINALFOB", pFINALFOB)
+
+                        Dim pEXTENDEDSIZEFOB As Decimal = 0
+                        If pFNExtendedPer > 0 Then
+                            pEXTENDEDSIZEFOB = Decimal.Parse(Format(((pFINALFOB) * (1.0 + (pFNExtendedPer / 100.0))), "0.00"))
+                        End If
+
+                        .SetRowCellValue(.FocusedRowHandle, "FNEXTENDEDSIZEFOB", pEXTENDEDSIZEFOB)
+
+                        Dim pFTL4LCURRENCYFOB1 As Decimal = 0
+                        Dim pFNEXTENDSIZEFOBL4L1 As Decimal = 0
+
+                        If FNL4Country1Finalm.Value > 0 Then
+                            pFTL4LCURRENCYFOB1 = Decimal.Parse(Format(((pFINALFOB2) * FNL4Country1Exc.Value), "0.00"))
+                            pFNEXTENDSIZEFOBL4L1 = Decimal.Parse(Format((pFTL4LCURRENCYFOB1 * (1.0 + (pFNExtendedPer / 100.0))), "0.00"))
+                        End If
+
+                        .SetRowCellValue(.FocusedRowHandle, "FTL4LCURRENCYFOB1", pFTL4LCURRENCYFOB1)
+                        .SetRowCellValue(.FocusedRowHandle, "FNEXTENDSIZEFOBL4L1", pFNEXTENDSIZEFOBL4L1)
+
+                        Dim pFTL4LCURRENCYFOB2 As Decimal = 0
+                        Dim pFNEXTENDSIZEFOBL4L2 As Decimal = 0
+
+                        If FNL4Country2Finalm.Value > 0 Then
+
+                            pFTL4LCURRENCYFOB2 = Decimal.Parse(Format(((pFINALFOB2) * FNL4Country2Exc.Value), "0.00"))
+                            pFNEXTENDSIZEFOBL4L2 = Decimal.Parse(Format((pFTL4LCURRENCYFOB2 * (1.0 + (pFNExtendedPer / 100.0))), "0.00"))
+
+                        End If
+
+                        .SetRowCellValue(.FocusedRowHandle, "FTL4LCURRENCYFOB2", pFTL4LCURRENCYFOB2)
+                        .SetRowCellValue(.FocusedRowHandle, "FNEXTENDSIZEFOBL4L2", pFNEXTENDSIZEFOBL4L2)
+
+
+                        Dim pFTL4LCURRENCYFOB3 As Decimal = 0
+                        Dim pFNEXTENDSIZEFOBL4L3 As Decimal = 0
+
+                        If FNL4Country3Finalm.Value > 0 Then
+
+                            pFTL4LCURRENCYFOB3 = Decimal.Parse(Format(((pFINALFOB2) * FNL4Country3Exc.Value), "0.00"))
+                            pFNEXTENDSIZEFOBL4L3 = Decimal.Parse(Format((pFTL4LCURRENCYFOB3 * (1.0 + (pFNExtendedPer / 100.0))), "0.00"))
+
+                        End If
+
+                        .SetRowCellValue(.FocusedRowHandle, "FTL4LCURRENCYFOB3", pFTL4LCURRENCYFOB3)
+                        .SetRowCellValue(.FocusedRowHandle, "FNEXTENDSIZEFOBL4L3", pFNEXTENDSIZEFOBL4L3)
+
+
+
+                End With
+            Catch ex As Exception
+            End Try
+
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub RepositoryItemGridLookUpEditCFCO_EditValueChanged(sender As Object, e As EventArgs) Handles RepositoryItemGridLookUpEditCFCO.EditValueChanged, RepositoryItemGridLookUpEditFTCOFOLabor.EditValueChanged, RepositoryItemGridLookUpEditFTCOFOProcessMat.EditValueChanged, RepositoryItemGridLookUpEditFTCOFOTrim.EditValueChanged, RepositoryItemGridLookUpEditFTCOFOPack.EditValueChanged
+        Try
+            Dim MatCode As String = ""
+            With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
+                If .FocusedRowHandle < 0 Then Exit Sub
+
+                Dim obj As DevExpress.XtraEditors.GridLookUpEdit = DirectCast(sender, DevExpress.XtraEditors.GridLookUpEdit)
+
+                MatCode = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTCOFO").ToString
+
+                Select Case .Name
+                    Case "ogvfabric"
+
+                        .SetFocusedRowCellValue("FNCIF", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNFabricPer").ToString)
+                        .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNHandlingChandeFab").ToString)
+                        .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNImportDuty").ToString)
+
+                        Call Fabcal_EditValueChanging(FabRepositoryCostNetPrice, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+
+                    Case "ogvtrims"
+
+                        .SetFocusedRowCellValue("FNCIF", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNAccPer").ToString)
+                        .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNHandlingChandeAcc").ToString)
+                        .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNImportDutyAcc").ToString)
+
+                        Call Acccal_EditValueChanging(TrimsFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+
+                    Case "ogvpack"
+
+                        .SetFocusedRowCellValue("FNCIF", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNAccPer").ToString)
+                        .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNHandlingChandeAcc").ToString)
+                        .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNImportDutyAcc").ToString)
+
+                        Call Packcal_EditValueChanging(PackFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+                    Case "ogvteamMulti"
+
+                        .SetFocusedRowCellValue("FNCIF", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNAccPer").ToString)
+                        '.SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNHandlingChandeAcc").ToString)
+                        '.SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNImportDutyAcc").ToString)
+
+                        ' Call Packcal_EditValueChanging(PackFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+                End Select
+
+                Try
+                    obj.Properties.View.ClearColumnsFilter()
+                Catch ex As Exception
+                End Try
+
+            End With
+
+            CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).SetFocusedRowCellValue("TTLG", MatCode)
+            CType(sender.Parent.DataSource, DataTable).AcceptChanges()
+
+            Call SumAmt()
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+    Private Sub FNCostSheetColor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FNCostSheetColor.SelectedIndexChanged
+        ShowFileName()
+    End Sub
+
+    Private Sub FNCostSheetBuyType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FNCostSheetBuyType.SelectedIndexChanged
+        ShowFileName()
+    End Sub
+
+    Private Sub FNCostSheetSampleRound_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FNCostSheetSampleRound.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub FNChargeFabAmt_EditValueChanged(sender As Object, e As EventArgs) Handles FNChargeFabAmt.EditValueChanged
+
+    End Sub
+
+    Private Sub FNL4LTotalTrim_EditValueChanged(sender As Object, e As EventArgs) Handles FNL4LTotalTrim.EditValueChanged
+
+    End Sub
+
+    Private Sub FNL4LChargeFabric_EditValueChanged(sender As Object, e As EventArgs) Handles FNL4LChargeFabric.EditValueChanged
+
+    End Sub
+
+    Private Sub ogctrims_Click(sender As Object, e As EventArgs) Handles ogctrims.Click
+
+    End Sub
+
+    Private Sub ogcprocessmat_Click(sender As Object, e As EventArgs) Handles ogcprocessmat.Click
+
+    End Sub
+
+    Private Sub ogcprocesslabor_Click(sender As Object, e As EventArgs) Handles ogcprocesslabor.Click
+
+    End Sub
+
+    Private Sub ogvfabric_CustomColumnDisplayText(sender As Object, e As CustomColumnDisplayTextEventArgs) Handles ogvfabric.CustomColumnDisplayText, ogvtrims.CustomColumnDisplayText, ogvprocessmat.CustomColumnDisplayText, ogvprocesslabor.CustomColumnDisplayText, ogvbemis.CustomColumnDisplayText, ogvpack.CustomColumnDisplayText, ogvcmp.CustomColumnDisplayText
+
+        Try
+
+            Select Case e.Column.FieldName
+                Case "FNMarkerEff", "FNAllowancePer"
+                    e.DisplayText = Format(Val(e.Value), "0.00") & " %"
+                Case "FNHANDLINGCHARGEPERCENT", "FNIMPORTDUTYPERCENT", "FNEFFICIENCYPERCENT", "FNPROFITPERCENT"
+
+                    If Val(e.Value) > 0 Then
+                        e.DisplayText = Format(Val(e.Value), "0.00") & " %"
+                    Else
+                        e.DisplayText = ""
+                    End If
+                Case "FNWidth"
+                    If Val(e.Value) > 0 Then
+
+                    Else
+                        e.DisplayText = ""
+                    End If
+
+                Case "FNBEMISSLITTINGUPCHARGE"
+                    e.DisplayText = Format(Val(e.Value), "0.00") & " %"
+                Case "FNCostPerUOM"
+
+                    Try
+                        With CType(sender, GridView)
+                            If .Name = "ogvcmp" Then
+                                If Val(e.Value) > 0 Then
+
+                                Else
+                                    e.DisplayText = ""
+                                End If
+                            End If
+                        End With
+                    Catch ex As Exception
+
+                    End Try
+            End Select
+
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+    Private Sub FNHSysSeasonId_EditValueChanged(sender As Object, e As EventArgs) Handles FNHSysSeasonId.EditValueChanged
+        ShowFileName()
+    End Sub
+
+    Private Sub ogcfabric_Click(sender As Object, e As EventArgs) Handles ogcfabric.Click
+    End Sub
+
+    Private Sub ogcbemis_Click(sender As Object, e As EventArgs) Handles ogcbemis.Click
+    End Sub
+
+    Private Sub FNExtendedPer_CustomDisplayText(sender As Object, e As CustomDisplayTextEventArgs) Handles FNExtendedPer.CustomDisplayText
+        e.DisplayText = e.DisplayText + " %"
+    End Sub
+
+    Private Sub FNTrinUsageAllowPer_CustomDisplayText(sender As Object, e As CustomDisplayTextEventArgs) Handles FNTrinUsageAllowPer.CustomDisplayText
+        e.DisplayText = e.DisplayText + " %"
+    End Sub
+
+    Private Sub FNL4Country1Exc_EditValueChanged(sender As Object, e As EventArgs) Handles FNL4Country1Exc.EditValueChanged
+        Try
+
+            FNL4Country1Finalm.Value = Decimal.Parse(Format(FNL4Country1Exc.Value * FNGrandTotal.Value, "0.00"))
+
+            FNL4Country1Extendedm.Value = FNL4Country1Finalm.Value + Decimal.Parse(Format(((FNL4Country1Finalm.Value * FNExtendedPer.Value) / 100.0), "0.00"))
+
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+    Private Sub FNL4Country2Exc_EditValueChanged(sender As Object, e As EventArgs) Handles FNL4Country2Exc.EditValueChanged
+        Try
+            FNL4Country2Finalm.Value = Decimal.Parse(Format(FNL4Country2Exc.Value * FNGrandTotal.Value, "0.00"))
+            'FNL4Country2Extendedm.Value = Decimal.Parse(Format(FNL4Country2Exc.Value * FNExtendedFOB.Value, "0.00"))
+
+            FNL4Country2Extendedm.Value = FNL4Country2Finalm.Value + Decimal.Parse(Format(((FNL4Country2Finalm.Value * FNExtendedPer.Value) / 100.0), "0.00"))
+
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+    Private Sub FNL4Country3Exc_EditValueChanged(sender As Object, e As EventArgs) Handles FNL4Country3Exc.EditValueChanged
+        Try
+            FNL4Country3Finalm.Value = Decimal.Parse(Format(FNL4Country3Exc.Value * FNGrandTotal.Value, "0.00"))
+            '  FNL4Country3Extendedm.Value = Decimal.Parse(Format(FNL4Country3Exc.Value * FNExtendedFOB.Value, "0.00"))
+
+            FNL4Country3Extendedm.Value = FNL4Country3Finalm.Value + Decimal.Parse(Format(((FNL4Country3Finalm.Value * FNExtendedPer.Value) / 100.0), "0.00"))
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub FNGrandTotal_EditValueChanged(sender As Object, e As EventArgs) Handles FNGrandTotal.EditValueChanged
+
+        Call FNL4Country1Exc_EditValueChanged(FNL4Country2Exc, New EventArgs)
+        Call FNL4Country2Exc_EditValueChanged(FNL4Country2Exc, New EventArgs)
+        Call FNL4Country3Exc_EditValueChanged(FNL4Country2Exc, New EventArgs)
+
+        Call UpdateMiltidata()
+
+    End Sub
+
+    Private Sub FNExtendedFOB_EditValueChanged(sender As Object, e As EventArgs) Handles FNExtendedFOB.EditValueChanged
+
+        Call FNL4Country1Exc_EditValueChanged(FNL4Country2Exc, New EventArgs)
+        Call FNL4Country2Exc_EditValueChanged(FNL4Country2Exc, New EventArgs)
+        Call FNL4Country3Exc_EditValueChanged(FNL4Country2Exc, New EventArgs)
+
+    End Sub
+
+    Private Sub RepositoryItemGridLookUpEditFTSuplCode_EditValueChanged(sender As Object, e As EventArgs) Handles RepositoryItemGridLookUpEditFTSuplCode.EditValueChanged, RepositoryItemGridLookUpEditFTSuplCodeTrim.EditValueChanged, RepositoryItemGridLookUpEditFTSuplCodeProcessMat.EditValueChanged, RepositoryItemGridLookUpEditFTSuplCodeLabor.EditValueChanged, RepositoryItemGridLookUpEditFTSuplCodePack.EditValueChanged, RepositoryItemGridLookUpEditFTSuplCodeMulti.EditValueChanged
+        Try
+            Dim MatCode As String = ""
+            Dim ColIdx As String = ""
+
+            With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
+                If .FocusedRowHandle < 0 Then Exit Sub
+
+                Dim obj As DevExpress.XtraEditors.GridLookUpEdit = DirectCast(sender, DevExpress.XtraEditors.GridLookUpEdit)
+                Dim pCOFO As String = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTCOFO").ToString
+
+                MatCode = (obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTSuplCode").ToString())
+
+                '  .SetFocusedRowCellValue("FTMainMatCode", MatCode)
+
+                .SetFocusedRowCellValue("TTLG", pCOFO)
+
+                Dim FColName As String = .FocusedColumn.FieldName
+                ColIdx = FColName.Replace("FTSuplCode", "")
+
+                Select Case .Name
+                    Case "ogvfabric"
+
+                        Call Fabcal_EditValueChanging(FabRepositoryCostNetPrice, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+                        Call RepositoryItemGridLookUpEditCFCO_EditValueChanged(RepositoryItemGridLookUpEditCFCO, New EventArgs)
+
+                    Case "ogvtrims"
+
+                        Call Acccal_EditValueChanging(TrimsFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+                        Call RepositoryItemGridLookUpEditCFCO_EditValueChanged(RepositoryItemGridLookUpEditFTCOFOTrim, New EventArgs)
+
+                    Case "ogcpack"
+
+                        Call Packcal_EditValueChanging(PackFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+                        Call RepositoryItemGridLookUpEditCFCO_EditValueChanged(RepositoryItemGridLookUpEditFTCOFOPack, New EventArgs)
+
+                End Select
+
+                If pCOFO <> "" Then
+
+                    Dim cmdstring As String
+
+                    cmdstring = "SELECT  FNHSysCOFOId, FTCOFOCode AS FTCOFO,FTCOFONameEN As FTCOFOName,  FTStateActive, FNFabricPer, FNAccPer, FNImportDuty,FNImportDutyAcc,FNHandlingChandeFab,FNHandlingChandeAcc "
+                    cmdstring &= vbCrLf & " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO WITH(NOLOCK) "
+                    cmdstring &= vbCrLf & " WHERE FTCOFOCode='" & HI.UL.ULF.rpQuoted(pCOFO) & "' "
+                    cmdstring &= vbCrLf & "  Order by FTCOFOCode "
+
+                    Dim dt As DataTable = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MASTER)
+
+                    For Each Rm As DataRow In dt.Rows
+
+                        Select Case .Name
+                            Case "ogvfabric"
+
+                                .SetFocusedRowCellValue("FNCIF", Rm!FNFabricPer.ToString)
+                                .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", Rm!FNHandlingChandeFab.ToString)
+                                .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", Rm!FNImportDuty.ToString)
+
+                                Call Fabcal_EditValueChanging(FabRepositoryCostNetPrice, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+
+                            Case "ogvtrims"
+
+                                .SetFocusedRowCellValue("FNCIF", Rm!FNAccPer.ToString)
+                                .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", Rm!FNHandlingChandeAcc.ToString)
+                                .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", Rm!FNImportDutyAcc.ToString)
+
+                                Call Acccal_EditValueChanging(TrimsFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+
+                            Case "ogvpack"
+
+                                .SetFocusedRowCellValue("FNCIF", Rm!FNAccPer.ToString)
+                                .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", Rm!FNHandlingChandeAcc.ToString)
+                                .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", Rm!FNImportDutyAcc.ToString)
+
+                                Call Packcal_EditValueChanging(PackFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+
+                            Case "ogvteamMulti"
+
+                                .SetFocusedRowCellValue("FNCIF" & ColIdx, Rm!FNAccPer.ToString)
+                                .SetFocusedRowCellValue("FNHandlingChargePercent" & ColIdx, Rm!FNHandlingChandeAcc.ToString)
+                                .SetFocusedRowCellValue("FNImportDutyPecent" & ColIdx, Rm!FNImportDutyAcc.ToString)
+
+                        End Select
+
+                    Next
+
+                    dt.Dispose()
+
+                End If
+
+                Try
+                    obj.Properties.View.ClearColumnsFilter()
+                Catch ex As Exception
+
+                End Try
+
+            End With
+
+            If CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).Name = "ogvteamMulti" Then
+                CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).SetFocusedRowCellValue("FTSuplCode" & ColIdx, MatCode)
+            Else
+                CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).SetFocusedRowCellValue("FTSuplCode", MatCode)
+            End If
+
+            'Dim sMatCode22 As String = CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).GetFocusedRowCellValue("FTMainMatCode").ToString
+            CType(sender.Parent.DataSource, DataTable).AcceptChanges()
+            'Dim sMatCode As String = CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).GetFocusedRowCellValue("FTMainMatCode").ToString
+            'Dim MMs As String = ""
+            Call SumAmt()
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub FNExtendedPerm_EditValueChanged(sender As Object, e As EventArgs) Handles FNExtendedPer.EditValueChanged
+        FNExtendedFOB.Value = 0
+        If FNExtendedPer.Value > 0 And FNGrandTotal.Value > 0 Then
+            FNExtendedFOB.Value = FNGrandTotal.Value + Decimal.Parse(Format(((FNGrandTotal.Value * FNExtendedPer.Value) / 100.0), "0.00"))
+        End If
+    End Sub
+
+    Private Sub ogcteamMulti_Click(sender As Object, e As EventArgs) Handles ogcteamMulti.Click
+    End Sub
+
+    Private Sub RepositoryItemGridLookUpEditFTMainMatCode_PropertiesChanged(sender As Object, e As EventArgs) Handles RepositoryItemGridLookUpEditFTMainMatCode.PropertiesChanged
+
+    End Sub
+
+    'Private Sub RepositoryItemGridLookUpEditItemMulti_CloseUp(sender As Object, e As CloseUpEventArgs) Handles RepositoryItemGridLookUpEditFTMainMatCode.CloseUp, RepositoryItemGridLookUpEditFTMainMatCodeTrim.CloseUp, RepositoryItemGridLookUpEditFTMainMatCodePacking.CloseUp, RepositoryItemGridLookUpEditItemMulti.CloseUp
+    '    Try
+    '    Catch ex As Exception
+    '    End Try
+    '    Dim obj As DevExpress.XtraEditors.GridLookUpEdit = DirectCast(sender, DevExpress.XtraEditor    s.GridLookUpEdit)
+    '    Dim View As GridView = DirectCast(obj.Properties.View, GridView)
+    '    If (View Is Nothing) Then
+    '        Exit Sub
+    '    End If
+    '    Dim rh As Integer = View.FocusedRowHandle
+    'End Sub
+
+    Private Sub ShowFileName()
+        FTFileName.Text = FNHSysSeasonId.Text & "-" & FNHSysVenderPramId.Text & "-" & FNHSysStyleId.Text & "-" & FNISTeamMulti.Text & "-" & FNCostSheetColor.Text & "-" & FNCostSheetSize.Text & "-" & FNCostSheetBuyType.Text & "-" & FNVersion.Value.ToString("0")
+    End Sub
+
+    Private Sub FNVersion_EditValueChanged(sender As Object, e As EventArgs) Handles FNVersion.EditValueChanged
+        ShowFileName()
+    End Sub
+
+    Private Sub FNHSysVenderPramId_EditValueChanged(sender As Object, e As EventArgs) Handles FNHSysVenderPramId.EditValueChanged
+        ShowFileName()
+    End Sub
+
+    Private Sub FNCostSheetSize_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FNCostSheetSize.SelectedIndexChanged
+        ShowFileName()
+    End Sub
+
+    Private Sub RepositoryItemGridLookUpEditItemMulti_QueryProcessKey(sender As Object, e As QueryProcessKeyEventArgs) Handles RepositoryItemGridLookUpEditFTMainMatCode.QueryProcessKey, RepositoryItemGridLookUpEditFTMainMatCodeTrim.QueryProcessKey, RepositoryItemGridLookUpEditFTMainMatCodePacking.QueryProcessKey, RepositoryItemGridLookUpEditItemMulti.QueryProcessKey
+        Try
+
+        Catch ex As Exception
+
+        End Try
+
+        Dim obj As DevExpress.XtraEditors.GridLookUpEdit = DirectCast(sender, DevExpress.XtraEditors.GridLookUpEdit)
+
+        Dim View As GridView = DirectCast(obj.Properties.View, GridView)
+        If (View Is Nothing) Then
+            Exit Sub
+        End If
+
+        Dim rh As Integer = View.FocusedRowHandle
+    End Sub
+
+    Private Sub GridLookViewFabric_Click(sender As Object, e As EventArgs)
+
+        Dim ViewEDit As GridView = DirectCast(sender, GridView)
+        If (ViewEDit Is Nothing) Then
+            Exit Sub
+        End If
+
+
+
+        Dim rh As Integer = ViewEDit.FocusedRowHandle
+
+
+        SetValueGridView(ogcfabric, ogvfabric, ViewEDit, rh)
+
+    End Sub
+
+    Private Sub GridLookViewTrim_Click(sender As Object, e As EventArgs)
+
+        Dim ViewEDit As GridView = DirectCast(sender, GridView)
+        If (ViewEDit Is Nothing) Then
+            Exit Sub
+        End If
+
+
+
+        Dim rh As Integer = ViewEDit.FocusedRowHandle
+
+
+        SetValueGridView(ogctrims, ogvtrims, ViewEDit, rh)
+
+    End Sub
+
+    Private Sub GridLookViewPacking_Click(sender As Object, e As EventArgs)
+
+        Dim ViewEDit As GridView = DirectCast(sender, GridView)
+        If (ViewEDit Is Nothing) Then
+            Exit Sub
+        End If
+
+
+
+        Dim rh As Integer = ViewEDit.FocusedRowHandle
+
+
+        SetValueGridView(ogcpack, ogvpack, ViewEDit, rh)
+
+    End Sub
+
+
+
+    Private Sub SetValueGridView(mgrid As GridControl, MainGridview As GridView, ViewEDit As GridView, rh As Integer)
+
+
+        Try
+            Dim MatCode As String = ""
+            With MainGridview
+                If .FocusedRowHandle < 0 Then Exit Sub
+
+
+
+
+                Dim ProdId As Integer = Val(ViewEDit.GetRowCellValue(rh, "FNHSysMainMatId").ToString())
+                MatCode = (ViewEDit.GetRowCellValue(rh, "FTMainMatCode").ToString())
+
+                Dim pCOFO As String = ViewEDit.GetRowCellValue(rh, "FTCOFO").ToString
+
+                Dim RMatColor As String = ViewEDit.GetRowCellValue(rh, "FTMatColor").ToString
+                Dim RSeason As String = ViewEDit.GetRowCellValue(rh, "FTSeason").ToString
+                Dim suplCode As String = ViewEDit.GetRowCellValue(rh, "FTSuplCode").ToString
+
+                '  .SetFocusedRowCellValue("FTMainMatCode", MatCode)
+                .SetFocusedRowCellValue("FNHSysMainMatId", ProdId)
+                .SetFocusedRowCellValue("FTMainMatName", ViewEDit.GetRowCellValue(rh, "FTMainMatName").ToString)
+                .SetFocusedRowCellValue("FTSuplCode", suplCode)
+                .SetFocusedRowCellValue("TTLG", pCOFO)
+                .SetFocusedRowCellValue("FTMainMatCode", MatCode)
 
 
                 .SetFocusedRowCellValue("FTMainMatColorCode", RMatColor)
 
 
-
                 Try
-                    RSeason = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTSeason").ToString
+
                     .SetFocusedRowCellValue("FTRMDSSeason", RSeason)
                 Catch ex As Exception
 
                 End Try
-
+                'AND  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' 
 
                 If RSeason = "" Then
                     RSeason = FNHSysSeasonId.Text.Trim
@@ -6413,14 +7870,26 @@ Public Class wCostSheet
                 Dim PriceStatus As String = ""
                 Dim dtPrice As DataTable
 
-                Dim cmdstring As String = "select top 2 CASE WHEN SRFP.FTSupplierLocationName LIKE N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus    from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK) WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' AND SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' AND (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' )  ORDER BY FTMatColor DESC "
+                Dim pUOM As String = ""
+
+                Dim cmdstring As String = "" ' "select top 2 CASE WHEN SRFP.FTSupplierLocationName LIKE N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,FTPRICINGSTARDARDUOM    from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK) WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' AND  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' AND SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' AND (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' )  ORDER BY FTMatColor DESC "
+
+                cmdstring = " select top 2 CASE WHEN SRFP.FTSupplierLocationName Like N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,ISNULL(U.FTUnitCode,'') AS FTPRICINGSTARDARDUOM  "
+                cmdstring &= vbCrLf & "  from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK)  "
+                cmdstring &= vbCrLf & "  Outer apply (select top 1 U.FTUnitCode FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit AS U WITH(NOLOCK) WHERE U.FTUnitCode =SRFP.FTPRICINGSTARDARDUOM AND  U.FTStateActive='1' AND U.FTStateUnitCBD='1') AS U "
+                cmdstring &= vbCrLf & "  WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' "
+                cmdstring &= vbCrLf & "  And  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' "
+                cmdstring &= vbCrLf & "  And SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' "
+                cmdstring &= vbCrLf & "  And (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' ) "
+                cmdstring &= vbCrLf & " ORDER BY FTMatColor DESC "
+
 
                 dtPrice = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
 
                 For Each R As DataRow In dtPrice.Rows
                     Ptice = Val(R!FNSTDPrice.ToString)
                     PriceStatus = Microsoft.VisualBasic.Left(R!FTSMStatus.ToString, 1)
-
+                    pUOM = R!FTPRICINGSTARDARDUOM.ToString.Trim
 
                     Exit For
                 Next
@@ -6430,6 +7899,9 @@ Public Class wCostSheet
 
                 .SetFocusedRowCellValue("FNCostPerUOM", Ptice)
                 .SetFocusedRowCellValue("FNRMDSStatus", PriceStatus)
+
+                .SetFocusedRowCellValue("FTUnitCode", pUOM)
+
                 Select Case .Name
                     Case "ogvfabric"
 
@@ -6437,7 +7909,7 @@ Public Class wCostSheet
                         Call RepositoryItemGridLookUpEditCFCO_EditValueChanged(RepositoryItemGridLookUpEditCFCO, New EventArgs)
 
                         Dim RMDSItemDesc As String = ""
-                        cmdstring = "select top 1 SRFP.FTMaterialDescription from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK) WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' AND SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(FNHSysSeasonId.Text.Trim) & "' "
+                        cmdstring = "select top 1 SRFP.FTMaterialDescription from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK) WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' AND SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' "
 
                         RMDSItemDesc = HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN, "")
 
@@ -6539,304 +8011,91 @@ Public Class wCostSheet
 
                 End If
 
-                Try
-                    obj.Properties.View.ClearColumnsFilter()
-                Catch ex As Exception
 
-                End Try
 
             End With
 
-            CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).SetFocusedRowCellValue("FTMainMatCode", MatCode)
+            MainGridview.SetFocusedRowCellValue("FTMainMatCode", MatCode)
             'Dim sMatCode22 As String = CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).GetFocusedRowCellValue("FTMainMatCode").ToString
-            CType(sender.Parent.DataSource, DataTable).AcceptChanges()
+            CType(mgrid.DataSource, DataTable).AcceptChanges()
             'Dim sMatCode As String = CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).GetFocusedRowCellValue("FTMainMatCode").ToString
             'Dim MMs As String = ""
             Call SumAmt()
         Catch ex As Exception
         End Try
+
+
     End Sub
 
-    Private Sub RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMat_EditValueChanged(sender As Object, e As EventArgs) Handles RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMat.EditValueChanged, RepositoryItemGridLookUpEditFTPROCESSSUBTYPELabor.EditValueChanged, RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti.EditValueChanged
-        Try
 
-            With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
-                If .FocusedRowHandle < 0 Then Exit Sub
+    Private Sub GridLookViewTeamMulti_Click(sender As Object, e As EventArgs)
 
-                Dim obj As DevExpress.XtraEditors.GridLookUpEdit = DirectCast(sender, DevExpress.XtraEditors.GridLookUpEdit)
-
-                Select Case .Name
-                    Case "ogvteamMulti"
-                    Case Else
-                        .SetFocusedRowCellValue("FNHSysMainMatId", 0)
-
-                        .SetFocusedRowCellValue("FTMainMatCode", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTDefualtItem").ToString)
-                        .SetFocusedRowCellValue("FTMainMatName", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTProcessMatNameEN").ToString)
-                End Select
-                'If sender.name.ToString.ToLower = "RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti".ToLower Then
-
-                'Else
-                '    .SetFocusedRowCellValue("FNHSysMainMatId", 0)
-
-                '    .SetFocusedRowCellValue("FTMainMatCode", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTDefualtItem").ToString)
-                '    .SetFocusedRowCellValue("FTMainMatName", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTProcessMatNameEN").ToString)
-                'End If
+        Dim ViewEDit As GridView = DirectCast(sender, GridView)
+        If (ViewEDit Is Nothing) Then
+            Exit Sub
+        End If
 
 
-                Try
-                    obj.Properties.View.ClearColumnsFilter()
-                Catch ex As Exception
 
-                End Try
+        Dim rh As Integer = ViewEDit.FocusedRowHandle
 
-            End With
+        SetValueGridViewTeamMulti(ogcteamMulti, ogvteamMulti, ViewEDit, rh)
 
-            CType(sender.Parent.DataSource, DataTable).AcceptChanges()
-            Call SumAmt()
-        Catch ex As Exception
-        End Try
     End Sub
 
-    Private Sub RepositoryItemGridLookUpEditCFCO_EditValueChanged(sender As Object, e As EventArgs) Handles RepositoryItemGridLookUpEditCFCO.EditValueChanged, RepositoryItemGridLookUpEditFTCOFOLabor.EditValueChanged, RepositoryItemGridLookUpEditFTCOFOProcessMat.EditValueChanged, RepositoryItemGridLookUpEditFTCOFOTrim.EditValueChanged, RepositoryItemGridLookUpEditFTCOFOPack.EditValueChanged
+    Private Sub SetValueGridViewTeamMulti(mgrid As GridControl, MainGridview As GridView, ViewEDit As GridView, rh As Integer)
+
+
         Try
             Dim MatCode As String = ""
-            With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
+            Dim ColIdx As String = ""
+
+            With MainGridview
                 If .FocusedRowHandle < 0 Then Exit Sub
 
-                Dim obj As DevExpress.XtraEditors.GridLookUpEdit = DirectCast(sender, DevExpress.XtraEditors.GridLookUpEdit)
+                Dim ProdId As Integer = Val(ViewEDit.GetRowCellValue(rh, "FNHSysMainMatId").ToString())
+                MatCode = (ViewEDit.GetRowCellValue(rh, "FTMainMatCode").ToString())
 
-                MatCode = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTCOFO").ToString
+                Dim pCOFO As String = ViewEDit.GetRowCellValue(rh, "FTCOFO").ToString
 
-                Select Case .Name
-                    Case "ogvfabric"
+                Dim RMatColor As String = ViewEDit.GetRowCellValue(rh, "FTMatColor").ToString
+                Dim RSeason As String = ViewEDit.GetRowCellValue(rh, "FTSeason").ToString
 
-                        .SetFocusedRowCellValue("FNCIF", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNFabricPer").ToString)
-                        .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNHandlingChandeFab").ToString)
-                        .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNImportDuty").ToString)
+                Dim FColName1 As String = .FocusedColumn.FieldName
+                ColIdx = FColName1.Replace("FTItem", "")
+                Dim suplCode As String = ViewEDit.GetRowCellValue(rh, "FTSuplCode").ToString
 
-                        Call Fabcal_EditValueChanging(FabRepositoryCostNetPrice, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+                .SetFocusedRowCellValue("FTSuplCode" & ColIdx, suplCode)
+                .SetFocusedRowCellValue("FTItem" & ColIdx, MatCode)
 
-                    Case "ogvtrims"
 
-                        .SetFocusedRowCellValue("FNCIF", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNAccPer").ToString)
-                        .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNHandlingChandeAcc").ToString)
-                        .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNImportDutyAcc").ToString)
+                If RSeason = "" Then
+                    RSeason = FNHSysSeasonId.Text.Trim
+                End If
 
-                        Call Acccal_EditValueChanging(TrimsFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+                Dim Ptice As Decimal = 0
+                Dim PriceStatus As String = ""
+                Dim dtPrice As DataTable
 
-                    Case "ogvpack"
+                Dim pUOM As String = ""
 
-                        .SetFocusedRowCellValue("FNCIF", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNAccPer").ToString)
-                        .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNHandlingChandeAcc").ToString)
-                        .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNImportDutyAcc").ToString)
+                Dim cmdstring As String = "select top 2 CASE WHEN SRFP.FTSupplierLocationName Like N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,FTPRICINGSTARDARDUOM    from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK) WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' AND  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' AND SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' AND (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' )  ORDER BY FTMatColor DESC "
 
-                        Call Packcal_EditValueChanging(PackFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
-                    Case "ogvteamMulti"
+                dtPrice = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
 
-                        .SetFocusedRowCellValue("FNCIF", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNAccPer").ToString)
-                        '.SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNHandlingChandeAcc").ToString)
-                        '.SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FNImportDutyAcc").ToString)
+                For Each R As DataRow In dtPrice.Rows
+                    Ptice = Val(R!FNSTDPrice.ToString)
+                    PriceStatus = Microsoft.VisualBasic.Left(R!FTSMStatus.ToString, 1)
+                    pUOM = R!FTPRICINGSTARDARDUOM.ToString.Trim
 
-                        ' Call Packcal_EditValueChanging(PackFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
-                End Select
+                    Exit For
+                Next
 
-                Try
-                    obj.Properties.View.ClearColumnsFilter()
-                Catch ex As Exception
-                End Try
+                dtPrice.Dispose()
 
-            End With
-
-            CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).SetFocusedRowCellValue("TTLG", MatCode)
-            CType(sender.Parent.DataSource, DataTable).AcceptChanges()
-
-            Call SumAmt()
-        Catch ex As Exception
-        End Try
-
-    End Sub
-
-    Private Sub FNCostSheetColor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FNCostSheetColor.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub FNCostSheetBuyType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FNCostSheetBuyType.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub FNCostSheetSampleRound_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FNCostSheetSampleRound.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub FNChargeFabAmt_EditValueChanged(sender As Object, e As EventArgs) Handles FNChargeFabAmt.EditValueChanged
-
-    End Sub
-
-    Private Sub FNL4LTotalTrim_EditValueChanged(sender As Object, e As EventArgs) Handles FNL4LTotalTrim.EditValueChanged
-
-    End Sub
-
-    Private Sub FNL4LChargeFabric_EditValueChanged(sender As Object, e As EventArgs) Handles FNL4LChargeFabric.EditValueChanged
-
-    End Sub
-
-    Private Sub ogctrims_Click(sender As Object, e As EventArgs) Handles ogctrims.Click
-
-    End Sub
-
-    Private Sub ogcprocessmat_Click(sender As Object, e As EventArgs) Handles ogcprocessmat.Click
-
-    End Sub
-
-    Private Sub ogcprocesslabor_Click(sender As Object, e As EventArgs) Handles ogcprocesslabor.Click
-
-    End Sub
-
-    Private Sub ogvfabric_CustomColumnDisplayText(sender As Object, e As CustomColumnDisplayTextEventArgs) Handles ogvfabric.CustomColumnDisplayText, ogvtrims.CustomColumnDisplayText, ogvprocessmat.CustomColumnDisplayText, ogvprocesslabor.CustomColumnDisplayText, ogvbemis.CustomColumnDisplayText, ogvpack.CustomColumnDisplayText, ogvcmp.CustomColumnDisplayText, ogvteamMulti.CustomColumnDisplayText
-
-        Try
-
-            Select Case e.Column.FieldName
-                Case "FNMarkerEff", "FNAllowancePer"
-                    e.DisplayText = Format(Val(e.Value), "0.00") & " %"
-                Case "FNHANDLINGCHARGEPERCENT", "FNIMPORTDUTYPERCENT", "FNEFFICIENCYPERCENT", "FNPROFITPERCENT"
-
-                    If Val(e.Value) > 0 Then
-                        e.DisplayText = Format(Val(e.Value), "0.00") & " %"
-                    Else
-                        e.DisplayText = ""
-                    End If
-                Case "FNWidth"
-                    If Val(e.Value) > 0 Then
-
-                    Else
-                        e.DisplayText = ""
-                    End If
-
-                Case "FNBEMISSLITTINGUPCHARGE"
-                    e.DisplayText = Format(Val(e.Value), "0.00") & " %"
-                Case "FNCostPerUOM"
-
-                    Try
-                        With CType(sender, GridView)
-                            If .Name = "ogvcmp" Then
-                                If Val(e.Value) > 0 Then
-
-                                Else
-                                    e.DisplayText = ""
-                                End If
-                            End If
-                        End With
-                    Catch ex As Exception
-
-                    End Try
-            End Select
-
-        Catch ex As Exception
-
-        End Try
-
-    End Sub
-
-    Private Sub FNHSysSeasonId_EditValueChanged(sender As Object, e As EventArgs) Handles FNHSysSeasonId.EditValueChanged
-
-    End Sub
-
-    Private Sub ogcfabric_Click(sender As Object, e As EventArgs) Handles ogcfabric.Click
-
-    End Sub
-
-    Private Sub ogcbemis_Click(sender As Object, e As EventArgs) Handles ogcbemis.Click
-
-    End Sub
-
-    Private Sub FNExtendedPer_CustomDisplayText(sender As Object, e As CustomDisplayTextEventArgs) Handles FNExtendedPer.CustomDisplayText
-        e.DisplayText = e.DisplayText + " %"
-    End Sub
-
-    Private Sub FNTrinUsageAllowPer_CustomDisplayText(sender As Object, e As CustomDisplayTextEventArgs) Handles FNTrinUsageAllowPer.CustomDisplayText
-        e.DisplayText = e.DisplayText + " %"
-    End Sub
-
-    Private Sub FNL4Country1Exc_EditValueChanged(sender As Object, e As EventArgs) Handles FNL4Country1Exc.EditValueChanged
-        Try
-            FNL4Country1Finalm.Value = Decimal.Parse(Format(FNL4Country1Exc.Value * FNGrandTotal.Value, "0.00"))
-            FNL4Country1Extendedm.Value = Decimal.Parse(Format(FNL4Country1Exc.Value * FNExtendedFOB.Value, "0.00"))
-        Catch ex As Exception
-
-        End Try
-
-    End Sub
-
-    Private Sub FNL4Country2Exc_EditValueChanged(sender As Object, e As EventArgs) Handles FNL4Country2Exc.EditValueChanged
-        Try
-            FNL4Country2Finalm.Value = Decimal.Parse(Format(FNL4Country2Exc.Value * FNGrandTotal.Value, "0.00"))
-            FNL4Country2Extendedm.Value = Decimal.Parse(Format(FNL4Country2Exc.Value * FNExtendedFOB.Value, "0.00"))
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
-    Private Sub FNL4Country3Exc_EditValueChanged(sender As Object, e As EventArgs) Handles FNL4Country3Exc.EditValueChanged
-        Try
-            FNL4Country3Finalm.Value = Decimal.Parse(Format(FNL4Country3Exc.Value * FNGrandTotal.Value, "0.00"))
-            FNL4Country3Extendedm.Value = Decimal.Parse(Format(FNL4Country3Exc.Value * FNExtendedFOB.Value, "0.00"))
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
-    Private Sub FNGrandTotal_EditValueChanged(sender As Object, e As EventArgs) Handles FNGrandTotal.EditValueChanged
-
-        Call FNL4Country1Exc_EditValueChanged(FNL4Country2Exc, New EventArgs)
-        Call FNL4Country2Exc_EditValueChanged(FNL4Country2Exc, New EventArgs)
-        Call FNL4Country3Exc_EditValueChanged(FNL4Country2Exc, New EventArgs)
-    End Sub
-
-    Private Sub FNExtendedFOB_EditValueChanged(sender As Object, e As EventArgs) Handles FNExtendedFOB.EditValueChanged
-        Call FNL4Country1Exc_EditValueChanged(FNL4Country2Exc, New EventArgs)
-        Call FNL4Country2Exc_EditValueChanged(FNL4Country2Exc, New EventArgs)
-        Call FNL4Country3Exc_EditValueChanged(FNL4Country2Exc, New EventArgs)
-    End Sub
-
-    Private Sub RepositoryItemGridLookUpEditFTSuplCode_EditValueChanged(sender As Object, e As EventArgs) Handles RepositoryItemGridLookUpEditFTSuplCode.EditValueChanged, RepositoryItemGridLookUpEditFTSuplCodeTrim.EditValueChanged, RepositoryItemGridLookUpEditFTSuplCodeProcessMat.EditValueChanged, RepositoryItemGridLookUpEditFTSuplCodeLabor.EditValueChanged, RepositoryItemGridLookUpEditFTSuplCodePack.EditValueChanged, RepositoryItemGridLookUpEditFTSuplCodeMulti.EditValueChanged
-        Try
-            Dim MatCode As String = ""
-            With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
-                If .FocusedRowHandle < 0 Then Exit Sub
-
-                Dim obj As DevExpress.XtraEditors.GridLookUpEdit = DirectCast(sender, DevExpress.XtraEditors.GridLookUpEdit)
-                Dim pCOFO As String = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTCOFO").ToString
-
-                MatCode = (obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTSuplCode").ToString())
-
-                '  .SetFocusedRowCellValue("FTMainMatCode", MatCode)
-
-                .SetFocusedRowCellValue("TTLG", pCOFO)
-
-
-                Select Case .Name
-                    Case "ogvfabric"
-
-                        Call Fabcal_EditValueChanging(FabRepositoryCostNetPrice, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
-                        Call RepositoryItemGridLookUpEditCFCO_EditValueChanged(RepositoryItemGridLookUpEditCFCO, New EventArgs)
-
-                    Case "ogvtrims"
-
-                        Call Acccal_EditValueChanging(TrimsFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
-                        Call RepositoryItemGridLookUpEditCFCO_EditValueChanged(RepositoryItemGridLookUpEditFTCOFOTrim, New EventArgs)
-
-                    Case "ogcpack"
-
-                        Call Packcal_EditValueChanging(PackFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
-                        Call RepositoryItemGridLookUpEditCFCO_EditValueChanged(RepositoryItemGridLookUpEditFTCOFOPack, New EventArgs)
-
-                End Select
-
+                .SetFocusedRowCellValue("FNUnitPrice" & ColIdx, Ptice)
 
                 If pCOFO <> "" Then
-
-                    Dim cmdstring As String
 
                     cmdstring = "SELECT  FNHSysCOFOId, FTCOFOCode AS FTCOFO,FTCOFONameEN As FTCOFOName,  FTStateActive, FNFabricPer, FNAccPer, FNImportDuty,FNImportDutyAcc,FNHandlingChandeFab,FNHandlingChandeAcc "
                     cmdstring &= vbCrLf & " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO WITH(NOLOCK) "
@@ -6847,42 +8106,50 @@ Public Class wCostSheet
 
                     For Each Rm As DataRow In dt.Rows
 
-                        Select Case .Name
-                            Case "ogvfabric"
-
-                                .SetFocusedRowCellValue("FNCIF", Rm!FNFabricPer.ToString)
-                                .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", Rm!FNHandlingChandeFab.ToString)
-                                .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", Rm!FNImportDuty.ToString)
-
-                                Call Fabcal_EditValueChanging(FabRepositoryCostNetPrice, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
-
-                            Case "ogvtrims"
-
-                                .SetFocusedRowCellValue("FNCIF", Rm!FNAccPer.ToString)
-                                .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", Rm!FNHandlingChandeAcc.ToString)
-                                .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", Rm!FNImportDutyAcc.ToString)
-
-                                Call Acccal_EditValueChanging(TrimsFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
-
-                            Case "ogvpack"
-
-                                .SetFocusedRowCellValue("FNCIF", Rm!FNAccPer.ToString)
-                                .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", Rm!FNHandlingChandeAcc.ToString)
-                                .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", Rm!FNImportDutyAcc.ToString)
-
-                                Call Packcal_EditValueChanging(PackFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
-                            Case "ogvteamMulti"
-
-                                .SetFocusedRowCellValue("FNCIF", Rm!FNAccPer.ToString)
-                                .SetFocusedRowCellValue("FNHANDLINGCHARGEPERCENT", Rm!FNHandlingChandeAcc.ToString)
-                                .SetFocusedRowCellValue("FNIMPORTDUTYPERCENT", Rm!FNImportDutyAcc.ToString)
-                        End Select
+                        .SetFocusedRowCellValue("FNCIF" & ColIdx, Rm!FNAccPer.ToString)
+                        .SetFocusedRowCellValue("FNHandlingChargePercent" & ColIdx, Rm!FNHandlingChandeAcc.ToString)
+                        .SetFocusedRowCellValue("FNHandlingChargeCost" & ColIdx, Rm!FNImportDutyAcc.ToString)
 
                     Next
 
                     dt.Dispose()
 
                 End If
+
+                Call TeamMulti_EditValueChanging(RepositoryItemCalcEditMultiFNCostPerUOM, New DevExpress.XtraEditors.Controls.ChangingEventArgs(0, 0))
+            End With
+
+            MainGridview.SetFocusedRowCellValue(MainGridview.FocusedColumn.FieldName, MatCode)
+
+            'Dim sMatCode22 As String = CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).GetFocusedRowCellValue("FTMainMatCode").ToString
+            CType(mgrid.DataSource, DataTable).AcceptChanges()
+
+            'Dim sMatCode As String = CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).GetFocusedRowCellValue("FTMainMatCode").ToString
+            'Dim MMs As String = ""
+            'Call SumAmt()
+
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+    Private Sub RepositoryItemGridLookUpEditFTStyleCode_EditValueChanged(sender As Object, e As EventArgs) Handles RepositoryItemGridLookUpEditFTStyleCode.EditValueChanged
+        Try
+            Dim MatCode As String = ""
+            Dim ColIdx As String = ""
+
+            With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
+                If .FocusedRowHandle < 0 Then Exit Sub
+
+                Dim obj As DevExpress.XtraEditors.GridLookUpEdit = DirectCast(sender, DevExpress.XtraEditors.GridLookUpEdit)
+                Dim pFTStyleName As String = obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTStyleName").ToString
+
+                MatCode = (obj.Properties.View.GetRowCellValue(obj.Properties.View.FocusedRowHandle, "FTStyleCode").ToString())
+
+
+
+                ogvteamMulti.SetFocusedRowCellValue("FTTeamName", pFTStyleName)
+
 
                 Try
                     obj.Properties.View.ClearColumnsFilter()
@@ -6892,7 +8159,9 @@ Public Class wCostSheet
 
             End With
 
-            CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).SetFocusedRowCellValue("FTSuplCode", MatCode)
+            ogvteamMulti.SetFocusedRowCellValue("FTStyleCode", MatCode)
+
+
             'Dim sMatCode22 As String = CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).GetFocusedRowCellValue("FTMainMatCode").ToString
             CType(sender.Parent.DataSource, DataTable).AcceptChanges()
             'Dim sMatCode As String = CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).GetFocusedRowCellValue("FTMainMatCode").ToString
@@ -6903,14 +8172,2649 @@ Public Class wCostSheet
         End Try
     End Sub
 
-    Private Sub FNExtendedPerm_EditValueChanged(sender As Object, e As EventArgs) Handles FNExtendedPer.EditValueChanged
-        FNExtendedFOB.Value = 0
-        If FNExtendedPer.Value > 0 And FNGrandTotal.Value > 0 Then
-            FNExtendedFOB.Value = FNGrandTotal.Value + Decimal.Parse(Format(((FNGrandTotal.Value * FNExtendedPer.Value) / 100.0), "0.00"))
+
+    Private Sub UpdateMiltidata()
+
+
+        Try
+
+            If FNISTeamMulti.SelectedIndex = 1 Then
+
+                With CType(ogcteamMulti.DataSource, DataTable)
+                    .AcceptChanges()
+
+                    For Each R As DataRow In .Rows
+
+                        R!FNBaseFOB = Val(Format((FNGrandTotal.Value), "0.00"))
+                        R!FNAllowancePer = FNTrinUsageAllowPer.Value
+                        R!FTPRODUCTDEVELOPER = FTLOProductDeveloper.Text.Trim
+                        R!FTL4LORDERCNTY1 = FNL4Country1.Text.Trim
+                        R!FTL4LORDERCNTY2 = FNL4Country2.Text.Trim
+                        R!FTL4LORDERCNTY3 = FNL4Country3.Text.Trim
+
+                    Next
+
+                End With
+
+            End If
+
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+    Private Sub ocmpostdatajson_Click(sender As Object, e As EventArgs) Handles ocmpostdatajson.Click
+        If FTCostSheetNo.Text.Trim <> "" Then
+
+            Dim pMail As String = ""
+            Dim pMailPassword As String = ""
+
+            Dim cmdstring As String = "" '"select top 1 FTUserName, FTEmailConnectNike, FTPasswordConnectNike from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSEUserLogin WITH(NOLOCK) WHERE (FTUserName = N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "') "
+            Dim dt As DataTable '= HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_SECURITY)
+
+            'For Each R As DataRow In dt.Rows
+            '    pMail = R!FTEmailConnectNike.ToString.Trim
+            '    pMailPassword = HI.Conn.DB.FuncDecryptData(R!FTPasswordConnectNike.ToString)
+            'Next
+
+            With New wInputUserAndPassword
+                .FTStateReserve.Checked = False
+
+                .ShowDialog()
+
+                pMail = .txtmail.Text.Trim
+                pMailPassword = .txtpassword.Text.Trim
+            End With
+
+            If pMail <> "" And pMailPassword <> "" Then
+
+                Dim StateSendData As Boolean = False
+                Dim StateSendCBD As Boolean = False
+                Dim StateSendPicture As Boolean = False
+                Dim StateSendMarkD As Boolean = False
+
+                cmdstring = "select TOP 1  '1' AS FTSelect ,1 FNSeq ,FTStateExportUser, FDStateExportDate, FTStateExportTime," & IIf(FNISTeamMulti.SelectedIndex = 1, "'CBD Json Team Multi'", "'CBD Json Standard'") & "  As FTSendType,'' AS FTSendStatus ,'' AS FTSendStatusDescription "
+                cmdstring &= vbCrLf & "  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet WITH(NOLOCK)  "
+                cmdstring &= vbCrLf & "  WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                cmdstring &= vbCrLf & " UNION "
+                cmdstring &= vbCrLf & " select TOP 1  '1' AS FTSelect ,2 FNSeq ,FTStateImageExportUser, FDStateImageExportDate, FTStateImageExportTime,'Picture' As FTSendType,'' AS FTSendStatus ,'' AS FTSendStatusDescription  "
+                cmdstring &= vbCrLf & "  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_File WITH(NOLOCK)  "
+                cmdstring &= vbCrLf & "  WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                cmdstring &= vbCrLf & " UNION "
+                cmdstring &= vbCrLf & " select TOP 1  '1' AS FTSelect ,3 FNSeq ,FTStateMarkExportUser, FDStateMarkExportDate, FTStateMarkExportTime,'Mark' As FTSendType,'' AS FTSendStatus ,'' AS FTSendStatusDescription  "
+                cmdstring &= vbCrLf & "  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_File WITH(NOLOCK)  "
+                cmdstring &= vbCrLf & "  WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                dt = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                With _SendJson
+                    .ogvdetail.ClearColumnsFilter()
+                    .ogcdetail.DataSource = dt.Copy
+                    .StateSave = False
+                    .ocmOK.Enabled = True
+                    .ocmCancel.Enabled = True
+                    .ShowDialog()
+
+                    If .StateSave = True Then
+                        StateSendData = True
+
+                        'dt = CType(.ogcdetail.DataSource, DataTable).Copy
+                    End If
+                End With
+
+
+                If StateSendData Then
+
+                    StateSendCBD = (dt.Select("FTSelect='1' AND FNSeq=1").Length > 0)
+                    StateSendPicture = (dt.Select("FTSelect='1' AND FNSeq=2").Length > 0)
+                    StateSendMarkD = (dt.Select("FTSelect='1' AND FNSeq=3").Length > 0)
+
+                    Dim spls As New HI.TL.SplashScreen("Sending..... Please wait")
+
+                    SetdataJSON(FTCostSheetNo.Text.Trim, pMail, pMailPassword, dt, StateSendCBD, StateSendPicture, StateSendMarkD)
+                    spls.Close()
+
+
+                    With _SendJson
+                        .ogvdetail.ClearColumnsFilter()
+                        .ogcdetail.DataSource = dt.Copy
+                        .StateSave = False
+                        .ocmOK.Enabled = True
+                        .ocmCancel.Enabled = True
+                        .ShowDialog()
+
+
+                    End With
+
+                End If
+
+
+            Else
+                ' HI.MG.ShowMsg.mInfo("ไม่พบข้อมูล E-Mail Password ที่ใช้เชื่อมต่อกับ API กรุณาทำการตรวจสอบ !!!", 230101875, Me.Text,, MessageBoxIcon.Warning)
+            End If
+
         End If
-    End Sub
-
-    Private Sub ogcteamMulti_Click(sender As Object, e As EventArgs) Handles ogcteamMulti.Click
 
     End Sub
+
+    Private Function SetdataJSON(Docno As String, pMail As String, pMailPassword As String, ByRef dtdata As DataTable, Optional SateCBD As Boolean = True, Optional StatePicture As Boolean = True, Optional StateMark As Boolean = True) As Boolean
+        Dim cmdstring As String = ""
+        Dim VenderPramCode As String = ""
+        Dim Material As String = ""
+        Dim FTCurCode As String = ""
+        Dim RIndx As Integer = 0
+        Dim dt As DataTable
+        Dim JSonHeadcer As Object ' New CBDJson
+        Dim InvAmt As Decimal = 0.0
+        Dim GInvAmt As Decimal = 0.0
+
+        Dim Tbl_Imp_FOBSummary As New CBDJson_Tbl_Imp_FOBSummary
+        Dim Tbl_Imp_CMP As New List(Of CBDJson_Tbl_Imp_CMP)
+        Dim Tbl_Imp_L4L1 As New CBDJson_Tbl_Imp_L4L1
+        Dim Tbl_Imp_L4L2 As New CBDJson_Tbl_Imp_L4L2
+        Dim Tbl_Imp_L4L3 As New CBDJson_Tbl_Imp_L4L3
+        Dim Tbl_Imp_Fabric As New List(Of CBDJson_Tbl_Imp_Fabric)
+        Dim Tbl_Imp_Trims As New List(Of CBDJson_Tbl_Imp_Trims)
+        Dim Tbl_Imp_Process_Mtrl As New List(Of CBDJson_Tbl_Imp_Process_Mtrl)
+        Dim Tbl_Imp_Process_Labor As New List(Of CBDJson_Tbl_Imp_Process_Labor)
+        Dim Tbl_Imp_Packaging As New List(Of CBDJson_Tbl_Imp_Packaging)
+        Dim Tbl_Imp_BEMIS As New List(Of CBDJson_Tbl_Imp_BEMIS)
+        Dim ChildCbds As New List(Of CBDJson_ChildCbds)
+
+        Dim StateMulti As Boolean = (FNISTeamMulti.Text.Trim = "Y")
+
+        If StateMulti Then
+            JSonHeadcer = New CBDMultiJson
+        Else
+            JSonHeadcer = New CBDJson
+        End If
+
+
+        cmdstring = "  Select C.* ,   ISNULL(C.FTStyleCode,'') + '|' +   ISNULL(C.FTMainMatColorCode,'') + '|' +  ISNULL(C.FTTeamName,'')  AS FTTeam"
+        cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail As C With (NOLOCK)  "
+        cmdstring &= vbCrLf & " WHERE C.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "' "
+
+        dt = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+        If dt.Rows.Count > 0 Then
+
+            With JSonHeadcer
+                .CBDID = FTFileName.Text.Trim
+                .season = FNHSysSeasonId.Text.Trim
+                .factory_code = FNHSysVenderPramId.Text.Trim
+                .style_no = FNHSysStyleId.Text.Trim
+                .style_name = FNHSysStyleId_None.Text.Trim
+                .is_team_cbd = FNISTeamMulti.Text
+                .color = FNCostSheetColor.Text
+                .size = FNCostSheetSize.Text
+                .buy_type = FNCostSheetBuyType.Text
+                .version = FNVersion.Value
+                .msc = FTMSC.Text.Trim
+                .developer = FTLOProductDeveloper.Text.Trim
+                .cbd_quote_status = FNCostSheetQuotedType.Text
+                .sample_round = FNCostSheetSampleRound.Text
+                .base_style_no = FNHSysStyleIdTo.Text
+
+                If HI.UL.ULDate.CheckDate(FTDateQuoted.Text) <> "" Then
+                    .quoted_date = Convert.ToDateTime(FTDateQuoted.Text)
+                End If
+
+                .quote_log = FTQuotedLog.Text.Trim
+                .comment = FTRemark.Text.Trim
+            End With
+
+            With Tbl_Imp_FOBSummary
+                .total_fabric = FNTotalFabAmt.Value
+                .total_trim = FNTotalAccAmt.Value
+                .charge_fabric = FNChargeFabAmt.Value
+                .charge_trim = FNChargeAccAmt.Value
+                .process_material_cost = FNProcessMatCost.Value
+                .process_labor_cost = FNProcessLaborCost.Value
+                .packaging = FNPackagingAmt.Value
+                .other_cost = FNOtherCostAmt.Value
+                .cmp = FNCMP.Value
+                .extended_size_adjustment = (Decimal.Parse(Format(Val(FNExtendedPer.Value) / 100.0, "0.0000"))) 'FNExtendedPer.Value
+                .final_fob = FNGrandTotal.Value
+                .extended_size_fob = FNExtendedFOB.Value
+                .trim_usage_allowance = (Decimal.Parse(Format(Val(FNTrinUsageAllowPer.Value) / 100.0, "0.0000")))  'FNTrinUsageAllowPer.Value
+            End With
+
+            With Tbl_Imp_L4L1
+                .country = FNL4Country1.Text.Trim
+                .currency = FNL4Country1Cur.Text.Trim
+                .exchange_rate = FNL4Country1Exc.Value
+                .local_currency_fob = FNL4Country1Finalm.Value
+                .extended_size_fob = FNL4Country1Extendedm.Value
+            End With
+
+            With Tbl_Imp_L4L2
+                .country = FNL4Country2.Text.Trim
+                .currency = FNL4Country2Cur.Text.Trim
+                .exchange_rate = FNL4Country2Exc.Value
+                .local_currency_fob = FNL4Country2Finalm.Value
+                .extended_size_fob = FNL4Country2Extendedm.Value
+            End With
+
+            With Tbl_Imp_L4L3
+                .country = FNL4Country3.Text.Trim
+                .currency = FNL4Country3Cur.Text.Trim
+                .exchange_rate = FNL4Country3Exc.Value
+                .local_currency_fob = FNL4Country3Finalm.Value
+                .extended_size_fob = FNL4Country3Extendedm.Value
+            End With
+
+
+            For Each R As DataRow In dt.Select("FNCostType=6", "FNSeq")
+
+                Dim xPO As New CBDJson_Tbl_Imp_CMP
+
+                With xPO
+                    .bmccode = R!FTBMCCODE.ToString
+                    .cost_per_minute = Decimal.Parse(Format(Val(R!FNCostPerUOM.ToString), "0.00"))
+                    .standard_allowed_minute = Decimal.Parse(Format(Val(R!FNSTANDARDALLOWEDMINUTES.ToString), "0.00"))
+                    .efficiency = Decimal.Parse(Format(Val(R!FNEFFICIENCYPERCENT.ToString) / 100.0, "0.0000"))
+                    .profit = Decimal.Parse(Format(Val(R!FNPROFITPERCENT.ToString) / 100.0, "0.0000"))
+                    .cmpcost = Decimal.Parse(Format(Val(R!FNCMPCOST.ToString), "0.00"))
+                End With
+
+                Tbl_Imp_CMP.Add(xPO)
+
+            Next
+
+            Dim pWith As String = ""
+            For Each R As DataRow In dt.Select("FNCostType=1", "FNSeq")
+                Dim xPO As New CBDJson_Tbl_Imp_Fabric
+
+                pWith = ""
+
+                If Val(R!FNWidth.ToString) > 0 Then
+                    pWith = Format(Val(R!FNWidth.ToString), "0.00")
+
+
+                    If Microsoft.VisualBasic.Right(pWith, 1) = "0" Then
+                        pWith = Microsoft.VisualBasic.Left(pWith, pWith.Length - 1)
+                    End If
+
+                    If Microsoft.VisualBasic.Right(pWith, 1) = "0" Then
+                        pWith = Microsoft.VisualBasic.Left(pWith, pWith.Length - 1)
+                    End If
+
+                    If Microsoft.VisualBasic.Right(pWith, 1) = "." Then
+                        pWith = Microsoft.VisualBasic.Left(pWith, pWith.Length - 1)
+                    End If
+
+                End If
+
+                With xPO
+                    .pps_item_number = R!FTMainMatCode.ToString
+                    .material_color = R!FTMainMatColorCode.ToString
+                    .description = R!FTMainMatName.ToString
+                    .vendor = R!FTSuplCode.ToString
+                    .country_origin = R!TTLG.ToString
+                    .use_location = R!FTUse.ToString
+                    .weight = Decimal.Parse(Format(Val(R!FNWeight.ToString), "0.00"))
+                    .width = pWith
+                    .width_unit = R!FTWidthUnit.ToString
+                    .marker_efficiency_percentage = Decimal.Parse(Format(Val(R!FNMarkerEff.ToString) / 100.0, "0.0000"))
+                    .net_usage = Decimal.Parse(Format(Val(R!FNMarkerUsed.ToString), "0.0000"))
+                    .allowance_percentage = Decimal.Parse(Format(Val(R!FNAllowancePer.ToString) / 100.0, "0.0000"))
+                    .gross_usage = Decimal.Parse(Format(Val(R!FNTotalUsed.ToString), "0.0000"))
+                    .rmds_season = R!FTRMDSSeason.ToString
+                    .rmds_status = R!FNRMDSStatus.ToString
+                    .uom = R!FTUnitCode.ToString
+                    .unit_price = Decimal.Parse(Format(Val(R!FNCostPerUOM.ToString), "0.000"))
+                    .cost_insurance_freight = Decimal.Parse(Format(Val(R!FNCIF.ToString), "0.0000"))
+                    .usage_cost = Decimal.Parse(Format(Val(R!FNUSAGECOST.ToString), "0.0000"))
+                    .handling_charge_percentage = Decimal.Parse(Format(Val(R!FNHANDLINGCHARGEPERCENT.ToString) / 100.0, "0.0000"))
+                    .handling_charge_cost = Decimal.Parse(Format(Val(R!FNHANDLINGCHARGECOST.ToString), "0.0000"))
+                    .import_duty = Decimal.Parse(Format(Val(R!FNIMPORTDUTYPERCENT.ToString) / 100.0, "0.0000"))
+                End With
+
+                Tbl_Imp_Fabric.Add(xPO)
+
+            Next
+
+            For Each R As DataRow In dt.Select("FNCostType=2", "FNSeq")
+                Dim xPO As New CBDJson_Tbl_Imp_Trims
+
+                pWith = ""
+
+                If Val(R!FNWidth.ToString) > 0 Then
+                    pWith = Format(Val(R!FNWidth.ToString), "0.00")
+
+
+                    If Microsoft.VisualBasic.Right(pWith, 1) = "0" Then
+                        pWith = Microsoft.VisualBasic.Left(pWith, pWith.Length - 1)
+                    End If
+
+                    If Microsoft.VisualBasic.Right(pWith, 1) = "0" Then
+                        pWith = Microsoft.VisualBasic.Left(pWith, pWith.Length - 1)
+                    End If
+
+                    If Microsoft.VisualBasic.Right(pWith, 1) = "." Then
+                        pWith = Microsoft.VisualBasic.Left(pWith, pWith.Length - 1)
+                    End If
+
+                End If
+
+                With xPO
+
+                    .pps_item_number = R!FTMainMatCode.ToString
+                    .material_color = R!FTMainMatColorCode.ToString
+                    .description = R!FTMainMatName.ToString
+                    .vendor = R!FTSuplCode.ToString
+                    .country_origin = R!TTLG.ToString
+                    .use_location = R!FTUse.ToString
+
+                    .width = pWith
+                    .width_unit = R!FTWidthUnit.ToString
+
+                    .net_usage = Decimal.Parse(Format(Val(R!FNMarkerUsed.ToString), "0.0000"))
+                    .allowance_percentage = Decimal.Parse(Format(Val(R!FNAllowancePer.ToString) / 100.0, "0.0000"))
+                    .gross_usage = Decimal.Parse(Format(Val(R!FNTotalUsed.ToString), "0.0000"))
+                    .rmds_season = R!FTRMDSSeason.ToString
+                    .rmds_status = R!FNRMDSStatus.ToString
+                    .uom = R!FTUnitCode.ToString
+                    .unit_price = Decimal.Parse(Format(Val(R!FNCostPerUOM.ToString), "0.000"))
+                    .cost_insurance_freight = Decimal.Parse(Format(Val(R!FNCIF.ToString), "0.0000"))
+                    .usage_cost = Decimal.Parse(Format(Val(R!FNUSAGECOST.ToString), "0.0000"))
+                    .handling_charge_percentage = Decimal.Parse(Format(Val(R!FNHANDLINGCHARGEPERCENT.ToString) / 100.0, "0.0000"))
+                    .handling_charge_cost = Decimal.Parse(Format(Val(R!FNHANDLINGCHARGECOST.ToString), "0.0000"))
+                    .import_duty = Decimal.Parse(Format(Val(R!FNIMPORTDUTYPERCENT.ToString) / 100.0, "0.0000"))
+
+                End With
+
+                Tbl_Imp_Trims.Add(xPO)
+
+            Next
+
+            For Each R As DataRow In dt.Select("FNCostType=3", "FNSeq")
+                Dim xPO As New CBDJson_Tbl_Imp_Process_Mtrl
+
+
+                With xPO
+                    .pps_item_number = R!FTMainMatCode.ToString
+                    .description = R!FTMainMatName.ToString
+                    .process_subtype = R!FTPROCESSSUBTYPE.ToString
+                    .vendor = R!FTSuplCode.ToString
+                    .country_origin = R!TTLG.ToString
+                    .use_location = R!FTUse.ToString
+                    .net_usage = Decimal.Parse(Format(Val(R!FNMarkerUsed.ToString), "0.0000"))
+                    .allowance_percentage = Decimal.Parse(Format(Val(R!FNAllowancePer.ToString) / 100.0, "0.0000"))
+                    .gross_usage = Decimal.Parse(Format(Val(R!FNTotalUsed.ToString), "0.0000"))
+                    .uom = R!FTUnitCode.ToString
+                    .unit_price = Decimal.Parse(Format(Val(R!FNCostPerUOM.ToString), "0.000"))
+                    .usage_cost = Decimal.Parse(Format(Val(R!FNUSAGECOST.ToString), "0.0000"))
+
+                    .import_duty = Decimal.Parse(Format(Val(R!FNIMPORTDUTYPERCENT.ToString) / 100.0, "0.0000"))
+                End With
+
+                Tbl_Imp_Process_Mtrl.Add(xPO)
+            Next
+
+
+            For Each R As DataRow In dt.Select("FNCostType=4", "FNSeq")
+                Dim xPO As New CBDJson_Tbl_Imp_Process_Labor
+
+                With xPO
+                    .pps_item_number = R!FTMainMatCode.ToString
+                    .process_subtype = R!FTPROCESSSUBTYPE.ToString
+                    .description = R!FTMainMatName.ToString
+                    .vendor = R!FTSuplCode.ToString
+                    .country_origin = R!TTLG.ToString
+                    .use_location = R!FTUse.ToString
+                    .gross_usage = Decimal.Parse(Format(Val(R!FNTotalUsed.ToString), "0.0000"))
+                    .uom = R!FTUnitCode.ToString
+                    .unit_price = Decimal.Parse(Format(Val(R!FNCostPerUOM.ToString), "0.000"))
+                    .usage_cost = Decimal.Parse(Format(Val(R!FNUSAGECOST.ToString), "0.0000"))
+                    .import_duty = Decimal.Parse(Format(Val(R!FNIMPORTDUTYPERCENT.ToString) / 100.0, "0.0000"))
+                End With
+
+                Tbl_Imp_Process_Labor.Add(xPO)
+            Next
+
+
+            For Each R As DataRow In dt.Select("FNCostType=5", "FNSeq")
+                Dim xPO As New CBDJson_Tbl_Imp_Packaging
+
+                pWith = ""
+
+                If Val(R!FNWidth.ToString) > 0 Then
+
+                    pWith = Format(Val(R!FNWidth.ToString), "0.00")
+
+                    If Microsoft.VisualBasic.Right(pWith, 1) = "0" Then
+                        pWith = Microsoft.VisualBasic.Left(pWith, pWith.Length - 1)
+                    End If
+
+                    If Microsoft.VisualBasic.Right(pWith, 1) = "0" Then
+                        pWith = Microsoft.VisualBasic.Left(pWith, pWith.Length - 1)
+                    End If
+
+                    If Microsoft.VisualBasic.Right(pWith, 1) = "." Then
+                        pWith = Microsoft.VisualBasic.Left(pWith, pWith.Length - 1)
+                    End If
+
+                End If
+
+                With xPO
+
+                    .pps_item_number = R!FTMainMatCode.ToString
+                    .description = R!FTMainMatName.ToString
+                    .vendor = R!FTSuplCode.ToString
+                    .country_origin = R!TTLG.ToString
+                    .use_location = R!FTUse.ToString
+                    .width = pWith
+                    .width_unit = R!FTWidthUnit.ToString
+
+                    .net_usage = Decimal.Parse(Format(Val(R!FNMarkerUsed.ToString), "0.0000"))
+                    .allowance_percentage = Decimal.Parse(Format(Val(R!FNAllowancePer.ToString) / 100.0, "0.0000"))
+                    .gross_usage = Decimal.Parse(Format(Val(R!FNTotalUsed.ToString), "0.0000"))
+                    .rmds_season = R!FTRMDSSeason.ToString
+                    .rmds_status = R!FNRMDSStatus.ToString
+                    .uom = R!FTUnitCode.ToString
+                    .unit_price = Decimal.Parse(Format(Val(R!FNCostPerUOM.ToString), "0.000"))
+                    .cost_insurance_freight = Decimal.Parse(Format(Val(R!FNCIF.ToString), "0.0000"))
+                    .usage_cost = Decimal.Parse(Format(Val(R!FNUSAGECOST.ToString), "0.0000"))
+                    .handling_charge_percentage = Decimal.Parse(Format(Val(R!FNHANDLINGCHARGEPERCENT.ToString) / 100.0, "0.00"))
+                    .handling_charge_cost = Decimal.Parse(Format(Val(R!FNHANDLINGCHARGECOST.ToString), "0.0000"))
+                    .import_duty = Decimal.Parse(Format(Val(R!FNIMPORTDUTYPERCENT.ToString) / 100.0, "0.00"))
+
+                End With
+
+                Tbl_Imp_Packaging.Add(xPO)
+            Next
+
+            For Each R As DataRow In dt.Select("FNCostType=7", "FNSeq")
+                Dim xPO As New CBDJson_Tbl_Imp_BEMIS
+
+
+                With xPO
+                    .pps_item_number = R!FTMainMatCode.ToString
+                    .full_width = Decimal.Parse(Format(Val(R!FNFULLWIDTH.ToString), "0.0000"))
+                    .slitting_width = Decimal.Parse(Format(Val(R!FNSLITTINGWIDTH.ToString), "0.0000"))
+                    .required_length = Decimal.Parse(Format(Val(R!FNREQUIREDLENGTH.ToString), "0.0000"))
+                    .usage_full_width = Decimal.Parse(Format(Val(R!FNNETUSAGEINFULLWIDTH.ToString), "0.0000"))
+                    .price_meter = Decimal.Parse(Format(Val(R!FNPRICEINMETER.ToString), "0.0000"))
+                    .bemis_slitting_percentage = Decimal.Parse(Format(Val(R!FNBEMISSLITTINGUPCHARGE.ToString), "0.0000"))
+                    .price_slitting_width = Decimal.Parse(Format(Val(R!FNPRICEPERSLITTINGWITDH.ToString), "0.0000"))
+                End With
+
+                Tbl_Imp_BEMIS.Add(xPO)
+            Next
+
+
+
+            If StateMulti Then
+
+                cmdstring = "  Select C.* "
+                cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail_TeamMulti As C With (NOLOCK)  "
+                cmdstring &= vbCrLf & " WHERE C.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "' "
+                cmdstring &= vbCrLf & " ORDER BY FNSeq "
+                dt = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                For Each R As DataRow In dt.Select("FTCostSheetNo<>''", "FNSeq")
+
+                    Dim xChildCbds As New CBDJson_ChildCbds
+                    Dim embellishments As New List(Of CBDJson_embellishments)
+                    Dim child_l4ls As New List(Of CBDJson_child_l4ls)
+
+                    For I As Integer = 1 To 15
+
+                        If R.Item("FTItem" & I.ToString).ToString <> "" Then
+
+                            Dim pembellishments As New CBDJson_embellishments
+
+                            With pembellishments
+
+                                .emb_pps_item_number = R.Item("FTItem" & I.ToString).ToString
+                                .process_type = R.Item("FTProcesssubType" & I.ToString).ToString
+                                .emb_description = R.Item("FTDescription" & I.ToString).ToString
+                                .emb_vendor = R.Item("FTSuplCode" & I.ToString).ToString
+                                .emb_unit_price = Val(R.Item("FNUnitPrice" & I.ToString).ToString)
+                                .emb_cost_insurance_freight = Decimal.Parse(Format(Val(R.Item("FNCIF" & I.ToString).ToString), "0.00")) 'Decimal.Parse(Format(Val(R.Item("FNCIF" & I.ToString).ToString) / 100.0, "0.0000")) 'Val(R.Item("FNCIF" & I.ToString).ToString)
+                                .emb_usage_cost = Val(R.Item("FNUSAGECOST" & I.ToString).ToString)
+                                .emb_handling_percentage = Decimal.Parse(Format(Val(R.Item("FNHandlingChargePercent" & I.ToString).ToString) / 100.0, "0.0000")) 'Val(R.Item("FNHandlingChargePercent" & I.ToString).ToString)
+                                .emb_handling_cost = Val(R.Item("FNHandlingChargeCost" & I.ToString).ToString)
+                                .emb_total_trim_cost = Val(R.Item("FNTotalCost" & I.ToString).ToString)
+                                .import_duty = Decimal.Parse(Format(Val(R.Item("FNImportDutyPecent" & I.ToString).ToString) / 100.0, "0.0000")) 'Val(R.Item("FNImportDutyPecent" & I.ToString).ToString)
+
+                            End With
+
+                            embellishments.Add(pembellishments)
+
+                        End If
+
+                    Next
+
+                    For I As Integer = 1 To 3
+                        Select Case I
+                            Case 1
+
+                                If R!FTL4LORDERCNTY1.ToString <> "" Then
+                                    Dim pchild_l4ls As New CBDJson_child_l4ls
+                                    With pchild_l4ls
+                                        .l4l_fob = Val(R!FTL4LCURRENCYFOB1.ToString)
+                                        .l4l_extended_fob = Val(R!FNEXTENDSIZEFOBL4L1.ToString)
+                                        .l4l_country = R!FTL4LORDERCNTY1.ToString
+                                    End With
+
+                                    child_l4ls.Add(pchild_l4ls)
+                                End If
+
+                            Case 2
+
+                                If R!FTL4LORDERCNTY2.ToString <> "" Then
+                                    Dim pchild_l4ls As New CBDJson_child_l4ls
+                                    With pchild_l4ls
+                                        .l4l_fob = Val(R!FTL4LCURRENCYFOB2.ToString)
+                                        .l4l_extended_fob = Val(R!FNEXTENDSIZEFOBL4L2.ToString)
+                                        .l4l_country = R!FTL4LORDERCNTY2.ToString
+                                    End With
+                                    child_l4ls.Add(pchild_l4ls)
+                                End If
+
+                            Case 3
+
+                                If R!FTL4LORDERCNTY3.ToString <> "" Then
+                                    Dim pchild_l4ls As New CBDJson_child_l4ls
+                                    With pchild_l4ls
+                                        .l4l_fob = Val(R!FTL4LCURRENCYFOB3.ToString)
+                                        .l4l_extended_fob = Val(R!FNEXTENDSIZEFOBL4L3.ToString)
+                                        .l4l_country = R!FTL4LORDERCNTY3.ToString
+                                    End With
+
+                                    child_l4ls.Add(pchild_l4ls)
+                                End If
+
+                        End Select
+                    Next
+
+
+                    With xChildCbds
+
+                        .msc = R!FTMSC.ToString
+                        .season = R!FTSeason.ToString
+                        .style_no = R!FTStyleCode.ToString
+                        .style_name = R!FTTeamName.ToString
+                        .color = R!FTColorway.ToString
+                        .embellishments = embellishments
+                        .child_l4ls = child_l4ls
+                        .developer = R!FTPRODUCTDEVELOPER.ToString
+                        .comment = R!FTRemark.ToString
+
+                    End With
+
+                    ChildCbds.Add(xChildCbds)
+                Next
+
+            End If
+
+
+            With JSonHeadcer
+                .Tbl_Imp_FOBSummary = Tbl_Imp_FOBSummary
+                .Tbl_Imp_CMP = Tbl_Imp_CMP
+                .Tbl_Imp_L4L1 = Tbl_Imp_L4L1
+                .Tbl_Imp_L4L2 = Tbl_Imp_L4L2
+                .Tbl_Imp_L4L3 = Tbl_Imp_L4L3
+                .Tbl_Imp_Fabric = Tbl_Imp_Fabric
+                .Tbl_Imp_Trims = Tbl_Imp_Trims
+                .Tbl_Imp_Process_Mtrl = Tbl_Imp_Process_Mtrl
+                .Tbl_Imp_Process_Labor = Tbl_Imp_Process_Labor
+                .Tbl_Imp_Packaging = Tbl_Imp_Packaging
+                .Tbl_Imp_BEMIS = Tbl_Imp_BEMIS
+
+                If StateMulti Then
+                    .ChildCbds = ChildCbds
+                End If
+
+            End With
+
+            'Dim DataJS As New EFSCBDJSON
+            'DataJS.request = JSonHeadcer
+
+            cmdstring = "Update B SET FTStateExport='1'"
+            cmdstring &= vbCrLf & " , FTStateExportUser ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            cmdstring &= vbCrLf & " ,  FDStateExportDate=" & HI.UL.ULDate.FormatDateDB & " "
+            cmdstring &= vbCrLf & " ,  FTStateExportTime=" & HI.UL.ULDate.FormatTimeDB & " "
+            cmdstring &= vbCrLf & "   FROM            " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet As A "
+            cmdstring &= vbCrLf & "   WHERE   A.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(Docno) & "'"
+
+            If HI.Conn.SQLConn.ExecuteNonQuery(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT) = False Then
+
+            End If
+
+            Dim pFolderJson As String = _AppCBDJsonPath & "\" & FTFileName.Text.Trim.Replace("/", "-").Replace("\", "-") & " Post By  " & HI.ST.UserInfo.UserName & "  Time " & DateTime.Now.ToString("yyyyMMdd HHmmss") & ""
+
+            If (Not System.IO.Directory.Exists(pFolderJson)) Then
+                System.IO.Directory.CreateDirectory(pFolderJson)
+            End If
+
+
+            If SendJSONFile(IIf(StateMulti, Nothing, JSonHeadcer), Docno, pFolderJson, pMail, pMailPassword, dtdata, IIf(StateMulti, JSonHeadcer, Nothing), SateCBD, StatePicture, StateMark) Then
+
+
+
+                Return True
+
+            Else
+
+                Return False
+
+            End If
+
+        Else
+            Return False
+        End If
+
+
+    End Function
+
+
+    Private Function SendJSONXML(EFSData As CBDJson, DocNo As String, pFolderJson As String, pMail As String, pMailPassword As String, ByRef dtdata As DataTable, Optional EFSMulti As EFSCBDMULTIJSON = Nothing, Optional SateCBD As Boolean = True, Optional StatePicture As Boolean = True, Optional StateMark As Boolean = True) As Boolean
+        ServicePointManager.SecurityProtocol = DirectCast(3072, SecurityProtocolType)
+        Dim cmdstring As String = ""
+        Dim PageCount As Integer = 0
+
+        Dim postcbdjsonSsatus As Boolean = False
+        Dim postcbdjsommessage As String = ""
+
+
+        Dim postimagejsonSsatus As Boolean = False
+        Dim postimagejsommessage As String = ""
+
+        Dim postmarkjsonSsatus As Boolean = False
+        Dim postmarkjsommessage As String = ""
+
+
+        Dim OktaurlEndPoint As String = "https://nike-qa.oktapreview.com/oauth2/ausa0mcornpZLi0C40h7/v1/token"
+        Dim EFSurlEndPoint As String = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_AddStandardCBD"
+
+
+        Dim clientid As String = "nike.niketech.gsmapcm-service"
+        Dim clientsecret As String = "zVQ8JMsMuEmlOIpdz7o79CMqjsSdteFE6G7Eay2Tl4iP5QJBoCxV29exV11kCwJo"
+
+
+        Dim granttype As String = "client_credentials"
+        ' Refer to the documentation for more information on how to get the tokens
+        Dim accessToken As String = ""
+        Dim accessToken_id As String = ""
+        Dim EFSjson_data As String = ""
+        ' -- Refresh the access token
+        Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(OktaurlEndPoint)
+        request.UseDefaultCredentials = True
+        request.PreAuthenticate = True
+        request.Credentials = CredentialCache.DefaultCredentials
+
+        Dim svcCredentials As String = Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes(clientid + ":" + clientsecret))
+        request.Headers.Add("Authorization", "Basic " + svcCredentials)
+
+        request.Method = "POST"
+        request.ContentType = "application/x-www-form-urlencoded"
+
+        ' Dim json_data As String = String.Format("grant_type=password&scope=iam.okta.factoryaffiliations.read iam.okta.factorygroups.read iam.okta.job.read iam.okta.address.read iam.okta.location.read openid email&username={0}&password={1}", ("Suraida.Y@hi-group.com"), ("Sue@nike003"))
+        Dim json_data As String = String.Format("grant_type=password&scope=iam.okta.factoryaffiliations.read iam.okta.factorygroups.read iam.okta.job.read iam.okta.address.read iam.okta.location.read openid email&username={0}&password={1}", (pMail), (pMailPassword))
+
+        'Dim json_data As String = String.Format("username={0}&password={1}&scope=iam.okta.factoryaffiliations.read iam.okta.factorygroups.read iam.okta.job.read iam.okta.address.read iam.okta.location.read openid email&grant_type=password", System.Web.HttpUtility.UrlEncode(clientid), System.Web.HttpUtility.UrlEncode(clientsecret))
+
+        Dim postBytes As Byte() = System.Text.Encoding.ASCII.GetBytes(json_data)
+
+
+        ServicePointManager.SecurityProtocol = DirectCast(3072, SecurityProtocolType)
+        Dim postStream As Stream = request.GetRequestStream()
+        postStream.Write(postBytes, 0, postBytes.Length)
+        postStream.Flush()
+        postStream.Close()
+
+        Dim StateAppcept As Boolean = False
+        accessToken = ""
+        accessToken_id = ""
+        Try
+            ServicePointManager.SecurityProtocol = DirectCast(3072, SecurityProtocolType)
+            Using response As System.Net.WebResponse = request.GetResponse()
+                Using streamReader As System.IO.StreamReader = New System.IO.StreamReader(response.GetResponseStream())
+                    ' Parse the JSON the way you prefer
+                    Dim jsonResponseText As String = streamReader.ReadToEnd()
+                    Dim jsonResult As RefreshTokenResultJSON = JsonConvert.DeserializeObject(Of RefreshTokenResultJSON)(jsonResponseText)
+                    accessToken = jsonResult.access_token
+                    accessToken_id = jsonResult.id_token
+
+
+                    'Dim clientid As String = "nike.niketech.gsmapcm-service"
+                    'Dim Gsmapcmkey As String = "zVQ8JMsMuEmlOIpdz7o79CMqjsSdteFE6G7Eay2Tl4iP5QJBoCxV29exV11kCwJo"
+
+
+                    If SateCBD Then
+                        Try
+                            EFSjson_data = JsonConvert.SerializeObject(EFSData)
+                            Dim EFSpostBytes As Byte() = System.Text.Encoding.ASCII.GetBytes(EFSjson_data)
+
+                            Dim requestpost As System.Net.WebRequest = System.Net.HttpWebRequest.Create(EFSurlEndPoint)
+                            requestpost.UseDefaultCredentials = True
+                            requestpost.PreAuthenticate = True
+                            requestpost.Credentials = CredentialCache.DefaultCredentials
+                            requestpost.Method = "POST"
+                            requestpost.ContentType = "application/json"
+                            ' requestpost.Headers.Add("x-api-key", xapikey)
+                            requestpost.Headers.Add("Authorization", "Bearer " & accessToken)
+                            requestpost.Headers.Add("id_token", accessToken_id)
+                            requestpost.Headers.Add("Gsmapcm-Service-Api-Subscription-Key", "b565689abdbe43b9b2ae032405d41f63")
+
+                            ' requestpost.Headers.Add("header", "id_token:" & accessToken_id & "&Gsmapcm-Service-Api-Subscription-Key:b565689abdbe43b9b2ae032405d41f63")
+
+                            Dim postStreamdata As Stream = requestpost.GetRequestStream()
+
+                            postStreamdata.Write(EFSpostBytes, 0, EFSpostBytes.Length)
+                            postStreamdata.Flush()
+                            postStreamdata.Close()
+
+                            'Using responsepost As System.Net.HttpWebResponse = requestpost.GetResponse()
+                            '    Dim postjsonSsatus As String = responsepost.StatusCode
+                            '    Dim postjsommessage As String = responsepost.StatusDescription
+
+                            '    Select Case responsepost.StatusCode
+                            '        Case HttpStatusCode.OK, HttpStatusCode.Accepted
+                            '            StateAppcept = True
+                            '        Case Else
+                            '            StateAppcept = False
+                            '            MsgBox(responsepost.StatusDescription)
+                            '    End Select
+                            'End Using
+
+
+                            Using responsepost As System.Net.WebResponse = requestpost.GetResponse()
+                                Using streamReaderpost As System.IO.StreamReader = New System.IO.StreamReader(responsepost.GetResponseStream())
+
+                                    Dim jsonResponsePostText As String = streamReaderpost.ReadToEnd()
+                                    Dim jsonPostResult As RefreshResultJSON = JsonConvert.DeserializeObject(Of RefreshResultJSON)(jsonResponsePostText)
+
+                                    postcbdjsonSsatus = jsonPostResult.status
+                                    postcbdjsommessage = jsonPostResult.message
+
+
+                                    If postcbdjsonSsatus Then
+
+
+
+
+                                        Dim strFile As String = pFolderJson & "\" & FTFileName.Text.Trim.Replace("/", "-").Replace("\", "-") & " Post By  " & HI.ST.UserInfo.UserName & "  Time " & DateTime.Now.ToString("yyyyMMdd HHmmss") & "" & ".txt"
+
+                                        Try
+                                            File.Delete(strFile)
+                                        Catch ex As Exception
+                                        End Try
+
+                                        Dim fileExists As Boolean = File.Exists(strFile)
+
+                                        Using sw As New StreamWriter(File.Open(strFile, FileMode.OpenOrCreate))
+                                            sw.WriteLine(
+                                                          IIf(fileExists,
+                                                          EFSjson_data,
+                                                           EFSjson_data))
+                                        End Using
+
+                                        cmdstring = "Update A SET FTStateExport='1'"
+                                        cmdstring &= vbCrLf & " , FTStateExportUser ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                        cmdstring &= vbCrLf & " ,  FDStateExportDate=" & HI.UL.ULDate.FormatDateDB & " "
+                                        cmdstring &= vbCrLf & " ,  FTStateExportTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                                        cmdstring &= vbCrLf & "   FROM            " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet As A "
+                                        cmdstring &= vbCrLf & "   WHERE   A.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(DocNo) & "'"
+                                        cmdstring &= vbCrLf & "   insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                        cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                        cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                        cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                        cmdstring &= vbCrLf & ",'CBD Json Standard'"
+                                        cmdstring &= vbCrLf & ",'True'"
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postcbdjsommessage) & "'"
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+
+                                        For Each Rx As DataRow In dtdata.Select("FNSeq=1")
+                                            Rx!FTSendStatus = "True"
+                                            Rx!FTSendStatusDescription = postcbdjsommessage
+                                        Next
+                                        StateAppcept = True
+                                    Else
+
+
+
+                                        cmdstring = "   insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                        cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                        cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                        cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                        cmdstring &= vbCrLf & ",'CBD Json Standard'"
+                                        cmdstring &= vbCrLf & ",'False'"
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postcbdjsommessage) & "'"
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                        For Each Rx As DataRow In dtdata.Select("FNSeq=1")
+                                            Rx!FTSendStatus = "False"
+                                            Rx!FTSendStatusDescription = postcbdjsommessage
+                                        Next
+
+                                        StateAppcept = False
+                                        'MsgBox(postcbdjsommessage)
+                                    End If
+
+
+                                End Using
+
+
+
+                            End Using
+
+
+                        Catch excbd As WebException
+                            Dim exresponse As Net.WebResponse = excbd.Response
+                            If (exresponse IsNot Nothing) Then
+
+                                Using reader As New IO.StreamReader(exresponse.GetResponseStream())
+                                    Try
+                                        Dim exresponseText = reader.ReadToEnd()
+                                        Dim exjsonPostResult As RefreshResultJSON = JsonConvert.DeserializeObject(Of RefreshResultJSON)(exresponseText)
+
+                                        postcbdjsonSsatus = exjsonPostResult.status
+                                        postcbdjsommessage = exjsonPostResult.message
+
+
+
+                                        cmdstring = "   insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                        cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                        cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                        cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                        cmdstring &= vbCrLf & ",'CBD Json Standard'"
+                                        cmdstring &= vbCrLf & ",'False'"
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postcbdjsommessage) & "'"
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+
+                                        For Each Rx As DataRow In dtdata.Select("FNSeq=1")
+                                            Rx!FTSendStatus = "False"
+                                            Rx!FTSendStatusDescription = postcbdjsommessage
+                                        Next
+
+                                    Catch excbd1 As Exception
+                                        postcbdjsonSsatus = False
+                                        postcbdjsommessage = excbd1.Message
+
+                                    End Try
+
+
+                                End Using
+
+                                exresponse.Close()
+
+                            End If
+                        Finally
+                        End Try
+
+
+                    End If
+
+                    If StatePicture Or StateMark Then
+                        Dim _Qry As String = ""
+
+                        _Qry = "    select TOP 1 *  "
+                        _Qry &= vbCrLf & "  FROM    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_File As C With (NOLOCK) "
+                        _Qry &= vbCrLf & " WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(Me.FTCostSheetNo.Text) & "' "
+
+
+                        Dim dtFile As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT)
+                        If dtFile.Rows.Count > 0 Then
+                            If StatePicture And dtFile.Rows(0)!FBFileImage IsNot Nothing Then
+
+
+                                Try
+
+                                    Dim data As Byte() = CType(dtFile.Rows(0)!FBFileImage, Byte())
+
+                                    If data.Length > 0 Then
+                                        Dim pImage As Image = Image.FromStream(New MemoryStream(CType(data, Byte())))
+
+                                        Dim strPicFile As String = pFolderJson & "\" & FTFileName.Text.Trim & ".JPG"
+
+                                        pImage.Save(strPicFile, System.Drawing.Imaging.ImageFormat.Jpeg)
+
+                                        Dim pFileName As String = FTFileName.Text.Trim & ".JPG"
+
+
+                                        ' Dim EFPictureSurlEndPoint As String = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadProductImage?fileName=" & FTFileName.Text.Trim & ".JPG&factoryCode=" & FNHSysVenderPramId.Text.Trim & "&styleNumber=" & FNHSysStyleId.Text.Trim & ""
+
+                                        Dim EFPictureSurlEndPoint As String = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadProductImage?fileName=" & pFileName & "&factoryCode=" & FNHSysVenderPramId.Text.Trim & "&styleNumber=" & FNHSysStyleId.Text.Trim & ""
+
+
+                                        Dim pUri As Uri = New Uri(EFPictureSurlEndPoint)
+
+
+                                        Dim requestpost As System.Net.WebRequest = System.Net.HttpWebRequest.Create(pUri)
+                                        requestpost.UseDefaultCredentials = True
+                                        requestpost.PreAuthenticate = True
+                                        requestpost.Credentials = CredentialCache.DefaultCredentials
+                                        requestpost.Method = "POST"
+
+
+                                        Dim formDataBoundary As String = String.Format("----------{0:N}", Guid.NewGuid())
+                                        Dim contentType As String = "multipart/form-data; boundary=" & formDataBoundary
+
+                                        requestpost.ContentType = contentType
+                                        '  requestpost.ContentLength = picdata.Length
+                                        ' requestpost.Headers.Add("x-api-key", xapikey)
+                                        requestpost.Headers.Add("Authorization", "Bearer " & accessToken)
+                                        requestpost.Headers.Add("id_token", accessToken_id)
+                                        requestpost.Headers.Add("Gsmapcm-Service-Api-Subscription-Key", "b565689abdbe43b9b2ae032405d41f63")
+
+                                        Dim picbase64String As String = System.Text.Encoding.UTF8.GetString(data) ' Convert.ToBase64String(data, 0, data.Length)
+
+                                        Dim NewLine As String = Environment.NewLine
+                                        Dim PostData As String = formDataBoundary & NewLine
+
+                                        PostData &= "Content-Disposition: form-data; name=" & Chr(34) & "file" & Chr(34) & "; filename=" & Chr(34) & IO.Path.GetFileName(strPicFile).ToString & Chr(34) & NewLine
+                                        PostData &= "Content-Type: image/jpeg" & NewLine
+
+                                        PostData &= picbase64String & NewLine
+
+                                        PostData &= formDataBoundary & "--"
+
+                                        Dim PostFooterData As String = NewLine & formDataBoundary & "--"
+
+
+
+                                        Dim HeaderBytes() As Byte = System.Text.Encoding.UTF8.GetBytes(PostData)
+
+                                        ' Dim HFooterBytes() As Byte = System.Text.Encoding.UTF8.GetBytes(PostFooterData)
+                                        '
+
+
+                                        Dim RunningTotal As Integer = 0
+                                        Dim postStreamdata As Stream = requestpost.GetRequestStream()
+
+                                        postStreamdata.Write(HeaderBytes, 0, HeaderBytes.Length)
+                                        postStreamdata.Flush()
+                                        postStreamdata.Close()
+
+
+                                        'Using fs As New FileStream(strPicFile, FileMode.Open, FileAccess.Read)
+
+                                        '    Dim Buffer(4096) As Byte
+                                        '    Dim BytesRead As Integer = fs.Read(Buffer, 0, Buffer.Length)
+                                        '    postStreamdata.Write(HeaderBytes, 0, HeaderBytes.Length)
+
+                                        '    While BytesRead > 0
+                                        '        RunningTotal += BytesRead
+                                        '        postStreamdata.Write(Buffer, 0, BytesRead)
+                                        '        BytesRead = fs.Read(Buffer, 0, Buffer.Length)
+
+
+
+                                        '    End While
+
+                                        '    postStreamdata.Write(HFooterBytes, 0, HFooterBytes.Length)
+
+                                        'End Using
+
+                                        '' postStreamdata.Flush()
+                                        'postStreamdata.Close()
+
+
+                                        Using responsepost As System.Net.WebResponse = requestpost.GetResponse()
+                                            Using streamReaderpost As System.IO.StreamReader = New System.IO.StreamReader(responsepost.GetResponseStream())
+
+                                                Dim jsonResponsePostText As String = streamReaderpost.ReadToEnd()
+                                                Dim jsonPostResult As RefreshResultJSON = JsonConvert.DeserializeObject(Of RefreshResultJSON)(jsonResponsePostText)
+
+                                                postimagejsonSsatus = jsonPostResult.status
+                                                postimagejsommessage = jsonPostResult.message
+
+
+                                                If postimagejsonSsatus Then
+
+                                                    cmdstring = "Update A SET FTStateImageExport='1'"
+                                                    cmdstring &= vbCrLf & " , FTStateImageExportUser ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                    cmdstring &= vbCrLf & " ,  FDStateImageExportDate=" & HI.UL.ULDate.FormatDateDB & " "
+                                                    cmdstring &= vbCrLf & " ,  FTStateImageExportTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                                                    cmdstring &= vbCrLf & "   FROM            " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_File As A "
+                                                    cmdstring &= vbCrLf & "   WHERE   A.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(DocNo) & "'"
+                                                    cmdstring &= vbCrLf & "   insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                                    cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                                    cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                                    cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq  from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                                    cmdstring &= vbCrLf & ",'Picture'"
+                                                    cmdstring &= vbCrLf & ",'True'"
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postimagejsommessage) & "'"
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                                    HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                                    For Each Rx As DataRow In dtdata.Select("FNSeq=2")
+                                                        Rx!FTSendStatus = "True"
+                                                        Rx!FTSendStatusDescription = postimagejsommessage
+                                                    Next
+
+                                                    StateAppcept = True
+                                                Else
+
+                                                    cmdstring = " insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                                    cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                                    cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                                    cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                                    cmdstring &= vbCrLf & ",'Picture'"
+                                                    cmdstring &= vbCrLf & ",'False'"
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postimagejsommessage) & "'"
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                                    HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                                    For Each Rx As DataRow In dtdata.Select("FNSeq=2")
+                                                        Rx!FTSendStatus = "False"
+                                                        Rx!FTSendStatusDescription = postimagejsommessage
+                                                    Next
+
+                                                    StateAppcept = False
+                                                    ' MsgBox(postcbdjsommessage)
+                                                End If
+
+
+                                            End Using
+
+
+
+                                        End Using
+
+
+
+                                    End If
+
+
+                                Catch eximage As WebException
+                                    Dim exresponse As Net.WebResponse = eximage.Response
+                                    If (exresponse IsNot Nothing) Then
+
+                                        Using reader As New IO.StreamReader(exresponse.GetResponseStream())
+                                            Try
+                                                Dim exresponseText = reader.ReadToEnd()
+                                                Dim exjsonPostResult As RefreshResultJSON = JsonConvert.DeserializeObject(Of RefreshResultJSON)(exresponseText)
+
+                                                postimagejsonSsatus = exjsonPostResult.status
+                                                postimagejsommessage = exjsonPostResult.message
+
+                                                cmdstring = " insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                                cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                                cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                                cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                                cmdstring &= vbCrLf & ",'False'"
+                                                cmdstring &= vbCrLf & ",'True'"
+                                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postimagejsommessage) & "'"
+                                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                                HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                                For Each Rx As DataRow In dtdata.Select("FNSeq=2")
+                                                    Rx!FTSendStatus = "False"
+                                                    Rx!FTSendStatusDescription = postimagejsommessage
+                                                Next
+
+                                            Catch ex001 As Exception
+                                                postimagejsonSsatus = False
+                                                postimagejsommessage = ex001.Message
+                                            End Try
+
+
+                                        End Using
+
+                                        exresponse.Close()
+
+                                    End If
+                                Finally
+                                End Try
+
+
+                            End If
+
+                            If StateMark And dtFile.Rows(0)!FBFileMark IsNot Nothing Then
+
+                                Try
+
+                                    Dim data As Byte() = CType(dtFile.Rows(0)!FBFileMark, Byte())
+
+                                    If data.Length > 0 Then
+
+
+                                        ''PdfViewer1.LoadDocument(New MemoryStream(CType(R!FBFileMark, Byte())))
+
+
+                                        Dim strPicFile As String = pFolderJson & "\" & FTFileName.Text.Trim & ".pdf"
+                                        PdfViewer1.SaveDocument(strPicFile)
+                                        ' pImage.Save(strPicFile, System.Drawing.Imaging.ImageFormat.Jpeg)
+
+                                        Dim pFileName As String = FTFileName.Text.Trim & ".pdf"
+
+
+                                        Dim EFPictureSurlEndPoint As String = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadMinimarker" & "?fileName=" & pFileName & "&cbdId=" & FTFileName.Text.Trim & ""
+
+                                        Dim pUri As Uri = New Uri(EFPictureSurlEndPoint)
+
+
+                                        Dim requestpost As System.Net.WebRequest = System.Net.HttpWebRequest.Create(pUri)
+                                        requestpost.UseDefaultCredentials = True
+                                        requestpost.PreAuthenticate = True
+                                        requestpost.Credentials = CredentialCache.DefaultCredentials
+                                        requestpost.Method = "POST"
+
+
+                                        Dim formDataBoundary As String = String.Format("----------{0:N}", Guid.NewGuid())
+                                        Dim contentType As String = "multipart/form-data; boundary=" & formDataBoundary
+
+                                        requestpost.ContentType = contentType
+                                        '  requestpost.ContentLength = picdata.Length
+                                        ' requestpost.Headers.Add("x-api-key", xapikey)
+                                        requestpost.Headers.Add("Authorization", "Bearer " & accessToken)
+                                        requestpost.Headers.Add("id_token", accessToken_id)
+                                        requestpost.Headers.Add("Gsmapcm-Service-Api-Subscription-Key", "b565689abdbe43b9b2ae032405d41f63")
+
+                                        ' Dim filebase64String As String = System.Convert.ToBase64String(data)
+
+                                        Dim NewLine As String = Environment.NewLine
+                                        Dim PostData As String = formDataBoundary & NewLine
+
+                                        PostData &= "Content-Disposition: form-data; name=" & Chr(34) & "file" & Chr(34) & "; filename=" & Chr(34) & IO.Path.GetFileName(strPicFile).ToString & Chr(34) & NewLine
+                                        PostData &= "Content-Type: application/pdf" & NewLine
+                                        'PostData &= filebase64String & NewLine
+
+                                        'PostData &= formDataBoundary & "--"
+
+                                        Dim PostFooterData As String = NewLine & formDataBoundary & "--"
+
+
+
+                                        Dim HeaderBytes() As Byte = System.Text.Encoding.UTF8.GetBytes(PostData)
+
+                                        Dim HFooterBytes() As Byte = System.Text.Encoding.UTF8.GetBytes(PostFooterData)
+
+
+
+                                        Dim RunningTotal As Integer = 0
+                                        Dim postStreamdata As Stream = requestpost.GetRequestStream()
+
+                                        'postStreamdata.Write(HeaderBytes, 0, HeaderBytes.Length)
+                                        'postStreamdata.Write(data, 0, data.Length)
+                                        'postStreamdata.Write(HFooterBytes, 0, HFooterBytes.Length)
+                                        'postStreamdata.Flush()
+                                        'postStreamdata.Close()
+
+
+                                        Using fs As New FileStream(strPicFile, FileMode.Open, FileAccess.Read)
+
+                                            Dim Buffer(4096) As Byte
+                                            Dim BytesRead As Integer = fs.Read(Buffer, 0, Buffer.Length)
+                                            postStreamdata.Write(HeaderBytes, 0, HeaderBytes.Length)
+
+                                            While BytesRead > 0
+                                                RunningTotal += BytesRead
+                                                postStreamdata.Write(Buffer, 0, BytesRead)
+                                                BytesRead = fs.Read(Buffer, 0, Buffer.Length)
+
+
+
+                                            End While
+
+                                            postStreamdata.Write(HFooterBytes, 0, HFooterBytes.Length)
+
+                                        End Using
+
+                                        postStreamdata.Close()
+
+
+                                        Using responsepost As System.Net.WebResponse = requestpost.GetResponse()
+                                            Using streamReaderpost As System.IO.StreamReader = New System.IO.StreamReader(responsepost.GetResponseStream())
+
+                                                Dim jsonResponsePostText As String = streamReaderpost.ReadToEnd()
+                                                Dim jsonPostResult As RefreshResultJSON = JsonConvert.DeserializeObject(Of RefreshResultJSON)(jsonResponsePostText)
+
+                                                postmarkjsonSsatus = jsonPostResult.status
+                                                postmarkjsommessage = jsonPostResult.message
+
+
+                                                If postmarkjsonSsatus Then
+
+                                                    cmdstring = "Update A SET FTStateMarkExport='1'"
+                                                    cmdstring &= vbCrLf & " , FTStateMarkExportUser ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                    cmdstring &= vbCrLf & " ,  FDStateMarkExportDate=" & HI.UL.ULDate.FormatDateDB & " "
+                                                    cmdstring &= vbCrLf & " ,  FTStateMarkExportTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                                                    cmdstring &= vbCrLf & "   FROM            " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_File As A "
+                                                    cmdstring &= vbCrLf & "   WHERE   A.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(DocNo) & "'"
+                                                    cmdstring &= vbCrLf & "   insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                                    cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                                    cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                                    cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                                    cmdstring &= vbCrLf & ",'Mark'"
+                                                    cmdstring &= vbCrLf & ",'True'"
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postmarkjsommessage) & "'"
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                                    HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                                    For Each Rx As DataRow In dtdata.Select("FNSeq=3")
+                                                        Rx!FTSendStatus = "True"
+                                                        Rx!FTSendStatusDescription = postmarkjsommessage
+                                                    Next
+
+                                                    StateAppcept = True
+                                                Else
+
+                                                    cmdstring = " insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                                    cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                                    cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                                    cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                                    cmdstring &= vbCrLf & ",'Mark'"
+                                                    cmdstring &= vbCrLf & ",'False'"
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postmarkjsommessage) & "'"
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                                    HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                                    For Each Rx As DataRow In dtdata.Select("FNSeq=3")
+                                                        Rx!FTSendStatus = "False"
+                                                        Rx!FTSendStatusDescription = postmarkjsommessage
+                                                    Next
+
+
+                                                    StateAppcept = False
+                                                    'MsgBox(postmarkjsommessage)
+                                                End If
+
+
+                                            End Using
+
+                                        End Using
+
+                                    End If
+
+
+
+                                Catch exmark As WebException
+                                    Dim exresponse As Net.WebResponse = exmark.Response
+                                    If (exresponse IsNot Nothing) Then
+
+                                        Using reader As New IO.StreamReader(exresponse.GetResponseStream())
+                                            Try
+                                                Dim exresponseText = reader.ReadToEnd()
+                                                Dim exjsonPostResult As RefreshResultJSON = JsonConvert.DeserializeObject(Of RefreshResultJSON)(exresponseText)
+
+                                                postmarkjsonSsatus = exjsonPostResult.status
+                                                postmarkjsommessage = exjsonPostResult.message
+
+                                                cmdstring = " insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                                cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                                cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                                cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                                cmdstring &= vbCrLf & ",'Mark'"
+                                                cmdstring &= vbCrLf & ",'False'"
+                                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postmarkjsommessage) & "'"
+                                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                                HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                                For Each Rx As DataRow In dtdata.Select("FNSeq=3")
+                                                    Rx!FTSendStatus = "False"
+                                                    Rx!FTSendStatusDescription = postmarkjsommessage
+                                                Next
+
+                                            Catch ex003 As Exception
+                                                postmarkjsonSsatus = False
+                                                postmarkjsommessage = ex003.Message
+                                            End Try
+
+                                        End Using
+
+                                        exresponse.Close()
+
+                                    End If
+                                Finally
+                                End Try
+                            End If
+
+                        End If
+
+                        dtFile.Dispose()
+
+                    End If
+
+                End Using
+            End Using
+
+
+
+        Catch ex As WebException
+
+
+
+            Dim exresponse As Net.WebResponse = ex.Response
+            If (exresponse IsNot Nothing) Then
+
+                Using reader As New IO.StreamReader(exresponse.GetResponseStream())
+                    Try
+                        Dim exresponseText = reader.ReadToEnd()
+                        Dim exjsonPostResult As RefreshTokenResultJSON = JsonConvert.DeserializeObject(Of RefreshTokenResultJSON)(exresponseText)
+
+                        MsgBox(exjsonPostResult.error_description)
+
+
+                    Catch ex001 As Exception
+                        postimagejsonSsatus = False
+                        MsgBox(ex001.Message)
+                    End Try
+
+
+                End Using
+
+                exresponse.Close()
+
+            End If
+
+
+            Return False
+        End Try
+
+        'EFSjson_data = JsonConvert.SerializeObject(EFSData)
+
+        'Dim strFile As String = _AppCBDJsonPath & "\" & FTFileName.Text.Trim.Replace("/", "-").Replace("\", "-") & " Post By  " & HI.ST.UserInfo.UserName & "  Time " & DateTime.Now.ToString("yyyyMMdd HHmmss") & "" & ".txt"
+
+        'Try
+        '    File.Delete(strFile)
+        'Catch ex As Exception
+        'End Try
+
+        'Dim fileExists As Boolean = File.Exists(strFile)
+
+        'Using sw As New StreamWriter(File.Open(strFile, FileMode.OpenOrCreate))
+        '    sw.WriteLine(
+        '                    IIf(fileExists,
+        '                    EFSjson_data,
+        '                    EFSjson_data))
+        'End Using
+
+        If StateAppcept = False Then
+            Return False
+        End If
+
+        Return True
+
+    End Function
+
+    Private Function SendJSONFile(EFSData As CBDJson, DocNo As String, pFolderJson As String, pMail As String, pMailPassword As String, ByRef dtdata As DataTable, Optional EFSMulti As CBDMultiJson = Nothing, Optional SateCBD As Boolean = True, Optional StatePicture As Boolean = True, Optional StateMark As Boolean = True) As Boolean
+        ServicePointManager.SecurityProtocol = DirectCast(3072, SecurityProtocolType)
+
+        Dim StateTeamMulti As Boolean = (EFSMulti IsNot Nothing)
+
+        Dim cmdstring As String = ""
+        Dim PageCount As Integer = 0
+
+        Dim postcbdjsonSsatus As Boolean = False
+        Dim postcbdjsommessage As String = ""
+
+
+        Dim postimagejsonSsatus As Boolean = False
+        Dim postimagejsommessage As String = ""
+
+        Dim postmarkjsonSsatus As Boolean = False
+        Dim postmarkjsommessage As String = ""
+
+
+        Dim OktaurlEndPoint As String = "https://nike-qa.oktapreview.com/oauth2/ausa0mcornpZLi0C40h7/v1/token"
+        Dim EFSurlEndPoint As String = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_AddStandardCBD"
+
+        If StateTeamMulti Then
+            EFSurlEndPoint = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_AddTeamMultiCBD"
+        End If
+
+        Dim clientid As String = "nike.niketech.gsmapcm-service"
+        Dim clientsecret As String = "zVQ8JMsMuEmlOIpdz7o79CMqjsSdteFE6G7Eay2Tl4iP5QJBoCxV29exV11kCwJo"
+
+
+        Dim granttype As String = "client_credentials"
+        ' Refer to the documentation for more information on how to get the tokens
+        Dim accessToken As String = ""
+        Dim accessToken_id As String = ""
+        Dim EFSjson_data As String = ""
+        ' -- Refresh the access token
+        Dim request As System.Net.WebRequest = System.Net.HttpWebRequest.Create(OktaurlEndPoint)
+        request.UseDefaultCredentials = True
+        request.PreAuthenticate = True
+        request.Credentials = CredentialCache.DefaultCredentials
+
+        Dim svcCredentials As String = Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes(clientid + ":" + clientsecret))
+        request.Headers.Add("Authorization", "Basic " + svcCredentials)
+
+        request.Method = "POST"
+        request.ContentType = "application/x-www-form-urlencoded"
+
+        ' Dim json_data As String = String.Format("grant_type=password&scope=iam.okta.factoryaffiliations.read iam.okta.factorygroups.read iam.okta.job.read iam.okta.address.read iam.okta.location.read openid email&username={0}&password={1}", ("Suraida.Y@hi-group.com"), ("Sue@nike003"))
+        Dim json_data As String = String.Format("grant_type=password&scope=iam.okta.factoryaffiliations.read iam.okta.factorygroups.read iam.okta.job.read iam.okta.address.read iam.okta.location.read openid email&username={0}&password={1}", (pMail), (pMailPassword))
+
+        'Dim json_data As String = String.Format("username={0}&password={1}&scope=iam.okta.factoryaffiliations.read iam.okta.factorygroups.read iam.okta.job.read iam.okta.address.read iam.okta.location.read openid email&grant_type=password", System.Web.HttpUtility.UrlEncode(clientid), System.Web.HttpUtility.UrlEncode(clientsecret))
+
+        Dim postBytes As Byte() = System.Text.Encoding.ASCII.GetBytes(json_data)
+
+
+        ServicePointManager.SecurityProtocol = DirectCast(3072, SecurityProtocolType)
+        Dim postStream As Stream = request.GetRequestStream()
+        postStream.Write(postBytes, 0, postBytes.Length)
+        postStream.Flush()
+        postStream.Close()
+
+        Dim StateAppcept As Boolean = False
+        accessToken = ""
+        accessToken_id = ""
+        Try
+            ServicePointManager.SecurityProtocol = DirectCast(3072, SecurityProtocolType)
+            Using response As System.Net.WebResponse = request.GetResponse()
+                Using streamReader As System.IO.StreamReader = New System.IO.StreamReader(response.GetResponseStream())
+                    ' Parse the JSON the way you prefer
+                    Dim jsonResponseText As String = streamReader.ReadToEnd()
+                    Dim jsonResult As RefreshTokenResultJSON = JsonConvert.DeserializeObject(Of RefreshTokenResultJSON)(jsonResponseText)
+                    accessToken = jsonResult.access_token
+                    accessToken_id = jsonResult.id_token
+
+
+                    'Dim clientid As String = "nike.niketech.gsmapcm-service"
+                    'Dim Gsmapcmkey As String = "zVQ8JMsMuEmlOIpdz7o79CMqjsSdteFE6G7Eay2Tl4iP5QJBoCxV29exV11kCwJo"
+
+
+                    If SateCBD Then
+                        Try
+
+                            If StateTeamMulti = False Then
+                                EFSjson_data = JsonConvert.SerializeObject(EFSData)
+                            Else
+                                EFSjson_data = JsonConvert.SerializeObject(EFSMulti)
+                            End If
+
+                            Dim EFSpostBytes As Byte() = System.Text.Encoding.ASCII.GetBytes(EFSjson_data)
+
+                            Dim requestpost As System.Net.WebRequest = System.Net.HttpWebRequest.Create(EFSurlEndPoint)
+                            requestpost.UseDefaultCredentials = True
+                            requestpost.PreAuthenticate = True
+                            requestpost.Credentials = CredentialCache.DefaultCredentials
+                            requestpost.Method = "POST"
+                            requestpost.ContentType = "application/json"
+                            ' requestpost.Headers.Add("x-api-key", xapikey)
+                            requestpost.Headers.Add("Authorization", "Bearer " & accessToken)
+                            requestpost.Headers.Add("id_token", accessToken_id)
+                            requestpost.Headers.Add("Gsmapcm-Service-Api-Subscription-Key", "b565689abdbe43b9b2ae032405d41f63")
+
+                            ' requestpost.Headers.Add("header", "id_token:" & accessToken_id & "&Gsmapcm-Service-Api-Subscription-Key:b565689abdbe43b9b2ae032405d41f63")
+
+                            Dim postStreamdata As Stream = requestpost.GetRequestStream()
+
+                            postStreamdata.Write(EFSpostBytes, 0, EFSpostBytes.Length)
+                            postStreamdata.Flush()
+                            postStreamdata.Close()
+
+                            'Using responsepost As System.Net.HttpWebResponse = requestpost.GetResponse()
+                            '    Dim postjsonSsatus As String = responsepost.StatusCode
+                            '    Dim postjsommessage As String = responsepost.StatusDescription
+
+                            '    Select Case responsepost.StatusCode
+                            '        Case HttpStatusCode.OK, HttpStatusCode.Accepted
+                            '            StateAppcept = True
+                            '        Case Else
+                            '            StateAppcept = False
+                            '            MsgBox(responsepost.StatusDescription)
+                            '    End Select
+                            'End Using
+
+
+                            Using responsepost As System.Net.WebResponse = requestpost.GetResponse()
+                                Using streamReaderpost As System.IO.StreamReader = New System.IO.StreamReader(responsepost.GetResponseStream())
+
+                                    Dim jsonResponsePostText As String = streamReaderpost.ReadToEnd()
+                                    Dim jsonPostResult As RefreshResultJSON = JsonConvert.DeserializeObject(Of RefreshResultJSON)(jsonResponsePostText)
+
+                                    postcbdjsonSsatus = jsonPostResult.status
+                                    postcbdjsommessage = jsonPostResult.message
+
+
+                                    If postcbdjsonSsatus Then
+
+
+
+
+                                        Dim strFile As String = pFolderJson & "\" & FTFileName.Text.Trim.Replace("/", "-").Replace("\", "-") & " Post By  " & HI.ST.UserInfo.UserName & "  Time " & DateTime.Now.ToString("yyyyMMdd HHmmss") & "" & ".txt"
+
+                                        Try
+                                            File.Delete(strFile)
+                                        Catch ex As Exception
+                                        End Try
+
+                                        Dim fileExists As Boolean = File.Exists(strFile)
+
+                                        Using sw As New StreamWriter(File.Open(strFile, FileMode.OpenOrCreate))
+                                            sw.WriteLine(
+                                                          IIf(fileExists,
+                                                          EFSjson_data,
+                                                           EFSjson_data))
+                                        End Using
+
+                                        cmdstring = "Update A SET FTStateExport='1'"
+                                        cmdstring &= vbCrLf & " , FTStateExportUser ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                        cmdstring &= vbCrLf & " ,  FDStateExportDate=" & HI.UL.ULDate.FormatDateDB & " "
+                                        cmdstring &= vbCrLf & " ,  FTStateExportTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                                        cmdstring &= vbCrLf & "   FROM            " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet As A "
+                                        cmdstring &= vbCrLf & "   WHERE   A.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(DocNo) & "'"
+                                        cmdstring &= vbCrLf & "   insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                        cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                        cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                        cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                        cmdstring &= vbCrLf & ",'CBD Json Standard'"
+                                        cmdstring &= vbCrLf & ",'True'"
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postcbdjsommessage) & "'"
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+
+                                        For Each Rx As DataRow In dtdata.Select("FNSeq=1")
+                                            Rx!FTSendStatus = "True"
+                                            Rx!FTSendStatusDescription = postcbdjsommessage
+                                        Next
+                                        StateAppcept = True
+                                    Else
+
+
+
+                                        cmdstring = "   insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                        cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                        cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                        cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+
+                                        If StateTeamMulti = False Then
+                                            cmdstring &= vbCrLf & ",'CBD Json Standard'"
+                                        Else
+                                            cmdstring &= vbCrLf & ",'CBD Json Team Multi'"
+                                        End If
+
+                                        cmdstring &= vbCrLf & ",'False'"
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postcbdjsommessage) & "'"
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                        For Each Rx As DataRow In dtdata.Select("FNSeq=1")
+                                            Rx!FTSendStatus = "False"
+                                            Rx!FTSendStatusDescription = postcbdjsommessage
+                                        Next
+
+                                        StateAppcept = False
+                                        'MsgBox(postcbdjsommessage)
+                                    End If
+
+
+                                End Using
+
+
+
+                            End Using
+
+
+                        Catch excbd As WebException
+                            Dim exresponse As Net.WebResponse = excbd.Response
+                            If (exresponse IsNot Nothing) Then
+
+                                Using reader As New IO.StreamReader(exresponse.GetResponseStream())
+                                    Try
+                                        Dim exresponseText = reader.ReadToEnd()
+                                        Dim exjsonPostResult As RefreshResultJSON = JsonConvert.DeserializeObject(Of RefreshResultJSON)(exresponseText)
+
+                                        postcbdjsonSsatus = exjsonPostResult.status
+                                        postcbdjsommessage = exjsonPostResult.message
+
+
+
+                                        cmdstring = "   insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                        cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                        cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                        cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                        If StateTeamMulti = False Then
+                                            cmdstring &= vbCrLf & ",'CBD Json Standard'"
+                                        Else
+                                            cmdstring &= vbCrLf & ",'CBD Json Team Multi'"
+                                        End If
+                                        cmdstring &= vbCrLf & ",'False'"
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postcbdjsommessage) & "'"
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+
+                                        For Each Rx As DataRow In dtdata.Select("FNSeq=1")
+                                            Rx!FTSendStatus = "False"
+                                            Rx!FTSendStatusDescription = postcbdjsommessage
+                                        Next
+
+                                    Catch excbd1 As Exception
+                                        postcbdjsonSsatus = False
+                                        postcbdjsommessage = excbd1.Message
+
+                                        For Each Rx As DataRow In dtdata.Select("FNSeq=1")
+                                            Rx!FTSendStatus = ""
+                                            Rx!FTSendStatusDescription = postcbdjsommessage
+                                        Next
+
+                                    End Try
+
+
+                                End Using
+
+                                exresponse.Close()
+
+                            End If
+                        Catch ex As Exception
+
+
+                            For Each Rx As DataRow In dtdata.Select("FNSeq=1")
+                                Rx!FTSendStatus = ""
+                                Rx!FTSendStatusDescription = ex.Message
+                            Next
+                        Finally
+                        End Try
+
+
+                    End If
+
+                    If StatePicture Or StateMark Then
+                        Dim _Qry As String = ""
+
+                        _Qry = "    select TOP 1 *  "
+                        _Qry &= vbCrLf & "  FROM    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_File As C With (NOLOCK) "
+                        _Qry &= vbCrLf & " WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(Me.FTCostSheetNo.Text) & "' "
+
+
+                        Dim dtFile As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT)
+                        If dtFile.Rows.Count > 0 Then
+
+
+                            Try
+                                If StatePicture And dtFile.Rows(0)!FBFileImage IsNot Nothing Then
+
+
+                                    Try
+
+                                        Dim data As Byte() = CType(dtFile.Rows(0)!FBFileImage, Byte())
+
+                                        If data.Length > 0 Then
+                                            Dim pImage As Image = Image.FromStream(New MemoryStream(CType(data, Byte())))
+
+                                            Dim strPicFile As String = pFolderJson & "\" & FTFileName.Text.Trim & ".JPG"
+
+                                            pImage.Save(strPicFile, System.Drawing.Imaging.ImageFormat.Jpeg)
+
+                                            Dim pFileName As String = FTFileName.Text.Trim & ".JPG"
+
+
+                                            '' Dim EFPictureSurlEndPoint As String = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadProductImage?fileName=" & FTFileName.Text.Trim & ".JPG&factoryCode=" & FNHSysVenderPramId.Text.Trim & "&styleNumber=" & FNHSysStyleId.Text.Trim & ""
+
+                                            Dim EFPictureSurlEndPoint As String = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadProductImage?fileName=" & pFileName & "&factoryCode=" & FNHSysVenderPramId.Text.Trim & "&styleNumber=" & FNHSysStyleId.Text.Trim & ""
+
+
+                                            'Dim pUri As Uri = New Uri(EFPictureSurlEndPoint)
+
+
+                                            'Dim requestpost As System.Net.WebRequest = System.Net.HttpWebRequest.Create(pUri)
+                                            'requestpost.UseDefaultCredentials = True
+                                            'requestpost.PreAuthenticate = True
+                                            'requestpost.Credentials = CredentialCache.DefaultCredentials
+                                            'requestpost.Method = "POST"
+
+
+                                            'Dim formDataBoundary As String = String.Format("----------{0:N}", Guid.NewGuid())
+                                            'Dim contentType As String = "multipart/form-data; boundary=" & formDataBoundary
+
+                                            'requestpost.ContentType = contentType
+                                            ''  requestpost.ContentLength = picdata.Length
+                                            '' requestpost.Headers.Add("x-api-key", xapikey)
+                                            'requestpost.Headers.Add("Authorization", "Bearer " & accessToken)
+                                            'requestpost.Headers.Add("id_token", accessToken_id)
+                                            'requestpost.Headers.Add("Gsmapcm-Service-Api-Subscription-Key", "b565689abdbe43b9b2ae032405d41f63")
+
+                                            'Dim picbase64String As String = System.Text.Encoding.UTF8.GetString(data) ' Convert.ToBase64String(data, 0, data.Length)
+
+                                            'Dim NewLine As String = Environment.NewLine
+                                            'Dim PostData As String = formDataBoundary & NewLine
+
+                                            'PostData &= "Content-Disposition: form-data; name=" & Chr(34) & "file" & Chr(34) & "; filename=" & Chr(34) & IO.Path.GetFileName(strPicFile).ToString & Chr(34) & NewLine
+                                            'PostData &= "Content-Type: image/jpeg" & NewLine
+
+                                            'PostData &= picbase64String & NewLine
+
+                                            'PostData &= formDataBoundary & "--"
+
+                                            'Dim PostFooterData As String = NewLine & formDataBoundary & "--"
+
+                                            'Dim HeaderBytes() As Byte = System.Text.Encoding.UTF8.GetBytes(PostData)
+
+                                            '' Dim HFooterBytes() As Byte = System.Text.Encoding.UTF8.GetBytes(PostFooterData)
+                                            ''
+
+                                            'Dim RunningTotal As Integer = 0
+                                            'Dim postStreamdata As Stream = requestpost.GetRequestStream()
+
+                                            'postStreamdata.Write(HeaderBytes, 0, HeaderBytes.Length)
+                                            'postStreamdata.Flush()
+                                            'postStreamdata.Close()
+
+
+                                            'Using fs As New FileStream(strPicFile, FileMode.Open, FileAccess.Read)
+
+                                            '    Dim Buffer(4096) As Byte
+                                            '    Dim BytesRead As Integer = fs.Read(Buffer, 0, Buffer.Length)
+                                            '    postStreamdata.Write(HeaderBytes, 0, HeaderBytes.Length)
+
+                                            '    While BytesRead > 0
+                                            '        RunningTotal += BytesRead
+                                            '        postStreamdata.Write(Buffer, 0, BytesRead)
+                                            '        BytesRead = fs.Read(Buffer, 0, Buffer.Length)
+
+
+
+                                            '    End While
+
+                                            '    postStreamdata.Write(HFooterBytes, 0, HFooterBytes.Length)
+
+                                            'End Using
+
+                                            '' postStreamdata.Flush()
+                                            'postStreamdata.Close()
+
+
+
+
+                                            ' Generate post objects
+
+
+                                            Dim pFileData As New FormUpload.FileParameter(data, pFileName, "image/jpeg")
+                                            pFileData.File = data
+                                            pFileData.FileName = pFileName
+                                            pFileData.ContentType = "image/jpeg"
+                                            Dim postParameters As New Dictionary(Of String, Object)()
+
+                                            postParameters.Add("file", pFileData)
+
+                                            'Create request and receive response
+
+
+                                            Using responsepost As System.Net.HttpWebResponse = FormUpload.MultipartFormDataPost(EFPictureSurlEndPoint, accessToken, accessToken_id, postParameters)
+                                                Using streamReaderpost As System.IO.StreamReader = New System.IO.StreamReader(responsepost.GetResponseStream())
+
+                                                    Dim jsonResponsePostText As String = streamReaderpost.ReadToEnd()
+                                                    Dim jsonPostResult As RefreshResultJSON = JsonConvert.DeserializeObject(Of RefreshResultJSON)(jsonResponsePostText)
+
+                                                    postimagejsonSsatus = jsonPostResult.status
+                                                    postimagejsommessage = jsonPostResult.message
+
+
+                                                    If postimagejsonSsatus Then
+
+                                                        cmdstring = "Update A SET FTStateImageExport='1'"
+                                                        cmdstring &= vbCrLf & " , FTStateImageExportUser ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                        cmdstring &= vbCrLf & " ,  FDStateImageExportDate=" & HI.UL.ULDate.FormatDateDB & " "
+                                                        cmdstring &= vbCrLf & " ,  FTStateImageExportTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                                                        cmdstring &= vbCrLf & "   FROM            " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_File As A "
+                                                        cmdstring &= vbCrLf & "   WHERE   A.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(DocNo) & "'"
+                                                        cmdstring &= vbCrLf & "   insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                                        cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                                        cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                                        cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq  from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                                        cmdstring &= vbCrLf & ",'Picture'"
+                                                        cmdstring &= vbCrLf & ",'True'"
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postimagejsommessage) & "'"
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                                        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                                        For Each Rx As DataRow In dtdata.Select("FNSeq=2")
+                                                            Rx!FTSendStatus = "True"
+                                                            Rx!FTSendStatusDescription = postimagejsommessage
+                                                        Next
+
+                                                        StateAppcept = True
+                                                    Else
+
+                                                        cmdstring = " insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                                        cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                                        cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                                        cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                                        cmdstring &= vbCrLf & ",'Picture'"
+                                                        cmdstring &= vbCrLf & ",'False'"
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postimagejsommessage) & "'"
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                                        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                                        For Each Rx As DataRow In dtdata.Select("FNSeq=2")
+                                                            Rx!FTSendStatus = "False"
+                                                            Rx!FTSendStatusDescription = postimagejsommessage
+                                                        Next
+
+                                                        StateAppcept = False
+                                                        ' MsgBox(postcbdjsommessage)
+                                                    End If
+
+
+                                                End Using
+
+
+
+                                            End Using
+
+
+
+                                        End If
+
+
+                                    Catch eximage As WebException
+                                        Dim exresponse As Net.WebResponse = eximage.Response
+                                        If (exresponse IsNot Nothing) Then
+
+                                            Using reader As New IO.StreamReader(exresponse.GetResponseStream())
+                                                Try
+                                                    Dim exresponseText = reader.ReadToEnd()
+                                                    Dim exjsonPostResult As RefreshResultJSON = JsonConvert.DeserializeObject(Of RefreshResultJSON)(exresponseText)
+
+                                                    postimagejsonSsatus = exjsonPostResult.status
+                                                    postimagejsommessage = exjsonPostResult.message
+
+                                                    cmdstring = " insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                                    cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                                    cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                                    cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                                    cmdstring &= vbCrLf & ",'False'"
+                                                    cmdstring &= vbCrLf & ",'True'"
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postimagejsommessage) & "'"
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                                    HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                                    For Each Rx As DataRow In dtdata.Select("FNSeq=2")
+                                                        Rx!FTSendStatus = "False"
+                                                        Rx!FTSendStatusDescription = postimagejsommessage
+                                                    Next
+
+                                                Catch ex001 As Exception
+                                                    postimagejsonSsatus = False
+                                                    postimagejsommessage = ex001.Message
+
+                                                    For Each Rx As DataRow In dtdata.Select("FNSeq=2")
+                                                        Rx!FTSendStatus = ""
+                                                        Rx!FTSendStatusDescription = postimagejsommessage
+                                                    Next
+
+                                                End Try
+
+
+                                            End Using
+
+                                            exresponse.Close()
+
+                                        End If
+                                    Finally
+                                    End Try
+
+
+                                End If
+                            Catch ex As Exception
+                                For Each Rx As DataRow In dtdata.Select("FNSeq=2")
+                                    Rx!FTSendStatus = ""
+                                    Rx!FTSendStatusDescription = ex.Message
+                                Next
+                            End Try
+
+
+                            Try
+
+                                If StateMark And dtFile.Rows(0)!FBFileMark IsNot Nothing Then
+
+                                    Try
+
+                                        Dim data As Byte() = CType(dtFile.Rows(0)!FBFileMark, Byte())
+
+                                        If data.Length > 0 Then
+
+
+                                            ''PdfViewer1.LoadDocument(New MemoryStream(CType(R!FBFileMark, Byte())))
+
+
+                                            Dim strPicFile As String = pFolderJson & "\" & FTFileName.Text.Trim & ".pdf"
+                                            PdfViewer1.SaveDocument(strPicFile)
+                                            ' pImage.Save(strPicFile, System.Drawing.Imaging.ImageFormat.Jpeg)
+
+                                            Dim pFileName As String = FTFileName.Text.Trim & ".pdf"
+
+
+                                            Dim EFPictureSurlEndPoint As String = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadMinimarker" & "?fileName=" & pFileName & "&cbdId=" & FTFileName.Text.Trim & ""
+
+                                            Dim pUri As Uri = New Uri(EFPictureSurlEndPoint)
+
+
+                                            Dim pFileData As New FormUpload.FileParameter(data, pFileName, "application/pdf")
+                                            pFileData.File = data
+                                            pFileData.FileName = pFileName
+                                            pFileData.ContentType = "application/pdf"
+                                            Dim postParameters As New Dictionary(Of String, Object)()
+
+                                            postParameters.Add("file", pFileData)
+
+                                            'Create request and receive response
+
+
+                                            Using responsepost As System.Net.HttpWebResponse = FormUpload.MultipartFormDataPost(EFPictureSurlEndPoint, accessToken, accessToken_id, postParameters)
+
+                                                Using streamReaderpost As System.IO.StreamReader = New System.IO.StreamReader(responsepost.GetResponseStream())
+
+                                                    Dim jsonResponsePostText As String = streamReaderpost.ReadToEnd()
+                                                    Dim jsonPostResult As RefreshResultJSON = JsonConvert.DeserializeObject(Of RefreshResultJSON)(jsonResponsePostText)
+
+                                                    postmarkjsonSsatus = jsonPostResult.status
+                                                    postmarkjsommessage = jsonPostResult.message
+
+
+                                                    If postmarkjsonSsatus Then
+
+                                                        cmdstring = "Update A SET FTStateMarkExport='1'"
+                                                        cmdstring &= vbCrLf & " , FTStateMarkExportUser ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                        cmdstring &= vbCrLf & " ,  FDStateMarkExportDate=" & HI.UL.ULDate.FormatDateDB & " "
+                                                        cmdstring &= vbCrLf & " ,  FTStateMarkExportTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                                                        cmdstring &= vbCrLf & "   FROM            " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_File As A "
+                                                        cmdstring &= vbCrLf & "   WHERE   A.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(DocNo) & "'"
+                                                        cmdstring &= vbCrLf & "   insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                                        cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                                        cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                                        cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                                        cmdstring &= vbCrLf & ",'Mark'"
+                                                        cmdstring &= vbCrLf & ",'True'"
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postmarkjsommessage) & "'"
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                                        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                                        For Each Rx As DataRow In dtdata.Select("FNSeq=3")
+                                                            Rx!FTSendStatus = "True"
+                                                            Rx!FTSendStatusDescription = postmarkjsommessage
+                                                        Next
+
+                                                        StateAppcept = True
+                                                    Else
+
+                                                        cmdstring = " insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                                        cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                                        cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                                        cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                                        cmdstring &= vbCrLf & ",'Mark'"
+                                                        cmdstring &= vbCrLf & ",'False'"
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postmarkjsommessage) & "'"
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                                        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                                        For Each Rx As DataRow In dtdata.Select("FNSeq=3")
+                                                            Rx!FTSendStatus = "False"
+                                                            Rx!FTSendStatusDescription = postmarkjsommessage
+                                                        Next
+
+
+                                                        StateAppcept = False
+                                                        'MsgBox(postmarkjsommessage)
+                                                    End If
+
+
+                                                End Using
+
+                                            End Using
+
+                                        End If
+
+
+
+                                    Catch exmark As WebException
+                                        Dim exresponse As Net.WebResponse = exmark.Response
+                                        If (exresponse IsNot Nothing) Then
+
+                                            Using reader As New IO.StreamReader(exresponse.GetResponseStream())
+                                                Try
+                                                    Dim exresponseText = reader.ReadToEnd()
+                                                    Dim exjsonPostResult As RefreshResultJSON = JsonConvert.DeserializeObject(Of RefreshResultJSON)(exresponseText)
+
+                                                    postmarkjsonSsatus = exjsonPostResult.status
+                                                    postmarkjsommessage = exjsonPostResult.message
+
+                                                    cmdstring = " insert into " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) "
+                                                    cmdstring &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                                                    cmdstring &= vbCrLf & ",'" & FNVersion.Value & "'"
+                                                    cmdstring &= vbCrLf & ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "' ),0) +1 "
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTFileName.Text.Trim) & "'"
+                                                    cmdstring &= vbCrLf & ",'Mark'"
+                                                    cmdstring &= vbCrLf & ",'False'"
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(postmarkjsommessage) & "'"
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pMail) & "'"
+
+                                                    HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                                    For Each Rx As DataRow In dtdata.Select("FNSeq=3")
+                                                        Rx!FTSendStatus = "False"
+                                                        Rx!FTSendStatusDescription = postmarkjsommessage
+                                                    Next
+
+                                                Catch ex003 As Exception
+                                                    postmarkjsonSsatus = False
+                                                    postmarkjsommessage = ex003.Message
+
+
+                                                    For Each Rx As DataRow In dtdata.Select("FNSeq=3")
+                                                        Rx!FTSendStatus = ""
+                                                        Rx!FTSendStatusDescription = postmarkjsommessage
+                                                    Next
+
+                                                End Try
+
+                                            End Using
+
+                                            exresponse.Close()
+
+                                        End If
+                                    Finally
+                                    End Try
+                                End If
+                            Catch ex As Exception
+
+                                For Each Rx As DataRow In dtdata.Select("FNSeq=3")
+                                    Rx!FTSendStatus = ""
+                                    Rx!FTSendStatusDescription = ex.Message
+                                Next
+                            End Try
+
+
+                        End If
+
+                        dtFile.Dispose()
+
+                    End If
+
+                End Using
+            End Using
+
+
+
+        Catch ex As WebException
+
+
+
+            Dim exresponse As Net.WebResponse = ex.Response
+            If (exresponse IsNot Nothing) Then
+
+                Using reader As New IO.StreamReader(exresponse.GetResponseStream())
+                    Try
+                        Dim exresponseText = reader.ReadToEnd()
+                        Dim exjsonPostResult As RefreshTokenResultJSON = JsonConvert.DeserializeObject(Of RefreshTokenResultJSON)(exresponseText)
+
+                        MsgBox(exjsonPostResult.error_description)
+
+
+                    Catch ex001 As Exception
+                        postimagejsonSsatus = False
+                        MsgBox(ex001.Message)
+                    End Try
+
+
+                End Using
+
+                exresponse.Close()
+
+            End If
+
+
+            Return False
+        End Try
+
+        'EFSjson_data = JsonConvert.SerializeObject(EFSData)
+
+        'Dim strFile As String = _AppCBDJsonPath & "\" & FTFileName.Text.Trim.Replace("/", "-").Replace("\", "-") & " Post By  " & HI.ST.UserInfo.UserName & "  Time " & DateTime.Now.ToString("yyyyMMdd HHmmss") & "" & ".txt"
+
+        'Try
+        '    File.Delete(strFile)
+        'Catch ex As Exception
+        'End Try
+
+        'Dim fileExists As Boolean = File.Exists(strFile)
+
+        'Using sw As New StreamWriter(File.Open(strFile, FileMode.OpenOrCreate))
+        '    sw.WriteLine(
+        '                    IIf(fileExists,
+        '                    EFSjson_data,
+        '                    EFSjson_data))
+        'End Using
+
+        If StateAppcept = False Then
+            Return False
+        End If
+
+        Return True
+
+    End Function
+
+
+
+    Public Shared Function ReadRegistry() As String
+        Dim regKey As RegistryKey
+        Dim valreturn As String = ""
+
+        regKey = Registry.CurrentUser.OpenSubKey("Software\HI SOFT", True)
+        If regKey Is Nothing Then
+
+            Registry.CurrentUser.CreateSubKey("Software\HI SOFT", RegistryKeyPermissionCheck.ReadWriteSubTree)
+            regKey = Registry.CurrentUser.OpenSubKey("Software\HI SOFT", True)
+
+        End If
+
+        valreturn = regKey.GetValue("PathExporCBDJsonNike", "")
+        regKey.Close()
+
+        Return valreturn
+    End Function
+
+    Public Shared Sub WriteRegistry(ByVal value As Object)
+
+        Dim regKey As RegistryKey
+        regKey = Registry.CurrentUser.OpenSubKey("Software\HI SOFT", True)
+
+        If regKey Is Nothing Then
+
+            Registry.CurrentUser.CreateSubKey("Software\HI SOFT", True)
+            regKey = Registry.CurrentUser.OpenSubKey("Software\HI SOFT", True)
+
+        End If
+
+        regKey.SetValue("PathExporCBDJsonNike", value.ToString)
+        regKey.Close()
+
+    End Sub
+
+    Private Sub otb_Click(sender As Object, e As EventArgs) Handles otb.Click
+
+    End Sub
+
+    Private Sub otb_SelectedPageChanging(sender As Object, e As TabPageChangingEventArgs) Handles otb.SelectedPageChanging
+
+        Select Case e.Page.Name.ToString
+            Case otpfilemark.Name.ToString
+                Dim _Str As String = ""
+
+                _Str = "Select TOP 1  A.FTCostSheetNo "
+                _Str &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet As A With(NOLOCK)"
+                _Str &= vbCrLf & " WHERE A.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "' AND A.FNVersion ='" & FNVersion.Value & "'"
+
+                If HI.Conn.SQLConn.GetField(_Str, Conn.DB.DataBaseName.DB_ACCOUNT, "") <> "" Then
+
+                    e.Cancel = False
+
+                Else
+
+                    e.Cancel = True
+
+                End If
+            Case otpjson.Name.ToString
+
+                Dim cmdstring As String = ""
+
+                cmdstring = "select FTCostSheetNo, FNVersion, FNSeq, FTFileName, FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate,  FTSendTime, FTSendByMail "
+                cmdstring &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_JsonHistory As A With(NOLOCK)"
+                cmdstring &= vbCrLf & " WHERE A.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "' "
+                cmdstring &= vbCrLf & " ORDER BY FNSeq "
+
+                Me.ogcjsondetail.DataSource = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                e.Cancel = False
+
+
+            Case Else
+                e.Cancel = False
+        End Select
+
+    End Sub
+
+
+    Private Sub SavePictureImmage()
+        Try
+            Dim _Cmd As String = ""
+
+            _Cmd = "Declare @DocNo nvarchar(30) ='' "
+            _Cmd &= vbCrLf & " Select TOP 1  @DocNo= ISNULL(A.FTCostSheetNo,'') "
+            _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_File As A With(NOLOCK)"
+            _Cmd &= vbCrLf & " WHERE A.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "' AND A.FNVersion ='" & FNVersion.Value & "'"
+            _Cmd &= vbCrLf & "  IF @DocNo ='' "
+            _Cmd &= vbCrLf & "          BEGIN "
+            _Cmd &= vbCrLf & "                INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_File(FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNRevised, FNVersion)"
+            _Cmd &= vbCrLf & "                Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            _Cmd &= vbCrLf & "                       ," & HI.UL.ULDate.FormatDateDB
+            _Cmd &= vbCrLf & "                       ," & HI.UL.ULDate.FormatTimeDB
+            _Cmd &= vbCrLf & "                      ,'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+            _Cmd &= vbCrLf & "                      ,0"
+            _Cmd &= vbCrLf & "                      ," & FNVersion.Value & ""
+            _Cmd &= vbCrLf & "          END "
+
+            HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+            Dim data As Byte() = GetBinary(FTPicName.Image, System.Drawing.Imaging.ImageFormat.Jpeg)
+
+
+            HI.Conn.SQLConn._ConnString = HI.Conn.DB.ConnectionString(HI.Conn.DB.DataBaseName.DB_ACCOUNT)
+            HI.Conn.SQLConn.SqlConnectionOpen()
+
+            _Cmd = "UPDATE [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_File"
+            _Cmd &= " Set  FTFileImageName=@FTFileImageName"
+            _Cmd &= " ,FBFileImage=@FBFileImage"
+            _Cmd &= "  Where FTCostSheetNo=@FTCostSheetNo"
+            _Cmd &= "  AND FNVersion=@FNVersion"
+            Dim cmd As New SqlCommand(_Cmd, HI.Conn.SQLConn.Cnn)
+            cmd.Parameters.AddWithValue("@FTFileImageName", FTFileName.Text.Trim & ".Jpeg")
+            Dim p6 As New SqlParameter("@FBFileImage", SqlDbType.VarBinary)
+            p6.Value = data
+
+            Dim p8 As New SqlParameter("@FTCostSheetNo", SqlDbType.NVarChar)
+            p8.Value = FTCostSheetNo.Text.Trim
+            Dim p9 As New SqlParameter("@FNVersion", SqlDbType.Int)
+            p9.Value = FNVersion.Value
+
+            cmd.Parameters.Add(p6)
+            cmd.Parameters.Add(p8)
+            cmd.Parameters.Add(p9)
+            cmd.ExecuteNonQuery()
+
+            HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cnn)
+        Catch ex As Exception
+
+        End Try
+
+
+    End Sub
+
+    Private Function GetBinary(ByVal image As Image, ByVal format As System.Drawing.Imaging.ImageFormat) As Byte()
+        Using ms As New System.IO.MemoryStream
+            If (format Is Nothing) Then
+                format = image.RawFormat ' use image original format
+            End If
+            image.Save(ms, format)
+            Return ms.ToArray()
+        End Using
+    End Function
+    Private Sub ocmselectfilemark_Click(sender As Object, e As EventArgs) Handles ocmselectfilemark.Click
+        Try
+
+            Dim _Cmd As String = ""
+            _Cmd = "Select TOP 1  A.FTCostSheetNo "
+            _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet As A With(NOLOCK)"
+            _Cmd &= vbCrLf & " WHERE A.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "' AND A.FNVersion ='" & FNVersion.Value & "'"
+
+            If HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT, "") <> "" Then
+
+
+                Dim opFileDialog As New System.Windows.Forms.OpenFileDialog
+                opFileDialog.Filter = "PDF Files(*.PDF)|*.PDF"
+                opFileDialog.ShowDialog()
+
+                Try
+
+                    If opFileDialog.FileName <> "" Then
+
+                        _Cmd = "Declare @DocNo nvarchar(30) ='' "
+                        _Cmd &= vbCrLf & " Select TOP 1  @DocNo= ISNULL(A.FTCostSheetNo,'') "
+                        _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_File As A With(NOLOCK)"
+                        _Cmd &= vbCrLf & " WHERE A.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "' AND A.FNVersion ='" & FNVersion.Value & "'"
+                        _Cmd &= vbCrLf & "  IF @DocNo ='' "
+                        _Cmd &= vbCrLf & "          BEGIN "
+                        _Cmd &= vbCrLf & "                INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_File(FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNRevised, FNVersion)"
+                        _Cmd &= vbCrLf & "                Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                        _Cmd &= vbCrLf & "                       ," & HI.UL.ULDate.FormatDateDB
+                        _Cmd &= vbCrLf & "                       ," & HI.UL.ULDate.FormatTimeDB
+                        _Cmd &= vbCrLf & "                      ,'" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text.Trim) & "'"
+                        _Cmd &= vbCrLf & "                      ,0"
+                        _Cmd &= vbCrLf & "                      ," & FNVersion.Value & ""
+                        _Cmd &= vbCrLf & "          END "
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                        Dim pFileName As String = opFileDialog.SafeFileName
+                        Dim data As Byte() = System.IO.File.ReadAllBytes(opFileDialog.FileName)
+
+                        PdfViewer1.LoadDocument(New MemoryStream(CType(data, Byte())))
+
+                        HI.Conn.SQLConn._ConnString = HI.Conn.DB.ConnectionString(HI.Conn.DB.DataBaseName.DB_ACCOUNT)
+                        HI.Conn.SQLConn.SqlConnectionOpen()
+
+                        _Cmd = "UPDATE [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_File"
+                        _Cmd &= " Set  FTFileMarkName=@FTFileMarkName"
+                        _Cmd &= " ,FBFileMark=@FBDocument"
+                        _Cmd &= "  Where FTCostSheetNo=@FTCostSheetNo"
+                        _Cmd &= "  AND FNVersion=@FNVersion"
+                        Dim cmd As New SqlCommand(_Cmd, HI.Conn.SQLConn.Cnn)
+                        cmd.Parameters.AddWithValue("@FTFileMarkName", pFileName)
+                        Dim p6 As New SqlParameter("@FBDocument", SqlDbType.VarBinary)
+                        p6.Value = data
+
+                        Dim p8 As New SqlParameter("@FTCostSheetNo", SqlDbType.NVarChar)
+                        p8.Value = FTCostSheetNo.Text.Trim
+                        Dim p9 As New SqlParameter("@FNVersion", SqlDbType.Int)
+                        p9.Value = FNVersion.Value
+
+                        cmd.Parameters.Add(p6)
+                        cmd.Parameters.Add(p8)
+                        cmd.Parameters.Add(p9)
+                        cmd.ExecuteNonQuery()
+
+                        HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cnn)
+
+                    End If
+                Catch ex As Exception
+                End Try
+
+            End If
+
+        Catch ex As Exception
+            Throw New Exception(ex.Message().ToString() & Environment.NewLine & ex.StackTrace.ToString())
+        End Try
+    End Sub
+
+    Private Sub FNTrinUsageAllowPer_EditValueChanged(sender As Object, e As EventArgs) Handles FNTrinUsageAllowPer.EditValueChanged
+        Call UpdateMiltidata()
+    End Sub
+
+    Private Sub otb_SelectedPageChanged(sender As Object, e As TabPageChangedEventArgs) Handles otb.SelectedPageChanged
+        Tabchange()
+    End Sub
+
+    Private Sub Tabchange()
+        Try
+            ocmbomdiffpart.Visible = (otb.SelectedTabPage.Name = otpTeamMulti.Name)
+
+            HI.TL.METHOD.CallActiveToolBarFunction(Me)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub ocmbomdiffpart_Click(sender As Object, e As EventArgs) Handles ocmbomdiffpart.Click
+        If CheckOwner() = False Then
+            Exit Sub
+        End If
+
+        Try
+            Try
+                CType(ogcteamMulti.DataSource, DataTable).AcceptChanges()
+            Catch ex As Exception
+            End Try
+
+            Dim crRow As Double, nxRow As String, nwRow As String
+            Dim RowCount, RowsIndex, TopVisibleIndex As Integer
+
+
+            RowsIndex = ogvteamMulti.FocusedRowHandle
+            TopVisibleIndex = ogvteamMulti.TopRowIndex
+            RowCount = ogvteamMulti.RowCount
+
+            nxRow = 0
+
+
+
+            Dim dt As DataTable = CType(ogcteamMulti.DataSource, DataTable)
+            Dim dr As DataRow = dt.NewRow()
+
+            For Each c As DataColumn In dt.Columns
+
+                Select Case c.ColumnName
+                    Case "FNSeq"
+                        dr.Item(c) = dt.Rows.Count + 1
+
+                    Case Else
+                        Try
+                            dr.Item(c) = ogvteamMulti.GetRowCellValue(RowsIndex, c.ColumnName) '.ToString
+                        Catch ex As Exception
+                        End Try
+                End Select
+
+            Next
+
+            dt.Rows.Add(dr)
+
+            ogcteamMulti.DataSource = dt.Copy()
+            dt.Dispose()
+        Catch ex As Exception
+
+        End Try
+
+
+    End Sub
+
+End Class
+
+
+
+Public NotInheritable Class FormUpload
+    Private Shared ReadOnly encoding As Encoding = Encoding.UTF8
+
+    Public Shared Function MultipartFormDataPost(ByVal postUrl As String, ByVal accessToken As String, ByVal accessToken_id As String, ByVal postParameters As Dictionary(Of String, Object)) As HttpWebResponse
+        Dim formDataBoundary As String = String.Format("----------{0:N}", Guid.NewGuid())
+        Dim contentType As String = "multipart/form-data; boundary=" & formDataBoundary
+        Dim formData As Byte() = GetMultipartFormData(postParameters, formDataBoundary)
+        Return PostForm(postUrl, accessToken, accessToken_id, contentType, formData)
+    End Function
+
+    Private Shared Function PostForm(ByVal postUrl As String, ByVal accessToken As String, ByVal accessToken_id As String, ByVal contentType As String, ByVal formData As Byte()) As HttpWebResponse
+        Dim request As HttpWebRequest = TryCast(WebRequest.Create(postUrl), HttpWebRequest)
+        Try
+
+
+            If request Is Nothing Then
+                Throw New NullReferenceException("request is not a http request")
+            End If
+
+            request.Method = "POST"
+            request.ContentType = contentType
+            request.Headers.Add("Authorization", "Bearer " & accessToken)
+            request.Headers.Add("id_token", accessToken_id)
+            request.Headers.Add("Gsmapcm-Service-Api-Subscription-Key", "b565689abdbe43b9b2ae032405d41f63")
+            request.CookieContainer = New CookieContainer()
+            request.ContentLength = formData.Length
+
+            Using requestStream As Stream = request.GetRequestStream()
+                requestStream.Write(formData, 0, formData.Length)
+                requestStream.Close()
+            End Using
+
+            Return TryCast(request.GetResponse(), HttpWebResponse)
+        Catch ex As Exception
+            Dim msg As String = ex.Message
+        End Try
+        Return TryCast(request.GetResponse(), HttpWebResponse)
+    End Function
+
+    Private Shared Function GetMultipartFormData(ByVal postParameters As Dictionary(Of String, Object), ByVal boundary As String) As Byte()
+        Dim formDataStream As Stream = New System.IO.MemoryStream()
+        Dim needsCLRF As Boolean = False
+        Try
+            For Each param In postParameters
+                If needsCLRF Then formDataStream.Write(encoding.GetBytes(vbCrLf), 0, encoding.GetByteCount(vbCrLf))
+                needsCLRF = True
+
+                If TypeOf param.Value Is FileParameter Then
+                    Dim fileToUpload As FileParameter = CType(param.Value, FileParameter)
+                    Dim header As String = String.Format("--{0}" & vbCrLf & "Content-Disposition: form-data; name=""{1}""; filename=""{2}""" & vbCrLf & "Content-Type: {3}" & vbCrLf & vbCrLf, boundary, param.Key, If(fileToUpload.FileName, param.Key), If(fileToUpload.ContentType, "application/octet-stream"))
+                    formDataStream.Write(encoding.GetBytes(header), 0, encoding.GetByteCount(header))
+                    formDataStream.Write(fileToUpload.File, 0, fileToUpload.File.Length)
+                Else
+                    Dim postData As String = String.Format("--{0}" & vbCrLf & "Content-Disposition: form-data; name=""{1}""" & vbCrLf & vbCrLf & "{2}", boundary, param.Key, param.Value)
+                    formDataStream.Write(encoding.GetBytes(postData), 0, encoding.GetByteCount(postData))
+                End If
+            Next
+
+        Catch ex As Exception
+            Dim mss As String = ex.Message
+        End Try
+
+        Dim footer As String = vbCrLf & "--" & boundary & "--" & vbCrLf
+        formDataStream.Write(encoding.GetBytes(footer), 0, encoding.GetByteCount(footer))
+        formDataStream.Position = 0
+        Dim formData As Byte() = New Byte(formDataStream.Length - 1) {}
+        formDataStream.Read(formData, 0, formData.Length)
+        formDataStream.Close()
+        Return formData
+    End Function
+
+    Public Class FileParameter
+        Public Property File As Byte()
+        Public Property FileName As String
+        Public Property ContentType As String
+
+        Public Sub New(ByVal file As Byte())
+            Me.New(file, Nothing)
+        End Sub
+
+        Public Sub New(ByVal file As Byte(), ByVal filename As String)
+            Me.New(file, filename, Nothing)
+        End Sub
+
+        Public Sub New(ByVal file As Byte(), ByVal filename As String, ByVal contenttype As String)
+            file = file
+            filename = filename
+            contenttype = contenttype
+        End Sub
+    End Class
 End Class

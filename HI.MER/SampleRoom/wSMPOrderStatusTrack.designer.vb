@@ -141,7 +141,11 @@ Partial Class wSMPOrderStatusTrack
         Me.FDDeliveryDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTStateFree = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ReposFree = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
+        Me.FREEPurchaseNo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FREEPurchaseDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FREEQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.PART = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTMatPart = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTMatColorName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSuplCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSuplName = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -250,10 +254,6 @@ Partial Class wSMPOrderStatusTrack
         Me.ButtonEdit7 = New DevExpress.XtraEditors.ButtonEdit()
         Me.LabelControl13 = New DevExpress.XtraEditors.LabelControl()
         Me.ButtonEdit8 = New DevExpress.XtraEditors.ButtonEdit()
-        Me.FTMatPart = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FREEPurchaseNo = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FREEPurchaseDate = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FREEQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.FTSMPOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogcDetail, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvDetail, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -794,6 +794,36 @@ Partial Class wSMPOrderStatusTrack
         Me.ReposFree.ValueChecked = "1"
         Me.ReposFree.ValueUnchecked = "0"
         '
+        'FREEPurchaseNo
+        '
+        Me.FREEPurchaseNo.Caption = "FREEPurchaseNo"
+        Me.FREEPurchaseNo.FieldName = "FREEPurchaseNo"
+        Me.FREEPurchaseNo.Name = "FREEPurchaseNo"
+        Me.FREEPurchaseNo.OptionsColumn.AllowEdit = False
+        Me.FREEPurchaseNo.Visible = True
+        Me.FREEPurchaseNo.VisibleIndex = 49
+        Me.FREEPurchaseNo.Width = 64
+        '
+        'FREEPurchaseDate
+        '
+        Me.FREEPurchaseDate.Caption = "FREEPurchaseDate"
+        Me.FREEPurchaseDate.FieldName = "FREEPurchaseDate"
+        Me.FREEPurchaseDate.Name = "FREEPurchaseDate"
+        Me.FREEPurchaseDate.OptionsColumn.AllowEdit = False
+        Me.FREEPurchaseDate.Visible = True
+        Me.FREEPurchaseDate.VisibleIndex = 50
+        Me.FREEPurchaseDate.Width = 64
+        '
+        'FREEQuantity
+        '
+        Me.FREEQuantity.Caption = "FREEQuantity"
+        Me.FREEQuantity.FieldName = "FREEQuantity"
+        Me.FREEQuantity.Name = "FREEQuantity"
+        Me.FREEQuantity.OptionsColumn.AllowEdit = False
+        Me.FREEQuantity.Visible = True
+        Me.FREEQuantity.VisibleIndex = 51
+        Me.FREEQuantity.Width = 64
+        '
         'PART
         '
         Me.PART.Caption = "PART"
@@ -804,6 +834,16 @@ Partial Class wSMPOrderStatusTrack
         Me.PART.Visible = True
         Me.PART.VisibleIndex = 9
         Me.PART.Width = 45
+        '
+        'FTMatPart
+        '
+        Me.FTMatPart.Caption = "FTMatPart"
+        Me.FTMatPart.FieldName = "FTMatPart"
+        Me.FTMatPart.Name = "FTMatPart"
+        Me.FTMatPart.OptionsColumn.AllowEdit = False
+        Me.FTMatPart.Visible = True
+        Me.FTMatPart.VisibleIndex = 48
+        Me.FTMatPart.Width = 64
         '
         'FTMatColorName
         '
@@ -1131,16 +1171,16 @@ Partial Class wSMPOrderStatusTrack
         Me.DockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top
         Me.DockPanel1.ID = New System.Guid("1747ab6f-71d9-45ce-a0c9-2f7970d09c2b")
         Me.DockPanel1.ImageOptions.Image = CType(resources.GetObject("DockPanel1.ImageOptions.Image"), System.Drawing.Image)
-        Me.DockPanel1.Location = New System.Drawing.Point(0, 36)
+        Me.DockPanel1.Location = New System.Drawing.Point(0, 0)
         Me.DockPanel1.Name = "DockPanel1"
         Me.DockPanel1.Options.AllowDockFill = False
         Me.DockPanel1.Options.FloatOnDblClick = False
         Me.DockPanel1.Options.ShowCloseButton = False
         Me.DockPanel1.Options.ShowMaximizeButton = False
-        Me.DockPanel1.OriginalSize = New System.Drawing.Size(200, 407)
+        Me.DockPanel1.OriginalSize = New System.Drawing.Size(200, 331)
         Me.DockPanel1.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Top
         Me.DockPanel1.SavedIndex = 0
-        Me.DockPanel1.Size = New System.Drawing.Size(3775, 331)
+        Me.DockPanel1.Size = New System.Drawing.Size(3033, 331)
         Me.DockPanel1.Text = "criteria"
         Me.DockPanel1.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide
         '
@@ -1192,9 +1232,9 @@ Partial Class wSMPOrderStatusTrack
         Me.DockPanel1_Container.Controls.Add(Me.FTSMPOrderNoTo)
         Me.DockPanel1_Container.Controls.Add(Me.FTSMPOrderNo_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FTSMPOrderNo)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(2, 25)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(3771, 302)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(3027, 301)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FNHSysWHId
@@ -1277,7 +1317,7 @@ Partial Class wSMPOrderStatusTrack
         Me.FNHSysWHId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysWHId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysWHId_None.Properties.ReadOnly = True
-        Me.FNHSysWHId_None.Size = New System.Drawing.Size(3341, 20)
+        Me.FNHSysWHId_None.Size = New System.Drawing.Size(2597, 20)
         Me.FNHSysWHId_None.TabIndex = 289
         Me.FNHSysWHId_None.TabStop = False
         Me.FNHSysWHId_None.Tag = "2|"
@@ -1530,7 +1570,7 @@ Partial Class wSMPOrderStatusTrack
         Me.FNHSysSuplId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysSuplId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysSuplId_None.Properties.ReadOnly = True
-        Me.FNHSysSuplId_None.Size = New System.Drawing.Size(3341, 20)
+        Me.FNHSysSuplId_None.Size = New System.Drawing.Size(2597, 20)
         Me.FNHSysSuplId_None.TabIndex = 573
         Me.FNHSysSuplId_None.TabStop = False
         Me.FNHSysSuplId_None.Tag = "2|"
@@ -2381,46 +2421,6 @@ Partial Class wSMPOrderStatusTrack
         Me.ButtonEdit8.Size = New System.Drawing.Size(189, 23)
         Me.ButtonEdit8.TabIndex = 1
         Me.ButtonEdit8.Tag = "2|"
-        '
-        'FTMatPart
-        '
-        Me.FTMatPart.Caption = "FTMatPart"
-        Me.FTMatPart.FieldName = "FTMatPart"
-        Me.FTMatPart.Name = "FTMatPart"
-        Me.FTMatPart.OptionsColumn.AllowEdit = False
-        Me.FTMatPart.Visible = True
-        Me.FTMatPart.VisibleIndex = 48
-        Me.FTMatPart.Width = 64
-        '
-        'FREEPurchaseNo
-        '
-        Me.FREEPurchaseNo.Caption = "FREEPurchaseNo"
-        Me.FREEPurchaseNo.FieldName = "FREEPurchaseNo"
-        Me.FREEPurchaseNo.Name = "FREEPurchaseNo"
-        Me.FREEPurchaseNo.OptionsColumn.AllowEdit = False
-        Me.FREEPurchaseNo.Visible = True
-        Me.FREEPurchaseNo.VisibleIndex = 49
-        Me.FREEPurchaseNo.Width = 64
-        '
-        'FREEPurchaseDate
-        '
-        Me.FREEPurchaseDate.Caption = "FREEPurchaseDate"
-        Me.FREEPurchaseDate.FieldName = "FREEPurchaseDate"
-        Me.FREEPurchaseDate.Name = "FREEPurchaseDate"
-        Me.FREEPurchaseDate.OptionsColumn.AllowEdit = False
-        Me.FREEPurchaseDate.Visible = True
-        Me.FREEPurchaseDate.VisibleIndex = 50
-        Me.FREEPurchaseDate.Width = 64
-        '
-        'FREEQuantity
-        '
-        Me.FREEQuantity.Caption = "FREEQuantity"
-        Me.FREEQuantity.FieldName = "FREEQuantity"
-        Me.FREEQuantity.Name = "FREEQuantity"
-        Me.FREEQuantity.OptionsColumn.AllowEdit = False
-        Me.FREEQuantity.Visible = True
-        Me.FREEQuantity.VisibleIndex = 51
-        Me.FREEQuantity.Width = 64
         '
         'wSMPOrderStatusTrack
         '

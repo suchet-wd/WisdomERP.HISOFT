@@ -19,6 +19,7 @@ Partial Class wSMPCalculateCut
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.ogbemployee = New DevExpress.XtraEditors.GroupControl()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
         Me.ocmSendApprove = New DevExpress.XtraEditors.SimpleButton()
@@ -92,7 +93,7 @@ Partial Class wSMPCalculateCut
         Me.FTEndDate_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTStartDate = New DevExpress.XtraEditors.DateEdit()
         Me.FTStartDate_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager()
+        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.ogbdetail = New DevExpress.XtraEditors.GroupControl()
         CType(Me.ogbemployee, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbemployee.SuspendLayout()
@@ -618,7 +619,7 @@ Partial Class wSMPCalculateCut
         '
         Me.otpcut.Controls.Add(Me.ogdempcut)
         Me.otpcut.Name = "otpcut"
-        Me.otpcut.Size = New System.Drawing.Size(1376, 962)
+        Me.otpcut.Size = New System.Drawing.Size(1376, 953)
         Me.otpcut.Text = "คำนวณพนักงานตัดห้องตัวอย่าง"
         '
         'ogdempcut
@@ -630,7 +631,7 @@ Partial Class wSMPCalculateCut
         Me.ogdempcut.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdempcut.Name = "ogdempcut"
         Me.ogdempcut.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemCheckEdit2, Me.RepositoryItemCheckEdit3, Me.RepositoryItemCalcEdit1})
-        Me.ogdempcut.Size = New System.Drawing.Size(1376, 962)
+        Me.ogdempcut.Size = New System.Drawing.Size(1376, 953)
         Me.ogdempcut.TabIndex = 5
         Me.ogdempcut.TabStop = False
         Me.ogdempcut.Tag = "2|"

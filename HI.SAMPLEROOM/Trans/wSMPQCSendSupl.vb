@@ -116,21 +116,6 @@ Public Class wSMPQCSendSupl
                 _Qry &= vbCrLf & " 	,MPP.FTOperationNameEN AS FTOperationName"
             End If
 
-            '_Qry &= vbCrLf & " ,ISNULL(("
-            '_Qry &= vbCrLf & "   SELECT        TOP 1  "
-
-            'If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
-            '    _Qry &= vbCrLf & "  CC.FTMarkNameTH AS FTMarkName  "
-            'Else
-            '    _Qry &= vbCrLf & "  CC.FTMarkNameEN AS FTMarkName  "
-            'End If
-
-            '_Qry &= vbCrLf & "   FROM     " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.TPRODTBundle_Detail AS AA  WITH (NOLOCK)  INNER JOIN"
-            '_Qry &= vbCrLf & "            " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.TPRODTLayCut AS BB  WITH (NOLOCK) ON AA.FTLayCutNo = BB.FTLayCutNo LEFT OUTER JOIN"
-            '_Qry &= vbCrLf & "            " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TPRODMMark AS Cc  WITH (NOLOCK)  ON BB.FNHSysMarkId = CC.FNHSysMarkId"
-            '_Qry &= vbCrLf & "   WHERE        (AA.FTBarcodeBundleNo = B.FTBarcodeBundleNo)"
-
-            '_Qry &= vbCrLf & " ),'') AS FNHSysMarkId"
             _Qry &= vbCrLf & " ,0 AS FNHSysMarkId"
             _Qry &= vbCrLf & " 	 FROM   " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPOrder AS O WITH (NOLOCK) "
             _Qry &= vbCrLf & " 	    INNER JOIN    " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TMERMStyle AS ST WITH (NOLOCK)  ON O.FNHSysStyleId = ST.FNHSysStyleId "
@@ -175,21 +160,6 @@ Public Class wSMPQCSendSupl
                 _Qry &= vbCrLf & " 	,MPP.FTOperationNameEN AS FTOperationName"
             End If
 
-            '_Qry &= vbCrLf & " ,ISNULL(("
-            '_Qry &= vbCrLf & "   SELECT        TOP 1  "
-
-            'If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
-            '    _Qry &= vbCrLf & "  CC.FTMarkNameTH AS FTMarkName  "
-            'Else
-            '    _Qry &= vbCrLf & "  CC.FTMarkNameEN AS FTMarkName  "
-            'End If
-
-            '_Qry &= vbCrLf & "   FROM     " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.TPRODTBundle_Detail AS AA  WITH (NOLOCK)  INNER JOIN"
-            '_Qry &= vbCrLf & "            " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.TPRODTLayCut AS BB  WITH (NOLOCK) ON AA.FTLayCutNo = BB.FTLayCutNo LEFT OUTER JOIN"
-            '_Qry &= vbCrLf & "            " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TPRODMMark AS Cc  WITH (NOLOCK)  ON BB.FNHSysMarkId = CC.FNHSysMarkId"
-            '_Qry &= vbCrLf & "   WHERE        (AA.FTBarcodeBundleNo = B.FTBarcodeBundleNo)"
-
-            '_Qry &= vbCrLf & " ),'') AS FNHSysMarkId"
             _Qry &= vbCrLf & " ,0 AS FNHSysMarkId"
             _Qry &= vbCrLf & " 	 FROM   " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPOrder AS O WITH (NOLOCK) "
             _Qry &= vbCrLf & " 	      INNER JOIN  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TMERMStyle AS ST WITH (NOLOCK)  ON O.FNHSysStyleId = ST.FNHSysStyleId "
@@ -205,7 +175,6 @@ Public Class wSMPQCSendSupl
 
             _Qry &= vbCrLf & " 	      INNER JOIN  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TCNMSupplier AS S WITH (NOLOCK) ON B.FNHSysSuplId = S.FNHSysSuplId"
             _Qry &= vbCrLf & " 	 LEFT OUTER JOIN  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPTOrderProd_SendSupl AS SD WITH(NOLOCK) ON B.FTSendSuplRef = SD.FTSendSuplRef AND O.FTSMPOrderNo = SD.FTOrderProdNo  "
-            ''_Qry &= vbCrLf & " 	 LEFT OUTER JOIN  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TPRODMOperationByStyle AS OP with(nolock) ON O.FNHSysStyleId = OP.FNHSysStyleId AND SD.FNHSysOperationId = OP.FNHSysOperationId  "
 
 
             _Qry &= vbCrLf & " 		    LEFT OUTER JOIN"
@@ -226,6 +195,7 @@ Public Class wSMPQCSendSupl
             FNHSysSuplId.Text = ""
             FNQuantity.Value = 0
             FNQCActualQty.Value = 0
+            Me.FTRemark.Text = ""
             If dt.Rows.Count > 0 Then
 
                 For Each R As DataRow In dt.Rows
@@ -241,6 +211,7 @@ Public Class wSMPQCSendSupl
                     FTBarcodeBundleNo.Text = R!FNBunbleSeq.ToString
                     FNQuantity.Value = Double.Parse(R!FNQuantity.ToString)
                     _FNSendSuplType = Integer.Parse(R!FNSendSuplType.ToString)
+                    FTRemark.Text = GetRemark()
                     Me.FNQCActualQty.Value = GetDefectQty()
                     Me.FNHSysSuplId.Text = R!FTSuplCode.ToString
                     Call CreateGroupDefect(_FNSendSuplType)
@@ -416,6 +387,18 @@ Public Class wSMPQCSendSupl
             Return 0
         End Try
     End Function
+
+    Private Function GetRemark() As String
+        Try
+            Dim _Cmd As String = ""
+            _Cmd = "Select FTRemark From " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPTSendSuplDefect"
+            _Cmd &= vbCrLf & "WHERE FTBarcodeSendSuplNo='" & HI.UL.ULF.rpQuoted(Me.FTBarcodeNo.Text) & "'"
+            Return HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_SAMPLE, "")
+        Catch ex As Exception
+            Return ""
+        End Try
+    End Function
+
 
     Private Function _SaveData() As Boolean
         Try

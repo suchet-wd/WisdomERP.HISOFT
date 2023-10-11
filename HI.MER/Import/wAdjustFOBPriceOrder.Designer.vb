@@ -19,12 +19,36 @@ Partial Class wAdjustFOBPriceOrder
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject13 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions5 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject17 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject18 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject19 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject20 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions6 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject21 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject22 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject23 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject24 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbCmp = New DevExpress.XtraEditors.GroupControl()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
         Me.ocmsavefobandfree = New DevExpress.XtraEditors.SimpleButton()
@@ -58,6 +82,8 @@ Partial Class wAdjustFOBPriceOrder
         Me.ogvAdjustSubFONoBreakdown = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.oColFTOrderNo_Breakdown = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.oColFTSubOrderNo_Breakdown = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.sFTCmpCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.sFTStyleCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSeasonCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTOrderSetType = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTCurCode = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -96,6 +122,10 @@ Partial Class wAdjustFOBPriceOrder
         Me.cFNHSysStyleId = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSubOrderNoRef = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFNHSysSeasonId = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.xxFTShipModeCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.xxFTPlantCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.xxFTProvinceCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.xFNNetPrice = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.ogbCmp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbCmp.SuspendLayout()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -252,7 +282,7 @@ Partial Class wAdjustFOBPriceOrder
         '
         Me.FNHSysBuyId.Location = New System.Drawing.Point(656, 28)
         Me.FNHSysBuyId.Name = "FNHSysBuyId"
-        Me.FNHSysBuyId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", "113", Nothing, True)})
+        Me.FNHSysBuyId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBuyId.Properties.Tag = ""
         Me.FNHSysBuyId.Size = New System.Drawing.Size(130, 20)
         Me.FNHSysBuyId.TabIndex = 4
@@ -287,7 +317,7 @@ Partial Class wAdjustFOBPriceOrder
         '
         Me.FNHSysSeasonId.Location = New System.Drawing.Point(656, 52)
         Me.FNHSysSeasonId.Name = "FNHSysSeasonId"
-        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", "94", Nothing, True)})
+        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSeasonId.Properties.Tag = ""
         Me.FNHSysSeasonId.Size = New System.Drawing.Size(130, 20)
         Me.FNHSysSeasonId.TabIndex = 5
@@ -322,7 +352,7 @@ Partial Class wAdjustFOBPriceOrder
         '
         Me.FNHSysCustId.Location = New System.Drawing.Point(656, 6)
         Me.FNHSysCustId.Name = "FNHSysCustId"
-        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, "", "83", Nothing, True)})
+        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCustId.Properties.Tag = ""
         Me.FNHSysCustId.Size = New System.Drawing.Size(130, 20)
         Me.FNHSysCustId.TabIndex = 3
@@ -357,7 +387,7 @@ Partial Class wAdjustFOBPriceOrder
         '
         Me.FNHSysStyleId.Location = New System.Drawing.Point(154, 52)
         Me.FNHSysStyleId.Name = "FNHSysStyleId"
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject4, "", "89", Nothing, True)})
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.Tag = ""
         Me.FNHSysStyleId.Size = New System.Drawing.Size(130, 20)
         Me.FNHSysStyleId.TabIndex = 2
@@ -381,7 +411,7 @@ Partial Class wAdjustFOBPriceOrder
         '
         Me.FNHSysPOID.Location = New System.Drawing.Point(154, 28)
         Me.FNHSysPOID.Name = "FNHSysPOID"
-        Me.FNHSysPOID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, "", "145", Nothing, True)})
+        Me.FNHSysPOID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "145", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysPOID.Properties.Tag = ""
         Me.FNHSysPOID.Size = New System.Drawing.Size(130, 20)
         Me.FNHSysPOID.TabIndex = 1
@@ -402,7 +432,7 @@ Partial Class wAdjustFOBPriceOrder
         '
         Me.FNHSysCmpId.Location = New System.Drawing.Point(155, 6)
         Me.FNHSysCmpId.Name = "FNHSysCmpId"
-        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject6, "", "11", Nothing, True)})
+        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.Tag = ""
         Me.FNHSysCmpId.Size = New System.Drawing.Size(129, 20)
         Me.FNHSysCmpId.TabIndex = 0
@@ -438,21 +468,21 @@ Partial Class wAdjustFOBPriceOrder
         '
         Me.otpOrderNo.Name = "otpOrderNo"
         Me.otpOrderNo.PageVisible = False
-        Me.otpOrderNo.Size = New System.Drawing.Size(1015, 518)
+        Me.otpOrderNo.Size = New System.Drawing.Size(1021, 523)
         Me.otpOrderNo.Text = "Order No"
         '
         'otbSubOrderNo
         '
         Me.otbSubOrderNo.Name = "otbSubOrderNo"
         Me.otbSubOrderNo.PageVisible = False
-        Me.otbSubOrderNo.Size = New System.Drawing.Size(1017, 520)
+        Me.otbSubOrderNo.Size = New System.Drawing.Size(1021, 523)
         Me.otbSubOrderNo.Text = "Sub Order No"
         '
         'otpSubOrderNoBreakdown
         '
         Me.otpSubOrderNoBreakdown.Controls.Add(Me.ogdAdjustSubFONoBreakdown)
         Me.otpSubOrderNoBreakdown.Name = "otpSubOrderNoBreakdown"
-        Me.otpSubOrderNoBreakdown.Size = New System.Drawing.Size(1017, 520)
+        Me.otpSubOrderNoBreakdown.Size = New System.Drawing.Size(1021, 523)
         Me.otpSubOrderNoBreakdown.Text = "Sub Order No Breakdown"
         '
         'ogdAdjustSubFONoBreakdown
@@ -471,7 +501,7 @@ Partial Class wAdjustFOBPriceOrder
         '
         'ogvAdjustSubFONoBreakdown
         '
-        Me.ogvAdjustSubFONoBreakdown.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.oColFTOrderNo_Breakdown, Me.oColFTSubOrderNo_Breakdown, Me.FTSeasonCode, Me.CFTOrderSetType, Me.FTCurCode, Me.FNHSysMatColorId, Me.CFTCustomerPO, Me.CFTNikePOLineItem, Me.CFTStateHold, Me.FTMatColorCode, Me.FTMatColorName, Me.FNHSysMatSizeId, Me.FTMatSizeCode, Me.FTMatSizeName, Me.oColFNQunatity, Me.oColFNPrice, Me.FNPriceOrg, Me.FNPriceDiff, Me.CFNOperateFeeAmt, Me.CFNNetFOB, Me.oColFNAmt, Me.oColFNExtraQty, Me.oColFNQuantityExtra, Me.oColFNGrandQuantity, Me.oColFNAmntExtra, Me.oColFNGrandAmnt, Me.oColFNGarmentQtyTest, Me.CFNExternalQtyTest, Me.oColBreakdownFTStyleCode, Me.oColBreakdownFTBuyCode, Me.oColFNHSysBuyIdBreakdown, Me.oColFNHSysBuyIdCodeBreakdown, Me.oColFNHSysBuyIdNameBreakdown, Me.cFNHSysStyleId, Me.FTSubOrderNoRef, Me.CFNHSysSeasonId})
+        Me.ogvAdjustSubFONoBreakdown.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.oColFTOrderNo_Breakdown, Me.oColFTSubOrderNo_Breakdown, Me.sFTCmpCode, Me.sFTStyleCode, Me.FTSeasonCode, Me.CFTOrderSetType, Me.FTCurCode, Me.FNHSysMatColorId, Me.CFTCustomerPO, Me.CFTNikePOLineItem, Me.CFTStateHold, Me.FTMatColorCode, Me.FTMatColorName, Me.FNHSysMatSizeId, Me.FTMatSizeCode, Me.FTMatSizeName, Me.xxFTProvinceCode, Me.xxFTPlantCode, Me.xxFTShipModeCode, Me.oColFNQunatity, Me.oColFNPrice, Me.FNPriceOrg, Me.FNPriceDiff, Me.CFNOperateFeeAmt, Me.CFNNetFOB, Me.oColFNAmt, Me.xFNNetPrice, Me.oColFNExtraQty, Me.oColFNQuantityExtra, Me.oColFNGrandQuantity, Me.oColFNAmntExtra, Me.oColFNGrandAmnt, Me.oColFNGarmentQtyTest, Me.CFNExternalQtyTest, Me.oColBreakdownFTStyleCode, Me.oColBreakdownFTBuyCode, Me.oColFNHSysBuyIdBreakdown, Me.oColFNHSysBuyIdCodeBreakdown, Me.oColFNHSysBuyIdNameBreakdown, Me.cFNHSysStyleId, Me.FTSubOrderNoRef, Me.CFNHSysSeasonId})
         Me.ogvAdjustSubFONoBreakdown.GridControl = Me.ogdAdjustSubFONoBreakdown
         Me.ogvAdjustSubFONoBreakdown.Name = "ogvAdjustSubFONoBreakdown"
         Me.ogvAdjustSubFONoBreakdown.OptionsView.ShowFooter = True
@@ -505,6 +535,28 @@ Partial Class wAdjustFOBPriceOrder
         Me.oColFTSubOrderNo_Breakdown.VisibleIndex = 1
         Me.oColFTSubOrderNo_Breakdown.Width = 120
         '
+        'sFTCmpCode
+        '
+        Me.sFTCmpCode.Caption = "Cmp Code"
+        Me.sFTCmpCode.FieldName = "FTCmpCode"
+        Me.sFTCmpCode.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.sFTCmpCode.Name = "sFTCmpCode"
+        Me.sFTCmpCode.OptionsColumn.AllowEdit = False
+        Me.sFTCmpCode.OptionsColumn.ReadOnly = True
+        Me.sFTCmpCode.Visible = True
+        Me.sFTCmpCode.VisibleIndex = 5
+        '
+        'sFTStyleCode
+        '
+        Me.sFTStyleCode.Caption = "Style"
+        Me.sFTStyleCode.FieldName = "FTStyleCode"
+        Me.sFTStyleCode.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.sFTStyleCode.Name = "sFTStyleCode"
+        Me.sFTStyleCode.OptionsColumn.AllowEdit = False
+        Me.sFTStyleCode.OptionsColumn.ReadOnly = True
+        Me.sFTStyleCode.Visible = True
+        Me.sFTStyleCode.VisibleIndex = 3
+        '
         'FTSeasonCode
         '
         Me.FTSeasonCode.Caption = "Season Code"
@@ -514,7 +566,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.FTSeasonCode.OptionsColumn.AllowEdit = False
         Me.FTSeasonCode.OptionsColumn.ReadOnly = True
         Me.FTSeasonCode.Visible = True
-        Me.FTSeasonCode.VisibleIndex = 3
+        Me.FTSeasonCode.VisibleIndex = 4
         Me.FTSeasonCode.Width = 87
         '
         'CFTOrderSetType
@@ -541,7 +593,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.FTCurCode.OptionsColumn.ReadOnly = True
         Me.FTCurCode.OptionsColumn.ShowInCustomizationForm = False
         Me.FTCurCode.Visible = True
-        Me.FTCurCode.VisibleIndex = 4
+        Me.FTCurCode.VisibleIndex = 6
         Me.FTCurCode.Width = 62
         '
         'FNHSysMatColorId
@@ -561,7 +613,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.CFTCustomerPO.OptionsColumn.AllowEdit = False
         Me.CFTCustomerPO.OptionsColumn.ReadOnly = True
         Me.CFTCustomerPO.Visible = True
-        Me.CFTCustomerPO.VisibleIndex = 5
+        Me.CFTCustomerPO.VisibleIndex = 7
         Me.CFTCustomerPO.Width = 94
         '
         'CFTNikePOLineItem
@@ -573,7 +625,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.CFTNikePOLineItem.OptionsColumn.AllowEdit = False
         Me.CFTNikePOLineItem.OptionsColumn.ReadOnly = True
         Me.CFTNikePOLineItem.Visible = True
-        Me.CFTNikePOLineItem.VisibleIndex = 6
+        Me.CFTNikePOLineItem.VisibleIndex = 8
         '
         'CFTStateHold
         '
@@ -585,7 +637,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.CFTStateHold.OptionsColumn.AllowShowHide = False
         Me.CFTStateHold.OptionsColumn.ShowInCustomizationForm = False
         Me.CFTStateHold.Visible = True
-        Me.CFTStateHold.VisibleIndex = 7
+        Me.CFTStateHold.VisibleIndex = 9
         Me.CFTStateHold.Width = 61
         '
         'ReposFTStateHold
@@ -605,7 +657,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.FTMatColorCode.OptionsColumn.AllowMove = False
         Me.FTMatColorCode.OptionsColumn.ReadOnly = True
         Me.FTMatColorCode.Visible = True
-        Me.FTMatColorCode.VisibleIndex = 8
+        Me.FTMatColorCode.VisibleIndex = 10
         Me.FTMatColorCode.Width = 22
         '
         'FTMatColorName
@@ -617,7 +669,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.FTMatColorName.OptionsColumn.AllowMove = False
         Me.FTMatColorName.OptionsColumn.ReadOnly = True
         Me.FTMatColorName.Visible = True
-        Me.FTMatColorName.VisibleIndex = 9
+        Me.FTMatColorName.VisibleIndex = 11
         Me.FTMatColorName.Width = 64
         '
         'FNHSysMatSizeId
@@ -637,7 +689,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.FTMatSizeCode.OptionsColumn.AllowMove = False
         Me.FTMatSizeCode.OptionsColumn.ReadOnly = True
         Me.FTMatSizeCode.Visible = True
-        Me.FTMatSizeCode.VisibleIndex = 10
+        Me.FTMatSizeCode.VisibleIndex = 12
         Me.FTMatSizeCode.Width = 27
         '
         'FTMatSizeName
@@ -649,7 +701,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.FTMatSizeName.OptionsColumn.AllowMove = False
         Me.FTMatSizeName.OptionsColumn.ReadOnly = True
         Me.FTMatSizeName.Visible = True
-        Me.FTMatSizeName.VisibleIndex = 11
+        Me.FTMatSizeName.VisibleIndex = 13
         Me.FTMatSizeName.Width = 37
         '
         'oColFNQunatity
@@ -663,7 +715,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.oColFNQunatity.OptionsColumn.ReadOnly = True
         Me.oColFNQunatity.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNQuantity", "{0:n0}")})
         Me.oColFNQunatity.Visible = True
-        Me.oColFNQunatity.VisibleIndex = 12
+        Me.oColFNQunatity.VisibleIndex = 17
         Me.oColFNQunatity.Width = 27
         '
         'RepositoryItemCalcEditReal0
@@ -688,7 +740,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.oColFNPrice.OptionsColumn.AllowShowHide = False
         Me.oColFNPrice.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNPrice", "{0:n2}")})
         Me.oColFNPrice.Visible = True
-        Me.oColFNPrice.VisibleIndex = 13
+        Me.oColFNPrice.VisibleIndex = 18
         Me.oColFNPrice.Width = 27
         '
         'RepositoryItemCalcEditReal2
@@ -713,7 +765,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.FNPriceOrg.OptionsColumn.AllowShowHide = False
         Me.FNPriceOrg.OptionsColumn.ReadOnly = True
         Me.FNPriceOrg.Visible = True
-        Me.FNPriceOrg.VisibleIndex = 14
+        Me.FNPriceOrg.VisibleIndex = 19
         Me.FNPriceOrg.Width = 34
         '
         'FNPriceDiff
@@ -728,7 +780,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.FNPriceDiff.OptionsColumn.AllowShowHide = False
         Me.FNPriceDiff.OptionsColumn.ReadOnly = True
         Me.FNPriceDiff.Visible = True
-        Me.FNPriceDiff.VisibleIndex = 15
+        Me.FNPriceDiff.VisibleIndex = 20
         Me.FNPriceDiff.Width = 34
         '
         'CFNOperateFeeAmt
@@ -749,7 +801,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.CFNOperateFeeAmt.OptionsColumn.AllowShowHide = False
         Me.CFNOperateFeeAmt.OptionsColumn.ReadOnly = True
         Me.CFNOperateFeeAmt.Visible = True
-        Me.CFNOperateFeeAmt.VisibleIndex = 16
+        Me.CFNOperateFeeAmt.VisibleIndex = 21
         '
         'CFNNetFOB
         '
@@ -769,7 +821,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.CFNNetFOB.OptionsColumn.AllowShowHide = False
         Me.CFNNetFOB.OptionsColumn.ReadOnly = True
         Me.CFNNetFOB.Visible = True
-        Me.CFNNetFOB.VisibleIndex = 17
+        Me.CFNNetFOB.VisibleIndex = 22
         '
         'oColFNAmt
         '
@@ -783,7 +835,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.oColFNAmt.OptionsColumn.ReadOnly = True
         Me.oColFNAmt.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNAmt", "{0:n2}")})
         Me.oColFNAmt.Visible = True
-        Me.oColFNAmt.VisibleIndex = 18
+        Me.oColFNAmt.VisibleIndex = 23
         Me.oColFNAmt.Width = 27
         '
         'oColFNExtraQty
@@ -796,7 +848,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.oColFNExtraQty.OptionsColumn.AllowMove = False
         Me.oColFNExtraQty.OptionsColumn.ReadOnly = True
         Me.oColFNExtraQty.Visible = True
-        Me.oColFNExtraQty.VisibleIndex = 19
+        Me.oColFNExtraQty.VisibleIndex = 25
         Me.oColFNExtraQty.Width = 27
         '
         'oColFNQuantityExtra
@@ -811,7 +863,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.oColFNQuantityExtra.OptionsColumn.ReadOnly = True
         Me.oColFNQuantityExtra.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNQuantityExtra", "{0:n0}")})
         Me.oColFNQuantityExtra.Visible = True
-        Me.oColFNQuantityExtra.VisibleIndex = 20
+        Me.oColFNQuantityExtra.VisibleIndex = 26
         Me.oColFNQuantityExtra.Width = 27
         '
         'oColFNGrandQuantity
@@ -826,7 +878,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.oColFNGrandQuantity.OptionsColumn.ReadOnly = True
         Me.oColFNGrandQuantity.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNGrandQuantity", "{0:n0}")})
         Me.oColFNGrandQuantity.Visible = True
-        Me.oColFNGrandQuantity.VisibleIndex = 21
+        Me.oColFNGrandQuantity.VisibleIndex = 27
         Me.oColFNGrandQuantity.Width = 27
         '
         'oColFNAmntExtra
@@ -841,7 +893,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.oColFNAmntExtra.OptionsColumn.ReadOnly = True
         Me.oColFNAmntExtra.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNAmntExtra", "{0:n2}")})
         Me.oColFNAmntExtra.Visible = True
-        Me.oColFNAmntExtra.VisibleIndex = 22
+        Me.oColFNAmntExtra.VisibleIndex = 28
         Me.oColFNAmntExtra.Width = 27
         '
         'oColFNGrandAmnt
@@ -856,7 +908,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.oColFNGrandAmnt.OptionsColumn.ReadOnly = True
         Me.oColFNGrandAmnt.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNGrandAmnt", "{0:n2}")})
         Me.oColFNGrandAmnt.Visible = True
-        Me.oColFNGrandAmnt.VisibleIndex = 23
+        Me.oColFNGrandAmnt.VisibleIndex = 29
         Me.oColFNGrandAmnt.Width = 27
         '
         'oColFNGarmentQtyTest
@@ -872,7 +924,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.oColFNGarmentQtyTest.OptionsColumn.ReadOnly = True
         Me.oColFNGarmentQtyTest.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNGarmentQtyTest", "{0:n0}")})
         Me.oColFNGarmentQtyTest.Visible = True
-        Me.oColFNGarmentQtyTest.VisibleIndex = 24
+        Me.oColFNGarmentQtyTest.VisibleIndex = 30
         Me.oColFNGarmentQtyTest.Width = 108
         '
         'RepositoryFNGarmentQtyTest
@@ -892,7 +944,7 @@ Partial Class wAdjustFOBPriceOrder
         Me.CFNExternalQtyTest.OptionsColumn.AllowEdit = False
         Me.CFNExternalQtyTest.OptionsColumn.ReadOnly = True
         Me.CFNExternalQtyTest.Visible = True
-        Me.CFNExternalQtyTest.VisibleIndex = 25
+        Me.CFNExternalQtyTest.VisibleIndex = 31
         '
         'oColBreakdownFTStyleCode
         '
@@ -951,6 +1003,48 @@ Partial Class wAdjustFOBPriceOrder
         Me.CFNHSysSeasonId.Caption = "FNHSysSeasonId"
         Me.CFNHSysSeasonId.FieldName = "FNHSysSeasonId"
         Me.CFNHSysSeasonId.Name = "CFNHSysSeasonId"
+        '
+        'xxFTShipModeCode
+        '
+        Me.xxFTShipModeCode.Caption = "Ship Mode"
+        Me.xxFTShipModeCode.FieldName = "FTShipModeCode"
+        Me.xxFTShipModeCode.Name = "xxFTShipModeCode"
+        Me.xxFTShipModeCode.OptionsColumn.AllowEdit = False
+        Me.xxFTShipModeCode.OptionsColumn.ReadOnly = True
+        Me.xxFTShipModeCode.Visible = True
+        Me.xxFTShipModeCode.VisibleIndex = 16
+        '
+        'xxFTPlantCode
+        '
+        Me.xxFTPlantCode.Caption = "Plant"
+        Me.xxFTPlantCode.FieldName = "FTPlantCode"
+        Me.xxFTPlantCode.Name = "xxFTPlantCode"
+        Me.xxFTPlantCode.OptionsColumn.AllowEdit = False
+        Me.xxFTPlantCode.OptionsColumn.ReadOnly = True
+        Me.xxFTPlantCode.Visible = True
+        Me.xxFTPlantCode.VisibleIndex = 15
+        '
+        'xxFTProvinceCode
+        '
+        Me.xxFTProvinceCode.Caption = "Province"
+        Me.xxFTProvinceCode.FieldName = "FTProvinceCode"
+        Me.xxFTProvinceCode.Name = "xxFTProvinceCode"
+        Me.xxFTProvinceCode.OptionsColumn.AllowEdit = False
+        Me.xxFTProvinceCode.OptionsColumn.ReadOnly = True
+        Me.xxFTProvinceCode.Visible = True
+        Me.xxFTProvinceCode.VisibleIndex = 14
+        '
+        'xFNNetPrice
+        '
+        Me.xFNNetPrice.Caption = "Net Price"
+        Me.xFNNetPrice.DisplayFormat.FormatString = "{0:n5}"
+        Me.xFNNetPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.xFNNetPrice.FieldName = "FNNetPrice"
+        Me.xFNNetPrice.Name = "xFNNetPrice"
+        Me.xFNNetPrice.OptionsColumn.AllowEdit = False
+        Me.xFNNetPrice.OptionsColumn.ReadOnly = True
+        Me.xFNNetPrice.Visible = True
+        Me.xFNNetPrice.VisibleIndex = 24
         '
         'wAdjustFOBPriceOrder
         '
@@ -1059,4 +1153,10 @@ Partial Class wAdjustFOBPriceOrder
     Friend WithEvents CFNNetFOB As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CFTOrderSetType As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CFNExternalQtyTest As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents sFTCmpCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents sFTStyleCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents xxFTProvinceCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents xxFTPlantCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents xxFTShipModeCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents xFNNetPrice As DevExpress.XtraGrid.Columns.GridColumn
 End Class

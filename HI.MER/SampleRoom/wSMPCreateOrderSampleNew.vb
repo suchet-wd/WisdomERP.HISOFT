@@ -666,15 +666,67 @@ Public Class wSMPCreateOrderSampleNew
             Next
 
         Next
+        Call LoadDetailGacDate(Key.ToString)
 
         Call LoadDetail(Key.ToString)
 
+        Call LoadCalMRPINfo(Key.ToString)
 
-        LoadCalMRPINfo(Key.ToString)
+        Call loadstatusProd(Key.ToString)
+
+        Call setStateToBulk(Key.ToString)
+
+
 
         _ProcLoad = False
         _FormLoad = False
 
+    End Sub
+
+    Private Sub LoadDetailGacDate(ByVal _DocRefNo As String)
+
+        Dim cmd As String = ""
+        Dim dt As DataTable
+
+        cmd = "  Select  max( X2.FTGACDate )  FTGACDate"
+
+        cmd &= vbCrLf & " FROM  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPOrder_Breakdown AS X2 WITH(NOLOCK)"
+        'cmd &= vbCrLf & " LEFT OUTER JOIN  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPOrderMasterPlan AS X22 WITH(NOLOCK)"
+        'cmd &= vbCrLf & " ON X2.FTSMPOrderNo = X22.FTSMPOrderNo AND X2.FTSizeBreakDown = X22.FTSizeBreakDown  AND X2.FTColorway = X22.FTColorway  "
+        cmd &= vbCrLf & " Where X2.FTSMPOrderNo ='" & HI.UL.ULF.rpQuoted(_DocRefNo) & "'"
+
+
+
+        dt = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_SAMPLE)
+
+        For Each R As DataRow In dt.Rows
+            Me.FDShipDate.Text = HI.UL.ULDate.ConvertEN(R!FTGACDate.ToString)
+        Next
+
+        dt.Dispose()
+
+
+
+    End Sub
+
+
+
+    Private Sub loadstatusProd(key As String)
+        Try
+            Dim _Cmd As String = ""
+            Dim _odt As DataTable
+            _Cmd = "  exec  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.SP_GET_ORDER_STATUS  '" & HI.UL.ULF.rpQuoted(key.ToString) & "'"
+            _odt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_SAMPLE)
+            For Each R As DataRow In _odt.Rows
+                'c.FTStateSubCut ,e.FTStateSubEmp , s.FTStateSubSew , q.FTStateSubQC
+                Me.FTStateSubCutting.Checked = R!FTStateSubCut.ToString = "1"
+                Me.FTStateSubEmb.Checked = R!FTStateSubEmp.ToString = "1"
+                Me.FTStateSubSewing.Checked = R!FTStateSubSew.ToString = "1"
+                Me.FTStateSubQC.Checked = R!FTStateSubQC.ToString = "1"
+            Next
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     'Private Function CheckOwner() As Boolean
@@ -1973,6 +2025,8 @@ Public Class wSMPCreateOrderSampleNew
 
         cmd &= vbCrLf & " ,Case When ISDATE(ISNULL(B.FTOGACDate,'')) = 1 THEN  Convert(nvarchar(10),Convert(Datetime,B.FTOGACDate),103) ELSE '' END AS FTOGACDate"
         cmd &= vbCrLf & " ,Case When ISDATE(ISNULL(B.FTGACDate,'')) = 1 THEN  Convert(nvarchar(10),Convert(Datetime,B.FTGACDate),103) ELSE '' END AS FTGACDate"
+        cmd &= vbCrLf & " ,SMPMP.FTCFMSendSampleDate  "
+
 
         cmd &= vbCrLf & " FROM "
         'cmd &= vbCrLf & "(Select FNListIndex + 1 As FNSeq, FTNameEN As FTSizeBreakDown"
@@ -1988,6 +2042,12 @@ Public Class wSMPCreateOrderSampleNew
         cmd &= vbCrLf & ") AS B "
         ' cmd &= vbCrLf & " ON A.FTSizeBreakDown=B.FTSizeBreakDown"
         cmd &= vbCrLf & "OUTER APPLY (SELECT TOP 1 X32.FNMatSizeSeq AS FNSeq From  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TMERMMatSize AS X32 WITH(NOLOCK) WHERE X32.FTMatSizeCode=B.FTSizeBreakDown ) AS A "
+
+        cmd &= vbCrLf & " outer apply ( select top 1   Case When ISDATE(SMPMP.FTCFMSendSampleDate) = 1 Then  convert(Datetime,SMPMP.FTCFMSendSampleDate) Else NULL END AS  FTCFMSendSampleDate     from   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrderMasterPlan As SMPMP With(NOLOCK)"
+        cmd &= vbCrLf & " where SMPMP.FTSMPOrderNo ='" & HI.UL.ULF.rpQuoted(_DocRefNo) & "'   And  SMPMP.FTSizeBreakDown =  B.FTSizeBreakDown  And SMPMP.FTColorway = B.FTColorway  ) as SMPMP "
+
+
+
         cmd &= vbCrLf & " ORDER BY A.FNSeq "
 
         dt = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_SAMPLE)
@@ -2261,9 +2321,7 @@ Public Class wSMPCreateOrderSampleNew
 
     End Sub
 
-    Private Sub FTSMPOrderNo_EditValueChanged(sender As Object, e As EventArgs) Handles FTSMPOrderNo.EditValueChanged
 
-    End Sub
 
     Private Sub FNHSysStyleId_EditValueChanged(sender As Object, e As EventArgs) Handles FNHSysStyleId.EditValueChanged
         If FNHSysStyleId.Text.Trim() <> "" Then
@@ -3359,6 +3417,7 @@ Public Class wSMPCreateOrderSampleNew
     Private Sub ocmrefresh_Click(sender As Object, e As EventArgs) Handles ocmrefresh.Click
         Call LoadSizeBreakdown()
         Call LoadRowMatDataFabric(True)
+        Call loadstatusProd(Me.FTSMPOrderNo.Text)
     End Sub
 
     Private Sub ocmimportcomponentfrombom_Click(sender As Object, e As EventArgs) Handles ocmimportcomponentfrombom.Click
@@ -3620,6 +3679,62 @@ Public Class wSMPCreateOrderSampleNew
 
         Catch ex As Exception
             e.Cancel = True
+        End Try
+    End Sub
+
+    Private Sub FDShipDate_EditValueChanged(sender As Object, e As EventArgs) Handles FDShipDate.EditValueChanged
+        Try
+            With DirectCast(Me.ogdBreakdown.DataSource, DataTable)
+                .AcceptChanges()
+                If .Rows.Count <= 0 Then Exit Sub
+
+                For Each R As DataRow In .Rows
+                    If R!FTOGACDate.ToString = "" Then
+                        R!FTOGACDate = Me.FDShipDate.Text
+                    End If
+                    R!FTGACDate = Me.FDShipDate.Text
+
+                Next
+            End With
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub ocmtwtobulk_Click(sender As Object, e As EventArgs) Handles ocmtwtobulk.Click
+        Try
+            If VerrifyData() Then
+                If (Me.FTStateToBulk.Checked) Then Exit Sub
+
+                If Not HI.MG.ShowMsg.mConfirmProcessDefaultNo("คุณต้องการโอนงานไปผลิตที่ Production ใช่หรือไม่ ? ", 2306011128, Me.Text) Then
+                    Exit Sub
+                End If
+
+                Dim _cmd As String = ""
+                _cmd = "exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.SP_Transfer_Order_To_Bulk @FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
+                If HI.Conn.SQLConn.ExecuteOnly(_cmd, Conn.DB.DataBaseName.DB_SAMPLE) Then
+                    HI.MG.ShowMsg.mInfo("โอนงานไปผลิตที่ Production เรียบร้อยแล้ว.....", 2304291355, Me.Text)
+                    Me.FTStateToBulk.Checked = True
+                End If
+
+
+
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+
+    Private Sub setStateToBulk(key As String)
+        Try
+            Dim _cmd As String = ""
+            _cmd = "select  top  1  FTOrderNo "
+            _cmd &= vbCrLf & " From    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo. TMERTOrder  O with(nolock) "
+            _cmd &= vbCrLf & " where  ftorderno ='" & HI.UL.ULF.rpQuoted(key) & "'"
+            Me.FTStateToBulk.Checked = HI.Conn.SQLConn.GetField(_cmd, Conn.DB.DataBaseName.DB_MERCHAN, "") <> ""
+        Catch ex As Exception
+
         End Try
     End Sub
 End Class

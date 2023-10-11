@@ -29,16 +29,9 @@ namespace HI.Track
             {
                 if (FNMonth.Text != "")
                 {
-                    if (FNHSysEmpTypeId.Text != "")
-                    {
-                        var _Spls = new HI.TL.SplashScreen("Loading...Data Please wait.");
-                        LoadDataInfo();
-                        _Spls.Close();
-                    }
-                    else
-                    {
-                        FNHSysEmpTypeId.Focus();
-                    }
+                    var _Spls = new HI.TL.SplashScreen("Loading...Data Please wait.");
+                    LoadDataInfo();
+                    _Spls.Close();
                 }
                 else
                 {
@@ -55,9 +48,9 @@ namespace HI.Track
 
         private void LoadDataInfo()
         {
-             String _Qry = " SELECT M.FTEmpCode ";
+            String _Qry = " SELECT M.FTEmpCode ";
 
-            if (HI.ST.Lang.Language.Equals(HI.ST.SysInfo.LanguageLocal))
+            if ((HI.ST.Lang.Language).ToString() == "TH")
             {
                 _Qry += "  ,P1.FTPreNameNameTH + ' ' + M.FTEmpNameTH + '  ' + M.FTEmpSurnameTH AS FTEmpName";
                 _Qry += "  ,ES.FTNameTH  AS FTEmpStatusName ";
@@ -124,10 +117,10 @@ namespace HI.Track
             _Qry += "  , SUM(ISNULL([113],0)) [113] ";
 
             _Qry += " , SUM(ISNULL([002],0)) [002] ";
-            _Qry += " , SUM(ISNULL([017],0)) [017] "; 
-            _Qry += " , SUM(ISNULL([008],0)) [008] "; 
-            _Qry += " , SUM(ISNULL([014],0)) [014] "; 
-            _Qry += " , SUM(ISNULL([050],0)) [050] "; 
+            _Qry += " , SUM(ISNULL([017],0)) [017] ";
+            _Qry += " , SUM(ISNULL([008],0)) [008] ";
+            _Qry += " , SUM(ISNULL([014],0)) [014] ";
+            _Qry += " , SUM(ISNULL([050],0)) [050] ";
             _Qry += " , SUM(ISNULL([011],0)) AS FNIncentiveAmt ";
 
             _Qry += " , (Right('00' + Convert(varchar(30),Convert(numeric(18,0),Floor(SUM(FNTotalWKNMin) / (FCHour * 60)))),2)" +
@@ -250,12 +243,20 @@ namespace HI.Track
             _Qry += " AND P.FTPayTerm in (SELECT DISTINCT PDT.FTPayTerm as PayTerm from HITECH_HR.dbo.THRMCfgPayDT AS PDT " +
                 " JOIN HITECH_MASTER.dbo.THRMEmpType AS ET WITH(NOLOCK) ON PDT.FNHSysEmpTypeId = ET.FNHSysEmpTypeId " +
                 " where FTPayYear = '" + HI.UL.ULF.rpQuoted(FTPayYear.Text) + "' AND PDT.FNMonth = " + (FNMonth.SelectedIndex + 1) + ")";
-
-            _Qry += "GROUP BY FTEmpCode, FTEmpNameEN, FTEmpSurnameEN, FTPreNameNameEN,ES.FTNameEN,ET.FTEmpTypeNameEN,Dept.FTDeptDescEN," +
+            if ((HI.ST.Lang.Language).ToString() == "TH")
+            {
+                _Qry += "GROUP BY FTEmpCode, FTEmpNameTH, FTEmpSurnameTH, FTPreNameNameTH,ES.FTNameTH,ET.FTEmpTypeNameTH,Dept.FTDeptDescTH," +
+                "OrgDiv.FTDivisonNameTH,OrgSect.FTSectNameTH,OrgUnitSect.FTUnitSectNameTH,OrgPosit.FTPositNameTH,ACG.FTAccountGroupCode," +
+                "ACG.FTAccountGroupNameTH,ET.FTEmpTypeCode,Dept.FTDeptCode,OrgDiv.FTDivisonCode,OrgSect.FTSectCode,OrgUnitSect.FTUnitSectCode," +
+                "OrgPosit.FTPositCode,M.FNEmpStatus,P.FTPayYear,P.FNHSysEmpID,P.FTEmpIdNo,FCHour ";
+            }
+            else
+            {
+                _Qry += "GROUP BY FTEmpCode, FTEmpNameEN, FTEmpSurnameEN, FTPreNameNameEN,ES.FTNameEN,ET.FTEmpTypeNameEN,Dept.FTDeptDescEN," +
                 "OrgDiv.FTDivisonNameEN,OrgSect.FTSectNameEN,OrgUnitSect.FTUnitSectNameEN,OrgPosit.FTPositNameEN,ACG.FTAccountGroupCode," +
                 "ACG.FTAccountGroupNameEN,ET.FTEmpTypeCode,Dept.FTDeptCode,OrgDiv.FTDivisonCode,OrgSect.FTSectCode,OrgUnitSect.FTUnitSectCode," +
                 "OrgPosit.FTPositCode,M.FNEmpStatus,P.FTPayYear,P.FNHSysEmpID,P.FTEmpIdNo,FCHour ";
-
+            }
             _Qry += " ORDER BY FTEmpCode ";
             ogc.DataSource = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR);
             ogv.ExpandAllGroups();

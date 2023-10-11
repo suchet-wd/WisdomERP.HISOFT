@@ -19,18 +19,73 @@ Partial Class wCreateInvForBooking
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject13 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions5 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject17 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject18 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject19 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject20 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions6 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject21 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject22 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject23 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject24 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions12 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject45 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject46 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject47 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject48 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions13 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject49 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject50 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject51 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject52 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions7 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject25 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject26 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject27 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject28 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions8 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject29 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject30 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject31 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject32 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions9 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject33 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject34 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject35 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject36 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions10 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject37 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject38 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject39 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject40 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions11 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject41 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject42 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject43 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject44 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
         Me.ocmedit = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmload = New DevExpress.XtraEditors.SimpleButton()
@@ -50,9 +105,9 @@ Partial Class wCreateInvForBooking
         Me.ogcPlandM = New DevExpress.XtraGrid.GridControl()
         Me.ogvPlandM = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.cFTInvoiceNo = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn50 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTPckPlanNo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn51 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn52 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn53 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn54 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn55 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -86,39 +141,74 @@ Partial Class wCreateInvForBooking
         Me.FDApproveDate = New DevExpress.XtraEditors.DateEdit()
         Me.FTApproveBy = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.oTabmasterInden = New DevExpress.XtraTab.XtraTabPage()
-        Me.GroupControl3 = New DevExpress.XtraEditors.GroupControl()
-        Me.FTFinalDestInfo_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
-        Me.FTSellerInfo_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTBuyerInfo_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTFinalDestInfo = New DevExpress.XtraEditors.MemoEdit()
-        Me.FTShipFromInfo = New DevExpress.XtraEditors.MemoEdit()
-        Me.FTSellerInfo = New DevExpress.XtraEditors.MemoEdit()
-        Me.FTBuyerInfo = New DevExpress.XtraEditors.MemoEdit()
-        Me.ogppackingpland = New DevExpress.XtraEditors.GroupControl()
-        Me.FTNote = New DevExpress.XtraEditors.TextEdit()
-        Me.FTSAPCODECmp = New DevExpress.XtraEditors.TextEdit()
-        Me.FTCustomerName = New DevExpress.XtraEditors.TextEdit()
-        Me.FTStateChinesReq = New DevExpress.XtraEditors.TextEdit()
-        Me.FTChineseShipToAddrName = New DevExpress.XtraEditors.TextEdit()
-        Me.FTStateHideShipFrom = New DevExpress.XtraEditors.TextEdit()
-        Me.FTPoTypeName = New DevExpress.XtraEditors.TextEdit()
-        Me.FTWorkFlowName = New DevExpress.XtraEditors.TextEdit()
-        Me.FTPlanRefNo = New DevExpress.XtraEditors.TextEdit()
-        Me.FTSAPCODECmp_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTNote_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTStateChinesReq_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTCustomerName_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTStateHideShipFrom_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTChineseShipToAddrName_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FNExtenDigitQty_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTPoTypeName_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FDPlanDate_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTWorkFlowName_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTPlanRefNo_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FDPlanDate = New DevExpress.XtraEditors.DateEdit()
-        Me.FNExtenDigitQty = New DevExpress.XtraEditors.CalcEdit()
+        Me.oTaborder = New DevExpress.XtraTab.XtraTabPage()
+        Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
+        Me.ogcPlandO = New DevExpress.XtraGrid.GridControl()
+        Me.ogvPlandO = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.colFTInvoiceNo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTPackNo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FDPackDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTPackBy = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNHSysStyleId = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTOrderNo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNOrderPackType = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNPackSetValue = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cFTRemark = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNHSysCmpId = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTStateHanger = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTCustomerPO = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNCartonNo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSubOrderNo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTColorway = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSizeBreakDown = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn75 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNHSysCartonId = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTCartonCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNPackCartonSubType = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTStyleCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNPackPerCarton = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTPOLine = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTGenderCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNNetNetWeight = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNNetWeight = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNGW = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.CBM = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn76 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemDateEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemDateEdit()
+        Me.RepositoryItemButtonEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn10 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn11 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn12 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn13 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemDateEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemDateEdit()
+        Me.GridColumn14 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemButtonEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.GridColumn15 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn16 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn17 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn18 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn61 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn62 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn63 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn64 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn65 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn66 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn67 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn68 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn69 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn70 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn71 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.otabdetailactual = New DevExpress.XtraTab.XtraTabPage()
         Me.ogcPlandD = New DevExpress.XtraGrid.GridControl()
         Me.ogvPlandD = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -158,7 +248,7 @@ Partial Class wCreateInvForBooking
         Me.GridColumn48 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn49 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GFTPORefNo = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager()
+        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.ogrpDocInfo = New DevExpress.XtraEditors.GroupControl()
         Me.FTRemark_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTHarmonizedCode = New DevExpress.XtraEditors.TextEdit()
@@ -216,27 +306,19 @@ Partial Class wCreateInvForBooking
         CType(Me.FDApproveDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FDApproveDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTApproveBy.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.oTabmasterInden.SuspendLayout()
-        CType(Me.GroupControl3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupControl3.SuspendLayout()
-        CType(Me.FTFinalDestInfo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTShipFromInfo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTSellerInfo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTBuyerInfo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogppackingpland, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogppackingpland.SuspendLayout()
-        CType(Me.FTNote.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTSAPCODECmp.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTCustomerName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateChinesReq.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTChineseShipToAddrName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateHideShipFrom.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTPoTypeName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTWorkFlowName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTPlanRefNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDPlanDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDPlanDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNExtenDigitQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.oTaborder.SuspendLayout()
+        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl1.SuspendLayout()
+        CType(Me.ogcPlandO, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ogvPlandO, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemDateEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemDateEdit2.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemButtonEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemDateEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemDateEdit1.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemButtonEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.otabdetailactual.SuspendLayout()
         CType(Me.ogcPlandD, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvPlandD, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -285,7 +367,7 @@ Partial Class wCreateInvForBooking
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmdelete)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmsave)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(451, 91)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(801, 91)
         Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(828, 97)
@@ -431,20 +513,22 @@ Partial Class wCreateInvForBooking
         Me.oTabPlanGen.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.oTabPlanGen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.oTabPlanGen.Location = New System.Drawing.Point(0, 257)
         Me.oTabPlanGen.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.oTabPlanGen.Name = "oTabPlanGen"
         Me.oTabPlanGen.SelectedTabPage = Me.oTabmaster
-        Me.oTabPlanGen.Size = New System.Drawing.Size(1376, 471)
+        Me.oTabPlanGen.Size = New System.Drawing.Size(1910, 471)
         Me.oTabPlanGen.TabIndex = 2
-        Me.oTabPlanGen.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.oTabmaster, Me.oTabmasterInden, Me.otabdetailactual})
+        Me.oTabPlanGen.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.oTabmaster, Me.oTaborder, Me.otabdetailactual})
         '
         'oTabmaster
         '
         Me.oTabmaster.Controls.Add(Me.GroupControl2)
         Me.oTabmaster.Controls.Add(Me.GroupControl4)
+        Me.oTabmaster.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.oTabmaster.Name = "oTabmaster"
-        Me.oTabmaster.Size = New System.Drawing.Size(1366, 434)
+        Me.oTabmaster.Size = New System.Drawing.Size(1373, 441)
         Me.oTabmaster.Text = "PACKAGE DETAIL"
         '
         'GroupControl2
@@ -453,25 +537,30 @@ Partial Class wCreateInvForBooking
         Me.GroupControl2.Controls.Add(Me.ogcPlandM)
         Me.GroupControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupControl2.Location = New System.Drawing.Point(0, 0)
+        Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(1366, 434)
+        Me.GroupControl2.Size = New System.Drawing.Size(1373, 441)
         Me.GroupControl2.TabIndex = 1
         Me.GroupControl2.Text = "PO SUMMARY"
         '
         'ogcPlandM
         '
         Me.ogcPlandM.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogcPlandM.Location = New System.Drawing.Point(2, 27)
+        Me.ogcPlandM.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        GridLevelNode1.RelationName = "Level1"
+        Me.ogcPlandM.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
+        Me.ogcPlandM.Location = New System.Drawing.Point(2, 28)
         Me.ogcPlandM.MainView = Me.ogvPlandM
+        Me.ogcPlandM.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogcPlandM.Name = "ogcPlandM"
         Me.ogcPlandM.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFDShipDate, Me.RepositoryItemFNHSysProvinceId})
-        Me.ogcPlandM.Size = New System.Drawing.Size(1362, 405)
+        Me.ogcPlandM.Size = New System.Drawing.Size(1711, 514)
         Me.ogcPlandM.TabIndex = 0
         Me.ogcPlandM.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvPlandM})
         '
         'ogvPlandM
         '
-        Me.ogvPlandM.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.cFTInvoiceNo, Me.GridColumn50, Me.GridColumn51, Me.GridColumn52, Me.GridColumn53, Me.GridColumn54, Me.GridColumn55, Me.GridColumn56, Me.GridColumn57, Me.GridColumn58, Me.GridColumn59, Me.GridColumn60, Me.cFDShipDate, Me.cFNHSysProvinceId, Me.cFNHSysDescRawMatId, Me.cFTMainMatSpec, Me.FNHSysProvinceId_hide, Me.GFTPlantCode, Me.cFNHSysCmpId, Me.cFTCmpCode, Me.cFTAddressInvoice, Me.cFNHSysCustId, Me.cFTCustCode, Me.FTCustNameEN, Me.FTShipModeCode, Me.cFNHSysShipModeId, Me.cFNHSysCountryId, Me.cFTPORefNo, Me.GFTDiamondMarkCode})
+        Me.ogvPlandM.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.cFTInvoiceNo, Me.FTPckPlanNo, Me.GridColumn51, Me.FNQuantity, Me.GridColumn53, Me.GridColumn54, Me.GridColumn55, Me.GridColumn56, Me.GridColumn57, Me.GridColumn58, Me.GridColumn59, Me.GridColumn60, Me.cFDShipDate, Me.cFNHSysProvinceId, Me.cFNHSysDescRawMatId, Me.cFTMainMatSpec, Me.FNHSysProvinceId_hide, Me.GFTPlantCode, Me.cFNHSysCmpId, Me.cFTCmpCode, Me.cFTAddressInvoice, Me.cFNHSysCustId, Me.cFTCustCode, Me.FTCustNameEN, Me.FTShipModeCode, Me.cFNHSysShipModeId, Me.cFNHSysCountryId, Me.cFTPORefNo, Me.GFTDiamondMarkCode})
         Me.ogvPlandM.GridControl = Me.ogcPlandM
         Me.ogvPlandM.Name = "ogvPlandM"
         Me.ogvPlandM.OptionsView.ColumnAutoWidth = False
@@ -487,15 +576,15 @@ Partial Class wCreateInvForBooking
         Me.cFTInvoiceNo.VisibleIndex = 0
         Me.cFTInvoiceNo.Width = 157
         '
-        'GridColumn50
+        'FTPckPlanNo
         '
-        Me.GridColumn50.Caption = "FTPckPlanNo"
-        Me.GridColumn50.FieldName = "FTPckPlanNo"
-        Me.GridColumn50.Name = "GridColumn50"
-        Me.GridColumn50.OptionsColumn.AllowEdit = False
-        Me.GridColumn50.Visible = True
-        Me.GridColumn50.VisibleIndex = 1
-        Me.GridColumn50.Width = 134
+        Me.FTPckPlanNo.Caption = "FTPckPlanNo"
+        Me.FTPckPlanNo.FieldName = "FTPckPlanNo"
+        Me.FTPckPlanNo.Name = "FTPckPlanNo"
+        Me.FTPckPlanNo.OptionsColumn.AllowEdit = False
+        Me.FTPckPlanNo.Visible = True
+        Me.FTPckPlanNo.VisibleIndex = 1
+        Me.FTPckPlanNo.Width = 134
         '
         'GridColumn51
         '
@@ -507,18 +596,18 @@ Partial Class wCreateInvForBooking
         Me.GridColumn51.VisibleIndex = 2
         Me.GridColumn51.Width = 143
         '
-        'GridColumn52
+        'FNQuantity
         '
-        Me.GridColumn52.Caption = "FNQuantity"
-        Me.GridColumn52.DisplayFormat.FormatString = "N0"
-        Me.GridColumn52.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn52.FieldName = "FNQuantity"
-        Me.GridColumn52.Name = "GridColumn52"
-        Me.GridColumn52.OptionsColumn.AllowEdit = False
-        Me.GridColumn52.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNQuantity", "{0:0.##}")})
-        Me.GridColumn52.Visible = True
-        Me.GridColumn52.VisibleIndex = 3
-        Me.GridColumn52.Width = 80
+        Me.FNQuantity.Caption = "FNQuantity"
+        Me.FNQuantity.DisplayFormat.FormatString = "N0"
+        Me.FNQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNQuantity.FieldName = "FNQuantity"
+        Me.FNQuantity.Name = "FNQuantity"
+        Me.FNQuantity.OptionsColumn.AllowEdit = False
+        Me.FNQuantity.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNQuantity", "{0:0.##}")})
+        Me.FNQuantity.Visible = True
+        Me.FNQuantity.VisibleIndex = 3
+        Me.FNQuantity.Width = 80
         '
         'GridColumn53
         '
@@ -638,7 +727,7 @@ Partial Class wCreateInvForBooking
         'RepositoryItemFNHSysProvinceId
         '
         Me.RepositoryItemFNHSysProvinceId.AutoHeight = False
-        Me.RepositoryItemFNHSysProvinceId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", "491", Nothing, True)})
+        Me.RepositoryItemFNHSysProvinceId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "491", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryItemFNHSysProvinceId.Name = "RepositoryItemFNHSysProvinceId"
         '
         'cFNHSysDescRawMatId
@@ -656,7 +745,7 @@ Partial Class wCreateInvForBooking
         Me.cFTMainMatSpec.OptionsColumn.AllowEdit = False
         Me.cFTMainMatSpec.Visible = True
         Me.cFTMainMatSpec.VisibleIndex = 14
-        Me.cFTMainMatSpec.Width = 403
+        Me.cFTMainMatSpec.Width = 402
         '
         'FNHSysProvinceId_hide
         '
@@ -690,7 +779,7 @@ Partial Class wCreateInvForBooking
         Me.cFTCmpCode.OptionsColumn.AllowEdit = False
         Me.cFTCmpCode.Visible = True
         Me.cFTCmpCode.VisibleIndex = 15
-        Me.cFTCmpCode.Width = 102
+        Me.cFTCmpCode.Width = 101
         '
         'cFTAddressInvoice
         '
@@ -717,7 +806,7 @@ Partial Class wCreateInvForBooking
         Me.cFTCustCode.OptionsColumn.AllowEdit = False
         Me.cFTCustCode.Visible = True
         Me.cFTCustCode.VisibleIndex = 17
-        Me.cFTCustCode.Width = 116
+        Me.cFTCustCode.Width = 115
         '
         'FTCustNameEN
         '
@@ -775,15 +864,17 @@ Partial Class wCreateInvForBooking
         Me.GroupControl4.Controls.Add(Me.FTApproveBy)
         Me.GroupControl4.Controls.Add(Me.LabelControl1)
         Me.GroupControl4.Location = New System.Drawing.Point(0, 0)
+        Me.GroupControl4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl4.Name = "GroupControl4"
-        Me.GroupControl4.Size = New System.Drawing.Size(1242, 76)
+        Me.GroupControl4.Size = New System.Drawing.Size(994, 61)
         Me.GroupControl4.TabIndex = 0
         Me.GroupControl4.Text = "Document Info"
         Me.GroupControl4.Visible = False
         '
         'FTApproveState
         '
-        Me.FTApproveState.Location = New System.Drawing.Point(25, 36)
+        Me.FTApproveState.Location = New System.Drawing.Point(24, 36)
+        Me.FTApproveState.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FTApproveState.Name = "FTApproveState"
         Me.FTApproveState.Properties.AutoHeight = False
         Me.FTApproveState.Properties.Caption = "สถานะตรวจสอบเอกสาร"
@@ -800,6 +891,7 @@ Partial Class wCreateInvForBooking
         Me.LabelControl3.AutoEllipsis = True
         Me.LabelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.LabelControl3.Location = New System.Drawing.Point(629, 37)
+        Me.LabelControl3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(199, 16)
         Me.LabelControl3.TabIndex = 4
@@ -808,9 +900,10 @@ Partial Class wCreateInvForBooking
         'FDApproveDate
         '
         Me.FDApproveDate.EditValue = Nothing
-        Me.FDApproveDate.Location = New System.Drawing.Point(836, 35)
+        Me.FDApproveDate.Location = New System.Drawing.Point(836, 34)
+        Me.FDApproveDate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FDApproveDate.Name = "FDApproveDate"
-        Me.FDApproveDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", Nothing, Nothing, True)})
+        Me.FDApproveDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FDApproveDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FDApproveDate.Properties.DisplayFormat.FormatString = ""
         Me.FDApproveDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
@@ -819,15 +912,16 @@ Partial Class wCreateInvForBooking
         Me.FDApproveDate.Properties.Mask.EditMask = ""
         Me.FDApproveDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None
         Me.FDApproveDate.Properties.ReadOnly = True
-        Me.FDApproveDate.Size = New System.Drawing.Size(149, 23)
+        Me.FDApproveDate.Size = New System.Drawing.Size(149, 22)
         Me.FDApproveDate.TabIndex = 5
         '
         'FTApproveBy
         '
-        Me.FTApproveBy.Location = New System.Drawing.Point(443, 35)
+        Me.FTApproveBy.Location = New System.Drawing.Point(443, 34)
+        Me.FTApproveBy.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FTApproveBy.Name = "FTApproveBy"
         Me.FTApproveBy.Properties.ReadOnly = True
-        Me.FTApproveBy.Size = New System.Drawing.Size(172, 23)
+        Me.FTApproveBy.Size = New System.Drawing.Size(171, 22)
         Me.FTApproveBy.TabIndex = 3
         '
         'LabelControl1
@@ -837,380 +931,698 @@ Partial Class wCreateInvForBooking
         Me.LabelControl1.AutoEllipsis = True
         Me.LabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.LabelControl1.Location = New System.Drawing.Point(246, 37)
+        Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(191, 16)
         Me.LabelControl1.TabIndex = 2
         Me.LabelControl1.Text = "ตรวจสอบเอกสารโดย :"
         '
-        'oTabmasterInden
-        '
-        Me.oTabmasterInden.Controls.Add(Me.GroupControl3)
-        Me.oTabmasterInden.Controls.Add(Me.ogppackingpland)
-        Me.oTabmasterInden.Name = "oTabmasterInden"
-        Me.oTabmasterInden.PageVisible = False
-        Me.oTabmasterInden.Size = New System.Drawing.Size(1369, 437)
-        Me.oTabmasterInden.Text = "XtraTabPage1"
-        '
-        'GroupControl3
-        '
-        Me.GroupControl3.Controls.Add(Me.FTFinalDestInfo_lbl)
-        Me.GroupControl3.Controls.Add(Me.LabelControl2)
-        Me.GroupControl3.Controls.Add(Me.FTSellerInfo_lbl)
-        Me.GroupControl3.Controls.Add(Me.FTBuyerInfo_lbl)
-        Me.GroupControl3.Controls.Add(Me.FTFinalDestInfo)
-        Me.GroupControl3.Controls.Add(Me.FTShipFromInfo)
-        Me.GroupControl3.Controls.Add(Me.FTSellerInfo)
-        Me.GroupControl3.Controls.Add(Me.FTBuyerInfo)
-        Me.GroupControl3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupControl3.Location = New System.Drawing.Point(0, 204)
-        Me.GroupControl3.Name = "GroupControl3"
-        Me.GroupControl3.Size = New System.Drawing.Size(1369, 233)
-        Me.GroupControl3.TabIndex = 2
-        Me.GroupControl3.Text = "PARTIES"
-        '
-        'FTFinalDestInfo_lbl
-        '
-        Me.FTFinalDestInfo_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTFinalDestInfo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTFinalDestInfo_lbl.AutoEllipsis = True
-        Me.FTFinalDestInfo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTFinalDestInfo_lbl.Location = New System.Drawing.Point(59, 236)
-        Me.FTFinalDestInfo_lbl.Name = "FTFinalDestInfo_lbl"
-        Me.FTFinalDestInfo_lbl.Size = New System.Drawing.Size(103, 16)
-        Me.FTFinalDestInfo_lbl.TabIndex = 0
-        Me.FTFinalDestInfo_lbl.Text = "Final Destination :"
-        '
-        'LabelControl2
-        '
-        Me.LabelControl2.Appearance.Options.UseTextOptions = True
-        Me.LabelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.LabelControl2.AutoEllipsis = True
-        Me.LabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl2.Location = New System.Drawing.Point(566, 256)
-        Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(68, 16)
-        Me.LabelControl2.TabIndex = 0
-        Me.LabelControl2.Text = "Ship From :"
-        '
-        'FTSellerInfo_lbl
-        '
-        Me.FTSellerInfo_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTSellerInfo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTSellerInfo_lbl.AutoEllipsis = True
-        Me.FTSellerInfo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSellerInfo_lbl.Location = New System.Drawing.Point(593, 31)
-        Me.FTSellerInfo_lbl.Name = "FTSellerInfo_lbl"
-        Me.FTSellerInfo_lbl.Size = New System.Drawing.Size(42, 16)
-        Me.FTSellerInfo_lbl.TabIndex = 0
-        Me.FTSellerInfo_lbl.Text = "Seller :"
-        '
-        'FTBuyerInfo_lbl
-        '
-        Me.FTBuyerInfo_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTBuyerInfo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTBuyerInfo_lbl.AutoEllipsis = True
-        Me.FTBuyerInfo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBuyerInfo_lbl.Location = New System.Drawing.Point(121, 30)
-        Me.FTBuyerInfo_lbl.Name = "FTBuyerInfo_lbl"
-        Me.FTBuyerInfo_lbl.Size = New System.Drawing.Size(41, 16)
-        Me.FTBuyerInfo_lbl.TabIndex = 0
-        Me.FTBuyerInfo_lbl.Text = "Buyer :"
-        '
-        'FTFinalDestInfo
-        '
-        Me.FTFinalDestInfo.Location = New System.Drawing.Point(185, 255)
-        Me.FTFinalDestInfo.Name = "FTFinalDestInfo"
-        Me.FTFinalDestInfo.Size = New System.Drawing.Size(290, 209)
-        Me.FTFinalDestInfo.TabIndex = 1
-        '
-        'FTShipFromInfo
-        '
-        Me.FTShipFromInfo.Location = New System.Drawing.Point(640, 255)
-        Me.FTShipFromInfo.Name = "FTShipFromInfo"
-        Me.FTShipFromInfo.Size = New System.Drawing.Size(310, 209)
-        Me.FTShipFromInfo.TabIndex = 1
-        '
-        'FTSellerInfo
-        '
-        Me.FTSellerInfo.Location = New System.Drawing.Point(640, 29)
-        Me.FTSellerInfo.Name = "FTSellerInfo"
-        Me.FTSellerInfo.Size = New System.Drawing.Size(310, 209)
-        Me.FTSellerInfo.TabIndex = 1
-        '
-        'FTBuyerInfo
-        '
-        Me.FTBuyerInfo.Location = New System.Drawing.Point(185, 28)
-        Me.FTBuyerInfo.Name = "FTBuyerInfo"
-        Me.FTBuyerInfo.Size = New System.Drawing.Size(285, 209)
-        Me.FTBuyerInfo.TabIndex = 1
-        '
-        'ogppackingpland
-        '
-        Me.ogppackingpland.Controls.Add(Me.FTNote)
-        Me.ogppackingpland.Controls.Add(Me.FTSAPCODECmp)
-        Me.ogppackingpland.Controls.Add(Me.FTCustomerName)
-        Me.ogppackingpland.Controls.Add(Me.FTStateChinesReq)
-        Me.ogppackingpland.Controls.Add(Me.FTChineseShipToAddrName)
-        Me.ogppackingpland.Controls.Add(Me.FTStateHideShipFrom)
-        Me.ogppackingpland.Controls.Add(Me.FTPoTypeName)
-        Me.ogppackingpland.Controls.Add(Me.FTWorkFlowName)
-        Me.ogppackingpland.Controls.Add(Me.FTPlanRefNo)
-        Me.ogppackingpland.Controls.Add(Me.FTSAPCODECmp_lbl)
-        Me.ogppackingpland.Controls.Add(Me.FTNote_lbl)
-        Me.ogppackingpland.Controls.Add(Me.FTStateChinesReq_lbl)
-        Me.ogppackingpland.Controls.Add(Me.FTCustomerName_lbl)
-        Me.ogppackingpland.Controls.Add(Me.FTStateHideShipFrom_lbl)
-        Me.ogppackingpland.Controls.Add(Me.FTChineseShipToAddrName_lbl)
-        Me.ogppackingpland.Controls.Add(Me.FNExtenDigitQty_lbl)
-        Me.ogppackingpland.Controls.Add(Me.FTPoTypeName_lbl)
-        Me.ogppackingpland.Controls.Add(Me.FDPlanDate_lbl)
-        Me.ogppackingpland.Controls.Add(Me.FTWorkFlowName_lbl)
-        Me.ogppackingpland.Controls.Add(Me.FTPlanRefNo_lbl)
-        Me.ogppackingpland.Controls.Add(Me.FDPlanDate)
-        Me.ogppackingpland.Controls.Add(Me.FNExtenDigitQty)
-        Me.ogppackingpland.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ogppackingpland.Location = New System.Drawing.Point(0, 0)
-        Me.ogppackingpland.Name = "ogppackingpland"
-        Me.ogppackingpland.Size = New System.Drawing.Size(1369, 204)
-        Me.ogppackingpland.TabIndex = 1
-        Me.ogppackingpland.Text = "IDENTIFICATION"
-        '
-        'FTNote
-        '
-        Me.FTNote.Location = New System.Drawing.Point(214, 149)
-        Me.FTNote.Name = "FTNote"
-        Me.FTNote.Size = New System.Drawing.Size(256, 23)
-        Me.FTNote.TabIndex = 1
-        '
-        'FTSAPCODECmp
-        '
-        Me.FTSAPCODECmp.Location = New System.Drawing.Point(694, 126)
-        Me.FTSAPCODECmp.Name = "FTSAPCODECmp"
-        Me.FTSAPCODECmp.Size = New System.Drawing.Size(256, 23)
-        Me.FTSAPCODECmp.TabIndex = 1
-        '
-        'FTCustomerName
-        '
-        Me.FTCustomerName.Location = New System.Drawing.Point(214, 125)
-        Me.FTCustomerName.Name = "FTCustomerName"
-        Me.FTCustomerName.Size = New System.Drawing.Size(256, 23)
-        Me.FTCustomerName.TabIndex = 1
-        '
-        'FTStateChinesReq
-        '
-        Me.FTStateChinesReq.Location = New System.Drawing.Point(694, 102)
-        Me.FTStateChinesReq.Name = "FTStateChinesReq"
-        Me.FTStateChinesReq.Size = New System.Drawing.Size(256, 23)
-        Me.FTStateChinesReq.TabIndex = 1
-        '
-        'FTChineseShipToAddrName
-        '
-        Me.FTChineseShipToAddrName.Location = New System.Drawing.Point(214, 101)
-        Me.FTChineseShipToAddrName.Name = "FTChineseShipToAddrName"
-        Me.FTChineseShipToAddrName.Size = New System.Drawing.Size(256, 23)
-        Me.FTChineseShipToAddrName.TabIndex = 1
-        '
-        'FTStateHideShipFrom
-        '
-        Me.FTStateHideShipFrom.Location = New System.Drawing.Point(694, 78)
-        Me.FTStateHideShipFrom.Name = "FTStateHideShipFrom"
-        Me.FTStateHideShipFrom.Size = New System.Drawing.Size(256, 23)
-        Me.FTStateHideShipFrom.TabIndex = 1
-        '
-        'FTPoTypeName
-        '
-        Me.FTPoTypeName.Location = New System.Drawing.Point(214, 77)
-        Me.FTPoTypeName.Name = "FTPoTypeName"
-        Me.FTPoTypeName.Size = New System.Drawing.Size(256, 23)
-        Me.FTPoTypeName.TabIndex = 1
-        '
-        'FTWorkFlowName
-        '
-        Me.FTWorkFlowName.Location = New System.Drawing.Point(214, 52)
-        Me.FTWorkFlowName.Name = "FTWorkFlowName"
-        Me.FTWorkFlowName.Size = New System.Drawing.Size(256, 23)
-        Me.FTWorkFlowName.TabIndex = 1
-        '
-        'FTPlanRefNo
-        '
-        Me.FTPlanRefNo.Location = New System.Drawing.Point(214, 27)
-        Me.FTPlanRefNo.Name = "FTPlanRefNo"
-        Me.FTPlanRefNo.Size = New System.Drawing.Size(256, 23)
-        Me.FTPlanRefNo.TabIndex = 1
-        '
-        'FTSAPCODECmp_lbl
-        '
-        Me.FTSAPCODECmp_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTSAPCODECmp_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTSAPCODECmp_lbl.AutoEllipsis = True
-        Me.FTSAPCODECmp_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSAPCODECmp_lbl.Location = New System.Drawing.Point(487, 128)
-        Me.FTSAPCODECmp_lbl.Name = "FTSAPCODECmp_lbl"
-        Me.FTSAPCODECmp_lbl.Size = New System.Drawing.Size(201, 16)
-        Me.FTSAPCODECmp_lbl.TabIndex = 0
-        Me.FTSAPCODECmp_lbl.Text = "SAP COMPANY CODE  : "
-        '
-        'FTNote_lbl
-        '
-        Me.FTNote_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTNote_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTNote_lbl.AutoEllipsis = True
-        Me.FTNote_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTNote_lbl.Location = New System.Drawing.Point(171, 152)
-        Me.FTNote_lbl.Name = "FTNote_lbl"
-        Me.FTNote_lbl.Size = New System.Drawing.Size(35, 16)
-        Me.FTNote_lbl.TabIndex = 0
-        Me.FTNote_lbl.Text = "Note :"
-        '
-        'FTStateChinesReq_lbl
-        '
-        Me.FTStateChinesReq_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTStateChinesReq_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTStateChinesReq_lbl.AutoEllipsis = True
-        Me.FTStateChinesReq_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTStateChinesReq_lbl.Location = New System.Drawing.Point(487, 104)
-        Me.FTStateChinesReq_lbl.Name = "FTStateChinesReq_lbl"
-        Me.FTStateChinesReq_lbl.Size = New System.Drawing.Size(199, 16)
-        Me.FTStateChinesReq_lbl.TabIndex = 0
-        Me.FTStateChinesReq_lbl.Text = "CHINESE SHIP-TO REQUIRED :"
-        '
-        'FTCustomerName_lbl
-        '
-        Me.FTCustomerName_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTCustomerName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTCustomerName_lbl.AutoEllipsis = True
-        Me.FTCustomerName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTCustomerName_lbl.Location = New System.Drawing.Point(131, 126)
-        Me.FTCustomerName_lbl.Name = "FTCustomerName_lbl"
-        Me.FTCustomerName_lbl.Size = New System.Drawing.Size(79, 16)
-        Me.FTCustomerName_lbl.TabIndex = 0
-        Me.FTCustomerName_lbl.Text = "CUSTOMER : "
-        '
-        'FTStateHideShipFrom_lbl
-        '
-        Me.FTStateHideShipFrom_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTStateHideShipFrom_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTStateHideShipFrom_lbl.AutoEllipsis = True
-        Me.FTStateHideShipFrom_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTStateHideShipFrom_lbl.Location = New System.Drawing.Point(487, 83)
-        Me.FTStateHideShipFrom_lbl.Name = "FTStateHideShipFrom_lbl"
-        Me.FTStateHideShipFrom_lbl.Size = New System.Drawing.Size(199, 16)
-        Me.FTStateHideShipFrom_lbl.TabIndex = 0
-        Me.FTStateHideShipFrom_lbl.Text = "HIDE SHIP FROM :"
-        '
-        'FTChineseShipToAddrName_lbl
-        '
-        Me.FTChineseShipToAddrName_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTChineseShipToAddrName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTChineseShipToAddrName_lbl.AutoEllipsis = True
-        Me.FTChineseShipToAddrName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTChineseShipToAddrName_lbl.Location = New System.Drawing.Point(35, 104)
-        Me.FTChineseShipToAddrName_lbl.Name = "FTChineseShipToAddrName_lbl"
-        Me.FTChineseShipToAddrName_lbl.Size = New System.Drawing.Size(171, 16)
-        Me.FTChineseShipToAddrName_lbl.TabIndex = 0
-        Me.FTChineseShipToAddrName_lbl.Text = "CHINESE SHIP-TO ADDRESS :"
-        '
-        'FNExtenDigitQty_lbl
-        '
-        Me.FNExtenDigitQty_lbl.Appearance.Options.UseTextOptions = True
-        Me.FNExtenDigitQty_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FNExtenDigitQty_lbl.AutoEllipsis = True
-        Me.FNExtenDigitQty_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNExtenDigitQty_lbl.Location = New System.Drawing.Point(487, 56)
-        Me.FNExtenDigitQty_lbl.Name = "FNExtenDigitQty_lbl"
-        Me.FNExtenDigitQty_lbl.Size = New System.Drawing.Size(199, 16)
-        Me.FNExtenDigitQty_lbl.TabIndex = 0
-        Me.FNExtenDigitQty_lbl.Text = "Extension Digit :"
-        '
-        'FTPoTypeName_lbl
-        '
-        Me.FTPoTypeName_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTPoTypeName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTPoTypeName_lbl.AutoEllipsis = True
-        Me.FTPoTypeName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTPoTypeName_lbl.Location = New System.Drawing.Point(148, 81)
-        Me.FTPoTypeName_lbl.Name = "FTPoTypeName_lbl"
-        Me.FTPoTypeName_lbl.Size = New System.Drawing.Size(58, 16)
-        Me.FTPoTypeName_lbl.TabIndex = 0
-        Me.FTPoTypeName_lbl.Text = "PO TYPE :"
-        '
-        'FDPlanDate_lbl
-        '
-        Me.FDPlanDate_lbl.Appearance.Options.UseTextOptions = True
-        Me.FDPlanDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FDPlanDate_lbl.AutoEllipsis = True
-        Me.FDPlanDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDPlanDate_lbl.Location = New System.Drawing.Point(487, 30)
-        Me.FDPlanDate_lbl.Name = "FDPlanDate_lbl"
-        Me.FDPlanDate_lbl.Size = New System.Drawing.Size(199, 16)
-        Me.FDPlanDate_lbl.TabIndex = 0
-        Me.FDPlanDate_lbl.Text = "Plan Date :"
-        '
-        'FTWorkFlowName_lbl
-        '
-        Me.FTWorkFlowName_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTWorkFlowName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTWorkFlowName_lbl.AutoEllipsis = True
-        Me.FTWorkFlowName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTWorkFlowName_lbl.Location = New System.Drawing.Point(127, 56)
-        Me.FTWorkFlowName_lbl.Name = "FTWorkFlowName_lbl"
-        Me.FTWorkFlowName_lbl.Size = New System.Drawing.Size(79, 16)
-        Me.FTWorkFlowName_lbl.TabIndex = 0
-        Me.FTWorkFlowName_lbl.Text = "WORKFLOW :"
-        '
-        'FTPlanRefNo_lbl
-        '
-        Me.FTPlanRefNo_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTPlanRefNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTPlanRefNo_lbl.AutoEllipsis = True
-        Me.FTPlanRefNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTPlanRefNo_lbl.Location = New System.Drawing.Point(101, 29)
-        Me.FTPlanRefNo_lbl.Name = "FTPlanRefNo_lbl"
-        Me.FTPlanRefNo_lbl.Size = New System.Drawing.Size(105, 16)
-        Me.FTPlanRefNo_lbl.TabIndex = 0
-        Me.FTPlanRefNo_lbl.Text = "Plan Ref Number :"
-        '
-        'FDPlanDate
-        '
-        Me.FDPlanDate.EditValue = Nothing
-        Me.FDPlanDate.Location = New System.Drawing.Point(694, 28)
-        Me.FDPlanDate.Name = "FDPlanDate"
-        Me.FDPlanDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.FDPlanDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.FDPlanDate.Properties.DisplayFormat.FormatString = ""
-        Me.FDPlanDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FDPlanDate.Properties.EditFormat.FormatString = ""
-        Me.FDPlanDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FDPlanDate.Properties.Mask.EditMask = ""
-        Me.FDPlanDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None
-        Me.FDPlanDate.Size = New System.Drawing.Size(256, 23)
-        Me.FDPlanDate.TabIndex = 1
-        '
-        'FNExtenDigitQty
-        '
-        Me.FNExtenDigitQty.Location = New System.Drawing.Point(694, 53)
-        Me.FNExtenDigitQty.Name = "FNExtenDigitQty"
-        Me.FNExtenDigitQty.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, "", Nothing, Nothing, True)})
-        Me.FNExtenDigitQty.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None
-        Me.FNExtenDigitQty.Properties.Precision = 0
-        Me.FNExtenDigitQty.Size = New System.Drawing.Size(256, 23)
-        Me.FNExtenDigitQty.TabIndex = 1
+        'oTaborder
+        '
+        Me.oTaborder.Controls.Add(Me.GroupControl1)
+        Me.oTaborder.Controls.Add(Me.GridControl1)
+        Me.oTaborder.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.oTaborder.Name = "oTaborder"
+        Me.oTaborder.Size = New System.Drawing.Size(1908, 441)
+        Me.oTaborder.Tag = "2|"
+        Me.oTaborder.Text = "ORDER DETAIL"
+        '
+        'GroupControl1
+        '
+        Me.GroupControl1.Controls.Add(Me.ogcPlandO)
+        Me.GroupControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupControl1.Location = New System.Drawing.Point(0, 0)
+        Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupControl1.Name = "GroupControl1"
+        Me.GroupControl1.Size = New System.Drawing.Size(2385, 551)
+        Me.GroupControl1.TabIndex = 2
+        Me.GroupControl1.Text = "PO SUMMARY"
+        '
+        'ogcPlandO
+        '
+        Me.ogcPlandO.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcPlandO.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ogcPlandO.Location = New System.Drawing.Point(2, 28)
+        Me.ogcPlandO.MainView = Me.ogvPlandO
+        Me.ogcPlandO.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ogcPlandO.Name = "ogcPlandO"
+        Me.ogcPlandO.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemDateEdit2, Me.RepositoryItemButtonEdit2})
+        Me.ogcPlandO.Size = New System.Drawing.Size(2381, 521)
+        Me.ogcPlandO.TabIndex = 0
+        Me.ogcPlandO.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvPlandO})
+        '
+        'ogvPlandO
+        '
+        Me.ogvPlandO.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colFTInvoiceNo, Me.FTPackNo, Me.FDPackDate, Me.FTPackBy, Me.FNHSysStyleId, Me.FTOrderNo, Me.FNOrderPackType, Me.FNPackSetValue, Me.cFTRemark, Me.FNHSysCmpId, Me.FTStateHanger, Me.FTCustomerPO, Me.FNCartonNo, Me.FTSubOrderNo, Me.FTColorway, Me.FTSizeBreakDown, Me.GridColumn75, Me.FNHSysCartonId, Me.FTCartonCode, Me.FNPackCartonSubType, Me.FTStyleCode, Me.FNPackPerCarton, Me.FTPOLine, Me.FTGenderCode, Me.FNNetNetWeight, Me.FNNetWeight, Me.FNGW, Me.CBM, Me.GridColumn76})
+        Me.ogvPlandO.GridControl = Me.ogcPlandO
+        Me.ogvPlandO.Name = "ogvPlandO"
+        Me.ogvPlandO.OptionsView.ColumnAutoWidth = False
+        Me.ogvPlandO.OptionsView.ShowGroupPanel = False
+        '
+        'colFTInvoiceNo
+        '
+        Me.colFTInvoiceNo.Caption = "FTInvoiceNo"
+        Me.colFTInvoiceNo.FieldName = "FTInvoiceNo"
+        Me.colFTInvoiceNo.Name = "colFTInvoiceNo"
+        Me.colFTInvoiceNo.OptionsColumn.AllowEdit = False
+        Me.colFTInvoiceNo.Visible = True
+        Me.colFTInvoiceNo.VisibleIndex = 0
+        Me.colFTInvoiceNo.Width = 121
+        '
+        'FTPackNo
+        '
+        Me.FTPackNo.Caption = "FTPackNo"
+        Me.FTPackNo.FieldName = "FTPackNo"
+        Me.FTPackNo.Name = "FTPackNo"
+        Me.FTPackNo.OptionsColumn.AllowEdit = False
+        Me.FTPackNo.Visible = True
+        Me.FTPackNo.VisibleIndex = 1
+        Me.FTPackNo.Width = 134
+        '
+        'FDPackDate
+        '
+        Me.FDPackDate.Caption = "FDPackDate"
+        Me.FDPackDate.DisplayFormat.FormatString = "d"
+        Me.FDPackDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.FDPackDate.FieldName = "FDPackDate"
+        Me.FDPackDate.Name = "FDPackDate"
+        Me.FDPackDate.OptionsColumn.AllowEdit = False
+        Me.FDPackDate.Visible = True
+        Me.FDPackDate.VisibleIndex = 2
+        Me.FDPackDate.Width = 85
+        '
+        'FTPackBy
+        '
+        Me.FTPackBy.Caption = "FTPackBy"
+        Me.FTPackBy.FieldName = "FTPackBy"
+        Me.FTPackBy.MinWidth = 23
+        Me.FTPackBy.Name = "FTPackBy"
+        Me.FTPackBy.OptionsColumn.AllowEdit = False
+        Me.FTPackBy.Visible = True
+        Me.FTPackBy.VisibleIndex = 3
+        Me.FTPackBy.Width = 87
+        '
+        'FNHSysStyleId
+        '
+        Me.FNHSysStyleId.Caption = "FNHSysStyleId"
+        Me.FNHSysStyleId.FieldName = "FNHSysStyleId"
+        Me.FNHSysStyleId.Name = "FNHSysStyleId"
+        Me.FNHSysStyleId.OptionsColumn.AllowEdit = False
+        Me.FNHSysStyleId.Visible = True
+        Me.FNHSysStyleId.VisibleIndex = 4
+        '
+        'FTOrderNo
+        '
+        Me.FTOrderNo.Caption = "FTOrderNo"
+        Me.FTOrderNo.FieldName = "FTOrderNo"
+        Me.FTOrderNo.Name = "FTOrderNo"
+        Me.FTOrderNo.Visible = True
+        Me.FTOrderNo.VisibleIndex = 5
+        '
+        'FNOrderPackType
+        '
+        Me.FNOrderPackType.Caption = "FNOrderPackType"
+        Me.FNOrderPackType.FieldName = "FNOrderPackType"
+        Me.FNOrderPackType.Name = "FNOrderPackType"
+        Me.FNOrderPackType.OptionsColumn.AllowEdit = False
+        Me.FNOrderPackType.Visible = True
+        Me.FNOrderPackType.VisibleIndex = 6
+        '
+        'FNPackSetValue
+        '
+        Me.FNPackSetValue.Caption = "FNPackSetValue"
+        Me.FNPackSetValue.FieldName = "FNPackSetValue"
+        Me.FNPackSetValue.Name = "FNPackSetValue"
+        Me.FNPackSetValue.OptionsColumn.AllowEdit = False
+        Me.FNPackSetValue.Visible = True
+        Me.FNPackSetValue.VisibleIndex = 7
+        '
+        'cFTRemark
+        '
+        Me.cFTRemark.Caption = "FTRemark"
+        Me.cFTRemark.FieldName = "FTRemark"
+        Me.cFTRemark.Name = "cFTRemark"
+        Me.cFTRemark.OptionsColumn.AllowEdit = False
+        Me.cFTRemark.Visible = True
+        Me.cFTRemark.VisibleIndex = 8
+        Me.cFTRemark.Width = 99
+        '
+        'FNHSysCmpId
+        '
+        Me.FNHSysCmpId.Caption = "FNHSysCmpId"
+        Me.FNHSysCmpId.FieldName = "FNHSysCmpId"
+        Me.FNHSysCmpId.Name = "FNHSysCmpId"
+        Me.FNHSysCmpId.OptionsColumn.AllowEdit = False
+        Me.FNHSysCmpId.Visible = True
+        Me.FNHSysCmpId.VisibleIndex = 10
+        '
+        'FTStateHanger
+        '
+        Me.FTStateHanger.Caption = "FTStateHanger"
+        Me.FTStateHanger.FieldName = "FTStateHanger"
+        Me.FTStateHanger.Name = "FTStateHanger"
+        Me.FTStateHanger.OptionsColumn.AllowEdit = False
+        Me.FTStateHanger.Visible = True
+        Me.FTStateHanger.VisibleIndex = 11
+        '
+        'FTCustomerPO
+        '
+        Me.FTCustomerPO.Caption = "FTCustomerPO"
+        Me.FTCustomerPO.FieldName = "FTCustomerPO"
+        Me.FTCustomerPO.Name = "FTCustomerPO"
+        Me.FTCustomerPO.OptionsColumn.AllowEdit = False
+        Me.FTCustomerPO.Visible = True
+        Me.FTCustomerPO.VisibleIndex = 12
+        Me.FTCustomerPO.Width = 100
+        '
+        'FNCartonNo
+        '
+        Me.FNCartonNo.Caption = "FNCartonNo"
+        Me.FNCartonNo.DisplayFormat.FormatString = "N0"
+        Me.FNCartonNo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCartonNo.FieldName = "FNcartonno"
+        Me.FNCartonNo.Name = "FNCartonNo"
+        Me.FNCartonNo.OptionsColumn.AllowEdit = False
+        Me.FNCartonNo.Visible = True
+        Me.FNCartonNo.VisibleIndex = 13
+        Me.FNCartonNo.Width = 78
+        '
+        'FTSubOrderNo
+        '
+        Me.FTSubOrderNo.Caption = "FTSubOrderNo"
+        Me.FTSubOrderNo.FieldName = "FTSubOrderNo"
+        Me.FTSubOrderNo.Name = "FTSubOrderNo"
+        Me.FTSubOrderNo.OptionsColumn.AllowEdit = False
+        Me.FTSubOrderNo.Visible = True
+        Me.FTSubOrderNo.VisibleIndex = 14
+        Me.FTSubOrderNo.Width = 98
+        '
+        'FTColorway
+        '
+        Me.FTColorway.Caption = "FTColorway"
+        Me.FTColorway.FieldName = "FTColorway"
+        Me.FTColorway.Name = "FTColorway"
+        Me.FTColorway.OptionsColumn.AllowEdit = False
+        Me.FTColorway.Visible = True
+        Me.FTColorway.VisibleIndex = 15
+        Me.FTColorway.Width = 115
+        '
+        'FTSizeBreakDown
+        '
+        Me.FTSizeBreakDown.Caption = "FTSizeBreakDown"
+        Me.FTSizeBreakDown.FieldName = "FTSizeBreakDown"
+        Me.FTSizeBreakDown.Name = "FTSizeBreakDown"
+        Me.FTSizeBreakDown.OptionsColumn.AllowEdit = False
+        Me.FTSizeBreakDown.Visible = True
+        Me.FTSizeBreakDown.VisibleIndex = 16
+        '
+        'GridColumn75
+        '
+        Me.GridColumn75.Caption = "FNQuantity"
+        Me.GridColumn75.DisplayFormat.FormatString = "N0"
+        Me.GridColumn75.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn75.FieldName = "FNQuantity"
+        Me.GridColumn75.Name = "GridColumn75"
+        Me.GridColumn75.OptionsColumn.AllowEdit = False
+        Me.GridColumn75.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNQuantity", "{0:0.##}")})
+        Me.GridColumn75.Visible = True
+        Me.GridColumn75.VisibleIndex = 17
+        Me.GridColumn75.Width = 80
+        '
+        'FNHSysCartonId
+        '
+        Me.FNHSysCartonId.Caption = "FNHSysCartonId"
+        Me.FNHSysCartonId.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHSysCartonId.FieldName = "FNHSysCartonId"
+        Me.FNHSysCartonId.MinWidth = 23
+        Me.FNHSysCartonId.Name = "FNHSysCartonId"
+        Me.FNHSysCartonId.OptionsColumn.AllowEdit = False
+        Me.FNHSysCartonId.Visible = True
+        Me.FNHSysCartonId.VisibleIndex = 9
+        Me.FNHSysCartonId.Width = 87
+        '
+        'FTCartonCode
+        '
+        Me.FTCartonCode.Caption = "FTCartonCode"
+        Me.FTCartonCode.FieldName = "FTCartonCode"
+        Me.FTCartonCode.MinWidth = 23
+        Me.FTCartonCode.Name = "FTCartonCode"
+        Me.FTCartonCode.OptionsColumn.AllowEdit = False
+        Me.FTCartonCode.Visible = True
+        Me.FTCartonCode.VisibleIndex = 20
+        Me.FTCartonCode.Width = 87
+        '
+        'FNPackCartonSubType
+        '
+        Me.FNPackCartonSubType.Caption = "FNPackCartonSubType"
+        Me.FNPackCartonSubType.FieldName = "FNPackCartonSubType"
+        Me.FNPackCartonSubType.Name = "FNPackCartonSubType"
+        Me.FNPackCartonSubType.OptionsColumn.AllowEdit = False
+        Me.FNPackCartonSubType.Visible = True
+        Me.FNPackCartonSubType.VisibleIndex = 18
+        Me.FNPackCartonSubType.Width = 82
+        '
+        'FTStyleCode
+        '
+        Me.FTStyleCode.Caption = "FTStyleCode"
+        Me.FTStyleCode.FieldName = "FTStyleCode"
+        Me.FTStyleCode.Name = "FTStyleCode"
+        Me.FTStyleCode.OptionsColumn.AllowEdit = False
+        Me.FTStyleCode.Visible = True
+        Me.FTStyleCode.VisibleIndex = 22
+        Me.FTStyleCode.Width = 96
+        '
+        'FNPackPerCarton
+        '
+        Me.FNPackPerCarton.Caption = "FNPackPerCarton"
+        Me.FNPackPerCarton.FieldName = "FNPackPerCarton"
+        Me.FNPackPerCarton.Name = "FNPackPerCarton"
+        Me.FNPackPerCarton.OptionsColumn.AllowEdit = False
+        Me.FNPackPerCarton.Visible = True
+        Me.FNPackPerCarton.VisibleIndex = 19
+        '
+        'FTPOLine
+        '
+        Me.FTPOLine.Caption = "FTPOLine"
+        Me.FTPOLine.FieldName = "FTPOLine"
+        Me.FTPOLine.Name = "FTPOLine"
+        Me.FTPOLine.OptionsColumn.AllowEdit = False
+        Me.FTPOLine.Visible = True
+        Me.FTPOLine.VisibleIndex = 21
+        Me.FTPOLine.Width = 69
+        '
+        'FTGenderCode
+        '
+        Me.FTGenderCode.Caption = "FTGenderCode"
+        Me.FTGenderCode.FieldName = "FTGenderCode"
+        Me.FTGenderCode.MinWidth = 23
+        Me.FTGenderCode.Name = "FTGenderCode"
+        Me.FTGenderCode.OptionsColumn.AllowEdit = False
+        Me.FTGenderCode.Visible = True
+        Me.FTGenderCode.VisibleIndex = 23
+        Me.FTGenderCode.Width = 87
+        '
+        'FNNetNetWeight
+        '
+        Me.FNNetNetWeight.Caption = "FNNetNetWeight"
+        Me.FNNetNetWeight.DisplayFormat.FormatString = "N2"
+        Me.FNNetNetWeight.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNNetNetWeight.FieldName = "FNNetNetWeight"
+        Me.FNNetNetWeight.Name = "FNNetNetWeight"
+        Me.FNNetNetWeight.OptionsColumn.AllowEdit = False
+        Me.FNNetNetWeight.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNNet", "{0:0.##}")})
+        Me.FNNetNetWeight.Visible = True
+        Me.FNNetNetWeight.VisibleIndex = 24
+        '
+        'FNNetWeight
+        '
+        Me.FNNetWeight.Caption = "FNNetWeight"
+        Me.FNNetWeight.DisplayFormat.FormatString = "N2"
+        Me.FNNetWeight.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNNetWeight.FieldName = "FNNetWeight"
+        Me.FNNetWeight.Name = "FNNetWeight"
+        Me.FNNetWeight.OptionsColumn.AllowEdit = False
+        Me.FNNetWeight.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNTotalNet", "{0:0.##}")})
+        Me.FNNetWeight.Visible = True
+        Me.FNNetWeight.VisibleIndex = 25
+        '
+        'FNGW
+        '
+        Me.FNGW.Caption = "FNGW"
+        Me.FNGW.DisplayFormat.FormatString = "N2"
+        Me.FNGW.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNGW.FieldName = "FNGW"
+        Me.FNGW.Name = "FNGW"
+        Me.FNGW.OptionsColumn.AllowEdit = False
+        Me.FNGW.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNGrossWeight", "{0:0.##}")})
+        Me.FNGW.Visible = True
+        Me.FNGW.VisibleIndex = 26
+        '
+        'CBM
+        '
+        Me.CBM.Caption = "CBM"
+        Me.CBM.DisplayFormat.FormatString = "N3"
+        Me.CBM.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.CBM.FieldName = "CBM"
+        Me.CBM.MinWidth = 23
+        Me.CBM.Name = "CBM"
+        Me.CBM.OptionsColumn.AllowEdit = False
+        Me.CBM.Visible = True
+        Me.CBM.VisibleIndex = 27
+        Me.CBM.Width = 87
+        '
+        'GridColumn76
+        '
+        Me.GridColumn76.Caption = "FNPackcount"
+        Me.GridColumn76.DisplayFormat.FormatString = "N0"
+        Me.GridColumn76.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn76.FieldName = "FNPackcount"
+        Me.GridColumn76.Name = "GridColumn76"
+        Me.GridColumn76.OptionsColumn.AllowEdit = False
+        Me.GridColumn76.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNPackcount", "{0:0.##}")})
+        '
+        'RepositoryItemDateEdit2
+        '
+        Me.RepositoryItemDateEdit2.AutoHeight = False
+        Me.RepositoryItemDateEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemDateEdit2.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemDateEdit2.Name = "RepositoryItemDateEdit2"
+        '
+        'RepositoryItemButtonEdit2
+        '
+        Me.RepositoryItemButtonEdit2.AutoHeight = False
+        Me.RepositoryItemButtonEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "491", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryItemButtonEdit2.Name = "RepositoryItemButtonEdit2"
+        '
+        'GridControl1
+        '
+        Me.GridControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridControl1.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GridControl1.Location = New System.Drawing.Point(0, 0)
+        Me.GridControl1.MainView = Me.GridView1
+        Me.GridControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GridControl1.Name = "GridControl1"
+        Me.GridControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemDateEdit1, Me.RepositoryItemButtonEdit1})
+        Me.GridControl1.Size = New System.Drawing.Size(2385, 551)
+        Me.GridControl1.TabIndex = 1
+        Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        '
+        'GridView1
+        '
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn1, Me.GridColumn2, Me.GridColumn3, Me.GridColumn4, Me.GridColumn5, Me.GridColumn6, Me.GridColumn7, Me.GridColumn8, Me.GridColumn9, Me.GridColumn10, Me.GridColumn11, Me.GridColumn12, Me.GridColumn13, Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17, Me.GridColumn18, Me.GridColumn61, Me.GridColumn62, Me.GridColumn63, Me.GridColumn64, Me.GridColumn65, Me.GridColumn66, Me.GridColumn67, Me.GridColumn68, Me.GridColumn69, Me.GridColumn70, Me.GridColumn71})
+        Me.GridView1.GridControl = Me.GridControl1
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsView.ColumnAutoWidth = False
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn1
+        '
+        Me.GridColumn1.Caption = "FTInvoiceNo"
+        Me.GridColumn1.FieldName = "FTInvoiceNo"
+        Me.GridColumn1.Name = "GridColumn1"
+        Me.GridColumn1.OptionsColumn.AllowEdit = False
+        Me.GridColumn1.Visible = True
+        Me.GridColumn1.VisibleIndex = 0
+        Me.GridColumn1.Width = 157
+        '
+        'GridColumn2
+        '
+        Me.GridColumn2.Caption = "FTPckPlanNo"
+        Me.GridColumn2.FieldName = "FTPckPlanNo"
+        Me.GridColumn2.Name = "GridColumn2"
+        Me.GridColumn2.OptionsColumn.AllowEdit = False
+        Me.GridColumn2.Visible = True
+        Me.GridColumn2.VisibleIndex = 1
+        Me.GridColumn2.Width = 134
+        '
+        'GridColumn3
+        '
+        Me.GridColumn3.Caption = "FTPORef"
+        Me.GridColumn3.FieldName = "FTPORef"
+        Me.GridColumn3.Name = "GridColumn3"
+        Me.GridColumn3.OptionsColumn.AllowEdit = False
+        Me.GridColumn3.Visible = True
+        Me.GridColumn3.VisibleIndex = 2
+        Me.GridColumn3.Width = 143
+        '
+        'GridColumn4
+        '
+        Me.GridColumn4.Caption = "FNQuantity"
+        Me.GridColumn4.DisplayFormat.FormatString = "N0"
+        Me.GridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn4.FieldName = "FNQuantity"
+        Me.GridColumn4.Name = "GridColumn4"
+        Me.GridColumn4.OptionsColumn.AllowEdit = False
+        Me.GridColumn4.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNQuantity", "{0:0.##}")})
+        Me.GridColumn4.Visible = True
+        Me.GridColumn4.VisibleIndex = 3
+        Me.GridColumn4.Width = 80
+        '
+        'GridColumn5
+        '
+        Me.GridColumn5.Caption = "FNPackcount"
+        Me.GridColumn5.DisplayFormat.FormatString = "N0"
+        Me.GridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn5.FieldName = "FNPackcount"
+        Me.GridColumn5.Name = "GridColumn5"
+        Me.GridColumn5.OptionsColumn.AllowEdit = False
+        Me.GridColumn5.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNPackcount", "{0:0.##}")})
+        Me.GridColumn5.Visible = True
+        Me.GridColumn5.VisibleIndex = 4
+        '
+        'GridColumn6
+        '
+        Me.GridColumn6.Caption = "FNNet"
+        Me.GridColumn6.DisplayFormat.FormatString = "N2"
+        Me.GridColumn6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn6.FieldName = "FNNet"
+        Me.GridColumn6.Name = "GridColumn6"
+        Me.GridColumn6.OptionsColumn.AllowEdit = False
+        Me.GridColumn6.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNNet", "{0:0.##}")})
+        Me.GridColumn6.Visible = True
+        Me.GridColumn6.VisibleIndex = 5
+        '
+        'GridColumn7
+        '
+        Me.GridColumn7.Caption = "FNTotalNet"
+        Me.GridColumn7.DisplayFormat.FormatString = "N2"
+        Me.GridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn7.FieldName = "FNTotalNet"
+        Me.GridColumn7.Name = "GridColumn7"
+        Me.GridColumn7.OptionsColumn.AllowEdit = False
+        Me.GridColumn7.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNTotalNet", "{0:0.##}")})
+        Me.GridColumn7.Visible = True
+        Me.GridColumn7.VisibleIndex = 6
+        '
+        'GridColumn8
+        '
+        Me.GridColumn8.Caption = "FNGrossWeight"
+        Me.GridColumn8.DisplayFormat.FormatString = "N2"
+        Me.GridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn8.FieldName = "FNGrossWeight"
+        Me.GridColumn8.Name = "GridColumn8"
+        Me.GridColumn8.OptionsColumn.AllowEdit = False
+        Me.GridColumn8.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNGrossWeight", "{0:0.##}")})
+        Me.GridColumn8.Visible = True
+        Me.GridColumn8.VisibleIndex = 7
+        '
+        'GridColumn9
+        '
+        Me.GridColumn9.Caption = "FNHSysUnitId"
+        Me.GridColumn9.FieldName = "FNHSysUnitId"
+        Me.GridColumn9.Name = "GridColumn9"
+        Me.GridColumn9.OptionsColumn.AllowEdit = False
+        '
+        'GridColumn10
+        '
+        Me.GridColumn10.Caption = "FTUnitCode"
+        Me.GridColumn10.FieldName = "FTUnitCode"
+        Me.GridColumn10.Name = "GridColumn10"
+        Me.GridColumn10.OptionsColumn.AllowEdit = False
+        Me.GridColumn10.Visible = True
+        Me.GridColumn10.VisibleIndex = 8
+        '
+        'GridColumn11
+        '
+        Me.GridColumn11.Caption = "FNVol"
+        Me.GridColumn11.DisplayFormat.FormatString = "N3"
+        Me.GridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn11.FieldName = "FNVol"
+        Me.GridColumn11.Name = "GridColumn11"
+        Me.GridColumn11.OptionsColumn.AllowEdit = False
+        Me.GridColumn11.Visible = True
+        Me.GridColumn11.VisibleIndex = 9
+        '
+        'GridColumn12
+        '
+        Me.GridColumn12.Caption = "FTVolUnit"
+        Me.GridColumn12.FieldName = "FTVolUnit"
+        Me.GridColumn12.Name = "GridColumn12"
+        Me.GridColumn12.OptionsColumn.AllowEdit = False
+        Me.GridColumn12.Visible = True
+        Me.GridColumn12.VisibleIndex = 10
+        '
+        'GridColumn13
+        '
+        Me.GridColumn13.Caption = "FDShipDate"
+        Me.GridColumn13.ColumnEdit = Me.RepositoryItemDateEdit1
+        Me.GridColumn13.DisplayFormat.FormatString = "d"
+        Me.GridColumn13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.GridColumn13.FieldName = "FDShipDate"
+        Me.GridColumn13.Name = "GridColumn13"
+        Me.GridColumn13.OptionsColumn.AllowEdit = False
+        Me.GridColumn13.Visible = True
+        Me.GridColumn13.VisibleIndex = 11
+        Me.GridColumn13.Width = 131
+        '
+        'RepositoryItemDateEdit1
+        '
+        Me.RepositoryItemDateEdit1.AutoHeight = False
+        Me.RepositoryItemDateEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemDateEdit1.Name = "RepositoryItemDateEdit1"
+        '
+        'GridColumn14
+        '
+        Me.GridColumn14.Caption = "FNHSysProvinceId"
+        Me.GridColumn14.ColumnEdit = Me.RepositoryItemButtonEdit1
+        Me.GridColumn14.FieldName = "FNHSysProvinceId"
+        Me.GridColumn14.Name = "GridColumn14"
+        Me.GridColumn14.OptionsColumn.AllowEdit = False
+        Me.GridColumn14.Visible = True
+        Me.GridColumn14.VisibleIndex = 12
+        Me.GridColumn14.Width = 146
+        '
+        'RepositoryItemButtonEdit1
+        '
+        Me.RepositoryItemButtonEdit1.AutoHeight = False
+        Me.RepositoryItemButtonEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "491", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryItemButtonEdit1.Name = "RepositoryItemButtonEdit1"
+        '
+        'GridColumn15
+        '
+        Me.GridColumn15.Caption = "FNHSysDescRawMatId"
+        Me.GridColumn15.FieldName = "FNHSysDescRawMatId"
+        Me.GridColumn15.Name = "GridColumn15"
+        Me.GridColumn15.OptionsColumn.AllowEdit = False
+        '
+        'GridColumn16
+        '
+        Me.GridColumn16.Caption = "FTMainMatSpec"
+        Me.GridColumn16.FieldName = "FTMainMatSpec"
+        Me.GridColumn16.Name = "GridColumn16"
+        Me.GridColumn16.OptionsColumn.AllowEdit = False
+        Me.GridColumn16.Visible = True
+        Me.GridColumn16.VisibleIndex = 14
+        Me.GridColumn16.Width = 402
+        '
+        'GridColumn17
+        '
+        Me.GridColumn17.Caption = "GridColumn1"
+        Me.GridColumn17.FieldName = "FNHSysProvinceId_Hide"
+        Me.GridColumn17.Name = "GridColumn17"
+        Me.GridColumn17.OptionsColumn.AllowEdit = False
+        '
+        'GridColumn18
+        '
+        Me.GridColumn18.Caption = "FTPlantCode"
+        Me.GridColumn18.FieldName = "FTPlantCode"
+        Me.GridColumn18.Name = "GridColumn18"
+        Me.GridColumn18.OptionsColumn.AllowEdit = False
+        Me.GridColumn18.Visible = True
+        Me.GridColumn18.VisibleIndex = 13
+        Me.GridColumn18.Width = 104
+        '
+        'GridColumn61
+        '
+        Me.GridColumn61.Caption = "FNHSysCmpId"
+        Me.GridColumn61.FieldName = "FNHSysCmpId"
+        Me.GridColumn61.Name = "GridColumn61"
+        Me.GridColumn61.OptionsColumn.AllowEdit = False
+        '
+        'GridColumn62
+        '
+        Me.GridColumn62.Caption = "FTCmpCode"
+        Me.GridColumn62.FieldName = "FTCmpCode"
+        Me.GridColumn62.Name = "GridColumn62"
+        Me.GridColumn62.OptionsColumn.AllowEdit = False
+        Me.GridColumn62.Visible = True
+        Me.GridColumn62.VisibleIndex = 15
+        Me.GridColumn62.Width = 101
+        '
+        'GridColumn63
+        '
+        Me.GridColumn63.Caption = "FTAddressInvoice"
+        Me.GridColumn63.FieldName = "FTAddressInvoice"
+        Me.GridColumn63.Name = "GridColumn63"
+        Me.GridColumn63.OptionsColumn.AllowEdit = False
+        Me.GridColumn63.Visible = True
+        Me.GridColumn63.VisibleIndex = 16
+        Me.GridColumn63.Width = 115
+        '
+        'GridColumn64
+        '
+        Me.GridColumn64.Caption = "FNHSysCustId"
+        Me.GridColumn64.FieldName = "FNHSysCustId"
+        Me.GridColumn64.Name = "GridColumn64"
+        Me.GridColumn64.OptionsColumn.AllowEdit = False
+        '
+        'GridColumn65
+        '
+        Me.GridColumn65.Caption = "FTCustCode"
+        Me.GridColumn65.FieldName = "FTCustCode"
+        Me.GridColumn65.Name = "GridColumn65"
+        Me.GridColumn65.OptionsColumn.AllowEdit = False
+        Me.GridColumn65.Visible = True
+        Me.GridColumn65.VisibleIndex = 17
+        Me.GridColumn65.Width = 115
+        '
+        'GridColumn66
+        '
+        Me.GridColumn66.Caption = "FTCustNameEN"
+        Me.GridColumn66.FieldName = "FTCustNameEN"
+        Me.GridColumn66.Name = "GridColumn66"
+        Me.GridColumn66.OptionsColumn.AllowEdit = False
+        Me.GridColumn66.Visible = True
+        Me.GridColumn66.VisibleIndex = 18
+        Me.GridColumn66.Width = 136
+        '
+        'GridColumn67
+        '
+        Me.GridColumn67.Caption = "FTShipModeCode"
+        Me.GridColumn67.FieldName = "FTShipModeCode"
+        Me.GridColumn67.Name = "GridColumn67"
+        Me.GridColumn67.OptionsColumn.AllowEdit = False
+        Me.GridColumn67.Visible = True
+        Me.GridColumn67.VisibleIndex = 19
+        Me.GridColumn67.Width = 82
+        '
+        'GridColumn68
+        '
+        Me.GridColumn68.Caption = "FNHSysShipModeId"
+        Me.GridColumn68.FieldName = "FNHSysShipModeId"
+        Me.GridColumn68.Name = "GridColumn68"
+        Me.GridColumn68.OptionsColumn.AllowEdit = False
+        '
+        'GridColumn69
+        '
+        Me.GridColumn69.Caption = "FNHSysCountryId"
+        Me.GridColumn69.FieldName = "FNHSysCountryId"
+        Me.GridColumn69.Name = "GridColumn69"
+        Me.GridColumn69.OptionsColumn.AllowEdit = False
+        '
+        'GridColumn70
+        '
+        Me.GridColumn70.Caption = "FTPORefNo"
+        Me.GridColumn70.FieldName = "FTPORefNo"
+        Me.GridColumn70.Name = "GridColumn70"
+        Me.GridColumn70.OptionsColumn.AllowEdit = False
+        Me.GridColumn70.Width = 147
+        '
+        'GridColumn71
+        '
+        Me.GridColumn71.Caption = "FTDiamondMarkCode"
+        Me.GridColumn71.FieldName = "FTDiamondMarkCode"
+        Me.GridColumn71.Name = "GridColumn71"
         '
         'otabdetailactual
         '
         Me.otabdetailactual.Controls.Add(Me.ogcPlandD)
+        Me.otabdetailactual.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otabdetailactual.Name = "otabdetailactual"
-        Me.otabdetailactual.Size = New System.Drawing.Size(1369, 437)
+        Me.otabdetailactual.Size = New System.Drawing.Size(1373, 441)
         Me.otabdetailactual.Text = "PACKEGE DETALE ACTUAL"
         '
         'ogcPlandD
         '
         Me.ogcPlandD.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcPlandD.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogcPlandD.Location = New System.Drawing.Point(0, 0)
         Me.ogcPlandD.MainView = Me.ogvPlandD
+        Me.ogcPlandD.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogcPlandD.Name = "ogcPlandD"
         Me.ogcPlandD.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemFNFrom, Me.RepositoryItemFNTo, Me.RepositoryItemFTSelect})
-        Me.ogcPlandD.Size = New System.Drawing.Size(1369, 437)
+        Me.ogcPlandD.Size = New System.Drawing.Size(1373, 441)
         Me.ogcPlandD.TabIndex = 0
         Me.ogcPlandD.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvPlandD})
         '
@@ -1278,7 +1690,7 @@ Partial Class wCreateInvForBooking
         'RepositoryItemFNFrom
         '
         Me.RepositoryItemFNFrom.AutoHeight = False
-        Me.RepositoryItemFNFrom.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject4, "", Nothing, Nothing, True)})
+        Me.RepositoryItemFNFrom.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryItemFNFrom.CloseUpKey = New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2)
         Me.RepositoryItemFNFrom.DisplayFormat.FormatString = "N0"
         Me.RepositoryItemFNFrom.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
@@ -1299,7 +1711,7 @@ Partial Class wCreateInvForBooking
         'RepositoryItemFNTo
         '
         Me.RepositoryItemFNTo.AutoHeight = False
-        Me.RepositoryItemFNTo.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, "", Nothing, Nothing, True)})
+        Me.RepositoryItemFNTo.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryItemFNTo.DisplayFormat.FormatString = "N0"
         Me.RepositoryItemFNTo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.RepositoryItemFNTo.Name = "RepositoryItemFNTo"
@@ -1373,7 +1785,7 @@ Partial Class wCreateInvForBooking
         Me.GridColumn29.OptionsColumn.AllowEdit = False
         Me.GridColumn29.Visible = True
         Me.GridColumn29.VisibleIndex = 11
-        Me.GridColumn29.Width = 109
+        Me.GridColumn29.Width = 108
         '
         'GridColumn30
         '
@@ -1423,7 +1835,7 @@ Partial Class wCreateInvForBooking
         Me.GridColumn34.OptionsColumn.AllowEdit = False
         Me.GridColumn34.Visible = True
         Me.GridColumn34.VisibleIndex = 16
-        Me.GridColumn34.Width = 109
+        Me.GridColumn34.Width = 108
         '
         'GridColumn35
         '
@@ -1610,9 +2022,10 @@ Partial Class wCreateInvForBooking
         Me.ogrpDocInfo.Controls.Add(Me.LabelControl4)
         Me.ogrpDocInfo.Controls.Add(Me.FTInvoiceNo_lbl)
         Me.ogrpDocInfo.Controls.Add(Me.FTGenInvType)
-        Me.ogrpDocInfo.Location = New System.Drawing.Point(5, 3)
+        Me.ogrpDocInfo.Location = New System.Drawing.Point(5, 2)
+        Me.ogrpDocInfo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogrpDocInfo.Name = "ogrpDocInfo"
-        Me.ogrpDocInfo.Size = New System.Drawing.Size(1366, 144)
+        Me.ogrpDocInfo.Size = New System.Drawing.Size(1905, 144)
         Me.ogrpDocInfo.TabIndex = 3
         Me.ogrpDocInfo.Text = "Document Info."
         '
@@ -1635,9 +2048,10 @@ Partial Class wCreateInvForBooking
         '
         Me.FTHarmonizedCode.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTHarmonizedCode.Location = New System.Drawing.Point(767, 60)
+        Me.FTHarmonizedCode.Location = New System.Drawing.Point(766, 60)
+        Me.FTHarmonizedCode.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FTHarmonizedCode.Name = "FTHarmonizedCode"
-        Me.FTHarmonizedCode.Size = New System.Drawing.Size(592, 23)
+        Me.FTHarmonizedCode.Size = New System.Drawing.Size(1130, 22)
         Me.FTHarmonizedCode.TabIndex = 506
         Me.FTHarmonizedCode.Tag = "2|"
         Me.FTHarmonizedCode.Visible = False
@@ -1647,11 +2061,11 @@ Partial Class wCreateInvForBooking
         Me.FTRemark.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTRemark.EditValue = ""
-        Me.FTRemark.Location = New System.Drawing.Point(767, 63)
+        Me.FTRemark.Location = New System.Drawing.Point(766, 63)
         Me.FTRemark.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTRemark.Name = "FTRemark"
         Me.FTRemark.Properties.MaxLength = 500
-        Me.FTRemark.Size = New System.Drawing.Size(592, 72)
+        Me.FTRemark.Size = New System.Drawing.Size(1130, 71)
         Me.FTRemark.TabIndex = 538
         Me.FTRemark.Tag = "2|"
         '
@@ -1665,7 +2079,7 @@ Partial Class wCreateInvForBooking
         Me.LabelControl5.Location = New System.Drawing.Point(507, 59)
         Me.LabelControl5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(256, 22)
+        Me.LabelControl5.Size = New System.Drawing.Size(255, 22)
         Me.LabelControl5.TabIndex = 539
         Me.LabelControl5.Tag = "2|"
         Me.LabelControl5.Text = "HS CODE :"
@@ -1694,7 +2108,7 @@ Partial Class wCreateInvForBooking
         Me.FTInvoiceBy.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTInvoiceBy.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTInvoiceBy.Properties.ReadOnly = True
-        Me.FTInvoiceBy.Size = New System.Drawing.Size(273, 23)
+        Me.FTInvoiceBy.Size = New System.Drawing.Size(273, 22)
         Me.FTInvoiceBy.TabIndex = 513
         Me.FTInvoiceBy.TabStop = False
         Me.FTInvoiceBy.Tag = "2|"
@@ -1731,7 +2145,7 @@ Partial Class wCreateInvForBooking
         Me.FDInvoiceDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDInvoiceDate.Properties.NullDate = ""
         Me.FDInvoiceDate.Properties.ReadOnly = True
-        Me.FDInvoiceDate.Size = New System.Drawing.Size(273, 23)
+        Me.FDInvoiceDate.Size = New System.Drawing.Size(273, 22)
         Me.FDInvoiceDate.TabIndex = 511
         Me.FDInvoiceDate.Tag = "2|"
         '
@@ -1770,10 +2184,10 @@ Partial Class wCreateInvForBooking
         Me.FTInvoiceNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTInvoiceNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTInvoiceNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTInvoiceNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject11, "", "504", Nothing, True), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject12, "", "d", Nothing, True)})
+        Me.FTInvoiceNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "504", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTInvoiceNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTInvoiceNo.Properties.MaxLength = 30
-        Me.FTInvoiceNo.Size = New System.Drawing.Size(273, 23)
+        Me.FTInvoiceNo.Size = New System.Drawing.Size(273, 22)
         Me.FTInvoiceNo.TabIndex = 509
         Me.FTInvoiceNo.Tag = "2|"
         '
@@ -1787,7 +2201,7 @@ Partial Class wCreateInvForBooking
         Me.LabelControl4.Location = New System.Drawing.Point(568, 30)
         Me.LabelControl4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(193, 23)
+        Me.LabelControl4.Size = New System.Drawing.Size(192, 23)
         Me.LabelControl4.TabIndex = 510
         Me.LabelControl4.Tag = "2|"
         Me.LabelControl4.Text = "Select Invoice Generate Type :"
@@ -1802,24 +2216,25 @@ Partial Class wCreateInvForBooking
         Me.FTInvoiceNo_lbl.Location = New System.Drawing.Point(5, 30)
         Me.FTInvoiceNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTInvoiceNo_lbl.Name = "FTInvoiceNo_lbl"
-        Me.FTInvoiceNo_lbl.Size = New System.Drawing.Size(193, 23)
+        Me.FTInvoiceNo_lbl.Size = New System.Drawing.Size(192, 23)
         Me.FTInvoiceNo_lbl.TabIndex = 510
         Me.FTInvoiceNo_lbl.Tag = "2|"
         Me.FTInvoiceNo_lbl.Text = "Invoice No :"
         '
         'FTGenInvType
         '
-        Me.FTGenInvType.Location = New System.Drawing.Point(767, 31)
+        Me.FTGenInvType.Location = New System.Drawing.Point(766, 31)
+        Me.FTGenInvType.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FTGenInvType.Name = "FTGenInvType"
         Me.FTGenInvType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FTGenInvType.Properties.Tag = "FTGenInvType"
-        Me.FTGenInvType.Size = New System.Drawing.Size(247, 23)
+        Me.FTGenInvType.Size = New System.Drawing.Size(247, 22)
         Me.FTGenInvType.TabIndex = 508
         '
         'obtsave
         '
         Me.obtsave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.obtsave.Location = New System.Drawing.Point(1136, 744)
+        Me.obtsave.Location = New System.Drawing.Point(1675, 743)
         Me.obtsave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.obtsave.Name = "obtsave"
         Me.obtsave.Size = New System.Drawing.Size(111, 31)
@@ -1831,7 +2246,7 @@ Partial Class wCreateInvForBooking
         'obtclose
         '
         Me.obtclose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.obtclose.Location = New System.Drawing.Point(1253, 744)
+        Me.obtclose.Location = New System.Drawing.Point(1792, 743)
         Me.obtclose.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.obtclose.Name = "obtclose"
         Me.obtclose.Size = New System.Drawing.Size(111, 31)
@@ -1866,7 +2281,7 @@ Partial Class wCreateInvForBooking
         Me.ogbpayment.Location = New System.Drawing.Point(5, 154)
         Me.ogbpayment.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbpayment.Name = "ogbpayment"
-        Me.ogbpayment.Size = New System.Drawing.Size(1366, 95)
+        Me.ogbpayment.Size = New System.Drawing.Size(1905, 103)
         Me.ogbpayment.TabIndex = 453
         Me.ogbpayment.Text = "Payment Information"
         '
@@ -1877,10 +2292,10 @@ Partial Class wCreateInvForBooking
         Me.FDShipDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDShipDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDShipDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDShipDate_lbl.Location = New System.Drawing.Point(779, 57)
+        Me.FDShipDate_lbl.Location = New System.Drawing.Point(631, 64)
         Me.FDShipDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDShipDate_lbl.Name = "FDShipDate_lbl"
-        Me.FDShipDate_lbl.Size = New System.Drawing.Size(103, 23)
+        Me.FDShipDate_lbl.Size = New System.Drawing.Size(99, 23)
         Me.FDShipDate_lbl.TabIndex = 500
         Me.FDShipDate_lbl.Tag = "2|"
         Me.FDShipDate_lbl.Text = "FDShipDate :"
@@ -1892,14 +2307,13 @@ Partial Class wCreateInvForBooking
         Me.FTETD_lbl.Appearance.Options.UseTextOptions = True
         Me.FTETD_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTETD_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTETD_lbl.Location = New System.Drawing.Point(1046, 58)
+        Me.FTETD_lbl.Location = New System.Drawing.Point(876, 68)
         Me.FTETD_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTETD_lbl.Name = "FTETD_lbl"
-        Me.FTETD_lbl.Size = New System.Drawing.Size(103, 23)
+        Me.FTETD_lbl.Size = New System.Drawing.Size(89, 23)
         Me.FTETD_lbl.TabIndex = 500
         Me.FTETD_lbl.Tag = "2|"
         Me.FTETD_lbl.Text = "FTETD :"
-        Me.FTETD_lbl.Visible = False
         '
         'FTETA_lbl
         '
@@ -1908,19 +2322,18 @@ Partial Class wCreateInvForBooking
         Me.FTETA_lbl.Appearance.Options.UseTextOptions = True
         Me.FTETA_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTETA_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTETA_lbl.Location = New System.Drawing.Point(1078, 61)
+        Me.FTETA_lbl.Location = New System.Drawing.Point(1132, 66)
         Me.FTETA_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTETA_lbl.Name = "FTETA_lbl"
-        Me.FTETA_lbl.Size = New System.Drawing.Size(103, 23)
+        Me.FTETA_lbl.Size = New System.Drawing.Size(70, 23)
         Me.FTETA_lbl.TabIndex = 501
         Me.FTETA_lbl.Tag = "2|"
         Me.FTETA_lbl.Text = "FTETA :"
-        Me.FTETA_lbl.Visible = False
         '
         'FNExchangeRate
         '
         Me.FNExchangeRate.EnterMoveNextControl = True
-        Me.FNExchangeRate.Location = New System.Drawing.Point(430, 57)
+        Me.FNExchangeRate.Location = New System.Drawing.Point(329, 63)
         Me.FNExchangeRate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNExchangeRate.Name = "FNExchangeRate"
         Me.FNExchangeRate.Properties.Appearance.Options.UseTextOptions = True
@@ -1933,11 +2346,11 @@ Partial Class wCreateInvForBooking
         Me.FNExchangeRate.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNExchangeRate.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNExchangeRate.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNExchangeRate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject6, "", Nothing, Nothing, True)})
+        Me.FNExchangeRate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNExchangeRate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNExchangeRate.Properties.Precision = 5
         Me.FNExchangeRate.Properties.ReadOnly = True
-        Me.FNExchangeRate.Size = New System.Drawing.Size(77, 23)
+        Me.FNExchangeRate.Size = New System.Drawing.Size(77, 22)
         Me.FNExchangeRate.TabIndex = 3
         Me.FNExchangeRate.Tag = "2|"
         '
@@ -1948,10 +2361,10 @@ Partial Class wCreateInvForBooking
         Me.FNExchangeRate_lbl.Appearance.Options.UseTextOptions = True
         Me.FNExchangeRate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNExchangeRate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNExchangeRate_lbl.Location = New System.Drawing.Point(294, 57)
+        Me.FNExchangeRate_lbl.Location = New System.Drawing.Point(222, 65)
         Me.FNExchangeRate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNExchangeRate_lbl.Name = "FNExchangeRate_lbl"
-        Me.FNExchangeRate_lbl.Size = New System.Drawing.Size(135, 23)
+        Me.FNExchangeRate_lbl.Size = New System.Drawing.Size(103, 23)
         Me.FNExchangeRate_lbl.TabIndex = 265
         Me.FNExchangeRate_lbl.Tag = "2|"
         Me.FNExchangeRate_lbl.Text = "Exchange Rate :"
@@ -1960,7 +2373,7 @@ Partial Class wCreateInvForBooking
         '
         Me.FDShipDate.EditValue = Nothing
         Me.FDShipDate.EnterMoveNextControl = True
-        Me.FDShipDate.Location = New System.Drawing.Point(888, 59)
+        Me.FDShipDate.Location = New System.Drawing.Point(737, 64)
         Me.FDShipDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDShipDate.Name = "FDShipDate"
         Me.FDShipDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
@@ -1973,16 +2386,15 @@ Partial Class wCreateInvForBooking
         Me.FDShipDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDShipDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDShipDate.Properties.NullDate = ""
-        Me.FDShipDate.Size = New System.Drawing.Size(133, 23)
+        Me.FDShipDate.Size = New System.Drawing.Size(133, 22)
         Me.FDShipDate.TabIndex = 5
         Me.FDShipDate.Tag = "2|"
         '
         'FDESTTimeDept
         '
         Me.FDESTTimeDept.EditValue = Nothing
-        Me.FDESTTimeDept.Enabled = False
         Me.FDESTTimeDept.EnterMoveNextControl = True
-        Me.FDESTTimeDept.Location = New System.Drawing.Point(1165, 66)
+        Me.FDESTTimeDept.Location = New System.Drawing.Point(972, 66)
         Me.FDESTTimeDept.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDESTTimeDept.Name = "FDESTTimeDept"
         Me.FDESTTimeDept.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
@@ -1995,17 +2407,15 @@ Partial Class wCreateInvForBooking
         Me.FDESTTimeDept.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDESTTimeDept.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDESTTimeDept.Properties.NullDate = ""
-        Me.FDESTTimeDept.Size = New System.Drawing.Size(152, 23)
+        Me.FDESTTimeDept.Size = New System.Drawing.Size(152, 22)
         Me.FDESTTimeDept.TabIndex = 5
         Me.FDESTTimeDept.Tag = "2|"
-        Me.FDESTTimeDept.Visible = False
         '
         'FDESTTimeArrl
         '
         Me.FDESTTimeArrl.EditValue = Nothing
-        Me.FDESTTimeArrl.Enabled = False
         Me.FDESTTimeArrl.EnterMoveNextControl = True
-        Me.FDESTTimeArrl.Location = New System.Drawing.Point(1187, 63)
+        Me.FDESTTimeArrl.Location = New System.Drawing.Point(1209, 66)
         Me.FDESTTimeArrl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDESTTimeArrl.Name = "FDESTTimeArrl"
         Me.FDESTTimeArrl.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
@@ -2018,20 +2428,19 @@ Partial Class wCreateInvForBooking
         Me.FDESTTimeArrl.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDESTTimeArrl.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDESTTimeArrl.Properties.NullDate = ""
-        Me.FDESTTimeArrl.Size = New System.Drawing.Size(152, 23)
+        Me.FDESTTimeArrl.Size = New System.Drawing.Size(152, 22)
         Me.FDESTTimeArrl.TabIndex = 5
         Me.FDESTTimeArrl.Tag = "2|"
-        Me.FDESTTimeArrl.Visible = False
         '
         'olbday
         '
         Me.olbday.Appearance.Options.UseTextOptions = True
         Me.olbday.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.olbday.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.olbday.Location = New System.Drawing.Point(720, 57)
+        Me.olbday.Location = New System.Drawing.Point(594, 64)
         Me.olbday.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.olbday.Name = "olbday"
-        Me.olbday.Size = New System.Drawing.Size(84, 22)
+        Me.olbday.Size = New System.Drawing.Size(30, 22)
         Me.olbday.TabIndex = 262
         Me.olbday.Tag = "2|"
         Me.olbday.Text = "Days"
@@ -2039,7 +2448,7 @@ Partial Class wCreateInvForBooking
         'FNCreditDay
         '
         Me.FNCreditDay.EnterMoveNextControl = True
-        Me.FNCreditDay.Location = New System.Drawing.Point(600, 57)
+        Me.FNCreditDay.Location = New System.Drawing.Point(470, 63)
         Me.FNCreditDay.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNCreditDay.Name = "FNCreditDay"
         Me.FNCreditDay.Properties.Appearance.Options.UseTextOptions = True
@@ -2052,10 +2461,10 @@ Partial Class wCreateInvForBooking
         Me.FNCreditDay.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNCreditDay.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNCreditDay.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNCreditDay.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject7, "", Nothing, Nothing, True)})
+        Me.FNCreditDay.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNCreditDay.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNCreditDay.Properties.Precision = 0
-        Me.FNCreditDay.Size = New System.Drawing.Size(115, 23)
+        Me.FNCreditDay.Size = New System.Drawing.Size(115, 22)
         Me.FNCreditDay.TabIndex = 4
         Me.FNCreditDay.Tag = "2|"
         '
@@ -2066,10 +2475,10 @@ Partial Class wCreateInvForBooking
         Me.FNCreditDay_lbl.Appearance.Options.UseTextOptions = True
         Me.FNCreditDay_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNCreditDay_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNCreditDay_lbl.Location = New System.Drawing.Point(513, 59)
+        Me.FNCreditDay_lbl.Location = New System.Drawing.Point(414, 64)
         Me.FNCreditDay_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNCreditDay_lbl.Name = "FNCreditDay_lbl"
-        Me.FNCreditDay_lbl.Size = New System.Drawing.Size(86, 23)
+        Me.FNCreditDay_lbl.Size = New System.Drawing.Size(47, 23)
         Me.FNCreditDay_lbl.TabIndex = 260
         Me.FNCreditDay_lbl.Tag = "2|"
         Me.FNCreditDay_lbl.Text = "Credit :"
@@ -2077,7 +2486,7 @@ Partial Class wCreateInvForBooking
         'FNHSysCrTermId_None
         '
         Me.FNHSysCrTermId_None.EnterMoveNextControl = True
-        Me.FNHSysCrTermId_None.Location = New System.Drawing.Point(288, 29)
+        Me.FNHSysCrTermId_None.Location = New System.Drawing.Point(222, 32)
         Me.FNHSysCrTermId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCrTermId_None.Name = "FNHSysCrTermId_None"
         Me.FNHSysCrTermId_None.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -2097,7 +2506,7 @@ Partial Class wCreateInvForBooking
         Me.FNHSysCrTermId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCrTermId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysCrTermId_None.Properties.ReadOnly = True
-        Me.FNHSysCrTermId_None.Size = New System.Drawing.Size(142, 23)
+        Me.FNHSysCrTermId_None.Size = New System.Drawing.Size(142, 22)
         Me.FNHSysCrTermId_None.TabIndex = 254
         Me.FNHSysCrTermId_None.TabStop = False
         Me.FNHSysCrTermId_None.Tag = "2|"
@@ -2105,7 +2514,7 @@ Partial Class wCreateInvForBooking
         'FNHSysCrTermId
         '
         Me.FNHSysCrTermId.EnterMoveNextControl = True
-        Me.FNHSysCrTermId.Location = New System.Drawing.Point(175, 29)
+        Me.FNHSysCrTermId.Location = New System.Drawing.Point(103, 32)
         Me.FNHSysCrTermId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCrTermId.Name = "FNHSysCrTermId"
         Me.FNHSysCrTermId.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -2122,10 +2531,10 @@ Partial Class wCreateInvForBooking
         Me.FNHSysCrTermId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCrTermId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCrTermId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCrTermId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject8, "", "14", Nothing, True)})
+        Me.FNHSysCrTermId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "14", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCrTermId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCrTermId.Properties.MaxLength = 30
-        Me.FNHSysCrTermId.Size = New System.Drawing.Size(112, 23)
+        Me.FNHSysCrTermId.Size = New System.Drawing.Size(112, 22)
         Me.FNHSysCrTermId.TabIndex = 0
         Me.FNHSysCrTermId.Tag = "2|"
         '
@@ -2136,10 +2545,10 @@ Partial Class wCreateInvForBooking
         Me.FNHSysCrTermId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCrTermId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCrTermId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCrTermId_lbl.Location = New System.Drawing.Point(14, 30)
+        Me.FNHSysCrTermId_lbl.Location = New System.Drawing.Point(6, 32)
         Me.FNHSysCrTermId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCrTermId_lbl.Name = "FNHSysCrTermId_lbl"
-        Me.FNHSysCrTermId_lbl.Size = New System.Drawing.Size(152, 23)
+        Me.FNHSysCrTermId_lbl.Size = New System.Drawing.Size(87, 23)
         Me.FNHSysCrTermId_lbl.TabIndex = 253
         Me.FNHSysCrTermId_lbl.Tag = "2|"
         Me.FNHSysCrTermId_lbl.Text = "Credit Term :"
@@ -2149,7 +2558,7 @@ Partial Class wCreateInvForBooking
         Me.FNHSysTermOfPMId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FNHSysTermOfPMId_None.EnterMoveNextControl = True
-        Me.FNHSysTermOfPMId_None.Location = New System.Drawing.Point(723, 30)
+        Me.FNHSysTermOfPMId_None.Location = New System.Drawing.Point(632, 32)
         Me.FNHSysTermOfPMId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysTermOfPMId_None.Name = "FNHSysTermOfPMId_None"
         Me.FNHSysTermOfPMId_None.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -2169,7 +2578,7 @@ Partial Class wCreateInvForBooking
         Me.FNHSysTermOfPMId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysTermOfPMId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysTermOfPMId_None.Properties.ReadOnly = True
-        Me.FNHSysTermOfPMId_None.Size = New System.Drawing.Size(633, 23)
+        Me.FNHSysTermOfPMId_None.Size = New System.Drawing.Size(1172, 22)
         Me.FNHSysTermOfPMId_None.TabIndex = 257
         Me.FNHSysTermOfPMId_None.TabStop = False
         Me.FNHSysTermOfPMId_None.Tag = "2|"
@@ -2181,10 +2590,10 @@ Partial Class wCreateInvForBooking
         Me.FNHSysTermOfPMId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysTermOfPMId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysTermOfPMId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysTermOfPMId_lbl.Location = New System.Drawing.Point(436, 30)
+        Me.FNHSysTermOfPMId_lbl.Location = New System.Drawing.Point(391, 31)
         Me.FNHSysTermOfPMId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysTermOfPMId_lbl.Name = "FNHSysTermOfPMId_lbl"
-        Me.FNHSysTermOfPMId_lbl.Size = New System.Drawing.Size(160, 23)
+        Me.FNHSysTermOfPMId_lbl.Size = New System.Drawing.Size(107, 23)
         Me.FNHSysTermOfPMId_lbl.TabIndex = 256
         Me.FNHSysTermOfPMId_lbl.Tag = "2|"
         Me.FNHSysTermOfPMId_lbl.Text = "Term Of Payment :"
@@ -2192,7 +2601,7 @@ Partial Class wCreateInvForBooking
         'FNHSysTermOfPMId
         '
         Me.FNHSysTermOfPMId.EnterMoveNextControl = True
-        Me.FNHSysTermOfPMId.Location = New System.Drawing.Point(600, 30)
+        Me.FNHSysTermOfPMId.Location = New System.Drawing.Point(509, 31)
         Me.FNHSysTermOfPMId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysTermOfPMId.Name = "FNHSysTermOfPMId"
         Me.FNHSysTermOfPMId.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -2209,22 +2618,22 @@ Partial Class wCreateInvForBooking
         Me.FNHSysTermOfPMId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysTermOfPMId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysTermOfPMId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysTermOfPMId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, "", "103", Nothing, True)})
+        Me.FNHSysTermOfPMId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "103", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysTermOfPMId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysTermOfPMId.Properties.MaxLength = 30
-        Me.FNHSysTermOfPMId.Size = New System.Drawing.Size(117, 23)
+        Me.FNHSysTermOfPMId.Size = New System.Drawing.Size(117, 22)
         Me.FNHSysTermOfPMId.TabIndex = 1
         Me.FNHSysTermOfPMId.Tag = "2|"
         '
         'FNHSysCurId
         '
-        Me.FNHSysCurId.Location = New System.Drawing.Point(175, 56)
+        Me.FNHSysCurId.Location = New System.Drawing.Point(103, 64)
         Me.FNHSysCurId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCurId.Name = "FNHSysCurId"
-        Me.FNHSysCurId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject10, "", "16", Nothing, True)})
+        Me.FNHSysCurId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "16", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCurId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCurId.Properties.Tag = ""
-        Me.FNHSysCurId.Size = New System.Drawing.Size(112, 23)
+        Me.FNHSysCurId.Size = New System.Drawing.Size(112, 22)
         Me.FNHSysCurId.TabIndex = 489
         Me.FNHSysCurId.Tag = "2|"
         '
@@ -2235,10 +2644,10 @@ Partial Class wCreateInvForBooking
         Me.FNHSysCurId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCurId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCurId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCurId_lbl.Location = New System.Drawing.Point(53, 56)
+        Me.FNHSysCurId_lbl.Location = New System.Drawing.Point(6, 64)
         Me.FNHSysCurId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCurId_lbl.Name = "FNHSysCurId_lbl"
-        Me.FNHSysCurId_lbl.Size = New System.Drawing.Size(116, 23)
+        Me.FNHSysCurId_lbl.Size = New System.Drawing.Size(90, 23)
         Me.FNHSysCurId_lbl.TabIndex = 497
         Me.FNHSysCurId_lbl.Tag = "2|"
         Me.FNHSysCurId_lbl.Text = "FNHSysCurId :"
@@ -2246,7 +2655,7 @@ Partial Class wCreateInvForBooking
         'otbcopyrow
         '
         Me.otbcopyrow.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.otbcopyrow.Location = New System.Drawing.Point(1019, 744)
+        Me.otbcopyrow.Location = New System.Drawing.Point(1557, 743)
         Me.otbcopyrow.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otbcopyrow.Name = "otbcopyrow"
         Me.otbcopyrow.Size = New System.Drawing.Size(111, 31)
@@ -2259,7 +2668,7 @@ Partial Class wCreateInvForBooking
         'otbdeleterow
         '
         Me.otbdeleterow.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.otbdeleterow.Location = New System.Drawing.Point(209, 744)
+        Me.otbdeleterow.Location = New System.Drawing.Point(209, 743)
         Me.otbdeleterow.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otbdeleterow.Name = "otbdeleterow"
         Me.otbdeleterow.Size = New System.Drawing.Size(111, 31)
@@ -2273,17 +2682,18 @@ Partial Class wCreateInvForBooking
         '
         Me.oChkSelectAll.EditValue = True
         Me.oChkSelectAll.Location = New System.Drawing.Point(10, 750)
+        Me.oChkSelectAll.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.oChkSelectAll.Name = "oChkSelectAll"
         Me.oChkSelectAll.Properties.AutoHeight = False
         Me.oChkSelectAll.Properties.Caption = "Select All"
-        Me.oChkSelectAll.Size = New System.Drawing.Size(277, 20)
+        Me.oChkSelectAll.Size = New System.Drawing.Size(276, 20)
         Me.oChkSelectAll.TabIndex = 454
         '
         'wCreateInvForBooking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1376, 788)
+        Me.ClientSize = New System.Drawing.Size(1914, 788)
         Me.Controls.Add(Me.oChkSelectAll)
         Me.Controls.Add(Me.ogbpayment)
         Me.Controls.Add(Me.ogrpDocInfo)
@@ -2315,27 +2725,19 @@ Partial Class wCreateInvForBooking
         CType(Me.FDApproveDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FDApproveDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTApproveBy.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.oTabmasterInden.ResumeLayout(False)
-        CType(Me.GroupControl3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupControl3.ResumeLayout(False)
-        CType(Me.FTFinalDestInfo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTShipFromInfo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTSellerInfo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTBuyerInfo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogppackingpland, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ogppackingpland.ResumeLayout(False)
-        CType(Me.FTNote.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTSAPCODECmp.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTCustomerName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateChinesReq.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTChineseShipToAddrName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateHideShipFrom.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTPoTypeName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTWorkFlowName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTPlanRefNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDPlanDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDPlanDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNExtenDigitQty.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.oTaborder.ResumeLayout(False)
+        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl1.ResumeLayout(False)
+        CType(Me.ogcPlandO, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogvPlandO, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemDateEdit2.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemDateEdit2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemButtonEdit2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemDateEdit1.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemDateEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemButtonEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.otabdetailactual.ResumeLayout(False)
         CType(Me.ogcPlandD, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogvPlandD, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2383,9 +2785,9 @@ Partial Class wCreateInvForBooking
     Friend WithEvents GroupControl2 As DevExpress.XtraEditors.GroupControl
     Friend WithEvents ogcPlandM As DevExpress.XtraGrid.GridControl
     Friend WithEvents ogvPlandM As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents GridColumn50 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTPckPlanNo As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn51 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn52 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNQuantity As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn53 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn54 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn55 As DevExpress.XtraGrid.Columns.GridColumn
@@ -2395,39 +2797,6 @@ Partial Class wCreateInvForBooking
     Friend WithEvents GridColumn59 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn60 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridView6 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents oTabmasterInden As DevExpress.XtraTab.XtraTabPage
-    Friend WithEvents ogppackingpland As DevExpress.XtraEditors.GroupControl
-    Friend WithEvents FTNote As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTSAPCODECmp As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTCustomerName As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTStateChinesReq As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTChineseShipToAddrName As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTStateHideShipFrom As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTPoTypeName As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTWorkFlowName As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTPlanRefNo As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTSAPCODECmp_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTNote_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTStateChinesReq_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTCustomerName_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTStateHideShipFrom_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTChineseShipToAddrName_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FNExtenDigitQty_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTPoTypeName_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FDPlanDate_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTWorkFlowName_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTPlanRefNo_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FDPlanDate As DevExpress.XtraEditors.DateEdit
-    Friend WithEvents FNExtenDigitQty As DevExpress.XtraEditors.CalcEdit
-    Friend WithEvents GroupControl3 As DevExpress.XtraEditors.GroupControl
-    Friend WithEvents FTFinalDestInfo_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTSellerInfo_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTBuyerInfo_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTFinalDestInfo As DevExpress.XtraEditors.MemoEdit
-    Friend WithEvents FTShipFromInfo As DevExpress.XtraEditors.MemoEdit
-    Friend WithEvents FTSellerInfo As DevExpress.XtraEditors.MemoEdit
-    Friend WithEvents FTBuyerInfo As DevExpress.XtraEditors.MemoEdit
     Friend WithEvents GroupControl4 As DevExpress.XtraEditors.GroupControl
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FDApproveDate As DevExpress.XtraEditors.DateEdit
@@ -2537,4 +2906,72 @@ Partial Class wCreateInvForBooking
     Friend WithEvents cFTPORefNo As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GFTPORefNo As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GFTDiamondMarkCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents oTaborder As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents GroupControl1 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents ogcPlandO As DevExpress.XtraGrid.GridControl
+    Friend WithEvents ogvPlandO As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents colFTInvoiceNo As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTPackNo As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FDPackDate As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn75 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn76 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNNetNetWeight As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNNetWeight As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNGW As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNHSysCmpId As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTCustomerPO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTStateHanger As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemDateEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemDateEdit
+    Friend WithEvents RepositoryItemButtonEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
+    Friend WithEvents FTStyleCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSizeBreakDown As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSubOrderNo As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNPackPerCarton As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNCartonNo As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTColorway As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNHSysStyleId As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTPOLine As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cFTRemark As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNPackCartonSubType As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNPackSetValue As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNOrderPackType As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTOrderNo As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn3 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn4 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn7 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn8 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn9 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn10 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn11 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn12 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn13 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemDateEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemDateEdit
+    Friend WithEvents GridColumn14 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemButtonEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
+    Friend WithEvents GridColumn15 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn16 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn17 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn18 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn61 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn62 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn63 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn64 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn65 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn66 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn67 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn68 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn69 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn70 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn71 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTGenderCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTPackBy As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNHSysCartonId As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents CBM As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTCartonCode As DevExpress.XtraGrid.Columns.GridColumn
 End Class

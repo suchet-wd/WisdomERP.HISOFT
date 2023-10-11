@@ -186,8 +186,6 @@ Public Class wOrder
 
         HI.TL.HandlerControl.AddHandlerObj(_wReportMERFactoryOrderNo)
 
-
-
         Try
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleID, _wReportMERFactoryOrderNo.Name.ToString.Trim, _wReportMERFactoryOrderNo)
         Catch ex As Exception
@@ -387,8 +385,6 @@ Public Class wOrder
         Next
 
     End Sub
-
-
 
     Private Function CheckDivertAfter(OrderNo As String, Optional SubOrderNo As String = "") As Boolean
 
@@ -19765,6 +19761,369 @@ Public Class wOrder
 
     End Sub
 
+    'Private Function W_PRCbShowBrowseDataSubOrderSizeSpecInfo(ByVal ptFTOrderNo As String, ByVal ptFTSubOrderNo As String) As Boolean
+    '    Me.FTStateApprovedSizeSpec.Visible = False
+    '    Me.FTStateApprovedSizeSpec.Checked = False
+    '    'Me.FTStateApprovedSizeSpec.Text = ""
+    '    Me.FTStateApprovedSizeSpecRevised.Visible = False
+    '    Me.FTStateApprovedSizeSpecRevised.Checked = False
+
+    '    Me.ogdSizeSpec.DataSource = Nothing
+    '    Me.ogdSizeSpec.Refresh()
+
+    '    oDBdtSizeSpecView = Nothing
+
+    '    Call W_PRCbRemoveGridViewColumn(Me.ogvSizeSpec)
+    '    Me.ogvSizeSpec.OptionsView.ColumnAutoWidth = False
+    '    Me.ogvSizeSpec.RefreshData()
+
+    '    Dim oDBdtSizeBreakdown As DataTable
+    '    Dim oDBdtSrc As DataTable
+    '    Dim tSql As String
+
+    '    Try
+    '        tSql = ""
+    '        tSql = "SELECT A.FNHSysMatSizeId, A.FTMatSizeCode, A.FTMatSizeNameEN AS FTMatSizeName"
+    '        tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMMatSize AS A WITH(NOLOCK)"
+    '        tSql &= Environment.NewLine & "WHERE  EXISTS (SELECT 'T'"
+    '        tSql &= Environment.NewLine & "               FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_BreakDown AS L1 WITH(NOLOCK)"
+    '        tSql &= Environment.NewLine & "               WHERE L1.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(ptFTOrderNo) & "'"
+    '        tSql &= Environment.NewLine & "                     AND L1.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(ptFTSubOrderNo) & "'"
+    '        tSql &= Environment.NewLine & "                     AND L1.FNHSysMatSizeId = A.FNHSysMatSizeId)"
+    '        tSql &= Environment.NewLine & "ORDER BY A.FNMatSizeSeq ASC;"
+
+    '        oDBdtSizeBreakdown = HI.Conn.SQLConn.GetDataTable(tSql, HI.Conn.DB.DataBaseName.DB_MERCHAN)
+
+    '        If oDBdtSizeBreakdown.Rows.Count > 0 Then
+
+    '            oGridViewSizeSpec = Me.ogdSizeSpec.Views(0)
+    '            Call W_PRCbRemoveGridViewColumn(oGridViewSizeSpec)
+
+    '            Me.ogdSizeSpec.DataSource = Nothing
+    '            Me.ogdSizeSpec.Refresh()
+    '            Me.ogvSizeSpec.RefreshData()
+
+    '            oDBdtSrc = New System.Data.DataTable()
+
+    '            '...get schema max length for column FTSizeSpecDesc, FTSizeSpecExtension
+    '            Dim nRepositorySizeSpecDesc As Integer = IIf(oSizeSpecType Is Nothing, 500, oSizeSpecType.SizeSpecFTSizeSpecDesc)
+    '            Dim nRepositorySizeSpecExtension As Integer = IIf(oSizeSpecType Is Nothing, 30, oSizeSpecType.SizeSpecFTSizeSpecExtension)
+    '            Dim nRepositorySizeSpecTolerant As Integer = IIf(oSizeSpecType Is Nothing, 30, oSizeSpecType.SizeSpecFTTolerant)
+
+    '            Dim oColFNSeq As DataColumn
+    '            oColFNSeq = New DataColumn("FNSeq", System.Type.GetType("System.Int32"))
+    '            oDBdtSrc.Columns.Add(oColFNSeq.ColumnName, oColFNSeq.DataType)
+
+    '            Dim oColFTSizeSpecDesc As DataColumn
+    '            oColFTSizeSpecDesc = New DataColumn("FTSizeSpecDesc", System.Type.GetType("System.String"))
+    '            oDBdtSrc.Columns.Add(oColFTSizeSpecDesc.ColumnName, oColFTSizeSpecDesc.DataType)
+
+    '            Dim oColMeasId As DataColumn = New DataColumn("FNHSysMeasId", GetType(String))
+    '            oDBdtSrc.Columns.Add(oColMeasId.ColumnName, oColMeasId.DataType)
+
+    '            Dim oColMeasId_None As DataColumn = New DataColumn("FNHSysMeasId_Hide", GetType(Integer))
+    '            oDBdtSrc.Columns.Add(oColMeasId_None.ColumnName, oColMeasId_None.DataType)
+
+
+    '            '...Repository Size Spec Description
+    '            '==================================================================================================================================================================
+    '            Dim oRepositoryFTSizeSpecDesc As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+    '            With oRepositoryFTSizeSpecDesc
+    '                .MaxLength = nRepositorySizeSpecDesc
+    '            End With
+    '            oGridViewSizeSpec.Columns.AddField(oColMeasId.ColumnName)
+    '            oGridViewSizeSpec.Columns.Add(cFNHSysMeasId)
+    '            oGridViewSizeSpec.Columns(oColMeasId.ColumnName).Visible = True
+    '            oGridViewSizeSpec.Columns(oColMeasId.ColumnName).Fixed = FixedStyle.Left
+    '            oGridViewSizeSpec.Columns(oColMeasId.ColumnName).Width = 80
+    '            oGridViewSizeSpec.Columns(oColMeasId.ColumnName).VisibleIndex = 1
+
+    '            oGridViewSizeSpec.Columns.AddField(oColMeasId_None.ColumnName)
+    '            oGridViewSizeSpec.Columns.Add(cFNHSysMeasId_None)
+
+    '            oGridViewSizeSpec.Columns("FNHSysMeasId").ColumnEdit = RepositoryItemFNHSysMeasId
+    '            '  oGridViewSizeSpec.Columns("FTSizeSpecDesc").ColumnEdit = oRepositoryFTSizeSpecDesc
+    '            oGridViewSizeSpec.Columns("FTSizeSpecDesc").Width = 150
+    '            oGridViewSizeSpec.Columns("FTSizeSpecDesc").VisibleIndex = 2
+    '            oGridViewSizeSpec.Columns("FNSeq").Width = 60
+    '            '==================================================================================================================================================================
+
+    '            '...Iterate loop add column FNHSysMatSizeIdXXX
+    '            '...Repository Size Spec Extension for all FNHSysMatSizeId
+    '            '==================================================================================================================================================================
+    '            Dim oRepositoryFTSizeSpecExtension As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+    '            For Each oRow As DataRow In oDBdtSizeBreakdown.Rows
+
+    '                Dim oColFNHSysMatSizeId As DataColumn = New DataColumn("FNHSysMatSizeId" & oRow.Item("FTMatSizeCode").ToString(), System.Type.GetType("System.Int32"))
+    '                oColFNHSysMatSizeId.Caption = "FNHSysMatSizeId" & oRow.Item("FTMatSizeCode").ToString()
+
+    '                oGridViewSizeSpec.Columns.AddField(oColFNHSysMatSizeId.ColumnName)
+    '                oGridViewSizeSpec.Columns(oColFNHSysMatSizeId.ColumnName).FieldName = oColFNHSysMatSizeId.ColumnName
+    '                oGridViewSizeSpec.Columns(oColFNHSysMatSizeId.ColumnName).Name = oColFNHSysMatSizeId.ColumnName
+    '                oGridViewSizeSpec.Columns(oColFNHSysMatSizeId.ColumnName).Caption = oColFNHSysMatSizeId.Caption
+    '                oGridViewSizeSpec.Columns(oColFNHSysMatSizeId.ColumnName).Tag = oRow.Item("FNHSysMatSizeId")
+    '                oGridViewSizeSpec.Columns(oColFNHSysMatSizeId.ColumnName).Visible = False
+    '                oGridViewSizeSpec.Columns(oColFNHSysMatSizeId.ColumnName).OptionsColumn.TabStop = False
+    '                oGridViewSizeSpec.Columns(oColFNHSysMatSizeId.ColumnName).OptionsColumn.AllowEdit = False
+    '                oGridViewSizeSpec.Columns(oColFNHSysMatSizeId.ColumnName).OptionsColumn.AllowMove = False
+    '                oGridViewSizeSpec.Columns(oColFNHSysMatSizeId.ColumnName).OptionsColumn.AllowSort = False
+
+    '                oDBdtSrc.Columns.Add(oColFNHSysMatSizeId.ColumnName, oColFNHSysMatSizeId.DataType)
+
+    '                Dim oColFTSizeSpecExtension As DataColumn = New DataColumn("FTSizeSpecExtension" & oRow.Item("FTMatSizeCode").ToString(), System.Type.GetType("System.String"))
+    '                oColFTSizeSpecExtension.Caption = oRow.Item("FTMatSizeCode").ToString()
+
+    '                oGridViewSizeSpec.Columns.AddField(oColFTSizeSpecExtension.ColumnName)
+    '                oGridViewSizeSpec.Columns(oColFTSizeSpecExtension.ColumnName).FieldName = oColFTSizeSpecExtension.ColumnName
+    '                oGridViewSizeSpec.Columns(oColFTSizeSpecExtension.ColumnName).Name = oColFTSizeSpecExtension.ColumnName
+    '                oGridViewSizeSpec.Columns(oColFTSizeSpecExtension.ColumnName).Caption = oColFTSizeSpecExtension.Caption
+    '                oGridViewSizeSpec.Columns(oColFTSizeSpecExtension.ColumnName).Tag = oRow.Item("FTMatSizeCode").ToString()
+    '                oGridViewSizeSpec.Columns(oColFTSizeSpecExtension.ColumnName).Visible = True
+    '                oGridViewSizeSpec.Columns(oColFTSizeSpecExtension.ColumnName).AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+    '                oGridViewSizeSpec.Columns(oColFTSizeSpecExtension.ColumnName).Width = 80
+    '                oRepositoryFTSizeSpecExtension = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+
+    '                oGridViewSizeSpec.Columns(oColFTSizeSpecExtension.ColumnName).ColumnEdit = oRepositoryFTSizeSpecExtension
+
+    '                oGridViewSizeSpec.Columns(oColFTSizeSpecExtension.ColumnName).OptionsColumn.AllowEdit = True
+    '                oGridViewSizeSpec.Columns(oColFTSizeSpecExtension.ColumnName).OptionsColumn.AllowMove = False
+    '                oGridViewSizeSpec.Columns(oColFTSizeSpecExtension.ColumnName).OptionsColumn.AllowSort = False
+
+    '                With oRepositoryFTSizeSpecExtension
+    '                    .MaxLength = nRepositorySizeSpecExtension
+    '                End With
+
+    '                oDBdtSrc.Columns.Add(oColFTSizeSpecExtension.ColumnName, oColFTSizeSpecExtension.DataType)
+
+    '            Next
+    '            '==================================================================================================================================================================
+
+    '            '...Add generate dynamic Column FTTolerant +/- ได้ไม่เกินค่าที่กำหนด ที่คอลัมน์นี้
+    '            '...Repository Size Spec Tolerant
+    '            '==================================================================================================================================================================
+    '            Dim oColFTSizeSpecTolerant As System.Data.DataColumn
+    '            oColFTSizeSpecTolerant = New System.Data.DataColumn("FTSizeSpecTolerant", System.Type.GetType("System.String"))
+    '            'oColFTSizeSpecTolerant.Caption = "+/- (Tolerant)"
+    '            oColFTSizeSpecTolerant.Caption = "+/-"
+
+    '            oGridViewSizeSpec.Columns.AddField(oColFTSizeSpecTolerant.ColumnName)
+    '            oGridViewSizeSpec.Columns(oColFTSizeSpecTolerant.ColumnName).FieldName = oColFTSizeSpecTolerant.ColumnName
+    '            oGridViewSizeSpec.Columns(oColFTSizeSpecTolerant.ColumnName).Name = oColFTSizeSpecTolerant.ColumnName
+    '            oGridViewSizeSpec.Columns(oColFTSizeSpecTolerant.ColumnName).Caption = oColFTSizeSpecTolerant.Caption
+    '            'oGridViewSizeSpec.Columns(oColFTSizeSpecTolerant.ColumnName).Tag = oRow.Item("FTMatSizeCode").ToString()
+    '            oGridViewSizeSpec.Columns(oColFTSizeSpecTolerant.ColumnName).Visible = True
+    '            oGridViewSizeSpec.Columns(oColFTSizeSpecTolerant.ColumnName).AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+
+    '            oGridViewSizeSpec.Columns(oColFTSizeSpecTolerant.ColumnName).OptionsColumn.AllowEdit = True
+    '            oGridViewSizeSpec.Columns(oColFTSizeSpecTolerant.ColumnName).OptionsColumn.AllowMove = False
+    '            oGridViewSizeSpec.Columns(oColFTSizeSpecTolerant.ColumnName).OptionsColumn.AllowSort = False
+
+    '            Dim oRepositoryFTSizeSpecTolerant As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+    '            With oRepositoryFTSizeSpecTolerant
+    '                .MaxLength = nRepositorySizeSpecTolerant
+    '            End With
+
+    '            oGridViewSizeSpec.Columns("FTSizeSpecTolerant").ColumnEdit = oRepositoryFTSizeSpecTolerant
+
+    '            oDBdtSrc.Columns.Add(oColFTSizeSpecTolerant.ColumnName, oColFTSizeSpecTolerant.DataType)
+    '            '==================================================================================================================================================================
+
+
+
+    '            oGridViewSizeSpec.OptionsBehavior.AllowAddRows = True
+    '            oGridViewSizeSpec.OptionsCustomization.AllowSort = False
+
+    '            oGridViewSizeSpec.ActiveFilter.Clear()
+
+    '            '...Clear Data Source from data table oDBdtSizeSpecView
+    '            oDBdtSizeSpecView = Nothing
+    '            oDBdtSizeSpecView = oDBdtSrc.Clone()
+
+    '            '...Loop iterate binding datatable (datasource for size specify info)
+    '            '============================================================================================================================================
+    '            Dim nFNMaxSeq As Integer  '...Max Sequence from Size Spec
+    '            nFNMaxSeq = 0
+
+    '            tSql = ""
+    '            tSql = "SELECT MAX(A.FNSeq) AS FNMaxSeq"
+    '            tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_SizeSpec AS A WITH(NOLOCK)"
+    '            tSql &= Environment.NewLine & "WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
+    '            tSql &= Environment.NewLine & "      AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Properties.Tag.ToString()) & "'"
+    '            tSql &= Environment.NewLine & "GROUP BY A.FTOrderNo, A.FTSubOrderNo;"
+
+    '            nFNMaxSeq = Val(HI.Conn.SQLConn.GetField(tSql, HI.Conn.DB.DataBaseName.DB_MERCHAN, 0))
+
+    '            tSql = ""
+    '            'tSql = "SELECT A.FNHSysMatSizeId, B.FTMatSizeCode, A.FNSeq, A.FTSizeSpecDesc, A.FTSizeSpecExtension, ISNULL(FTTolerant, '+/- 0.05') AS FTSizeSpecTolerant"
+    '            tSql = "SELECT A.FNHSysMatSizeId, B.FTMatSizeCode, A.FNSeq, A.FTSizeSpecDesc, A.FTSizeSpecExtension, ISNULL(A.FTTolerant,'') AS FTSizeSpecTolerant ,ISNULL( M.FTMeasCode,'') AS FNHSysMeasId , ISNULL(M.FNHSysMeasId,0) AS FNHSysMeasId_Hide"
+    '            tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_SizeSpec AS A WITH(NOLOCK) INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS B WITH(NOLOCK) ON A.FNHSysMatSizeId = B.FNHSysMatSizeId"
+    '            tSql &= Environment.NewLine & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMMeasurements AS M WITH(NOLOCK) ON A.FNHSysMeasId = M.FNHSysMeasId "
+
+    '            tSql &= Environment.NewLine & "WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
+    '            tSql &= Environment.NewLine & "      AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Properties.Tag.ToString().Trim()) & "'"
+    '            tSql &= Environment.NewLine & " AND (A.FNHSysMatSizeId IN  (SELECT A.FNHSysMatSizeId"
+    '            tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMMatSize AS A WITH(NOLOCK)"
+    '            tSql &= Environment.NewLine & "WHERE  EXISTS (SELECT 'T'"
+    '            tSql &= Environment.NewLine & "               FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_BreakDown AS L1 WITH(NOLOCK)"
+    '            tSql &= Environment.NewLine & "               WHERE L1.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(ptFTOrderNo) & "'"
+    '            tSql &= Environment.NewLine & "                     AND L1.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(ptFTSubOrderNo) & "'"
+    '            tSql &= Environment.NewLine & "                     AND L1.FNHSysMatSizeId = A.FNHSysMatSizeId)))"
+
+    '            tSql &= Environment.NewLine & "ORDER BY B.FNMatSizeSeq ASC, A.FNSeq ASC;"
+
+    '            Dim oDBdtSizeSpecSrc As DataTable
+
+    '            oDBdtSizeSpecSrc = HI.Conn.SQLConn.GetDataTable(tSql, HI.Conn.DB.DataBaseName.DB_MERCHAN)
+
+    '            If Not oDBdtSizeSpecSrc Is Nothing AndAlso oDBdtSizeSpecSrc.Rows.Count > 0 Then
+
+    '                Dim nCntSeq As Integer = 0
+    '                Dim nRowIdxAppend As Integer = 0
+    '                Dim nFNHSysMatSizeIdCurr As Integer
+    '                Dim nFNHSysMatSizeIdPrv As Integer
+
+    '                nFNHSysMatSizeIdPrv = CInt(oDBdtSizeSpecSrc.Rows(0).Item("FNHSysMatSizeId"))
+
+    '                Dim nLoopRowSrc As Integer
+    '                For nLoopRowSrc = 0 To oDBdtSizeSpecSrc.Rows.Count - 1
+
+    '                    nFNHSysMatSizeIdCurr = CInt(oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FNHSysMatSizeId"))
+
+    '                    Dim tFNHSysMatSizeIdXXX As String = "FNHSysMatSizeId" & oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FTMatSizeCode").ToString()
+    '                    Dim tFTSizeSpecExtensionXXX As String = "FTSizeSpecExtension" & oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FTMatSizeCode").ToString()
+
+    '                    Dim oDataRowItem As DataRow
+
+    '                    If nCntSeq < nFNMaxSeq Then
+    '                        oDataRowItem = oDBdtSizeSpecView.NewRow()
+    '                        oDataRowItem.Item("FNSeq") = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FNSeq")
+    '                        oDataRowItem.Item("FTSizeSpecDesc") = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FTSizeSpecDesc").ToString()
+    '                        oDataRowItem.Item("FNHSysMeasId") = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FNHSysMeasId").ToString()
+    '                        oDataRowItem.Item("FNHSysMeasId_Hide") = Val(oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FNHSysMeasId_Hide").ToString())
+
+    '                        oDataRowItem.Item("FTSizeSpecTolerant") = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FTSizeSpecTolerant").ToString()
+
+    '                        oDBdtSizeSpecView.Rows.Add(oDataRowItem)
+
+    '                        For Each oColSizeSpec As DataColumn In oDBdtSizeSpecView.Columns
+    '                            If oColSizeSpec.ColumnName = tFNHSysMatSizeIdXXX Then
+    '                                oDataRowItem.Item(tFNHSysMatSizeIdXXX) = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FNHSysMatSizeId")
+    '                                oDataRowItem.Item(tFTSizeSpecExtensionXXX) = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FTSizeSpecExtension")
+
+    '                                oDBdtSizeSpecView.AcceptChanges()
+
+    '                                Exit For
+
+    '                            End If
+
+    '                        Next
+
+    '                        nCntSeq = nCntSeq + 1
+
+    '                        nFNHSysMatSizeIdPrv = nFNHSysMatSizeIdCurr
+    '                    Else
+
+    '                        If nFNHSysMatSizeIdCurr <> nFNHSysMatSizeIdPrv Then
+    '                            nRowIdxAppend = 0
+    '                        End If
+
+    '                        oDBdtSizeSpecView.Rows(nRowIdxAppend).Item(tFNHSysMatSizeIdXXX) = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FNHSysMatSizeId")
+    '                        oDBdtSizeSpecView.Rows(nRowIdxAppend).Item(tFTSizeSpecExtensionXXX) = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FTSizeSpecExtension").ToString()
+
+    '                        nRowIdxAppend = nRowIdxAppend + 1
+
+    '                        nFNHSysMatSizeIdPrv = nFNHSysMatSizeIdCurr
+    '                    End If
+
+    '                    oDBdtSizeSpecView.AcceptChanges()
+
+    '                Next nLoopRowSrc
+
+    '                oDBdtSizeSpecView.AcceptChanges()
+
+    '            End If
+
+    '            '============================================================================================================================================
+
+
+    '            ogdSizeSpec.DataSource = oDBdtSizeSpecView
+    '            ogdSizeSpec = oGridViewSizeSpec.GridControl
+    '            ' HI.TL.HandlerControl.AddHandlerGridColumnEdit(ogdSizeSpec.Views(0))
+    '            oGridViewSizeSpec.OptionsView.ColumnAutoWidth = False
+    '            ogdSizeSpec.Refresh()
+    '            oGridViewSizeSpec.RefreshData()
+
+
+    '            '...State Approved Factory Sub Order No. {Approved/Revised} Packing Carton Information
+    '            '============================================================================================================================================================================================================================================================================================================================================
+    '            tSql = ""
+    '            tSql = "DECLARE @FTStateApprovedSizeSpec AS NVARCHAR(1);"
+    '            tSql &= Environment.NewLine & "SELECT TOP 1 @FTStateApprovedSizeSpec = A.FTStateApprovedSizeSpec FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_ApprovedInfo AS A (NOLOCK) WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text.Trim) & "' AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Text.Trim) & "';"
+    '            tSql &= Environment.NewLine & "IF (@FTStateApprovedSizeSpec IS NULL)"
+    '            tSql &= Environment.NewLine & "BEGIN"
+    '            tSql &= Environment.NewLine & "  SET @FTStateApprovedSizeSpec = N'2' /*not approved & not revised*/"
+    '            tSql &= Environment.NewLine & "END;"
+    '            tSql &= Environment.NewLine & "PRINT '@FTStateApprovedSizeSpec : ' + @FTStateApprovedSizeSpec;"
+    '            tSql &= Environment.NewLine & "SELECT @FTStateApprovedSizeSpec AS FTStateApprovedSizeSpec;"
+
+    '            Dim tTextFTApprovedInfoState As String
+
+    '            tTextFTApprovedInfoState = HI.Conn.SQLConn.GetField(tSql, HI.Conn.DB.DataBaseName.DB_MERCHAN, "2")
+
+    '            If tTextFTApprovedInfoState = "0" Then
+    '                Dim tRevisedTime As String = Val(HI.Conn.SQLConn.GetField("SELECT A.FNCntApprovedSizeSpec FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_ApprovedInfo AS A (NOLOCK) WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text.Trim) & "' AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Text.Trim) & "'", HI.Conn.DB.DataBaseName.DB_MERCHAN, "0")).ToString
+
+    '                Me.FTStateApprovedSizeSpec.Visible = False
+    '                Me.FTStateApprovedSizeSpec.Checked = False
+    '                'Me.FTStateApprovedSizeSpec.Text = "Revised Information ( " & tRevisedTime & " )"
+    '                'Me.FTStateApprovedSizeSpec.ForeColor = System.Drawing.Color.DarkRed
+    '                'Me.FTStateApprovedSizeSpec.BackColor = Color.Transparent
+    '                'Me.FTStateApprovedSizeSpec.BringToFront()
+
+    '                Me.FTStateApprovedSizeSpecRevised.Visible = True
+    '                Me.FTStateApprovedSizeSpecRevised.Checked = True
+
+    '                Me.FTStateApprovedSizeSpecRevised.ForeColor = System.Drawing.Color.DarkRed
+    '                Me.FTStateApprovedSizeSpecRevised.BackColor = Color.Transparent
+    '                Me.FTStateApprovedSizeSpecRevised.BringToFront()
+
+    '            ElseIf tTextFTApprovedInfoState = "1" Then
+    '                Me.FTStateApprovedSizeSpecRevised.Visible = False
+    '                Me.FTStateApprovedSizeSpecRevised.Checked = False
+
+    '                Me.FTStateApprovedSizeSpec.Visible = True
+    '                Me.FTStateApprovedSizeSpec.Checked = True
+    '                'Me.FTStateApprovedSizeSpec.Text = "Approved Information"
+    '                Me.FTStateApprovedSizeSpec.ForeColor = System.Drawing.Color.Blue
+    '                Me.FTStateApprovedSizeSpec.BackColor = Color.Transparent
+    '                Me.FTStateApprovedSizeSpec.BringToFront()
+
+    '            Else
+    '                Me.FTStateApprovedSizeSpec.Visible = False
+    '                Me.FTStateApprovedSizeSpecRevised.Visible = False
+    '                'Me.FTStateApprovedSizeSpec.Text = ""
+    '                'Me.FTStateApprovedSizeSpec.ForeColor = DevExpress.XtraEditors.CheckEdit.DefaultForeColor 'Me.GroupControl2.ForeColor 'DevExpress.XtraEditors.CheckEdit.DefaultBackColor
+    '                'Me.FTStateApprovedSizeSpec.BackColor = DevExpress.XtraEditors.CheckEdit.DefaultBackColor
+
+    '            End If
+    '            '============================================================================================================================================================================================================================================================================================================================================
+
+    '        End If
+
+    '        Return True
+    '    Catch ex As Exception
+
+    '        oDBdtSizeSpecView = Nothing
+    '        Me.ogdSizeSpec.DataSource = Nothing
+    '        Me.ogdSizeSpec.Refresh()
+    '        Me.ogvSizeSpec.RefreshData()
+    '        Call W_PRCbRemoveGridViewColumn(Me.ogvSizeSpec)
+    '        Me.ogvSizeSpec.OptionsView.ColumnAutoWidth = False
+    '        Return False
+    '    End Try
+
+    'End Function
+
     Private Function W_PRCbShowBrowseDataSubOrderSizeSpecInfo(ByVal ptFTOrderNo As String, ByVal ptFTSubOrderNo As String) As Boolean
         Me.FTStateApprovedSizeSpec.Visible = False
         Me.FTStateApprovedSizeSpec.Checked = False
@@ -19973,7 +20332,7 @@ Public Class wOrder
                 tSql &= Environment.NewLine & "                     AND L1.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(ptFTSubOrderNo) & "'"
                 tSql &= Environment.NewLine & "                     AND L1.FNHSysMatSizeId = A.FNHSysMatSizeId)))"
 
-                tSql &= Environment.NewLine & "ORDER BY B.FNMatSizeSeq ASC, A.FNSeq ASC;"
+                tSql &= Environment.NewLine & "ORDER BY A.FNSeq ASC,B.FNMatSizeSeq ASC; "
 
                 Dim oDBdtSizeSpecSrc As DataTable
 
@@ -19998,7 +20357,7 @@ Public Class wOrder
 
                         Dim oDataRowItem As DataRow
 
-                        If nCntSeq < nFNMaxSeq Then
+                        If Val(oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FNSeq")) > nCntSeq And Val(oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FNSeq")) <= nFNMaxSeq Then
                             oDataRowItem = oDBdtSizeSpecView.NewRow()
                             oDataRowItem.Item("FNSeq") = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FNSeq")
                             oDataRowItem.Item("FTSizeSpecDesc") = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FTSizeSpecDesc").ToString()
@@ -20022,7 +20381,7 @@ Public Class wOrder
 
                             Next
 
-                            nCntSeq = nCntSeq + 1
+                            nCntSeq = Val(oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FNSeq"))
 
                             nFNHSysMatSizeIdPrv = nFNHSysMatSizeIdCurr
                         Else
@@ -20031,8 +20390,25 @@ Public Class wOrder
                                 nRowIdxAppend = 0
                             End If
 
-                            oDBdtSizeSpecView.Rows(nRowIdxAppend).Item(tFNHSysMatSizeIdXXX) = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FNHSysMatSizeId")
-                            oDBdtSizeSpecView.Rows(nRowIdxAppend).Item(tFTSizeSpecExtensionXXX) = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FTSizeSpecExtension").ToString()
+
+                            For Each RRow As DataRow In oDBdtSizeSpecView.Select("FNSeq = " & Val(oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FNSeq")) & "")
+                                For Each oColSizeSpec As DataColumn In oDBdtSizeSpecView.Columns
+                                    If oColSizeSpec.ColumnName = tFNHSysMatSizeIdXXX Then
+                                        RRow.Item(tFNHSysMatSizeIdXXX) = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FNHSysMatSizeId")
+                                        RRow.Item(tFTSizeSpecExtensionXXX) = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FTSizeSpecExtension")
+
+                                        oDBdtSizeSpecView.AcceptChanges()
+
+                                        Exit For
+
+                                    End If
+
+                                Next
+                            Next
+
+
+                            'oDBdtSizeSpecView.Rows(nRowIdxAppend).Item(tFNHSysMatSizeIdXXX) = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FNHSysMatSizeId")
+                            'oDBdtSizeSpecView.Rows(nRowIdxAppend).Item(tFTSizeSpecExtensionXXX) = oDBdtSizeSpecSrc.Rows(nLoopRowSrc).Item("FTSizeSpecExtension").ToString()
 
                             nRowIdxAppend = nRowIdxAppend + 1
 
@@ -20075,6 +20451,7 @@ Public Class wOrder
                 tTextFTApprovedInfoState = HI.Conn.SQLConn.GetField(tSql, HI.Conn.DB.DataBaseName.DB_MERCHAN, "2")
 
                 If tTextFTApprovedInfoState = "0" Then
+
                     Dim tRevisedTime As String = Val(HI.Conn.SQLConn.GetField("SELECT A.FNCntApprovedSizeSpec FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_ApprovedInfo AS A (NOLOCK) WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text.Trim) & "' AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Text.Trim) & "'", HI.Conn.DB.DataBaseName.DB_MERCHAN, "0")).ToString
 
                     Me.FTStateApprovedSizeSpec.Visible = False
@@ -20092,6 +20469,7 @@ Public Class wOrder
                     Me.FTStateApprovedSizeSpecRevised.BringToFront()
 
                 ElseIf tTextFTApprovedInfoState = "1" Then
+
                     Me.FTStateApprovedSizeSpecRevised.Visible = False
                     Me.FTStateApprovedSizeSpecRevised.Checked = False
 
@@ -20103,6 +20481,7 @@ Public Class wOrder
                     Me.FTStateApprovedSizeSpec.BringToFront()
 
                 Else
+
                     Me.FTStateApprovedSizeSpec.Visible = False
                     Me.FTStateApprovedSizeSpecRevised.Visible = False
                     'Me.FTStateApprovedSizeSpec.Text = ""
@@ -22705,8 +23084,10 @@ Public Class wOrder
         Try
 
             If Me.FTOrderNo.Text <> "" And Me.FTOrderNo.Properties.Tag.ToString = "" Then
+
                 Dim _Qry As String = ""
                 Dim dt As DataTable
+
                 _Qry = "SELECT  TOP 1   FNHSysStyleId,  FPStyleImage1,FPStyleImage2, FPStyleImage3, FPStyleImage4"
                 _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle WITH(NOLOCK)"
                 _Qry &= vbCrLf & " WHERE FNHSysStyleId=" & _FNHSysStyleId & ""
@@ -22739,12 +23120,14 @@ Public Class wOrder
                     End Try
 
                 Next
+
                 dt.Dispose()
+
             End If
 
         Catch ex As Exception
-
         End Try
+
     End Sub
 
     Private Sub FNHSysCustId_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FNHSysCustId.EditValueChanged

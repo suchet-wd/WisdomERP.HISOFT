@@ -361,13 +361,13 @@ Public Class wConvertFileExcelNIKEPORowColumn
 
                             Dim ColInteger As Integer = 1
 
-                                With Me.ogvdt1
-                                    .BeginInit()
+                            With Me.ogvdt1
+                                .BeginInit()
 
 
-                                    For Each Col As DataColumn In dtExcel.Columns
+                                For Each Col As DataColumn In dtExcel.Columns
 
-                                        Select Case Col.ColumnName
+                                    Select Case Col.ColumnName
                                         Case "FTUserLogIn", "FNRowSeq", "OGAC", "GAC", "Purchase Order Number", "Trading Co PO Number", "Style Number", "Product Code", "PO Line Item Number", "Vendor Code", "Mode Of Transportation",
                                                      "Planning Season Code", "Planning Season Year", "Plant Code", "Plant Name", "Ship To Customer Number", "Total Item Quantity", "Gender Age", "Gender Age Description", "Schedule Line Item Number",
                                                      "Vendor Name", "DPOM Line Item Status", "Document Date", "Doc Type", "Doc Type Description", "Ship To Customer Name", "PMO/DEC code", "PMO/DEC Name", "Customer PO",
@@ -376,70 +376,70 @@ Public Class wConvertFileExcelNIKEPORowColumn
 
 
 
-                                                Dim ColG As New DevExpress.XtraGrid.Columns.GridColumn
-                                                With ColG
+                                            Dim ColG As New DevExpress.XtraGrid.Columns.GridColumn
+                                            With ColG
 
-                                                    .FieldName = Col.ColumnName
-                                                    .Name = "gView1r" & ColInteger.ToString
-                                                    .Caption = Col.ColumnName
-                                                    .Visible = True
+                                                .FieldName = Col.ColumnName
+                                                .Name = "gView1r" & ColInteger.ToString
+                                                .Caption = Col.ColumnName
+                                                .Visible = True
 
-                                                    .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-                                                    .OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
+                                                .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+                                                .OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
 
 
 
-                                                    With .OptionsColumn
-                                                        .AllowMove = False
-                                                        .AllowShowHide = False
-                                                        .AllowGroup = DevExpress.Utils.DefaultBoolean.False
-                                                        .AllowSort = DevExpress.Utils.DefaultBoolean.False
-                                                        .AllowMerge = DevExpress.Utils.DefaultBoolean.False
-                                                        .AllowEdit = False
-                                                        .ReadOnly = False
-                                                    End With
-
-                                                    With .OptionsFilter
-                                                        .AutoFilterCondition = AutoFilterCondition.Contains
-                                                        .FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList
-                                                    End With
-
-                                                    .Width = 100
-
+                                                With .OptionsColumn
+                                                    .AllowMove = False
+                                                    .AllowShowHide = False
+                                                    .AllowGroup = DevExpress.Utils.DefaultBoolean.False
+                                                    .AllowSort = DevExpress.Utils.DefaultBoolean.False
+                                                    .AllowMerge = DevExpress.Utils.DefaultBoolean.False
+                                                    .AllowEdit = False
+                                                    .ReadOnly = False
                                                 End With
 
-                                                .Columns.Add(ColG)
+                                                With .OptionsFilter
+                                                    .AutoFilterCondition = AutoFilterCondition.Contains
+                                                    .FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList
+                                                End With
+
+                                                .Width = 100
+
+                                            End With
+
+                                            .Columns.Add(ColG)
 
 
-                                                ColInteger = ColInteger + 1
+                                            ColInteger = ColInteger + 1
 
-                                        End Select
+                                    End Select
 
-                                    Next
-
-                                    .EndInit()
-                                End With
-
-
-                                ' Call SetGridColumn()
-                                Me.ogcdt1.DataSource = dtExcel.Copy
-                                dtExcel.Dispose()
-
-
-                                For Each gCol As DevExpress.XtraGrid.Columns.GridColumn In ogvdt1.Columns
-                                    gCol.OptionsColumn.AllowEdit = False
-
-
-                                    If gCol.FieldName = "FNRowSeq" Then
-                                        gCol.Visible = False
-                                    End If
                                 Next
 
+                                .EndInit()
+                            End With
 
-                            Else
+
+                            ' Call SetGridColumn()
+                            Me.ogcdt1.DataSource = dtExcel.Copy
+                            dtExcel.Dispose()
 
 
-                            End If
+                            For Each gCol As DevExpress.XtraGrid.Columns.GridColumn In ogvdt1.Columns
+                                gCol.OptionsColumn.AllowEdit = False
+
+
+                                If gCol.FieldName = "FNRowSeq" Then
+                                    gCol.Visible = False
+                                End If
+                            Next
+
+
+                        Else
+
+
+                        End If
 
 
                     End If

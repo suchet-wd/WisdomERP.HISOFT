@@ -22,7 +22,11 @@ Partial Class UIQAPreFinalTracking
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.opnheader = New DevExpress.XtraEditors.PanelControl()
         Me.FNTheQuality_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNTheQuality = New DevExpress.XtraEditors.CalcEdit()
@@ -42,6 +46,7 @@ Partial Class UIQAPreFinalTracking
         Me.opnheader.Controls.Add(Me.FNTheQuality)
         Me.opnheader.Dock = System.Windows.Forms.DockStyle.Top
         Me.opnheader.Location = New System.Drawing.Point(0, 0)
+        Me.opnheader.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.opnheader.Name = "opnheader"
         Me.opnheader.Size = New System.Drawing.Size(1347, 49)
         Me.opnheader.TabIndex = 0
@@ -50,12 +55,14 @@ Partial Class UIQAPreFinalTracking
         '
         Me.FNTheQuality_lbl.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FNTheQuality_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNTheQuality_lbl.Appearance.Options.UseForeColor = True
+        Me.FNTheQuality_lbl.Appearance.Options.UseTextOptions = True
         Me.FNTheQuality_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNTheQuality_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNTheQuality_lbl.Location = New System.Drawing.Point(865, 14)
         Me.FNTheQuality_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNTheQuality_lbl.Name = "FNTheQuality_lbl"
-        Me.FNTheQuality_lbl.Size = New System.Drawing.Size(258, 23)
+        Me.FNTheQuality_lbl.Size = New System.Drawing.Size(259, 23)
         Me.FNTheQuality_lbl.TabIndex = 480
         Me.FNTheQuality_lbl.Tag = "2|"
         Me.FNTheQuality_lbl.Text = "ค่าคุณภาพ :"
@@ -82,7 +89,7 @@ Partial Class UIQAPreFinalTracking
         Me.FNTheQuality.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNTheQuality.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNTheQuality.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNTheQuality.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
+        Me.FNTheQuality.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNTheQuality.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNTheQuality.Properties.Precision = 2
         Me.FNTheQuality.Size = New System.Drawing.Size(175, 30)
@@ -101,7 +108,7 @@ Partial Class UIQAPreFinalTracking
         Me.ogcdetail.MainView = Me.ogvdetail
         Me.ogcdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcdetail.Name = "ogcdetail"
-        Me.ogcdetail.Size = New System.Drawing.Size(1347, 674)
+        Me.ogcdetail.Size = New System.Drawing.Size(1347, 673)
         Me.ogcdetail.TabIndex = 395
         Me.ogcdetail.TabStop = False
         Me.ogcdetail.Tag = "2|"
@@ -126,7 +133,7 @@ Partial Class UIQAPreFinalTracking
         Me.Controls.Add(Me.opnheader)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "UIQAPreFinalTracking"
-        Me.Size = New System.Drawing.Size(1347, 723)
+        Me.Size = New System.Drawing.Size(1347, 722)
         CType(Me.opnheader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.opnheader.ResumeLayout(False)
         CType(Me.FNTheQuality.Properties, System.ComponentModel.ISupportInitialize).EndInit()

@@ -374,16 +374,16 @@ Public Class wCopyStylePoint
             Dim _oDt As DataTable = HI.Conn.SQLConn.GetDataTable(_Str, Conn.DB.DataBaseName.DB_MASTER)
             Dim Row As Integer = 1
 
-            Dim _Formpath As String = _Path & "\Images\MODEL\" & Microsoft.VisualBasic.Left(Me._StyleCode.ToString, 6).ToString
-            Dim _FormpathPoint As String = _Path & "\Images\POINTMODEL\" & Microsoft.VisualBasic.Left(Me._StyleCode.ToString, 6).ToString
+            Dim _Formpath As String = _Path & "\Images\MODELSAMPLE\" & Microsoft.VisualBasic.Left(Me._StyleCode.ToString, 6).ToString
+            Dim _FormpathPoint As String = _Path & "\Images\POINTMODELSAMPLE\" & Microsoft.VisualBasic.Left(Me._StyleCode.ToString, 6).ToString
             For Each R As DataRow In m_DbDtStyleCode.Rows
                 For Each Col As DataRow In _oDt.Rows
                     Dim _Img As New DevExpress.XtraEditors.PictureEdit
-                    Dim _NPath As String = _Path & "\Images\MODEL\" & Microsoft.VisualBasic.Left(R!FTStyleCode.ToString, 6).ToString
+                    Dim _NPath As String = _Path & "\Images\MODELSAMPLE\" & Microsoft.VisualBasic.Left(R!FTStyleCode.ToString, 6).ToString
                     If (My.Computer.FileSystem.DirectoryExists(_NPath) = False) Then
                         My.Computer.FileSystem.CreateDirectory(_NPath)
                     End If
-                    Dim _PPath As String = _Path & "\Images\POINTMODEL\" & Microsoft.VisualBasic.Left(R!FTStyleCode.ToString, 6).ToString
+                    Dim _PPath As String = _Path & "\Images\POINTMODELSAMPLE\" & Microsoft.VisualBasic.Left(R!FTStyleCode.ToString, 6).ToString
                     If (My.Computer.FileSystem.DirectoryExists(_PPath) = False) Then
                         My.Computer.FileSystem.CreateDirectory(_PPath)
                     End If

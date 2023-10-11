@@ -19,11 +19,6 @@ Partial Class wQAPreFinalSample
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim EditorButtonImageOptions15 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject57 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject58 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject59 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject60 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -69,27 +64,42 @@ Partial Class wQAPreFinalSample
         Dim SerializableAppearanceObject34 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject35 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject36 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wQAPreFinalSample))
-        Dim EditorButtonImageOptions11 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject41 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject42 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject43 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject44 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions12 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject45 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject46 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject47 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject48 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions16 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject61 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject62 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject63 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject64 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions10 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject37 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject38 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject39 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject40 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions11 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject41 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject42 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject43 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject44 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wQAPreFinalSample))
+        Dim EditorButtonImageOptions13 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject49 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject50 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject51 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject52 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions14 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject53 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject54 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject55 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject56 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions15 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject57 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject58 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject59 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject60 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions16 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject61 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject62 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject63 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject64 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions12 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject45 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject46 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject47 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject48 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.FNAndon = New DevExpress.XtraEditors.CalcEdit()
         Me.FNAndon_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNMajorQty_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -108,6 +118,8 @@ Partial Class wQAPreFinalSample
         Me.ocmReAndon = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmAndon = New DevExpress.XtraEditors.SimpleButton()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
+        Me.ocmrevokeapproval = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmapprovepay = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmdelete = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcheckpointfinal = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
@@ -115,7 +127,7 @@ Partial Class wQAPreFinalSample
         Me.ocmPass = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmUndoM = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmMajor = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmreject = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmrejectqc = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmMinor = New DevExpress.XtraEditors.SimpleButton()
         Me.ogrpCheck = New DevExpress.XtraEditors.GroupControl()
         Me.ocmNext = New DevExpress.XtraEditors.SimpleButton()
@@ -125,14 +137,15 @@ Partial Class wQAPreFinalSample
         Me.ogrpSubmenu = New DevExpress.XtraEditors.GroupControl()
         Me.TileControl = New DevExpress.XtraEditors.TileControl()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
-        Me.ockbarcodecarton = New DevExpress.XtraEditors.CheckEdit()
         Me.FTBarcodeNo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTBarcodeNo = New DevExpress.XtraEditors.TextEdit()
+        Me.FNBarcodeSeq = New DevExpress.XtraEditors.CalcEdit()
+        Me.ockbarcodecarton = New DevExpress.XtraEditors.CheckEdit()
         Me.FNMinorQty_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTPointName = New DevExpress.XtraEditors.TextEdit()
         Me.FTPointName_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNQtyIn_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTOrderNo = New DevExpress.XtraEditors.ButtonEdit()
+        Me.FTSMPOrderNo = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHour_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTOrderNo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHour = New DevExpress.XtraEditors.CalcEdit()
@@ -144,14 +157,21 @@ Partial Class wQAPreFinalSample
         Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager()
         Me.oCriteria = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
+        Me.FTStateApp = New DevExpress.XtraEditors.CheckEdit()
         Me.FNHSysCmpId = New DevExpress.XtraEditors.TextEdit()
+        Me.FDAppDate = New DevExpress.XtraEditors.DateEdit()
         Me.FDInsDate = New DevExpress.XtraEditors.DateEdit()
+        Me.FTAppBy = New DevExpress.XtraEditors.TextEdit()
         Me.FTInsUser = New DevExpress.XtraEditors.TextEdit()
+        Me.FDAppDate_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FDInsDate_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTBarcodeRef = New DevExpress.XtraEditors.ButtonEdit()
         Me.FTBarcodeRef_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.FTInsUser_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
+        Me.FTRemark_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FTRemark = New DevExpress.XtraEditors.MemoEdit()
         Me.EmployeeInfo = New DevExpress.XtraEditors.TextEdit()
         Me.Employee_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNCtiticalQty = New DevExpress.XtraEditors.CalcEdit()
@@ -174,10 +194,11 @@ Partial Class wQAPreFinalSample
         Me.ogrpSubmenu.SuspendLayout()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
-        CType(Me.ockbarcodecarton.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTBarcodeNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FNBarcodeSeq.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ockbarcodecarton.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTPointName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FTSMPOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHour.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNQtyIn.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogrpbarcodecarton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -187,13 +208,18 @@ Partial Class wQAPreFinalSample
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.oCriteria.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
+        CType(Me.FTStateApp.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysCmpId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FDAppDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FDAppDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FDInsDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FDInsDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FTAppBy.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTInsUser.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTBarcodeRef.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
+        CType(Me.FTRemark.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeeInfo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNCtiticalQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -213,7 +239,7 @@ Partial Class wQAPreFinalSample
         Me.FNAndon.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNAndon.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNAndon.Properties.AutoHeight = False
-        Me.FNAndon.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNAndon.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNAndon.Properties.Precision = 0
         Me.FNAndon.Properties.ReadOnly = True
         Me.FNAndon.Size = New System.Drawing.Size(94, 25)
@@ -327,7 +353,7 @@ Partial Class wQAPreFinalSample
         Me.FNHSysStyleId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysStyleId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysStyleId.Properties.AutoHeight = False
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "225", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysStyleId.Properties.ReadOnly = True
         Me.FNHSysStyleId.Properties.Tag = ""
@@ -365,7 +391,7 @@ Partial Class wQAPreFinalSample
         Me.FNHSysUnitSectId_None.Properties.Appearance.Options.UseFont = True
         Me.FNHSysUnitSectId_None.Properties.AutoHeight = False
         Me.FNHSysUnitSectId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(37, 25)
+        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(172, 25)
         Me.FNHSysUnitSectId_None.TabIndex = 454
         Me.FNHSysUnitSectId_None.Tag = "2|"
         Me.FNHSysUnitSectId_None.Visible = False
@@ -382,7 +408,7 @@ Partial Class wQAPreFinalSample
         Me.FNMinorQty.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNMinorQty.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNMinorQty.Properties.AutoHeight = False
-        Me.FNMinorQty.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNMinorQty.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNMinorQty.Properties.Precision = 0
         Me.FNMinorQty.Properties.ReadOnly = True
         Me.FNMinorQty.Size = New System.Drawing.Size(65, 25)
@@ -401,7 +427,7 @@ Partial Class wQAPreFinalSample
         Me.FNMajorQty.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNMajorQty.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNMajorQty.Properties.AutoHeight = False
-        Me.FNMajorQty.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNMajorQty.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNMajorQty.Properties.Precision = 0
         Me.FNMajorQty.Properties.ReadOnly = True
         Me.FNMajorQty.Size = New System.Drawing.Size(64, 25)
@@ -422,7 +448,7 @@ Partial Class wQAPreFinalSample
         Me.FNQCActualQty.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNQCActualQty.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNQCActualQty.Properties.AutoHeight = False
-        Me.FNQCActualQty.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNQCActualQty.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNQCActualQty.Properties.Precision = 0
         Me.FNQCActualQty.Properties.ReadOnly = True
         Me.FNQCActualQty.Size = New System.Drawing.Size(92, 25)
@@ -441,7 +467,7 @@ Partial Class wQAPreFinalSample
         Me.FNQtyQA.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNQtyQA.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNQtyQA.Properties.AutoHeight = False
-        Me.FNQtyQA.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNQtyQA.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNQtyQA.Properties.Precision = 0
         Me.FNQtyQA.Properties.ReadOnly = True
         Me.FNQtyQA.Size = New System.Drawing.Size(65, 25)
@@ -460,7 +486,7 @@ Partial Class wQAPreFinalSample
         Me.FNHSysUnitSectId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysUnitSectId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysUnitSectId.Properties.AutoHeight = False
-        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "248", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "248", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.ReadOnly = True
         Me.FNHSysUnitSectId.Size = New System.Drawing.Size(33, 25)
         Me.FNHSysUnitSectId.TabIndex = 0
@@ -492,6 +518,8 @@ Partial Class wQAPreFinalSample
         'ogbmainprocbutton
         '
         Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmrevokeapproval)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmapprovepay)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmdelete)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmcheckpointfinal)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmReAndon)
@@ -501,7 +529,7 @@ Partial Class wQAPreFinalSample
         Me.ogbmainprocbutton.Controls.Add(Me.ocmPass)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmUndoM)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmMajor)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmreject)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmrejectqc)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmMinor)
         Me.ogbmainprocbutton.Location = New System.Drawing.Point(30, 46)
         Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -509,6 +537,30 @@ Partial Class wQAPreFinalSample
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(535, 223)
         Me.ogbmainprocbutton.TabIndex = 448
         Me.ogbmainprocbutton.Tag = "2|"
+        '
+        'ocmrevokeapproval
+        '
+        Me.ocmrevokeapproval.Location = New System.Drawing.Point(153, 143)
+        Me.ocmrevokeapproval.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmrevokeapproval.Name = "ocmrevokeapproval"
+        Me.ocmrevokeapproval.Size = New System.Drawing.Size(111, 31)
+        Me.ocmrevokeapproval.TabIndex = 98
+        Me.ocmrevokeapproval.TabStop = False
+        Me.ocmrevokeapproval.Tag = "2|"
+        Me.ocmrevokeapproval.Text = "Revoke Approved"
+        Me.ocmrevokeapproval.Visible = False
+        '
+        'ocmapprovepay
+        '
+        Me.ocmapprovepay.Location = New System.Drawing.Point(33, 172)
+        Me.ocmapprovepay.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmapprovepay.Name = "ocmapprovepay"
+        Me.ocmapprovepay.Size = New System.Drawing.Size(111, 31)
+        Me.ocmapprovepay.TabIndex = 98
+        Me.ocmapprovepay.TabStop = False
+        Me.ocmapprovepay.Tag = "2|"
+        Me.ocmapprovepay.Text = "Approved"
+        Me.ocmapprovepay.Visible = False
         '
         'ocmdelete
         '
@@ -530,6 +582,7 @@ Partial Class wQAPreFinalSample
         Me.ocmcheckpointfinal.Size = New System.Drawing.Size(250, 46)
         Me.ocmcheckpointfinal.TabIndex = 97
         Me.ocmcheckpointfinal.Text = "Check Point Final"
+        Me.ocmcheckpointfinal.Visible = False
         '
         'ocmclear
         '
@@ -584,15 +637,15 @@ Partial Class wQAPreFinalSample
         Me.ocmMajor.Text = "MAJOR REJECT"
         Me.ocmMajor.Visible = False
         '
-        'ocmreject
+        'ocmrejectqc
         '
-        Me.ocmreject.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmreject.Location = New System.Drawing.Point(412, 6)
-        Me.ocmreject.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ocmreject.Name = "ocmreject"
-        Me.ocmreject.Size = New System.Drawing.Size(108, 46)
-        Me.ocmreject.TabIndex = 7
-        Me.ocmreject.Text = "REJECT"
+        Me.ocmrejectqc.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmrejectqc.Location = New System.Drawing.Point(412, 6)
+        Me.ocmrejectqc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmrejectqc.Name = "ocmrejectqc"
+        Me.ocmrejectqc.Size = New System.Drawing.Size(108, 46)
+        Me.ocmrejectqc.TabIndex = 7
+        Me.ocmrejectqc.Text = "REJECT"
         '
         'ocmMinor
         '
@@ -679,11 +732,11 @@ Partial Class wQAPreFinalSample
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogrpSubmenu.Controls.Add(Me.TileControl)
-        Me.ogrpSubmenu.Location = New System.Drawing.Point(579, 244)
+        Me.ogrpSubmenu.Location = New System.Drawing.Point(579, 340)
         Me.ogrpSubmenu.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogrpSubmenu.Name = "ogrpSubmenu"
         Me.ogrpSubmenu.ShowCaption = False
-        Me.ogrpSubmenu.Size = New System.Drawing.Size(630, 559)
+        Me.ogrpSubmenu.Size = New System.Drawing.Size(630, 504)
         Me.ogrpSubmenu.TabIndex = 2
         Me.ogrpSubmenu.Text = "Sub Menu"
         '
@@ -700,7 +753,7 @@ Partial Class wQAPreFinalSample
         Me.TileControl.Orientation = System.Windows.Forms.Orientation.Vertical
         Me.TileControl.Padding = New System.Windows.Forms.Padding(21, 22, 21, 22)
         Me.TileControl.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar
-        Me.TileControl.Size = New System.Drawing.Size(626, 555)
+        Me.TileControl.Size = New System.Drawing.Size(626, 500)
         Me.TileControl.TabIndex = 0
         Me.TileControl.Text = "TileControlSubmenu"
         '
@@ -708,9 +761,10 @@ Partial Class wQAPreFinalSample
         '
         Me.GroupControl1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupControl1.Controls.Add(Me.ockbarcodecarton)
         Me.GroupControl1.Controls.Add(Me.FTBarcodeNo_lbl)
         Me.GroupControl1.Controls.Add(Me.FTBarcodeNo)
+        Me.GroupControl1.Controls.Add(Me.FNBarcodeSeq)
+        Me.GroupControl1.Controls.Add(Me.ockbarcodecarton)
         Me.GroupControl1.Location = New System.Drawing.Point(1, 2)
         Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl1.Name = "GroupControl1"
@@ -718,19 +772,6 @@ Partial Class wQAPreFinalSample
         Me.GroupControl1.Size = New System.Drawing.Size(1204, 50)
         Me.GroupControl1.TabIndex = 3
         Me.GroupControl1.Text = "GroupControl1"
-        '
-        'ockbarcodecarton
-        '
-        Me.ockbarcodecarton.EditValue = "0"
-        Me.ockbarcodecarton.Location = New System.Drawing.Point(1049, 17)
-        Me.ockbarcodecarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ockbarcodecarton.Name = "ockbarcodecarton"
-        Me.ockbarcodecarton.Properties.Caption = "Barcode Carton"
-        Me.ockbarcodecarton.Properties.ValueChecked = "1"
-        Me.ockbarcodecarton.Properties.ValueUnchecked = "0"
-        Me.ockbarcodecarton.Size = New System.Drawing.Size(136, 24)
-        Me.ockbarcodecarton.TabIndex = 455
-        Me.ockbarcodecarton.Visible = False
         '
         'FTBarcodeNo_lbl
         '
@@ -761,6 +802,38 @@ Partial Class wQAPreFinalSample
         Me.FTBarcodeNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTBarcodeNo.Size = New System.Drawing.Size(659, 38)
         Me.FTBarcodeNo.TabIndex = 1
+        '
+        'FNBarcodeSeq
+        '
+        Me.FNBarcodeSeq.Location = New System.Drawing.Point(1049, 2)
+        Me.FNBarcodeSeq.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNBarcodeSeq.Name = "FNBarcodeSeq"
+        Me.FNBarcodeSeq.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.FNBarcodeSeq.Properties.Appearance.Options.UseFont = True
+        Me.FNBarcodeSeq.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNBarcodeSeq.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNBarcodeSeq.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNBarcodeSeq.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNBarcodeSeq.Properties.AutoHeight = False
+        Me.FNBarcodeSeq.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNBarcodeSeq.Properties.Precision = 0
+        Me.FNBarcodeSeq.Properties.ReadOnly = True
+        Me.FNBarcodeSeq.Size = New System.Drawing.Size(82, 38)
+        Me.FNBarcodeSeq.TabIndex = 451
+        Me.FNBarcodeSeq.Tag = "2|"
+        '
+        'ockbarcodecarton
+        '
+        Me.ockbarcodecarton.EditValue = "0"
+        Me.ockbarcodecarton.Location = New System.Drawing.Point(1049, 17)
+        Me.ockbarcodecarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ockbarcodecarton.Name = "ockbarcodecarton"
+        Me.ockbarcodecarton.Properties.Caption = "Barcode Carton"
+        Me.ockbarcodecarton.Properties.ValueChecked = "1"
+        Me.ockbarcodecarton.Properties.ValueUnchecked = "0"
+        Me.ockbarcodecarton.Size = New System.Drawing.Size(136, 20)
+        Me.ockbarcodecarton.TabIndex = 455
+        Me.ockbarcodecarton.Visible = False
         '
         'FNMinorQty_lbl
         '
@@ -826,23 +899,23 @@ Partial Class wQAPreFinalSample
         Me.FNQtyIn_lbl.Tag = "2|"
         Me.FNQtyIn_lbl.Text = "Line  :"
         '
-        'FTOrderNo
+        'FTSMPOrderNo
         '
-        Me.FTOrderNo.Location = New System.Drawing.Point(722, 121)
-        Me.FTOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTOrderNo.Name = "FTOrderNo"
-        Me.FTOrderNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.FTOrderNo.Properties.Appearance.Options.UseFont = True
-        Me.FTOrderNo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FTOrderNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTOrderNo.Properties.AutoHeight = False
-        Me.FTOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "92", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FTOrderNo.Properties.ReadOnly = True
-        Me.FTOrderNo.Size = New System.Drawing.Size(247, 25)
-        Me.FTOrderNo.TabIndex = 455
-        Me.FTOrderNo.Tag = "2|"
+        Me.FTSMPOrderNo.Location = New System.Drawing.Point(722, 121)
+        Me.FTSMPOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSMPOrderNo.Name = "FTSMPOrderNo"
+        Me.FTSMPOrderNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.FTSMPOrderNo.Properties.Appearance.Options.UseFont = True
+        Me.FTSMPOrderNo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTSMPOrderNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FTSMPOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTSMPOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FTSMPOrderNo.Properties.AutoHeight = False
+        Me.FTSMPOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "665", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSMPOrderNo.Properties.ReadOnly = True
+        Me.FTSMPOrderNo.Size = New System.Drawing.Size(247, 25)
+        Me.FTSMPOrderNo.TabIndex = 455
+        Me.FTSMPOrderNo.Tag = "2|"
         '
         'FNHour_lbl
         '
@@ -890,7 +963,7 @@ Partial Class wQAPreFinalSample
         Me.FNHour.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHour.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHour.Properties.AutoHeight = False
-        Me.FNHour.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHour.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHour.Properties.Precision = 0
         Me.FNHour.Properties.ReadOnly = True
         Me.FNHour.Size = New System.Drawing.Size(76, 25)
@@ -910,7 +983,7 @@ Partial Class wQAPreFinalSample
         Me.FNQtyIn.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNQtyIn.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNQtyIn.Properties.AutoHeight = False
-        Me.FNQtyIn.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNQtyIn.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNQtyIn.Properties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Style3D
         Me.FNQtyIn.Properties.PopupResizeMode = DevExpress.XtraEditors.Controls.ResizeMode.LiveResize
         Me.FNQtyIn.Properties.Precision = 0
@@ -928,7 +1001,7 @@ Partial Class wQAPreFinalSample
         Me.ogrpbarcodecarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogrpbarcodecarton.Name = "ogrpbarcodecarton"
         Me.ogrpbarcodecarton.ShowCaption = False
-        Me.ogrpbarcodecarton.Size = New System.Drawing.Size(575, 112)
+        Me.ogrpbarcodecarton.Size = New System.Drawing.Size(575, 154)
         Me.ogrpbarcodecarton.TabIndex = 461
         Me.ogrpbarcodecarton.Text = "Barcode Carton "
         '
@@ -940,7 +1013,7 @@ Partial Class wQAPreFinalSample
         Me.ogcbarcode.MainView = Me.ogvbarcode
         Me.ogcbarcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcbarcode.Name = "ogcbarcode"
-        Me.ogcbarcode.Size = New System.Drawing.Size(571, 108)
+        Me.ogcbarcode.Size = New System.Drawing.Size(571, 150)
         Me.ogcbarcode.TabIndex = 0
         Me.ogcbarcode.Tag = "2|"
         Me.ogcbarcode.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvbarcode})
@@ -983,21 +1056,39 @@ Partial Class wQAPreFinalSample
         '
         'DockPanel1_Container
         '
+        Me.DockPanel1_Container.Controls.Add(Me.FTStateApp)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysCmpId)
+        Me.DockPanel1_Container.Controls.Add(Me.FDAppDate)
         Me.DockPanel1_Container.Controls.Add(Me.FDInsDate)
+        Me.DockPanel1_Container.Controls.Add(Me.FTAppBy)
         Me.DockPanel1_Container.Controls.Add(Me.FTInsUser)
+        Me.DockPanel1_Container.Controls.Add(Me.FDAppDate_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FDInsDate_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysUnitSectId_None)
         Me.DockPanel1_Container.Controls.Add(Me.FTBarcodeRef)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysUnitSectId)
         Me.DockPanel1_Container.Controls.Add(Me.FTBarcodeRef_lbl)
+        Me.DockPanel1_Container.Controls.Add(Me.LabelControl2)
         Me.DockPanel1_Container.Controls.Add(Me.FTInsUser_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysUnitSectId_lbl)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 32)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(2, 29)
         Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1198, 65)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1202, 70)
         Me.DockPanel1_Container.TabIndex = 0
+        '
+        'FTStateApp
+        '
+        Me.FTStateApp.EditValue = "0"
+        Me.FTStateApp.Location = New System.Drawing.Point(159, 34)
+        Me.FTStateApp.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateApp.Name = "FTStateApp"
+        Me.FTStateApp.Properties.Caption = "State App"
+        Me.FTStateApp.Properties.ReadOnly = True
+        Me.FTStateApp.Properties.ValueChecked = "1"
+        Me.FTStateApp.Properties.ValueUnchecked = "0"
+        Me.FTStateApp.Size = New System.Drawing.Size(218, 20)
+        Me.FTStateApp.TabIndex = 456
         '
         'FNHSysCmpId
         '
@@ -1020,16 +1111,44 @@ Partial Class wQAPreFinalSample
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysCmpId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCmpId.Properties.MaxLength = 30
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(96, 22)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(96, 23)
         Me.FNHSysCmpId.TabIndex = 464
         Me.FNHSysCmpId.Tag = ""
         Me.FNHSysCmpId.Visible = False
+        '
+        'FDAppDate
+        '
+        Me.FDAppDate.EditValue = Nothing
+        Me.FDAppDate.EnterMoveNextControl = True
+        Me.FDAppDate.Location = New System.Drawing.Point(535, 32)
+        Me.FDAppDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDAppDate.Name = "FDAppDate"
+        Me.FDAppDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FDAppDate.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FDAppDate.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FDAppDate.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FDAppDate.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FDAppDate.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FDAppDate.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FDAppDate.Properties.AppearanceReadOnly.Options.UseTextOptions = True
+        Me.FDAppDate.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FDAppDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FDAppDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.FDAppDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
+        Me.FDAppDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
+        Me.FDAppDate.Properties.NullDate = ""
+        Me.FDAppDate.Properties.ReadOnly = True
+        Me.FDAppDate.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never
+        Me.FDAppDate.Size = New System.Drawing.Size(160, 23)
+        Me.FDAppDate.TabIndex = 465
+        Me.FDAppDate.TabStop = False
+        Me.FDAppDate.Tag = "2|"
         '
         'FDInsDate
         '
         Me.FDInsDate.EditValue = Nothing
         Me.FDInsDate.EnterMoveNextControl = True
-        Me.FDInsDate.Location = New System.Drawing.Point(538, 2)
+        Me.FDInsDate.Location = New System.Drawing.Point(535, 2)
         Me.FDInsDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDInsDate.Name = "FDInsDate"
         Me.FDInsDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
@@ -1041,17 +1160,45 @@ Partial Class wQAPreFinalSample
         Me.FDInsDate.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FDInsDate.Properties.AppearanceReadOnly.Options.UseTextOptions = True
         Me.FDInsDate.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FDInsDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FDInsDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FDInsDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FDInsDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDInsDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDInsDate.Properties.NullDate = ""
         Me.FDInsDate.Properties.ReadOnly = True
         Me.FDInsDate.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never
-        Me.FDInsDate.Size = New System.Drawing.Size(160, 22)
+        Me.FDInsDate.Size = New System.Drawing.Size(160, 23)
         Me.FDInsDate.TabIndex = 465
         Me.FDInsDate.TabStop = False
         Me.FDInsDate.Tag = "2|"
+        '
+        'FTAppBy
+        '
+        Me.FTAppBy.EnterMoveNextControl = True
+        Me.FTAppBy.Location = New System.Drawing.Point(855, 30)
+        Me.FTAppBy.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAppBy.Name = "FTAppBy"
+        Me.FTAppBy.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTAppBy.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FTAppBy.Properties.Appearance.Options.UseBackColor = True
+        Me.FTAppBy.Properties.Appearance.Options.UseForeColor = True
+        Me.FTAppBy.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FTAppBy.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FTAppBy.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FTAppBy.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FTAppBy.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FTAppBy.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FTAppBy.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FTAppBy.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FTAppBy.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTAppBy.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FTAppBy.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTAppBy.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FTAppBy.Properties.ReadOnly = True
+        Me.FTAppBy.Size = New System.Drawing.Size(204, 23)
+        Me.FTAppBy.TabIndex = 467
+        Me.FTAppBy.TabStop = False
+        Me.FTAppBy.Tag = "2|"
         '
         'FTInsUser
         '
@@ -1076,10 +1223,25 @@ Partial Class wQAPreFinalSample
         Me.FTInsUser.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTInsUser.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTInsUser.Properties.ReadOnly = True
-        Me.FTInsUser.Size = New System.Drawing.Size(204, 22)
+        Me.FTInsUser.Size = New System.Drawing.Size(204, 23)
         Me.FTInsUser.TabIndex = 467
         Me.FTInsUser.TabStop = False
         Me.FTInsUser.Tag = "2|"
+        '
+        'FDAppDate_lbl
+        '
+        Me.FDAppDate_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FDAppDate_lbl.Appearance.Options.UseForeColor = True
+        Me.FDAppDate_lbl.Appearance.Options.UseTextOptions = True
+        Me.FDAppDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FDAppDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FDAppDate_lbl.Location = New System.Drawing.Point(379, 32)
+        Me.FDAppDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDAppDate_lbl.Name = "FDAppDate_lbl"
+        Me.FDAppDate_lbl.Size = New System.Drawing.Size(149, 23)
+        Me.FDAppDate_lbl.TabIndex = 468
+        Me.FDAppDate_lbl.Tag = "2|"
+        Me.FDAppDate_lbl.Text = "App Date :"
         '
         'FDInsDate_lbl
         '
@@ -1099,7 +1261,7 @@ Partial Class wQAPreFinalSample
         'FTBarcodeRef
         '
         Me.FTBarcodeRef.EnterMoveNextControl = True
-        Me.FTBarcodeRef.Location = New System.Drawing.Point(159, 2)
+        Me.FTBarcodeRef.Location = New System.Drawing.Point(159, 4)
         Me.FTBarcodeRef.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTBarcodeRef.Name = "FTBarcodeRef"
         Me.FTBarcodeRef.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -1116,14 +1278,14 @@ Partial Class wQAPreFinalSample
         Me.FTBarcodeRef.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTBarcodeRef.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTBarcodeRef.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        SerializableAppearanceObject45.Options.UseTextOptions = True
-        SerializableAppearanceObject45.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject46.Options.UseTextOptions = True
-        SerializableAppearanceObject46.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject47.Options.UseTextOptions = True
-        SerializableAppearanceObject47.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject48.Options.UseTextOptions = True
-        SerializableAppearanceObject48.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject57.Options.UseTextOptions = True
+        SerializableAppearanceObject57.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject58.Options.UseTextOptions = True
+        SerializableAppearanceObject58.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject59.Options.UseTextOptions = True
+        SerializableAppearanceObject59.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject60.Options.UseTextOptions = True
+        SerializableAppearanceObject60.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         SerializableAppearanceObject61.Options.UseTextOptions = True
         SerializableAppearanceObject61.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         SerializableAppearanceObject62.Options.UseTextOptions = True
@@ -1132,9 +1294,9 @@ Partial Class wQAPreFinalSample
         SerializableAppearanceObject63.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         SerializableAppearanceObject64.Options.UseTextOptions = True
         SerializableAppearanceObject64.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTBarcodeRef.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "510", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", 20, True, True, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTBarcodeRef.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", "510", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", 20, True, True, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTBarcodeRef.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTBarcodeRef.Size = New System.Drawing.Size(218, 22)
+        Me.FTBarcodeRef.Size = New System.Drawing.Size(218, 23)
         Me.FTBarcodeRef.TabIndex = 464
         Me.FTBarcodeRef.TabStop = False
         Me.FTBarcodeRef.Tag = "2|"
@@ -1146,13 +1308,26 @@ Partial Class wQAPreFinalSample
         Me.FTBarcodeRef_lbl.Appearance.Options.UseTextOptions = True
         Me.FTBarcodeRef_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTBarcodeRef_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBarcodeRef_lbl.Location = New System.Drawing.Point(3, 4)
+        Me.FTBarcodeRef_lbl.Location = New System.Drawing.Point(3, 2)
         Me.FTBarcodeRef_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTBarcodeRef_lbl.Name = "FTBarcodeRef_lbl"
         Me.FTBarcodeRef_lbl.Size = New System.Drawing.Size(148, 23)
         Me.FTBarcodeRef_lbl.TabIndex = 466
         Me.FTBarcodeRef_lbl.Tag = "2|"
         Me.FTBarcodeRef_lbl.Text = "Document No. :"
+        '
+        'LabelControl2
+        '
+        Me.LabelControl2.Appearance.Options.UseTextOptions = True
+        Me.LabelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.LabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.LabelControl2.Location = New System.Drawing.Point(705, 30)
+        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl2.Name = "LabelControl2"
+        Me.LabelControl2.Size = New System.Drawing.Size(143, 22)
+        Me.LabelControl2.TabIndex = 469
+        Me.LabelControl2.Tag = "2|"
+        Me.LabelControl2.Text = "App By :"
         '
         'FTInsUser_lbl
         '
@@ -1169,6 +1344,8 @@ Partial Class wQAPreFinalSample
         '
         'GroupControl2
         '
+        Me.GroupControl2.Controls.Add(Me.FTRemark_lbl)
+        Me.GroupControl2.Controls.Add(Me.FTRemark)
         Me.GroupControl2.Controls.Add(Me.GroupControl1)
         Me.GroupControl2.Controls.Add(Me.ogrpbarcodecarton)
         Me.GroupControl2.Controls.Add(Me.FNHSysStyleId)
@@ -1179,7 +1356,7 @@ Partial Class wQAPreFinalSample
         Me.GroupControl2.Controls.Add(Me.FNQCActualQty)
         Me.GroupControl2.Controls.Add(Me.FNQtyIn_lbl)
         Me.GroupControl2.Controls.Add(Me.FNQtyQA)
-        Me.GroupControl2.Controls.Add(Me.FTOrderNo)
+        Me.GroupControl2.Controls.Add(Me.FTSMPOrderNo)
         Me.GroupControl2.Controls.Add(Me.Employee_lbl)
         Me.GroupControl2.Controls.Add(Me.FNQCActualQty_lbl)
         Me.GroupControl2.Controls.Add(Me.FTPointName_lbl)
@@ -1203,15 +1380,43 @@ Partial Class wQAPreFinalSample
         Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl2.Name = "GroupControl2"
         Me.GroupControl2.ShowCaption = False
-        Me.GroupControl2.Size = New System.Drawing.Size(1206, 809)
+        Me.GroupControl2.Size = New System.Drawing.Size(1206, 851)
         Me.GroupControl2.TabIndex = 462
         Me.GroupControl2.Text = "GroupControl2"
+        '
+        'FTRemark_lbl
+        '
+        Me.FTRemark_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FTRemark_lbl.Appearance.Options.UseForeColor = True
+        Me.FTRemark_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTRemark_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTRemark_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTRemark_lbl.Location = New System.Drawing.Point(584, 251)
+        Me.FTRemark_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRemark_lbl.Name = "FTRemark_lbl"
+        Me.FTRemark_lbl.Size = New System.Drawing.Size(134, 23)
+        Me.FTRemark_lbl.TabIndex = 463
+        Me.FTRemark_lbl.Tag = "2|"
+        Me.FTRemark_lbl.Text = "Note :"
+        '
+        'FTRemark
+        '
+        Me.FTRemark.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FTRemark.EditValue = ""
+        Me.FTRemark.Location = New System.Drawing.Point(722, 249)
+        Me.FTRemark.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRemark.Name = "FTRemark"
+        Me.FTRemark.Properties.MaxLength = 500
+        Me.FTRemark.Size = New System.Drawing.Size(478, 85)
+        Me.FTRemark.TabIndex = 462
+        Me.FTRemark.Tag = "2|"
         '
         'EmployeeInfo
         '
         Me.EmployeeInfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.EmployeeInfo.Location = New System.Drawing.Point(724, 90)
+        Me.EmployeeInfo.Location = New System.Drawing.Point(722, 90)
         Me.EmployeeInfo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.EmployeeInfo.Name = "EmployeeInfo"
         Me.EmployeeInfo.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
@@ -1220,7 +1425,7 @@ Partial Class wQAPreFinalSample
         Me.EmployeeInfo.Properties.Appearance.Options.UseFont = True
         Me.EmployeeInfo.Properties.AutoHeight = False
         Me.EmployeeInfo.Properties.ReadOnly = True
-        Me.EmployeeInfo.Size = New System.Drawing.Size(476, 25)
+        Me.EmployeeInfo.Size = New System.Drawing.Size(478, 25)
         Me.EmployeeInfo.TabIndex = 454
         Me.EmployeeInfo.Tag = "2|"
         '
@@ -1252,7 +1457,7 @@ Partial Class wQAPreFinalSample
         Me.FNCtiticalQty.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNCtiticalQty.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNCtiticalQty.Properties.AutoHeight = False
-        Me.FNCtiticalQty.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNCtiticalQty.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNCtiticalQty.Properties.Precision = 0
         Me.FNCtiticalQty.Properties.ReadOnly = True
         Me.FNCtiticalQty.Size = New System.Drawing.Size(65, 25)
@@ -1278,7 +1483,7 @@ Partial Class wQAPreFinalSample
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1206, 912)
+        Me.ClientSize = New System.Drawing.Size(1206, 954)
         Me.Controls.Add(Me.GroupControl2)
         Me.Controls.Add(Me.oCriteria)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -1302,10 +1507,11 @@ Partial Class wQAPreFinalSample
         Me.ogrpSubmenu.ResumeLayout(False)
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
-        CType(Me.ockbarcodecarton.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTBarcodeNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNBarcodeSeq.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ockbarcodecarton.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTPointName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTSMPOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHour.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNQtyIn.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogrpbarcodecarton, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1315,13 +1521,18 @@ Partial Class wQAPreFinalSample
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).EndInit()
         Me.oCriteria.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
+        CType(Me.FTStateApp.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysCmpId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FDAppDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FDAppDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FDInsDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FDInsDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTAppBy.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTInsUser.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTBarcodeRef.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl2.ResumeLayout(False)
+        CType(Me.FTRemark.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmployeeInfo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNCtiticalQty.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -1362,12 +1573,12 @@ Partial Class wQAPreFinalSample
     Friend WithEvents FTPointName As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FTPointName_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FNQtyIn_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTOrderNo As DevExpress.XtraEditors.ButtonEdit
+    Friend WithEvents FTSMPOrderNo As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FNHour_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTOrderNo_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FNHour As DevExpress.XtraEditors.CalcEdit
     Friend WithEvents FNQtyIn As DevExpress.XtraEditors.CalcEdit
-    Friend WithEvents ocmreject As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmrejectqc As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ocmcheckpointfinal As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents FTBarcodeNo As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FTBarcodeNo_lbl As DevExpress.XtraEditors.LabelControl
@@ -1393,6 +1604,16 @@ Partial Class wQAPreFinalSample
     Friend WithEvents FNCtiticalQty_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents EmployeeInfo As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Employee_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents ocmapprovepay As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmrevokeapproval As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents FTStateApp As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents FDAppDate As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents FTAppBy As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents FDAppDate_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents FNBarcodeSeq As DevExpress.XtraEditors.CalcEdit
+    Friend WithEvents FTRemark_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents FTRemark As DevExpress.XtraEditors.MemoEdit
     'Private tileContainer As DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer
     'Private documentManager1 As DevExpress.XtraBars.Docking2010.DocumentManager
     'Private windowsUIView As DevExpress.XtraBars.Docking2010.Views.WindowsUI.WindowsUIView

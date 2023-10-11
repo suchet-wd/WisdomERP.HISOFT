@@ -1662,11 +1662,11 @@ Partial Class wOrder_CVN
         Me.otab.Dock = System.Windows.Forms.DockStyle.Fill
         Me.otab.HeaderAutoFill = DevExpress.Utils.DefaultBoolean.[False]
         Me.otab.HeaderOrientation = DevExpress.XtraTab.TabOrientation.Horizontal
-        Me.otab.Location = New System.Drawing.Point(0, 180)
+        Me.otab.Location = New System.Drawing.Point(0, 222)
         Me.otab.Name = "otab"
         Me.otab.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.otab.SelectedTabPage = Me.otpOrderBreakdown
-        Me.otab.Size = New System.Drawing.Size(1238, 454)
+        Me.otab.Size = New System.Drawing.Size(1238, 412)
         Me.otab.TabIndex = 432
         Me.otab.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpOrderBreakdown, Me.otpSubOrder, Me.otbSubOrderComponent, Me.otpSubOrderSewInfo, Me.otpSubOrderPackInfo, Me.otpSubOrderPakingCartonInfo, Me.otpSubOrderSizeSpec})
         '
@@ -1677,7 +1677,7 @@ Partial Class wOrder_CVN
         Me.otpOrderBreakdown.Controls.Add(Me.ogbColorwaySizeBreakdown)
         Me.otpOrderBreakdown.Controls.Add(Me.ogbCurrencyInfo)
         Me.otpOrderBreakdown.Name = "otpOrderBreakdown"
-        Me.otpOrderBreakdown.Size = New System.Drawing.Size(1236, 429)
+        Me.otpOrderBreakdown.Size = New System.Drawing.Size(1236, 387)
         Me.otpOrderBreakdown.Text = "Order Information"
         '
         'ogbOrder
@@ -1734,7 +1734,7 @@ Partial Class wOrder_CVN
         Me.ogbOrder.Controls.Add(Me.FNHSysCustId_lbl)
         Me.ogbOrder.Location = New System.Drawing.Point(0, 0)
         Me.ogbOrder.Name = "ogbOrder"
-        Me.ogbOrder.Size = New System.Drawing.Size(450, 421)
+        Me.ogbOrder.Size = New System.Drawing.Size(450, 379)
         Me.ogbOrder.TabIndex = 0
         Me.ogbOrder.Text = "Order Information"
         '
@@ -2458,7 +2458,7 @@ Partial Class wOrder_CVN
         Me.ogbColorwaySizeBreakdown.Controls.Add(Me.ogdColorSizeBreakdown)
         Me.ogbColorwaySizeBreakdown.Location = New System.Drawing.Point(452, 130)
         Me.ogbColorwaySizeBreakdown.Name = "ogbColorwaySizeBreakdown"
-        Me.ogbColorwaySizeBreakdown.Size = New System.Drawing.Size(777, 291)
+        Me.ogbColorwaySizeBreakdown.Size = New System.Drawing.Size(777, 249)
         Me.ogbColorwaySizeBreakdown.TabIndex = 469
         Me.ogbColorwaySizeBreakdown.Text = "Colorway / Size Breakdown Information"
         '
@@ -2468,7 +2468,7 @@ Partial Class wOrder_CVN
         Me.ogdColorSizeBreakdown.Location = New System.Drawing.Point(2, 23)
         Me.ogdColorSizeBreakdown.MainView = Me.GridView1
         Me.ogdColorSizeBreakdown.Name = "ogdColorSizeBreakdown"
-        Me.ogdColorSizeBreakdown.Size = New System.Drawing.Size(773, 266)
+        Me.ogdColorSizeBreakdown.Size = New System.Drawing.Size(773, 224)
         Me.ogdColorSizeBreakdown.TabIndex = 0
         Me.ogdColorSizeBreakdown.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -2523,7 +2523,7 @@ Partial Class wOrder_CVN
         '
         Me.ogbCurrencyInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ogbCurrencyInfo.Controls.Add(Me.ogdCurrencyBreakdown)
-        Me.ogbCurrencyInfo.Location = New System.Drawing.Point(0, 220)
+        Me.ogbCurrencyInfo.Location = New System.Drawing.Point(0, 178)
         Me.ogbCurrencyInfo.Name = "ogbCurrencyInfo"
         Me.ogbCurrencyInfo.Size = New System.Drawing.Size(447, 27)
         Me.ogbCurrencyInfo.TabIndex = 468
@@ -2587,7 +2587,7 @@ Partial Class wOrder_CVN
         Me.otpSubOrder.Controls.Add(Me.ogbSubOrder)
         Me.otpSubOrder.Controls.Add(Me.ogbpay)
         Me.otpSubOrder.Name = "otpSubOrder"
-        Me.otpSubOrder.Size = New System.Drawing.Size(1236, 428)
+        Me.otpSubOrder.Size = New System.Drawing.Size(1236, 387)
         Me.otpSubOrder.Text = "Sub Order Information"
         '
         'ogbSubOrderBreakdownInfo
@@ -2601,7 +2601,7 @@ Partial Class wOrder_CVN
         Me.ogbSubOrderBreakdownInfo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbSubOrderBreakdownInfo.Location = New System.Drawing.Point(0, 194)
         Me.ogbSubOrderBreakdownInfo.Name = "ogbSubOrderBreakdownInfo"
-        Me.ogbSubOrderBreakdownInfo.Size = New System.Drawing.Size(1236, 234)
+        Me.ogbSubOrderBreakdownInfo.Size = New System.Drawing.Size(1236, 193)
         Me.ogbSubOrderBreakdownInfo.TabIndex = 2
         Me.ogbSubOrderBreakdownInfo.Text = "Sub Order Breakdown Info Detail"
         '
@@ -2614,7 +2614,7 @@ Partial Class wOrder_CVN
         Me.otbsuborderno.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otbsuborderno.Name = "otbsuborderno"
         Me.otbsuborderno.SelectedTabPage = Me.otpsubbreakdown
-        Me.otbsuborderno.Size = New System.Drawing.Size(1234, 155)
+        Me.otbsuborderno.Size = New System.Drawing.Size(1234, 114)
         Me.otbsuborderno.TabIndex = 533
         Me.otbsuborderno.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpsubbreakdown, Me.otpsubbreakdownprice})
         '
@@ -2623,7 +2623,7 @@ Partial Class wOrder_CVN
         Me.otpsubbreakdown.Controls.Add(Me.ogdSubOrdBreakDown)
         Me.otpsubbreakdown.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpsubbreakdown.Name = "otpsubbreakdown"
-        Me.otpsubbreakdown.Size = New System.Drawing.Size(1232, 130)
+        Me.otpsubbreakdown.Size = New System.Drawing.Size(1232, 89)
         Me.otpsubbreakdown.Text = "Breakdown"
         '
         'ogdSubOrdBreakDown
@@ -2632,7 +2632,7 @@ Partial Class wOrder_CVN
         Me.ogdSubOrdBreakDown.Location = New System.Drawing.Point(0, 0)
         Me.ogdSubOrdBreakDown.MainView = Me.ogvSubOrdBreakdown
         Me.ogdSubOrdBreakDown.Name = "ogdSubOrdBreakDown"
-        Me.ogdSubOrdBreakDown.Size = New System.Drawing.Size(1232, 130)
+        Me.ogdSubOrdBreakDown.Size = New System.Drawing.Size(1232, 89)
         Me.ogdSubOrdBreakDown.TabIndex = 526
         Me.ogdSubOrdBreakDown.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvSubOrdBreakdown})
         '
@@ -2770,7 +2770,7 @@ Partial Class wOrder_CVN
         Me.otpsubbreakdownprice.Controls.Add(Me.ogdSubOrdBreakDownSummary)
         Me.otpsubbreakdownprice.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpsubbreakdownprice.Name = "otpsubbreakdownprice"
-        Me.otpsubbreakdownprice.Size = New System.Drawing.Size(1232, 130)
+        Me.otpsubbreakdownprice.Size = New System.Drawing.Size(1232, 89)
         Me.otpsubbreakdownprice.Text = "Breakdown Price"
         '
         'ogdSubOrdBreakDownSummary
@@ -2779,7 +2779,7 @@ Partial Class wOrder_CVN
         Me.ogdSubOrdBreakDownSummary.Location = New System.Drawing.Point(0, 0)
         Me.ogdSubOrdBreakDownSummary.MainView = Me.ogvSubOrdBreakdownSummary
         Me.ogdSubOrdBreakDownSummary.Name = "ogdSubOrdBreakDownSummary"
-        Me.ogdSubOrdBreakDownSummary.Size = New System.Drawing.Size(1232, 130)
+        Me.ogdSubOrdBreakDownSummary.Size = New System.Drawing.Size(1232, 89)
         Me.ogdSubOrdBreakDownSummary.TabIndex = 0
         Me.ogdSubOrdBreakDownSummary.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvSubOrdBreakdownSummary})
         '
@@ -4530,7 +4530,7 @@ Partial Class wOrder_CVN
         '
         Me.otbSubOrderComponent.Controls.Add(Me.ogbComponent)
         Me.otbSubOrderComponent.Name = "otbSubOrderComponent"
-        Me.otbSubOrderComponent.Size = New System.Drawing.Size(1236, 428)
+        Me.otbSubOrderComponent.Size = New System.Drawing.Size(1236, 387)
         Me.otbSubOrderComponent.Text = "Sub Order Component"
         '
         'ogbComponent
@@ -4541,7 +4541,7 @@ Partial Class wOrder_CVN
         Me.ogbComponent.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbComponent.Location = New System.Drawing.Point(0, 0)
         Me.ogbComponent.Name = "ogbComponent"
-        Me.ogbComponent.Size = New System.Drawing.Size(1236, 428)
+        Me.ogbComponent.Size = New System.Drawing.Size(1236, 387)
         Me.ogbComponent.TabIndex = 1
         '
         'ogdOrderSubComponent
@@ -4551,7 +4551,7 @@ Partial Class wOrder_CVN
         Me.ogdOrderSubComponent.MainView = Me.ogvOrderSubComponent
         Me.ogdOrderSubComponent.Name = "ogdOrderSubComponent"
         Me.ogdOrderSubComponent.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemMemoExEditFTMainMatDesc, Me.RepositoryItemMemoEditFTMainMatDescComponent, Me.RepositoryItemMemoEditFTComponent, Me.RepositoryItemMemoEditFTRemarkComponent, Me.RepFNConSmp})
-        Me.ogdOrderSubComponent.Size = New System.Drawing.Size(1232, 403)
+        Me.ogdOrderSubComponent.Size = New System.Drawing.Size(1232, 362)
         Me.ogdOrderSubComponent.TabIndex = 541
         Me.ogdOrderSubComponent.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvOrderSubComponent})
         '
@@ -4788,7 +4788,7 @@ Partial Class wOrder_CVN
         '
         Me.otpSubOrderSewInfo.Controls.Add(Me.otbsewing)
         Me.otpSubOrderSewInfo.Name = "otpSubOrderSewInfo"
-        Me.otpSubOrderSewInfo.Size = New System.Drawing.Size(1236, 428)
+        Me.otpSubOrderSewInfo.Size = New System.Drawing.Size(1236, 387)
         Me.otpSubOrderSewInfo.Text = "Sub Order Sewing Info"
         '
         'otbsewing
@@ -4798,7 +4798,7 @@ Partial Class wOrder_CVN
         Me.otbsewing.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otbsewing.Name = "otbsewing"
         Me.otbsewing.SelectedTabPage = Me.otpsubordersewing
-        Me.otbsewing.Size = New System.Drawing.Size(1236, 428)
+        Me.otbsewing.Size = New System.Drawing.Size(1236, 387)
         Me.otbsewing.TabIndex = 502
         Me.otbsewing.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpsubordersewing, Me.otpsewingpdf})
         '
@@ -4807,7 +4807,7 @@ Partial Class wOrder_CVN
         Me.otpsubordersewing.Controls.Add(Me.ogbSubOrderSewInfo)
         Me.otpsubordersewing.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpsubordersewing.Name = "otpsubordersewing"
-        Me.otpsubordersewing.Size = New System.Drawing.Size(1234, 403)
+        Me.otpsubordersewing.Size = New System.Drawing.Size(1234, 362)
         Me.otpsubordersewing.Text = "Sub Order Sewing"
         '
         'ogbSubOrderSewInfo
@@ -4828,7 +4828,7 @@ Partial Class wOrder_CVN
         Me.ogbSubOrderSewInfo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbSubOrderSewInfo.Location = New System.Drawing.Point(0, 0)
         Me.ogbSubOrderSewInfo.Name = "ogbSubOrderSewInfo"
-        Me.ogbSubOrderSewInfo.Size = New System.Drawing.Size(1234, 403)
+        Me.ogbSubOrderSewInfo.Size = New System.Drawing.Size(1234, 362)
         Me.ogbSubOrderSewInfo.TabIndex = 501
         Me.ogbSubOrderSewInfo.Text = "Sub Order Sewing Info"
         '
@@ -5004,7 +5004,7 @@ Partial Class wOrder_CVN
         Me.ogdOrderSubSewing.MainView = Me.ogvOrderSubSewing
         Me.ogdOrderSubSewing.Name = "ogdOrderSubSewing"
         Me.ogdOrderSubSewing.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit1, Me.RepositoryItemPictureEdit2, Me.RepositoryItemMemoEdit1, Me.RepositoryItemMemoEdit2})
-        Me.ogdOrderSubSewing.Size = New System.Drawing.Size(1230, 245)
+        Me.ogdOrderSubSewing.Size = New System.Drawing.Size(1230, 204)
         Me.ogdOrderSubSewing.TabIndex = 1
         Me.ogdOrderSubSewing.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvOrderSubSewing})
         '
@@ -5114,7 +5114,7 @@ Partial Class wOrder_CVN
         Me.otpsewingpdf.Controls.Add(Me.grdpdfdetail)
         Me.otpsewingpdf.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpsewingpdf.Name = "otpsewingpdf"
-        Me.otpsewingpdf.Size = New System.Drawing.Size(1234, 403)
+        Me.otpsewingpdf.Size = New System.Drawing.Size(1234, 362)
         Me.otpsewingpdf.Text = "PDF File Sewing"
         '
         'grdpdfdetail
@@ -5122,7 +5122,7 @@ Partial Class wOrder_CVN
         Me.grdpdfdetail.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdpdfdetail.Location = New System.Drawing.Point(0, 0)
         Me.grdpdfdetail.Name = "grdpdfdetail"
-        Me.grdpdfdetail.Size = New System.Drawing.Size(1234, 403)
+        Me.grdpdfdetail.Size = New System.Drawing.Size(1234, 362)
         Me.grdpdfdetail.TabIndex = 4
         Me.grdpdfdetail.Tag = "2|"
         Me.grdpdfdetail.Text = "Detail"
@@ -5131,7 +5131,7 @@ Partial Class wOrder_CVN
         '
         Me.otpSubOrderPackInfo.Controls.Add(Me.ogbSubOrderPackInfo)
         Me.otpSubOrderPackInfo.Name = "otpSubOrderPackInfo"
-        Me.otpSubOrderPackInfo.Size = New System.Drawing.Size(1236, 428)
+        Me.otpSubOrderPackInfo.Size = New System.Drawing.Size(1236, 387)
         Me.otpSubOrderPackInfo.Text = "Sub Order Pack Info"
         '
         'ogbSubOrderPackInfo
@@ -5152,7 +5152,7 @@ Partial Class wOrder_CVN
         Me.ogbSubOrderPackInfo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbSubOrderPackInfo.Location = New System.Drawing.Point(0, 0)
         Me.ogbSubOrderPackInfo.Name = "ogbSubOrderPackInfo"
-        Me.ogbSubOrderPackInfo.Size = New System.Drawing.Size(1236, 428)
+        Me.ogbSubOrderPackInfo.Size = New System.Drawing.Size(1236, 387)
         Me.ogbSubOrderPackInfo.TabIndex = 500
         Me.ogbSubOrderPackInfo.Text = "Sub Order Pack Info"
         '
@@ -5336,7 +5336,7 @@ Partial Class wOrder_CVN
         Me.ogdOrderSubPack.MainView = Me.ogvOrderSubPack
         Me.ogdOrderSubPack.Name = "ogdOrderSubPack"
         Me.ogdOrderSubPack.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit3, Me.RepositoryItemMemoEdit3, Me.RepositoryItemMemoEdit4})
-        Me.ogdOrderSubPack.Size = New System.Drawing.Size(1232, 287)
+        Me.ogdOrderSubPack.Size = New System.Drawing.Size(1232, 246)
         Me.ogdOrderSubPack.TabIndex = 0
         Me.ogdOrderSubPack.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvOrderSubPack})
         '
@@ -5442,7 +5442,7 @@ Partial Class wOrder_CVN
         Me.otpSubOrderPakingCartonInfo.Controls.Add(Me.ogbPackCartonDT)
         Me.otpSubOrderPakingCartonInfo.Controls.Add(Me.ogbPackCartonHD)
         Me.otpSubOrderPakingCartonInfo.Name = "otpSubOrderPakingCartonInfo"
-        Me.otpSubOrderPakingCartonInfo.Size = New System.Drawing.Size(1236, 428)
+        Me.otpSubOrderPakingCartonInfo.Size = New System.Drawing.Size(1236, 387)
         Me.otpSubOrderPakingCartonInfo.Text = "Sub Order Packing Carton Info"
         '
         'ogbPackCartonDT
@@ -5658,7 +5658,7 @@ Partial Class wOrder_CVN
         '
         Me.otpSubOrderSizeSpec.Controls.Add(Me.ogbSubOrderSizeSpec)
         Me.otpSubOrderSizeSpec.Name = "otpSubOrderSizeSpec"
-        Me.otpSubOrderSizeSpec.Size = New System.Drawing.Size(1236, 428)
+        Me.otpSubOrderSizeSpec.Size = New System.Drawing.Size(1236, 387)
         Me.otpSubOrderSizeSpec.Text = "Sub Order Size Spec"
         '
         'ogbSubOrderSizeSpec
@@ -5669,7 +5669,7 @@ Partial Class wOrder_CVN
         Me.ogbSubOrderSizeSpec.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbSubOrderSizeSpec.Location = New System.Drawing.Point(0, 0)
         Me.ogbSubOrderSizeSpec.Name = "ogbSubOrderSizeSpec"
-        Me.ogbSubOrderSizeSpec.Size = New System.Drawing.Size(1236, 428)
+        Me.ogbSubOrderSizeSpec.Size = New System.Drawing.Size(1236, 387)
         Me.ogbSubOrderSizeSpec.TabIndex = 0
         Me.ogbSubOrderSizeSpec.Text = "Sub Order Size Spec Info"
         '
@@ -5708,7 +5708,7 @@ Partial Class wOrder_CVN
         Me.ogdSizeSpec.MainView = Me.ogvSizeSpec
         Me.ogdSizeSpec.Name = "ogdSizeSpec"
         Me.ogdSizeSpec.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemFNHSysMeasId})
-        Me.ogdSizeSpec.Size = New System.Drawing.Size(1232, 403)
+        Me.ogdSizeSpec.Size = New System.Drawing.Size(1232, 362)
         Me.ogdSizeSpec.TabIndex = 0
         Me.ogdSizeSpec.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvSizeSpec})
         '
@@ -6158,7 +6158,7 @@ Partial Class wOrder_CVN
         Me.GroupControl2.Options.ShowCloseButton = False
         Me.GroupControl2.Options.ShowMaximizeButton = False
         Me.GroupControl2.OriginalSize = New System.Drawing.Size(200, 222)
-        Me.GroupControl2.Size = New System.Drawing.Size(1238, 180)
+        Me.GroupControl2.Size = New System.Drawing.Size(1238, 222)
         Me.GroupControl2.Text = "Order Info"
         '
         'DockPanel1_Container
@@ -6220,7 +6220,7 @@ Partial Class wOrder_CVN
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysStyleId_None)
         Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1232, 150)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1232, 192)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FTStatePrintBarcode

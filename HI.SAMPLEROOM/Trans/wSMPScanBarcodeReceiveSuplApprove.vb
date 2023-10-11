@@ -1660,6 +1660,11 @@ Public Class wSMPScanBarcodeReceiveSuplApprove
     End Function
 
 
+
+
+
+
+
     Private Function CheckApprove() As Boolean
         Try
             Dim _Cmd As String = ""

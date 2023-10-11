@@ -120,7 +120,7 @@ Public Class wCalculateOrderCarton
 
             'lastSelectedPath =""
             LoadMaster()
-
+            otbmaincitem.SelectedTabPageIndex = 0
             RepositoryItemGridLookUpEditFTMainMatCode.View.OptionsView.ShowAutoFilterRow = True
         Catch ex As Exception
 
@@ -139,6 +139,14 @@ Public Class wCalculateOrderCarton
         dt.Columns.Add("FTStateMain", GetType(String))
 
         ogcfabric.DataSource = dt.Copy
+
+
+        Dim dt2 As New DataTable()
+        dt2.Columns.Add("FNSeq", GetType(Integer))
+        dt2.Columns.Add("FTMainMatCode", GetType(String))
+        dt2.Columns.Add("FNQty", GetType(Integer))
+
+        ogcsticker.DataSource = dt2.Copy
     End Sub
 
     Private Sub Proc_Close(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -147,15 +155,29 @@ Public Class wCalculateOrderCarton
 
     Private Sub LoadMaster()
         Dim cmd As String = ""
-        Dim dt As DataTable
+        Dim dt As New DataTable
 
 
+        Try
+            cmd = "SELECT   FTMainMatCode ,  (LEFT(FTMainMatNameEN,200)) AS FTMainMatName from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMainMat WITH(NOLOCK) WHERE FTStateActive='1' AND FNHSysMatGrpId=1310210006 AND FNHSysMatTypeId=1310210003    Order by FTMainMatCode "
 
-        cmd = "SELECT   FTMainMatCode ,  (LEFT(FTMainMatNameEN,200)) AS FTMainMatName from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMainMat WITH(NOLOCK) WHERE FTStateActive='1' AND FNHSysMatGrpId=1310210006 AND FNHSysMatTypeId=1310210003    Order by FTMainMatCode "
+            dt = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_MASTER)
 
-        dt = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_MASTER)
+            RepositoryItemGridLookUpEditFTMainMatCode.DataSource = dt.Copy
+        Catch ex As Exception
 
-        RepositoryItemGridLookUpEditFTMainMatCode.DataSource = dt.Copy
+        End Try
+
+
+        Try
+            cmd = "SELECT   FTMainMatCode ,  (LEFT(FTMainMatNameEN,200)) AS FTMainMatName from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMainMat WITH(NOLOCK) WHERE FTStateActive='1' AND FNHSysMatGrpId=1310210006 AND FNHSysMatTypeId=1310210021    Order by FTMainMatCode "
+
+            dt = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_MASTER)
+
+            RepositoryItemGridLookUpEditFTMainMatCodeSTC.DataSource = dt.Copy
+        Catch ex As Exception
+
+        End Try
 
 
         dt.Dispose()
@@ -175,8 +197,16 @@ Public Class wCalculateOrderCarton
         End With
 
 
+
         HI.Conn.SQLConn.ExecuteStoredProcedure(HI.ST.UserInfo.UserName, "USP_IMPORTTEMP_CARTON_CALCULATE", "@tbl", dtins, Conn.DB.DataBaseName.DB_MERCHAN)
 
+        Dim dtins2 As New DataTable
+        With CType(Me.ogcsticker.DataSource, DataTable)
+            .AcceptChanges()
+            dtins2 = .Copy
+        End With
+
+        HI.Conn.SQLConn.ExecuteStoredProcedure(HI.ST.UserInfo.UserName, "USP_IMPORTTEMP_CARTON_STICKER_CALCULATE", "@tbl", dtins2, Conn.DB.DataBaseName.DB_MERCHAN)
 
         Dim ds As New DataSet
         Dim dtmain As New DataTable
@@ -279,7 +309,7 @@ Public Class wCalculateOrderCarton
 
 
         Call LoadOrderListingInfo()
-
+        otbmaincitem.SelectedTabPageIndex = 0
     End Sub
 
     Private Sub ocmexit_Click(sender As System.Object, e As System.EventArgs) Handles ocmexit.Click
@@ -443,6 +473,180 @@ Public Class wCalculateOrderCarton
 
                 Next
 
+
+
+                Dim dtItem2 As DataTable
+
+                With CType(Me.ogcsticker.DataSource, DataTable)
+                    .AcceptChanges()
+                    dtItem2 = .Copy
+
+
+
+                End With
+
+                Dim RIndex As Integer = 0
+                For Each Rx As DataRow In dtItem2.Select("FTMainMatCode<>''", "FNSeq")
+
+                    RIndex = RIndex + 1
+                    If FNOrderCartonCalType.SelectedIndex = 0 Then
+
+                        If StrCol <> "" Then
+                            For Each R As String In StrCol.Split(",")
+
+                                RIndex = RIndex + 1
+
+                                Dim ColG4 As New DevExpress.XtraGrid.Columns.GridColumn
+                                With ColG4
+
+                                    .FieldName = Rx!FTMainMatCode.ToString.Replace("[", "").Replace("]", "").Replace(" ", "") & " (" & R.Replace("[", "").Replace("]", "") & ")"
+                                    .Name = "G4Item" & Rx!FTMainMatCode.ToString.Replace("[", "").Replace("]", "").Replace(" ", "") & RIndex.ToString
+                                    .Caption = Rx!FTMainMatCode.ToString.Replace("[", "").Replace("]", "").Replace(" ", "") & " (" & R.Replace("[", "").Replace("]", "") & ")"
+                                    .Visible = True
+
+                                    .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+                                    .AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+                                    .DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                                    .OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
+
+                                    .DisplayFormat.FormatString = "{0:n0}"
+
+                                    With .OptionsColumn
+                                        .AllowMove = False
+                                        .AllowGroup = DevExpress.Utils.DefaultBoolean.False
+                                        .AllowSort = DevExpress.Utils.DefaultBoolean.False
+
+                                        .AllowEdit = False
+                                        .ReadOnly = True
+                                    End With
+
+
+                                    .Summary.Add(DevExpress.Data.SummaryItemType.Sum)
+                                    .SummaryItem.DisplayFormat = "{0:n0}"
+                                    .Width = 120
+
+
+                                End With
+
+                                .Columns.Add(ColG4)
+
+                                Dim ColG5 As New DevExpress.XtraGrid.Columns.GridColumn
+                                With ColG5
+
+                                    .FieldName = Rx!FTMainMatCode.ToString.Replace("[", "").Replace("]", "").Replace(" ", "") & " Con" & " (" & R.Replace("[", "").Replace("]", "") & ")"
+                                    .Name = "G5Item" & Rx!FTMainMatCode.ToString.Replace("[", "").Replace("]", "").Replace(" ", "") & RIndex.ToString
+                                    .Caption = "Cons." & " (" & R.Replace("[", "").Replace("]", "") & ")"
+                                    .Visible = True
+
+                                    .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+                                    .AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+                                    .DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                                    .OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
+
+                                    .DisplayFormat.FormatString = "{0:n4}"
+
+                                    With .OptionsColumn
+                                        .AllowMove = False
+                                        .AllowGroup = DevExpress.Utils.DefaultBoolean.False
+                                        .AllowSort = DevExpress.Utils.DefaultBoolean.False
+
+                                        .AllowEdit = False
+                                        .ReadOnly = True
+                                    End With
+
+
+                                    .Summary.Add(DevExpress.Data.SummaryItemType.Sum)
+                                    .SummaryItem.DisplayFormat = "{0:n4}"
+                                    .Width = 80
+
+
+                                End With
+
+                                .Columns.Add(ColG5)
+
+                            Next
+                        End If
+
+
+                    Else
+
+                        Dim ColG4 As New DevExpress.XtraGrid.Columns.GridColumn
+                        With ColG4
+
+                            .FieldName = Rx!FTMainMatCode.ToString.Replace("[", "").Replace("]", "").Replace(" ", "")
+                            .Name = "G4Item" & Rx!FTMainMatCode.ToString.Replace("[", "").Replace("]", "").Replace(" ", "")
+                            .Caption = Rx!FTMainMatCode.ToString.Replace("[", "").Replace("]", "").Replace(" ", "")
+                            .Visible = True
+
+                            .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+                            .AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+                            .DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                            .OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
+
+                            .DisplayFormat.FormatString = "{0:n0}"
+
+                            With .OptionsColumn
+                                .AllowMove = False
+                                .AllowGroup = DevExpress.Utils.DefaultBoolean.False
+                                .AllowSort = DevExpress.Utils.DefaultBoolean.False
+
+                                .AllowEdit = False
+                                .ReadOnly = True
+                            End With
+
+
+                            .Summary.Add(DevExpress.Data.SummaryItemType.Sum)
+                            .SummaryItem.DisplayFormat = "{0:n0}"
+                            .Width = 120
+
+
+                        End With
+
+                        .Columns.Add(ColG4)
+
+
+                        Dim ColG5 As New DevExpress.XtraGrid.Columns.GridColumn
+                        With ColG5
+
+                            .FieldName = Rx!FTMainMatCode.ToString.Replace("[", "").Replace("]", "").Replace(" ", "") & " Con"
+                            .Name = "G5Item" & Rx!FTMainMatCode.ToString.Replace("[", "").Replace("]", "").Replace(" ", "")
+                            .Caption = "Cons."
+                            .Visible = True
+
+                            .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+                            .AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+                            .DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                            .OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
+
+                            .DisplayFormat.FormatString = "{0:n4}"
+
+                            With .OptionsColumn
+                                .AllowMove = False
+                                .AllowGroup = DevExpress.Utils.DefaultBoolean.False
+                                .AllowSort = DevExpress.Utils.DefaultBoolean.False
+
+                                .AllowEdit = False
+                                .ReadOnly = True
+                            End With
+
+
+                            .Summary.Add(DevExpress.Data.SummaryItemType.Sum)
+                            .SummaryItem.DisplayFormat = "{0:n4}"
+                            .Width = 80
+
+
+                        End With
+
+                        .Columns.Add(ColG5)
+
+                    End If
+
+
+
+
+
+                Next
+
                 .EndInit()
             End With
 
@@ -495,6 +699,81 @@ Public Class wCalculateOrderCarton
         e.Handled = True
     End Sub
 
+
+    Private Sub ogcfabric2_EmbeddedNavigator_ButtonClick(sender As Object, e As NavigatorButtonClickEventArgs) Handles ogcsticker.EmbeddedNavigator.ButtonClick
+        Select Case e.Button.ButtonType
+            Case DevExpress.XtraEditors.NavigatorButtonType.Remove
+
+                With Me.ogvsticker
+                    If .FocusedRowHandle < 0 Then Exit Sub
+                    .DeleteRow(.FocusedRowHandle)
+
+                End With
+
+                With CType(Me.ogcsticker.DataSource, DataTable)
+
+                    .AcceptChanges()
+                    .BeginInit()
+
+                    Dim Ridx As Integer = 1
+                    For Each R As DataRow In .Select("FNSeq>0", "FNSeq")
+                        R!FNSeq = Ridx
+
+                        Ridx = Ridx + 1
+                    Next
+
+                    .EndInit()
+                    .AcceptChanges()
+
+                End With
+
+                InitGridMatSTC()
+
+            Case DevExpress.XtraEditors.NavigatorButtonType.Append
+
+                Call InitGridMatSTC()
+
+            Case Else
+
+        End Select
+
+        e.Handled = True
+    End Sub
+
+    Private Sub InitGridMatSTC()
+
+
+        If Not (Me.ogcsticker.DataSource Is Nothing) Then
+
+            Dim dtemp As DataTable
+
+
+            With CType(Me.ogcsticker.DataSource, DataTable)
+                .AcceptChanges()
+
+
+                If .Select("FTMainMatCode=''").Length <= 0 Then
+                    .Rows.Add(.Rows.Count + 1, "", 0)
+                End If
+
+
+
+                ' dtemp = .Copy
+
+
+            End With
+
+            'If dtemp.Select("FTEmpCode=''").Length <= 0 Then
+            '    dtemp.Rows.Add(dtemp.Rows.Count + 1, 0, "", "")
+            'End If
+
+            'Me.ogcemp.DataSource = dtemp.Copy
+
+            'dtemp.Dispose()
+        End If
+
+
+    End Sub
     Private Sub InitGridMat()
 
 

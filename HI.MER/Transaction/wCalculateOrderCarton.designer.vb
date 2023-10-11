@@ -19,16 +19,6 @@ Partial Class wCalculateOrderCarton
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim EditorButtonImageOptions9 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject33 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject34 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject35 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject36 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions10 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject37 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject38 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject39 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject40 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -64,6 +54,16 @@ Partial Class wCalculateOrderCarton
         Dim SerializableAppearanceObject26 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject27 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject28 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions8 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject29 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject30 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject31 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject32 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions9 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject33 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject34 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject35 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject36 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.SplitContainerControl1 = New DevExpress.XtraEditors.SplitContainerControl()
         Me.ogbOrderCriteria = New DevExpress.XtraEditors.GroupControl()
         Me.FNOrderCartonCalType = New DevExpress.XtraEditors.ComboBoxEdit()
@@ -126,6 +126,20 @@ Partial Class wCalculateOrderCarton
         Me.ocmclearclsr = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcalculate = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
+        Me.otbmaincitem = New DevExpress.XtraTab.XtraTabControl()
+        Me.otpcarton = New DevExpress.XtraTab.XtraTabPage()
+        Me.otpsticker = New DevExpress.XtraTab.XtraTabPage()
+        Me.ogcsticker = New DevExpress.XtraGrid.GridControl()
+        Me.ogvsticker = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.stcFTMainMatCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.srcFTMainMatCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemGridLookUpEditFTMainMatCodeSTC = New DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit()
+        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ssFNQty = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemCalcEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerControl1.SuspendLayout()
         CType(Me.ogbOrderCriteria, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -159,6 +173,16 @@ Partial Class wCalculateOrderCarton
         CType(Me.ReposStateInt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbmainprocbutton.SuspendLayout()
+        CType(Me.otbmaincitem, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.otbmaincitem.SuspendLayout()
+        Me.otpcarton.SuspendLayout()
+        Me.otpsticker.SuspendLayout()
+        CType(Me.ogcsticker, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ogvsticker, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemGridLookUpEditFTMainMatCodeSTC, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCalcEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SplitContainerControl1
@@ -175,15 +199,15 @@ Partial Class wCalculateOrderCarton
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.ogdmain)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
         Me.SplitContainerControl1.Size = New System.Drawing.Size(1267, 609)
-        Me.SplitContainerControl1.SplitterPosition = 147
+        Me.SplitContainerControl1.SplitterPosition = 165
         Me.SplitContainerControl1.TabIndex = 1
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
         '
         'ogbOrderCriteria
         '
+        Me.ogbOrderCriteria.Controls.Add(Me.otbmaincitem)
         Me.ogbOrderCriteria.Controls.Add(Me.FNOrderCartonCalType)
         Me.ogbOrderCriteria.Controls.Add(Me.FNOrderCartonCalType_lbl)
-        Me.ogbOrderCriteria.Controls.Add(Me.ogcfabric)
         Me.ogbOrderCriteria.Controls.Add(Me.FNHSysPlantId)
         Me.ogbOrderCriteria.Controls.Add(Me.FNHSysPlantId_lbl)
         Me.ogbOrderCriteria.Controls.Add(Me.FNHSysContinentId)
@@ -213,7 +237,7 @@ Partial Class wCalculateOrderCarton
         Me.ogbOrderCriteria.Location = New System.Drawing.Point(0, 0)
         Me.ogbOrderCriteria.Name = "ogbOrderCriteria"
         Me.ogbOrderCriteria.ShowCaption = False
-        Me.ogbOrderCriteria.Size = New System.Drawing.Size(1263, 143)
+        Me.ogbOrderCriteria.Size = New System.Drawing.Size(1263, 161)
         Me.ogbOrderCriteria.TabIndex = 2
         Me.ogbOrderCriteria.Text = "Criteria"
         '
@@ -221,7 +245,7 @@ Partial Class wCalculateOrderCarton
         '
         Me.FNOrderCartonCalType.EditValue = ""
         Me.FNOrderCartonCalType.EnterMoveNextControl = True
-        Me.FNOrderCartonCalType.Location = New System.Drawing.Point(370, 97)
+        Me.FNOrderCartonCalType.Location = New System.Drawing.Point(357, 97)
         Me.FNOrderCartonCalType.Name = "FNOrderCartonCalType"
         Me.FNOrderCartonCalType.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNOrderCartonCalType.Properties.Appearance.Options.UseBackColor = True
@@ -251,15 +275,16 @@ Partial Class wCalculateOrderCarton
         Me.FNOrderCartonCalType_lbl.Appearance.Options.UseTextOptions = True
         Me.FNOrderCartonCalType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNOrderCartonCalType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNOrderCartonCalType_lbl.Location = New System.Drawing.Point(256, 97)
+        Me.FNOrderCartonCalType_lbl.Location = New System.Drawing.Point(250, 97)
         Me.FNOrderCartonCalType_lbl.Name = "FNOrderCartonCalType_lbl"
-        Me.FNOrderCartonCalType_lbl.Size = New System.Drawing.Size(110, 18)
+        Me.FNOrderCartonCalType_lbl.Size = New System.Drawing.Size(103, 18)
         Me.FNOrderCartonCalType_lbl.TabIndex = 557
         Me.FNOrderCartonCalType_lbl.Tag = "2|"
         Me.FNOrderCartonCalType_lbl.Text = "ประเภท :"
         '
         'ogcfabric
         '
+        Me.ogcfabric.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcfabric.EmbeddedNavigator.Buttons.CancelEdit.Visible = False
         Me.ogcfabric.EmbeddedNavigator.Buttons.Edit.Visible = False
         Me.ogcfabric.EmbeddedNavigator.Buttons.EndEdit.Visible = False
@@ -270,11 +295,11 @@ Partial Class wCalculateOrderCarton
         Me.ogcfabric.EmbeddedNavigator.Buttons.Prev.Visible = False
         Me.ogcfabric.EmbeddedNavigator.Buttons.PrevPage.Visible = False
         Me.ogcfabric.EmbeddedNavigator.TextStringFormat = ""
-        Me.ogcfabric.Location = New System.Drawing.Point(704, 3)
+        Me.ogcfabric.Location = New System.Drawing.Point(0, 0)
         Me.ogcfabric.MainView = Me.ogvfabric
         Me.ogcfabric.Name = "ogcfabric"
         Me.ogcfabric.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemGridLookUpEditFTMainMatCode, Me.RepositoryItemCalcEditQty, Me.RepositoryItemCheckEditFTStateMain})
-        Me.ogcfabric.Size = New System.Drawing.Size(549, 135)
+        Me.ogcfabric.Size = New System.Drawing.Size(545, 158)
         Me.ogcfabric.TabIndex = 483
         Me.ogcfabric.TabStop = False
         Me.ogcfabric.Tag = "2|"
@@ -428,9 +453,9 @@ Partial Class wCalculateOrderCarton
         '
         'FNHSysPlantId
         '
-        Me.FNHSysPlantId.Location = New System.Drawing.Point(556, 71)
+        Me.FNHSysPlantId.Location = New System.Drawing.Point(543, 71)
         Me.FNHSysPlantId.Name = "FNHSysPlantId"
-        Me.FNHSysPlantId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "166", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysPlantId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "166", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysPlantId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysPlantId.Properties.Tag = ""
         Me.FNHSysPlantId.Size = New System.Drawing.Size(117, 20)
@@ -444,7 +469,7 @@ Partial Class wCalculateOrderCarton
         Me.FNHSysPlantId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysPlantId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysPlantId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysPlantId_lbl.Location = New System.Drawing.Point(446, 71)
+        Me.FNHSysPlantId_lbl.Location = New System.Drawing.Point(433, 71)
         Me.FNHSysPlantId_lbl.Name = "FNHSysPlantId_lbl"
         Me.FNHSysPlantId_lbl.Size = New System.Drawing.Size(105, 19)
         Me.FNHSysPlantId_lbl.TabIndex = 482
@@ -453,9 +478,9 @@ Partial Class wCalculateOrderCarton
         '
         'FNHSysContinentId
         '
-        Me.FNHSysContinentId.Location = New System.Drawing.Point(556, 6)
+        Me.FNHSysContinentId.Location = New System.Drawing.Point(543, 6)
         Me.FNHSysContinentId.Name = "FNHSysContinentId"
-        Me.FNHSysContinentId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "2", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysContinentId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "2", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysContinentId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysContinentId.Properties.Tag = ""
         Me.FNHSysContinentId.Size = New System.Drawing.Size(63, 20)
@@ -464,7 +489,7 @@ Partial Class wCalculateOrderCarton
         '
         'FNHSysContinentId_None
         '
-        Me.FNHSysContinentId_None.Location = New System.Drawing.Point(620, 6)
+        Me.FNHSysContinentId_None.Location = New System.Drawing.Point(607, 6)
         Me.FNHSysContinentId_None.Name = "FNHSysContinentId_None"
         Me.FNHSysContinentId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysContinentId_None.Properties.Appearance.Options.UseBackColor = True
@@ -480,7 +505,7 @@ Partial Class wCalculateOrderCarton
         Me.FNHSysProvinceId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysProvinceId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysProvinceId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysProvinceId_lbl.Location = New System.Drawing.Point(448, 50)
+        Me.FNHSysProvinceId_lbl.Location = New System.Drawing.Point(435, 50)
         Me.FNHSysProvinceId_lbl.Name = "FNHSysProvinceId_lbl"
         Me.FNHSysProvinceId_lbl.Size = New System.Drawing.Size(106, 19)
         Me.FNHSysProvinceId_lbl.TabIndex = 473
@@ -489,9 +514,9 @@ Partial Class wCalculateOrderCarton
         '
         'FNHSysProvinceId
         '
-        Me.FNHSysProvinceId.Location = New System.Drawing.Point(556, 48)
+        Me.FNHSysProvinceId.Location = New System.Drawing.Point(543, 48)
         Me.FNHSysProvinceId.Name = "FNHSysProvinceId"
-        Me.FNHSysProvinceId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "82", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysProvinceId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "82", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysProvinceId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysProvinceId.Properties.Tag = ""
         Me.FNHSysProvinceId.Size = New System.Drawing.Size(63, 20)
@@ -505,7 +530,7 @@ Partial Class wCalculateOrderCarton
         Me.FNHSysContinentId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysContinentId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysContinentId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysContinentId_lbl.Location = New System.Drawing.Point(449, 7)
+        Me.FNHSysContinentId_lbl.Location = New System.Drawing.Point(436, 7)
         Me.FNHSysContinentId_lbl.Name = "FNHSysContinentId_lbl"
         Me.FNHSysContinentId_lbl.Size = New System.Drawing.Size(106, 19)
         Me.FNHSysContinentId_lbl.TabIndex = 471
@@ -514,7 +539,7 @@ Partial Class wCalculateOrderCarton
         '
         'FNHSysProvinceId_None
         '
-        Me.FNHSysProvinceId_None.Location = New System.Drawing.Point(620, 48)
+        Me.FNHSysProvinceId_None.Location = New System.Drawing.Point(607, 48)
         Me.FNHSysProvinceId_None.Name = "FNHSysProvinceId_None"
         Me.FNHSysProvinceId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysProvinceId_None.Properties.Appearance.Options.UseBackColor = True
@@ -530,7 +555,7 @@ Partial Class wCalculateOrderCarton
         Me.FNHSysCountryId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCountryId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCountryId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCountryId_lbl.Location = New System.Drawing.Point(448, 30)
+        Me.FNHSysCountryId_lbl.Location = New System.Drawing.Point(435, 30)
         Me.FNHSysCountryId_lbl.Name = "FNHSysCountryId_lbl"
         Me.FNHSysCountryId_lbl.Size = New System.Drawing.Size(106, 19)
         Me.FNHSysCountryId_lbl.TabIndex = 475
@@ -539,9 +564,9 @@ Partial Class wCalculateOrderCarton
         '
         'FNHSysCountryId
         '
-        Me.FNHSysCountryId.Location = New System.Drawing.Point(556, 27)
+        Me.FNHSysCountryId.Location = New System.Drawing.Point(543, 27)
         Me.FNHSysCountryId.Name = "FNHSysCountryId"
-        Me.FNHSysCountryId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "3", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCountryId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "3", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCountryId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCountryId.Properties.Tag = ""
         Me.FNHSysCountryId.Size = New System.Drawing.Size(63, 20)
@@ -550,7 +575,7 @@ Partial Class wCalculateOrderCarton
         '
         'FNHSysCountryId_None
         '
-        Me.FNHSysCountryId_None.Location = New System.Drawing.Point(620, 27)
+        Me.FNHSysCountryId_None.Location = New System.Drawing.Point(607, 27)
         Me.FNHSysCountryId_None.Name = "FNHSysCountryId_None"
         Me.FNHSysCountryId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCountryId_None.Properties.Appearance.Options.UseBackColor = True
@@ -566,7 +591,7 @@ Partial Class wCalculateOrderCarton
         Me.FNHSysBuyId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysBuyId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysBuyId_None.Properties.ReadOnly = True
-        Me.FNHSysBuyId_None.Size = New System.Drawing.Size(199, 20)
+        Me.FNHSysBuyId_None.Size = New System.Drawing.Size(167, 20)
         Me.FNHSysBuyId_None.TabIndex = 13
         Me.FNHSysBuyId_None.Tag = "2|"
         '
@@ -588,7 +613,7 @@ Partial Class wCalculateOrderCarton
         '
         Me.FNHSysBuyId.Location = New System.Drawing.Point(126, 27)
         Me.FNHSysBuyId.Name = "FNHSysBuyId"
-        Me.FNHSysBuyId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysBuyId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBuyId.Properties.Tag = ""
         Me.FNHSysBuyId.Size = New System.Drawing.Size(118, 20)
         Me.FNHSysBuyId.TabIndex = 12
@@ -612,7 +637,7 @@ Partial Class wCalculateOrderCarton
         '
         Me.FNHSysSeasonId.Location = New System.Drawing.Point(126, 95)
         Me.FNHSysSeasonId.Name = "FNHSysSeasonId"
-        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSeasonId.Properties.Tag = ""
         Me.FNHSysSeasonId.Size = New System.Drawing.Size(118, 20)
         Me.FNHSysSeasonId.TabIndex = 15
@@ -625,7 +650,7 @@ Partial Class wCalculateOrderCarton
         Me.FNHSysCustId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCustId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCustId_None.Properties.ReadOnly = True
-        Me.FNHSysCustId_None.Size = New System.Drawing.Size(199, 20)
+        Me.FNHSysCustId_None.Size = New System.Drawing.Size(167, 20)
         Me.FNHSysCustId_None.TabIndex = 10
         Me.FNHSysCustId_None.Tag = "2|"
         '
@@ -647,7 +672,7 @@ Partial Class wCalculateOrderCarton
         '
         Me.FNHSysCustId.Location = New System.Drawing.Point(126, 50)
         Me.FNHSysCustId.Name = "FNHSysCustId"
-        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCustId.Properties.Tag = ""
         Me.FNHSysCustId.Size = New System.Drawing.Size(118, 20)
         Me.FNHSysCustId.TabIndex = 9
@@ -660,7 +685,7 @@ Partial Class wCalculateOrderCarton
         Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCmpId_None.Properties.ReadOnly = True
-        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(199, 20)
+        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(167, 20)
         Me.FNHSysCmpId_None.TabIndex = 2
         Me.FNHSysCmpId_None.Tag = "2|"
         '
@@ -682,7 +707,7 @@ Partial Class wCalculateOrderCarton
         '
         Me.FNHSysCmpId.Location = New System.Drawing.Point(126, 5)
         Me.FNHSysCmpId.Name = "FNHSysCmpId"
-        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.Tag = ""
         Me.FNHSysCmpId.Size = New System.Drawing.Size(118, 20)
         Me.FNHSysCmpId.TabIndex = 1
@@ -695,7 +720,7 @@ Partial Class wCalculateOrderCarton
         Me.FNHSysStyleId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysStyleId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysStyleId_None.Properties.ReadOnly = True
-        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(199, 20)
+        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(167, 20)
         Me.FNHSysStyleId_None.TabIndex = 7
         Me.FNHSysStyleId_None.Tag = "2|"
         '
@@ -717,7 +742,7 @@ Partial Class wCalculateOrderCarton
         '
         Me.FNHSysStyleId.Location = New System.Drawing.Point(126, 73)
         Me.FNHSysStyleId.Name = "FNHSysStyleId"
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.Tag = ""
         Me.FNHSysStyleId.Size = New System.Drawing.Size(118, 20)
         Me.FNHSysStyleId.TabIndex = 6
@@ -730,7 +755,7 @@ Partial Class wCalculateOrderCarton
         Me.ogdmain.MainView = Me.ogvmain
         Me.ogdmain.Name = "ogdmain"
         Me.ogdmain.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepFTSelect, Me.ReposStateInt})
-        Me.ogdmain.Size = New System.Drawing.Size(1263, 448)
+        Me.ogdmain.Size = New System.Drawing.Size(1263, 430)
         Me.ogdmain.TabIndex = 399
         Me.ogdmain.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvmain})
         '
@@ -922,6 +947,173 @@ Partial Class wCalculateOrderCarton
         Me.ocmexit.Tag = "2|"
         Me.ocmexit.Text = "EXIT"
         '
+        'otbmaincitem
+        '
+        Me.otbmaincitem.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Right
+        Me.otbmaincitem.Location = New System.Drawing.Point(691, 1)
+        Me.otbmaincitem.Name = "otbmaincitem"
+        Me.otbmaincitem.SelectedTabPage = Me.otpcarton
+        Me.otbmaincitem.Size = New System.Drawing.Size(571, 160)
+        Me.otbmaincitem.TabIndex = 558
+        Me.otbmaincitem.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpcarton, Me.otpsticker})
+        '
+        'otpcarton
+        '
+        Me.otpcarton.Controls.Add(Me.ogcfabric)
+        Me.otpcarton.Name = "otpcarton"
+        Me.otpcarton.Size = New System.Drawing.Size(545, 158)
+        Me.otpcarton.Text = "Carton"
+        '
+        'otpsticker
+        '
+        Me.otpsticker.Controls.Add(Me.ogcsticker)
+        Me.otpsticker.Name = "otpsticker"
+        Me.otpsticker.Size = New System.Drawing.Size(545, 158)
+        Me.otpsticker.Text = "Sticker"
+        '
+        'ogcsticker
+        '
+        Me.ogcsticker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcsticker.EmbeddedNavigator.Buttons.CancelEdit.Visible = False
+        Me.ogcsticker.EmbeddedNavigator.Buttons.Edit.Visible = False
+        Me.ogcsticker.EmbeddedNavigator.Buttons.EndEdit.Visible = False
+        Me.ogcsticker.EmbeddedNavigator.Buttons.First.Visible = False
+        Me.ogcsticker.EmbeddedNavigator.Buttons.Last.Visible = False
+        Me.ogcsticker.EmbeddedNavigator.Buttons.Next.Visible = False
+        Me.ogcsticker.EmbeddedNavigator.Buttons.NextPage.Visible = False
+        Me.ogcsticker.EmbeddedNavigator.Buttons.Prev.Visible = False
+        Me.ogcsticker.EmbeddedNavigator.Buttons.PrevPage.Visible = False
+        Me.ogcsticker.EmbeddedNavigator.TextStringFormat = ""
+        Me.ogcsticker.Location = New System.Drawing.Point(0, 0)
+        Me.ogcsticker.MainView = Me.ogvsticker
+        Me.ogcsticker.Name = "ogcsticker"
+        Me.ogcsticker.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemGridLookUpEditFTMainMatCodeSTC, Me.RepositoryItemCalcEdit1, Me.RepositoryItemCheckEdit1})
+        Me.ogcsticker.Size = New System.Drawing.Size(545, 158)
+        Me.ogcsticker.TabIndex = 484
+        Me.ogcsticker.TabStop = False
+        Me.ogcsticker.Tag = "2|"
+        Me.ogcsticker.UseEmbeddedNavigator = True
+        Me.ogcsticker.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvsticker})
+        '
+        'ogvsticker
+        '
+        Me.ogvsticker.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.stcFTMainMatCode, Me.srcFTMainMatCode, Me.ssFNQty})
+        Me.ogvsticker.DetailHeight = 284
+        Me.ogvsticker.GridControl = Me.ogcsticker
+        Me.ogvsticker.Name = "ogvsticker"
+        Me.ogvsticker.OptionsBehavior.AutoExpandAllGroups = True
+        Me.ogvsticker.OptionsCustomization.AllowQuickHideColumns = False
+        Me.ogvsticker.OptionsNavigation.EnterMoveNextColumn = True
+        Me.ogvsticker.OptionsView.ColumnAutoWidth = False
+        Me.ogvsticker.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
+        Me.ogvsticker.OptionsView.ShowGroupPanel = False
+        '
+        'stcFTMainMatCode
+        '
+        Me.stcFTMainMatCode.AppearanceHeader.Options.UseTextOptions = True
+        Me.stcFTMainMatCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.stcFTMainMatCode.Caption = "Seq"
+        Me.stcFTMainMatCode.FieldName = "FNSeq"
+        Me.stcFTMainMatCode.MinWidth = 17
+        Me.stcFTMainMatCode.Name = "stcFTMainMatCode"
+        Me.stcFTMainMatCode.OptionsColumn.AllowEdit = False
+        Me.stcFTMainMatCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.stcFTMainMatCode.OptionsColumn.AllowMove = False
+        Me.stcFTMainMatCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.stcFTMainMatCode.OptionsColumn.ReadOnly = True
+        Me.stcFTMainMatCode.Visible = True
+        Me.stcFTMainMatCode.VisibleIndex = 0
+        Me.stcFTMainMatCode.Width = 43
+        '
+        'srcFTMainMatCode
+        '
+        Me.srcFTMainMatCode.AppearanceHeader.Options.UseTextOptions = True
+        Me.srcFTMainMatCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.srcFTMainMatCode.Caption = "Item"
+        Me.srcFTMainMatCode.ColumnEdit = Me.RepositoryItemGridLookUpEditFTMainMatCodeSTC
+        Me.srcFTMainMatCode.FieldName = "FTMainMatCode"
+        Me.srcFTMainMatCode.MinWidth = 17
+        Me.srcFTMainMatCode.Name = "srcFTMainMatCode"
+        Me.srcFTMainMatCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.srcFTMainMatCode.OptionsColumn.AllowMove = False
+        Me.srcFTMainMatCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.srcFTMainMatCode.Visible = True
+        Me.srcFTMainMatCode.VisibleIndex = 1
+        Me.srcFTMainMatCode.Width = 153
+        '
+        'RepositoryItemGridLookUpEditFTMainMatCodeSTC
+        '
+        Me.RepositoryItemGridLookUpEditFTMainMatCodeSTC.AutoHeight = False
+        Me.RepositoryItemGridLookUpEditFTMainMatCodeSTC.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemGridLookUpEditFTMainMatCodeSTC.DisplayMember = "FTMainMatCode"
+        Me.RepositoryItemGridLookUpEditFTMainMatCodeSTC.Name = "RepositoryItemGridLookUpEditFTMainMatCodeSTC"
+        Me.RepositoryItemGridLookUpEditFTMainMatCodeSTC.NullText = ""
+        Me.RepositoryItemGridLookUpEditFTMainMatCodeSTC.PopupView = Me.GridView2
+        Me.RepositoryItemGridLookUpEditFTMainMatCodeSTC.ValueMember = "FTMainMatCode"
+        '
+        'GridView2
+        '
+        Me.GridView2.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn3, Me.GridColumn4})
+        Me.GridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.GridView2.Name = "GridView2"
+        Me.GridView2.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView2.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn3
+        '
+        Me.GridColumn3.Caption = "Item"
+        Me.GridColumn3.FieldName = "FTMainMatCode"
+        Me.GridColumn3.Name = "GridColumn3"
+        Me.GridColumn3.OptionsColumn.AllowEdit = False
+        Me.GridColumn3.OptionsColumn.ReadOnly = True
+        Me.GridColumn3.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
+        Me.GridColumn3.Visible = True
+        Me.GridColumn3.VisibleIndex = 0
+        Me.GridColumn3.Width = 150
+        '
+        'GridColumn4
+        '
+        Me.GridColumn4.Caption = "Item Name"
+        Me.GridColumn4.FieldName = "FTMainMatName"
+        Me.GridColumn4.Name = "GridColumn4"
+        Me.GridColumn4.OptionsColumn.AllowEdit = False
+        Me.GridColumn4.OptionsColumn.ReadOnly = True
+        Me.GridColumn4.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
+        Me.GridColumn4.Visible = True
+        Me.GridColumn4.VisibleIndex = 1
+        Me.GridColumn4.Width = 277
+        '
+        'ssFNQty
+        '
+        Me.ssFNQty.Caption = "Qty/Carton"
+        Me.ssFNQty.ColumnEdit = Me.RepositoryItemCalcEdit1
+        Me.ssFNQty.DisplayFormat.FormatString = "{0:0}"
+        Me.ssFNQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.ssFNQty.FieldName = "FNQty"
+        Me.ssFNQty.Name = "ssFNQty"
+        Me.ssFNQty.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.ssFNQty.OptionsColumn.AllowMove = False
+        Me.ssFNQty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.ssFNQty.Visible = True
+        Me.ssFNQty.VisibleIndex = 2
+        '
+        'RepositoryItemCalcEdit1
+        '
+        Me.RepositoryItemCalcEdit1.AutoHeight = False
+        Me.RepositoryItemCalcEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit1.DisplayFormat.FormatString = "{0:n0}"
+        Me.RepositoryItemCalcEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEdit1.EditFormat.FormatString = "{0:n0}"
+        Me.RepositoryItemCalcEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEdit1.Name = "RepositoryItemCalcEdit1"
+        '
+        'RepositoryItemCheckEdit1
+        '
+        Me.RepositoryItemCheckEdit1.AutoHeight = False
+        Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
+        Me.RepositoryItemCheckEdit1.ValueChecked = "1"
+        Me.RepositoryItemCheckEdit1.ValueUnchecked = "0"
+        '
         'wCalculateOrderCarton
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -965,6 +1157,16 @@ Partial Class wCalculateOrderCarton
         CType(Me.ReposStateInt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbmainprocbutton.ResumeLayout(False)
+        CType(Me.otbmaincitem, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.otbmaincitem.ResumeLayout(False)
+        Me.otpcarton.ResumeLayout(False)
+        Me.otpsticker.ResumeLayout(False)
+        CType(Me.ogcsticker, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogvsticker, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemGridLookUpEditFTMainMatCodeSTC, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCalcEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1030,4 +1232,18 @@ Partial Class wCalculateOrderCarton
     Friend WithEvents RepositoryItemCheckEditFTStateMain As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents FNOrderCartonCalType As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents FNOrderCartonCalType_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents otbmaincitem As DevExpress.XtraTab.XtraTabControl
+    Friend WithEvents otpcarton As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents otpsticker As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents ogcsticker As DevExpress.XtraGrid.GridControl
+    Friend WithEvents ogvsticker As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents stcFTMainMatCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents srcFTMainMatCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemGridLookUpEditFTMainMatCodeSTC As DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit
+    Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn3 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn4 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ssFNQty As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemCalcEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
+    Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
 End Class

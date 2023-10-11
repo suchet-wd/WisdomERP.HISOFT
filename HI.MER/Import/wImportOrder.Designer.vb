@@ -19,7 +19,6 @@ Partial Class wImportOrder
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -125,7 +124,7 @@ Partial Class wImportOrder
         Me.FNHSysCustId_None = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysCustId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysCustId_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer1 = New System.Windows.Forms.Timer()
         CType(Me.ogbBrowseFile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbBrowseFile.SuspendLayout()
         CType(Me.FTFilePath.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -728,7 +727,7 @@ Partial Class wImportOrder
         Me.ogbmainprocbutton.Controls.Add(Me.ocmReadExcel)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclearclsr)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmExit)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(166, 50)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(166, 31)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(659, 70)
         Me.ogbmainprocbutton.TabIndex = 462

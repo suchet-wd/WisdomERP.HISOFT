@@ -56,6 +56,8 @@ Public Class UIQAPreFinalTrackingList
             _dt.Columns.Add("FTDestination", GetType(String))
             _dt.Columns.Add("FTDefectDetail", GetType(String))
             _dt.Columns.Add("FTStatePreFinal", GetType(String))
+            _dt.Columns.Add("FNSeq", GetType(Integer))
+            _dt.Columns.Add("FTSizeBreakDown", GetType(String))
         End With
 
         Dim _StrFilter As String = ""
@@ -63,10 +65,10 @@ Public Class UIQAPreFinalTrackingList
         If Not (dt Is Nothing) Then
 
             For Each R As DataRow In dt.Select("FTQADate<>''", "FTQATypeCode,FTQADetailCode")
-                _StrFilter = "FTUnitSectCode='" & HI.UL.ULF.rpQuoted(R!FTUnitSectCode) & "' AND FTQADate='" & R!FTQADate.ToString & "' AND FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
-
+                _StrFilter = "FTUnitSectCode='" & HI.UL.ULF.rpQuoted(R!FTUnitSectCode) & "' AND FTQADate='" & R!FTQADate.ToString & "' AND FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "' and FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "' and FNSeq=" & Val(R!FNSeq.ToString)
+                ' _StrFilter &= "FTUnitSectCode='" & HI.UL.ULF.rpQuoted(R!FTUnitSectCode) & "' "
                 If _dt.Select(_StrFilter).Length <= 0 Then
-                    _dt.Rows.Add(R!FTUnitSectCode.ToString, R!FTQADate.ToString, R!FTPORef.ToString, R!FNQAInQty.ToString, R!FNQAActualQty.ToString, R!FNDefect.ToString, R!FTStyleCode.ToString, R!FTColorway.ToString, R!FTCustRef.ToString, R!FTSubOrderNo.ToString, R!FTDestination.ToString, R!FTDefectDetail.ToString, R!FTStatePreFinal.ToString)
+                    _dt.Rows.Add(R!FTUnitSectCode.ToString, R!FTQADate.ToString, R!FTPORef.ToString, R!FNQAInQty.ToString, R!FNQAActualQty.ToString, R!FNDefect.ToString, R!FTStyleCode.ToString, R!FTColorway.ToString, R!FTCustRef.ToString, R!FTSubOrderNo.ToString, R!FTDestination.ToString, R!FTDefectDetail.ToString, R!FTStatePreFinal.ToString, R!FNSeq.ToString, R!FTSizeBreakDown.ToString)
                 End If
 
                 If _dt.Columns.IndexOf("C" & R!FNHSysQADetailId.ToString) < 0 Then
@@ -102,7 +104,7 @@ Public Class UIQAPreFinalTrackingList
                     .Visible = True
 
                     Select Case Col.ColumnName.ToString
-                        Case "FTUnitSectCode", "FTQADate", "FTPORef", "FTStyleCode", "FTColorway"
+                        Case "FTUnitSectCode", "FTQADate", "FTPORef", "FTStyleCode", "FTColorway", "FNSeq", "FTSizeBreakDown"
                             .Width = 80
                         Case "FNQAInQty", "FNQAActualQty", "FNDefect"
                             .Width = 50
@@ -136,7 +138,7 @@ Public Class UIQAPreFinalTrackingList
             With Me.ogvdetail
                 .BeginInit()
 
-                For Each Str As String In "FTUnitSectCode|FTQADate|FTPORef|FNQAInQty|FNQAActualQty|FNDefect|FTStyleCode|FTColorway|FTCustRef|FTSubOrderNo|FTDestination".Split("|")
+                For Each Str As String In "FTUnitSectCode|FTQADate|FTPORef|FNSeq|FNQAInQty|FNQAActualQty|FNDefect|FTStyleCode|FTColorway|FTSizeBreakDown|FTCustRef|FTSubOrderNo".Split("|")
 
                     Dim _gBand As New DevExpress.XtraGrid.Views.BandedGrid.GridBand
 
@@ -173,8 +175,10 @@ Public Class UIQAPreFinalTrackingList
                         _StateCreateBand = False
                         Dim _GrbandType As New DevExpress.XtraGrid.Views.BandedGrid.GridBand
                         Dim _GrbandType2 As New DevExpress.XtraGrid.Views.BandedGrid.GridBand
-
-                        For Each R As DataRow In EmpData.Select("FTQADate='" & HI.UL.ULF.rpQuoted(_FTQAData) & "' AND FTSubOrderNo='" & HI.UL.ULF.rpQuoted(_SubOrderNo) & "'  AND FTUnitSectCode='" & HI.UL.ULF.rpQuoted(_UnitSectCode) & "' AND FTQATypeCode='" & HI.UL.ULF.rpQuoted(Ind) & "'", "FTQADetailCode")
+                        Dim _empdata As New DataTable
+                        _empdata = EmpData.Select("FTQADate='" & HI.UL.ULF.rpQuoted(_FTQAData) & "' AND FTSubOrderNo='" & HI.UL.ULF.rpQuoted(_SubOrderNo) & "'  AND FTUnitSectCode='" & HI.UL.ULF.rpQuoted(_UnitSectCode) & "' AND FTQATypeCode='" & HI.UL.ULF.rpQuoted(Ind) & "'", "FTQATypeCode").CopyToDataTable()
+                        _empdata = DirectCast(_empdata.DefaultView.ToTable(True, "FNStateQAByType", "FNHSysQATypeId", "FTQATypeCode", "FTQADetailCode", "FNStateQAByDetail", "FNHSysQADetailId"), DataTable)
+                        For Each R As DataRow In _empdata.Rows ' EmpData.Select("FTQADate='" & HI.UL.ULF.rpQuoted(_FTQAData) & "' AND FTSubOrderNo='" & HI.UL.ULF.rpQuoted(_SubOrderNo) & "'  AND FTUnitSectCode='" & HI.UL.ULF.rpQuoted(_UnitSectCode) & "' AND FTQATypeCode='" & HI.UL.ULF.rpQuoted(Ind) & "'", "FTQADetailCode")
 
                             If _StateCreateBand = False Then
 

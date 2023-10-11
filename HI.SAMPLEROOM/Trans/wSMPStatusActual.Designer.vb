@@ -132,6 +132,9 @@ Partial Class wSMPStatusActual
         Me.ReposFTStateQCFinish = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.CFTStateQCFinishDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTStateFinishQCBy = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cFTStartDateSMK = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cFTLastDateSMK = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cFNQuantitySMK = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.ogbStyleHeader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbStyleHeader.SuspendLayout()
         CType(Me.FTEndSendSew.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -201,7 +204,7 @@ Partial Class wSMPStatusActual
         Me.FTEndSendSew.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndSendSew.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndSendSew.Properties.NullDate = ""
-        Me.FTEndSendSew.Size = New System.Drawing.Size(154, 22)
+        Me.FTEndSendSew.Size = New System.Drawing.Size(154, 23)
         Me.FTEndSendSew.TabIndex = 562
         Me.FTEndSendSew.Tag = "2|"
         '
@@ -233,7 +236,7 @@ Partial Class wSMPStatusActual
         Me.FTStartSendSew.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartSendSew.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartSendSew.Properties.NullDate = ""
-        Me.FTStartSendSew.Size = New System.Drawing.Size(152, 22)
+        Me.FTStartSendSew.Size = New System.Drawing.Size(152, 23)
         Me.FTStartSendSew.TabIndex = 560
         Me.FTStartSendSew.Tag = "2|"
         '
@@ -260,7 +263,7 @@ Partial Class wSMPStatusActual
         Me.FNHSysMerTeamId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "153", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysMerTeamId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysMerTeamId.Properties.Tag = ""
-        Me.FNHSysMerTeamId.Size = New System.Drawing.Size(155, 22)
+        Me.FNHSysMerTeamId.Size = New System.Drawing.Size(155, 23)
         Me.FNHSysMerTeamId.TabIndex = 558
         Me.FNHSysMerTeamId.Tag = "2|"
         '
@@ -292,7 +295,7 @@ Partial Class wSMPStatusActual
         Me.FTEndOrderDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndOrderDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndOrderDate.Properties.NullDate = ""
-        Me.FTEndOrderDate.Size = New System.Drawing.Size(154, 22)
+        Me.FTEndOrderDate.Size = New System.Drawing.Size(154, 23)
         Me.FTEndOrderDate.TabIndex = 556
         Me.FTEndOrderDate.Tag = "2|"
         '
@@ -324,7 +327,7 @@ Partial Class wSMPStatusActual
         Me.FTStartOrderDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartOrderDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartOrderDate.Properties.NullDate = ""
-        Me.FTStartOrderDate.Size = New System.Drawing.Size(152, 22)
+        Me.FTStartOrderDate.Size = New System.Drawing.Size(152, 23)
         Me.FTStartOrderDate.TabIndex = 554
         Me.FTStartOrderDate.Tag = "2|"
         '
@@ -351,7 +354,7 @@ Partial Class wSMPStatusActual
         Me.FNHSysCustId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCustId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCustId_None.Properties.ReadOnly = True
-        Me.FNHSysCustId_None.Size = New System.Drawing.Size(236, 22)
+        Me.FNHSysCustId_None.Size = New System.Drawing.Size(236, 23)
         Me.FNHSysCustId_None.TabIndex = 553
         Me.FNHSysCustId_None.Tag = "2|"
         '
@@ -363,7 +366,7 @@ Partial Class wSMPStatusActual
         Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCustId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCustId.Properties.Tag = ""
-        Me.FNHSysCustId.Size = New System.Drawing.Size(155, 22)
+        Me.FNHSysCustId.Size = New System.Drawing.Size(155, 23)
         Me.FNHSysCustId.TabIndex = 551
         Me.FNHSysCustId.Tag = "2|"
         '
@@ -406,7 +409,7 @@ Partial Class wSMPStatusActual
         Me.FNSMPOrderType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNSMPOrderType.Properties.Tag = "FNSMPOrderType"
         Me.FNSMPOrderType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNSMPOrderType.Size = New System.Drawing.Size(157, 22)
+        Me.FNSMPOrderType.Size = New System.Drawing.Size(157, 23)
         Me.FNSMPOrderType.TabIndex = 549
         Me.FNSMPOrderType.Tag = "2|"
         Me.FNSMPOrderType.Visible = False
@@ -434,7 +437,7 @@ Partial Class wSMPStatusActual
         Me.FNHSysSeasonId.Name = "FNHSysSeasonId"
         Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSeasonId.Properties.Tag = ""
-        Me.FNHSysSeasonId.Size = New System.Drawing.Size(189, 22)
+        Me.FNHSysSeasonId.Size = New System.Drawing.Size(189, 23)
         Me.FNHSysSeasonId.TabIndex = 548
         Me.FNHSysSeasonId.Tag = "2|"
         '
@@ -476,7 +479,7 @@ Partial Class wSMPStatusActual
         Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "235", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysStyleId.Properties.Tag = ""
-        Me.FNHSysStyleId.Size = New System.Drawing.Size(189, 22)
+        Me.FNHSysStyleId.Size = New System.Drawing.Size(189, 23)
         Me.FNHSysStyleId.TabIndex = 546
         Me.FNHSysStyleId.Tag = "2|"
         '
@@ -489,7 +492,7 @@ Partial Class wSMPStatusActual
         Me.ogboperation.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogboperation.Name = "ogboperation"
         Me.ogboperation.ShowCaption = False
-        Me.ogboperation.Size = New System.Drawing.Size(1304, 616)
+        Me.ogboperation.Size = New System.Drawing.Size(1304, 634)
         Me.ogboperation.TabIndex = 3
         Me.ogboperation.Text = "Operation By Style"
         '
@@ -535,7 +538,7 @@ Partial Class wSMPStatusActual
         Me.GroupControl1.Location = New System.Drawing.Point(2, 2)
         Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(1300, 612)
+        Me.GroupControl1.Size = New System.Drawing.Size(1300, 630)
         Me.GroupControl1.TabIndex = 306
         Me.GroupControl1.Text = "Breakdown Detail"
         '
@@ -543,12 +546,12 @@ Partial Class wSMPStatusActual
         '
         Me.ogcoperation.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcoperation.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcoperation.Location = New System.Drawing.Point(2, 28)
+        Me.ogcoperation.Location = New System.Drawing.Point(2, 27)
         Me.ogcoperation.MainView = Me.ogvoperation
         Me.ogcoperation.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcoperation.Name = "ogcoperation"
         Me.ogcoperation.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.ReposFTStateQCFinish})
-        Me.ogcoperation.Size = New System.Drawing.Size(1296, 582)
+        Me.ogcoperation.Size = New System.Drawing.Size(1296, 601)
         Me.ogcoperation.TabIndex = 301
         Me.ogcoperation.TabStop = False
         Me.ogcoperation.Tag = "3|"
@@ -556,7 +559,7 @@ Partial Class wSMPStatusActual
         '
         'ogvoperation
         '
-        Me.ogvoperation.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.CFTSMPOrderNo, Me.CFDSMPOrderDate, Me.CFNSMPOrderType, Me.CFNSMPPrototypeNo, Me.CFTStyleCode, Me.CFTSeasonCode, Me.CFTCustCode, Me.CFTCustName, Me.FTMerTeamCode, Me.FNSeq, Me.FTSizeBreakDown, Me.FTColorway, Me.FNQuantity, Me.FTDeliveryDate, Me.FTRemark, Me.FTTeam, Me.FTEmpName, Me.TeqmQuantity, Me.FTStartDateCut, Me.FTLastDateCut, Me.FNQuantityCut, Me.FTStartDateEmb, Me.FTLastDateEmb, Me.FNQuantityEmb, Me.FTStartDateRcvEmb, Me.FTLastDateRcvEmb, Me.FNQuantityRcvEmb, Me.FTStartDatePrint, Me.FTLastDatePrint, Me.FNQuantityPrint, Me.FTStartDateRcvPrint, Me.FTLastDateRcvPrint, Me.FNQuantityRcvPrint, Me.FTStartDateHeat, Me.FTLastDateHeat, Me.FNQuantityHeat, Me.FTStartDateRcvHeat, Me.FTLastDateRcvHeat, Me.FNQuantityRcvHeat, Me.CFTStartDateLasor, Me.CFTLastDateLasor, Me.CFNQuantityLasor, Me.CFTStartDateRcvLasor, Me.CFTLastDateRcvLasor, Me.CFNQuantityRcvLasor, Me.CFTStartDatePadPrint, Me.CFTLastDatePadPrint, Me.CFNQuantityPadPrint, Me.CFTStartDateRcvPadPrint, Me.CFTLastDateRcvPadPrint, Me.FNQuantityRcvPadPrint, Me.FTStartDateSew, Me.FTLastDateSew, Me.FNQuantitySew, Me.FTStartDateFinishSew, Me.FTLastDateFinishSew, Me.FNQuantityFinishSew, Me.FTStartDateQC, Me.FTLastDateQC, Me.FNQuantityQC, Me.FNPass, Me.FNNotPass, Me.CFTStateQCFinish, Me.CFTStateQCFinishDate, Me.CFTStateFinishQCBy})
+        Me.ogvoperation.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.CFTSMPOrderNo, Me.CFDSMPOrderDate, Me.CFNSMPOrderType, Me.CFNSMPPrototypeNo, Me.CFTStyleCode, Me.CFTSeasonCode, Me.CFTCustCode, Me.CFTCustName, Me.FTMerTeamCode, Me.FNSeq, Me.FTSizeBreakDown, Me.FTColorway, Me.FNQuantity, Me.FTDeliveryDate, Me.FTRemark, Me.FTTeam, Me.FTEmpName, Me.TeqmQuantity, Me.FTStartDateCut, Me.FTLastDateCut, Me.FNQuantityCut, Me.FTStartDateEmb, Me.FTLastDateEmb, Me.FNQuantityEmb, Me.FTStartDateRcvEmb, Me.FTLastDateRcvEmb, Me.FNQuantityRcvEmb, Me.FTStartDatePrint, Me.FTLastDatePrint, Me.FNQuantityPrint, Me.FTStartDateRcvPrint, Me.FTLastDateRcvPrint, Me.FNQuantityRcvPrint, Me.FTStartDateHeat, Me.FTLastDateHeat, Me.FNQuantityHeat, Me.FTStartDateRcvHeat, Me.FTLastDateRcvHeat, Me.FNQuantityRcvHeat, Me.CFTStartDateLasor, Me.CFTLastDateLasor, Me.CFNQuantityLasor, Me.CFTStartDateRcvLasor, Me.CFTLastDateRcvLasor, Me.CFNQuantityRcvLasor, Me.CFTStartDatePadPrint, Me.CFTLastDatePadPrint, Me.CFNQuantityPadPrint, Me.CFTStartDateRcvPadPrint, Me.CFTLastDateRcvPadPrint, Me.FNQuantityRcvPadPrint, Me.FTStartDateSew, Me.FTLastDateSew, Me.FNQuantitySew, Me.FTStartDateFinishSew, Me.FTLastDateFinishSew, Me.FNQuantityFinishSew, Me.FTStartDateQC, Me.FTLastDateQC, Me.FNQuantityQC, Me.FNPass, Me.FNNotPass, Me.CFTStateQCFinish, Me.CFTStateQCFinishDate, Me.CFTStateFinishQCBy, Me.cFTStartDateSMK, Me.cFTLastDateSMK, Me.cFNQuantitySMK})
         Me.ogvoperation.GridControl = Me.ogcoperation
         Me.ogvoperation.Name = "ogvoperation"
         Me.ogvoperation.OptionsCustomization.AllowGroup = False
@@ -1198,7 +1201,7 @@ Partial Class wSMPStatusActual
         Me.FTStartDateSew.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTStartDateSew.OptionsColumn.ReadOnly = True
         Me.FTStartDateSew.Visible = True
-        Me.FTStartDateSew.VisibleIndex = 50
+        Me.FTStartDateSew.VisibleIndex = 53
         '
         'FTLastDateSew
         '
@@ -1211,7 +1214,7 @@ Partial Class wSMPStatusActual
         Me.FTLastDateSew.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTLastDateSew.OptionsColumn.ReadOnly = True
         Me.FTLastDateSew.Visible = True
-        Me.FTLastDateSew.VisibleIndex = 51
+        Me.FTLastDateSew.VisibleIndex = 54
         '
         'FNQuantitySew
         '
@@ -1224,7 +1227,7 @@ Partial Class wSMPStatusActual
         Me.FNQuantitySew.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNQuantitySew.OptionsColumn.ReadOnly = True
         Me.FNQuantitySew.Visible = True
-        Me.FNQuantitySew.VisibleIndex = 52
+        Me.FNQuantitySew.VisibleIndex = 55
         '
         'FTStartDateFinishSew
         '
@@ -1237,7 +1240,7 @@ Partial Class wSMPStatusActual
         Me.FTStartDateFinishSew.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTStartDateFinishSew.OptionsColumn.ReadOnly = True
         Me.FTStartDateFinishSew.Visible = True
-        Me.FTStartDateFinishSew.VisibleIndex = 53
+        Me.FTStartDateFinishSew.VisibleIndex = 56
         '
         'FTLastDateFinishSew
         '
@@ -1250,7 +1253,7 @@ Partial Class wSMPStatusActual
         Me.FTLastDateFinishSew.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTLastDateFinishSew.OptionsColumn.ReadOnly = True
         Me.FTLastDateFinishSew.Visible = True
-        Me.FTLastDateFinishSew.VisibleIndex = 54
+        Me.FTLastDateFinishSew.VisibleIndex = 57
         '
         'FNQuantityFinishSew
         '
@@ -1263,7 +1266,7 @@ Partial Class wSMPStatusActual
         Me.FNQuantityFinishSew.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNQuantityFinishSew.OptionsColumn.ReadOnly = True
         Me.FNQuantityFinishSew.Visible = True
-        Me.FNQuantityFinishSew.VisibleIndex = 55
+        Me.FNQuantityFinishSew.VisibleIndex = 58
         '
         'FTStartDateQC
         '
@@ -1276,7 +1279,7 @@ Partial Class wSMPStatusActual
         Me.FTStartDateQC.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTStartDateQC.OptionsColumn.ReadOnly = True
         Me.FTStartDateQC.Visible = True
-        Me.FTStartDateQC.VisibleIndex = 56
+        Me.FTStartDateQC.VisibleIndex = 59
         '
         'FTLastDateQC
         '
@@ -1289,7 +1292,7 @@ Partial Class wSMPStatusActual
         Me.FTLastDateQC.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTLastDateQC.OptionsColumn.ReadOnly = True
         Me.FTLastDateQC.Visible = True
-        Me.FTLastDateQC.VisibleIndex = 57
+        Me.FTLastDateQC.VisibleIndex = 60
         '
         'FNQuantityQC
         '
@@ -1302,7 +1305,7 @@ Partial Class wSMPStatusActual
         Me.FNQuantityQC.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNQuantityQC.OptionsColumn.ReadOnly = True
         Me.FNQuantityQC.Visible = True
-        Me.FNQuantityQC.VisibleIndex = 58
+        Me.FNQuantityQC.VisibleIndex = 61
         '
         'FNPass
         '
@@ -1315,7 +1318,7 @@ Partial Class wSMPStatusActual
         Me.FNPass.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNPass.OptionsColumn.ReadOnly = True
         Me.FNPass.Visible = True
-        Me.FNPass.VisibleIndex = 59
+        Me.FNPass.VisibleIndex = 62
         '
         'FNNotPass
         '
@@ -1328,7 +1331,7 @@ Partial Class wSMPStatusActual
         Me.FNNotPass.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNNotPass.OptionsColumn.ReadOnly = True
         Me.FNNotPass.Visible = True
-        Me.FNNotPass.VisibleIndex = 60
+        Me.FNNotPass.VisibleIndex = 63
         '
         'CFTStateQCFinish
         '
@@ -1339,7 +1342,7 @@ Partial Class wSMPStatusActual
         Me.CFTStateQCFinish.OptionsColumn.AllowEdit = False
         Me.CFTStateQCFinish.OptionsColumn.ReadOnly = True
         Me.CFTStateQCFinish.Visible = True
-        Me.CFTStateQCFinish.VisibleIndex = 61
+        Me.CFTStateQCFinish.VisibleIndex = 64
         '
         'ReposFTStateQCFinish
         '
@@ -1358,7 +1361,7 @@ Partial Class wSMPStatusActual
         Me.CFTStateQCFinishDate.OptionsColumn.AllowEdit = False
         Me.CFTStateQCFinishDate.OptionsColumn.ReadOnly = True
         Me.CFTStateQCFinishDate.Visible = True
-        Me.CFTStateQCFinishDate.VisibleIndex = 62
+        Me.CFTStateQCFinishDate.VisibleIndex = 65
         '
         'CFTStateFinishQCBy
         '
@@ -1368,13 +1371,48 @@ Partial Class wSMPStatusActual
         Me.CFTStateFinishQCBy.OptionsColumn.AllowEdit = False
         Me.CFTStateFinishQCBy.OptionsColumn.ReadOnly = True
         Me.CFTStateFinishQCBy.Visible = True
-        Me.CFTStateFinishQCBy.VisibleIndex = 63
+        Me.CFTStateFinishQCBy.VisibleIndex = 66
+        '
+        'cFTStartDateSMK
+        '
+        Me.cFTStartDateSMK.Caption = "FTStartDateSMK"
+        Me.cFTStartDateSMK.FieldName = "FTStartDateSMK"
+        Me.cFTStartDateSMK.MinWidth = 25
+        Me.cFTStartDateSMK.Name = "cFTStartDateSMK"
+        Me.cFTStartDateSMK.OptionsColumn.AllowEdit = False
+        Me.cFTStartDateSMK.Visible = True
+        Me.cFTStartDateSMK.VisibleIndex = 50
+        Me.cFTStartDateSMK.Width = 94
+        '
+        'cFTLastDateSMK
+        '
+        Me.cFTLastDateSMK.Caption = "FTLastDateSMK"
+        Me.cFTLastDateSMK.FieldName = "FTLastDateSMK"
+        Me.cFTLastDateSMK.MinWidth = 25
+        Me.cFTLastDateSMK.Name = "cFTLastDateSMK"
+        Me.cFTLastDateSMK.OptionsColumn.AllowEdit = False
+        Me.cFTLastDateSMK.Visible = True
+        Me.cFTLastDateSMK.VisibleIndex = 51
+        Me.cFTLastDateSMK.Width = 94
+        '
+        'cFNQuantitySMK
+        '
+        Me.cFNQuantitySMK.Caption = "FNQuantitySMK"
+        Me.cFNQuantitySMK.DisplayFormat.FormatString = "N0"
+        Me.cFNQuantitySMK.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.cFNQuantitySMK.FieldName = "FNQuantitySMK"
+        Me.cFNQuantitySMK.MinWidth = 25
+        Me.cFNQuantitySMK.Name = "cFNQuantitySMK"
+        Me.cFNQuantitySMK.OptionsColumn.AllowEdit = False
+        Me.cFNQuantitySMK.Visible = True
+        Me.cFNQuantitySMK.VisibleIndex = 52
+        Me.cFNQuantitySMK.Width = 94
         '
         'wSMPStatusActual
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1304, 793)
+        Me.ClientSize = New System.Drawing.Size(1304, 811)
         Me.Controls.Add(Me.ogboperation)
         Me.Controls.Add(Me.ogbStyleHeader)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -1501,4 +1539,7 @@ Partial Class wSMPStatusActual
     Friend WithEvents ReposFTStateQCFinish As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents CFTStateQCFinishDate As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CFTStateFinishQCBy As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cFTStartDateSMK As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cFTLastDateSMK As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cFNQuantitySMK As DevExpress.XtraGrid.Columns.GridColumn
 End Class

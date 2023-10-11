@@ -5,6 +5,9 @@ Public Class wSMPProductionCutStatusBar
 
     Private _GenBreakDown As wSelectBreakDown
     Private _ListSendSuplBundleInfo As New List(Of DataTable)
+    Private _SplitQty As wSplitBundleQty
+    Private _StateSetSelectBySelect As Boolean = True
+    Private _StateSetSelectAll As Boolean = True
     Sub New()
 
         ' This call is required by the designer.
@@ -13,9 +16,15 @@ Public Class wSMPProductionCutStatusBar
         _GenBreakDown = New wSelectBreakDown
         HI.TL.HandlerControl.AddHandlerObj(_GenBreakDown)
 
+
+        _SplitQty = New wSplitBundleQty
+        HI.TL.HandlerControl.AddHandlerObj(_SplitQty)
+
+
         Dim oSysLang As New ST.SysLanguage
         Try
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleName, _GenBreakDown.Name.ToString.Trim, _GenBreakDown)
+            Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleName, _SplitQty.Name.ToString.Trim, _SplitQty)
         Catch ex As Exception
         Finally
         End Try
@@ -85,7 +94,7 @@ Public Class wSMPProductionCutStatusBar
 
         Dim _Qry As String = ""
 
-        _Qry = " SELECT    ROW_NUMBER() Over (Order By SOP.FNSeq) AS FNSeq"
+        _Qry = " SELECT    ROW_NUMBER() Over (Order By   case SOP.FNSampleState  when   0 then SOP.FNSampleState when 11 then 15 when 12 then 16  else   SOP.FNSampleState end    ) AS FNSeq"
         _Qry &= vbCrLf & "  , Case When ISDATE(ISNULL( SOP.FTDate,'')) = 1 THEN  Convert(nvarchar(10),Convert(Datetime, SOP.FTDate),103) ELSE '' END AS  FTDate "
         _Qry &= vbCrLf & "  , SOP.FNSampleState As FNSampleState_Hide"
 
@@ -113,13 +122,22 @@ Public Class wSMPProductionCutStatusBar
         _Qry &= vbCrLf & "  FROM             [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData As L With (NOLOCK) "
 
         _Qry &= vbCrLf & "  WHERE        (FTListName = N'FNSampleCutState')) AS L ON SOP.FNSampleState =L.FNListIndex "
-        _Qry &= vbCrLf & " OUTER APPLY (SELECT sum(B.FNQuantity) as FNQuantityBundle From  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPTBundle_Detail AS Bundle WITH(NOLOCK) "
+        _Qry &= vbCrLf & " OUTER APPLY (SELECT Top 1   sum(B.FNQuantity ) - max(isnull(BS.FNQuantity,0)) as FNQuantityBundle From  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPTBundle_Detail AS Bundle WITH(NOLOCK) "
         _Qry &= vbCrLf & "  inner join  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPTBundle as B with(nolock) on Bundle.FTBarcodeBundleNo = b.FTBarcodeBundleNo  "
-        _Qry &= vbCrLf & " WHERE B.FTOrderProdNo = SOP.FTSMPOrderNo And Bundle.FTSizeBreakDown = SOP.FTSizeBreakDown And Bundle.FTColorway = SOP.FTColorway  and  Bundle.FNRunLayCutSeq  = SOP.FNSeq) AS Bundle "
+        _Qry &= vbCrLf & " outer apply ( select sum ( BS.FNQuantity  )  as FNQuantity  "
+        _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle AS BS WITH(NOLOCK)"
+        _Qry &= vbCrLf & "  where  BS.FTMainBarcodeBundleNo   = B.FTBarcodeBundleNo and BS.FTBarcodeBundleNo <>   B.FTBarcodeBundleNo"
+
+        _Qry &= vbCrLf & " ) as BS "
+
+
+        _Qry &= vbCrLf & " WHERE B.FTOrderProdNo = SOP.FTSMPOrderNo And Bundle.FTSizeBreakDown = SOP.FTSizeBreakDown And Bundle.FTColorway = SOP.FTColorway "
+        _Qry &= vbCrLf & "  and case when sop.FTTeam <> '' then   b.FTBarcodeBundleNo else  sop.FTTeam  end  = sop.FTTeam     and Bundle.FNRunLayCutSeq =  SOP.FNSeq  "
+        _Qry &= vbCrLf & "  ) AS Bundle "  'and  Bundle.FNRunLayCutSeq  = SOP.FNSeq
 
         _Qry &= vbCrLf & "  Where SOP.FTSMPOrderNo ='" & HI.UL.ULF.rpQuoted(Key) & "'"
-        _Qry &= vbCrLf & "        AND SOP.FTTeam='' "
-        _Qry &= vbCrLf & "  ORDER BY SOP.FNSeq ASC"
+        '_Qry &= vbCrLf & "        AND SOP.FTTeam='' "
+        _Qry &= vbCrLf & "  ORDER BY  case SOP.FNSampleState  when   0 then SOP.FNSampleState when 11 then 15 when 12 then 16  else   SOP.FNSampleState end     ASC"
 
 
 
@@ -253,7 +271,7 @@ Public Class wSMPProductionCutStatusBar
                 Exit Sub
             End If
 
-
+            'SaveDataSendSupl()
             With CType(Me.ogcoperation.DataSource, DataTable)
                 .AcceptChanges()
 
@@ -267,11 +285,12 @@ Public Class wSMPProductionCutStatusBar
                 HI.Conn.SQLConn.Tran = HI.Conn.SQLConn.Cnn.BeginTransaction
 
                 Try
+
                     If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
 
                     End If
 
-                    For Each R As DataRow In .Select("FNQuantity>0", "FNSeq")
+                    For Each R As DataRow In .Select("FNQuantity>0  AND FNSampleState_Hide=0 ", "FNSeq")
 
                         _FNSeq = _FNSeq + 1
 
@@ -638,7 +657,12 @@ Public Class wSMPProductionCutStatusBar
 
                 Dim _Spls As New HI.TL.SplashScreen("Generating....Barcode , Please Wait...")
                 If Me.GenerateBarcode() Then
-                    Call LoadOrderProdDetailInfo(Me.FTSMPOrderNo.Text)
+                    'Call LoadOrderProdDetailInfo(Me.FTSMPOrderNo.Text)
+                    Try
+                        Call ocmrefresh_Click(ocmrefresh, New System.EventArgs)
+                    Catch ex As Exception
+                    End Try
+
                     _Spls.Close()
                     HI.MG.ShowMsg.mInfo("Generate Barcode Complete..", 1405300002, Me.Text, , System.Windows.Forms.MessageBoxIcon.Information)
                 Else
@@ -676,7 +700,7 @@ Public Class wSMPProductionCutStatusBar
 
                 With _GenBreakDown
 
-                    .ogdBreakdown.DataSource = dt
+                    .ogdBreakdown.DataSource = dt.Select("FNSampleState_Hide = 0 and FNQuantity >0 ", "").CopyToDataTable
                     .ShowDialog()
 
                     If (.ProcessSave) Then
@@ -709,6 +733,8 @@ Public Class wSMPProductionCutStatusBar
 
                             Next
                         End With
+                    Else
+                        Return False
                     End If
                 End With
 
@@ -781,7 +807,9 @@ Public Class wSMPProductionCutStatusBar
                 _Qry = "   SELECT        FTOrderProdNo, FNHSysPartId, FNSendSuplType, FNHSysSuplId, FTBarcodeBundleNo,FTSendSuplRef  "
                 _Qry &= vbCrLf & "  FROM             [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl_Detail AS A  WITH(NOLOCK)  "
                 _Qry &= vbCrLf & "  WHERE  (FTOrderProdNo =  N'" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "') "
-                _Qry &= vbCrLf & "  AND   (FTBarcodeBundleNo ='" & HI.UL.ULF.rpQuoted(R!FTBarcodeBundleNo.ToString) & "') "
+                '_Qry &= vbCrLf & "  AND   (FTBarcodeBundleNo ='" & HI.UL.ULF.rpQuoted(R!FTBarcodeBundleNo.ToString) & "') "
+                _Qry &= vbCrLf & " and not exists  (select    *     from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcode_SendSupl B with(nolock)  "
+                _Qry &= vbCrLf & " where  A.FTOrderProdNo = B.FTOrderProdNo  And  A.FNSendSuplType = B.FNSendSuplType    and a.FTBarcodeBundleNo = b.FTBarcodeBundleNo   and  A.FTSendSuplRef = B.FTSendSuplRef ) "
                 _Qry &= vbCrLf & "  ORDER BY FNSendSuplType "
 
                 dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
@@ -818,7 +846,7 @@ Public Class wSMPProductionCutStatusBar
                     _Qry &= vbCrLf & "," & Integer.Parse(Val(Rx!FNHSysPartId.ToString)) & ""
                     _Qry &= vbCrLf & "," & Integer.Parse(Val(Rx!FNSendSuplType.ToString)) & ""
                     _Qry &= vbCrLf & "," & Integer.Parse(Val(Rx!FNHSysSuplId.ToString)) & ""
-                    _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTBarcodeBundleNo.ToString) & "' "
+                    _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Rx!FTBarcodeBundleNo.ToString) & "' "
                     _Qry &= vbCrLf & "," & Integer.Parse(Val(HI.ST.SysInfo.CmpID)) & ""
                     _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "' "
                     _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Rx!FTSendSuplRef.ToString) & "' "
@@ -879,22 +907,36 @@ Public Class wSMPProductionCutStatusBar
 
         'Me.ogclaycut.DataSource = dt.Copy
 
-        _Qry = "SELECT  '0' AS FTSelect, A.FTBarcodeBundleNo, A.FNBunbleSeq,  CASE WHEN ISNULL(A.FTColorwayNew,'') ='' THEN A.FTColorway ELSE ISNULL(A.FTColorwayNew,'') END AS FTColorway, A.FTSizeBreakDown, A.FNQuantity, CASE WHEN ISNULL(A.FTColorwayNew,'') <> '' OR ISNULL(A.FTChangeToLineItemNo,'') <>'' THEN '1' ELSE '0' END AS FTStateChange"
+        _Qry = "SELECT  '0' AS FTSelect, A.FTBarcodeBundleNo, A.FNBunbleSeq,  CASE WHEN ISNULL(A.FTColorwayNew,'') ='' THEN A.FTColorway ELSE ISNULL(A.FTColorwayNew,'') END AS FTColorway"
+        _Qry &= vbCrLf & ", A.FTSizeBreakDown, A.FNQuantity  - isnull(B.FNQuantity,0) as FNQuantity, CASE WHEN ISNULL(A.FTColorwayNew,'') <> '' OR ISNULL(A.FTChangeToLineItemNo,'') <>'' THEN '1' ELSE '0' END AS FTStateChange"
         _Qry &= vbCrLf & ", '' as FTMarkName"
         _Qry &= vbCrLf & ""
         _Qry &= vbCrLf & " , CASE WHEN ISNULL(A.FTChangeToLineItemNo,'') ='' THEN A.FTPOLineItemNo ELSE ISNULL(A.FTChangeToLineItemNo,'') END AS  FTPOLineItemNo"
         _Qry &= vbCrLf & "  FROM            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle AS A  WITH(NOLOCK)"
+        _Qry &= vbCrLf & " outer apply ( select sum ( B.FNQuantity) as FNQuantity  "
+        _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle AS B WITH(NOLOCK)"
+        _Qry &= vbCrLf & "  where  b.FTMainBarcodeBundleNo   = A.FTBarcodeBundleNo and B.FTBarcodeBundleNo <>   A.FTBarcodeBundleNo"
+        _Qry &= vbCrLf & " ) as B "
+
         _Qry &= vbCrLf & " WHERE A.FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "' AND ISNULL(A.FTStateGenBarcode,'') ='1'  "
+
         _Qry &= vbCrLf & " Order By  A.FNBunbleSeq "
 
         dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
         Me.ogcbarcode.DataSource = dt.Copy
 
-        _Qry = "SELECT  '0' AS FTSelect, A.FTBarcodeBundleNo, A.FNBunbleSeq,  CASE WHEN ISNULL(A.FTColorwayNew,'') ='' THEN A.FTColorway ELSE ISNULL(A.FTColorwayNew,'') END AS FTColorway, A.FTSizeBreakDown, A.FNQuantity, CASE WHEN ISNULL(A.FTColorwayNew,'') <> '' OR ISNULL(A.FTChangeToLineItemNo,'') <>'' THEN '1' ELSE '0' END AS FTStateChange"
+        _Qry = "SELECT  '0' AS FTSelect, A.FTBarcodeBundleNo, A.FNBunbleSeq,  CASE WHEN ISNULL(A.FTColorwayNew,'') ='' THEN A.FTColorway ELSE ISNULL(A.FTColorwayNew,'') END AS FTColorway, A.FTSizeBreakDown, A.FNQuantity  - isnull(BS.FNQuantity,0) as FNQuantity , CASE WHEN ISNULL(A.FTColorwayNew,'') <> '' OR ISNULL(A.FTChangeToLineItemNo,'') <>'' THEN '1' ELSE '0' END AS FTStateChange"
         _Qry &= vbCrLf & ", '' as FTMarkName"
         _Qry &= vbCrLf & ""
         _Qry &= vbCrLf & " , CASE WHEN ISNULL(A.FTChangeToLineItemNo,'') ='' THEN A.FTPOLineItemNo ELSE ISNULL(A.FTChangeToLineItemNo,'') END AS  FTPOLineItemNo"
         _Qry &= vbCrLf & "  FROM            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle AS A  WITH(NOLOCK)"
+
+        _Qry &= vbCrLf & " outer apply ( select sum ( BS.FNQuantity) as FNQuantity  "
+        _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle AS BS WITH(NOLOCK)"
+        _Qry &= vbCrLf & "  where  BS.FTMainBarcodeBundleNo   = A.FTBarcodeBundleNo and BS.FTBarcodeBundleNo <>   A.FTBarcodeBundleNo"
+        _Qry &= vbCrLf & " ) as BS "
+
+
         _Qry &= vbCrLf & " WHERE A.FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'  "
         _Qry &= vbCrLf & " Order By  A.FNBunbleSeq "
 
@@ -926,7 +968,7 @@ Public Class wSMPProductionCutStatusBar
 
 
         _Qry &= vbCrLf & "  outer apply(select  AX.FTMainBarcodeBundleNo AS FTBarcodeBundleNo ,AX.FTPOLineItemNo,MIN(AX.FNBunbleSeq) As FNBunbleSeq, AX.FTColorway, AX.FTSizeBreakDown, SUM(AX.FNQuantity) AS FNQuantity "
-        _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle AS AX WITH(NOLOCK) WHERE AX.FTMainBarcodeBundleNo = B.FTBarcodeBundleNo "
+        _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle AS AX WITH(NOLOCK) WHERE AX.FTMainBarcodeBundleNo = B.FTBarcodeBundleNo  and ax.FTBarcodeBundleNo = ax.FTMainBarcodeBundleNo "
         _Qry &= vbCrLf & "  Group BY AX.FTMainBarcodeBundleNo,AX.FTPOLineItemNo,AX.FTColorway, AX.FTSizeBreakDown  "
         _Qry &= vbCrLf & "  ) AS A"
 
@@ -1055,9 +1097,6 @@ Public Class wSMPProductionCutStatusBar
         _Qry &= vbCrLf & "  SELECT    FNHSysPartId,4 AS FNSendSuplType "
         _Qry &= vbCrLf & "  FROM            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder_SetPart WITH(NOLOCK)"
         _Qry &= vbCrLf & "   WHERE FTSMPOrderNo =   '" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "' And FTStateWindows = 1 "
-
-
-
 
 
         _Qry &= vbCrLf & " ) AS X"
@@ -1216,6 +1255,37 @@ Public Class wSMPProductionCutStatusBar
 
     End Sub
 
+    Private Sub RepFTPartName_EditValueChanged(sender As Object, e As EventArgs) Handles RepFTPartName.EditValueChanged
+        Try
+
+            With Me.ogvsendsupl
+
+                If .FocusedRowHandle < 0 Then Exit Sub
+
+                Dim obj As DevExpress.XtraEditors.LookUpEdit = DirectCast(sender, DevExpress.XtraEditors.LookUpEdit)
+
+
+                Dim _Obj As System.Data.DataRowView = obj.GetSelectedDataRow()
+
+                Dim _PartName As String = _Obj.Item("FTSenSuplDataRef").ToString()
+                Dim _FNHSysPartId As String = _Obj.Item("FNHSysPartId").ToString()
+                Dim _FNSendSuplTypeName As String = _Obj.Item("FNSendSuplTypeName").ToString()
+                Dim _FNSendSuplType As String = _Obj.Item("FNSendSuplType").ToString()
+                Dim _FTNote As String = _Obj.Item("FTNote").ToString()
+
+                .SetFocusedRowCellValue("FTPartName", _PartName)
+                .SetFocusedRowCellValue("FNHSysPartId", _FNHSysPartId)
+                .SetFocusedRowCellValue("FNSendSuplTypeName", _FNSendSuplTypeName)
+                .SetFocusedRowCellValue("FNSendSuplType", _FNSendSuplType)
+                .SetFocusedRowCellValue("FTNote", _FTNote)
+            End With
+
+            CType(Me.ogcsendsupl.DataSource, DataTable).AcceptChanges()
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
 
     Private Sub LoadOperation(_FTOrderProdNo As String)
         Dim _Qry As String = ""
@@ -1255,8 +1325,6 @@ Public Class wSMPProductionCutStatusBar
 
 
 
-
-
         HI.Conn.SQLConn._ConnString = HI.Conn.DB.ConnectionString(Conn.DB.DataBaseName.DB_SAMPLE)
         HI.Conn.SQLConn.SqlConnectionOpen()
         HI.Conn.SQLConn.Cmd = HI.Conn.SQLConn.Cnn.CreateCommand
@@ -1280,35 +1348,43 @@ Public Class wSMPProductionCutStatusBar
 
 
 
-            _Qry = "  DELETE FROM A "
-            _Qry &= vbCrLf & "    FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl AS A  "
-            _Qry &= vbCrLf & "  WHERE A.FTOrderProdNo ='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
-            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
+            '_Qry = "  DELETE FROM A "
+            '_Qry &= vbCrLf & "    FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl AS A  "
+            '_Qry &= vbCrLf & "  WHERE A.FTOrderProdNo ='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
+            'HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
 
-            _Qry = "  DELETE FROM A "
-            _Qry &= vbCrLf & "    FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl_Detail AS A  "
-            _Qry &= vbCrLf & "  WHERE A.FTOrderProdNo ='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
+            '_Qry = "  DELETE FROM A "
+            '_Qry &= vbCrLf & "    FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl_Detail AS A  "
+            '_Qry &= vbCrLf & "  WHERE A.FTOrderProdNo ='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
 
-            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
-
-
+            'HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
 
 
-            '_Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl_Detail "
-            '_Qry &= vbCrLf & " WHERE FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "' "
-            '_Qry &= vbCrLf & " AND FTSendSuplRef NOT IN ("
-            '_Qry &= vbCrLf & "  SELECT DISTINCT FTSendSuplRef "
-            '_Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl AS T WITH(NOLOCK)"
-            '_Qry &= vbCrLf & " WHERE FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "' "
-            '_Qry &= vbCrLf & "  )"
 
-            'If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
-            'End If
+
+            _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl_Detail "
+            _Qry &= vbCrLf & " WHERE FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "' "
+            _Qry &= vbCrLf & " AND FTSendSuplRef+'|'+ FTBarcodeBundleNo NOT IN ("
+            _Qry &= vbCrLf & "  SELECT DISTINCT FTSendSuplRef+'|'+ FTBarcodeBundleNo "
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcode_SendSupl AS T WITH(NOLOCK)"
+            _Qry &= vbCrLf & " WHERE FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "' "
+            _Qry &= vbCrLf & "  )"
+
+            _Qry &= vbCrLf & "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl "
+            _Qry &= vbCrLf & " WHERE FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "' "
+            _Qry &= vbCrLf & " AND FTSendSuplRef NOT IN ("
+            _Qry &= vbCrLf & "  SELECT DISTINCT FTSendSuplRef "
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcode_SendSupl AS T WITH(NOLOCK)"
+            _Qry &= vbCrLf & " WHERE FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "' "
+            _Qry &= vbCrLf & "  )"
+
+            If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+            End If
 
             Dim RowDataInd As Integer = 0
             For Each R As DataRow In dt.Select("FNHSysPartId>0  AND FNHSysSuplId>0 AND FNHSysOperationId>0 AND FNHSysOperationIdTo>0 ")
                 RowDataInd = RowDataInd + 1
-
+                _FNQuantity = Val(R!FNQuantity.ToString)
                 If R!FTSendSuplRef.ToString = "" Then
 
                     _Qry = "SELECT Replace( Convert(varchar(10),GetDate(),111),'/','') + Replace(Convert(varchar(30),GetDate(),114),':','')"
@@ -1317,33 +1393,36 @@ Public Class wSMPProductionCutStatusBar
                     If FTSendSuplRef <> "" Then
                         FTSendSuplRef = HI.ST.SysInfo.CmpRunID & "-" & RowDataInd.ToString & "-" & FTSendSuplRef
 
-                        _FNQuantity = 0
-                        For Each Rx As DataRow In dtbundle.Select("FNHSysPartId=" & Val(R!FNHSysPartId) & " AND FNHSysSuplId=" & Val(R!FNHSysSuplId) & " AND FNSendSuplType=" & Val(R!FNSendSuplType) & " AND FTSendSuplRef='' ")
-                            _FNQuantity = _FNQuantity + 1
+                        '_FNQuantity = 0
+                        If dtbundle.Rows.Count > 0 Then
+                            For Each Rx As DataRow In dtbundle.Select("FNHSysPartId=" & Val(R!FNHSysPartId) & " AND FNHSysSuplId=" & Val(R!FNHSysSuplId) & " AND FNSendSuplType=" & Val(R!FNSendSuplType) & " AND FTSendSuplRef=''   AND FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'  ")
+                                ' _FNQuantity = _FNQuantity + 1
 
-                            _Qry = "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl_Detail(FTInsUser, FDInsDate, FTInsTime"
-                            _Qry &= vbCrLf & " , FTSendSuplRef, FTOrderProdNo"
-                            _Qry &= vbCrLf & " , FNHSysPartId, FNSendSuplType, FNHSysSuplId, FTBarcodeBundleNo,FNHSysCmpId)"
-                            _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ""
-                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & ""
-                            _Qry &= vbCrLf & ",'" & FTSendSuplRef & "'"
-                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
-                            _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNHSysPartId.ToString)) & ""
-                            _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNSendSuplType.ToString)) & ""
-                            _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNHSysSuplId.ToString)) & ""
-                            _Qry &= vbCrLf & ", '" & HI.UL.ULF.rpQuoted(Rx!FTBarcodeBundleNo.ToString) & "'"
-                            _Qry &= vbCrLf & "," & Val(HI.ST.SysInfo.CmpID) & " "
+                                _Qry = "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl_Detail(FTInsUser, FDInsDate, FTInsTime"
+                                _Qry &= vbCrLf & " , FTSendSuplRef, FTOrderProdNo"
+                                _Qry &= vbCrLf & " , FNHSysPartId, FNSendSuplType, FNHSysSuplId, FTBarcodeBundleNo,FNHSysCmpId)"
+                                _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ""
+                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & ""
+                                _Qry &= vbCrLf & ",'" & FTSendSuplRef & "'"
+                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
+                                _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNHSysPartId.ToString)) & ""
+                                _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNSendSuplType.ToString)) & ""
+                                _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNHSysSuplId.ToString)) & ""
+                                _Qry &= vbCrLf & ", '" & HI.UL.ULF.rpQuoted(Rx!FTBarcodeBundleNo.ToString) & "'"
+                                _Qry &= vbCrLf & "," & Val(HI.ST.SysInfo.CmpID) & " "
 
-                            If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
-                                MsgBox("Ex TSMPTOrderProd_SendSupl_Detail")
-                                HI.Conn.SQLConn.Tran.Rollback()
-                                HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
-                                HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
-                                Return False
-                            End If
+                                If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                                    MsgBox("Ex TSMPTOrderProd_SendSupl_Detail")
+                                    HI.Conn.SQLConn.Tran.Rollback()
+                                    HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                                    HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                                    Return False
+                                End If
 
-                        Next
+                            Next
+                        End If
+
 
                         _Qry = "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl(FTInsUser, FDInsDate, FTInsTime"
                         _Qry &= vbCrLf & " , FTSendSuplRef, FTOrderProdNo"
@@ -1377,32 +1456,33 @@ Public Class wSMPProductionCutStatusBar
                     FTSendSuplRef = R!FTSendSuplRef.ToString
 
                     If CheckCreateBarcodeSendSupl(Me.FTSMPOrderNo.Text, FTSendSuplRef, Val(R!FNHSysPartId), Val(R!FNHSysSuplId), Val(R!FNSendSuplType)) = False Then
-                        _FNQuantity = 0
-                        For Each Rx As DataRow In dtbundle.Select("FNHSysPartId=" & Val(R!FNHSysPartId) & " AND FNHSysSuplId=" & Val(R!FNHSysSuplId) & " AND FNSendSuplType=" & Val(R!FNSendSuplType) & " AND FTSendSuplRef='" & HI.UL.ULF.rpQuoted(FTSendSuplRef) & "' ")
-                            _FNQuantity = _FNQuantity + 1
+                        '_FNQuantity = 0
+                        If dtbundle.Rows.Count > 0 Then
+                            For Each Rx As DataRow In dtbundle.Select("FNHSysPartId=" & Val(R!FNHSysPartId) & " AND FNHSysSuplId=" & Val(R!FNHSysSuplId) & " AND FNSendSuplType=" & Val(R!FNSendSuplType) & " AND FTSendSuplRef='" & HI.UL.ULF.rpQuoted(FTSendSuplRef) & "'  AND FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "' ")
+                                '_FNQuantity = _FNQuantity + 1
 
-                            _Qry = "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl_Detail(FTInsUser, FDInsDate, FTInsTime"
-                            _Qry &= vbCrLf & " , FTSendSuplRef, FTOrderProdNo"
-                            _Qry &= vbCrLf & " , FNHSysPartId, FNSendSuplType, FNHSysSuplId, FTBarcodeBundleNo,FNHSysCmpId)"
-                            _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ""
-                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & ""
-                            _Qry &= vbCrLf & ",'" & FTSendSuplRef & "'"
-                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
-                            _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNHSysPartId.ToString)) & ""
-                            _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNSendSuplType.ToString)) & ""
-                            _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNHSysSuplId.ToString)) & ""
-                            _Qry &= vbCrLf & ", '" & HI.UL.ULF.rpQuoted(Rx!FTBarcodeBundleNo.ToString) & "'"
-                            _Qry &= vbCrLf & "," & Val(HI.ST.SysInfo.CmpID) & " "
-                            If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
-                                HI.Conn.SQLConn.Tran.Rollback()
-                                HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
-                                HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
-                                Return False
-                            End If
+                                _Qry = "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl_Detail(FTInsUser, FDInsDate, FTInsTime"
+                                _Qry &= vbCrLf & " , FTSendSuplRef, FTOrderProdNo"
+                                _Qry &= vbCrLf & " , FNHSysPartId, FNSendSuplType, FNHSysSuplId, FTBarcodeBundleNo,FNHSysCmpId)"
+                                _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ""
+                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & ""
+                                _Qry &= vbCrLf & ",'" & FTSendSuplRef & "'"
+                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
+                                _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNHSysPartId.ToString)) & ""
+                                _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNSendSuplType.ToString)) & ""
+                                _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNHSysSuplId.ToString)) & ""
+                                _Qry &= vbCrLf & ", '" & HI.UL.ULF.rpQuoted(Rx!FTBarcodeBundleNo.ToString) & "'"
+                                _Qry &= vbCrLf & "," & Val(HI.ST.SysInfo.CmpID) & " "
+                                If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                                    HI.Conn.SQLConn.Tran.Rollback()
+                                    HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                                    HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                                    Return False
+                                End If
 
-                        Next
-
+                            Next
+                        End If
                         _Qry = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl"
                         _Qry &= vbCrLf & " SET FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                         _Qry &= vbCrLf & ",FDUpdDate=" & HI.UL.ULDate.FormatDateDB & ""
@@ -1416,12 +1496,70 @@ Public Class wSMPProductionCutStatusBar
                         _Qry &= vbCrLf & " WHERE FTSendSuplRef='" & HI.UL.ULF.rpQuoted(FTSendSuplRef) & "' "
 
                         If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
-                            HI.Conn.SQLConn.Tran.Rollback()
-                            HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
-                            HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
-                            Return False
+
+                            Try
+
+                                _Qry = "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl(FTInsUser, FDInsDate, FTInsTime"
+                                _Qry &= vbCrLf & " , FTSendSuplRef, FTOrderProdNo"
+                                _Qry &= vbCrLf & " , FNHSysPartId, FNSendSuplType, FNHSysSuplId, FNHSysOperationId, FNHSysOperationIdTo,FNQuantity,FTNote,FNHSysCmpId)"
+                                _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ""
+                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & ""
+                                _Qry &= vbCrLf & ",'" & FTSendSuplRef & "'"
+                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
+                                _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNHSysPartId.ToString)) & ""
+                                _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNSendSuplType.ToString)) & ""
+                                _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNHSysSuplId.ToString)) & ""
+                                _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNHSysOperationId.ToString)) & ""
+                                _Qry &= vbCrLf & "," & Integer.Parse(Val(R!FNHSysOperationIdTo.ToString)) & ""
+                                _Qry &= vbCrLf & "," & _FNQuantity & ""
+                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTNote.ToString) & "'"
+                                _Qry &= vbCrLf & "," & Val(HI.ST.SysInfo.CmpID) & " "
+
+                                If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                                    MsgBox("Ex TSMPTOrderProd_SendSupl2")
+                                    HI.Conn.SQLConn.Tran.Rollback()
+                                    HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                                    HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                                    Return False
+                                End If
+                            Catch ex As Exception
+
+                            End Try
+
+
                         End If
+                    Else
+                        Try
+                            _Qry = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl"
+                            _Qry &= vbCrLf & " SET FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                            _Qry &= vbCrLf & ",FDUpdDate=" & HI.UL.ULDate.FormatDateDB & ""
+                            _Qry &= vbCrLf & ",FTUpdTime=" & HI.UL.ULDate.FormatTimeDB & ""
+                            _Qry &= vbCrLf & ",FNHSysPartId=" & Integer.Parse(Val(R!FNHSysPartId.ToString)) & ""
+                            _Qry &= vbCrLf & ",FNSendSuplType=" & Integer.Parse(Val(R!FNSendSuplType.ToString)) & ""
+                            _Qry &= vbCrLf & ",FNHSysSuplId=" & Integer.Parse(Val(R!FNHSysSuplId.ToString)) & ""
+                            _Qry &= vbCrLf & ",FNHSysOperationId=" & Integer.Parse(Val(R!FNHSysOperationId.ToString)) & ""
+                            _Qry &= vbCrLf & ",FNHSysOperationIdTo=" & Integer.Parse(Val(R!FNHSysOperationIdTo.ToString)) & ""
+                            _Qry &= vbCrLf & ",FNQuantity=" & _FNQuantity & ""
+                            _Qry &= vbCrLf & " WHERE FTSendSuplRef='" & HI.UL.ULF.rpQuoted(FTSendSuplRef) & "' "
+                            If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                                'MsgBox("Ex TSMPTOrderProd_SendSupl3")
+                                'HI.Conn.SQLConn.Tran.Rollback()
+                                'HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                                'HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                                'Return False
+                            End If
+                        Catch ex As Exception
+                            'HI.Conn.SQLConn.Tran.Rollback()
+                            'HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                            'HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                            'Return False
+                        End Try
                     End If
+
+
+
+
 
                 End If
             Next
@@ -1477,7 +1615,12 @@ Public Class wSMPProductionCutStatusBar
         If Me.FTSMPOrderNo.Text <> "" Then
             If SaveDataSendSupl() Then
                 HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
-                Call LoadSendSuplInfo()
+                '  Call LoadSendSuplInfo()
+                Try
+                    Call ocmrefresh_Click(ocmrefresh, New System.EventArgs)
+                    _ListSendSuplBundleInfo.Clear()
+                Catch ex As Exception
+                End Try
             Else
                 HI.MG.ShowMsg.mProcessNotComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
             End If
@@ -1535,9 +1678,14 @@ Public Class wSMPProductionCutStatusBar
             dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
 
             Try
-                If _ListSendSuplBundleInfo(0).Rows.Count > 0 Then
-                    dt = _ListSendSuplBundleInfo(0).Copy
+                If _ListSendSuplBundleInfo.Count <= 0 Then
+
+                Else
+                    If _ListSendSuplBundleInfo(0).Rows.Count > 0 Then
+                        dt = _ListSendSuplBundleInfo(0).Copy
+                    End If
                 End If
+
             Catch ex As Exception
 
             End Try
@@ -1554,9 +1702,9 @@ Public Class wSMPProductionCutStatusBar
                             dt.Rows.Add(_FTSendSuplRef, Me.FTSMPOrderNo.Text, _FNHSysPartId, _FNSendSuplType, _FNHSysSuplId, R!FTBarcodeBundleNo.ToString)
                         End If
                     Else
-                        For Each Rx As DataRow In dt.Select(_StrFilter)
-                            Rx.Delete()
-                        Next
+                        'For Each Rx As DataRow In dt.Select(_StrFilter)
+                        '    Rx.Delete()
+                        'Next
                     End If
 
                 Next
@@ -1586,8 +1734,6 @@ Public Class wSMPProductionCutStatusBar
         Catch ex As Exception
         End Try
     End Sub
-
-
 
 
 
@@ -1624,6 +1770,9 @@ Public Class wSMPProductionCutStatusBar
             _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl_Detail  WITH(NOLOCK)"
             _Qry &= vbCrLf & "  WHERE FTOrderProdNo ='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
             dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
+            If _ListSendSuplBundleInfo.Count > 0 Then
+                dt.Merge(_ListSendSuplBundleInfo(0))
+            End If
 
 
             Dim _StrFilter As String = ""
@@ -1750,7 +1899,12 @@ Public Class wSMPProductionCutStatusBar
 
                 Dim _Spls As New HI.TL.SplashScreen("Generating....Barcode , Please Wait...")
                 If Me.GenerateBundle() Then
-                    Call LoadSendSuplInfo()
+                    'Call LoadSendSuplInfo()
+
+                    Try
+                        Call ocmrefresh_Click(ocmrefresh, New System.EventArgs)
+                    Catch ex As Exception
+                    End Try
                     Call LoadDataInfo(Me.FTSMPOrderNo.Text)
                     _Spls.Close()
                     HI.MG.ShowMsg.mInfo("Generate Barcode Complete..", 1405300002, Me.Text, , System.Windows.Forms.MessageBoxIcon.Information)
@@ -2279,7 +2433,7 @@ Public Class wSMPProductionCutStatusBar
             _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl_Detail AS A WITH(NOLOCK)"
             _Qry &= vbCrLf & " WHERE  (FTBarcodeBundleNo = N'" & HI.UL.ULF.rpQuoted(barcodebundle) & "') "
 
-            Return (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_PROD, "") <> "")
+            Return (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SAMPLE, "") <> "")
         Catch ex As Exception
 
         End Try
@@ -2293,11 +2447,27 @@ Public Class wSMPProductionCutStatusBar
             _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcode_SendSupl AS A WITH(NOLOCK)"
             _Qry &= vbCrLf & " WHERE  (FTBarcodeBundleNo = N'" & HI.UL.ULF.rpQuoted(barcodebundle) & "') "
 
-            Return (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_PROD, "") <> "")
+            Return (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SAMPLE, "") <> "")
         Catch ex As Exception
 
         End Try
     End Function
+
+
+    Private Function checkbarcodeoper(barcodebundle) As Boolean
+        Try
+            Dim _Qry As String = ""
+            _Qry = "  SELECT TOP 1 FTBarcodeNo "
+            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcodeScan_Detail AS A WITH(NOLOCK)"
+            _Qry &= vbCrLf & " WHERE  (FTBarcodeNo = N'" & HI.UL.ULF.rpQuoted(barcodebundle) & "') "
+
+            Return (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SAMPLE, "") <> "")
+        Catch ex As Exception
+
+        End Try
+    End Function
+
+
 
 
     Private Sub ocmdeletebound_Click(sender As Object, e As EventArgs) Handles ocmdeletebound.Click
@@ -2316,6 +2486,11 @@ Public Class wSMPProductionCutStatusBar
                                 .AcceptChanges()
 
                                 For Each R As DataRow In .Select("FTSelect='1'")
+                                     
+                                    If checkbarcodeoper(HI.UL.ULF.rpQuoted(R!FTBarcodeBundleNo.ToString)) Then
+                                        HI.MG.ShowMsg.mInfo(2304191109, "มีการสแกนบาร์โค๊ด supermarket แล้ว กรุณาตรวจสอบ", Me.Text)
+                                        Exit Sub
+                                    End If
 
                                     If checkbarcodebundle(HI.UL.ULF.rpQuoted(R!FTBarcodeBundleNo.ToString)) Then
                                         HI.MG.ShowMsg.mInfo(2206291552, "กรุณาลบบาร์โค๊ด ก่อน", Me.Text)
@@ -2326,6 +2501,8 @@ Public Class wSMPProductionCutStatusBar
                                         HI.MG.ShowMsg.mInfo(2206271809, "กรุณาลบบาร์โค๊ดส่ง supl ก่อน", Me.Text)
                                         Exit Sub
                                     End If
+
+
 
 
                                     _Str = "  DELETE FROM A "
@@ -2394,19 +2571,19 @@ Public Class wSMPProductionCutStatusBar
 
 
 
-                                    _Str = "  DELETE FROM A "
-                                    _Str &= vbCrLf & "    FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl AS A  "
-                                    _Str &= vbCrLf & "  WHERE A.FTOrderProdNo ='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
+                                    '_Str = "  DELETE FROM A "
+                                    '_Str &= vbCrLf & "    FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl AS A  "
+                                    '_Str &= vbCrLf & "  WHERE A.FTOrderProdNo ='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
 
 
-                                    HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_SAMPLE)
+                                    'HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_SAMPLE)
 
 
-                                    _Str = "  DELETE FROM A "
-                                    _Str &= vbCrLf & "    FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl_Detail AS A  "
-                                    _Str &= vbCrLf & "  WHERE A.FTOrderProdNo ='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
+                                    '_Str = "  DELETE FROM A "
+                                    '_Str &= vbCrLf & "    FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl_Detail AS A  "
+                                    '_Str &= vbCrLf & "  WHERE A.FTOrderProdNo ='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "'"
 
-                                    HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_SAMPLE)
+                                    'HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_SAMPLE)
 
 
 
@@ -2428,6 +2605,13 @@ Public Class wSMPProductionCutStatusBar
                                 .AcceptChanges()
 
                                 For Each R As DataRow In .Select("FTSelect='1'")
+
+
+                                    If checkbarcodeoper(HI.UL.ULF.rpQuoted(R!FTBarcodeBundleNo.ToString)) Then
+                                        HI.MG.ShowMsg.mInfo(2304191109, "มีการสแกนบาร์โค๊ด supermarket แล้ว กรุณาตรวจสอบ", Me.Text)
+                                        Exit Sub
+                                    End If
+
 
 
 
@@ -2457,10 +2641,28 @@ Public Class wSMPProductionCutStatusBar
 
                                     _Str = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcode_SendSupl"
                                     _Str &= vbCrLf & " WHERE FTBarcodeBundleNo='" & HI.UL.ULF.rpQuoted(HI.UL.ULF.rpQuoted(R!FTBarcodeBundleNo.ToString)) & "' "
+                                    HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_SAMPLE)
 
 
+
+                                    _Str = "  DELETE FROM A "
+                                    _Str &= vbCrLf & "    FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle_Detail AS A INNER JOIN"
+                                    _Str &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle AS B ON A.FTBarcodeBundleNo = B.FTBarcodeBundleNo"
+                                    _Str &= vbCrLf & "  WHERE B.FTBarcodeBundleNo ='" & HI.UL.ULF.rpQuoted(R!FTBarcodeBundleNo.ToString) & "'"
+                                    _Str &= vbCrLf & "  AND  ISNULL(B.FTStateGenBarcode,'') <>'1'"
 
                                     HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_SAMPLE)
+
+
+
+                                    _Str = "  DELETE FROM B "
+                                    _Str &= vbCrLf & "    FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle AS B "
+                                    _Str &= vbCrLf & "  WHERE B.FTBarcodeBundleNo ='" & HI.UL.ULF.rpQuoted(R!FTBarcodeBundleNo.ToString) & "'"
+                                    _Str &= vbCrLf & "  AND  ISNULL(B.FTStateGenBarcode,'') <>'1'"
+
+                                    HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_SAMPLE)
+
+
                                 Next
 
 
@@ -2480,6 +2682,42 @@ Public Class wSMPProductionCutStatusBar
             _Spls.Close()
         End Try
     End Sub
+
+
+
+    Private Function UpdateSmpProcess(BarcodeKey As String, _Operation As Integer) As Boolean
+        Dim _Str As String
+        Dim _Qry As String
+        Dim _BarCode As String = BarcodeKey
+        Dim _seq As String = "0"
+
+        Try
+            Select Case _Operation
+                Case 1405310009
+                    _seq = 13
+                Case 1405310010
+                    _seq = 11
+
+            End Select
+
+            '1405310009  SPMK
+            '1405310010  SEW INLINE
+
+
+            _Qry = "EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.SP_UPDATETSMPSampleProcess '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & _seq & "'," & Integer.Parse(Val(_Operation)) & ",'" & HI.UL.ULF.rpQuoted(_BarCode) & "'"
+            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
+
+
+            Return True
+        Catch ex As Exception
+
+
+            Return False
+
+        End Try
+    End Function
+
+
 
     Private Sub RepositoryItemCheckEdit4_EditValueChanging(sender As Object, e As ChangingEventArgs) Handles RepositoryItemCheckEdit4.EditValueChanging
         Try
@@ -2551,4 +2789,300 @@ Public Class wSMPProductionCutStatusBar
 
         Return _State
     End Function
+
+    Private Sub ocmsplitbundle_Click(sender As Object, e As EventArgs) Handles ocmsplitbundle.Click
+        Try
+            Dim _Qry As String = ""
+            Dim _BarcodeQty As Integer = 0
+            Dim _NewBarcode As String = "" : Dim _LastBarcode As String = ""
+            Dim _mainBarcode As String = ""
+            Dim dt As DataTable
+            With DirectCast(Me.ogcbarcode.DataSource, DataTable)
+                .AcceptChanges()
+
+
+                If .Select("FTSelect ='1'").Length = 1 Then
+                    For Each R As DataRow In .Select("FTSelect ='1'")
+                        _mainBarcode = R!FTBarcodeBundleNo.ToString
+                        _BarcodeQty = Val(R!FNQuantity.ToString)
+                    Next
+
+
+                    With _SplitQty
+                        .oTxtValue.Value = 0
+                        .oTxtValue.Properties.ReadOnly = False
+                        .ShowDialog()
+
+                        If (.ProcessSave) Then
+
+                            If checkscanoutline(_mainBarcode, _BarcodeQty) < .oTxtValue.Value Then
+                                HI.MG.ShowMsg.mInfo("Barcode มีสแกนเย็บไปแล้ว กรุณาตรวจสอบ !!!", 2208301534, Me.Text)
+                                Exit Sub
+                            End If
+
+                            _Qry = "Select max(FTBarcodeBundleNo ) as  FTBarcodeBundleNo  "
+                            _Qry &= vbCrLf & "  FROM            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle AS A  WITH(NOLOCK)"
+                            _Qry &= vbCrLf & " WHERE A.FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "' AND ISNULL(A.FTStateGenBarcode,'') ='1'  "
+                            _Qry &= vbCrLf & "  and FTMainBarcodeBundleNo='" & _mainBarcode & "'"
+                            dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
+                            _LastBarcode = dt.Rows(0).Item("FTBarcodeBundleNo").ToString
+                            If _LastBarcode = _mainBarcode Then
+                                _NewBarcode = _mainBarcode & "-001"
+                            Else
+                                _NewBarcode = _mainBarcode & "-" & Microsoft.VisualBasic.Right("000" & LTrim(RTrim(Str(Integer.Parse(Val(Microsoft.VisualBasic.Right(_LastBarcode, 3))) + 1))), 3)
+                            End If
+
+                            _Qry = "insert into   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle  "
+                            _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTUpdUser, FDUpdDate, FTUpdTime, FTBarcodeBundleNo , FNBunbleSeq, FTColorway, FTSizeBreakDown, FNQuantity, FNHSysCmpId, FTOrderProdNo, FTStateGenBarcode, FTGenBarcodeBy, "
+                            _Qry &= vbCrLf & "  FDGenBarcodeDate, FTGenBarcodeTime, FTDeleteBarcodeBy, FDDeleteBarcodeDate, FTDeleteBarcodeTime, FTPOLineItemNo, FTChangeToLineItemNo, FTColorwayNew, FTMainBarcodeBundleNo)"
+                            _Qry &= vbCrLf & " Select top  1   FTInsUser, FDInsDate, FTInsTime, FTUpdUser, FDUpdDate, FTUpdTime, '" & _NewBarcode & "' , FNBunbleSeq, FTColorway, FTSizeBreakDown, " & Val(.oTxtValue.Value) & ", FNHSysCmpId, FTOrderProdNo, FTStateGenBarcode, FTGenBarcodeBy, "
+                            _Qry &= vbCrLf & "  FDGenBarcodeDate, FTGenBarcodeTime, FTDeleteBarcodeBy, FDDeleteBarcodeDate, FTDeleteBarcodeTime, FTPOLineItemNo, FTChangeToLineItemNo, FTColorwayNew, FTMainBarcodeBundleNo "
+                            _Qry &= vbCrLf & "  FROM            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle  "
+                            _Qry &= vbCrLf & " where FTBarcodeBundleNo='" & _mainBarcode & "'"
+                            _Qry &= vbCrLf & ""
+                            _Qry &= vbCrLf & "insert into    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle_Detail   "
+                            _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTUpdUser, FDUpdDate, FTUpdTime, FTBarcodeBundleNo, FTLayCutNo, FNLayCutSeq, FTColorway, FTSizeBreakDown, FNQuantity , FNHSysCmpId, FNRunLayCutSeq, FTColorwayNew)"
+                            _Qry &= vbCrLf & " select top 1  FTInsUser, FDInsDate, FTInsTime, FTUpdUser, FDUpdDate, FTUpdTime, '" & _NewBarcode & "' , FTLayCutNo, FNLayCutSeq, FTColorway, FTSizeBreakDown, " & Val(.oTxtValue.Value) & ", FNHSysCmpId, FNRunLayCutSeq, FTColorwayNew"
+                            _Qry &= vbCrLf & " From   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle_Detail   "
+                            _Qry &= vbCrLf & " where FTBarcodeBundleNo='" & _mainBarcode & "'"
+                            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
+
+
+                            checksmk(_mainBarcode, _NewBarcode)
+                            checksendsew(_mainBarcode, Val(.oTxtValue.Value))
+
+                        End If
+                    End With
+
+                    _Qry = "SELECT  '0' AS FTSelect, A.FTBarcodeBundleNo, A.FNBunbleSeq,  CASE WHEN ISNULL(A.FTColorwayNew,'') ='' THEN A.FTColorway ELSE ISNULL(A.FTColorwayNew,'') END AS FTColorway"
+                    _Qry &= vbCrLf & ", A.FTSizeBreakDown, A.FNQuantity  - isnull(B.FNQuantity,0) as FNQuantity, CASE WHEN ISNULL(A.FTColorwayNew,'') <> '' OR ISNULL(A.FTChangeToLineItemNo,'') <>'' THEN '1' ELSE '0' END AS FTStateChange"
+                    _Qry &= vbCrLf & ", '' as FTMarkName"
+                    _Qry &= vbCrLf & ""
+                    _Qry &= vbCrLf & " , CASE WHEN ISNULL(A.FTChangeToLineItemNo,'') ='' THEN A.FTPOLineItemNo ELSE ISNULL(A.FTChangeToLineItemNo,'') END AS  FTPOLineItemNo"
+                    _Qry &= vbCrLf & "  FROM            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle AS A  WITH(NOLOCK)"
+                    _Qry &= vbCrLf & " outer apply ( select sum ( B.FNQuantity) as FNQuantity  "
+                    _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle AS B WITH(NOLOCK)"
+                    _Qry &= vbCrLf & "  where  b.FTMainBarcodeBundleNo   = A.FTBarcodeBundleNo and B.FTBarcodeBundleNo <>   A.FTBarcodeBundleNo"
+                    _Qry &= vbCrLf & " ) as B "
+
+                    _Qry &= vbCrLf & " WHERE A.FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "' AND ISNULL(A.FTStateGenBarcode,'') ='1'  "
+
+                    _Qry &= vbCrLf & " Order By  A.FNBunbleSeq "
+
+                    dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
+                    Me.ogcbarcode.DataSource = dt.Copy
+                Else
+
+
+                End If
+            End With
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+
+    Private Function checkscanoutline(barcode As String, qty As Integer) As Integer
+        Try
+            Dim _Cmd As String = ""
+            _Cmd = " SELECT   FTBarcodeNo ,sum(isnull(FNQuantity,0)) as FNQuantity   "
+            _Cmd &= vbCrLf & " FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo. TSMPTBarcodeScanOutline with(nolock)"
+            _Cmd &= vbCrLf & " WHERE  (FTBarcodeNo = N'" & barcode & "') "
+            _Cmd &= vbCrLf & " group by FTBarcodeNo "
+            Dim _dt As DataTable = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_SAMPLE)
+            If _dt.Rows.Count > 0 Then
+                Return qty - Val(_dt.Rows(0).Item("FNQuantity").ToString)
+
+            Else
+                Return qty
+            End If
+
+        Catch ex As Exception
+            Return qty
+        End Try
+    End Function
+
+    Private Function checksmk(barcode As String, barcodeNew As String) As Boolean
+        Try
+            Dim _Cmd As String = ""
+            _Cmd = ""
+            _Cmd &= vbCrLf & " Select Top 1   FTInsUser, FDInsDate, FTInsTime, FTUpdUser, FDUpdDate, FTUpdTime, FTDocScanNo, FTBarcodeNo, FNHSysOperationId, FNHSysUnitSectId"
+            _Cmd &= vbCrLf & " From   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo. TSMPTBarcodeScan_Detail "
+            _Cmd &= vbCrLf & " Where (FTBarcodeNo =  N'" & barcode & "')"
+            _Cmd &= vbCrLf & " and  FNHSysOperationId = 1405310009"
+            Dim _dt As DataTable = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_SAMPLE)
+            If _dt.Rows.Count > 0 Then
+                _Cmd = "insert into  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo. TSMPTBarcodeScan_Detail   "
+                _Cmd &= vbCrLf & " ( FTInsUser, FDInsDate, FTInsTime, FTUpdUser, FDUpdDate, FTUpdTime, FTDocScanNo, FTBarcodeNo, FNHSysOperationId, FNHSysUnitSectId)  "
+                _Cmd &= vbCrLf & " Select Top  1   FTInsUser, FDInsDate, FTInsTime, FTUpdUser, FDUpdDate, FTUpdTime, FTDocScanNo, N'" & barcodeNew & "', FNHSysOperationId, FNHSysUnitSectId"
+                _Cmd &= vbCrLf & " From   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo. TSMPTBarcodeScan_Detail "
+                _Cmd &= vbCrLf & " Where (FTBarcodeNo =  N'" & barcode & "')"
+                _Cmd &= vbCrLf & " and  FNHSysOperationId = 1405310009"
+
+                HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_SAMPLE)
+
+            End If
+            UpdateSmpProcess(barcode, 1405310009)
+            UpdateSmpProcess(barcodeNew, 1405310009)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
+
+    Private Function checksendsew(barcode As String, Qtynew As Integer) As Boolean
+        Try
+            Dim _Cmd As String = ""
+            _Cmd = ""
+            _Cmd &= vbCrLf & " Select Top 1   FTInsUser, FDInsDate, FTInsTime, FTUpdUser, FDUpdDate, FTUpdTime, FTDocScanNo, FTBarcodeNo, FNHSysOperationId, FNHSysUnitSectId"
+            _Cmd &= vbCrLf & " From   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo. TSMPTBarcodeScan_Detail "
+            _Cmd &= vbCrLf & " Where (FTBarcodeNo =  N'" & barcode & "')"
+            _Cmd &= vbCrLf & " and  FNHSysOperationId <> 1405310009"
+            Dim _dt As DataTable = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_SAMPLE)
+            If _dt.Rows.Count > 0 Then
+
+
+                '_Cmd = "update t set t.FNQuantity =  t.FNQuantity - " & Qtynew & "  From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess t"
+                '_Cmd &= vbCrLf & " Where (FTSMPOrderNo =  N'" & Me.FTSMPOrderNo.Text & "')"
+                '_Cmd &= vbCrLf & " and FNSampleState=11"
+
+                'HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_SAMPLE)
+
+                UpdateSmpProcess(barcode, 1405310010)
+                ' UpdateSmpProcess(barcodeNew, 1405310009)
+
+
+            End If
+
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
+    Private Sub ockselectallbyselection_CheckedChanged(sender As Object, e As EventArgs) Handles ockselectallbyselection.CheckedChanged
+        Try
+
+            If _StateSetSelectBySelect = False Then Exit Sub
+            _StateSetSelectAll = False
+            Me.ockselectall.Checked = False
+
+            Dim _State As String = "0"
+            If Me.ockselectallbyselection.Checked Then
+                _State = "1"
+            End If
+
+            Select Case True
+                Case otbdetail.SelectedTabPage.Name = otpbarcodebundle.Name
+                    With ogcbarcode
+                        If Not (.DataSource Is Nothing) And ogvbarcode.RowCount > 0 Then
+
+                            With ogvbarcode
+                                For Each i As Integer In .GetSelectedRows()
+                                    .SetRowCellValue(i, .Columns.ColumnByFieldName("FTSelect"), _State)
+                                Next
+                            End With
+
+                            CType(.DataSource, DataTable).AcceptChanges()
+                        End If
+                    End With
+
+                Case otbdetail.SelectedTabPage.Name = otpbarcodesendsupl.Name
+                    With ogcbrcodesupl
+                        If Not (.DataSource Is Nothing) And ogvbrcodesupl.RowCount > 0 Then
+
+                            With ogvbrcodesupl
+                                For Each i As Integer In .GetSelectedRows()
+                                    .SetRowCellValue(i, .Columns.ColumnByFieldName("FTSelect"), _State)
+                                Next
+                            End With
+
+                            CType(.DataSource, DataTable).AcceptChanges()
+                        End If
+                    End With
+                Case otbdetail.SelectedTabPage.Name = otpbarcodeheat.Name
+                    With ogcbrcodesingle
+                        If Not (.DataSource Is Nothing) And ogvbrcodesingle.RowCount > 0 Then
+
+                            With ogvbrcodesingle
+                                For Each i As Integer In .GetSelectedRows()
+                                    .SetRowCellValue(i, .Columns.ColumnByFieldName("FTSelect"), _State)
+                                Next
+                            End With
+
+                            CType(.DataSource, DataTable).AcceptChanges()
+                        End If
+                    End With
+            End Select
+
+        Catch ex As Exception
+
+        End Try
+            _StateSetSelectAll = True
+
+
+    End Sub
+
+    Private Sub ockselectall_CheckedChanged(sender As Object, e As EventArgs) Handles ockselectall.CheckedChanged
+        Try
+
+            If _StateSetSelectAll = False Then Exit Sub
+            _StateSetSelectBySelect = False
+            Me.ockselectallbyselection.Checked = False
+
+            Dim _State As String = "0"
+            If Me.ockselectall.Checked Then
+                _State = "1"
+            End If
+
+            Select Case True
+                Case otbdetail.SelectedTabPage.Name = otpbarcodebundle.Name
+                    With ogcbarcode
+                        If Not (.DataSource Is Nothing) And ogvbarcode.RowCount > 0 Then
+
+                            With ogvbarcode
+                                For I As Integer = 0 To .RowCount - 1
+                                    .SetRowCellValue(I, .Columns.ColumnByFieldName("FTSelect"), _State)
+                                Next
+                            End With
+
+                            CType(.DataSource, DataTable).AcceptChanges()
+                        End If
+                    End With
+
+                Case otbdetail.SelectedTabPage.Name = otpbarcodesendsupl.Name
+                    With ogcbrcodesupl
+                        If Not (.DataSource Is Nothing) And ogvbrcodesupl.RowCount > 0 Then
+
+                            With ogvbrcodesupl
+                                For I As Integer = 0 To .RowCount - 1
+                                    .SetRowCellValue(I, .Columns.ColumnByFieldName("FTSelect"), _State)
+                                Next
+                            End With
+
+                            CType(.DataSource, DataTable).AcceptChanges()
+                        End If
+                    End With
+                Case otbdetail.SelectedTabPage.Name = otpbarcodeheat.Name
+                    With ogcbrcodesingle
+                        If Not (.DataSource Is Nothing) And ogvbrcodesingle.RowCount > 0 Then
+
+                            With ogvbrcodesingle
+                                For I As Integer = 0 To .RowCount - 1
+                                    .SetRowCellValue(I, .Columns.ColumnByFieldName("FTSelect"), _State)
+                                Next
+                            End With
+
+                            CType(.DataSource, DataTable).AcceptChanges()
+                        End If
+                    End With
+            End Select
+
+        Catch ex As Exception
+
+        End Try
+        _StateSetSelectBySelect = True
+    End Sub
 End Class

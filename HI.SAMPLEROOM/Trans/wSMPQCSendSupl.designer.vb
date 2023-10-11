@@ -155,10 +155,10 @@ Partial Class wSMPQCSendSupl
         Me.XtraScrollableControl1.Controls.Add(Me.FTBarcodeNo_lbl)
         Me.XtraScrollableControl1.Controls.Add(Me.FTBarcodeNo)
         Me.XtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 28)
+        Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 27)
         Me.XtraScrollableControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1522, 148)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1522, 149)
         Me.XtraScrollableControl1.TabIndex = 0
         '
         'FTHeatDefectQty_lbl
@@ -229,7 +229,7 @@ Partial Class wSMPQCSendSupl
         Me.FTRemark.Location = New System.Drawing.Point(741, 101)
         Me.FTRemark.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTRemark.Name = "FTRemark"
-        Me.FTRemark.Size = New System.Drawing.Size(799, 73)
+        Me.FTRemark.Size = New System.Drawing.Size(820, 75)
         Me.FTRemark.TabIndex = 320
         Me.FTRemark.Tag = "2|"
         '
@@ -285,7 +285,7 @@ Partial Class wSMPQCSendSupl
         Me.FNHSysSuplId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysSuplId.Properties.MaxLength = 30
         Me.FNHSysSuplId.Properties.ReadOnly = True
-        Me.FNHSysSuplId.Size = New System.Drawing.Size(128, 22)
+        Me.FNHSysSuplId.Size = New System.Drawing.Size(128, 23)
         Me.FNHSysSuplId.TabIndex = 266
         Me.FNHSysSuplId.Tag = "2|"
         '
@@ -312,7 +312,7 @@ Partial Class wSMPQCSendSupl
         Me.FTBarcodeBundleNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTBarcodeBundleNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTBarcodeBundleNo.Properties.ReadOnly = True
-        Me.FTBarcodeBundleNo.Size = New System.Drawing.Size(98, 22)
+        Me.FTBarcodeBundleNo.Size = New System.Drawing.Size(98, 23)
         Me.FTBarcodeBundleNo.TabIndex = 318
         Me.FTBarcodeBundleNo.TabStop = False
         Me.FTBarcodeBundleNo.Tag = "2|"
@@ -430,7 +430,7 @@ Partial Class wSMPQCSendSupl
         Me.FNHSysSuplId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysSuplId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysSuplId_None.Properties.ReadOnly = True
-        Me.FNHSysSuplId_None.Size = New System.Drawing.Size(262, 22)
+        Me.FNHSysSuplId_None.Size = New System.Drawing.Size(262, 23)
         Me.FNHSysSuplId_None.TabIndex = 268
         Me.FNHSysSuplId_None.TabStop = False
         Me.FNHSysSuplId_None.Tag = "2|"
@@ -458,7 +458,7 @@ Partial Class wSMPQCSendSupl
         Me.FNHSysPartId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysPartId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysPartId.Properties.ReadOnly = True
-        Me.FNHSysPartId.Size = New System.Drawing.Size(128, 22)
+        Me.FNHSysPartId.Size = New System.Drawing.Size(128, 23)
         Me.FNHSysPartId.TabIndex = 316
         Me.FNHSysPartId.TabStop = False
         Me.FNHSysPartId.Tag = "2|"
@@ -503,7 +503,7 @@ Partial Class wSMPQCSendSupl
         Me.FNHSysMarkId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysMarkId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysMarkId.Properties.ReadOnly = True
-        Me.FNHSysMarkId.Size = New System.Drawing.Size(305, 22)
+        Me.FNHSysMarkId.Size = New System.Drawing.Size(326, 23)
         Me.FNHSysMarkId.TabIndex = 314
         Me.FNHSysMarkId.TabStop = False
         Me.FNHSysMarkId.Tag = "2|"
@@ -548,7 +548,7 @@ Partial Class wSMPQCSendSupl
         Me.FNHSysOperationId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysOperationId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysOperationId.Properties.ReadOnly = True
-        Me.FNHSysOperationId.Size = New System.Drawing.Size(305, 22)
+        Me.FNHSysOperationId.Size = New System.Drawing.Size(326, 23)
         Me.FNHSysOperationId.TabIndex = 312
         Me.FNHSysOperationId.TabStop = False
         Me.FNHSysOperationId.Tag = "2|"
@@ -591,7 +591,7 @@ Partial Class wSMPQCSendSupl
         Me.FTSizeBreakDown.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSizeBreakDown.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTSizeBreakDown.Properties.ReadOnly = True
-        Me.FTSizeBreakDown.Size = New System.Drawing.Size(98, 22)
+        Me.FTSizeBreakDown.Size = New System.Drawing.Size(98, 23)
         Me.FTSizeBreakDown.TabIndex = 310
         Me.FTSizeBreakDown.TabStop = False
         Me.FTSizeBreakDown.Tag = "2|"
@@ -634,7 +634,7 @@ Partial Class wSMPQCSendSupl
         Me.FTColorway.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTColorway.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTColorway.Properties.ReadOnly = True
-        Me.FTColorway.Size = New System.Drawing.Size(98, 22)
+        Me.FTColorway.Size = New System.Drawing.Size(98, 23)
         Me.FTColorway.TabIndex = 310
         Me.FTColorway.TabStop = False
         Me.FTColorway.Tag = "2|"
@@ -677,7 +677,7 @@ Partial Class wSMPQCSendSupl
         Me.FTOrderProdNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTOrderProdNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTOrderProdNo.Properties.ReadOnly = True
-        Me.FTOrderProdNo.Size = New System.Drawing.Size(128, 22)
+        Me.FTOrderProdNo.Size = New System.Drawing.Size(128, 23)
         Me.FTOrderProdNo.TabIndex = 308
         Me.FTOrderProdNo.TabStop = False
         Me.FTOrderProdNo.Tag = "2|"
@@ -720,7 +720,7 @@ Partial Class wSMPQCSendSupl
         Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTOrderNo.Properties.ReadOnly = True
-        Me.FTOrderNo.Size = New System.Drawing.Size(128, 22)
+        Me.FTOrderNo.Size = New System.Drawing.Size(128, 23)
         Me.FTOrderNo.TabIndex = 306
         Me.FTOrderNo.TabStop = False
         Me.FTOrderNo.Tag = "2|"
@@ -920,7 +920,7 @@ Partial Class wSMPQCSendSupl
         Me.ogrpDefect.Location = New System.Drawing.Point(0, 178)
         Me.ogrpDefect.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogrpDefect.Name = "ogrpDefect"
-        Me.ogrpDefect.Size = New System.Drawing.Size(1526, 524)
+        Me.ogrpDefect.Size = New System.Drawing.Size(1526, 533)
         Me.ogrpDefect.TabIndex = 10
         Me.ogrpDefect.Text = "Defect"
         '
@@ -928,12 +928,12 @@ Partial Class wSMPQCSendSupl
         '
         Me.TileControl.BackColor = System.Drawing.Color.DarkGray
         Me.TileControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TileControl.Location = New System.Drawing.Point(2, 28)
+        Me.TileControl.Location = New System.Drawing.Point(2, 27)
         Me.TileControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TileControl.Name = "TileControl"
         Me.TileControl.Padding = New System.Windows.Forms.Padding(21, 22, 21, 22)
         Me.TileControl.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar
-        Me.TileControl.Size = New System.Drawing.Size(1522, 494)
+        Me.TileControl.Size = New System.Drawing.Size(1522, 504)
         Me.TileControl.TabIndex = 0
         Me.TileControl.Text = "TileControl1"
         '
@@ -941,7 +941,7 @@ Partial Class wSMPQCSendSupl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1526, 702)
+        Me.ClientSize = New System.Drawing.Size(1526, 711)
         Me.Controls.Add(Me.ogrpDefect)
         Me.Controls.Add(Me.ogbbarcodeinfo)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)

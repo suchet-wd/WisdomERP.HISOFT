@@ -87,8 +87,19 @@ Public Class wImportExcelNIKEPO
                             'Dim usedRange As DevExpress.Spreadsheet.CellRange = opshet.ActiveWorksheet.GetUsedRange()
                             'usedRange.NumberFormat = "@"
 
-                            For CIdx As Integer = 0 To opshet.ActiveWorksheet.GetUsedRange().ColumnCount - 1
+                            Dim cmdsrtring As String = ""
+
+
+                            cmdsrtring = " Select  TableName, ColumnName, FTStateNotPivot "
+                            cmdsrtring &= vbCrLf & "  From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysTableTempColumn WITH(NOLOCK)"
+                            cmdsrtring &= vbCrLf & "  Where (TableName = N'TTMPCheckExcelImportNIKEPO') "
+
+                            Dim dt As DataTable = HI.Conn.SQLConn.GetDataTable(cmdsrtring, Conn.DB.DataBaseName.DB_SYSTEM)
+
+                            opshet.BeginUpdate()
+                            For CIdx As Integer = opshet.ActiveWorksheet.GetUsedRange().ColumnCount - 1 To 0 Step -1 ' opshet.ActiveWorksheet.GetUsedRange().ColumnCount - 1
                                 Try
+
                                     'If opshet.ActiveWorksheet.Columns(CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.DateTime Then
                                     'Else
                                     '    If opshet.ActiveWorksheet.Columns(CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.Numeric Then
@@ -100,154 +111,200 @@ Public Class wImportExcelNIKEPO
                                         Beep()
                                     End If
 
-                                    If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.DateTime Then
+                                    If FNFileFormatType.SelectedIndex = 0 Then
 
-                                    Else
 
-                                        If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.Numeric AndAlso opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper <> "UPC".ToUpper Then
-                                            opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
+                                        If dt.Select("ColumnName='" & HI.UL.ULF.rpQuoted(opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString) & "'").Length <= 0 Then
+
+                                            opshet.ActiveWorksheet.Columns(CIdx).Delete()
 
                                         Else
 
-                                            Select Case opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper
-                                                Case "Purchase Order Number".ToUpper, "Trading Co PO Number".ToUpper, "PO Line Item Number".ToUpper
+                                            If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.DateTime Then
+
+                                            Else
+
+                                                If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.Numeric AndAlso opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper <> "UPC".ToUpper Then
+
                                                     opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
-                                                Case "UPC".ToUpper
 
-                                                    If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.None Then
-                                                        opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "0"
-                                                    End If
+                                                Else
 
+                                                    Select Case opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper
+                                                        Case "Purchase Order Number".ToUpper, "Trading Co PO Number".ToUpper, "PO Line Item Number".ToUpper, "Ship To Customer Number"
+                                                            opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
+                                                        Case "UPC".ToUpper
 
-                                            End Select
+                                                            If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.None Then
+                                                                opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "0"
+                                                            End If
+
+                                                    End Select
+
+                                                End If
+
+                                            End If
 
                                         End If
 
+
+                                    Else
+
+                                        If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.DateTime Then
+
+                                        Else
+
+                                            If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.Numeric AndAlso opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper <> "Order Lines/Variant EAN".ToUpper Then
+                                                opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
+
+                                            Else
+
+                                                Select Case opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper
+
+                                                    Case "Order Reference".ToUpper, "Trading Co PO Number".ToUpper, "PO Line Item Number".ToUpper, "Ship To Customer Number"
+                                                        opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
+                                                    Case "Order Lines/Variant EAN".ToUpper
+
+                                                        If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.None Then
+                                                            opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "0"
+                                                        End If
+
+                                                End Select
+
+                                            End If
+
+                                        End If
                                     End If
 
                                 Catch ex As Exception
-
                                 End Try
-
 
                             Next
 
+                            opshet.EndUpdate()
 
-                            PathFileExcel = HI.Conn.SQLConn.GetField("SELECT TOP 1  FTCfgData FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS X WITH(NOLOCK) WHERE X.FTCfgName='ImportBomExcel'", Conn.DB.DataBaseName.DB_SYSTEM)
+                            cmdsrtring = "SELECT TOP 1  FTCfgData FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS X WITH(NOLOCK) WHERE X.FTCfgName='ImportBomExcel'"
+                            PathFileExcel = HI.Conn.SQLConn.GetField(cmdsrtring, Conn.DB.DataBaseName.DB_SYSTEM)
 
                             If CheckWriteFile() = False Then
-                                HI.MG.ShowMsg.mInfo("ไม่สามารถเข้าถึงที่เก็บ File สำหรับ Import ได้ !!!!", 1909270019, Me.Text)
-                            End If
 
+                                                HI.MG.ShowMsg.mInfo("ไม่สามารถเข้าถึงที่เก็บ File สำหรับ Import ได้ !!!!", 1909270019, Me.Text)
 
-                            Spls.UpdateInformation("Reading Data From Excel....")
+                                            End If
 
-                            Dim msgshow As String = ""
+                                            Spls.UpdateInformation("Reading Data From Excel....")
 
-                            Try
-                                Dim mdt As DataTable
-                                Dim pworkbook As IWorkbook
-                                pworkbook = opshet.Document
-                                pworkbook.Worksheets(0).Name = "Sheet1"
+                                            Dim msgshow As String = ""
 
+                                            Try
 
-                                Dim FileName As String = PathFileExcel & "\" & HI.ST.UserInfo.UserName & ".xlsx"
-                                opshet.SaveDocument(PathFileExcel & "\" & HI.ST.UserInfo.UserName & ".xlsx")
+                                                Dim mdt As DataTable
+                                                Dim pworkbook As IWorkbook
+                                                pworkbook = opshet.Document
+                                                pworkbook.Worksheets(0).Name = "Sheet1"
 
-                                Dim strSheetName As String = opshet.ActiveSheet.Name.Trim
+                                                Dim FileName As String = PathFileExcel & "\" & HI.ST.UserInfo.UserName & ".xlsx"
+                                                opshet.SaveDocument(PathFileExcel & "\" & HI.ST.UserInfo.UserName & ".xlsx")
 
-                                Dim cmdstring As String = "  EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_TEMPDB) & "].dbo.USP_IMPORTFILEEXCEL_NIKEPO  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(FileName) & "','" & HI.UL.ULF.rpQuoted(strSheetName) & "'"
+                                                Dim strSheetName As String = opshet.ActiveSheet.Name.Trim
 
-                                ' StateImport = (HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_FHS, "") = "1")
-                                Dim ds As New DataSet
+                                                Dim cmdstring As String = ""
 
-                                HI.Conn.SQLConn.GetDataSet(cmdstring, Conn.DB.DataBaseName.DB_TEMPDB, ds)
+                                                If FNFileFormatType.SelectedIndex = 0 Then
+                                                    cmdstring = "  EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_TEMPDB) & "].dbo.USP_IMPORTFILEEXCEL_NIKEPO  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(FileName) & "','" & HI.UL.ULF.rpQuoted(strSheetName) & "'"
 
-
-                                Try
-                                    System.IO.File.Delete(FileName)
-                                Catch ex As Exception
-                                End Try
-
-                                Try
-                                    msgshow = ds.Tables(0).Rows(0).Item("FTMessage").ToString
-
-                                    If ds.Tables.Count = 2 Then
-
-                                        If ds.Tables(0).Rows(0).Item("FTStetInsert").ToString = "1" Then
-
-                                            Dim dtExcel As DataTable = ds.Tables(1).Copy
-
-                                            dtExcel.BeginInit()
-
-                                            ' dtExcel.Columns.Remove("FTUserLogIn")
-                                            ' dtExcel.Columns.Remove("FNRowSeq")
-
-
-                                            Dim pRemoveCol As String = "VenderCode,ProductCode,PO_Number,TradePO_Number,PO_Item,Plant,TradePlant,OGacDate,GacDate,ShiptoAcc"
-
-
-                                            For Each Str As String In pRemoveCol.Split(",")
-                                                dtExcel.Columns.Remove(Str)
-
-                                                If dtExcel.Columns.IndexOf(Str & "1") > 0 Then
-                                                    dtExcel.Columns.Remove(Str & "1")
+                                                Else
+                                                    cmdstring = "  EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_TEMPDB) & "].dbo.USP_IMPORTFILEEXCEL_ZELUSPO  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(FileName) & "','" & HI.UL.ULF.rpQuoted(strSheetName) & "'"
                                                 End If
 
-                                                If dtExcel.Columns.IndexOf(Str & "2") > 0 Then
-                                                    dtExcel.Columns.Remove(Str & "2")
-                                                End If
+                                                ' StateImport = (HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_FHS, "") = "1")
+                                                Dim ds As New DataSet
 
-                                                If dtExcel.Columns.IndexOf(Str & "3") > 0 Then
-                                                    dtExcel.Columns.Remove(Str & "3")
-                                                End If
-
-                                                If dtExcel.Columns.IndexOf(Str & "4") > 0 Then
-                                                    dtExcel.Columns.Remove(Str & "4")
-                                                End If
-
-                                                If dtExcel.Columns.IndexOf(Str & "5") > 0 Then
-                                                    dtExcel.Columns.Remove(Str & "5")
-                                                End If
-
-                                                If dtExcel.Columns.IndexOf(Str & "6") > 0 Then
-                                                    dtExcel.Columns.Remove(Str & "6")
-                                                End If
+                                                HI.Conn.SQLConn.GetDataSet(cmdstring, Conn.DB.DataBaseName.DB_TEMPDB, ds)
 
 
-                                                If dtExcel.Columns.IndexOf(Str & "7") > 0 Then
-                                                    dtExcel.Columns.Remove(Str & "7")
-                                                End If
+                                                Try
+                                                    System.IO.File.Delete(FileName)
+                                                Catch ex As Exception
+                                                End Try
+
+                                                Try
+                                                    msgshow = ds.Tables(0).Rows(0).Item("FTMessage").ToString
+
+                                                    If ds.Tables.Count = 2 Then
+
+                                                        If ds.Tables(0).Rows(0).Item("FTStetInsert").ToString = "1" Then
+
+                                                            Dim dtExcel As DataTable = ds.Tables(1).Copy
+
+                                                            dtExcel.BeginInit()
+
+                                                            ' dtExcel.Columns.Remove("FTUserLogIn")
+                                                            ' dtExcel.Columns.Remove("FNRowSeq")
+
+                                                            Dim pRemoveCol As String = "VenderCode,ProductCode,PO_Number,TradePO_Number,PO_Item,Plant,TradePlant,OGacDate,GacDate,ShiptoAcc"
+
+                                                            For Each Str As String In pRemoveCol.Split(",")
+                                                                dtExcel.Columns.Remove(Str)
+
+                                                                If dtExcel.Columns.IndexOf(Str & "1") > 0 Then
+                                                                    dtExcel.Columns.Remove(Str & "1")
+                                                                End If
+
+                                                                If dtExcel.Columns.IndexOf(Str & "2") > 0 Then
+                                                                    dtExcel.Columns.Remove(Str & "2")
+                                                                End If
+
+                                                                If dtExcel.Columns.IndexOf(Str & "3") > 0 Then
+                                                                    dtExcel.Columns.Remove(Str & "3")
+                                                                End If
+
+                                                                If dtExcel.Columns.IndexOf(Str & "4") > 0 Then
+                                                                    dtExcel.Columns.Remove(Str & "4")
+                                                                End If
+
+                                                                If dtExcel.Columns.IndexOf(Str & "5") > 0 Then
+                                                                    dtExcel.Columns.Remove(Str & "5")
+                                                                End If
+
+                                                                If dtExcel.Columns.IndexOf(Str & "6") > 0 Then
+                                                                    dtExcel.Columns.Remove(Str & "6")
+                                                                End If
 
 
-                                                If dtExcel.Columns.IndexOf(Str & "8") > 0 Then
-                                                    dtExcel.Columns.Remove(Str & "8")
-                                                End If
+                                                                If dtExcel.Columns.IndexOf(Str & "7") > 0 Then
+                                                                    dtExcel.Columns.Remove(Str & "7")
+                                                                End If
 
 
-                                                If dtExcel.Columns.IndexOf(Str & "9") > 0 Then
-                                                    dtExcel.Columns.Remove(Str & "9")
-                                                End If
+                                                                If dtExcel.Columns.IndexOf(Str & "8") > 0 Then
+                                                                    dtExcel.Columns.Remove(Str & "8")
+                                                                End If
 
 
-                                                If dtExcel.Columns.IndexOf(Str & "10") > 0 Then
-                                                    dtExcel.Columns.Remove(Str & "10")
-                                                End If
-
-                                            Next
-
-                                            dtExcel.EndInit()
-
-                                            Dim ColInteger As Integer = 1
-
-                                            With Me.ogvdt1
-                                                .BeginInit()
+                                                                If dtExcel.Columns.IndexOf(Str & "9") > 0 Then
+                                                                    dtExcel.Columns.Remove(Str & "9")
+                                                                End If
 
 
-                                                For Each Col As DataColumn In dtExcel.Columns
+                                                                If dtExcel.Columns.IndexOf(Str & "10") > 0 Then
+                                                                    dtExcel.Columns.Remove(Str & "10")
+                                                                End If
 
-                                                    Select Case Col.ColumnName
-                                                        Case "FTUserLogIn", "FNRowSeq", "FTOrderNo", "FTSubOrderNo", "Purchase Order Number", "Trading Co PO Number", "PO Line Item Number", "Vendor Code", "Vendor Name", "PMO/DEC code",
+                                                            Next
+
+                                                            dtExcel.EndInit()
+
+                                                            Dim ColInteger As Integer = 1
+
+                                                            With Me.ogvdt1
+                                                                .BeginInit()
+
+
+                                                                For Each Col As DataColumn In dtExcel.Columns
+
+                                                                    Select Case Col.ColumnName
+                                                                        Case "FTUserLogIn", "FNRowSeq", "FTOrderNo", "FTSubOrderNo", "Purchase Order Number", "Trading Co PO Number", "PO Line Item Number", "Vendor Code", "Vendor Name", "PMO/DEC code",
                                                                   "PMO/DEC Name", "DPOM Line Item Status", "Doc Type", "Doc Type Description", "Document Date", "Change Date", "Planning Priority Number", "Planning Priority Description", "OGAC", "GAC",
                                                                   "GAC Reason Code", "GAC Reason Description", "Previous GAC", "Previous GAC Reason Code", "Previous GAC Reason Description", "Initial GAC", "Initial GAC Reason Code",
                                                                   "Initial GAC Reason Description", "OGAC vs MRGAC", "GAC vs MRGAC", "GAC/OGAC Difference", "MRGAC Cpty Cnsmptn Wk", "GAC Slippage", "Global Planning Product Classification",
@@ -261,96 +318,96 @@ Public Class wImportExcelNIKEPO
                                                                   "Team Silhouette Description", "Size Mismatch Indicator", "Destination Country Code", "Destination Country Name", "Purchase Org", "Purchase Org Name", "PO Rejection Code",
                                                                   "PO Rejection Code Description", "Inventory Segment Code", "Company Code", "Company Code Description", "Created By", "Division", "In Co Terms", "Item Text", "MCO Code", "MCO Name",
                                                                   "Product Name", "Purchase Group", "Prchase Group Name", "Trading Company Code", "TTMI", "TTMI Description", "Unit of Measure", "Planning Season Year", "MRGAC", "Create Date", "Cmp", "Sub PGM"
-                                                        Case Else
+                                                                        Case Else
 
 
 
-                                                            Dim ColG As New DevExpress.XtraGrid.Columns.GridColumn
-                                                            With ColG
+                                                                            Dim ColG As New DevExpress.XtraGrid.Columns.GridColumn
+                                                                            With ColG
 
-                                                                .FieldName = Col.ColumnName
-                                                                .Name = "gView1r" & ColInteger.ToString
-                                                                .Caption = Col.ColumnName
-                                                                .Visible = True
+                                                                                .FieldName = Col.ColumnName
+                                                                                .Name = "gView1r" & ColInteger.ToString
+                                                                                .Caption = Col.ColumnName
+                                                                                .Visible = True
 
-                                                                .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-                                                                .OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
+                                                                                .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+                                                                                .OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
 
 
 
-                                                                With .OptionsColumn
-                                                                    .AllowMove = False
-                                                                    .AllowShowHide = False
-                                                                    .AllowGroup = DevExpress.Utils.DefaultBoolean.False
-                                                                    .AllowSort = DevExpress.Utils.DefaultBoolean.False
-                                                                    .AllowMerge = DevExpress.Utils.DefaultBoolean.False
-                                                                    .AllowEdit = False
-                                                                    .ReadOnly = False
-                                                                End With
+                                                                                With .OptionsColumn
+                                                                                    .AllowMove = False
+                                                                                    .AllowShowHide = False
+                                                                                    .AllowGroup = DevExpress.Utils.DefaultBoolean.False
+                                                                                    .AllowSort = DevExpress.Utils.DefaultBoolean.False
+                                                                                    .AllowMerge = DevExpress.Utils.DefaultBoolean.False
+                                                                                    .AllowEdit = False
+                                                                                    .ReadOnly = False
+                                                                                End With
 
-                                                                With .OptionsFilter
-                                                                    .AutoFilterCondition = AutoFilterCondition.Contains
-                                                                    .FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList
-                                                                End With
+                                                                                With .OptionsFilter
+                                                                                    .AutoFilterCondition = AutoFilterCondition.Contains
+                                                                                    .FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList
+                                                                                End With
 
-                                                                .Width = 100
+                                                                                .Width = 100
 
+                                                                            End With
+
+                                                                            .Columns.Add(ColG)
+
+
+                                                                            ColInteger = ColInteger + 1
+
+                                                                    End Select
+
+                                                                Next
+
+                                                                .EndInit()
                                                             End With
 
-                                                            .Columns.Add(ColG)
+
+                                                            ' Call SetGridColumn()
+                                                            Me.ogcdt1.DataSource = dtExcel.Copy
+                                                            dtExcel.Dispose()
 
 
-                                                            ColInteger = ColInteger + 1
-
-                                                    End Select
-
-                                                Next
-
-                                                .EndInit()
-                                            End With
+                                                            For Each gCol As DevExpress.XtraGrid.Columns.GridColumn In ogvdt1.Columns
+                                                                gCol.OptionsColumn.AllowEdit = False
 
 
-                                            ' Call SetGridColumn()
-                                            Me.ogcdt1.DataSource = dtExcel.Copy
-                                            dtExcel.Dispose()
+                                                                If gCol.FieldName = "FNRowSeq" Then
+                                                                    gCol.Visible = False
+                                                                End If
+                                                            Next
 
 
-                                            For Each gCol As DevExpress.XtraGrid.Columns.GridColumn In ogvdt1.Columns
-                                                gCol.OptionsColumn.AllowEdit = False
+                                                        Else
 
 
-                                                If gCol.FieldName = "FNRowSeq" Then
-                                                    gCol.Visible = False
-                                                End If
-                                            Next
+                                                        End If
+                                                    Else
 
 
-                                        Else
+                                                    End If
 
+                                                Catch ex As Exception
+
+                                                    msgshow = "ข้อมูล File Excel ไม่ถูกต้องกรุณาทำการตรวจสอบ !!!"
+                                                End Try
+
+                                                ds.Dispose()
+
+                                            Catch ex2 As Exception
+                                            End Try
+
+                                            Spls.Close()
+
+                                            If msgshow <> "" Then
+                                                MessageBox.Show(msgshow)
+                                            End If
 
                                         End If
-                                    Else
-
-
-                                    End If
-
-                                Catch ex As Exception
-
-                                    msgshow = "ข้อมูล File Excel ไม่ถูกต้องกรุณาทำการตรวจสอบ !!!"
-                                End Try
-
-                                ds.Dispose()
-
-                            Catch ex2 As Exception
-                            End Try
-
-                            Spls.Close()
-
-                            If msgshow <> "" Then
-                                MessageBox.Show(msgshow)
-                            End If
-
-                        End If
                     Catch ex As Exception
                     End Try
 
@@ -374,6 +431,7 @@ Public Class wImportExcelNIKEPO
                     For I As Integer = .Columns.Count - 1 To 0 Step -1
                         Select Case Microsoft.VisualBasic.Left(.Columns(I).Name, 4).ToString.ToUpper
                             Case "CFIX"
+
                             Case Else
 
                                 Dim FName As String = .Columns(I).FieldName
@@ -1048,7 +1106,6 @@ Public Class wImportExcelNIKEPO
 
     End Function
 
-
     Private Function MappingSuplierData(Optional NetPrice As Boolean = False) As Boolean
 
         Dim cmdstring As String = ""
@@ -1128,7 +1185,7 @@ Public Class wImportExcelNIKEPO
 
                         Dim _Spls As New HI.TL.SplashScreen("Generate Factory Order No .....Please Wait")
 
-                        If csOrder.ImportFactoryOrder(_Spls, FNImportOrderType.SelectedIndex, Val(FNHSysCustId.Properties.Tag.ToString), Val(FNHSysCmpRunId.Properties.Tag.ToString), FNHSysCmpRunId.Text, Val(FNHSysBuyId.Properties.Tag.ToString), Val(FNHSysMerTeamId.Properties.Tag.ToString), True) = True Then
+                        If csOrder.ImportFactoryOrder(_Spls, FNImportOrderType.SelectedIndex, Val(FNHSysCustId.Properties.Tag.ToString), Val(FNHSysCmpRunId.Properties.Tag.ToString), FNHSysCmpRunId.Text, Val(FNHSysBuyId.Properties.Tag.ToString), Val(FNHSysMerTeamId.Properties.Tag.ToString), FNHSysCustId.Text.Trim, FNHSysMerTeamId.Text.Trim, FNHSysBuyId.Text.Trim, True) = True Then
 
                             '...clear temp after process import order complete
                             '---------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1453,6 +1510,19 @@ Public Class wImportExcelNIKEPO
                     MsgBox("Clear Transaction temporary import factory order complete...", MsgBoxStyle.Information + MsgBoxStyle.Information, My.Application.Info.Title)
                 End If
             End If
+
+        End Try
+    End Sub
+
+    Private Sub FNFileFormatType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FNFileFormatType.SelectedIndexChanged
+        Try
+
+
+            ogcdt1.DataSource = Nothing
+            SetGridColumn()
+            FTFilePath.Text = ""
+
+        Catch ex As Exception
 
         End Try
     End Sub

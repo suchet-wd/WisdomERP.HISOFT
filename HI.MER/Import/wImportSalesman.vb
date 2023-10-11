@@ -46,7 +46,7 @@ Public Class wImportSalesman
     Private Const _tNotAssigned As String = "Not assigned"
     Private Const _tNA As String = "#"
     Private Const _tUnitImport As String = "UOM"
-    Private Const _nTerminateColValidSrc As Integer = 53
+    Private Const _nTerminateColValidSrc As Integer = 55
     Private Const _tRowBlankHeader As String = "="
     Private Const _tPrefixCustPONumber As String = "N00"
 
@@ -3261,6 +3261,17 @@ Public Class wImportSalesman
                 oColFTMerTeamCode = New System.Data.DataColumn("FTMerTeamCode", System.Type.GetType("System.String"))
                 oColFTMerTeamCode.Caption = "FTMerTeamCode"
                 DTImporSalesmanHDTemp.Columns.Add(oColFTMerTeamCode.ColumnName, oColFTMerTeamCode.DataType)
+
+                Dim oColSubPG As System.Data.DataColumn
+                oColSubPG = New System.Data.DataColumn("FTSubPGM", System.Type.GetType("System.String"))
+                oColSubPG.Caption = "FTSubPGM"
+                DTImporSalesmanHDTemp.Columns.Add(oColSubPG.ColumnName, oColSubPG.DataType)
+
+
+                Dim oColCmpCode As System.Data.DataColumn
+                oColCmpCode = New System.Data.DataColumn("FTCmp", System.Type.GetType("System.String"))
+                oColCmpCode.Caption = "FTCmp"
+                DTImporSalesmanHDTemp.Columns.Add(oColCmpCode.ColumnName, oColCmpCode.DataType)
                 '-------------------------------------------------------------------------------------------------------------
 
                 '============================================ represent to temp TMERTImportSalesmanTemp =======================================================
@@ -3273,6 +3284,9 @@ Public Class wImportSalesman
                 Dim tTextFTMerTeamCode As String  '...F5
                 Dim tTextFTProdTypeCode As String '...F37 + F36 {1} + F38 {1} ==> AK : FB:Footbal, BB:Basketball || AJ : CMO_Sponsor_Bus_Org || AL : CMO_Sponsor_Consumer_Purpose
                 Dim tTextFTSeaSonCode As String
+
+                Dim tTextFTSubPGM As String  '...F54
+                Dim tTextFTCmpCode As String '...F55
 
                 Dim oRowAppendImportHD As System.Data.DataRow
 
@@ -3300,6 +3314,9 @@ Public Class wImportSalesman
                             tTextCategoryExtend = oRowImportSalesman.Item("F37").ToString.Trim
                             tTextSubCategoryExtend = oRowImportSalesman.Item("F39").ToString.Trim
 
+                            tTextFTSubPGM = oRowImportSalesman.Item("F54").ToString.Trim
+                            tTextFTCmpCode = oRowImportSalesman.Item("F55").ToString.Trim
+
                             tTextFTProdTypeCode = tTextCategoryCode & Microsoft.VisualBasic.Mid$(tTextCategoryExtend, 1, 1) & Microsoft.VisualBasic.Mid$(tTextSubCategoryExtend, 1, 1)
 
                             If Not DTImporSalesmanHDTemp Is Nothing AndAlso DTImporSalesmanHDTemp.Rows.Count > 0 Then
@@ -3322,6 +3339,8 @@ Public Class wImportSalesman
                                         .Item("FTProdTypeCode") = tTextFTProdTypeCode
                                         .Item("FTSeasonCode") = tTextFTSeaSonCode
                                         .Item("FTMerTeamCode") = tTextFTMerTeamCode
+                                        .Item("FTSubPGM") = tTextFTSubPGM
+                                        .Item("FTCmp") = tTextFTCmpCode
                                     End With
 
                                     DTImporSalesmanHDTemp.Rows.Add(oRowAppendImportHD)
@@ -3341,6 +3360,8 @@ Public Class wImportSalesman
                                     .Item("FTProdTypeCode") = tTextFTProdTypeCode
                                     .Item("FTSeasonCode") = tTextFTSeaSonCode
                                     .Item("FTMerTeamCode") = tTextFTMerTeamCode
+                                    .Item("FTSubPGM") = tTextFTSubPGM
+                                    .Item("FTCmp") = tTextFTCmpCode
                                 End With
 
                                 DTImporSalesmanHDTemp.Rows.Add(oRowAppendImportHD)
@@ -3367,6 +3388,8 @@ Public Class wImportSalesman
                         tTextFTPONo = "" : tTextFTStyleNo = "" : tTextFTProdStyleName = ""
                         tTextFDOrderDate = "" : tTextFTMainCategoryCode = "" : tTextFTBuyGrpCode = ""
                         tTextFTProdTypeCode = "" : tTextFTSeaSonCode = "" : tTextFTMerTeamCode = ""
+                        tTextFTCmpCode = ""
+                        tTextFTCmpCode = ""
 
                         With oRowAddToTempSalesman
 
@@ -3383,11 +3406,14 @@ Public Class wImportSalesman
                             tTextFTProdTypeCode = .Item("FTProdTypeCode").ToString
                             tTextFTSeaSonCode = .Item("FTSeasonCode").ToString
 
+                            tTextFTSubPGM = .Item("FTSubPGM")
+                            tTextFTCmpCode = .Item("FTCmp")
+
                         End With
 
                         oStrBuilder.AppendLine("INSERT INTO [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[TMERTImportSalesmanTemp]([FTUserLogIn],[FTPONo],[FDOrderDate],[FTStyleNo],[FTProdStyleName]")
                         oStrBuilder.AppendLine("										,[FNHSysMainCategoryId],[FTMainCategoryDesc],[FNHSysBuyGrpId],[FTBuyGrpNameDesc]")
-                        oStrBuilder.AppendLine("										,[FNHSysMerTeamId],[FNHSysProdTypeId],[FNHSysSeasonId],[FTGenerateOrderNo])")
+                        oStrBuilder.AppendLine("										,[FNHSysMerTeamId],[FNHSysProdTypeId],[FNHSysSeasonId],[FTGenerateOrderNo],FTSubPGM,FTCmp)")
                         oStrBuilder.AppendLine("SELECT N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "', '" & HI.UL.ULF.rpQuoted(tTextFTPONo) & "' FTPONo, N'" & HI.UL.ULDate.ConvertEnDB(tTextFDOrderDate) & "' AS FDOrderDate, N'" & HI.UL.ULF.rpQuoted(tTextFTStyleNo) & "' FTStyleNo, N'" & HI.UL.ULF.rpQuoted(tTextFTProdStyleName) & "' AS FTProdStyleName, ")
                         oStrBuilder.AppendLine("      (SELECT TOP 1 L1.FNHSysMainCategoryId FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMMainCategoryType AS L1 (NOLOCK) WHERE L1.FTMainCategoryCode = N'" & HI.UL.ULF.rpQuoted(tTextFTMainCategoryCode) & "')  AS FNHSysMainCategoryId,")
                         oStrBuilder.AppendLine("      (SELECT TOP 1 L2.FTMainCategoryDescEN FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMMainCategoryType AS L2 (NOLOCK) WHERE L2.FTMainCategoryCode = N'" & HI.UL.ULF.rpQuoted(tTextFTMainCategoryCode) & "') AS FTMainCategoryDesc,")
@@ -3396,7 +3422,7 @@ Public Class wImportSalesman
                         oStrBuilder.AppendLine("      (SELECT TOP 1 L5.FNHSysMerTeamId FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMMerTeam AS L5 (NOLOCK) WHERE L5.FTMerTeamCode = N'" & HI.UL.ULF.rpQuoted(tTextFTMerTeamCode) & "') AS FNHSysMerTeamId,")
                         oStrBuilder.AppendLine("      (SELECT TOP 1 L6.FNHSysProdTypeId FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMProductType AS L6 (NOLOCK) WHERE L6.FTProdTypeCode = N'" & HI.UL.ULF.rpQuoted(tTextFTProdTypeCode) & "') AS FNHSysProdTypeId,")
                         oStrBuilder.AppendLine("      (SELECT TOP 1 L7.FNHSysSeasonId FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMSeason AS L7 (NOLOCK) WHERE L7.FTSeasonCode = N'" & HI.UL.ULF.rpQuoted(tTextFTSeaSonCode) & "') AS FNHSysSeasonId,")
-                        oStrBuilder.AppendLine("      NULL AS FTGenerateOrderNo;")
+                        oStrBuilder.AppendLine("      NULL AS FTGenerateOrderNo,'" & HI.UL.ULF.rpQuoted(tTextFTSubPGM) & "','" & HI.UL.ULF.rpQuoted(tTextFTCmpCode) & "';")
 
                     Next
 
@@ -4793,7 +4819,9 @@ Public Class wImportSalesman
                 tSql &= Environment.NewLine & " [FNRowImport] [Int],"
                 tSql &= Environment.NewLine & " [FTStyle] [nvarchar](30) NULL,"
                 tSql &= Environment.NewLine & " [FNHSysSeasonId] [Int] NULL,"
-                tSql &= Environment.NewLine & " [FTStateSet] [varchar](1) NULL"
+                tSql &= Environment.NewLine & " [FTStateSet] [varchar](1) NULL,"
+                tSql &= Environment.NewLine & " [FTSubPGM] [nvarchar](200) NULL,"
+                tSql &= Environment.NewLine & " [FTCmpID]  [Int] NULL"
                 tSql &= Environment.NewLine & "  )"
                 tSql &= Environment.NewLine & " INSERT INTO  #Tab"
                 tSql &= Environment.NewLine & "                              ([FTInsUser],[FDInsDate],[FTInsTime]"
@@ -4808,7 +4836,7 @@ Public Class wImportSalesman
                 tSql &= Environment.NewLine & "                              ,[FNHSysBrandId],[FNHSysBuyId],[FTCancelAppBy],[FDCancelAppDate]"
                 tSql &= Environment.NewLine & "                              ,[FDCancelAppTime],[FTCancelAppRemark],[FTPOTradingCo],[FTPOItem]"
                 tSql &= Environment.NewLine & "                              ,[FTPOCreateDate],[FNHSysMerTeamId],[FNHSysPlantId],[FNHSysBuyGrpId]"
-                tSql &= Environment.NewLine & "                              ,[FNHSysMainCategoryId],[FNHSysVenderPramId],[FTOrderCreateStatus],[FTImportUser],[FDImportDate],[FTImportTime],[FNRowImport],[FTStyle],[FNHSysSeasonId],[FTStateSet])"
+                tSql &= Environment.NewLine & "                              ,[FNHSysMainCategoryId],[FNHSysVenderPramId],[FTOrderCreateStatus],[FTImportUser],[FDImportDate],[FTImportTime],[FNRowImport],[FTStyle],[FNHSysSeasonId],[FTStateSet],FTSubPGM,FTCmpID)"
                 tSql &= Environment.NewLine & " SELECT NULL AS FTInsUser, CONVERT(VARCHAR(10),GETDATE(),111) AS FDInsDate, CONVERT(VARCHAR(8),GETDATE(),114) AS FTInsTime"
                 tSql &= Environment.NewLine & "     , NULL AS FTUpdUser, NULL AS FDUpdDate, NULL AS FTUpdTime"
                 tSql &= Environment.NewLine & "     , @FTRunNo + (RIGHT(@FTRunStr, @FNRunning - LEN(CONVERT(VARCHAR(30) , (ROW_NUMBER() OVER(ORDER BY B.FTMerTeamCode ASC,A.FTStyleNo ASC,A.FTPONO ASC) + @FNRunningNoMax)))) + CONVERT(VARCHAR(30) , (ROW_NUMBER() OVER(ORDER BY B.FTMerTeamCode ASC,A.FTStyleNo ASC,A.FTPONO ASC) + @FNRunningNoMax))) AS FTOrderNo"
@@ -4832,6 +4860,8 @@ Public Class wImportSalesman
                 tSql &= Environment.NewLine & "    , A.FNHSysMainCategoryId, " & nFNHSysVenderPramId & " AS FNHSysVenderPramId"
                 tSql &= Environment.NewLine & "    , N'Y' AS FTOrderCreateStatus, N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' AS FTImportUser , CONVERT(VARCHAR(10),GETDATE(),111) AS FDImportDate, CONVERT(VARCHAR(8),GETDATE(),114) AS FTImportTime,0 AS FNRowImport,A.FTStyleNo," & Integer.Parse(Val(FNHSysSeasonId.Properties.Tag.ToString)) & " "
                 tSql &= Environment.NewLine & "    , ISNULL((SELECT  TOP 1 L1.FTStateStyleSet FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TMERMStyle] AS L1 WITH(NOLOCK) WHERE L1.FTStyleCode = A.FTStyleNo), '0') AS FTStateSet"
+                tSql &= Environment.NewLine & "    , A.FTSubPGM "
+                tSql &= Environment.NewLine & "    , ISNULL((SELECT  TOP 1 L1.FNHSysCmpId FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] AS L1 WITH(NOLOCK) WHERE L1.FTCmpCode = A.FTCmp), 0) AS FNCmpId"
                 tSql &= Environment.NewLine & " FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..[TMERTImportSalesmanTemp] AS A INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TMERMMerTeam] AS B WITH(NOLOCK) ON A.FNHSysMerTeamId = B.FNHSysMerTeamId"
                 tSql &= Environment.NewLine & " WHERE A.FTUserLogin = N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                 tSql &= Environment.NewLine & "      AND A.FTPONO IN (SELECT MAX(L1.FTPONO)"
@@ -4869,7 +4899,7 @@ Public Class wImportSalesman
                 tSql &= Environment.NewLine & "                              ,[FNHSysBrandId],[FNHSysBuyId],[FTCancelAppBy],[FDCancelAppDate]"
                 tSql &= Environment.NewLine & "                              ,[FDCancelAppTime],[FTCancelAppRemark],[FTPOTradingCo],[FTPOItem]"
                 tSql &= Environment.NewLine & "                              ,[FTPOCreateDate],[FNHSysMerTeamId],[FNHSysPlantId],[FNHSysBuyGrpId]"
-                tSql &= Environment.NewLine & "                              ,[FNHSysMainCategoryId],[FNHSysVenderPramId],[FTOrderCreateStatus],[FTImportUser],[FDImportDate],[FTImportTime],[FNHSysSeasonId])"
+                tSql &= Environment.NewLine & "                              ,[FNHSysMainCategoryId],[FNHSysVenderPramId],[FTOrderCreateStatus],[FTImportUser],[FDImportDate],[FTImportTime],[FNHSysSeasonId],FTSubPgm)"
                 tSql &= Environment.NewLine & " SELECT [FTInsUser],[FDInsDate],[FTInsTime]"
                 tSql &= Environment.NewLine & "       ,[FTUpdUser],[FDUpdDate],[FTUpdTime]"
                 tSql &= Environment.NewLine & "       ,[FTOrderNo],[FDOrderDate]"
@@ -4881,7 +4911,7 @@ Public Class wImportSalesman
                 tSql &= Environment.NewLine & "        ),'')  AS FTOrderBy"
                 tSql &= Environment.NewLine & ",[FNOrderType]"
 
-                tSql &= Environment.NewLine & "       ,[FNHSysCmpId],[FNHSysCmpRunId],[FNHSysStyleId],[FTPORef]"
+                tSql &= Environment.NewLine & "       ,FTCmpID,[FNHSysCmpRunId],[FNHSysStyleId],[FTPORef]"
                 tSql &= Environment.NewLine & "       ,[FNHSysCustId],[FNHSysAgencyId],[FNHSysProdTypeId],[FNHSysBuyerId]"
                 tSql &= Environment.NewLine & "       ,[FTMainMaterial],[FTCombination],[FTRemark]"
                 tSql &= Environment.NewLine & "       ,[FTStateOrderApp],[FTAppBy],[FDAppDate],[FTAppTime]"
@@ -4890,7 +4920,7 @@ Public Class wImportSalesman
                 tSql &= Environment.NewLine & "       ,[FNHSysBrandId],[FNHSysBuyId],[FTCancelAppBy],[FDCancelAppDate]"
                 tSql &= Environment.NewLine & "       ,[FDCancelAppTime],[FTCancelAppRemark],[FTPOTradingCo],[FTPOItem]"
                 tSql &= Environment.NewLine & "       ,[FTPOCreateDate],[FNHSysMerTeamId],[FNHSysPlantId],[FNHSysBuyGrpId]"
-                tSql &= Environment.NewLine & "       ,[FNHSysMainCategoryId],[FNHSysVenderPramId],[FTOrderCreateStatus],[FTImportUser],[FDImportDate],[FTImportTime],[FNHSysSeasonId]"
+                tSql &= Environment.NewLine & "       ,[FNHSysMainCategoryId],[FNHSysVenderPramId],[FTOrderCreateStatus],[FTImportUser],[FDImportDate],[FTImportTime],[FNHSysSeasonId],FTSubPGM"
                 tSql &= Environment.NewLine & " FROM #Tab AS M"
                 tSql &= Environment.NewLine & " DROP TABLE #Tab;"
 
@@ -5920,7 +5950,7 @@ Public Class wImportSalesman
             oStrBuilder.AppendLine("	   E.FTProdTypeCode + ' : ' + E.FTProdTypeNameEN AS FTProdTypeDesc, F.FTSeasonCode + ' : ' + F.FTSeasonNameEN AS FTPlanningSeason,")
             oStrBuilder.AppendLine("	   G.FTAF_REQ AS FTAF_REQ, G.FTCU_CD AS FTCU_CD, G.FTCUST_XREF AS FTCUST_XREF,")
             oStrBuilder.AppendLine("	   G.FDShipmentDate, G.FDShipmentDateOriginal, G.FTShipModeDesc, G.FTGenderCode,")
-            oStrBuilder.AppendLine("	   G.FTUnitDesc, G.FTColorwayCode")
+            oStrBuilder.AppendLine("	   G.FTUnitDesc, G.FTColorwayCode,A.FTSubPGM,A.FTCmp")
             oStrBuilder.AppendLine("FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTImportSalesmanTemp AS A (NOLOCK) LEFT JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMMerTeam AS B (NOLOCK) ON A.FNHSysMerTeamId = B.FNHSysMerTeamId")
             oStrBuilder.AppendLine("                                                             LEFT JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMBuyGrp AS C (NOLOCK) ON A.FNHSysBuyGrpId = C.FNHSysBuyGrpId")
             oStrBuilder.AppendLine("														     LEFT JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMMainCategoryType AS D (NOLOCK) ON A.FNHSysMainCategoryId = D.FNHSysMainCategoryId")

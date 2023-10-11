@@ -65,21 +65,8 @@ Partial Class wSMPProductionCutStatusBar
         Dim SerializableAppearanceObject35 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject36 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbStyleHeader = New DevExpress.XtraEditors.GroupControl()
-        Me.FDSMPOrderDate_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FDSMPOrderDate = New DevExpress.XtraEditors.TextEdit()
-        Me.FNHSysCustId_None = New DevExpress.XtraEditors.TextEdit()
-        Me.FNHSysCustId = New DevExpress.XtraEditors.ButtonEdit()
-        Me.FNHSysCustId_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTSMPOrderNo = New DevExpress.XtraEditors.ButtonEdit()
-        Me.FNHSysCmpId_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FNHSysCmpId_None = New DevExpress.XtraEditors.TextEdit()
-        Me.FNHSysCmpId = New DevExpress.XtraEditors.ButtonEdit()
-        Me.FNHSysStyleId_None = New DevExpress.XtraEditors.TextEdit()
-        Me.FNHSysStyleId = New DevExpress.XtraEditors.ButtonEdit()
-        Me.FNHSysStyleId_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTSMPOrderNo_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.ogboperation = New DevExpress.XtraEditors.GroupControl()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
+        Me.ocmsplitbundle = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmdeletebound = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmbundlelaypreview = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmpreviewpacklist = New DevExpress.XtraEditors.SimpleButton()
@@ -96,6 +83,20 @@ Partial Class wSMPProductionCutStatusBar
         Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmsave = New DevExpress.XtraEditors.SimpleButton()
+        Me.FDSMPOrderDate_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FDSMPOrderDate = New DevExpress.XtraEditors.TextEdit()
+        Me.FNHSysCustId_None = New DevExpress.XtraEditors.TextEdit()
+        Me.FNHSysCustId = New DevExpress.XtraEditors.ButtonEdit()
+        Me.FNHSysCustId_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FTSMPOrderNo = New DevExpress.XtraEditors.ButtonEdit()
+        Me.FNHSysCmpId_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FNHSysCmpId_None = New DevExpress.XtraEditors.TextEdit()
+        Me.FNHSysCmpId = New DevExpress.XtraEditors.ButtonEdit()
+        Me.FNHSysStyleId_None = New DevExpress.XtraEditors.TextEdit()
+        Me.FNHSysStyleId = New DevExpress.XtraEditors.ButtonEdit()
+        Me.FNHSysStyleId_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FTSMPOrderNo_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.ogboperation = New DevExpress.XtraEditors.GroupControl()
         Me.otxtabctrl = New DevExpress.XtraTab.XtraTabControl()
         Me.otpcut = New DevExpress.XtraTab.XtraTabPage()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
@@ -145,6 +146,21 @@ Partial Class wSMPProductionCutStatusBar
         Me.otbsendsupl = New DevExpress.XtraTab.XtraTabPage()
         Me.ogbsendsupl = New DevExpress.XtraEditors.GroupControl()
         Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
+        Me.XtraTabPage1 = New DevExpress.XtraTab.XtraTabPage()
+        Me.ogcbundle = New DevExpress.XtraGrid.GridControl()
+        Me.ogvbundle = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemCheckEdit5 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
+        Me.GridColumn10 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn11 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn12 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn13 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn14 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn15 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn16 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn17 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemCalcEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemLookUpEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
         Me.XtraTabPage2 = New DevExpress.XtraTab.XtraTabPage()
         Me.PopupFNBundle = New DevExpress.XtraEditors.PopupContainerControl()
         Me.ockselectsendall = New DevExpress.XtraEditors.CheckEdit()
@@ -184,21 +200,6 @@ Partial Class wSMPProductionCutStatusBar
         Me.GSFNQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepGSFNQuantity = New DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit()
         Me.FTSendSuplRef = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.XtraTabPage1 = New DevExpress.XtraTab.XtraTabPage()
-        Me.ogcbundle = New DevExpress.XtraGrid.GridControl()
-        Me.ogvbundle = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCheckEdit5 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
-        Me.GridColumn10 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn11 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn12 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn13 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn14 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn15 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn16 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn17 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.RepositoryItemLookUpEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
         Me.XtraTabBarcode = New DevExpress.XtraTab.XtraTabPage()
         Me.ogbbarcode = New DevExpress.XtraEditors.GroupControl()
         Me.ockselectallbyselection = New DevExpress.XtraEditors.CheckEdit()
@@ -258,6 +259,8 @@ Partial Class wSMPProductionCutStatusBar
         Me.RepositoryItemLookUpEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
         CType(Me.ogbStyleHeader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbStyleHeader.SuspendLayout()
+        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ogbmainprocbutton.SuspendLayout()
         CType(Me.FDSMPOrderDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysCustId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysCustId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -268,8 +271,6 @@ Partial Class wSMPProductionCutStatusBar
         CType(Me.FNHSysStyleId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogboperation, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogboperation.SuspendLayout()
-        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbmainprocbutton.SuspendLayout()
         CType(Me.otxtabctrl, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.otxtabctrl.SuspendLayout()
         Me.otpcut.SuspendLayout()
@@ -305,6 +306,12 @@ Partial Class wSMPProductionCutStatusBar
         Me.ogbsendsupl.SuspendLayout()
         CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.XtraTabControl1.SuspendLayout()
+        Me.XtraTabPage1.SuspendLayout()
+        CType(Me.ogcbundle, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ogvbundle, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCalcEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.XtraTabPage2.SuspendLayout()
         CType(Me.PopupFNBundle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PopupFNBundle.SuspendLayout()
@@ -321,12 +328,6 @@ Partial Class wSMPProductionCutStatusBar
         CType(Me.RepFTOperationNameS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepFTOperationNameT, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepGSFNQuantity, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.XtraTabPage1.SuspendLayout()
-        CType(Me.ogcbundle, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogvbundle, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCheckEdit5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCalcEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.XtraTabBarcode.SuspendLayout()
         CType(Me.ogbbarcode, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbbarcode.SuspendLayout()
@@ -356,6 +357,7 @@ Partial Class wSMPProductionCutStatusBar
         '
         'ogbStyleHeader
         '
+        Me.ogbStyleHeader.Controls.Add(Me.ogbmainprocbutton)
         Me.ogbStyleHeader.Controls.Add(Me.FDSMPOrderDate_lbl)
         Me.ogbStyleHeader.Controls.Add(Me.FDSMPOrderDate)
         Me.ogbStyleHeader.Controls.Add(Me.FNHSysCustId_None)
@@ -373,220 +375,14 @@ Partial Class wSMPProductionCutStatusBar
         Me.ogbStyleHeader.Location = New System.Drawing.Point(0, 0)
         Me.ogbStyleHeader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbStyleHeader.Name = "ogbStyleHeader"
-        Me.ogbStyleHeader.Size = New System.Drawing.Size(1247, 141)
+        Me.ogbStyleHeader.Size = New System.Drawing.Size(1247, 142)
         Me.ogbStyleHeader.TabIndex = 2
         Me.ogbStyleHeader.Text = "Style Info"
-        '
-        'FDSMPOrderDate_lbl
-        '
-        Me.FDSMPOrderDate_lbl.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FDSMPOrderDate_lbl.Appearance.Options.UseForeColor = True
-        Me.FDSMPOrderDate_lbl.Appearance.Options.UseTextOptions = True
-        Me.FDSMPOrderDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FDSMPOrderDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDSMPOrderDate_lbl.Location = New System.Drawing.Point(319, 72)
-        Me.FDSMPOrderDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FDSMPOrderDate_lbl.Name = "FDSMPOrderDate_lbl"
-        Me.FDSMPOrderDate_lbl.Size = New System.Drawing.Size(122, 23)
-        Me.FDSMPOrderDate_lbl.TabIndex = 496
-        Me.FDSMPOrderDate_lbl.Tag = "2|"
-        Me.FDSMPOrderDate_lbl.Text = "Order Date :"
-        '
-        'FDSMPOrderDate
-        '
-        Me.FDSMPOrderDate.Location = New System.Drawing.Point(443, 72)
-        Me.FDSMPOrderDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FDSMPOrderDate.Name = "FDSMPOrderDate"
-        Me.FDSMPOrderDate.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FDSMPOrderDate.Properties.Appearance.Options.UseBackColor = True
-        Me.FDSMPOrderDate.Properties.Appearance.Options.UseTextOptions = True
-        Me.FDSMPOrderDate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FDSMPOrderDate.Properties.ReadOnly = True
-        Me.FDSMPOrderDate.Size = New System.Drawing.Size(87, 22)
-        Me.FDSMPOrderDate.TabIndex = 495
-        Me.FDSMPOrderDate.Tag = "2|"
-        '
-        'FNHSysCustId_None
-        '
-        Me.FNHSysCustId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysCustId_None.Location = New System.Drawing.Point(316, 100)
-        Me.FNHSysCustId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysCustId_None.Name = "FNHSysCustId_None"
-        Me.FNHSysCustId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysCustId_None.Properties.Appearance.Options.UseBackColor = True
-        Me.FNHSysCustId_None.Properties.ReadOnly = True
-        Me.FNHSysCustId_None.Size = New System.Drawing.Size(904, 22)
-        Me.FNHSysCustId_None.TabIndex = 494
-        Me.FNHSysCustId_None.Tag = "2|"
-        '
-        'FNHSysCustId
-        '
-        Me.FNHSysCustId.Enabled = False
-        Me.FNHSysCustId.Location = New System.Drawing.Point(163, 100)
-        Me.FNHSysCustId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysCustId.Name = "FNHSysCustId"
-        Me.FNHSysCustId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysCustId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysCustId.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNHSysCustId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FNHSysCustId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FNHSysCustId.Properties.ReadOnly = True
-        Me.FNHSysCustId.Properties.Tag = ""
-        Me.FNHSysCustId.Size = New System.Drawing.Size(152, 22)
-        Me.FNHSysCustId.TabIndex = 493
-        Me.FNHSysCustId.Tag = "2|"
-        '
-        'FNHSysCustId_lbl
-        '
-        Me.FNHSysCustId_lbl.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FNHSysCustId_lbl.Appearance.Options.UseForeColor = True
-        Me.FNHSysCustId_lbl.Appearance.Options.UseTextOptions = True
-        Me.FNHSysCustId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FNHSysCustId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCustId_lbl.Location = New System.Drawing.Point(34, 100)
-        Me.FNHSysCustId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysCustId_lbl.Name = "FNHSysCustId_lbl"
-        Me.FNHSysCustId_lbl.Size = New System.Drawing.Size(122, 23)
-        Me.FNHSysCustId_lbl.TabIndex = 492
-        Me.FNHSysCustId_lbl.Tag = "2|"
-        Me.FNHSysCustId_lbl.Text = "FNHSysCustId :"
-        '
-        'FTSMPOrderNo
-        '
-        Me.FTSMPOrderNo.Location = New System.Drawing.Point(163, 72)
-        Me.FTSMPOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTSMPOrderNo.Name = "FTSMPOrderNo"
-        Me.FTSMPOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "568", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FTSMPOrderNo.Properties.Tag = ""
-        Me.FTSMPOrderNo.Size = New System.Drawing.Size(152, 22)
-        Me.FTSMPOrderNo.TabIndex = 491
-        Me.FTSMPOrderNo.Tag = "2|"
-        '
-        'FNHSysCmpId_lbl
-        '
-        Me.FNHSysCmpId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysCmpId_lbl.Appearance.Options.UseForeColor = True
-        Me.FNHSysCmpId_lbl.Appearance.Options.UseTextOptions = True
-        Me.FNHSysCmpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FNHSysCmpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCmpId_lbl.Location = New System.Drawing.Point(35, 43)
-        Me.FNHSysCmpId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysCmpId_lbl.Name = "FNHSysCmpId_lbl"
-        Me.FNHSysCmpId_lbl.Size = New System.Drawing.Size(125, 21)
-        Me.FNHSysCmpId_lbl.TabIndex = 489
-        Me.FNHSysCmpId_lbl.Tag = "2|"
-        Me.FNHSysCmpId_lbl.Text = "Company :"
-        '
-        'FNHSysCmpId_None
-        '
-        Me.FNHSysCmpId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(317, 43)
-        Me.FNHSysCmpId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysCmpId_None.Name = "FNHSysCmpId_None"
-        Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
-        Me.FNHSysCmpId_None.Properties.ReadOnly = True
-        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(903, 22)
-        Me.FNHSysCmpId_None.TabIndex = 490
-        Me.FNHSysCmpId_None.Tag = ""
-        '
-        'FNHSysCmpId
-        '
-        Me.FNHSysCmpId.Location = New System.Drawing.Point(163, 43)
-        Me.FNHSysCmpId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysCmpId.Name = "FNHSysCmpId"
-        Me.FNHSysCmpId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FNHSysCmpId.Properties.ReadOnly = True
-        Me.FNHSysCmpId.Properties.Tag = ""
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(152, 22)
-        Me.FNHSysCmpId.TabIndex = 488
-        Me.FNHSysCmpId.Tag = ""
-        '
-        'FNHSysStyleId_None
-        '
-        Me.FNHSysStyleId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysStyleId_None.Location = New System.Drawing.Point(863, 72)
-        Me.FNHSysStyleId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysStyleId_None.Name = "FNHSysStyleId_None"
-        Me.FNHSysStyleId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysStyleId_None.Properties.Appearance.Options.UseBackColor = True
-        Me.FNHSysStyleId_None.Properties.ReadOnly = True
-        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(357, 22)
-        Me.FNHSysStyleId_None.TabIndex = 487
-        Me.FNHSysStyleId_None.Tag = "2|"
-        '
-        'FNHSysStyleId
-        '
-        Me.FNHSysStyleId.Enabled = False
-        Me.FNHSysStyleId.Location = New System.Drawing.Point(711, 72)
-        Me.FNHSysStyleId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysStyleId.Name = "FNHSysStyleId"
-        Me.FNHSysStyleId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysStyleId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysStyleId.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNHSysStyleId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FNHSysStyleId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FNHSysStyleId.Properties.ReadOnly = True
-        Me.FNHSysStyleId.Properties.Tag = ""
-        Me.FNHSysStyleId.Size = New System.Drawing.Size(152, 22)
-        Me.FNHSysStyleId.TabIndex = 486
-        Me.FNHSysStyleId.Tag = "2|"
-        '
-        'FNHSysStyleId_lbl
-        '
-        Me.FNHSysStyleId_lbl.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FNHSysStyleId_lbl.Appearance.Options.UseForeColor = True
-        Me.FNHSysStyleId_lbl.Appearance.Options.UseTextOptions = True
-        Me.FNHSysStyleId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FNHSysStyleId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysStyleId_lbl.Location = New System.Drawing.Point(538, 73)
-        Me.FNHSysStyleId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysStyleId_lbl.Name = "FNHSysStyleId_lbl"
-        Me.FNHSysStyleId_lbl.Size = New System.Drawing.Size(170, 22)
-        Me.FNHSysStyleId_lbl.TabIndex = 485
-        Me.FNHSysStyleId_lbl.Tag = "2|"
-        Me.FNHSysStyleId_lbl.Text = "FNHSysStyleId :"
-        '
-        'FTSMPOrderNo_lbl
-        '
-        Me.FTSMPOrderNo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTSMPOrderNo_lbl.Appearance.Options.UseForeColor = True
-        Me.FTSMPOrderNo_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTSMPOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTSMPOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSMPOrderNo_lbl.Location = New System.Drawing.Point(13, 76)
-        Me.FTSMPOrderNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTSMPOrderNo_lbl.Name = "FTSMPOrderNo_lbl"
-        Me.FTSMPOrderNo_lbl.Size = New System.Drawing.Size(148, 22)
-        Me.FTSMPOrderNo_lbl.TabIndex = 484
-        Me.FTSMPOrderNo_lbl.Tag = "2|"
-        Me.FTSMPOrderNo_lbl.Text = "FTOrderNo :"
-        '
-        'ogboperation
-        '
-        Me.ogboperation.Controls.Add(Me.ogbmainprocbutton)
-        Me.ogboperation.Controls.Add(Me.otxtabctrl)
-        Me.ogboperation.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogboperation.Location = New System.Drawing.Point(0, 141)
-        Me.ogboperation.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogboperation.Name = "ogboperation"
-        Me.ogboperation.ShowCaption = False
-        Me.ogboperation.Size = New System.Drawing.Size(1247, 661)
-        Me.ogboperation.TabIndex = 3
-        Me.ogboperation.Text = "Operation By Style"
         '
         'ogbmainprocbutton
         '
         Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmsplitbundle)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmdeletebound)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmbundlelaypreview)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmpreviewpacklist)
@@ -603,17 +399,28 @@ Partial Class wSMPProductionCutStatusBar
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmsave)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(-22, 414)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(63, 2)
         Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(874, 195)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(1107, 242)
         Me.ogbmainprocbutton.TabIndex = 302
         Me.ogbmainprocbutton.Tag = "2|"
+        '
+        'ocmsplitbundle
+        '
+        Me.ocmsplitbundle.Location = New System.Drawing.Point(632, 53)
+        Me.ocmsplitbundle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmsplitbundle.Name = "ocmsplitbundle"
+        Me.ocmsplitbundle.Size = New System.Drawing.Size(111, 31)
+        Me.ocmsplitbundle.TabIndex = 127
+        Me.ocmsplitbundle.TabStop = False
+        Me.ocmsplitbundle.Tag = "2|"
+        Me.ocmsplitbundle.Text = "ocmdeletebound"
         '
         'ocmdeletebound
         '
         Me.ocmdeletebound.Location = New System.Drawing.Point(804, 42)
-        Me.ocmdeletebound.Margin = New System.Windows.Forms.Padding(4)
+        Me.ocmdeletebound.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmdeletebound.Name = "ocmdeletebound"
         Me.ocmdeletebound.Size = New System.Drawing.Size(111, 31)
         Me.ocmdeletebound.TabIndex = 127
@@ -624,7 +431,7 @@ Partial Class wSMPProductionCutStatusBar
         'ocmbundlelaypreview
         '
         Me.ocmbundlelaypreview.Location = New System.Drawing.Point(789, 155)
-        Me.ocmbundlelaypreview.Margin = New System.Windows.Forms.Padding(4)
+        Me.ocmbundlelaypreview.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmbundlelaypreview.Name = "ocmbundlelaypreview"
         Me.ocmbundlelaypreview.Size = New System.Drawing.Size(148, 31)
         Me.ocmbundlelaypreview.TabIndex = 125
@@ -635,7 +442,7 @@ Partial Class wSMPProductionCutStatusBar
         'ocmpreviewpacklist
         '
         Me.ocmpreviewpacklist.Location = New System.Drawing.Point(632, 155)
-        Me.ocmpreviewpacklist.Margin = New System.Windows.Forms.Padding(4)
+        Me.ocmpreviewpacklist.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmpreviewpacklist.Name = "ocmpreviewpacklist"
         Me.ocmpreviewpacklist.Size = New System.Drawing.Size(150, 31)
         Me.ocmpreviewpacklist.TabIndex = 126
@@ -646,7 +453,7 @@ Partial Class wSMPProductionCutStatusBar
         'ocmpreviewbarcodewipselecta4
         '
         Me.ocmpreviewbarcodewipselecta4.Location = New System.Drawing.Point(427, 154)
-        Me.ocmpreviewbarcodewipselecta4.Margin = New System.Windows.Forms.Padding(4)
+        Me.ocmpreviewbarcodewipselecta4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmpreviewbarcodewipselecta4.Name = "ocmpreviewbarcodewipselecta4"
         Me.ocmpreviewbarcodewipselecta4.Size = New System.Drawing.Size(183, 31)
         Me.ocmpreviewbarcodewipselecta4.TabIndex = 124
@@ -657,7 +464,7 @@ Partial Class wSMPProductionCutStatusBar
         'ocmpreviewbarcodewipalla4
         '
         Me.ocmpreviewbarcodewipalla4.Location = New System.Drawing.Point(241, 154)
-        Me.ocmpreviewbarcodewipalla4.Margin = New System.Windows.Forms.Padding(4)
+        Me.ocmpreviewbarcodewipalla4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmpreviewbarcodewipalla4.Name = "ocmpreviewbarcodewipalla4"
         Me.ocmpreviewbarcodewipalla4.Size = New System.Drawing.Size(180, 31)
         Me.ocmpreviewbarcodewipalla4.TabIndex = 123
@@ -668,7 +475,7 @@ Partial Class wSMPProductionCutStatusBar
         'ocmpreviewbarcodewipselect
         '
         Me.ocmpreviewbarcodewipselect.Location = New System.Drawing.Point(136, 154)
-        Me.ocmpreviewbarcodewipselect.Margin = New System.Windows.Forms.Padding(4)
+        Me.ocmpreviewbarcodewipselect.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmpreviewbarcodewipselect.Name = "ocmpreviewbarcodewipselect"
         Me.ocmpreviewbarcodewipselect.Size = New System.Drawing.Size(99, 31)
         Me.ocmpreviewbarcodewipselect.TabIndex = 122
@@ -679,7 +486,7 @@ Partial Class wSMPProductionCutStatusBar
         'ocmpreviewbarcodewipall
         '
         Me.ocmpreviewbarcodewipall.Location = New System.Drawing.Point(27, 154)
-        Me.ocmpreviewbarcodewipall.Margin = New System.Windows.Forms.Padding(4)
+        Me.ocmpreviewbarcodewipall.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmpreviewbarcodewipall.Name = "ocmpreviewbarcodewipall"
         Me.ocmpreviewbarcodewipall.Size = New System.Drawing.Size(100, 31)
         Me.ocmpreviewbarcodewipall.TabIndex = 121
@@ -690,7 +497,7 @@ Partial Class wSMPProductionCutStatusBar
         'ocmsavesendsupl
         '
         Me.ocmsavesendsupl.Location = New System.Drawing.Point(177, 81)
-        Me.ocmsavesendsupl.Margin = New System.Windows.Forms.Padding(4)
+        Me.ocmsavesendsupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmsavesendsupl.Name = "ocmsavesendsupl"
         Me.ocmsavesendsupl.Size = New System.Drawing.Size(111, 31)
         Me.ocmsavesendsupl.TabIndex = 120
@@ -701,7 +508,7 @@ Partial Class wSMPProductionCutStatusBar
         'ocmcreatebound
         '
         Me.ocmcreatebound.Location = New System.Drawing.Point(348, 42)
-        Me.ocmcreatebound.Margin = New System.Windows.Forms.Padding(4)
+        Me.ocmcreatebound.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmcreatebound.Name = "ocmcreatebound"
         Me.ocmcreatebound.Size = New System.Drawing.Size(100, 31)
         Me.ocmcreatebound.TabIndex = 119
@@ -712,7 +519,7 @@ Partial Class wSMPProductionCutStatusBar
         'ocmgeneratebarcodewip
         '
         Me.ocmgeneratebarcodewip.Location = New System.Drawing.Point(31, 81)
-        Me.ocmgeneratebarcodewip.Margin = New System.Windows.Forms.Padding(4)
+        Me.ocmgeneratebarcodewip.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmgeneratebarcodewip.Name = "ocmgeneratebarcodewip"
         Me.ocmgeneratebarcodewip.Size = New System.Drawing.Size(100, 31)
         Me.ocmgeneratebarcodewip.TabIndex = 119
@@ -756,7 +563,7 @@ Partial Class wSMPProductionCutStatusBar
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(742, 14)
+        Me.ocmexit.Location = New System.Drawing.Point(975, 14)
         Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmexit.Name = "ocmexit"
         Me.ocmexit.Size = New System.Drawing.Size(111, 31)
@@ -787,13 +594,220 @@ Partial Class wSMPProductionCutStatusBar
         Me.ocmsave.Tag = "2|"
         Me.ocmsave.Text = "SAVE"
         '
+        'FDSMPOrderDate_lbl
+        '
+        Me.FDSMPOrderDate_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FDSMPOrderDate_lbl.Appearance.Options.UseForeColor = True
+        Me.FDSMPOrderDate_lbl.Appearance.Options.UseTextOptions = True
+        Me.FDSMPOrderDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FDSMPOrderDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FDSMPOrderDate_lbl.Location = New System.Drawing.Point(318, 71)
+        Me.FDSMPOrderDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDSMPOrderDate_lbl.Name = "FDSMPOrderDate_lbl"
+        Me.FDSMPOrderDate_lbl.Size = New System.Drawing.Size(122, 23)
+        Me.FDSMPOrderDate_lbl.TabIndex = 496
+        Me.FDSMPOrderDate_lbl.Tag = "2|"
+        Me.FDSMPOrderDate_lbl.Text = "Order Date :"
+        '
+        'FDSMPOrderDate
+        '
+        Me.FDSMPOrderDate.Location = New System.Drawing.Point(443, 71)
+        Me.FDSMPOrderDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDSMPOrderDate.Name = "FDSMPOrderDate"
+        Me.FDSMPOrderDate.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
+        Me.FDSMPOrderDate.Properties.Appearance.Options.UseBackColor = True
+        Me.FDSMPOrderDate.Properties.Appearance.Options.UseTextOptions = True
+        Me.FDSMPOrderDate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FDSMPOrderDate.Properties.ReadOnly = True
+        Me.FDSMPOrderDate.Size = New System.Drawing.Size(87, 23)
+        Me.FDSMPOrderDate.TabIndex = 495
+        Me.FDSMPOrderDate.Tag = "2|"
+        '
+        'FNHSysCustId_None
+        '
+        Me.FNHSysCustId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FNHSysCustId_None.Location = New System.Drawing.Point(316, 100)
+        Me.FNHSysCustId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCustId_None.Name = "FNHSysCustId_None"
+        Me.FNHSysCustId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysCustId_None.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysCustId_None.Properties.ReadOnly = True
+        Me.FNHSysCustId_None.Size = New System.Drawing.Size(904, 23)
+        Me.FNHSysCustId_None.TabIndex = 494
+        Me.FNHSysCustId_None.Tag = "2|"
+        '
+        'FNHSysCustId
+        '
+        Me.FNHSysCustId.Enabled = False
+        Me.FNHSysCustId.Location = New System.Drawing.Point(163, 100)
+        Me.FNHSysCustId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCustId.Name = "FNHSysCustId"
+        Me.FNHSysCustId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysCustId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysCustId.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNHSysCustId.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCustId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.FNHSysCustId.Properties.ReadOnly = True
+        Me.FNHSysCustId.Properties.Tag = ""
+        Me.FNHSysCustId.Size = New System.Drawing.Size(152, 23)
+        Me.FNHSysCustId.TabIndex = 493
+        Me.FNHSysCustId.Tag = "2|"
+        '
+        'FNHSysCustId_lbl
+        '
+        Me.FNHSysCustId_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNHSysCustId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysCustId_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNHSysCustId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNHSysCustId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNHSysCustId_lbl.Location = New System.Drawing.Point(34, 100)
+        Me.FNHSysCustId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCustId_lbl.Name = "FNHSysCustId_lbl"
+        Me.FNHSysCustId_lbl.Size = New System.Drawing.Size(122, 23)
+        Me.FNHSysCustId_lbl.TabIndex = 492
+        Me.FNHSysCustId_lbl.Tag = "2|"
+        Me.FNHSysCustId_lbl.Text = "FNHSysCustId :"
+        '
+        'FTSMPOrderNo
+        '
+        Me.FTSMPOrderNo.Location = New System.Drawing.Point(163, 71)
+        Me.FTSMPOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSMPOrderNo.Name = "FTSMPOrderNo"
+        Me.FTSMPOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "568", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSMPOrderNo.Properties.Tag = ""
+        Me.FTSMPOrderNo.Size = New System.Drawing.Size(152, 23)
+        Me.FTSMPOrderNo.TabIndex = 491
+        Me.FTSMPOrderNo.Tag = "2|"
+        '
+        'FNHSysCmpId_lbl
+        '
+        Me.FNHSysCmpId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysCmpId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysCmpId_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNHSysCmpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNHSysCmpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNHSysCmpId_lbl.Location = New System.Drawing.Point(35, 43)
+        Me.FNHSysCmpId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpId_lbl.Name = "FNHSysCmpId_lbl"
+        Me.FNHSysCmpId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysCmpId_lbl.TabIndex = 489
+        Me.FNHSysCmpId_lbl.Tag = "2|"
+        Me.FNHSysCmpId_lbl.Text = "Company :"
+        '
+        'FNHSysCmpId_None
+        '
+        Me.FNHSysCmpId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(317, 43)
+        Me.FNHSysCmpId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpId_None.Name = "FNHSysCmpId_None"
+        Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysCmpId_None.Properties.ReadOnly = True
+        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(903, 23)
+        Me.FNHSysCmpId_None.TabIndex = 490
+        Me.FNHSysCmpId_None.Tag = ""
+        '
+        'FNHSysCmpId
+        '
+        Me.FNHSysCmpId.Location = New System.Drawing.Point(163, 43)
+        Me.FNHSysCmpId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpId.Name = "FNHSysCmpId"
+        Me.FNHSysCmpId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCmpId.Properties.ReadOnly = True
+        Me.FNHSysCmpId.Properties.Tag = ""
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(152, 23)
+        Me.FNHSysCmpId.TabIndex = 488
+        Me.FNHSysCmpId.Tag = ""
+        '
+        'FNHSysStyleId_None
+        '
+        Me.FNHSysStyleId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FNHSysStyleId_None.Location = New System.Drawing.Point(863, 71)
+        Me.FNHSysStyleId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysStyleId_None.Name = "FNHSysStyleId_None"
+        Me.FNHSysStyleId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysStyleId_None.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysStyleId_None.Properties.ReadOnly = True
+        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(357, 23)
+        Me.FNHSysStyleId_None.TabIndex = 487
+        Me.FNHSysStyleId_None.Tag = "2|"
+        '
+        'FNHSysStyleId
+        '
+        Me.FNHSysStyleId.Enabled = False
+        Me.FNHSysStyleId.Location = New System.Drawing.Point(710, 71)
+        Me.FNHSysStyleId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysStyleId.Name = "FNHSysStyleId"
+        Me.FNHSysStyleId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysStyleId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysStyleId.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNHSysStyleId.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.FNHSysStyleId.Properties.ReadOnly = True
+        Me.FNHSysStyleId.Properties.Tag = ""
+        Me.FNHSysStyleId.Size = New System.Drawing.Size(152, 23)
+        Me.FNHSysStyleId.TabIndex = 486
+        Me.FNHSysStyleId.Tag = "2|"
+        '
+        'FNHSysStyleId_lbl
+        '
+        Me.FNHSysStyleId_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNHSysStyleId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysStyleId_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNHSysStyleId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNHSysStyleId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNHSysStyleId_lbl.Location = New System.Drawing.Point(538, 73)
+        Me.FNHSysStyleId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysStyleId_lbl.Name = "FNHSysStyleId_lbl"
+        Me.FNHSysStyleId_lbl.Size = New System.Drawing.Size(170, 22)
+        Me.FNHSysStyleId_lbl.TabIndex = 485
+        Me.FNHSysStyleId_lbl.Tag = "2|"
+        Me.FNHSysStyleId_lbl.Text = "FNHSysStyleId :"
+        '
+        'FTSMPOrderNo_lbl
+        '
+        Me.FTSMPOrderNo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTSMPOrderNo_lbl.Appearance.Options.UseForeColor = True
+        Me.FTSMPOrderNo_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTSMPOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTSMPOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTSMPOrderNo_lbl.Location = New System.Drawing.Point(13, 76)
+        Me.FTSMPOrderNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSMPOrderNo_lbl.Name = "FTSMPOrderNo_lbl"
+        Me.FTSMPOrderNo_lbl.Size = New System.Drawing.Size(148, 22)
+        Me.FTSMPOrderNo_lbl.TabIndex = 484
+        Me.FTSMPOrderNo_lbl.Tag = "2|"
+        Me.FTSMPOrderNo_lbl.Text = "FTOrderNo :"
+        '
+        'ogboperation
+        '
+        Me.ogboperation.Controls.Add(Me.otxtabctrl)
+        Me.ogboperation.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogboperation.Location = New System.Drawing.Point(0, 142)
+        Me.ogboperation.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogboperation.Name = "ogboperation"
+        Me.ogboperation.ShowCaption = False
+        Me.ogboperation.Size = New System.Drawing.Size(1247, 720)
+        Me.ogboperation.TabIndex = 3
+        Me.ogboperation.Text = "Operation By Style"
+        '
         'otxtabctrl
         '
         Me.otxtabctrl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.otxtabctrl.Location = New System.Drawing.Point(2, 2)
+        Me.otxtabctrl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otxtabctrl.Name = "otxtabctrl"
         Me.otxtabctrl.SelectedTabPage = Me.otpcut
-        Me.otxtabctrl.Size = New System.Drawing.Size(1243, 657)
+        Me.otxtabctrl.Size = New System.Drawing.Size(1243, 716)
         Me.otxtabctrl.TabIndex = 100003
         Me.otxtabctrl.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpcut, Me.otbsendsupl, Me.XtraTabBarcode})
         '
@@ -801,8 +815,9 @@ Partial Class wSMPProductionCutStatusBar
         '
         Me.otpcut.Controls.Add(Me.GroupControl1)
         Me.otpcut.Controls.Add(Me.ogborderprod)
+        Me.otpcut.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpcut.Name = "otpcut"
-        Me.otpcut.Size = New System.Drawing.Size(1241, 627)
+        Me.otpcut.Size = New System.Drawing.Size(1233, 679)
         Me.otpcut.Text = "รายละเอียดงานตัด"
         '
         'GroupControl1
@@ -813,7 +828,7 @@ Partial Class wSMPProductionCutStatusBar
         Me.GroupControl1.Location = New System.Drawing.Point(0, 176)
         Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(1241, 451)
+        Me.GroupControl1.Size = New System.Drawing.Size(1233, 503)
         Me.GroupControl1.TabIndex = 306
         Me.GroupControl1.Text = "Breakdown Detail"
         '
@@ -904,12 +919,12 @@ Partial Class wSMPProductionCutStatusBar
         '
         Me.ogcoperation.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcoperation.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcoperation.Location = New System.Drawing.Point(2, 28)
+        Me.ogcoperation.Location = New System.Drawing.Point(2, 27)
         Me.ogcoperation.MainView = Me.ogvoperation
         Me.ogcoperation.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcoperation.Name = "ogcoperation"
         Me.ogcoperation.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.ReposFNHSysOperationId, Me.ReposFNOperationState, Me.ReposFNHSysMarkId, Me.ReposFNHSysOperationIdTo, Me.ReposFNPrice, Me.RepFTRemark, Me.RepositoryFTSizeBreakDown, Me.ReposEmp})
-        Me.ogcoperation.Size = New System.Drawing.Size(1237, 421)
+        Me.ogcoperation.Size = New System.Drawing.Size(1229, 474)
         Me.ogcoperation.TabIndex = 301
         Me.ogcoperation.TabStop = False
         Me.ogcoperation.Tag = "3|"
@@ -1088,7 +1103,7 @@ Partial Class wSMPProductionCutStatusBar
         Me.CFTEmpName.OptionsColumn.AllowMove = False
         Me.CFTEmpName.Visible = True
         Me.CFTEmpName.VisibleIndex = 7
-        Me.CFTEmpName.Width = 242
+        Me.CFTEmpName.Width = 241
         '
         'ReposEmp
         '
@@ -1110,7 +1125,7 @@ Partial Class wSMPProductionCutStatusBar
         Me.CFTRemark.OptionsColumn.ShowInCustomizationForm = False
         Me.CFTRemark.Visible = True
         Me.CFTRemark.VisibleIndex = 8
-        Me.CFTRemark.Width = 599
+        Me.CFTRemark.Width = 598
         '
         'RepFTRemark
         '
@@ -1136,7 +1151,7 @@ Partial Class wSMPProductionCutStatusBar
         Me.cFNBundleQty.DisplayFormat.FormatString = "N0"
         Me.cFNBundleQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.cFNBundleQty.FieldName = "FNBundleQty"
-        Me.cFNBundleQty.MinWidth = 25
+        Me.cFNBundleQty.MinWidth = 24
         Me.cFNBundleQty.Name = "cFNBundleQty"
         Me.cFNBundleQty.OptionsColumn.AllowEdit = False
         Me.cFNBundleQty.Visible = True
@@ -1168,7 +1183,7 @@ Partial Class wSMPProductionCutStatusBar
         Me.ogborderprod.Location = New System.Drawing.Point(0, 0)
         Me.ogborderprod.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogborderprod.Name = "ogborderprod"
-        Me.ogborderprod.Size = New System.Drawing.Size(1241, 176)
+        Me.ogborderprod.Size = New System.Drawing.Size(1233, 176)
         Me.ogborderprod.TabIndex = 305
         Me.ogborderprod.Text = "Breakdown Detail"
         '
@@ -1176,12 +1191,12 @@ Partial Class wSMPProductionCutStatusBar
         '
         Me.ogdBreakdown.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogdBreakdown.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogdBreakdown.Location = New System.Drawing.Point(2, 28)
+        Me.ogdBreakdown.Location = New System.Drawing.Point(2, 27)
         Me.ogdBreakdown.MainView = Me.ogvBreakdown
         Me.ogdBreakdown.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdBreakdown.Name = "ogdBreakdown"
         Me.ogdBreakdown.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepFTSelect, Me.RepFNQuantity, Me.RepFTColorway, Me.RepFTDeliveryDate, Me.RepositoryItemTextEdit1})
-        Me.ogdBreakdown.Size = New System.Drawing.Size(1237, 146)
+        Me.ogdBreakdown.Size = New System.Drawing.Size(1229, 147)
         Me.ogdBreakdown.TabIndex = 528
         Me.ogdBreakdown.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvBreakdown})
         '
@@ -1346,8 +1361,9 @@ Partial Class wSMPProductionCutStatusBar
         'otbsendsupl
         '
         Me.otbsendsupl.Controls.Add(Me.ogbsendsupl)
+        Me.otbsendsupl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otbsendsupl.Name = "otbsendsupl"
-        Me.otbsendsupl.Size = New System.Drawing.Size(1241, 627)
+        Me.otbsendsupl.Size = New System.Drawing.Size(1241, 676)
         Me.otbsendsupl.Text = "ข้อมูลผู้รับเหมาช่วง"
         '
         'ogbsendsupl
@@ -1355,30 +1371,209 @@ Partial Class wSMPProductionCutStatusBar
         Me.ogbsendsupl.Controls.Add(Me.XtraTabControl1)
         Me.ogbsendsupl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbsendsupl.Location = New System.Drawing.Point(0, 0)
-        Me.ogbsendsupl.Margin = New System.Windows.Forms.Padding(4)
+        Me.ogbsendsupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbsendsupl.Name = "ogbsendsupl"
-        Me.ogbsendsupl.Size = New System.Drawing.Size(1241, 627)
+        Me.ogbsendsupl.Size = New System.Drawing.Size(1241, 676)
         Me.ogbsendsupl.TabIndex = 430
         Me.ogbsendsupl.Text = "รายละเอียดส่งงานนอก"
         '
         'XtraTabControl1
         '
         Me.XtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.XtraTabControl1.Location = New System.Drawing.Point(2, 28)
-        Me.XtraTabControl1.Margin = New System.Windows.Forms.Padding(4)
+        Me.XtraTabControl1.Location = New System.Drawing.Point(2, 27)
+        Me.XtraTabControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.XtraTabControl1.Name = "XtraTabControl1"
-        Me.XtraTabControl1.SelectedTabPage = Me.XtraTabPage2
-        Me.XtraTabControl1.Size = New System.Drawing.Size(1237, 597)
+        Me.XtraTabControl1.SelectedTabPage = Me.XtraTabPage1
+        Me.XtraTabControl1.Size = New System.Drawing.Size(1237, 647)
         Me.XtraTabControl1.TabIndex = 309
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage1, Me.XtraTabPage2})
+        '
+        'XtraTabPage1
+        '
+        Me.XtraTabPage1.Controls.Add(Me.ogcbundle)
+        Me.XtraTabPage1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.XtraTabPage1.Name = "XtraTabPage1"
+        Me.XtraTabPage1.Size = New System.Drawing.Size(1227, 610)
+        Me.XtraTabPage1.Text = "Barcode ใบกำกับมัดงาน"
+        '
+        'ogcbundle
+        '
+        Me.ogcbundle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcbundle.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcbundle.Location = New System.Drawing.Point(0, 0)
+        Me.ogcbundle.MainView = Me.ogvbundle
+        Me.ogcbundle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcbundle.Name = "ogcbundle"
+        Me.ogcbundle.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit1, Me.RepositoryItemLookUpEdit1, Me.RepositoryItemCheckEdit5})
+        Me.ogcbundle.Size = New System.Drawing.Size(1227, 610)
+        Me.ogcbundle.TabIndex = 308
+        Me.ogcbundle.TabStop = False
+        Me.ogcbundle.Tag = "3|"
+        Me.ogcbundle.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvbundle})
+        '
+        'ogvbundle
+        '
+        Me.ogvbundle.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn9, Me.GridColumn10, Me.GridColumn11, Me.GridColumn12, Me.GridColumn13, Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17})
+        Me.ogvbundle.GridControl = Me.ogcbundle
+        Me.ogvbundle.Name = "ogvbundle"
+        Me.ogvbundle.OptionsCustomization.AllowGroup = False
+        Me.ogvbundle.OptionsCustomization.AllowQuickHideColumns = False
+        Me.ogvbundle.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect
+        Me.ogvbundle.OptionsView.ColumnAutoWidth = False
+        Me.ogvbundle.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
+        Me.ogvbundle.OptionsView.ShowGroupPanel = False
+        Me.ogvbundle.Tag = "2|"
+        '
+        'GridColumn9
+        '
+        Me.GridColumn9.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn9.Caption = "FTSelect"
+        Me.GridColumn9.ColumnEdit = Me.RepositoryItemCheckEdit5
+        Me.GridColumn9.FieldName = "FTSelect"
+        Me.GridColumn9.Name = "GridColumn9"
+        Me.GridColumn9.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridColumn9.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridColumn9.OptionsColumn.AllowMove = False
+        Me.GridColumn9.OptionsColumn.AllowShowHide = False
+        Me.GridColumn9.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridColumn9.Visible = True
+        Me.GridColumn9.VisibleIndex = 0
+        Me.GridColumn9.Width = 41
+        '
+        'RepositoryItemCheckEdit5
+        '
+        Me.RepositoryItemCheckEdit5.AutoHeight = False
+        Me.RepositoryItemCheckEdit5.Caption = "Check"
+        Me.RepositoryItemCheckEdit5.Name = "RepositoryItemCheckEdit5"
+        Me.RepositoryItemCheckEdit5.ValueChecked = "1"
+        Me.RepositoryItemCheckEdit5.ValueUnchecked = "0"
+        '
+        'GridColumn10
+        '
+        Me.GridColumn10.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn10.Caption = "FTBarcodeBundleNo"
+        Me.GridColumn10.FieldName = "FTBarcodeBundleNo"
+        Me.GridColumn10.Name = "GridColumn10"
+        Me.GridColumn10.OptionsColumn.AllowEdit = False
+        Me.GridColumn10.OptionsColumn.ReadOnly = True
+        Me.GridColumn10.Width = 170
+        '
+        'GridColumn11
+        '
+        Me.GridColumn11.AppearanceCell.Options.UseTextOptions = True
+        Me.GridColumn11.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.GridColumn11.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn11.Caption = "FNBunbleSeq"
+        Me.GridColumn11.DisplayFormat.FormatString = "{0:n0}"
+        Me.GridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn11.FieldName = "FNBunbleSeq"
+        Me.GridColumn11.Name = "GridColumn11"
+        Me.GridColumn11.OptionsColumn.AllowEdit = False
+        Me.GridColumn11.OptionsColumn.ReadOnly = True
+        Me.GridColumn11.Visible = True
+        Me.GridColumn11.VisibleIndex = 1
+        Me.GridColumn11.Width = 97
+        '
+        'GridColumn12
+        '
+        Me.GridColumn12.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn12.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn12.Caption = "FTColorway"
+        Me.GridColumn12.FieldName = "FTColorway"
+        Me.GridColumn12.Name = "GridColumn12"
+        Me.GridColumn12.OptionsColumn.AllowEdit = False
+        Me.GridColumn12.OptionsColumn.ReadOnly = True
+        Me.GridColumn12.Visible = True
+        Me.GridColumn12.VisibleIndex = 2
+        '
+        'GridColumn13
+        '
+        Me.GridColumn13.Caption = "PO Line No"
+        Me.GridColumn13.FieldName = "FTPOLineItemNo"
+        Me.GridColumn13.Name = "GridColumn13"
+        Me.GridColumn13.OptionsColumn.AllowEdit = False
+        Me.GridColumn13.OptionsColumn.ReadOnly = True
+        Me.GridColumn13.Visible = True
+        Me.GridColumn13.VisibleIndex = 3
+        '
+        'GridColumn14
+        '
+        Me.GridColumn14.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn14.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn14.Caption = "FTSizeBreakDown"
+        Me.GridColumn14.FieldName = "FTSizeBreakDown"
+        Me.GridColumn14.Name = "GridColumn14"
+        Me.GridColumn14.OptionsColumn.AllowEdit = False
+        Me.GridColumn14.OptionsColumn.ReadOnly = True
+        Me.GridColumn14.Visible = True
+        Me.GridColumn14.VisibleIndex = 4
+        Me.GridColumn14.Width = 86
+        '
+        'GridColumn15
+        '
+        Me.GridColumn15.AppearanceCell.Options.UseTextOptions = True
+        Me.GridColumn15.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.GridColumn15.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn15.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn15.Caption = "FNQuantity"
+        Me.GridColumn15.DisplayFormat.FormatString = "{0:n0}"
+        Me.GridColumn15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn15.FieldName = "FNQuantity"
+        Me.GridColumn15.Name = "GridColumn15"
+        Me.GridColumn15.OptionsColumn.AllowEdit = False
+        Me.GridColumn15.OptionsColumn.ReadOnly = True
+        Me.GridColumn15.Visible = True
+        Me.GridColumn15.VisibleIndex = 5
+        Me.GridColumn15.Width = 103
+        '
+        'GridColumn16
+        '
+        Me.GridColumn16.Caption = "Mark Name"
+        Me.GridColumn16.FieldName = "FTMarkName"
+        Me.GridColumn16.Name = "GridColumn16"
+        Me.GridColumn16.OptionsColumn.AllowEdit = False
+        Me.GridColumn16.OptionsColumn.ReadOnly = True
+        Me.GridColumn16.Visible = True
+        Me.GridColumn16.VisibleIndex = 6
+        Me.GridColumn16.Width = 129
+        '
+        'GridColumn17
+        '
+        Me.GridColumn17.Caption = "FTStateChange"
+        Me.GridColumn17.FieldName = "FTStateChange"
+        Me.GridColumn17.MinWidth = 23
+        Me.GridColumn17.Name = "GridColumn17"
+        '
+        'RepositoryItemCalcEdit1
+        '
+        Me.RepositoryItemCalcEdit1.AutoHeight = False
+        Me.RepositoryItemCalcEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit1.DisplayFormat.FormatString = "{0:n0}"
+        Me.RepositoryItemCalcEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEdit1.EditFormat.FormatString = "{0:n0}"
+        Me.RepositoryItemCalcEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEdit1.Name = "RepositoryItemCalcEdit1"
+        Me.RepositoryItemCalcEdit1.Precision = 0
+        '
+        'RepositoryItemLookUpEdit1
+        '
+        Me.RepositoryItemLookUpEdit1.AutoHeight = False
+        Me.RepositoryItemLookUpEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemLookUpEdit1.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FTSizeBreakDown", "FTSizeBreakDown"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FNMatSizeSeq", "FNMatSizeSeq", 20, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
+        Me.RepositoryItemLookUpEdit1.DisplayMember = "FTSizeBreakDown"
+        Me.RepositoryItemLookUpEdit1.Name = "RepositoryItemLookUpEdit1"
+        Me.RepositoryItemLookUpEdit1.ValueMember = "FTSizeBreakDown"
         '
         'XtraTabPage2
         '
         Me.XtraTabPage2.Controls.Add(Me.PopupFNBundle)
         Me.XtraTabPage2.Controls.Add(Me.ogcsendsupl)
-        Me.XtraTabPage2.Margin = New System.Windows.Forms.Padding(4)
+        Me.XtraTabPage2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(1235, 567)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(1235, 615)
         Me.XtraTabPage2.Text = "ข้อมูลผู้รับเหมาช่วง"
         '
         'PopupFNBundle
@@ -1391,30 +1586,30 @@ Partial Class wSMPProductionCutStatusBar
         Me.PopupFNBundle.Controls.Add(Me.FNEndBundle)
         Me.PopupFNBundle.Controls.Add(Me.FNStartBundle)
         Me.PopupFNBundle.Controls.Add(Me.ogcselectbundle)
-        Me.PopupFNBundle.Location = New System.Drawing.Point(156, 66)
-        Me.PopupFNBundle.Margin = New System.Windows.Forms.Padding(4)
+        Me.PopupFNBundle.Location = New System.Drawing.Point(307, 129)
+        Me.PopupFNBundle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PopupFNBundle.Name = "PopupFNBundle"
-        Me.PopupFNBundle.Size = New System.Drawing.Size(316, 395)
+        Me.PopupFNBundle.Size = New System.Drawing.Size(618, 770)
         Me.PopupFNBundle.TabIndex = 307
         '
         'ockselectsendall
         '
         Me.ockselectsendall.Location = New System.Drawing.Point(27, 34)
-        Me.ockselectsendall.Margin = New System.Windows.Forms.Padding(4)
+        Me.ockselectsendall.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ockselectsendall.Name = "ockselectsendall"
         Me.ockselectsendall.Properties.Appearance.Options.UseTextOptions = True
         Me.ockselectsendall.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.ockselectsendall.Properties.Caption = "เลือกทั้งหมด"
         Me.ockselectsendall.Properties.ValueChecked = "1"
         Me.ockselectsendall.Properties.ValueUnchecked = "0"
-        Me.ockselectsendall.Size = New System.Drawing.Size(170, 24)
+        Me.ockselectsendall.Size = New System.Drawing.Size(170, 21)
         Me.ockselectsendall.TabIndex = 427
         Me.ockselectsendall.Tag = "2|"
         '
         'ocmdeselect
         '
         Me.ocmdeselect.Location = New System.Drawing.Point(233, 32)
-        Me.ocmdeselect.Margin = New System.Windows.Forms.Padding(4)
+        Me.ocmdeselect.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmdeselect.Name = "ocmdeselect"
         Me.ocmdeselect.Size = New System.Drawing.Size(68, 25)
         Me.ocmdeselect.TabIndex = 426
@@ -1430,7 +1625,7 @@ Partial Class wSMPProductionCutStatusBar
         Me.LabelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.LabelControl2.Location = New System.Drawing.Point(136, 9)
-        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(4)
+        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(40, 22)
         Me.LabelControl2.TabIndex = 425
@@ -1445,7 +1640,7 @@ Partial Class wSMPProductionCutStatusBar
         Me.olbselect.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.olbselect.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.olbselect.Location = New System.Drawing.Point(7, 10)
-        Me.olbselect.Margin = New System.Windows.Forms.Padding(4)
+        Me.olbselect.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.olbselect.Name = "olbselect"
         Me.olbselect.Size = New System.Drawing.Size(68, 22)
         Me.olbselect.TabIndex = 424
@@ -1455,7 +1650,7 @@ Partial Class wSMPProductionCutStatusBar
         'ocmselect
         '
         Me.ocmselect.Location = New System.Drawing.Point(232, 6)
-        Me.ocmselect.Margin = New System.Windows.Forms.Padding(4)
+        Me.ocmselect.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmselect.Name = "ocmselect"
         Me.ocmselect.Size = New System.Drawing.Size(69, 25)
         Me.ocmselect.TabIndex = 311
@@ -1467,7 +1662,7 @@ Partial Class wSMPProductionCutStatusBar
         '
         Me.FNEndBundle.EnterMoveNextControl = True
         Me.FNEndBundle.Location = New System.Drawing.Point(177, 7)
-        Me.FNEndBundle.Margin = New System.Windows.Forms.Padding(4)
+        Me.FNEndBundle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNEndBundle.Name = "FNEndBundle"
         Me.FNEndBundle.Properties.Appearance.Options.UseTextOptions = True
         Me.FNEndBundle.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -1482,7 +1677,7 @@ Partial Class wSMPProductionCutStatusBar
         Me.FNEndBundle.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNEndBundle.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNEndBundle.Properties.Precision = 0
-        Me.FNEndBundle.Size = New System.Drawing.Size(48, 22)
+        Me.FNEndBundle.Size = New System.Drawing.Size(48, 23)
         Me.FNEndBundle.TabIndex = 310
         Me.FNEndBundle.Tag = "2|"
         '
@@ -1490,7 +1685,7 @@ Partial Class wSMPProductionCutStatusBar
         '
         Me.FNStartBundle.EnterMoveNextControl = True
         Me.FNStartBundle.Location = New System.Drawing.Point(79, 7)
-        Me.FNStartBundle.Margin = New System.Windows.Forms.Padding(4)
+        Me.FNStartBundle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNStartBundle.Name = "FNStartBundle"
         Me.FNStartBundle.Properties.Appearance.Options.UseTextOptions = True
         Me.FNStartBundle.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -1505,7 +1700,7 @@ Partial Class wSMPProductionCutStatusBar
         Me.FNStartBundle.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNStartBundle.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNStartBundle.Properties.Precision = 0
-        Me.FNStartBundle.Size = New System.Drawing.Size(50, 22)
+        Me.FNStartBundle.Size = New System.Drawing.Size(50, 23)
         Me.FNStartBundle.TabIndex = 309
         Me.FNStartBundle.Tag = "2|"
         '
@@ -1514,13 +1709,13 @@ Partial Class wSMPProductionCutStatusBar
         Me.ogcselectbundle.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogcselectbundle.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(4)
+        Me.ogcselectbundle.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcselectbundle.Location = New System.Drawing.Point(2, 58)
         Me.ogcselectbundle.MainView = Me.ogvselectbundle
-        Me.ogcselectbundle.Margin = New System.Windows.Forms.Padding(4)
+        Me.ogcselectbundle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcselectbundle.Name = "ogcselectbundle"
         Me.ogcselectbundle.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit4})
-        Me.ogcselectbundle.Size = New System.Drawing.Size(309, 337)
+        Me.ogcselectbundle.Size = New System.Drawing.Size(362, 425)
         Me.ogcselectbundle.TabIndex = 308
         Me.ogcselectbundle.TabStop = False
         Me.ogcselectbundle.Tag = "3|"
@@ -1587,13 +1782,13 @@ Partial Class wSMPProductionCutStatusBar
         'ogcsendsupl
         '
         Me.ogcsendsupl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogcsendsupl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(4)
+        Me.ogcsendsupl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsendsupl.Location = New System.Drawing.Point(0, 0)
         Me.ogcsendsupl.MainView = Me.ogvsendsupl
-        Me.ogcsendsupl.Margin = New System.Windows.Forms.Padding(4)
+        Me.ogcsendsupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsendsupl.Name = "ogcsendsupl"
         Me.ogcsendsupl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepFTPartName, Me.RepFTSuplName, Me.RepFTOperationNameS, Me.RepFTOperationNameT, Me.RepGSFNQuantity})
-        Me.ogcsendsupl.Size = New System.Drawing.Size(1235, 567)
+        Me.ogcsendsupl.Size = New System.Drawing.Size(1235, 615)
         Me.ogcsendsupl.TabIndex = 306
         Me.ogcsendsupl.TabStop = False
         Me.ogcsendsupl.Tag = "3|"
@@ -1869,190 +2064,12 @@ Partial Class wSMPProductionCutStatusBar
         Me.FTSendSuplRef.Name = "FTSendSuplRef"
         Me.FTSendSuplRef.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         '
-        'XtraTabPage1
-        '
-        Me.XtraTabPage1.Controls.Add(Me.ogcbundle)
-        Me.XtraTabPage1.Margin = New System.Windows.Forms.Padding(4)
-        Me.XtraTabPage1.Name = "XtraTabPage1"
-        Me.XtraTabPage1.Size = New System.Drawing.Size(1235, 567)
-        Me.XtraTabPage1.Text = "Barcode ใบกำกับมัดงาน"
-        '
-        'ogcbundle
-        '
-        Me.ogcbundle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogcbundle.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(4)
-        Me.ogcbundle.Location = New System.Drawing.Point(0, 0)
-        Me.ogcbundle.MainView = Me.ogvbundle
-        Me.ogcbundle.Margin = New System.Windows.Forms.Padding(4)
-        Me.ogcbundle.Name = "ogcbundle"
-        Me.ogcbundle.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit1, Me.RepositoryItemLookUpEdit1, Me.RepositoryItemCheckEdit5})
-        Me.ogcbundle.Size = New System.Drawing.Size(1235, 567)
-        Me.ogcbundle.TabIndex = 308
-        Me.ogcbundle.TabStop = False
-        Me.ogcbundle.Tag = "3|"
-        Me.ogcbundle.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvbundle})
-        '
-        'ogvbundle
-        '
-        Me.ogvbundle.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn9, Me.GridColumn10, Me.GridColumn11, Me.GridColumn12, Me.GridColumn13, Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17})
-        Me.ogvbundle.GridControl = Me.ogcbundle
-        Me.ogvbundle.Name = "ogvbundle"
-        Me.ogvbundle.OptionsCustomization.AllowGroup = False
-        Me.ogvbundle.OptionsCustomization.AllowQuickHideColumns = False
-        Me.ogvbundle.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect
-        Me.ogvbundle.OptionsView.ColumnAutoWidth = False
-        Me.ogvbundle.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
-        Me.ogvbundle.OptionsView.ShowGroupPanel = False
-        Me.ogvbundle.Tag = "2|"
-        '
-        'GridColumn9
-        '
-        Me.GridColumn9.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn9.Caption = "FTSelect"
-        Me.GridColumn9.ColumnEdit = Me.RepositoryItemCheckEdit5
-        Me.GridColumn9.FieldName = "FTSelect"
-        Me.GridColumn9.Name = "GridColumn9"
-        Me.GridColumn9.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn9.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn9.OptionsColumn.AllowMove = False
-        Me.GridColumn9.OptionsColumn.AllowShowHide = False
-        Me.GridColumn9.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn9.Visible = True
-        Me.GridColumn9.VisibleIndex = 0
-        Me.GridColumn9.Width = 41
-        '
-        'RepositoryItemCheckEdit5
-        '
-        Me.RepositoryItemCheckEdit5.AutoHeight = False
-        Me.RepositoryItemCheckEdit5.Caption = "Check"
-        Me.RepositoryItemCheckEdit5.Name = "RepositoryItemCheckEdit5"
-        Me.RepositoryItemCheckEdit5.ValueChecked = "1"
-        Me.RepositoryItemCheckEdit5.ValueUnchecked = "0"
-        '
-        'GridColumn10
-        '
-        Me.GridColumn10.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn10.Caption = "FTBarcodeBundleNo"
-        Me.GridColumn10.FieldName = "FTBarcodeBundleNo"
-        Me.GridColumn10.Name = "GridColumn10"
-        Me.GridColumn10.OptionsColumn.AllowEdit = False
-        Me.GridColumn10.OptionsColumn.ReadOnly = True
-        Me.GridColumn10.Width = 170
-        '
-        'GridColumn11
-        '
-        Me.GridColumn11.AppearanceCell.Options.UseTextOptions = True
-        Me.GridColumn11.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.GridColumn11.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn11.Caption = "FNBunbleSeq"
-        Me.GridColumn11.DisplayFormat.FormatString = "{0:n0}"
-        Me.GridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn11.FieldName = "FNBunbleSeq"
-        Me.GridColumn11.Name = "GridColumn11"
-        Me.GridColumn11.OptionsColumn.AllowEdit = False
-        Me.GridColumn11.OptionsColumn.ReadOnly = True
-        Me.GridColumn11.Visible = True
-        Me.GridColumn11.VisibleIndex = 1
-        Me.GridColumn11.Width = 97
-        '
-        'GridColumn12
-        '
-        Me.GridColumn12.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn12.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn12.Caption = "FTColorway"
-        Me.GridColumn12.FieldName = "FTColorway"
-        Me.GridColumn12.Name = "GridColumn12"
-        Me.GridColumn12.OptionsColumn.AllowEdit = False
-        Me.GridColumn12.OptionsColumn.ReadOnly = True
-        Me.GridColumn12.Visible = True
-        Me.GridColumn12.VisibleIndex = 2
-        '
-        'GridColumn13
-        '
-        Me.GridColumn13.Caption = "PO Line No"
-        Me.GridColumn13.FieldName = "FTPOLineItemNo"
-        Me.GridColumn13.Name = "GridColumn13"
-        Me.GridColumn13.OptionsColumn.AllowEdit = False
-        Me.GridColumn13.OptionsColumn.ReadOnly = True
-        Me.GridColumn13.Visible = True
-        Me.GridColumn13.VisibleIndex = 3
-        '
-        'GridColumn14
-        '
-        Me.GridColumn14.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn14.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn14.Caption = "FTSizeBreakDown"
-        Me.GridColumn14.FieldName = "FTSizeBreakDown"
-        Me.GridColumn14.Name = "GridColumn14"
-        Me.GridColumn14.OptionsColumn.AllowEdit = False
-        Me.GridColumn14.OptionsColumn.ReadOnly = True
-        Me.GridColumn14.Visible = True
-        Me.GridColumn14.VisibleIndex = 4
-        Me.GridColumn14.Width = 86
-        '
-        'GridColumn15
-        '
-        Me.GridColumn15.AppearanceCell.Options.UseTextOptions = True
-        Me.GridColumn15.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.GridColumn15.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn15.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn15.Caption = "FNQuantity"
-        Me.GridColumn15.DisplayFormat.FormatString = "{0:n0}"
-        Me.GridColumn15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn15.FieldName = "FNQuantity"
-        Me.GridColumn15.Name = "GridColumn15"
-        Me.GridColumn15.OptionsColumn.AllowEdit = False
-        Me.GridColumn15.OptionsColumn.ReadOnly = True
-        Me.GridColumn15.Visible = True
-        Me.GridColumn15.VisibleIndex = 5
-        Me.GridColumn15.Width = 103
-        '
-        'GridColumn16
-        '
-        Me.GridColumn16.Caption = "Mark Name"
-        Me.GridColumn16.FieldName = "FTMarkName"
-        Me.GridColumn16.Name = "GridColumn16"
-        Me.GridColumn16.OptionsColumn.AllowEdit = False
-        Me.GridColumn16.OptionsColumn.ReadOnly = True
-        Me.GridColumn16.Visible = True
-        Me.GridColumn16.VisibleIndex = 6
-        Me.GridColumn16.Width = 129
-        '
-        'GridColumn17
-        '
-        Me.GridColumn17.Caption = "FTStateChange"
-        Me.GridColumn17.FieldName = "FTStateChange"
-        Me.GridColumn17.MinWidth = 23
-        Me.GridColumn17.Name = "GridColumn17"
-        '
-        'RepositoryItemCalcEdit1
-        '
-        Me.RepositoryItemCalcEdit1.AutoHeight = False
-        Me.RepositoryItemCalcEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit1.DisplayFormat.FormatString = "{0:n0}"
-        Me.RepositoryItemCalcEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.RepositoryItemCalcEdit1.EditFormat.FormatString = "{0:n0}"
-        Me.RepositoryItemCalcEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.RepositoryItemCalcEdit1.Name = "RepositoryItemCalcEdit1"
-        Me.RepositoryItemCalcEdit1.Precision = 0
-        '
-        'RepositoryItemLookUpEdit1
-        '
-        Me.RepositoryItemLookUpEdit1.AutoHeight = False
-        Me.RepositoryItemLookUpEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemLookUpEdit1.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FTSizeBreakDown", "FTSizeBreakDown"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FNMatSizeSeq", "FNMatSizeSeq", 20, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
-        Me.RepositoryItemLookUpEdit1.DisplayMember = "FTSizeBreakDown"
-        Me.RepositoryItemLookUpEdit1.Name = "RepositoryItemLookUpEdit1"
-        Me.RepositoryItemLookUpEdit1.ValueMember = "FTSizeBreakDown"
-        '
         'XtraTabBarcode
         '
         Me.XtraTabBarcode.Controls.Add(Me.ogbbarcode)
+        Me.XtraTabBarcode.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabBarcode.Name = "XtraTabBarcode"
-        Me.XtraTabBarcode.Size = New System.Drawing.Size(1241, 627)
+        Me.XtraTabBarcode.Size = New System.Drawing.Size(1241, 676)
         Me.XtraTabBarcode.Text = "บาร์โค๊ดมัดงาน"
         '
         'ogbbarcode
@@ -2062,9 +2079,9 @@ Partial Class wSMPProductionCutStatusBar
         Me.ogbbarcode.Controls.Add(Me.otbdetail)
         Me.ogbbarcode.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbbarcode.Location = New System.Drawing.Point(0, 0)
-        Me.ogbbarcode.Margin = New System.Windows.Forms.Padding(4)
+        Me.ogbbarcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbbarcode.Name = "ogbbarcode"
-        Me.ogbbarcode.Size = New System.Drawing.Size(1241, 627)
+        Me.ogbbarcode.Size = New System.Drawing.Size(1241, 676)
         Me.ogbbarcode.TabIndex = 432
         Me.ogbbarcode.Text = "ข้อมูล Barcode"
         '
@@ -2072,8 +2089,8 @@ Partial Class wSMPProductionCutStatusBar
         '
         Me.ockselectallbyselection.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ockselectallbyselection.EditValue = "0"
-        Me.ockselectallbyselection.Location = New System.Drawing.Point(806, 1)
-        Me.ockselectallbyselection.Margin = New System.Windows.Forms.Padding(4)
+        Me.ockselectallbyselection.Location = New System.Drawing.Point(805, 1)
+        Me.ockselectallbyselection.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ockselectallbyselection.Name = "ockselectallbyselection"
         Me.ockselectallbyselection.Properties.Appearance.Options.UseTextOptions = True
         Me.ockselectallbyselection.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -2081,15 +2098,15 @@ Partial Class wSMPProductionCutStatusBar
         Me.ockselectallbyselection.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.ockselectallbyselection.Properties.ValueChecked = "1"
         Me.ockselectallbyselection.Properties.ValueUnchecked = "0"
-        Me.ockselectallbyselection.Size = New System.Drawing.Size(210, 24)
+        Me.ockselectallbyselection.Size = New System.Drawing.Size(210, 21)
         Me.ockselectallbyselection.TabIndex = 310
         Me.ockselectallbyselection.Tag = "2|"
         '
         'ockselectall
         '
         Me.ockselectall.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ockselectall.Location = New System.Drawing.Point(1023, 2)
-        Me.ockselectall.Margin = New System.Windows.Forms.Padding(4)
+        Me.ockselectall.Location = New System.Drawing.Point(1022, 2)
+        Me.ockselectall.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ockselectall.Name = "ockselectall"
         Me.ockselectall.Properties.Appearance.Options.UseTextOptions = True
         Me.ockselectall.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -2097,39 +2114,39 @@ Partial Class wSMPProductionCutStatusBar
         Me.ockselectall.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.ockselectall.Properties.ValueChecked = "1"
         Me.ockselectall.Properties.ValueUnchecked = "0"
-        Me.ockselectall.Size = New System.Drawing.Size(210, 24)
+        Me.ockselectall.Size = New System.Drawing.Size(210, 20)
         Me.ockselectall.TabIndex = 309
         Me.ockselectall.Tag = "2|"
         '
         'otbdetail
         '
         Me.otbdetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.otbdetail.Location = New System.Drawing.Point(2, 28)
-        Me.otbdetail.Margin = New System.Windows.Forms.Padding(4)
+        Me.otbdetail.Location = New System.Drawing.Point(2, 27)
+        Me.otbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otbdetail.Name = "otbdetail"
         Me.otbdetail.SelectedTabPage = Me.otpbarcodebundle
-        Me.otbdetail.Size = New System.Drawing.Size(1237, 597)
+        Me.otbdetail.Size = New System.Drawing.Size(1237, 647)
         Me.otbdetail.TabIndex = 308
         Me.otbdetail.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpbarcodebundle, Me.otpbarcodesendsupl, Me.otpbarcodeheat})
         '
         'otpbarcodebundle
         '
         Me.otpbarcodebundle.Controls.Add(Me.ogcbarcode)
-        Me.otpbarcodebundle.Margin = New System.Windows.Forms.Padding(4)
+        Me.otpbarcodebundle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otpbarcodebundle.Name = "otpbarcodebundle"
-        Me.otpbarcodebundle.Size = New System.Drawing.Size(1235, 567)
+        Me.otpbarcodebundle.Size = New System.Drawing.Size(1227, 610)
         Me.otpbarcodebundle.Text = "Barcode ใบกำกับมัดงาน"
         '
         'ogcbarcode
         '
         Me.ogcbarcode.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogcbarcode.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(4)
+        Me.ogcbarcode.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcbarcode.Location = New System.Drawing.Point(0, 0)
         Me.ogcbarcode.MainView = Me.ogvbarcode
-        Me.ogcbarcode.Margin = New System.Windows.Forms.Padding(4)
+        Me.ogcbarcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcbarcode.Name = "ogcbarcode"
         Me.ogcbarcode.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit2, Me.RepositoryItemLookUpEdit2, Me.ReposSelectBundle})
-        Me.ogcbarcode.Size = New System.Drawing.Size(1235, 567)
+        Me.ogcbarcode.Size = New System.Drawing.Size(1227, 610)
         Me.ogcbarcode.TabIndex = 308
         Me.ogcbarcode.TabStop = False
         Me.ogcbarcode.Tag = "3|"
@@ -2296,21 +2313,21 @@ Partial Class wSMPProductionCutStatusBar
         'otpbarcodesendsupl
         '
         Me.otpbarcodesendsupl.Controls.Add(Me.ogcbrcodesupl)
-        Me.otpbarcodesendsupl.Margin = New System.Windows.Forms.Padding(4)
+        Me.otpbarcodesendsupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otpbarcodesendsupl.Name = "otpbarcodesendsupl"
-        Me.otpbarcodesendsupl.Size = New System.Drawing.Size(1235, 567)
+        Me.otpbarcodesendsupl.Size = New System.Drawing.Size(1235, 615)
         Me.otpbarcodesendsupl.Text = "Barcode ส่งงานนอก"
         '
         'ogcbrcodesupl
         '
         Me.ogcbrcodesupl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogcbrcodesupl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(4)
+        Me.ogcbrcodesupl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcbrcodesupl.Location = New System.Drawing.Point(0, 0)
         Me.ogcbrcodesupl.MainView = Me.ogvbrcodesupl
-        Me.ogcbrcodesupl.Margin = New System.Windows.Forms.Padding(4)
+        Me.ogcbrcodesupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcbrcodesupl.Name = "ogcbrcodesupl"
         Me.ogcbrcodesupl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit3, Me.RepositoryItemLookUpEdit3, Me.RepositoryItemCheckEdit2})
-        Me.ogcbrcodesupl.Size = New System.Drawing.Size(1235, 567)
+        Me.ogcbrcodesupl.Size = New System.Drawing.Size(1235, 615)
         Me.ogcbrcodesupl.TabIndex = 309
         Me.ogcbrcodesupl.TabStop = False
         Me.ogcbrcodesupl.Tag = "3|"
@@ -2543,9 +2560,9 @@ Partial Class wSMPProductionCutStatusBar
         'otpbarcodeheat
         '
         Me.otpbarcodeheat.Controls.Add(Me.ogcbrcodesingle)
-        Me.otpbarcodeheat.Margin = New System.Windows.Forms.Padding(4)
+        Me.otpbarcodeheat.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otpbarcodeheat.Name = "otpbarcodeheat"
-        Me.otpbarcodeheat.Size = New System.Drawing.Size(1235, 567)
+        Me.otpbarcodeheat.Size = New System.Drawing.Size(1235, 615)
         Me.otpbarcodeheat.Text = "Barcode เหมาเดี่ยว"
         '
         'ogcbrcodesingle
@@ -2553,13 +2570,13 @@ Partial Class wSMPProductionCutStatusBar
         Me.ogcbrcodesingle.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogcbrcodesingle.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(4)
-        Me.ogcbrcodesingle.Location = New System.Drawing.Point(4, 6)
+        Me.ogcbrcodesingle.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcbrcodesingle.Location = New System.Drawing.Point(2, 2)
         Me.ogcbrcodesingle.MainView = Me.ogvbrcodesingle
-        Me.ogcbrcodesingle.Margin = New System.Windows.Forms.Padding(4)
+        Me.ogcbrcodesingle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcbrcodesingle.Name = "ogcbrcodesingle"
         Me.ogcbrcodesingle.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit4, Me.RepositoryItemLookUpEdit4, Me.RepositoryItemCheckEdit3})
-        Me.ogcbrcodesingle.Size = New System.Drawing.Size(1931, 857)
+        Me.ogcbrcodesingle.Size = New System.Drawing.Size(981, 473)
         Me.ogcbrcodesingle.TabIndex = 310
         Me.ogcbrcodesingle.TabStop = False
         Me.ogcbrcodesingle.Tag = "3|"
@@ -2741,7 +2758,7 @@ Partial Class wSMPProductionCutStatusBar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1247, 802)
+        Me.ClientSize = New System.Drawing.Size(1247, 862)
         Me.Controls.Add(Me.ogboperation)
         Me.Controls.Add(Me.ogbStyleHeader)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -2749,6 +2766,8 @@ Partial Class wSMPProductionCutStatusBar
         Me.Text = "บันทึกกระบวนการงานตัวอย่าง"
         CType(Me.ogbStyleHeader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbStyleHeader.ResumeLayout(False)
+        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ogbmainprocbutton.ResumeLayout(False)
         CType(Me.FDSMPOrderDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysCustId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysCustId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2759,8 +2778,6 @@ Partial Class wSMPProductionCutStatusBar
         CType(Me.FNHSysStyleId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogboperation, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogboperation.ResumeLayout(False)
-        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ogbmainprocbutton.ResumeLayout(False)
         CType(Me.otxtabctrl, System.ComponentModel.ISupportInitialize).EndInit()
         Me.otxtabctrl.ResumeLayout(False)
         Me.otpcut.ResumeLayout(False)
@@ -2796,6 +2813,12 @@ Partial Class wSMPProductionCutStatusBar
         Me.ogbsendsupl.ResumeLayout(False)
         CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.XtraTabControl1.ResumeLayout(False)
+        Me.XtraTabPage1.ResumeLayout(False)
+        CType(Me.ogcbundle, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogvbundle, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCalcEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.XtraTabPage2.ResumeLayout(False)
         CType(Me.PopupFNBundle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PopupFNBundle.ResumeLayout(False)
@@ -2812,12 +2835,6 @@ Partial Class wSMPProductionCutStatusBar
         CType(Me.RepFTOperationNameS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepFTOperationNameT, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepGSFNQuantity, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.XtraTabPage1.ResumeLayout(False)
-        CType(Me.ogcbundle, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogvbundle, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCheckEdit5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCalcEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.XtraTabBarcode.ResumeLayout(False)
         CType(Me.ogbbarcode, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbbarcode.ResumeLayout(False)
@@ -3038,4 +3055,5 @@ Partial Class wSMPProductionCutStatusBar
     Friend WithEvents RepositoryItemCalcEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
     Friend WithEvents RepositoryItemLookUpEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
     Friend WithEvents XtraTabPage2 As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents ocmsplitbundle As DevExpress.XtraEditors.SimpleButton
 End Class

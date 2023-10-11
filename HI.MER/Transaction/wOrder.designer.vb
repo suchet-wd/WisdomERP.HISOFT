@@ -180,6 +180,11 @@ Partial Class wOrder
         Dim SerializableAppearanceObject126 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject127 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject128 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions33 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject129 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject130 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject131 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject132 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions34 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject133 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject134 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -356,11 +361,6 @@ Partial Class wOrder
         Dim SerializableAppearanceObject270 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject271 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject272 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions33 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject129 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject130 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject131 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject132 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ocmcancel = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmSendApprove = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcopy = New DevExpress.XtraEditors.SimpleButton()
@@ -535,6 +535,8 @@ Partial Class wOrder
         Me.FTStateSubCutting = New DevExpress.XtraEditors.CheckEdit()
         Me.FTStateSubMRP = New DevExpress.XtraEditors.CheckEdit()
         Me.XtraScrollableControl1 = New DevExpress.XtraEditors.XtraScrollableControl()
+        Me.FNHSysAFSId = New DevExpress.XtraEditors.ButtonEdit()
+        Me.FNHSysAFSId_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysShipToAccountId_None = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysShipToAccountId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysShipToAccountId_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -784,8 +786,6 @@ Partial Class wOrder
         Me.FTStatePurchase = New DevExpress.XtraEditors.CheckEdit()
         Me.FTStateReserve = New DevExpress.XtraEditors.CheckEdit()
         Me.FTStateMRP = New DevExpress.XtraEditors.CheckEdit()
-        Me.FNHSysAFSId = New DevExpress.XtraEditors.ButtonEdit()
-        Me.FNHSysAFSId_lbl = New DevExpress.XtraEditors.LabelControl()
         CType(Me.FNJobState.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTUpdTime.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FDUpdDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -894,6 +894,7 @@ Partial Class wOrder
         CType(Me.FTStateSubCutting.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStateSubMRP.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.XtraScrollableControl1.SuspendLayout()
+        CType(Me.FNHSysAFSId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysShipToAccountId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysShipToAccountId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNExternalQtyTestSub.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1069,7 +1070,6 @@ Partial Class wOrder
         CType(Me.FTStatePurchase.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStateReserve.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStateMRP.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysAFSId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ocmcancel
@@ -1818,7 +1818,8 @@ Partial Class wOrder
         '
         Me.FNHSysCmpIdTo.Location = New System.Drawing.Point(118, 255)
         Me.FNHSysCmpIdTo.Name = "FNHSysCmpIdTo"
-        Me.FNHSysCmpIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "234", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCmpIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "234", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCmpIdTo.Properties.ReadOnly = True
         Me.FNHSysCmpIdTo.Properties.Tag = ""
         Me.FNHSysCmpIdTo.Size = New System.Drawing.Size(69, 20)
         Me.FNHSysCmpIdTo.TabIndex = 552
@@ -3558,6 +3559,31 @@ Partial Class wOrder
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
         Me.XtraScrollableControl1.Size = New System.Drawing.Size(1298, 163)
         Me.XtraScrollableControl1.TabIndex = 497
+        '
+        'FNHSysAFSId
+        '
+        Me.FNHSysAFSId.Location = New System.Drawing.Point(669, 107)
+        Me.FNHSysAFSId.Name = "FNHSysAFSId"
+        Me.FNHSysAFSId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions33, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject129, SerializableAppearanceObject130, SerializableAppearanceObject131, SerializableAppearanceObject132, "", "111154", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysAFSId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.FNHSysAFSId.Properties.Tag = ""
+        Me.FNHSysAFSId.Size = New System.Drawing.Size(87, 20)
+        Me.FNHSysAFSId.TabIndex = 514
+        Me.FNHSysAFSId.Tag = "2|"
+        '
+        'FNHSysAFSId_lbl
+        '
+        Me.FNHSysAFSId_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNHSysAFSId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysAFSId_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNHSysAFSId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNHSysAFSId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNHSysAFSId_lbl.Location = New System.Drawing.Point(559, 106)
+        Me.FNHSysAFSId_lbl.Name = "FNHSysAFSId_lbl"
+        Me.FNHSysAFSId_lbl.Size = New System.Drawing.Size(105, 19)
+        Me.FNHSysAFSId_lbl.TabIndex = 515
+        Me.FNHSysAFSId_lbl.Tag = "2|"
+        Me.FNHSysAFSId_lbl.Text = "AFS Cat."
         '
         'FNHSysShipToAccountId_None
         '
@@ -5984,9 +6010,9 @@ Partial Class wOrder
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclearclsr)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmRemoveDT)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmAddDT)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(270, 47)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(103, 191)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(922, 127)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(1089, 181)
         Me.ogbmainprocbutton.TabIndex = 434
         '
         'ocmDivert
@@ -6740,31 +6766,6 @@ Partial Class wOrder
         Me.FTStateMRP.TabIndex = 474
         Me.FTStateMRP.Tag = "2|"
         '
-        'FNHSysAFSId
-        '
-        Me.FNHSysAFSId.Location = New System.Drawing.Point(669, 107)
-        Me.FNHSysAFSId.Name = "FNHSysAFSId"
-        Me.FNHSysAFSId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions33, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject129, SerializableAppearanceObject130, SerializableAppearanceObject131, SerializableAppearanceObject132, "", "111154", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FNHSysAFSId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FNHSysAFSId.Properties.Tag = ""
-        Me.FNHSysAFSId.Size = New System.Drawing.Size(87, 20)
-        Me.FNHSysAFSId.TabIndex = 514
-        Me.FNHSysAFSId.Tag = "2|"
-        '
-        'FNHSysAFSId_lbl
-        '
-        Me.FNHSysAFSId_lbl.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FNHSysAFSId_lbl.Appearance.Options.UseForeColor = True
-        Me.FNHSysAFSId_lbl.Appearance.Options.UseTextOptions = True
-        Me.FNHSysAFSId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FNHSysAFSId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysAFSId_lbl.Location = New System.Drawing.Point(559, 106)
-        Me.FNHSysAFSId_lbl.Name = "FNHSysAFSId_lbl"
-        Me.FNHSysAFSId_lbl.Size = New System.Drawing.Size(105, 19)
-        Me.FNHSysAFSId_lbl.TabIndex = 515
-        Me.FNHSysAFSId_lbl.Tag = "2|"
-        Me.FNHSysAFSId_lbl.Text = "AFS Cat."
-        '
         'wOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -6883,6 +6884,7 @@ Partial Class wOrder
         CType(Me.FTStateSubCutting.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStateSubMRP.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.XtraScrollableControl1.ResumeLayout(False)
+        CType(Me.FNHSysAFSId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysShipToAccountId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysShipToAccountId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNExternalQtyTestSub.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -7058,7 +7060,6 @@ Partial Class wOrder
         CType(Me.FTStatePurchase.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStateReserve.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStateMRP.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysAFSId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

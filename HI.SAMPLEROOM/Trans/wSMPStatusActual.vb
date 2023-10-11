@@ -158,13 +158,13 @@ Public Class wSMPStatusActual
         cmd &= vbCrLf & "   , A.FNQuantity"
         cmd &= vbCrLf & "   , A.FTDeliveryDate"
         cmd &= vbCrLf & "   , A.FTRemark"
-        cmd &= vbCrLf & "   , B.FTTeam "
+        '  cmd &= vbCrLf & "   , B.FTTeam "
         cmd &= vbCrLf & "   ,ISNULL(TEmp.FTEmpName,'') AS FTEmpName"
-        cmd &= vbCrLf & "   ,C.FNQuantity As TeqmQuantity"
+        cmd &= vbCrLf & "   ,a.FNQuantity As TeqmQuantity"
 
         cmd &= vbCrLf & "   ,Case When ISDATE(Cut.FTStartDate) = 1 Then  convert(Datetime,Cut.FTStartDate)   Else NULL END AS   FTStartDateCut"
         cmd &= vbCrLf & "  ,Case When ISDATE(Cut.FTLastDate) = 1 Then  convert(Datetime,Cut.FTLastDate)   Else NULL END AS   FTLastDateCut"
-        cmd &= vbCrLf & "   ,Cut.FNQuantity As FNQuantityCut"
+        cmd &= vbCrLf & "   , case when  Cut.FNQuantity > A.FNQuantity then A.FNQuantity else   Cut.FNQuantity  END   As FNQuantityCut"
 
         cmd &= vbCrLf & "   ,Case When ISDATE(SendEmb.FTStartDate) = 1 Then  convert(Datetime,SendEmb.FTStartDate)   Else NULL END AS  FTStartDateEmb"
         cmd &= vbCrLf & "   ,Case When ISDATE(SendEmb.FTLastDate) = 1 Then  convert(Datetime,SendEmb.FTLastDate)   Else NULL END AS  FTLastDateEmb"
@@ -180,8 +180,8 @@ Public Class wSMPStatusActual
         cmd &= vbCrLf & "   ,Case When ISDATE(RcvPrint.FTLastDate) = 1 Then  convert(Datetime,RcvPrint.FTLastDate)   Else NULL END AS  FTLastDateRcvPrint"
         cmd &= vbCrLf & "   ,RcvPrint.FNQuantity As FNQuantityRcvPrint"
 
-        cmd &= vbCrLf & "   ,Case When ISDATE(SendHeat.FTStartDate) = 1 Then  convert(Datetime,SendPrint.FTStartDate)   Else NULL END AS  FTStartDateHeat"
-        cmd &= vbCrLf & "   ,Case When ISDATE(SendHeat.FTLastDate) = 1 Then  convert(Datetime,SendPrint.FTLastDate)   Else NULL END AS  FTLastDateHeat"
+        cmd &= vbCrLf & "   ,Case When ISDATE(SendHeat.FTStartDate) = 1 Then  convert(Datetime,SendHeat.FTStartDate)   Else NULL END AS  FTStartDateHeat"
+        cmd &= vbCrLf & "   ,Case When ISDATE(SendHeat.FTLastDate) = 1 Then  convert(Datetime,SendHeat.FTLastDate)   Else NULL END AS  FTLastDateHeat"
         cmd &= vbCrLf & "   ,SendHeat.FNQuantity As FNQuantityHeat"
         cmd &= vbCrLf & "    ,Case When ISDATE(RcvHeat.FTStartDate) = 1 Then  convert(Datetime,RcvHeat.FTStartDate)   Else NULL END AS  FTStartDateRcvHeat"
         cmd &= vbCrLf & "   ,Case When ISDATE(RcvHeat.FTLastDate) = 1 Then  convert(Datetime,RcvHeat.FTLastDate)   Else NULL END AS  FTLastDateRcvHeat"
@@ -211,29 +211,35 @@ Public Class wSMPStatusActual
         cmd &= vbCrLf & "   ,Case When ISDATE(FinishSew.FTLastDate) = 1 Then  convert(Datetime,FinishSew.FTLastDate)   Else NULL END AS  FTLastDateFinishSew"
         cmd &= vbCrLf & "   ,FinishSew.FNQuantity As FNQuantityFinishSew"
 
+        cmd &= vbCrLf & "   ,Case When ISDATE(SMK.FTStartDate) = 1 Then  convert(Datetime,SMK.FTStartDate)   Else NULL END AS  FTStartDateSMK"
+        cmd &= vbCrLf & "   ,Case When ISDATE(SMK.FTLastDate) = 1 Then  convert(Datetime,SMK.FTLastDate)   Else NULL END AS  FTLastDateSMK"
+        cmd &= vbCrLf & "   ,SMK.FNQuantity As FNQuantitySMK"
+
+
+
         cmd &= vbCrLf & "    ,Case When ISDATE(QC.FTStartDate) = 1 Then  convert(Datetime,QC.FTStartDate)   Else NULL END AS  FTStartDateQC"
         cmd &= vbCrLf & "   ,Case When ISDATE(QC.FTLastDate) = 1 Then  convert(Datetime,QC.FTLastDate)   Else NULL END AS  FTLastDateQC"
-        cmd &= vbCrLf & "   ,QC.FNQuantity As FNQuantityQC"
-        cmd &= vbCrLf & "   ,QC.FNPass "
-        cmd &= vbCrLf & "   ,QC.FNNotPass "
+        cmd &= vbCrLf & "   ,FX.FNQuantity As FNQuantityQC"
+        cmd &= vbCrLf & "   ,FX.FNPass "
+        cmd &= vbCrLf & "   ,FX.FNNotPass "
 
         cmd &= vbCrLf & "   ,ISNULL(FX.FTStateFinish,'0') AS FTStateQCFinish"
         cmd &= vbCrLf & "   ,Case When ISDATE(FX.FTStateFinishDate) = 1 Then  convert(Datetime,FX.FTStateFinishDate)   Else NULL END AS  FTStateQCFinishDate"
         cmd &= vbCrLf & "   ,ISNULL(FX.FTStateFinishBy,'') AS  FTStateFinishQCBy"
 
-        cmd &= vbCrLf & "  FROM(Select A.FTSMPOrderNo, A.FDSMPOrderDate, A.FNSMPOrderType, A.FNSMPPrototypeNo, MST.FTStyleCode, MSS.FTSeasonCode, MCT.FTCustCode, MCT.FTCustNameTH, MCT.FTCustNameEN, MMT.FTMerTeamCode, OD.FNSeq,"
+        cmd &= vbCrLf & "  FROM ( Select A.FTSMPOrderNo, A.FDSMPOrderDate, A.FNSMPOrderType, A.FNSMPPrototypeNo, MST.FTStyleCode, MSS.FTSeasonCode, MCT.FTCustCode, MCT.FTCustNameTH, MCT.FTCustNameEN, MMT.FTMerTeamCode, OD.FNSeq,"
         cmd &= vbCrLf & "     OD.FTSizeBreakDown"
         cmd &= vbCrLf & " 	, OD.FTColorway"
-        cmd &= vbCrLf & " 	, OD.FNQuantity"
+        cmd &= vbCrLf & " 	,   isnull(bd.FNQuantity ,  OD.FNQuantity) FNQuantity"
         cmd &= vbCrLf & " 	,Case When ISDATE(OD.FTDeliveryDate) = 1 Then  convert(Datetime,OD.FTDeliveryDate)  Else NULL END AS FTDeliveryDate"
-        cmd &= vbCrLf & " 	, OD.FTRemark"
+        cmd &= vbCrLf & " 	, OD.FTRemark , bd.FTBarcodeBundleNo"
         cmd &= vbCrLf & "   From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder As A With(NOLOCK)  INNER Join"
         cmd &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As MST With(NOLOCK) On A.FNHSysStyleId = MST.FNHSysStyleId INNER Join"
         cmd &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMSeason As MSS With(NOLOCK)  On A.FNHSysSeasonId = MSS.FNHSysSeasonId INNER Join"
         cmd &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCustomer As MCT With(NOLOCK)  On A.FNHSysCustId = MCT.FNHSysCustId INNER Join"
         cmd &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMerTeam As MMT With(NOLOCK)  On A.FNHSysMerTeamId = MMT.FNHSysMerTeamId INNER Join"
         cmd &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder_Breakdown As OD With(NOLOCK)  On A.FTSMPOrderNo = OD.FTSMPOrderNo"
-
+        cmd &= vbCrLf & "  LEFT JOIN    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle  BD with(nolock) on a.FTSMPOrderNo = bd.FTOrderProdNo and od.FTSizeBreakDown = bd.FTSizeBreakDown and od.FTColorway = bd.FTColorway"
 
 
         cmd &= vbCrLf & "    WHERE A.FTSMPOrderNo<>''"
@@ -264,10 +270,40 @@ Public Class wSMPStatusActual
         End If
 
         cmd &= vbCrLf & "  ) As A"
-        cmd &= vbCrLf & "   Left OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeam As B With(NOLOCK)  On A.FTSMPOrderNo = B.FTSMPOrderNo "
-        cmd &= vbCrLf & "   Left OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeamBreakdown As C With(NOLOCK)  On B.FTSMPOrderNo =C.FTSMPOrderNo And B.FTTeam =C.FTTeam And A.FTSizeBreakDown =C.FTSizeBreakDown And A.FTColorway=C.FTColorway"
+        'cmd &= vbCrLf & "   Left OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeam As B With(NOLOCK)  On A.FTSMPOrderNo = B.FTSMPOrderNo "
+        'cmd &= vbCrLf & "   Left OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeamBreakdown As C With(NOLOCK)  On B.FTSMPOrderNo =C.FTSMPOrderNo And B.FTTeam =C.FTTeam And A.FTSizeBreakDown =C.FTSizeBreakDown And A.FTColorway=C.FTColorway"
 
-        cmd &= vbCrLf & "   OUTER APPLY(SELECT TOP 1 FTStateFinish , FTStateFinishDate, FTStateFinishBy FROM  [HITECH_SAMPLEROOM].dbo.TSMPSampleTeam As XX With(NOLOCK)  WHERE  XX.FTSMPOrderNo = C.FTSMPOrderNo  And XX.FTTeam = C.FTTeam ) AS FX "
+
+        'cmd &= vbCrLf & " outer apply ( Select     sum(FNBarcodeSeq ) as FNQuantity   , sum(FNPass) FNPass , sum(FNNotPass)  FNNotPass   "
+        'cmd &= vbCrLf & "   , min( isnull(Fxa.FTStateApp,'0') ) as FTStateFinish ,max( Fxa.FTAppBy) as FTStateFinishBy  , convert(varchar(10) , convert(date ,  max( Fxa.FDAppDate   ) ) , 111)  as FTStateFinishDate "
+        'cmd &= vbCrLf & " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTQAPreFinal Fxa with(nolock)  outer apply (  "
+        'cmd &= vbCrLf & "  select count(FNBarcodeSeq) as FNBarcodeSeq ,   sum( FTPass) as FNPass ,  sum(FTNotPass) as FNNotPass   "
+        'cmd &= vbCrLf & " from ( "
+        'cmd &= vbCrLf & "  select b.FNBarcodeSeq ,case when  min( x.FTStateReject) = '0' then 1 else  0 end FTPass   ,case when  min( x.FTStateReject) = '1' then 1 else  0 end FTNotPass   "
+        'cmd &= vbCrLf & "  from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTQAPreFinal_Detail x with(nolock)  "
+        'cmd &= vbCrLf & "  LEFT JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTQAPreFinal_Barcode b  with(nolock) on x.FTBarcodeRef = b.FTBarcodeRef  "
+        'cmd &= vbCrLf & "  and x.FNHourNo = b.FNHourNo and x.FNSeq = b.FNSeq and x.FTOrderNo = b.FTOrderNo   "
+        'cmd &= vbCrLf & " where x.FTOrderNo = Fxa.FTOrderNo   and x.FTBarcodeCartonNo = FXa.FTBarcodeCartonNo  group by  b.FNBarcodeSeq   ) as b ) as b  "
+        'cmd &= vbCrLf & " left join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle bd with(nolocK) on fxa.FTBarcodeCartonNo = bd.FTBarcodeBundleNo "
+        'cmd &= vbCrLf & "  where  Fxa.FTOrderNo =  A.FTSMPOrderNo  "
+        'cmd &= vbCrLf & "  and bd.FTSizeBreakDown = A.FTSizeBreakDown "
+        'cmd &= vbCrLf & "  and bd.FTColorway = A.FTColorway  "
+        'cmd &= vbCrLf & " group by FTOrderNo    ) as FX"  ',  FNBarcodeSeq  , FNPass , FNNotPass 
+        cmd &= vbCrLf & "   outer apply (  SELECT   FTTeam ,  FTSMPOrderNo ,   FTSizeBreakDown, FTColorway, sum(FNQuantity) FNQuantity, sum(FNPass)  FNPass, sum(FNNotPass)  FNNotPass "
+        cmd &= vbCrLf & "      , FXd.FTStateFinish , FXd.FTStateFinishBy , fxd.FTStateFinishDate "
+        cmd &= vbCrLf & "    FROM      [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleQC FXa  "
+        cmd &= vbCrLf & "    outer apply (  select    min( isnull(FXd.FTStateFinish,'0') ) as FTStateFinish  "
+
+        cmd &= vbCrLf & "   ,max( FXd.FTStateFinishBy) as FTStateFinishBy  "
+        cmd &= vbCrLf & "  , convert(varchar(10) , convert(date ,  max( FXd.FTStateFinishDate   ) ) , 111)  as FTStateFinishDate "
+        cmd &= vbCrLf & "   from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeam FXd"
+        cmd &= vbCrLf & "    where fxd.FTSMPOrderNo = fxa.FTSMPOrderNo  and  fxd.FTTeam = fxa.FTTeam  "
+        cmd &= vbCrLf & "  ) as FXd"
+        cmd &= vbCrLf & "  where FTSMPOrderNo =    a.FTSMPOrderNo    "
+        cmd &= vbCrLf & "  and FXa.FTSizeBreakDown = A.FTSizeBreakDown "
+        cmd &= vbCrLf & "  and FXa.FTColorway = A.FTColorway     and fxa.FTTeam = a.FTBarcodeBundleNo  "
+        cmd &= vbCrLf & "   group by  FTTeam , FTSMPOrderNo ,  FTColorway , FTSizeBreakDown  , FXd.FTStateFinish , FXd.FTStateFinishBy , fxd.FTStateFinishDate  ) as FX "
+
 
 
         cmd &= vbCrLf & "   LEFT OUTER JOIN (  "
@@ -283,7 +319,7 @@ Public Class wSMPStatusActual
         cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcodeScan_Emp As b with(nolock)  "
         cmd &= vbCrLf & "      left join  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee emp with(nolock) on b.FNHSysEmpId = emp.FNHSysEmpID   "
         cmd &= vbCrLf & " inner join  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle bd on b.FTBarcodeNo = bd.FTBarcodeBundleNo  "
-        cmd &= vbCrLf & "    where bd.FTOrderProdNo = a.FTSMPOrderNo "
+        cmd &= vbCrLf & "    where bd.FTOrderProdNo = a.FTSMPOrderNo    and  bd.FTBarcodeBundleNo  = a.FTBarcodeBundleNo   "
         cmd &= vbCrLf & "   "
         cmd &= vbCrLf & "     ) As TEmp For XML PATH(''), TYPE ).value('.', 'NVARCHAR(MAX)'),1,1,'') AS FTEmpName  ) As TEmp"
 
@@ -291,9 +327,9 @@ Public Class wSMPStatusActual
 
         cmd &= vbCrLf & "    Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity"
         cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
-        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = B.FTSMPOrderNo"
+        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = a.FTSMPOrderNo"
         cmd &= vbCrLf & " And X.FTTeam  = ''  "
-        cmd &= vbCrLf & " And X.FTSizeBreakDown =C.FTSizeBreakDown And X.FTColorway=C.FTColorway"
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =a.FTSizeBreakDown And X.FTColorway=a.FTColorway"
         cmd &= vbCrLf & " And FNSampleState=0"
         cmd &= vbCrLf & "   ) As Cut"
 
@@ -301,18 +337,18 @@ Public Class wSMPStatusActual
 
         cmd &= vbCrLf & "   Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity"
         cmd &= vbCrLf & "   From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
-        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = B.FTSMPOrderNo"
-        cmd &= vbCrLf & " And X.FTTeam  = ''  "
-        cmd &= vbCrLf & " And X.FTSizeBreakDown =C.FTSizeBreakDown And X.FTColorway=C.FTColorway"
+        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = A.FTSMPOrderNo"
+        cmd &= vbCrLf & " And X.FTTeam  = a.FTBarcodeBundleNo  "
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =A.FTSizeBreakDown And X.FTColorway=A.FTColorway"
         cmd &= vbCrLf & " And FNSampleState=1"
         cmd &= vbCrLf & "   ) As SendEmb"
         cmd &= vbCrLf & " 	   OUTER APPLY( "
 
         cmd &= vbCrLf & "    Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity"
         cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
-        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = B.FTSMPOrderNo"
-        cmd &= vbCrLf & " And X.FTTeam  = ''  "
-        cmd &= vbCrLf & " And X.FTSizeBreakDown =C.FTSizeBreakDown And X.FTColorway=C.FTColorway"
+        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = A.FTSMPOrderNo"
+        cmd &= vbCrLf & " And X.FTTeam  = a.FTBarcodeBundleNo  "
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =A.FTSizeBreakDown And X.FTColorway=A.FTColorway"
         cmd &= vbCrLf & " And FNSampleState=2"
         cmd &= vbCrLf & "   ) As RcvEmb"
 
@@ -320,36 +356,36 @@ Public Class wSMPStatusActual
 
         cmd &= vbCrLf & "     Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity"
         cmd &= vbCrLf & "      From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
-        cmd &= vbCrLf & " 	 Where X.FTSMPOrderNo = B.FTSMPOrderNo"
-        cmd &= vbCrLf & " And X.FTTeam  = ''  "
-        cmd &= vbCrLf & " And X.FTSizeBreakDown =C.FTSizeBreakDown And X.FTColorway=C.FTColorway"
+        cmd &= vbCrLf & " 	 Where X.FTSMPOrderNo = A.FTSMPOrderNo"
+        cmd &= vbCrLf & " And X.FTTeam  = a.FTBarcodeBundleNo  "
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =A.FTSizeBreakDown And X.FTColorway=A.FTColorway"
         cmd &= vbCrLf & " And FNSampleState=3"
         cmd &= vbCrLf & " 	  ) As SendPrint"
         cmd &= vbCrLf & " 	   OUTER APPLY( "
 
         cmd &= vbCrLf & "    Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity"
         cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
-        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = B.FTSMPOrderNo"
-        cmd &= vbCrLf & " And X.FTTeam  = ''  "
-        cmd &= vbCrLf & " And X.FTSizeBreakDown =C.FTSizeBreakDown And X.FTColorway=C.FTColorway"
+        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = A.FTSMPOrderNo"
+        cmd &= vbCrLf & " And X.FTTeam  = a.FTBarcodeBundleNo   "
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =A.FTSizeBreakDown And X.FTColorway=A.FTColorway"
         cmd &= vbCrLf & " And FNSampleState=4"
         cmd &= vbCrLf & "   ) As RcvPrint"
         cmd &= vbCrLf & "   OUTER APPLY( "
 
         cmd &= vbCrLf & "     Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity"
         cmd &= vbCrLf & "     From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
-        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = B.FTSMPOrderNo"
-        cmd &= vbCrLf & " And X.FTTeam  = ''  "
-        cmd &= vbCrLf & " And X.FTSizeBreakDown =C.FTSizeBreakDown And X.FTColorway=C.FTColorway"
+        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = A.FTSMPOrderNo"
+        cmd &= vbCrLf & " And X.FTTeam  =  a.FTBarcodeBundleNo  "
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =A.FTSizeBreakDown And X.FTColorway=A.FTColorway"
         cmd &= vbCrLf & " And FNSampleState=5"
         cmd &= vbCrLf & " 	  ) As SendHeat"
         cmd &= vbCrLf & " 	   OUTER APPLY( "
 
         cmd &= vbCrLf & "    Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity"
         cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
-        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = B.FTSMPOrderNo"
-        cmd &= vbCrLf & " And X.FTTeam  = ''  "
-        cmd &= vbCrLf & " And X.FTSizeBreakDown =C.FTSizeBreakDown And X.FTColorway=C.FTColorway"
+        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = A.FTSMPOrderNo"
+        cmd &= vbCrLf & " And X.FTTeam  = a.FTBarcodeBundleNo   "
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =A.FTSizeBreakDown And X.FTColorway=A.FTColorway"
         cmd &= vbCrLf & " And FNSampleState=6"
         cmd &= vbCrLf & "   ) As RcvHeat"
 
@@ -357,36 +393,36 @@ Public Class wSMPStatusActual
 
         cmd &= vbCrLf & "     Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity"
         cmd &= vbCrLf & "     From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
-        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = B.FTSMPOrderNo"
-        cmd &= vbCrLf & " And X.FTTeam  = ''  "
-        cmd &= vbCrLf & " And X.FTSizeBreakDown =C.FTSizeBreakDown And X.FTColorway=C.FTColorway"
+        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = A.FTSMPOrderNo"
+        cmd &= vbCrLf & " And X.FTTeam  = a.FTBarcodeBundleNo   "
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =A.FTSizeBreakDown And X.FTColorway=A.FTColorway"
         cmd &= vbCrLf & " And FNSampleState=7"
         cmd &= vbCrLf & " 	  ) As SendLasor"
         cmd &= vbCrLf & " 	   OUTER APPLY( "
 
         cmd &= vbCrLf & "    Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity"
         cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
-        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = B.FTSMPOrderNo"
-        cmd &= vbCrLf & " And X.FTTeam  = ''  "
-        cmd &= vbCrLf & " And X.FTSizeBreakDown =C.FTSizeBreakDown And X.FTColorway=C.FTColorway"
+        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = A.FTSMPOrderNo"
+        cmd &= vbCrLf & " And X.FTTeam  = a.FTBarcodeBundleNo  "
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =A.FTSizeBreakDown And X.FTColorway=A.FTColorway"
         cmd &= vbCrLf & " And FNSampleState=8"
         cmd &= vbCrLf & "   ) As RcvLasor"
 
         cmd &= vbCrLf & "   OUTER APPLY( "
         cmd &= vbCrLf & "     Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity"
         cmd &= vbCrLf & "     From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
-        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = B.FTSMPOrderNo"
-        cmd &= vbCrLf & " And X.FTTeam  = ''  "
-        cmd &= vbCrLf & " And X.FTSizeBreakDown =C.FTSizeBreakDown And X.FTColorway=C.FTColorway"
+        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = A.FTSMPOrderNo"
+        cmd &= vbCrLf & " And X.FTTeam  = a.FTBarcodeBundleNo   "
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =A.FTSizeBreakDown And X.FTColorway=A.FTColorway"
         cmd &= vbCrLf & " And FNSampleState=9"
         cmd &= vbCrLf & " 	  ) As SendPadPrint"
         cmd &= vbCrLf & " 	   OUTER APPLY( "
 
         cmd &= vbCrLf & "    Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity"
         cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
-        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = B.FTSMPOrderNo"
-        cmd &= vbCrLf & " And X.FTTeam  = ''  "
-        cmd &= vbCrLf & " And X.FTSizeBreakDown =C.FTSizeBreakDown And X.FTColorway=C.FTColorway"
+        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = A.FTSMPOrderNo"
+        cmd &= vbCrLf & " And X.FTTeam  = a.FTBarcodeBundleNo  "
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =A.FTSizeBreakDown And X.FTColorway=A.FTColorway"
         cmd &= vbCrLf & " And FNSampleState=10"
         cmd &= vbCrLf & "   ) As RcvPadPrint"
 
@@ -394,28 +430,42 @@ Public Class wSMPStatusActual
 
         cmd &= vbCrLf & "   Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity"
         cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
-        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = B.FTSMPOrderNo"
-        cmd &= vbCrLf & " And X.FTTeam  = B.FTTeam  "
-        cmd &= vbCrLf & " And X.FTSizeBreakDown =C.FTSizeBreakDown And X.FTColorway=C.FTColorway"
-        cmd &= vbCrLf & " And FNSampleState=0"
+        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = A.FTSMPOrderNo"
+        cmd &= vbCrLf & " And X.FTTeam  = a.FTBarcodeBundleNo  "
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =A.FTSizeBreakDown And X.FTColorway=A.FTColorway"
+        cmd &= vbCrLf & " And FNSampleState=11"
         cmd &= vbCrLf & "   ) As SendSew"
+
+
+        cmd &= vbCrLf & "    OUTER APPLY( "
+
+        cmd &= vbCrLf & "   Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity"
+        cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
+        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = A.FTSMPOrderNo"
+        cmd &= vbCrLf & " And X.FTTeam  = a.FTBarcodeBundleNo  "
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =A.FTSizeBreakDown And X.FTColorway=A.FTColorway"
+        cmd &= vbCrLf & " And FNSampleState=13"
+        cmd &= vbCrLf & "   ) As SMK"
+
+
+
         cmd &= vbCrLf & "  OUTER APPLY( "
 
         cmd &= vbCrLf & "    Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity"
         cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
-        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = B.FTSMPOrderNo"
-        cmd &= vbCrLf & " And X.FTTeam  = B.FTTeam  "
-        cmd &= vbCrLf & " And X.FTSizeBreakDown =C.FTSizeBreakDown And X.FTColorway=C.FTColorway"
-        cmd &= vbCrLf & " And FNSampleState=1"
+        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = A.FTSMPOrderNo"
+        cmd &= vbCrLf & " And X.FTTeam  = a.FTBarcodeBundleNo   "
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =A.FTSizeBreakDown And X.FTColorway=A.FTColorway"
+        cmd &= vbCrLf & " And FNSampleState=12"
         cmd &= vbCrLf & "   ) As FinishSew"
 
         cmd &= vbCrLf & "   OUTER APPLY( "
 
         cmd &= vbCrLf & "    Select  MIN(FTDate) As FTStartDate,MAX (FTDate) As FTLastDate,SUM(FNQuantity) As FNQuantity,SUM(FNPass) As FNPass,SUM(FNNotPass) As FNNotPass"
         cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleQC As X  With(NOLOCK)"
-        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = B.FTSMPOrderNo"
-        'cmd &= vbCrLf & " And X.FTTeam  = B.FTTeam  "
-        cmd &= vbCrLf & " And X.FTSizeBreakDown =C.FTSizeBreakDown And X.FTColorway=C.FTColorway"
+        cmd &= vbCrLf & "  Where X.FTSMPOrderNo = a.FTSMPOrderNo"
+        cmd &= vbCrLf & " And X.FTTeam  = a.FTBarcodeBundleNo   "
+        cmd &= vbCrLf & " And X.FTSizeBreakDown =a.FTSizeBreakDown And X.FTColorway=a.FTColorway"
 
         cmd &= vbCrLf & "  ) As QC"
 
@@ -425,9 +475,9 @@ Public Class wSMPStatusActual
 
             cmd &= vbCrLf & "   INNER JOIN ( "
 
-            cmd &= vbCrLf & "   Select  FTSMPOrderNo,FTTeam,FTSizeBreakDown,FTColorway"
+            cmd &= vbCrLf & "   Select  FTSMPOrderNo,FTSizeBreakDown,FTColorway,FTTeam"
             cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X  With(NOLOCK)"
-            cmd &= vbCrLf & "  WHERE FNSampleState=0  AND ISNULL(FTTeam,'') <> '' "
+            cmd &= vbCrLf & "  WHERE FNSampleState=11 -- AND ISNULL(FTTeam,'') <> '' "
 
             If FTStartSendSew.Text <> "" Then
                 cmd &= vbCrLf & " And X.FTDate >= '" & HI.UL.ULDate.ConvertEnDB(FTStartSendSew.Text) & "' "
@@ -437,12 +487,12 @@ Public Class wSMPStatusActual
                 cmd &= vbCrLf & " And X.FTDate <= '" & HI.UL.ULDate.ConvertEnDB(FTEndSendSew.Text) & "' "
             End If
 
-            cmd &= vbCrLf & "   GROUP BY  FTSMPOrderNo,FTTeam,FTSizeBreakDown,FTColorway"
+            cmd &= vbCrLf & "   GROUP BY  FTSMPOrderNo,FTSizeBreakDown,FTColorway ,FTTeam "
             cmd &= vbCrLf & "   ) As SendDataSew  "
-            cmd &= vbCrLf & "  ON  B.FTSMPOrderNo = SendDataSew.FTSMPOrderNo "
-            cmd &= vbCrLf & "  And  B.FTTeam  =SendDataSew.FTTeam  "
-            cmd &= vbCrLf & "  And  C.FTColorway = SendDataSew.FTColorway  "
-            cmd &= vbCrLf & "  And  C.FTSizeBreakDown = SendDataSew.FTSizeBreakDown "
+            cmd &= vbCrLf & "  ON  A.FTSMPOrderNo = SendDataSew.FTSMPOrderNo "
+            cmd &= vbCrLf & "  And a.FTBarcodeBundleNo    = SendDataSew.FTTeam   "
+            cmd &= vbCrLf & "  And  A.FTColorway = SendDataSew.FTColorway  "
+            cmd &= vbCrLf & "  And  A.FTSizeBreakDown = SendDataSew.FTSizeBreakDown "
 
         End If
 
@@ -451,6 +501,8 @@ Public Class wSMPStatusActual
         _dtprod = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_SAMPLE)
 
         ogcoperation.DataSource = _dtprod.Copy
+
+        ogvoperation.BestFitColumns()
 
         _dtprod.Dispose()
 
@@ -463,10 +515,10 @@ Public Class wSMPStatusActual
         Try
             With Me.ogvoperation
 
-                If "" & .GetRowCellValue(e.RowHandle, "FTStateQCFinish").ToString = "1" Then
-                    e.Appearance.BackColor = Drawing.Color.LightYellow
-                    e.Appearance.BackColor2 = Drawing.Color.Orange
-                End If
+                'If "" & .GetRowCellValue(e.RowHandle, "FTStateQCFinish").ToString = "1" Then
+                '    e.Appearance.BackColor = Drawing.Color.LightYellow
+                '    e.Appearance.BackColor2 = Drawing.Color.Orange
+                'End If
 
             End With
 

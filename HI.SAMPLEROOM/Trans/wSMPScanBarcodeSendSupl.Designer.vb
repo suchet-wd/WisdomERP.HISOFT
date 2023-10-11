@@ -95,6 +95,14 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.ogbbarcodeinfo = New DevExpress.XtraEditors.GroupControl()
         Me.XtraScrollableControl1 = New DevExpress.XtraEditors.XtraScrollableControl()
         Me.FTBarcodeBundleNo = New DevExpress.XtraEditors.TextEdit()
+        Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
+        Me.ocmFinish = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmdeletebarcode = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmpreview = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmdelete = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmsave = New DevExpress.XtraEditors.SimpleButton()
         Me.FTBarcodeBundleNo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysPartId = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysPartId_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -112,14 +120,6 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.FTOrderNo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTStyleCode_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTStyleCode = New DevExpress.XtraEditors.TextEdit()
-        Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
-        Me.ocmFinish = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmdeletebarcode = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmpreview = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmdelete = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmsave = New DevExpress.XtraEditors.SimpleButton()
         Me.olberror = New DevExpress.XtraEditors.LabelControl()
         CType(Me.ogbdocinfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbdocinfo.SuspendLayout()
@@ -151,6 +151,8 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.ogbbarcodeinfo.SuspendLayout()
         Me.XtraScrollableControl1.SuspendLayout()
         CType(Me.FTBarcodeBundleNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ogbmainprocbutton.SuspendLayout()
         CType(Me.FNHSysPartId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysMarkId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysOperationId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -159,8 +161,6 @@ Partial Class wSMPScanBarcodeSendSupl
         CType(Me.FTOrderProdNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStyleCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbmainprocbutton.SuspendLayout()
         Me.SuspendLayout()
         '
         'ogbdocinfo
@@ -209,7 +209,7 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.FTStateBranchAcceptDate.Properties.NullDate = ""
         Me.FTStateBranchAcceptDate.Properties.ReadOnly = True
         Me.FTStateBranchAcceptDate.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never
-        Me.FTStateBranchAcceptDate.Size = New System.Drawing.Size(185, 22)
+        Me.FTStateBranchAcceptDate.Size = New System.Drawing.Size(185, 23)
         Me.FTStateBranchAcceptDate.TabIndex = 323
         Me.FTStateBranchAcceptDate.TabStop = False
         Me.FTStateBranchAcceptDate.Tag = "2|"
@@ -254,7 +254,7 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.FTStateBranchAcceptBy.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTStateBranchAcceptBy.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTStateBranchAcceptBy.Properties.ReadOnly = True
-        Me.FTStateBranchAcceptBy.Size = New System.Drawing.Size(185, 22)
+        Me.FTStateBranchAcceptBy.Size = New System.Drawing.Size(185, 23)
         Me.FTStateBranchAcceptBy.TabIndex = 321
         Me.FTStateBranchAcceptBy.TabStop = False
         Me.FTStateBranchAcceptBy.Tag = "2|"
@@ -284,7 +284,7 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.FTStateBranchAccept.Properties.ReadOnly = True
         Me.FTStateBranchAccept.Properties.ValueChecked = "1"
         Me.FTStateBranchAccept.Properties.ValueUnchecked = "0"
-        Me.FTStateBranchAccept.Size = New System.Drawing.Size(329, 24)
+        Me.FTStateBranchAccept.Size = New System.Drawing.Size(329, 20)
         Me.FTStateBranchAccept.TabIndex = 320
         Me.FTStateBranchAccept.Tag = "2|"
         '
@@ -313,7 +313,7 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.FDSendSuplDate.Properties.NullDate = ""
         Me.FDSendSuplDate.Properties.ReadOnly = True
         Me.FDSendSuplDate.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never
-        Me.FDSendSuplDate.Size = New System.Drawing.Size(185, 22)
+        Me.FDSendSuplDate.Size = New System.Drawing.Size(185, 23)
         Me.FDSendSuplDate.TabIndex = 1
         Me.FDSendSuplDate.TabStop = False
         Me.FDSendSuplDate.Tag = "2|"
@@ -343,7 +343,7 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.FTSendSuplBy.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSendSuplBy.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTSendSuplBy.Properties.ReadOnly = True
-        Me.FTSendSuplBy.Size = New System.Drawing.Size(185, 22)
+        Me.FTSendSuplBy.Size = New System.Drawing.Size(185, 23)
         Me.FTSendSuplBy.TabIndex = 2
         Me.FTSendSuplBy.TabStop = False
         Me.FTSendSuplBy.Tag = "2|"
@@ -388,7 +388,7 @@ Partial Class wSMPScanBarcodeSendSupl
         SerializableAppearanceObject16.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTSendSuplNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "1178", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", 20, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTSendSuplNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTSendSuplNo.Size = New System.Drawing.Size(185, 22)
+        Me.FTSendSuplNo.Size = New System.Drawing.Size(185, 23)
         Me.FTSendSuplNo.TabIndex = 0
         Me.FTSendSuplNo.TabStop = False
         Me.FTSendSuplNo.Tag = "2|"
@@ -530,7 +530,7 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.FNHSysCmpIdTo_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCmpIdTo_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysCmpIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysCmpIdTo_None.Size = New System.Drawing.Size(439, 22)
+        Me.FNHSysCmpIdTo_None.Size = New System.Drawing.Size(439, 23)
         Me.FNHSysCmpIdTo_None.TabIndex = 297
         Me.FNHSysCmpIdTo_None.TabStop = False
         Me.FNHSysCmpIdTo_None.Tag = "2|"
@@ -546,7 +546,7 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.FNHSysCmpIdTo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysCmpIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "234", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpIdTo.Properties.ReadOnly = True
-        Me.FNHSysCmpIdTo.Size = New System.Drawing.Size(152, 22)
+        Me.FNHSysCmpIdTo.Size = New System.Drawing.Size(152, 23)
         Me.FNHSysCmpIdTo.TabIndex = 295
         '
         'FNHSysCmpId
@@ -570,7 +570,7 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysCmpId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCmpId.Properties.MaxLength = 30
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(96, 22)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(96, 23)
         Me.FNHSysCmpId.TabIndex = 285
         Me.FNHSysCmpId.Tag = "|"
         Me.FNHSysCmpId.Visible = False
@@ -628,7 +628,7 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.FNSendSuplState.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNSendSuplState.Properties.Tag = "FNSendSuplState"
         Me.FNSendSuplState.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNSendSuplState.Size = New System.Drawing.Size(152, 22)
+        Me.FNSendSuplState.Size = New System.Drawing.Size(152, 23)
         Me.FNSendSuplState.TabIndex = 266
         Me.FNSendSuplState.Tag = "2|"
         '
@@ -670,7 +670,7 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.FNHSysSuplId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "177", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSuplId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysSuplId.Properties.MaxLength = 30
-        Me.FNHSysSuplId.Size = New System.Drawing.Size(152, 22)
+        Me.FNHSysSuplId.Size = New System.Drawing.Size(152, 23)
         Me.FNHSysSuplId.TabIndex = 263
         Me.FNHSysSuplId.Tag = "2|"
         '
@@ -714,7 +714,7 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.FNHSysSuplId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysSuplId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysSuplId_None.Properties.ReadOnly = True
-        Me.FNHSysSuplId_None.Size = New System.Drawing.Size(440, 22)
+        Me.FNHSysSuplId_None.Size = New System.Drawing.Size(440, 23)
         Me.FNHSysSuplId_None.TabIndex = 265
         Me.FNHSysSuplId_None.TabStop = False
         Me.FNHSysSuplId_None.Tag = "2|"
@@ -728,7 +728,7 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.ogbdetail.Location = New System.Drawing.Point(1, 386)
         Me.ogbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbdetail.Name = "ogbdetail"
-        Me.ogbdetail.Size = New System.Drawing.Size(1111, 352)
+        Me.ogbdetail.Size = New System.Drawing.Size(1111, 361)
         Me.ogbdetail.TabIndex = 7
         Me.ogbdetail.Text = "Detail"
         '
@@ -742,7 +742,7 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.ogcdetail.MainView = Me.ogvdetail
         Me.ogcdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcdetail.Name = "ogcdetail"
-        Me.ogcdetail.Size = New System.Drawing.Size(1106, 316)
+        Me.ogcdetail.Size = New System.Drawing.Size(1106, 325)
         Me.ogcdetail.TabIndex = 300
         Me.ogcdetail.TabStop = False
         Me.ogcdetail.Tag = "2|"
@@ -969,6 +969,7 @@ Partial Class wSMPScanBarcodeSendSupl
         'XtraScrollableControl1
         '
         Me.XtraScrollableControl1.Controls.Add(Me.FTBarcodeBundleNo)
+        Me.XtraScrollableControl1.Controls.Add(Me.ogbmainprocbutton)
         Me.XtraScrollableControl1.Controls.Add(Me.FTBarcodeBundleNo_lbl)
         Me.XtraScrollableControl1.Controls.Add(Me.FNHSysPartId)
         Me.XtraScrollableControl1.Controls.Add(Me.FNHSysPartId_lbl)
@@ -989,10 +990,10 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.XtraScrollableControl1.Controls.Add(Me.FTBarcodeNo_lbl)
         Me.XtraScrollableControl1.Controls.Add(Me.FTBarcodeNo)
         Me.XtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 28)
+        Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 27)
         Me.XtraScrollableControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1107, 118)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1107, 119)
         Me.XtraScrollableControl1.TabIndex = 0
         '
         'FTBarcodeBundleNo
@@ -1018,370 +1019,10 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.FTBarcodeBundleNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTBarcodeBundleNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTBarcodeBundleNo.Properties.ReadOnly = True
-        Me.FTBarcodeBundleNo.Size = New System.Drawing.Size(98, 22)
+        Me.FTBarcodeBundleNo.Size = New System.Drawing.Size(98, 23)
         Me.FTBarcodeBundleNo.TabIndex = 318
         Me.FTBarcodeBundleNo.TabStop = False
         Me.FTBarcodeBundleNo.Tag = "2|"
-        '
-        'FTBarcodeBundleNo_lbl
-        '
-        Me.FTBarcodeBundleNo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTBarcodeBundleNo_lbl.Appearance.Options.UseForeColor = True
-        Me.FTBarcodeBundleNo_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTBarcodeBundleNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTBarcodeBundleNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBarcodeBundleNo_lbl.Location = New System.Drawing.Point(877, 73)
-        Me.FTBarcodeBundleNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTBarcodeBundleNo_lbl.Name = "FTBarcodeBundleNo_lbl"
-        Me.FTBarcodeBundleNo_lbl.Size = New System.Drawing.Size(120, 23)
-        Me.FTBarcodeBundleNo_lbl.TabIndex = 317
-        Me.FTBarcodeBundleNo_lbl.Tag = "2|"
-        Me.FTBarcodeBundleNo_lbl.Text = "มัดที่ :"
-        '
-        'FNHSysPartId
-        '
-        Me.FNHSysPartId.EnterMoveNextControl = True
-        Me.FNHSysPartId.Location = New System.Drawing.Point(741, 71)
-        Me.FNHSysPartId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysPartId.Name = "FNHSysPartId"
-        Me.FNHSysPartId.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FNHSysPartId.Properties.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FNHSysPartId.Properties.Appearance.Options.UseBackColor = True
-        Me.FNHSysPartId.Properties.Appearance.Options.UseForeColor = True
-        Me.FNHSysPartId.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysPartId.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysPartId.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.FNHSysPartId.Properties.AppearanceDisabled.Options.UseForeColor = True
-        Me.FNHSysPartId.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
-        Me.FNHSysPartId.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysPartId.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.FNHSysPartId.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.FNHSysPartId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysPartId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysPartId.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNHSysPartId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysPartId.Properties.ReadOnly = True
-        Me.FNHSysPartId.Size = New System.Drawing.Size(128, 22)
-        Me.FNHSysPartId.TabIndex = 316
-        Me.FNHSysPartId.TabStop = False
-        Me.FNHSysPartId.Tag = "2|"
-        '
-        'FNHSysPartId_lbl
-        '
-        Me.FNHSysPartId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysPartId_lbl.Appearance.Options.UseForeColor = True
-        Me.FNHSysPartId_lbl.Appearance.Options.UseTextOptions = True
-        Me.FNHSysPartId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FNHSysPartId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysPartId_lbl.Location = New System.Drawing.Point(607, 71)
-        Me.FNHSysPartId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysPartId_lbl.Name = "FNHSysPartId_lbl"
-        Me.FNHSysPartId_lbl.Size = New System.Drawing.Size(132, 23)
-        Me.FNHSysPartId_lbl.TabIndex = 315
-        Me.FNHSysPartId_lbl.Tag = "2|"
-        Me.FNHSysPartId_lbl.Text = "Part :"
-        '
-        'FNHSysMarkId
-        '
-        Me.FNHSysMarkId.EnterMoveNextControl = True
-        Me.FNHSysMarkId.Location = New System.Drawing.Point(467, 71)
-        Me.FNHSysMarkId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysMarkId.Name = "FNHSysMarkId"
-        Me.FNHSysMarkId.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FNHSysMarkId.Properties.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FNHSysMarkId.Properties.Appearance.Options.UseBackColor = True
-        Me.FNHSysMarkId.Properties.Appearance.Options.UseForeColor = True
-        Me.FNHSysMarkId.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysMarkId.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysMarkId.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.FNHSysMarkId.Properties.AppearanceDisabled.Options.UseForeColor = True
-        Me.FNHSysMarkId.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
-        Me.FNHSysMarkId.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysMarkId.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.FNHSysMarkId.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.FNHSysMarkId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysMarkId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysMarkId.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNHSysMarkId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysMarkId.Properties.ReadOnly = True
-        Me.FNHSysMarkId.Size = New System.Drawing.Size(128, 22)
-        Me.FNHSysMarkId.TabIndex = 314
-        Me.FNHSysMarkId.TabStop = False
-        Me.FNHSysMarkId.Tag = "2|"
-        '
-        'FNHSysMarkId_lbl
-        '
-        Me.FNHSysMarkId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysMarkId_lbl.Appearance.Options.UseForeColor = True
-        Me.FNHSysMarkId_lbl.Appearance.Options.UseTextOptions = True
-        Me.FNHSysMarkId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FNHSysMarkId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysMarkId_lbl.Location = New System.Drawing.Point(332, 71)
-        Me.FNHSysMarkId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysMarkId_lbl.Name = "FNHSysMarkId_lbl"
-        Me.FNHSysMarkId_lbl.Size = New System.Drawing.Size(132, 23)
-        Me.FNHSysMarkId_lbl.TabIndex = 313
-        Me.FNHSysMarkId_lbl.Tag = "2|"
-        Me.FNHSysMarkId_lbl.Text = "Mark :"
-        '
-        'FNHSysOperationId
-        '
-        Me.FNHSysOperationId.EnterMoveNextControl = True
-        Me.FNHSysOperationId.Location = New System.Drawing.Point(201, 71)
-        Me.FNHSysOperationId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysOperationId.Name = "FNHSysOperationId"
-        Me.FNHSysOperationId.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FNHSysOperationId.Properties.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FNHSysOperationId.Properties.Appearance.Options.UseBackColor = True
-        Me.FNHSysOperationId.Properties.Appearance.Options.UseForeColor = True
-        Me.FNHSysOperationId.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysOperationId.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysOperationId.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.FNHSysOperationId.Properties.AppearanceDisabled.Options.UseForeColor = True
-        Me.FNHSysOperationId.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
-        Me.FNHSysOperationId.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysOperationId.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.FNHSysOperationId.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.FNHSysOperationId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysOperationId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysOperationId.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNHSysOperationId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysOperationId.Properties.ReadOnly = True
-        Me.FNHSysOperationId.Size = New System.Drawing.Size(128, 22)
-        Me.FNHSysOperationId.TabIndex = 312
-        Me.FNHSysOperationId.TabStop = False
-        Me.FNHSysOperationId.Tag = "2|"
-        '
-        'FNHSysOperationId_lbl
-        '
-        Me.FNHSysOperationId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysOperationId_lbl.Appearance.Options.UseForeColor = True
-        Me.FNHSysOperationId_lbl.Appearance.Options.UseTextOptions = True
-        Me.FNHSysOperationId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FNHSysOperationId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysOperationId_lbl.Location = New System.Drawing.Point(54, 70)
-        Me.FNHSysOperationId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FNHSysOperationId_lbl.Name = "FNHSysOperationId_lbl"
-        Me.FNHSysOperationId_lbl.Size = New System.Drawing.Size(142, 23)
-        Me.FNHSysOperationId_lbl.TabIndex = 311
-        Me.FNHSysOperationId_lbl.Tag = "2|"
-        Me.FNHSysOperationId_lbl.Text = "Operation :"
-        '
-        'FTSizeBreakDown
-        '
-        Me.FTSizeBreakDown.EnterMoveNextControl = True
-        Me.FTSizeBreakDown.Location = New System.Drawing.Point(999, 44)
-        Me.FTSizeBreakDown.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTSizeBreakDown.Name = "FTSizeBreakDown"
-        Me.FTSizeBreakDown.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FTSizeBreakDown.Properties.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FTSizeBreakDown.Properties.Appearance.Options.UseBackColor = True
-        Me.FTSizeBreakDown.Properties.Appearance.Options.UseForeColor = True
-        Me.FTSizeBreakDown.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
-        Me.FTSizeBreakDown.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
-        Me.FTSizeBreakDown.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.FTSizeBreakDown.Properties.AppearanceDisabled.Options.UseForeColor = True
-        Me.FTSizeBreakDown.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
-        Me.FTSizeBreakDown.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
-        Me.FTSizeBreakDown.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.FTSizeBreakDown.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.FTSizeBreakDown.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FTSizeBreakDown.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FTSizeBreakDown.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FTSizeBreakDown.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTSizeBreakDown.Properties.ReadOnly = True
-        Me.FTSizeBreakDown.Size = New System.Drawing.Size(98, 22)
-        Me.FTSizeBreakDown.TabIndex = 310
-        Me.FTSizeBreakDown.TabStop = False
-        Me.FTSizeBreakDown.Tag = "2|"
-        '
-        'FTSizeBreakDown_lbl
-        '
-        Me.FTSizeBreakDown_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTSizeBreakDown_lbl.Appearance.Options.UseForeColor = True
-        Me.FTSizeBreakDown_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTSizeBreakDown_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTSizeBreakDown_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSizeBreakDown_lbl.Location = New System.Drawing.Point(877, 46)
-        Me.FTSizeBreakDown_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTSizeBreakDown_lbl.Name = "FTSizeBreakDown_lbl"
-        Me.FTSizeBreakDown_lbl.Size = New System.Drawing.Size(120, 23)
-        Me.FTSizeBreakDown_lbl.TabIndex = 309
-        Me.FTSizeBreakDown_lbl.Tag = "2|"
-        Me.FTSizeBreakDown_lbl.Text = "Size :"
-        '
-        'FTColorway
-        '
-        Me.FTColorway.EnterMoveNextControl = True
-        Me.FTColorway.Location = New System.Drawing.Point(741, 46)
-        Me.FTColorway.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTColorway.Name = "FTColorway"
-        Me.FTColorway.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FTColorway.Properties.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FTColorway.Properties.Appearance.Options.UseBackColor = True
-        Me.FTColorway.Properties.Appearance.Options.UseForeColor = True
-        Me.FTColorway.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
-        Me.FTColorway.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
-        Me.FTColorway.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.FTColorway.Properties.AppearanceDisabled.Options.UseForeColor = True
-        Me.FTColorway.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
-        Me.FTColorway.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
-        Me.FTColorway.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.FTColorway.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.FTColorway.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FTColorway.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FTColorway.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FTColorway.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTColorway.Properties.ReadOnly = True
-        Me.FTColorway.Size = New System.Drawing.Size(98, 22)
-        Me.FTColorway.TabIndex = 310
-        Me.FTColorway.TabStop = False
-        Me.FTColorway.Tag = "2|"
-        '
-        'FTColorway_lbl
-        '
-        Me.FTColorway_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTColorway_lbl.Appearance.Options.UseForeColor = True
-        Me.FTColorway_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTColorway_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTColorway_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTColorway_lbl.Location = New System.Drawing.Point(612, 46)
-        Me.FTColorway_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTColorway_lbl.Name = "FTColorway_lbl"
-        Me.FTColorway_lbl.Size = New System.Drawing.Size(125, 23)
-        Me.FTColorway_lbl.TabIndex = 309
-        Me.FTColorway_lbl.Tag = "2|"
-        Me.FTColorway_lbl.Text = "Colorway :"
-        '
-        'FTOrderProdNo
-        '
-        Me.FTOrderProdNo.EnterMoveNextControl = True
-        Me.FTOrderProdNo.Location = New System.Drawing.Point(467, 46)
-        Me.FTOrderProdNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTOrderProdNo.Name = "FTOrderProdNo"
-        Me.FTOrderProdNo.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FTOrderProdNo.Properties.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FTOrderProdNo.Properties.Appearance.Options.UseBackColor = True
-        Me.FTOrderProdNo.Properties.Appearance.Options.UseForeColor = True
-        Me.FTOrderProdNo.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
-        Me.FTOrderProdNo.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderProdNo.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.FTOrderProdNo.Properties.AppearanceDisabled.Options.UseForeColor = True
-        Me.FTOrderProdNo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
-        Me.FTOrderProdNo.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderProdNo.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.FTOrderProdNo.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.FTOrderProdNo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FTOrderProdNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderProdNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FTOrderProdNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTOrderProdNo.Properties.ReadOnly = True
-        Me.FTOrderProdNo.Size = New System.Drawing.Size(128, 22)
-        Me.FTOrderProdNo.TabIndex = 308
-        Me.FTOrderProdNo.TabStop = False
-        Me.FTOrderProdNo.Tag = "2|"
-        '
-        'FTOrderProdNo_lbl
-        '
-        Me.FTOrderProdNo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderProdNo_lbl.Appearance.Options.UseForeColor = True
-        Me.FTOrderProdNo_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTOrderProdNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTOrderProdNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderProdNo_lbl.Location = New System.Drawing.Point(332, 46)
-        Me.FTOrderProdNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTOrderProdNo_lbl.Name = "FTOrderProdNo_lbl"
-        Me.FTOrderProdNo_lbl.Size = New System.Drawing.Size(132, 23)
-        Me.FTOrderProdNo_lbl.TabIndex = 307
-        Me.FTOrderProdNo_lbl.Tag = "2|"
-        Me.FTOrderProdNo_lbl.Text = "FO. Prod No :"
-        '
-        'FTOrderNo
-        '
-        Me.FTOrderNo.EnterMoveNextControl = True
-        Me.FTOrderNo.Location = New System.Drawing.Point(201, 46)
-        Me.FTOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTOrderNo.Name = "FTOrderNo"
-        Me.FTOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FTOrderNo.Properties.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FTOrderNo.Properties.Appearance.Options.UseBackColor = True
-        Me.FTOrderNo.Properties.Appearance.Options.UseForeColor = True
-        Me.FTOrderNo.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
-        Me.FTOrderNo.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderNo.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.FTOrderNo.Properties.AppearanceDisabled.Options.UseForeColor = True
-        Me.FTOrderNo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
-        Me.FTOrderNo.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderNo.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.FTOrderNo.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.FTOrderNo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FTOrderNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTOrderNo.Properties.ReadOnly = True
-        Me.FTOrderNo.Size = New System.Drawing.Size(128, 22)
-        Me.FTOrderNo.TabIndex = 306
-        Me.FTOrderNo.TabStop = False
-        Me.FTOrderNo.Tag = "2|"
-        '
-        'FTOrderNo_lbl
-        '
-        Me.FTOrderNo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderNo_lbl.Appearance.Options.UseForeColor = True
-        Me.FTOrderNo_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(54, 44)
-        Me.FTOrderNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTOrderNo_lbl.Name = "FTOrderNo_lbl"
-        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(142, 23)
-        Me.FTOrderNo_lbl.TabIndex = 305
-        Me.FTOrderNo_lbl.Tag = "2|"
-        Me.FTOrderNo_lbl.Text = "FO. No :"
-        '
-        'FTStyleCode_lbl
-        '
-        Me.FTStyleCode_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTStyleCode_lbl.Appearance.Options.UseForeColor = True
-        Me.FTStyleCode_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTStyleCode_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTStyleCode_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTStyleCode_lbl.Location = New System.Drawing.Point(602, 4)
-        Me.FTStyleCode_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTStyleCode_lbl.Name = "FTStyleCode_lbl"
-        Me.FTStyleCode_lbl.Size = New System.Drawing.Size(135, 23)
-        Me.FTStyleCode_lbl.TabIndex = 304
-        Me.FTStyleCode_lbl.Tag = "2|"
-        Me.FTStyleCode_lbl.Text = "Style Code :"
-        '
-        'FTStyleCode
-        '
-        Me.FTStyleCode.EditValue = ""
-        Me.FTStyleCode.Location = New System.Drawing.Point(741, 4)
-        Me.FTStyleCode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTStyleCode.Name = "FTStyleCode"
-        Me.FTStyleCode.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FTStyleCode.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.FTStyleCode.Properties.Appearance.Options.UseBackColor = True
-        Me.FTStyleCode.Properties.Appearance.Options.UseFont = True
-        Me.FTStyleCode.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
-        Me.FTStyleCode.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
-        Me.FTStyleCode.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.FTStyleCode.Properties.AppearanceDisabled.Options.UseForeColor = True
-        Me.FTStyleCode.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
-        Me.FTStyleCode.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
-        Me.FTStyleCode.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.FTStyleCode.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.FTStyleCode.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FTStyleCode.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FTStyleCode.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FTStyleCode.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTStyleCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTStyleCode.Properties.MaxLength = 30
-        Me.FTStyleCode.Properties.ReadOnly = True
-        Me.FTStyleCode.Size = New System.Drawing.Size(357, 40)
-        Me.FTStyleCode.TabIndex = 303
-        Me.FTStyleCode.Tag = "2|"
         '
         'ogbmainprocbutton
         '
@@ -1393,7 +1034,7 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmdelete)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmsave)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(35, 386)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(52, 11)
         Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(979, 58)
@@ -1478,6 +1119,366 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.ocmsave.Tag = "2|"
         Me.ocmsave.Text = "SAVE"
         '
+        'FTBarcodeBundleNo_lbl
+        '
+        Me.FTBarcodeBundleNo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTBarcodeBundleNo_lbl.Appearance.Options.UseForeColor = True
+        Me.FTBarcodeBundleNo_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTBarcodeBundleNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTBarcodeBundleNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTBarcodeBundleNo_lbl.Location = New System.Drawing.Point(877, 73)
+        Me.FTBarcodeBundleNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTBarcodeBundleNo_lbl.Name = "FTBarcodeBundleNo_lbl"
+        Me.FTBarcodeBundleNo_lbl.Size = New System.Drawing.Size(120, 23)
+        Me.FTBarcodeBundleNo_lbl.TabIndex = 317
+        Me.FTBarcodeBundleNo_lbl.Tag = "2|"
+        Me.FTBarcodeBundleNo_lbl.Text = "มัดที่ :"
+        '
+        'FNHSysPartId
+        '
+        Me.FNHSysPartId.EnterMoveNextControl = True
+        Me.FNHSysPartId.Location = New System.Drawing.Point(741, 71)
+        Me.FNHSysPartId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPartId.Name = "FNHSysPartId"
+        Me.FNHSysPartId.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FNHSysPartId.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNHSysPartId.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysPartId.Properties.Appearance.Options.UseForeColor = True
+        Me.FNHSysPartId.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysPartId.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysPartId.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FNHSysPartId.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FNHSysPartId.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNHSysPartId.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysPartId.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNHSysPartId.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNHSysPartId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysPartId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysPartId.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNHSysPartId.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNHSysPartId.Properties.ReadOnly = True
+        Me.FNHSysPartId.Size = New System.Drawing.Size(128, 23)
+        Me.FNHSysPartId.TabIndex = 316
+        Me.FNHSysPartId.TabStop = False
+        Me.FNHSysPartId.Tag = "2|"
+        '
+        'FNHSysPartId_lbl
+        '
+        Me.FNHSysPartId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysPartId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysPartId_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNHSysPartId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNHSysPartId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNHSysPartId_lbl.Location = New System.Drawing.Point(607, 71)
+        Me.FNHSysPartId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPartId_lbl.Name = "FNHSysPartId_lbl"
+        Me.FNHSysPartId_lbl.Size = New System.Drawing.Size(132, 23)
+        Me.FNHSysPartId_lbl.TabIndex = 315
+        Me.FNHSysPartId_lbl.Tag = "2|"
+        Me.FNHSysPartId_lbl.Text = "Part :"
+        '
+        'FNHSysMarkId
+        '
+        Me.FNHSysMarkId.EnterMoveNextControl = True
+        Me.FNHSysMarkId.Location = New System.Drawing.Point(467, 71)
+        Me.FNHSysMarkId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysMarkId.Name = "FNHSysMarkId"
+        Me.FNHSysMarkId.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FNHSysMarkId.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNHSysMarkId.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysMarkId.Properties.Appearance.Options.UseForeColor = True
+        Me.FNHSysMarkId.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysMarkId.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysMarkId.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FNHSysMarkId.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FNHSysMarkId.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNHSysMarkId.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysMarkId.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNHSysMarkId.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNHSysMarkId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysMarkId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysMarkId.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNHSysMarkId.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNHSysMarkId.Properties.ReadOnly = True
+        Me.FNHSysMarkId.Size = New System.Drawing.Size(128, 23)
+        Me.FNHSysMarkId.TabIndex = 314
+        Me.FNHSysMarkId.TabStop = False
+        Me.FNHSysMarkId.Tag = "2|"
+        '
+        'FNHSysMarkId_lbl
+        '
+        Me.FNHSysMarkId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysMarkId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysMarkId_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNHSysMarkId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNHSysMarkId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNHSysMarkId_lbl.Location = New System.Drawing.Point(332, 71)
+        Me.FNHSysMarkId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysMarkId_lbl.Name = "FNHSysMarkId_lbl"
+        Me.FNHSysMarkId_lbl.Size = New System.Drawing.Size(132, 23)
+        Me.FNHSysMarkId_lbl.TabIndex = 313
+        Me.FNHSysMarkId_lbl.Tag = "2|"
+        Me.FNHSysMarkId_lbl.Text = "Mark :"
+        '
+        'FNHSysOperationId
+        '
+        Me.FNHSysOperationId.EnterMoveNextControl = True
+        Me.FNHSysOperationId.Location = New System.Drawing.Point(201, 71)
+        Me.FNHSysOperationId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysOperationId.Name = "FNHSysOperationId"
+        Me.FNHSysOperationId.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FNHSysOperationId.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNHSysOperationId.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysOperationId.Properties.Appearance.Options.UseForeColor = True
+        Me.FNHSysOperationId.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysOperationId.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysOperationId.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FNHSysOperationId.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FNHSysOperationId.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNHSysOperationId.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysOperationId.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNHSysOperationId.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNHSysOperationId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysOperationId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysOperationId.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNHSysOperationId.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNHSysOperationId.Properties.ReadOnly = True
+        Me.FNHSysOperationId.Size = New System.Drawing.Size(128, 23)
+        Me.FNHSysOperationId.TabIndex = 312
+        Me.FNHSysOperationId.TabStop = False
+        Me.FNHSysOperationId.Tag = "2|"
+        '
+        'FNHSysOperationId_lbl
+        '
+        Me.FNHSysOperationId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysOperationId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysOperationId_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNHSysOperationId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNHSysOperationId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNHSysOperationId_lbl.Location = New System.Drawing.Point(54, 70)
+        Me.FNHSysOperationId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysOperationId_lbl.Name = "FNHSysOperationId_lbl"
+        Me.FNHSysOperationId_lbl.Size = New System.Drawing.Size(142, 23)
+        Me.FNHSysOperationId_lbl.TabIndex = 311
+        Me.FNHSysOperationId_lbl.Tag = "2|"
+        Me.FNHSysOperationId_lbl.Text = "Operation :"
+        '
+        'FTSizeBreakDown
+        '
+        Me.FTSizeBreakDown.EnterMoveNextControl = True
+        Me.FTSizeBreakDown.Location = New System.Drawing.Point(999, 44)
+        Me.FTSizeBreakDown.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSizeBreakDown.Name = "FTSizeBreakDown"
+        Me.FTSizeBreakDown.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTSizeBreakDown.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FTSizeBreakDown.Properties.Appearance.Options.UseBackColor = True
+        Me.FTSizeBreakDown.Properties.Appearance.Options.UseForeColor = True
+        Me.FTSizeBreakDown.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FTSizeBreakDown.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FTSizeBreakDown.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FTSizeBreakDown.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FTSizeBreakDown.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FTSizeBreakDown.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FTSizeBreakDown.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FTSizeBreakDown.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FTSizeBreakDown.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTSizeBreakDown.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FTSizeBreakDown.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTSizeBreakDown.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FTSizeBreakDown.Properties.ReadOnly = True
+        Me.FTSizeBreakDown.Size = New System.Drawing.Size(98, 23)
+        Me.FTSizeBreakDown.TabIndex = 310
+        Me.FTSizeBreakDown.TabStop = False
+        Me.FTSizeBreakDown.Tag = "2|"
+        '
+        'FTSizeBreakDown_lbl
+        '
+        Me.FTSizeBreakDown_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTSizeBreakDown_lbl.Appearance.Options.UseForeColor = True
+        Me.FTSizeBreakDown_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTSizeBreakDown_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTSizeBreakDown_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTSizeBreakDown_lbl.Location = New System.Drawing.Point(877, 46)
+        Me.FTSizeBreakDown_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSizeBreakDown_lbl.Name = "FTSizeBreakDown_lbl"
+        Me.FTSizeBreakDown_lbl.Size = New System.Drawing.Size(120, 23)
+        Me.FTSizeBreakDown_lbl.TabIndex = 309
+        Me.FTSizeBreakDown_lbl.Tag = "2|"
+        Me.FTSizeBreakDown_lbl.Text = "Size :"
+        '
+        'FTColorway
+        '
+        Me.FTColorway.EnterMoveNextControl = True
+        Me.FTColorway.Location = New System.Drawing.Point(741, 46)
+        Me.FTColorway.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTColorway.Name = "FTColorway"
+        Me.FTColorway.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTColorway.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FTColorway.Properties.Appearance.Options.UseBackColor = True
+        Me.FTColorway.Properties.Appearance.Options.UseForeColor = True
+        Me.FTColorway.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FTColorway.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FTColorway.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FTColorway.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FTColorway.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FTColorway.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FTColorway.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FTColorway.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FTColorway.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTColorway.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FTColorway.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTColorway.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FTColorway.Properties.ReadOnly = True
+        Me.FTColorway.Size = New System.Drawing.Size(98, 23)
+        Me.FTColorway.TabIndex = 310
+        Me.FTColorway.TabStop = False
+        Me.FTColorway.Tag = "2|"
+        '
+        'FTColorway_lbl
+        '
+        Me.FTColorway_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTColorway_lbl.Appearance.Options.UseForeColor = True
+        Me.FTColorway_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTColorway_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTColorway_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTColorway_lbl.Location = New System.Drawing.Point(612, 46)
+        Me.FTColorway_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTColorway_lbl.Name = "FTColorway_lbl"
+        Me.FTColorway_lbl.Size = New System.Drawing.Size(125, 23)
+        Me.FTColorway_lbl.TabIndex = 309
+        Me.FTColorway_lbl.Tag = "2|"
+        Me.FTColorway_lbl.Text = "Colorway :"
+        '
+        'FTOrderProdNo
+        '
+        Me.FTOrderProdNo.EnterMoveNextControl = True
+        Me.FTOrderProdNo.Location = New System.Drawing.Point(467, 46)
+        Me.FTOrderProdNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTOrderProdNo.Name = "FTOrderProdNo"
+        Me.FTOrderProdNo.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTOrderProdNo.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FTOrderProdNo.Properties.Appearance.Options.UseBackColor = True
+        Me.FTOrderProdNo.Properties.Appearance.Options.UseForeColor = True
+        Me.FTOrderProdNo.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FTOrderProdNo.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FTOrderProdNo.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FTOrderProdNo.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FTOrderProdNo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FTOrderProdNo.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FTOrderProdNo.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FTOrderProdNo.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FTOrderProdNo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTOrderProdNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FTOrderProdNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTOrderProdNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FTOrderProdNo.Properties.ReadOnly = True
+        Me.FTOrderProdNo.Size = New System.Drawing.Size(128, 23)
+        Me.FTOrderProdNo.TabIndex = 308
+        Me.FTOrderProdNo.TabStop = False
+        Me.FTOrderProdNo.Tag = "2|"
+        '
+        'FTOrderProdNo_lbl
+        '
+        Me.FTOrderProdNo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTOrderProdNo_lbl.Appearance.Options.UseForeColor = True
+        Me.FTOrderProdNo_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTOrderProdNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTOrderProdNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTOrderProdNo_lbl.Location = New System.Drawing.Point(332, 46)
+        Me.FTOrderProdNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTOrderProdNo_lbl.Name = "FTOrderProdNo_lbl"
+        Me.FTOrderProdNo_lbl.Size = New System.Drawing.Size(132, 23)
+        Me.FTOrderProdNo_lbl.TabIndex = 307
+        Me.FTOrderProdNo_lbl.Tag = "2|"
+        Me.FTOrderProdNo_lbl.Text = "FO. Prod No :"
+        '
+        'FTOrderNo
+        '
+        Me.FTOrderNo.EnterMoveNextControl = True
+        Me.FTOrderNo.Location = New System.Drawing.Point(201, 46)
+        Me.FTOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTOrderNo.Name = "FTOrderNo"
+        Me.FTOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTOrderNo.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FTOrderNo.Properties.Appearance.Options.UseBackColor = True
+        Me.FTOrderNo.Properties.Appearance.Options.UseForeColor = True
+        Me.FTOrderNo.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FTOrderNo.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FTOrderNo.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FTOrderNo.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FTOrderNo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FTOrderNo.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FTOrderNo.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FTOrderNo.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FTOrderNo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTOrderNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FTOrderNo.Properties.ReadOnly = True
+        Me.FTOrderNo.Size = New System.Drawing.Size(128, 23)
+        Me.FTOrderNo.TabIndex = 306
+        Me.FTOrderNo.TabStop = False
+        Me.FTOrderNo.Tag = "2|"
+        '
+        'FTOrderNo_lbl
+        '
+        Me.FTOrderNo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTOrderNo_lbl.Appearance.Options.UseForeColor = True
+        Me.FTOrderNo_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(54, 44)
+        Me.FTOrderNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTOrderNo_lbl.Name = "FTOrderNo_lbl"
+        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(142, 23)
+        Me.FTOrderNo_lbl.TabIndex = 305
+        Me.FTOrderNo_lbl.Tag = "2|"
+        Me.FTOrderNo_lbl.Text = "FO. No :"
+        '
+        'FTStyleCode_lbl
+        '
+        Me.FTStyleCode_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTStyleCode_lbl.Appearance.Options.UseForeColor = True
+        Me.FTStyleCode_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTStyleCode_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTStyleCode_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTStyleCode_lbl.Location = New System.Drawing.Point(602, 4)
+        Me.FTStyleCode_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStyleCode_lbl.Name = "FTStyleCode_lbl"
+        Me.FTStyleCode_lbl.Size = New System.Drawing.Size(135, 23)
+        Me.FTStyleCode_lbl.TabIndex = 304
+        Me.FTStyleCode_lbl.Tag = "2|"
+        Me.FTStyleCode_lbl.Text = "Style Code :"
+        '
+        'FTStyleCode
+        '
+        Me.FTStyleCode.EditValue = ""
+        Me.FTStyleCode.Location = New System.Drawing.Point(741, 4)
+        Me.FTStyleCode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStyleCode.Name = "FTStyleCode"
+        Me.FTStyleCode.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTStyleCode.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.FTStyleCode.Properties.Appearance.Options.UseBackColor = True
+        Me.FTStyleCode.Properties.Appearance.Options.UseFont = True
+        Me.FTStyleCode.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FTStyleCode.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FTStyleCode.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FTStyleCode.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FTStyleCode.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FTStyleCode.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FTStyleCode.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FTStyleCode.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FTStyleCode.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTStyleCode.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FTStyleCode.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTStyleCode.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FTStyleCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.FTStyleCode.Properties.MaxLength = 30
+        Me.FTStyleCode.Properties.ReadOnly = True
+        Me.FTStyleCode.Size = New System.Drawing.Size(357, 40)
+        Me.FTStyleCode.TabIndex = 303
+        Me.FTStyleCode.Tag = "2|"
+        '
         'olberror
         '
         Me.olberror.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -1500,9 +1501,8 @@ Partial Class wSMPScanBarcodeSendSupl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1114, 741)
+        Me.ClientSize = New System.Drawing.Size(1114, 750)
         Me.Controls.Add(Me.olberror)
-        Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.ogbbarcodeinfo)
         Me.Controls.Add(Me.ogbdetail)
         Me.Controls.Add(Me.ogbsupplier)
@@ -1540,6 +1540,8 @@ Partial Class wSMPScanBarcodeSendSupl
         Me.ogbbarcodeinfo.ResumeLayout(False)
         Me.XtraScrollableControl1.ResumeLayout(False)
         CType(Me.FTBarcodeBundleNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ogbmainprocbutton.ResumeLayout(False)
         CType(Me.FNHSysPartId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysMarkId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysOperationId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1548,8 +1550,6 @@ Partial Class wSMPScanBarcodeSendSupl
         CType(Me.FTOrderProdNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStyleCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ogbmainprocbutton.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

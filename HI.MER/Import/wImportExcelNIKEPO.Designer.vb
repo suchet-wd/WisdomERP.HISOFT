@@ -45,7 +45,9 @@ Partial Class wImportExcelNIKEPO
         Dim SerializableAppearanceObject19 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject20 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbselectfile = New DevExpress.XtraEditors.GroupControl()
-        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
+        Me.FNFileFormatType = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.FTFileType_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FTFile_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.ogbHeader = New DevExpress.XtraEditors.GroupControl()
         Me.FNHSysMerTeamId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysMerTeamId_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -199,6 +201,7 @@ Partial Class wImportExcelNIKEPO
         Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.ogbselectfile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbselectfile.SuspendLayout()
+        CType(Me.FNFileFormatType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbHeader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbHeader.SuspendLayout()
         CType(Me.FNHSysMerTeamId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -226,7 +229,9 @@ Partial Class wImportExcelNIKEPO
         '
         Me.ogbselectfile.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogbselectfile.Controls.Add(Me.LabelControl1)
+        Me.ogbselectfile.Controls.Add(Me.FNFileFormatType)
+        Me.ogbselectfile.Controls.Add(Me.FTFileType_lbl)
+        Me.ogbselectfile.Controls.Add(Me.FTFile_lbl)
         Me.ogbselectfile.Controls.Add(Me.ogbHeader)
         Me.ogbselectfile.Controls.Add(Me.FTFilePath)
         Me.ogbselectfile.Location = New System.Drawing.Point(3, 3)
@@ -236,19 +241,61 @@ Partial Class wImportExcelNIKEPO
         Me.ogbselectfile.TabIndex = 2
         Me.ogbselectfile.Text = "Select File"
         '
-        'LabelControl1
+        'FNFileFormatType
         '
-        Me.LabelControl1.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.LabelControl1.Appearance.Options.UseForeColor = True
-        Me.LabelControl1.Appearance.Options.UseTextOptions = True
-        Me.LabelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.LabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl1.Location = New System.Drawing.Point(9, 108)
-        Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(138, 19)
-        Me.LabelControl1.TabIndex = 484
-        Me.LabelControl1.Tag = "2|"
-        Me.LabelControl1.Text = "File Excel NIKE PO  :"
+        Me.FNFileFormatType.EditValue = ""
+        Me.FNFileFormatType.EnterMoveNextControl = True
+        Me.FNFileFormatType.Location = New System.Drawing.Point(149, 107)
+        Me.FNFileFormatType.Name = "FNFileFormatType"
+        Me.FNFileFormatType.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FNFileFormatType.Properties.Appearance.Options.UseBackColor = True
+        Me.FNFileFormatType.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FNFileFormatType.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FNFileFormatType.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FNFileFormatType.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FNFileFormatType.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNFileFormatType.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNFileFormatType.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNFileFormatType.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNFileFormatType.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNFileFormatType.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNFileFormatType.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNFileFormatType.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNFileFormatType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.FNFileFormatType.Properties.Items.AddRange(New Object() {"Format NIKE DPOM", "Format Zelus"})
+        Me.FNFileFormatType.Properties.Tag = ""
+        Me.FNFileFormatType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.FNFileFormatType.Size = New System.Drawing.Size(134, 20)
+        Me.FNFileFormatType.TabIndex = 488
+        Me.FNFileFormatType.Tag = "2|"
+        '
+        'FTFileType_lbl
+        '
+        Me.FTFileType_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTFileType_lbl.Appearance.Options.UseForeColor = True
+        Me.FTFileType_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTFileType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTFileType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTFileType_lbl.Location = New System.Drawing.Point(23, 108)
+        Me.FTFileType_lbl.Name = "FTFileType_lbl"
+        Me.FTFileType_lbl.Size = New System.Drawing.Size(123, 18)
+        Me.FTFileType_lbl.TabIndex = 489
+        Me.FTFileType_lbl.Tag = "2|"
+        Me.FTFileType_lbl.Text = "File Format Type :"
+        '
+        'FTFile_lbl
+        '
+        Me.FTFile_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTFile_lbl.Appearance.Options.UseForeColor = True
+        Me.FTFile_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTFile_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTFile_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTFile_lbl.Location = New System.Drawing.Point(300, 108)
+        Me.FTFile_lbl.Name = "FTFile_lbl"
+        Me.FTFile_lbl.Size = New System.Drawing.Size(138, 19)
+        Me.FTFile_lbl.TabIndex = 484
+        Me.FTFile_lbl.Tag = "2|"
+        Me.FTFile_lbl.Text = "File Excel  :"
         '
         'ogbHeader
         '
@@ -516,7 +563,7 @@ Partial Class wImportExcelNIKEPO
         '
         Me.FTFilePath.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTFilePath.Location = New System.Drawing.Point(149, 107)
+        Me.FTFilePath.Location = New System.Drawing.Point(444, 107)
         Me.FTFilePath.Name = "FTFilePath"
         Me.FTFilePath.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTFilePath.Properties.Appearance.Options.UseBackColor = True
@@ -534,7 +581,7 @@ Partial Class wImportExcelNIKEPO
         Me.FTFilePath.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTFilePath.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTFilePath.Properties.ReadOnly = True
-        Me.FTFilePath.Size = New System.Drawing.Size(967, 20)
+        Me.FTFilePath.Size = New System.Drawing.Size(672, 20)
         Me.FTFilePath.TabIndex = 1
         Me.FTFilePath.Tag = "2|"
         '
@@ -557,7 +604,7 @@ Partial Class wImportExcelNIKEPO
         Me.otpnormal.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpnormal.Name = "otpnormal"
         Me.otpnormal.PageVisible = False
-        Me.otpnormal.Size = New System.Drawing.Size(1122, 400)
+        Me.otpnormal.Size = New System.Drawing.Size(1128, 405)
         Me.otpnormal.Text = "Excel Detail"
         '
         'opshet
@@ -566,15 +613,16 @@ Partial Class wImportExcelNIKEPO
         Me.opshet.Location = New System.Drawing.Point(0, 0)
         Me.opshet.Name = "opshet"
         Me.opshet.Options.Behavior.Column.Resize = DevExpress.XtraSpreadsheet.DocumentCapability.Enabled
+        Me.opshet.Options.Culture = New System.Globalization.CultureInfo("th-TH")
         Me.opshet.ReadOnly = True
-        Me.opshet.Size = New System.Drawing.Size(1122, 400)
+        Me.opshet.Size = New System.Drawing.Size(1128, 405)
         Me.opshet.TabIndex = 2
         '
         'otpgrid1
         '
         Me.otpgrid1.Controls.Add(Me.ogcdt1)
         Me.otpgrid1.Name = "otpgrid1"
-        Me.otpgrid1.Size = New System.Drawing.Size(1128, 400)
+        Me.otpgrid1.Size = New System.Drawing.Size(1128, 405)
         Me.otpgrid1.Text = "NIKE PO Detail"
         '
         'ogcdt1
@@ -583,7 +631,7 @@ Partial Class wImportExcelNIKEPO
         Me.ogcdt1.Location = New System.Drawing.Point(0, 0)
         Me.ogcdt1.MainView = Me.ogvdt1
         Me.ogcdt1.Name = "ogcdt1"
-        Me.ogcdt1.Size = New System.Drawing.Size(1128, 400)
+        Me.ogcdt1.Size = New System.Drawing.Size(1128, 405)
         Me.ogcdt1.TabIndex = 398
         Me.ogcdt1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvdt1})
         '
@@ -1855,6 +1903,7 @@ Partial Class wImportExcelNIKEPO
         Me.Text = "Import Excel NIKE PO"
         CType(Me.ogbselectfile, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbselectfile.ResumeLayout(False)
+        CType(Me.FNFileFormatType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbHeader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbHeader.ResumeLayout(False)
         CType(Me.FNHSysMerTeamId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1908,7 +1957,7 @@ Partial Class wImportExcelNIKEPO
     Friend WithEvents FNHSysCustId_None As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FNHSysCustId As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FNHSysCustId_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents FTFile_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FNHSysMerTeamId As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FNHSysMerTeamId_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents ocmsavelayout As DevExpress.XtraEditors.SimpleButton
@@ -2032,4 +2081,6 @@ Partial Class wImportExcelNIKEPO
     Friend WithEvents CFIXCreateDate As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CFIXSubPGM As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ocmImportnetprice As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents FNFileFormatType As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents FTFileType_lbl As DevExpress.XtraEditors.LabelControl
 End Class

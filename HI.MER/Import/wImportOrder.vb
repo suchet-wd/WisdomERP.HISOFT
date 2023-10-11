@@ -3491,7 +3491,15 @@ Public Class wImportOrder
                                 If Not DBNull.Value.Equals(oDBdtSrc.Rows(nLoopSizeBreakdown).Item(nColIncMatSize)) Then
 
                                     If CStr(oDBdtSrc.Rows(nLoopSizeBreakdown).Item(nColIncMatSize)).Trim() <> "" Then
-                                        nFNQuantity = Double.Parse(oDBdtSrc.Rows(nLoopSizeBreakdown).Item(nColIncMatSize), NumberStyles.Currency)
+                                        Try
+                                            Dim datastr As String = oDBdtSrc.Rows(nLoopSizeBreakdown).Item(nColIncMatSize).ToString
+                                            Dim datastr0 As String = oDBdtSrc.Rows(0).Item(nColIncMatSize).ToString
+
+                                            nFNQuantity = Double.Parse(oDBdtSrc.Rows(nLoopSizeBreakdown).Item(nColIncMatSize), NumberStyles.Currency)
+                                        Catch ex As Exception
+                                            nFNQuantity = 0
+                                        End Try
+
                                     Else
                                         nFNQuantity = 0
                                     End If
@@ -4628,7 +4636,7 @@ Public Class wImportOrder
                 tSql &= Environment.NewLine & " from     [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].TMERTOrder AS Z WITH(NOLOCK)  "
                 tSql &= Environment.NewLine & "   WHERE  (Z.FNHSysStyleId = M.FNHSysStyleId)  "
                 tSql &= Environment.NewLine & "   ORDER BY CASE WHEN Z.FNOrderType = 13  THEN 1 ELSE 2 END ,Z.FTOrderNo DESC  ) AS Z "
-                tSql &= Environment.NewLine & "  outer apply (select top 1 Cmpc.FNHSysCmpPOId from [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] As Cmpc With(NOLOCK) where Cmpc.FNHSysCmpId = CASE WHEN  " & Val(_FixCmpByProgram) & " > 0 THEN " & Val(_FixCmpByProgram) & " ELSE ISNULL(Z.FNHSysCmpId,NULL)  END ) AS Cmpc "
+                tSql &= Environment.NewLine & "  outer apply (select top 1 Cmpc.FNHSysCmpPOId from [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] As Cmpc With(NOLOCK) where Cmpc.FNHSysCmpId = CASE WHEN  " & Val(_FixCmpByProgram) & " > 0 THEN " & Val(_FixCmpByProgram) & " ELSE ISNULL(M.FNHSysCmpId,ISNULL(Z.FNHSysCmpId,NULL))   END ) AS Cmpc "
 
                 '  tSql &= Environment.NewLine & " DROP TABLE #Tab;"
 

@@ -19,7 +19,11 @@ Partial Class wSMPQCSendSupllist
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ocmcancel = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcopy = New DevExpress.XtraEditors.SimpleButton()
         Me.ogrpNotSendSupl = New DevExpress.XtraEditors.GroupControl()
@@ -84,12 +88,12 @@ Partial Class wSMPQCSendSupllist
         '
         Me.ogcNotSendSupl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcNotSendSupl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcNotSendSupl.Location = New System.Drawing.Point(2, 25)
+        Me.ogcNotSendSupl.Location = New System.Drawing.Point(2, 28)
         Me.ogcNotSendSupl.MainView = Me.ogvNotSendSupl
         Me.ogcNotSendSupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcNotSendSupl.Name = "ogcNotSendSupl"
         Me.ogcNotSendSupl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSuplCode, Me.RepositoryItemFTSelect})
-        Me.ogcNotSendSupl.Size = New System.Drawing.Size(769, 545)
+        Me.ogcNotSendSupl.Size = New System.Drawing.Size(769, 542)
         Me.ogcNotSendSupl.TabIndex = 1
         Me.ogcNotSendSupl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvNotSendSupl})
         '
@@ -176,7 +180,7 @@ Partial Class wSMPQCSendSupllist
         'RepositoryFTSuplCode
         '
         Me.RepositoryFTSuplCode.AutoHeight = False
-        Me.RepositoryFTSuplCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", "99", Nothing, True)})
+        Me.RepositoryFTSuplCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "99", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryFTSuplCode.Name = "RepositoryFTSuplCode"
         '
         'ochkselectall
@@ -185,7 +189,7 @@ Partial Class wSMPQCSendSupllist
         Me.ochkselectall.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ochkselectall.Name = "ochkselectall"
         Me.ochkselectall.Properties.Caption = "Select All"
-        Me.ochkselectall.Size = New System.Drawing.Size(196, 20)
+        Me.ochkselectall.Size = New System.Drawing.Size(196, 24)
         Me.ochkselectall.TabIndex = 309
         '
         'wSMPQCSendSupllist

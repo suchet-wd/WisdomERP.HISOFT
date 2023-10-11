@@ -19,38 +19,13 @@ Partial Class wSubOrderCancelTracking
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject13 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions5 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject17 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject18 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject19 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject20 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions6 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject21 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject22 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject23 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject24 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
+        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager()
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
         Me.FTSubOrderNoTo = New DevExpress.XtraEditors.ButtonEdit()
@@ -161,16 +136,16 @@ Partial Class wSubOrderCancelTracking
         Me.DockPanel1_Container.Controls.Add(Me.FTOrderNoTo)
         Me.DockPanel1_Container.Controls.Add(Me.FTOrderNo_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FTOrderNo)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 26)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 23)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(978, 73)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(976, 75)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FTSubOrderNoTo
         '
         Me.FTSubOrderNoTo.Location = New System.Drawing.Point(456, 40)
         Me.FTSubOrderNoTo.Name = "FTSubOrderNoTo"
-        Me.FTSubOrderNoTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "180", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSubOrderNoTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", "180", Nothing, True), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", "", Nothing, True)})
         Me.FTSubOrderNoTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTSubOrderNoTo.Properties.Tag = ""
         Me.FTSubOrderNoTo.Size = New System.Drawing.Size(109, 20)
@@ -195,7 +170,7 @@ Partial Class wSubOrderCancelTracking
         '
         Me.FTSubOrderNo.Location = New System.Drawing.Point(146, 40)
         Me.FTSubOrderNo.Name = "FTSubOrderNo"
-        Me.FTSubOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "133", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, False, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSubOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, "", "133", Nothing, True), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject4, "", "", Nothing, True)})
         Me.FTSubOrderNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTSubOrderNo.Properties.Tag = ""
         Me.FTSubOrderNo.Size = New System.Drawing.Size(109, 20)
@@ -234,7 +209,7 @@ Partial Class wSubOrderCancelTracking
         Me.FTOrderNoTo.EditValue = " "
         Me.FTOrderNoTo.Location = New System.Drawing.Point(456, 14)
         Me.FTOrderNoTo.Name = "FTOrderNoTo"
-        Me.FTOrderNoTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "464", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTOrderNoTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, "", "464", Nothing, True)})
         Me.FTOrderNoTo.Size = New System.Drawing.Size(109, 20)
         Me.FTOrderNoTo.TabIndex = 9
         Me.FTOrderNoTo.Tag = "2|"
@@ -257,7 +232,7 @@ Partial Class wSubOrderCancelTracking
         Me.FTOrderNo.EditValue = " "
         Me.FTOrderNo.Location = New System.Drawing.Point(146, 14)
         Me.FTOrderNo.Name = "FTOrderNo"
-        Me.FTOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "463", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject6, "", "463", Nothing, True)})
         Me.FTOrderNo.Size = New System.Drawing.Size(109, 20)
         Me.FTOrderNo.TabIndex = 7
         Me.FTOrderNo.Tag = "2|"
@@ -276,7 +251,7 @@ Partial Class wSubOrderCancelTracking
         '
         Me.TabSum.Controls.Add(Me.GroupControl1)
         Me.TabSum.Name = "TabSum"
-        Me.TabSum.Size = New System.Drawing.Size(982, 282)
+        Me.TabSum.Size = New System.Drawing.Size(978, 279)
         Me.TabSum.Text = "Summery"
         '
         'GroupControl1
@@ -285,17 +260,17 @@ Partial Class wSubOrderCancelTracking
         Me.GroupControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupControl1.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(982, 282)
+        Me.GroupControl1.Size = New System.Drawing.Size(978, 279)
         Me.GroupControl1.TabIndex = 6
         Me.GroupControl1.Text = "summery"
         '
         'ogc
         '
         Me.ogc.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc.Location = New System.Drawing.Point(2, 23)
+        Me.ogc.Location = New System.Drawing.Point(2, 20)
         Me.ogc.MainView = Me.ogv
         Me.ogc.Name = "ogc"
-        Me.ogc.Size = New System.Drawing.Size(978, 257)
+        Me.ogc.Size = New System.Drawing.Size(974, 257)
         Me.ogc.TabIndex = 0
         Me.ogc.Tag = "2|"
         Me.ogc.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogv})
@@ -408,7 +383,7 @@ Partial Class wSubOrderCancelTracking
         '
         Me.TabDetail.Controls.Add(Me.ogbD)
         Me.TabDetail.Name = "TabDetail"
-        Me.TabDetail.Size = New System.Drawing.Size(982, 282)
+        Me.TabDetail.Size = New System.Drawing.Size(978, 279)
         Me.TabDetail.Text = "Detail"
         '
         'ogbD
@@ -417,17 +392,17 @@ Partial Class wSubOrderCancelTracking
         Me.ogbD.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbD.Location = New System.Drawing.Point(0, 0)
         Me.ogbD.Name = "ogbD"
-        Me.ogbD.Size = New System.Drawing.Size(982, 282)
+        Me.ogbD.Size = New System.Drawing.Size(978, 279)
         Me.ogbD.TabIndex = 1
         Me.ogbD.Text = "Detail"
         '
         'ogcDetail
         '
         Me.ogcDetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogcDetail.Location = New System.Drawing.Point(2, 23)
+        Me.ogcDetail.Location = New System.Drawing.Point(2, 20)
         Me.ogcDetail.MainView = Me.ogvDetail
         Me.ogcDetail.Name = "ogcDetail"
-        Me.ogcDetail.Size = New System.Drawing.Size(978, 257)
+        Me.ogcDetail.Size = New System.Drawing.Size(974, 257)
         Me.ogcDetail.TabIndex = 2
         Me.ogcDetail.Tag = "2|"
         Me.ogcDetail.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvDetail})
@@ -702,7 +677,7 @@ Partial Class wSubOrderCancelTracking
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(276, 12)
+        Me.ocmexit.Location = New System.Drawing.Point(365, 48)
         Me.ocmexit.Name = "ocmexit"
         Me.ocmexit.Size = New System.Drawing.Size(95, 25)
         Me.ocmexit.TabIndex = 96
@@ -712,7 +687,7 @@ Partial Class wSubOrderCancelTracking
         '
         'ocmclear
         '
-        Me.ocmclear.Location = New System.Drawing.Point(159, 12)
+        Me.ocmclear.Location = New System.Drawing.Point(300, 11)
         Me.ocmclear.Name = "ocmclear"
         Me.ocmclear.Size = New System.Drawing.Size(95, 25)
         Me.ocmclear.TabIndex = 95
@@ -722,7 +697,7 @@ Partial Class wSubOrderCancelTracking
         '
         'ocmload
         '
-        Me.ocmload.Location = New System.Drawing.Point(33, 12)
+        Me.ocmload.Location = New System.Drawing.Point(89, 11)
         Me.ocmload.Name = "ocmload"
         Me.ocmload.Size = New System.Drawing.Size(95, 25)
         Me.ocmload.TabIndex = 0

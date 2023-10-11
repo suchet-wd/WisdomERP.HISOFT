@@ -3035,7 +3035,7 @@
         _Qry &= vbCrLf & "  From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS A With(NOLOCK)  "
         _Qry &= vbCrLf & " INNER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift AS S With(NOLOCK)  ON A.FNHSysShiftID = S.FNHSysShiftID"
         _Qry &= vbCrLf & " Where (A.FNHSysEmpID = " & _TFNHSysEmpID & ") "
-        _Qry &= vbCrLf & " And (A.FNEmpStatus = 0) "
+        ' _Qry &= vbCrLf & " And (A.FNEmpStatus = 0) "
         _Qry &= vbCrLf & "  Order By FDDateEnd "
 
         ' FNHSysShiftID = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
@@ -3081,9 +3081,13 @@
 
             _FNHSysEmpID = Integer.Parse(Val(R!FNHSysEmpID.ToString))
 
-            If _FNHSysEmpID = 0 Then
+            If _FNHSysEmpID = 239730004 Then
                 Beep()
             End If
+            If _FNHSysEmpID = 1403020371 Then
+                Beep()
+            End If
+
 
             _FTIn1 = R!FTIn1.ToString
             _FTOut1 = R!FTOut1.ToString

@@ -186,6 +186,12 @@
     <Compile Include="ConfigLCD\wConfigTarget.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LCDSewingDailyDesktop.Designer.vb">
+      <DependentUpon>LCDSewingDailyDesktop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LCDSewingDailyDesktop.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LCDSewingDaily.Designer.vb">
       <DependentUpon>LCDSewingDaily.vb</DependentUpon>
     </Compile>
@@ -346,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConfigLCD\wConfigTarget.resx">
       <DependentUpon>wConfigTarget.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LCDSewingDailyDesktop.resx">
+      <DependentUpon>LCDSewingDailyDesktop.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LCDSewingDaily.resx">
       <DependentUpon>LCDSewingDaily.vb</DependentUpon>

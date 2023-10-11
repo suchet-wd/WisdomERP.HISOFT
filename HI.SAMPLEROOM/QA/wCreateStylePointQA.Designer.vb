@@ -19,11 +19,11 @@ Partial Class wCreateStylePointQA
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.oGcDocument = New DevExpress.XtraEditors.GroupControl()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
         Me.ocmcopy = New DevExpress.XtraEditors.SimpleButton()
@@ -141,7 +141,6 @@ Partial Class wCreateStylePointQA
         'ocmSavePoint
         '
         Me.ocmSavePoint.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-
         Me.ocmSavePoint.Location = New System.Drawing.Point(6, 52)
         Me.ocmSavePoint.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmSavePoint.Name = "ocmSavePoint"
@@ -154,7 +153,6 @@ Partial Class wCreateStylePointQA
         'ocmDelPoint
         '
         Me.ocmDelPoint.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-
         Me.ocmDelPoint.Location = New System.Drawing.Point(195, 52)
         Me.ocmDelPoint.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmDelPoint.Name = "ocmDelPoint"
@@ -166,7 +164,6 @@ Partial Class wCreateStylePointQA
         '
         'ocmNext
         '
-
         Me.ocmNext.Location = New System.Drawing.Point(310, 62)
         Me.ocmNext.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmNext.Name = "ocmNext"
@@ -178,7 +175,6 @@ Partial Class wCreateStylePointQA
         '
         'ocmPrev
         '
-
         Me.ocmPrev.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleRight
         Me.ocmPrev.Location = New System.Drawing.Point(169, 62)
         Me.ocmPrev.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -209,7 +205,7 @@ Partial Class wCreateStylePointQA
         Me.FNHSysStyleId.Location = New System.Drawing.Point(155, 30)
         Me.FNHSysStyleId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysStyleId.Name = "FNHSysStyleId"
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysStyleId.Properties.Tag = ""
         Me.FNHSysStyleId.Size = New System.Drawing.Size(153, 22)

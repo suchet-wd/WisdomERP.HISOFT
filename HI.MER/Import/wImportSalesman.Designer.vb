@@ -19,14 +19,47 @@ Partial Class wImportSalesman
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject13 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions5 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject17 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject18 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject19 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject20 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions6 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject21 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject22 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject23 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject24 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions7 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject25 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject26 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject27 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject28 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions8 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject29 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject30 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject31 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject32 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbBrowseFile = New DevExpress.XtraEditors.GroupControl()
         Me.FTFilePath_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTFilePath = New DevExpress.XtraEditors.ButtonEdit()
@@ -94,7 +127,9 @@ Partial Class wImportSalesman
         Me.FNHSysCustId_None = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysCustId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysCustId_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.Timer1 = New System.Windows.Forms.Timer()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.oColFTSubPGM = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.oColFTCmp = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.ogbBrowseFile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbBrowseFile.SuspendLayout()
         CType(Me.FTFilePath.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -138,10 +173,9 @@ Partial Class wImportSalesman
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogbBrowseFile.Controls.Add(Me.FTFilePath_lbl)
         Me.ogbBrowseFile.Controls.Add(Me.FTFilePath)
-        Me.ogbBrowseFile.Location = New System.Drawing.Point(0, 158)
-        Me.ogbBrowseFile.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbBrowseFile.Location = New System.Drawing.Point(0, 128)
         Me.ogbBrowseFile.Name = "ogbBrowseFile"
-        Me.ogbBrowseFile.Size = New System.Drawing.Size(1193, 63)
+        Me.ogbBrowseFile.Size = New System.Drawing.Size(1023, 51)
         Me.ogbBrowseFile.TabIndex = 0
         Me.ogbBrowseFile.Text = "Browse Source File"
         '
@@ -152,10 +186,9 @@ Partial Class wImportSalesman
         Me.FTFilePath_lbl.Appearance.Options.UseTextOptions = True
         Me.FTFilePath_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTFilePath_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTFilePath_lbl.Location = New System.Drawing.Point(21, 31)
-        Me.FTFilePath_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFilePath_lbl.Location = New System.Drawing.Point(18, 25)
         Me.FTFilePath_lbl.Name = "FTFilePath_lbl"
-        Me.FTFilePath_lbl.Size = New System.Drawing.Size(149, 23)
+        Me.FTFilePath_lbl.Size = New System.Drawing.Size(128, 19)
         Me.FTFilePath_lbl.TabIndex = 432
         Me.FTFilePath_lbl.Tag = "2|"
         Me.FTFilePath_lbl.Text = "File Path :"
@@ -164,8 +197,7 @@ Partial Class wImportSalesman
         '
         Me.FTFilePath.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTFilePath.Location = New System.Drawing.Point(171, 31)
-        Me.FTFilePath.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFilePath.Location = New System.Drawing.Point(147, 25)
         Me.FTFilePath.Name = "FTFilePath"
         Me.FTFilePath.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTFilePath.Properties.Appearance.Options.UseBackColor = True
@@ -183,7 +215,7 @@ Partial Class wImportSalesman
         Me.FTFilePath.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTFilePath.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTFilePath.Properties.ReadOnly = True
-        Me.FTFilePath.Size = New System.Drawing.Size(1014, 22)
+        Me.FTFilePath.Size = New System.Drawing.Size(869, 20)
         Me.FTFilePath.TabIndex = 0
         Me.FTFilePath.Tag = "2|"
         '
@@ -193,10 +225,9 @@ Partial Class wImportSalesman
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogbViewDetail.Controls.Add(Me.otcImportOrderNo)
-        Me.ogbViewDetail.Location = New System.Drawing.Point(0, 229)
-        Me.ogbViewDetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbViewDetail.Location = New System.Drawing.Point(0, 186)
         Me.ogbViewDetail.Name = "ogbViewDetail"
-        Me.ogbViewDetail.Size = New System.Drawing.Size(1193, 531)
+        Me.ogbViewDetail.Size = New System.Drawing.Size(1023, 431)
         Me.ogbViewDetail.TabIndex = 1
         Me.ogbViewDetail.Text = "Factory Order Detail From Customer And Merchandiser"
         '
@@ -204,36 +235,33 @@ Partial Class wImportSalesman
         '
         Me.otcImportOrderNo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.otcImportOrderNo.Location = New System.Drawing.Point(2, 25)
-        Me.otcImportOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otcImportOrderNo.Name = "otcImportOrderNo"
         Me.otcImportOrderNo.SelectedTabPage = Me.XtraTabPage1
-        Me.otcImportOrderNo.Size = New System.Drawing.Size(1189, 504)
+        Me.otcImportOrderNo.Size = New System.Drawing.Size(1019, 404)
         Me.otcImportOrderNo.TabIndex = 0
         Me.otcImportOrderNo.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage1, Me.XtraTabPage2})
         '
         'XtraTabPage1
         '
         Me.XtraTabPage1.Controls.Add(Me.ogdConfirmImport)
-        Me.XtraTabPage1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.XtraTabPage1.Name = "XtraTabPage1"
-        Me.XtraTabPage1.Size = New System.Drawing.Size(1182, 470)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(1017, 379)
         Me.XtraTabPage1.Text = "Re-check and confirm import factory order no."
         '
         'ogdConfirmImport
         '
         Me.ogdConfirmImport.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdConfirmImport.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdConfirmImport.Location = New System.Drawing.Point(0, 0)
         Me.ogdConfirmImport.MainView = Me.ogvConfirmImport
-        Me.ogdConfirmImport.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdConfirmImport.Name = "ogdConfirmImport"
-        Me.ogdConfirmImport.Size = New System.Drawing.Size(1182, 470)
+        Me.ogdConfirmImport.Size = New System.Drawing.Size(1017, 379)
         Me.ogdConfirmImport.TabIndex = 0
         Me.ogdConfirmImport.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvConfirmImport})
         '
         'ogvConfirmImport
         '
-        Me.ogvConfirmImport.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.oColFTPONo, Me.oColFTMerTeamCode, Me.oColFTMerTeamDesc, Me.oColFTStyle, Me.oColFTStyleDesc, Me.oColFTOrderDate, Me.oColFTBuyGrpCode, Me.oColFTBuyGrpDesc, Me.oColFTMainCategoryCode, Me.oColFTMainCategoryDesc, Me.oColFTProdTypeDesc, Me.oColFTPlanningSeason, Me.oColFTAF_REQ, Me.oColFTCU_CD, Me.oColFTCUST_XREF, Me.oColFTGenderCode, Me.oColFDShipmentDate, Me.oColFDShipmentDateOriginal, Me.oColFTColorwayCode, Me.oColFTShipModeDesc, Me.oColFTUnitDesc})
+        Me.ogvConfirmImport.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.oColFTPONo, Me.oColFTMerTeamCode, Me.oColFTMerTeamDesc, Me.oColFTStyle, Me.oColFTStyleDesc, Me.oColFTOrderDate, Me.oColFTBuyGrpCode, Me.oColFTBuyGrpDesc, Me.oColFTMainCategoryCode, Me.oColFTMainCategoryDesc, Me.oColFTProdTypeDesc, Me.oColFTPlanningSeason, Me.oColFTAF_REQ, Me.oColFTCU_CD, Me.oColFTCUST_XREF, Me.oColFTGenderCode, Me.oColFDShipmentDate, Me.oColFDShipmentDateOriginal, Me.oColFTColorwayCode, Me.oColFTShipModeDesc, Me.oColFTUnitDesc, Me.oColFTSubPGM, Me.oColFTCmp})
+        Me.ogvConfirmImport.DetailHeight = 284
         Me.ogvConfirmImport.GridControl = Me.ogdConfirmImport
         Me.ogvConfirmImport.Name = "ogvConfirmImport"
         Me.ogvConfirmImport.OptionsView.ShowGroupPanel = False
@@ -242,255 +270,295 @@ Partial Class wImportSalesman
         '
         Me.oColFTPONo.Caption = "PO No."
         Me.oColFTPONo.FieldName = "FTPONo"
+        Me.oColFTPONo.MinWidth = 17
         Me.oColFTPONo.Name = "oColFTPONo"
         Me.oColFTPONo.OptionsColumn.AllowEdit = False
         Me.oColFTPONo.OptionsColumn.AllowMove = False
         Me.oColFTPONo.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTPONo.Visible = True
         Me.oColFTPONo.VisibleIndex = 0
+        Me.oColFTPONo.Width = 41
         '
         'oColFTMerTeamCode
         '
         Me.oColFTMerTeamCode.Caption = "Merchandiser Team"
         Me.oColFTMerTeamCode.FieldName = "FTMerTeamCode"
+        Me.oColFTMerTeamCode.MinWidth = 17
         Me.oColFTMerTeamCode.Name = "oColFTMerTeamCode"
         Me.oColFTMerTeamCode.OptionsColumn.AllowEdit = False
         Me.oColFTMerTeamCode.OptionsColumn.AllowMove = False
         Me.oColFTMerTeamCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTMerTeamCode.Visible = True
         Me.oColFTMerTeamCode.VisibleIndex = 1
+        Me.oColFTMerTeamCode.Width = 41
         '
         'oColFTMerTeamDesc
         '
         Me.oColFTMerTeamDesc.Caption = "Team Description"
         Me.oColFTMerTeamDesc.FieldName = "FTMerTeamDesc"
+        Me.oColFTMerTeamDesc.MinWidth = 17
         Me.oColFTMerTeamDesc.Name = "oColFTMerTeamDesc"
         Me.oColFTMerTeamDesc.OptionsColumn.AllowEdit = False
         Me.oColFTMerTeamDesc.OptionsColumn.AllowMove = False
         Me.oColFTMerTeamDesc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTMerTeamDesc.Visible = True
         Me.oColFTMerTeamDesc.VisibleIndex = 2
+        Me.oColFTMerTeamDesc.Width = 41
         '
         'oColFTStyle
         '
         Me.oColFTStyle.Caption = "Style"
         Me.oColFTStyle.FieldName = "FTStyle"
+        Me.oColFTStyle.MinWidth = 17
         Me.oColFTStyle.Name = "oColFTStyle"
         Me.oColFTStyle.OptionsColumn.AllowEdit = False
         Me.oColFTStyle.OptionsColumn.AllowMove = False
         Me.oColFTStyle.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTStyle.Visible = True
         Me.oColFTStyle.VisibleIndex = 3
+        Me.oColFTStyle.Width = 41
         '
         'oColFTStyleDesc
         '
         Me.oColFTStyleDesc.Caption = "Style Description"
         Me.oColFTStyleDesc.FieldName = "FTStyleDesc"
+        Me.oColFTStyleDesc.MinWidth = 17
         Me.oColFTStyleDesc.Name = "oColFTStyleDesc"
         Me.oColFTStyleDesc.OptionsColumn.AllowEdit = False
         Me.oColFTStyleDesc.OptionsColumn.AllowMove = False
         Me.oColFTStyleDesc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTStyleDesc.Visible = True
         Me.oColFTStyleDesc.VisibleIndex = 4
+        Me.oColFTStyleDesc.Width = 41
         '
         'oColFTOrderDate
         '
         Me.oColFTOrderDate.Caption = "Order Date"
         Me.oColFTOrderDate.FieldName = "FTOrderDate"
+        Me.oColFTOrderDate.MinWidth = 17
         Me.oColFTOrderDate.Name = "oColFTOrderDate"
         Me.oColFTOrderDate.OptionsColumn.AllowEdit = False
         Me.oColFTOrderDate.OptionsColumn.AllowMove = False
         Me.oColFTOrderDate.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTOrderDate.Visible = True
         Me.oColFTOrderDate.VisibleIndex = 5
+        Me.oColFTOrderDate.Width = 41
         '
         'oColFTBuyGrpCode
         '
         Me.oColFTBuyGrpCode.Caption = "Buy Group Code"
         Me.oColFTBuyGrpCode.FieldName = "FTBuyGrpCode"
+        Me.oColFTBuyGrpCode.MinWidth = 17
         Me.oColFTBuyGrpCode.Name = "oColFTBuyGrpCode"
         Me.oColFTBuyGrpCode.OptionsColumn.AllowEdit = False
         Me.oColFTBuyGrpCode.OptionsColumn.AllowMove = False
         Me.oColFTBuyGrpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTBuyGrpCode.Visible = True
         Me.oColFTBuyGrpCode.VisibleIndex = 6
+        Me.oColFTBuyGrpCode.Width = 41
         '
         'oColFTBuyGrpDesc
         '
         Me.oColFTBuyGrpDesc.Caption = "Buy Group Description"
         Me.oColFTBuyGrpDesc.FieldName = "FTBuyGrpDesc"
+        Me.oColFTBuyGrpDesc.MinWidth = 17
         Me.oColFTBuyGrpDesc.Name = "oColFTBuyGrpDesc"
         Me.oColFTBuyGrpDesc.OptionsColumn.AllowEdit = False
         Me.oColFTBuyGrpDesc.OptionsColumn.AllowMove = False
         Me.oColFTBuyGrpDesc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTBuyGrpDesc.Visible = True
         Me.oColFTBuyGrpDesc.VisibleIndex = 7
+        Me.oColFTBuyGrpDesc.Width = 41
         '
         'oColFTMainCategoryCode
         '
         Me.oColFTMainCategoryCode.Caption = "Category"
         Me.oColFTMainCategoryCode.FieldName = "FTMainCategoryCode"
+        Me.oColFTMainCategoryCode.MinWidth = 17
         Me.oColFTMainCategoryCode.Name = "oColFTMainCategoryCode"
         Me.oColFTMainCategoryCode.OptionsColumn.AllowEdit = False
         Me.oColFTMainCategoryCode.OptionsColumn.AllowMove = False
         Me.oColFTMainCategoryCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTMainCategoryCode.Visible = True
         Me.oColFTMainCategoryCode.VisibleIndex = 8
+        Me.oColFTMainCategoryCode.Width = 41
         '
         'oColFTMainCategoryDesc
         '
         Me.oColFTMainCategoryDesc.Caption = "Category Description"
         Me.oColFTMainCategoryDesc.FieldName = "FTMainCategoryDesc"
+        Me.oColFTMainCategoryDesc.MinWidth = 17
         Me.oColFTMainCategoryDesc.Name = "oColFTMainCategoryDesc"
         Me.oColFTMainCategoryDesc.OptionsColumn.AllowEdit = False
         Me.oColFTMainCategoryDesc.OptionsColumn.AllowMove = False
         Me.oColFTMainCategoryDesc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTMainCategoryDesc.Visible = True
         Me.oColFTMainCategoryDesc.VisibleIndex = 9
+        Me.oColFTMainCategoryDesc.Width = 41
         '
         'oColFTProdTypeDesc
         '
         Me.oColFTProdTypeDesc.Caption = "Productype Description"
         Me.oColFTProdTypeDesc.FieldName = "FTProdTypeDesc"
+        Me.oColFTProdTypeDesc.MinWidth = 17
         Me.oColFTProdTypeDesc.Name = "oColFTProdTypeDesc"
         Me.oColFTProdTypeDesc.OptionsColumn.AllowEdit = False
         Me.oColFTProdTypeDesc.OptionsColumn.AllowMove = False
         Me.oColFTProdTypeDesc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTProdTypeDesc.Visible = True
         Me.oColFTProdTypeDesc.VisibleIndex = 10
+        Me.oColFTProdTypeDesc.Width = 41
         '
         'oColFTPlanningSeason
         '
         Me.oColFTPlanningSeason.Caption = "Planning Season"
         Me.oColFTPlanningSeason.FieldName = "FTPlanningSeason"
+        Me.oColFTPlanningSeason.MinWidth = 17
         Me.oColFTPlanningSeason.Name = "oColFTPlanningSeason"
         Me.oColFTPlanningSeason.OptionsColumn.AllowEdit = False
         Me.oColFTPlanningSeason.OptionsColumn.AllowMove = False
         Me.oColFTPlanningSeason.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTPlanningSeason.Visible = True
         Me.oColFTPlanningSeason.VisibleIndex = 11
+        Me.oColFTPlanningSeason.Width = 41
         '
         'oColFTAF_REQ
         '
         Me.oColFTAF_REQ.Caption = "FTAF_REQ"
         Me.oColFTAF_REQ.FieldName = "FTAF_REQ"
+        Me.oColFTAF_REQ.MinWidth = 17
         Me.oColFTAF_REQ.Name = "oColFTAF_REQ"
         Me.oColFTAF_REQ.OptionsColumn.AllowEdit = False
         Me.oColFTAF_REQ.OptionsColumn.AllowMove = False
         Me.oColFTAF_REQ.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTAF_REQ.Visible = True
         Me.oColFTAF_REQ.VisibleIndex = 12
+        Me.oColFTAF_REQ.Width = 41
         '
         'oColFTCU_CD
         '
         Me.oColFTCU_CD.Caption = "FTCU_CD"
         Me.oColFTCU_CD.FieldName = "FTCU_CD"
+        Me.oColFTCU_CD.MinWidth = 17
         Me.oColFTCU_CD.Name = "oColFTCU_CD"
         Me.oColFTCU_CD.OptionsColumn.AllowEdit = False
         Me.oColFTCU_CD.OptionsColumn.AllowMove = False
         Me.oColFTCU_CD.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTCU_CD.Visible = True
         Me.oColFTCU_CD.VisibleIndex = 13
+        Me.oColFTCU_CD.Width = 41
         '
         'oColFTCUST_XREF
         '
         Me.oColFTCUST_XREF.Caption = "FTCUST_XREF"
         Me.oColFTCUST_XREF.FieldName = "FTCUST_XREF"
+        Me.oColFTCUST_XREF.MinWidth = 17
         Me.oColFTCUST_XREF.Name = "oColFTCUST_XREF"
         Me.oColFTCUST_XREF.OptionsColumn.AllowEdit = False
         Me.oColFTCUST_XREF.OptionsColumn.AllowMove = False
         Me.oColFTCUST_XREF.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTCUST_XREF.Visible = True
         Me.oColFTCUST_XREF.VisibleIndex = 14
+        Me.oColFTCUST_XREF.Width = 41
         '
         'oColFTGenderCode
         '
         Me.oColFTGenderCode.Caption = "Gender"
         Me.oColFTGenderCode.FieldName = "FTGenderCode"
+        Me.oColFTGenderCode.MinWidth = 17
         Me.oColFTGenderCode.Name = "oColFTGenderCode"
         Me.oColFTGenderCode.OptionsColumn.AllowEdit = False
         Me.oColFTGenderCode.OptionsColumn.AllowMove = False
         Me.oColFTGenderCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTGenderCode.Visible = True
         Me.oColFTGenderCode.VisibleIndex = 15
+        Me.oColFTGenderCode.Width = 41
         '
         'oColFDShipmentDate
         '
         Me.oColFDShipmentDate.Caption = "GAC Date"
         Me.oColFDShipmentDate.FieldName = "FDShipmentDate"
+        Me.oColFDShipmentDate.MinWidth = 17
         Me.oColFDShipmentDate.Name = "oColFDShipmentDate"
         Me.oColFDShipmentDate.OptionsColumn.AllowEdit = False
         Me.oColFDShipmentDate.OptionsColumn.AllowMove = False
         Me.oColFDShipmentDate.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFDShipmentDate.Visible = True
         Me.oColFDShipmentDate.VisibleIndex = 16
+        Me.oColFDShipmentDate.Width = 41
         '
         'oColFDShipmentDateOriginal
         '
         Me.oColFDShipmentDateOriginal.Caption = "OGAC Date"
         Me.oColFDShipmentDateOriginal.FieldName = "FDShipmentDateOriginal"
+        Me.oColFDShipmentDateOriginal.MinWidth = 17
         Me.oColFDShipmentDateOriginal.Name = "oColFDShipmentDateOriginal"
         Me.oColFDShipmentDateOriginal.OptionsColumn.AllowEdit = False
         Me.oColFDShipmentDateOriginal.OptionsColumn.AllowMove = False
         Me.oColFDShipmentDateOriginal.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFDShipmentDateOriginal.Visible = True
         Me.oColFDShipmentDateOriginal.VisibleIndex = 17
+        Me.oColFDShipmentDateOriginal.Width = 41
         '
         'oColFTColorwayCode
         '
         Me.oColFTColorwayCode.Caption = "Color"
         Me.oColFTColorwayCode.FieldName = "FTColorwayCode"
+        Me.oColFTColorwayCode.MinWidth = 17
         Me.oColFTColorwayCode.Name = "oColFTColorwayCode"
         Me.oColFTColorwayCode.OptionsColumn.AllowEdit = False
         Me.oColFTColorwayCode.OptionsColumn.AllowMove = False
         Me.oColFTColorwayCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTColorwayCode.Visible = True
         Me.oColFTColorwayCode.VisibleIndex = 18
+        Me.oColFTColorwayCode.Width = 41
         '
         'oColFTShipModeDesc
         '
         Me.oColFTShipModeDesc.Caption = "Ship Mode"
         Me.oColFTShipModeDesc.FieldName = "FTShipModeDesc"
+        Me.oColFTShipModeDesc.MinWidth = 17
         Me.oColFTShipModeDesc.Name = "oColFTShipModeDesc"
         Me.oColFTShipModeDesc.OptionsColumn.AllowEdit = False
         Me.oColFTShipModeDesc.OptionsColumn.AllowMove = False
         Me.oColFTShipModeDesc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTShipModeDesc.Visible = True
         Me.oColFTShipModeDesc.VisibleIndex = 19
+        Me.oColFTShipModeDesc.Width = 41
         '
         'oColFTUnitDesc
         '
         Me.oColFTUnitDesc.Caption = "Unit Description"
         Me.oColFTUnitDesc.FieldName = "FTUnitDesc"
+        Me.oColFTUnitDesc.MinWidth = 17
         Me.oColFTUnitDesc.Name = "oColFTUnitDesc"
         Me.oColFTUnitDesc.OptionsColumn.AllowEdit = False
         Me.oColFTUnitDesc.OptionsColumn.AllowMove = False
         Me.oColFTUnitDesc.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.oColFTUnitDesc.Visible = True
         Me.oColFTUnitDesc.VisibleIndex = 20
+        Me.oColFTUnitDesc.Width = 41
         '
         'XtraTabPage2
         '
         Me.XtraTabPage2.Controls.Add(Me.ogdImportOrder)
-        Me.XtraTabPage2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(1182, 470)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(1017, 385)
         Me.XtraTabPage2.Text = "Raw Data Import Order"
         '
         'ogdImportOrder
         '
         Me.ogdImportOrder.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdImportOrder.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdImportOrder.Location = New System.Drawing.Point(0, 0)
         Me.ogdImportOrder.MainView = Me.ogvImportOrder
-        Me.ogdImportOrder.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdImportOrder.Name = "ogdImportOrder"
-        Me.ogdImportOrder.Size = New System.Drawing.Size(1182, 470)
+        Me.ogdImportOrder.Size = New System.Drawing.Size(1017, 385)
         Me.ogdImportOrder.TabIndex = 0
         Me.ogdImportOrder.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvImportOrder})
         '
         'ogvImportOrder
         '
+        Me.ogvImportOrder.DetailHeight = 284
         Me.ogvImportOrder.GridControl = Me.ogdImportOrder
         Me.ogvImportOrder.Name = "ogvImportOrder"
         Me.ogvImportOrder.OptionsView.ShowGroupPanel = False
@@ -502,19 +570,17 @@ Partial Class wImportSalesman
         Me.ogbmainprocbutton.Controls.Add(Me.ocmReadExcel)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclearclsr)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmExit)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(258, 37)
-        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(221, 30)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(679, 70)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(582, 57)
         Me.ogbmainprocbutton.TabIndex = 462
         Me.ogbmainprocbutton.Tag = "2|"
         '
         'ocmTestFile
         '
-        Me.ocmTestFile.Location = New System.Drawing.Point(283, 10)
-        Me.ocmTestFile.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmTestFile.Location = New System.Drawing.Point(243, 8)
         Me.ocmTestFile.Name = "ocmTestFile"
-        Me.ocmTestFile.Size = New System.Drawing.Size(111, 31)
+        Me.ocmTestFile.Size = New System.Drawing.Size(95, 25)
         Me.ocmTestFile.TabIndex = 100
         Me.ocmTestFile.TabStop = False
         Me.ocmTestFile.Tag = "2|"
@@ -522,10 +588,9 @@ Partial Class wImportSalesman
         '
         'ocmImportOrder
         '
-        Me.ocmImportOrder.Location = New System.Drawing.Point(129, 9)
-        Me.ocmImportOrder.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmImportOrder.Location = New System.Drawing.Point(111, 7)
         Me.ocmImportOrder.Name = "ocmImportOrder"
-        Me.ocmImportOrder.Size = New System.Drawing.Size(147, 31)
+        Me.ocmImportOrder.Size = New System.Drawing.Size(126, 25)
         Me.ocmImportOrder.TabIndex = 99
         Me.ocmImportOrder.TabStop = False
         Me.ocmImportOrder.Tag = "2|"
@@ -533,10 +598,9 @@ Partial Class wImportSalesman
         '
         'ocmReadExcel
         '
-        Me.ocmReadExcel.Location = New System.Drawing.Point(12, 10)
-        Me.ocmReadExcel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmReadExcel.Location = New System.Drawing.Point(10, 8)
         Me.ocmReadExcel.Name = "ocmReadExcel"
-        Me.ocmReadExcel.Size = New System.Drawing.Size(111, 31)
+        Me.ocmReadExcel.Size = New System.Drawing.Size(95, 25)
         Me.ocmReadExcel.TabIndex = 98
         Me.ocmReadExcel.TabStop = False
         Me.ocmReadExcel.Tag = "2|"
@@ -544,10 +608,9 @@ Partial Class wImportSalesman
         '
         'ocmclearclsr
         '
-        Me.ocmclearclsr.Location = New System.Drawing.Point(401, 10)
-        Me.ocmclearclsr.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclearclsr.Location = New System.Drawing.Point(344, 8)
         Me.ocmclearclsr.Name = "ocmclearclsr"
-        Me.ocmclearclsr.Size = New System.Drawing.Size(111, 31)
+        Me.ocmclearclsr.Size = New System.Drawing.Size(95, 25)
         Me.ocmclearclsr.TabIndex = 97
         Me.ocmclearclsr.TabStop = False
         Me.ocmclearclsr.Tag = "2|"
@@ -555,10 +618,9 @@ Partial Class wImportSalesman
         '
         'ocmExit
         '
-        Me.ocmExit.Location = New System.Drawing.Point(519, 10)
-        Me.ocmExit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmExit.Location = New System.Drawing.Point(445, 8)
         Me.ocmExit.Name = "ocmExit"
-        Me.ocmExit.Size = New System.Drawing.Size(111, 31)
+        Me.ocmExit.Size = New System.Drawing.Size(95, 25)
         Me.ocmExit.TabIndex = 96
         Me.ocmExit.TabStop = False
         Me.ocmExit.Tag = "2|"
@@ -597,34 +659,31 @@ Partial Class wImportSalesman
         Me.ogbHeader.Controls.Add(Me.FNHSysCustId_lbl)
         Me.ogbHeader.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbHeader.Location = New System.Drawing.Point(0, 0)
-        Me.ogbHeader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbHeader.Name = "ogbHeader"
-        Me.ogbHeader.Size = New System.Drawing.Size(1193, 151)
+        Me.ogbHeader.Size = New System.Drawing.Size(1023, 123)
         Me.ogbHeader.TabIndex = 0
         '
         'FNHSysBuyGrpId_None
         '
         Me.FNHSysBuyGrpId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysBuyGrpId_None.Location = New System.Drawing.Point(870, 84)
-        Me.FNHSysBuyGrpId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBuyGrpId_None.Location = New System.Drawing.Point(746, 68)
         Me.FNHSysBuyGrpId_None.Name = "FNHSysBuyGrpId_None"
         Me.FNHSysBuyGrpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysBuyGrpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysBuyGrpId_None.Properties.ReadOnly = True
-        Me.FNHSysBuyGrpId_None.Size = New System.Drawing.Size(315, 22)
+        Me.FNHSysBuyGrpId_None.Size = New System.Drawing.Size(270, 20)
         Me.FNHSysBuyGrpId_None.TabIndex = 549
         Me.FNHSysBuyGrpId_None.Tag = "2|"
         '
         'FNHSysBuyGrpId
         '
-        Me.FNHSysBuyGrpId.Location = New System.Drawing.Point(712, 84)
-        Me.FNHSysBuyGrpId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBuyGrpId.Location = New System.Drawing.Point(610, 68)
         Me.FNHSysBuyGrpId.Name = "FNHSysBuyGrpId"
-        Me.FNHSysBuyGrpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", "167", Nothing, True)})
+        Me.FNHSysBuyGrpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "167", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBuyGrpId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysBuyGrpId.Properties.Tag = ""
-        Me.FNHSysBuyGrpId.Size = New System.Drawing.Size(156, 22)
+        Me.FNHSysBuyGrpId.Size = New System.Drawing.Size(134, 20)
         Me.FNHSysBuyGrpId.TabIndex = 548
         Me.FNHSysBuyGrpId.Tag = "2|"
         '
@@ -635,34 +694,31 @@ Partial Class wImportSalesman
         Me.FNHSysBuyGrpId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysBuyGrpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysBuyGrpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysBuyGrpId_lbl.Location = New System.Drawing.Point(583, 84)
-        Me.FNHSysBuyGrpId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBuyGrpId_lbl.Location = New System.Drawing.Point(500, 68)
         Me.FNHSysBuyGrpId_lbl.Name = "FNHSysBuyGrpId_lbl"
-        Me.FNHSysBuyGrpId_lbl.Size = New System.Drawing.Size(122, 23)
+        Me.FNHSysBuyGrpId_lbl.Size = New System.Drawing.Size(105, 19)
         Me.FNHSysBuyGrpId_lbl.TabIndex = 547
         Me.FNHSysBuyGrpId_lbl.Tag = "2|"
         Me.FNHSysBuyGrpId_lbl.Text = "FNHSysBuyGrpId :"
         '
         'FNHSysSeasonId_None
         '
-        Me.FNHSysSeasonId_None.Location = New System.Drawing.Point(330, 84)
-        Me.FNHSysSeasonId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSeasonId_None.Location = New System.Drawing.Point(283, 68)
         Me.FNHSysSeasonId_None.Name = "FNHSysSeasonId_None"
         Me.FNHSysSeasonId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSeasonId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSeasonId_None.Properties.ReadOnly = True
-        Me.FNHSysSeasonId_None.Size = New System.Drawing.Size(219, 22)
+        Me.FNHSysSeasonId_None.Size = New System.Drawing.Size(188, 20)
         Me.FNHSysSeasonId_None.TabIndex = 546
         Me.FNHSysSeasonId_None.Tag = "2|"
         '
         'FNHSysSeasonId
         '
-        Me.FNHSysSeasonId.Location = New System.Drawing.Point(171, 84)
-        Me.FNHSysSeasonId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSeasonId.Location = New System.Drawing.Point(147, 68)
         Me.FNHSysSeasonId.Name = "FNHSysSeasonId"
-        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", "94", Nothing, True)})
+        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSeasonId.Properties.Tag = ""
-        Me.FNHSysSeasonId.Size = New System.Drawing.Size(156, 22)
+        Me.FNHSysSeasonId.Size = New System.Drawing.Size(134, 20)
         Me.FNHSysSeasonId.TabIndex = 545
         Me.FNHSysSeasonId.Tag = "2|"
         '
@@ -673,10 +729,9 @@ Partial Class wImportSalesman
         Me.FNHSysSeasonId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysSeasonId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysSeasonId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysSeasonId_lbl.Location = New System.Drawing.Point(26, 84)
-        Me.FNHSysSeasonId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSeasonId_lbl.Location = New System.Drawing.Point(22, 68)
         Me.FNHSysSeasonId_lbl.Name = "FNHSysSeasonId_lbl"
-        Me.FNHSysSeasonId_lbl.Size = New System.Drawing.Size(143, 23)
+        Me.FNHSysSeasonId_lbl.Size = New System.Drawing.Size(123, 19)
         Me.FNHSysSeasonId_lbl.TabIndex = 544
         Me.FNHSysSeasonId_lbl.Tag = "2|"
         Me.FNHSysSeasonId_lbl.Text = "FNHSysSeasonId :"
@@ -688,10 +743,9 @@ Partial Class wImportSalesman
         Me.FDOrderDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDOrderDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDOrderDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDOrderDate_lbl.Location = New System.Drawing.Point(856, 112)
-        Me.FDOrderDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDOrderDate_lbl.Location = New System.Drawing.Point(734, 91)
         Me.FDOrderDate_lbl.Name = "FDOrderDate_lbl"
-        Me.FDOrderDate_lbl.Size = New System.Drawing.Size(133, 23)
+        Me.FDOrderDate_lbl.Size = New System.Drawing.Size(114, 19)
         Me.FDOrderDate_lbl.TabIndex = 490
         Me.FDOrderDate_lbl.Tag = "2|"
         Me.FDOrderDate_lbl.Text = "FDOrderDate :"
@@ -700,8 +754,7 @@ Partial Class wImportSalesman
         '
         Me.FDOrderDate.EditValue = Nothing
         Me.FDOrderDate.EnterMoveNextControl = True
-        Me.FDOrderDate.Location = New System.Drawing.Point(997, 112)
-        Me.FDOrderDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDOrderDate.Location = New System.Drawing.Point(855, 91)
         Me.FDOrderDate.Name = "FDOrderDate"
         Me.FDOrderDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDOrderDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -709,32 +762,30 @@ Partial Class wImportSalesman
         Me.FDOrderDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDOrderDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDOrderDate.Properties.NullDate = ""
-        Me.FDOrderDate.Size = New System.Drawing.Size(122, 22)
+        Me.FDOrderDate.Size = New System.Drawing.Size(105, 20)
         Me.FDOrderDate.TabIndex = 489
         Me.FDOrderDate.Tag = "2|"
         '
         'FNHSysCurId_None
         '
-        Me.FNHSysCurId_None.Location = New System.Drawing.Point(707, 112)
-        Me.FNHSysCurId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCurId_None.Location = New System.Drawing.Point(606, 91)
         Me.FNHSysCurId_None.Name = "FNHSysCurId_None"
         Me.FNHSysCurId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCurId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCurId_None.Properties.ReadOnly = True
-        Me.FNHSysCurId_None.Size = New System.Drawing.Size(142, 22)
+        Me.FNHSysCurId_None.Size = New System.Drawing.Size(122, 20)
         Me.FNHSysCurId_None.TabIndex = 488
         Me.FNHSysCurId_None.Tag = "2|"
         '
         'FNHSysCurId
         '
         Me.FNHSysCurId.Enabled = False
-        Me.FNHSysCurId.Location = New System.Drawing.Point(580, 112)
-        Me.FNHSysCurId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCurId.Location = New System.Drawing.Point(497, 91)
         Me.FNHSysCurId.Name = "FNHSysCurId"
-        Me.FNHSysCurId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, "", "16", Nothing, True)})
+        Me.FNHSysCurId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "16", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCurId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCurId.Properties.Tag = ""
-        Me.FNHSysCurId.Size = New System.Drawing.Size(125, 22)
+        Me.FNHSysCurId.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysCurId.TabIndex = 487
         Me.FNHSysCurId.Tag = "2|"
         '
@@ -745,10 +796,9 @@ Partial Class wImportSalesman
         Me.FNHSysCurId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCurId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCurId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCurId_lbl.Location = New System.Drawing.Point(448, 112)
-        Me.FNHSysCurId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCurId_lbl.Location = New System.Drawing.Point(384, 91)
         Me.FNHSysCurId_lbl.Name = "FNHSysCurId_lbl"
-        Me.FNHSysCurId_lbl.Size = New System.Drawing.Size(125, 23)
+        Me.FNHSysCurId_lbl.Size = New System.Drawing.Size(107, 19)
         Me.FNHSysCurId_lbl.TabIndex = 486
         Me.FNHSysCurId_lbl.Tag = "2|"
         Me.FNHSysCurId_lbl.Text = "FNHSysCurId  :"
@@ -760,44 +810,41 @@ Partial Class wImportSalesman
         Me.FNHSysUnitId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysUnitId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysUnitId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysUnitId_lbl.Location = New System.Drawing.Point(44, 112)
-        Me.FNHSysUnitId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitId_lbl.Location = New System.Drawing.Point(38, 91)
         Me.FNHSysUnitId_lbl.Name = "FNHSysUnitId_lbl"
-        Me.FNHSysUnitId_lbl.Size = New System.Drawing.Size(125, 23)
+        Me.FNHSysUnitId_lbl.Size = New System.Drawing.Size(107, 19)
         Me.FNHSysUnitId_lbl.TabIndex = 483
         Me.FNHSysUnitId_lbl.Tag = "2|"
         Me.FNHSysUnitId_lbl.Text = "FNHSysUnitId  :"
         '
         'FNHSysUnitId
         '
-        Me.FNHSysUnitId.Location = New System.Drawing.Point(171, 112)
-        Me.FNHSysUnitId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitId.Location = New System.Drawing.Point(147, 91)
         Me.FNHSysUnitId.Name = "FNHSysUnitId"
-        Me.FNHSysUnitId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject4, "", "5", Nothing, True)})
+        Me.FNHSysUnitId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "5", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysUnitId.Properties.Tag = ""
-        Me.FNHSysUnitId.Size = New System.Drawing.Size(125, 22)
+        Me.FNHSysUnitId.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysUnitId.TabIndex = 484
         Me.FNHSysUnitId.Tag = "2|"
         '
         'FNHSysUnitId_None
         '
-        Me.FNHSysUnitId_None.Location = New System.Drawing.Point(299, 112)
-        Me.FNHSysUnitId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitId_None.Location = New System.Drawing.Point(256, 91)
         Me.FNHSysUnitId_None.Name = "FNHSysUnitId_None"
         Me.FNHSysUnitId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitId_None.Size = New System.Drawing.Size(142, 22)
+        Me.FNHSysUnitId_None.Size = New System.Drawing.Size(122, 20)
         Me.FNHSysUnitId_None.TabIndex = 485
         Me.FNHSysUnitId_None.Tag = "2|"
         '
         'Label1
         '
         Me.Label1.ForeColor = System.Drawing.Color.Blue
-        Me.Label1.Location = New System.Drawing.Point(899, 6)
+        Me.Label1.Location = New System.Drawing.Point(771, 5)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(280, 27)
+        Me.Label1.Size = New System.Drawing.Size(240, 22)
         Me.Label1.TabIndex = 482
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Label1.Visible = False
@@ -809,10 +856,9 @@ Partial Class wImportSalesman
         Me.Span_lbl.Appearance.Options.UseTextOptions = True
         Me.Span_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.Span_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.Span_lbl.Location = New System.Drawing.Point(701, -1)
-        Me.Span_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Span_lbl.Location = New System.Drawing.Point(601, -1)
         Me.Span_lbl.Name = "Span_lbl"
-        Me.Span_lbl.Size = New System.Drawing.Size(110, 23)
+        Me.Span_lbl.Size = New System.Drawing.Size(94, 19)
         Me.Span_lbl.TabIndex = 481
         Me.Span_lbl.Tag = "2|"
         Me.Span_lbl.Text = "Span_lbl  :"
@@ -822,25 +868,23 @@ Partial Class wImportSalesman
         '
         Me.FNHSysVenderPramId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysVenderPramId_None.Location = New System.Drawing.Point(870, 30)
-        Me.FNHSysVenderPramId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysVenderPramId_None.Location = New System.Drawing.Point(746, 24)
         Me.FNHSysVenderPramId_None.Name = "FNHSysVenderPramId_None"
         Me.FNHSysVenderPramId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysVenderPramId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysVenderPramId_None.Properties.ReadOnly = True
-        Me.FNHSysVenderPramId_None.Size = New System.Drawing.Size(315, 22)
+        Me.FNHSysVenderPramId_None.Size = New System.Drawing.Size(270, 20)
         Me.FNHSysVenderPramId_None.TabIndex = 480
         Me.FNHSysVenderPramId_None.Tag = "2|"
         '
         'FNHSysVenderPramId
         '
-        Me.FNHSysVenderPramId.Location = New System.Drawing.Point(712, 30)
-        Me.FNHSysVenderPramId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysVenderPramId.Location = New System.Drawing.Point(610, 24)
         Me.FNHSysVenderPramId.Name = "FNHSysVenderPramId"
-        Me.FNHSysVenderPramId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, "", "168", Nothing, True)})
+        Me.FNHSysVenderPramId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "168", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysVenderPramId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysVenderPramId.Properties.Tag = ""
-        Me.FNHSysVenderPramId.Size = New System.Drawing.Size(156, 22)
+        Me.FNHSysVenderPramId.Size = New System.Drawing.Size(134, 20)
         Me.FNHSysVenderPramId.TabIndex = 2
         Me.FNHSysVenderPramId.Tag = "2|"
         '
@@ -851,10 +895,9 @@ Partial Class wImportSalesman
         Me.FNHSysVenderPramId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysVenderPramId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysVenderPramId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysVenderPramId_lbl.Location = New System.Drawing.Point(556, 30)
-        Me.FNHSysVenderPramId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysVenderPramId_lbl.Location = New System.Drawing.Point(477, 24)
         Me.FNHSysVenderPramId_lbl.Name = "FNHSysVenderPramId_lbl"
-        Me.FNHSysVenderPramId_lbl.Size = New System.Drawing.Size(149, 23)
+        Me.FNHSysVenderPramId_lbl.Size = New System.Drawing.Size(128, 19)
         Me.FNHSysVenderPramId_lbl.TabIndex = 479
         Me.FNHSysVenderPramId_lbl.Tag = "2|"
         Me.FNHSysVenderPramId_lbl.Text = "FNHSysVenderPramId :"
@@ -863,25 +906,23 @@ Partial Class wImportSalesman
         '
         Me.FNHSysBuyId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysBuyId_None.Location = New System.Drawing.Point(870, 57)
-        Me.FNHSysBuyId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBuyId_None.Location = New System.Drawing.Point(746, 46)
         Me.FNHSysBuyId_None.Name = "FNHSysBuyId_None"
         Me.FNHSysBuyId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysBuyId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysBuyId_None.Properties.ReadOnly = True
-        Me.FNHSysBuyId_None.Size = New System.Drawing.Size(315, 22)
+        Me.FNHSysBuyId_None.Size = New System.Drawing.Size(270, 20)
         Me.FNHSysBuyId_None.TabIndex = 477
         Me.FNHSysBuyId_None.Tag = "2|"
         '
         'FNHSysBuyId
         '
-        Me.FNHSysBuyId.Location = New System.Drawing.Point(712, 57)
-        Me.FNHSysBuyId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBuyId.Location = New System.Drawing.Point(610, 46)
         Me.FNHSysBuyId.Name = "FNHSysBuyId"
-        Me.FNHSysBuyId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject6, "", "113", Nothing, True)})
+        Me.FNHSysBuyId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBuyId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysBuyId.Properties.Tag = ""
-        Me.FNHSysBuyId.Size = New System.Drawing.Size(156, 22)
+        Me.FNHSysBuyId.Size = New System.Drawing.Size(134, 20)
         Me.FNHSysBuyId.TabIndex = 4
         Me.FNHSysBuyId.Tag = "2|"
         '
@@ -892,34 +933,31 @@ Partial Class wImportSalesman
         Me.FNHSysBuyId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysBuyId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysBuyId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysBuyId_lbl.Location = New System.Drawing.Point(570, 58)
-        Me.FNHSysBuyId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBuyId_lbl.Location = New System.Drawing.Point(489, 47)
         Me.FNHSysBuyId_lbl.Name = "FNHSysBuyId_lbl"
-        Me.FNHSysBuyId_lbl.Size = New System.Drawing.Size(135, 23)
+        Me.FNHSysBuyId_lbl.Size = New System.Drawing.Size(116, 19)
         Me.FNHSysBuyId_lbl.TabIndex = 475
         Me.FNHSysBuyId_lbl.Tag = "2|"
         Me.FNHSysBuyId_lbl.Text = "FNHSysBuyId  :"
         '
         'FNHSysCmpRunId_None
         '
-        Me.FNHSysCmpRunId_None.Location = New System.Drawing.Point(330, 57)
-        Me.FNHSysCmpRunId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpRunId_None.Location = New System.Drawing.Point(283, 46)
         Me.FNHSysCmpRunId_None.Name = "FNHSysCmpRunId_None"
         Me.FNHSysCmpRunId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpRunId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCmpRunId_None.Properties.ReadOnly = True
-        Me.FNHSysCmpRunId_None.Size = New System.Drawing.Size(219, 22)
+        Me.FNHSysCmpRunId_None.Size = New System.Drawing.Size(188, 20)
         Me.FNHSysCmpRunId_None.TabIndex = 453
         Me.FNHSysCmpRunId_None.Tag = "2|"
         '
         'FNHSysCmpRunId
         '
-        Me.FNHSysCmpRunId.Location = New System.Drawing.Point(171, 57)
-        Me.FNHSysCmpRunId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpRunId.Location = New System.Drawing.Point(147, 46)
         Me.FNHSysCmpRunId.Name = "FNHSysCmpRunId"
-        Me.FNHSysCmpRunId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject7, "", "87", Nothing, True)})
+        Me.FNHSysCmpRunId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "87", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpRunId.Properties.Tag = ""
-        Me.FNHSysCmpRunId.Size = New System.Drawing.Size(156, 22)
+        Me.FNHSysCmpRunId.Size = New System.Drawing.Size(134, 20)
         Me.FNHSysCmpRunId.TabIndex = 3
         Me.FNHSysCmpRunId.Tag = "2|"
         '
@@ -930,35 +968,32 @@ Partial Class wImportSalesman
         Me.FNHSysCmpRunId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCmpRunId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCmpRunId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCmpRunId_lbl.Location = New System.Drawing.Point(20, 55)
-        Me.FNHSysCmpRunId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpRunId_lbl.Location = New System.Drawing.Point(17, 45)
         Me.FNHSysCmpRunId_lbl.Name = "FNHSysCmpRunId_lbl"
-        Me.FNHSysCmpRunId_lbl.Size = New System.Drawing.Size(149, 22)
+        Me.FNHSysCmpRunId_lbl.Size = New System.Drawing.Size(128, 18)
         Me.FNHSysCmpRunId_lbl.TabIndex = 451
         Me.FNHSysCmpRunId_lbl.Tag = "2|"
         Me.FNHSysCmpRunId_lbl.Text = "FNHSysCmpRunId :"
         '
         'FNHSysCustId_None
         '
-        Me.FNHSysCustId_None.Location = New System.Drawing.Point(330, 30)
-        Me.FNHSysCustId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCustId_None.Location = New System.Drawing.Point(283, 24)
         Me.FNHSysCustId_None.Name = "FNHSysCustId_None"
         Me.FNHSysCustId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCustId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCustId_None.Properties.ReadOnly = True
-        Me.FNHSysCustId_None.Size = New System.Drawing.Size(219, 22)
+        Me.FNHSysCustId_None.Size = New System.Drawing.Size(188, 20)
         Me.FNHSysCustId_None.TabIndex = 2
         Me.FNHSysCustId_None.Tag = "2|"
         '
         'FNHSysCustId
         '
-        Me.FNHSysCustId.Location = New System.Drawing.Point(171, 30)
-        Me.FNHSysCustId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCustId.Location = New System.Drawing.Point(147, 24)
         Me.FNHSysCustId.Name = "FNHSysCustId"
-        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject8, "", "83", Nothing, True)})
+        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCustId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCustId.Properties.Tag = ""
-        Me.FNHSysCustId.Size = New System.Drawing.Size(156, 22)
+        Me.FNHSysCustId.Size = New System.Drawing.Size(134, 20)
         Me.FNHSysCustId.TabIndex = 1
         Me.FNHSysCustId.Tag = "2|"
         '
@@ -969,10 +1004,9 @@ Partial Class wImportSalesman
         Me.FNHSysCustId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCustId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCustId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCustId_lbl.Location = New System.Drawing.Point(20, 30)
-        Me.FNHSysCustId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCustId_lbl.Location = New System.Drawing.Point(17, 24)
         Me.FNHSysCustId_lbl.Name = "FNHSysCustId_lbl"
-        Me.FNHSysCustId_lbl.Size = New System.Drawing.Size(149, 23)
+        Me.FNHSysCustId_lbl.Size = New System.Drawing.Size(128, 19)
         Me.FNHSysCustId_lbl.TabIndex = 438
         Me.FNHSysCustId_lbl.Tag = "2|"
         Me.FNHSysCustId_lbl.Text = "FNHSysCustId :"
@@ -981,15 +1015,38 @@ Partial Class wImportSalesman
         '
         Me.Timer1.Interval = 1000
         '
+        'oColFTSubPGM
+        '
+        Me.oColFTSubPGM.Caption = "Sub PGM"
+        Me.oColFTSubPGM.FieldName = "FTSubPGM"
+        Me.oColFTSubPGM.MinWidth = 22
+        Me.oColFTSubPGM.Name = "oColFTSubPGM"
+        Me.oColFTSubPGM.OptionsColumn.AllowEdit = False
+        Me.oColFTSubPGM.OptionsColumn.ReadOnly = True
+        Me.oColFTSubPGM.Visible = True
+        Me.oColFTSubPGM.VisibleIndex = 21
+        Me.oColFTSubPGM.Width = 96
+        '
+        'oColFTCmp
+        '
+        Me.oColFTCmp.Caption = "Cmp."
+        Me.oColFTCmp.FieldName = "FTCmp"
+        Me.oColFTCmp.MinWidth = 22
+        Me.oColFTCmp.Name = "oColFTCmp"
+        Me.oColFTCmp.OptionsColumn.AllowEdit = False
+        Me.oColFTCmp.OptionsColumn.ReadOnly = True
+        Me.oColFTCmp.Visible = True
+        Me.oColFTCmp.VisibleIndex = 22
+        Me.oColFTCmp.Width = 80
+        '
         'wImportSalesman
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1193, 780)
+        Me.ClientSize = New System.Drawing.Size(1023, 634)
         Me.Controls.Add(Me.ogbHeader)
         Me.Controls.Add(Me.ogbViewDetail)
         Me.Controls.Add(Me.ogbBrowseFile)
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "wImportSalesman"
         Me.Text = "Import Factory Order No. (Salesman)"
         CType(Me.ogbBrowseFile, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1098,4 +1155,6 @@ Partial Class wImportSalesman
     Friend WithEvents oColFTAF_REQ As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents oColFTCU_CD As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents oColFTCUST_XREF As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents oColFTSubPGM As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents oColFTCmp As DevExpress.XtraGrid.Columns.GridColumn
 End Class

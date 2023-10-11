@@ -520,7 +520,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'FTBarcodeBundleNo
         '
         Me.FTBarcodeBundleNo.EnterMoveNextControl = True
-        Me.FTBarcodeBundleNo.Location = New System.Drawing.Point(999, 71)
+        Me.FTBarcodeBundleNo.Location = New System.Drawing.Point(799, 56)
         Me.FTBarcodeBundleNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTBarcodeBundleNo.Name = "FTBarcodeBundleNo"
         Me.FTBarcodeBundleNo.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -540,7 +540,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FTBarcodeBundleNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTBarcodeBundleNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTBarcodeBundleNo.Properties.ReadOnly = True
-        Me.FTBarcodeBundleNo.Size = New System.Drawing.Size(98, 22)
+        Me.FTBarcodeBundleNo.Size = New System.Drawing.Size(78, 22)
         Me.FTBarcodeBundleNo.TabIndex = 318
         Me.FTBarcodeBundleNo.TabStop = False
         Me.FTBarcodeBundleNo.Tag = "2|"
@@ -552,10 +552,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FTBarcodeBundleNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTBarcodeBundleNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTBarcodeBundleNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBarcodeBundleNo_lbl.Location = New System.Drawing.Point(877, 73)
+        Me.FTBarcodeBundleNo_lbl.Location = New System.Drawing.Point(701, 58)
         Me.FTBarcodeBundleNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTBarcodeBundleNo_lbl.Name = "FTBarcodeBundleNo_lbl"
-        Me.FTBarcodeBundleNo_lbl.Size = New System.Drawing.Size(120, 23)
+        Me.FTBarcodeBundleNo_lbl.Size = New System.Drawing.Size(96, 18)
         Me.FTBarcodeBundleNo_lbl.TabIndex = 317
         Me.FTBarcodeBundleNo_lbl.Tag = "2|"
         Me.FTBarcodeBundleNo_lbl.Text = "มัดที่ :"
@@ -563,7 +563,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'FNHSysPartId
         '
         Me.FNHSysPartId.EnterMoveNextControl = True
-        Me.FNHSysPartId.Location = New System.Drawing.Point(741, 71)
+        Me.FNHSysPartId.Location = New System.Drawing.Point(593, 56)
         Me.FNHSysPartId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysPartId.Name = "FNHSysPartId"
         Me.FNHSysPartId.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -583,7 +583,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FNHSysPartId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysPartId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysPartId.Properties.ReadOnly = True
-        Me.FNHSysPartId.Size = New System.Drawing.Size(128, 22)
+        Me.FNHSysPartId.Size = New System.Drawing.Size(102, 22)
         Me.FNHSysPartId.TabIndex = 316
         Me.FNHSysPartId.TabStop = False
         Me.FNHSysPartId.Tag = "2|"
@@ -595,10 +595,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FNHSysPartId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysPartId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysPartId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysPartId_lbl.Location = New System.Drawing.Point(607, 71)
+        Me.FNHSysPartId_lbl.Location = New System.Drawing.Point(485, 56)
         Me.FNHSysPartId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysPartId_lbl.Name = "FNHSysPartId_lbl"
-        Me.FNHSysPartId_lbl.Size = New System.Drawing.Size(132, 23)
+        Me.FNHSysPartId_lbl.Size = New System.Drawing.Size(106, 18)
         Me.FNHSysPartId_lbl.TabIndex = 315
         Me.FNHSysPartId_lbl.Tag = "2|"
         Me.FNHSysPartId_lbl.Text = "Part :"
@@ -606,7 +606,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'FNHSysMarkId
         '
         Me.FNHSysMarkId.EnterMoveNextControl = True
-        Me.FNHSysMarkId.Location = New System.Drawing.Point(467, 71)
+        Me.FNHSysMarkId.Location = New System.Drawing.Point(373, 56)
         Me.FNHSysMarkId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysMarkId.Name = "FNHSysMarkId"
         Me.FNHSysMarkId.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -626,7 +626,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FNHSysMarkId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysMarkId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysMarkId.Properties.ReadOnly = True
-        Me.FNHSysMarkId.Size = New System.Drawing.Size(128, 22)
+        Me.FNHSysMarkId.Size = New System.Drawing.Size(102, 22)
         Me.FNHSysMarkId.TabIndex = 314
         Me.FNHSysMarkId.TabStop = False
         Me.FNHSysMarkId.Tag = "2|"
@@ -638,10 +638,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FNHSysMarkId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysMarkId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysMarkId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysMarkId_lbl.Location = New System.Drawing.Point(332, 71)
+        Me.FNHSysMarkId_lbl.Location = New System.Drawing.Point(265, 56)
         Me.FNHSysMarkId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysMarkId_lbl.Name = "FNHSysMarkId_lbl"
-        Me.FNHSysMarkId_lbl.Size = New System.Drawing.Size(132, 23)
+        Me.FNHSysMarkId_lbl.Size = New System.Drawing.Size(106, 18)
         Me.FNHSysMarkId_lbl.TabIndex = 313
         Me.FNHSysMarkId_lbl.Tag = "2|"
         Me.FNHSysMarkId_lbl.Text = "Mark :"
@@ -649,7 +649,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'FNHSysOperationId
         '
         Me.FNHSysOperationId.EnterMoveNextControl = True
-        Me.FNHSysOperationId.Location = New System.Drawing.Point(201, 71)
+        Me.FNHSysOperationId.Location = New System.Drawing.Point(161, 56)
         Me.FNHSysOperationId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysOperationId.Name = "FNHSysOperationId"
         Me.FNHSysOperationId.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -669,7 +669,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FNHSysOperationId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysOperationId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysOperationId.Properties.ReadOnly = True
-        Me.FNHSysOperationId.Size = New System.Drawing.Size(128, 22)
+        Me.FNHSysOperationId.Size = New System.Drawing.Size(102, 22)
         Me.FNHSysOperationId.TabIndex = 312
         Me.FNHSysOperationId.TabStop = False
         Me.FNHSysOperationId.Tag = "2|"
@@ -681,10 +681,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FNHSysOperationId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysOperationId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysOperationId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysOperationId_lbl.Location = New System.Drawing.Point(54, 70)
+        Me.FNHSysOperationId_lbl.Location = New System.Drawing.Point(43, 56)
         Me.FNHSysOperationId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysOperationId_lbl.Name = "FNHSysOperationId_lbl"
-        Me.FNHSysOperationId_lbl.Size = New System.Drawing.Size(142, 23)
+        Me.FNHSysOperationId_lbl.Size = New System.Drawing.Size(114, 18)
         Me.FNHSysOperationId_lbl.TabIndex = 311
         Me.FNHSysOperationId_lbl.Tag = "2|"
         Me.FNHSysOperationId_lbl.Text = "Operation :"
@@ -692,7 +692,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'FTSizeBreakDown
         '
         Me.FTSizeBreakDown.EnterMoveNextControl = True
-        Me.FTSizeBreakDown.Location = New System.Drawing.Point(999, 44)
+        Me.FTSizeBreakDown.Location = New System.Drawing.Point(799, 35)
         Me.FTSizeBreakDown.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSizeBreakDown.Name = "FTSizeBreakDown"
         Me.FTSizeBreakDown.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -712,7 +712,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FTSizeBreakDown.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSizeBreakDown.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTSizeBreakDown.Properties.ReadOnly = True
-        Me.FTSizeBreakDown.Size = New System.Drawing.Size(98, 22)
+        Me.FTSizeBreakDown.Size = New System.Drawing.Size(78, 22)
         Me.FTSizeBreakDown.TabIndex = 310
         Me.FTSizeBreakDown.TabStop = False
         Me.FTSizeBreakDown.Tag = "2|"
@@ -724,10 +724,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FTSizeBreakDown_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSizeBreakDown_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSizeBreakDown_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSizeBreakDown_lbl.Location = New System.Drawing.Point(877, 46)
+        Me.FTSizeBreakDown_lbl.Location = New System.Drawing.Point(701, 36)
         Me.FTSizeBreakDown_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSizeBreakDown_lbl.Name = "FTSizeBreakDown_lbl"
-        Me.FTSizeBreakDown_lbl.Size = New System.Drawing.Size(120, 23)
+        Me.FTSizeBreakDown_lbl.Size = New System.Drawing.Size(96, 18)
         Me.FTSizeBreakDown_lbl.TabIndex = 309
         Me.FTSizeBreakDown_lbl.Tag = "2|"
         Me.FTSizeBreakDown_lbl.Text = "Size :"
@@ -735,7 +735,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'FTColorway
         '
         Me.FTColorway.EnterMoveNextControl = True
-        Me.FTColorway.Location = New System.Drawing.Point(741, 46)
+        Me.FTColorway.Location = New System.Drawing.Point(593, 36)
         Me.FTColorway.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTColorway.Name = "FTColorway"
         Me.FTColorway.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -755,7 +755,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FTColorway.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTColorway.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTColorway.Properties.ReadOnly = True
-        Me.FTColorway.Size = New System.Drawing.Size(98, 22)
+        Me.FTColorway.Size = New System.Drawing.Size(78, 22)
         Me.FTColorway.TabIndex = 310
         Me.FTColorway.TabStop = False
         Me.FTColorway.Tag = "2|"
@@ -767,10 +767,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FTColorway_lbl.Appearance.Options.UseTextOptions = True
         Me.FTColorway_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTColorway_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTColorway_lbl.Location = New System.Drawing.Point(612, 46)
+        Me.FTColorway_lbl.Location = New System.Drawing.Point(489, 36)
         Me.FTColorway_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTColorway_lbl.Name = "FTColorway_lbl"
-        Me.FTColorway_lbl.Size = New System.Drawing.Size(125, 23)
+        Me.FTColorway_lbl.Size = New System.Drawing.Size(100, 18)
         Me.FTColorway_lbl.TabIndex = 309
         Me.FTColorway_lbl.Tag = "2|"
         Me.FTColorway_lbl.Text = "Colorway :"
@@ -778,7 +778,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'FTOrderProdNo
         '
         Me.FTOrderProdNo.EnterMoveNextControl = True
-        Me.FTOrderProdNo.Location = New System.Drawing.Point(467, 46)
+        Me.FTOrderProdNo.Location = New System.Drawing.Point(373, 36)
         Me.FTOrderProdNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderProdNo.Name = "FTOrderProdNo"
         Me.FTOrderProdNo.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -798,7 +798,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FTOrderProdNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTOrderProdNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTOrderProdNo.Properties.ReadOnly = True
-        Me.FTOrderProdNo.Size = New System.Drawing.Size(128, 22)
+        Me.FTOrderProdNo.Size = New System.Drawing.Size(102, 22)
         Me.FTOrderProdNo.TabIndex = 308
         Me.FTOrderProdNo.TabStop = False
         Me.FTOrderProdNo.Tag = "2|"
@@ -810,10 +810,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FTOrderProdNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderProdNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderProdNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderProdNo_lbl.Location = New System.Drawing.Point(332, 46)
+        Me.FTOrderProdNo_lbl.Location = New System.Drawing.Point(265, 36)
         Me.FTOrderProdNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderProdNo_lbl.Name = "FTOrderProdNo_lbl"
-        Me.FTOrderProdNo_lbl.Size = New System.Drawing.Size(132, 23)
+        Me.FTOrderProdNo_lbl.Size = New System.Drawing.Size(106, 18)
         Me.FTOrderProdNo_lbl.TabIndex = 307
         Me.FTOrderProdNo_lbl.Tag = "2|"
         Me.FTOrderProdNo_lbl.Text = "FO. Prod No :"
@@ -821,7 +821,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'FTOrderNo
         '
         Me.FTOrderNo.EnterMoveNextControl = True
-        Me.FTOrderNo.Location = New System.Drawing.Point(201, 46)
+        Me.FTOrderNo.Location = New System.Drawing.Point(161, 36)
         Me.FTOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNo.Name = "FTOrderNo"
         Me.FTOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -841,7 +841,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTOrderNo.Properties.ReadOnly = True
-        Me.FTOrderNo.Size = New System.Drawing.Size(128, 22)
+        Me.FTOrderNo.Size = New System.Drawing.Size(102, 22)
         Me.FTOrderNo.TabIndex = 306
         Me.FTOrderNo.TabStop = False
         Me.FTOrderNo.Tag = "2|"
@@ -853,10 +853,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FTOrderNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(54, 44)
+        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(43, 35)
         Me.FTOrderNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNo_lbl.Name = "FTOrderNo_lbl"
-        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(142, 23)
+        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(114, 18)
         Me.FTOrderNo_lbl.TabIndex = 305
         Me.FTOrderNo_lbl.Tag = "2|"
         Me.FTOrderNo_lbl.Text = "FO. No :"
@@ -868,10 +868,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FTStyleCode_lbl.Appearance.Options.UseTextOptions = True
         Me.FTStyleCode_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTStyleCode_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTStyleCode_lbl.Location = New System.Drawing.Point(602, 4)
+        Me.FTStyleCode_lbl.Location = New System.Drawing.Point(481, 3)
         Me.FTStyleCode_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStyleCode_lbl.Name = "FTStyleCode_lbl"
-        Me.FTStyleCode_lbl.Size = New System.Drawing.Size(135, 23)
+        Me.FTStyleCode_lbl.Size = New System.Drawing.Size(108, 18)
         Me.FTStyleCode_lbl.TabIndex = 304
         Me.FTStyleCode_lbl.Tag = "2|"
         Me.FTStyleCode_lbl.Text = "Style Code :"
@@ -879,7 +879,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'FTStyleCode
         '
         Me.FTStyleCode.EditValue = ""
-        Me.FTStyleCode.Location = New System.Drawing.Point(741, 4)
+        Me.FTStyleCode.Location = New System.Drawing.Point(593, 3)
         Me.FTStyleCode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStyleCode.Name = "FTStyleCode"
         Me.FTStyleCode.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -901,7 +901,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FTStyleCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTStyleCode.Properties.MaxLength = 30
         Me.FTStyleCode.Properties.ReadOnly = True
-        Me.FTStyleCode.Size = New System.Drawing.Size(357, 40)
+        Me.FTStyleCode.Size = New System.Drawing.Size(286, 40)
         Me.FTStyleCode.TabIndex = 303
         Me.FTStyleCode.Tag = "2|"
         '
@@ -912,10 +912,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FTBarcodeNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTBarcodeNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTBarcodeNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBarcodeNo_lbl.Location = New System.Drawing.Point(3, 6)
+        Me.FTBarcodeNo_lbl.Location = New System.Drawing.Point(2, 4)
         Me.FTBarcodeNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTBarcodeNo_lbl.Name = "FTBarcodeNo_lbl"
-        Me.FTBarcodeNo_lbl.Size = New System.Drawing.Size(192, 23)
+        Me.FTBarcodeNo_lbl.Size = New System.Drawing.Size(154, 18)
         Me.FTBarcodeNo_lbl.TabIndex = 302
         Me.FTBarcodeNo_lbl.Tag = "2|"
         Me.FTBarcodeNo_lbl.Text = "Barcode No :"
@@ -923,7 +923,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'FTBarcodeNo
         '
         Me.FTBarcodeNo.EditValue = ""
-        Me.FTBarcodeNo.Location = New System.Drawing.Point(201, 2)
+        Me.FTBarcodeNo.Location = New System.Drawing.Point(161, 1)
         Me.FTBarcodeNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTBarcodeNo.Name = "FTBarcodeNo"
         Me.FTBarcodeNo.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -944,7 +944,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.FTBarcodeNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTBarcodeNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTBarcodeNo.Properties.MaxLength = 30
-        Me.FTBarcodeNo.Size = New System.Drawing.Size(394, 40)
+        Me.FTBarcodeNo.Size = New System.Drawing.Size(315, 40)
         Me.FTBarcodeNo.TabIndex = 301
         Me.FTBarcodeNo.Tag = "2|"
         '
@@ -1456,7 +1456,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmapprove)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(-9, 113)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(-951, 113)
         Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(979, 58)
@@ -1542,7 +1542,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'oFTBarcodeBundleNo
         '
         Me.oFTBarcodeBundleNo.EnterMoveNextControl = True
-        Me.oFTBarcodeBundleNo.Location = New System.Drawing.Point(999, 71)
+        Me.oFTBarcodeBundleNo.Location = New System.Drawing.Point(799, 57)
         Me.oFTBarcodeBundleNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.oFTBarcodeBundleNo.Name = "oFTBarcodeBundleNo"
         Me.oFTBarcodeBundleNo.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -1562,7 +1562,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.oFTBarcodeBundleNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.oFTBarcodeBundleNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.oFTBarcodeBundleNo.Properties.ReadOnly = True
-        Me.oFTBarcodeBundleNo.Size = New System.Drawing.Size(98, 22)
+        Me.oFTBarcodeBundleNo.Size = New System.Drawing.Size(78, 22)
         Me.oFTBarcodeBundleNo.TabIndex = 318
         Me.oFTBarcodeBundleNo.TabStop = False
         Me.oFTBarcodeBundleNo.Tag = "2|"
@@ -1574,10 +1574,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.LabelControl1.Appearance.Options.UseTextOptions = True
         Me.LabelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl1.Location = New System.Drawing.Point(877, 73)
+        Me.LabelControl1.Location = New System.Drawing.Point(701, 59)
         Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(120, 23)
+        Me.LabelControl1.Size = New System.Drawing.Size(96, 18)
         Me.LabelControl1.TabIndex = 317
         Me.LabelControl1.Tag = "2|"
         Me.LabelControl1.Text = "มัดที่ :"
@@ -1585,7 +1585,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'oFNHSysPartId
         '
         Me.oFNHSysPartId.EnterMoveNextControl = True
-        Me.oFNHSysPartId.Location = New System.Drawing.Point(741, 71)
+        Me.oFNHSysPartId.Location = New System.Drawing.Point(593, 57)
         Me.oFNHSysPartId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.oFNHSysPartId.Name = "oFNHSysPartId"
         Me.oFNHSysPartId.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -1605,7 +1605,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.oFNHSysPartId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.oFNHSysPartId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.oFNHSysPartId.Properties.ReadOnly = True
-        Me.oFNHSysPartId.Size = New System.Drawing.Size(128, 22)
+        Me.oFNHSysPartId.Size = New System.Drawing.Size(102, 22)
         Me.oFNHSysPartId.TabIndex = 316
         Me.oFNHSysPartId.TabStop = False
         Me.oFNHSysPartId.Tag = "2|"
@@ -1617,10 +1617,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.LabelControl2.Appearance.Options.UseTextOptions = True
         Me.LabelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl2.Location = New System.Drawing.Point(607, 71)
+        Me.LabelControl2.Location = New System.Drawing.Point(485, 57)
         Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(132, 23)
+        Me.LabelControl2.Size = New System.Drawing.Size(106, 18)
         Me.LabelControl2.TabIndex = 315
         Me.LabelControl2.Tag = "2|"
         Me.LabelControl2.Text = "Part :"
@@ -1628,7 +1628,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'oFNHSysMarkId
         '
         Me.oFNHSysMarkId.EnterMoveNextControl = True
-        Me.oFNHSysMarkId.Location = New System.Drawing.Point(467, 71)
+        Me.oFNHSysMarkId.Location = New System.Drawing.Point(373, 57)
         Me.oFNHSysMarkId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.oFNHSysMarkId.Name = "oFNHSysMarkId"
         Me.oFNHSysMarkId.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -1648,7 +1648,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.oFNHSysMarkId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.oFNHSysMarkId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.oFNHSysMarkId.Properties.ReadOnly = True
-        Me.oFNHSysMarkId.Size = New System.Drawing.Size(128, 22)
+        Me.oFNHSysMarkId.Size = New System.Drawing.Size(102, 22)
         Me.oFNHSysMarkId.TabIndex = 314
         Me.oFNHSysMarkId.TabStop = False
         Me.oFNHSysMarkId.Tag = "2|"
@@ -1660,10 +1660,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.LabelControl3.Appearance.Options.UseTextOptions = True
         Me.LabelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl3.Location = New System.Drawing.Point(332, 71)
+        Me.LabelControl3.Location = New System.Drawing.Point(265, 57)
         Me.LabelControl3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(132, 23)
+        Me.LabelControl3.Size = New System.Drawing.Size(106, 18)
         Me.LabelControl3.TabIndex = 313
         Me.LabelControl3.Tag = "2|"
         Me.LabelControl3.Text = "Mark :"
@@ -1671,7 +1671,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'oFNHSysOperationId
         '
         Me.oFNHSysOperationId.EnterMoveNextControl = True
-        Me.oFNHSysOperationId.Location = New System.Drawing.Point(201, 71)
+        Me.oFNHSysOperationId.Location = New System.Drawing.Point(161, 57)
         Me.oFNHSysOperationId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.oFNHSysOperationId.Name = "oFNHSysOperationId"
         Me.oFNHSysOperationId.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -1691,7 +1691,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.oFNHSysOperationId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.oFNHSysOperationId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.oFNHSysOperationId.Properties.ReadOnly = True
-        Me.oFNHSysOperationId.Size = New System.Drawing.Size(128, 22)
+        Me.oFNHSysOperationId.Size = New System.Drawing.Size(102, 22)
         Me.oFNHSysOperationId.TabIndex = 312
         Me.oFNHSysOperationId.TabStop = False
         Me.oFNHSysOperationId.Tag = "2|"
@@ -1703,10 +1703,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.LabelControl4.Appearance.Options.UseTextOptions = True
         Me.LabelControl4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl4.Location = New System.Drawing.Point(54, 70)
+        Me.LabelControl4.Location = New System.Drawing.Point(43, 56)
         Me.LabelControl4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(142, 23)
+        Me.LabelControl4.Size = New System.Drawing.Size(114, 18)
         Me.LabelControl4.TabIndex = 311
         Me.LabelControl4.Tag = "2|"
         Me.LabelControl4.Text = "Operation :"
@@ -1714,7 +1714,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'oFTSizeBreakDown
         '
         Me.oFTSizeBreakDown.EnterMoveNextControl = True
-        Me.oFTSizeBreakDown.Location = New System.Drawing.Point(999, 44)
+        Me.oFTSizeBreakDown.Location = New System.Drawing.Point(799, 35)
         Me.oFTSizeBreakDown.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.oFTSizeBreakDown.Name = "oFTSizeBreakDown"
         Me.oFTSizeBreakDown.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -1734,7 +1734,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.oFTSizeBreakDown.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.oFTSizeBreakDown.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.oFTSizeBreakDown.Properties.ReadOnly = True
-        Me.oFTSizeBreakDown.Size = New System.Drawing.Size(98, 22)
+        Me.oFTSizeBreakDown.Size = New System.Drawing.Size(78, 22)
         Me.oFTSizeBreakDown.TabIndex = 310
         Me.oFTSizeBreakDown.TabStop = False
         Me.oFTSizeBreakDown.Tag = "2|"
@@ -1746,10 +1746,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.LabelControl5.Appearance.Options.UseTextOptions = True
         Me.LabelControl5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl5.Location = New System.Drawing.Point(877, 46)
+        Me.LabelControl5.Location = New System.Drawing.Point(701, 37)
         Me.LabelControl5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(120, 23)
+        Me.LabelControl5.Size = New System.Drawing.Size(96, 18)
         Me.LabelControl5.TabIndex = 309
         Me.LabelControl5.Tag = "2|"
         Me.LabelControl5.Text = "Size :"
@@ -1757,7 +1757,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'oFTColorway
         '
         Me.oFTColorway.EnterMoveNextControl = True
-        Me.oFTColorway.Location = New System.Drawing.Point(741, 46)
+        Me.oFTColorway.Location = New System.Drawing.Point(593, 37)
         Me.oFTColorway.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.oFTColorway.Name = "oFTColorway"
         Me.oFTColorway.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -1777,7 +1777,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.oFTColorway.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.oFTColorway.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.oFTColorway.Properties.ReadOnly = True
-        Me.oFTColorway.Size = New System.Drawing.Size(98, 22)
+        Me.oFTColorway.Size = New System.Drawing.Size(78, 22)
         Me.oFTColorway.TabIndex = 310
         Me.oFTColorway.TabStop = False
         Me.oFTColorway.Tag = "2|"
@@ -1789,10 +1789,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.LabelControl6.Appearance.Options.UseTextOptions = True
         Me.LabelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl6.Location = New System.Drawing.Point(612, 46)
+        Me.LabelControl6.Location = New System.Drawing.Point(489, 37)
         Me.LabelControl6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(125, 23)
+        Me.LabelControl6.Size = New System.Drawing.Size(100, 18)
         Me.LabelControl6.TabIndex = 309
         Me.LabelControl6.Tag = "2|"
         Me.LabelControl6.Text = "Colorway :"
@@ -1800,7 +1800,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'oFTOrderProdNo
         '
         Me.oFTOrderProdNo.EnterMoveNextControl = True
-        Me.oFTOrderProdNo.Location = New System.Drawing.Point(467, 46)
+        Me.oFTOrderProdNo.Location = New System.Drawing.Point(373, 37)
         Me.oFTOrderProdNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.oFTOrderProdNo.Name = "oFTOrderProdNo"
         Me.oFTOrderProdNo.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -1820,7 +1820,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.oFTOrderProdNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.oFTOrderProdNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.oFTOrderProdNo.Properties.ReadOnly = True
-        Me.oFTOrderProdNo.Size = New System.Drawing.Size(128, 22)
+        Me.oFTOrderProdNo.Size = New System.Drawing.Size(102, 22)
         Me.oFTOrderProdNo.TabIndex = 308
         Me.oFTOrderProdNo.TabStop = False
         Me.oFTOrderProdNo.Tag = "2|"
@@ -1832,10 +1832,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.LabelControl7.Appearance.Options.UseTextOptions = True
         Me.LabelControl7.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl7.Location = New System.Drawing.Point(332, 46)
+        Me.LabelControl7.Location = New System.Drawing.Point(265, 37)
         Me.LabelControl7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl7.Name = "LabelControl7"
-        Me.LabelControl7.Size = New System.Drawing.Size(132, 23)
+        Me.LabelControl7.Size = New System.Drawing.Size(106, 18)
         Me.LabelControl7.TabIndex = 307
         Me.LabelControl7.Tag = "2|"
         Me.LabelControl7.Text = "FO. Prod No :"
@@ -1843,7 +1843,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'oFTOrderNo
         '
         Me.oFTOrderNo.EnterMoveNextControl = True
-        Me.oFTOrderNo.Location = New System.Drawing.Point(201, 46)
+        Me.oFTOrderNo.Location = New System.Drawing.Point(161, 37)
         Me.oFTOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.oFTOrderNo.Name = "oFTOrderNo"
         Me.oFTOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -1863,7 +1863,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.oFTOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.oFTOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.oFTOrderNo.Properties.ReadOnly = True
-        Me.oFTOrderNo.Size = New System.Drawing.Size(128, 22)
+        Me.oFTOrderNo.Size = New System.Drawing.Size(102, 22)
         Me.oFTOrderNo.TabIndex = 306
         Me.oFTOrderNo.TabStop = False
         Me.oFTOrderNo.Tag = "2|"
@@ -1875,10 +1875,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.LabelControl8.Appearance.Options.UseTextOptions = True
         Me.LabelControl8.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl8.Location = New System.Drawing.Point(54, 44)
+        Me.LabelControl8.Location = New System.Drawing.Point(43, 35)
         Me.LabelControl8.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl8.Name = "LabelControl8"
-        Me.LabelControl8.Size = New System.Drawing.Size(142, 23)
+        Me.LabelControl8.Size = New System.Drawing.Size(114, 18)
         Me.LabelControl8.TabIndex = 305
         Me.LabelControl8.Tag = "2|"
         Me.LabelControl8.Text = "FO. No :"
@@ -1890,10 +1890,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.LabelControl9.Appearance.Options.UseTextOptions = True
         Me.LabelControl9.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl9.Location = New System.Drawing.Point(602, 4)
+        Me.LabelControl9.Location = New System.Drawing.Point(481, 3)
         Me.LabelControl9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl9.Name = "LabelControl9"
-        Me.LabelControl9.Size = New System.Drawing.Size(135, 23)
+        Me.LabelControl9.Size = New System.Drawing.Size(108, 18)
         Me.LabelControl9.TabIndex = 304
         Me.LabelControl9.Tag = "2|"
         Me.LabelControl9.Text = "Style Code :"
@@ -1901,7 +1901,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'oFTStyleCode
         '
         Me.oFTStyleCode.EditValue = ""
-        Me.oFTStyleCode.Location = New System.Drawing.Point(741, 4)
+        Me.oFTStyleCode.Location = New System.Drawing.Point(593, 3)
         Me.oFTStyleCode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.oFTStyleCode.Name = "oFTStyleCode"
         Me.oFTStyleCode.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -1923,7 +1923,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.oFTStyleCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.oFTStyleCode.Properties.MaxLength = 30
         Me.oFTStyleCode.Properties.ReadOnly = True
-        Me.oFTStyleCode.Size = New System.Drawing.Size(357, 40)
+        Me.oFTStyleCode.Size = New System.Drawing.Size(286, 40)
         Me.oFTStyleCode.TabIndex = 303
         Me.oFTStyleCode.Tag = "2|"
         '
@@ -1934,10 +1934,10 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.LabelControl10.Appearance.Options.UseTextOptions = True
         Me.LabelControl10.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl10.Location = New System.Drawing.Point(3, 6)
+        Me.LabelControl10.Location = New System.Drawing.Point(2, 5)
         Me.LabelControl10.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl10.Name = "LabelControl10"
-        Me.LabelControl10.Size = New System.Drawing.Size(192, 23)
+        Me.LabelControl10.Size = New System.Drawing.Size(154, 18)
         Me.LabelControl10.TabIndex = 302
         Me.LabelControl10.Tag = "2|"
         Me.LabelControl10.Text = "Barcode No :"
@@ -1945,7 +1945,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         'TextEdit10
         '
         Me.TextEdit10.EditValue = ""
-        Me.TextEdit10.Location = New System.Drawing.Point(201, 2)
+        Me.TextEdit10.Location = New System.Drawing.Point(161, 2)
         Me.TextEdit10.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextEdit10.Name = "TextEdit10"
         Me.TextEdit10.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -1966,7 +1966,7 @@ Partial Class wSMPScanBarcodeSendSuplToBranch
         Me.TextEdit10.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.TextEdit10.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TextEdit10.Properties.MaxLength = 30
-        Me.TextEdit10.Size = New System.Drawing.Size(394, 40)
+        Me.TextEdit10.Size = New System.Drawing.Size(315, 40)
         Me.TextEdit10.TabIndex = 301
         Me.TextEdit10.Tag = "2|"
         '

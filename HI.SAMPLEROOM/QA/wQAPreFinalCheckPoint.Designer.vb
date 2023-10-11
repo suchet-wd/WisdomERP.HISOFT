@@ -32,10 +32,11 @@ Partial Class wQAPreFinalCheckPoint
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogrpSubmenu.Controls.Add(Me.TileControl)
-        Me.ogrpSubmenu.Location = New System.Drawing.Point(0, 48)
+        Me.ogrpSubmenu.Location = New System.Drawing.Point(0, 59)
+        Me.ogrpSubmenu.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogrpSubmenu.Name = "ogrpSubmenu"
         Me.ogrpSubmenu.ShowCaption = False
-        Me.ogrpSubmenu.Size = New System.Drawing.Size(941, 525)
+        Me.ogrpSubmenu.Size = New System.Drawing.Size(1098, 646)
         Me.ogrpSubmenu.TabIndex = 3
         Me.ogrpSubmenu.Text = "Sub Menu"
         '
@@ -46,20 +47,23 @@ Partial Class wQAPreFinalCheckPoint
         Me.TileControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TileControl.ItemSize = 70
         Me.TileControl.Location = New System.Drawing.Point(2, 2)
+        Me.TileControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TileControl.MaxId = 25
         Me.TileControl.Name = "TileControl"
         Me.TileControl.Orientation = System.Windows.Forms.Orientation.Vertical
+        Me.TileControl.Padding = New System.Windows.Forms.Padding(21, 22, 21, 22)
         Me.TileControl.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.ScrollBar
-        Me.TileControl.Size = New System.Drawing.Size(937, 521)
+        Me.TileControl.Size = New System.Drawing.Size(1094, 642)
         Me.TileControl.TabIndex = 0
         Me.TileControl.Text = "TileControlSubmenu"
         '
         'ocmclose
         '
         Me.ocmclose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmclose.Location = New System.Drawing.Point(750, 7)
+        Me.ocmclose.Location = New System.Drawing.Point(875, 9)
+        Me.ocmclose.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmclose.Name = "ocmclose"
-        Me.ocmclose.Size = New System.Drawing.Size(185, 33)
+        Me.ocmclose.Size = New System.Drawing.Size(216, 41)
         Me.ocmclose.TabIndex = 97
         Me.ocmclose.TabStop = False
         Me.ocmclose.Tag = "2|"
@@ -67,16 +71,17 @@ Partial Class wQAPreFinalCheckPoint
         '
         'wQAPreFinalCheckPoint
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(945, 575)
+        Me.ClientSize = New System.Drawing.Size(1102, 708)
         Me.Controls.Add(Me.ocmclose)
         Me.Controls.Add(Me.ogrpSubmenu)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.IconOptions.ShowIcon = False
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "wQAPreFinalCheckPoint"
-        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "QA Pre-Final CheckPoint"
         CType(Me.ogrpSubmenu, System.ComponentModel.ISupportInitialize).EndInit()

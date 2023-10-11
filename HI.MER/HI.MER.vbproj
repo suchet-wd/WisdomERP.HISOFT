@@ -120,6 +120,10 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>..\..\DLL\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="SautinSoft.PdfFocus">
       <HintPath>..\..\DLL\SautinSoft.PdfFocus.dll</HintPath>
     </Reference>
@@ -138,6 +142,7 @@
     <Reference Include="System.Runtime.Remoting">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Services">
       <Private>True</Private>
     </Reference>
@@ -345,6 +350,7 @@
     <Compile Include="Import\wImportExcelStylePopup.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Json\CBDJson.vb" />
     <Compile Include="Master\wConfigMappingBreakdownSizeAddEdit.Designer.vb">
       <DependentUpon>wConfigMappingBreakdownSizeAddEdit.vb</DependentUpon>
     </Compile>
@@ -765,6 +771,12 @@
     <Compile Include="Transaction\wCopyDivertOrder.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Transaction\wCostSheetExportJSon.Designer.vb">
+      <DependentUpon>wCostSheetExportJSon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wCostSheetExportJSon.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Transaction\wCostSheet.designer.vb">
       <DependentUpon>wCostSheet.vb</DependentUpon>
     </Compile>
@@ -995,6 +1007,12 @@
       <DependentUpon>wRejectOrder.vb</DependentUpon>
     </Compile>
     <Compile Include="Transaction\wRejectOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wInputUserAndPassword.Designer.vb">
+      <DependentUpon>wInputUserAndPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wInputUserAndPassword.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -1310,6 +1328,9 @@
     <EmbeddedResource Include="Transaction\wCopyOrderSub.resx">
       <DependentUpon>wCopyOrderSub.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wCostSheetExportJSon.resx">
+      <DependentUpon>wCostSheetExportJSon.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transaction\wCopySubOrderOther.resx">
       <DependentUpon>wCopySubOrderOther.vb</DependentUpon>
     </EmbeddedResource>
@@ -1409,6 +1430,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\USmpPart.resx">
       <DependentUpon>USmpPart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wInputUserAndPassword.resx">
+      <DependentUpon>wInputUserAndPassword.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

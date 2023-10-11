@@ -17,7 +17,7 @@
 
     End Sub
 
-    Public Shared Function ImportFactoryOrder(_Spls As HI.TL.SplashScreen, pImportOrderType As Integer, pCustId As Integer, pCmpRunId As Integer, CmpRunIdText As String, pBuyId As Integer, pMerteamId As Integer, Optional StateKepepData As Boolean = False) As Boolean
+    Public Shared Function ImportFactoryOrder(_Spls As HI.TL.SplashScreen, pImportOrderType As Integer, pCustId As Integer, pCmpRunId As Integer, CmpRunIdText As String, pBuyId As Integer, pMerteamId As Integer, pcust As String, pmerteam As String, pbuy As String, Optional StateKepepData As Boolean = False) As Boolean
         '...last modify 2014/12/19 when drop field Amount, Qty TMERTOrder_BreakDown, TMERTOrder, TMERTOrderSub
 
         Dim _bImportComplete As Boolean = False
@@ -40,12 +40,8 @@
                     _FNImportOrderType = 0
             End Select
 
-
-
             Dim _Prefix As String = HI.TL.CboList.GetListRefer("FNImportOrderType", pImportOrderType)
             nFNHSysCustId = pCustId : nFNHSysCmpRunId = pCmpRunId : nFNHSysBuyId = pBuyId
-
-
 
             Dim oDBdtImport As System.Data.DataTable
 
@@ -304,7 +300,7 @@
                     tSql &= Environment.NewLine & " from     [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].TMERTOrder As Z With(NOLOCK)  "
                     tSql &= Environment.NewLine & "   WHERE  (Z.FNHSysStyleId = M.FNHSysStyleId)  "
                     tSql &= Environment.NewLine & "   ORDER BY Case When Z.FNOrderType = 13  Then 1 Else 2 End ,Z.FTOrderNo DESC  ) As Z "
-                    tSql &= Environment.NewLine & "  outer apply (Select top 1 Cmpc.FNHSysCmpPOId from [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] As Cmpc With(NOLOCK) where Cmpc.FNHSysCmpId = Case When   ISNULL(ZCfg.FixCmpByProgram,0) > 0 Then  ISNULL(ZCfg.FixCmpByProgram,0) Else ISNULL(Z.FNHSysCmpId,NULL)  End ) As Cmpc "
+                    tSql &= Environment.NewLine & "  outer apply (Select top 1 Cmpc.FNHSysCmpPOId from [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] As Cmpc With(NOLOCK) where Cmpc.FNHSysCmpId = Case When   ISNULL(ZCfg.FixCmpByProgram,0) > 0 Then  ISNULL(ZCfg.FixCmpByProgram,0) Else ISNULL(M.FNHSysCmpId,ISNULL(Z.FNHSysCmpId,NULL))  End ) As Cmpc "
 
                     '  tSql &= Environment.NewLine & " DROP TABLE #Tab;"
 
@@ -583,8 +579,8 @@
                     tSql &= Environment.NewLine & "           LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TMERMStyle] As STM With(NOLOCK) On B.FNHSysStyleId = STM.FNHSysStyleId"
                     tSql &= Environment.NewLine & "           LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCustomer] As Cus With(NOLOCK) On B.FNHSysCustId = Cus.FNHSysCustId"
                     tSql &= Environment.NewLine & "           LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] As Cmpc With(NOLOCK) On B.FNHSysCmpId = Cmpc.FNHSysCmpId"
-
-                    tSql &= Environment.NewLine & "      WHERE A.FNQuantity > 0 "
+                    tSql &= Environment.NewLine & " WHERE AA.FTUserLogin = N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                    tSql &= Environment.NewLine & "      AND A.FNQuantity > 0 "
                     tSql &= Environment.NewLine & "      GROUP BY AA.FTGenerateOrderNo, A.FTPONo, A.FTPOTrading, A.FTStyle, MM3.FTSubOrderNo, A.FTColorwayCode, A.FTSizeBreakdownCode, C.FNHSysMatColorId, D.FNHSysMatSizeId"
                     tSql &= Environment.NewLine & "      ) As ordImport"
                     '-----Order Normal Data
@@ -632,8 +628,9 @@
                     tSql &= Environment.NewLine & "           LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TMERMStyle] As STM With(NOLOCK) On B.FNHSysStyleId = STM.FNHSysStyleId"
                     tSql &= Environment.NewLine & "           LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCustomer] As Cus With(NOLOCK) On B.FNHSysCustId = Cus.FNHSysCustId"
                     tSql &= Environment.NewLine & "           LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] As Cmpc With(NOLOCK) On B.FNHSysCmpId = Cmpc.FNHSysCmpId"
-
-                    tSql &= Environment.NewLine & "      WHERE A.FNQuantity > 0  AND ISNULL(AA.FTGenerateOrderSubNo2,'') <> ''"
+                    tSql &= Environment.NewLine & " WHERE AA.FTUserLogin = N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                    tSql &= Environment.NewLine & "      AND A.FNQuantity > 0 "
+                    tSql &= Environment.NewLine & "      AND ISNULL(AA.FTGenerateOrderSubNo2,'') <> ''"
                     tSql &= Environment.NewLine & "      GROUP BY AA.FTGenerateOrderNo, A.FTPONo, A.FTPOTrading, A.FTStyle, MM3.FTSubOrderNo, A.FTColorwayCode, A.FTSizeBreakdownCode, C.FNHSysMatColorId, D.FNHSysMatSizeId"
                     tSql &= Environment.NewLine & "      ) As ordImport"
                     '-----Order Normal Set
@@ -770,7 +767,7 @@
 
                     If StateKepepData Then
 
-                        tSql &= Environment.NewLine & " EXEC   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_TEMPDB) & "]..USP_IMPORTFILEEXCELNIKEPO_CFM '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                        tSql &= Environment.NewLine & " EXEC   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_TEMPDB) & "]..USP_IMPORTFILEEXCELNIKEPO_CFM '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "',0,'" & HI.UL.ULF.rpQuoted(pcust) & "','" & HI.UL.ULF.rpQuoted(pmerteam) & "','" & HI.UL.ULF.rpQuoted(pbuy) & "' "
 
                     End If
 
@@ -973,133 +970,133 @@
 
 
         _Qry = "   UPDATE OB SET FNNetPrice = A.FNPrice"
-            _Qry &= vbCrLf & " ,FNNetPriceOperateFee=(CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END )"
-            _Qry &= vbCrLf & " ,FNNetPriceOperateFeeAmt=Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))"
-            _Qry &= vbCrLf & " ,FNNetNetPrice = A.FNPrice - (Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))) "
-            _Qry &= vbCrLf & " , FTNikePOLineItem=CASE WHEN ISNULL(OB.FTNikePOLineItem,'') ='' THEN ISNULL(A.FTPOItem,'')   ELSE  ISNULL(OB.FTNikePOLineItem,'')  END "
-            _Qry &= vbCrLf & " ,FTStateImportNetPrice='1'"
-            _Qry &= vbCrLf & " ,FTImportNetPriceBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-            _Qry &= vbCrLf & " ,FDImportNetPriceDate=" & HI.UL.ULDate.FormatDateDB & ""
-            _Qry &= vbCrLf & " ,FTImportNetPriceTime=" & HI.UL.ULDate.FormatTimeDB & ""
+        _Qry &= vbCrLf & " ,FNNetPriceOperateFee=(CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END )"
+        _Qry &= vbCrLf & " ,FNNetPriceOperateFeeAmt=Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))"
+        _Qry &= vbCrLf & " ,FNNetNetPrice = A.FNPrice - (Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))) "
+        _Qry &= vbCrLf & " , FTNikePOLineItem=CASE WHEN ISNULL(OB.FTNikePOLineItem,'') ='' THEN ISNULL(A.FTPOItem,'')   ELSE  ISNULL(OB.FTNikePOLineItem,'')  END "
+        _Qry &= vbCrLf & " ,FTStateImportNetPrice='1'"
+        _Qry &= vbCrLf & " ,FTImportNetPriceBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+        _Qry &= vbCrLf & " ,FDImportNetPriceDate=" & HI.UL.ULDate.FormatDateDB & ""
+        _Qry &= vbCrLf & " ,FTImportNetPriceTime=" & HI.UL.ULDate.FormatTimeDB & ""
 
-            _Qry &= vbCrLf & "  FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As ST INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder As B On ST.FNHSysStyleId = B.FNHSysStyleId INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub As ODS On B.FTOrderNo = ODS.FTOrderNo INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown As OB On ODS.FTOrderNo = OB.FTOrderNo And  ODS.FTSubOrderNo = OB.FTSubOrderNo INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTImportOrderSizeBreakdownTemp As A On B.FTPORef = A.FTPONo And OB.FTColorway = A.FTColorwayCode"
-            _Qry &= vbCrLf & "           And OB.FTSizeBreakDown = A.FTSizeBreakdownCode And LEFT(ST.FTStyleCode,len(A.FTStyle)) = A.FTStyle And OB.FTNikePOLineItem =A.FTPOItem"
+        _Qry &= vbCrLf & "  FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As ST INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder As B On ST.FNHSysStyleId = B.FNHSysStyleId INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub As ODS On B.FTOrderNo = ODS.FTOrderNo INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown As OB On ODS.FTOrderNo = OB.FTOrderNo And  ODS.FTSubOrderNo = OB.FTSubOrderNo INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTImportOrderSizeBreakdownTemp As A On B.FTPORef = A.FTPONo And OB.FTColorway = A.FTColorwayCode"
+        _Qry &= vbCrLf & "           And OB.FTSizeBreakDown = A.FTSizeBreakdownCode And LEFT(ST.FTStyleCode,len(A.FTStyle)) = A.FTStyle And OB.FTNikePOLineItem =A.FTPOItem"
 
-            _Qry &= vbCrLf & "           LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCustomer] As Cus With(NOLOCK) On B.FNHSysCustId = Cus.FNHSysCustId"
-            _Qry &= vbCrLf & "          LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] As Cmpc With(NOLOCK) On B.FNHSysCmpId = Cmpc.FNHSysCmpId"
+        _Qry &= vbCrLf & "           LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCustomer] As Cus With(NOLOCK) On B.FNHSysCustId = Cus.FNHSysCustId"
+        _Qry &= vbCrLf & "          LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] As Cmpc With(NOLOCK) On B.FNHSysCmpId = Cmpc.FNHSysCmpId"
 
-            _Qry &= vbCrLf & " LEFT OUTER  JOIN ( Select A.FTCustomerPO, B.FTColorway, B.FTSizeBreakDown, B.FTPOLineItem"
-            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice As A With(NOLOCK) INNER JOIN"
-            _Qry &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice_D As B With(NOLOCK) On A.FTCustomerPO = B.FTCustomerPO And A.FTInvoiceNo = B.FTInvoiceNo"
-            _Qry &= vbCrLf & " WHERE ISNULL(A.FTPostUser,'') <>'' "
-            _Qry &= vbCrLf & " ) AS XM"
-            _Qry &= vbCrLf & " ON A.FTPONo = XM.FTCustomerPO"
-            _Qry &= vbCrLf & "	AND A.FTColorwayCode = XM.FTColorway"
-            _Qry &= vbCrLf & "	AND A.FTSizeBreakdownCode = XM.FTSizeBreakDown"
-            _Qry &= vbCrLf & "	AND A.FTPOItem = XM.FTPOLineItem "
+        _Qry &= vbCrLf & " LEFT OUTER  JOIN ( Select A.FTCustomerPO, B.FTColorway, B.FTSizeBreakDown, B.FTPOLineItem"
+        _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice As A With(NOLOCK) INNER JOIN"
+        _Qry &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice_D As B With(NOLOCK) On A.FTCustomerPO = B.FTCustomerPO And A.FTInvoiceNo = B.FTInvoiceNo"
+        _Qry &= vbCrLf & " WHERE ISNULL(A.FTPostUser,'') <>'' "
+        _Qry &= vbCrLf & " ) AS XM"
+        _Qry &= vbCrLf & " ON A.FTPONo = XM.FTCustomerPO"
+        _Qry &= vbCrLf & "	AND A.FTColorwayCode = XM.FTColorway"
+        _Qry &= vbCrLf & "	AND A.FTSizeBreakdownCode = XM.FTSizeBreakDown"
+        _Qry &= vbCrLf & "	AND A.FTPOItem = XM.FTPOLineItem "
 
-            _Qry &= vbCrLf & " WHERE  (A.FTUserLogin = N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "') AND ISNULL(ODS.FTPORef,'') ='' AND XM.FTCustomerPO IS NULL"
+        _Qry &= vbCrLf & " WHERE  (A.FTUserLogin = N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "') AND ISNULL(ODS.FTPORef,'') ='' AND XM.FTCustomerPO IS NULL"
 
 
         _Qry &= vbCrLf & "  UPDATE OB SET FNNetPrice = A.FNPrice"
         _Qry &= vbCrLf & " ,FNNetPriceOperateFee=(CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END )"
-            _Qry &= vbCrLf & " ,FNNetPriceOperateFeeAmt=Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))"
-            _Qry &= vbCrLf & " ,FNNetNetPrice = A.FNPrice - (Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))) "
-            _Qry &= vbCrLf & " , FTNikePOLineItem=CASE WHEN ISNULL(OB.FTNikePOLineItem,'') ='' THEN ISNULL(A.FTPOItem,'')   ELSE  ISNULL(OB.FTNikePOLineItem,'')  END "
-            _Qry &= vbCrLf & " ,FTStateImportNetPrice='1'"
-            _Qry &= vbCrLf & " ,FTImportNetPriceBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-            _Qry &= vbCrLf & " ,FDImportNetPriceDate=" & HI.UL.ULDate.FormatDateDB & ""
-            _Qry &= vbCrLf & " ,FTImportNetPriceTime=" & HI.UL.ULDate.FormatTimeDB & ""
+        _Qry &= vbCrLf & " ,FNNetPriceOperateFeeAmt=Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))"
+        _Qry &= vbCrLf & " ,FNNetNetPrice = A.FNPrice - (Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))) "
+        _Qry &= vbCrLf & " , FTNikePOLineItem=CASE WHEN ISNULL(OB.FTNikePOLineItem,'') ='' THEN ISNULL(A.FTPOItem,'')   ELSE  ISNULL(OB.FTNikePOLineItem,'')  END "
+        _Qry &= vbCrLf & " ,FTStateImportNetPrice='1'"
+        _Qry &= vbCrLf & " ,FTImportNetPriceBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+        _Qry &= vbCrLf & " ,FDImportNetPriceDate=" & HI.UL.ULDate.FormatDateDB & ""
+        _Qry &= vbCrLf & " ,FTImportNetPriceTime=" & HI.UL.ULDate.FormatTimeDB & ""
 
-            _Qry &= vbCrLf & "  FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle AS ST INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS B ON ST.FNHSysStyleId = B.FNHSysStyleId INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub AS ODS ON B.FTOrderNo = ODS.FTOrderNo INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS OB ON ODS.FTOrderNo = OB.FTOrderNo AND  ODS.FTSubOrderNo = OB.FTSubOrderNo INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTImportOrderSizeBreakdownTemp AS A ON ODS.FTPORef = A.FTPONo AND OB.FTColorway = A.FTColorwayCode"
-            _Qry &= vbCrLf & "           AND OB.FTSizeBreakDown = A.FTSizeBreakdownCode AND LEFT(ST.FTStyleCode,len(A.FTStyle)) = A.FTStyle AND OB.FTNikePOLineItem =A.FTPOItem"
+        _Qry &= vbCrLf & "  FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle AS ST INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS B ON ST.FNHSysStyleId = B.FNHSysStyleId INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub AS ODS ON B.FTOrderNo = ODS.FTOrderNo INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS OB ON ODS.FTOrderNo = OB.FTOrderNo AND  ODS.FTSubOrderNo = OB.FTSubOrderNo INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTImportOrderSizeBreakdownTemp AS A ON ODS.FTPORef = A.FTPONo AND OB.FTColorway = A.FTColorwayCode"
+        _Qry &= vbCrLf & "           AND OB.FTSizeBreakDown = A.FTSizeBreakdownCode AND LEFT(ST.FTStyleCode,len(A.FTStyle)) = A.FTStyle AND OB.FTNikePOLineItem =A.FTPOItem"
 
-            _Qry &= vbCrLf & "           LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCustomer] As Cus With(NOLOCK) On B.FNHSysCustId = Cus.FNHSysCustId"
-            _Qry &= vbCrLf & "          LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] As Cmpc With(NOLOCK) On B.FNHSysCmpId = Cmpc.FNHSysCmpId"
+        _Qry &= vbCrLf & "           LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCustomer] As Cus With(NOLOCK) On B.FNHSysCustId = Cus.FNHSysCustId"
+        _Qry &= vbCrLf & "          LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] As Cmpc With(NOLOCK) On B.FNHSysCmpId = Cmpc.FNHSysCmpId"
 
-            _Qry &= vbCrLf & " LEFT OUTER  JOIN ( SELECT A.FTCustomerPO, B.FTColorway, B.FTSizeBreakDown, B.FTPOLineItem"
-            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice AS A WITH(NOLOCK) INNER JOIN"
-            _Qry &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice_D AS B WITH(NOLOCK) ON A.FTCustomerPO = B.FTCustomerPO AND A.FTInvoiceNo = B.FTInvoiceNo"
-            _Qry &= vbCrLf & " WHERE ISNULL(A.FTPostUser,'') <>'' "
-            _Qry &= vbCrLf & " ) AS XM"
-            _Qry &= vbCrLf & "   ON  A.FTPONo = XM.FTCustomerPO "
-            _Qry &= vbCrLf & "	     AND A.FTColorwayCode = XM.FTColorway "
-            _Qry &= vbCrLf & "	     AND A.FTSizeBreakdownCode = XM.FTSizeBreakDown"
-            _Qry &= vbCrLf & "	     AND A.FTPOItem = XM.FTPOLineItem "
-            _Qry &= vbCrLf & "   WHERE  (A.FTUserLogin = N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "') AND XM.FTCustomerPO IS NULL "
+        _Qry &= vbCrLf & " LEFT OUTER  JOIN ( SELECT A.FTCustomerPO, B.FTColorway, B.FTSizeBreakDown, B.FTPOLineItem"
+        _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice AS A WITH(NOLOCK) INNER JOIN"
+        _Qry &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice_D AS B WITH(NOLOCK) ON A.FTCustomerPO = B.FTCustomerPO AND A.FTInvoiceNo = B.FTInvoiceNo"
+        _Qry &= vbCrLf & " WHERE ISNULL(A.FTPostUser,'') <>'' "
+        _Qry &= vbCrLf & " ) AS XM"
+        _Qry &= vbCrLf & "   ON  A.FTPONo = XM.FTCustomerPO "
+        _Qry &= vbCrLf & "	     AND A.FTColorwayCode = XM.FTColorway "
+        _Qry &= vbCrLf & "	     AND A.FTSizeBreakdownCode = XM.FTSizeBreakDown"
+        _Qry &= vbCrLf & "	     AND A.FTPOItem = XM.FTPOLineItem "
+        _Qry &= vbCrLf & "   WHERE  (A.FTUserLogin = N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "') AND XM.FTCustomerPO IS NULL "
 
 
         _Qry &= vbCrLf & "    UPDATE OB SET FNNetPrice = A.FNPrice"
         _Qry &= vbCrLf & " ,FNNetPriceOperateFee=(CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END )"
-            _Qry &= vbCrLf & ",FNNetPriceOperateFeeAmt=Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))"
-            _Qry &= vbCrLf & ",FNNetNetPrice = A.FNPrice - (Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))) "
-            _Qry &= vbCrLf & " , FTNikePOLineItem=CASE WHEN ISNULL(OB.FTNikePOLineItem,'') ='' THEN ISNULL(A.FTPOItem,'')   ELSE  ISNULL(OB.FTNikePOLineItem,'')  END "
-            _Qry &= vbCrLf & " ,FTStateImportNetPrice='1'"
-            _Qry &= vbCrLf & " ,FTImportNetPriceBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-            _Qry &= vbCrLf & " ,FDImportNetPriceDate=" & HI.UL.ULDate.FormatDateDB & ""
-            _Qry &= vbCrLf & " ,FTImportNetPriceTime=" & HI.UL.ULDate.FormatTimeDB & ""
-            _Qry &= vbCrLf & "  FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle AS ST INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS B ON ST.FNHSysStyleId = B.FNHSysStyleId INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_Divert AS ODS ON B.FTOrderNo = ODS.FTOrderNo INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_Divert_BreakDown AS OB ON ODS.FTOrderNo = OB.FTOrderNo AND  ODS.FTSubOrderNo = OB.FTSubOrderNo AND   ODS.FNDivertSeq = OB.FNDivertSeq INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTImportOrderSizeBreakdownTemp AS A ON ODS.FTPORef = A.FTPONo AND CASE WHEN ISNULL(OB.FTColorwayNew,'') ='' THEN OB.FTColorway ELSE ISNULL(OB.FTColorwayNew,'') END  = A.FTColorwayCode"
-            _Qry &= vbCrLf & "           AND OB.FTSizeBreakDown = A.FTSizeBreakdownCode AND LEFT(ST.FTStyleCode,len(A.FTStyle)) = A.FTStyle AND OB.FTNikePOLineItem =A.FTPOItem"
+        _Qry &= vbCrLf & ",FNNetPriceOperateFeeAmt=Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))"
+        _Qry &= vbCrLf & ",FNNetNetPrice = A.FNPrice - (Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))) "
+        _Qry &= vbCrLf & " , FTNikePOLineItem=CASE WHEN ISNULL(OB.FTNikePOLineItem,'') ='' THEN ISNULL(A.FTPOItem,'')   ELSE  ISNULL(OB.FTNikePOLineItem,'')  END "
+        _Qry &= vbCrLf & " ,FTStateImportNetPrice='1'"
+        _Qry &= vbCrLf & " ,FTImportNetPriceBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+        _Qry &= vbCrLf & " ,FDImportNetPriceDate=" & HI.UL.ULDate.FormatDateDB & ""
+        _Qry &= vbCrLf & " ,FTImportNetPriceTime=" & HI.UL.ULDate.FormatTimeDB & ""
+        _Qry &= vbCrLf & "  FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle AS ST INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS B ON ST.FNHSysStyleId = B.FNHSysStyleId INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_Divert AS ODS ON B.FTOrderNo = ODS.FTOrderNo INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_Divert_BreakDown AS OB ON ODS.FTOrderNo = OB.FTOrderNo AND  ODS.FTSubOrderNo = OB.FTSubOrderNo AND   ODS.FNDivertSeq = OB.FNDivertSeq INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTImportOrderSizeBreakdownTemp AS A ON ODS.FTPORef = A.FTPONo AND CASE WHEN ISNULL(OB.FTColorwayNew,'') ='' THEN OB.FTColorway ELSE ISNULL(OB.FTColorwayNew,'') END  = A.FTColorwayCode"
+        _Qry &= vbCrLf & "           AND OB.FTSizeBreakDown = A.FTSizeBreakdownCode AND LEFT(ST.FTStyleCode,len(A.FTStyle)) = A.FTStyle AND OB.FTNikePOLineItem =A.FTPOItem"
 
-            _Qry &= vbCrLf & "           LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCustomer] As Cus With(NOLOCK) On B.FNHSysCustId = Cus.FNHSysCustId"
-            _Qry &= vbCrLf & "          LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] As Cmpc With(NOLOCK) On B.FNHSysCmpId = Cmpc.FNHSysCmpId"
+        _Qry &= vbCrLf & "           LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCustomer] As Cus With(NOLOCK) On B.FNHSysCustId = Cus.FNHSysCustId"
+        _Qry &= vbCrLf & "          LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] As Cmpc With(NOLOCK) On B.FNHSysCmpId = Cmpc.FNHSysCmpId"
 
-            _Qry &= vbCrLf & " LEFT OUTER  JOIN ( SELECT A.FTCustomerPO, B.FTColorway, B.FTSizeBreakDown, B.FTPOLineItem"
-            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice AS A WITH(NOLOCK) INNER JOIN"
-            _Qry &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice_D AS B WITH(NOLOCK) ON A.FTCustomerPO = B.FTCustomerPO AND A.FTInvoiceNo = B.FTInvoiceNo"
-            _Qry &= vbCrLf & " WHERE ISNULL(A.FTPostUser,'') <>'' "
-            _Qry &= vbCrLf & " ) AS XM"
-            _Qry &= vbCrLf & " ON A.FTPONo = XM.FTCustomerPO"
-            _Qry &= vbCrLf & "	AND A.FTColorwayCode = XM.FTColorway"
+        _Qry &= vbCrLf & " LEFT OUTER  JOIN ( SELECT A.FTCustomerPO, B.FTColorway, B.FTSizeBreakDown, B.FTPOLineItem"
+        _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice AS A WITH(NOLOCK) INNER JOIN"
+        _Qry &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice_D AS B WITH(NOLOCK) ON A.FTCustomerPO = B.FTCustomerPO AND A.FTInvoiceNo = B.FTInvoiceNo"
+        _Qry &= vbCrLf & " WHERE ISNULL(A.FTPostUser,'') <>'' "
+        _Qry &= vbCrLf & " ) AS XM"
+        _Qry &= vbCrLf & " ON A.FTPONo = XM.FTCustomerPO"
+        _Qry &= vbCrLf & "	AND A.FTColorwayCode = XM.FTColorway"
 
-            _Qry &= vbCrLf & "	AND A.FTSizeBreakdownCode = XM.FTSizeBreakDown"
-            _Qry &= vbCrLf & "	AND A.FTPOItem = XM.FTPOLineItem "
-            _Qry &= vbCrLf & " WHERE  (A.FTUserLogin = N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "') AND XM.FTCustomerPO IS NULL "
+        _Qry &= vbCrLf & "	AND A.FTSizeBreakdownCode = XM.FTSizeBreakDown"
+        _Qry &= vbCrLf & "	AND A.FTPOItem = XM.FTPOLineItem "
+        _Qry &= vbCrLf & " WHERE  (A.FTUserLogin = N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "') AND XM.FTCustomerPO IS NULL "
 
 
         _Qry &= vbCrLf & "   UPDATE OB SET FNNetPrice = A.FNPrice"
         _Qry &= vbCrLf & " ,FNNetPriceOperateFee=(CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END )"
-            _Qry &= vbCrLf & ",FNNetPriceOperateFeeAmt=Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))"
-            _Qry &= vbCrLf & ",FNNetNetPrice = A.FNPrice - (Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))) "
-            _Qry &= vbCrLf & " , FTNikePOLineItem=CASE WHEN ISNULL(OB.FTNikePOLineItem,'') ='' THEN ISNULL(A.FTPOItem,'')   ELSE  ISNULL(OB.FTNikePOLineItem,'')  END "
-            _Qry &= vbCrLf & " ,FTStateImportNetPrice='1'"
-            _Qry &= vbCrLf & " ,FTImportNetPriceBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-            _Qry &= vbCrLf & " ,FDImportNetPriceDate=" & HI.UL.ULDate.FormatDateDB & ""
-            _Qry &= vbCrLf & " ,FTImportNetPriceTime=" & HI.UL.ULDate.FormatTimeDB & ""
-            _Qry &= vbCrLf & "  FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle AS ST INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS B ON ST.FNHSysStyleId = B.FNHSysStyleId INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_Divert AS ODS ON B.FTOrderNo = ODS.FTOrderNo INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_Divert_BreakDown AS OB ON ODS.FTOrderNo = OB.FTOrderNo AND  ODS.FTSubOrderNo = OB.FTSubOrderNo AND   ODS.FNDivertSeq = OB.FNDivertSeq INNER JOIN"
-            _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTImportOrderSizeBreakdownTemp AS A ON B.FTPORef = A.FTPONo AND CASE WHEN ISNULL(OB.FTColorwayNew,'') ='' THEN OB.FTColorway ELSE ISNULL(OB.FTColorwayNew,'') END = A.FTColorwayCode"
-            _Qry &= vbCrLf & "           AND OB.FTSizeBreakDown = A.FTSizeBreakdownCode AND LEFT(ST.FTStyleCode,len(A.FTStyle)) = A.FTStyle AND OB.FTNikePOLineItem =A.FTPOItem"
+        _Qry &= vbCrLf & ",FNNetPriceOperateFeeAmt=Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))"
+        _Qry &= vbCrLf & ",FNNetNetPrice = A.FNPrice - (Convert(numeric(18,4),((A.FNPrice* ISNULL((CASE WHEN ISNULL(Cmpc.FNCmpBranchState,0) <=0 THEN ISNULL(Cus.FNOperateFee,0) ELSE ISNULL(Cus.FNOperateFeeForeign,0) END ),0))/100.00))) "
+        _Qry &= vbCrLf & " , FTNikePOLineItem=CASE WHEN ISNULL(OB.FTNikePOLineItem,'') ='' THEN ISNULL(A.FTPOItem,'')   ELSE  ISNULL(OB.FTNikePOLineItem,'')  END "
+        _Qry &= vbCrLf & " ,FTStateImportNetPrice='1'"
+        _Qry &= vbCrLf & " ,FTImportNetPriceBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+        _Qry &= vbCrLf & " ,FDImportNetPriceDate=" & HI.UL.ULDate.FormatDateDB & ""
+        _Qry &= vbCrLf & " ,FTImportNetPriceTime=" & HI.UL.ULDate.FormatTimeDB & ""
+        _Qry &= vbCrLf & "  FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle AS ST INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS B ON ST.FNHSysStyleId = B.FNHSysStyleId INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_Divert AS ODS ON B.FTOrderNo = ODS.FTOrderNo INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_Divert_BreakDown AS OB ON ODS.FTOrderNo = OB.FTOrderNo AND  ODS.FTSubOrderNo = OB.FTSubOrderNo AND   ODS.FNDivertSeq = OB.FNDivertSeq INNER JOIN"
+        _Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTImportOrderSizeBreakdownTemp AS A ON B.FTPORef = A.FTPONo AND CASE WHEN ISNULL(OB.FTColorwayNew,'') ='' THEN OB.FTColorway ELSE ISNULL(OB.FTColorwayNew,'') END = A.FTColorwayCode"
+        _Qry &= vbCrLf & "           AND OB.FTSizeBreakDown = A.FTSizeBreakdownCode AND LEFT(ST.FTStyleCode,len(A.FTStyle)) = A.FTStyle AND OB.FTNikePOLineItem =A.FTPOItem"
 
-            _Qry &= vbCrLf & "           LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCustomer] As Cus With(NOLOCK) On B.FNHSysCustId = Cus.FNHSysCustId"
-            _Qry &= vbCrLf & "          LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] As Cmpc With(NOLOCK) On B.FNHSysCmpId = Cmpc.FNHSysCmpId"
+        _Qry &= vbCrLf & "           LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCustomer] As Cus With(NOLOCK) On B.FNHSysCustId = Cus.FNHSysCustId"
+        _Qry &= vbCrLf & "          LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TCNMCmp] As Cmpc With(NOLOCK) On B.FNHSysCmpId = Cmpc.FNHSysCmpId"
 
-            _Qry &= vbCrLf & " LEFT OUTER  JOIN ( SELECT A.FTCustomerPO, B.FTColorway, B.FTSizeBreakDown, B.FTPOLineItem"
-            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice AS A WITH(NOLOCK) INNER JOIN"
-            _Qry &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice_D AS B WITH(NOLOCK) ON A.FTCustomerPO = B.FTCustomerPO AND A.FTInvoiceNo = B.FTInvoiceNo"
-            _Qry &= vbCrLf & "        WHERE ISNULL(A.FTPostUser,'') <>'' "
-            _Qry &= vbCrLf & " ) AS XM"
-            _Qry &= vbCrLf & " ON A.FTPONo = XM.FTCustomerPO"
-            _Qry &= vbCrLf & "	AND A.FTColorwayCode = XM.FTColorway"
-            _Qry &= vbCrLf & "	AND A.FTSizeBreakdownCode = XM.FTSizeBreakDown"
-            _Qry &= vbCrLf & "	AND A.FTPOItem = XM.FTPOLineItem "
+        _Qry &= vbCrLf & " LEFT OUTER  JOIN ( SELECT A.FTCustomerPO, B.FTColorway, B.FTSizeBreakDown, B.FTPOLineItem"
+        _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice AS A WITH(NOLOCK) INNER JOIN"
+        _Qry &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTXMLCreateInvoice_D AS B WITH(NOLOCK) ON A.FTCustomerPO = B.FTCustomerPO AND A.FTInvoiceNo = B.FTInvoiceNo"
+        _Qry &= vbCrLf & "        WHERE ISNULL(A.FTPostUser,'') <>'' "
+        _Qry &= vbCrLf & " ) AS XM"
+        _Qry &= vbCrLf & " ON A.FTPONo = XM.FTCustomerPO"
+        _Qry &= vbCrLf & "	AND A.FTColorwayCode = XM.FTColorway"
+        _Qry &= vbCrLf & "	AND A.FTSizeBreakdownCode = XM.FTSizeBreakDown"
+        _Qry &= vbCrLf & "	AND A.FTPOItem = XM.FTPOLineItem "
 
-            _Qry &= vbCrLf & " WHERE  (A.FTUserLogin = N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "') AND ISNULL(ODS.FTPORef,'') =''  AND XM.FTCustomerPO IS NULL  "
-            _Qry &= vbCrLf & "  EXEC   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_TEMPDB) & "]..USP_IMPORTFILEEXCELNIKEPO_CFM '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "',1 "
+        _Qry &= vbCrLf & " WHERE  (A.FTUserLogin = N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "') AND ISNULL(ODS.FTPORef,'') =''  AND XM.FTCustomerPO IS NULL  "
+        _Qry &= vbCrLf & "  EXEC   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_TEMPDB) & "]..USP_IMPORTFILEEXCELNIKEPO_CFM '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "',1 "
 
 
 

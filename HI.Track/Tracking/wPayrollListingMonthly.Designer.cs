@@ -88,6 +88,7 @@ namespace HI.Track
             this.ogcCriteria = new DevExpress.XtraEditors.GroupControl();
             this.FNMonth = new DevExpress.XtraEditors.ComboBoxEdit();
             this.FTPayTerm_lbl = new DevExpress.XtraEditors.LabelControl();
+            this.FDCalDateBegin = new DevExpress.XtraEditors.TextEdit();
             this.FDCalDateEnd = new DevExpress.XtraEditors.TextEdit();
             this.FNHSysEmpIdTo_None = new DevExpress.XtraEditors.TextEdit();
             this.FNHSysUnitSectIdTo_None = new DevExpress.XtraEditors.TextEdit();
@@ -210,10 +211,10 @@ namespace HI.Track
             this.FTTimeHRAccept = new DevExpress.XtraGrid.Columns.GridColumn();
             this.RepositoryFTSelect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.RepositoryFTApproveState = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.FDCalDateBegin = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ogcCriteria)).BeginInit();
             this.ogcCriteria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FNMonth.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FDCalDateBegin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FDCalDateEnd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FNHSysEmpIdTo_None.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FNHSysUnitSectIdTo_None.Properties)).BeginInit();
@@ -251,7 +252,6 @@ namespace HI.Track
             ((System.ComponentModel.ISupportInitialize)(this.ReposFTStateHRAccept)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepositoryFTSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepositoryFTApproveState)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FDCalDateBegin.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ogcCriteria
@@ -346,6 +346,18 @@ namespace HI.Track
             this.FTPayTerm_lbl.TabIndex = 434;
             this.FTPayTerm_lbl.Tag = "2|";
             this.FTPayTerm_lbl.Text = "Month :";
+            // 
+            // FDCalDateBegin
+            // 
+            this.FDCalDateBegin.Location = new System.Drawing.Point(787, 52);
+            this.FDCalDateBegin.Name = "FDCalDateBegin";
+            this.FDCalDateBegin.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
+            this.FDCalDateBegin.Properties.Appearance.Options.UseBackColor = true;
+            this.FDCalDateBegin.Properties.ReadOnly = true;
+            this.FDCalDateBegin.Size = new System.Drawing.Size(85, 20);
+            this.FDCalDateBegin.TabIndex = 432;
+            this.FDCalDateBegin.Tag = "2|";
+            this.FDCalDateBegin.Visible = false;
             // 
             // FDCalDateEnd
             // 
@@ -999,7 +1011,7 @@ namespace HI.Track
             // FTEmpName
             // 
             this.FTEmpName.AppearanceCell.Options.UseTextOptions = true;
-            this.FTEmpName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.FTEmpName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.FTEmpName.AppearanceHeader.Options.UseTextOptions = true;
             this.FTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.FTEmpName.Caption = "FTEmpName";
@@ -2149,18 +2161,6 @@ namespace HI.Track
             this.RepositoryFTApproveState.ValueChecked = "1";
             this.RepositoryFTApproveState.ValueUnchecked = "0";
             // 
-            // FDCalDateBegin
-            // 
-            this.FDCalDateBegin.Location = new System.Drawing.Point(787, 52);
-            this.FDCalDateBegin.Name = "FDCalDateBegin";
-            this.FDCalDateBegin.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
-            this.FDCalDateBegin.Properties.Appearance.Options.UseBackColor = true;
-            this.FDCalDateBegin.Properties.ReadOnly = true;
-            this.FDCalDateBegin.Size = new System.Drawing.Size(85, 20);
-            this.FDCalDateBegin.TabIndex = 432;
-            this.FDCalDateBegin.Tag = "2|";
-            this.FDCalDateBegin.Visible = false;
-            // 
             // wPayrollListingMonthly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2174,6 +2174,7 @@ namespace HI.Track
             ((System.ComponentModel.ISupportInitialize)(this.ogcCriteria)).EndInit();
             this.ogcCriteria.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FNMonth.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FDCalDateBegin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FDCalDateEnd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FNHSysEmpIdTo_None.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FNHSysUnitSectIdTo_None.Properties)).EndInit();
@@ -2211,7 +2212,6 @@ namespace HI.Track
             ((System.ComponentModel.ISupportInitialize)(this.ReposFTStateHRAccept)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepositoryFTSelect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RepositoryFTApproveState)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FDCalDateBegin.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -208,7 +208,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.ogbsupplier.Controls.Add(Me.FNHSysSuplId_lbl)
         Me.ogbsupplier.Controls.Add(Me.FNHSysSuplId_None)
         Me.ogbsupplier.Location = New System.Drawing.Point(390, 1)
-        Me.ogbsupplier.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ogbsupplier.Margin = New System.Windows.Forms.Padding(4)
         Me.ogbsupplier.Name = "ogbsupplier"
         Me.ogbsupplier.Size = New System.Drawing.Size(722, 194)
         Me.ogbsupplier.TabIndex = 10
@@ -219,7 +219,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FNRcvSuplType.EditValue = ""
         Me.FNRcvSuplType.EnterMoveNextControl = True
         Me.FNRcvSuplType.Location = New System.Drawing.Point(457, 27)
-        Me.FNRcvSuplType.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FNRcvSuplType.Margin = New System.Windows.Forms.Padding(4)
         Me.FNRcvSuplType.Name = "FNRcvSuplType"
         Me.FNRcvSuplType.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNRcvSuplType.Properties.Appearance.Options.UseBackColor = True
@@ -251,7 +251,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FNRcvSuplType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNRcvSuplType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNRcvSuplType_lbl.Location = New System.Drawing.Point(310, 27)
-        Me.FNRcvSuplType_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FNRcvSuplType_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FNRcvSuplType_lbl.Name = "FNRcvSuplType_lbl"
         Me.FNRcvSuplType_lbl.Size = New System.Drawing.Size(142, 23)
         Me.FNRcvSuplType_lbl.TabIndex = 291
@@ -266,7 +266,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTInvoiceNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTInvoiceNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTInvoiceNo_lbl.Location = New System.Drawing.Point(33, 80)
-        Me.FTInvoiceNo_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTInvoiceNo_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FTInvoiceNo_lbl.Name = "FTInvoiceNo_lbl"
         Me.FTInvoiceNo_lbl.Size = New System.Drawing.Size(119, 23)
         Me.FTInvoiceNo_lbl.TabIndex = 289
@@ -277,7 +277,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.FTInvoiceNo.EnterMoveNextControl = True
         Me.FTInvoiceNo.Location = New System.Drawing.Point(153, 81)
-        Me.FTInvoiceNo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTInvoiceNo.Margin = New System.Windows.Forms.Padding(4)
         Me.FTInvoiceNo.Name = "FTInvoiceNo"
         Me.FTInvoiceNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTInvoiceNo.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -309,7 +309,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTInvoiceDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTInvoiceDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTInvoiceDate_lbl.Location = New System.Drawing.Point(362, 81)
-        Me.FTInvoiceDate_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTInvoiceDate_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FTInvoiceDate_lbl.Name = "FTInvoiceDate_lbl"
         Me.FTInvoiceDate_lbl.Size = New System.Drawing.Size(107, 23)
         Me.FTInvoiceDate_lbl.TabIndex = 287
@@ -321,7 +321,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTInvoiceDate.EditValue = Nothing
         Me.FTInvoiceDate.EnterMoveNextControl = True
         Me.FTInvoiceDate.Location = New System.Drawing.Point(472, 81)
-        Me.FTInvoiceDate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTInvoiceDate.Margin = New System.Windows.Forms.Padding(4)
         Me.FTInvoiceDate.Name = "FTInvoiceDate"
         Me.FTInvoiceDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTInvoiceDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
@@ -337,7 +337,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         'FNHSysCmpId
         '
         Me.FNHSysCmpId.Location = New System.Drawing.Point(6, 98)
-        Me.FNHSysCmpId.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FNHSysCmpId.Margin = New System.Windows.Forms.Padding(4)
         Me.FNHSysCmpId.Name = "FNHSysCmpId"
         Me.FNHSysCmpId.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNHSysCmpId.Properties.Appearance.Options.UseBackColor = True
@@ -368,7 +368,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTRemark_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRemark_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTRemark_lbl.Location = New System.Drawing.Point(6, 110)
-        Me.FTRemark_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTRemark_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FTRemark_lbl.Name = "FTRemark_lbl"
         Me.FTRemark_lbl.Size = New System.Drawing.Size(142, 23)
         Me.FTRemark_lbl.TabIndex = 273
@@ -382,7 +382,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTRemark.EditValue = ""
         Me.FTRemark.Location = New System.Drawing.Point(153, 108)
-        Me.FTRemark.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTRemark.Margin = New System.Windows.Forms.Padding(4)
         Me.FTRemark.Name = "FTRemark"
         Me.FTRemark.Properties.MaxLength = 500
         Me.FTRemark.Size = New System.Drawing.Size(561, 81)
@@ -394,7 +394,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FNSendSuplState.EditValue = ""
         Me.FNSendSuplState.EnterMoveNextControl = True
         Me.FNSendSuplState.Location = New System.Drawing.Point(153, 27)
-        Me.FNSendSuplState.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FNSendSuplState.Margin = New System.Windows.Forms.Padding(4)
         Me.FNSendSuplState.Name = "FNSendSuplState"
         Me.FNSendSuplState.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNSendSuplState.Properties.Appearance.Options.UseBackColor = True
@@ -426,7 +426,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FNSendSuplState_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNSendSuplState_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNSendSuplState_lbl.Location = New System.Drawing.Point(6, 27)
-        Me.FNSendSuplState_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FNSendSuplState_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FNSendSuplState_lbl.Name = "FNSendSuplState_lbl"
         Me.FNSendSuplState_lbl.Size = New System.Drawing.Size(142, 23)
         Me.FNSendSuplState_lbl.TabIndex = 267
@@ -437,7 +437,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.FNHSysSuplId.EnterMoveNextControl = True
         Me.FNHSysSuplId.Location = New System.Drawing.Point(153, 54)
-        Me.FNHSysSuplId.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FNHSysSuplId.Margin = New System.Windows.Forms.Padding(4)
         Me.FNHSysSuplId.Name = "FNHSysSuplId"
         Me.FNHSysSuplId.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNHSysSuplId.Properties.Appearance.Options.UseBackColor = True
@@ -469,7 +469,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FNHSysSuplId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysSuplId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNHSysSuplId_lbl.Location = New System.Drawing.Point(6, 53)
-        Me.FNHSysSuplId_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FNHSysSuplId_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FNHSysSuplId_lbl.Name = "FNHSysSuplId_lbl"
         Me.FNHSysSuplId_lbl.Size = New System.Drawing.Size(142, 23)
         Me.FNHSysSuplId_lbl.TabIndex = 264
@@ -482,7 +482,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FNHSysSuplId_None.EnterMoveNextControl = True
         Me.FNHSysSuplId_None.Location = New System.Drawing.Point(307, 54)
-        Me.FNHSysSuplId_None.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FNHSysSuplId_None.Margin = New System.Windows.Forms.Padding(4)
         Me.FNHSysSuplId_None.Name = "FNHSysSuplId_None"
         Me.FNHSysSuplId_None.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNHSysSuplId_None.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -521,7 +521,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.ogbdocinfo.Controls.Add(Me.FTRcvSuplNo_lbl)
         Me.ogbdocinfo.Controls.Add(Me.FTApproveTime)
         Me.ogbdocinfo.Location = New System.Drawing.Point(2, 1)
-        Me.ogbdocinfo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ogbdocinfo.Margin = New System.Windows.Forms.Padding(4)
         Me.ogbdocinfo.Name = "ogbdocinfo"
         Me.ogbdocinfo.Size = New System.Drawing.Size(386, 194)
         Me.ogbdocinfo.TabIndex = 9
@@ -532,7 +532,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.FTStateAccept.EditValue = "0"
         Me.FTStateAccept.Location = New System.Drawing.Point(164, 113)
-        Me.FTStateAccept.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTStateAccept.Margin = New System.Windows.Forms.Padding(4)
         Me.FTStateAccept.Name = "FTStateAccept"
         Me.FTStateAccept.Properties.Caption = "FTStateBranchAccept"
         Me.FTStateAccept.Properties.ReadOnly = True
@@ -549,7 +549,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FDApproveDate.EditValue = Nothing
         Me.FDApproveDate.EnterMoveNextControl = True
         Me.FDApproveDate.Location = New System.Drawing.Point(167, 140)
-        Me.FDApproveDate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FDApproveDate.Margin = New System.Windows.Forms.Padding(4)
         Me.FDApproveDate.Name = "FDApproveDate"
         Me.FDApproveDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDApproveDate.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
@@ -579,7 +579,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FDRcvSuplDate.EditValue = Nothing
         Me.FDRcvSuplDate.EnterMoveNextControl = True
         Me.FDRcvSuplDate.Location = New System.Drawing.Point(166, 62)
-        Me.FDRcvSuplDate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FDRcvSuplDate.Margin = New System.Windows.Forms.Padding(4)
         Me.FDRcvSuplDate.Name = "FDRcvSuplDate"
         Me.FDRcvSuplDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDRcvSuplDate.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
@@ -608,7 +608,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTApproveBy.EnterMoveNextControl = True
         Me.FTApproveBy.Location = New System.Drawing.Point(167, 165)
-        Me.FTApproveBy.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTApproveBy.Margin = New System.Windows.Forms.Padding(4)
         Me.FTApproveBy.Name = "FTApproveBy"
         Me.FTApproveBy.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTApproveBy.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -638,7 +638,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTRcvSuplBy.EnterMoveNextControl = True
         Me.FTRcvSuplBy.Location = New System.Drawing.Point(166, 87)
-        Me.FTRcvSuplBy.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTRcvSuplBy.Margin = New System.Windows.Forms.Padding(4)
         Me.FTRcvSuplBy.Name = "FTRcvSuplBy"
         Me.FTRcvSuplBy.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTRcvSuplBy.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -668,7 +668,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTRcvSuplNo.EnterMoveNextControl = True
         Me.FTRcvSuplNo.Location = New System.Drawing.Point(166, 34)
-        Me.FTRcvSuplNo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTRcvSuplNo.Margin = New System.Windows.Forms.Padding(4)
         Me.FTRcvSuplNo.Name = "FTRcvSuplNo"
         Me.FTRcvSuplNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTRcvSuplNo.Properties.Appearance.Options.UseBackColor = True
@@ -715,7 +715,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTApproveBy_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTApproveBy_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTApproveBy_lbl.Location = New System.Drawing.Point(7, 167)
-        Me.FTApproveBy_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTApproveBy_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FTApproveBy_lbl.Name = "FTApproveBy_lbl"
         Me.FTApproveBy_lbl.Size = New System.Drawing.Size(156, 22)
         Me.FTApproveBy_lbl.TabIndex = 5
@@ -730,7 +730,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FDApproveDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDApproveDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FDApproveDate_lbl.Location = New System.Drawing.Point(7, 142)
-        Me.FDApproveDate_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FDApproveDate_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FDApproveDate_lbl.Name = "FDApproveDate_lbl"
         Me.FDApproveDate_lbl.Size = New System.Drawing.Size(156, 23)
         Me.FDApproveDate_lbl.TabIndex = 3
@@ -743,7 +743,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTRcvSuplBy_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRcvSuplBy_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTRcvSuplBy_lbl.Location = New System.Drawing.Point(6, 90)
-        Me.FTRcvSuplBy_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTRcvSuplBy_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FTRcvSuplBy_lbl.Name = "FTRcvSuplBy_lbl"
         Me.FTRcvSuplBy_lbl.Size = New System.Drawing.Size(156, 22)
         Me.FTRcvSuplBy_lbl.TabIndex = 5
@@ -758,7 +758,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FDRcvSuplDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDRcvSuplDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FDRcvSuplDate_lbl.Location = New System.Drawing.Point(6, 63)
-        Me.FDRcvSuplDate_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FDRcvSuplDate_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FDRcvSuplDate_lbl.Name = "FDRcvSuplDate_lbl"
         Me.FDRcvSuplDate_lbl.Size = New System.Drawing.Size(156, 23)
         Me.FDRcvSuplDate_lbl.TabIndex = 3
@@ -773,7 +773,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTRcvSuplNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRcvSuplNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTRcvSuplNo_lbl.Location = New System.Drawing.Point(6, 32)
-        Me.FTRcvSuplNo_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTRcvSuplNo_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FTRcvSuplNo_lbl.Name = "FTRcvSuplNo_lbl"
         Me.FTRcvSuplNo_lbl.Size = New System.Drawing.Size(156, 23)
         Me.FTRcvSuplNo_lbl.TabIndex = 1
@@ -785,7 +785,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTApproveTime.EditValue = Nothing
         Me.FTApproveTime.Enabled = False
         Me.FTApproveTime.Location = New System.Drawing.Point(315, 140)
-        Me.FTApproveTime.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTApproveTime.Margin = New System.Windows.Forms.Padding(4)
         Me.FTApproveTime.Name = "FTApproveTime"
         Me.FTApproveTime.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTApproveTime.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.[Default]
@@ -804,7 +804,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.ogbdetail.Controls.Add(Me.ockselectall)
         Me.ogbdetail.Controls.Add(Me.ogcdetail)
         Me.ogbdetail.Location = New System.Drawing.Point(2, 394)
-        Me.ogbdetail.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ogbdetail.Margin = New System.Windows.Forms.Padding(4)
         Me.ogbdetail.Name = "ogbdetail"
         Me.ogbdetail.Size = New System.Drawing.Size(1111, 348)
         Me.ogbdetail.TabIndex = 12
@@ -817,7 +817,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.ockselectall.Location = New System.Drawing.Point(1020, 2)
         Me.ockselectall.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.ockselectall.Name = "ockselectall"
-        Me.ockselectall.Size = New System.Drawing.Size(82, 20)
+        Me.ockselectall.Size = New System.Drawing.Size(82, 21)
         Me.ockselectall.TabIndex = 301
         Me.ockselectall.Text = "Select All"
         Me.ockselectall.UseVisualStyleBackColor = True
@@ -827,10 +827,10 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.ogcdetail.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogcdetail.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ogcdetail.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(4)
         Me.ogcdetail.Location = New System.Drawing.Point(4, 30)
         Me.ogcdetail.MainView = Me.ogvdetail
-        Me.ogcdetail.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ogcdetail.Margin = New System.Windows.Forms.Padding(4)
         Me.ogcdetail.Name = "ogcdetail"
         Me.ogcdetail.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFNBalQuantity, Me.RepositoryItemSelect})
         Me.ogcdetail.Size = New System.Drawing.Size(1106, 311)
@@ -1065,7 +1065,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.ogbmainprocbutton.Controls.Add(Me.ocmpreview)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
         Me.ogbmainprocbutton.Location = New System.Drawing.Point(69, 462)
-        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(979, 58)
         Me.ogbmainprocbutton.TabIndex = 145
@@ -1074,7 +1074,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         'ocmclear
         '
         Me.ocmclear.Location = New System.Drawing.Point(514, 14)
-        Me.ocmclear.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ocmclear.Margin = New System.Windows.Forms.Padding(4)
         Me.ocmclear.Name = "ocmclear"
         Me.ocmclear.Size = New System.Drawing.Size(111, 31)
         Me.ocmclear.TabIndex = 100
@@ -1085,7 +1085,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         'ocmreject
         '
         Me.ocmreject.Location = New System.Drawing.Point(177, 16)
-        Me.ocmreject.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ocmreject.Margin = New System.Windows.Forms.Padding(4)
         Me.ocmreject.Name = "ocmreject"
         Me.ocmreject.Size = New System.Drawing.Size(97, 28)
         Me.ocmreject.TabIndex = 99
@@ -1094,7 +1094,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         'ocmapprove
         '
         Me.ocmapprove.Location = New System.Drawing.Point(37, 16)
-        Me.ocmapprove.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ocmapprove.Margin = New System.Windows.Forms.Padding(4)
         Me.ocmapprove.Name = "ocmapprove"
         Me.ocmapprove.Size = New System.Drawing.Size(97, 28)
         Me.ocmapprove.TabIndex = 98
@@ -1103,7 +1103,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         'ocmpreview
         '
         Me.ocmpreview.Location = New System.Drawing.Point(365, 14)
-        Me.ocmpreview.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ocmpreview.Margin = New System.Windows.Forms.Padding(4)
         Me.ocmpreview.Name = "ocmpreview"
         Me.ocmpreview.Size = New System.Drawing.Size(111, 31)
         Me.ocmpreview.TabIndex = 97
@@ -1115,7 +1115,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ocmexit.Location = New System.Drawing.Point(847, 14)
-        Me.ocmexit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ocmexit.Margin = New System.Windows.Forms.Padding(4)
         Me.ocmexit.Name = "ocmexit"
         Me.ocmexit.Size = New System.Drawing.Size(111, 31)
         Me.ocmexit.TabIndex = 96
@@ -1135,7 +1135,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.olberror.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.olberror.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.olberror.Location = New System.Drawing.Point(7, 356)
-        Me.olberror.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.olberror.Margin = New System.Windows.Forms.Padding(4)
         Me.olberror.Name = "olberror"
         Me.olberror.Size = New System.Drawing.Size(1106, 30)
         Me.olberror.TabIndex = 317
@@ -1148,7 +1148,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogbbarcodeinfo.Controls.Add(Me.XtraScrollableControl1)
         Me.ogbbarcodeinfo.Location = New System.Drawing.Point(4, 199)
-        Me.ogbbarcodeinfo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ogbbarcodeinfo.Margin = New System.Windows.Forms.Padding(4)
         Me.ogbbarcodeinfo.Name = "ogbbarcodeinfo"
         Me.ogbbarcodeinfo.Size = New System.Drawing.Size(1110, 150)
         Me.ogbbarcodeinfo.TabIndex = 316
@@ -1180,7 +1180,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.XtraScrollableControl1.Controls.Add(Me.FTBarcodeNo)
         Me.XtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 28)
-        Me.XtraScrollableControl1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.XtraScrollableControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
         Me.XtraScrollableControl1.Size = New System.Drawing.Size(1106, 120)
         Me.XtraScrollableControl1.TabIndex = 0
@@ -1189,7 +1189,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.FTSendSuplNo.EnterMoveNextControl = True
         Me.FTSendSuplNo.Location = New System.Drawing.Point(201, 95)
-        Me.FTSendSuplNo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTSendSuplNo.Margin = New System.Windows.Forms.Padding(4)
         Me.FTSendSuplNo.Name = "FTSendSuplNo"
         Me.FTSendSuplNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTSendSuplNo.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -1221,7 +1221,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTSendSuplNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSendSuplNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTSendSuplNo_lbl.Location = New System.Drawing.Point(57, 94)
-        Me.FTSendSuplNo_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTSendSuplNo_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FTSendSuplNo_lbl.Name = "FTSendSuplNo_lbl"
         Me.FTSendSuplNo_lbl.Size = New System.Drawing.Size(142, 23)
         Me.FTSendSuplNo_lbl.TabIndex = 319
@@ -1232,7 +1232,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.FTBarcodeBundleNo.EnterMoveNextControl = True
         Me.FTBarcodeBundleNo.Location = New System.Drawing.Point(999, 68)
-        Me.FTBarcodeBundleNo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTBarcodeBundleNo.Margin = New System.Windows.Forms.Padding(4)
         Me.FTBarcodeBundleNo.Name = "FTBarcodeBundleNo"
         Me.FTBarcodeBundleNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTBarcodeBundleNo.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -1264,7 +1264,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTBarcodeBundleNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTBarcodeBundleNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTBarcodeBundleNo_lbl.Location = New System.Drawing.Point(877, 69)
-        Me.FTBarcodeBundleNo_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTBarcodeBundleNo_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FTBarcodeBundleNo_lbl.Name = "FTBarcodeBundleNo_lbl"
         Me.FTBarcodeBundleNo_lbl.Size = New System.Drawing.Size(120, 23)
         Me.FTBarcodeBundleNo_lbl.TabIndex = 317
@@ -1275,7 +1275,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.FNHSysPartId.EnterMoveNextControl = True
         Me.FNHSysPartId.Location = New System.Drawing.Point(741, 68)
-        Me.FNHSysPartId.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FNHSysPartId.Margin = New System.Windows.Forms.Padding(4)
         Me.FNHSysPartId.Name = "FNHSysPartId"
         Me.FNHSysPartId.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNHSysPartId.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -1307,7 +1307,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FNHSysPartId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysPartId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNHSysPartId_lbl.Location = New System.Drawing.Point(607, 68)
-        Me.FNHSysPartId_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FNHSysPartId_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FNHSysPartId_lbl.Name = "FNHSysPartId_lbl"
         Me.FNHSysPartId_lbl.Size = New System.Drawing.Size(132, 23)
         Me.FNHSysPartId_lbl.TabIndex = 315
@@ -1318,7 +1318,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.FNHSysMarkId.EnterMoveNextControl = True
         Me.FNHSysMarkId.Location = New System.Drawing.Point(467, 69)
-        Me.FNHSysMarkId.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FNHSysMarkId.Margin = New System.Windows.Forms.Padding(4)
         Me.FNHSysMarkId.Name = "FNHSysMarkId"
         Me.FNHSysMarkId.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNHSysMarkId.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -1350,7 +1350,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FNHSysMarkId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysMarkId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNHSysMarkId_lbl.Location = New System.Drawing.Point(332, 68)
-        Me.FNHSysMarkId_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FNHSysMarkId_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FNHSysMarkId_lbl.Name = "FNHSysMarkId_lbl"
         Me.FNHSysMarkId_lbl.Size = New System.Drawing.Size(132, 23)
         Me.FNHSysMarkId_lbl.TabIndex = 313
@@ -1361,7 +1361,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.FNHSysOperationId.EnterMoveNextControl = True
         Me.FNHSysOperationId.Location = New System.Drawing.Point(201, 69)
-        Me.FNHSysOperationId.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FNHSysOperationId.Margin = New System.Windows.Forms.Padding(4)
         Me.FNHSysOperationId.Name = "FNHSysOperationId"
         Me.FNHSysOperationId.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNHSysOperationId.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -1393,7 +1393,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FNHSysOperationId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysOperationId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNHSysOperationId_lbl.Location = New System.Drawing.Point(56, 68)
-        Me.FNHSysOperationId_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FNHSysOperationId_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FNHSysOperationId_lbl.Name = "FNHSysOperationId_lbl"
         Me.FNHSysOperationId_lbl.Size = New System.Drawing.Size(142, 23)
         Me.FNHSysOperationId_lbl.TabIndex = 311
@@ -1404,7 +1404,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.FTSizeBreakDown.EnterMoveNextControl = True
         Me.FTSizeBreakDown.Location = New System.Drawing.Point(999, 42)
-        Me.FTSizeBreakDown.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTSizeBreakDown.Margin = New System.Windows.Forms.Padding(4)
         Me.FTSizeBreakDown.Name = "FTSizeBreakDown"
         Me.FTSizeBreakDown.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTSizeBreakDown.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -1436,7 +1436,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTSizeBreakDown_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSizeBreakDown_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTSizeBreakDown_lbl.Location = New System.Drawing.Point(877, 43)
-        Me.FTSizeBreakDown_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTSizeBreakDown_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FTSizeBreakDown_lbl.Name = "FTSizeBreakDown_lbl"
         Me.FTSizeBreakDown_lbl.Size = New System.Drawing.Size(120, 23)
         Me.FTSizeBreakDown_lbl.TabIndex = 309
@@ -1447,7 +1447,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.FTColorway.EnterMoveNextControl = True
         Me.FTColorway.Location = New System.Drawing.Point(741, 43)
-        Me.FTColorway.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTColorway.Margin = New System.Windows.Forms.Padding(4)
         Me.FTColorway.Name = "FTColorway"
         Me.FTColorway.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTColorway.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -1479,7 +1479,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTColorway_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTColorway_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTColorway_lbl.Location = New System.Drawing.Point(612, 43)
-        Me.FTColorway_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTColorway_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FTColorway_lbl.Name = "FTColorway_lbl"
         Me.FTColorway_lbl.Size = New System.Drawing.Size(125, 23)
         Me.FTColorway_lbl.TabIndex = 309
@@ -1490,7 +1490,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.FTOrderProdNo.EnterMoveNextControl = True
         Me.FTOrderProdNo.Location = New System.Drawing.Point(467, 43)
-        Me.FTOrderProdNo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTOrderProdNo.Margin = New System.Windows.Forms.Padding(4)
         Me.FTOrderProdNo.Name = "FTOrderProdNo"
         Me.FTOrderProdNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTOrderProdNo.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -1522,7 +1522,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTOrderProdNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderProdNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTOrderProdNo_lbl.Location = New System.Drawing.Point(332, 43)
-        Me.FTOrderProdNo_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTOrderProdNo_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FTOrderProdNo_lbl.Name = "FTOrderProdNo_lbl"
         Me.FTOrderProdNo_lbl.Size = New System.Drawing.Size(132, 23)
         Me.FTOrderProdNo_lbl.TabIndex = 307
@@ -1533,7 +1533,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.FTOrderNo.EnterMoveNextControl = True
         Me.FTOrderNo.Location = New System.Drawing.Point(201, 43)
-        Me.FTOrderNo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTOrderNo.Margin = New System.Windows.Forms.Padding(4)
         Me.FTOrderNo.Name = "FTOrderNo"
         Me.FTOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTOrderNo.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -1565,7 +1565,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTOrderNo_lbl.Location = New System.Drawing.Point(56, 42)
-        Me.FTOrderNo_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTOrderNo_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FTOrderNo_lbl.Name = "FTOrderNo_lbl"
         Me.FTOrderNo_lbl.Size = New System.Drawing.Size(142, 23)
         Me.FTOrderNo_lbl.TabIndex = 305
@@ -1580,7 +1580,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTStyleCode_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTStyleCode_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTStyleCode_lbl.Location = New System.Drawing.Point(602, 2)
-        Me.FTStyleCode_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTStyleCode_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FTStyleCode_lbl.Name = "FTStyleCode_lbl"
         Me.FTStyleCode_lbl.Size = New System.Drawing.Size(135, 23)
         Me.FTStyleCode_lbl.TabIndex = 304
@@ -1591,7 +1591,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.FTStyleCode.EditValue = ""
         Me.FTStyleCode.Location = New System.Drawing.Point(741, 2)
-        Me.FTStyleCode.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTStyleCode.Margin = New System.Windows.Forms.Padding(4)
         Me.FTStyleCode.Name = "FTStyleCode"
         Me.FTStyleCode.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTStyleCode.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
@@ -1625,7 +1625,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.FTBarcodeNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTBarcodeNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTBarcodeNo_lbl.Location = New System.Drawing.Point(6, 5)
-        Me.FTBarcodeNo_lbl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTBarcodeNo_lbl.Margin = New System.Windows.Forms.Padding(4)
         Me.FTBarcodeNo_lbl.Name = "FTBarcodeNo_lbl"
         Me.FTBarcodeNo_lbl.Size = New System.Drawing.Size(192, 23)
         Me.FTBarcodeNo_lbl.TabIndex = 302
@@ -1636,7 +1636,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         '
         Me.FTBarcodeNo.EditValue = ""
         Me.FTBarcodeNo.Location = New System.Drawing.Point(201, 2)
-        Me.FTBarcodeNo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FTBarcodeNo.Margin = New System.Windows.Forms.Padding(4)
         Me.FTBarcodeNo.Name = "FTBarcodeNo"
         Me.FTBarcodeNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTBarcodeNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
@@ -1671,7 +1671,7 @@ Partial Class wSMPScanBarcodeReceiveSuplApprove
         Me.Controls.Add(Me.ogbdetail)
         Me.Controls.Add(Me.ogbsupplier)
         Me.Controls.Add(Me.ogbdocinfo)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "wSMPScanBarcodeReceiveSuplApprove"
         Me.Text = "ScanBarcode Receive Supl"
         CType(Me.ogbsupplier, System.ComponentModel.ISupportInitialize).EndInit()

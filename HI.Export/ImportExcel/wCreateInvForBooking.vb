@@ -241,6 +241,50 @@ Public Class wCreateInvForBooking
         End Set
     End Property
 
+    Private _POREF As String = ""
+
+    Public Property POREF As String
+        Get
+            Return _POREF
+        End Get
+        Set(ByVal value As String)
+            _POREF = value
+        End Set
+    End Property
+
+    Private _CusCod As String = ""
+
+    Public Property CusCod As String
+        Get
+            Return _CusCod
+        End Get
+        Set(ByVal value As String)
+            _CusCod = value
+        End Set
+    End Property
+    Private _PckNo As String
+
+    Public Property PckNo As String
+        Get
+            Return _PckNo
+        End Get
+        Set(ByVal value As String)
+            _PckNo = value
+        End Set
+    End Property
+    Private _SysCustId As String
+
+    Public Property SysCustId As String
+        Get
+            Return _SysCustId
+        End Get
+        Set(ByVal value As String)
+            _SysCustId = value
+        End Set
+    End Property
+
+
+
 #End Region
 
 #Region "Procedure"
@@ -2403,8 +2447,8 @@ Public Class wCreateInvForBooking
                 Me.oTabPlanGen.TabPages.Add(_TabPage)
 
                 Me.oTabmaster.Visible = False
-                Me.oTabmasterInden.Visible = False
-                Me.oTabmasterInden.PageVisible = False
+                'Me.oTabmasterInden.Visible = False
+                'Me.oTabmasterInden.PageVisible = False
                 Me.oTabmaster.PageVisible = False
 
                 Dim _Cmd As String = ""
@@ -2826,13 +2870,14 @@ Public Class wCreateInvForBooking
             Dim _TabPageSubDetail As New DevExpress.XtraTab.XtraTabPage
             Dim _GridDM As New DevExpress.XtraGrid.GridControl
             Dim _GridVDM As New DevExpress.XtraGrid.Views.Grid.GridView
+            Dim _GridOR As New DevExpress.XtraGrid.Views.Grid.GridView
             Dim _GridDD As New DevExpress.XtraGrid.GridControl
             Dim _GridVDD As New DevExpress.XtraGrid.Views.Grid.GridView
             Dim _GrpSum As New DevExpress.XtraEditors.GroupControl
             Dim _GrpDetail As New DevExpress.XtraEditors.GroupControl
             Dim _GvCol As DevExpress.XtraGrid.Columns.GridColumn()
             Dim _GrpInfo As New DevExpress.XtraEditors.GroupControl
-
+            Dim _GridORD As New DevExpress.XtraGrid.GridControl
 
             Dim _oDt As New System.Data.DataTable
             Dim _oDtIn As New System.Data.DataTable
@@ -2873,16 +2918,44 @@ Public Class wCreateInvForBooking
                 .Dock = System.Windows.Forms.DockStyle.Fill
                 .TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {_TabPageSubHead})
             End With
+
             _GridVDM = ogvPlandM
             With _GridVDM
-
                 '   .GridControl = _GridDM
                 .Name = "ogvPlandM" & _POrefNo
                 .OptionsView.ColumnAutoWidth = False
                 '.OptionsView.ShowFooter = True
                 .OptionsView.ShowGroupPanel = False
+            End With
+
+            With _GridDM
+                .Dock = System.Windows.Forms.DockStyle.Fill
+                .Location = New System.Drawing.Point(2, 25)
+                .MainView = _GridVDM
+                .Name = "ogcPlandM" & _POrefNo
+                .Size = New System.Drawing.Size(1231, 143)
+                .TabIndex = 0
+                ' .ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvPlandM})
 
             End With
+
+            _GridOR = ogvPlandD
+            With _GridOR
+                .Name = "ogvPlandO" & _POrefNo
+                .OptionsView.ColumnAutoWidth = False
+                .OptionsView.ShowGroupPanel = False
+            End With
+
+            With _GridORD
+                .Dock = System.Windows.Forms.DockStyle.Fill
+                ' .Location = New System.Drawing.Point(2, 25)
+                .MainView = _GridOR
+                .Name = "ogcPlandO" & _POrefNo
+                ' .Size = New System.Drawing.Size(1231, 349)
+                .TabIndex = 0
+                '  .ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {_GridVDD})
+            End With
+
 
             'With _GridVDM
             '    .BeginInit()
@@ -2909,16 +2982,7 @@ Public Class wCreateInvForBooking
 
 
 
-            With _GridDM
-                .Dock = System.Windows.Forms.DockStyle.Fill
-                .Location = New System.Drawing.Point(2, 25)
-                .MainView = _GridVDM
-                .Name = "ogcPlandM" & _POrefNo
-                .Size = New System.Drawing.Size(1231, 143)
-                .TabIndex = 0
-                ' .ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvPlandM})
 
-            End With
 
             With _GridVDD
                 '.GridControl = _GridDD
@@ -3170,6 +3234,8 @@ Public Class wCreateInvForBooking
                 End If
 
 
+
+
                 _Cmd = " SELECT   FTPckPlanNo, FTPORef, FTRangeNo, FNFrom, FNTo, FTSerialFrom, FTSerialTo, FTPackInstructionCode, FTLineNo, FTStyleCode, FTSKU, FTPONo, "
                 _Cmd &= vbCrLf & "  FTPOLineNo, FTColorWay, FTSizeBreakDown, FTShortDescription, FTShipmentMethod,   FNItemQty, FNQtyPerPack, FNInnerPackCount, FNPackCount,  "
                 _Cmd &= vbCrLf & "      FTR, FTPackCode, FNNetWeight, FNTotalNetWeight, FNGrossNetWeight, FTUnitCode,  FNL, FNW, FNH, FTItemUnitCode, FTScanID"
@@ -3274,8 +3340,8 @@ Public Class wCreateInvForBooking
                 Me.oTabPlanGen.TabPages.Add(_TabPage)
 
                 Me.oTabmaster.Visible = False
-                Me.oTabmasterInden.Visible = False
-                Me.oTabmasterInden.PageVisible = False
+                'Me.oTabmasterInden.Visible = False
+                'Me.oTabmasterInden.PageVisible = False
                 Me.oTabmaster.PageVisible = False
                 For Each R As DataRow In _dt.Rows
                     DirectCast((_TabPage.Controls.Find("FTApproveBy" & _FtPONo, True)(0)), DevExpress.XtraEditors.TextEdit).Text = R!FTApproveBy.ToString
@@ -3632,36 +3698,49 @@ Public Class wCreateInvForBooking
 
     Private Function GetDocNo(_POREF As String) As String
         Try
-            Dim _Cmd As String = "" : Dim _CmpRun As String = "" : Dim _Year As String = HI.Conn.SQLConn.GetField("SELECT  FTCfgData  FROM     TSESystemConfig  where FTCfgName ='CfgInvoiceYearFCI'", Conn.DB.DataBaseName.DB_SECURITY, "")
-            Dim _DocNo As String = "" : Dim _DocNew As String = "" : Dim _CustNo As String = "" : Dim _oDt As System.Data.DataTable
+            Dim _Cmd As String = "" : Dim _CmpRun As String = ""
+            ': Dim _Year As String = HI.Conn.SQLConn.GetField("SELECT  FTCfgData  FROM     TSESystemConfig  where FTCfgName ='CfgInvoiceYearFCI'", Conn.DB.DataBaseName.DB_SECURITY, "")
+            Dim _DocNo As String = "" : Dim _DocNew As String = "" : Dim _CustNo As String = "" : Dim _oDt As System.Data.DataTable : Dim _CmpCus As String = ""
+            Dim _year As String = ""
+            Dim _month As String = ""
+            Dim _date As Date = Date.Today
             '_Cmd = "  SELECT TOp 1  case when isnumeric( RIGHT( FTInvoiceNo,1)) = 1  then  FTInvoiceNo  else left(FTInvoiceNo ,  len(FTInvoiceNo)-1) end AS FTInvoiceNo      FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice  WITH(NOLOCK) "
             '_Cmd &= vbCrLf & " Order by FTInvoiceNo DESC "
             ''_oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
-
             '_DocNo = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT, "0")
 
-            If HI.ST.SysInfo.CmpRunID = "CD" Then
-                _CmpRun = "HTC"   ' HI.ST.SysInfo.CmpRunID
+            _Cmd = " Select Top 1 c.FTCustCode "
+            _Cmd &= vbCrLf & "From HITECH_MERCHAN.dbo.TMERTOrder o with(nolock)"
+            _Cmd &= vbCrLf & " Left Join HITECH_MASTER.dbo.TCNMCustomer c with(nolock) on o.FNHSysCustId = c.FNHSysCustId"
+            _Cmd &= vbCrLf & "Left Join HITECH_MASTER.dbo.TMERMStyle s with(nolock) on o.FNHSysStyleId = s.FNHSysStyleId"
+            _Cmd &= vbCrLf & "Left Join HITECH_MASTER.dbo.TMERMSeason se with(nolock) on o.FNHSysSeasonId = se.FNHSysSeasonId"
+            _Cmd &= vbCrLf & "Left OUTER JOIN HITECH_MASTER.dbo.TMERMVenderPram AS VD with(nolock) ON o.FNHSysVenderPramId = VD.FNHSysVenderPramId"
+            _Cmd &= vbCrLf & "Left Join HITECH_MASTER.dbo.TCNMCmp ct on o.FNHSysCmpId = ct.FNHSysCmpId"
+            _Cmd &= vbCrLf & "where  o.FTPORef = '" & _POREF & "'"
+            _CmpCus = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT, "0")
 
-                '_Cmd = "Select Top 1  C.FTCustCode FRom  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.V_TMERTOrder_Info AS O    "
-                '_Cmd &= vbCrLf & "LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCustomer AS C WITH(NOLOCK) ON O.FNHSysCustId = C.FNHSysCustId"
-                '_Cmd &= vbCrLf & "where O.FTPORef = '" & _POREF & "'"
-                '_CustNo = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT, "0")
-                _CustNo = ""
+            If _CmpCus = "SC" Then
+                _CmpRun = "FG"
+                _year = Year(_date)
+                _month = Month(_date).ToString("00")
                 _DocNo = Microsoft.VisualBasic.Right("000000" & (Integer.Parse(Microsoft.VisualBasic.Right("000000" & _DocNo, 4)) + 1), 4)
-                _DocNo = "####"
-                _DocNew = _Year & _CmpRun & _CustNo & _DocNo
-            Else
-                _CmpRun = "HT"   ' HI.ST.SysInfo.CmpRunID
-
-                '_Cmd = "Select Top 1  C.FTCustCode FRom  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.V_TMERTOrder_Info AS O    "
-                '_Cmd &= vbCrLf & "LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCustomer AS C WITH(NOLOCK) ON O.FNHSysCustId = C.FNHSysCustId"
-                '_Cmd &= vbCrLf & "where O.FTPORef = '" & _POREF & "'"
-                '_CustNo = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT, "0")
-                _CustNo = ""
-                _DocNo = Microsoft.VisualBasic.Right("000000" & (Integer.Parse(Microsoft.VisualBasic.Right("000000" & _DocNo, 5)) + 1), 5)
                 _DocNo = "#####"
-                _DocNew = _Year & _CmpRun & _CustNo & _DocNo
+                _DocNew = _CmpRun & _year & _month & _DocNo
+                'End If
+            ElseIf _CmpCus = "CD" Then
+                _CmpRun = "HTC"
+                _year = Year(_date)
+                _month = Month(_date).ToString("00")
+                _DocNo = Microsoft.VisualBasic.Right("000000" & (Integer.Parse(Microsoft.VisualBasic.Right("000000" & _DocNo, 4)) + 1), 4)
+                _DocNo = "#####"
+                _DocNew = _CmpRun & _year & _month & _DocNo
+            Else
+                _CmpRun = "HT"
+                _year = Year(_date)
+                _month = Month(_date).ToString("00")
+                _DocNo = Microsoft.VisualBasic.Right("000000" & (Integer.Parse(Microsoft.VisualBasic.Right("000000" & _DocNo, 5)) + 1), 5)
+                _DocNo = "######"
+                _DocNew = _CmpRun & _year & _month & _DocNo
 
             End If
 
@@ -3674,26 +3753,52 @@ Public Class wCreateInvForBooking
 
     Private Function GetDocNoNew() As String
         Try
-            Dim _Cmd As String = "" : Dim _CmpRun As String = "" : Dim _Year As String = HI.Conn.SQLConn.GetField("SELECT  FTCfgData  FROM  TSESystemConfig  where FTCfgName ='CfgInvoiceYearFCI' ", Conn.DB.DataBaseName.DB_SECURITY, "")
+            Dim _Cmd As String = "" : Dim _CmpRun As String = ""
             Dim _DocNo As String = "" : Dim _DocNew As String = "" : Dim _CustNo As String = "" : Dim _oDt As System.Data.DataTable
-            Dim _DocSub As String = ""
+            Dim _DocSub As String = "" : Dim _CmpCus As String = ""
+            Dim _year As String = ""
+            Dim _month As String = ""
+            Dim _date As Date = Date.Today
+            Dim _DocNonew As String '= GetDocNo(_oDt.Rows(0).Item("FTPORef").ToString)
+            Dim _DocHeader As String = ""
 
             With DirectCast(Me.ogcPlandM.DataSource, System.Data.DataTable)
                 .AcceptChanges()
                 _oDt = .Copy
             End With
 
-            Dim _DocNonew As String '= GetDocNo(_oDt.Rows(0).Item("FTPORef").ToString)
-            Dim _DocHeader As String = ""
-            If HI.ST.SysInfo.CmpRunID = "CD" Then
-                _CmpRun = "HTC"   ' HI.ST.SysInfo.CmpRunID
+            '_Cmd = " Select Top 1 c.FTCustCode "
+            '_Cmd &= vbCrLf & "From HITECH_MERCHAN.dbo.TMERTOrder o with(nolock)"
+            '_Cmd &= vbCrLf & " Left Join HITECH_MASTER.dbo.TCNMCustomer c with(nolock) on o.FNHSysCustId = c.FNHSysCustId"
+            '_Cmd &= vbCrLf & "Left Join HITECH_MASTER.dbo.TMERMStyle s with(nolock) on o.FNHSysStyleId = s.FNHSysStyleId"
+            '_Cmd &= vbCrLf & "Left Join HITECH_MASTER.dbo.TMERMSeason se with(nolock) on o.FNHSysSeasonId = se.FNHSysSeasonId"
+            '_Cmd &= vbCrLf & "Left OUTER JOIN HITECH_MASTER.dbo.TMERMVenderPram AS VD with(nolock) ON o.FNHSysVenderPramId = VD.FNHSysVenderPramId"
+            '_Cmd &= vbCrLf & "Left Join HITECH_MASTER.dbo.TCNMCmp ct on o.FNHSysCmpId = ct.FNHSysCmpId"
+            '_Cmd &= vbCrLf & "where  o.FTPORef = '" & _POREF & "'"
+            '_CmpCus = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT, "0")
 
-                '_Cmd = "Select Top 1  LEFT(C.FTCustCode,2) AS FTCustCode FRom  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.V_TMERTOrder_DocNo As O    "
-                '_Cmd &= vbCrLf & "LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCustomer As C With(NOLOCK) On O.FNHSysCustId = C.FNHSysCustId"
-                '_Cmd &= vbCrLf & "where O.FTPORef = '" & _oDt.Rows(0).Item("FTPORef").ToString & "'"
-                '_CustNo = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT, "0")
-                _CustNo = ""
-                _DocHeader = _Year & _CmpRun & _CustNo
+            If CusCod = "SC" Then
+                _CmpRun = "FG"
+                _year = Year(_date)
+                _month = Month(_date).ToString("00")
+                _DocHeader = _CmpRun & _year & _month
+
+                _Cmd = "  SELECT TOp 1  case when isnumeric( RIGHT( FTInvoiceNo,1)) = 1  then  FTInvoiceNo  else left(FTInvoiceNo ,  len(FTInvoiceNo)-1) end AS FTInvoiceNo   "
+                _Cmd &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice  WITH(NOLOCK) "
+                _Cmd &= vbCrLf & " WHERE LEN(case when isnumeric( RIGHT( FTInvoiceNo,1)) = 1  then  FTInvoiceNo  else left(FTInvoiceNo ,  len(FTInvoiceNo)-1) end) = LEN('" & _DocHeader & "0000" & "')"
+                _Cmd &= vbCrLf & " and  left(FTInvoiceNo,2)  = '" & HI.ST.SysInfo.CmpRunID & "'"
+                _Cmd &= vbCrLf & " Order by FTInvoiceNo DESC "
+
+                _DocNo = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT, "0")
+                _DocNo = Microsoft.VisualBasic.Right("000000" & (Integer.Parse(Microsoft.VisualBasic.Right("000000" & _DocNo, 4)) + 1), 4)
+
+                _DocNew = _DocHeader & _DocNo
+                'End If
+            ElseIf CusCod = "CD" Then
+                _CmpRun = "HTC"
+                _year = Year(_date)
+                _month = Month(_date).ToString("00")
+                _DocHeader = _CmpRun & _year & _month
 
                 _Cmd = "  SELECT TOp 1  case when isnumeric( RIGHT( FTInvoiceNo,1)) = 1  then  FTInvoiceNo  else left(FTInvoiceNo ,  len(FTInvoiceNo)-1) end AS FTInvoiceNo   "
                 _Cmd &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice  WITH(NOLOCK) "
@@ -3706,16 +3811,12 @@ Public Class wCreateInvForBooking
                 _DocNo = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT, "0")
                 _DocNo = Microsoft.VisualBasic.Right("000000" & (Integer.Parse(Microsoft.VisualBasic.Right("000000" & _DocNo, 4)) + 1), 4)
                 _DocNew = _DocHeader & _DocNo
+
             Else
-
-                _CmpRun = "HT"   ' HI.ST.SysInfo.CmpRunID
-
-                '_Cmd = "Select Top 1  LEFT(C.FTCustCode,2) AS FTCustCode FRom  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.V_TMERTOrder_DocNo As O    "
-                '_Cmd &= vbCrLf & "LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCustomer As C With(NOLOCK) On O.FNHSysCustId = C.FNHSysCustId"
-                '_Cmd &= vbCrLf & "where O.FTPORef = '" & _oDt.Rows(0).Item("FTPORef").ToString & "'"
-                '_CustNo = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT, "0")
-                _CustNo = ""
-                _DocHeader = _Year & _CmpRun & _CustNo
+                _CmpRun = "HT"
+                _year = Year(_date)
+                _month = Month(_date).ToString("00")
+                _DocHeader = _CmpRun & _year & _month
 
                 _Cmd = "  SELECT TOp 1  case when isnumeric( RIGHT( FTInvoiceNo,1)) = 1  then  FTInvoiceNo  else left(FTInvoiceNo ,  len(FTInvoiceNo)-1) end AS FTInvoiceNo   "
                 _Cmd &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice  WITH(NOLOCK) "
@@ -3726,7 +3827,7 @@ Public Class wCreateInvForBooking
                 '_oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
 
                 _DocNo = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT, "0")
-                _DocNo = Microsoft.VisualBasic.Right("000000" & (Integer.Parse(Microsoft.VisualBasic.Right("000000" & _DocNo, 5)) + 1), 5)
+                _DocNo = Microsoft.VisualBasic.Right("000000" & (Integer.Parse(Microsoft.VisualBasic.Right("000000" & _DocNo, 4)) + 1), 4)
                 _DocNew = _DocHeader & _DocNo
             End If
 
@@ -3747,8 +3848,10 @@ Public Class wCreateInvForBooking
                         If Me.FTGenInvType.SelectedIndex = 0 Then
                             If HI.ST.SysInfo.CmpRunID = "CD" Then
                                 _DocSub = Microsoft.VisualBasic.Left(_DocNonew, (_DocHeader).Length) & Microsoft.VisualBasic.Right("000000" & (Integer.Parse(Microsoft.VisualBasic.Right("000000" & _DocNonew, 4)) + i), 4)
+                            ElseIf HI.ST.SysInfo.CmpRunID = "FG" Then
+                                _DocSub = _DocNew
                             Else
-                                _DocSub = Microsoft.VisualBasic.Left(_DocNonew, (_DocHeader).Length) & Microsoft.VisualBasic.Right("000000" & (Integer.Parse(Microsoft.VisualBasic.Right("000000" & _DocNonew, 5)) + i), 5)
+                                _DocSub = Microsoft.VisualBasic.Left(_DocNonew, (_DocHeader).Length) & Microsoft.VisualBasic.Right("000000" & (Integer.Parse(Microsoft.VisualBasic.Right("000000" & _DocNonew, 4)) + i), 4)
                             End If
 
                         ElseIf Me.FTGenInvType.SelectedIndex = 2 Then
@@ -3778,6 +3881,7 @@ Public Class wCreateInvForBooking
                 .AcceptChanges()
                 _oDt = .Copy
             End With
+
             Dim _DocNo As String = GetDocNo(_oDt.Rows(0).Item("FTPORef").ToString)
 
             Me.FTInvoiceNo.Text = _DocNo
@@ -3799,12 +3903,28 @@ Public Class wCreateInvForBooking
                     Next
                     .RefreshData()
                 End If
-
             End With
+
+            With ogvPlandO
+                If .RowCount > 0 Then
+                    Dim _R As Integer = .RowCount
+                    For i As Integer = 0 To _R
+
+                        _DocSub = _DocNo ' Microsoft.VisualBasic.Left(_DocNo, 6) & Microsoft.VisualBasic.Right("000000" & (Integer.Parse(Microsoft.VisualBasic.Right("000000" & _DocNo, 5)) + i), 5)
+
+                        .SetRowCellValue(i, "FTInvoiceNo", _DocSub)
+                    Next
+                    .RefreshData()
+                End If
+            End With
+
 
         Catch ex As Exception
 
         End Try
+
+
+
     End Sub
 
     Private Alphabet As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -3855,32 +3975,148 @@ Public Class wCreateInvForBooking
                 Dim _VatPer As Double = 0
 
                 If SaveData() Then
-                    If Me.FTGenInvType.SelectedIndex = 1 Or Me.FTGenInvType.SelectedIndex = 2 Then
+                    If CusCod <> "SC" Then
+                        If Me.FTGenInvType.SelectedIndex = 1 Or Me.FTGenInvType.SelectedIndex = 2 Then
+                            With DirectCast(Me.ogcPlandM.DataSource, System.Data.DataTable)
+                                .AcceptChanges()
+                                For Each R As DataRow In .Rows
+
+                                    _Cmd = " Select D.FTInvoiceNo, D.FTPORef, D.FNHSysStyleId, D.FNCTNS, D.FNTNW, D.FNTGW, D.FNQuantity, D.FNUnitPrice, D.FNTotalAmount, T.FTStyleCode , D.FTColorway, D.FTSizeBreakDown ,D.FTNikePOLineItem ,D.FNHSysCartonId , C.FTCartonCode   "
+                                    _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice_D As D INNER JOIN"
+                                    _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As T On D.FNHSysStyleId = T.FNHSysStyleId"
+                                    _Cmd &= vbCrLf & "   LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCarton AS C WITH(NOLOCK)  ON     D.FNHSysCartonId  = C.FNHSysCartonId  "
+                                    _Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(R!FTInvoiceNo.ToString) & "'"
+                                    _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                    For Each Rz As DataRow In _oDt.Rows
+                                        _Cmd = "SELECT TOP (1) T.FNHSysCustId FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TCNMCustomer AS T WITH(NOLOCK)  "
+                                        _Cmd &= vbCrLf & " INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrder AS O WITH(NOLOCK) ON T.FNHSysCustId = O.FNHSysCustId"
+                                        _Cmd &= vbCrLf & " WHERE  (T.FNHSysCustTypeId = 1311030003)  "
+                                        _Cmd &= vbCrLf & " and O.FTPORef='" & R!FTPORef.ToString & "'"
+                                        If HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT).Rows.Count = 0 Then
+                                            _VatPer = 0
+                                        Else
+                                            _VatPer = 0
+                                        End If
+
+                                        Exit For
+                                    Next
+
+
+
+                                    _Amt = Double.Parse(_oDt.Compute("sum(FNTotalAmount)", "FTPORef <> ''"))
+                                    _VatAmt = Format((_Amt * _VatPer) / 100, HI.ST.Config.AmtFormat)
+                                    _GrandAmt = _Amt + _VatAmt
+                                    FTTotalAmountENB = HI.UL.ULF.Convert_Bath_EN(_GrandAmt)
+                                    FTTotalAmountTHB = HI.UL.ULF.Convert_Bath_TH(_GrandAmt)
+
+
+                                    _Cmd = "Update  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice "
+                                    _Cmd &= vbCrLf & " set  FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                                    _Cmd &= vbCrLf & " , FDUpdDate=" & HI.UL.ULDate.FormatDateDB
+                                    _Cmd &= vbCrLf & " , FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                                    _Cmd &= vbCrLf & " , FNAmt=" & _Amt
+                                    _Cmd &= vbCrLf & " , FNDisCountPer=0"
+                                    _Cmd &= vbCrLf & " , FNDisCountAmt=0"
+                                    _Cmd &= vbCrLf & " , FNNetAmt=" & _Amt
+                                    _Cmd &= vbCrLf & " , FNVatPer=" & _VatPer
+                                    _Cmd &= vbCrLf & " , FNVatAmt=" & _VatAmt
+                                    _Cmd &= vbCrLf & " , FNSurcharge=0"
+                                    _Cmd &= vbCrLf & " , FNTotalAmount=" & _GrandAmt
+                                    _Cmd &= vbCrLf & " , FTTotalAmountTHB='" & HI.UL.ULF.rpQuoted(FTTotalAmountTHB) & "' "
+                                    _Cmd &= vbCrLf & " , FTTotalAmountENB='" & HI.UL.ULF.rpQuoted(FTTotalAmountENB) & "' "
+                                    _Cmd &= vbCrLf & " where  FTInvoiceNo='" & HI.UL.ULF.rpQuoted(R!FTInvoiceNo.ToString) & "'"
+                                    HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+
+                                Next
+
+                            End With
+
+                        Else
+
+                            With DirectCast(Me.ogcPlandM.DataSource, System.Data.DataTable)
+                                .AcceptChanges()
+                                For Each R As DataRow In .Rows
+
+                                    _Cmd = "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMInvoice_Ref (FTInsUser, FDInsDate, FTInsTime,  FTInvoiceNo, FTInvoiceRefNo) "
+                                    _Cmd &= vbCrLf & "Select '" & HI.ST.UserInfo.UserName & "'"
+                                    _Cmd &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                    _Cmd &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                    _Cmd &= vbCrLf & ",'" & R!FTInvoiceNo.ToString & "'"
+                                    _Cmd &= vbCrLf & ",'" & R!FTInvoiceNo.ToString & "'"
+                                    HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                    _Cmd = " Select D.FTInvoiceNo, D.FTPORef, D.FNHSysStyleId, D.FNCTNS, D.FNTNW, D.FNTGW, D.FNQuantity, D.FNUnitPrice, D.FNTotalAmount, T.FTStyleCode , D.FTColorway, D.FTSizeBreakDown ,D.FTNikePOLineItem ,D.FNHSysCartonId , C.FTCartonCode   "
+                                    _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice_D As D INNER JOIN"
+                                    _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As T On D.FNHSysStyleId = T.FNHSysStyleId"
+                                    _Cmd &= vbCrLf & "   LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCarton AS C WITH(NOLOCK)  ON     D.FNHSysCartonId  = C.FNHSysCartonId  "
+                                    _Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(R!FTInvoiceNo.ToString) & "'"
+                                    _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                    For Each Rz As DataRow In _oDt.Rows
+                                        _Cmd = "SELECT TOP (1) T.FNHSysCustId FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TCNMCustomer AS T WITH(NOLOCK)  "
+                                        _Cmd &= vbCrLf & " INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrder AS O WITH(NOLOCK) ON T.FNHSysCustId = O.FNHSysCustId"
+                                        _Cmd &= vbCrLf & " WHERE  (T.FNHSysCustTypeId = 1311030003)  "
+                                        _Cmd &= vbCrLf & " and O.FTPORef='" & R!FTPORef.ToString & "'"
+                                        If HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT).Rows.Count = 0 Then
+                                            _VatPer = 0
+                                        Else
+                                            _VatPer = 0
+                                        End If
+
+                                        Exit For
+                                    Next
+
+
+                                    _Amt = Double.Parse(_oDt.Compute("sum(FNTotalAmount)", "FTPORef <> ''"))
+                                    _VatAmt = Format((_Amt * _VatPer) / 100, HI.ST.Config.AmtFormat)
+                                    _GrandAmt = _Amt + _VatAmt
+                                    FTTotalAmountENB = HI.UL.ULF.Convert_Bath_EN(_GrandAmt)
+                                    FTTotalAmountTHB = HI.UL.ULF.Convert_Bath_TH(_GrandAmt)
+
+
+                                    _Cmd = "Update  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice "
+                                    _Cmd &= vbCrLf & " set  FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                                    _Cmd &= vbCrLf & " , FDUpdDate=" & HI.UL.ULDate.FormatDateDB
+                                    _Cmd &= vbCrLf & " , FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                                    _Cmd &= vbCrLf & " , FNAmt=" & _Amt
+                                    _Cmd &= vbCrLf & " , FNDisCountPer=0"
+                                    _Cmd &= vbCrLf & " , FNDisCountAmt=0"
+                                    _Cmd &= vbCrLf & " , FNNetAmt=" & _Amt
+                                    _Cmd &= vbCrLf & " , FNVatPer=" & _VatPer
+                                    _Cmd &= vbCrLf & " , FNVatAmt=" & _VatAmt
+                                    _Cmd &= vbCrLf & " , FNSurcharge=0"
+                                    _Cmd &= vbCrLf & " , FNTotalAmount=" & _GrandAmt
+                                    _Cmd &= vbCrLf & " , FTTotalAmountTHB='" & HI.UL.ULF.rpQuoted(FTTotalAmountTHB) & "' "
+                                    _Cmd &= vbCrLf & " , FTTotalAmountENB='" & HI.UL.ULF.rpQuoted(FTTotalAmountENB) & "' "
+                                    _Cmd &= vbCrLf & " where  FTInvoiceNo='" & HI.UL.ULF.rpQuoted(R!FTInvoiceNo.ToString) & "'"
+                                    HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                    '_Cmd = "Exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.[SP_EXPORT_PREINVOICE] '" & HI.UL.ULF.rpQuoted(R!FTInvoiceNo.ToString) & "','" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                                    'HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                    ' GoTo 1
+                                    _Cmd = " Exec   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..[SP_EXPORT_PREINVOICE_GRP] '" & R!FTInvoiceNo.ToString & "','" & HI.ST.UserInfo.UserName & "'"
+                                    HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                                Next
+
+                            End With
+
+
+                        End If
+
+                    Else
                         With DirectCast(Me.ogcPlandM.DataSource, System.Data.DataTable)
                             .AcceptChanges()
                             For Each R As DataRow In .Rows
-
                                 _Cmd = " Select D.FTInvoiceNo, D.FTPORef, D.FNHSysStyleId, D.FNCTNS, D.FNTNW, D.FNTGW, D.FNQuantity, D.FNUnitPrice, D.FNTotalAmount, T.FTStyleCode , D.FTColorway, D.FTSizeBreakDown ,D.FTNikePOLineItem ,D.FNHSysCartonId , C.FTCartonCode   "
-                                _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice_D As D INNER JOIN"
+                                _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_D As D INNER JOIN"
                                 _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As T On D.FNHSysStyleId = T.FNHSysStyleId"
                                 _Cmd &= vbCrLf & "   LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCarton AS C WITH(NOLOCK)  ON     D.FNHSysCartonId  = C.FNHSysCartonId  "
                                 _Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(R!FTInvoiceNo.ToString) & "'"
                                 _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
-
-                                For Each Rz As DataRow In _oDt.Rows
-                                    _Cmd = "SELECT TOP (1) T.FNHSysCustId FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TCNMCustomer AS T WITH(NOLOCK)  "
-                                    _Cmd &= vbCrLf & " INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrder AS O WITH(NOLOCK) ON T.FNHSysCustId = O.FNHSysCustId"
-                                    _Cmd &= vbCrLf & " WHERE  (T.FNHSysCustTypeId = 1311030003)  "
-                                    _Cmd &= vbCrLf & " and O.FTPORef='" & R!FTPORef.ToString & "'"
-                                    If HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT).Rows.Count = 0 Then
-                                        _VatPer = 0
-                                    Else
-                                        _VatPer = 0
-                                    End If
-
-                                    Exit For
-                                Next
-
 
 
                                 _Amt = Double.Parse(_oDt.Compute("sum(FNTotalAmount)", "FTPORef <> ''"))
@@ -3890,8 +4126,7 @@ Public Class wCreateInvForBooking
                                 FTTotalAmountTHB = HI.UL.ULF.Convert_Bath_TH(_GrandAmt)
 
 
-
-                                _Cmd = "Update  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice "
+                                _Cmd = "Update  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice "
                                 _Cmd &= vbCrLf & " set  FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                                 _Cmd &= vbCrLf & " , FDUpdDate=" & HI.UL.ULDate.FormatDateDB
                                 _Cmd &= vbCrLf & " , FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
@@ -3909,89 +4144,12 @@ Public Class wCreateInvForBooking
                                 HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
 
 
-
                             Next
 
                         End With
-
-                    Else
-
-                        With DirectCast(Me.ogcPlandM.DataSource, System.Data.DataTable)
-                            .AcceptChanges()
-                            For Each R As DataRow In .Rows
-
-                                _Cmd = "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMInvoice_Ref (FTInsUser, FDInsDate, FTInsTime,  FTInvoiceNo, FTInvoiceRefNo) "
-                                _Cmd &= vbCrLf & "Select '" & HI.ST.UserInfo.UserName & "'"
-                                _Cmd &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
-                                _Cmd &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
-                                _Cmd &= vbCrLf & ",'" & R!FTInvoiceNo.ToString & "'"
-                                _Cmd &= vbCrLf & ",'" & R!FTInvoiceNo.ToString & "'"
-                                HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
-
-                                _Cmd = " Select D.FTInvoiceNo, D.FTPORef, D.FNHSysStyleId, D.FNCTNS, D.FNTNW, D.FNTGW, D.FNQuantity, D.FNUnitPrice, D.FNTotalAmount, T.FTStyleCode , D.FTColorway, D.FTSizeBreakDown ,D.FTNikePOLineItem ,D.FNHSysCartonId , C.FTCartonCode   "
-                                _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice_D As D INNER JOIN"
-                                _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As T On D.FNHSysStyleId = T.FNHSysStyleId"
-                                _Cmd &= vbCrLf & "   LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCarton AS C WITH(NOLOCK)  ON     D.FNHSysCartonId  = C.FNHSysCartonId  "
-                                _Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(R!FTInvoiceNo.ToString) & "'"
-                                _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
-
-                                For Each Rz As DataRow In _oDt.Rows
-                                    _Cmd = "SELECT TOP (1) T.FNHSysCustId FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TCNMCustomer AS T WITH(NOLOCK)  "
-                                    _Cmd &= vbCrLf & " INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrder AS O WITH(NOLOCK) ON T.FNHSysCustId = O.FNHSysCustId"
-                                    _Cmd &= vbCrLf & " WHERE  (T.FNHSysCustTypeId = 1311030003)  "
-                                    _Cmd &= vbCrLf & " and O.FTPORef='" & R!FTPORef.ToString & "'"
-                                    If HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT).Rows.Count = 0 Then
-                                        _VatPer = 0
-                                    Else
-                                        _VatPer = 0
-                                    End If
-
-                                    Exit For
-                                Next
-
-
-                                _Amt = Double.Parse(_oDt.Compute("sum(FNTotalAmount)", "FTPORef <> ''"))
-                                _VatAmt = Format((_Amt * _VatPer) / 100, HI.ST.Config.AmtFormat)
-                                _GrandAmt = _Amt + _VatAmt
-                                FTTotalAmountENB = HI.UL.ULF.Convert_Bath_EN(_GrandAmt)
-                                FTTotalAmountTHB = HI.UL.ULF.Convert_Bath_TH(_GrandAmt)
-
-
-
-                                _Cmd = "Update  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice "
-                                _Cmd &= vbCrLf & " set  FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                                _Cmd &= vbCrLf & " , FDUpdDate=" & HI.UL.ULDate.FormatDateDB
-                                _Cmd &= vbCrLf & " , FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
-                                _Cmd &= vbCrLf & " , FNAmt=" & _Amt
-                                _Cmd &= vbCrLf & " , FNDisCountPer=0"
-                                _Cmd &= vbCrLf & " , FNDisCountAmt=0"
-                                _Cmd &= vbCrLf & " , FNNetAmt=" & _Amt
-                                _Cmd &= vbCrLf & " , FNVatPer=" & _VatPer
-                                _Cmd &= vbCrLf & " , FNVatAmt=" & _VatAmt
-                                _Cmd &= vbCrLf & " , FNSurcharge=0"
-                                _Cmd &= vbCrLf & " , FNTotalAmount=" & _GrandAmt
-                                _Cmd &= vbCrLf & " ,   FTTotalAmountTHB='" & HI.UL.ULF.rpQuoted(FTTotalAmountTHB) & "' "
-                                _Cmd &= vbCrLf & " ,   FTTotalAmountENB='" & HI.UL.ULF.rpQuoted(FTTotalAmountENB) & "' "
-                                _Cmd &= vbCrLf & " where  FTInvoiceNo='" & HI.UL.ULF.rpQuoted(R!FTInvoiceNo.ToString) & "'"
-                                HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
-
-
-
-                                '_Cmd = "Exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.[SP_EXPORT_PREINVOICE] '" & HI.UL.ULF.rpQuoted(R!FTInvoiceNo.ToString) & "','" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                                'HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
-
-                                ' GoTo 1
-                                _Cmd = " Exec   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..[SP_EXPORT_PREINVOICE_GRP] '" & R!FTInvoiceNo.ToString & "','" & HI.ST.UserInfo.UserName & "'"
-                                HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
-
-                            Next
-
-
-1:
-                        End With
-
 
                     End If
+
                     _Spl.Close()
                     ' HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, Me.Text & " Booking No: " & Me.FTInvoiceNo.Text)
                     HI.MG.ShowMsg.mInfo("บันทึกข้อมูลเรียบร้อย !!! ", 1810021015, Me.Text, " Booking No: " & Me.FTInvoiceNo.Text)
@@ -4022,22 +4180,25 @@ Public Class wCreateInvForBooking
 
             Call GetDocNoNew()
 
+
             Dim _Cmd As String = "" : Dim _CmdIns As String = "" : Dim _CmdUpd As String = ""
             Dim _Where As String = ""
             Dim _FieldName As String = ""
             Dim _PKey As String = "FTInvoiceNo" : Dim _FKey As String = "FTInvoiceRefNo"
             Dim _Value As String = "" : Dim _ValueUpd As String = ""
             Dim _Collaction As String = ""
-            Dim _StrFileH As String = "FTInvoiceNo|FTInvoiceRefNo|FDInvoiceDate|FTInvoiceBy|FTRemark|FNHSysCustId|FNHSysCountryId|FNHSysCurId|FNHSysProvinceId|FNHSysCmpId|FNHSysShipModeId|FNHSysCrTermId|FNHSysTermOfPMId|FNExchangeRate|FNCreditDay|FDESTTimeDept|FDESTTimeArrl|FTHarmonizedCode"
-            _StrFileH &= "|FNPackcount|FNNet|FNTotalNet|FNGrossWeight|FNHSysUnitId|FNVol|FTVolUnit|FDShipDate|FTDiamondMarkCode"
+            Dim _StrFileH As String = "FTInvoiceNo|FTInvoiceRefNo|FDInvoiceDate|FTInvoiceBy|FTRemark|FNHSysCustId|FNHSysCountryId|FNHSysCurId|FNHSysProvinceId|FNHSysCmpId|FNHSysShipModeId|FNHSysCrTermId|FNHSysTermOfPMId|FNExchangeRate|FNCreditDay|FDESTTimeDept|FDESTTimeArrl|FTHarmonizedCode|FDShipDate"
+            _StrFileH &= "|FNPackcount|FNNet|FNTotalNet|FNGrossWeight|FNHSysUnitId|FNVol|FTVolUnit|FTDiamondMarkCode|FTPckPlanNo|FNQuantity|FTCustNameEN|FTCustCode|FTCmpCode|FTPlantCode"
 
-            _CmdIns = "Insert into   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice  "
-            _CmdIns &= " ( FTInsUser, FDInsDate, FTInsTime,  FTInvoiceNo, FTInvoiceRefNo, FDInvoiceDate, FTInvoiceBy,  FTRemark,  FNHSysCustId,  FNHSysCountryId,FNHSysCurId, FNHSysProvinceId,   
+            _CmdIns = "Insert into   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice "
+            _CmdIns &= "( FTInsUser, FDInsDate, FTInsTime,  FTInvoiceNo, FTInvoiceRefNo, FDInvoiceDate, FTInvoiceBy,  FTRemark,  FNHSysCustId,  FNHSysCountryId,FNHSysCurId, FNHSysProvinceId,   
                          FNHSysCmpId, FNHSysShipModeId,  FNHSysCrTermId, FNHSysTermOfPMId, FNExchangeRate, FNCreditDay,  
-                         FDESTTimeDept, FDESTTimeArrl, FTHarmonizedCode, FNPackcount, FNNet, FNTotalNet, FNGrossWeight, FNHSysUnitId, FNVol, FTVolUnit, FDShipDate ,FTDiamondMarkCode )"
+                         FDESTTimeDept, FDESTTimeArrl, FTHarmonizedCode,FDShipDate, FNPackcount, FNNet, FNTotalNet, FNGrossWeight, FNHSysUnitId, FNVol, FTVolUnit ,FTDiamondMarkCode, FTPckPlanNo, FNQuantity,FTCustNameEN,FTCustCode, FTCmpCode, FTPlantCode)"
 
             _CmdIns &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' ," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB & ","
-            _CmdUpd = " Update  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice "
+
+            'HI.ST.SysInfo.CmpID
+            _CmdUpd = " Update  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice "
             _CmdUpd &= vbCrLf & " set  FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
             _CmdUpd &= vbCrLf & " , FDUpdDate=" & HI.UL.ULDate.FormatDateDB
             _CmdUpd &= vbCrLf & " , FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
@@ -4070,7 +4231,7 @@ Public Class wCreateInvForBooking
                                 Case "FTInvoiceBy"
                                     _Value &= "'" & HI.UL.ULF.rpQuoted((Me.FTInvoiceBy.Text)) & "'"
                                 Case Else
-                                    _Value &= "'" & HI.UL.ULF.rpQuoted(R.Item(_Str.ToString)) & "'"
+                                    _Value &= " '" & HI.UL.ULF.rpQuoted(R.Item(_Str.ToString)) & "'"
                             End Select
 
                         ElseIf Microsoft.VisualBasic.Left(_Str, 2).ToString = "FD" Then
@@ -4109,6 +4270,10 @@ Public Class wCreateInvForBooking
                                     _Value &= Integer.Parse("0" & Me.FNHSysCrTermId.Properties.Tag.ToString)
                                 Case "FNHSysCrTermId"
                                     _Value &= Integer.Parse("0" & Me.FNHSysCrTermId.Properties.Tag)
+                                Case "FNHSysCmpId"
+                                    _Value &= HI.ST.SysInfo.CmpID
+                                Case "FNHSysCustId"
+                                    _Value &= Integer.Parse(_SysCustId)
                                 Case Else
                                     _Value &= R.Item(_Str.ToString)
                             End Select
@@ -4250,47 +4415,66 @@ Public Class wCreateInvForBooking
     Private Function SaveDataDetail(_POREF As String, _Invoice As String, _POREFNO As String) As Boolean
         Try
             Dim _oDt As System.Data.DataTable
-            Dim _dt As System.Data.DataTable
-            Dim _dtd As System.Data.DataTable
+            Dim _dt As New System.Data.DataTable
             Dim _Cmd As String = ""
+            Dim _qry As String = ""
+            Dim _odp As System.Data.DataTable
+            Dim _CmdP As String = ""
+            Dim _dtp As New System.Data.DataTable
 
 
-            _Cmd = "Select FTPORef , FNHSysCustId ,FNHSysStyleId ,FNHSysSeasonId ,FTOrderNo    "
-            _Cmd &= vbCrLf & " INTO #TmpOrder "
-            _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrder WITH(NOLOCK)  "
-            _Cmd &= vbCrLf & " where  FTPORef='" & _POREF & "'"
+
+            _dt.Columns.Add("FTInvoiceNo", GetType(String))
+            _dt.Columns.Add("FTPORef", GetType(String))
+            _dt.Columns.Add("FNHSysStyleId", GetType(String))
+            _dt.Columns.Add("FNCTNS", GetType(Integer))
+            _dt.Columns.Add("FNTNW", GetType(Double))
+            _dt.Columns.Add("FNTGW", GetType(Double))
+            _dt.Columns.Add("FNQuantity", GetType(Integer))
+            _dt.Columns.Add("FNUnitPrice", GetType(Double))
+            _dt.Columns.Add("FNTotalAmount", GetType(Integer))
+            _dt.Columns.Add("FTStyleCode", GetType(String))
+            _dt.Columns.Add("FTColorway", GetType(String))
+            _dt.Columns.Add("FTSizeBreakDown", GetType(String))
+            _dt.Columns.Add("FTNikePOLineItem", GetType(String))
+            _dt.Columns.Add("FNHSysCartonId", GetType(String))
+            _dt.Columns.Add("FTCartonCode", GetType(String))
+            _dt.Columns.Add("FTRangeNo", GetType(String))
+            _dt.Columns.Add("FTPORefNo", GetType(String))
+            _dt.Columns.Add("FTLineNo", GetType(String))
+            _dt.Columns.Add("FNCBM", GetType(Double))
+            _dt.Columns.Add("FTPackNo", GetType(String))
+            _dt.Columns.Add("FTSubOrderNo", GetType(String))
 
 
-            _Cmd &= vbCrLf & "  Select '1' as FTSelect ,  FTPckPlanNo , P. FTPORef , O.FTProvinceCode  ,FNHSysStyleId  ,  FTDescription  "
-            _Cmd &= vbCrLf & "  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTPackPlan AS P WITH(NOLOCK)   "
-            _Cmd &= vbCrLf & "  LEFT OUTER JOIN (SELECT distinct  case when isnull(S.FTPORef ,'') = '' then    O.FTPORef else S.FTPORef  end  as FTPORef , P.FTProvinceCode  , O.FNHSysCustId , O.FNHSysStyleId , M.FTMainMatSpecEN as FTDescription "
-            _Cmd &= vbCrLf & "  FROM #TmpOrder  as O   "
-            _Cmd &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub AS S WITH(NOLOCK) ON O.FTOrderNo = S.FTOrderNo "
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "]..TCMMProvince AS P WITH(NOLOCK) ON S.FNHSysProvinceId = P.FNHSysProvinceId  "
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMMainMatSpec AS M WITH(NOLOCK) ON O.FNHSysStyleId =M.FNHSysStyleId  and O.FNHSysSeasonId  = M .FNHSysSeasonId "
-            _Cmd &= vbCrLf & "     ) as O ON P.FTPORef = O.FTPORef "
-            _Cmd &= vbCrLf & " where isnull( P.FTApproveState,'0')  = '1'   "
-            _Cmd &= vbCrLf & " and  P. FTPORef ='" & HI.UL.ULF.rpQuoted(_POREF) & "'"
-            _Cmd &= vbCrLf & " and  P. FTPORefNo ='" & HI.UL.ULF.rpQuoted(_POREFNO) & "'"
-            '   _Cmd &= vbCrLf & " and  FTPckPlanNo+'|'+P.FTPORef not in  ( select  FTPckPlanNo+'|'+FTPORef From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMInvoice_D  WITH(NOLOCK)  )"
-            _Cmd &= vbCrLf & " Drop table #TmpOrder "
 
-            _oDt = HI.Conn.SQLConn.GetDataTableOnbeginTrans(_Cmd)
-
-
-            _Cmd = " Select D.FTInvoiceNo, D.FTPORef, D.FNHSysStyleId,D.FTRangeNo ,FTPORefNo ,  D.FNCTNS, D.FNTNW, D.FNTGW, D.FNQuantity, D.FNUnitPrice, D.FNTotalAmount, T.FTStyleCode , D.FTColorway, D.FTSizeBreakDown ,D.FTNikePOLineItem ,D.FNHSysCartonId , C.FTCartonCode  ,D.FTLineNo  "
-            _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice_D As D with(nolock) INNER JOIN"
-            _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As T On D.FNHSysStyleId = T.FNHSysStyleId"
-            _Cmd &= vbCrLf & "   LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCarton AS C WITH(NOLOCK)  ON     D.FNHSysCartonId  = C.FNHSysCartonId  "
-            _Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(_Invoice) & "'"
-            _dt = HI.Conn.SQLConn.GetDataTableOnbeginTrans(_Cmd)
-
-            'With Me.ogcPlandD
-
-            'End With
+            _qry = " Select '1' AS FTSelect, p.FTPackNo ,  p.FTPackBy, p.FNHSysStyleId, pd.FTOrderNo ,p.FNOrderPackType, p.FNPackSetValue, p.FTRemark, p.FNHSysCmpId, p.FTStateHanger,"
+            _qry &= vbCrLf & " p.FTCustomerPO , count(pd.FNcartonno) As FNcartonno, pd.FTSubOrderNo, pd.FTColorway, pd.FTSizeBreakDown, sum(pd.FNQuantity) FNQuantity , pd.FNHSysCartonId "
+            _qry &= vbCrLf & ", pd.FNPackCartonSubType, o.FTStyleCode ,pd.FNPackPerCarton, pd.FTPOLine,o.FTGenderCode , '' FTInvoiceNo ,c.FTCartonCode"
+            _qry &= vbCrLf & ", isnull(pw.FNNetNetWeight,0) * sum( pd.FNQuantity ) as FNNetNetWeight"
+            _qry &= vbCrLf & ", isnull(pw.fnweight,0) * sum( pd.FNQuantity ) as FNNetWeight"
+            _qry &= vbCrLf & ", c.FNWeight * count( pd.fncartonno) + (isnull(pw.FNNetNetWeight,0) * sum( pd.FNQuantity )) as FNGW"
+            _qry &= vbCrLf & ", ((((c.FNWidth/2.54)*(c.FNLength/2.54)*(c.FNHeight/2.54))/1728)/35.3185) * count( pd.fncartonno)  as CBM"
+            _qry &= vbCrLf & ",CASE WHEN IsDate(p.FDPackDate) = 1 Then CONVERT(varchar(10),Convert(datetime,p.FDPackDate),103) Else '' END AS FDPackDate"
+            _qry &= vbCrLf & " From  HITECH_PRODUCTION.dbo.TPACKOrderPack p"
+            _qry &= vbCrLf & " Left Join HITECH_PRODUCTION.dbo.TPACKOrderPack_Carton_Detail pd on p.FTPackNo = pd.FTPackNo"
+            _qry &= vbCrLf & " outer apply(select top 1  o.FNHSysStyleId , s.FTStyleCode, g.FTGenderCode from HITECH_MERCHAN.dbo.TMERTOrder o"
+            _qry &= vbCrLf & " Left Join HITECH_MERCHAN.dbo.TMERTOrderSub r on o.FTOrderNo = r.FTOrderNo"
+            _qry &= vbCrLf & " Left Join HITECH_MASTER.dbo.TMERMStyle s with(nolock) on o.FNHSysStyleId = s.FNHSysStyleId"
+            _qry &= vbCrLf & " Left Join HITECH_MASTER.dbo.TMERMGender g on r.FNHSysGenderId = g.FNHSysGenderId"
+            _qry &= vbCrLf & " where o.FTOrderNo = pd.FTOrderNo"
+            _qry &= vbCrLf & " ) o"
+            _qry &= vbCrLf & " Left Join HITECH_MASTER.dbo.TCNMCarton c on pd.FNHSysCartonId = c.FNHSysCartonId"
+            _qry &= vbCrLf & " Left Join HITECH_MASTER.dbo.TPRODMNetWeight pw on o.FNHSysStyleId = pw.FNHSysStyleId "
+            _qry &= vbCrLf & " WHERE P.FTPackNo   in (" & PckNo & ")"
+            _qry &= vbCrLf & " group by p.FTPackNo , p.FDPackDate, p.FTPackBy, p.FNHSysStyleId, pd.FTOrderNo, p.FNOrderPackType, p.FNPackSetValue, p.FTRemark, p.FNHSysCmpId, p.FTStateHanger,"
+            _qry &= vbCrLf & " p.FTCustomerPO, pd.FTSubOrderNo, pd.FTColorway, pd.FTSizeBreakDown, pd.FNHSysCartonId, pd.FNPackCartonSubType, pd.FNPackPerCarton, pd.FTPOLine,"
+            _qry &= vbCrLf & " o.FTStyleCode, c.FNWeight, c.FNWidth, c.FNLength, c.FNHeight, pw.FNWeight, pw.FNNetNetWeight, o.FTGenderCode , c.FTCartonCode"
+            _odp = HI.Conn.SQLConn.GetDataTable(_qry, Conn.DB.DataBaseName.DB_PROD)
 
 
-            For Each R As DataRow In DirectCast(ogcPlandM.DataSource, System.Data.DataTable).Select("FTSelect='1' and  FTPORef='" & _POREF & "' and FTPORefNo='" & _POREFNO & "' ")
+
+            For Each R As DataRow In DirectCast(ogcPlandM.DataSource, System.Data.DataTable).Select("FTSelect='1'  ")
 
                 '_Cmd = "SELECT FTPckPlanNo, FTPORef,FTPORefNo,   FTPOLineNo,right( FTShortDescription,3) as FTColorway, FTSizeBreakDown,sum(FNItemQty) as FNItemQty,  sum( FNPackCount) as FNPackCount, sum(FNTotalNetWeight) as   FNTotalNetWeight, sum(FNGrossNetWeight) as  FNGrossNetWeight   "
                 '_Cmd &= vbCrLf & " ,sum( FNPackCount)  *  sum(FNTotalNetWeight)  as FNTotalNet ,   sum( FNPackCount) *  sum(FNGrossNetWeight)  as FNTotalGross   "
@@ -4302,49 +4486,53 @@ Public Class wCreateInvForBooking
                 '_Cmd &= vbCrLf & " and FTPORef='" & HI.UL.ULF.rpQuoted(R!FTPORef.ToString) & "'"
 
                 '_Cmd &= vbCrLf & " group by FTPckPlanNo, FTPORef, FTPOLineNo,right( FTShortDescription,3), FTSizeBreakDown , C.FNHSysCartonId , C.FTCartonCode  "
+                PckNo = R!FTPackNo.ToString()
 
-
-                For Each X As DataRow In DirectCast(ogcPlandD.DataSource, System.Data.DataTable).Select("FTSelect='1' and  FTPORef='" & _POREF & "' and FTPORefNo='" & _POREFNO & "' ")
+                For Each X As DataRow In DirectCast(ogcPlandO.DataSource, System.Data.DataTable).Select("FTSelect='1'  and  FTPackNo =  '" & PckNo & "'  ")
                     Dim _Price As Double = 0
                     _Cmd = " select top 1 isnull( FNNetPrice , FNPrice) AS FNNetPrice  FRom   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..V_OrderSub_BreakDown_ShipDestination "
                     'ในกรณีที่ โรงงาน Import net price ไม่ทันให้เอา Price จาก ePO  requet by p'ya export 17/08/2018
-                    _Cmd &= vbCrLf & "  where FTPOref = '" & HI.UL.ULF.rpQuoted(X!FTPORef.ToString) & "'  "
-                    _Cmd &= vbCrLf & " And FTColorway = '" & Microsoft.VisualBasic.Right(HI.UL.ULF.rpQuoted(X!FTShortDescription.ToString), 3) & "'"
+                    _Cmd &= vbCrLf & "  where FTPOref = '" & HI.UL.ULF.rpQuoted(X!FTCustomerPO.ToString) & "'  "
+                    _Cmd &= vbCrLf & " And FTColorway = '" & Microsoft.VisualBasic.Right(HI.UL.ULF.rpQuoted(X!FTColorway.ToString), 3) & "'"
                     _Cmd &= vbCrLf & " And FTSizeBreakDown ='" & HI.UL.ULF.rpQuoted(X!FTSizeBreakDown.ToString) & "'"
-                    _Cmd &= vbCrLf & " And FTNikePOLineItem = '" & Integer.Parse("0" & HI.UL.ULF.rpQuoted(X!FTPOLineNo.ToString), 2) & "'"
+                    _Cmd &= vbCrLf & " And FTNikePOLineItem = '" & Integer.Parse("0" & HI.UL.ULF.rpQuoted(X!FTPOLine.ToString), 2) & "'"
                     _Price = Double.Parse("0" & HI.Conn.SQLConn.GetFieldByNameOnBeginTrans(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT, "0"))
 
                     Dim _r As DataRow
                     _r = _dt.NewRow()
                     _r("FTInvoiceNo") = "" & HI.UL.ULF.rpQuoted(_Invoice) & ""
-                    _r("FTPORef") = X!FTPORef.ToString
+                    _r("FTPORef") = X!FTCustomerPO.ToString
                     _r("FNHSysStyleId") = HI.Conn.SQLConn.GetField("Select Top 1  FNHSysStyleId From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle With(NOLOCK)   where FTStyleCode='" & X!FTStyleCode.ToString & "'", Conn.DB.DataBaseName.DB_MASTER, "0")
-                    _r("FNCTNS") = Integer.Parse(X!FNPackcount.ToString)
-                    _r("FNTNW") = Integer.Parse(X!FNPackcount.ToString) * Double.Parse("0" & X!FNTotalNetWeight.ToString)
-                    _r("FNTGW") = Double.Parse("0" & X!FNGrossNetWeight.ToString)
-                    _r("FNQuantity") = Integer.Parse("0" & X!FNItemQty.ToString)
+                    _r("FNCTNS") = Integer.Parse(X!FNcartonNo.ToString)
+                    _r("FNTNW") = Double.Parse(X!FNNetweight.ToString)
+                    _r("FNTGW") = Double.Parse("0" & X!FNGW.ToString)
+                    _r("FNQuantity") = Integer.Parse("0" & X!FNQuantity.ToString)
                     _r("FNUnitPrice") = _Price
-                    _r("FNTotalAmount") = Integer.Parse("0" & X!FNItemQty.ToString) * _Price
+                    _r("FNTotalAmount") = Integer.Parse("0" & X!FNQuantity.ToString) * _Price
                     _r("FTStyleCode") = X!FTStyleCode.ToString 'HI.Conn.SQLConn.GetField("Select Top 1  FTStyleCode From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle With(NOLOCK)   where FNHSysStyleId=" & Integer.Parse("0" & R!FNHSysStyleId.ToString), Conn.DB.DataBaseName.DB_MASTER, "")
                     _r("FTColorway") = "" & HI.UL.ULF.rpQuoted(X!FTColorway.ToString) & ""
                     _r("FTSizeBreakDown") = "" & HI.UL.ULF.rpQuoted(X!FTSizeBreakDown.ToString) & ""
-                    _r("FTNikePOLineItem") = "" & HI.UL.ULF.rpQuoted(X!FTPOLineNo.ToString) & ""
-                    _r("FNHSysCartonId") = GetCartonId(X!FTPackCode.ToString)
-                    _r("FTCartonCode") = HI.UL.ULF.rpQuoted(X!FTPackCode.ToString)
-                    _r("FTRangeNo") = HI.UL.ULF.rpQuoted(X!FTRangeNo.ToString)
-                    _r("FTPORefNo") = HI.UL.ULF.rpQuoted(X!FTPORefNo.ToString)
-                    _r("FTLineNo") = HI.UL.ULF.rpQuoted(X!FTLineNo.ToString)
+                    _r("FTNikePOLineItem") = "" & HI.UL.ULF.rpQuoted(X!FTPOLine.ToString) & ""
+                    _r("FNHSysCartonId") = Integer.Parse("0" & X!FNHSysCartonId.ToString)
+                    _r("FTCartonCode") = HI.UL.ULF.rpQuoted(X!FTCartonCode.ToString)
+                    _r("FTRangeNo") = "001"
+                    _r("FTPORefNo") = HI.UL.ULF.rpQuoted(X!FTCustomerPO.ToString)
+                    _r("FTLineNo") = HI.UL.ULF.rpQuoted(X!FTPOLine.ToString)
+                    _r("FNCBM") = Double.Parse(X!CBM.ToString)
+                    _r("FTPackNo") = HI.UL.ULF.rpQuoted(X!FTPackNo.ToString)
+                    _r("FTSubOrderNo") = HI.UL.ULF.rpQuoted(X!FTSubOrderNo.ToString)
+
                     _dt.Rows.Add(_r)
                 Next
+
             Next
 
 
 
-
-
-
-            Dim _StrFileH As String = "FTInvoiceNo|FTPORef|FNHSysStyleId|FNCTNS|FNTNW|FNTGW|FNQuantity|FNUnitPrice|FNTotalAmount|FTNikePOLineItem|FTColorway|FTSizeBreakDown|FNHSysCartonId|FTInvoiceRefNo|FTRangeNo|FTPORefNo|FTLineNo"
+            Dim _StrFileH As String = "FTInvoiceNo|FTPORef|FNHSysStyleId|FNCTNS|FNTNW|FNTGW|FNQuantity|FNUnitPrice|FNTotalAmount|FTNikePOLineItem|FTColorway|FTSizeBreakDown|FNHSysCartonId|FTInvoiceRefNo|FTRangeNo|FTPORefNo|FTLineNo|FNCBM|FTPackNo|FTSubOrderNo"
             Dim _CmdIns As String = "" : Dim _CmdUpd As String = "" : Dim _Value As String = "" : Dim _Where As String = "" : Dim _ValueUpd As String = ""
+
+
             Dim _PKey As String = "FTInvoiceNo"
             Dim _FKey As String = "FTPORef"
             Dim _FKey2 As String = "FNHSysStyleId"
@@ -4357,27 +4545,28 @@ Public Class wCreateInvForBooking
             Dim _FKey9 As String = "FTRangeNo"
             Dim _FKey10 As String = "FTPORefNo"
             Dim _FKey11 As String = "FTLineNo"
+            Dim _Fkey12 As String = "FTPackNo"
 
 
-            _CmdIns = " INSERT INTO   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice_D  "
-            _CmdIns &= vbCrLf & "  (FTInsUser, FDInsDate, FTInsTime,  FTInvoiceNo, FTPORef, FNHSysStyleId, FNCTNS, FNTNW, FNTGW, FNQuantity, FNUnitPrice, FNTotalAmount, FTNikePOLineItem, FTColorway, FTSizeBreakDown,FNHSysCartonId,FTInvoiceRefNo,FTRangeNo,FTPORefNo , FTLineNo )"
+            _CmdIns = " INSERT INTO   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_D  "
+            _CmdIns &= vbCrLf & "  (FTInsUser, FDInsDate, FTInsTime,  FTInvoiceNo, FTPORef, FNHSysStyleId, FNCTNS, FNTNW, FNTGW, FNQuantity, FNUnitPrice, FNTotalAmount, FTNikePOLineItem, FTColorway, FTSizeBreakDown,FNHSysCartonId,FTInvoiceRefNo,FTRangeNo,FTPORefNo , FTLineNo, FNCBM ,FTPackNo,FTSubOrderNo)"
             _CmdIns &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' ," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB & ","
 
-            _CmdUpd = " UPDATE   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMBookigInvoice_D  "
+            _CmdUpd = " UPDATE   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_D  "
             _CmdUpd &= vbCrLf & " set  FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
             _CmdUpd &= vbCrLf & " , FDUpdDate=" & HI.UL.ULDate.FormatDateDB
             _CmdUpd &= vbCrLf & " , FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
 
 
             _oDt = _dt
+
+
             For Each R As DataRow In _oDt.Rows
                 If R!FNHSysStyleId = 0 Then
                     R!FNHSysStyleId = HI.Conn.SQLConn.GetFieldByNameOnBeginTrans("Select Top 1  FNHSysStyleId   From   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle where FTStyleCode ='" & R!FTStyleCode.ToString & "'", Conn.DB.DataBaseName.DB_MASTER, "0")
                 End If
 
             Next
-
-
 
             For Each R As DataRow In _oDt.Rows
                 'R!FTInvoiceNo = "20HT02357"
@@ -4425,9 +4614,13 @@ Public Class wCreateInvForBooking
                     End If
 
                 Next
+
+
                 _Cmd = _CmdUpd & " , " & _ValueUpd & " " & _Where
                 If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                     _Cmd = _CmdIns & " " & _Value
+
+
                     If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                         HI.Conn.SQLConn.Tran.Rollback()
                         HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
@@ -4436,14 +4629,28 @@ Public Class wCreateInvForBooking
                     End If
                 End If
 
+                If Not SavePacking(R!FTInvoiceNo.ToString) Then
+                    Return False
+                End If
+
+
             Next
+
+            'invoice
+            _Cmd = " Exec   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..[SP_CREATE_PACKINGPLAN_FROM_ORDERPACKING]'" & _Invoice & "','" & HI.ST.UserInfo.UserName & "'"
+
+            HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
             Return True
+
         Catch ex As Exception
             HI.Conn.SQLConn.Tran.Rollback()
             HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
             HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
             Return False
         End Try
+
+
     End Function
 
 
@@ -4458,6 +4665,154 @@ Public Class wCreateInvForBooking
             Return 0
         End Try
     End Function
+    Private Function SavePacking(_Invoice As String) As Boolean
+        Try
+            Dim _oDt As System.Data.DataTable
+            Dim _dt As New System.Data.DataTable
+            Dim _dtd As System.Data.DataTable
+            Dim _Cmd As String = ""
+            Dim _qry As String = ""
+            Dim _odp As System.Data.DataTable
+            Dim _CmdP As String = ""
+            Dim _dtp As New System.Data.DataTable
+            Dim _oDtp As System.Data.DataTable
+
+
+            _dt.Columns.Add("FTInvoiceNo", GetType(String))
+            _dt.Columns.Add("FTPackNo", GetType(String))
+
+
+            For Each R As DataRow In DirectCast(ogcPlandM.DataSource, System.Data.DataTable).Select("FTSelect='1'  ")
+
+                '_Cmd = "SELECT FTPckPlanNo, FTPORef,FTPORefNo,   FTPOLineNo,right( FTShortDescription,3) as FTColorway, FTSizeBreakDown,sum(FNItemQty) as FNItemQty,  sum( FNPackCount) as FNPackCount, sum(FNTotalNetWeight) as   FNTotalNetWeight, sum(FNGrossNetWeight) as  FNGrossNetWeight   "
+                '_Cmd &= vbCrLf & " ,sum( FNPackCount)  *  sum(FNTotalNetWeight)  as FNTotalNet ,   sum( FNPackCount) *  sum(FNGrossNetWeight)  as FNTotalGross   "
+                '_Cmd &= vbCrLf & " , (select top 1 FNNetPrice FRom   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..V_OrderSub_BreakDown_ShipDestination  WITH(NOLOCK)  where FTPOref = D.FTPORef and FTColorway = right(D.FTShortDescription,3)  and FTSizeBreakDown = D.FTSizeBreakDown and FTPOLineNo = D.FTPOLineNo ) as FNNetPrice  "
+                '_Cmd &= vbCrLf & " , C.FNHSysCartonId ,C.FTCartonCode "
+                '_Cmd &= vbCrLf & "  FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTPackPlan_D  as D WITH (NOLOCK)   "
+                '_Cmd &= vbCrLf & " LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCarton AS C WITH(NOLOCK)  ON     D.FTPackCode  = C.FTCartonCode "
+                '_Cmd &= vbCrLf & " Where FTPckPlanNo='" & HI.UL.ULF.rpQuoted(R!FTPckPlanNo.ToString) & "'"
+                '_Cmd &= vbCrLf & " and FTPORef='" & HI.UL.ULF.rpQuoted(R!FTPORef.ToString) & "'"
+
+                '_Cmd &= vbCrLf & " group by FTPckPlanNo, FTPORef, FTPOLineNo,right( FTShortDescription,3), FTSizeBreakDown , C.FNHSysCartonId , C.FTCartonCode  "
+
+                PckNo = R!FTPackNo.ToString()
+                For Each X As DataRow In DirectCast(ogcPlandO.DataSource, System.Data.DataTable).Select("FTSelect='1' and  FTPackNo =  '" & PckNo & "' ")
+
+
+                    _Cmd = " Select '1' AS FTSelect, p.FTPackNo ,  p.FTPackBy, p.FNHSysStyleId, pd.FTOrderNo ,p.FNOrderPackType, p.FNPackSetValue, p.FTRemark, p.FNHSysCmpId, p.FTStateHanger,"
+                    _Cmd &= vbCrLf & " p.FTCustomerPO , count(pd.FNcartonno) As FNcartonno, pd.FTSubOrderNo, pd.FTColorway, pd.FTSizeBreakDown, sum(pd.FNQuantity) FNQuantity , pd.FNHSysCartonId "
+                    _Cmd &= vbCrLf & ", pd.FNPackCartonSubType, o.FTStyleCode ,pd.FNPackPerCarton, pd.FTPOLine,o.FTGenderCode , '' FTInvoiceNo ,c.FTCartonCode"
+                    _Cmd &= vbCrLf & ", isnull(pw.FNNetNetWeight,0) * sum( pd.FNQuantity ) as FNNetNetWeight"
+                    _Cmd &= vbCrLf & ", isnull(pw.fnweight,0) * sum( pd.FNQuantity ) as FNNetWeight"
+                    _Cmd &= vbCrLf & ", c.FNWeight * count( pd.fncartonno) + (isnull(pw.FNNetNetWeight,0) * sum( pd.FNQuantity )) as FNGW"
+                    _Cmd &= vbCrLf & ", ((((c.FNWidth/2.54)*(c.FNLength/2.54)*(c.FNHeight/2.54))/1728)/35.3185) * count( pd.fncartonno)  as CBM"
+                    _Cmd &= vbCrLf & ",CASE WHEN IsDate(p.FDPackDate) = 1 Then CONVERT(varchar(10),Convert(datetime,p.FDPackDate),103) Else '' END AS FDPackDate"
+                    _Cmd &= vbCrLf & " From  HITECH_PRODUCTION.dbo.TPACKOrderPack p"
+                    _Cmd &= vbCrLf & " Left Join HITECH_PRODUCTION.dbo.TPACKOrderPack_Carton_Detail pd on p.FTPackNo = pd.FTPackNo"
+                    _Cmd &= vbCrLf & " outer apply(select top 1  o.FNHSysStyleId , s.FTStyleCode, g.FTGenderCode from HITECH_MERCHAN.dbo.TMERTOrder o"
+                    _Cmd &= vbCrLf & " Left Join HITECH_MERCHAN.dbo.TMERTOrderSub r on o.FTOrderNo = r.FTOrderNo"
+                    _Cmd &= vbCrLf & " Left Join HITECH_MASTER.dbo.TMERMStyle s with(nolock) on o.FNHSysStyleId = s.FNHSysStyleId"
+                    _Cmd &= vbCrLf & " Left Join HITECH_MASTER.dbo.TMERMGender g on r.FNHSysGenderId = g.FNHSysGenderId"
+                    _Cmd &= vbCrLf & " where o.FTOrderNo = pd.FTOrderNo"
+                    _Cmd &= vbCrLf & " ) o"
+                    _Cmd &= vbCrLf & " Left Join HITECH_MASTER.dbo.TCNMCarton c on pd.FNHSysCartonId = c.FNHSysCartonId"
+                    _Cmd &= vbCrLf & " Left Join HITECH_MASTER.dbo.TPRODMNetWeight pw on o.FNHSysStyleId = pw.FNHSysStyleId "
+                    _Cmd &= vbCrLf & " WHERE P.FTPackNo   in (" & PckNo & ")"
+                    _Cmd &= vbCrLf & " group by p.FTPackNo , p.FDPackDate, p.FTPackBy, p.FNHSysStyleId, pd.FTOrderNo, p.FNOrderPackType, p.FNPackSetValue, p.FTRemark, p.FNHSysCmpId, p.FTStateHanger,"
+                    _Cmd &= vbCrLf & " p.FTCustomerPO, pd.FTSubOrderNo, pd.FTColorway, pd.FTSizeBreakDown, pd.FNHSysCartonId, pd.FNPackCartonSubType, pd.FNPackPerCarton, pd.FTPOLine,"
+                    _Cmd &= vbCrLf & " o.FTStyleCode, c.FNWeight, c.FNWidth, c.FNLength, c.FNHeight, pw.FNWeight, pw.FNNetNetWeight, o.FTGenderCode , c.FTCartonCode"
+                    _odp = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD)
+
+
+                    '_Cmd = "Select '1' AS FTSelect, p.FTPackNo "
+                    '_Cmd &= vbCrLf & " From HITECH_PRODUCTION.dbo.TPACKOrderPack p"
+                    '_Cmd &= vbCrLf & " Where P.FTPackNo   In (" & PckNo & ") "
+                    '_Cmd &= vbCrLf & " group by p.FTPackNo "
+                    '_odp = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD)
+
+
+                    Dim _r As DataRow
+                    _r = _dt.NewRow()
+                    _r("FTInvoiceNo") = "" & HI.UL.ULF.rpQuoted(_Invoice) & ""
+                    _r("FTPackNo") = HI.UL.ULF.rpQuoted(X!FTPackNo.ToString)
+
+                    _dt.Rows.Add(_r)
+                Next
+
+            Next
+
+            Dim _StrFileH As String = "FTInvoiceNo|FTPackNo"
+            Dim _CmdIns As String = "" : Dim _CmdUpd As String = "" : Dim _Value As String = "" : Dim _Where As String = "" : Dim _ValueUpd As String = ""
+
+            Dim _PKey As String = "FTInvoiceNo"
+            Dim _Fkey As String = "FTPackNo"
+
+
+            _CmdIns = " INSERT INTO   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_Packing "
+            _CmdIns &= vbCrLf & "  (FTInsUser, FDInsDate, FTInsTime,  FTInvoiceNo, FTPackNo )"
+            _CmdIns &= vbCrLf & " Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' ," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB & ","
+
+
+            _CmdUpd = " UPDATE   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_Packing "
+            _CmdUpd &= vbCrLf & " set  FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+            _CmdUpd &= vbCrLf & " , FDUpdDate=" & HI.UL.ULDate.FormatDateDB
+            _CmdUpd &= vbCrLf & " , FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+
+
+            _oDt = _dt
+
+            For Each R As DataRow In _oDt.Rows
+                'R!FTInvoiceNo = "20HT02357"
+                PckNo = R!FTPackNo.ToString()
+                _Value = ""
+                _ValueUpd = "" : _Where = ""
+                For Each _Str As String In _StrFileH.Split("|")
+                    If _Value <> "" Then _Value &= ","
+                    If Microsoft.VisualBasic.Left(_Str, 2).ToString = "FT" Then
+                        If _Str = "FTInvoiceNo" Then
+                            _Value &= "'" & HI.UL.ULF.rpQuoted(_Invoice) & "'"
+                        Else
+                            _Value &= "'" & HI.UL.ULF.rpQuoted(R.Item(_Str.ToString)) & "'"
+                        End If
+                    Else
+                    _Value &= R.Item(_Str.ToString)
+                    End If
+                    If _PKey = _Str Then
+                        _Where = "  WHERE " & _PKey & " = '" & R.Item(_Str.ToString) & "'"
+                    ElseIf _Fkey = _Str Then
+                        _Where &= vbCrLf & "  AND " & _Fkey & " = '" & R.Item(_Str.ToString) & "'"
+                    Else
+                        If _ValueUpd <> "" Then _ValueUpd &= ","
+                        _ValueUpd &= _Str & " ='" & R.Item(_Str.ToString) & "'"
+                    End If
+
+                Next
+
+
+                _Cmd = _CmdUpd & "  " & _ValueUpd & " " & _Where
+                If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                    _Cmd = _CmdIns & " " & _Value
+
+                    If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                        HI.Conn.SQLConn.Tran.Rollback()
+                        HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                        HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                        Return False
+                    End If
+                End If
+            Next
+
+            Return True
+        Catch ex As Exception
+            HI.Conn.SQLConn.Tran.Rollback()
+            HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+            HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+            Return False
+        End Try
+
+
+    End Function
+
     Private Function _SaveData(_Tab As DevExpress.XtraTab.XtraTabPage) As Boolean
         Try
 
@@ -5043,6 +5398,10 @@ Public Class wCreateInvForBooking
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub FDESTTimeDept_EditValueChanged(sender As Object, e As EventArgs) Handles FDESTTimeDept.EditValueChanged
+
     End Sub
 End Class
 

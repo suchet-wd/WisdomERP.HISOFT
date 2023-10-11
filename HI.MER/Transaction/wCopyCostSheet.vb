@@ -477,8 +477,11 @@ Public Class wCopyCostSheet
         Dim pFDCostSheetDate As String = ""
         Dim pFTCostSheetBy As String = ""
         Dim pFNRevised As Integer = 0
+        Dim pStyleId As Integer = 0
+        Dim pSeasonId As Integer = 0
+        Dim pxVersion As Integer = 0
 
-        _Str = "Select TOP 1 FNVersion , FNRevised, FDCostSheetDate, FTCostSheetBy "
+        _Str = "Select TOP 1 FNVersion , FNRevised, FDCostSheetDate, FTCostSheetBy,FNHSysStyleId, FNHSysSeasonId,FNVersion "
         _Str &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet As A With(NOLOCK)"
         _Str &= vbCrLf & " WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(_FTCostSheetNo.Text) & "' "
 
@@ -489,10 +492,19 @@ Public Class wCopyCostSheet
             pFDCostSheetDate = R!FDCostSheetDate.ToString
             pFTCostSheetBy = R!FTCostSheetBy.ToString
             pFNRevised = Val(R!FNRevised.ToString)
+            pStyleId = Val(R!FNHSysStyleId.ToString)
+            pSeasonId = Val(R!FNHSysSeasonId.ToString)
+            pxVersion = Val(R!FNVersion.ToString)
         Next
 
+        pStyleId = Val(FNHSysStyleId.Properties.Tag.ToString)
+        pSeasonId = Val(FNHSysSeasonId.Properties.Tag.ToString)
+        pxVersion = Val(FNVersion.Value)
 
         _StateNew = (pVersion = "")
+
+
+        pVersion = pxVersion
 
         If (_StateNew) Then
             _Key = HI.TL.Document.GetDocumentNo(Me.SysDBName, Me.SysTableName, "", False, _CmpH).ToString
@@ -513,19 +525,20 @@ Public Class wCopyCostSheet
 
 
             _Str = " DELETE FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet  WHERE  FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(_Key) & "'"
-                _Str &= vbCrLf & "  DELETE FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail  WHERE  FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(_Key) & "'"
-                _Str &= vbCrLf & " INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet  "
+            _Str &= vbCrLf & "  DELETE FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail  WHERE  FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(_Key) & "'"
+            _Str &= vbCrLf & "  DELETE FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail_TeamMulti  WHERE  FTCostSheetNo ='" & HI.UL.ULF.rpQuoted(_Key) & "'"
+            _Str &= vbCrLf & " INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet  "
                 _Str &= vbCrLf & " ( "
-                _Str &= vbCrLf & "   FTCostSheetNo,  FTInsUser, FDInsDate, FTInsTime,  FNRevised, FDCostSheetDate, FTCostSheetBy, FNHSysStyleId, FNHSysSeasonId, FTExp, FTGarmentEngineer, FTSILH, "
-                _Str &= vbCrLf & "    FTLOProductDeveloper, FTDevelopmentRegion, FTProductDevelopmentManager, FTMSC, FTDESC, FDBomDate, FDSpecDate, FNHSysCurId, FNExchangeRate, FNHSysVenderPramId, FNHSysCountryId, FTCostingLO,"
+            _Str &= vbCrLf & "   FTCostSheetNo,  FTInsUser, FDInsDate, FTInsTime,  FNRevised, FDCostSheetDate, FTCostSheetBy, FNHSysStyleId, FNHSysSeasonId, FNVersion, FTExp, FTGarmentEngineer, FTSILH, "
+            _Str &= vbCrLf & "    FTLOProductDeveloper, FTDevelopmentRegion, FTProductDevelopmentManager, FTMSC, FTDESC, FDBomDate, FDSpecDate, FNHSysCurId, FNExchangeRate, FNHSysVenderPramId, FNHSysCountryId, FTCostingLO,"
                 _Str &= vbCrLf & "     FNNoSawAppCostAmt, FNGarmentTreatmentAmt, FTStartSize, FTEndSize, FNNormalSizeAmt, FTAboveSizeBreakDownSpecial, FNAboveSpecialSizeChargePerAmt, FNAboveSpecialSizeAmt, FTLessThanSizeBreakDownSpecial,"
                 _Str &= vbCrLf & "     FNLessThanSpecialSizeChargePerAmt, FNLessThanSpecialSizeAmt, FTRemark, FTStateActive, FNHSysCmpId, FTSamFabric, FTSamTrims, FTSamPack, FTSamNoSew, FTSamGarment, FTSamOtherCost, FTSamCMP,"
-                _Str &= vbCrLf & "     FBDocument, FNISTeamMulti, FNCostSheetColor, FNCostSheetSize, FNCostSheetBuyType, FNVersion, FNCostSheetQuotedType, FTDateQuoted, FNCostSheetSampleRound, FNHSysStyleIdTo, FTQuotedLog, FNL4Country1,"
-                _Str &= vbCrLf & "     FNL4Country1Cur, FNL4Country1Exc, FNL4Country1Final, FNL4Country1Extended, FNL4Country2, FNL4Country2Cur, FNL4Country2Exc, FNL4Country2Final, FNL4Country2Extended, FNL4Country3, FNL4Country3Cur,"
+            _Str &= vbCrLf & "     FBDocument, FNISTeamMulti, FNCostSheetColor, FNCostSheetSize, FNCostSheetBuyType, FNCostSheetQuotedType, FTDateQuoted, FNCostSheetSampleRound, FNHSysStyleIdTo, FTQuotedLog, FNL4Country1,"
+            _Str &= vbCrLf & "     FNL4Country1Cur, FNL4Country1Exc, FNL4Country1Final, FNL4Country1Extended, FNL4Country2, FNL4Country2Cur, FNL4Country2Exc, FNL4Country2Final, FNL4Country2Extended, FNL4Country3, FNL4Country3Cur,"
                 _Str &= vbCrLf & "    FNL4Country3Exc, FNL4Country3Final, FNL4Country3Extended, FNTotalFabAmt, FNTotalAccAmt, FNChargeFabAmt, FNChargeAccAmt, FNProcessMatCost, FNProcessLaborCost, FNPackagingAmt, FNOtherCostAmt, FNCMP,"
                 _Str &= vbCrLf & "    FNGrandTotal, FNExtendedPer, FNExtendedFOB, FNTrinUsageAllowPer, FNL4LTotalFabric, FNL4LTotalTrim, FNL4LChargeFabric, FNL4LChargeTrim, FNL4LProMatCost, FNL4LProLaborCost, FNL4LPackaging, FNL4LOtherCost,"
-                _Str &= vbCrLf & "    FNL4LCMP, FNL4LFinalFOB, FNL4LExtendedFOB"
-                _Str &= vbCrLf & " ) "
+            _Str &= vbCrLf & "    FNL4LCMP, FNL4LFinalFOB, FNL4LExtendedFOB,FTFileName,FNLeadtime"
+            _Str &= vbCrLf & " ) "
 
 
 
@@ -535,25 +548,29 @@ Public Class wCopyCostSheet
                     _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                     _Str &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
                     _Str &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
-                    _Str &= vbCrLf & "   ,0 As  FNRevised," & HI.UL.ULDate.FormatDateDB & " AS  FDCostSheetDate,'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' AS  FTCostSheetBy"
-                Else
+                _Str &= vbCrLf & "   ,0 As  FNRevised," & HI.UL.ULDate.FormatDateDB & " AS  FDCostSheetDate,'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' AS  FTCostSheetBy"
+                _Str &= vbCrLf & "   ," & pStyleId & " As FNHSysStyleId, " & pSeasonId & " As FNHSysSeasonId, " & pxVersion & " As FNVersion"
+            Else
                     _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                     _Str &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
                     _Str &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
 
-                    _Str &= vbCrLf & "  ," & pFNRevised & " As  FNRevised,'" & pFDCostSheetDate & "' AS  FDCostSheetDate,'" & pFTCostSheetBy & "' AS  FTCostSheetBy"
-                End If
+                _Str &= vbCrLf & "  ," & pFNRevised & " As  FNRevised,'" & pFDCostSheetDate & "' AS  FDCostSheetDate,'" & pFTCostSheetBy & "' AS  FTCostSheetBy"
+                _Str &= vbCrLf & "   ," & pStyleId & " As FNHSysStyleId, " & pSeasonId & " As FNHSysSeasonId, " & pxVersion & " As FNVersion"
+            End If
 
-                _Str &= vbCrLf & "   , FNHSysStyleId, FNHSysSeasonId, FTExp, FTGarmentEngineer, FTSILH, "
-                _Str &= vbCrLf & "    FTLOProductDeveloper, FTDevelopmentRegion, FTProductDevelopmentManager, FTMSC, FTDESC, FDBomDate, FDSpecDate, FNHSysCurId, FNExchangeRate, FNHSysVenderPramId, FNHSysCountryId, FTCostingLO,"
+            _Str &= vbCrLf & "  , FTExp, FTGarmentEngineer, FTSILH, "
+            _Str &= vbCrLf & "    FTLOProductDeveloper, FTDevelopmentRegion, FTProductDevelopmentManager, FTMSC, FTDESC, FDBomDate, FDSpecDate, FNHSysCurId, FNExchangeRate, FNHSysVenderPramId, FNHSysCountryId, FTCostingLO,"
                 _Str &= vbCrLf & "     FNNoSawAppCostAmt, FNGarmentTreatmentAmt, FTStartSize, FTEndSize, FNNormalSizeAmt, FTAboveSizeBreakDownSpecial, FNAboveSpecialSizeChargePerAmt, FNAboveSpecialSizeAmt, FTLessThanSizeBreakDownSpecial,"
                 _Str &= vbCrLf & "     FNLessThanSpecialSizeChargePerAmt, FNLessThanSpecialSizeAmt, FTRemark, FTStateActive, FNHSysCmpId, FTSamFabric, FTSamTrims, FTSamPack, FTSamNoSew, FTSamGarment, FTSamOtherCost, FTSamCMP,"
-                _Str &= vbCrLf & "     FBDocument, FNISTeamMulti, FNCostSheetColor, FNCostSheetSize, FNCostSheetBuyType, FNVersion, FNCostSheetQuotedType, FTDateQuoted, FNCostSheetSampleRound, FNHSysStyleIdTo, FTQuotedLog, FNL4Country1,"
-                _Str &= vbCrLf & "     FNL4Country1Cur, FNL4Country1Exc, FNL4Country1Final, FNL4Country1Extended, FNL4Country2, FNL4Country2Cur, FNL4Country2Exc, FNL4Country2Final, FNL4Country2Extended, FNL4Country3, FNL4Country3Cur,"
+            _Str &= vbCrLf & "     FBDocument, FNISTeamMulti, FNCostSheetColor, FNCostSheetSize, FNCostSheetBuyType,  FNCostSheetQuotedType, FTDateQuoted, FNCostSheetSampleRound, FNHSysStyleIdTo, FTQuotedLog, FNL4Country1,"
+            _Str &= vbCrLf & "     FNL4Country1Cur, FNL4Country1Exc, FNL4Country1Final, FNL4Country1Extended, FNL4Country2, FNL4Country2Cur, FNL4Country2Exc, FNL4Country2Final, FNL4Country2Extended, FNL4Country3, FNL4Country3Cur,"
                 _Str &= vbCrLf & "    FNL4Country3Exc, FNL4Country3Final, FNL4Country3Extended, FNTotalFabAmt, FNTotalAccAmt, FNChargeFabAmt, FNChargeAccAmt, FNProcessMatCost, FNProcessLaborCost, FNPackagingAmt, FNOtherCostAmt, FNCMP,"
                 _Str &= vbCrLf & "    FNGrandTotal, FNExtendedPer, FNExtendedFOB, FNTrinUsageAllowPer, FNL4LTotalFabric, FNL4LTotalTrim, FNL4LChargeFabric, FNL4LChargeTrim, FNL4LProMatCost, FNL4LProLaborCost, FNL4LPackaging, FNL4LOtherCost,"
-                _Str &= vbCrLf & "    FNL4LCMP, FNL4LFinalFOB, FNL4LExtendedFOB"
-                _Str &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet  WITH(NOLOCK) "
+            _Str &= vbCrLf & "    FNL4LCMP, FNL4LFinalFOB, FNL4LExtendedFOB,FTFileName,FNLeadtime"
+
+
+            _Str &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet  WITH(NOLOCK) "
                 _Str &= vbCrLf & " WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNoSrc.Text) & "' "
 
                 _Str &= vbCrLf & " INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail  "
@@ -584,7 +601,54 @@ Public Class wCopyCostSheet
                 _Str &= vbCrLf & " WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNoSrc.Text) & "' "
 
 
-                If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+            _Str &= vbCrLf & " INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail_TeamMulti  "
+            _Str &= vbCrLf & " ( "
+            _Str &= vbCrLf & "   FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNRevised, FNVersion, FNSeq, FTMSC, FTSeason, FTStyleCode, FTColorway, FTTeamName, FNBaseFOB, FNAllowancePer, FTItem1, FTProcesssubType1, "
+            _Str &= vbCrLf & "    FTDescription1, FTSuplCode1, FNUnitPrice1, FNCIF1, FNUSAGECOST1, FNHandlingChargePercent1, FNHandlingChargeCost1, FNTotalCost1, FNImportDutyPecent1, FTItem2, FTProcesssubType2, FTDescription2, FTSuplCode2, "
+            _Str &= vbCrLf & "    FNUnitPrice2, FNCIF2, FNUSAGECOST2, FNHandlingChargePercent2, FNHandlingChargeCost2, FNTotalCost2, FNImportDutyPecent2, FTItem3, FTProcesssubType3, FTDescription3, FTSuplCode3, FNUnitPrice3, FNCIF3, "
+            _Str &= vbCrLf & "    FNUSAGECOST3, FNHandlingChargePercent3, FNHandlingChargeCost3, FNTotalCost3, FNImportDutyPecent3, FTItem4, FTProcesssubType4, FTDescription4, FTSuplCode4, FNUnitPrice4, FNCIF4, FNUSAGECOST4, "
+            _Str &= vbCrLf & "    FNHandlingChargePercent4, FNHandlingChargeCost4, FNTotalCost4, FNImportDutyPecent4, FTItem5, FTProcesssubType5, FTDescription5, FTSuplCode5, FNUnitPrice5, FNCIF5, FNUSAGECOST5, FNHandlingChargePercent5, "
+            _Str &= vbCrLf & "    FNHandlingChargeCost5, FNTotalCost5, FNImportDutyPecent5, FTItem6, FTProcesssubType6, FTDescription6, FTSuplCode6, FNUnitPrice6, FNCIF6, FNUSAGECOST6, FNHandlingChargePercent6, FNHandlingChargeCost6, "
+            _Str &= vbCrLf & "    FNTotalCost6, FNImportDutyPecent6, FTItem7, FTProcesssubType7, FTDescription7, FTSuplCode7, FNUnitPrice7, FNCIF7, FNUSAGECOST7, FNHandlingChargePercent7, FNHandlingChargeCost7, FNTotalCost7, "
+            _Str &= vbCrLf & "    FNImportDutyPecent7, FTItem8, FTProcesssubType8, FTDescription8, FTSuplCode8, FNUnitPrice8, FNCIF8, FNUSAGECOST8, FNHandlingChargePercent8, FNHandlingChargeCost8, FNTotalCost8, FNImportDutyPecent8, FTItem9, "
+            _Str &= vbCrLf & "    FTProcesssubType9, FTDescription9, FTSuplCode9, FNUnitPrice9, FNCIF9, FNUSAGECOST9, FNHandlingChargePercent9, FNHandlingChargeCost9, FNTotalCost9, FNImportDutyPecent9, FTItem10, FTProcesssubType10, "
+            _Str &= vbCrLf & "    FTDescription10, FTSuplCode10, FNUnitPrice10, FNCIF10, FNUSAGECOST10, FNHandlingChargePercent10, FNHandlingChargeCost10, FNTotalCost10, FNImportDutyPecent10, FTItem11, FTProcesssubType11, FTDescription11, "
+            _Str &= vbCrLf & "   FTSuplCode11, FNUnitPrice11, FNCIF11, FNUSAGECOST11, FNHandlingChargePercent11, FNHandlingChargeCost11, FNTotalCost11, FNImportDutyPecent11, FTItem12, FTProcesssubType12, FTDescription12, FTSuplCode12, "
+            _Str &= vbCrLf & "   FNUnitPrice12, FNCIF12, FNUSAGECOST12, FNHandlingChargePercent12, FNHandlingChargeCost12, FNTotalCost12, FNImportDutyPecent12, FTItem13, FTProcesssubType13, FTDescription13, FTSuplCode13, FNUnitPrice13, "
+            _Str &= vbCrLf & "   FNCIF13, FNUSAGECOST13, FNHandlingChargePercent13, FNHandlingChargeCost13, FNTotalCost13, FNImportDutyPecent13, FTItem14, FTProcesssubType14, FTDescription14, FTSuplCode14, FNUnitPrice14, FNCIF14, "
+            _Str &= vbCrLf & "   FNUSAGECOST14, FNHandlingChargePercent14, FNHandlingChargeCost14, FNTotalCost14, FNImportDutyPecent14, FTItem15, FTProcesssubType15, FTDescription15, FTSuplCode15, FNUnitPrice15, FNCIF15, FNUSAGECOST15, "
+            _Str &= vbCrLf & "   FNHandlingChargePercent15, FNHandlingChargeCost15, FNTotalCost15, FNImportDutyPecent15, FNTotalUsgeCost, FNTotalHandlingChargeCost, FNFINALFOB, FNEXTENDEDSIZEFOB, FTL4LORDERCNTY1, "
+            _Str &= vbCrLf & "   FTL4LCURRENCYFOB1, FNEXTENDSIZEFOBL4L1, FTL4LORDERCNTY2, FTL4LCURRENCYFOB2, FNEXTENDSIZEFOBL4L2, FTL4LORDERCNTY3, FTL4LCURRENCYFOB3, FNEXTENDSIZEFOBL4L3, FTPRODUCTDEVELOPER, "
+            _Str &= vbCrLf & "   FTRemark"
+            _Str &= vbCrLf & " ) "
+            _Str &= vbCrLf & "  SELECT  "
+
+            _Str &= vbCrLf & "'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            _Str &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+            _Str &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+
+            _Str &= vbCrLf & "   ,'" & HI.UL.ULF.rpQuoted(_Key) & "'  AS  FTCostSheetNo,  FNRevised, FNVersion, FNSeq, FTMSC, FTSeason, FTStyleCode, FTColorway, FTTeamName, FNBaseFOB, FNAllowancePer, FTItem1, FTProcesssubType1, "
+            _Str &= vbCrLf & "    FTDescription1, FTSuplCode1, FNUnitPrice1, FNCIF1, FNUSAGECOST1, FNHandlingChargePercent1, FNHandlingChargeCost1, FNTotalCost1, FNImportDutyPecent1, FTItem2, FTProcesssubType2, FTDescription2, FTSuplCode2, "
+            _Str &= vbCrLf & "    FNUnitPrice2, FNCIF2, FNUSAGECOST2, FNHandlingChargePercent2, FNHandlingChargeCost2, FNTotalCost2, FNImportDutyPecent2, FTItem3, FTProcesssubType3, FTDescription3, FTSuplCode3, FNUnitPrice3, FNCIF3, "
+            _Str &= vbCrLf & "    FNUSAGECOST3, FNHandlingChargePercent3, FNHandlingChargeCost3, FNTotalCost3, FNImportDutyPecent3, FTItem4, FTProcesssubType4, FTDescription4, FTSuplCode4, FNUnitPrice4, FNCIF4, FNUSAGECOST4, "
+            _Str &= vbCrLf & "    FNHandlingChargePercent4, FNHandlingChargeCost4, FNTotalCost4, FNImportDutyPecent4, FTItem5, FTProcesssubType5, FTDescription5, FTSuplCode5, FNUnitPrice5, FNCIF5, FNUSAGECOST5, FNHandlingChargePercent5, "
+            _Str &= vbCrLf & "    FNHandlingChargeCost5, FNTotalCost5, FNImportDutyPecent5, FTItem6, FTProcesssubType6, FTDescription6, FTSuplCode6, FNUnitPrice6, FNCIF6, FNUSAGECOST6, FNHandlingChargePercent6, FNHandlingChargeCost6, "
+            _Str &= vbCrLf & "    FNTotalCost6, FNImportDutyPecent6, FTItem7, FTProcesssubType7, FTDescription7, FTSuplCode7, FNUnitPrice7, FNCIF7, FNUSAGECOST7, FNHandlingChargePercent7, FNHandlingChargeCost7, FNTotalCost7, "
+            _Str &= vbCrLf & "    FNImportDutyPecent7, FTItem8, FTProcesssubType8, FTDescription8, FTSuplCode8, FNUnitPrice8, FNCIF8, FNUSAGECOST8, FNHandlingChargePercent8, FNHandlingChargeCost8, FNTotalCost8, FNImportDutyPecent8, FTItem9, "
+            _Str &= vbCrLf & "    FTProcesssubType9, FTDescription9, FTSuplCode9, FNUnitPrice9, FNCIF9, FNUSAGECOST9, FNHandlingChargePercent9, FNHandlingChargeCost9, FNTotalCost9, FNImportDutyPecent9, FTItem10, FTProcesssubType10, "
+            _Str &= vbCrLf & "    FTDescription10, FTSuplCode10, FNUnitPrice10, FNCIF10, FNUSAGECOST10, FNHandlingChargePercent10, FNHandlingChargeCost10, FNTotalCost10, FNImportDutyPecent10, FTItem11, FTProcesssubType11, FTDescription11, "
+            _Str &= vbCrLf & "   FTSuplCode11, FNUnitPrice11, FNCIF11, FNUSAGECOST11, FNHandlingChargePercent11, FNHandlingChargeCost11, FNTotalCost11, FNImportDutyPecent11, FTItem12, FTProcesssubType12, FTDescription12, FTSuplCode12, "
+            _Str &= vbCrLf & "   FNUnitPrice12, FNCIF12, FNUSAGECOST12, FNHandlingChargePercent12, FNHandlingChargeCost12, FNTotalCost12, FNImportDutyPecent12, FTItem13, FTProcesssubType13, FTDescription13, FTSuplCode13, FNUnitPrice13, "
+            _Str &= vbCrLf & "   FNCIF13, FNUSAGECOST13, FNHandlingChargePercent13, FNHandlingChargeCost13, FNTotalCost13, FNImportDutyPecent13, FTItem14, FTProcesssubType14, FTDescription14, FTSuplCode14, FNUnitPrice14, FNCIF14, "
+            _Str &= vbCrLf & "   FNUSAGECOST14, FNHandlingChargePercent14, FNHandlingChargeCost14, FNTotalCost14, FNImportDutyPecent14, FTItem15, FTProcesssubType15, FTDescription15, FTSuplCode15, FNUnitPrice15, FNCIF15, FNUSAGECOST15, "
+            _Str &= vbCrLf & "   FNHandlingChargePercent15, FNHandlingChargeCost15, FNTotalCost15, FNImportDutyPecent15, FNTotalUsgeCost, FNTotalHandlingChargeCost, FNFINALFOB, FNEXTENDEDSIZEFOB, FTL4LORDERCNTY1, "
+            _Str &= vbCrLf & "   FTL4LCURRENCYFOB1, FNEXTENDSIZEFOBL4L1, FTL4LORDERCNTY2, FTL4LCURRENCYFOB2, FNEXTENDSIZEFOBL4L2, FTL4LORDERCNTY3, FTL4LCURRENCYFOB3, FNEXTENDSIZEFOBL4L3, FTPRODUCTDEVELOPER, "
+            _Str &= vbCrLf & "   FTRemark"
+            _Str &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail_TeamMulti  With(NOLOCK) "
+            _Str &= vbCrLf & " WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNoSrc.Text) & "' "
+
+
+            If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                 HI.Conn.SQLConn.Tran.Rollback()
                 HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
                 HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
@@ -595,7 +659,6 @@ Public Class wCopyCostSheet
             HI.Conn.SQLConn.Tran.Commit()
             HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
             HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
-
 
 
             For Each Obj As Object In Me.Controls.Find(_FormHeader(0).MainKey, True)
@@ -740,6 +803,35 @@ Public Class wCopyCostSheet
         Me.Close()
     End Sub
 
+    Private Function VerifyData() As Boolean
+        If FTCostSheetNo.Text.Trim = "" Then
+            HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, FTCostSheetNo_lbl.Text)
+            FTCostSheetNo.Focus()
+            Return False
+        End If
+
+        If FNHSysStyleId.Text.Trim = "" Then
+            HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, FNHSysStyleId_lbl.Text)
+            FNHSysStyleId.Focus()
+            Return False
+
+        End If
+
+        If FNHSysSeasonId.Text.Trim = "" Then
+            HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, FNHSysSeasonId_lbl.Text)
+            FNHSysSeasonId.Focus()
+            Return False
+        End If
+
+        If FNVersion.Value <= 0 Then
+            HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, FNVersion_lbl.Text)
+            FNVersion.Focus()
+            Return False
+        End If
+
+        Return True
+    End Function
+
     Private Sub ocmok_Click(sender As Object, e As EventArgs) Handles ocmok.Click
         Dim _Qry As String = ""
         Dim Dt As DataTable
@@ -750,7 +842,8 @@ Public Class wCopyCostSheet
         Dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT)
         '  If Me.VerrifyData Then
         'If Dt.Rows.Count >= 0 Then
-        If (FNRevised.Value = Dt.Rows.Count - 1) Or (Dt.Rows.Count = 0) Then
+
+        If VerifyData() Then
             If Me.CopyData() Then
                 StateProcess = True
                 HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)

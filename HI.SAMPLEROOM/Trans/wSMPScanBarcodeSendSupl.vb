@@ -1223,7 +1223,7 @@ Public Class wSMPScanBarcodeSendSupl
                 If _StateDelete Then
 
                     If HI.MG.ShowMsg.mConfirmProcess(MG.ShowMsg.ProcessType.mDelete, Me.FTSendSuplNo.Text, Me.Text) = True Then
-
+                        deleteProcessall()
                         If Me.DeleteData() Then
 
                             HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mDelete, Me.Text)
@@ -1335,6 +1335,7 @@ Public Class wSMPScanBarcodeSendSupl
 
                 Return False
             End If
+
 
             HI.Conn.SQLConn.Tran.Commit()
             HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
@@ -1506,40 +1507,7 @@ Public Class wSMPScanBarcodeSendSupl
 
                 If dt.Select("FTSuplCode='" & HI.UL.ULF.rpQuoted(FNHSysSuplId.Text) & "'").Length > 0 Then
                     If dt.Rows(0)!FTSendSuplNo.ToString = "" Or dt.Rows(0)!FTSendSuplNo.ToString = Me.FTSendSuplNo.Text Then
-                        'If Integer.Parse(Val(dt.Rows(0)!FNHSysOperationIdTo.ToString)) > 0 Then
 
-                        '    Dim dtcheck As DataTable
-                        '    _Qry = "EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.SP_CheckOperationBefore_SMP '" & HI.UL.ULF.rpQuoted(FTOrderProdNo.Text) & "'," & Integer.Parse(Val(dt.Rows(0)!FNHSysOperationIdTo.ToString)) & ",'" & HI.UL.ULF.rpQuoted(FTBarcodeNo.Text) & "'"
-                        '    dtcheck = (HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_SAMPLE))
-
-                        '    If dtcheck.Rows.Count > 0 Then
-
-                        '        If Val(dtcheck.Rows(0)!FNQuantity.ToString) >= Val(dt.Rows(0)!FNQuantity.ToString) Then
-                        '            _StatePass = True
-                        '            olberror.ForeColor = Drawing.Color.Green
-
-                        '        Else
-                        '            olberror.Text = HI.MG.ShowMsg.GetMessage("ไม่สามารถ Scan เกินยอดขั้นตอนก่อนหน้าได้ !!!", 1407310004) & "   " & Format((Val(dtcheck.Rows(0)!FNQuantity.ToString)), "#,#0")
-                        '        End If
-
-                        '    Else
-
-                        '        Dim _OperationName As String = ""
-                        '        With New PROD
-                        '            _OperationName = .GetOpertionName(Integer.Parse(Val(dt.Rows(0)!FNHSysOperationIdTo.ToString)))
-                        '        End With
-
-                        '        olberror.Text = HI.MG.ShowMsg.GetMessage("ไม่พบข้อมูลขั้นตอนก่อนหน้า หรือยังไม่ได้ทำการ Scan กรุณาทำการตรวจสอบ !!!", 1407311102) & " ( " & _OperationName & " )"
-
-
-                        '        '  olberror.Text = HI.MG.ShowMsg.GetMessage("ไม่พบข้อมูลขั้นตอนก่อนหน้า หรือยังไม่ได้ทำการ Scan กรุณาทำการตรวจสอบ !!!", 1407310002)
-                        '    End If
-
-                        '    dtcheck.Dispose()
-                        'Else
-                        '    _StatePass = True
-                        '    olberror.ForeColor = Drawing.Color.Green
-                        'End If
                         _StatePass = True
                         olberror.ForeColor = Drawing.Color.Green
 
@@ -1607,6 +1575,8 @@ Public Class wSMPScanBarcodeSendSupl
 
                 If SaveBarcode(Key) Then
                     Call LoadDucumentDetail(Me.FTSendSuplNo.Text)
+                    Call updateProcess(Key)
+
                     Dim _Cmd As String = ""
                     If Me.FTStateScanSendFinish.Checked Then
                         _Cmd = "Update TSMPTSendSupl Set FTStateScanSendFinish='0'  "
@@ -1827,6 +1797,7 @@ Public Class wSMPScanBarcodeSendSupl
                             '_StyleCode = .GetStyleCodeByOrderNoSMP(_OderNo)
                             'If .CheckOperationAfter(_StyleCode, _OderProdNo, _Barcode, Integer.Parse(_Operation), _Quantity) Then
                             If DeleteBarcode(_Barcode) Then
+                                deleteProcess(_Barcode)
                                 _StateDelete = True
                             End If
                             'Else
@@ -1887,12 +1858,271 @@ Public Class wSMPScanBarcodeSendSupl
                 _Cmd &= vbCrLf & "Where FTSendSuplNo='" & HI.UL.ULF.rpQuoted(FTSendSuplNo.Text) & "'"
                 HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_SAMPLE)
 
+
                 HI.MG.ShowMsg.mInfo("Process Successfuly !!", 1705051408, Me.Text, "", MessageBoxIcon.Information)
                 Me.FTStateScanSendFinish.Checked = True
+
             End If
         Catch ex As Exception
             HI.MG.ShowMsg.mInfo("Process Fail !!!! ", 1705051408, Me.Text, "", MessageBoxIcon.Error)
             Me.FTStateScanSendFinish.Checked = False
         End Try
     End Sub
+
+
+    Private Sub updateProcess(Barcode As String)
+
+        With CType(Me.ogcdetail.DataSource, DataTable)
+            .AcceptChanges()
+
+            Dim _FNSeq As Integer = 0
+            ' Dim _Spls As New HI.TL.SplashScreen("Saving...Data Please Wait.", Me.Text)
+
+            Dim _Qry As String = ""
+            Dim _SampleState As String = ""
+            HI.Conn.DB.ConnectionString(Conn.DB.DataBaseName.DB_SAMPLE)
+            HI.Conn.SQLConn.SqlConnectionOpen()
+            HI.Conn.SQLConn.Cmd = HI.Conn.SQLConn.Cnn.CreateCommand
+            HI.Conn.SQLConn.Tran = HI.Conn.SQLConn.Cnn.BeginTransaction
+
+            Try
+
+
+
+
+
+                For Each R As DataRow In .Select("FNQuantity>0 and FTBarcodeSendSuplNo='" & Barcode & "'")
+
+                    ' _FNSeq = _FNSeq + 1
+                    _SampleState = getSampleType(Microsoft.VisualBasic.Right(Microsoft.VisualBasic.Left(R!FTBarcodeSendSuplNo.ToString, 3), 1))
+
+                    _Qry = "Select top 1  * from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess "
+                    _Qry &= vbCrLf & " where  FTSMPOrderNo  = '" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                    _Qry &= vbCrLf & " and FNSampleState=" & Val(_SampleState)
+                    _Qry &= vbCrLf & " and FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                    _Qry &= vbCrLf & " and FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                    _Qry &= vbCrLf & " and FTTeam='" & HI.UL.ULF.rpQuoted(R!FTBarcodeBundleNo.ToString) & "'"
+
+                    If HI.Conn.SQLConn.GetDataTableOnbeginTrans(_Qry).Rows.Count <= 0 Then
+
+
+
+
+
+
+                        _Qry = "Insert INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess"
+                        _Qry &= vbCrLf & "(FTInsUser, FDInsDate, FTInsTime, FTSMPOrderNo, FTTeam, FTDate, FNSeq, FNSampleState, FTSizeBreakDown,FTColorway,FNQuantity, FTRemark,FTEmp)"
+                        _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                        _Qry &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB & " "
+                        _Qry &= vbCrLf & " ," & HI.UL.ULDate.FormatTimeDB & " "
+                        _Qry &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                        _Qry &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(R!FTBarcodeBundleNo.ToString) & "'"
+                        _Qry &= vbCrLf & " ,'" & HI.UL.ULDate.ConvertEnDB(Me.FDSendSuplDate.Text) & "'"
+                        _Qry &= vbCrLf & " , isnull ( (select max(isnull(FNSeq,0) ) + 1 as FNSeq From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess  with(nolocK)   "
+                        _Qry &= vbCrLf & " where  FTSMPOrderNo  = '" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                        _Qry &= vbCrLf & " and FNSampleState=" & Val(_SampleState)
+                        _Qry &= vbCrLf & " and FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                        _Qry &= vbCrLf & " and FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                        _Qry &= vbCrLf & " ) , 1) "
+
+
+                        _Qry &= vbCrLf & " ," & Val(_SampleState) & " "
+                        _Qry &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                        _Qry &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                        _Qry &= vbCrLf & " ," & Val(R!FNQuantity.ToString) & " "
+                        _Qry &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Me.FTRemark.Text) & "'"
+                        _Qry &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted("") & "'"
+
+                        If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+
+                            HI.Conn.SQLConn.Tran.Rollback()
+                            HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                            HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+
+                            ' HI.MG.ShowMsg.mProcessNotComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
+                            ' _Spls.Close()
+
+                            Exit Sub
+
+                        End If
+                    End If
+                Next
+
+                HI.Conn.SQLConn.Tran.Commit()
+                HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+
+
+
+                '_Spls.Close()
+                'HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
+            Catch ex As Exception
+                HI.Conn.SQLConn.Tran.Rollback()
+                HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                ' _Spls.Close()
+                ' HI.MG.ShowMsg.mProcessNotComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
+            End Try
+
+        End With
+
+
+    End Sub
+
+    Private Sub deleteProcess(Barcode As String)
+
+        With CType(Me.ogcdetail.DataSource, DataTable)
+            .AcceptChanges()
+
+            Dim _FNSeq As Integer = 0
+            'Dim _Spls As New HI.TL.SplashScreen("Saving...Data Please Wait.", Me.Text)
+
+            Dim _Qry As String = ""
+            Dim _SampleState As String = ""
+            HI.Conn.DB.ConnectionString(Conn.DB.DataBaseName.DB_SAMPLE)
+            HI.Conn.SQLConn.SqlConnectionOpen()
+            HI.Conn.SQLConn.Cmd = HI.Conn.SQLConn.Cnn.CreateCommand
+            HI.Conn.SQLConn.Tran = HI.Conn.SQLConn.Cnn.BeginTransaction
+
+            Try
+
+
+                For Each R As DataRow In .Select("FNQuantity>0 and FTBarcodeSendSuplNo='" & Barcode & "'")
+
+                    _FNSeq = _FNSeq + 1
+
+                    _SampleState = getSampleType(Microsoft.VisualBasic.Right(Microsoft.VisualBasic.Left(R!FTBarcodeSendSuplNo.ToString, 3), 1))
+
+
+                    _Qry = "Delete From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess"
+                    _Qry &= vbCrLf & " where  FTSMPOrderNo  = '" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                    _Qry &= vbCrLf & " and FNSampleState=" & Val(_SampleState)
+                    _Qry &= vbCrLf & " and FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                    _Qry &= vbCrLf & " and FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                    _Qry &= vbCrLf & " and FTTeam='" & HI.UL.ULF.rpQuoted(R!FTBarcodeBundleNo.ToString) & "'"
+
+
+
+                    If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+
+                        HI.Conn.SQLConn.Tran.Rollback()
+                        HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                        HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+
+                        ' HI.MG.ShowMsg.mProcessNotComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
+                        ' _Spls.Close()
+
+                        Exit Sub
+
+                    End If
+
+                Next
+
+                HI.Conn.SQLConn.Tran.Commit()
+                HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+
+
+
+                ' _Spls.Close()
+                'HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
+            Catch ex As Exception
+                HI.Conn.SQLConn.Tran.Rollback()
+                HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                '_Spls.Close()
+                'HI.MG.ShowMsg.mProcessNotComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
+            End Try
+
+        End With
+
+
+    End Sub
+
+
+    Private Sub deleteProcessall()
+
+        With CType(Me.ogcdetail.DataSource, DataTable)
+            .AcceptChanges()
+
+            Dim _FNSeq As Integer = 0
+            'Dim _Spls As New HI.TL.SplashScreen("Saving...Data Please Wait.", Me.Text)
+
+            Dim _Qry As String = ""
+            Dim _SampleState As String = ""
+            HI.Conn.DB.ConnectionString(Conn.DB.DataBaseName.DB_SAMPLE)
+            HI.Conn.SQLConn.SqlConnectionOpen()
+            HI.Conn.SQLConn.Cmd = HI.Conn.SQLConn.Cnn.CreateCommand
+            HI.Conn.SQLConn.Tran = HI.Conn.SQLConn.Cnn.BeginTransaction
+
+            Try
+
+
+                For Each R As DataRow In .Rows
+
+                    _FNSeq = _FNSeq + 1
+
+                    _SampleState = getSampleType(Microsoft.VisualBasic.Right(Microsoft.VisualBasic.Left(R!FTBarcodeSendSuplNo.ToString, 3), 1))
+
+
+                    _Qry = "Delete From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess"
+                    _Qry &= vbCrLf & " where  FTSMPOrderNo  = '" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                    _Qry &= vbCrLf & " and FNSampleState=" & Val(_SampleState)
+                    _Qry &= vbCrLf & " and FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                    _Qry &= vbCrLf & " and FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+
+
+
+
+                    If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                        '  Exit Sub
+                    End If
+
+                Next
+
+                HI.Conn.SQLConn.Tran.Commit()
+                HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+
+
+
+                ' _Spls.Close()
+                ' HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
+            Catch ex As Exception
+                HI.Conn.SQLConn.Tran.Rollback()
+                HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                '_Spls.Close()
+                ' HI.MG.ShowMsg.mProcessNotComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
+            End Try
+
+        End With
+
+
+    End Sub
+
+
+    Private Function getSampleType(_Type As String) As String
+        Try
+            Dim _Return As String = ""
+            Select Case _Type
+                Case "H"
+                    _Return = "5"
+                Case "E"
+                    _Return = "1"
+                Case "P"
+                    _Return = "3"
+                Case "L"
+                    _Return = "7"
+                Case "D"
+                    _Return = "9"
+
+            End Select
+
+            Return _Return
+        Catch ex As Exception
+            Return ""
+        End Try
+    End Function
+
 End Class

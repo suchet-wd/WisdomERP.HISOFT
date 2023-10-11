@@ -328,10 +328,10 @@ Public Class wProdSendSuplTracking
                             _Qry &= vbCrLf & ",C.FTCmpNameEN as FTCmpName,S.FTSuplNameEN as FTSuplName ,Part.FTPartNameEN as FTPartName"
                         End If
                         _Qry &= vbCrLf & ",MAX(NKPO.FTPOref) AS FTPOref,MAX(NKLine.FTNikePOLineItem) AS FTNikePOLineItem "
-
                         _Qry &= vbCrLf & ",sum(A.FNSendQuantity) AS FNSendQuantity"
                         _Qry &= vbCrLf & ",(ISNULL(sum(B.FNRcvQuantity),0)) AS FNRcvQuantity"
                         _Qry &= vbCrLf & ",sum(A.FNSendQuantity)-(ISNULL(sum(B.FNRcvQuantity),0)) as FNBalRcvSupl"
+
                         _Qry &= vbCrLf & "from"
                         _Qry &= vbCrLf & "(select AA.FTSendSuplNo,K.FTOrderNo,K.FTBarcodeSendSuplNo,BD.FNQuantity as FNSendQuantity ,  FTSendSuplBy"
                         _Qry &= vbCrLf & ",convert(varchar(10),convert(datetime,AA.FDSendSuplDate),103) AS FDSendSuplDate"
@@ -369,7 +369,7 @@ Public Class wProdSendSuplTracking
                             _Qry &= vbCrLf & " INNER jOIN (select distinct SB.FTSendSuplNo from"
                             _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTReceiveSupl_Barcode AS RB WITH(NOLOCK) INNER jOIN"
                             _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTReceiveSupl AS R WITH(NOLOCK) ON RB.FTRcvSuplNo=R.FTRcvSuplNo LEFT OUTER JOIN"
-                            _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTSendSupl_Barcode AS SB WITH(NOLOCK) ON RB.FTBarcodeSendSuplNo=SB.FTBarcodeSendSuplNo"
+                            _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTSendSupl_Barcode AS SB WITH(NOLOCK) ON RB.FTBarcodeSendSuplNo=SB.FTBarcodeSendSuplNo "
 
                             '  _Qry &= vbCrLf & "  WHERE  R.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & ""
 
@@ -447,6 +447,7 @@ Public Class wProdSendSuplTracking
 
                         _Qry &= vbCrLf & "(select RB.FTBarcodeSendSuplNo,BD.FNQuantity as FNRcvQuantity,R.FTRcvSuplNo,R.FTRcvSuplBy"
                         _Qry &= vbCrLf & ",convert(varchar(10),convert(datetime,FDRcvSuplDate),103) as FDRcvSuplDate"
+
                         _Qry &= vbCrLf & "from"
                         _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTReceiveSupl_Barcode AS RB WITH(NOLOCK) INNER jOIN"
                         _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTReceiveSupl AS R WITH(NOLOCK) ON RB.FTRcvSuplNo=R.FTRcvSuplNo LEFT OUTER JOIN"
@@ -464,7 +465,8 @@ Public Class wProdSendSuplTracking
                             _Qry &= vbCrLf & "and R.FDRcvSuplDate<='" & UL.ULDate.ConvertEnDB(Me.FDEndRcvSuplDate.Text) & "'"
                         End If
 
-                        _Qry &= vbCrLf & ") AS B ON A.FTBarcodeSendSuplNo=B.FTBarcodeSendSuplNo"
+                        _Qry &= vbCrLf & ") AS B ON A.FTBarcodeSendSuplNo=B.FTBarcodeSendSuplNo "
+
                         _Qry &= vbCrLf & "LEFT OUtER jOIN"
                         _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS O WITH(NOLOCK) ON A.FTOrderNo=O.FTOrderNo LEFT OUTER JOIN"
                         _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp AS C WITH(NOLOCK) ON O.FNHSysCmpId=C.FNHSysCmpId LEFT OUTER JOIN"
@@ -619,19 +621,44 @@ Public Class wProdSendSuplTracking
                     Else
                         _Qry &= vbCrLf & ",C.FTCmpNameEN as FTCmpName,S.FTSuplNameEN as FTSuplName,Part.FTPartNameEN as FTPartName"
                     End If
-                    _Qry &= vbCrLf & ",(A.FNSendQuantity) AS FNSendQuantity"
-                    _Qry &= vbCrLf & ",(ISNULL(B.FNRcvQuantity,0)) AS FNRcvQuantity"
-                    _Qry &= vbCrLf & ",(A.FNSendQuantity)-(ISNULL(B.FNRcvQuantity,0)) as FNBalRcvSupl,A.FTPOLineItemNo,A.FTOrderProdNo"
+                    _Qry &= vbCrLf & " ,A.FNSendQuantity AS FNSendQuantity "
+                    _Qry &= vbCrLf & " ,B.FNRcvQuantity AS FNRcvQuantity, "
+
+
+                    '_Qry &= vbCrLf & " (A.FNSendQuantity)-(ISNULL(B.FNRcvQuantity,0)) as FNBalRcvSupl, "
+                    ' ----- Edit By Chet  10 Jun 2023 -----
+                    _Qry &= vbCrLf & " CASE WHEN (A.FNSendQuantity = ISNULL(B.FNRcvQuantity,0)) THEN "
+                    _Qry &= vbCrLf & " '0' ELSE A.FNSendQuantity - ISNULL(B.FNRcvQuantity,0) END as FNBalRcvSupl, "
+                    ' ----- End Edit By Chet  10 Jun 2023 -----
+
+
+                    _Qry &= vbCrLf & " A.FTPOLineItemNo, A.FTOrderProdNo, "
 
                     ' ----- Add By Chet  29 Mar 2023 -----
-                    _Qry &= vbCrLf & " , SS2B_BC.FTStateBranchAcceptBy as FTSendApproveBy, (ISNULL(SS2B_BC.FNBalQuantity,0)) - (ISNULL(RS2B_BC.FNBalQuantity,0))  as FTSendApproveQty, "
-                    _Qry &= vbCrLf & "  CONVERT(VARCHAR(10), Convert (DateTime, SS2B_BC.FTStateBranchAcceptDate ), 103 ) AS FTSendApproveDate "
-                    _Qry &= vbCrLf & " , A.FNSendQuantity - (ISNULL(SS2B_BC.FNBalQuantity,0)) as FTSendApproveBal"
-                    _Qry &= vbCrLf & " , RS2B_BC.FTStateBranchAcceptBy as FTRcvApproveBy, (ISNULL(RS2B_BC.FNBalQuantity,0)) as FTRcvApproveQty, "
-                    _Qry &= vbCrLf & "  Convert(VARCHAR(10), Convert(DateTime, RS2B_BC.FTStateBranchAcceptDate), 103) As FTRcvApproveDate "
-                    _Qry &= vbCrLf & " , (ISNULL(A.FNSendQuantity,0)) - (ISNULL(RS2B_BC.FNBalQuantity,0)) As FTRcvApproveBal "
-                    ' ----- End Add By Chet 29 Mar 2023 ----- 
+                    _Qry &= vbCrLf & " SS2B_BC.FTStateBranchAcceptBy as FTSendApproveBy, "
 
+                    _Qry &= vbCrLf & " CASE WHEN SS2B_BC.FTStateBranchAcceptBy is null THEN null ELSE "
+                    _Qry &= vbCrLf & " CASE WHEN ISNULL( SS2B_BC.FNBalQuantity, 0 ) = ISNULL( RS2B_BC.FNBalQuantity, 0 ) THEN "
+                    _Qry &= vbCrLf & " A.FNSendQuantity ELSE ISNULL( SS2B_BC.FNBalQuantity, 0 ) - ISNULL( RS2B_BC.FNBalQuantity, 0 ) "
+                    _Qry &= vbCrLf & " END END AS FTSendApproveQty, "
+
+                    _Qry &= vbCrLf & " CONVERT(VARCHAR(10), Convert (DateTime, SS2B_BC.FTStateBranchAcceptDate ), 103 ) AS FTSendApproveDate, "
+                    ' ----- Edit By Chet  10 Jun 2023 -----
+                    _Qry &= vbCrLf & " CASE WHEN A.FNSendQuantity >= (ISNULL(SS2B_BC.FNBalQuantity,0)) THEN "
+                    _Qry &= vbCrLf & " A.FNSendQuantity - ISNULL(SS2B_BC.FNBalQuantity,0) "
+                    _Qry &= vbCrLf & " ELSE '0' END as FTSendApproveBal, "
+                    ' ----- End Edit By Chet  10 Jun 2023 -----
+
+                    _Qry &= vbCrLf & " RS2B_BC.FTStateBranchAcceptBy as FTRcvApproveBy, "
+                    _Qry &= vbCrLf & " CASE WHEN RS2B_BC.FTStateBranchAcceptBy is not null THEN CASE WHEN RS2B_BC.FNBalQuantity >= A.FNSendQuantity THEN "
+                    _Qry &= vbCrLf & " A.FNSendQuantity ELSE RS2B_BC.FNBalQuantity END END AS FTRcvApproveQty, "
+                    _Qry &= vbCrLf & "  Convert(VARCHAR(10), Convert(DateTime, RS2B_BC.FTStateBranchAcceptDate), 103) As FTRcvApproveDate, "
+
+
+                    _Qry &= vbCrLf & " CASE WHEN SS2B_BC.FTStateBranchAcceptBy IS NOT NULL THEN CASE WHEN RS2B_BC.FTStateBranchAcceptBy IS NULL THEN "
+                    _Qry &= vbCrLf & " A.FNSendQuantity ELSE RS2B_BC.FNBalQuantity - SS2B_BC.FNBalQuantity  END END  AS FTRcvApproveBal "
+                    ' ----- End Add By Chet 29 Mar 2023 ----- 
+                    _Qry &= vbCrLf & " ,ISNULL( SPLN.FTNote, '' ) AS FTNote"
 
                     _Qry &= vbCrLf & "from"
                     _Qry &= vbCrLf & "(Select AA.FTSendSuplNo,K.FTOrderNo,K.FTBarcodeSendSuplNo,BD.FNQuantity As FNSendQuantity"
@@ -755,6 +782,11 @@ Public Class wProdSendSuplTracking
 
                     _Qry &= vbCrLf & "(select RB.FTBarcodeSendSuplNo,BD.FNQuantity as FNRcvQuantity,R.FTRcvSuplNo,R.FTRcvSuplBy"
                     _Qry &= vbCrLf & ",convert(varchar(10),convert(datetime,FDRcvSuplDate),103) as FDRcvSuplDate"
+
+                    ' Add by Chet 13 Jun 2023
+                    _Qry &= vbCrLf & " ,bd.FTBarcodeBundleNo , bd.FTPOLineItemNo "
+                    ' End Add by Chet 13 Jun 2023
+
                     _Qry &= vbCrLf & "from"
                     _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTReceiveSupl_Barcode AS RB WITH(NOLOCK) INNER jOIN"
                     _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTReceiveSupl AS R WITH(NOLOCK) ON RB.FTRcvSuplNo=R.FTRcvSuplNo LEFT OUTER JOIN"
@@ -767,7 +799,12 @@ Public Class wProdSendSuplTracking
                     If Me.FDEndRcvSuplDate.Text <> "" Then
                         _Qry &= vbCrLf & "and R.FDRcvSuplDate<='" & UL.ULDate.ConvertEnDB(Me.FDEndRcvSuplDate.Text) & "'"
                     End If
-                    _Qry &= vbCrLf & ") AS B ON A.FTBarcodeSendSuplNo=B.FTBarcodeSendSuplNo"
+
+                    'Modify by Chet 13 Jun 2023 + "and a.FTBarcodeBundleNo = b.FTBarcodeBundleNo and a.FTPOLineItemNo   = b.FTPOLineItemNo"
+                    '_Qry &= vbCrLf & ") AS B ON A.FTBarcodeSendSuplNo=B.FTBarcodeSendSuplNo"
+                    _Qry &= vbCrLf & ") AS B ON A.FTBarcodeSendSuplNo=B.FTBarcodeSendSuplNo and a.FTBarcodeBundleNo = b.FTBarcodeBundleNo and a.FTPOLineItemNo   = b.FTPOLineItemNo"
+                    'End Modify by Chet 13 Jun 2023
+
                     _Qry &= vbCrLf & "LEFT OUtER jOIN"
                     _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS O WITH(NOLOCK) ON A.FTOrderNo=O.FTOrderNo LEFT OUTER JOIN"
                     _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp AS C WITH(NOLOCK) ON O.FNHSysCmpId=C.FNHSysCmpId LEFT OUTER JOIN"
@@ -795,6 +832,8 @@ Public Class wProdSendSuplTracking
                     _Qry &= vbCrLf & " Left OUTER JOIN (select FTRcvSuplNo, FTStateBranchAcceptBy, FTStateBranchAcceptDate, FNBalQuantity, FTBarcodeSendSuplNo "
                     _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTReceiveSuplToBranch_Barcode) as RS2B_BC "
                     _Qry &= vbCrLf & " ON RS2B_BC.FTRcvSuplNo = B.FTRcvSuplNo AND RS2B_BC.FTBarcodeSendSuplNo = B.FTBarcodeSendSuplNo "
+                    _Qry &= vbCrLf & " OUTER APPLY ( SELECT FTNote FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.FNT_GetPartSendSuplDesc_SemiPart "
+                    _Qry &= vbCrLf & "(  O.FNHSysStyleId ) AS SPLN WHERE A.FNHSysPartId = SPLN.FNHSysPartId AND A.FNSendSuplType = SPLN.FNSendSuplType ) AS SPLN"
                     ' ----- End Add By Chet 29 Mar 2023 ----- 
 
 

@@ -50,6 +50,7 @@ Partial Class wImportQPPQRS
         Me.xFTSize = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.oColFNQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTMerNamne = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.sFTCmpCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
         Me.ocmImportOrder = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmReadExcel = New DevExpress.XtraEditors.SimpleButton()
@@ -67,7 +68,6 @@ Partial Class wImportQPPQRS
         Me.FNHSysCustId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysCustId_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.sFTCmpCode = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.ogbBrowseFile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbBrowseFile.SuspendLayout()
         CType(Me.FTFilePath.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -337,15 +337,25 @@ Partial Class wImportQPPQRS
         Me.FTMerNamne.VisibleIndex = 10
         Me.FTMerNamne.Width = 100
         '
+        'sFTCmpCode
+        '
+        Me.sFTCmpCode.Caption = "Factory"
+        Me.sFTCmpCode.FieldName = "FTCmpCode"
+        Me.sFTCmpCode.Name = "sFTCmpCode"
+        Me.sFTCmpCode.OptionsColumn.AllowEdit = False
+        Me.sFTCmpCode.OptionsColumn.ReadOnly = True
+        Me.sFTCmpCode.Visible = True
+        Me.sFTCmpCode.VisibleIndex = 11
+        '
         'ogbmainprocbutton
         '
         Me.ogbmainprocbutton.Controls.Add(Me.ocmImportOrder)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmReadExcel)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclearclsr)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmExit)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(68, 18)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(81, 18)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(614, 52)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(601, 52)
         Me.ogbmainprocbutton.TabIndex = 462
         Me.ogbmainprocbutton.Tag = "2|"
         '
@@ -551,16 +561,6 @@ Partial Class wImportQPPQRS
         'Timer1
         '
         Me.Timer1.Interval = 1000
-        '
-        'sFTCmpCode
-        '
-        Me.sFTCmpCode.Caption = "Factory"
-        Me.sFTCmpCode.FieldName = "FTCmpCode"
-        Me.sFTCmpCode.Name = "sFTCmpCode"
-        Me.sFTCmpCode.OptionsColumn.AllowEdit = False
-        Me.sFTCmpCode.OptionsColumn.ReadOnly = True
-        Me.sFTCmpCode.Visible = True
-        Me.sFTCmpCode.VisibleIndex = 11
         '
         'wImportQPPQRS
         '

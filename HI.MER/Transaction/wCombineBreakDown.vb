@@ -419,10 +419,13 @@ Public Class wCombineBreakDown
             For Each GridCol As DevExpress.XtraGrid.Columns.GridColumn In .Columns
 
                 With GridCol
+
                     .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
 
                     If (.OptionsColumn.AllowEdit) Then
+
                         .AppearanceCell.BackColor = Color.LightCyan
+
                     End If
 
                 End With

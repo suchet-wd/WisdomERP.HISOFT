@@ -136,7 +136,7 @@ Partial Class wSMPCalculate
         Me.ogbemployee.Location = New System.Drawing.Point(5, 84)
         Me.ogbemployee.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbemployee.Name = "ogbemployee"
-        Me.ogbemployee.Size = New System.Drawing.Size(1382, 925)
+        Me.ogbemployee.Size = New System.Drawing.Size(1382, 907)
         Me.ogbemployee.TabIndex = 4
         Me.ogbemployee.Text = "Employee"
         '
@@ -241,7 +241,7 @@ Partial Class wSMPCalculate
         Me.otxtabctrl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otxtabctrl.Name = "otxtabctrl"
         Me.otxtabctrl.SelectedTabPage = Me.otpcaltype0
-        Me.otxtabctrl.Size = New System.Drawing.Size(1378, 899)
+        Me.otxtabctrl.Size = New System.Drawing.Size(1378, 881)
         Me.otxtabctrl.TabIndex = 100001
         Me.otxtabctrl.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpcaltype0})
         '
@@ -250,7 +250,7 @@ Partial Class wSMPCalculate
         Me.otpcaltype0.Controls.Add(Me.ogc)
         Me.otpcaltype0.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpcaltype0.Name = "otpcaltype0"
-        Me.otpcaltype0.Size = New System.Drawing.Size(1368, 862)
+        Me.otpcaltype0.Size = New System.Drawing.Size(1368, 844)
         Me.otpcaltype0.Text = "คำนวณพนักงานเย็บห้องตัวอย่าง"
         '
         'ogc
@@ -262,7 +262,7 @@ Partial Class wSMPCalculate
         Me.ogc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Name = "ogc"
         Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSelect, Me.RepositoryFTApproveState, Me.ReposFTStateDaily, Me.RepQuantity})
-        Me.ogc.Size = New System.Drawing.Size(1368, 862)
+        Me.ogc.Size = New System.Drawing.Size(1368, 844)
         Me.ogc.TabIndex = 4
         Me.ogc.TabStop = False
         Me.ogc.Tag = "2|"
@@ -694,7 +694,7 @@ Partial Class wSMPCalculate
         Me.ogbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbdetail.Name = "ogbdetail"
         Me.ogbdetail.ShowCaption = False
-        Me.ogbdetail.Size = New System.Drawing.Size(1392, 1016)
+        Me.ogbdetail.Size = New System.Drawing.Size(1392, 998)
         Me.ogbdetail.TabIndex = 100001
         Me.ogbdetail.Text = "GroupControl1"
         '
@@ -702,7 +702,7 @@ Partial Class wSMPCalculate
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1392, 1016)
+        Me.ClientSize = New System.Drawing.Size(1392, 998)
         Me.Controls.Add(Me.ogbdetail)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)

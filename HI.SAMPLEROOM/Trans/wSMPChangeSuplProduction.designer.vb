@@ -75,7 +75,7 @@ Partial Class wSMPChangeSuplProduction
         Me.FNHSysCustId_None = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysCustId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysCustId_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTOrderNo = New DevExpress.XtraEditors.ButtonEdit()
+        Me.FTSMPOrderNo = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysCmpId_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysCmpId_None = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysCmpId = New DevExpress.XtraEditors.ButtonEdit()
@@ -148,7 +148,7 @@ Partial Class wSMPChangeSuplProduction
         CType(Me.FNGrandQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysCustId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysCustId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FTSMPOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysCmpId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysCmpId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysStyleId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -190,7 +190,7 @@ Partial Class wSMPChangeSuplProduction
         Me.ogborderinfo.Controls.Add(Me.FNHSysCustId_None)
         Me.ogborderinfo.Controls.Add(Me.FNHSysCustId)
         Me.ogborderinfo.Controls.Add(Me.FNHSysCustId_lbl)
-        Me.ogborderinfo.Controls.Add(Me.FTOrderNo)
+        Me.ogborderinfo.Controls.Add(Me.FTSMPOrderNo)
         Me.ogborderinfo.Controls.Add(Me.FNHSysCmpId_lbl)
         Me.ogborderinfo.Controls.Add(Me.FNHSysCmpId_None)
         Me.ogborderinfo.Controls.Add(Me.FNHSysCmpId)
@@ -213,7 +213,7 @@ Partial Class wSMPChangeSuplProduction
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmChangeSupl)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(136, 112)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(333, 135)
         Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(810, 65)
@@ -537,16 +537,16 @@ Partial Class wSMPChangeSuplProduction
         Me.FNHSysCustId_lbl.Tag = "2|"
         Me.FNHSysCustId_lbl.Text = "FNHSysCustId :"
         '
-        'FTOrderNo
+        'FTSMPOrderNo
         '
-        Me.FTOrderNo.Location = New System.Drawing.Point(164, 54)
-        Me.FTOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTOrderNo.Name = "FTOrderNo"
-        Me.FTOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "1160", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FTOrderNo.Properties.Tag = ""
-        Me.FTOrderNo.Size = New System.Drawing.Size(152, 23)
-        Me.FTOrderNo.TabIndex = 469
-        Me.FTOrderNo.Tag = "2|"
+        Me.FTSMPOrderNo.Location = New System.Drawing.Point(164, 54)
+        Me.FTSMPOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSMPOrderNo.Name = "FTSMPOrderNo"
+        Me.FTSMPOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "1160", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSMPOrderNo.Properties.Tag = ""
+        Me.FTSMPOrderNo.Size = New System.Drawing.Size(152, 23)
+        Me.FTSMPOrderNo.TabIndex = 469
+        Me.FTSMPOrderNo.Tag = "2|"
         '
         'FNHSysCmpId_lbl
         '
@@ -679,7 +679,7 @@ Partial Class wSMPChangeSuplProduction
         Me.otbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otbdetail.Name = "otbdetail"
         Me.otbdetail.SelectedTabPage = Me.otpNotSendSupl
-        Me.otbdetail.Size = New System.Drawing.Size(1340, 565)
+        Me.otbdetail.Size = New System.Drawing.Size(1340, 583)
         Me.otbdetail.TabIndex = 390
         Me.otbdetail.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpNotSendSupl, Me.otpSendSupl})
         '
@@ -688,7 +688,7 @@ Partial Class wSMPChangeSuplProduction
         Me.otpNotSendSupl.Controls.Add(Me.ogrpNotSendSupl)
         Me.otpNotSendSupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otpNotSendSupl.Name = "otpNotSendSupl"
-        Me.otpNotSendSupl.Size = New System.Drawing.Size(1330, 529)
+        Me.otpNotSendSupl.Size = New System.Drawing.Size(1330, 547)
         Me.otpNotSendSupl.Text = "Not Send Supl"
         '
         'ogrpNotSendSupl
@@ -699,7 +699,7 @@ Partial Class wSMPChangeSuplProduction
         Me.ogrpNotSendSupl.Location = New System.Drawing.Point(0, 0)
         Me.ogrpNotSendSupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogrpNotSendSupl.Name = "ogrpNotSendSupl"
-        Me.ogrpNotSendSupl.Size = New System.Drawing.Size(1330, 529)
+        Me.ogrpNotSendSupl.Size = New System.Drawing.Size(1330, 547)
         Me.ogrpNotSendSupl.TabIndex = 310
         '
         'ogcNotSendSupl
@@ -711,7 +711,7 @@ Partial Class wSMPChangeSuplProduction
         Me.ogcNotSendSupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcNotSendSupl.Name = "ogcNotSendSupl"
         Me.ogcNotSendSupl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSuplCode, Me.RepositoryItemFTSelect})
-        Me.ogcNotSendSupl.Size = New System.Drawing.Size(1326, 500)
+        Me.ogcNotSendSupl.Size = New System.Drawing.Size(1326, 518)
         Me.ogcNotSendSupl.TabIndex = 1
         Me.ogcNotSendSupl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvNotSendSupl})
         '
@@ -909,7 +909,7 @@ Partial Class wSMPChangeSuplProduction
         Me.otpSendSupl.Controls.Add(Me.ogrpSendSupl)
         Me.otpSendSupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otpSendSupl.Name = "otpSendSupl"
-        Me.otpSendSupl.Size = New System.Drawing.Size(1338, 526)
+        Me.otpSendSupl.Size = New System.Drawing.Size(1338, 544)
         Me.otpSendSupl.Text = "Send Supl"
         '
         'ogrpSendSupl
@@ -920,7 +920,7 @@ Partial Class wSMPChangeSuplProduction
         Me.ogrpSendSupl.Location = New System.Drawing.Point(0, 0)
         Me.ogrpSendSupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogrpSendSupl.Name = "ogrpSendSupl"
-        Me.ogrpSendSupl.Size = New System.Drawing.Size(1338, 526)
+        Me.ogrpSendSupl.Size = New System.Drawing.Size(1338, 544)
         Me.ogrpSendSupl.TabIndex = 1
         '
         'ochkselectall2
@@ -941,7 +941,7 @@ Partial Class wSMPChangeSuplProduction
         Me.ogcSendSupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcSendSupl.Name = "ogcSendSupl"
         Me.ogcSendSupl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemcFTSelect})
-        Me.ogcSendSupl.Size = New System.Drawing.Size(1334, 497)
+        Me.ogcSendSupl.Size = New System.Drawing.Size(1334, 515)
         Me.ogcSendSupl.TabIndex = 1
         Me.ogcSendSupl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvSendSupl})
         '
@@ -1141,7 +1141,7 @@ Partial Class wSMPChangeSuplProduction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1344, 745)
+        Me.ClientSize = New System.Drawing.Size(1344, 763)
         Me.Controls.Add(Me.otbdetail)
         Me.Controls.Add(Me.ogborderinfo)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -1160,7 +1160,7 @@ Partial Class wSMPChangeSuplProduction
         CType(Me.FNGrandQty.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysCustId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysCustId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTSMPOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysCmpId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysCmpId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysStyleId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1193,7 +1193,7 @@ Partial Class wSMPChangeSuplProduction
     Friend WithEvents FNHSysCmpId_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FNHSysCmpId_None As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FNHSysCmpId As DevExpress.XtraEditors.ButtonEdit
-    Friend WithEvents FTOrderNo As DevExpress.XtraEditors.ButtonEdit
+    Friend WithEvents FTSMPOrderNo As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FNHSysCustId_None As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FNHSysCustId As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FNHSysCustId_lbl As DevExpress.XtraEditors.LabelControl

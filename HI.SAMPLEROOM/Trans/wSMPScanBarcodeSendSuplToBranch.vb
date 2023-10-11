@@ -712,6 +712,10 @@ Public Class wSMPScanBarcodeSendSuplToBranch
         Me.LoadDataInfo(Me.FTSendSuplNo.Text)
     End Sub
 
+
+
+
+
     Private Sub ocmcancel_Click(sender As Object, e As EventArgs) Handles ocmcancel.Click
         If CheckOwner() = False Then Exit Sub
 

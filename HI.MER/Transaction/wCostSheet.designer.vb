@@ -19,6 +19,7 @@ Partial Class wCostSheet
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -444,6 +445,11 @@ Partial Class wCostSheet
         Dim SerializableAppearanceObject338 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject339 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject340 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions86 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject341 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject342 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject343 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject344 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ReposFTUse1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.ReposFTSize1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.ogbCriteria = New DevExpress.XtraEditors.GroupControl()
@@ -496,6 +502,8 @@ Partial Class wCostSheet
         Me.FTMSC = New DevExpress.XtraEditors.TextEdit()
         Me.FTLOProductDeveloper = New DevExpress.XtraEditors.TextEdit()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
+        Me.ocmbomdiffpart = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmpostdatajson = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmReadDocumentfile = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmexporttoexcel = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmbomdeleterow = New DevExpress.XtraEditors.SimpleButton()
@@ -530,6 +538,7 @@ Partial Class wCostSheet
         Me.x1FTCOFO = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.x1FTMatColor = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.x1FTSeason = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.xFTSMStatus = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.xFTMainMatColorCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemText200 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.FNHSysMerMatId_None = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -631,6 +640,7 @@ Partial Class wCostSheet
         Me.x2FTCOFO = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.x2FTMatColor = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.x2FTSeason = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.aFTSMStatus = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn252 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemTextEdit26 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.GridColumn253 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -1206,124 +1216,465 @@ Partial Class wCostSheet
         Me.RepositoryItemCalcEdit134 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
         Me.otpTeamMulti = New DevExpress.XtraTab.XtraTabPage()
         Me.ogcteamMulti = New DevExpress.XtraGrid.GridControl()
-        Me.ogvteamMulti = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFTStyleCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ogvteamMulti = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridView()
+        Me.GridBand1 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand2 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.sssFNSeq = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.sssFNRevised = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.xxFNVersion = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand3 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.xxFTMSC = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand4 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.ssFTSeason = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand5 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.xFTStyleCode = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
         Me.RepositoryItemGridLookUpEditFTStyleCode = New DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit()
         Me.GridView37 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.xxFTStyleCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.xxxFTStyleName = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.gridBand6 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.sssFTColorway = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
         Me.RepositoryItemTextEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
-        Me.GridColumn373 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.gridBand35 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand7 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.sssFTTeamName = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand8 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.ssFNBaseFOB = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand9 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand42 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.sssFTItem1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
         Me.RepositoryItemGridLookUpEditItemMulti = New DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit()
         Me.GridView34 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridColumn352 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn353 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn354 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.gridBand43 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.ssFTProcesssubType1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
         Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti = New DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit()
         Me.GridView6 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn11 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn13 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn14 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn15 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemTextEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
-        Me.GridColumn16 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn17 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.gridBand44 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.ssFTDescription1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.RepositoryItemTextEditFTDescription = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.gridBand45 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
         Me.RepositoryItemGridLookUpEditFTSuplCodeMulti = New DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit()
         Me.GridView5 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridColumn18 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn19 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn20 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn372 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn21 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.gridBand46 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.RepositoryItemCalcEditMultiFNCostPerUOM = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.gridBand47 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.RepositoryItemCalcEditMultiFNCIF = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.gridBand48 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.RepositoryItemCalcEditMultiFNUSAGECOST = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.gridBand49 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.gridBand50 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargeCost1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand51 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand52 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.gridBand10 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand67 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTItem2 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand65 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTProcesssubType2 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand59 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTDescription2 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand60 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode2 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand58 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice2 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand55 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF2 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand57 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST2 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand62 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent2 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand56 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargeCost2 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand53 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost2 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand54 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent2 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand11 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand66 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTItem3 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand61 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTProcesssubType3 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand73 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTDescription3 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand63 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode3 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand64 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice3 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand71 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF3 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand68 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST3 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand69 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent3 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand75 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargeCost3 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand72 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost3 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand70 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent3 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand12 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand74 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTItem4 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand78 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTProcesssubType4 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand82 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTDescription4 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand77 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode4 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand80 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice4 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand81 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF4 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand79 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST4 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand84 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent4 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand85 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargeCost4 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand83 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost4 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand76 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent4 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand13 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand86 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTItem5 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand87 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTProcesssubType5 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand89 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTDescription5 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand90 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode5 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand88 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice5 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand95 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF5 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand91 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST5 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand93 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent5 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand94 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargeCost5 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand92 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost5 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand96 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent5 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand14 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand97 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTItem6 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand102 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTProcesssubType6 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand104 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTDescription6 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand100 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode6 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand107 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice6 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand103 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF6 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand106 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST6 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand98 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent6 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand101 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargeCost6 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand105 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost6 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand99 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent6 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand15 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand108 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTItem7 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand109 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTProcesssubType7 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand115 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTDescription7 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand110 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode7 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand116 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice7 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand114 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF7 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand113 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST7 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand111 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent7 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.FNHandlingChargeCost7 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand118 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand117 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost7 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand112 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent7 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand16 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand119 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTItem8 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand120 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTProcesssubType8 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand121 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTDescription8 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand122 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode8 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand123 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice8 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand124 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF8 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand125 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST8 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand126 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent8 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand127 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargeCost8 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand128 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost8 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand129 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent8 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand17 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand130 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTItem9 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand131 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTProcesssubType9 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand132 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTDescription9 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand133 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode9 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand134 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice9 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand135 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF9 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand136 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST9 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand137 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent9 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand138 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargeCost9 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand139 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost9 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand140 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent9 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand18 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand141 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTItem10 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand142 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTProcesssubType10 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand143 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTDescription10 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand144 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode10 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand145 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice10 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand146 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF10 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand147 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST10 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand148 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent10 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand149 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargeCost10 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand150 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost10 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand151 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent10 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand19 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand152 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTItem11 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand153 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTProcesssubType11 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand154 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTDescription11 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand155 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode11 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand156 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice11 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand157 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF11 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand158 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST11 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand159 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent11 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand160 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargeCost11 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand161 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost11 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand162 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent11 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand20 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand163 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTItem12 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand164 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTProcesssubType12 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand165 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTDescription12 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand166 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode12 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand167 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice12 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand168 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF12 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand169 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST12 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand170 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent12 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand171 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargeCost12 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand172 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost12 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand173 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent12 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand21 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand174 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTItem13 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand175 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTProcesssubType13 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand176 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTDescription13 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand177 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode13 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand178 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice13 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand179 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF13 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand180 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST13 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand181 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent13 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand182 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargeCost13 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand183 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost13 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand184 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent13 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand22 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand185 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTItem14 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand186 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTProcesssubType14 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand187 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTDescription14 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand188 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode14 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand189 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice14 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand190 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF14 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand191 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST14 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand192 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent14 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand193 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargeCost14 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand194 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost14 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand195 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent14 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand23 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand196 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTItem15 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand197 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTProcesssubType15 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand198 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTDescription15 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand200 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTSuplCode15 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand201 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUnitPrice15 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand202 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNCIF15 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand203 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNUSAGECOST15 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand199 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargePercent15 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand34 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNHandlingChargeCost15 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand31 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalCost15 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand32 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNImportDutyPecent15 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand24 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand33 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalUsgeCost = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand36 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNTotalHandlingChargeCost = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand40 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNFINALFOB = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand38 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNEXTENDEDSIZEFOB = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand41 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTL4LORDERCNTY1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand37 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTL4LCURRENCYFOB1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand39 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNEXTENDSIZEFOBL4L1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand204 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTL4LORDERCNTY2 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand206 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTL4LCURRENCYFOB2 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand205 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNEXTENDSIZEFOBL4L2 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand25 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.gridBand28 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTL4LORDERCNTY3 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand29 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTL4LCURRENCYFOB3 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand30 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FNEXTENDSIZEFOBL4L3 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.gridBand27 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.FTPRODUCTDEVELOPER = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.RepositoryItemTextEditFTPRODUCTDEVELOPER = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.gridBand26 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
+        Me.sssFTRemark = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.RepositoryItemTextEditRemark = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.sssFNAllowancePer = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.RepositoryItemButtonEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.RepositoryItemButtonEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.RepositoryItemCalcEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemCalcEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemCalcEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemCalcEdit5 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemCalcEdit6 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemCalcEdit8 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemCalcEdit10 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemCalcEdit11 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemCalcEdit12 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemButtonEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.RepositoryItemButtonEdit5 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.RepositoryItemCalcEdit16 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemCalcEdit17 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemCalcEdit18 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemCalcEdit19 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemCalcEdit15 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.RepositoryItemTextEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.RepositoryItemTextEdit5 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.RepositoryItemGridLookUpEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit()
+        Me.GridView8 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn31 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemComboBox1 = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
         Me.RepositoryItemGridLookUpEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit()
         Me.GridView7 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridColumn22 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn23 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn24 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn25 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn26 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemTextEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
-        Me.GridColumn27 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemTextEdit5 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
-        Me.GridColumn28 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEditMultiFNUSAGECOST = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn29 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn30 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemGridLookUpEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit()
-        Me.GridView8 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.GridColumn31 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn32 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn33 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn34 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit5 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn35 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit6 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn38 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn39 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemComboBox1 = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
-        Me.GridColumn40 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn41 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEditMultiFNCostPerUOM = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn42 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit8 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn43 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEditMultiFNCIF = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn44 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit10 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn45 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit11 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn46 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit12 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn47 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn48 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn49 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGECOST = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.xFNTOTALTRIMPROCESSCOST = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn50 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn51 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit15 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn52 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit16 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn53 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit17 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn350 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit18 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.GridColumn351 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCalcEdit19 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.xFNTOTALUSAGECOST = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFNTOTALHANDINGCHANGECOST = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFNFINALFOB = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFNEXTENDEDSIZEFOB = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFTL4LORDERCNTY1 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFTL4LCURRENCYFOB1 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFNEXTENDSIZEFOBL4L1 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFTL4LORDERCNTY2 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFTL4LCURRENCYFOB2 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFNEXTENDSIZEFOBL4L2 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFTL4LORDERCNTY3 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFTL4LCURRENCYFOB3 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFNEXTENDSIZEFOBL4L3 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFTPRODUCTDEVELOPER = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemTextEditRemark = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
-        Me.xFTRemark = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemButtonEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
-        Me.RepositoryItemButtonEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
-        Me.RepositoryItemButtonEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
-        Me.RepositoryItemButtonEdit5 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
-        Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.otpattach = New DevExpress.XtraTab.XtraTabPage()
         Me.ExcelAttach = New DevExpress.XtraSpreadsheet.SpreadsheetControl()
         Me.otpnosew = New DevExpress.XtraTab.XtraTabPage()
@@ -1383,6 +1734,22 @@ Partial Class wCostSheet
         Me.ReposFTSize2 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.XtraTabPage1 = New DevExpress.XtraTab.XtraTabPage()
         Me.opshet = New DevExpress.XtraSpreadsheet.SpreadsheetControl()
+        Me.otpfilemark = New DevExpress.XtraTab.XtraTabPage()
+        Me.PdfViewer1 = New DevExpress.XtraPdfViewer.PdfViewer()
+        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
+        Me.ocmselectfilemark = New DevExpress.XtraEditors.SimpleButton()
+        Me.otpjson = New DevExpress.XtraTab.XtraTabPage()
+        Me.ogcjsondetail = New DevExpress.XtraGrid.GridControl()
+        Me.ogvjsondetail = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSendType = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSendStatus = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSendStatusDescription = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSendUser = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FDSendDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSendTime = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSendByMail = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryFTSelect = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
         Me.ogbdocinfo = New DevExpress.XtraEditors.GroupControl()
         Me.FNRevised = New DevExpress.XtraEditors.CalcEdit()
@@ -1393,6 +1760,9 @@ Partial Class wCostSheet
         Me.FDCostSheetDate_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTCostSheetNo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.ogbSum = New DevExpress.XtraEditors.GroupControl()
+        Me.FNLeadtime_lbl2 = New DevExpress.XtraEditors.LabelControl()
+        Me.FNLeadtime = New DevExpress.XtraEditors.CalcEdit()
+        Me.FNLeadtime_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNL4LCMP = New DevExpress.XtraEditors.CalcEdit()
         Me.FNL4LOtherCost = New DevExpress.XtraEditors.CalcEdit()
         Me.FNL4LPackaging = New DevExpress.XtraEditors.CalcEdit()
@@ -1490,6 +1860,12 @@ Partial Class wCostSheet
         Me.LabelControl19 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl17 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl()
+        Me.FTFileName = New DevExpress.XtraEditors.TextEdit()
+        Me.FTPicName = New DevExpress.XtraEditors.PictureEdit()
+        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
+        Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
+        Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
+        Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
         CType(Me.ReposFTUse1, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ReposFTSize1, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ogbCriteria, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1831,42 +2207,43 @@ Partial Class wCostSheet
         CType(Me.GridView34, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.GridView6, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemTextEdit3, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemTextEditFTDescription, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemGridLookUpEditFTSuplCodeMulti, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.GridView5, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemGridLookUpEdit3, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.GridView7, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemTextEdit4, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemTextEdit5, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEditMultiFNCostPerUOM, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEditMultiFNCIF, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemCalcEditMultiFNUSAGECOST, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemTextEditFTPRODUCTDEVELOPER, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemTextEditRemark, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemButtonEdit2, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemButtonEdit3, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemCalcEdit2, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemGridLookUpEdit4, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.GridView8, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemCalcEdit3, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemCalcEdit4, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemCalcEdit5, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemCalcEdit6, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemCalcEditMultiFNCostPerUOM, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemCalcEdit8, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemCalcEditMultiFNCIF, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemCalcEdit10, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemCalcEdit11, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemCalcEdit12, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGECOST, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemCalcEdit15, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemButtonEdit4, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemButtonEdit5, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemCalcEdit16, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemCalcEdit17, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemCalcEdit18, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemCalcEdit19, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemTextEditRemark, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemButtonEdit2, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemButtonEdit3, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemButtonEdit4, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemButtonEdit5, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEdit15, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemTextEdit4, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemTextEdit5, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemGridLookUpEdit4, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.GridView8, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemGridLookUpEdit3, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.GridView7, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGECOST, System.ComponentModel.ISupportInitialize).BeginInit
         Me.otpattach.SuspendLayout
         Me.otpnosew.SuspendLayout
         CType(Me.ogcnosew, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1891,6 +2268,13 @@ Partial Class wCostSheet
         CType(Me.ReposFTUse2, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ReposFTSize2, System.ComponentModel.ISupportInitialize).BeginInit
         Me.XtraTabPage1.SuspendLayout
+        Me.otpfilemark.SuspendLayout
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.PanelControl1.SuspendLayout
+        Me.otpjson.SuspendLayout
+        CType(Me.ogcjsondetail, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogvjsondetail, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryFTSelect, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit
         Me.GroupControl1.SuspendLayout
         CType(Me.ogbdocinfo, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1902,6 +2286,7 @@ Partial Class wCostSheet
         CType(Me.FDCostSheetDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ogbSum, System.ComponentModel.ISupportInitialize).BeginInit
         Me.ogbSum.SuspendLayout
+        CType(Me.FNLeadtime.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FNL4LCMP.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FNL4LOtherCost.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FNL4LPackaging.Properties, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1971,6 +2356,13 @@ Partial Class wCostSheet
         CType(Me.FNL4Country3.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FNL4Country2.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FNL4Country1.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTFileName.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTPicName.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.DockPanel1.SuspendLayout
+        Me.DockPanel1_Container.SuspendLayout
+        CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.PanelControl2.SuspendLayout
         Me.SuspendLayout
         '
         'ReposFTUse1
@@ -1991,10 +2383,10 @@ Partial Class wCostSheet
         Me.ogbCriteria.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogbCriteria.Controls.Add(Me.XtraScrollableControl1)
-        Me.ogbCriteria.Location = New System.Drawing.Point(782, 137)
+        Me.ogbCriteria.Location = New System.Drawing.Point(753, 138)
         Me.ogbCriteria.Name = "ogbCriteria"
         Me.ogbCriteria.ShowCaption = False
-        Me.ogbCriteria.Size = New System.Drawing.Size(688, 205)
+        Me.ogbCriteria.Size = New System.Drawing.Size(713, 205)
         Me.ogbCriteria.TabIndex = 0
         Me.ogbCriteria.Text = "Criteria"
         '
@@ -2043,7 +2435,7 @@ Partial Class wCostSheet
         Me.XtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 2)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(684, 201)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(709, 201)
         Me.XtraScrollableControl1.TabIndex = 0
         '
         'FTAboveSizeBreakDownSpecial_lbl
@@ -2288,7 +2680,7 @@ Partial Class wCostSheet
         Me.FTStateActive.Location = New System.Drawing.Point(488, 4)
         Me.FTStateActive.Name = "FTStateActive"
         Me.FTStateActive.Properties.Caption = "State Active"
-        Me.FTStateActive.Size = New System.Drawing.Size(99, 20)
+        Me.FTStateActive.Size = New System.Drawing.Size(99, 21)
         Me.FTStateActive.TabIndex = 45
         '
         'FTProductDevelopmentManager_lbl
@@ -2426,7 +2818,7 @@ Partial Class wCostSheet
         '
         'FNHSysCmpId
         '
-        Me.FNHSysCmpId.Location = New System.Drawing.Point(48, 61)
+        Me.FNHSysCmpId.Location = New System.Drawing.Point(48, 47)
         Me.FNHSysCmpId.Name = "FNHSysCmpId"
         Me.FNHSysCmpId.Size = New System.Drawing.Size(21, 20)
         Me.FNHSysCmpId.TabIndex = 144
@@ -2494,6 +2886,8 @@ Partial Class wCostSheet
         'ogbmainprocbutton
         '
         Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomdiffpart)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmpostdatajson)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmReadDocumentfile)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexporttoexcel)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmbomdeleterow)
@@ -2505,15 +2899,36 @@ Partial Class wCostSheet
         Me.ogbmainprocbutton.Controls.Add(Me.ocmsave)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmbomaddnew)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(132, 231)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(210, 194)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(967, 116)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(996, 64)
         Me.ogbmainprocbutton.TabIndex = 138
         Me.ogbmainprocbutton.Tag = "2|"
         '
+        'ocmbomdiffpart
+        '
+        Me.ocmbomdiffpart.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmbomdiffpart.Location = New System.Drawing.Point(631, 39)
+        Me.ocmbomdiffpart.Name = "ocmbomdiffpart"
+        Me.ocmbomdiffpart.Size = New System.Drawing.Size(70, 25)
+        Me.ocmbomdiffpart.TabIndex = 112
+        Me.ocmbomdiffpart.TabStop = False
+        Me.ocmbomdiffpart.Tag = "2|"
+        Me.ocmbomdiffpart.Text = "DiffPart"
+        '
+        'ocmpostdatajson
+        '
+        Me.ocmpostdatajson.Location = New System.Drawing.Point(492, 6)
+        Me.ocmpostdatajson.Name = "ocmpostdatajson"
+        Me.ocmpostdatajson.Size = New System.Drawing.Size(95, 25)
+        Me.ocmpostdatajson.TabIndex = 111
+        Me.ocmpostdatajson.TabStop = False
+        Me.ocmpostdatajson.Tag = "2|"
+        Me.ocmpostdatajson.Text = "Export To Json"
+        '
         'ocmReadDocumentfile
         '
-        Me.ocmReadDocumentfile.Location = New System.Drawing.Point(821, 7)
+        Me.ocmReadDocumentfile.Location = New System.Drawing.Point(252, 38)
         Me.ocmReadDocumentfile.Name = "ocmReadDocumentfile"
         Me.ocmReadDocumentfile.Size = New System.Drawing.Size(75, 23)
         Me.ocmReadDocumentfile.TabIndex = 106
@@ -2523,7 +2938,7 @@ Partial Class wCostSheet
         '
         'ocmexporttoexcel
         '
-        Me.ocmexporttoexcel.Location = New System.Drawing.Point(495, 40)
+        Me.ocmexporttoexcel.Location = New System.Drawing.Point(5, 39)
         Me.ocmexporttoexcel.Name = "ocmexporttoexcel"
         Me.ocmexporttoexcel.Size = New System.Drawing.Size(75, 23)
         Me.ocmexporttoexcel.TabIndex = 105
@@ -2532,8 +2947,7 @@ Partial Class wCostSheet
         '
         'ocmbomdeleterow
         '
-        Me.ocmbomdeleterow.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmbomdeleterow.Location = New System.Drawing.Point(505, 6)
+        Me.ocmbomdeleterow.Location = New System.Drawing.Point(359, 39)
         Me.ocmbomdeleterow.Name = "ocmbomdeleterow"
         Me.ocmbomdeleterow.Size = New System.Drawing.Size(75, 23)
         Me.ocmbomdeleterow.TabIndex = 104
@@ -2599,8 +3013,7 @@ Partial Class wCostSheet
         '
         'ocmbomaddnew
         '
-        Me.ocmbomaddnew.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmbomaddnew.Location = New System.Drawing.Point(586, 6)
+        Me.ocmbomaddnew.Location = New System.Drawing.Point(438, 38)
         Me.ocmbomaddnew.Name = "ocmbomaddnew"
         Me.ocmbomaddnew.Size = New System.Drawing.Size(75, 23)
         Me.ocmbomaddnew.TabIndex = 97
@@ -2609,7 +3022,7 @@ Partial Class wCostSheet
         '
         'ocmexit
         '
-        Me.ocmexit.Location = New System.Drawing.Point(738, 7)
+        Me.ocmexit.Location = New System.Drawing.Point(169, 38)
         Me.ocmexit.Name = "ocmexit"
         Me.ocmexit.Size = New System.Drawing.Size(75, 23)
         Me.ocmexit.TabIndex = 96
@@ -2674,18 +3087,18 @@ Partial Class wCostSheet
         'otb
         '
         Me.otb.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.otb.Location = New System.Drawing.Point(2, 23)
+        Me.otb.Location = New System.Drawing.Point(2, 25)
         Me.otb.Name = "otb"
         Me.otb.SelectedTabPage = Me.otpfabric
-        Me.otb.Size = New System.Drawing.Size(1474, 258)
+        Me.otb.Size = New System.Drawing.Size(1473, 329)
         Me.otb.TabIndex = 1
-        Me.otb.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpfabric, Me.otptrim, Me.otpProcessMaterial, Me.otpProcessLabor, Me.otppack, Me.otpCMP, Me.otpbemis, Me.otpTeamMulti, Me.otpattach, Me.otpnosew, Me.XtraTabPage1})
+        Me.otb.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpfabric, Me.otptrim, Me.otpProcessMaterial, Me.otpProcessLabor, Me.otppack, Me.otpCMP, Me.otpbemis, Me.otpTeamMulti, Me.otpattach, Me.otpnosew, Me.XtraTabPage1, Me.otpfilemark, Me.otpjson})
         '
         'otpfabric
         '
         Me.otpfabric.Controls.Add(Me.ogcfabric)
         Me.otpfabric.Name = "otpfabric"
-        Me.otpfabric.Size = New System.Drawing.Size(1472, 233)
+        Me.otpfabric.Size = New System.Drawing.Size(1471, 304)
         Me.otpfabric.Text = "Fabric"
         '
         'ogcfabric
@@ -2695,7 +3108,7 @@ Partial Class wCostSheet
         Me.ogcfabric.MainView = Me.ogvfabric
         Me.ogcfabric.Name = "ogcfabric"
         Me.ogcfabric.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTMainMatCode, Me.RepositoryFNHSysSuplId, Me.RepositoryWeightCalcEdit, Me.RepositoryWidthCalcEdit, Me.RepositoryMarkEffCalcEdit, Me.FabRepositoryMarkUseNetSuage, Me.FabRepositoryPerAllowCalcEdit, Me.RepositoryTotalUseCalcEdit, Me.FabRepositoryCostNetPrice, Me.RepositoryYardCalcEdit, Me.FabRepositoryCifCalcEditCIF, Me.RepositoryUsExtendCalcEdit, Me.RepositoryChargePerCalcEdit, Me.RepositoryChargeUsCalcEdit, Me.RepositoryFTUnitCode, Me.RepositoryItemButtonEdit1, Me.RepositoryItemChinaCost, Me.RepositoryItemMalaysiaCost, Me.RepositoryItemThaiCost, Me.RepositoryItemJapanCost, Me.RepositoryImportDutyCalcEdit, Me.ReposFLG, Me.ReposFTUse, Me.ReposFTSize, Me.RepositoryItemText200, Me.RepositoryItemText400, Me.FabRepositoryItemCalcFNIMPORTDUTYPERCENT, Me.FabRepositoryItemCalcFNHANDLINGCHARGEPERCENT, Me.RepositoryItemGridLookUpFTUnitCode, Me.RepositoryItemComboBoxFNRMDSStatus, Me.RepositoryItemGridLookUpEditCFCO, Me.RepositoryItemGridLookUpEditFTSuplCode, Me.RepositoryItemGridLookUpEditFTMainMatCode, Me.RepositoryItemTextSeason, Me.RepositoryItemGridLookUpEditUOMWidth})
-        Me.ogcfabric.Size = New System.Drawing.Size(1472, 233)
+        Me.ogcfabric.Size = New System.Drawing.Size(1471, 304)
         Me.ogcfabric.TabIndex = 4
         Me.ogcfabric.TabStop = False
         Me.ogcfabric.Tag = "2|"
@@ -2782,7 +3195,7 @@ Partial Class wCostSheet
         '
         'GridView3
         '
-        Me.GridView3.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.xxFTMainMatCode, Me.xFTMainMatName, Me.xFNHSysMainMatId, Me.x1FTSuplCode, Me.x1FTCOFO, Me.x1FTMatColor, Me.x1FTSeason})
+        Me.GridView3.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.xxFTMainMatCode, Me.xFTMainMatName, Me.xFNHSysMainMatId, Me.x1FTSuplCode, Me.x1FTCOFO, Me.x1FTMatColor, Me.x1FTSeason, Me.xFTSMStatus})
         Me.GridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
         Me.GridView3.Name = "GridView3"
         Me.GridView3.OptionsSelection.EnableAppearanceFocusedCell = False
@@ -2867,6 +3280,17 @@ Partial Class wCostSheet
         Me.x1FTSeason.Visible = True
         Me.x1FTSeason.VisibleIndex = 5
         Me.x1FTSeason.Width = 100
+        '
+        'xFTSMStatus
+        '
+        Me.xFTSMStatus.Caption = "Status"
+        Me.xFTSMStatus.FieldName = "FTSMStatus"
+        Me.xFTSMStatus.Name = "xFTSMStatus"
+        Me.xFTSMStatus.OptionsColumn.AllowEdit = False
+        Me.xFTSMStatus.OptionsColumn.ReadOnly = True
+        Me.xFTSMStatus.Visible = True
+        Me.xFTSMStatus.VisibleIndex = 6
+        Me.xFTSMStatus.Width = 80
         '
         'xFTMainMatColorCode
         '
@@ -3728,7 +4152,7 @@ Partial Class wCostSheet
         '
         Me.otptrim.Controls.Add(Me.ogctrims)
         Me.otptrim.Name = "otptrim"
-        Me.otptrim.Size = New System.Drawing.Size(1472, 233)
+        Me.otptrim.Size = New System.Drawing.Size(1471, 304)
         Me.otptrim.Text = "Trims"
         '
         'ogctrims
@@ -3738,7 +4162,7 @@ Partial Class wCostSheet
         Me.ogctrims.MainView = Me.ogvtrims
         Me.ogctrims.Name = "ogctrims"
         Me.ogctrims.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemButtonEdit22, Me.RepositoryItemButtonEdit23, Me.RepositoryItemCalcEdit96, Me.RepositoryItemCalcEdit97, Me.RepositoryItemCalcEdit98, Me.TrimsFNMarkerUsed, Me.TrimsFNAllowancePer, Me.RepositoryItemCalcEdit101, Me.TrimsFNCostPerUOM, Me.RepositoryItemCalcEdit103, Me.TrimsFNCIF, Me.RepositoryItemCalcEdit105, Me.RepositoryItemCalcEdit106, Me.RepositoryItemCalcEdit107, Me.RepositoryItemButtonEdit24, Me.RepositoryItemButtonEdit25, Me.RepositoryItemCalcEdit111, Me.RepositoryItemCalcEdit112, Me.RepositoryItemCalcEdit113, Me.RepositoryItemCalcEdit114, Me.RepositoryItemCalcEdit110, Me.RepositoryItemTextEdit30, Me.RepositoryItemTextEdit28, Me.RepositoryItemTextEdit29, Me.RepositoryItemTextEdit26, Me.RepositoryItemTextEdit27, Me.TrimsFNIMPORTDUTYPERCENT, Me.TrimsFNHANDLINGCHARGEPERCENT, Me.RepositoryItemGridLookUpEditFTUnitCodeTrim, Me.RepositoryItemComboBox6, Me.RepositoryItemGridLookUpEditFTCOFOTrim, Me.RepositoryItemGridLookUpEditFTSuplCodeTrim, Me.RepositoryItemGridLookUpEditFTMainMatCodeTrim, Me.RepositoryItemGridLookUpEditUOMWidthtrim})
-        Me.ogctrims.Size = New System.Drawing.Size(1472, 233)
+        Me.ogctrims.Size = New System.Drawing.Size(1471, 304)
         Me.ogctrims.TabIndex = 5
         Me.ogctrims.TabStop = False
         Me.ogctrims.Tag = "2|"
@@ -3825,7 +4249,7 @@ Partial Class wCostSheet
         '
         'GridView30
         '
-        Me.GridView30.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn249, Me.GridColumn250, Me.GridColumn251, Me.x3FTSuplcode, Me.x2FTCOFO, Me.x2FTMatColor, Me.x2FTSeason})
+        Me.GridView30.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn249, Me.GridColumn250, Me.GridColumn251, Me.x3FTSuplcode, Me.x2FTCOFO, Me.x2FTMatColor, Me.x2FTSeason, Me.aFTSMStatus})
         Me.GridView30.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
         Me.GridView30.Name = "GridView30"
         Me.GridView30.OptionsSelection.EnableAppearanceFocusedCell = False
@@ -3910,6 +4334,17 @@ Partial Class wCostSheet
         Me.x2FTSeason.Visible = True
         Me.x2FTSeason.VisibleIndex = 5
         Me.x2FTSeason.Width = 100
+        '
+        'aFTSMStatus
+        '
+        Me.aFTSMStatus.Caption = "Status"
+        Me.aFTSMStatus.FieldName = "FTSMStatus"
+        Me.aFTSMStatus.Name = "aFTSMStatus"
+        Me.aFTSMStatus.OptionsColumn.AllowEdit = False
+        Me.aFTSMStatus.OptionsColumn.ReadOnly = True
+        Me.aFTSMStatus.Visible = True
+        Me.aFTSMStatus.VisibleIndex = 6
+        Me.aFTSMStatus.Width = 80
         '
         'GridColumn252
         '
@@ -4752,7 +5187,7 @@ Partial Class wCostSheet
         '
         Me.otpProcessMaterial.Controls.Add(Me.ogcprocessmat)
         Me.otpProcessMaterial.Name = "otpProcessMaterial"
-        Me.otpProcessMaterial.Size = New System.Drawing.Size(1472, 233)
+        Me.otpProcessMaterial.Size = New System.Drawing.Size(1471, 304)
         Me.otpProcessMaterial.Text = "Process Material"
         '
         'ogcprocessmat
@@ -4762,7 +5197,7 @@ Partial Class wCostSheet
         Me.ogcprocessmat.MainView = Me.ogvprocessmat
         Me.ogcprocessmat.Name = "ogcprocessmat"
         Me.ogcprocessmat.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemButtonEdit6, Me.RepositoryItemButtonEdit7, Me.RepositoryItemCalcEdit20, Me.RepositoryItemCalcEdit21, Me.RepositoryItemCalcEdit22, Me.RepositoryItemCalcEditNetusageMat, Me.RepositoryItemCalcEditAllowanceMat, Me.RepositoryItemCalcEdit25, Me.RepositoryItemCalcEditpricemat, Me.RepositoryItemCalcEdit27, Me.RepositoryItemCalcEdit28, Me.RepositoryItemCalcEdit29, Me.RepositoryItemCalcEdit30, Me.RepositoryItemCalcEdit31, Me.RepositoryItemButtonEdit8, Me.RepositoryItemButtonEdit9, Me.RepositoryItemCalcEdit35, Me.RepositoryItemCalcEdit36, Me.RepositoryItemCalcEdit37, Me.RepositoryItemCalcEdit38, Me.RepositoryItemCalcEdit34, Me.RepositoryItemTextEdit10, Me.RepositoryItemTextEdit8, Me.RepositoryItemTextEdit9, Me.RepositoryItemTextEdit6, Me.RepositoryItemTextEdit7, Me.RepositoryItemCalcEdit33, Me.RepositoryItemCalcEdit32, Me.RepositoryItemGridLookUpEditFTUnitCodeProcessMat, Me.RepositoryItemComboBox2, Me.RepositoryItemGridLookUpEditFTCOFOProcessMat, Me.RepositoryItemGridLookUpEditFTSuplCodeProcessMat, Me.RepositoryItemGridLookUpEditFTMainMatCodeProcessMat, Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMat})
-        Me.ogcprocessmat.Size = New System.Drawing.Size(1472, 233)
+        Me.ogcprocessmat.Size = New System.Drawing.Size(1471, 304)
         Me.ogcprocessmat.TabIndex = 5
         Me.ogcprocessmat.TabStop = False
         Me.ogcprocessmat.Tag = "2|"
@@ -5740,7 +6175,7 @@ Partial Class wCostSheet
         '
         Me.otpProcessLabor.Controls.Add(Me.ogcprocesslabor)
         Me.otpProcessLabor.Name = "otpProcessLabor"
-        Me.otpProcessLabor.Size = New System.Drawing.Size(1472, 233)
+        Me.otpProcessLabor.Size = New System.Drawing.Size(1471, 304)
         Me.otpProcessLabor.Text = "Process Labor"
         '
         'ogcprocesslabor
@@ -5750,7 +6185,7 @@ Partial Class wCostSheet
         Me.ogcprocesslabor.MainView = Me.ogvprocesslabor
         Me.ogcprocesslabor.Name = "ogcprocesslabor"
         Me.ogcprocesslabor.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemButtonEdit26, Me.RepositoryItemButtonEdit27, Me.RepositoryItemCalcEdit115, Me.RepositoryItemCalcEdit116, Me.RepositoryItemCalcEdit117, Me.RepositoryItemCalcEdit118, Me.RepositoryItemCalcEdit119, Me.RepositoryItemCalcEditGrossusagelabor, Me.RepositoryItemCalcEditFNCostPerUOMLabor, Me.RepositoryItemCalcEdit122, Me.RepositoryItemCalcEdit123, Me.RepositoryItemCalcEdit124, Me.RepositoryItemCalcEdit125, Me.RepositoryItemCalcEdit126, Me.RepositoryItemButtonEdit28, Me.RepositoryItemButtonEdit29, Me.RepositoryItemCalcEdit130, Me.RepositoryItemCalcEdit131, Me.RepositoryItemCalcEdit132, Me.RepositoryItemCalcEdit133, Me.RepositoryItemCalcEdit129, Me.RepositoryItemTextEdit35, Me.RepositoryItemTextEdit33, Me.RepositoryItemTextEdit34, Me.RepositoryItemTextEdit31, Me.RepositoryItemTextEdit32, Me.RepositoryItemCalcEdit128, Me.RepositoryItemCalcEdit127, Me.RepositoryItemGridLookUpEditFTUnitCodeLabor, Me.RepositoryItemComboBox7, Me.RepositoryItemGridLookUpEditFTCOFOLabor, Me.RepositoryItemGridLookUpEditFTSuplCodeLabor, Me.RepositoryItemGridLookUpEditFTMainMatCodeLabor, Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPELabor})
-        Me.ogcprocesslabor.Size = New System.Drawing.Size(1472, 233)
+        Me.ogcprocesslabor.Size = New System.Drawing.Size(1471, 304)
         Me.ogcprocesslabor.TabIndex = 6
         Me.ogcprocesslabor.TabStop = False
         Me.ogcprocesslabor.Tag = "2|"
@@ -6723,7 +7158,7 @@ Partial Class wCostSheet
         '
         Me.otppack.Controls.Add(Me.ogcpack)
         Me.otppack.Name = "otppack"
-        Me.otppack.Size = New System.Drawing.Size(1472, 233)
+        Me.otppack.Size = New System.Drawing.Size(1471, 304)
         Me.otppack.Text = "Packaging"
         '
         'ogcpack
@@ -6733,7 +7168,7 @@ Partial Class wCostSheet
         Me.ogcpack.MainView = Me.ogvpack
         Me.ogcpack.Name = "ogcpack"
         Me.ogcpack.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemButtonEdit10, Me.RepositoryItemButtonEdit11, Me.RepositoryItemCalcEdit39, Me.RepositoryItemCalcEdit40, Me.RepositoryItemCalcEdit41, Me.PackFNMarkerUsed, Me.PackFNAllowancePer, Me.RepositoryItemCalcEdit44, Me.PackFNCostPerUOM, Me.RepositoryItemCalcEdit46, Me.PackFNCIF, Me.RepositoryItemCalcEdit48, Me.RepositoryItemCalcEdit49, Me.RepositoryItemCalcEdit50, Me.RepositoryItemButtonEdit12, Me.RepositoryItemButtonEdit13, Me.RepositoryItemCalcEdit54, Me.RepositoryItemCalcEdit55, Me.RepositoryItemCalcEdit56, Me.RepositoryItemCalcEdit57, Me.RepositoryItemCalcEdit53, Me.RepositoryItemTextEdit15, Me.RepositoryItemTextEdit13, Me.RepositoryItemTextEdit14, Me.RepositoryItemTextEditFTMainMatColorCodePack, Me.RepositoryItemTextEdit12, Me.PackFNIMPORTDUTYPERCENT, Me.PackFNHANDLINGCHARGEPERCENT, Me.RepositoryItemGridLookUpEditFTUnitCodeWidthunitPack, Me.RepositoryItemComboBox3, Me.RepositoryItemGridLookUpEditFTCOFOPack, Me.RepositoryItemGridLookUpEditFTSuplCodePack, Me.RepositoryItemGridLookUpEditFTMainMatCodePacking, Me.RepositoryItemGridLookUpEditUOMWidthPack})
-        Me.ogcpack.Size = New System.Drawing.Size(1472, 233)
+        Me.ogcpack.Size = New System.Drawing.Size(1471, 304)
         Me.ogcpack.TabIndex = 6
         Me.ogcpack.TabStop = False
         Me.ogcpack.Tag = "2|"
@@ -7743,7 +8178,7 @@ Partial Class wCostSheet
         '
         Me.otpCMP.Controls.Add(Me.ogccmp)
         Me.otpCMP.Name = "otpCMP"
-        Me.otpCMP.Size = New System.Drawing.Size(1472, 233)
+        Me.otpCMP.Size = New System.Drawing.Size(1471, 304)
         Me.otpCMP.Text = "CMP"
         '
         'ogccmp
@@ -7753,7 +8188,7 @@ Partial Class wCostSheet
         Me.ogccmp.MainView = Me.ogvcmp
         Me.ogccmp.Name = "ogccmp"
         Me.ogccmp.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemButtonEdit14, Me.RepositoryItemButtonEdit15, Me.RepositoryItemCalcEdit58, Me.RepositoryItemCalcEdit59, Me.RepositoryItemCalcEdit60, Me.RepositoryItemCalcEdit61, Me.RepositoryItemCalcEdit62, Me.RepositoryItemCalcEdit63, Me.RepositoryItemCalcEdit64, Me.RepositoryItemCalcEdit65, Me.RepositoryItemCalcEdit66, Me.RepositoryItemCalcEdit67, Me.RepositoryItemCalcEdit68, Me.RepositoryItemCalcEdit69, Me.RepositoryItemButtonEdit16, Me.RepositoryItemButtonEdit17, Me.RepositoryItemCalcEdit73, Me.RepositoryItemCalcEdit74, Me.RepositoryItemCalcEdit75, Me.RepositoryItemCalcEdit76, Me.RepositoryItemCalcEdit72, Me.RepositoryItemTextEdit20, Me.RepositoryItemTextEdit18, Me.RepositoryItemTextEdit19, Me.RepositoryItemTextEdit16, Me.RepositoryItemTextEdit17, Me.RepositoryItemCalcEdit71, Me.RepositoryItemCalcEdit70, Me.RepositoryItemGridLookUpEdit16, Me.RepositoryItemComboBox4, Me.RepositoryItemGridLookUpEdit15, Me.RepositoryItemGridLookUpEdit14, Me.RepositoryItemGridLookUpEdit13})
-        Me.ogccmp.Size = New System.Drawing.Size(1472, 233)
+        Me.ogccmp.Size = New System.Drawing.Size(1471, 304)
         Me.ogccmp.TabIndex = 5
         Me.ogccmp.TabStop = False
         Me.ogccmp.Tag = "2|"
@@ -8669,7 +9104,7 @@ Partial Class wCostSheet
         '
         Me.otpbemis.Controls.Add(Me.ogcbemis)
         Me.otpbemis.Name = "otpbemis"
-        Me.otpbemis.Size = New System.Drawing.Size(1472, 233)
+        Me.otpbemis.Size = New System.Drawing.Size(1471, 304)
         Me.otpbemis.Text = "BEMIS"
         '
         'ogcbemis
@@ -8679,7 +9114,7 @@ Partial Class wCostSheet
         Me.ogcbemis.MainView = Me.ogvbemis
         Me.ogcbemis.Name = "ogcbemis"
         Me.ogcbemis.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemButtonEdit18, Me.RepositoryItemButtonEdit19, Me.RepositoryItemCalcEdit77, Me.RepositoryItemCalcEdit78, Me.RepositoryItemCalcEdit79, Me.RepositoryItemCalcEdit80, Me.RepositoryItemCalcEdit81, Me.RepositoryItemCalcEdit82, Me.RepositoryItemCalcEdit83, Me.RepositoryItemCalcEdit84, Me.RepositoryItemCalcEdit85, Me.RepositoryItemCalcEdit86, Me.RepositoryItemCalcEdit87, Me.RepositoryItemCalcEdit88, Me.RepositoryItemButtonEdit20, Me.RepositoryItemButtonEdit21, Me.RepositoryItemCalcEdit92, Me.RepositoryItemCalcEdit93, Me.RepositoryItemCalcEdit94, Me.RepositoryItemCalcEdit95, Me.RepositoryItemCalcEdit91, Me.RepositoryItemTextEdit25, Me.RepositoryItemTextEdit23, Me.RepositoryItemTextEdit24, Me.RepositoryItemTextEdit21, Me.RepositoryItemTextEdit22, Me.RepositoryItemCalcEdit90, Me.RepositoryItemCalcEditFNSLITTINGWIDTH, Me.RepositoryItemGridLookUpEdit20, Me.RepositoryItemComboBox5, Me.RepositoryItemGridLookUpEdit19, Me.RepositoryItemGridLookUpEdit18, Me.RepositoryItemGridLookUpEditFTMainMatCodeBemis, Me.RepositoryItemCalcEdit134})
-        Me.ogcbemis.Size = New System.Drawing.Size(1472, 233)
+        Me.ogcbemis.Size = New System.Drawing.Size(1471, 304)
         Me.ogcbemis.TabIndex = 5
         Me.ogcbemis.TabStop = False
         Me.ogcbemis.Tag = "2|"
@@ -9622,17 +10057,18 @@ Partial Class wCostSheet
         Me.otpTeamMulti.Controls.Add(Me.ogcteamMulti)
         Me.otpTeamMulti.Name = "otpTeamMulti"
         Me.otpTeamMulti.PageVisible = False
-        Me.otpTeamMulti.Size = New System.Drawing.Size(1472, 233)
+        Me.otpTeamMulti.Size = New System.Drawing.Size(1471, 304)
         Me.otpTeamMulti.Text = "Team Multi"
         '
         'ogcteamMulti
         '
+        Me.ogcteamMulti.Cursor = System.Windows.Forms.Cursors.Default
         Me.ogcteamMulti.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcteamMulti.Location = New System.Drawing.Point(0, 0)
         Me.ogcteamMulti.MainView = Me.ogvteamMulti
         Me.ogcteamMulti.Name = "ogcteamMulti"
-        Me.ogcteamMulti.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemButtonEdit2, Me.RepositoryItemButtonEdit3, Me.RepositoryItemCalcEditMultiFNUSAGECOST, Me.RepositoryItemCalcEdit2, Me.RepositoryItemCalcEdit3, Me.RepositoryItemCalcEdit4, Me.RepositoryItemCalcEdit5, Me.RepositoryItemCalcEdit6, Me.RepositoryItemCalcEditMultiFNCostPerUOM, Me.RepositoryItemCalcEdit8, Me.RepositoryItemCalcEditMultiFNCIF, Me.RepositoryItemCalcEdit10, Me.RepositoryItemCalcEdit11, Me.RepositoryItemCalcEdit12, Me.RepositoryItemButtonEdit4, Me.RepositoryItemButtonEdit5, Me.RepositoryItemCalcEdit16, Me.RepositoryItemCalcEdit17, Me.RepositoryItemCalcEdit18, Me.RepositoryItemCalcEdit19, Me.RepositoryItemCalcEdit15, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit4, Me.RepositoryItemTextEdit5, Me.RepositoryItemTextEdit2, Me.RepositoryItemTextEdit3, Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT, Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT, Me.RepositoryItemGridLookUpEdit4, Me.RepositoryItemComboBox1, Me.RepositoryItemGridLookUpEdit3, Me.RepositoryItemGridLookUpEditFTSuplCodeMulti, Me.RepositoryItemGridLookUpEditItemMulti, Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti, Me.RepositoryItemTextEditRemark, Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGECOST, Me.RepositoryItemGridLookUpEditFTStyleCode})
-        Me.ogcteamMulti.Size = New System.Drawing.Size(1472, 233)
+        Me.ogcteamMulti.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemButtonEdit2, Me.RepositoryItemButtonEdit3, Me.RepositoryItemCalcEditMultiFNUSAGECOST, Me.RepositoryItemCalcEdit2, Me.RepositoryItemCalcEdit3, Me.RepositoryItemCalcEdit4, Me.RepositoryItemCalcEdit5, Me.RepositoryItemCalcEdit6, Me.RepositoryItemCalcEditMultiFNCostPerUOM, Me.RepositoryItemCalcEdit8, Me.RepositoryItemCalcEditMultiFNCIF, Me.RepositoryItemCalcEdit10, Me.RepositoryItemCalcEdit11, Me.RepositoryItemCalcEdit12, Me.RepositoryItemButtonEdit4, Me.RepositoryItemButtonEdit5, Me.RepositoryItemCalcEdit16, Me.RepositoryItemCalcEdit17, Me.RepositoryItemCalcEdit18, Me.RepositoryItemCalcEdit19, Me.RepositoryItemCalcEdit15, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit4, Me.RepositoryItemTextEdit5, Me.RepositoryItemTextEdit2, Me.RepositoryItemTextEditFTDescription, Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT, Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT, Me.RepositoryItemGridLookUpEdit4, Me.RepositoryItemComboBox1, Me.RepositoryItemGridLookUpEdit3, Me.RepositoryItemGridLookUpEditFTSuplCodeMulti, Me.RepositoryItemGridLookUpEditItemMulti, Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti, Me.RepositoryItemTextEditRemark, Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGECOST, Me.RepositoryItemGridLookUpEditFTStyleCode, Me.RepositoryItemTextEditFTPRODUCTDEVELOPER})
+        Me.ogcteamMulti.Size = New System.Drawing.Size(1471, 304)
         Me.ogcteamMulti.TabIndex = 6
         Me.ogcteamMulti.TabStop = False
         Me.ogcteamMulti.Tag = "2|"
@@ -9640,7 +10076,8 @@ Partial Class wCostSheet
         '
         'ogvteamMulti
         '
-        Me.ogvteamMulti.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn1, Me.GridColumn2, Me.GridColumn3, Me.xFTStyleCode, Me.GridColumn4, Me.GridColumn6, Me.GridColumn373, Me.GridColumn5, Me.GridColumn7, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17, Me.GridColumn21, Me.GridColumn26, Me.GridColumn27, Me.GridColumn28, Me.GridColumn29, Me.GridColumn30, Me.GridColumn32, Me.GridColumn33, Me.GridColumn34, Me.GridColumn35, Me.GridColumn38, Me.GridColumn39, Me.GridColumn40, Me.GridColumn41, Me.GridColumn42, Me.GridColumn43, Me.GridColumn44, Me.GridColumn45, Me.GridColumn46, Me.GridColumn47, Me.GridColumn48, Me.GridColumn49, Me.xFNTOTALTRIMPROCESSCOST, Me.GridColumn50, Me.GridColumn51, Me.GridColumn52, Me.GridColumn53, Me.GridColumn350, Me.GridColumn351, Me.xFNTOTALUSAGECOST, Me.xFNTOTALHANDINGCHANGECOST, Me.xFNFINALFOB, Me.xFNEXTENDEDSIZEFOB, Me.xFTL4LORDERCNTY1, Me.xFTL4LCURRENCYFOB1, Me.xFNEXTENDSIZEFOBL4L1, Me.xFTL4LORDERCNTY2, Me.xFTL4LCURRENCYFOB2, Me.xFNEXTENDSIZEFOBL4L2, Me.xFTL4LORDERCNTY3, Me.xFTL4LCURRENCYFOB3, Me.xFNEXTENDSIZEFOBL4L3, Me.xFTPRODUCTDEVELOPER, Me.xFTRemark})
+        Me.ogvteamMulti.Bands.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.GridBand1, Me.gridBand35, Me.gridBand9, Me.gridBand10, Me.gridBand11, Me.gridBand12, Me.gridBand13, Me.gridBand14, Me.gridBand15, Me.gridBand16, Me.gridBand17, Me.gridBand18, Me.gridBand19, Me.gridBand20, Me.gridBand21, Me.gridBand22, Me.gridBand23, Me.gridBand24, Me.gridBand25, Me.gridBand27, Me.gridBand26})
+        Me.ogvteamMulti.Columns.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn() {Me.sssFNRevised, Me.xxFNVersion, Me.sssFNSeq, Me.xxFTMSC, Me.ssFTSeason, Me.xFTStyleCode, Me.sssFTColorway, Me.sssFTTeamName, Me.ssFNBaseFOB, Me.sssFNAllowancePer, Me.sssFTItem1, Me.ssFTProcesssubType1, Me.ssFTDescription1, Me.FTSuplCode1, Me.FNUnitPrice1, Me.FNCIF1, Me.FNUSAGECOST1, Me.FNHandlingChargePercent1, Me.FNHandlingChargeCost1, Me.FNImportDutyPecent1, Me.FTItem2, Me.FTProcesssubType2, Me.FTDescription2, Me.FTSuplCode2, Me.FNUnitPrice2, Me.FNCIF2, Me.FNUSAGECOST2, Me.FNHandlingChargePercent2, Me.FNHandlingChargeCost2, Me.FNImportDutyPecent2, Me.FTItem3, Me.FTProcesssubType3, Me.FTDescription3, Me.FTSuplCode3, Me.FNUnitPrice3, Me.FNCIF3, Me.FNUSAGECOST3, Me.FNHandlingChargePercent3, Me.FNHandlingChargeCost3, Me.FNImportDutyPecent3, Me.FTItem4, Me.FTProcesssubType4, Me.FTDescription4, Me.FTSuplCode4, Me.FNUnitPrice4, Me.FNCIF4, Me.FNUSAGECOST4, Me.FNHandlingChargePercent4, Me.FNHandlingChargeCost4, Me.FNImportDutyPecent4, Me.FTItem5, Me.FTProcesssubType5, Me.FTDescription5, Me.FTSuplCode5, Me.FNUnitPrice5, Me.FNCIF5, Me.FNUSAGECOST5, Me.FNHandlingChargePercent5, Me.FNHandlingChargeCost5, Me.FNImportDutyPecent5, Me.FTItem6, Me.FTProcesssubType6, Me.FTDescription6, Me.FTSuplCode6, Me.FNUnitPrice6, Me.FNCIF6, Me.FNUSAGECOST6, Me.FNHandlingChargePercent6, Me.FNHandlingChargeCost6, Me.FNImportDutyPecent6, Me.FTItem7, Me.FTProcesssubType7, Me.FTDescription7, Me.FTSuplCode7, Me.FNUnitPrice7, Me.FNCIF7, Me.FNUSAGECOST7, Me.FNHandlingChargePercent7, Me.FNHandlingChargeCost7, Me.FNImportDutyPecent7, Me.FTItem8, Me.FTProcesssubType8, Me.FTDescription8, Me.FTSuplCode8, Me.FNUnitPrice8, Me.FNCIF8, Me.FNUSAGECOST8, Me.FNHandlingChargePercent8, Me.FNHandlingChargeCost8, Me.FNImportDutyPecent8, Me.FTItem9, Me.FTProcesssubType9, Me.FTDescription9, Me.FTSuplCode9, Me.FNUnitPrice9, Me.FNCIF9, Me.FNUSAGECOST9, Me.FNHandlingChargePercent9, Me.FNHandlingChargeCost9, Me.FNImportDutyPecent9, Me.FTItem10, Me.FTProcesssubType10, Me.FTDescription10, Me.FTSuplCode10, Me.FNUnitPrice10, Me.FNCIF10, Me.FNUSAGECOST10, Me.FNHandlingChargePercent10, Me.FNHandlingChargeCost10, Me.FNImportDutyPecent10, Me.FTItem11, Me.FTProcesssubType11, Me.FTDescription11, Me.FTSuplCode11, Me.FNUnitPrice11, Me.FNCIF11, Me.FNUSAGECOST11, Me.FNHandlingChargePercent11, Me.FNHandlingChargeCost11, Me.FNImportDutyPecent11, Me.FTItem12, Me.FTProcesssubType12, Me.FTDescription12, Me.FTSuplCode12, Me.FNUnitPrice12, Me.FNCIF12, Me.FNUSAGECOST12, Me.FNHandlingChargePercent12, Me.FNHandlingChargeCost12, Me.FNImportDutyPecent12, Me.FTItem13, Me.FTProcesssubType13, Me.FTDescription13, Me.FTSuplCode13, Me.FNUnitPrice13, Me.FNCIF13, Me.FNUSAGECOST13, Me.FNHandlingChargePercent13, Me.FNHandlingChargeCost13, Me.FNImportDutyPecent13, Me.FTItem14, Me.FTProcesssubType14, Me.FTDescription14, Me.FTSuplCode14, Me.FNUnitPrice14, Me.FNCIF14, Me.FNUSAGECOST14, Me.FNHandlingChargePercent14, Me.FNHandlingChargeCost14, Me.FNImportDutyPecent14, Me.FTItem15, Me.FTProcesssubType15, Me.FTDescription15, Me.FTSuplCode15, Me.FNUnitPrice15, Me.FNCIF15, Me.FNUSAGECOST15, Me.FNHandlingChargePercent15, Me.FNHandlingChargeCost15, Me.FNImportDutyPecent15, Me.FNTotalUsgeCost, Me.FNTotalHandlingChargeCost, Me.FNFINALFOB, Me.FNEXTENDEDSIZEFOB, Me.FTL4LORDERCNTY1, Me.FTL4LCURRENCYFOB1, Me.FNEXTENDSIZEFOBL4L1, Me.FTL4LORDERCNTY2, Me.FTL4LCURRENCYFOB2, Me.FNEXTENDSIZEFOBL4L2, Me.FTL4LORDERCNTY3, Me.FTL4LCURRENCYFOB3, Me.FNEXTENDSIZEFOBL4L3, Me.FTPRODUCTDEVELOPER, Me.sssFTRemark, Me.FNTotalCost1, Me.FNTotalCost2, Me.FNTotalCost3, Me.FNTotalCost4, Me.FNTotalCost5, Me.FNTotalCost6, Me.FNTotalCost7, Me.FNTotalCost8, Me.FNTotalCost9, Me.FNTotalCost10, Me.FNTotalCost11, Me.FNTotalCost12, Me.FNTotalCost13, Me.FNTotalCost14, Me.FNTotalCost15})
         Me.ogvteamMulti.DetailHeight = 284
         Me.ogvteamMulti.GridControl = Me.ogcteamMulti
         Me.ogvteamMulti.Name = "ogvteamMulti"
@@ -9649,37 +10086,99 @@ Partial Class wCostSheet
         Me.ogvteamMulti.OptionsNavigation.EnterMoveNextColumn = True
         Me.ogvteamMulti.OptionsView.ColumnAutoWidth = False
         Me.ogvteamMulti.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
+        Me.ogvteamMulti.OptionsView.ShowColumnHeaders = False
         Me.ogvteamMulti.OptionsView.ShowGroupPanel = False
         '
-        'GridColumn1
+        'GridBand1
         '
-        Me.GridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn1.FieldName = "FNRevised"
-        Me.GridColumn1.MinWidth = 17
-        Me.GridColumn1.Name = "GridColumn1"
-        Me.GridColumn1.Width = 64
+        Me.GridBand1.Caption = "TEAMMULTI"
+        Me.GridBand1.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand2, Me.gridBand3, Me.gridBand4, Me.gridBand5, Me.gridBand6})
+        Me.GridBand1.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.GridBand1.Name = "GridBand1"
+        Me.GridBand1.VisibleIndex = 0
+        Me.GridBand1.Width = 507
         '
-        'GridColumn2
+        'gridBand2
         '
-        Me.GridColumn2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn2.FieldName = "FNCostType"
-        Me.GridColumn2.MinWidth = 17
-        Me.GridColumn2.Name = "GridColumn2"
-        Me.GridColumn2.Width = 64
+        Me.gridBand2.Caption = "No."
+        Me.gridBand2.Columns.Add(Me.sssFNSeq)
+        Me.gridBand2.Columns.Add(Me.sssFNRevised)
+        Me.gridBand2.Columns.Add(Me.xxFNVersion)
+        Me.gridBand2.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.gridBand2.Name = "gridBand2"
+        Me.gridBand2.VisibleIndex = 0
+        Me.gridBand2.Width = 48
         '
-        'GridColumn3
+        'sssFNSeq
         '
-        Me.GridColumn3.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn3.Caption = "Seq"
-        Me.GridColumn3.FieldName = "FNSeq"
-        Me.GridColumn3.MinWidth = 17
-        Me.GridColumn3.Name = "GridColumn3"
-        Me.GridColumn3.OptionsColumn.AllowEdit = False
-        Me.GridColumn3.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn3.Visible = True
-        Me.GridColumn3.VisibleIndex = 0
-        Me.GridColumn3.Width = 63
+        Me.sssFNSeq.AppearanceHeader.Options.UseTextOptions = True
+        Me.sssFNSeq.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.sssFNSeq.Caption = "FNSeq"
+        Me.sssFNSeq.FieldName = "FNSeq"
+        Me.sssFNSeq.MinWidth = 17
+        Me.sssFNSeq.Name = "sssFNSeq"
+        Me.sssFNSeq.OptionsColumn.AllowEdit = False
+        Me.sssFNSeq.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.sssFNSeq.Visible = True
+        Me.sssFNSeq.Width = 48
+        '
+        'sssFNRevised
+        '
+        Me.sssFNRevised.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.sssFNRevised.FieldName = "FNRevised"
+        Me.sssFNRevised.MinWidth = 17
+        Me.sssFNRevised.Name = "sssFNRevised"
+        Me.sssFNRevised.Width = 64
+        '
+        'xxFNVersion
+        '
+        Me.xxFNVersion.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.xxFNVersion.FieldName = "FNVersion"
+        Me.xxFNVersion.MinWidth = 17
+        Me.xxFNVersion.Name = "xxFNVersion"
+        Me.xxFNVersion.Width = 64
+        '
+        'gridBand3
+        '
+        Me.gridBand3.Caption = "MSC"
+        Me.gridBand3.Columns.Add(Me.xxFTMSC)
+        Me.gridBand3.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.gridBand3.Name = "gridBand3"
+        Me.gridBand3.VisibleIndex = 1
+        Me.gridBand3.Width = 145
+        '
+        'xxFTMSC
+        '
+        Me.xxFTMSC.Caption = "FTMSC"
+        Me.xxFTMSC.FieldName = "FTMSC"
+        Me.xxFTMSC.Name = "xxFTMSC"
+        Me.xxFTMSC.Visible = True
+        Me.xxFTMSC.Width = 145
+        '
+        'gridBand4
+        '
+        Me.gridBand4.Caption = "Season"
+        Me.gridBand4.Columns.Add(Me.ssFTSeason)
+        Me.gridBand4.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.gridBand4.Name = "gridBand4"
+        Me.gridBand4.VisibleIndex = 2
+        Me.gridBand4.Width = 75
+        '
+        'ssFTSeason
+        '
+        Me.ssFTSeason.Caption = "FTSeason"
+        Me.ssFTSeason.FieldName = "FTSeason"
+        Me.ssFTSeason.Name = "ssFTSeason"
+        Me.ssFTSeason.Visible = True
+        '
+        'gridBand5
+        '
+        Me.gridBand5.Caption = "Style"
+        Me.gridBand5.Columns.Add(Me.xFTStyleCode)
+        Me.gridBand5.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.gridBand5.Name = "gridBand5"
+        Me.gridBand5.VisibleIndex = 3
+        Me.gridBand5.Width = 124
         '
         'xFTStyleCode
         '
@@ -9688,8 +10187,7 @@ Partial Class wCostSheet
         Me.xFTStyleCode.FieldName = "FTStyleCode"
         Me.xFTStyleCode.Name = "xFTStyleCode"
         Me.xFTStyleCode.Visible = True
-        Me.xFTStyleCode.VisibleIndex = 1
-        Me.xFTStyleCode.Width = 95
+        Me.xFTStyleCode.Width = 124
         '
         'RepositoryItemGridLookUpEditFTStyleCode
         '
@@ -9734,25 +10232,23 @@ Partial Class wCostSheet
         Me.xxxFTStyleName.VisibleIndex = 1
         Me.xxxFTStyleName.Width = 200
         '
-        'GridColumn4
+        'gridBand6
         '
-        Me.GridColumn4.Caption = "FNHSysMerMatId"
-        Me.GridColumn4.FieldName = "FNHSysMerMatId"
-        Me.GridColumn4.MinWidth = 17
-        Me.GridColumn4.Name = "GridColumn4"
-        Me.GridColumn4.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn4.OptionsColumn.AllowMove = False
-        Me.GridColumn4.Width = 64
+        Me.gridBand6.Caption = "Colorway"
+        Me.gridBand6.Columns.Add(Me.sssFTColorway)
+        Me.gridBand6.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.gridBand6.Name = "gridBand6"
+        Me.gridBand6.VisibleIndex = 4
+        Me.gridBand6.Width = 115
         '
-        'GridColumn6
+        'sssFTColorway
         '
-        Me.GridColumn6.Caption = "Material Color"
-        Me.GridColumn6.ColumnEdit = Me.RepositoryItemTextEdit2
-        Me.GridColumn6.FieldName = "FTMainMatColorCode"
-        Me.GridColumn6.Name = "GridColumn6"
-        Me.GridColumn6.Visible = True
-        Me.GridColumn6.VisibleIndex = 2
-        Me.GridColumn6.Width = 115
+        Me.sssFTColorway.Caption = "Material Color"
+        Me.sssFTColorway.ColumnEdit = Me.RepositoryItemTextEdit2
+        Me.sssFTColorway.FieldName = "FTColorway"
+        Me.sssFTColorway.Name = "sssFTColorway"
+        Me.sssFTColorway.Visible = True
+        Me.sssFTColorway.Width = 115
         '
         'RepositoryItemTextEdit2
         '
@@ -9760,30 +10256,77 @@ Partial Class wCostSheet
         Me.RepositoryItemTextEdit2.MaxLength = 200
         Me.RepositoryItemTextEdit2.Name = "RepositoryItemTextEdit2"
         '
-        'GridColumn373
+        'gridBand35
         '
-        Me.GridColumn373.Caption = "Team"
-        Me.GridColumn373.ColumnEdit = Me.RepositoryItemTextEdit2
-        Me.GridColumn373.FieldName = "FTTeamName"
-        Me.GridColumn373.Name = "GridColumn373"
-        Me.GridColumn373.Visible = True
-        Me.GridColumn373.VisibleIndex = 3
-        Me.GridColumn373.Width = 123
+        Me.gridBand35.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand7, Me.gridBand8})
+        Me.gridBand35.Name = "gridBand35"
+        Me.gridBand35.VisibleIndex = 1
+        Me.gridBand35.Width = 294
         '
-        'GridColumn5
+        'gridBand7
         '
-        Me.GridColumn5.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn5.Caption = "Item"
-        Me.GridColumn5.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
-        Me.GridColumn5.FieldName = "FTMainMatCode"
-        Me.GridColumn5.MinWidth = 17
-        Me.GridColumn5.Name = "GridColumn5"
-        Me.GridColumn5.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn5.OptionsColumn.AllowMove = False
-        Me.GridColumn5.Visible = True
-        Me.GridColumn5.VisibleIndex = 4
-        Me.GridColumn5.Width = 115
+        Me.gridBand7.Caption = "STYLE/TEAM NAME"
+        Me.gridBand7.Columns.Add(Me.sssFTTeamName)
+        Me.gridBand7.Name = "gridBand7"
+        Me.gridBand7.VisibleIndex = 0
+        Me.gridBand7.Width = 228
+        '
+        'sssFTTeamName
+        '
+        Me.sssFTTeamName.Caption = "Team"
+        Me.sssFTTeamName.ColumnEdit = Me.RepositoryItemTextEdit2
+        Me.sssFTTeamName.FieldName = "FTTeamName"
+        Me.sssFTTeamName.Name = "sssFTTeamName"
+        Me.sssFTTeamName.Visible = True
+        Me.sssFTTeamName.Width = 228
+        '
+        'gridBand8
+        '
+        Me.gridBand8.Caption = "Base FOB"
+        Me.gridBand8.Columns.Add(Me.ssFNBaseFOB)
+        Me.gridBand8.Name = "gridBand8"
+        Me.gridBand8.VisibleIndex = 1
+        Me.gridBand8.Width = 66
+        '
+        'ssFNBaseFOB
+        '
+        Me.ssFNBaseFOB.Caption = "FNBaseFOB"
+        Me.ssFNBaseFOB.DisplayFormat.FormatString = "{0:n2}"
+        Me.ssFNBaseFOB.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.ssFNBaseFOB.FieldName = "FNBaseFOB"
+        Me.ssFNBaseFOB.Name = "ssFNBaseFOB"
+        Me.ssFNBaseFOB.Visible = True
+        Me.ssFNBaseFOB.Width = 66
+        '
+        'gridBand9
+        '
+        Me.gridBand9.Caption = "TRIM/ PROCESS #1"
+        Me.gridBand9.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand42, Me.gridBand43, Me.gridBand44, Me.gridBand45, Me.gridBand46, Me.gridBand47, Me.gridBand48, Me.gridBand49, Me.gridBand50, Me.gridBand51, Me.gridBand52})
+        Me.gridBand9.Name = "gridBand9"
+        Me.gridBand9.VisibleIndex = 2
+        Me.gridBand9.Width = 1269
+        '
+        'gridBand42
+        '
+        Me.gridBand42.Caption = "ITEM"
+        Me.gridBand42.Columns.Add(Me.sssFTItem1)
+        Me.gridBand42.Name = "gridBand42"
+        Me.gridBand42.VisibleIndex = 0
+        Me.gridBand42.Width = 92
+        '
+        'sssFTItem1
+        '
+        Me.sssFTItem1.AppearanceHeader.Options.UseTextOptions = True
+        Me.sssFTItem1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.sssFTItem1.Caption = "Item 1"
+        Me.sssFTItem1.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.sssFTItem1.FieldName = "FTItem1"
+        Me.sssFTItem1.MinWidth = 17
+        Me.sssFTItem1.Name = "sssFTItem1"
+        Me.sssFTItem1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.sssFTItem1.OptionsColumn.AllowMove = False
+        Me.sssFTItem1.Visible = True
+        Me.sssFTItem1.Width = 92
         '
         'RepositoryItemGridLookUpEditItemMulti
         '
@@ -9837,15 +10380,22 @@ Partial Class wCostSheet
         Me.GridColumn354.OptionsColumn.ReadOnly = True
         Me.GridColumn354.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
         '
-        'GridColumn7
+        'gridBand43
         '
-        Me.GridColumn7.Caption = "PROCESS SUB TYPE"
-        Me.GridColumn7.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
-        Me.GridColumn7.FieldName = "FTPROCESSSUBTYPE"
-        Me.GridColumn7.Name = "GridColumn7"
-        Me.GridColumn7.Visible = True
-        Me.GridColumn7.VisibleIndex = 6
-        Me.GridColumn7.Width = 154
+        Me.gridBand43.Caption = "PROCESS SUB TYPE"
+        Me.gridBand43.Columns.Add(Me.ssFTProcesssubType1)
+        Me.gridBand43.Name = "gridBand43"
+        Me.gridBand43.VisibleIndex = 1
+        Me.gridBand43.Width = 132
+        '
+        'ssFTProcesssubType1
+        '
+        Me.ssFTProcesssubType1.Caption = "PROCESS SUB TYPE 1"
+        Me.ssFTProcesssubType1.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.ssFTProcesssubType1.FieldName = "FTProcesssubType1"
+        Me.ssFTProcesssubType1.Name = "ssFTProcesssubType1"
+        Me.ssFTProcesssubType1.Visible = True
+        Me.ssFTProcesssubType1.Width = 132
         '
         'RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
         '
@@ -9905,51 +10455,54 @@ Partial Class wCostSheet
         Me.GridColumn14.OptionsColumn.AllowEdit = False
         Me.GridColumn14.OptionsColumn.ReadOnly = True
         '
-        'GridColumn15
+        'gridBand44
         '
-        Me.GridColumn15.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn15.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn15.Caption = "Description"
-        Me.GridColumn15.ColumnEdit = Me.RepositoryItemTextEdit3
-        Me.GridColumn15.FieldName = "FTMainMatName"
-        Me.GridColumn15.MinWidth = 17
-        Me.GridColumn15.Name = "GridColumn15"
-        Me.GridColumn15.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn15.OptionsColumn.AllowMove = False
-        Me.GridColumn15.Visible = True
-        Me.GridColumn15.VisibleIndex = 5
-        Me.GridColumn15.Width = 154
+        Me.gridBand44.Caption = "DESCRIPTION"
+        Me.gridBand44.Columns.Add(Me.ssFTDescription1)
+        Me.gridBand44.Name = "gridBand44"
+        Me.gridBand44.VisibleIndex = 2
+        Me.gridBand44.Width = 200
         '
-        'RepositoryItemTextEdit3
+        'ssFTDescription1
         '
-        Me.RepositoryItemTextEdit3.AutoHeight = False
-        Me.RepositoryItemTextEdit3.MaxLength = 200
-        Me.RepositoryItemTextEdit3.Name = "RepositoryItemTextEdit3"
+        Me.ssFTDescription1.AppearanceHeader.Options.UseTextOptions = True
+        Me.ssFTDescription1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ssFTDescription1.Caption = "FTDescription1"
+        Me.ssFTDescription1.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.ssFTDescription1.FieldName = "FTDescription1"
+        Me.ssFTDescription1.MinWidth = 17
+        Me.ssFTDescription1.Name = "ssFTDescription1"
+        Me.ssFTDescription1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.ssFTDescription1.OptionsColumn.AllowMove = False
+        Me.ssFTDescription1.Visible = True
+        Me.ssFTDescription1.Width = 200
         '
-        'GridColumn16
+        'RepositoryItemTextEditFTDescription
         '
-        Me.GridColumn16.Caption = "FNHSysSuplId"
-        Me.GridColumn16.FieldName = "FNHSysSuplId"
-        Me.GridColumn16.MinWidth = 17
-        Me.GridColumn16.Name = "GridColumn16"
-        Me.GridColumn16.OptionsColumn.AllowEdit = False
-        Me.GridColumn16.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn16.OptionsColumn.AllowMove = False
-        Me.GridColumn16.Width = 64
+        Me.RepositoryItemTextEditFTDescription.AutoHeight = False
+        Me.RepositoryItemTextEditFTDescription.MaxLength = 200
+        Me.RepositoryItemTextEditFTDescription.Name = "RepositoryItemTextEditFTDescription"
         '
-        'GridColumn17
+        'gridBand45
         '
-        Me.GridColumn17.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn17.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn17.Caption = "Vender"
-        Me.GridColumn17.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
-        Me.GridColumn17.FieldName = "FTSuplCode"
-        Me.GridColumn17.MinWidth = 17
-        Me.GridColumn17.Name = "GridColumn17"
-        Me.GridColumn17.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn17.Visible = True
-        Me.GridColumn17.VisibleIndex = 7
-        Me.GridColumn17.Width = 95
+        Me.gridBand45.Caption = "VENDER"
+        Me.gridBand45.Columns.Add(Me.FTSuplCode1)
+        Me.gridBand45.Name = "gridBand45"
+        Me.gridBand45.VisibleIndex = 3
+        Me.gridBand45.Width = 95
+        '
+        'FTSuplCode1
+        '
+        Me.FTSuplCode1.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTSuplCode1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTSuplCode1.Caption = "FTSuplCode1"
+        Me.FTSuplCode1.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode1.FieldName = "FTSuplCode1"
+        Me.FTSuplCode1.MinWidth = 17
+        Me.FTSuplCode1.Name = "FTSuplCode1"
+        Me.FTSuplCode1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTSuplCode1.Visible = True
+        Me.FTSuplCode1.Width = 95
         '
         'RepositoryItemGridLookUpEditFTSuplCodeMulti
         '
@@ -10014,14 +10567,3666 @@ Partial Class wCostSheet
         Me.GridColumn372.VisibleIndex = 2
         Me.GridColumn372.Width = 80
         '
-        'GridColumn21
+        'gridBand46
         '
-        Me.GridColumn21.Caption = "C OF O"
-        Me.GridColumn21.ColumnEdit = Me.RepositoryItemGridLookUpEdit3
-        Me.GridColumn21.FieldName = "TTLG"
-        Me.GridColumn21.MinWidth = 17
-        Me.GridColumn21.Name = "GridColumn21"
-        Me.GridColumn21.Width = 92
+        Me.gridBand46.Caption = "UNIT PRICE"
+        Me.gridBand46.Columns.Add(Me.FNUnitPrice1)
+        Me.gridBand46.Name = "gridBand46"
+        Me.gridBand46.VisibleIndex = 4
+        Me.gridBand46.Width = 75
+        '
+        'FNUnitPrice1
+        '
+        Me.FNUnitPrice1.Caption = "FNUnitPrice1"
+        Me.FNUnitPrice1.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice1.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice1.FieldName = "FNUnitPrice1"
+        Me.FNUnitPrice1.Name = "FNUnitPrice1"
+        Me.FNUnitPrice1.Visible = True
+        '
+        'RepositoryItemCalcEditMultiFNCostPerUOM
+        '
+        Me.RepositoryItemCalcEditMultiFNCostPerUOM.AutoHeight = False
+        Me.RepositoryItemCalcEditMultiFNCostPerUOM.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEditMultiFNCostPerUOM.DisplayFormat.FormatString = "{0:n3}"
+        Me.RepositoryItemCalcEditMultiFNCostPerUOM.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEditMultiFNCostPerUOM.EditFormat.FormatString = "{0:n3}"
+        Me.RepositoryItemCalcEditMultiFNCostPerUOM.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEditMultiFNCostPerUOM.Name = "RepositoryItemCalcEditMultiFNCostPerUOM"
+        Me.RepositoryItemCalcEditMultiFNCostPerUOM.Precision = 4
+        '
+        'gridBand47
+        '
+        Me.gridBand47.Caption = "CIF UNIT COST"
+        Me.gridBand47.Columns.Add(Me.FNCIF1)
+        Me.gridBand47.Name = "gridBand47"
+        Me.gridBand47.VisibleIndex = 5
+        Me.gridBand47.Width = 100
+        '
+        'FNCIF1
+        '
+        Me.FNCIF1.Caption = "FNCIF1"
+        Me.FNCIF1.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF1.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF1.FieldName = "FNCIF1"
+        Me.FNCIF1.Name = "FNCIF1"
+        Me.FNCIF1.Visible = True
+        Me.FNCIF1.Width = 100
+        '
+        'RepositoryItemCalcEditMultiFNCIF
+        '
+        Me.RepositoryItemCalcEditMultiFNCIF.AutoHeight = False
+        Me.RepositoryItemCalcEditMultiFNCIF.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEditMultiFNCIF.DisplayFormat.FormatString = "{0:n4}"
+        Me.RepositoryItemCalcEditMultiFNCIF.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEditMultiFNCIF.EditFormat.FormatString = "{0:n4}"
+        Me.RepositoryItemCalcEditMultiFNCIF.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEditMultiFNCIF.Name = "RepositoryItemCalcEditMultiFNCIF"
+        Me.RepositoryItemCalcEditMultiFNCIF.Precision = 4
+        '
+        'gridBand48
+        '
+        Me.gridBand48.Caption = "USAGE COST"
+        Me.gridBand48.Columns.Add(Me.FNUSAGECOST1)
+        Me.gridBand48.Name = "gridBand48"
+        Me.gridBand48.VisibleIndex = 6
+        Me.gridBand48.Width = 89
+        '
+        'FNUSAGECOST1
+        '
+        Me.FNUSAGECOST1.Caption = "FNUSAGECOST1"
+        Me.FNUSAGECOST1.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST1.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST1.FieldName = "FNUSAGECOST1"
+        Me.FNUSAGECOST1.Name = "FNUSAGECOST1"
+        Me.FNUSAGECOST1.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST1.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST1.Visible = True
+        Me.FNUSAGECOST1.Width = 89
+        '
+        'RepositoryItemCalcEditMultiFNUSAGECOST
+        '
+        Me.RepositoryItemCalcEditMultiFNUSAGECOST.AutoHeight = False
+        Me.RepositoryItemCalcEditMultiFNUSAGECOST.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEditMultiFNUSAGECOST.DisplayFormat.FormatString = "{0:n4}"
+        Me.RepositoryItemCalcEditMultiFNUSAGECOST.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEditMultiFNUSAGECOST.EditFormat.FormatString = "{0:n4}"
+        Me.RepositoryItemCalcEditMultiFNUSAGECOST.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEditMultiFNUSAGECOST.Name = "RepositoryItemCalcEditMultiFNUSAGECOST"
+        Me.RepositoryItemCalcEditMultiFNUSAGECOST.Precision = 4
+        '
+        'gridBand49
+        '
+        Me.gridBand49.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand49.Columns.Add(Me.FNHandlingChargePercent1)
+        Me.gridBand49.Name = "gridBand49"
+        Me.gridBand49.VisibleIndex = 7
+        Me.gridBand49.Width = 142
+        '
+        'FNHandlingChargePercent1
+        '
+        Me.FNHandlingChargePercent1.Caption = "FNHandlingChargePercent1"
+        Me.FNHandlingChargePercent1.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent1.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent1.FieldName = "FNHandlingChargePercent1"
+        Me.FNHandlingChargePercent1.Name = "FNHandlingChargePercent1"
+        Me.FNHandlingChargePercent1.Visible = True
+        Me.FNHandlingChargePercent1.Width = 142
+        '
+        'RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        '
+        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.AutoHeight = False
+        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.DisplayFormat.FormatString = "{0:n2}"
+        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.EditFormat.FormatString = "{0:n2}"
+        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.Name = "RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT"
+        '
+        'gridBand50
+        '
+        Me.gridBand50.Caption = "HANDLING CHARGE"
+        Me.gridBand50.Columns.Add(Me.FNHandlingChargeCost1)
+        Me.gridBand50.Name = "gridBand50"
+        Me.gridBand50.VisibleIndex = 8
+        Me.gridBand50.Width = 127
+        '
+        'FNHandlingChargeCost1
+        '
+        Me.FNHandlingChargeCost1.Caption = "FNHandlingChargeCost1"
+        Me.FNHandlingChargeCost1.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost1.FieldName = "FNHandlingChargeCost1"
+        Me.FNHandlingChargeCost1.Name = "FNHandlingChargeCost1"
+        Me.FNHandlingChargeCost1.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost1.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost1.Visible = True
+        Me.FNHandlingChargeCost1.Width = 127
+        '
+        'gridBand51
+        '
+        Me.gridBand51.Caption = "TOTAL COST"
+        Me.gridBand51.Columns.Add(Me.FNTotalCost1)
+        Me.gridBand51.Name = "gridBand51"
+        Me.gridBand51.VisibleIndex = 9
+        Me.gridBand51.Width = 100
+        '
+        'FNTotalCost1
+        '
+        Me.FNTotalCost1.Caption = "FNTotalCost1"
+        Me.FNTotalCost1.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost1.FieldName = "FNTotalCost1"
+        Me.FNTotalCost1.Name = "FNTotalCost1"
+        Me.FNTotalCost1.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost1.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost1.Visible = True
+        Me.FNTotalCost1.Width = 100
+        '
+        'gridBand52
+        '
+        Me.gridBand52.Caption = "IMPORT DUTY (%)"
+        Me.gridBand52.Columns.Add(Me.FNImportDutyPecent1)
+        Me.gridBand52.Name = "gridBand52"
+        Me.gridBand52.VisibleIndex = 10
+        Me.gridBand52.Width = 117
+        '
+        'FNImportDutyPecent1
+        '
+        Me.FNImportDutyPecent1.Caption = "FNImportDutyPecent1"
+        Me.FNImportDutyPecent1.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent1.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent1.FieldName = "FNImportDutyPecent1"
+        Me.FNImportDutyPecent1.Name = "FNImportDutyPecent1"
+        Me.FNImportDutyPecent1.Visible = True
+        Me.FNImportDutyPecent1.Width = 117
+        '
+        'RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        '
+        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT.AutoHeight = False
+        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT.DisplayFormat.FormatString = "{0:n2}"
+        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT.EditFormat.FormatString = "{0:n2}"
+        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT.Name = "RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT"
+        '
+        'gridBand10
+        '
+        Me.gridBand10.Caption = "TRIM/ PROCESS #2"
+        Me.gridBand10.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand67, Me.gridBand65, Me.gridBand59, Me.gridBand60, Me.gridBand58, Me.gridBand55, Me.gridBand57, Me.gridBand62, Me.gridBand56, Me.gridBand53, Me.gridBand54})
+        Me.gridBand10.Name = "gridBand10"
+        Me.gridBand10.VisibleIndex = 3
+        Me.gridBand10.Width = 1297
+        '
+        'gridBand67
+        '
+        Me.gridBand67.Caption = "ITEM"
+        Me.gridBand67.Columns.Add(Me.FTItem2)
+        Me.gridBand67.Name = "gridBand67"
+        Me.gridBand67.VisibleIndex = 0
+        Me.gridBand67.Width = 113
+        '
+        'FTItem2
+        '
+        Me.FTItem2.Caption = "FTItem2"
+        Me.FTItem2.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.FTItem2.FieldName = "FTItem2"
+        Me.FTItem2.Name = "FTItem2"
+        Me.FTItem2.Visible = True
+        Me.FTItem2.Width = 113
+        '
+        'gridBand65
+        '
+        Me.gridBand65.Caption = "PROCESS SYB TYPE"
+        Me.gridBand65.Columns.Add(Me.FTProcesssubType2)
+        Me.gridBand65.Name = "gridBand65"
+        Me.gridBand65.VisibleIndex = 1
+        Me.gridBand65.Width = 159
+        '
+        'FTProcesssubType2
+        '
+        Me.FTProcesssubType2.Caption = "FTProcesssubType2"
+        Me.FTProcesssubType2.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.FTProcesssubType2.FieldName = "FTProcesssubType2"
+        Me.FTProcesssubType2.Name = "FTProcesssubType2"
+        Me.FTProcesssubType2.Visible = True
+        Me.FTProcesssubType2.Width = 159
+        '
+        'gridBand59
+        '
+        Me.gridBand59.Caption = "DESCRIPTION"
+        Me.gridBand59.Columns.Add(Me.FTDescription2)
+        Me.gridBand59.Name = "gridBand59"
+        Me.gridBand59.VisibleIndex = 2
+        Me.gridBand59.Width = 200
+        '
+        'FTDescription2
+        '
+        Me.FTDescription2.Caption = "FTDescription2"
+        Me.FTDescription2.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.FTDescription2.FieldName = "FTDescription2"
+        Me.FTDescription2.Name = "FTDescription2"
+        Me.FTDescription2.Visible = True
+        Me.FTDescription2.Width = 200
+        '
+        'gridBand60
+        '
+        Me.gridBand60.Caption = "VENDER"
+        Me.gridBand60.Columns.Add(Me.FTSuplCode2)
+        Me.gridBand60.Name = "gridBand60"
+        Me.gridBand60.VisibleIndex = 3
+        Me.gridBand60.Width = 75
+        '
+        'FTSuplCode2
+        '
+        Me.FTSuplCode2.Caption = "FTSuplCode2"
+        Me.FTSuplCode2.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode2.FieldName = "FTSuplCode2"
+        Me.FTSuplCode2.Name = "FTSuplCode2"
+        Me.FTSuplCode2.Visible = True
+        '
+        'gridBand58
+        '
+        Me.gridBand58.Caption = "UNIT PRICE"
+        Me.gridBand58.Columns.Add(Me.FNUnitPrice2)
+        Me.gridBand58.Name = "gridBand58"
+        Me.gridBand58.VisibleIndex = 4
+        Me.gridBand58.Width = 75
+        '
+        'FNUnitPrice2
+        '
+        Me.FNUnitPrice2.Caption = "FNUnitPrice2"
+        Me.FNUnitPrice2.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice2.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice2.FieldName = "FNUnitPrice2"
+        Me.FNUnitPrice2.Name = "FNUnitPrice2"
+        Me.FNUnitPrice2.Visible = True
+        '
+        'gridBand55
+        '
+        Me.gridBand55.Caption = "CIF UNIT COST"
+        Me.gridBand55.Columns.Add(Me.FNCIF2)
+        Me.gridBand55.Name = "gridBand55"
+        Me.gridBand55.VisibleIndex = 5
+        Me.gridBand55.Width = 100
+        '
+        'FNCIF2
+        '
+        Me.FNCIF2.Caption = "FNCIF2"
+        Me.FNCIF2.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF2.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF2.FieldName = "FNCIF2"
+        Me.FNCIF2.Name = "FNCIF2"
+        Me.FNCIF2.Visible = True
+        Me.FNCIF2.Width = 100
+        '
+        'gridBand57
+        '
+        Me.gridBand57.Caption = "USAGE COST"
+        Me.gridBand57.Columns.Add(Me.FNUSAGECOST2)
+        Me.gridBand57.Name = "gridBand57"
+        Me.gridBand57.VisibleIndex = 6
+        Me.gridBand57.Width = 89
+        '
+        'FNUSAGECOST2
+        '
+        Me.FNUSAGECOST2.Caption = "FNUSAGECOST2"
+        Me.FNUSAGECOST2.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST2.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST2.FieldName = "FNUSAGECOST2"
+        Me.FNUSAGECOST2.Name = "FNUSAGECOST2"
+        Me.FNUSAGECOST2.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST2.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST2.Visible = True
+        Me.FNUSAGECOST2.Width = 89
+        '
+        'gridBand62
+        '
+        Me.gridBand62.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand62.Columns.Add(Me.FNHandlingChargePercent2)
+        Me.gridBand62.Name = "gridBand62"
+        Me.gridBand62.VisibleIndex = 7
+        Me.gridBand62.Width = 142
+        '
+        'FNHandlingChargePercent2
+        '
+        Me.FNHandlingChargePercent2.Caption = "FNHandlingChargePercent2"
+        Me.FNHandlingChargePercent2.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent2.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent2.FieldName = "FNHandlingChargePercent2"
+        Me.FNHandlingChargePercent2.Name = "FNHandlingChargePercent2"
+        Me.FNHandlingChargePercent2.Visible = True
+        Me.FNHandlingChargePercent2.Width = 142
+        '
+        'gridBand56
+        '
+        Me.gridBand56.Caption = "HANDLING CHARGE"
+        Me.gridBand56.Columns.Add(Me.FNHandlingChargeCost2)
+        Me.gridBand56.Name = "gridBand56"
+        Me.gridBand56.VisibleIndex = 8
+        Me.gridBand56.Width = 127
+        '
+        'FNHandlingChargeCost2
+        '
+        Me.FNHandlingChargeCost2.Caption = "FNHandlingChargeCost2"
+        Me.FNHandlingChargeCost2.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost2.FieldName = "FNHandlingChargeCost2"
+        Me.FNHandlingChargeCost2.Name = "FNHandlingChargeCost2"
+        Me.FNHandlingChargeCost2.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost2.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost2.Visible = True
+        Me.FNHandlingChargeCost2.Width = 127
+        '
+        'gridBand53
+        '
+        Me.gridBand53.Caption = "TOTAL COST"
+        Me.gridBand53.Columns.Add(Me.FNTotalCost2)
+        Me.gridBand53.Name = "gridBand53"
+        Me.gridBand53.VisibleIndex = 9
+        Me.gridBand53.Width = 100
+        '
+        'FNTotalCost2
+        '
+        Me.FNTotalCost2.Caption = "FNTotalCost2"
+        Me.FNTotalCost2.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost2.FieldName = "FNTotalCost2"
+        Me.FNTotalCost2.Name = "FNTotalCost2"
+        Me.FNTotalCost2.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost2.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost2.Visible = True
+        Me.FNTotalCost2.Width = 100
+        '
+        'gridBand54
+        '
+        Me.gridBand54.Caption = "IMPORT DUTY (%)"
+        Me.gridBand54.Columns.Add(Me.FNImportDutyPecent2)
+        Me.gridBand54.Name = "gridBand54"
+        Me.gridBand54.VisibleIndex = 10
+        Me.gridBand54.Width = 117
+        '
+        'FNImportDutyPecent2
+        '
+        Me.FNImportDutyPecent2.Caption = "FNImportDutyPecent2"
+        Me.FNImportDutyPecent2.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent2.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent2.FieldName = "FNImportDutyPecent2"
+        Me.FNImportDutyPecent2.Name = "FNImportDutyPecent2"
+        Me.FNImportDutyPecent2.Visible = True
+        Me.FNImportDutyPecent2.Width = 117
+        '
+        'gridBand11
+        '
+        Me.gridBand11.Caption = "TRIM/ PROCESS #3"
+        Me.gridBand11.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand66, Me.gridBand61, Me.gridBand73, Me.gridBand63, Me.gridBand64, Me.gridBand71, Me.gridBand68, Me.gridBand69, Me.gridBand75, Me.gridBand72, Me.gridBand70})
+        Me.gridBand11.Name = "gridBand11"
+        Me.gridBand11.VisibleIndex = 4
+        Me.gridBand11.Width = 1268
+        '
+        'gridBand66
+        '
+        Me.gridBand66.Caption = "ITEM"
+        Me.gridBand66.Columns.Add(Me.FTItem3)
+        Me.gridBand66.Name = "gridBand66"
+        Me.gridBand66.VisibleIndex = 0
+        Me.gridBand66.Width = 106
+        '
+        'FTItem3
+        '
+        Me.FTItem3.Caption = "FTItem3"
+        Me.FTItem3.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.FTItem3.FieldName = "FTItem3"
+        Me.FTItem3.Name = "FTItem3"
+        Me.FTItem3.Visible = True
+        Me.FTItem3.Width = 106
+        '
+        'gridBand61
+        '
+        Me.gridBand61.Caption = "PROCESS SUB TYPE"
+        Me.gridBand61.Columns.Add(Me.FTProcesssubType3)
+        Me.gridBand61.Name = "gridBand61"
+        Me.gridBand61.VisibleIndex = 1
+        Me.gridBand61.Width = 137
+        '
+        'FTProcesssubType3
+        '
+        Me.FTProcesssubType3.Caption = "FTProcesssubType3"
+        Me.FTProcesssubType3.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.FTProcesssubType3.FieldName = "FTProcesssubType3"
+        Me.FTProcesssubType3.Name = "FTProcesssubType3"
+        Me.FTProcesssubType3.Visible = True
+        Me.FTProcesssubType3.Width = 137
+        '
+        'gridBand73
+        '
+        Me.gridBand73.Caption = "DESCRIPTION"
+        Me.gridBand73.Columns.Add(Me.FTDescription3)
+        Me.gridBand73.Name = "gridBand73"
+        Me.gridBand73.VisibleIndex = 2
+        Me.gridBand73.Width = 200
+        '
+        'FTDescription3
+        '
+        Me.FTDescription3.Caption = "FTDescription3"
+        Me.FTDescription3.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.FTDescription3.FieldName = "FTDescription3"
+        Me.FTDescription3.Name = "FTDescription3"
+        Me.FTDescription3.Visible = True
+        Me.FTDescription3.Width = 200
+        '
+        'gridBand63
+        '
+        Me.gridBand63.Caption = "VENDER"
+        Me.gridBand63.Columns.Add(Me.FTSuplCode3)
+        Me.gridBand63.Name = "gridBand63"
+        Me.gridBand63.VisibleIndex = 3
+        Me.gridBand63.Width = 75
+        '
+        'FTSuplCode3
+        '
+        Me.FTSuplCode3.Caption = "FTSuplCode3"
+        Me.FTSuplCode3.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode3.FieldName = "FTSuplCode3"
+        Me.FTSuplCode3.Name = "FTSuplCode3"
+        Me.FTSuplCode3.Visible = True
+        '
+        'gridBand64
+        '
+        Me.gridBand64.Caption = "UNIT PRICE"
+        Me.gridBand64.Columns.Add(Me.FNUnitPrice3)
+        Me.gridBand64.Name = "gridBand64"
+        Me.gridBand64.VisibleIndex = 4
+        Me.gridBand64.Width = 75
+        '
+        'FNUnitPrice3
+        '
+        Me.FNUnitPrice3.Caption = "FNUnitPrice3"
+        Me.FNUnitPrice3.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice3.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice3.FieldName = "FNUnitPrice3"
+        Me.FNUnitPrice3.Name = "FNUnitPrice3"
+        Me.FNUnitPrice3.Visible = True
+        '
+        'gridBand71
+        '
+        Me.gridBand71.Caption = "CIF UNIT COST"
+        Me.gridBand71.Columns.Add(Me.FNCIF3)
+        Me.gridBand71.Name = "gridBand71"
+        Me.gridBand71.VisibleIndex = 5
+        Me.gridBand71.Width = 100
+        '
+        'FNCIF3
+        '
+        Me.FNCIF3.Caption = "FNCIF3"
+        Me.FNCIF3.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF3.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF3.FieldName = "FNCIF3"
+        Me.FNCIF3.Name = "FNCIF3"
+        Me.FNCIF3.Visible = True
+        Me.FNCIF3.Width = 100
+        '
+        'gridBand68
+        '
+        Me.gridBand68.Caption = "USAGE COST"
+        Me.gridBand68.Columns.Add(Me.FNUSAGECOST3)
+        Me.gridBand68.Name = "gridBand68"
+        Me.gridBand68.VisibleIndex = 6
+        Me.gridBand68.Width = 89
+        '
+        'FNUSAGECOST3
+        '
+        Me.FNUSAGECOST3.Caption = "FNUSAGECOST3"
+        Me.FNUSAGECOST3.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST3.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST3.FieldName = "FNUSAGECOST3"
+        Me.FNUSAGECOST3.Name = "FNUSAGECOST3"
+        Me.FNUSAGECOST3.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST3.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST3.Visible = True
+        Me.FNUSAGECOST3.Width = 89
+        '
+        'gridBand69
+        '
+        Me.gridBand69.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand69.Columns.Add(Me.FNHandlingChargePercent3)
+        Me.gridBand69.Name = "gridBand69"
+        Me.gridBand69.VisibleIndex = 7
+        Me.gridBand69.Width = 142
+        '
+        'FNHandlingChargePercent3
+        '
+        Me.FNHandlingChargePercent3.Caption = "FNHandlingChargePercent3"
+        Me.FNHandlingChargePercent3.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent3.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent3.FieldName = "FNHandlingChargePercent3"
+        Me.FNHandlingChargePercent3.Name = "FNHandlingChargePercent3"
+        Me.FNHandlingChargePercent3.Visible = True
+        Me.FNHandlingChargePercent3.Width = 142
+        '
+        'gridBand75
+        '
+        Me.gridBand75.Caption = "HANDLING CHARGE"
+        Me.gridBand75.Columns.Add(Me.FNHandlingChargeCost3)
+        Me.gridBand75.Name = "gridBand75"
+        Me.gridBand75.VisibleIndex = 8
+        Me.gridBand75.Width = 127
+        '
+        'FNHandlingChargeCost3
+        '
+        Me.FNHandlingChargeCost3.Caption = "FNHandlingChargeCost3"
+        Me.FNHandlingChargeCost3.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost3.FieldName = "FNHandlingChargeCost3"
+        Me.FNHandlingChargeCost3.Name = "FNHandlingChargeCost3"
+        Me.FNHandlingChargeCost3.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost3.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost3.Visible = True
+        Me.FNHandlingChargeCost3.Width = 127
+        '
+        'gridBand72
+        '
+        Me.gridBand72.Caption = "TOTAL COST"
+        Me.gridBand72.Columns.Add(Me.FNTotalCost3)
+        Me.gridBand72.Name = "gridBand72"
+        Me.gridBand72.VisibleIndex = 9
+        Me.gridBand72.Width = 100
+        '
+        'FNTotalCost3
+        '
+        Me.FNTotalCost3.Caption = "FNTotalCost3"
+        Me.FNTotalCost3.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost3.FieldName = "FNTotalCost3"
+        Me.FNTotalCost3.Name = "FNTotalCost3"
+        Me.FNTotalCost3.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost3.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost3.Visible = True
+        Me.FNTotalCost3.Width = 100
+        '
+        'gridBand70
+        '
+        Me.gridBand70.Caption = "IMPORT DUTY (%)"
+        Me.gridBand70.Columns.Add(Me.FNImportDutyPecent3)
+        Me.gridBand70.Name = "gridBand70"
+        Me.gridBand70.VisibleIndex = 10
+        Me.gridBand70.Width = 117
+        '
+        'FNImportDutyPecent3
+        '
+        Me.FNImportDutyPecent3.Caption = "FNImportDutyPecent3"
+        Me.FNImportDutyPecent3.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent3.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent3.FieldName = "FNImportDutyPecent3"
+        Me.FNImportDutyPecent3.Name = "FNImportDutyPecent3"
+        Me.FNImportDutyPecent3.Visible = True
+        Me.FNImportDutyPecent3.Width = 117
+        '
+        'gridBand12
+        '
+        Me.gridBand12.Caption = "TRIM/ PROCESS #4"
+        Me.gridBand12.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand74, Me.gridBand78, Me.gridBand82, Me.gridBand77, Me.gridBand80, Me.gridBand81, Me.gridBand79, Me.gridBand84, Me.gridBand85, Me.gridBand83, Me.gridBand76})
+        Me.gridBand12.Name = "gridBand12"
+        Me.gridBand12.VisibleIndex = 5
+        Me.gridBand12.Width = 1254
+        '
+        'gridBand74
+        '
+        Me.gridBand74.Caption = "ITEM"
+        Me.gridBand74.Columns.Add(Me.FTItem4)
+        Me.gridBand74.Name = "gridBand74"
+        Me.gridBand74.VisibleIndex = 0
+        Me.gridBand74.Width = 92
+        '
+        'FTItem4
+        '
+        Me.FTItem4.Caption = "FTItem4"
+        Me.FTItem4.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.FTItem4.FieldName = "FTItem4"
+        Me.FTItem4.Name = "FTItem4"
+        Me.FTItem4.Visible = True
+        Me.FTItem4.Width = 92
+        '
+        'gridBand78
+        '
+        Me.gridBand78.Caption = "PROCESS SUB TYPE"
+        Me.gridBand78.Columns.Add(Me.FTProcesssubType4)
+        Me.gridBand78.Name = "gridBand78"
+        Me.gridBand78.VisibleIndex = 1
+        Me.gridBand78.Width = 137
+        '
+        'FTProcesssubType4
+        '
+        Me.FTProcesssubType4.Caption = "FTProcesssubType4"
+        Me.FTProcesssubType4.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.FTProcesssubType4.FieldName = "FTProcesssubType4"
+        Me.FTProcesssubType4.Name = "FTProcesssubType4"
+        Me.FTProcesssubType4.Visible = True
+        Me.FTProcesssubType4.Width = 137
+        '
+        'gridBand82
+        '
+        Me.gridBand82.Caption = "DESCRIPTION"
+        Me.gridBand82.Columns.Add(Me.FTDescription4)
+        Me.gridBand82.Name = "gridBand82"
+        Me.gridBand82.VisibleIndex = 2
+        Me.gridBand82.Width = 200
+        '
+        'FTDescription4
+        '
+        Me.FTDescription4.Caption = "FTDescription4"
+        Me.FTDescription4.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.FTDescription4.FieldName = "FTDescription4"
+        Me.FTDescription4.Name = "FTDescription4"
+        Me.FTDescription4.Visible = True
+        Me.FTDescription4.Width = 200
+        '
+        'gridBand77
+        '
+        Me.gridBand77.Caption = "VENDER"
+        Me.gridBand77.Columns.Add(Me.FTSuplCode4)
+        Me.gridBand77.Name = "gridBand77"
+        Me.gridBand77.VisibleIndex = 3
+        Me.gridBand77.Width = 75
+        '
+        'FTSuplCode4
+        '
+        Me.FTSuplCode4.Caption = "FTSuplCode4"
+        Me.FTSuplCode4.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode4.FieldName = "FTSuplCode4"
+        Me.FTSuplCode4.Name = "FTSuplCode4"
+        Me.FTSuplCode4.Visible = True
+        '
+        'gridBand80
+        '
+        Me.gridBand80.Caption = "UNIT PRICE"
+        Me.gridBand80.Columns.Add(Me.FNUnitPrice4)
+        Me.gridBand80.Name = "gridBand80"
+        Me.gridBand80.VisibleIndex = 4
+        Me.gridBand80.Width = 75
+        '
+        'FNUnitPrice4
+        '
+        Me.FNUnitPrice4.Caption = "FNUnitPrice4"
+        Me.FNUnitPrice4.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice4.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice4.FieldName = "FNUnitPrice4"
+        Me.FNUnitPrice4.Name = "FNUnitPrice4"
+        Me.FNUnitPrice4.Visible = True
+        '
+        'gridBand81
+        '
+        Me.gridBand81.Caption = "CIF UNIT COST"
+        Me.gridBand81.Columns.Add(Me.FNCIF4)
+        Me.gridBand81.Name = "gridBand81"
+        Me.gridBand81.VisibleIndex = 5
+        Me.gridBand81.Width = 100
+        '
+        'FNCIF4
+        '
+        Me.FNCIF4.Caption = "FNCIF4"
+        Me.FNCIF4.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF4.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF4.FieldName = "FNCIF4"
+        Me.FNCIF4.Name = "FNCIF4"
+        Me.FNCIF4.Visible = True
+        Me.FNCIF4.Width = 100
+        '
+        'gridBand79
+        '
+        Me.gridBand79.Caption = "USAGE COST"
+        Me.gridBand79.Columns.Add(Me.FNUSAGECOST4)
+        Me.gridBand79.Name = "gridBand79"
+        Me.gridBand79.VisibleIndex = 6
+        Me.gridBand79.Width = 89
+        '
+        'FNUSAGECOST4
+        '
+        Me.FNUSAGECOST4.Caption = "FNUSAGECOST4"
+        Me.FNUSAGECOST4.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST4.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST4.FieldName = "FNUSAGECOST4"
+        Me.FNUSAGECOST4.Name = "FNUSAGECOST4"
+        Me.FNUSAGECOST4.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST4.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST4.Visible = True
+        Me.FNUSAGECOST4.Width = 89
+        '
+        'gridBand84
+        '
+        Me.gridBand84.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand84.Columns.Add(Me.FNHandlingChargePercent4)
+        Me.gridBand84.Name = "gridBand84"
+        Me.gridBand84.VisibleIndex = 7
+        Me.gridBand84.Width = 142
+        '
+        'FNHandlingChargePercent4
+        '
+        Me.FNHandlingChargePercent4.Caption = "FNHandlingChargePercent4"
+        Me.FNHandlingChargePercent4.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent4.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent4.FieldName = "FNHandlingChargePercent4"
+        Me.FNHandlingChargePercent4.Name = "FNHandlingChargePercent4"
+        Me.FNHandlingChargePercent4.Visible = True
+        Me.FNHandlingChargePercent4.Width = 142
+        '
+        'gridBand85
+        '
+        Me.gridBand85.Caption = "HANDLING CHARGE"
+        Me.gridBand85.Columns.Add(Me.FNHandlingChargeCost4)
+        Me.gridBand85.Name = "gridBand85"
+        Me.gridBand85.VisibleIndex = 8
+        Me.gridBand85.Width = 127
+        '
+        'FNHandlingChargeCost4
+        '
+        Me.FNHandlingChargeCost4.Caption = "FNHandlingChargeCost4"
+        Me.FNHandlingChargeCost4.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost4.FieldName = "FNHandlingChargeCost4"
+        Me.FNHandlingChargeCost4.Name = "FNHandlingChargeCost4"
+        Me.FNHandlingChargeCost4.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost4.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost4.Visible = True
+        Me.FNHandlingChargeCost4.Width = 127
+        '
+        'gridBand83
+        '
+        Me.gridBand83.Caption = "TOTAL COST"
+        Me.gridBand83.Columns.Add(Me.FNTotalCost4)
+        Me.gridBand83.Name = "gridBand83"
+        Me.gridBand83.VisibleIndex = 9
+        Me.gridBand83.Width = 100
+        '
+        'FNTotalCost4
+        '
+        Me.FNTotalCost4.Caption = "FNTotalCost4"
+        Me.FNTotalCost4.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost4.FieldName = "FNTotalCost4"
+        Me.FNTotalCost4.Name = "FNTotalCost4"
+        Me.FNTotalCost4.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost4.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost4.Visible = True
+        Me.FNTotalCost4.Width = 100
+        '
+        'gridBand76
+        '
+        Me.gridBand76.Caption = "IMPORT DUTY (%)"
+        Me.gridBand76.Columns.Add(Me.FNImportDutyPecent4)
+        Me.gridBand76.Name = "gridBand76"
+        Me.gridBand76.VisibleIndex = 10
+        Me.gridBand76.Width = 117
+        '
+        'FNImportDutyPecent4
+        '
+        Me.FNImportDutyPecent4.Caption = "FNImportDutyPecent4"
+        Me.FNImportDutyPecent4.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent4.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent4.FieldName = "FNImportDutyPecent4"
+        Me.FNImportDutyPecent4.Name = "FNImportDutyPecent4"
+        Me.FNImportDutyPecent4.Visible = True
+        Me.FNImportDutyPecent4.Width = 117
+        '
+        'gridBand13
+        '
+        Me.gridBand13.Caption = "TRIM/ PROCESS #5"
+        Me.gridBand13.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand86, Me.gridBand87, Me.gridBand89, Me.gridBand90, Me.gridBand88, Me.gridBand95, Me.gridBand91, Me.gridBand93, Me.gridBand94, Me.gridBand92, Me.gridBand96})
+        Me.gridBand13.Name = "gridBand13"
+        Me.gridBand13.VisibleIndex = 6
+        Me.gridBand13.Width = 1266
+        '
+        'gridBand86
+        '
+        Me.gridBand86.Caption = "ITEM"
+        Me.gridBand86.Columns.Add(Me.FTItem5)
+        Me.gridBand86.Name = "gridBand86"
+        Me.gridBand86.VisibleIndex = 0
+        Me.gridBand86.Width = 96
+        '
+        'FTItem5
+        '
+        Me.FTItem5.Caption = "FTItem5"
+        Me.FTItem5.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.FTItem5.FieldName = "FTItem5"
+        Me.FTItem5.Name = "FTItem5"
+        Me.FTItem5.Visible = True
+        Me.FTItem5.Width = 96
+        '
+        'gridBand87
+        '
+        Me.gridBand87.Caption = "PROCESS SUB TYPE"
+        Me.gridBand87.Columns.Add(Me.FTProcesssubType5)
+        Me.gridBand87.Name = "gridBand87"
+        Me.gridBand87.VisibleIndex = 1
+        Me.gridBand87.Width = 145
+        '
+        'FTProcesssubType5
+        '
+        Me.FTProcesssubType5.Caption = "FTProcesssubType5"
+        Me.FTProcesssubType5.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.FTProcesssubType5.FieldName = "FTProcesssubType5"
+        Me.FTProcesssubType5.Name = "FTProcesssubType5"
+        Me.FTProcesssubType5.Visible = True
+        Me.FTProcesssubType5.Width = 145
+        '
+        'gridBand89
+        '
+        Me.gridBand89.Caption = "DESCRIPTION"
+        Me.gridBand89.Columns.Add(Me.FTDescription5)
+        Me.gridBand89.Name = "gridBand89"
+        Me.gridBand89.VisibleIndex = 2
+        Me.gridBand89.Width = 200
+        '
+        'FTDescription5
+        '
+        Me.FTDescription5.Caption = "FTDescription5"
+        Me.FTDescription5.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.FTDescription5.FieldName = "FTDescription5"
+        Me.FTDescription5.Name = "FTDescription5"
+        Me.FTDescription5.Visible = True
+        Me.FTDescription5.Width = 200
+        '
+        'gridBand90
+        '
+        Me.gridBand90.Caption = "VENDER"
+        Me.gridBand90.Columns.Add(Me.FTSuplCode5)
+        Me.gridBand90.Name = "gridBand90"
+        Me.gridBand90.VisibleIndex = 3
+        Me.gridBand90.Width = 75
+        '
+        'FTSuplCode5
+        '
+        Me.FTSuplCode5.Caption = "FTSuplCode5"
+        Me.FTSuplCode5.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode5.FieldName = "FTSuplCode5"
+        Me.FTSuplCode5.Name = "FTSuplCode5"
+        Me.FTSuplCode5.Visible = True
+        '
+        'gridBand88
+        '
+        Me.gridBand88.Caption = "UNIT PRICE"
+        Me.gridBand88.Columns.Add(Me.FNUnitPrice5)
+        Me.gridBand88.Name = "gridBand88"
+        Me.gridBand88.VisibleIndex = 4
+        Me.gridBand88.Width = 75
+        '
+        'FNUnitPrice5
+        '
+        Me.FNUnitPrice5.Caption = "FNUnitPrice5"
+        Me.FNUnitPrice5.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice5.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice5.FieldName = "FNUnitPrice5"
+        Me.FNUnitPrice5.Name = "FNUnitPrice5"
+        Me.FNUnitPrice5.Visible = True
+        '
+        'gridBand95
+        '
+        Me.gridBand95.Caption = "CIF UNIT COST"
+        Me.gridBand95.Columns.Add(Me.FNCIF5)
+        Me.gridBand95.Name = "gridBand95"
+        Me.gridBand95.VisibleIndex = 5
+        Me.gridBand95.Width = 100
+        '
+        'FNCIF5
+        '
+        Me.FNCIF5.Caption = "FNCIF5"
+        Me.FNCIF5.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF5.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF5.FieldName = "FNCIF5"
+        Me.FNCIF5.Name = "FNCIF5"
+        Me.FNCIF5.Visible = True
+        Me.FNCIF5.Width = 100
+        '
+        'gridBand91
+        '
+        Me.gridBand91.Caption = "USAGE COST"
+        Me.gridBand91.Columns.Add(Me.FNUSAGECOST5)
+        Me.gridBand91.Name = "gridBand91"
+        Me.gridBand91.VisibleIndex = 6
+        Me.gridBand91.Width = 89
+        '
+        'FNUSAGECOST5
+        '
+        Me.FNUSAGECOST5.Caption = "FNUSAGECOST5"
+        Me.FNUSAGECOST5.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST5.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST5.FieldName = "FNUSAGECOST5"
+        Me.FNUSAGECOST5.Name = "FNUSAGECOST5"
+        Me.FNUSAGECOST5.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST5.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST5.Visible = True
+        Me.FNUSAGECOST5.Width = 89
+        '
+        'gridBand93
+        '
+        Me.gridBand93.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand93.Columns.Add(Me.FNHandlingChargePercent5)
+        Me.gridBand93.Name = "gridBand93"
+        Me.gridBand93.VisibleIndex = 7
+        Me.gridBand93.Width = 142
+        '
+        'FNHandlingChargePercent5
+        '
+        Me.FNHandlingChargePercent5.Caption = "FNHandlingChargePercent5"
+        Me.FNHandlingChargePercent5.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent5.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent5.FieldName = "FNHandlingChargePercent5"
+        Me.FNHandlingChargePercent5.Name = "FNHandlingChargePercent5"
+        Me.FNHandlingChargePercent5.Visible = True
+        Me.FNHandlingChargePercent5.Width = 142
+        '
+        'gridBand94
+        '
+        Me.gridBand94.Caption = "HANDLING CHARGE"
+        Me.gridBand94.Columns.Add(Me.FNHandlingChargeCost5)
+        Me.gridBand94.Name = "gridBand94"
+        Me.gridBand94.VisibleIndex = 8
+        Me.gridBand94.Width = 127
+        '
+        'FNHandlingChargeCost5
+        '
+        Me.FNHandlingChargeCost5.Caption = "FNHandlingChargeCost5"
+        Me.FNHandlingChargeCost5.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost5.FieldName = "FNHandlingChargeCost5"
+        Me.FNHandlingChargeCost5.Name = "FNHandlingChargeCost5"
+        Me.FNHandlingChargeCost5.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost5.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost5.Visible = True
+        Me.FNHandlingChargeCost5.Width = 127
+        '
+        'gridBand92
+        '
+        Me.gridBand92.Caption = "TOTAL COST"
+        Me.gridBand92.Columns.Add(Me.FNTotalCost5)
+        Me.gridBand92.Name = "gridBand92"
+        Me.gridBand92.VisibleIndex = 9
+        Me.gridBand92.Width = 100
+        '
+        'FNTotalCost5
+        '
+        Me.FNTotalCost5.Caption = "FNTotalCost5"
+        Me.FNTotalCost5.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost5.FieldName = "FNTotalCost5"
+        Me.FNTotalCost5.Name = "FNTotalCost5"
+        Me.FNTotalCost5.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost5.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost5.Visible = True
+        Me.FNTotalCost5.Width = 100
+        '
+        'gridBand96
+        '
+        Me.gridBand96.Caption = "IMPORT DUTY"
+        Me.gridBand96.Columns.Add(Me.FNImportDutyPecent5)
+        Me.gridBand96.Name = "gridBand96"
+        Me.gridBand96.VisibleIndex = 10
+        Me.gridBand96.Width = 117
+        '
+        'FNImportDutyPecent5
+        '
+        Me.FNImportDutyPecent5.Caption = "FNImportDutyPecent5"
+        Me.FNImportDutyPecent5.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent5.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent5.FieldName = "FNImportDutyPecent5"
+        Me.FNImportDutyPecent5.Name = "FNImportDutyPecent5"
+        Me.FNImportDutyPecent5.Visible = True
+        Me.FNImportDutyPecent5.Width = 117
+        '
+        'gridBand14
+        '
+        Me.gridBand14.Caption = "TRIM/ PROCESS #6"
+        Me.gridBand14.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand97, Me.gridBand102, Me.gridBand104, Me.gridBand100, Me.gridBand107, Me.gridBand103, Me.gridBand106, Me.gridBand98, Me.gridBand101, Me.gridBand105, Me.gridBand99})
+        Me.gridBand14.Name = "gridBand14"
+        Me.gridBand14.VisibleIndex = 7
+        Me.gridBand14.Width = 1245
+        '
+        'gridBand97
+        '
+        Me.gridBand97.Caption = "ITEM"
+        Me.gridBand97.Columns.Add(Me.FTItem6)
+        Me.gridBand97.Name = "gridBand97"
+        Me.gridBand97.VisibleIndex = 0
+        Me.gridBand97.Width = 103
+        '
+        'FTItem6
+        '
+        Me.FTItem6.Caption = "FTItem6"
+        Me.FTItem6.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.FTItem6.FieldName = "FTItem6"
+        Me.FTItem6.Name = "FTItem6"
+        Me.FTItem6.Visible = True
+        Me.FTItem6.Width = 103
+        '
+        'gridBand102
+        '
+        Me.gridBand102.Caption = "PROCESS SUB TYPE"
+        Me.gridBand102.Columns.Add(Me.FTProcesssubType6)
+        Me.gridBand102.Name = "gridBand102"
+        Me.gridBand102.VisibleIndex = 1
+        Me.gridBand102.Width = 117
+        '
+        'FTProcesssubType6
+        '
+        Me.FTProcesssubType6.Caption = "FTProcesssubType6"
+        Me.FTProcesssubType6.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.FTProcesssubType6.FieldName = "FTProcesssubType6"
+        Me.FTProcesssubType6.Name = "FTProcesssubType6"
+        Me.FTProcesssubType6.Visible = True
+        Me.FTProcesssubType6.Width = 117
+        '
+        'gridBand104
+        '
+        Me.gridBand104.Caption = "DESCRIPTION"
+        Me.gridBand104.Columns.Add(Me.FTDescription6)
+        Me.gridBand104.Name = "gridBand104"
+        Me.gridBand104.VisibleIndex = 2
+        Me.gridBand104.Width = 200
+        '
+        'FTDescription6
+        '
+        Me.FTDescription6.Caption = "FTDescription6"
+        Me.FTDescription6.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.FTDescription6.FieldName = "FTDescription6"
+        Me.FTDescription6.Name = "FTDescription6"
+        Me.FTDescription6.Visible = True
+        Me.FTDescription6.Width = 200
+        '
+        'gridBand100
+        '
+        Me.gridBand100.Caption = "VENDER"
+        Me.gridBand100.Columns.Add(Me.FTSuplCode6)
+        Me.gridBand100.Name = "gridBand100"
+        Me.gridBand100.VisibleIndex = 3
+        Me.gridBand100.Width = 75
+        '
+        'FTSuplCode6
+        '
+        Me.FTSuplCode6.Caption = "FTSuplCode6"
+        Me.FTSuplCode6.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode6.FieldName = "FTSuplCode6"
+        Me.FTSuplCode6.Name = "FTSuplCode6"
+        Me.FTSuplCode6.Visible = True
+        '
+        'gridBand107
+        '
+        Me.gridBand107.Caption = "UNIT PRICE"
+        Me.gridBand107.Columns.Add(Me.FNUnitPrice6)
+        Me.gridBand107.Name = "gridBand107"
+        Me.gridBand107.VisibleIndex = 4
+        Me.gridBand107.Width = 75
+        '
+        'FNUnitPrice6
+        '
+        Me.FNUnitPrice6.Caption = "FNUnitPrice6"
+        Me.FNUnitPrice6.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice6.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice6.FieldName = "FNUnitPrice6"
+        Me.FNUnitPrice6.Name = "FNUnitPrice6"
+        Me.FNUnitPrice6.Visible = True
+        '
+        'gridBand103
+        '
+        Me.gridBand103.Caption = "CIF UNIT COST"
+        Me.gridBand103.Columns.Add(Me.FNCIF6)
+        Me.gridBand103.Name = "gridBand103"
+        Me.gridBand103.VisibleIndex = 5
+        Me.gridBand103.Width = 100
+        '
+        'FNCIF6
+        '
+        Me.FNCIF6.Caption = "FNCIF6"
+        Me.FNCIF6.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF6.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF6.FieldName = "FNCIF6"
+        Me.FNCIF6.Name = "FNCIF6"
+        Me.FNCIF6.Visible = True
+        Me.FNCIF6.Width = 100
+        '
+        'gridBand106
+        '
+        Me.gridBand106.Caption = "USAGE COST"
+        Me.gridBand106.Columns.Add(Me.FNUSAGECOST6)
+        Me.gridBand106.Name = "gridBand106"
+        Me.gridBand106.VisibleIndex = 6
+        Me.gridBand106.Width = 89
+        '
+        'FNUSAGECOST6
+        '
+        Me.FNUSAGECOST6.Caption = "FNUSAGECOST6"
+        Me.FNUSAGECOST6.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST6.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST6.FieldName = "FNUSAGECOST6"
+        Me.FNUSAGECOST6.Name = "FNUSAGECOST6"
+        Me.FNUSAGECOST6.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST6.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST6.Visible = True
+        Me.FNUSAGECOST6.Width = 89
+        '
+        'gridBand98
+        '
+        Me.gridBand98.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand98.Columns.Add(Me.FNHandlingChargePercent6)
+        Me.gridBand98.Name = "gridBand98"
+        Me.gridBand98.VisibleIndex = 7
+        Me.gridBand98.Width = 142
+        '
+        'FNHandlingChargePercent6
+        '
+        Me.FNHandlingChargePercent6.Caption = "FNHandlingChargePercent6"
+        Me.FNHandlingChargePercent6.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent6.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent6.FieldName = "FNHandlingChargePercent6"
+        Me.FNHandlingChargePercent6.Name = "FNHandlingChargePercent6"
+        Me.FNHandlingChargePercent6.Visible = True
+        Me.FNHandlingChargePercent6.Width = 142
+        '
+        'gridBand101
+        '
+        Me.gridBand101.Caption = "HANDLING CHARGE"
+        Me.gridBand101.Columns.Add(Me.FNHandlingChargeCost6)
+        Me.gridBand101.Name = "gridBand101"
+        Me.gridBand101.VisibleIndex = 8
+        Me.gridBand101.Width = 127
+        '
+        'FNHandlingChargeCost6
+        '
+        Me.FNHandlingChargeCost6.Caption = "FNHandlingChargeCost6"
+        Me.FNHandlingChargeCost6.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost6.FieldName = "FNHandlingChargeCost6"
+        Me.FNHandlingChargeCost6.Name = "FNHandlingChargeCost6"
+        Me.FNHandlingChargeCost6.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost6.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost6.Visible = True
+        Me.FNHandlingChargeCost6.Width = 127
+        '
+        'gridBand105
+        '
+        Me.gridBand105.Caption = "TOTAL COST"
+        Me.gridBand105.Columns.Add(Me.FNTotalCost6)
+        Me.gridBand105.Name = "gridBand105"
+        Me.gridBand105.VisibleIndex = 9
+        Me.gridBand105.Width = 100
+        '
+        'FNTotalCost6
+        '
+        Me.FNTotalCost6.Caption = "FNTotalCost6"
+        Me.FNTotalCost6.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost6.FieldName = "FNTotalCost6"
+        Me.FNTotalCost6.Name = "FNTotalCost6"
+        Me.FNTotalCost6.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost6.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost6.Visible = True
+        Me.FNTotalCost6.Width = 100
+        '
+        'gridBand99
+        '
+        Me.gridBand99.Caption = "IMPORT DUTY"
+        Me.gridBand99.Columns.Add(Me.FNImportDutyPecent6)
+        Me.gridBand99.Name = "gridBand99"
+        Me.gridBand99.VisibleIndex = 10
+        Me.gridBand99.Width = 117
+        '
+        'FNImportDutyPecent6
+        '
+        Me.FNImportDutyPecent6.Caption = "FNImportDutyPecent6"
+        Me.FNImportDutyPecent6.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent6.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent6.FieldName = "FNImportDutyPecent6"
+        Me.FNImportDutyPecent6.Name = "FNImportDutyPecent6"
+        Me.FNImportDutyPecent6.Visible = True
+        Me.FNImportDutyPecent6.Width = 117
+        '
+        'gridBand15
+        '
+        Me.gridBand15.Caption = "TRIM/ PROCESS #7"
+        Me.gridBand15.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand108, Me.gridBand109, Me.gridBand115, Me.gridBand110, Me.gridBand116, Me.gridBand114, Me.gridBand113, Me.gridBand111, Me.gridBand118, Me.gridBand117, Me.gridBand112})
+        Me.gridBand15.Name = "gridBand15"
+        Me.gridBand15.VisibleIndex = 8
+        Me.gridBand15.Width = 1351
+        '
+        'gridBand108
+        '
+        Me.gridBand108.Caption = "ITEM"
+        Me.gridBand108.Columns.Add(Me.FTItem7)
+        Me.gridBand108.Name = "gridBand108"
+        Me.gridBand108.VisibleIndex = 0
+        Me.gridBand108.Width = 110
+        '
+        'FTItem7
+        '
+        Me.FTItem7.Caption = "FTItem7"
+        Me.FTItem7.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.FTItem7.FieldName = "FTItem7"
+        Me.FTItem7.Name = "FTItem7"
+        Me.FTItem7.Visible = True
+        Me.FTItem7.Width = 110
+        '
+        'gridBand109
+        '
+        Me.gridBand109.Caption = "PROCESS SUB TYPE"
+        Me.gridBand109.Columns.Add(Me.FTProcesssubType7)
+        Me.gridBand109.Name = "gridBand109"
+        Me.gridBand109.VisibleIndex = 1
+        Me.gridBand109.Width = 146
+        '
+        'FTProcesssubType7
+        '
+        Me.FTProcesssubType7.Caption = "FTProcesssubType7"
+        Me.FTProcesssubType7.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.FTProcesssubType7.FieldName = "FTProcesssubType7"
+        Me.FTProcesssubType7.Name = "FTProcesssubType7"
+        Me.FTProcesssubType7.Visible = True
+        Me.FTProcesssubType7.Width = 146
+        '
+        'gridBand115
+        '
+        Me.gridBand115.Caption = "DESCRIPTION"
+        Me.gridBand115.Columns.Add(Me.FTDescription7)
+        Me.gridBand115.Name = "gridBand115"
+        Me.gridBand115.VisibleIndex = 2
+        Me.gridBand115.Width = 200
+        '
+        'FTDescription7
+        '
+        Me.FTDescription7.Caption = "FTDescription7"
+        Me.FTDescription7.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.FTDescription7.FieldName = "FTDescription7"
+        Me.FTDescription7.Name = "FTDescription7"
+        Me.FTDescription7.Visible = True
+        Me.FTDescription7.Width = 200
+        '
+        'gridBand110
+        '
+        Me.gridBand110.Caption = "VENDER"
+        Me.gridBand110.Columns.Add(Me.FTSuplCode7)
+        Me.gridBand110.Name = "gridBand110"
+        Me.gridBand110.VisibleIndex = 3
+        Me.gridBand110.Width = 75
+        '
+        'FTSuplCode7
+        '
+        Me.FTSuplCode7.Caption = "FTSuplCode7"
+        Me.FTSuplCode7.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode7.FieldName = "FTSuplCode7"
+        Me.FTSuplCode7.Name = "FTSuplCode7"
+        Me.FTSuplCode7.Visible = True
+        '
+        'gridBand116
+        '
+        Me.gridBand116.Caption = "UNIT PRICE"
+        Me.gridBand116.Columns.Add(Me.FNUnitPrice7)
+        Me.gridBand116.Name = "gridBand116"
+        Me.gridBand116.VisibleIndex = 4
+        Me.gridBand116.Width = 75
+        '
+        'FNUnitPrice7
+        '
+        Me.FNUnitPrice7.Caption = "FNUnitPrice7"
+        Me.FNUnitPrice7.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice7.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice7.FieldName = "FNUnitPrice7"
+        Me.FNUnitPrice7.Name = "FNUnitPrice7"
+        Me.FNUnitPrice7.Visible = True
+        '
+        'gridBand114
+        '
+        Me.gridBand114.Caption = "CIF UNIT COST"
+        Me.gridBand114.Columns.Add(Me.FNCIF7)
+        Me.gridBand114.Name = "gridBand114"
+        Me.gridBand114.VisibleIndex = 5
+        Me.gridBand114.Width = 100
+        '
+        'FNCIF7
+        '
+        Me.FNCIF7.Caption = "FNCIF7"
+        Me.FNCIF7.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF7.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF7.FieldName = "FNCIF7"
+        Me.FNCIF7.Name = "FNCIF7"
+        Me.FNCIF7.Visible = True
+        Me.FNCIF7.Width = 100
+        '
+        'gridBand113
+        '
+        Me.gridBand113.Caption = "USAGE COST"
+        Me.gridBand113.Columns.Add(Me.FNUSAGECOST7)
+        Me.gridBand113.Name = "gridBand113"
+        Me.gridBand113.VisibleIndex = 6
+        Me.gridBand113.Width = 89
+        '
+        'FNUSAGECOST7
+        '
+        Me.FNUSAGECOST7.Caption = "FNUSAGECOST7"
+        Me.FNUSAGECOST7.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST7.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST7.FieldName = "FNUSAGECOST7"
+        Me.FNUSAGECOST7.Name = "FNUSAGECOST7"
+        Me.FNUSAGECOST7.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST7.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST7.Visible = True
+        Me.FNUSAGECOST7.Width = 89
+        '
+        'gridBand111
+        '
+        Me.gridBand111.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand111.Columns.Add(Me.FNHandlingChargePercent7)
+        Me.gridBand111.Columns.Add(Me.FNHandlingChargeCost7)
+        Me.gridBand111.Name = "gridBand111"
+        Me.gridBand111.VisibleIndex = 7
+        Me.gridBand111.Width = 269
+        '
+        'FNHandlingChargePercent7
+        '
+        Me.FNHandlingChargePercent7.Caption = "FNHandlingChargePercent7"
+        Me.FNHandlingChargePercent7.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent7.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent7.FieldName = "FNHandlingChargePercent7"
+        Me.FNHandlingChargePercent7.Name = "FNHandlingChargePercent7"
+        Me.FNHandlingChargePercent7.Visible = True
+        Me.FNHandlingChargePercent7.Width = 142
+        '
+        'FNHandlingChargeCost7
+        '
+        Me.FNHandlingChargeCost7.Caption = "FNHandlingChargeCost7"
+        Me.FNHandlingChargeCost7.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost7.FieldName = "FNHandlingChargeCost7"
+        Me.FNHandlingChargeCost7.Name = "FNHandlingChargeCost7"
+        Me.FNHandlingChargeCost7.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost7.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost7.Visible = True
+        Me.FNHandlingChargeCost7.Width = 127
+        '
+        'gridBand118
+        '
+        Me.gridBand118.Caption = "HANDLING CHARGE"
+        Me.gridBand118.Name = "gridBand118"
+        Me.gridBand118.VisibleIndex = 8
+        '
+        'gridBand117
+        '
+        Me.gridBand117.Caption = "TOTAL COST"
+        Me.gridBand117.Columns.Add(Me.FNTotalCost7)
+        Me.gridBand117.Name = "gridBand117"
+        Me.gridBand117.VisibleIndex = 9
+        Me.gridBand117.Width = 100
+        '
+        'FNTotalCost7
+        '
+        Me.FNTotalCost7.Caption = "FNTotalCost7"
+        Me.FNTotalCost7.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost7.FieldName = "FNTotalCost7"
+        Me.FNTotalCost7.Name = "FNTotalCost7"
+        Me.FNTotalCost7.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost7.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost7.Visible = True
+        Me.FNTotalCost7.Width = 100
+        '
+        'gridBand112
+        '
+        Me.gridBand112.Caption = "IMPORT DUTY"
+        Me.gridBand112.Columns.Add(Me.FNImportDutyPecent7)
+        Me.gridBand112.Name = "gridBand112"
+        Me.gridBand112.VisibleIndex = 10
+        Me.gridBand112.Width = 117
+        '
+        'FNImportDutyPecent7
+        '
+        Me.FNImportDutyPecent7.Caption = "FNImportDutyPecent7"
+        Me.FNImportDutyPecent7.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent7.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent7.FieldName = "FNImportDutyPecent7"
+        Me.FNImportDutyPecent7.Name = "FNImportDutyPecent7"
+        Me.FNImportDutyPecent7.Visible = True
+        Me.FNImportDutyPecent7.Width = 117
+        '
+        'gridBand16
+        '
+        Me.gridBand16.Caption = "TRIM/ PROCESS #8"
+        Me.gridBand16.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand119, Me.gridBand120, Me.gridBand121, Me.gridBand122, Me.gridBand123, Me.gridBand124, Me.gridBand125, Me.gridBand126, Me.gridBand127, Me.gridBand128, Me.gridBand129})
+        Me.gridBand16.Name = "gridBand16"
+        Me.gridBand16.VisibleIndex = 9
+        Me.gridBand16.Width = 1279
+        '
+        'gridBand119
+        '
+        Me.gridBand119.Caption = "ITEM"
+        Me.gridBand119.Columns.Add(Me.FTItem8)
+        Me.gridBand119.Name = "gridBand119"
+        Me.gridBand119.VisibleIndex = 0
+        Me.gridBand119.Width = 112
+        '
+        'FTItem8
+        '
+        Me.FTItem8.Caption = "FTItem8"
+        Me.FTItem8.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.FTItem8.FieldName = "FTItem8"
+        Me.FTItem8.Name = "FTItem8"
+        Me.FTItem8.Visible = True
+        Me.FTItem8.Width = 112
+        '
+        'gridBand120
+        '
+        Me.gridBand120.Caption = "PROCESS SUB TYPE"
+        Me.gridBand120.Columns.Add(Me.FTProcesssubType8)
+        Me.gridBand120.Name = "gridBand120"
+        Me.gridBand120.VisibleIndex = 1
+        Me.gridBand120.Width = 142
+        '
+        'FTProcesssubType8
+        '
+        Me.FTProcesssubType8.Caption = "FTProcesssubType8"
+        Me.FTProcesssubType8.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.FTProcesssubType8.FieldName = "FTProcesssubType8"
+        Me.FTProcesssubType8.Name = "FTProcesssubType8"
+        Me.FTProcesssubType8.Visible = True
+        Me.FTProcesssubType8.Width = 142
+        '
+        'gridBand121
+        '
+        Me.gridBand121.Caption = "DESCRIPTION"
+        Me.gridBand121.Columns.Add(Me.FTDescription8)
+        Me.gridBand121.Name = "gridBand121"
+        Me.gridBand121.VisibleIndex = 2
+        Me.gridBand121.Width = 200
+        '
+        'FTDescription8
+        '
+        Me.FTDescription8.Caption = "FTDescription8"
+        Me.FTDescription8.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.FTDescription8.FieldName = "FTDescription8"
+        Me.FTDescription8.Name = "FTDescription8"
+        Me.FTDescription8.Visible = True
+        Me.FTDescription8.Width = 200
+        '
+        'gridBand122
+        '
+        Me.gridBand122.Caption = "VENDER"
+        Me.gridBand122.Columns.Add(Me.FTSuplCode8)
+        Me.gridBand122.Name = "gridBand122"
+        Me.gridBand122.VisibleIndex = 3
+        Me.gridBand122.Width = 75
+        '
+        'FTSuplCode8
+        '
+        Me.FTSuplCode8.Caption = "FTSuplCode8"
+        Me.FTSuplCode8.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode8.FieldName = "FTSuplCode8"
+        Me.FTSuplCode8.Name = "FTSuplCode8"
+        Me.FTSuplCode8.Visible = True
+        '
+        'gridBand123
+        '
+        Me.gridBand123.Caption = "UNIT PRICE"
+        Me.gridBand123.Columns.Add(Me.FNUnitPrice8)
+        Me.gridBand123.Name = "gridBand123"
+        Me.gridBand123.VisibleIndex = 4
+        Me.gridBand123.Width = 75
+        '
+        'FNUnitPrice8
+        '
+        Me.FNUnitPrice8.Caption = "FNUnitPrice8"
+        Me.FNUnitPrice8.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice8.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice8.FieldName = "FNUnitPrice8"
+        Me.FNUnitPrice8.Name = "FNUnitPrice8"
+        Me.FNUnitPrice8.Visible = True
+        '
+        'gridBand124
+        '
+        Me.gridBand124.Caption = "CIF UNIT COST"
+        Me.gridBand124.Columns.Add(Me.FNCIF8)
+        Me.gridBand124.Name = "gridBand124"
+        Me.gridBand124.VisibleIndex = 5
+        Me.gridBand124.Width = 100
+        '
+        'FNCIF8
+        '
+        Me.FNCIF8.Caption = "FNCIF8"
+        Me.FNCIF8.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF8.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF8.FieldName = "FNCIF8"
+        Me.FNCIF8.Name = "FNCIF8"
+        Me.FNCIF8.Visible = True
+        Me.FNCIF8.Width = 100
+        '
+        'gridBand125
+        '
+        Me.gridBand125.Caption = "USAGE COST"
+        Me.gridBand125.Columns.Add(Me.FNUSAGECOST8)
+        Me.gridBand125.Name = "gridBand125"
+        Me.gridBand125.VisibleIndex = 6
+        Me.gridBand125.Width = 89
+        '
+        'FNUSAGECOST8
+        '
+        Me.FNUSAGECOST8.Caption = "FNUSAGECOST8"
+        Me.FNUSAGECOST8.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST8.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST8.FieldName = "FNUSAGECOST8"
+        Me.FNUSAGECOST8.Name = "FNUSAGECOST8"
+        Me.FNUSAGECOST8.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST8.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST8.Visible = True
+        Me.FNUSAGECOST8.Width = 89
+        '
+        'gridBand126
+        '
+        Me.gridBand126.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand126.Columns.Add(Me.FNHandlingChargePercent8)
+        Me.gridBand126.Name = "gridBand126"
+        Me.gridBand126.VisibleIndex = 7
+        Me.gridBand126.Width = 142
+        '
+        'FNHandlingChargePercent8
+        '
+        Me.FNHandlingChargePercent8.Caption = "FNHandlingChargePercent8"
+        Me.FNHandlingChargePercent8.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent8.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent8.FieldName = "FNHandlingChargePercent8"
+        Me.FNHandlingChargePercent8.Name = "FNHandlingChargePercent8"
+        Me.FNHandlingChargePercent8.Visible = True
+        Me.FNHandlingChargePercent8.Width = 142
+        '
+        'gridBand127
+        '
+        Me.gridBand127.Caption = "HANDLING CHARGE"
+        Me.gridBand127.Columns.Add(Me.FNHandlingChargeCost8)
+        Me.gridBand127.Name = "gridBand127"
+        Me.gridBand127.VisibleIndex = 8
+        Me.gridBand127.Width = 127
+        '
+        'FNHandlingChargeCost8
+        '
+        Me.FNHandlingChargeCost8.Caption = "FNHandlingChargeCost8"
+        Me.FNHandlingChargeCost8.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost8.FieldName = "FNHandlingChargeCost8"
+        Me.FNHandlingChargeCost8.Name = "FNHandlingChargeCost8"
+        Me.FNHandlingChargeCost8.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost8.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost8.Visible = True
+        Me.FNHandlingChargeCost8.Width = 127
+        '
+        'gridBand128
+        '
+        Me.gridBand128.Caption = "TOTAL COST"
+        Me.gridBand128.Columns.Add(Me.FNTotalCost8)
+        Me.gridBand128.Name = "gridBand128"
+        Me.gridBand128.VisibleIndex = 9
+        Me.gridBand128.Width = 100
+        '
+        'FNTotalCost8
+        '
+        Me.FNTotalCost8.Caption = "FNTotalCost8"
+        Me.FNTotalCost8.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost8.FieldName = "FNTotalCost8"
+        Me.FNTotalCost8.Name = "FNTotalCost8"
+        Me.FNTotalCost8.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost8.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost8.Visible = True
+        Me.FNTotalCost8.Width = 100
+        '
+        'gridBand129
+        '
+        Me.gridBand129.Caption = "IMPORT DUTY"
+        Me.gridBand129.Columns.Add(Me.FNImportDutyPecent8)
+        Me.gridBand129.Name = "gridBand129"
+        Me.gridBand129.VisibleIndex = 10
+        Me.gridBand129.Width = 117
+        '
+        'FNImportDutyPecent8
+        '
+        Me.FNImportDutyPecent8.Caption = "FNImportDutyPecent8"
+        Me.FNImportDutyPecent8.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent8.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent8.FieldName = "FNImportDutyPecent8"
+        Me.FNImportDutyPecent8.Name = "FNImportDutyPecent8"
+        Me.FNImportDutyPecent8.Visible = True
+        Me.FNImportDutyPecent8.Width = 117
+        '
+        'gridBand17
+        '
+        Me.gridBand17.Caption = "TRIM/ PROCESS #9"
+        Me.gridBand17.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand130, Me.gridBand131, Me.gridBand132, Me.gridBand133, Me.gridBand134, Me.gridBand135, Me.gridBand136, Me.gridBand137, Me.gridBand138, Me.gridBand139, Me.gridBand140})
+        Me.gridBand17.Name = "gridBand17"
+        Me.gridBand17.VisibleIndex = 10
+        Me.gridBand17.Width = 1303
+        '
+        'gridBand130
+        '
+        Me.gridBand130.Caption = "ITEM"
+        Me.gridBand130.Columns.Add(Me.FTItem9)
+        Me.gridBand130.Name = "gridBand130"
+        Me.gridBand130.VisibleIndex = 0
+        Me.gridBand130.Width = 117
+        '
+        'FTItem9
+        '
+        Me.FTItem9.Caption = "FTItem9"
+        Me.FTItem9.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.FTItem9.FieldName = "FTItem9"
+        Me.FTItem9.Name = "FTItem9"
+        Me.FTItem9.Visible = True
+        Me.FTItem9.Width = 117
+        '
+        'gridBand131
+        '
+        Me.gridBand131.Caption = "PROCESS SUB TYPE"
+        Me.gridBand131.Columns.Add(Me.FTProcesssubType9)
+        Me.gridBand131.Name = "gridBand131"
+        Me.gridBand131.VisibleIndex = 1
+        Me.gridBand131.Width = 161
+        '
+        'FTProcesssubType9
+        '
+        Me.FTProcesssubType9.Caption = "FTProcesssubType9"
+        Me.FTProcesssubType9.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.FTProcesssubType9.FieldName = "FTProcesssubType9"
+        Me.FTProcesssubType9.Name = "FTProcesssubType9"
+        Me.FTProcesssubType9.Visible = True
+        Me.FTProcesssubType9.Width = 161
+        '
+        'gridBand132
+        '
+        Me.gridBand132.Caption = "DESCRIPTION"
+        Me.gridBand132.Columns.Add(Me.FTDescription9)
+        Me.gridBand132.Name = "gridBand132"
+        Me.gridBand132.VisibleIndex = 2
+        Me.gridBand132.Width = 200
+        '
+        'FTDescription9
+        '
+        Me.FTDescription9.Caption = "FTDescription9"
+        Me.FTDescription9.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.FTDescription9.FieldName = "FTDescription9"
+        Me.FTDescription9.Name = "FTDescription9"
+        Me.FTDescription9.Visible = True
+        Me.FTDescription9.Width = 200
+        '
+        'gridBand133
+        '
+        Me.gridBand133.Caption = "VENDER"
+        Me.gridBand133.Columns.Add(Me.FTSuplCode9)
+        Me.gridBand133.Name = "gridBand133"
+        Me.gridBand133.VisibleIndex = 3
+        Me.gridBand133.Width = 75
+        '
+        'FTSuplCode9
+        '
+        Me.FTSuplCode9.Caption = "FTSuplCode9"
+        Me.FTSuplCode9.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode9.FieldName = "FTSuplCode9"
+        Me.FTSuplCode9.Name = "FTSuplCode9"
+        Me.FTSuplCode9.Visible = True
+        '
+        'gridBand134
+        '
+        Me.gridBand134.Caption = "UNIT PRICE"
+        Me.gridBand134.Columns.Add(Me.FNUnitPrice9)
+        Me.gridBand134.Name = "gridBand134"
+        Me.gridBand134.VisibleIndex = 4
+        Me.gridBand134.Width = 75
+        '
+        'FNUnitPrice9
+        '
+        Me.FNUnitPrice9.Caption = "FNUnitPrice9"
+        Me.FNUnitPrice9.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice9.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice9.FieldName = "FNUnitPrice9"
+        Me.FNUnitPrice9.Name = "FNUnitPrice9"
+        Me.FNUnitPrice9.Visible = True
+        '
+        'gridBand135
+        '
+        Me.gridBand135.Caption = "CIF UNIT COST"
+        Me.gridBand135.Columns.Add(Me.FNCIF9)
+        Me.gridBand135.Name = "gridBand135"
+        Me.gridBand135.VisibleIndex = 5
+        Me.gridBand135.Width = 100
+        '
+        'FNCIF9
+        '
+        Me.FNCIF9.Caption = "FNCIF9"
+        Me.FNCIF9.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF9.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF9.FieldName = "FNCIF9"
+        Me.FNCIF9.Name = "FNCIF9"
+        Me.FNCIF9.Visible = True
+        Me.FNCIF9.Width = 100
+        '
+        'gridBand136
+        '
+        Me.gridBand136.Caption = "USAGE COST"
+        Me.gridBand136.Columns.Add(Me.FNUSAGECOST9)
+        Me.gridBand136.Name = "gridBand136"
+        Me.gridBand136.VisibleIndex = 6
+        Me.gridBand136.Width = 89
+        '
+        'FNUSAGECOST9
+        '
+        Me.FNUSAGECOST9.Caption = "FNUSAGECOST9"
+        Me.FNUSAGECOST9.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST9.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST9.FieldName = "FNUSAGECOST9"
+        Me.FNUSAGECOST9.Name = "FNUSAGECOST9"
+        Me.FNUSAGECOST9.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST9.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST9.Visible = True
+        Me.FNUSAGECOST9.Width = 89
+        '
+        'gridBand137
+        '
+        Me.gridBand137.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand137.Columns.Add(Me.FNHandlingChargePercent9)
+        Me.gridBand137.Name = "gridBand137"
+        Me.gridBand137.VisibleIndex = 7
+        Me.gridBand137.Width = 142
+        '
+        'FNHandlingChargePercent9
+        '
+        Me.FNHandlingChargePercent9.Caption = "FNHandlingChargePercent9"
+        Me.FNHandlingChargePercent9.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent9.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent9.FieldName = "FNHandlingChargePercent9"
+        Me.FNHandlingChargePercent9.Name = "FNHandlingChargePercent9"
+        Me.FNHandlingChargePercent9.Visible = True
+        Me.FNHandlingChargePercent9.Width = 142
+        '
+        'gridBand138
+        '
+        Me.gridBand138.Caption = "HANDLING CHARGE"
+        Me.gridBand138.Columns.Add(Me.FNHandlingChargeCost9)
+        Me.gridBand138.Name = "gridBand138"
+        Me.gridBand138.VisibleIndex = 8
+        Me.gridBand138.Width = 127
+        '
+        'FNHandlingChargeCost9
+        '
+        Me.FNHandlingChargeCost9.Caption = "FNHandlingChargeCost9"
+        Me.FNHandlingChargeCost9.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost9.FieldName = "FNHandlingChargeCost9"
+        Me.FNHandlingChargeCost9.Name = "FNHandlingChargeCost9"
+        Me.FNHandlingChargeCost9.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost9.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost9.Visible = True
+        Me.FNHandlingChargeCost9.Width = 127
+        '
+        'gridBand139
+        '
+        Me.gridBand139.Caption = "TOTAL COST"
+        Me.gridBand139.Columns.Add(Me.FNTotalCost9)
+        Me.gridBand139.Name = "gridBand139"
+        Me.gridBand139.VisibleIndex = 9
+        Me.gridBand139.Width = 100
+        '
+        'FNTotalCost9
+        '
+        Me.FNTotalCost9.Caption = "FNTotalCost9"
+        Me.FNTotalCost9.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost9.FieldName = "FNTotalCost9"
+        Me.FNTotalCost9.Name = "FNTotalCost9"
+        Me.FNTotalCost9.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost9.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost9.Visible = True
+        Me.FNTotalCost9.Width = 100
+        '
+        'gridBand140
+        '
+        Me.gridBand140.Caption = "IMPORT DUTY"
+        Me.gridBand140.Columns.Add(Me.FNImportDutyPecent9)
+        Me.gridBand140.Name = "gridBand140"
+        Me.gridBand140.VisibleIndex = 10
+        Me.gridBand140.Width = 117
+        '
+        'FNImportDutyPecent9
+        '
+        Me.FNImportDutyPecent9.Caption = "FNImportDutyPecent9"
+        Me.FNImportDutyPecent9.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent9.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent9.FieldName = "FNImportDutyPecent9"
+        Me.FNImportDutyPecent9.Name = "FNImportDutyPecent9"
+        Me.FNImportDutyPecent9.Visible = True
+        Me.FNImportDutyPecent9.Width = 117
+        '
+        'gridBand18
+        '
+        Me.gridBand18.Caption = "TRIM/ PROCESS #10"
+        Me.gridBand18.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand141, Me.gridBand142, Me.gridBand143, Me.gridBand144, Me.gridBand145, Me.gridBand146, Me.gridBand147, Me.gridBand148, Me.gridBand149, Me.gridBand150, Me.gridBand151})
+        Me.gridBand18.Name = "gridBand18"
+        Me.gridBand18.VisibleIndex = 11
+        Me.gridBand18.Width = 1313
+        '
+        'gridBand141
+        '
+        Me.gridBand141.Caption = "ITEM"
+        Me.gridBand141.Columns.Add(Me.FTItem10)
+        Me.gridBand141.Name = "gridBand141"
+        Me.gridBand141.VisibleIndex = 0
+        Me.gridBand141.Width = 108
+        '
+        'FTItem10
+        '
+        Me.FTItem10.Caption = "FTItem10"
+        Me.FTItem10.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.FTItem10.FieldName = "FTItem10"
+        Me.FTItem10.Name = "FTItem10"
+        Me.FTItem10.Visible = True
+        Me.FTItem10.Width = 108
+        '
+        'gridBand142
+        '
+        Me.gridBand142.Caption = "PROCESS SUB TYPE"
+        Me.gridBand142.Columns.Add(Me.FTProcesssubType10)
+        Me.gridBand142.Name = "gridBand142"
+        Me.gridBand142.VisibleIndex = 1
+        Me.gridBand142.Width = 150
+        '
+        'FTProcesssubType10
+        '
+        Me.FTProcesssubType10.Caption = "FTProcesssubType10"
+        Me.FTProcesssubType10.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.FTProcesssubType10.FieldName = "FTProcesssubType10"
+        Me.FTProcesssubType10.Name = "FTProcesssubType10"
+        Me.FTProcesssubType10.Visible = True
+        Me.FTProcesssubType10.Width = 150
+        '
+        'gridBand143
+        '
+        Me.gridBand143.Caption = "DESCRIPTION"
+        Me.gridBand143.Columns.Add(Me.FTDescription10)
+        Me.gridBand143.Name = "gridBand143"
+        Me.gridBand143.VisibleIndex = 2
+        Me.gridBand143.Width = 200
+        '
+        'FTDescription10
+        '
+        Me.FTDescription10.Caption = "FTDescription10"
+        Me.FTDescription10.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.FTDescription10.FieldName = "FTDescription10"
+        Me.FTDescription10.Name = "FTDescription10"
+        Me.FTDescription10.Visible = True
+        Me.FTDescription10.Width = 200
+        '
+        'gridBand144
+        '
+        Me.gridBand144.Caption = "VENDER"
+        Me.gridBand144.Columns.Add(Me.FTSuplCode10)
+        Me.gridBand144.Name = "gridBand144"
+        Me.gridBand144.VisibleIndex = 3
+        Me.gridBand144.Width = 79
+        '
+        'FTSuplCode10
+        '
+        Me.FTSuplCode10.Caption = "FTSuplCode10"
+        Me.FTSuplCode10.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode10.FieldName = "FTSuplCode10"
+        Me.FTSuplCode10.Name = "FTSuplCode10"
+        Me.FTSuplCode10.Visible = True
+        Me.FTSuplCode10.Width = 79
+        '
+        'gridBand145
+        '
+        Me.gridBand145.Caption = "UNIT PRICE"
+        Me.gridBand145.Columns.Add(Me.FNUnitPrice10)
+        Me.gridBand145.Name = "gridBand145"
+        Me.gridBand145.VisibleIndex = 4
+        Me.gridBand145.Width = 77
+        '
+        'FNUnitPrice10
+        '
+        Me.FNUnitPrice10.Caption = "FNUnitPrice10"
+        Me.FNUnitPrice10.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice10.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice10.FieldName = "FNUnitPrice10"
+        Me.FNUnitPrice10.Name = "FNUnitPrice10"
+        Me.FNUnitPrice10.Visible = True
+        Me.FNUnitPrice10.Width = 77
+        '
+        'gridBand146
+        '
+        Me.gridBand146.Caption = "CIF UNIT COST"
+        Me.gridBand146.Columns.Add(Me.FNCIF10)
+        Me.gridBand146.Name = "gridBand146"
+        Me.gridBand146.VisibleIndex = 5
+        Me.gridBand146.Width = 100
+        '
+        'FNCIF10
+        '
+        Me.FNCIF10.Caption = "FNCIF10"
+        Me.FNCIF10.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF10.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF10.FieldName = "FNCIF10"
+        Me.FNCIF10.Name = "FNCIF10"
+        Me.FNCIF10.Visible = True
+        Me.FNCIF10.Width = 100
+        '
+        'gridBand147
+        '
+        Me.gridBand147.Caption = "USAGE COST"
+        Me.gridBand147.Columns.Add(Me.FNUSAGECOST10)
+        Me.gridBand147.Name = "gridBand147"
+        Me.gridBand147.VisibleIndex = 6
+        Me.gridBand147.Width = 95
+        '
+        'FNUSAGECOST10
+        '
+        Me.FNUSAGECOST10.Caption = "FNUSAGECOST10"
+        Me.FNUSAGECOST10.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST10.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST10.FieldName = "FNUSAGECOST10"
+        Me.FNUSAGECOST10.Name = "FNUSAGECOST10"
+        Me.FNUSAGECOST10.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST10.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST10.Visible = True
+        Me.FNUSAGECOST10.Width = 95
+        '
+        'gridBand148
+        '
+        Me.gridBand148.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand148.Columns.Add(Me.FNHandlingChargePercent10)
+        Me.gridBand148.Name = "gridBand148"
+        Me.gridBand148.VisibleIndex = 7
+        Me.gridBand148.Width = 148
+        '
+        'FNHandlingChargePercent10
+        '
+        Me.FNHandlingChargePercent10.Caption = "FNHandlingChargePercent10"
+        Me.FNHandlingChargePercent10.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent10.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent10.FieldName = "FNHandlingChargePercent10"
+        Me.FNHandlingChargePercent10.Name = "FNHandlingChargePercent10"
+        Me.FNHandlingChargePercent10.Visible = True
+        Me.FNHandlingChargePercent10.Width = 148
+        '
+        'gridBand149
+        '
+        Me.gridBand149.Caption = "HANDLING CHARGE"
+        Me.gridBand149.Columns.Add(Me.FNHandlingChargeCost10)
+        Me.gridBand149.Name = "gridBand149"
+        Me.gridBand149.VisibleIndex = 8
+        Me.gridBand149.Width = 133
+        '
+        'FNHandlingChargeCost10
+        '
+        Me.FNHandlingChargeCost10.Caption = "FNHandlingChargeCost10"
+        Me.FNHandlingChargeCost10.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost10.FieldName = "FNHandlingChargeCost10"
+        Me.FNHandlingChargeCost10.Name = "FNHandlingChargeCost10"
+        Me.FNHandlingChargeCost10.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost10.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost10.Visible = True
+        Me.FNHandlingChargeCost10.Width = 133
+        '
+        'gridBand150
+        '
+        Me.gridBand150.Caption = "TOTAL COST"
+        Me.gridBand150.Columns.Add(Me.FNTotalCost10)
+        Me.gridBand150.Name = "gridBand150"
+        Me.gridBand150.VisibleIndex = 9
+        Me.gridBand150.Width = 100
+        '
+        'FNTotalCost10
+        '
+        Me.FNTotalCost10.Caption = "FNTotalCost10"
+        Me.FNTotalCost10.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost10.FieldName = "FNTotalCost10"
+        Me.FNTotalCost10.Name = "FNTotalCost10"
+        Me.FNTotalCost10.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost10.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost10.Visible = True
+        Me.FNTotalCost10.Width = 100
+        '
+        'gridBand151
+        '
+        Me.gridBand151.Caption = "IMPORT DUTY"
+        Me.gridBand151.Columns.Add(Me.FNImportDutyPecent10)
+        Me.gridBand151.Name = "gridBand151"
+        Me.gridBand151.VisibleIndex = 10
+        Me.gridBand151.Width = 123
+        '
+        'FNImportDutyPecent10
+        '
+        Me.FNImportDutyPecent10.Caption = "FNImportDutyPecent10"
+        Me.FNImportDutyPecent10.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent10.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent10.FieldName = "FNImportDutyPecent10"
+        Me.FNImportDutyPecent10.Name = "FNImportDutyPecent10"
+        Me.FNImportDutyPecent10.Visible = True
+        Me.FNImportDutyPecent10.Width = 123
+        '
+        'gridBand19
+        '
+        Me.gridBand19.Caption = "TRIM/ PROCESS #11"
+        Me.gridBand19.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand152, Me.gridBand153, Me.gridBand154, Me.gridBand155, Me.gridBand156, Me.gridBand157, Me.gridBand158, Me.gridBand159, Me.gridBand160, Me.gridBand161, Me.gridBand162})
+        Me.gridBand19.Name = "gridBand19"
+        Me.gridBand19.VisibleIndex = 12
+        Me.gridBand19.Width = 1308
+        '
+        'gridBand152
+        '
+        Me.gridBand152.Caption = "ITEM"
+        Me.gridBand152.Columns.Add(Me.FTItem11)
+        Me.gridBand152.Name = "gridBand152"
+        Me.gridBand152.VisibleIndex = 0
+        Me.gridBand152.Width = 102
+        '
+        'FTItem11
+        '
+        Me.FTItem11.Caption = "FTItem11"
+        Me.FTItem11.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.FTItem11.FieldName = "FTItem11"
+        Me.FTItem11.Name = "FTItem11"
+        Me.FTItem11.Visible = True
+        Me.FTItem11.Width = 102
+        '
+        'gridBand153
+        '
+        Me.gridBand153.Caption = "PROCESS SUB TYPE"
+        Me.gridBand153.Columns.Add(Me.FTProcesssubType11)
+        Me.gridBand153.Name = "gridBand153"
+        Me.gridBand153.VisibleIndex = 1
+        Me.gridBand153.Width = 151
+        '
+        'FTProcesssubType11
+        '
+        Me.FTProcesssubType11.Caption = "FTProcesssubType11"
+        Me.FTProcesssubType11.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.FTProcesssubType11.FieldName = "FTProcesssubType11"
+        Me.FTProcesssubType11.Name = "FTProcesssubType11"
+        Me.FTProcesssubType11.Visible = True
+        Me.FTProcesssubType11.Width = 151
+        '
+        'gridBand154
+        '
+        Me.gridBand154.Caption = "DESCRIPTION"
+        Me.gridBand154.Columns.Add(Me.FTDescription11)
+        Me.gridBand154.Name = "gridBand154"
+        Me.gridBand154.VisibleIndex = 2
+        Me.gridBand154.Width = 200
+        '
+        'FTDescription11
+        '
+        Me.FTDescription11.Caption = "FTDescription11"
+        Me.FTDescription11.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.FTDescription11.FieldName = "FTDescription11"
+        Me.FTDescription11.Name = "FTDescription11"
+        Me.FTDescription11.Visible = True
+        Me.FTDescription11.Width = 200
+        '
+        'gridBand155
+        '
+        Me.gridBand155.Caption = "VENDER"
+        Me.gridBand155.Columns.Add(Me.FTSuplCode11)
+        Me.gridBand155.Name = "gridBand155"
+        Me.gridBand155.VisibleIndex = 3
+        Me.gridBand155.Width = 79
+        '
+        'FTSuplCode11
+        '
+        Me.FTSuplCode11.Caption = "FTSuplCode11"
+        Me.FTSuplCode11.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode11.FieldName = "FTSuplCode11"
+        Me.FTSuplCode11.Name = "FTSuplCode11"
+        Me.FTSuplCode11.Visible = True
+        Me.FTSuplCode11.Width = 79
+        '
+        'gridBand156
+        '
+        Me.gridBand156.Caption = "UNIT PRICE"
+        Me.gridBand156.Columns.Add(Me.FNUnitPrice11)
+        Me.gridBand156.Name = "gridBand156"
+        Me.gridBand156.VisibleIndex = 4
+        Me.gridBand156.Width = 77
+        '
+        'FNUnitPrice11
+        '
+        Me.FNUnitPrice11.Caption = "FNUnitPrice11"
+        Me.FNUnitPrice11.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice11.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice11.FieldName = "FNUnitPrice11"
+        Me.FNUnitPrice11.Name = "FNUnitPrice11"
+        Me.FNUnitPrice11.Visible = True
+        Me.FNUnitPrice11.Width = 77
+        '
+        'gridBand157
+        '
+        Me.gridBand157.Caption = "CIF UNIT COST"
+        Me.gridBand157.Columns.Add(Me.FNCIF11)
+        Me.gridBand157.Name = "gridBand157"
+        Me.gridBand157.VisibleIndex = 5
+        Me.gridBand157.Width = 100
+        '
+        'FNCIF11
+        '
+        Me.FNCIF11.Caption = "FNCIF11"
+        Me.FNCIF11.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF11.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF11.FieldName = "FNCIF11"
+        Me.FNCIF11.Name = "FNCIF11"
+        Me.FNCIF11.Visible = True
+        Me.FNCIF11.Width = 100
+        '
+        'gridBand158
+        '
+        Me.gridBand158.Caption = "USAGE COST"
+        Me.gridBand158.Columns.Add(Me.FNUSAGECOST11)
+        Me.gridBand158.Name = "gridBand158"
+        Me.gridBand158.VisibleIndex = 6
+        Me.gridBand158.Width = 95
+        '
+        'FNUSAGECOST11
+        '
+        Me.FNUSAGECOST11.Caption = "FNUSAGECOST11"
+        Me.FNUSAGECOST11.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST11.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST11.FieldName = "FNUSAGECOST11"
+        Me.FNUSAGECOST11.Name = "FNUSAGECOST11"
+        Me.FNUSAGECOST11.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST11.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST11.Visible = True
+        Me.FNUSAGECOST11.Width = 95
+        '
+        'gridBand159
+        '
+        Me.gridBand159.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand159.Columns.Add(Me.FNHandlingChargePercent11)
+        Me.gridBand159.Name = "gridBand159"
+        Me.gridBand159.VisibleIndex = 7
+        Me.gridBand159.Width = 148
+        '
+        'FNHandlingChargePercent11
+        '
+        Me.FNHandlingChargePercent11.Caption = "FNHandlingChargePercent11"
+        Me.FNHandlingChargePercent11.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent11.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent11.FieldName = "FNHandlingChargePercent11"
+        Me.FNHandlingChargePercent11.Name = "FNHandlingChargePercent11"
+        Me.FNHandlingChargePercent11.Visible = True
+        Me.FNHandlingChargePercent11.Width = 148
+        '
+        'gridBand160
+        '
+        Me.gridBand160.Caption = "HANDLING CHARGE"
+        Me.gridBand160.Columns.Add(Me.FNHandlingChargeCost11)
+        Me.gridBand160.Name = "gridBand160"
+        Me.gridBand160.VisibleIndex = 8
+        Me.gridBand160.Width = 133
+        '
+        'FNHandlingChargeCost11
+        '
+        Me.FNHandlingChargeCost11.Caption = "FNHandlingChargeCost11"
+        Me.FNHandlingChargeCost11.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost11.FieldName = "FNHandlingChargeCost11"
+        Me.FNHandlingChargeCost11.Name = "FNHandlingChargeCost11"
+        Me.FNHandlingChargeCost11.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost11.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost11.Visible = True
+        Me.FNHandlingChargeCost11.Width = 133
+        '
+        'gridBand161
+        '
+        Me.gridBand161.Caption = "TOTAL COST"
+        Me.gridBand161.Columns.Add(Me.FNTotalCost11)
+        Me.gridBand161.Name = "gridBand161"
+        Me.gridBand161.VisibleIndex = 9
+        Me.gridBand161.Width = 100
+        '
+        'FNTotalCost11
+        '
+        Me.FNTotalCost11.Caption = "FNTotalCost11"
+        Me.FNTotalCost11.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost11.FieldName = "FNTotalCost11"
+        Me.FNTotalCost11.Name = "FNTotalCost11"
+        Me.FNTotalCost11.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost11.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost11.Visible = True
+        Me.FNTotalCost11.Width = 100
+        '
+        'gridBand162
+        '
+        Me.gridBand162.Caption = "IMPORT DUTY"
+        Me.gridBand162.Columns.Add(Me.FNImportDutyPecent11)
+        Me.gridBand162.Name = "gridBand162"
+        Me.gridBand162.VisibleIndex = 10
+        Me.gridBand162.Width = 123
+        '
+        'FNImportDutyPecent11
+        '
+        Me.FNImportDutyPecent11.Caption = "FNImportDutyPecent11"
+        Me.FNImportDutyPecent11.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent11.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent11.FieldName = "FNImportDutyPecent11"
+        Me.FNImportDutyPecent11.Name = "FNImportDutyPecent11"
+        Me.FNImportDutyPecent11.Visible = True
+        Me.FNImportDutyPecent11.Width = 123
+        '
+        'gridBand20
+        '
+        Me.gridBand20.Caption = "TRIM/ PROCESS #12"
+        Me.gridBand20.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand163, Me.gridBand164, Me.gridBand165, Me.gridBand166, Me.gridBand167, Me.gridBand168, Me.gridBand169, Me.gridBand170, Me.gridBand171, Me.gridBand172, Me.gridBand173})
+        Me.gridBand20.Name = "gridBand20"
+        Me.gridBand20.VisibleIndex = 13
+        Me.gridBand20.Width = 1298
+        '
+        'gridBand163
+        '
+        Me.gridBand163.Caption = "ITEM"
+        Me.gridBand163.Columns.Add(Me.FTItem12)
+        Me.gridBand163.Name = "gridBand163"
+        Me.gridBand163.VisibleIndex = 0
+        Me.gridBand163.Width = 105
+        '
+        'FTItem12
+        '
+        Me.FTItem12.Caption = "FTItem12"
+        Me.FTItem12.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.FTItem12.FieldName = "FTItem12"
+        Me.FTItem12.Name = "FTItem12"
+        Me.FTItem12.Visible = True
+        Me.FTItem12.Width = 105
+        '
+        'gridBand164
+        '
+        Me.gridBand164.Caption = "PROCESS SUB TYPE"
+        Me.gridBand164.Columns.Add(Me.FTProcesssubType12)
+        Me.gridBand164.Name = "gridBand164"
+        Me.gridBand164.VisibleIndex = 1
+        Me.gridBand164.Width = 138
+        '
+        'FTProcesssubType12
+        '
+        Me.FTProcesssubType12.Caption = "FTProcesssubType12"
+        Me.FTProcesssubType12.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.FTProcesssubType12.FieldName = "FTProcesssubType12"
+        Me.FTProcesssubType12.Name = "FTProcesssubType12"
+        Me.FTProcesssubType12.Visible = True
+        Me.FTProcesssubType12.Width = 138
+        '
+        'gridBand165
+        '
+        Me.gridBand165.Caption = "DESCRIPTION"
+        Me.gridBand165.Columns.Add(Me.FTDescription12)
+        Me.gridBand165.Name = "gridBand165"
+        Me.gridBand165.VisibleIndex = 2
+        Me.gridBand165.Width = 200
+        '
+        'FTDescription12
+        '
+        Me.FTDescription12.Caption = "FTDescription12"
+        Me.FTDescription12.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.FTDescription12.FieldName = "FTDescription12"
+        Me.FTDescription12.Name = "FTDescription12"
+        Me.FTDescription12.Visible = True
+        Me.FTDescription12.Width = 200
+        '
+        'gridBand166
+        '
+        Me.gridBand166.Caption = "VENDER"
+        Me.gridBand166.Columns.Add(Me.FTSuplCode12)
+        Me.gridBand166.Name = "gridBand166"
+        Me.gridBand166.VisibleIndex = 3
+        Me.gridBand166.Width = 79
+        '
+        'FTSuplCode12
+        '
+        Me.FTSuplCode12.Caption = "FTSuplCode12"
+        Me.FTSuplCode12.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode12.FieldName = "FTSuplCode12"
+        Me.FTSuplCode12.Name = "FTSuplCode12"
+        Me.FTSuplCode12.Visible = True
+        Me.FTSuplCode12.Width = 79
+        '
+        'gridBand167
+        '
+        Me.gridBand167.Caption = "UNIT PRICE"
+        Me.gridBand167.Columns.Add(Me.FNUnitPrice12)
+        Me.gridBand167.Name = "gridBand167"
+        Me.gridBand167.VisibleIndex = 4
+        Me.gridBand167.Width = 77
+        '
+        'FNUnitPrice12
+        '
+        Me.FNUnitPrice12.Caption = "FNUnitPrice12"
+        Me.FNUnitPrice12.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice12.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice12.FieldName = "FNUnitPrice12"
+        Me.FNUnitPrice12.Name = "FNUnitPrice12"
+        Me.FNUnitPrice12.Visible = True
+        Me.FNUnitPrice12.Width = 77
+        '
+        'gridBand168
+        '
+        Me.gridBand168.Caption = "CIF UNIT COST"
+        Me.gridBand168.Columns.Add(Me.FNCIF12)
+        Me.gridBand168.Name = "gridBand168"
+        Me.gridBand168.VisibleIndex = 5
+        Me.gridBand168.Width = 100
+        '
+        'FNCIF12
+        '
+        Me.FNCIF12.Caption = "FNCIF12"
+        Me.FNCIF12.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF12.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF12.FieldName = "FNCIF12"
+        Me.FNCIF12.Name = "FNCIF12"
+        Me.FNCIF12.Visible = True
+        Me.FNCIF12.Width = 100
+        '
+        'gridBand169
+        '
+        Me.gridBand169.Caption = "USAGE COST"
+        Me.gridBand169.Columns.Add(Me.FNUSAGECOST12)
+        Me.gridBand169.Name = "gridBand169"
+        Me.gridBand169.VisibleIndex = 6
+        Me.gridBand169.Width = 95
+        '
+        'FNUSAGECOST12
+        '
+        Me.FNUSAGECOST12.Caption = "FNUSAGECOST12"
+        Me.FNUSAGECOST12.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST12.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST12.FieldName = "FNUSAGECOST12"
+        Me.FNUSAGECOST12.Name = "FNUSAGECOST12"
+        Me.FNUSAGECOST12.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST12.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST12.Visible = True
+        Me.FNUSAGECOST12.Width = 95
+        '
+        'gridBand170
+        '
+        Me.gridBand170.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand170.Columns.Add(Me.FNHandlingChargePercent12)
+        Me.gridBand170.Name = "gridBand170"
+        Me.gridBand170.VisibleIndex = 7
+        Me.gridBand170.Width = 148
+        '
+        'FNHandlingChargePercent12
+        '
+        Me.FNHandlingChargePercent12.Caption = "FNHandlingChargePercent12"
+        Me.FNHandlingChargePercent12.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent12.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent12.FieldName = "FNHandlingChargePercent12"
+        Me.FNHandlingChargePercent12.Name = "FNHandlingChargePercent12"
+        Me.FNHandlingChargePercent12.Visible = True
+        Me.FNHandlingChargePercent12.Width = 148
+        '
+        'gridBand171
+        '
+        Me.gridBand171.Caption = "HANDLING CHARGE"
+        Me.gridBand171.Columns.Add(Me.FNHandlingChargeCost12)
+        Me.gridBand171.Name = "gridBand171"
+        Me.gridBand171.VisibleIndex = 8
+        Me.gridBand171.Width = 133
+        '
+        'FNHandlingChargeCost12
+        '
+        Me.FNHandlingChargeCost12.Caption = "FNHandlingChargeCost12"
+        Me.FNHandlingChargeCost12.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost12.FieldName = "FNHandlingChargeCost12"
+        Me.FNHandlingChargeCost12.Name = "FNHandlingChargeCost12"
+        Me.FNHandlingChargeCost12.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost12.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost12.Visible = True
+        Me.FNHandlingChargeCost12.Width = 133
+        '
+        'gridBand172
+        '
+        Me.gridBand172.Caption = "TOTAL COST"
+        Me.gridBand172.Columns.Add(Me.FNTotalCost12)
+        Me.gridBand172.Name = "gridBand172"
+        Me.gridBand172.VisibleIndex = 9
+        Me.gridBand172.Width = 100
+        '
+        'FNTotalCost12
+        '
+        Me.FNTotalCost12.Caption = "FNTotalCost12"
+        Me.FNTotalCost12.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost12.FieldName = "FNTotalCost12"
+        Me.FNTotalCost12.Name = "FNTotalCost12"
+        Me.FNTotalCost12.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost12.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost12.Visible = True
+        Me.FNTotalCost12.Width = 100
+        '
+        'gridBand173
+        '
+        Me.gridBand173.Caption = "IMPORT DUTY"
+        Me.gridBand173.Columns.Add(Me.FNImportDutyPecent12)
+        Me.gridBand173.Name = "gridBand173"
+        Me.gridBand173.VisibleIndex = 10
+        Me.gridBand173.Width = 123
+        '
+        'FNImportDutyPecent12
+        '
+        Me.FNImportDutyPecent12.Caption = "FNImportDutyPecent12"
+        Me.FNImportDutyPecent12.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent12.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent12.FieldName = "FNImportDutyPecent12"
+        Me.FNImportDutyPecent12.Name = "FNImportDutyPecent12"
+        Me.FNImportDutyPecent12.Visible = True
+        Me.FNImportDutyPecent12.Width = 123
+        '
+        'gridBand21
+        '
+        Me.gridBand21.Caption = "TRIM/ PROCESS #13"
+        Me.gridBand21.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand174, Me.gridBand175, Me.gridBand176, Me.gridBand177, Me.gridBand178, Me.gridBand179, Me.gridBand180, Me.gridBand181, Me.gridBand182, Me.gridBand183, Me.gridBand184})
+        Me.gridBand21.Name = "gridBand21"
+        Me.gridBand21.VisibleIndex = 14
+        Me.gridBand21.Width = 1300
+        '
+        'gridBand174
+        '
+        Me.gridBand174.Caption = "ITEM"
+        Me.gridBand174.Columns.Add(Me.FTItem13)
+        Me.gridBand174.Name = "gridBand174"
+        Me.gridBand174.VisibleIndex = 0
+        Me.gridBand174.Width = 103
+        '
+        'FTItem13
+        '
+        Me.FTItem13.Caption = "FTItem13"
+        Me.FTItem13.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.FTItem13.FieldName = "FTItem13"
+        Me.FTItem13.Name = "FTItem13"
+        Me.FTItem13.Visible = True
+        Me.FTItem13.Width = 103
+        '
+        'gridBand175
+        '
+        Me.gridBand175.Caption = "PROCESS SUB TYPE"
+        Me.gridBand175.Columns.Add(Me.FTProcesssubType13)
+        Me.gridBand175.Name = "gridBand175"
+        Me.gridBand175.VisibleIndex = 1
+        Me.gridBand175.Width = 142
+        '
+        'FTProcesssubType13
+        '
+        Me.FTProcesssubType13.Caption = "FTProcesssubType13"
+        Me.FTProcesssubType13.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.FTProcesssubType13.FieldName = "FTProcesssubType13"
+        Me.FTProcesssubType13.Name = "FTProcesssubType13"
+        Me.FTProcesssubType13.Visible = True
+        Me.FTProcesssubType13.Width = 142
+        '
+        'gridBand176
+        '
+        Me.gridBand176.Caption = "DESCRIPTION"
+        Me.gridBand176.Columns.Add(Me.FTDescription13)
+        Me.gridBand176.Name = "gridBand176"
+        Me.gridBand176.VisibleIndex = 2
+        Me.gridBand176.Width = 200
+        '
+        'FTDescription13
+        '
+        Me.FTDescription13.Caption = "FTDescription13"
+        Me.FTDescription13.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.FTDescription13.FieldName = "FTDescription13"
+        Me.FTDescription13.Name = "FTDescription13"
+        Me.FTDescription13.Visible = True
+        Me.FTDescription13.Width = 200
+        '
+        'gridBand177
+        '
+        Me.gridBand177.Caption = "VENDER"
+        Me.gridBand177.Columns.Add(Me.FTSuplCode13)
+        Me.gridBand177.Name = "gridBand177"
+        Me.gridBand177.VisibleIndex = 3
+        Me.gridBand177.Width = 79
+        '
+        'FTSuplCode13
+        '
+        Me.FTSuplCode13.Caption = "FTSuplCode13"
+        Me.FTSuplCode13.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode13.FieldName = "FTSuplCode13"
+        Me.FTSuplCode13.Name = "FTSuplCode13"
+        Me.FTSuplCode13.Visible = True
+        Me.FTSuplCode13.Width = 79
+        '
+        'gridBand178
+        '
+        Me.gridBand178.Caption = "UNIT PRICE"
+        Me.gridBand178.Columns.Add(Me.FNUnitPrice13)
+        Me.gridBand178.Name = "gridBand178"
+        Me.gridBand178.VisibleIndex = 4
+        Me.gridBand178.Width = 77
+        '
+        'FNUnitPrice13
+        '
+        Me.FNUnitPrice13.Caption = "FNUnitPrice13"
+        Me.FNUnitPrice13.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice13.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice13.FieldName = "FNUnitPrice13"
+        Me.FNUnitPrice13.Name = "FNUnitPrice13"
+        Me.FNUnitPrice13.Visible = True
+        Me.FNUnitPrice13.Width = 77
+        '
+        'gridBand179
+        '
+        Me.gridBand179.Caption = "CIF UNIT COST"
+        Me.gridBand179.Columns.Add(Me.FNCIF13)
+        Me.gridBand179.Name = "gridBand179"
+        Me.gridBand179.VisibleIndex = 5
+        Me.gridBand179.Width = 100
+        '
+        'FNCIF13
+        '
+        Me.FNCIF13.Caption = "FNCIF13"
+        Me.FNCIF13.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF13.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF13.FieldName = "FNCIF13"
+        Me.FNCIF13.Name = "FNCIF13"
+        Me.FNCIF13.Visible = True
+        Me.FNCIF13.Width = 100
+        '
+        'gridBand180
+        '
+        Me.gridBand180.Caption = "USAGE COST"
+        Me.gridBand180.Columns.Add(Me.FNUSAGECOST13)
+        Me.gridBand180.Name = "gridBand180"
+        Me.gridBand180.VisibleIndex = 6
+        Me.gridBand180.Width = 95
+        '
+        'FNUSAGECOST13
+        '
+        Me.FNUSAGECOST13.Caption = "FNUSAGECOST13"
+        Me.FNUSAGECOST13.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST13.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST13.FieldName = "FNUSAGECOST13"
+        Me.FNUSAGECOST13.Name = "FNUSAGECOST13"
+        Me.FNUSAGECOST13.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST13.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST13.Visible = True
+        Me.FNUSAGECOST13.Width = 95
+        '
+        'gridBand181
+        '
+        Me.gridBand181.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand181.Columns.Add(Me.FNHandlingChargePercent13)
+        Me.gridBand181.Name = "gridBand181"
+        Me.gridBand181.VisibleIndex = 7
+        Me.gridBand181.Width = 148
+        '
+        'FNHandlingChargePercent13
+        '
+        Me.FNHandlingChargePercent13.Caption = "FNHandlingChargePercent13"
+        Me.FNHandlingChargePercent13.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent13.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent13.FieldName = "FNHandlingChargePercent13"
+        Me.FNHandlingChargePercent13.Name = "FNHandlingChargePercent13"
+        Me.FNHandlingChargePercent13.Visible = True
+        Me.FNHandlingChargePercent13.Width = 148
+        '
+        'gridBand182
+        '
+        Me.gridBand182.Caption = "HANDLING CHARGE"
+        Me.gridBand182.Columns.Add(Me.FNHandlingChargeCost13)
+        Me.gridBand182.Name = "gridBand182"
+        Me.gridBand182.VisibleIndex = 8
+        Me.gridBand182.Width = 133
+        '
+        'FNHandlingChargeCost13
+        '
+        Me.FNHandlingChargeCost13.Caption = "FNHandlingChargeCost13"
+        Me.FNHandlingChargeCost13.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost13.FieldName = "FNHandlingChargeCost13"
+        Me.FNHandlingChargeCost13.Name = "FNHandlingChargeCost13"
+        Me.FNHandlingChargeCost13.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost13.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost13.Visible = True
+        Me.FNHandlingChargeCost13.Width = 133
+        '
+        'gridBand183
+        '
+        Me.gridBand183.Caption = "TOTAL COST"
+        Me.gridBand183.Columns.Add(Me.FNTotalCost13)
+        Me.gridBand183.Name = "gridBand183"
+        Me.gridBand183.VisibleIndex = 9
+        Me.gridBand183.Width = 100
+        '
+        'FNTotalCost13
+        '
+        Me.FNTotalCost13.Caption = "FNTotalCost13"
+        Me.FNTotalCost13.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost13.FieldName = "FNTotalCost13"
+        Me.FNTotalCost13.Name = "FNTotalCost13"
+        Me.FNTotalCost13.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost13.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost13.Visible = True
+        Me.FNTotalCost13.Width = 100
+        '
+        'gridBand184
+        '
+        Me.gridBand184.Caption = "IMPORT DUTY"
+        Me.gridBand184.Columns.Add(Me.FNImportDutyPecent13)
+        Me.gridBand184.Name = "gridBand184"
+        Me.gridBand184.VisibleIndex = 10
+        Me.gridBand184.Width = 123
+        '
+        'FNImportDutyPecent13
+        '
+        Me.FNImportDutyPecent13.Caption = "FNImportDutyPecent13"
+        Me.FNImportDutyPecent13.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent13.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent13.FieldName = "FNImportDutyPecent13"
+        Me.FNImportDutyPecent13.Name = "FNImportDutyPecent13"
+        Me.FNImportDutyPecent13.Visible = True
+        Me.FNImportDutyPecent13.Width = 123
+        '
+        'gridBand22
+        '
+        Me.gridBand22.Caption = "TRIM/ PROCESS #14"
+        Me.gridBand22.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand185, Me.gridBand186, Me.gridBand187, Me.gridBand188, Me.gridBand189, Me.gridBand190, Me.gridBand191, Me.gridBand192, Me.gridBand193, Me.gridBand194, Me.gridBand195})
+        Me.gridBand22.Name = "gridBand22"
+        Me.gridBand22.VisibleIndex = 15
+        Me.gridBand22.Width = 1315
+        '
+        'gridBand185
+        '
+        Me.gridBand185.Caption = "ITEM"
+        Me.gridBand185.Columns.Add(Me.FTItem14)
+        Me.gridBand185.Name = "gridBand185"
+        Me.gridBand185.VisibleIndex = 0
+        Me.gridBand185.Width = 106
+        '
+        'FTItem14
+        '
+        Me.FTItem14.Caption = "FTItem14"
+        Me.FTItem14.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.FTItem14.FieldName = "FTItem14"
+        Me.FTItem14.Name = "FTItem14"
+        Me.FTItem14.Visible = True
+        Me.FTItem14.Width = 106
+        '
+        'gridBand186
+        '
+        Me.gridBand186.Caption = "PROCESS SUB TYPE"
+        Me.gridBand186.Columns.Add(Me.FTProcesssubType14)
+        Me.gridBand186.Name = "gridBand186"
+        Me.gridBand186.VisibleIndex = 1
+        Me.gridBand186.Width = 154
+        '
+        'FTProcesssubType14
+        '
+        Me.FTProcesssubType14.Caption = "FTProcesssubType14"
+        Me.FTProcesssubType14.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.FTProcesssubType14.FieldName = "FTProcesssubType14"
+        Me.FTProcesssubType14.Name = "FTProcesssubType14"
+        Me.FTProcesssubType14.Visible = True
+        Me.FTProcesssubType14.Width = 154
+        '
+        'gridBand187
+        '
+        Me.gridBand187.Caption = "DESCRIPTION"
+        Me.gridBand187.Columns.Add(Me.FTDescription14)
+        Me.gridBand187.Name = "gridBand187"
+        Me.gridBand187.VisibleIndex = 2
+        Me.gridBand187.Width = 200
+        '
+        'FTDescription14
+        '
+        Me.FTDescription14.Caption = "FTDescription14"
+        Me.FTDescription14.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.FTDescription14.FieldName = "FTDescription14"
+        Me.FTDescription14.Name = "FTDescription14"
+        Me.FTDescription14.Visible = True
+        Me.FTDescription14.Width = 200
+        '
+        'gridBand188
+        '
+        Me.gridBand188.Caption = "VENDER"
+        Me.gridBand188.Columns.Add(Me.FTSuplCode14)
+        Me.gridBand188.Name = "gridBand188"
+        Me.gridBand188.VisibleIndex = 3
+        Me.gridBand188.Width = 79
+        '
+        'FTSuplCode14
+        '
+        Me.FTSuplCode14.Caption = "FTSuplCode14"
+        Me.FTSuplCode14.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode14.FieldName = "FTSuplCode14"
+        Me.FTSuplCode14.Name = "FTSuplCode14"
+        Me.FTSuplCode14.Visible = True
+        Me.FTSuplCode14.Width = 79
+        '
+        'gridBand189
+        '
+        Me.gridBand189.Caption = "UNIT PRICE"
+        Me.gridBand189.Columns.Add(Me.FNUnitPrice14)
+        Me.gridBand189.Name = "gridBand189"
+        Me.gridBand189.VisibleIndex = 4
+        Me.gridBand189.Width = 77
+        '
+        'FNUnitPrice14
+        '
+        Me.FNUnitPrice14.Caption = "FNUnitPrice14"
+        Me.FNUnitPrice14.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice14.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice14.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice14.FieldName = "FNUnitPrice14"
+        Me.FNUnitPrice14.Name = "FNUnitPrice14"
+        Me.FNUnitPrice14.Visible = True
+        Me.FNUnitPrice14.Width = 77
+        '
+        'gridBand190
+        '
+        Me.gridBand190.Caption = "CIF UNIT COST"
+        Me.gridBand190.Columns.Add(Me.FNCIF14)
+        Me.gridBand190.Name = "gridBand190"
+        Me.gridBand190.VisibleIndex = 5
+        Me.gridBand190.Width = 100
+        '
+        'FNCIF14
+        '
+        Me.FNCIF14.Caption = "FNCIF14"
+        Me.FNCIF14.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF14.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF14.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF14.FieldName = "FNCIF14"
+        Me.FNCIF14.Name = "FNCIF14"
+        Me.FNCIF14.Visible = True
+        Me.FNCIF14.Width = 100
+        '
+        'gridBand191
+        '
+        Me.gridBand191.Caption = "USAGE COST"
+        Me.gridBand191.Columns.Add(Me.FNUSAGECOST14)
+        Me.gridBand191.Name = "gridBand191"
+        Me.gridBand191.VisibleIndex = 6
+        Me.gridBand191.Width = 95
+        '
+        'FNUSAGECOST14
+        '
+        Me.FNUSAGECOST14.Caption = "FNUSAGECOST14"
+        Me.FNUSAGECOST14.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST14.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST14.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST14.FieldName = "FNUSAGECOST14"
+        Me.FNUSAGECOST14.Name = "FNUSAGECOST14"
+        Me.FNUSAGECOST14.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST14.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST14.Visible = True
+        Me.FNUSAGECOST14.Width = 95
+        '
+        'gridBand192
+        '
+        Me.gridBand192.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand192.Columns.Add(Me.FNHandlingChargePercent14)
+        Me.gridBand192.Name = "gridBand192"
+        Me.gridBand192.VisibleIndex = 7
+        Me.gridBand192.Width = 148
+        '
+        'FNHandlingChargePercent14
+        '
+        Me.FNHandlingChargePercent14.Caption = "FNHandlingChargePercent14"
+        Me.FNHandlingChargePercent14.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent14.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent14.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent14.FieldName = "FNHandlingChargePercent14"
+        Me.FNHandlingChargePercent14.Name = "FNHandlingChargePercent14"
+        Me.FNHandlingChargePercent14.Visible = True
+        Me.FNHandlingChargePercent14.Width = 148
+        '
+        'gridBand193
+        '
+        Me.gridBand193.Caption = "HANDLING CHARGE"
+        Me.gridBand193.Columns.Add(Me.FNHandlingChargeCost14)
+        Me.gridBand193.Name = "gridBand193"
+        Me.gridBand193.VisibleIndex = 8
+        Me.gridBand193.Width = 133
+        '
+        'FNHandlingChargeCost14
+        '
+        Me.FNHandlingChargeCost14.Caption = "FNHandlingChargeCost14"
+        Me.FNHandlingChargeCost14.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost14.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost14.FieldName = "FNHandlingChargeCost14"
+        Me.FNHandlingChargeCost14.Name = "FNHandlingChargeCost14"
+        Me.FNHandlingChargeCost14.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost14.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost14.Visible = True
+        Me.FNHandlingChargeCost14.Width = 133
+        '
+        'gridBand194
+        '
+        Me.gridBand194.Caption = "TOTAL COST"
+        Me.gridBand194.Columns.Add(Me.FNTotalCost14)
+        Me.gridBand194.Name = "gridBand194"
+        Me.gridBand194.VisibleIndex = 9
+        Me.gridBand194.Width = 100
+        '
+        'FNTotalCost14
+        '
+        Me.FNTotalCost14.Caption = "FNTotalCost14"
+        Me.FNTotalCost14.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost14.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost14.FieldName = "FNTotalCost14"
+        Me.FNTotalCost14.Name = "FNTotalCost14"
+        Me.FNTotalCost14.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost14.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost14.Visible = True
+        Me.FNTotalCost14.Width = 100
+        '
+        'gridBand195
+        '
+        Me.gridBand195.Caption = "IMPORT DUTY"
+        Me.gridBand195.Columns.Add(Me.FNImportDutyPecent14)
+        Me.gridBand195.Name = "gridBand195"
+        Me.gridBand195.VisibleIndex = 10
+        Me.gridBand195.Width = 123
+        '
+        'FNImportDutyPecent14
+        '
+        Me.FNImportDutyPecent14.Caption = "FNImportDutyPecent14"
+        Me.FNImportDutyPecent14.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent14.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent14.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent14.FieldName = "FNImportDutyPecent14"
+        Me.FNImportDutyPecent14.Name = "FNImportDutyPecent14"
+        Me.FNImportDutyPecent14.Visible = True
+        Me.FNImportDutyPecent14.Width = 123
+        '
+        'gridBand23
+        '
+        Me.gridBand23.Caption = "TRIM/ PROCESS #15"
+        Me.gridBand23.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand196, Me.gridBand197, Me.gridBand198, Me.gridBand200, Me.gridBand201, Me.gridBand202, Me.gridBand203, Me.gridBand199, Me.gridBand34, Me.gridBand31, Me.gridBand32})
+        Me.gridBand23.Name = "gridBand23"
+        Me.gridBand23.VisibleIndex = 16
+        Me.gridBand23.Width = 1312
+        '
+        'gridBand196
+        '
+        Me.gridBand196.Caption = "ITEM"
+        Me.gridBand196.Columns.Add(Me.FTItem15)
+        Me.gridBand196.Name = "gridBand196"
+        Me.gridBand196.VisibleIndex = 0
+        Me.gridBand196.Width = 103
+        '
+        'FTItem15
+        '
+        Me.FTItem15.Caption = "FTItem15"
+        Me.FTItem15.ColumnEdit = Me.RepositoryItemGridLookUpEditItemMulti
+        Me.FTItem15.FieldName = "FTItem15"
+        Me.FTItem15.Name = "FTItem15"
+        Me.FTItem15.Visible = True
+        Me.FTItem15.Width = 103
+        '
+        'gridBand197
+        '
+        Me.gridBand197.Caption = "PROCESS SUB TYPE"
+        Me.gridBand197.Columns.Add(Me.FTProcesssubType15)
+        Me.gridBand197.Name = "gridBand197"
+        Me.gridBand197.VisibleIndex = 1
+        Me.gridBand197.Width = 154
+        '
+        'FTProcesssubType15
+        '
+        Me.FTProcesssubType15.Caption = "FTProcesssubType15"
+        Me.FTProcesssubType15.ColumnEdit = Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti
+        Me.FTProcesssubType15.FieldName = "FTProcesssubType15"
+        Me.FTProcesssubType15.Name = "FTProcesssubType15"
+        Me.FTProcesssubType15.Visible = True
+        Me.FTProcesssubType15.Width = 154
+        '
+        'gridBand198
+        '
+        Me.gridBand198.Caption = "DESCRIPTION"
+        Me.gridBand198.Columns.Add(Me.FTDescription15)
+        Me.gridBand198.Name = "gridBand198"
+        Me.gridBand198.VisibleIndex = 2
+        Me.gridBand198.Width = 200
+        '
+        'FTDescription15
+        '
+        Me.FTDescription15.Caption = "FTDescription15"
+        Me.FTDescription15.ColumnEdit = Me.RepositoryItemTextEditFTDescription
+        Me.FTDescription15.FieldName = "FTDescription15"
+        Me.FTDescription15.Name = "FTDescription15"
+        Me.FTDescription15.Visible = True
+        Me.FTDescription15.Width = 200
+        '
+        'gridBand200
+        '
+        Me.gridBand200.Caption = "VENDER"
+        Me.gridBand200.Columns.Add(Me.FTSuplCode15)
+        Me.gridBand200.Name = "gridBand200"
+        Me.gridBand200.VisibleIndex = 3
+        Me.gridBand200.Width = 79
+        '
+        'FTSuplCode15
+        '
+        Me.FTSuplCode15.Caption = "FTSuplCode15"
+        Me.FTSuplCode15.ColumnEdit = Me.RepositoryItemGridLookUpEditFTSuplCodeMulti
+        Me.FTSuplCode15.FieldName = "FTSuplCode15"
+        Me.FTSuplCode15.Name = "FTSuplCode15"
+        Me.FTSuplCode15.Visible = True
+        Me.FTSuplCode15.Width = 79
+        '
+        'gridBand201
+        '
+        Me.gridBand201.Caption = "UNIT PRICE"
+        Me.gridBand201.Columns.Add(Me.FNUnitPrice15)
+        Me.gridBand201.Name = "gridBand201"
+        Me.gridBand201.VisibleIndex = 4
+        Me.gridBand201.Width = 77
+        '
+        'FNUnitPrice15
+        '
+        Me.FNUnitPrice15.Caption = "FNUnitPrice15"
+        Me.FNUnitPrice15.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
+        Me.FNUnitPrice15.DisplayFormat.FormatString = "{0:n3}"
+        Me.FNUnitPrice15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUnitPrice15.FieldName = "FNUnitPrice15"
+        Me.FNUnitPrice15.Name = "FNUnitPrice15"
+        Me.FNUnitPrice15.Visible = True
+        Me.FNUnitPrice15.Width = 77
+        '
+        'gridBand202
+        '
+        Me.gridBand202.Caption = "CIF UNIT COST"
+        Me.gridBand202.Columns.Add(Me.FNCIF15)
+        Me.gridBand202.Name = "gridBand202"
+        Me.gridBand202.VisibleIndex = 5
+        Me.gridBand202.Width = 100
+        '
+        'FNCIF15
+        '
+        Me.FNCIF15.Caption = "FNCIF15"
+        Me.FNCIF15.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
+        Me.FNCIF15.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNCIF15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNCIF15.FieldName = "FNCIF15"
+        Me.FNCIF15.Name = "FNCIF15"
+        Me.FNCIF15.Visible = True
+        Me.FNCIF15.Width = 100
+        '
+        'gridBand203
+        '
+        Me.gridBand203.Caption = "USAGE COST"
+        Me.gridBand203.Columns.Add(Me.FNUSAGECOST15)
+        Me.gridBand203.Name = "gridBand203"
+        Me.gridBand203.VisibleIndex = 6
+        Me.gridBand203.Width = 95
+        '
+        'FNUSAGECOST15
+        '
+        Me.FNUSAGECOST15.Caption = "FNUSAGECOST15"
+        Me.FNUSAGECOST15.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
+        Me.FNUSAGECOST15.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNUSAGECOST15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNUSAGECOST15.FieldName = "FNUSAGECOST15"
+        Me.FNUSAGECOST15.Name = "FNUSAGECOST15"
+        Me.FNUSAGECOST15.OptionsColumn.AllowEdit = False
+        Me.FNUSAGECOST15.OptionsColumn.ReadOnly = True
+        Me.FNUSAGECOST15.Visible = True
+        Me.FNUSAGECOST15.Width = 95
+        '
+        'gridBand199
+        '
+        Me.gridBand199.Caption = "HANDLING CHARGE (%)"
+        Me.gridBand199.Columns.Add(Me.FNHandlingChargePercent15)
+        Me.gridBand199.Name = "gridBand199"
+        Me.gridBand199.VisibleIndex = 7
+        Me.gridBand199.Width = 148
+        '
+        'FNHandlingChargePercent15
+        '
+        Me.FNHandlingChargePercent15.Caption = "FNHandlingChargePercent15"
+        Me.FNHandlingChargePercent15.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
+        Me.FNHandlingChargePercent15.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNHandlingChargePercent15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargePercent15.FieldName = "FNHandlingChargePercent15"
+        Me.FNHandlingChargePercent15.Name = "FNHandlingChargePercent15"
+        Me.FNHandlingChargePercent15.Visible = True
+        Me.FNHandlingChargePercent15.Width = 148
+        '
+        'gridBand34
+        '
+        Me.gridBand34.Caption = "HANDLING CHARGE"
+        Me.gridBand34.Columns.Add(Me.FNHandlingChargeCost15)
+        Me.gridBand34.Name = "gridBand34"
+        Me.gridBand34.VisibleIndex = 8
+        Me.gridBand34.Width = 133
+        '
+        'FNHandlingChargeCost15
+        '
+        Me.FNHandlingChargeCost15.Caption = "FNHandlingChargeCost15"
+        Me.FNHandlingChargeCost15.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNHandlingChargeCost15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNHandlingChargeCost15.FieldName = "FNHandlingChargeCost15"
+        Me.FNHandlingChargeCost15.Name = "FNHandlingChargeCost15"
+        Me.FNHandlingChargeCost15.OptionsColumn.AllowEdit = False
+        Me.FNHandlingChargeCost15.OptionsColumn.ReadOnly = True
+        Me.FNHandlingChargeCost15.Visible = True
+        Me.FNHandlingChargeCost15.Width = 133
+        '
+        'gridBand31
+        '
+        Me.gridBand31.Caption = "TOTAL COST"
+        Me.gridBand31.Columns.Add(Me.FNTotalCost15)
+        Me.gridBand31.Name = "gridBand31"
+        Me.gridBand31.VisibleIndex = 9
+        Me.gridBand31.Width = 100
+        '
+        'FNTotalCost15
+        '
+        Me.FNTotalCost15.Caption = "FNTotalCost15"
+        Me.FNTotalCost15.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalCost15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalCost15.FieldName = "FNTotalCost15"
+        Me.FNTotalCost15.Name = "FNTotalCost15"
+        Me.FNTotalCost15.OptionsColumn.AllowEdit = False
+        Me.FNTotalCost15.OptionsColumn.ReadOnly = True
+        Me.FNTotalCost15.Visible = True
+        Me.FNTotalCost15.Width = 100
+        '
+        'gridBand32
+        '
+        Me.gridBand32.Caption = "IMPORT DUTY"
+        Me.gridBand32.Columns.Add(Me.FNImportDutyPecent15)
+        Me.gridBand32.Name = "gridBand32"
+        Me.gridBand32.VisibleIndex = 10
+        Me.gridBand32.Width = 123
+        '
+        'FNImportDutyPecent15
+        '
+        Me.FNImportDutyPecent15.Caption = "FNImportDutyPecent15"
+        Me.FNImportDutyPecent15.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
+        Me.FNImportDutyPecent15.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNImportDutyPecent15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNImportDutyPecent15.FieldName = "FNImportDutyPecent15"
+        Me.FNImportDutyPecent15.Name = "FNImportDutyPecent15"
+        Me.FNImportDutyPecent15.Visible = True
+        Me.FNImportDutyPecent15.Width = 123
+        '
+        'gridBand24
+        '
+        Me.gridBand24.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand33, Me.gridBand36, Me.gridBand40, Me.gridBand38, Me.gridBand41, Me.gridBand37, Me.gridBand39, Me.gridBand204, Me.gridBand206, Me.gridBand205})
+        Me.gridBand24.Name = "gridBand24"
+        Me.gridBand24.VisibleIndex = 17
+        Me.gridBand24.Width = 1510
+        '
+        'gridBand33
+        '
+        Me.gridBand33.Caption = "TOTAL USAGE COST"
+        Me.gridBand33.Columns.Add(Me.FNTotalUsgeCost)
+        Me.gridBand33.Name = "gridBand33"
+        Me.gridBand33.VisibleIndex = 0
+        Me.gridBand33.Width = 136
+        '
+        'FNTotalUsgeCost
+        '
+        Me.FNTotalUsgeCost.Caption = "FNTotalUsgeCost"
+        Me.FNTotalUsgeCost.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalUsgeCost.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalUsgeCost.FieldName = "FNTotalUsgeCost"
+        Me.FNTotalUsgeCost.Name = "FNTotalUsgeCost"
+        Me.FNTotalUsgeCost.OptionsColumn.AllowEdit = False
+        Me.FNTotalUsgeCost.OptionsColumn.ReadOnly = True
+        Me.FNTotalUsgeCost.Visible = True
+        Me.FNTotalUsgeCost.Width = 136
+        '
+        'gridBand36
+        '
+        Me.gridBand36.Caption = "TOTAL HANDLING CHARGE COST"
+        Me.gridBand36.Columns.Add(Me.FNTotalHandlingChargeCost)
+        Me.gridBand36.Name = "gridBand36"
+        Me.gridBand36.VisibleIndex = 1
+        Me.gridBand36.Width = 156
+        '
+        'FNTotalHandlingChargeCost
+        '
+        Me.FNTotalHandlingChargeCost.Caption = "FNTotalHandlingChargeCost"
+        Me.FNTotalHandlingChargeCost.DisplayFormat.FormatString = "{0:n4}"
+        Me.FNTotalHandlingChargeCost.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalHandlingChargeCost.FieldName = "FNTotalHandlingChargeCost"
+        Me.FNTotalHandlingChargeCost.Name = "FNTotalHandlingChargeCost"
+        Me.FNTotalHandlingChargeCost.OptionsColumn.AllowEdit = False
+        Me.FNTotalHandlingChargeCost.OptionsColumn.ReadOnly = True
+        Me.FNTotalHandlingChargeCost.Visible = True
+        Me.FNTotalHandlingChargeCost.Width = 156
+        '
+        'gridBand40
+        '
+        Me.gridBand40.Caption = "FINAL FOB"
+        Me.gridBand40.Columns.Add(Me.FNFINALFOB)
+        Me.gridBand40.Name = "gridBand40"
+        Me.gridBand40.VisibleIndex = 2
+        Me.gridBand40.Width = 110
+        '
+        'FNFINALFOB
+        '
+        Me.FNFINALFOB.Caption = "FNFINALFOB"
+        Me.FNFINALFOB.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNFINALFOB.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNFINALFOB.FieldName = "FNFINALFOB"
+        Me.FNFINALFOB.Name = "FNFINALFOB"
+        Me.FNFINALFOB.OptionsColumn.AllowEdit = False
+        Me.FNFINALFOB.OptionsColumn.ReadOnly = True
+        Me.FNFINALFOB.Visible = True
+        Me.FNFINALFOB.Width = 110
+        '
+        'gridBand38
+        '
+        Me.gridBand38.Caption = "EXTENDED SIZE FOB"
+        Me.gridBand38.Columns.Add(Me.FNEXTENDEDSIZEFOB)
+        Me.gridBand38.Name = "gridBand38"
+        Me.gridBand38.VisibleIndex = 3
+        Me.gridBand38.Width = 154
+        '
+        'FNEXTENDEDSIZEFOB
+        '
+        Me.FNEXTENDEDSIZEFOB.Caption = "FNEXTENDEDSIZEFOB"
+        Me.FNEXTENDEDSIZEFOB.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNEXTENDEDSIZEFOB.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNEXTENDEDSIZEFOB.FieldName = "FNEXTENDEDSIZEFOB"
+        Me.FNEXTENDEDSIZEFOB.Name = "FNEXTENDEDSIZEFOB"
+        Me.FNEXTENDEDSIZEFOB.OptionsColumn.AllowEdit = False
+        Me.FNEXTENDEDSIZEFOB.OptionsColumn.ReadOnly = True
+        Me.FNEXTENDEDSIZEFOB.Visible = True
+        Me.FNEXTENDEDSIZEFOB.Width = 154
+        '
+        'gridBand41
+        '
+        Me.gridBand41.Caption = "L4L ORDER CNTY1"
+        Me.gridBand41.Columns.Add(Me.FTL4LORDERCNTY1)
+        Me.gridBand41.Name = "gridBand41"
+        Me.gridBand41.VisibleIndex = 4
+        Me.gridBand41.Width = 141
+        '
+        'FTL4LORDERCNTY1
+        '
+        Me.FTL4LORDERCNTY1.Caption = "FTL4LORDERCNTY1"
+        Me.FTL4LORDERCNTY1.FieldName = "FTL4LORDERCNTY1"
+        Me.FTL4LORDERCNTY1.Name = "FTL4LORDERCNTY1"
+        Me.FTL4LORDERCNTY1.OptionsColumn.AllowEdit = False
+        Me.FTL4LORDERCNTY1.OptionsColumn.ReadOnly = True
+        Me.FTL4LORDERCNTY1.Visible = True
+        Me.FTL4LORDERCNTY1.Width = 141
+        '
+        'gridBand37
+        '
+        Me.gridBand37.Caption = "L4L CURRENCY FOB1"
+        Me.gridBand37.Columns.Add(Me.FTL4LCURRENCYFOB1)
+        Me.gridBand37.Name = "gridBand37"
+        Me.gridBand37.VisibleIndex = 5
+        Me.gridBand37.Width = 148
+        '
+        'FTL4LCURRENCYFOB1
+        '
+        Me.FTL4LCURRENCYFOB1.Caption = "FTL4LCURRENCYFOB1"
+        Me.FTL4LCURRENCYFOB1.DisplayFormat.FormatString = "{0:n2}"
+        Me.FTL4LCURRENCYFOB1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FTL4LCURRENCYFOB1.FieldName = "FTL4LCURRENCYFOB1"
+        Me.FTL4LCURRENCYFOB1.Name = "FTL4LCURRENCYFOB1"
+        Me.FTL4LCURRENCYFOB1.OptionsColumn.AllowEdit = False
+        Me.FTL4LCURRENCYFOB1.OptionsColumn.ReadOnly = True
+        Me.FTL4LCURRENCYFOB1.Visible = True
+        Me.FTL4LCURRENCYFOB1.Width = 148
+        '
+        'gridBand39
+        '
+        Me.gridBand39.Caption = "EXTENDED SIZE FOB(L4L 1)"
+        Me.gridBand39.Columns.Add(Me.FNEXTENDSIZEFOBL4L1)
+        Me.gridBand39.Name = "gridBand39"
+        Me.gridBand39.VisibleIndex = 6
+        Me.gridBand39.Width = 174
+        '
+        'FNEXTENDSIZEFOBL4L1
+        '
+        Me.FNEXTENDSIZEFOBL4L1.Caption = "FNEXTENDSIZEFOBL4L1"
+        Me.FNEXTENDSIZEFOBL4L1.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNEXTENDSIZEFOBL4L1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNEXTENDSIZEFOBL4L1.FieldName = "FNEXTENDSIZEFOBL4L1"
+        Me.FNEXTENDSIZEFOBL4L1.Name = "FNEXTENDSIZEFOBL4L1"
+        Me.FNEXTENDSIZEFOBL4L1.OptionsColumn.AllowEdit = False
+        Me.FNEXTENDSIZEFOBL4L1.OptionsColumn.ReadOnly = True
+        Me.FNEXTENDSIZEFOBL4L1.Visible = True
+        Me.FNEXTENDSIZEFOBL4L1.Width = 174
+        '
+        'gridBand204
+        '
+        Me.gridBand204.Caption = "L4L ORDER CNTY2"
+        Me.gridBand204.Columns.Add(Me.FTL4LORDERCNTY2)
+        Me.gridBand204.Name = "gridBand204"
+        Me.gridBand204.VisibleIndex = 7
+        Me.gridBand204.Width = 156
+        '
+        'FTL4LORDERCNTY2
+        '
+        Me.FTL4LORDERCNTY2.Caption = "FTL4LORDERCNTY2"
+        Me.FTL4LORDERCNTY2.FieldName = "FTL4LORDERCNTY2"
+        Me.FTL4LORDERCNTY2.Name = "FTL4LORDERCNTY2"
+        Me.FTL4LORDERCNTY2.OptionsColumn.AllowEdit = False
+        Me.FTL4LORDERCNTY2.OptionsColumn.ReadOnly = True
+        Me.FTL4LORDERCNTY2.Visible = True
+        Me.FTL4LORDERCNTY2.Width = 156
+        '
+        'gridBand206
+        '
+        Me.gridBand206.Caption = "L4L CURRENCY FOB2"
+        Me.gridBand206.Columns.Add(Me.FTL4LCURRENCYFOB2)
+        Me.gridBand206.Name = "gridBand206"
+        Me.gridBand206.VisibleIndex = 8
+        Me.gridBand206.Width = 160
+        '
+        'FTL4LCURRENCYFOB2
+        '
+        Me.FTL4LCURRENCYFOB2.Caption = "FTL4LCURRENCYFOB2"
+        Me.FTL4LCURRENCYFOB2.DisplayFormat.FormatString = "{0:n2}"
+        Me.FTL4LCURRENCYFOB2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FTL4LCURRENCYFOB2.FieldName = "FTL4LCURRENCYFOB2"
+        Me.FTL4LCURRENCYFOB2.Name = "FTL4LCURRENCYFOB2"
+        Me.FTL4LCURRENCYFOB2.OptionsColumn.AllowEdit = False
+        Me.FTL4LCURRENCYFOB2.OptionsColumn.ReadOnly = True
+        Me.FTL4LCURRENCYFOB2.Visible = True
+        Me.FTL4LCURRENCYFOB2.Width = 160
+        '
+        'gridBand205
+        '
+        Me.gridBand205.Caption = "EXTENDED SIZE FOB(L4L 2)"
+        Me.gridBand205.Columns.Add(Me.FNEXTENDSIZEFOBL4L2)
+        Me.gridBand205.Name = "gridBand205"
+        Me.gridBand205.VisibleIndex = 9
+        Me.gridBand205.Width = 175
+        '
+        'FNEXTENDSIZEFOBL4L2
+        '
+        Me.FNEXTENDSIZEFOBL4L2.Caption = "FNEXTENDSIZEFOBL4L2"
+        Me.FNEXTENDSIZEFOBL4L2.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNEXTENDSIZEFOBL4L2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNEXTENDSIZEFOBL4L2.FieldName = "FNEXTENDSIZEFOBL4L2"
+        Me.FNEXTENDSIZEFOBL4L2.Name = "FNEXTENDSIZEFOBL4L2"
+        Me.FNEXTENDSIZEFOBL4L2.OptionsColumn.AllowEdit = False
+        Me.FNEXTENDSIZEFOBL4L2.OptionsColumn.ReadOnly = True
+        Me.FNEXTENDSIZEFOBL4L2.Visible = True
+        Me.FNEXTENDSIZEFOBL4L2.Width = 175
+        '
+        'gridBand25
+        '
+        Me.gridBand25.Caption = "For Jordan Only"
+        Me.gridBand25.Children.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gridBand28, Me.gridBand29, Me.gridBand30})
+        Me.gridBand25.Name = "gridBand25"
+        Me.gridBand25.VisibleIndex = 18
+        Me.gridBand25.Width = 411
+        '
+        'gridBand28
+        '
+        Me.gridBand28.Caption = "L4L ORDER CNTY3"
+        Me.gridBand28.Columns.Add(Me.FTL4LORDERCNTY3)
+        Me.gridBand28.Name = "gridBand28"
+        Me.gridBand28.VisibleIndex = 0
+        Me.gridBand28.Width = 119
+        '
+        'FTL4LORDERCNTY3
+        '
+        Me.FTL4LORDERCNTY3.Caption = "FTL4LORDERCNTY3"
+        Me.FTL4LORDERCNTY3.FieldName = "FTL4LORDERCNTY3"
+        Me.FTL4LORDERCNTY3.Name = "FTL4LORDERCNTY3"
+        Me.FTL4LORDERCNTY3.OptionsColumn.AllowEdit = False
+        Me.FTL4LORDERCNTY3.OptionsColumn.ReadOnly = True
+        Me.FTL4LORDERCNTY3.Visible = True
+        Me.FTL4LORDERCNTY3.Width = 119
+        '
+        'gridBand29
+        '
+        Me.gridBand29.Caption = "L4L CURRENCY FOB3"
+        Me.gridBand29.Columns.Add(Me.FTL4LCURRENCYFOB3)
+        Me.gridBand29.Name = "gridBand29"
+        Me.gridBand29.VisibleIndex = 1
+        Me.gridBand29.Width = 140
+        '
+        'FTL4LCURRENCYFOB3
+        '
+        Me.FTL4LCURRENCYFOB3.Caption = "FTL4LCURRENCYFOB3"
+        Me.FTL4LCURRENCYFOB3.DisplayFormat.FormatString = "{0:n2}"
+        Me.FTL4LCURRENCYFOB3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FTL4LCURRENCYFOB3.FieldName = "FTL4LCURRENCYFOB3"
+        Me.FTL4LCURRENCYFOB3.Name = "FTL4LCURRENCYFOB3"
+        Me.FTL4LCURRENCYFOB3.OptionsColumn.AllowEdit = False
+        Me.FTL4LCURRENCYFOB3.OptionsColumn.ReadOnly = True
+        Me.FTL4LCURRENCYFOB3.Visible = True
+        Me.FTL4LCURRENCYFOB3.Width = 140
+        '
+        'gridBand30
+        '
+        Me.gridBand30.Caption = "EXTENDED SIZE FOB(L4L 3)"
+        Me.gridBand30.Columns.Add(Me.FNEXTENDSIZEFOBL4L3)
+        Me.gridBand30.Name = "gridBand30"
+        Me.gridBand30.VisibleIndex = 2
+        Me.gridBand30.Width = 152
+        '
+        'FNEXTENDSIZEFOBL4L3
+        '
+        Me.FNEXTENDSIZEFOBL4L3.Caption = "FNEXTENDSIZEFOBL4L3"
+        Me.FNEXTENDSIZEFOBL4L3.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNEXTENDSIZEFOBL4L3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNEXTENDSIZEFOBL4L3.FieldName = "FNEXTENDSIZEFOBL4L3"
+        Me.FNEXTENDSIZEFOBL4L3.Name = "FNEXTENDSIZEFOBL4L3"
+        Me.FNEXTENDSIZEFOBL4L3.OptionsColumn.AllowEdit = False
+        Me.FNEXTENDSIZEFOBL4L3.OptionsColumn.ReadOnly = True
+        Me.FNEXTENDSIZEFOBL4L3.Visible = True
+        Me.FNEXTENDSIZEFOBL4L3.Width = 152
+        '
+        'gridBand27
+        '
+        Me.gridBand27.Caption = "PRODUCT DEVELOPER"
+        Me.gridBand27.Columns.Add(Me.FTPRODUCTDEVELOPER)
+        Me.gridBand27.Name = "gridBand27"
+        Me.gridBand27.VisibleIndex = 19
+        Me.gridBand27.Width = 127
+        '
+        'FTPRODUCTDEVELOPER
+        '
+        Me.FTPRODUCTDEVELOPER.Caption = "FTPRODUCTDEVELOPER"
+        Me.FTPRODUCTDEVELOPER.ColumnEdit = Me.RepositoryItemTextEditFTPRODUCTDEVELOPER
+        Me.FTPRODUCTDEVELOPER.FieldName = "FTPRODUCTDEVELOPER"
+        Me.FTPRODUCTDEVELOPER.Name = "FTPRODUCTDEVELOPER"
+        Me.FTPRODUCTDEVELOPER.Visible = True
+        Me.FTPRODUCTDEVELOPER.Width = 127
+        '
+        'RepositoryItemTextEditFTPRODUCTDEVELOPER
+        '
+        Me.RepositoryItemTextEditFTPRODUCTDEVELOPER.AutoHeight = False
+        Me.RepositoryItemTextEditFTPRODUCTDEVELOPER.MaxLength = 200
+        Me.RepositoryItemTextEditFTPRODUCTDEVELOPER.Name = "RepositoryItemTextEditFTPRODUCTDEVELOPER"
+        '
+        'gridBand26
+        '
+        Me.gridBand26.Caption = "REMARK"
+        Me.gridBand26.Columns.Add(Me.sssFTRemark)
+        Me.gridBand26.Name = "gridBand26"
+        Me.gridBand26.VisibleIndex = 20
+        Me.gridBand26.Width = 300
+        '
+        'sssFTRemark
+        '
+        Me.sssFTRemark.Caption = "FTRemark"
+        Me.sssFTRemark.ColumnEdit = Me.RepositoryItemTextEditRemark
+        Me.sssFTRemark.FieldName = "FTRemark"
+        Me.sssFTRemark.Name = "sssFTRemark"
+        Me.sssFTRemark.Visible = True
+        Me.sssFTRemark.Width = 300
+        '
+        'RepositoryItemTextEditRemark
+        '
+        Me.RepositoryItemTextEditRemark.AutoHeight = False
+        Me.RepositoryItemTextEditRemark.MaxLength = 1000
+        Me.RepositoryItemTextEditRemark.Name = "RepositoryItemTextEditRemark"
+        '
+        'sssFNAllowancePer
+        '
+        Me.sssFNAllowancePer.Caption = "sFNAllowancePer"
+        Me.sssFNAllowancePer.FieldName = "FNAllowancePer"
+        Me.sssFNAllowancePer.Name = "sssFNAllowancePer"
+        Me.sssFNAllowancePer.Visible = True
+        Me.sssFNAllowancePer.Width = 92
+        '
+        'RepositoryItemButtonEdit2
+        '
+        Me.RepositoryItemButtonEdit2.AutoHeight = False
+        Me.RepositoryItemButtonEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions30, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject117, SerializableAppearanceObject118, SerializableAppearanceObject119, SerializableAppearanceObject120, "", "108", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryItemButtonEdit2.Name = "RepositoryItemButtonEdit2"
+        Me.RepositoryItemButtonEdit2.Tag = ""
+        '
+        'RepositoryItemButtonEdit3
+        '
+        Me.RepositoryItemButtonEdit3.AutoHeight = False
+        Me.RepositoryItemButtonEdit3.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions31, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject121, SerializableAppearanceObject122, SerializableAppearanceObject123, SerializableAppearanceObject124, "", "104", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryItemButtonEdit3.Name = "RepositoryItemButtonEdit3"
+        '
+        'RepositoryItemCalcEdit2
+        '
+        Me.RepositoryItemCalcEdit2.AutoHeight = False
+        Me.RepositoryItemCalcEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit2.Name = "RepositoryItemCalcEdit2"
+        Me.RepositoryItemCalcEdit2.Precision = 1
+        '
+        'RepositoryItemCalcEdit3
+        '
+        Me.RepositoryItemCalcEdit3.AutoHeight = False
+        Me.RepositoryItemCalcEdit3.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit3.Name = "RepositoryItemCalcEdit3"
+        Me.RepositoryItemCalcEdit3.Precision = 2
+        '
+        'RepositoryItemCalcEdit4
+        '
+        Me.RepositoryItemCalcEdit4.AutoHeight = False
+        Me.RepositoryItemCalcEdit4.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit4.Name = "RepositoryItemCalcEdit4"
+        Me.RepositoryItemCalcEdit4.Precision = 4
+        '
+        'RepositoryItemCalcEdit5
+        '
+        Me.RepositoryItemCalcEdit5.AutoHeight = False
+        Me.RepositoryItemCalcEdit5.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit5.DisplayFormat.FormatString = "{0:n2}"
+        Me.RepositoryItemCalcEdit5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEdit5.EditFormat.FormatString = "{0:n2}"
+        Me.RepositoryItemCalcEdit5.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.RepositoryItemCalcEdit5.Name = "RepositoryItemCalcEdit5"
+        Me.RepositoryItemCalcEdit5.Precision = 0
+        '
+        'RepositoryItemCalcEdit6
+        '
+        Me.RepositoryItemCalcEdit6.AutoHeight = False
+        Me.RepositoryItemCalcEdit6.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit6.Name = "RepositoryItemCalcEdit6"
+        Me.RepositoryItemCalcEdit6.Precision = 4
+        '
+        'RepositoryItemCalcEdit8
+        '
+        Me.RepositoryItemCalcEdit8.AutoHeight = False
+        Me.RepositoryItemCalcEdit8.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit8.Name = "RepositoryItemCalcEdit8"
+        Me.RepositoryItemCalcEdit8.Precision = 4
+        '
+        'RepositoryItemCalcEdit10
+        '
+        Me.RepositoryItemCalcEdit10.AutoHeight = False
+        Me.RepositoryItemCalcEdit10.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit10.Name = "RepositoryItemCalcEdit10"
+        Me.RepositoryItemCalcEdit10.Precision = 4
+        '
+        'RepositoryItemCalcEdit11
+        '
+        Me.RepositoryItemCalcEdit11.AutoHeight = False
+        Me.RepositoryItemCalcEdit11.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit11.Name = "RepositoryItemCalcEdit11"
+        Me.RepositoryItemCalcEdit11.Precision = 0
+        '
+        'RepositoryItemCalcEdit12
+        '
+        Me.RepositoryItemCalcEdit12.AutoHeight = False
+        Me.RepositoryItemCalcEdit12.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit12.Name = "RepositoryItemCalcEdit12"
+        Me.RepositoryItemCalcEdit12.Precision = 4
+        '
+        'RepositoryItemButtonEdit4
+        '
+        Me.RepositoryItemButtonEdit4.AutoHeight = False
+        Me.RepositoryItemButtonEdit4.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions32, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject125, SerializableAppearanceObject126, SerializableAppearanceObject127, SerializableAppearanceObject128, "", "101", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryItemButtonEdit4.Name = "RepositoryItemButtonEdit4"
+        '
+        'RepositoryItemButtonEdit5
+        '
+        Me.RepositoryItemButtonEdit5.AutoHeight = False
+        Me.RepositoryItemButtonEdit5.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.RepositoryItemButtonEdit5.Name = "RepositoryItemButtonEdit5"
+        '
+        'RepositoryItemCalcEdit16
+        '
+        Me.RepositoryItemCalcEdit16.AutoHeight = False
+        Me.RepositoryItemCalcEdit16.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit16.Name = "RepositoryItemCalcEdit16"
+        Me.RepositoryItemCalcEdit16.Precision = 2
+        '
+        'RepositoryItemCalcEdit17
+        '
+        Me.RepositoryItemCalcEdit17.AutoHeight = False
+        Me.RepositoryItemCalcEdit17.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit17.Name = "RepositoryItemCalcEdit17"
+        Me.RepositoryItemCalcEdit17.Precision = 2
+        '
+        'RepositoryItemCalcEdit18
+        '
+        Me.RepositoryItemCalcEdit18.AutoHeight = False
+        Me.RepositoryItemCalcEdit18.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit18.Name = "RepositoryItemCalcEdit18"
+        Me.RepositoryItemCalcEdit18.Precision = 2
+        '
+        'RepositoryItemCalcEdit19
+        '
+        Me.RepositoryItemCalcEdit19.AutoHeight = False
+        Me.RepositoryItemCalcEdit19.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit19.Name = "RepositoryItemCalcEdit19"
+        Me.RepositoryItemCalcEdit19.Precision = 2
+        '
+        'RepositoryItemCalcEdit15
+        '
+        Me.RepositoryItemCalcEdit15.AutoHeight = False
+        Me.RepositoryItemCalcEdit15.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemCalcEdit15.Name = "RepositoryItemCalcEdit15"
+        Me.RepositoryItemCalcEdit15.Precision = 2
+        '
+        'RepositoryItemTextEdit1
+        '
+        Me.RepositoryItemTextEdit1.AutoHeight = False
+        Me.RepositoryItemTextEdit1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.RepositoryItemTextEdit1.MaxLength = 30
+        Me.RepositoryItemTextEdit1.Name = "RepositoryItemTextEdit1"
+        '
+        'RepositoryItemTextEdit4
+        '
+        Me.RepositoryItemTextEdit4.AutoHeight = False
+        Me.RepositoryItemTextEdit4.MaxLength = 500
+        Me.RepositoryItemTextEdit4.Name = "RepositoryItemTextEdit4"
+        '
+        'RepositoryItemTextEdit5
+        '
+        Me.RepositoryItemTextEdit5.AutoHeight = False
+        Me.RepositoryItemTextEdit5.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.RepositoryItemTextEdit5.MaxLength = 30
+        Me.RepositoryItemTextEdit5.Name = "RepositoryItemTextEdit5"
+        '
+        'RepositoryItemGridLookUpEdit4
+        '
+        Me.RepositoryItemGridLookUpEdit4.AutoHeight = False
+        Me.RepositoryItemGridLookUpEdit4.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemGridLookUpEdit4.DisplayMember = "FTUnitCode"
+        Me.RepositoryItemGridLookUpEdit4.Name = "RepositoryItemGridLookUpEdit4"
+        Me.RepositoryItemGridLookUpEdit4.NullText = ""
+        Me.RepositoryItemGridLookUpEdit4.PopupView = Me.GridView8
+        Me.RepositoryItemGridLookUpEdit4.ValueMember = "FTUnitCode"
+        '
+        'GridView8
+        '
+        Me.GridView8.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn31})
+        Me.GridView8.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.GridView8.Name = "GridView8"
+        Me.GridView8.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView8.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn31
+        '
+        Me.GridColumn31.Caption = "Unit Code"
+        Me.GridColumn31.FieldName = "FTUnitCode"
+        Me.GridColumn31.Name = "GridColumn31"
+        Me.GridColumn31.OptionsColumn.AllowEdit = False
+        Me.GridColumn31.OptionsColumn.ReadOnly = True
+        Me.GridColumn31.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
+        Me.GridColumn31.Visible = True
+        Me.GridColumn31.VisibleIndex = 0
+        '
+        'RepositoryItemComboBox1
+        '
+        Me.RepositoryItemComboBox1.AutoHeight = False
+        Me.RepositoryItemComboBox1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemComboBox1.Items.AddRange(New Object() {"", "Q", "E", "C"})
+        Me.RepositoryItemComboBox1.Name = "RepositoryItemComboBox1"
+        Me.RepositoryItemComboBox1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         '
         'RepositoryItemGridLookUpEdit3
         '
@@ -10076,422 +14281,6 @@ Partial Class wCostSheet
         Me.GridColumn25.OptionsColumn.AllowEdit = False
         Me.GridColumn25.OptionsColumn.ReadOnly = True
         '
-        'GridColumn26
-        '
-        Me.GridColumn26.Caption = "Use"
-        Me.GridColumn26.ColumnEdit = Me.RepositoryItemTextEdit4
-        Me.GridColumn26.FieldName = "FTUse"
-        Me.GridColumn26.MinWidth = 17
-        Me.GridColumn26.Name = "GridColumn26"
-        Me.GridColumn26.Width = 183
-        '
-        'RepositoryItemTextEdit4
-        '
-        Me.RepositoryItemTextEdit4.AutoHeight = False
-        Me.RepositoryItemTextEdit4.MaxLength = 500
-        Me.RepositoryItemTextEdit4.Name = "RepositoryItemTextEdit4"
-        '
-        'GridColumn27
-        '
-        Me.GridColumn27.Caption = "Size"
-        Me.GridColumn27.ColumnEdit = Me.RepositoryItemTextEdit5
-        Me.GridColumn27.FieldName = "FTSize"
-        Me.GridColumn27.MinWidth = 17
-        Me.GridColumn27.Name = "GridColumn27"
-        Me.GridColumn27.Width = 64
-        '
-        'RepositoryItemTextEdit5
-        '
-        Me.RepositoryItemTextEdit5.AutoHeight = False
-        Me.RepositoryItemTextEdit5.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.RepositoryItemTextEdit5.MaxLength = 30
-        Me.RepositoryItemTextEdit5.Name = "RepositoryItemTextEdit5"
-        '
-        'GridColumn28
-        '
-        Me.GridColumn28.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn28.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn28.Caption = "Weight(gm/m2)"
-        Me.GridColumn28.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
-        Me.GridColumn28.DisplayFormat.FormatString = "N1"
-        Me.GridColumn28.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn28.FieldName = "FNWeight"
-        Me.GridColumn28.MinWidth = 17
-        Me.GridColumn28.Name = "GridColumn28"
-        Me.GridColumn28.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn28.Width = 113
-        '
-        'RepositoryItemCalcEditMultiFNUSAGECOST
-        '
-        Me.RepositoryItemCalcEditMultiFNUSAGECOST.AutoHeight = False
-        Me.RepositoryItemCalcEditMultiFNUSAGECOST.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEditMultiFNUSAGECOST.Name = "RepositoryItemCalcEditMultiFNUSAGECOST"
-        Me.RepositoryItemCalcEditMultiFNUSAGECOST.Precision = 0
-        '
-        'GridColumn29
-        '
-        Me.GridColumn29.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn29.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn29.Caption = "Width"
-        Me.GridColumn29.ColumnEdit = Me.RepositoryItemCalcEdit2
-        Me.GridColumn29.DisplayFormat.FormatString = "N1"
-        Me.GridColumn29.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn29.FieldName = "FNWidth"
-        Me.GridColumn29.MinWidth = 17
-        Me.GridColumn29.Name = "GridColumn29"
-        Me.GridColumn29.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn29.Width = 76
-        '
-        'RepositoryItemCalcEdit2
-        '
-        Me.RepositoryItemCalcEdit2.AutoHeight = False
-        Me.RepositoryItemCalcEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit2.Name = "RepositoryItemCalcEdit2"
-        Me.RepositoryItemCalcEdit2.Precision = 1
-        '
-        'GridColumn30
-        '
-        Me.GridColumn30.Caption = "Width Unit"
-        Me.GridColumn30.ColumnEdit = Me.RepositoryItemGridLookUpEdit4
-        Me.GridColumn30.FieldName = "FTWidthUnit"
-        Me.GridColumn30.Name = "GridColumn30"
-        '
-        'RepositoryItemGridLookUpEdit4
-        '
-        Me.RepositoryItemGridLookUpEdit4.AutoHeight = False
-        Me.RepositoryItemGridLookUpEdit4.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemGridLookUpEdit4.DisplayMember = "FTUnitCode"
-        Me.RepositoryItemGridLookUpEdit4.Name = "RepositoryItemGridLookUpEdit4"
-        Me.RepositoryItemGridLookUpEdit4.NullText = ""
-        Me.RepositoryItemGridLookUpEdit4.PopupView = Me.GridView8
-        Me.RepositoryItemGridLookUpEdit4.ValueMember = "FTUnitCode"
-        '
-        'GridView8
-        '
-        Me.GridView8.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn31})
-        Me.GridView8.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.GridView8.Name = "GridView8"
-        Me.GridView8.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.GridView8.OptionsView.ShowGroupPanel = False
-        '
-        'GridColumn31
-        '
-        Me.GridColumn31.Caption = "Unit Code"
-        Me.GridColumn31.FieldName = "FTUnitCode"
-        Me.GridColumn31.Name = "GridColumn31"
-        Me.GridColumn31.OptionsColumn.AllowEdit = False
-        Me.GridColumn31.OptionsColumn.ReadOnly = True
-        Me.GridColumn31.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
-        Me.GridColumn31.Visible = True
-        Me.GridColumn31.VisibleIndex = 0
-        '
-        'GridColumn32
-        '
-        Me.GridColumn32.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn32.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn32.Caption = "Marker Efficiency(%)"
-        Me.GridColumn32.ColumnEdit = Me.RepositoryItemCalcEdit3
-        Me.GridColumn32.DisplayFormat.FormatString = "{0:n2}"
-        Me.GridColumn32.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn32.FieldName = "FNMarkerEff"
-        Me.GridColumn32.MinWidth = 17
-        Me.GridColumn32.Name = "GridColumn32"
-        Me.GridColumn32.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn32.Width = 99
-        '
-        'RepositoryItemCalcEdit3
-        '
-        Me.RepositoryItemCalcEdit3.AutoHeight = False
-        Me.RepositoryItemCalcEdit3.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit3.Name = "RepositoryItemCalcEdit3"
-        Me.RepositoryItemCalcEdit3.Precision = 2
-        '
-        'GridColumn33
-        '
-        Me.GridColumn33.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn33.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn33.Caption = "Net Usage"
-        Me.GridColumn33.ColumnEdit = Me.RepositoryItemCalcEdit4
-        Me.GridColumn33.DisplayFormat.FormatString = "{0:n4}"
-        Me.GridColumn33.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn33.FieldName = "FNMarkerUsed"
-        Me.GridColumn33.MinWidth = 17
-        Me.GridColumn33.Name = "GridColumn33"
-        Me.GridColumn33.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn33.Width = 91
-        '
-        'RepositoryItemCalcEdit4
-        '
-        Me.RepositoryItemCalcEdit4.AutoHeight = False
-        Me.RepositoryItemCalcEdit4.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit4.Name = "RepositoryItemCalcEdit4"
-        Me.RepositoryItemCalcEdit4.Precision = 4
-        '
-        'GridColumn34
-        '
-        Me.GridColumn34.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn34.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn34.Caption = "Usage % Allowance"
-        Me.GridColumn34.ColumnEdit = Me.RepositoryItemCalcEdit5
-        Me.GridColumn34.DisplayFormat.FormatString = "{0:n2}"
-        Me.GridColumn34.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn34.FieldName = "FNAllowancePer"
-        Me.GridColumn34.MinWidth = 17
-        Me.GridColumn34.Name = "GridColumn34"
-        Me.GridColumn34.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn34.Visible = True
-        Me.GridColumn34.VisibleIndex = 8
-        Me.GridColumn34.Width = 135
-        '
-        'RepositoryItemCalcEdit5
-        '
-        Me.RepositoryItemCalcEdit5.AutoHeight = False
-        Me.RepositoryItemCalcEdit5.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit5.DisplayFormat.FormatString = "{0:n2}"
-        Me.RepositoryItemCalcEdit5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.RepositoryItemCalcEdit5.EditFormat.FormatString = "{0:n2}"
-        Me.RepositoryItemCalcEdit5.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.RepositoryItemCalcEdit5.Name = "RepositoryItemCalcEdit5"
-        Me.RepositoryItemCalcEdit5.Precision = 0
-        '
-        'GridColumn35
-        '
-        Me.GridColumn35.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn35.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn35.Caption = "Gross Usage"
-        Me.GridColumn35.ColumnEdit = Me.RepositoryItemCalcEdit6
-        Me.GridColumn35.DisplayFormat.FormatString = "{0:n4}"
-        Me.GridColumn35.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn35.FieldName = "FNTotalUsed"
-        Me.GridColumn35.MinWidth = 17
-        Me.GridColumn35.Name = "GridColumn35"
-        Me.GridColumn35.OptionsColumn.AllowEdit = False
-        Me.GridColumn35.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn35.Width = 120
-        '
-        'RepositoryItemCalcEdit6
-        '
-        Me.RepositoryItemCalcEdit6.AutoHeight = False
-        Me.RepositoryItemCalcEdit6.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit6.Name = "RepositoryItemCalcEdit6"
-        Me.RepositoryItemCalcEdit6.Precision = 4
-        '
-        'GridColumn38
-        '
-        Me.GridColumn38.Caption = "RMDS Season"
-        Me.GridColumn38.FieldName = "FTRMDSSeason"
-        Me.GridColumn38.Name = "GridColumn38"
-        Me.GridColumn38.Width = 80
-        '
-        'GridColumn39
-        '
-        Me.GridColumn39.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn39.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn39.Caption = "RMDS Status"
-        Me.GridColumn39.ColumnEdit = Me.RepositoryItemComboBox1
-        Me.GridColumn39.FieldName = "FNRMDSStatus"
-        Me.GridColumn39.MinWidth = 17
-        Me.GridColumn39.Name = "GridColumn39"
-        Me.GridColumn39.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn39.Width = 100
-        '
-        'RepositoryItemComboBox1
-        '
-        Me.RepositoryItemComboBox1.AutoHeight = False
-        Me.RepositoryItemComboBox1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemComboBox1.Items.AddRange(New Object() {"", "Q", "E", "C"})
-        Me.RepositoryItemComboBox1.Name = "RepositoryItemComboBox1"
-        Me.RepositoryItemComboBox1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        '
-        'GridColumn40
-        '
-        Me.GridColumn40.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn40.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn40.Caption = "UOM"
-        Me.GridColumn40.ColumnEdit = Me.RepositoryItemGridLookUpEdit4
-        Me.GridColumn40.FieldName = "FTUnitCode"
-        Me.GridColumn40.MinWidth = 17
-        Me.GridColumn40.Name = "GridColumn40"
-        Me.GridColumn40.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn40.Width = 83
-        '
-        'GridColumn41
-        '
-        Me.GridColumn41.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn41.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn41.Caption = "UNIT PRICE"
-        Me.GridColumn41.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCostPerUOM
-        Me.GridColumn41.DisplayFormat.FormatString = "{0:n4}"
-        Me.GridColumn41.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn41.FieldName = "FNCostPerUOM"
-        Me.GridColumn41.MinWidth = 17
-        Me.GridColumn41.Name = "GridColumn41"
-        Me.GridColumn41.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn41.Visible = True
-        Me.GridColumn41.VisibleIndex = 9
-        Me.GridColumn41.Width = 69
-        '
-        'RepositoryItemCalcEditMultiFNCostPerUOM
-        '
-        Me.RepositoryItemCalcEditMultiFNCostPerUOM.AutoHeight = False
-        Me.RepositoryItemCalcEditMultiFNCostPerUOM.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEditMultiFNCostPerUOM.Name = "RepositoryItemCalcEditMultiFNCostPerUOM"
-        Me.RepositoryItemCalcEditMultiFNCostPerUOM.Precision = 4
-        '
-        'GridColumn42
-        '
-        Me.GridColumn42.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn42.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn42.Caption = "$/Yard"
-        Me.GridColumn42.ColumnEdit = Me.RepositoryItemCalcEdit8
-        Me.GridColumn42.DisplayFormat.FormatString = "{0:n4}"
-        Me.GridColumn42.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn42.FieldName = "FNCostPerPiece"
-        Me.GridColumn42.MinWidth = 17
-        Me.GridColumn42.Name = "GridColumn42"
-        Me.GridColumn42.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn42.Width = 60
-        '
-        'RepositoryItemCalcEdit8
-        '
-        Me.RepositoryItemCalcEdit8.AutoHeight = False
-        Me.RepositoryItemCalcEdit8.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit8.Name = "RepositoryItemCalcEdit8"
-        Me.RepositoryItemCalcEdit8.Precision = 4
-        '
-        'GridColumn43
-        '
-        Me.GridColumn43.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn43.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn43.Caption = "CIF Unit Cost"
-        Me.GridColumn43.ColumnEdit = Me.RepositoryItemCalcEditMultiFNCIF
-        Me.GridColumn43.DisplayFormat.FormatString = "{0:n4}"
-        Me.GridColumn43.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn43.FieldName = "FNCIF"
-        Me.GridColumn43.MinWidth = 17
-        Me.GridColumn43.Name = "GridColumn43"
-        Me.GridColumn43.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn43.Visible = True
-        Me.GridColumn43.VisibleIndex = 10
-        Me.GridColumn43.Width = 95
-        '
-        'RepositoryItemCalcEditMultiFNCIF
-        '
-        Me.RepositoryItemCalcEditMultiFNCIF.AutoHeight = False
-        Me.RepositoryItemCalcEditMultiFNCIF.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEditMultiFNCIF.Name = "RepositoryItemCalcEditMultiFNCIF"
-        Me.RepositoryItemCalcEditMultiFNCIF.Precision = 4
-        '
-        'GridColumn44
-        '
-        Me.GridColumn44.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn44.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn44.Caption = "US$ EXTEND"
-        Me.GridColumn44.ColumnEdit = Me.RepositoryItemCalcEdit10
-        Me.GridColumn44.DisplayFormat.FormatString = "{0:n4}"
-        Me.GridColumn44.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn44.FieldName = "FNExten"
-        Me.GridColumn44.MinWidth = 17
-        Me.GridColumn44.Name = "GridColumn44"
-        Me.GridColumn44.OptionsColumn.AllowEdit = False
-        Me.GridColumn44.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn44.Width = 69
-        '
-        'RepositoryItemCalcEdit10
-        '
-        Me.RepositoryItemCalcEdit10.AutoHeight = False
-        Me.RepositoryItemCalcEdit10.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit10.Name = "RepositoryItemCalcEdit10"
-        Me.RepositoryItemCalcEdit10.Precision = 4
-        '
-        'GridColumn45
-        '
-        Me.GridColumn45.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn45.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn45.Caption = "Charge %"
-        Me.GridColumn45.ColumnEdit = Me.RepositoryItemCalcEdit11
-        Me.GridColumn45.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn45.FieldName = "FNExtenPer"
-        Me.GridColumn45.MinWidth = 17
-        Me.GridColumn45.Name = "GridColumn45"
-        Me.GridColumn45.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn45.Width = 49
-        '
-        'RepositoryItemCalcEdit11
-        '
-        Me.RepositoryItemCalcEdit11.AutoHeight = False
-        Me.RepositoryItemCalcEdit11.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit11.Name = "RepositoryItemCalcEdit11"
-        Me.RepositoryItemCalcEdit11.Precision = 0
-        '
-        'GridColumn46
-        '
-        Me.GridColumn46.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn46.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn46.Caption = "Charge US$/Item"
-        Me.GridColumn46.ColumnEdit = Me.RepositoryItemCalcEdit12
-        Me.GridColumn46.DisplayFormat.FormatString = "{0:n4}"
-        Me.GridColumn46.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn46.FieldName = "FNNetExten"
-        Me.GridColumn46.MinWidth = 17
-        Me.GridColumn46.Name = "GridColumn46"
-        Me.GridColumn46.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn46.Width = 60
-        '
-        'RepositoryItemCalcEdit12
-        '
-        Me.RepositoryItemCalcEdit12.AutoHeight = False
-        Me.RepositoryItemCalcEdit12.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit12.Name = "RepositoryItemCalcEdit12"
-        Me.RepositoryItemCalcEdit12.Precision = 4
-        '
-        'GridColumn47
-        '
-        Me.GridColumn47.Caption = "USAGE COST"
-        Me.GridColumn47.DisplayFormat.FormatString = "{0:n4}"
-        Me.GridColumn47.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn47.FieldName = "FNUSAGECOST"
-        Me.GridColumn47.Name = "GridColumn47"
-        Me.GridColumn47.OptionsColumn.AllowEdit = False
-        Me.GridColumn47.OptionsColumn.ReadOnly = True
-        Me.GridColumn47.Visible = True
-        Me.GridColumn47.VisibleIndex = 11
-        Me.GridColumn47.Width = 89
-        '
-        'GridColumn48
-        '
-        Me.GridColumn48.Caption = "HANDLING CHARGE PERCENT"
-        Me.GridColumn48.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
-        Me.GridColumn48.DisplayFormat.FormatString = "{0:n2}"
-        Me.GridColumn48.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn48.FieldName = "FNHANDLINGCHARGEPERCENT"
-        Me.GridColumn48.Name = "GridColumn48"
-        Me.GridColumn48.Visible = True
-        Me.GridColumn48.VisibleIndex = 12
-        '
-        'RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT
-        '
-        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.AutoHeight = False
-        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.DisplayFormat.FormatString = "{0:n2}"
-        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.EditFormat.FormatString = "{0:n2}"
-        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT.Name = "RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT"
-        '
-        'GridColumn49
-        '
-        Me.GridColumn49.Caption = "HANDLING CHARGE COST"
-        Me.GridColumn49.ColumnEdit = Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGECOST
-        Me.GridColumn49.DisplayFormat.FormatString = "{0:n4}"
-        Me.GridColumn49.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn49.FieldName = "FNHANDLINGCHARGECOST"
-        Me.GridColumn49.Name = "GridColumn49"
-        Me.GridColumn49.OptionsColumn.AllowEdit = False
-        Me.GridColumn49.OptionsColumn.ReadOnly = True
-        Me.GridColumn49.Visible = True
-        Me.GridColumn49.VisibleIndex = 13
-        '
         'RepositoryItemCalcEditMultiFNHANDLINGCHARGECOST
         '
         Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGECOST.AutoHeight = False
@@ -10502,354 +14291,13 @@ Partial Class wCostSheet
         Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGECOST.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGECOST.Name = "RepositoryItemCalcEditMultiFNHANDLINGCHARGECOST"
         '
-        'xFNTOTALTRIMPROCESSCOST
-        '
-        Me.xFNTOTALTRIMPROCESSCOST.Caption = "TOTAL TRIM/PROCESS COST"
-        Me.xFNTOTALTRIMPROCESSCOST.DisplayFormat.FormatString = "{0:n4}"
-        Me.xFNTOTALTRIMPROCESSCOST.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.xFNTOTALTRIMPROCESSCOST.FieldName = "FNTOTALTRIMPROCESSCOST"
-        Me.xFNTOTALTRIMPROCESSCOST.Name = "xFNTOTALTRIMPROCESSCOST"
-        Me.xFNTOTALTRIMPROCESSCOST.OptionsColumn.AllowEdit = False
-        Me.xFNTOTALTRIMPROCESSCOST.OptionsColumn.ReadOnly = True
-        Me.xFNTOTALTRIMPROCESSCOST.Visible = True
-        Me.xFNTOTALTRIMPROCESSCOST.VisibleIndex = 15
-        '
-        'GridColumn50
-        '
-        Me.GridColumn50.Caption = "IMPORT DUTY PERCENT"
-        Me.GridColumn50.ColumnEdit = Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
-        Me.GridColumn50.DisplayFormat.FormatString = "{0:n2}"
-        Me.GridColumn50.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn50.FieldName = "FNIMPORTDUTYPERCENT"
-        Me.GridColumn50.Name = "GridColumn50"
-        Me.GridColumn50.Visible = True
-        Me.GridColumn50.VisibleIndex = 14
-        '
-        'RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT
-        '
-        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT.AutoHeight = False
-        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT.DisplayFormat.FormatString = "{0:n2}"
-        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT.EditFormat.FormatString = "{0:n2}"
-        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT.Name = "RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT"
-        '
-        'GridColumn51
-        '
-        Me.GridColumn51.Caption = "Import Duty"
-        Me.GridColumn51.ColumnEdit = Me.RepositoryItemCalcEdit15
-        Me.GridColumn51.DisplayFormat.FormatString = "{0:n4}"
-        Me.GridColumn51.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn51.FieldName = "FNImportDuty"
-        Me.GridColumn51.MinWidth = 17
-        Me.GridColumn51.Name = "GridColumn51"
-        Me.GridColumn51.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn51.Width = 64
-        '
-        'RepositoryItemCalcEdit15
-        '
-        Me.RepositoryItemCalcEdit15.AutoHeight = False
-        Me.RepositoryItemCalcEdit15.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit15.Name = "RepositoryItemCalcEdit15"
-        Me.RepositoryItemCalcEdit15.Precision = 2
-        '
-        'GridColumn52
-        '
-        Me.GridColumn52.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn52.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn52.Caption = "China Order Cost(CNY)"
-        Me.GridColumn52.ColumnEdit = Me.RepositoryItemCalcEdit16
-        Me.GridColumn52.DisplayFormat.FormatString = "{0:n4}"
-        Me.GridColumn52.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn52.FieldName = "FNChinaOrderCost"
-        Me.GridColumn52.MinWidth = 17
-        Me.GridColumn52.Name = "GridColumn52"
-        Me.GridColumn52.OptionsColumn.AllowEdit = False
-        Me.GridColumn52.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn52.Width = 64
-        '
-        'RepositoryItemCalcEdit16
-        '
-        Me.RepositoryItemCalcEdit16.AutoHeight = False
-        Me.RepositoryItemCalcEdit16.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit16.Name = "RepositoryItemCalcEdit16"
-        Me.RepositoryItemCalcEdit16.Precision = 2
-        '
-        'GridColumn53
-        '
-        Me.GridColumn53.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn53.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn53.Caption = "Malaysia Order Cost(MYR)"
-        Me.GridColumn53.ColumnEdit = Me.RepositoryItemCalcEdit17
-        Me.GridColumn53.DisplayFormat.FormatString = "{0:n4}"
-        Me.GridColumn53.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn53.FieldName = "FNMalaysiaOrderCost"
-        Me.GridColumn53.MinWidth = 17
-        Me.GridColumn53.Name = "GridColumn53"
-        Me.GridColumn53.OptionsColumn.AllowEdit = False
-        Me.GridColumn53.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn53.Width = 64
-        '
-        'RepositoryItemCalcEdit17
-        '
-        Me.RepositoryItemCalcEdit17.AutoHeight = False
-        Me.RepositoryItemCalcEdit17.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit17.Name = "RepositoryItemCalcEdit17"
-        Me.RepositoryItemCalcEdit17.Precision = 2
-        '
-        'GridColumn350
-        '
-        Me.GridColumn350.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn350.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn350.Caption = "Thailand Order Cost(THB)"
-        Me.GridColumn350.ColumnEdit = Me.RepositoryItemCalcEdit18
-        Me.GridColumn350.DisplayFormat.FormatString = "{0:n4}"
-        Me.GridColumn350.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn350.FieldName = "FNThailandOrderCost"
-        Me.GridColumn350.MinWidth = 17
-        Me.GridColumn350.Name = "GridColumn350"
-        Me.GridColumn350.OptionsColumn.AllowEdit = False
-        Me.GridColumn350.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn350.Width = 64
-        '
-        'RepositoryItemCalcEdit18
-        '
-        Me.RepositoryItemCalcEdit18.AutoHeight = False
-        Me.RepositoryItemCalcEdit18.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit18.Name = "RepositoryItemCalcEdit18"
-        Me.RepositoryItemCalcEdit18.Precision = 2
-        '
-        'GridColumn351
-        '
-        Me.GridColumn351.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn351.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn351.Caption = "Japan Order Cost(JPY)"
-        Me.GridColumn351.ColumnEdit = Me.RepositoryItemCalcEdit19
-        Me.GridColumn351.DisplayFormat.FormatString = "{0:n4}"
-        Me.GridColumn351.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn351.FieldName = "FNJapanOrderCost"
-        Me.GridColumn351.MinWidth = 17
-        Me.GridColumn351.Name = "GridColumn351"
-        Me.GridColumn351.OptionsColumn.AllowEdit = False
-        Me.GridColumn351.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn351.Width = 64
-        '
-        'RepositoryItemCalcEdit19
-        '
-        Me.RepositoryItemCalcEdit19.AutoHeight = False
-        Me.RepositoryItemCalcEdit19.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemCalcEdit19.Name = "RepositoryItemCalcEdit19"
-        Me.RepositoryItemCalcEdit19.Precision = 2
-        '
-        'xFNTOTALUSAGECOST
-        '
-        Me.xFNTOTALUSAGECOST.Caption = "TOTAL USAGE COST"
-        Me.xFNTOTALUSAGECOST.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
-        Me.xFNTOTALUSAGECOST.DisplayFormat.FormatString = "{0:n2}"
-        Me.xFNTOTALUSAGECOST.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.xFNTOTALUSAGECOST.FieldName = "FNTOTALUSAGECOST"
-        Me.xFNTOTALUSAGECOST.Name = "xFNTOTALUSAGECOST"
-        Me.xFNTOTALUSAGECOST.Visible = True
-        Me.xFNTOTALUSAGECOST.VisibleIndex = 16
-        '
-        'xFNTOTALHANDINGCHANGECOST
-        '
-        Me.xFNTOTALHANDINGCHANGECOST.Caption = "TOTAL HANDING CHANGE COST"
-        Me.xFNTOTALHANDINGCHANGECOST.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
-        Me.xFNTOTALHANDINGCHANGECOST.DisplayFormat.FormatString = "{0:n4}"
-        Me.xFNTOTALHANDINGCHANGECOST.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.xFNTOTALHANDINGCHANGECOST.FieldName = "FNTOTALHANDINGCHANGECOST"
-        Me.xFNTOTALHANDINGCHANGECOST.Name = "xFNTOTALHANDINGCHANGECOST"
-        Me.xFNTOTALHANDINGCHANGECOST.Visible = True
-        Me.xFNTOTALHANDINGCHANGECOST.VisibleIndex = 17
-        '
-        'xFNFINALFOB
-        '
-        Me.xFNFINALFOB.Caption = "FINAL FOB"
-        Me.xFNFINALFOB.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
-        Me.xFNFINALFOB.DisplayFormat.FormatString = "{0:n2}"
-        Me.xFNFINALFOB.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.xFNFINALFOB.FieldName = "FNFINALFOB"
-        Me.xFNFINALFOB.Name = "xFNFINALFOB"
-        Me.xFNFINALFOB.Visible = True
-        Me.xFNFINALFOB.VisibleIndex = 18
-        '
-        'xFNEXTENDEDSIZEFOB
-        '
-        Me.xFNEXTENDEDSIZEFOB.Caption = "EXTENDED SIZE FOB"
-        Me.xFNEXTENDEDSIZEFOB.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
-        Me.xFNEXTENDEDSIZEFOB.DisplayFormat.FormatString = "{0:n2}"
-        Me.xFNEXTENDEDSIZEFOB.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.xFNEXTENDEDSIZEFOB.FieldName = "FNEXTENDEDSIZEFOB"
-        Me.xFNEXTENDEDSIZEFOB.Name = "xFNEXTENDEDSIZEFOB"
-        Me.xFNEXTENDEDSIZEFOB.Visible = True
-        Me.xFNEXTENDEDSIZEFOB.VisibleIndex = 19
-        '
-        'xFTL4LORDERCNTY1
-        '
-        Me.xFTL4LORDERCNTY1.Caption = "L4L ORDER CNTY1"
-        Me.xFTL4LORDERCNTY1.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
-        Me.xFTL4LORDERCNTY1.DisplayFormat.FormatString = "{0:n2}"
-        Me.xFTL4LORDERCNTY1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.xFTL4LORDERCNTY1.FieldName = "FTL4LORDERCNTY1"
-        Me.xFTL4LORDERCNTY1.Name = "xFTL4LORDERCNTY1"
-        Me.xFTL4LORDERCNTY1.Visible = True
-        Me.xFTL4LORDERCNTY1.VisibleIndex = 20
-        '
-        'xFTL4LCURRENCYFOB1
-        '
-        Me.xFTL4LCURRENCYFOB1.Caption = "L4L CURRENCY FOB1"
-        Me.xFTL4LCURRENCYFOB1.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
-        Me.xFTL4LCURRENCYFOB1.DisplayFormat.FormatString = "{0:n2}"
-        Me.xFTL4LCURRENCYFOB1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.xFTL4LCURRENCYFOB1.FieldName = "FTL4LCURRENCYFOB1"
-        Me.xFTL4LCURRENCYFOB1.Name = "xFTL4LCURRENCYFOB1"
-        Me.xFTL4LCURRENCYFOB1.Visible = True
-        Me.xFTL4LCURRENCYFOB1.VisibleIndex = 21
-        '
-        'xFNEXTENDSIZEFOBL4L1
-        '
-        Me.xFNEXTENDSIZEFOBL4L1.Caption = "EXTEND SIZE FOB(L4L 1)"
-        Me.xFNEXTENDSIZEFOBL4L1.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
-        Me.xFNEXTENDSIZEFOBL4L1.DisplayFormat.FormatString = "{0:n2}"
-        Me.xFNEXTENDSIZEFOBL4L1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.xFNEXTENDSIZEFOBL4L1.FieldName = "FNEXTENDSIZEFOBL4L1"
-        Me.xFNEXTENDSIZEFOBL4L1.Name = "xFNEXTENDSIZEFOBL4L1"
-        Me.xFNEXTENDSIZEFOBL4L1.Visible = True
-        Me.xFNEXTENDSIZEFOBL4L1.VisibleIndex = 22
-        '
-        'xFTL4LORDERCNTY2
-        '
-        Me.xFTL4LORDERCNTY2.Caption = "L4L ORDER CNTY2"
-        Me.xFTL4LORDERCNTY2.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
-        Me.xFTL4LORDERCNTY2.DisplayFormat.FormatString = "{0:n2}"
-        Me.xFTL4LORDERCNTY2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.xFTL4LORDERCNTY2.FieldName = "FTL4LORDERCNTY2"
-        Me.xFTL4LORDERCNTY2.Name = "xFTL4LORDERCNTY2"
-        Me.xFTL4LORDERCNTY2.Visible = True
-        Me.xFTL4LORDERCNTY2.VisibleIndex = 23
-        '
-        'xFTL4LCURRENCYFOB2
-        '
-        Me.xFTL4LCURRENCYFOB2.Caption = "L4L CURRENCY FOB2"
-        Me.xFTL4LCURRENCYFOB2.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
-        Me.xFTL4LCURRENCYFOB2.DisplayFormat.FormatString = "{0:n2}"
-        Me.xFTL4LCURRENCYFOB2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.xFTL4LCURRENCYFOB2.FieldName = "FTL4LCURRENCYFOB2"
-        Me.xFTL4LCURRENCYFOB2.Name = "xFTL4LCURRENCYFOB2"
-        Me.xFTL4LCURRENCYFOB2.Visible = True
-        Me.xFTL4LCURRENCYFOB2.VisibleIndex = 24
-        '
-        'xFNEXTENDSIZEFOBL4L2
-        '
-        Me.xFNEXTENDSIZEFOBL4L2.Caption = "EXTEND SIZE FOB(L4L 2)"
-        Me.xFNEXTENDSIZEFOBL4L2.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
-        Me.xFNEXTENDSIZEFOBL4L2.DisplayFormat.FormatString = "{0:n2}"
-        Me.xFNEXTENDSIZEFOBL4L2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.xFNEXTENDSIZEFOBL4L2.FieldName = "FNEXTENDSIZEFOBL4L2"
-        Me.xFNEXTENDSIZEFOBL4L2.Name = "xFNEXTENDSIZEFOBL4L2"
-        Me.xFNEXTENDSIZEFOBL4L2.Visible = True
-        Me.xFNEXTENDSIZEFOBL4L2.VisibleIndex = 25
-        '
-        'xFTL4LORDERCNTY3
-        '
-        Me.xFTL4LORDERCNTY3.Caption = "L4L ORDER CNTY3"
-        Me.xFTL4LORDERCNTY3.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
-        Me.xFTL4LORDERCNTY3.DisplayFormat.FormatString = "{0:n2}"
-        Me.xFTL4LORDERCNTY3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.xFTL4LORDERCNTY3.FieldName = "FTL4LORDERCNTY3"
-        Me.xFTL4LORDERCNTY3.Name = "xFTL4LORDERCNTY3"
-        Me.xFTL4LORDERCNTY3.Visible = True
-        Me.xFTL4LORDERCNTY3.VisibleIndex = 26
-        '
-        'xFTL4LCURRENCYFOB3
-        '
-        Me.xFTL4LCURRENCYFOB3.Caption = "L4L CURRENCY FOB3"
-        Me.xFTL4LCURRENCYFOB3.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
-        Me.xFTL4LCURRENCYFOB3.DisplayFormat.FormatString = "{0:n2}"
-        Me.xFTL4LCURRENCYFOB3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.xFTL4LCURRENCYFOB3.FieldName = "FTL4LCURRENCYFOB3"
-        Me.xFTL4LCURRENCYFOB3.Name = "xFTL4LCURRENCYFOB3"
-        Me.xFTL4LCURRENCYFOB3.Visible = True
-        Me.xFTL4LCURRENCYFOB3.VisibleIndex = 27
-        '
-        'xFNEXTENDSIZEFOBL4L3
-        '
-        Me.xFNEXTENDSIZEFOBL4L3.Caption = "EXTEND SIZE FOB(L4L 3)"
-        Me.xFNEXTENDSIZEFOBL4L3.ColumnEdit = Me.RepositoryItemCalcEditMultiFNUSAGECOST
-        Me.xFNEXTENDSIZEFOBL4L3.DisplayFormat.FormatString = "{0:n2}"
-        Me.xFNEXTENDSIZEFOBL4L3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.xFNEXTENDSIZEFOBL4L3.FieldName = "FNEXTENDSIZEFOBL4L3"
-        Me.xFNEXTENDSIZEFOBL4L3.Name = "xFNEXTENDSIZEFOBL4L3"
-        Me.xFNEXTENDSIZEFOBL4L3.Visible = True
-        Me.xFNEXTENDSIZEFOBL4L3.VisibleIndex = 28
-        '
-        'xFTPRODUCTDEVELOPER
-        '
-        Me.xFTPRODUCTDEVELOPER.Caption = "PRODUCT DEVELOPER"
-        Me.xFTPRODUCTDEVELOPER.ColumnEdit = Me.RepositoryItemTextEditRemark
-        Me.xFTPRODUCTDEVELOPER.FieldName = "FTPRODUCTDEVELOPER"
-        Me.xFTPRODUCTDEVELOPER.Name = "xFTPRODUCTDEVELOPER"
-        Me.xFTPRODUCTDEVELOPER.Visible = True
-        Me.xFTPRODUCTDEVELOPER.VisibleIndex = 29
-        Me.xFTPRODUCTDEVELOPER.Width = 200
-        '
-        'RepositoryItemTextEditRemark
-        '
-        Me.RepositoryItemTextEditRemark.AutoHeight = False
-        Me.RepositoryItemTextEditRemark.MaxLength = 200
-        Me.RepositoryItemTextEditRemark.Name = "RepositoryItemTextEditRemark"
-        '
-        'xFTRemark
-        '
-        Me.xFTRemark.Caption = "REMARK"
-        Me.xFTRemark.ColumnEdit = Me.RepositoryItemTextEditRemark
-        Me.xFTRemark.FieldName = "FTRemark"
-        Me.xFTRemark.Name = "xFTRemark"
-        Me.xFTRemark.Visible = True
-        Me.xFTRemark.VisibleIndex = 30
-        Me.xFTRemark.Width = 300
-        '
-        'RepositoryItemButtonEdit2
-        '
-        Me.RepositoryItemButtonEdit2.AutoHeight = False
-        Me.RepositoryItemButtonEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions30, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject117, SerializableAppearanceObject118, SerializableAppearanceObject119, SerializableAppearanceObject120, "", "108", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.RepositoryItemButtonEdit2.Name = "RepositoryItemButtonEdit2"
-        Me.RepositoryItemButtonEdit2.Tag = ""
-        '
-        'RepositoryItemButtonEdit3
-        '
-        Me.RepositoryItemButtonEdit3.AutoHeight = False
-        Me.RepositoryItemButtonEdit3.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions31, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject121, SerializableAppearanceObject122, SerializableAppearanceObject123, SerializableAppearanceObject124, "", "104", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.RepositoryItemButtonEdit3.Name = "RepositoryItemButtonEdit3"
-        '
-        'RepositoryItemButtonEdit4
-        '
-        Me.RepositoryItemButtonEdit4.AutoHeight = False
-        Me.RepositoryItemButtonEdit4.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions32, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject125, SerializableAppearanceObject126, SerializableAppearanceObject127, SerializableAppearanceObject128, "", "101", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.RepositoryItemButtonEdit4.Name = "RepositoryItemButtonEdit4"
-        '
-        'RepositoryItemButtonEdit5
-        '
-        Me.RepositoryItemButtonEdit5.AutoHeight = False
-        Me.RepositoryItemButtonEdit5.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.RepositoryItemButtonEdit5.Name = "RepositoryItemButtonEdit5"
-        '
-        'RepositoryItemTextEdit1
-        '
-        Me.RepositoryItemTextEdit1.AutoHeight = False
-        Me.RepositoryItemTextEdit1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.RepositoryItemTextEdit1.MaxLength = 30
-        Me.RepositoryItemTextEdit1.Name = "RepositoryItemTextEdit1"
-        '
         'otpattach
         '
         Me.otpattach.Controls.Add(Me.ExcelAttach)
         Me.otpattach.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpattach.Name = "otpattach"
         Me.otpattach.PageVisible = False
-        Me.otpattach.Size = New System.Drawing.Size(1472, 233)
+        Me.otpattach.Size = New System.Drawing.Size(1471, 304)
         Me.otpattach.Text = "otpattach"
         '
         'ExcelAttach
@@ -10858,7 +14306,8 @@ Partial Class wCostSheet
         Me.ExcelAttach.Location = New System.Drawing.Point(0, 0)
         Me.ExcelAttach.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ExcelAttach.Name = "ExcelAttach"
-        Me.ExcelAttach.Size = New System.Drawing.Size(1472, 233)
+        Me.ExcelAttach.Options.Culture = New System.Globalization.CultureInfo("th-TH")
+        Me.ExcelAttach.Size = New System.Drawing.Size(1471, 304)
         Me.ExcelAttach.TabIndex = 0
         Me.ExcelAttach.Text = "SpreadsheetControl1"
         '
@@ -10867,7 +14316,7 @@ Partial Class wCostSheet
         Me.otpnosew.Controls.Add(Me.ogcnosew)
         Me.otpnosew.Name = "otpnosew"
         Me.otpnosew.PageVisible = False
-        Me.otpnosew.Size = New System.Drawing.Size(1472, 233)
+        Me.otpnosew.Size = New System.Drawing.Size(1471, 304)
         Me.otpnosew.Text = "No sew application cost"
         '
         'ogcnosew
@@ -10877,7 +14326,7 @@ Partial Class wCostSheet
         Me.ogcnosew.MainView = Me.ogvnosew
         Me.ogcnosew.Name = "ogcnosew"
         Me.ogcnosew.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTMainMatCode_S, Me.RepositoryFNHSysSuplId_S, Me.RepositoryWeightCalcEdit_S, Me.RepositoryWidthCalcEdit_S, Me.RepositoryMarkEffCalcEdit_S, Me.RepositoryMarkUseCalcEdit_S, Me.RepositorPerAllowCalcEdit_S, Me.RepositoryTotalUseCalcEdit_S, Me.RepositoryCostCalEdit_S, Me.RepositoryYardCalcEdit_S, Me.RepositoryCifCalcEdit_S, Me.RepositoryUsExtendCalcEdit_S, Me.RepositoryChargePerCalcEdit_S, Me.RepositoryChargeUsCalcEdit_S, Me.RepositoryFTUnitCode_S, Me.RepositoryImportDutyCalcEdit_S, Me.ReposFLG2, Me.ReposFTUse2, Me.ReposFTSize2})
-        Me.ogcnosew.Size = New System.Drawing.Size(1472, 233)
+        Me.ogcnosew.Size = New System.Drawing.Size(1471, 304)
         Me.ogcnosew.TabIndex = 5
         Me.ogcnosew.TabStop = False
         Me.ogcnosew.Tag = "2|"
@@ -11472,7 +14921,7 @@ Partial Class wCostSheet
         Me.XtraTabPage1.Controls.Add(Me.opshet)
         Me.XtraTabPage1.Name = "XtraTabPage1"
         Me.XtraTabPage1.PageVisible = False
-        Me.XtraTabPage1.Size = New System.Drawing.Size(1472, 233)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(1471, 304)
         Me.XtraTabPage1.Text = "XtraTabPage1"
         '
         'opshet
@@ -11481,19 +14930,176 @@ Partial Class wCostSheet
         Me.opshet.Location = New System.Drawing.Point(0, 0)
         Me.opshet.Name = "opshet"
         Me.opshet.Options.Behavior.Column.Resize = DevExpress.XtraSpreadsheet.DocumentCapability.Enabled
+        Me.opshet.Options.Culture = New System.Globalization.CultureInfo("th-TH")
         Me.opshet.ReadOnly = True
-        Me.opshet.Size = New System.Drawing.Size(1472, 233)
+        Me.opshet.Size = New System.Drawing.Size(1471, 304)
         Me.opshet.TabIndex = 2
+        '
+        'otpfilemark
+        '
+        Me.otpfilemark.Controls.Add(Me.PdfViewer1)
+        Me.otpfilemark.Controls.Add(Me.PanelControl1)
+        Me.otpfilemark.Name = "otpfilemark"
+        Me.otpfilemark.Size = New System.Drawing.Size(1471, 304)
+        Me.otpfilemark.Text = "File Mark (PDF)"
+        '
+        'PdfViewer1
+        '
+        Me.PdfViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PdfViewer1.Location = New System.Drawing.Point(0, 38)
+        Me.PdfViewer1.Name = "PdfViewer1"
+        Me.PdfViewer1.Size = New System.Drawing.Size(1471, 266)
+        Me.PdfViewer1.TabIndex = 1
+        '
+        'PanelControl1
+        '
+        Me.PanelControl1.Controls.Add(Me.ocmselectfilemark)
+        Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelControl1.Location = New System.Drawing.Point(0, 0)
+        Me.PanelControl1.Name = "PanelControl1"
+        Me.PanelControl1.Size = New System.Drawing.Size(1471, 38)
+        Me.PanelControl1.TabIndex = 0
+        '
+        'ocmselectfilemark
+        '
+        Me.ocmselectfilemark.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmselectfilemark.Location = New System.Drawing.Point(1254, 5)
+        Me.ocmselectfilemark.Name = "ocmselectfilemark"
+        Me.ocmselectfilemark.Size = New System.Drawing.Size(196, 23)
+        Me.ocmselectfilemark.TabIndex = 107
+        Me.ocmselectfilemark.Tag = "2|"
+        Me.ocmselectfilemark.Text = "Select File Mark (PDF)"
+        '
+        'otpjson
+        '
+        Me.otpjson.Controls.Add(Me.ogcjsondetail)
+        Me.otpjson.Name = "otpjson"
+        Me.otpjson.Size = New System.Drawing.Size(1471, 304)
+        Me.otpjson.Text = "Send JSON File History"
+        '
+        'ogcjsondetail
+        '
+        Me.ogcjsondetail.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcjsondetail.Location = New System.Drawing.Point(0, 0)
+        Me.ogcjsondetail.MainView = Me.ogvjsondetail
+        Me.ogcjsondetail.Name = "ogcjsondetail"
+        Me.ogcjsondetail.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSelect})
+        Me.ogcjsondetail.Size = New System.Drawing.Size(1471, 304)
+        Me.ogcjsondetail.TabIndex = 5
+        Me.ogcjsondetail.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvjsondetail})
+        '
+        'ogvjsondetail
+        '
+        Me.ogvjsondetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn1, Me.FTSendType, Me.FTSendStatus, Me.FTSendStatusDescription, Me.FTSendUser, Me.FDSendDate, Me.FTSendTime, Me.FTSendByMail})
+        Me.ogvjsondetail.GridControl = Me.ogcjsondetail
+        Me.ogvjsondetail.Name = "ogvjsondetail"
+        Me.ogvjsondetail.OptionsCustomization.AllowQuickHideColumns = False
+        Me.ogvjsondetail.OptionsView.ColumnAutoWidth = False
+        Me.ogvjsondetail.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn1
+        '
+        Me.GridColumn1.Caption = "Seq."
+        Me.GridColumn1.FieldName = "FNSeq"
+        Me.GridColumn1.Name = "GridColumn1"
+        Me.GridColumn1.OptionsColumn.AllowEdit = False
+        Me.GridColumn1.OptionsColumn.ReadOnly = True
+        Me.GridColumn1.Visible = True
+        Me.GridColumn1.VisibleIndex = 0
+        Me.GridColumn1.Width = 51
+        '
+        'FTSendType
+        '
+        Me.FTSendType.Caption = "Send Type"
+        Me.FTSendType.FieldName = "FTSendType"
+        Me.FTSendType.Name = "FTSendType"
+        Me.FTSendType.OptionsColumn.AllowEdit = False
+        Me.FTSendType.OptionsColumn.ReadOnly = True
+        Me.FTSendType.Visible = True
+        Me.FTSendType.VisibleIndex = 1
+        Me.FTSendType.Width = 112
+        '
+        'FTSendStatus
+        '
+        Me.FTSendStatus.Caption = "Send Status"
+        Me.FTSendStatus.FieldName = "FTSendStatus"
+        Me.FTSendStatus.Name = "FTSendStatus"
+        Me.FTSendStatus.OptionsColumn.AllowEdit = False
+        Me.FTSendStatus.OptionsColumn.ReadOnly = True
+        Me.FTSendStatus.Visible = True
+        Me.FTSendStatus.VisibleIndex = 2
+        Me.FTSendStatus.Width = 78
+        '
+        'FTSendStatusDescription
+        '
+        Me.FTSendStatusDescription.Caption = "Send Status"
+        Me.FTSendStatusDescription.FieldName = "FTSendStatusDescription"
+        Me.FTSendStatusDescription.Name = "FTSendStatusDescription"
+        Me.FTSendStatusDescription.OptionsColumn.AllowEdit = False
+        Me.FTSendStatusDescription.OptionsColumn.ReadOnly = True
+        Me.FTSendStatusDescription.Visible = True
+        Me.FTSendStatusDescription.VisibleIndex = 3
+        Me.FTSendStatusDescription.Width = 471
+        '
+        'FTSendUser
+        '
+        Me.FTSendUser.Caption = "Send By"
+        Me.FTSendUser.FieldName = "FTSendUser"
+        Me.FTSendUser.Name = "FTSendUser"
+        Me.FTSendUser.OptionsColumn.AllowEdit = False
+        Me.FTSendUser.OptionsColumn.ReadOnly = True
+        Me.FTSendUser.Visible = True
+        Me.FTSendUser.VisibleIndex = 4
+        Me.FTSendUser.Width = 150
+        '
+        'FDSendDate
+        '
+        Me.FDSendDate.Caption = "Send Date"
+        Me.FDSendDate.FieldName = "FDSendDate"
+        Me.FDSendDate.Name = "FDSendDate"
+        Me.FDSendDate.OptionsColumn.AllowEdit = False
+        Me.FDSendDate.OptionsColumn.ReadOnly = True
+        Me.FDSendDate.Visible = True
+        Me.FDSendDate.VisibleIndex = 5
+        Me.FDSendDate.Width = 78
+        '
+        'FTSendTime
+        '
+        Me.FTSendTime.Caption = "Send Time"
+        Me.FTSendTime.FieldName = "FTSendTime"
+        Me.FTSendTime.Name = "FTSendTime"
+        Me.FTSendTime.OptionsColumn.AllowEdit = False
+        Me.FTSendTime.OptionsColumn.ReadOnly = True
+        Me.FTSendTime.Visible = True
+        Me.FTSendTime.VisibleIndex = 6
+        Me.FTSendTime.Width = 74
+        '
+        'FTSendByMail
+        '
+        Me.FTSendByMail.Caption = "Send By E-Mail"
+        Me.FTSendByMail.FieldName = "FTSendByMail"
+        Me.FTSendByMail.Name = "FTSendByMail"
+        Me.FTSendByMail.OptionsColumn.AllowEdit = False
+        Me.FTSendByMail.OptionsColumn.ReadOnly = True
+        Me.FTSendByMail.Visible = True
+        Me.FTSendByMail.VisibleIndex = 7
+        Me.FTSendByMail.Width = 226
+        '
+        'RepositoryFTSelect
+        '
+        Me.RepositoryFTSelect.AutoHeight = False
+        Me.RepositoryFTSelect.Caption = "Check"
+        Me.RepositoryFTSelect.Name = "RepositoryFTSelect"
+        Me.RepositoryFTSelect.ValueChecked = "1"
+        Me.RepositoryFTSelect.ValueUnchecked = "0"
         '
         'GroupControl1
         '
-        Me.GroupControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupControl1.Controls.Add(Me.otb)
-        Me.GroupControl1.Location = New System.Drawing.Point(3, 346)
+        Me.GroupControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupControl1.Location = New System.Drawing.Point(2, 2)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(1478, 283)
+        Me.GroupControl1.Size = New System.Drawing.Size(1477, 356)
         Me.GroupControl1.TabIndex = 1
         Me.GroupControl1.Text = "Item"
         '
@@ -11507,15 +15113,16 @@ Partial Class wCostSheet
         Me.ogbdocinfo.Controls.Add(Me.FTCostSheetBy_lbl)
         Me.ogbdocinfo.Controls.Add(Me.FDCostSheetDate_lbl)
         Me.ogbdocinfo.Controls.Add(Me.FTCostSheetNo_lbl)
-        Me.ogbdocinfo.Location = New System.Drawing.Point(3, -1)
+        Me.ogbdocinfo.Location = New System.Drawing.Point(2, 3)
         Me.ogbdocinfo.Name = "ogbdocinfo"
-        Me.ogbdocinfo.Size = New System.Drawing.Size(461, 91)
+        Me.ogbdocinfo.ShowCaption = False
+        Me.ogbdocinfo.Size = New System.Drawing.Size(460, 91)
         Me.ogbdocinfo.TabIndex = 28
         Me.ogbdocinfo.Text = "Document Info"
         '
         'FNRevised
         '
-        Me.FNRevised.Location = New System.Drawing.Point(-66, 65)
+        Me.FNRevised.Location = New System.Drawing.Point(-66, 48)
         Me.FNRevised.Name = "FNRevised"
         Me.FNRevised.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNRevised.Properties.AppearanceReadOnly.Options.UseBackColor = True
@@ -11530,7 +15137,7 @@ Partial Class wCostSheet
         '
         Me.FTCostSheetBy.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTCostSheetBy.Location = New System.Drawing.Point(151, 65)
+        Me.FTCostSheetBy.Location = New System.Drawing.Point(151, 47)
         Me.FTCostSheetBy.Name = "FTCostSheetBy"
         Me.FTCostSheetBy.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
         Me.FTCostSheetBy.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
@@ -11543,7 +15150,7 @@ Partial Class wCostSheet
         Me.FTCostSheetBy.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTCostSheetBy.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTCostSheetBy.Properties.ReadOnly = True
-        Me.FTCostSheetBy.Size = New System.Drawing.Size(226, 20)
+        Me.FTCostSheetBy.Size = New System.Drawing.Size(225, 20)
         Me.FTCostSheetBy.TabIndex = 5
         Me.FTCostSheetBy.Tag = "2|"
         '
@@ -11552,7 +15159,7 @@ Partial Class wCostSheet
         Me.FTCostSheetNo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTCostSheetNo.EnterMoveNextControl = True
-        Me.FTCostSheetNo.Location = New System.Drawing.Point(151, 23)
+        Me.FTCostSheetNo.Location = New System.Drawing.Point(151, 5)
         Me.FTCostSheetNo.Name = "FTCostSheetNo"
         SerializableAppearanceObject145.Options.UseTextOptions = True
         SerializableAppearanceObject145.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
@@ -11572,7 +15179,7 @@ Partial Class wCostSheet
         SerializableAppearanceObject152.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTCostSheetNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", -1, True, True, False, EditorButtonImageOptions37, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject145, SerializableAppearanceObject146, SerializableAppearanceObject147, SerializableAppearanceObject148, "", "472", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", -1, True, True, False, EditorButtonImageOptions38, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject149, SerializableAppearanceObject150, SerializableAppearanceObject151, SerializableAppearanceObject152, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTCostSheetNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTCostSheetNo.Size = New System.Drawing.Size(226, 20)
+        Me.FTCostSheetNo.Size = New System.Drawing.Size(225, 20)
         Me.FTCostSheetNo.TabIndex = 4
         Me.FTCostSheetNo.TabStop = False
         Me.FTCostSheetNo.Tag = "2|"
@@ -11582,12 +15189,12 @@ Partial Class wCostSheet
         Me.FDCostSheetDate.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FDCostSheetDate.EditValue = Nothing
-        Me.FDCostSheetDate.Location = New System.Drawing.Point(151, 44)
+        Me.FDCostSheetDate.Location = New System.Drawing.Point(151, 26)
         Me.FDCostSheetDate.Name = "FDCostSheetDate"
         Me.FDCostSheetDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDCostSheetDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions39, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject153, SerializableAppearanceObject154, SerializableAppearanceObject155, SerializableAppearanceObject156, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FDCostSheetDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.FDCostSheetDate.Size = New System.Drawing.Size(226, 20)
+        Me.FDCostSheetDate.Size = New System.Drawing.Size(225, 20)
         Me.FDCostSheetDate.TabIndex = 3
         Me.FDCostSheetDate.Tag = "2|"
         '
@@ -11597,7 +15204,7 @@ Partial Class wCostSheet
         Me.FTCostSheetBy_lbl.Appearance.Options.UseTextOptions = True
         Me.FTCostSheetBy_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTCostSheetBy_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTCostSheetBy_lbl.Location = New System.Drawing.Point(15, 67)
+        Me.FTCostSheetBy_lbl.Location = New System.Drawing.Point(14, 49)
         Me.FTCostSheetBy_lbl.Name = "FTCostSheetBy_lbl"
         Me.FTCostSheetBy_lbl.Size = New System.Drawing.Size(130, 14)
         Me.FTCostSheetBy_lbl.TabIndex = 7
@@ -11609,7 +15216,7 @@ Partial Class wCostSheet
         Me.FDCostSheetDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDCostSheetDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDCostSheetDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDCostSheetDate_lbl.Location = New System.Drawing.Point(7, 47)
+        Me.FDCostSheetDate_lbl.Location = New System.Drawing.Point(7, 29)
         Me.FDCostSheetDate_lbl.Name = "FDCostSheetDate_lbl"
         Me.FDCostSheetDate_lbl.Size = New System.Drawing.Size(138, 13)
         Me.FDCostSheetDate_lbl.TabIndex = 1
@@ -11621,7 +15228,7 @@ Partial Class wCostSheet
         Me.FTCostSheetNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTCostSheetNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTCostSheetNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTCostSheetNo_lbl.Location = New System.Drawing.Point(7, 26)
+        Me.FTCostSheetNo_lbl.Location = New System.Drawing.Point(7, 8)
         Me.FTCostSheetNo_lbl.Name = "FTCostSheetNo_lbl"
         Me.FTCostSheetNo_lbl.Size = New System.Drawing.Size(138, 13)
         Me.FTCostSheetNo_lbl.TabIndex = 0
@@ -11630,6 +15237,9 @@ Partial Class wCostSheet
         '
         'ogbSum
         '
+        Me.ogbSum.Controls.Add(Me.FNLeadtime_lbl2)
+        Me.ogbSum.Controls.Add(Me.FNLeadtime)
+        Me.ogbSum.Controls.Add(Me.FNLeadtime_lbl)
         Me.ogbSum.Controls.Add(Me.FNL4LCMP)
         Me.ogbSum.Controls.Add(Me.FNL4LOtherCost)
         Me.ogbSum.Controls.Add(Me.FNL4LPackaging)
@@ -11667,23 +15277,61 @@ Partial Class wCostSheet
         Me.ogbSum.Controls.Add(Me.FNGrandTotal_lbl)
         Me.ogbSum.Controls.Add(Me.FNCMP_lbl)
         Me.ogbSum.Controls.Add(Me.FNOtherCostAmt_lbl)
-        Me.ogbSum.Location = New System.Drawing.Point(466, 1)
+        Me.ogbSum.Location = New System.Drawing.Point(465, 3)
         Me.ogbSum.Name = "ogbSum"
-        Me.ogbSum.Size = New System.Drawing.Size(313, 341)
+        Me.ogbSum.Size = New System.Drawing.Size(285, 341)
         Me.ogbSum.TabIndex = 28
         Me.ogbSum.Tag = "2|"
         Me.ogbSum.Text = "Summary"
         '
+        'FNLeadtime_lbl2
+        '
+        Me.FNLeadtime_lbl2.Appearance.Options.UseTextOptions = True
+        Me.FNLeadtime_lbl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
+        Me.FNLeadtime_lbl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNLeadtime_lbl2.Location = New System.Drawing.Point(212, 310)
+        Me.FNLeadtime_lbl2.Name = "FNLeadtime_lbl2"
+        Me.FNLeadtime_lbl2.Size = New System.Drawing.Size(63, 18)
+        Me.FNLeadtime_lbl2.TabIndex = 86
+        Me.FNLeadtime_lbl2.Text = "Days"
+        '
+        'FNLeadtime
+        '
+        Me.FNLeadtime.Location = New System.Drawing.Point(144, 309)
+        Me.FNLeadtime.Name = "FNLeadtime"
+        Me.FNLeadtime.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNLeadtime.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNLeadtime.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions40, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject157, SerializableAppearanceObject158, SerializableAppearanceObject159, SerializableAppearanceObject160, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNLeadtime.Properties.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNLeadtime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNLeadtime.Properties.EditFormat.FormatString = "{0:n2}"
+        Me.FNLeadtime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNLeadtime.Properties.Precision = 2
+        Me.FNLeadtime.Size = New System.Drawing.Size(67, 20)
+        Me.FNLeadtime.TabIndex = 85
+        Me.FNLeadtime.Tag = "2|"
+        '
+        'FNLeadtime_lbl
+        '
+        Me.FNLeadtime_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNLeadtime_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNLeadtime_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNLeadtime_lbl.Location = New System.Drawing.Point(5, 311)
+        Me.FNLeadtime_lbl.Name = "FNLeadtime_lbl"
+        Me.FNLeadtime_lbl.Size = New System.Drawing.Size(134, 18)
+        Me.FNLeadtime_lbl.TabIndex = 84
+        Me.FNLeadtime_lbl.Text = "Lead time"
+        '
         'FNL4LCMP
         '
-        Me.FNL4LCMP.Location = New System.Drawing.Point(242, 193)
+        Me.FNL4LCMP.Location = New System.Drawing.Point(212, 193)
         Me.FNL4LCMP.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FNL4LCMP.Name = "FNL4LCMP"
         Me.FNL4LCMP.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4LCMP.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNL4LCMP.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNL4LCMP.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNL4LCMP.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions40, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject157, SerializableAppearanceObject158, SerializableAppearanceObject159, SerializableAppearanceObject160, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4LCMP.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions41, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject161, SerializableAppearanceObject162, SerializableAppearanceObject163, SerializableAppearanceObject164, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4LCMP.Properties.Precision = 4
         Me.FNL4LCMP.Properties.ReadOnly = True
         Me.FNL4LCMP.Size = New System.Drawing.Size(63, 20)
@@ -11691,14 +15339,14 @@ Partial Class wCostSheet
         '
         'FNL4LOtherCost
         '
-        Me.FNL4LOtherCost.Location = New System.Drawing.Point(242, 171)
+        Me.FNL4LOtherCost.Location = New System.Drawing.Point(212, 171)
         Me.FNL4LOtherCost.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FNL4LOtherCost.Name = "FNL4LOtherCost"
         Me.FNL4LOtherCost.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4LOtherCost.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNL4LOtherCost.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNL4LOtherCost.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNL4LOtherCost.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions41, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject161, SerializableAppearanceObject162, SerializableAppearanceObject163, SerializableAppearanceObject164, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4LOtherCost.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions42, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject165, SerializableAppearanceObject166, SerializableAppearanceObject167, SerializableAppearanceObject168, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4LOtherCost.Properties.Precision = 4
         Me.FNL4LOtherCost.Properties.ReadOnly = True
         Me.FNL4LOtherCost.Size = New System.Drawing.Size(63, 20)
@@ -11706,14 +15354,14 @@ Partial Class wCostSheet
         '
         'FNL4LPackaging
         '
-        Me.FNL4LPackaging.Location = New System.Drawing.Point(242, 150)
+        Me.FNL4LPackaging.Location = New System.Drawing.Point(212, 150)
         Me.FNL4LPackaging.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FNL4LPackaging.Name = "FNL4LPackaging"
         Me.FNL4LPackaging.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4LPackaging.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNL4LPackaging.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNL4LPackaging.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNL4LPackaging.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions42, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject165, SerializableAppearanceObject166, SerializableAppearanceObject167, SerializableAppearanceObject168, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4LPackaging.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions43, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject169, SerializableAppearanceObject170, SerializableAppearanceObject171, SerializableAppearanceObject172, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4LPackaging.Properties.Precision = 4
         Me.FNL4LPackaging.Properties.ReadOnly = True
         Me.FNL4LPackaging.Size = New System.Drawing.Size(63, 20)
@@ -11721,14 +15369,14 @@ Partial Class wCostSheet
         '
         'FNL4LChargeTrim
         '
-        Me.FNL4LChargeTrim.Location = New System.Drawing.Point(242, 86)
+        Me.FNL4LChargeTrim.Location = New System.Drawing.Point(212, 86)
         Me.FNL4LChargeTrim.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FNL4LChargeTrim.Name = "FNL4LChargeTrim"
         Me.FNL4LChargeTrim.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4LChargeTrim.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNL4LChargeTrim.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNL4LChargeTrim.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNL4LChargeTrim.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions43, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject169, SerializableAppearanceObject170, SerializableAppearanceObject171, SerializableAppearanceObject172, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4LChargeTrim.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions44, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject173, SerializableAppearanceObject174, SerializableAppearanceObject175, SerializableAppearanceObject176, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4LChargeTrim.Properties.Precision = 4
         Me.FNL4LChargeTrim.Properties.ReadOnly = True
         Me.FNL4LChargeTrim.Size = New System.Drawing.Size(63, 20)
@@ -11736,14 +15384,14 @@ Partial Class wCostSheet
         '
         'FNL4LChargeFabric
         '
-        Me.FNL4LChargeFabric.Location = New System.Drawing.Point(242, 64)
+        Me.FNL4LChargeFabric.Location = New System.Drawing.Point(212, 64)
         Me.FNL4LChargeFabric.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FNL4LChargeFabric.Name = "FNL4LChargeFabric"
         Me.FNL4LChargeFabric.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4LChargeFabric.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNL4LChargeFabric.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNL4LChargeFabric.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNL4LChargeFabric.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions44, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject173, SerializableAppearanceObject174, SerializableAppearanceObject175, SerializableAppearanceObject176, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4LChargeFabric.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions45, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject177, SerializableAppearanceObject178, SerializableAppearanceObject179, SerializableAppearanceObject180, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4LChargeFabric.Properties.Precision = 4
         Me.FNL4LChargeFabric.Properties.ReadOnly = True
         Me.FNL4LChargeFabric.Size = New System.Drawing.Size(63, 20)
@@ -11751,14 +15399,14 @@ Partial Class wCostSheet
         '
         'FNL4LTotalTrim
         '
-        Me.FNL4LTotalTrim.Location = New System.Drawing.Point(242, 43)
+        Me.FNL4LTotalTrim.Location = New System.Drawing.Point(212, 43)
         Me.FNL4LTotalTrim.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FNL4LTotalTrim.Name = "FNL4LTotalTrim"
         Me.FNL4LTotalTrim.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4LTotalTrim.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNL4LTotalTrim.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNL4LTotalTrim.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNL4LTotalTrim.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions45, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject177, SerializableAppearanceObject178, SerializableAppearanceObject179, SerializableAppearanceObject180, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4LTotalTrim.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions46, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject181, SerializableAppearanceObject182, SerializableAppearanceObject183, SerializableAppearanceObject184, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4LTotalTrim.Properties.Precision = 4
         Me.FNL4LTotalTrim.Properties.ReadOnly = True
         Me.FNL4LTotalTrim.Size = New System.Drawing.Size(63, 20)
@@ -11766,14 +15414,14 @@ Partial Class wCostSheet
         '
         'FNL4LTotalFabric
         '
-        Me.FNL4LTotalFabric.Location = New System.Drawing.Point(242, 22)
+        Me.FNL4LTotalFabric.Location = New System.Drawing.Point(212, 22)
         Me.FNL4LTotalFabric.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FNL4LTotalFabric.Name = "FNL4LTotalFabric"
         Me.FNL4LTotalFabric.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4LTotalFabric.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNL4LTotalFabric.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNL4LTotalFabric.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNL4LTotalFabric.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions46, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject181, SerializableAppearanceObject182, SerializableAppearanceObject183, SerializableAppearanceObject184, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4LTotalFabric.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions47, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject185, SerializableAppearanceObject186, SerializableAppearanceObject187, SerializableAppearanceObject188, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4LTotalFabric.Properties.Precision = 4
         Me.FNL4LTotalFabric.Properties.ReadOnly = True
         Me.FNL4LTotalFabric.Size = New System.Drawing.Size(63, 20)
@@ -11785,13 +15433,13 @@ Partial Class wCostSheet
         Me.FNTrinUsageAllowPer.Name = "FNTrinUsageAllowPer"
         Me.FNTrinUsageAllowPer.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNTrinUsageAllowPer.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNTrinUsageAllowPer.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions47, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject185, SerializableAppearanceObject186, SerializableAppearanceObject187, SerializableAppearanceObject188, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNTrinUsageAllowPer.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions48, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject189, SerializableAppearanceObject190, SerializableAppearanceObject191, SerializableAppearanceObject192, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNTrinUsageAllowPer.Properties.DisplayFormat.FormatString = "{0:n2}"
         Me.FNTrinUsageAllowPer.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNTrinUsageAllowPer.Properties.EditFormat.FormatString = "{0:n2}"
         Me.FNTrinUsageAllowPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNTrinUsageAllowPer.Properties.Precision = 2
-        Me.FNTrinUsageAllowPer.Size = New System.Drawing.Size(93, 20)
+        Me.FNTrinUsageAllowPer.Size = New System.Drawing.Size(67, 20)
         Me.FNTrinUsageAllowPer.TabIndex = 76
         Me.FNTrinUsageAllowPer.Tag = "2|"
         '
@@ -11808,13 +15456,13 @@ Partial Class wCostSheet
         '
         'FNL4LExtendedFOB
         '
-        Me.FNL4LExtendedFOB.Location = New System.Drawing.Point(242, 260)
+        Me.FNL4LExtendedFOB.Location = New System.Drawing.Point(212, 260)
         Me.FNL4LExtendedFOB.Name = "FNL4LExtendedFOB"
         Me.FNL4LExtendedFOB.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4LExtendedFOB.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNL4LExtendedFOB.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNL4LExtendedFOB.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNL4LExtendedFOB.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions48, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject189, SerializableAppearanceObject190, SerializableAppearanceObject191, SerializableAppearanceObject192, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4LExtendedFOB.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions49, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject193, SerializableAppearanceObject194, SerializableAppearanceObject195, SerializableAppearanceObject196, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4LExtendedFOB.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNL4LExtendedFOB.Properties.Precision = 2
         Me.FNL4LExtendedFOB.Properties.ReadOnly = True
@@ -11828,11 +15476,11 @@ Partial Class wCostSheet
         Me.FNExtendedFOB.Name = "FNExtendedFOB"
         Me.FNExtendedFOB.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNExtendedFOB.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNExtendedFOB.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions49, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject193, SerializableAppearanceObject194, SerializableAppearanceObject195, SerializableAppearanceObject196, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNExtendedFOB.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions50, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject197, SerializableAppearanceObject198, SerializableAppearanceObject199, SerializableAppearanceObject200, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNExtendedFOB.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNExtendedFOB.Properties.Precision = 2
         Me.FNExtendedFOB.Properties.ReadOnly = True
-        Me.FNExtendedFOB.Size = New System.Drawing.Size(93, 20)
+        Me.FNExtendedFOB.Size = New System.Drawing.Size(67, 20)
         Me.FNExtendedFOB.TabIndex = 73
         Me.FNExtendedFOB.Tag = "2|"
         '
@@ -11853,13 +15501,13 @@ Partial Class wCostSheet
         Me.FNExtendedPer.Name = "FNExtendedPer"
         Me.FNExtendedPer.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNExtendedPer.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNExtendedPer.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions50, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject197, SerializableAppearanceObject198, SerializableAppearanceObject199, SerializableAppearanceObject200, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNExtendedPer.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions51, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject201, SerializableAppearanceObject202, SerializableAppearanceObject203, SerializableAppearanceObject204, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNExtendedPer.Properties.DisplayFormat.FormatString = "{0:n2}"
         Me.FNExtendedPer.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNExtendedPer.Properties.EditFormat.FormatString = "{0:n2}"
         Me.FNExtendedPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNExtendedPer.Properties.Precision = 2
-        Me.FNExtendedPer.Size = New System.Drawing.Size(93, 20)
+        Me.FNExtendedPer.Size = New System.Drawing.Size(67, 20)
         Me.FNExtendedPer.TabIndex = 71
         Me.FNExtendedPer.Tag = "2|"
         '
@@ -11876,14 +15524,14 @@ Partial Class wCostSheet
         '
         'FNL4LFinalFOB
         '
-        Me.FNL4LFinalFOB.Location = New System.Drawing.Point(242, 217)
+        Me.FNL4LFinalFOB.Location = New System.Drawing.Point(212, 217)
         Me.FNL4LFinalFOB.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FNL4LFinalFOB.Name = "FNL4LFinalFOB"
         Me.FNL4LFinalFOB.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4LFinalFOB.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNL4LFinalFOB.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNL4LFinalFOB.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNL4LFinalFOB.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions51, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject201, SerializableAppearanceObject202, SerializableAppearanceObject203, SerializableAppearanceObject204, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4LFinalFOB.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions52, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject205, SerializableAppearanceObject206, SerializableAppearanceObject207, SerializableAppearanceObject208, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4LFinalFOB.Properties.Precision = 4
         Me.FNL4LFinalFOB.Properties.ReadOnly = True
         Me.FNL4LFinalFOB.Size = New System.Drawing.Size(63, 20)
@@ -11891,14 +15539,14 @@ Partial Class wCostSheet
         '
         'FNL4LProLaborCost
         '
-        Me.FNL4LProLaborCost.Location = New System.Drawing.Point(242, 129)
+        Me.FNL4LProLaborCost.Location = New System.Drawing.Point(212, 129)
         Me.FNL4LProLaborCost.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FNL4LProLaborCost.Name = "FNL4LProLaborCost"
         Me.FNL4LProLaborCost.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4LProLaborCost.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNL4LProLaborCost.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNL4LProLaborCost.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNL4LProLaborCost.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions52, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject205, SerializableAppearanceObject206, SerializableAppearanceObject207, SerializableAppearanceObject208, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4LProLaborCost.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions53, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject209, SerializableAppearanceObject210, SerializableAppearanceObject211, SerializableAppearanceObject212, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4LProLaborCost.Properties.Precision = 4
         Me.FNL4LProLaborCost.Properties.ReadOnly = True
         Me.FNL4LProLaborCost.Size = New System.Drawing.Size(63, 20)
@@ -11910,11 +15558,11 @@ Partial Class wCostSheet
         Me.FNProcessLaborCost.Name = "FNProcessLaborCost"
         Me.FNProcessLaborCost.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNProcessLaborCost.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNProcessLaborCost.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions53, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject209, SerializableAppearanceObject210, SerializableAppearanceObject211, SerializableAppearanceObject212, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNProcessLaborCost.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions54, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject213, SerializableAppearanceObject214, SerializableAppearanceObject215, SerializableAppearanceObject216, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNProcessLaborCost.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNProcessLaborCost.Properties.Precision = 2
         Me.FNProcessLaborCost.Properties.ReadOnly = True
-        Me.FNProcessLaborCost.Size = New System.Drawing.Size(93, 20)
+        Me.FNProcessLaborCost.Size = New System.Drawing.Size(67, 20)
         Me.FNProcessLaborCost.TabIndex = 67
         Me.FNProcessLaborCost.Tag = "2|"
         '
@@ -11931,14 +15579,14 @@ Partial Class wCostSheet
         '
         'FNL4LProMatCost
         '
-        Me.FNL4LProMatCost.Location = New System.Drawing.Point(242, 108)
+        Me.FNL4LProMatCost.Location = New System.Drawing.Point(212, 108)
         Me.FNL4LProMatCost.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FNL4LProMatCost.Name = "FNL4LProMatCost"
         Me.FNL4LProMatCost.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4LProMatCost.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNL4LProMatCost.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNL4LProMatCost.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNL4LProMatCost.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions54, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject213, SerializableAppearanceObject214, SerializableAppearanceObject215, SerializableAppearanceObject216, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4LProMatCost.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions55, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject217, SerializableAppearanceObject218, SerializableAppearanceObject219, SerializableAppearanceObject220, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4LProMatCost.Properties.Precision = 4
         Me.FNL4LProMatCost.Properties.ReadOnly = True
         Me.FNL4LProMatCost.Size = New System.Drawing.Size(63, 20)
@@ -11950,11 +15598,11 @@ Partial Class wCostSheet
         Me.FNProcessMatCost.Name = "FNProcessMatCost"
         Me.FNProcessMatCost.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNProcessMatCost.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNProcessMatCost.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions55, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject217, SerializableAppearanceObject218, SerializableAppearanceObject219, SerializableAppearanceObject220, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNProcessMatCost.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions56, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject221, SerializableAppearanceObject222, SerializableAppearanceObject223, SerializableAppearanceObject224, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNProcessMatCost.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNProcessMatCost.Properties.Precision = 2
         Me.FNProcessMatCost.Properties.ReadOnly = True
-        Me.FNProcessMatCost.Size = New System.Drawing.Size(93, 20)
+        Me.FNProcessMatCost.Size = New System.Drawing.Size(67, 20)
         Me.FNProcessMatCost.TabIndex = 64
         Me.FNProcessMatCost.Tag = "2|"
         '
@@ -11975,11 +15623,11 @@ Partial Class wCostSheet
         Me.FNGrandTotal.Name = "FNGrandTotal"
         Me.FNGrandTotal.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNGrandTotal.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNGrandTotal.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions56, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject221, SerializableAppearanceObject222, SerializableAppearanceObject223, SerializableAppearanceObject224, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNGrandTotal.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions57, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject225, SerializableAppearanceObject226, SerializableAppearanceObject227, SerializableAppearanceObject228, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNGrandTotal.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNGrandTotal.Properties.Precision = 2
         Me.FNGrandTotal.Properties.ReadOnly = True
-        Me.FNGrandTotal.Size = New System.Drawing.Size(93, 20)
+        Me.FNGrandTotal.Size = New System.Drawing.Size(67, 20)
         Me.FNGrandTotal.TabIndex = 21
         Me.FNGrandTotal.Tag = "2|"
         '
@@ -11989,11 +15637,11 @@ Partial Class wCostSheet
         Me.FNCMP.Name = "FNCMP"
         Me.FNCMP.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNCMP.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNCMP.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions57, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject225, SerializableAppearanceObject226, SerializableAppearanceObject227, SerializableAppearanceObject228, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNCMP.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions58, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject229, SerializableAppearanceObject230, SerializableAppearanceObject231, SerializableAppearanceObject232, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNCMP.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNCMP.Properties.Precision = 2
         Me.FNCMP.Properties.ReadOnly = True
-        Me.FNCMP.Size = New System.Drawing.Size(93, 20)
+        Me.FNCMP.Size = New System.Drawing.Size(67, 20)
         Me.FNCMP.TabIndex = 19
         Me.FNCMP.Tag = "2|"
         '
@@ -12003,10 +15651,10 @@ Partial Class wCostSheet
         Me.FNOtherCostAmt.Name = "FNOtherCostAmt"
         Me.FNOtherCostAmt.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNOtherCostAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNOtherCostAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions58, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject229, SerializableAppearanceObject230, SerializableAppearanceObject231, SerializableAppearanceObject232, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNOtherCostAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions59, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject233, SerializableAppearanceObject234, SerializableAppearanceObject235, SerializableAppearanceObject236, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNOtherCostAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNOtherCostAmt.Properties.Precision = 2
-        Me.FNOtherCostAmt.Size = New System.Drawing.Size(93, 20)
+        Me.FNOtherCostAmt.Size = New System.Drawing.Size(67, 20)
         Me.FNOtherCostAmt.TabIndex = 18
         Me.FNOtherCostAmt.Tag = "2|"
         '
@@ -12016,11 +15664,11 @@ Partial Class wCostSheet
         Me.FNPackagingAmt.Name = "FNPackagingAmt"
         Me.FNPackagingAmt.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNPackagingAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNPackagingAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions59, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject233, SerializableAppearanceObject234, SerializableAppearanceObject235, SerializableAppearanceObject236, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPackagingAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions60, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject237, SerializableAppearanceObject238, SerializableAppearanceObject239, SerializableAppearanceObject240, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPackagingAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPackagingAmt.Properties.Precision = 2
         Me.FNPackagingAmt.Properties.ReadOnly = True
-        Me.FNPackagingAmt.Size = New System.Drawing.Size(93, 20)
+        Me.FNPackagingAmt.Size = New System.Drawing.Size(67, 20)
         Me.FNPackagingAmt.TabIndex = 15
         Me.FNPackagingAmt.Tag = "2|"
         '
@@ -12030,14 +15678,14 @@ Partial Class wCostSheet
         Me.FNChargeAccAmt.Name = "FNChargeAccAmt"
         Me.FNChargeAccAmt.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNChargeAccAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNChargeAccAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions60, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject237, SerializableAppearanceObject238, SerializableAppearanceObject239, SerializableAppearanceObject240, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNChargeAccAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions61, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject241, SerializableAppearanceObject242, SerializableAppearanceObject243, SerializableAppearanceObject244, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNChargeAccAmt.Properties.DisplayFormat.FormatString = "{0:n4}"
         Me.FNChargeAccAmt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNChargeAccAmt.Properties.EditFormat.FormatString = "{0:n4}"
         Me.FNChargeAccAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNChargeAccAmt.Properties.Precision = 4
         Me.FNChargeAccAmt.Properties.ReadOnly = True
-        Me.FNChargeAccAmt.Size = New System.Drawing.Size(93, 20)
+        Me.FNChargeAccAmt.Size = New System.Drawing.Size(67, 20)
         Me.FNChargeAccAmt.TabIndex = 14
         Me.FNChargeAccAmt.Tag = "2|"
         '
@@ -12047,14 +15695,14 @@ Partial Class wCostSheet
         Me.FNChargeFabAmt.Name = "FNChargeFabAmt"
         Me.FNChargeFabAmt.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNChargeFabAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNChargeFabAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions61, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject241, SerializableAppearanceObject242, SerializableAppearanceObject243, SerializableAppearanceObject244, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNChargeFabAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions62, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject245, SerializableAppearanceObject246, SerializableAppearanceObject247, SerializableAppearanceObject248, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNChargeFabAmt.Properties.DisplayFormat.FormatString = "{0:n4}"
         Me.FNChargeFabAmt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNChargeFabAmt.Properties.EditFormat.FormatString = "{0:n4}"
         Me.FNChargeFabAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNChargeFabAmt.Properties.Precision = 4
         Me.FNChargeFabAmt.Properties.ReadOnly = True
-        Me.FNChargeFabAmt.Size = New System.Drawing.Size(93, 20)
+        Me.FNChargeFabAmt.Size = New System.Drawing.Size(67, 20)
         Me.FNChargeFabAmt.TabIndex = 13
         Me.FNChargeFabAmt.Tag = "2|"
         '
@@ -12064,14 +15712,14 @@ Partial Class wCostSheet
         Me.FNTotalAccAmt.Name = "FNTotalAccAmt"
         Me.FNTotalAccAmt.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNTotalAccAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNTotalAccAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions62, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject245, SerializableAppearanceObject246, SerializableAppearanceObject247, SerializableAppearanceObject248, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNTotalAccAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions63, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject249, SerializableAppearanceObject250, SerializableAppearanceObject251, SerializableAppearanceObject252, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNTotalAccAmt.Properties.DisplayFormat.FormatString = "{0:n4}"
         Me.FNTotalAccAmt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNTotalAccAmt.Properties.EditFormat.FormatString = "{0:n4}"
         Me.FNTotalAccAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNTotalAccAmt.Properties.Precision = 4
         Me.FNTotalAccAmt.Properties.ReadOnly = True
-        Me.FNTotalAccAmt.Size = New System.Drawing.Size(93, 20)
+        Me.FNTotalAccAmt.Size = New System.Drawing.Size(67, 20)
         Me.FNTotalAccAmt.TabIndex = 12
         Me.FNTotalAccAmt.Tag = "2|"
         '
@@ -12081,14 +15729,14 @@ Partial Class wCostSheet
         Me.FNTotalFabAmt.Name = "FNTotalFabAmt"
         Me.FNTotalFabAmt.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNTotalFabAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNTotalFabAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions63, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject249, SerializableAppearanceObject250, SerializableAppearanceObject251, SerializableAppearanceObject252, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNTotalFabAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions64, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject253, SerializableAppearanceObject254, SerializableAppearanceObject255, SerializableAppearanceObject256, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNTotalFabAmt.Properties.DisplayFormat.FormatString = "{0:n4}"
         Me.FNTotalFabAmt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNTotalFabAmt.Properties.EditFormat.FormatString = "{0:n4}"
         Me.FNTotalFabAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNTotalFabAmt.Properties.Precision = 4
         Me.FNTotalFabAmt.Properties.ReadOnly = True
-        Me.FNTotalFabAmt.Size = New System.Drawing.Size(93, 20)
+        Me.FNTotalFabAmt.Size = New System.Drawing.Size(67, 20)
         Me.FNTotalFabAmt.TabIndex = 11
         Me.FNTotalFabAmt.Tag = "2|"
         '
@@ -12189,7 +15837,7 @@ Partial Class wCostSheet
         Me.FTSamCMP.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTSamCMP.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSamCMP.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTSamCMP.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions64, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject253, SerializableAppearanceObject254, SerializableAppearanceObject255, SerializableAppearanceObject256, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSamCMP.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions65, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject257, SerializableAppearanceObject258, SerializableAppearanceObject259, SerializableAppearanceObject260, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTSamCMP.Properties.Precision = 4
         Me.FTSamCMP.Properties.ReadOnly = True
         Me.FTSamCMP.Size = New System.Drawing.Size(18, 20)
@@ -12205,7 +15853,7 @@ Partial Class wCostSheet
         Me.FTSamOtherCost.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTSamOtherCost.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSamOtherCost.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTSamOtherCost.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions65, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject257, SerializableAppearanceObject258, SerializableAppearanceObject259, SerializableAppearanceObject260, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSamOtherCost.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions66, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject261, SerializableAppearanceObject262, SerializableAppearanceObject263, SerializableAppearanceObject264, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTSamOtherCost.Properties.Precision = 4
         Me.FTSamOtherCost.Properties.ReadOnly = True
         Me.FTSamOtherCost.Size = New System.Drawing.Size(18, 20)
@@ -12221,7 +15869,7 @@ Partial Class wCostSheet
         Me.FTSamPack.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTSamPack.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSamPack.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTSamPack.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions66, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject261, SerializableAppearanceObject262, SerializableAppearanceObject263, SerializableAppearanceObject264, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSamPack.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions67, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject265, SerializableAppearanceObject266, SerializableAppearanceObject267, SerializableAppearanceObject268, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTSamPack.Properties.Precision = 4
         Me.FTSamPack.Properties.ReadOnly = True
         Me.FTSamPack.Size = New System.Drawing.Size(18, 20)
@@ -12242,7 +15890,7 @@ Partial Class wCostSheet
         Me.FTSamGarment.Location = New System.Drawing.Point(93, 163)
         Me.FTSamGarment.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FTSamGarment.Name = "FTSamGarment"
-        Me.FTSamGarment.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions67, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject265, SerializableAppearanceObject266, SerializableAppearanceObject267, SerializableAppearanceObject268, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSamGarment.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions68, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject269, SerializableAppearanceObject270, SerializableAppearanceObject271, SerializableAppearanceObject272, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTSamGarment.Properties.Precision = 4
         Me.FTSamGarment.Size = New System.Drawing.Size(10, 20)
         Me.FTSamGarment.TabIndex = 56
@@ -12253,7 +15901,7 @@ Partial Class wCostSheet
         Me.FTSamNoSew.Location = New System.Drawing.Point(164, 190)
         Me.FTSamNoSew.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FTSamNoSew.Name = "FTSamNoSew"
-        Me.FTSamNoSew.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions68, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject269, SerializableAppearanceObject270, SerializableAppearanceObject271, SerializableAppearanceObject272, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSamNoSew.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions69, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject273, SerializableAppearanceObject274, SerializableAppearanceObject275, SerializableAppearanceObject276, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTSamNoSew.Properties.Precision = 4
         Me.FTSamNoSew.Size = New System.Drawing.Size(10, 20)
         Me.FTSamNoSew.TabIndex = 55
@@ -12265,7 +15913,7 @@ Partial Class wCostSheet
         Me.FNLessThanSpecialSizeAmt.Name = "FNLessThanSpecialSizeAmt"
         Me.FNLessThanSpecialSizeAmt.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNLessThanSpecialSizeAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNLessThanSpecialSizeAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions69, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject273, SerializableAppearanceObject274, SerializableAppearanceObject275, SerializableAppearanceObject276, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNLessThanSpecialSizeAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions70, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject277, SerializableAppearanceObject278, SerializableAppearanceObject279, SerializableAppearanceObject280, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNLessThanSpecialSizeAmt.Properties.ReadOnly = True
         Me.FNLessThanSpecialSizeAmt.Size = New System.Drawing.Size(14, 20)
         Me.FNLessThanSpecialSizeAmt.TabIndex = 51
@@ -12278,7 +15926,7 @@ Partial Class wCostSheet
         Me.FNAboveSpecialSizeAmt.Name = "FNAboveSpecialSizeAmt"
         Me.FNAboveSpecialSizeAmt.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNAboveSpecialSizeAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNAboveSpecialSizeAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions70, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject277, SerializableAppearanceObject278, SerializableAppearanceObject279, SerializableAppearanceObject280, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNAboveSpecialSizeAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions71, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject281, SerializableAppearanceObject282, SerializableAppearanceObject283, SerializableAppearanceObject284, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNAboveSpecialSizeAmt.Properties.ReadOnly = True
         Me.FNAboveSpecialSizeAmt.Size = New System.Drawing.Size(10, 20)
         Me.FNAboveSpecialSizeAmt.TabIndex = 50
@@ -12291,7 +15939,7 @@ Partial Class wCostSheet
         Me.FNNormalSizeAmt.Name = "FNNormalSizeAmt"
         Me.FNNormalSizeAmt.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNNormalSizeAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNNormalSizeAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions71, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject281, SerializableAppearanceObject282, SerializableAppearanceObject283, SerializableAppearanceObject284, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNNormalSizeAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions72, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject285, SerializableAppearanceObject286, SerializableAppearanceObject287, SerializableAppearanceObject288, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNNormalSizeAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNNormalSizeAmt.Properties.Precision = 2
         Me.FNNormalSizeAmt.Properties.ReadOnly = True
@@ -12306,7 +15954,7 @@ Partial Class wCostSheet
         Me.FNGarmentTreatmentAmt.Name = "FNGarmentTreatmentAmt"
         Me.FNGarmentTreatmentAmt.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNGarmentTreatmentAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNGarmentTreatmentAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions72, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject285, SerializableAppearanceObject286, SerializableAppearanceObject287, SerializableAppearanceObject288, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNGarmentTreatmentAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions73, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject289, SerializableAppearanceObject290, SerializableAppearanceObject291, SerializableAppearanceObject292, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNGarmentTreatmentAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNGarmentTreatmentAmt.Properties.Precision = 2
         Me.FNGarmentTreatmentAmt.Size = New System.Drawing.Size(18, 20)
@@ -12320,7 +15968,7 @@ Partial Class wCostSheet
         Me.FNNoSewAppCostAmt.Name = "FNNoSewAppCostAmt"
         Me.FNNoSewAppCostAmt.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNNoSewAppCostAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNNoSewAppCostAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions73, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject289, SerializableAppearanceObject290, SerializableAppearanceObject291, SerializableAppearanceObject292, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNNoSewAppCostAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions74, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject293, SerializableAppearanceObject294, SerializableAppearanceObject295, SerializableAppearanceObject296, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNNoSewAppCostAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNNoSewAppCostAmt.Properties.Precision = 2
         Me.FNNoSewAppCostAmt.Properties.ReadOnly = True
@@ -12387,10 +16035,10 @@ Partial Class wCostSheet
         Me.GroupControl2.Controls.Add(Me.FNHSysStyleId_None)
         Me.GroupControl2.Controls.Add(Me.FNHSysVenderPramId)
         Me.GroupControl2.Controls.Add(Me.FNHSysVenderPramId_lbl)
-        Me.GroupControl2.Location = New System.Drawing.Point(3, 93)
+        Me.GroupControl2.Location = New System.Drawing.Point(0, 97)
         Me.GroupControl2.Name = "GroupControl2"
         Me.GroupControl2.ShowCaption = False
-        Me.GroupControl2.Size = New System.Drawing.Size(254, 249)
+        Me.GroupControl2.Size = New System.Drawing.Size(254, 220)
         Me.GroupControl2.TabIndex = 39
         Me.GroupControl2.Text = "GroupControl2"
         '
@@ -12579,7 +16227,7 @@ Partial Class wCostSheet
         '
         Me.FNVersion.Location = New System.Drawing.Point(103, 184)
         Me.FNVersion.Name = "FNVersion"
-        Me.FNVersion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions74, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject293, SerializableAppearanceObject294, SerializableAppearanceObject295, SerializableAppearanceObject296, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNVersion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions75, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject297, SerializableAppearanceObject298, SerializableAppearanceObject299, SerializableAppearanceObject300, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNVersion.Properties.Precision = 2
         Me.FNVersion.Size = New System.Drawing.Size(66, 20)
         Me.FNVersion.TabIndex = 143
@@ -12626,10 +16274,10 @@ Partial Class wCostSheet
         Me.GroupControl3.Controls.Add(Me.FTSamNoSew)
         Me.GroupControl3.Controls.Add(Me.FNNoSewAppCostAmt_lbl)
         Me.GroupControl3.Controls.Add(Me.FNNoSewAppCostAmt)
-        Me.GroupControl3.Location = New System.Drawing.Point(258, 93)
+        Me.GroupControl3.Location = New System.Drawing.Point(256, 97)
         Me.GroupControl3.Name = "GroupControl3"
         Me.GroupControl3.ShowCaption = False
-        Me.GroupControl3.Size = New System.Drawing.Size(206, 249)
+        Me.GroupControl3.Size = New System.Drawing.Size(206, 220)
         Me.GroupControl3.TabIndex = 139
         Me.GroupControl3.Text = "GroupControl3"
         '
@@ -12683,7 +16331,7 @@ Partial Class wCostSheet
         '
         Me.FNHSysStyleIdTo.Location = New System.Drawing.Point(109, 119)
         Me.FNHSysStyleIdTo.Name = "FNHSysStyleIdTo"
-        Me.FNHSysStyleIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions75, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject297, SerializableAppearanceObject298, SerializableAppearanceObject299, SerializableAppearanceObject300, "", "249", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions76, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject301, SerializableAppearanceObject302, SerializableAppearanceObject303, SerializableAppearanceObject304, "", "249", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleIdTo.Size = New System.Drawing.Size(92, 20)
         Me.FNHSysStyleIdTo.TabIndex = 539
         Me.FNHSysStyleIdTo.Tag = "2|"
@@ -12729,7 +16377,7 @@ Partial Class wCostSheet
         Me.FTDateQuoted.Location = New System.Drawing.Point(109, 74)
         Me.FTDateQuoted.Name = "FTDateQuoted"
         Me.FTDateQuoted.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTDateQuoted.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions76, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject301, SerializableAppearanceObject302, SerializableAppearanceObject303, SerializableAppearanceObject304, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTDateQuoted.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions77, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject305, SerializableAppearanceObject306, SerializableAppearanceObject307, SerializableAppearanceObject308, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTDateQuoted.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FTDateQuoted.Size = New System.Drawing.Size(92, 20)
         Me.FTDateQuoted.TabIndex = 534
@@ -12778,10 +16426,10 @@ Partial Class wCostSheet
         Me.GroupControl4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupControl4.Controls.Add(Me.XtraScrollableControl2)
-        Me.GroupControl4.Location = New System.Drawing.Point(783, 4)
+        Me.GroupControl4.Location = New System.Drawing.Point(753, 3)
         Me.GroupControl4.Name = "GroupControl4"
         Me.GroupControl4.ShowCaption = False
-        Me.GroupControl4.Size = New System.Drawing.Size(687, 131)
+        Me.GroupControl4.Size = New System.Drawing.Size(434, 131)
         Me.GroupControl4.TabIndex = 140
         Me.GroupControl4.Text = "GroupControl4"
         '
@@ -12810,7 +16458,7 @@ Partial Class wCostSheet
         Me.XtraScrollableControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.XtraScrollableControl2.Location = New System.Drawing.Point(2, 2)
         Me.XtraScrollableControl2.Name = "XtraScrollableControl2"
-        Me.XtraScrollableControl2.Size = New System.Drawing.Size(683, 127)
+        Me.XtraScrollableControl2.Size = New System.Drawing.Size(430, 127)
         Me.XtraScrollableControl2.TabIndex = 0
         '
         'FNL4Country3Extendedm
@@ -12819,7 +16467,7 @@ Partial Class wCostSheet
         Me.FNL4Country3Extendedm.Name = "FNL4Country3Extendedm"
         Me.FNL4Country3Extendedm.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4Country3Extendedm.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNL4Country3Extendedm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions77, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject305, SerializableAppearanceObject306, SerializableAppearanceObject307, SerializableAppearanceObject308, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4Country3Extendedm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions78, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject309, SerializableAppearanceObject310, SerializableAppearanceObject311, SerializableAppearanceObject312, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4Country3Extendedm.Properties.DisplayFormat.FormatString = "{0:n2}"
         Me.FNL4Country3Extendedm.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNL4Country3Extendedm.Properties.EditFormat.FormatString = "{0:n2}"
@@ -12836,7 +16484,7 @@ Partial Class wCostSheet
         Me.FNL4Country2Extendedm.Name = "FNL4Country2Extendedm"
         Me.FNL4Country2Extendedm.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4Country2Extendedm.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNL4Country2Extendedm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions78, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject309, SerializableAppearanceObject310, SerializableAppearanceObject311, SerializableAppearanceObject312, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4Country2Extendedm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions79, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject313, SerializableAppearanceObject314, SerializableAppearanceObject315, SerializableAppearanceObject316, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4Country2Extendedm.Properties.DisplayFormat.FormatString = "{0:n2}"
         Me.FNL4Country2Extendedm.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNL4Country2Extendedm.Properties.EditFormat.FormatString = "{0:n2}"
@@ -12853,7 +16501,7 @@ Partial Class wCostSheet
         Me.FNL4Country1Extendedm.Name = "FNL4Country1Extendedm"
         Me.FNL4Country1Extendedm.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4Country1Extendedm.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNL4Country1Extendedm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions79, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject313, SerializableAppearanceObject314, SerializableAppearanceObject315, SerializableAppearanceObject316, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4Country1Extendedm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions80, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject317, SerializableAppearanceObject318, SerializableAppearanceObject319, SerializableAppearanceObject320, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4Country1Extendedm.Properties.DisplayFormat.FormatString = "{0:n2}"
         Me.FNL4Country1Extendedm.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNL4Country1Extendedm.Properties.EditFormat.FormatString = "{0:n2}"
@@ -12870,7 +16518,7 @@ Partial Class wCostSheet
         Me.FNL4Country3Finalm.Name = "FNL4Country3Finalm"
         Me.FNL4Country3Finalm.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4Country3Finalm.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNL4Country3Finalm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions80, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject317, SerializableAppearanceObject318, SerializableAppearanceObject319, SerializableAppearanceObject320, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4Country3Finalm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions81, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject321, SerializableAppearanceObject322, SerializableAppearanceObject323, SerializableAppearanceObject324, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4Country3Finalm.Properties.DisplayFormat.FormatString = "{0:n2}"
         Me.FNL4Country3Finalm.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNL4Country3Finalm.Properties.EditFormat.FormatString = "{0:n2}"
@@ -12887,7 +16535,7 @@ Partial Class wCostSheet
         Me.FNL4Country2Finalm.Name = "FNL4Country2Finalm"
         Me.FNL4Country2Finalm.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4Country2Finalm.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNL4Country2Finalm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions81, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject321, SerializableAppearanceObject322, SerializableAppearanceObject323, SerializableAppearanceObject324, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4Country2Finalm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions82, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject325, SerializableAppearanceObject326, SerializableAppearanceObject327, SerializableAppearanceObject328, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4Country2Finalm.Properties.DisplayFormat.FormatString = "{0:n2}"
         Me.FNL4Country2Finalm.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNL4Country2Finalm.Properties.EditFormat.FormatString = "{0:n2}"
@@ -12904,7 +16552,7 @@ Partial Class wCostSheet
         Me.FNL4Country1Finalm.Name = "FNL4Country1Finalm"
         Me.FNL4Country1Finalm.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4Country1Finalm.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNL4Country1Finalm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions82, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject325, SerializableAppearanceObject326, SerializableAppearanceObject327, SerializableAppearanceObject328, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4Country1Finalm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions83, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject329, SerializableAppearanceObject330, SerializableAppearanceObject331, SerializableAppearanceObject332, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4Country1Finalm.Properties.DisplayFormat.FormatString = "{0:n2}"
         Me.FNL4Country1Finalm.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNL4Country1Finalm.Properties.EditFormat.FormatString = "{0:n2}"
@@ -12951,7 +16599,7 @@ Partial Class wCostSheet
         Me.FNL4Country3Exc.Name = "FNL4Country3Exc"
         Me.FNL4Country3Exc.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4Country3Exc.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNL4Country3Exc.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions83, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject329, SerializableAppearanceObject330, SerializableAppearanceObject331, SerializableAppearanceObject332, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4Country3Exc.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions84, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject333, SerializableAppearanceObject334, SerializableAppearanceObject335, SerializableAppearanceObject336, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4Country3Exc.Properties.DisplayFormat.FormatString = "{0:n4}"
         Me.FNL4Country3Exc.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNL4Country3Exc.Properties.EditFormat.FormatString = "{0:n4}"
@@ -12967,7 +16615,7 @@ Partial Class wCostSheet
         Me.FNL4Country2Exc.Name = "FNL4Country2Exc"
         Me.FNL4Country2Exc.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4Country2Exc.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNL4Country2Exc.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions84, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject333, SerializableAppearanceObject334, SerializableAppearanceObject335, SerializableAppearanceObject336, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4Country2Exc.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions85, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject337, SerializableAppearanceObject338, SerializableAppearanceObject339, SerializableAppearanceObject340, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4Country2Exc.Properties.DisplayFormat.FormatString = "{0:n4}"
         Me.FNL4Country2Exc.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNL4Country2Exc.Properties.EditFormat.FormatString = "{0:n4}"
@@ -12983,7 +16631,7 @@ Partial Class wCostSheet
         Me.FNL4Country1Exc.Name = "FNL4Country1Exc"
         Me.FNL4Country1Exc.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNL4Country1Exc.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNL4Country1Exc.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions85, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject337, SerializableAppearanceObject338, SerializableAppearanceObject339, SerializableAppearanceObject340, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNL4Country1Exc.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions86, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject341, SerializableAppearanceObject342, SerializableAppearanceObject343, SerializableAppearanceObject344, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNL4Country1Exc.Properties.DisplayFormat.FormatString = "{0:n4}"
         Me.FNL4Country1Exc.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNL4Country1Exc.Properties.EditFormat.FormatString = "{0:n4}"
@@ -13132,19 +16780,79 @@ Partial Class wCostSheet
         Me.LabelControl16.TabIndex = 6
         Me.LabelControl16.Text = "L4L Order Country :"
         '
+        'FTFileName
+        '
+        Me.FTFileName.Location = New System.Drawing.Point(17, 319)
+        Me.FTFileName.Name = "FTFileName"
+        Me.FTFileName.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTFileName.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTFileName.Properties.ReadOnly = True
+        Me.FTFileName.Size = New System.Drawing.Size(432, 20)
+        Me.FTFileName.TabIndex = 141
+        '
+        'FTPicName
+        '
+        Me.FTPicName.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FTPicName.Cursor = System.Windows.Forms.Cursors.Default
+        Me.FTPicName.Location = New System.Drawing.Point(1308, 3)
+        Me.FTPicName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTPicName.Name = "FTPicName"
+        Me.FTPicName.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.FTPicName.Properties.Tag = ""
+        Me.FTPicName.Size = New System.Drawing.Size(161, 126)
+        Me.FTPicName.TabIndex = 293
+        Me.FTPicName.Tag = "2|"
+        '
+        'DockManager1
+        '
+        Me.DockManager1.Form = Me
+        Me.DockManager1.RootPanels.AddRange(New DevExpress.XtraBars.Docking.DockPanel() {Me.DockPanel1})
+        Me.DockManager1.TopZIndexControls.AddRange(New String() {"DevExpress.XtraBars.BarDockControl", "DevExpress.XtraBars.StandaloneBarDockControl", "System.Windows.Forms.StatusBar", "System.Windows.Forms.MenuStrip", "System.Windows.Forms.StatusStrip", "DevExpress.XtraBars.Ribbon.RibbonStatusBar", "DevExpress.XtraBars.Ribbon.RibbonControl"})
+        '
+        'DockPanel1
+        '
+        Me.DockPanel1.Controls.Add(Me.DockPanel1_Container)
+        Me.DockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top
+        Me.DockPanel1.ID = New System.Guid("dd7688b0-b23b-4b56-bad7-78c27cdbd35b")
+        Me.DockPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.DockPanel1.Name = "DockPanel1"
+        Me.DockPanel1.Options.ShowCloseButton = False
+        Me.DockPanel1.OriginalSize = New System.Drawing.Size(200, 370)
+        Me.DockPanel1.Size = New System.Drawing.Size(1481, 370)
+        Me.DockPanel1.Text = "Document Info"
+        '
+        'DockPanel1_Container
+        '
+        Me.DockPanel1_Container.Controls.Add(Me.FTPicName)
+        Me.DockPanel1_Container.Controls.Add(Me.FTFileName)
+        Me.DockPanel1_Container.Controls.Add(Me.ogbdocinfo)
+        Me.DockPanel1_Container.Controls.Add(Me.ogbSum)
+        Me.DockPanel1_Container.Controls.Add(Me.ogbCriteria)
+        Me.DockPanel1_Container.Controls.Add(Me.GroupControl3)
+        Me.DockPanel1_Container.Controls.Add(Me.GroupControl4)
+        Me.DockPanel1_Container.Controls.Add(Me.GroupControl2)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 28)
+        Me.DockPanel1_Container.Name = "DockPanel1_Container"
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1475, 338)
+        Me.DockPanel1_Container.TabIndex = 0
+        '
+        'PanelControl2
+        '
+        Me.PanelControl2.Controls.Add(Me.GroupControl1)
+        Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelControl2.Location = New System.Drawing.Point(0, 370)
+        Me.PanelControl2.Name = "PanelControl2"
+        Me.PanelControl2.Size = New System.Drawing.Size(1481, 360)
+        Me.PanelControl2.TabIndex = 295
+        '
         'wCostSheet
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1481, 630)
+        Me.ClientSize = New System.Drawing.Size(1481, 730)
+        Me.Controls.Add(Me.PanelControl2)
         Me.Controls.Add(Me.ogbmainprocbutton)
-        Me.Controls.Add(Me.GroupControl4)
-        Me.Controls.Add(Me.GroupControl3)
-        Me.Controls.Add(Me.GroupControl2)
-        Me.Controls.Add(Me.ogbSum)
-        Me.Controls.Add(Me.ogbdocinfo)
-        Me.Controls.Add(Me.GroupControl1)
-        Me.Controls.Add(Me.ogbCriteria)
+        Me.Controls.Add(Me.DockPanel1)
         Me.Name = "wCostSheet"
         Me.Text = "Cost Sheet"
         CType(Me.ReposFTUse1, System.ComponentModel.ISupportInitialize).EndInit
@@ -13489,42 +17197,43 @@ Partial Class wCostSheet
         CType(Me.GridView34, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.GridView6, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemTextEdit3, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemTextEditFTDescription, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemGridLookUpEditFTSuplCodeMulti, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.GridView5, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemGridLookUpEdit3, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.GridView7, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemTextEdit4, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemTextEdit5, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEditMultiFNCostPerUOM, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEditMultiFNCIF, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemCalcEditMultiFNUSAGECOST, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemTextEditFTPRODUCTDEVELOPER, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemTextEditRemark, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemButtonEdit2, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemButtonEdit3, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemCalcEdit2, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemGridLookUpEdit4, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.GridView8, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemCalcEdit3, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemCalcEdit4, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemCalcEdit5, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemCalcEdit6, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemCalcEditMultiFNCostPerUOM, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemCalcEdit8, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemCalcEditMultiFNCIF, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemCalcEdit10, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemCalcEdit11, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemCalcEdit12, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGECOST, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemCalcEdit15, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemButtonEdit4, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemButtonEdit5, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemCalcEdit16, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemCalcEdit17, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemCalcEdit18, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemCalcEdit19, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemTextEditRemark, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemButtonEdit2, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemButtonEdit3, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemButtonEdit4, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemButtonEdit5, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEdit15, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemTextEdit4, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemTextEdit5, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemGridLookUpEdit4, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.GridView8, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemGridLookUpEdit3, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.GridView7, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEditMultiFNHANDLINGCHARGECOST, System.ComponentModel.ISupportInitialize).EndInit
         Me.otpattach.ResumeLayout(False)
         Me.otpnosew.ResumeLayout(False)
         CType(Me.ogcnosew, System.ComponentModel.ISupportInitialize).EndInit
@@ -13549,6 +17258,13 @@ Partial Class wCostSheet
         CType(Me.ReposFTUse2, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ReposFTSize2, System.ComponentModel.ISupportInitialize).EndInit
         Me.XtraTabPage1.ResumeLayout(False)
+        Me.otpfilemark.ResumeLayout(False)
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit
+        Me.PanelControl1.ResumeLayout(False)
+        Me.otpjson.ResumeLayout(False)
+        CType(Me.ogcjsondetail, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogvjsondetail, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryFTSelect, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit
         Me.GroupControl1.ResumeLayout(False)
         CType(Me.ogbdocinfo, System.ComponentModel.ISupportInitialize).EndInit
@@ -13560,6 +17276,7 @@ Partial Class wCostSheet
         CType(Me.FDCostSheetDate.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ogbSum, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbSum.ResumeLayout(False)
+        CType(Me.FNLeadtime.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FNL4LCMP.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FNL4LOtherCost.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FNL4LPackaging.Properties, System.ComponentModel.ISupportInitialize).EndInit
@@ -13629,6 +17346,13 @@ Partial Class wCostSheet
         CType(Me.FNL4Country3.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FNL4Country2.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FNL4Country1.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTFileName.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTPicName.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).EndInit
+        Me.DockPanel1.ResumeLayout(False)
+        Me.DockPanel1_Container.ResumeLayout(False)
+        CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit
+        Me.PanelControl2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -14514,107 +18238,52 @@ Partial Class wCostSheet
     Friend WithEvents RepositoryItemButtonEdit29 As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
     Friend WithEvents RepositoryItemTextEdit35 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents ogcteamMulti As DevExpress.XtraGrid.GridControl
-    Friend WithEvents ogvteamMulti As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn3 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn4 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn5 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemTextEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
-    Friend WithEvents GridColumn6 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemTextEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
-    Friend WithEvents GridColumn7 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemGridLookUpEditFTPROCESSSUBTYPEMulti As DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit
     Friend WithEvents GridView6 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents GridColumn8 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn11 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn13 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn14 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn15 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents RepositoryItemTextEdit3 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
-    Friend WithEvents GridColumn16 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn17 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemTextEditFTDescription As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents RepositoryItemGridLookUpEditFTSuplCodeMulti As DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit
     Friend WithEvents GridView5 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents GridColumn18 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn19 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn20 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn21 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemGridLookUpEdit3 As DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit
     Friend WithEvents GridView7 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents GridColumn22 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn23 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn24 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn25 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn26 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemTextEdit4 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
-    Friend WithEvents GridColumn27 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemTextEdit5 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
-    Friend WithEvents GridColumn28 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEditMultiFNUSAGECOST As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn29 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn30 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemGridLookUpEdit4 As DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit
     Friend WithEvents GridView8 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents GridColumn31 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn32 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEdit3 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn33 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEdit4 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn34 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEdit5 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn35 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEdit6 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn38 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn39 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemComboBox1 As DevExpress.XtraEditors.Repository.RepositoryItemComboBox
-    Friend WithEvents GridColumn40 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn41 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEditMultiFNCostPerUOM As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn42 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEdit8 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn43 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEditMultiFNCIF As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn44 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEdit10 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn45 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEdit11 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn46 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEdit12 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn47 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn48 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEditMultiFNHANDLINGCHARGEPERCENT As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn49 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFNTOTALTRIMPROCESSCOST As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn50 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEditMultiFNIMPORTDUTYPERCENT As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn51 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEdit15 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn52 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEdit16 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn53 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEdit17 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn350 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEdit18 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents GridColumn351 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCalcEdit19 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents xFNTOTALUSAGECOST As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFNTOTALHANDINGCHANGECOST As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFNFINALFOB As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFNEXTENDEDSIZEFOB As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFTL4LORDERCNTY1 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFTL4LCURRENCYFOB1 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFNEXTENDSIZEFOBL4L1 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFTL4LORDERCNTY2 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFTL4LCURRENCYFOB2 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFNEXTENDSIZEFOBL4L2 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFTL4LORDERCNTY3 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFTL4LCURRENCYFOB3 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFNEXTENDSIZEFOBL4L3 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFTPRODUCTDEVELOPER As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemTextEditRemark As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
-    Friend WithEvents xFTRemark As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemButtonEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
     Friend WithEvents RepositoryItemButtonEdit3 As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
     Friend WithEvents RepositoryItemButtonEdit4 As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
@@ -14668,16 +18337,441 @@ Partial Class wCostSheet
     Friend WithEvents GridColumn370 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn371 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn372 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridColumn373 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents x1FTMatColor As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents x1FTSeason As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents x2FTMatColor As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents x2FTSeason As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents x3TMatColor As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents x3FTSeason As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents xFTStyleCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemGridLookUpEditFTStyleCode As DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit
     Friend WithEvents GridView37 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents xxFTStyleCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents xxxFTStyleName As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTFileName As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents ogvteamMulti As DevExpress.XtraGrid.Views.BandedGrid.BandedGridView
+    Friend WithEvents sssFNRevised As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents xxFNVersion As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents sssFNSeq As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents xFTStyleCode As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents sssFTColorway As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents sssFTTeamName As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents sssFTItem1 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents ssFTProcesssubType1 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents ssFTDescription1 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode1 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents xxFTMSC As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents ssFTSeason As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents ssFNBaseFOB As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents sssFNAllowancePer As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice1 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF1 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST1 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent1 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost1 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent1 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTItem2 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTProcesssubType2 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTDescription2 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode2 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice2 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF2 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST2 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent2 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost2 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent2 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTItem3 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTProcesssubType3 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTDescription3 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode3 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice3 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF3 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST3 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent3 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost3 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent3 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTItem4 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTProcesssubType4 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTDescription4 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode4 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice4 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF4 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST4 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent4 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost4 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent4 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTItem5 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTProcesssubType5 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTDescription5 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode5 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice5 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF5 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST5 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent5 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost5 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent5 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTItem6 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTProcesssubType6 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTDescription6 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode6 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice6 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF6 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST6 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent6 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost6 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent6 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTItem7 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTProcesssubType7 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTDescription7 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode7 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice7 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF7 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST7 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent7 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost7 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent7 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTItem8 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTProcesssubType8 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTDescription8 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode8 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice8 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF8 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST8 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent8 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost8 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent8 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTItem9 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTProcesssubType9 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTDescription9 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode9 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice9 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF9 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST9 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent9 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost9 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent9 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTItem10 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTProcesssubType10 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTDescription10 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode10 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice10 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF10 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST10 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent10 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost10 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent10 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTItem11 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTProcesssubType11 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTDescription11 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode11 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice11 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF11 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST11 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent11 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost11 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent11 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTItem12 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTProcesssubType12 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTDescription12 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode12 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice12 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF12 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST12 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent12 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost12 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent12 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTItem13 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTProcesssubType13 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTDescription13 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode13 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice13 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF13 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST13 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent13 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost13 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent13 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTItem14 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTProcesssubType14 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTDescription14 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode14 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice14 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF14 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST14 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent14 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost14 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent14 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTItem15 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTProcesssubType15 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTDescription15 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTSuplCode15 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUnitPrice15 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNCIF15 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNUSAGECOST15 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargePercent15 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNHandlingChargeCost15 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNImportDutyPecent15 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalUsgeCost As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalHandlingChargeCost As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNFINALFOB As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNEXTENDEDSIZEFOB As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTL4LORDERCNTY1 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTL4LCURRENCYFOB1 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNEXTENDSIZEFOBL4L1 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTL4LORDERCNTY2 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTL4LCURRENCYFOB2 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNEXTENDSIZEFOBL4L2 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTL4LORDERCNTY3 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTL4LCURRENCYFOB3 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNEXTENDSIZEFOBL4L3 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FTPRODUCTDEVELOPER As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents RepositoryItemTextEditFTPRODUCTDEVELOPER As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+    Friend WithEvents sssFTRemark As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost1 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost2 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost3 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost4 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost5 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost6 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost7 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost8 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost9 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost10 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost11 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost12 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost13 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost14 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNTotalCost15 As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents ocmpostdatajson As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents otpfilemark As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents ocmselectfilemark As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents PdfViewer1 As DevExpress.XtraPdfViewer.PdfViewer
+    Friend WithEvents FTPicName As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents otpjson As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents ogcjsondetail As DevExpress.XtraGrid.GridControl
+    Friend WithEvents ogvjsondetail As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSendType As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSendStatus As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSendStatusDescription As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSendUser As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FDSendDate As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSendTime As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSendByMail As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryFTSelect As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents ocmbomdiffpart As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents DockManager1 As DevExpress.XtraBars.Docking.DockManager
+    Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents DockPanel1 As DevExpress.XtraBars.Docking.DockPanel
+    Friend WithEvents DockPanel1_Container As DevExpress.XtraBars.Docking.ControlContainer
+    Friend WithEvents GridBand1 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand2 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand3 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand4 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand5 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand6 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand35 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand7 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand8 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand9 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand42 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand43 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand44 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand45 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand46 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand47 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand48 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand49 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand50 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand51 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand52 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand10 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand67 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand65 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand59 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand60 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand58 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand55 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand57 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand62 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand56 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand53 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand54 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand11 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand66 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand61 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand73 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand63 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand64 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand71 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand68 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand69 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand75 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand72 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand70 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand12 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand74 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand78 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand82 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand77 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand80 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand81 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand79 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand84 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand85 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand83 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand76 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand13 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand86 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand87 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand89 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand90 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand88 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand95 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand91 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand93 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand94 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand92 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand96 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand14 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand97 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand102 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand104 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand100 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand107 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand103 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand106 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand98 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand101 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand105 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand99 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand15 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand108 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand109 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand115 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand110 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand116 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand114 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand113 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand111 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand118 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand117 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand112 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand16 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand119 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand120 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand121 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand122 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand123 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand124 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand125 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand126 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand127 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand128 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand129 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand17 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand130 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand131 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand132 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand133 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand134 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand135 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand136 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand137 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand138 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand139 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand140 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand18 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand141 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand142 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand143 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand144 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand145 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand146 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand147 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand148 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand149 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand150 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand151 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand19 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand152 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand153 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand154 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand155 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand156 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand157 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand158 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand159 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand160 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand161 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand162 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand20 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand163 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand164 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand165 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand166 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand167 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand168 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand169 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand170 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand171 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand172 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand173 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand21 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand174 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand175 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand176 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand177 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand178 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand179 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand180 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand181 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand182 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand183 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand184 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand22 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand185 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand186 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand187 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand188 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand189 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand190 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand191 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand192 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand193 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand194 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand195 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand23 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand196 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand197 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand198 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand200 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand201 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand202 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand203 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand199 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand34 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand31 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand32 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand24 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand33 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand36 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand40 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand38 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand41 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand37 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand39 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand204 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand206 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand205 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand25 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand28 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand29 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand30 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand27 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents gridBand26 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
+    Friend WithEvents FNLeadtime_lbl2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents FNLeadtime As DevExpress.XtraEditors.CalcEdit
+    Friend WithEvents FNLeadtime_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents xFTSMStatus As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents aFTSMStatus As DevExpress.XtraGrid.Columns.GridColumn
 End Class

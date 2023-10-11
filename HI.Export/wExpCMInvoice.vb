@@ -1797,98 +1797,167 @@ Public Class wExpCMInvoice
         If Not VerrifyData() Then Exit Sub
         Dim _spls As New HI.TL.SplashScreen("Loading... Report.Please Wait.", "Preview Report")
 
-        Call SaveData()
-        GenTruckWay()
+        If FNHSysCustId.Text <> "SC" Then
+            Call SaveData()
+            GenTruckWay()
 
-        Dim _FOBDescription As String = "" : Dim _HTSData As String = "" : Dim _CatData As String = ""
-        _FOBDescription = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From V_TCNMSupplier_forFOBDesc where FNHSysSuplId=" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
-        '_HTSData = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From V_TCNMSupplier_forFOBDesc where FNHSysSuplId=" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
-        '_CatData = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From  [Fn_getCAtData]('3502237429')" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
-
-
-        Dim _Cmd As String = ""
-        _Cmd = "Delete  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TmpReportExportInv_GrpPrice "
-        '_Cmd &= vbCrLf & " where Expr1='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
-        _Cmd &= vbCrLf & " where  FTUserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-        'HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
-
-        _Cmd &= vbCrLf & "                      SELECT V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, CONVERT(varchar(20), CONVERT(numeric(18, 2), "
-        _Cmd &= vbCrLf & "                                         V_ReportExportInv.FNUnitPrice)) AS FNUnitPrice, V_ReportExportInv.FTPORef, V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo,   "
-        _Cmd &= vbCrLf & "                                       V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo AS Expr1 "
-        _Cmd &= vbCrLf & "    INTO #Tmp "
-        _Cmd &= vbCrLf & "                                FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..V_ReportExportInv_Assort AS V_ReportExportInv INNER  JOIN "
-        _Cmd &= vbCrLf & "                                       [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].. V_ReportExportInv_Grp AS V_ReportExportInv_Grp ON V_ReportExportInv.FTInvoiceGrpNo = V_ReportExportInv_Grp.FTInvoiceBookNo "
-        '_Cmd &= vbCrLf & "                                       [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..V_TMERMMainMatSpec AS V_TMERMMainMatSpec ON V_ReportExportInv.FNHSysStyleId = V_TMERMMainMatSpec.FNHSysStyleId   "
-        '_Cmd &= vbCrLf & "                                                               AND   V_ReportExportInv.FNHSysSeasonId = V_TMERMMainMatSpec.FNHSysSeasonId"
-        _Cmd &= vbCrLf & " where V_ReportExportInv_Grp.FTInvoiceGrpNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
-        _Cmd &= vbCrLf & "                 GROUP BY V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, V_ReportExportInv.FNUnitPrice, V_ReportExportInv.FTPORef, "
-        _Cmd &= vbCrLf & "                                    V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo,   V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo "
-        _Cmd &= vbCrLf & "    "
-
-        _Cmd &= vbCrLf & " insert into     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TmpReportExportInv_GrpPrice "
-        _Cmd &= vbCrLf & " (FTUserLogin, FTNikePOLineItem, FNTNW, FNTGW, FNCTNS, FNUnitPrice, FTPORef, FTInvoiceGrpNo, FTInvoiceBookNo, FTMainMatSpecCode, FTRangeNo, Expr1, FNHSysStyleId, FNUnitPriceMuti)"
-        _Cmd &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "', V_ReportExportInv.FTNikePOLineItem,  V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS,  isnull(V_ReportExportInv.FNUnitPrice,0) as FNUnitPrice,   "
-        _Cmd &= vbCrLf & "       V_ReportExportInv.FTPORef, V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo, V_TMERMMainMatSpec.FTMainMatSpecCode, V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo AS Expr1, V_ReportExportInv.FNHSysStyleId,"
-        _Cmd &= vbCrLf & "    (SELECT TOP 1 STUFF "
-        _Cmd &= vbCrLf & "     ((SELECT  distinct ' / ' + t2.FNUnitPrice   "
-        _Cmd &= vbCrLf & "               FROM       #Tmp  as  t2 "
-        _Cmd &= vbCrLf & "     "
-        _Cmd &= vbCrLf & "     WHERE   t2.FTPORef = V_ReportExportInv.FTPORef AND t2.FTInvoiceGrpNo = V_ReportExportInv.FTInvoiceGrpNo AND t2.FTRangeNo = V_ReportExportInv.FTRangeNo  " 'AND   t2.FTNikePOLineItem = V_ReportExportInv.FTNikePOLineItem 
-        _Cmd &= vbCrLf & "                     FOR XML PATH('')), 1, 2, '') AS FTSubOrderNo) AS FNUnitPriceMuti "
-        _Cmd &= vbCrLf & "    FROM     V_ReportExportInv_Assort AS V_ReportExportInv INNER JOIN "
-        _Cmd &= vbCrLf & "     V_ReportExportInv_Grp AS V_ReportExportInv_Grp ON V_ReportExportInv.FTInvoiceGrpNo = V_ReportExportInv_Grp.FTInvoiceBookNo INNER JOIN "
-        _Cmd &= vbCrLf & "       V_TMERMMainMatSpec AS V_TMERMMainMatSpec ON V_ReportExportInv.FNHSysStyleId = V_TMERMMainMatSpec.FNHSysStyleId  "
-        _Cmd &= vbCrLf & " where V_ReportExportInv_Grp.FTInvoiceGrpNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
-        _Cmd &= vbCrLf & " GROUP BY V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv_Grp.FTInvoiceBookNo, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, V_ReportExportInv.FNUnitPrice, V_ReportExportInv.FTPORef,  "
-        _Cmd &= vbCrLf & "   V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo, V_TMERMMainMatSpec.FTMainMatSpecCode, V_ReportExportInv.FTRangeNo, V_ReportExportInv.FNHSysStyleId, V_ReportExportInv_Grp.FTInvoiceGrpNo"
-        'HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+            Dim _FOBDescription As String = "" : Dim _HTSData As String = "" : Dim _CatData As String = ""
+            _FOBDescription = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From V_TCNMSupplier_forFOBDesc where FNHSysSuplId=" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
+            '_HTSData = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From V_TCNMSupplier_forFOBDesc where FNHSysSuplId=" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
+            '_CatData = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From  [Fn_getCAtData]('3502237429')" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
 
 
+            Dim _Cmd As String = ""
+            _Cmd = "Delete  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TmpReportExportInv_GrpPrice "
+            '_Cmd &= vbCrLf & " where Expr1='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
+            _Cmd &= vbCrLf & " where  FTUserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            'HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
 
-        _Cmd &= vbCrLf & "Delete  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.Tmp_V_ReportExportInv "
-        _Cmd &= vbCrLf & " where FTUserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-        _Cmd &= vbCrLf & " insert into     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.Tmp_V_ReportExportInv "
-        _Cmd &= vbCrLf & " ( FTUserLogIn  ,  FTCmpCode, FTCmpNameTH, FTCmpNameEN, FTAddressInvoiceTH, FTAddressInvoiceEN, FTExpSoldAddrEN, FTRemark, FTInvoiceNo, FTInvoiceBy, FDInvoiceDate, FTShipModeCode, FTShipModenNameTH,  "
-        _Cmd &= vbCrLf & " FTShipModeNameEN, FTShipPortCode, FTShipPortNameTH, Expr1, FTProvinceCode, FTProvinceNameTH, FTProvinceNameEN, FTPORef, FTStyleCode, FNQuantity, FNUnitPrice, FNTotalAmount, FTTotalAmountTHB, FTTotalAmountENB, "
-        _Cmd &= vbCrLf & " FTNikePOLineItem, FTColorway, FTSizeBreakDown, FTVesserName, FNHSysTermOfPMId, FNHSysCrTermId, FNExchangeRate, FNCreditDay, FNCTNS, FNTNW, FNTGW, FNHSysCartonId, FNHSysSeasonId, FNHSysCmpId, "
-        _Cmd &= vbCrLf & " FTStateSendApp, FTSandApproveBy, FDSendAapproveDate, FTSendApproveTime, FTStateApprove, FTApproveBy, FDApproveDate, FTApproveTime, FTCustNameEN, FTCustNameTH, FTCustCode, FTExpShipNameEN, FTExpShipCode,  "
-        _Cmd &= vbCrLf & "  FDESTTimeDept, FDESTTimeArrl, FTInvoiceBookNo, FDShipDate, FNHSysCurId, FTCurDescEN, FNHSysStyleId, FTRangeNo, FTLineNo, FTDiamondMarkCode, FTInvoiceGrp, FTPORefNo , FNHSysSuplId , FTFOBDescripton) "
-        _Cmd &= vbCrLf & "SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  , FTCmpCode, FTCmpNameTH, FTCmpNameEN, FTAddressInvoiceTH, FTAddressInvoiceEN, FTExpSoldAddrEN, FTRemark, FTInvoiceNo, FTInvoiceBy, FDInvoiceDate, FTShipModeCode, FTShipModenNameTH,   "
-        _Cmd &= vbCrLf & "FTShipModeNameEN, FTShipPortCode, FTShipPortNameTH, Expr1, FTProvinceCode, FTProvinceNameTH, FTProvinceNameEN, FTPORef, FTStyleCode, FNQuantity, FNUnitPrice, FNTotalAmount, FTTotalAmountTHB, FTTotalAmountENB,  "
-        _Cmd &= vbCrLf & " FTNikePOLineItem, FTColorwayCode, FTSizeBreakDown, FTVesserName, FNHSysTermOfPMId, FNHSysCrTermId, FNExchangeRate, FNCreditDay, FNCTNS, FNTNW, FNTGW, FNHSysCartonId, FNHSysSeasonId, FNHSysCmpId, "
-        _Cmd &= vbCrLf & " FTStateSendApp, FTSandApproveBy, FDSendAapproveDate, FTSendApproveTime, FTStateApprove, FTApproveBy, FDApproveDate, FTApproveTime, FTCustNameEN, FTCustNameTH, FTCustCode, FTExpShipNameEN, FTExpShipCode, "
-        _Cmd &= vbCrLf & " FDESTTimeDept, FDESTTimeArrl, FTInvoiceBookNo, FDShipDate, FNHSysCurId, FTCurDescEN, FNHSysStyleId, FTRangeNo, FTLineNo, FTDiamondMarkCode, FTInvoiceGrp, FTPORefNo ," & Val(Me.FNHSysSuplId.Properties.Tag) & " ,'" & _FOBDescription & "'"
-        _Cmd &= vbCrLf & "FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.V_ReportExportInv "
-        _Cmd &= vbCrLf & " WHERE  (FTInvoiceNo = '" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "')"
-        HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+            _Cmd &= vbCrLf & "    SELECT V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, CONVERT(varchar(20), CONVERT(numeric(18, 2), "
+            _Cmd &= vbCrLf & "    V_ReportExportInv.FNUnitPrice)) AS FNUnitPrice, V_ReportExportInv.FTPORef, V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo,   "
+            _Cmd &= vbCrLf & "    V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo AS Expr1 "
+            _Cmd &= vbCrLf & "    INTO #Tmp "
+            _Cmd &= vbCrLf & "    FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..V_ReportExportInv_Assort AS V_ReportExportInv INNER  JOIN "
+            _Cmd &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].. V_ReportExportInv_Grp AS V_ReportExportInv_Grp ON V_ReportExportInv.FTInvoiceGrpNo = V_ReportExportInv_Grp.FTInvoiceBookNo "
+            '_Cmd &= vbCrLf & "                                       [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..V_TMERMMainMatSpec AS V_TMERMMainMatSpec ON V_ReportExportInv.FNHSysStyleId = V_TMERMMainMatSpec.FNHSysStyleId   "
+            '_Cmd &= vbCrLf & "                                                               AND   V_ReportExportInv.FNHSysSeasonId = V_TMERMMainMatSpec.FNHSysSeasonId"
+            _Cmd &= vbCrLf & " where V_ReportExportInv_Grp.FTInvoiceGrpNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
+            _Cmd &= vbCrLf & " GROUP BY V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, V_ReportExportInv.FNUnitPrice, V_ReportExportInv.FTPORef, "
+            _Cmd &= vbCrLf & " V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo,   V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo "
+            _Cmd &= vbCrLf & "    "
 
+            _Cmd &= vbCrLf & " insert into     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TmpReportExportInv_GrpPrice "
+            _Cmd &= vbCrLf & " (FTUserLogin, FTNikePOLineItem, FNTNW, FNTGW, FNCTNS, FNUnitPrice, FTPORef, FTInvoiceGrpNo, FTInvoiceBookNo, FTMainMatSpecCode, FTRangeNo, Expr1, FNHSysStyleId, FNUnitPriceMuti)"
+            _Cmd &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "', V_ReportExportInv.FTNikePOLineItem,  V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS,  isnull(V_ReportExportInv.FNUnitPrice,0) as FNUnitPrice,   "
+            _Cmd &= vbCrLf & "       V_ReportExportInv.FTPORef, V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo, V_TMERMMainMatSpec.FTMainMatSpecCode, V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo AS Expr1, V_ReportExportInv.FNHSysStyleId,"
+            _Cmd &= vbCrLf & "    (SELECT TOP 1 STUFF "
+            _Cmd &= vbCrLf & "     ((SELECT  distinct ' / ' + t2.FNUnitPrice   "
+            _Cmd &= vbCrLf & "               FROM       #Tmp  as  t2 "
+            _Cmd &= vbCrLf & "     "
+            _Cmd &= vbCrLf & "     WHERE   t2.FTPORef = V_ReportExportInv.FTPORef AND t2.FTInvoiceGrpNo = V_ReportExportInv.FTInvoiceGrpNo AND t2.FTRangeNo = V_ReportExportInv.FTRangeNo  " 'AND   t2.FTNikePOLineItem = V_ReportExportInv.FTNikePOLineItem 
+            _Cmd &= vbCrLf & "                     FOR XML PATH('')), 1, 2, '') AS FTSubOrderNo) AS FNUnitPriceMuti "
+            _Cmd &= vbCrLf & "    FROM     V_ReportExportInv_Assort AS V_ReportExportInv INNER JOIN "
+            _Cmd &= vbCrLf & "     V_ReportExportInv_Grp AS V_ReportExportInv_Grp ON V_ReportExportInv.FTInvoiceGrpNo = V_ReportExportInv_Grp.FTInvoiceBookNo INNER JOIN "
+            _Cmd &= vbCrLf & "       V_TMERMMainMatSpec AS V_TMERMMainMatSpec ON V_ReportExportInv.FNHSysStyleId = V_TMERMMainMatSpec.FNHSysStyleId  "
+            _Cmd &= vbCrLf & " where V_ReportExportInv_Grp.FTInvoiceGrpNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
+            _Cmd &= vbCrLf & " GROUP BY V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv_Grp.FTInvoiceBookNo, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, V_ReportExportInv.FNUnitPrice, V_ReportExportInv.FTPORef,  "
+            _Cmd &= vbCrLf & "   V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo, V_TMERMMainMatSpec.FTMainMatSpecCode, V_ReportExportInv.FTRangeNo, V_ReportExportInv.FNHSysStyleId, V_ReportExportInv_Grp.FTInvoiceGrpNo"
+            'HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+
+            _Cmd &= vbCrLf & "Delete  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.Tmp_V_ReportExportInv "
+            _Cmd &= vbCrLf & " where FTUserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            _Cmd &= vbCrLf & " insert into     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.Tmp_V_ReportExportInv "
+            _Cmd &= vbCrLf & " ( FTUserLogIn  ,  FTCmpCode, FTCmpNameTH, FTCmpNameEN, FTAddressInvoiceTH, FTAddressInvoiceEN, FTExpSoldAddrEN, FTRemark, FTInvoiceNo, FTInvoiceBy, FDInvoiceDate, FTShipModeCode, FTShipModenNameTH,  "
+            _Cmd &= vbCrLf & " FTShipModeNameEN, FTShipPortCode, FTShipPortNameTH, Expr1, FTProvinceCode, FTProvinceNameTH, FTProvinceNameEN, FTPORef, FTStyleCode, FNQuantity, FNUnitPrice, FNTotalAmount, FTTotalAmountTHB, FTTotalAmountENB, "
+            _Cmd &= vbCrLf & " FTNikePOLineItem, FTColorway, FTSizeBreakDown, FTVesserName, FNHSysTermOfPMId, FNHSysCrTermId, FNExchangeRate, FNCreditDay, FNCTNS, FNTNW, FNTGW, FNHSysCartonId, FNHSysSeasonId, FNHSysCmpId, "
+            _Cmd &= vbCrLf & " FTStateSendApp, FTSandApproveBy, FDSendAapproveDate, FTSendApproveTime, FTStateApprove, FTApproveBy, FDApproveDate, FTApproveTime, FTCustNameEN, FTCustNameTH, FTCustCode, FTExpShipNameEN, FTExpShipCode,  "
+            _Cmd &= vbCrLf & "  FDESTTimeDept, FDESTTimeArrl, FTInvoiceBookNo, FDShipDate, FNHSysCurId, FTCurDescEN, FNHSysStyleId, FTRangeNo, FTLineNo, FTDiamondMarkCode, FTInvoiceGrp, FTPORefNo , FNHSysSuplId , FTFOBDescripton) "
+            _Cmd &= vbCrLf & "SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  , FTCmpCode, FTCmpNameTH, FTCmpNameEN, FTAddressInvoiceTH, FTAddressInvoiceEN, FTExpSoldAddrEN, FTRemark, FTInvoiceNo, FTInvoiceBy, FDInvoiceDate, FTShipModeCode, FTShipModenNameTH,   "
+            _Cmd &= vbCrLf & "FTShipModeNameEN, FTShipPortCode, FTShipPortNameTH, Expr1, FTProvinceCode, FTProvinceNameTH, FTProvinceNameEN, FTPORef, FTStyleCode, FNQuantity, FNUnitPrice, FNTotalAmount, FTTotalAmountTHB, FTTotalAmountENB,  "
+            _Cmd &= vbCrLf & " FTNikePOLineItem, FTColorwayCode, FTSizeBreakDown, FTVesserName, FNHSysTermOfPMId, FNHSysCrTermId, FNExchangeRate, FNCreditDay, FNCTNS, FNTNW, FNTGW, FNHSysCartonId, FNHSysSeasonId, FNHSysCmpId, "
+            _Cmd &= vbCrLf & " FTStateSendApp, FTSandApproveBy, FDSendAapproveDate, FTSendApproveTime, FTStateApprove, FTApproveBy, FDApproveDate, FTApproveTime, FTCustNameEN, FTCustNameTH, FTCustCode, FTExpShipNameEN, FTExpShipCode, "
+            _Cmd &= vbCrLf & " FDESTTimeDept, FDESTTimeArrl, FTInvoiceBookNo, FDShipDate, FNHSysCurId, FTCurDescEN, FNHSysStyleId, FTRangeNo, FTLineNo, FTDiamondMarkCode, FTInvoiceGrp, FTPORefNo ," & Val(Me.FNHSysSuplId.Properties.Tag) & " ,'" & _FOBDescription & "'"
+            _Cmd &= vbCrLf & "FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.V_ReportExportInv "
+            _Cmd &= vbCrLf & " WHERE  (FTInvoiceNo = '" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "')"
+            HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+
+        Else
+
+
+            Dim _FOBDescription As String = "" : Dim _HTSData As String = "" : Dim _CatData As String = ""
+            _FOBDescription = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From V_TCNMSupplier_forFOBDesc where FNHSysSuplId=" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
+            '_HTSData = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From V_TCNMSupplier_forFOBDesc where FNHSysSuplId=" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
+            '_CatData = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From  [Fn_getCAtData]('3502237429')" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
+
+
+            Dim _Cmd As String = ""
+            _Cmd = "Delete  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TmpReportExportInv_GrpPrice "
+            '_Cmd &= vbCrLf & " where Expr1='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
+            _Cmd &= vbCrLf & " where  FTUserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            'HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+            _Cmd &= vbCrLf & "    SELECT V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, CONVERT(varchar(20), CONVERT(numeric(18, 2), "
+            _Cmd &= vbCrLf & "    V_ReportExportInv.FNUnitPrice)) AS FNUnitPrice, V_ReportExportInv.FTPORef, V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo,   "
+            _Cmd &= vbCrLf & "    V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo AS Expr1 "
+            _Cmd &= vbCrLf & "    INTO #Tmp "
+            _Cmd &= vbCrLf & "    FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..V_ReportExportInv_Assort AS V_ReportExportInv INNER  JOIN "
+            _Cmd &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].. V_ReportExportInv_Grp AS V_ReportExportInv_Grp ON V_ReportExportInv.FTInvoiceGrpNo = V_ReportExportInv_Grp.FTInvoiceBookNo "
+            '_Cmd &= vbCrLf & "                                       [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..V_TMERMMainMatSpec AS V_TMERMMainMatSpec ON V_ReportExportInv.FNHSysStyleId = V_TMERMMainMatSpec.FNHSysStyleId   "
+            '_Cmd &= vbCrLf & "                                                               AND   V_ReportExportInv.FNHSysSeasonId = V_TMERMMainMatSpec.FNHSysSeasonId"
+            _Cmd &= vbCrLf & " where V_ReportExportInv_Grp.FTInvoiceGrpNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
+            _Cmd &= vbCrLf & " GROUP BY V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, V_ReportExportInv.FNUnitPrice, V_ReportExportInv.FTPORef, "
+            _Cmd &= vbCrLf & " V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo,   V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo "
+            _Cmd &= vbCrLf & "    "
+
+            _Cmd &= vbCrLf & " insert into     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TmpReportExportInv_GrpPrice "
+            _Cmd &= vbCrLf & " (FTUserLogin, FTNikePOLineItem, FNTNW, FNTGW, FNCTNS, FNUnitPrice, FTPORef, FTInvoiceGrpNo, FTInvoiceBookNo, FTMainMatSpecCode, FTRangeNo, Expr1, FNHSysStyleId, FNUnitPriceMuti)"
+            _Cmd &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "', V_ReportExportInv.FTNikePOLineItem,  V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS,  isnull(V_ReportExportInv.FNUnitPrice,0) as FNUnitPrice,   "
+            _Cmd &= vbCrLf & "       V_ReportExportInv.FTPORef, V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo, V_TMERMMainMatSpec.FTMainMatSpecCode, V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo AS Expr1, V_ReportExportInv.FNHSysStyleId,"
+            _Cmd &= vbCrLf & "    (SELECT TOP 1 STUFF "
+            _Cmd &= vbCrLf & "     ((SELECT  distinct ' / ' + t2.FNUnitPrice   "
+            _Cmd &= vbCrLf & "               FROM       #Tmp  as  t2 "
+            _Cmd &= vbCrLf & "     "
+            _Cmd &= vbCrLf & "     WHERE   t2.FTPORef = V_ReportExportInv.FTPORef AND t2.FTInvoiceGrpNo = V_ReportExportInv.FTInvoiceGrpNo AND t2.FTRangeNo = V_ReportExportInv.FTRangeNo  " 'AND   t2.FTNikePOLineItem = V_ReportExportInv.FTNikePOLineItem 
+            _Cmd &= vbCrLf & "                     FOR XML PATH('')), 1, 2, '') AS FTSubOrderNo) AS FNUnitPriceMuti "
+            _Cmd &= vbCrLf & "    FROM     V_ReportExportInv_Assort AS V_ReportExportInv INNER JOIN "
+            _Cmd &= vbCrLf & "     V_ReportExportInv_Grp AS V_ReportExportInv_Grp ON V_ReportExportInv.FTInvoiceGrpNo = V_ReportExportInv_Grp.FTInvoiceBookNo INNER JOIN "
+            _Cmd &= vbCrLf & "       V_TMERMMainMatSpec AS V_TMERMMainMatSpec ON V_ReportExportInv.FNHSysStyleId = V_TMERMMainMatSpec.FNHSysStyleId  "
+            _Cmd &= vbCrLf & " where V_ReportExportInv_Grp.FTInvoiceGrpNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
+            _Cmd &= vbCrLf & " GROUP BY V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv_Grp.FTInvoiceBookNo, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, V_ReportExportInv.FNUnitPrice, V_ReportExportInv.FTPORef,  "
+            _Cmd &= vbCrLf & "   V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo, V_TMERMMainMatSpec.FTMainMatSpecCode, V_ReportExportInv.FTRangeNo, V_ReportExportInv.FNHSysStyleId, V_ReportExportInv_Grp.FTInvoiceGrpNo"
+            'HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+
+            _Cmd &= vbCrLf & "Delete  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.Tmp_V_ReportExportInv "
+            _Cmd &= vbCrLf & " where FTUserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            _Cmd &= vbCrLf & " insert into     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.Tmp_V_ReportExportInv "
+            _Cmd &= vbCrLf & " ( FTUserLogIn  ,  FTCmpCode, FTCmpNameTH, FTCmpNameEN, FTAddressInvoiceTH, FTAddressInvoiceEN, FTExpSoldAddrEN, FTRemark, FTInvoiceNo, FTInvoiceBy, FDInvoiceDate, FTShipModeCode, FTShipModenNameTH,  "
+            _Cmd &= vbCrLf & " FTShipModeNameEN, FTShipPortCode, FTShipPortNameTH, Expr1, FTProvinceCode, FTProvinceNameTH, FTProvinceNameEN, FTPORef, FTStyleCode, FNQuantity, FNUnitPrice, FNTotalAmount, FTTotalAmountTHB, FTTotalAmountENB, "
+            _Cmd &= vbCrLf & " FTNikePOLineItem, FTColorway, FTSizeBreakDown, FTVesserName, FNHSysTermOfPMId, FNHSysCrTermId, FNExchangeRate, FNCreditDay, FNCTNS, FNTNW, FNTGW, FNCBM,FTRemarkPallet, FNHSysCartonId, FNHSysSeasonId, FNHSysCmpId, "
+            _Cmd &= vbCrLf & " FTStateSendApp, FTSandApproveBy, FDSendAapproveDate, FTSendApproveTime, FTStateApprove, FTApproveBy, FDApproveDate, FTApproveTime, FTCustNameEN, FTCustNameTH, FTCustCode, FTExpShipNameEN, FTExpShipCode,  "
+            _Cmd &= vbCrLf & "  FDESTTimeDept, FDESTTimeArrl, FTInvoiceBookNo, FDShipDate, FNHSysCurId, FTCurDescEN, FNHSysStyleId, FTRangeNo, FTLineNo, FTDiamondMarkCode, FTInvoiceGrp, FTPORefNo  ,FTShipper, FNHSysSuplId , FTFOBDescripton) "
+            _Cmd &= vbCrLf & "SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  , FTCmpCode, FTCmpNameTH, FTCmpNameEN, FTAddressInvoiceTH, FTAddressInvoiceEN, FTExpSoldAddrEN, FTRemark, FTInvoiceNo, FTInvoiceBy, FDInvoiceDate, FTShipModeCode, FTShipModenNameTH,   "
+            _Cmd &= vbCrLf & "FTShipModeNameEN, FTShipPortCode, FTShipPortNameTH, mode, FTProvinceCode, FTProvinceNameTH, FTProvinceNameEN, FTPORef, FTStyleCode, FNQuantity, FNUnitPrice, FNTotalAmount, FTTotalAmountTHB, FTTotalAmountENB,  "
+            _Cmd &= vbCrLf & " FTNikePOLineItem, FTColorway, FTSizeBreakDown, FTVesserName, FNHSysTermOfPMId, FNHSysCrTermId, FNExchangeRate, FNCreditDay, FNCTNS, FNTNW, FNTGW, FNCBM,FTRemarkPallet, FNHSysCartonId, FNHSysSeasonId, FNHSysCmpId, "
+            _Cmd &= vbCrLf & " FTStateSendApp, FTSandApproveBy, FDSendAapproveDate, FTSendApproveTime, FTStateApprove, FTApproveBy, FDApproveDate, FTApproveTime, FTCustNameEN, FTCustNameTH, FTCustCode, FTExpShipNameEN, FTExpShipCode, "
+            _Cmd &= vbCrLf & " FDESTTimeDept, FDESTTimeArrl, FTInvoiceBookNo, FDShipDate, FNHSysCurId, FTCurDescEN, FNHSysStyleId, FTRangeNo, FTLineNo, FTDiamondMarkCode, FTInvoiceGrp, FTPORefNo ,FTShipper," & Val(Me.FNHSysSuplId.Properties.Tag) & " ,'" & _FOBDescription & "'"
+            _Cmd &= vbCrLf & "FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.V_ReportExportInv "
+            _Cmd &= vbCrLf & " WHERE  (FTInvoiceNo = '" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "')"
+            HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+        End If
 
         Dim _Fm As String = ""
 
-        _Fm = "  {V_ReportExportInv.FTInvoiceNo} = '" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'  and  {V_ReportExportInv.FTUserLogIn} = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+        _Fm = "  {V_ReportExportInv.FTInvoiceNo} = '" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'  "
         With New HI.RP.Report
-            .FormTitle = Me.Text
-            .ReportFolderName = "Account\"
-            Select Case FNHSysCustId.Text
-                Case "NI"
-                    If _SuplCode.Trim.ToString = "DAMCO" Then
-                        .ReportName = "RptExportInvoice_Nike.rpt"
-                    Else
-                        .ReportName = "RptExportInvoice_Nike_APL.rpt"
-                    End If
-                Case "AE"
+                .FormTitle = Me.Text
+                .ReportFolderName = "Account\"
+                Select Case FNHSysCustId.Text
+                    Case "NI"
+                        If _SuplCode.Trim.ToString = "DAMCO" Then
+                            .ReportName = "RptExportInvoice_Nike.rpt"
+                        Else
+                            .ReportName = "RptExportInvoice_Nike_APL.rpt"
+                        End If
+                    Case "AE"
                     .ReportName = "RptExportInvoice_AEON.rpt"
+                Case "SC"
+                    .ReportName = "RptExportInvoice_Non_Nike.rpt"
                 Case Else
-                    .ReportName = "RptExportInvoice_Nike.rpt"
-            End Select
-            .Formular = _Fm
-            .Preview()
-        End With
-        Try
-            _spls.Close()
-        Catch ex As Exception
-            _spls.Close()
-        End Try
+                        .ReportName = "RptExportInvoice_Nike.rpt"
+                End Select
+                .Formular = _Fm
+                .Preview()
+            End With
+            Try
+                _spls.Close()
+            Catch ex As Exception
+                _spls.Close()
+            End Try
+
     End Sub
 
     Private Sub ocmsendpoapprove_Click(sender As Object, e As EventArgs) Handles ocmsendpoapprove.Click
@@ -2158,7 +2227,7 @@ Public Class wExpCMInvoice
         '        dt = .Copy()
         '    End With
 
-        '    With Me.ogvbreakdown
+        '    With Me.ogvbreakdownF
         '        For I As Integer = 0 To .RowCount - 1
         '            _Total = 0
         '            For Each GridCol As DevExpress.XtraGrid.Columns.GridColumn In .Columns
@@ -2506,132 +2575,203 @@ Public Class wExpCMInvoice
     Private Sub LoadData()
         Try
 
-            Dim _Cmd As String = ""
-            Dim _oDt As System.Data.DataTable
+            If FNHSysCustId.Text <> "SC" Then
+
+                Dim _Cmd As String = ""
+                Dim _oDt As System.Data.DataTable
+
+                '_Cmd = "    SELECT  distinct O.FNHSysStyleId, BD.FTColorway, BD.FTSizeBreakDown, convert(nvarchar(5), convert(int, BD.FTNikePOLineItem)) as FTNikePOLineItem , O.FDShipDate, O.FNHSysShipModeId "
+                '_Cmd &= vbCrLf & " , O.FTPORef , max(  case when isnull(BD.FNNetPrice,0) = 0 then BD.FNPrice  else BD.FNNetPrice End)"
+                '_Cmd &= vbCrLf & " Over (partition by O.FNHSysStyleId, BD.FTColorway, BD.FTSizeBreakDown ,convert(nvarchar(5), convert(int, BD.FTNikePOLineItem)) , O.FDShipDate, O.FNHSysShipModeId  , O.FTPORef )  as FNNetPrice  "
+                '_Cmd &= vbCrLf & " into #TmpOrderInfo"
+                '_Cmd &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.V_TMERTOrder_Info AS O  LEFT OUTER JOIN "
+                '_Cmd &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS BD WITH (NOLOCK) ON O.FTOrderNo = BD.FTOrderNo  AND O.FTSubOrderNo = BD.FTSubOrderNo  "
+                '_Cmd &= vbCrLf & "    INNER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_D As D with(nolock) ON O.FTPORef = D.FTPORef "
+                '_Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'"
+                Dim _PriceDIstinct As Double = 0
+                _PriceDIstinct = HI.Conn.SQLConn.GetField(" Select  FNPriceDis  from fn_getDistinctExport('" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "')", Conn.DB.DataBaseName.DB_ACCOUNT, "1")
 
 
+                _Cmd &= vbCrLf & " Select distinct D.FTInvoiceNo, D.FTPORef, D.FNHSysStyleId, D.FNCTNS, D.FNTNW, D.FNTGW, D.FNQuantity, ROUND ((isnull(BD.FNNetPrice ,BD.FNPrice) * " & _PriceDIstinct & "),2) as FNUnitPrice "
+                _Cmd &= vbCrLf & " ,ROUND(( isnull(BD.FNNetPrice ,BD.FNPrice) * " & _PriceDIstinct & "),2) * D.FNQuantity as FNTotalAmount, T.FTStyleCode , D.FTColorway, D.FTSizeBreakDown ,D.FTNikePOLineItem ,D.FNHSysCartonId , C.FTCartonCode ,D.FTRangeNo , D.FTLineNo  "
+                _Cmd &= vbCrLf & " , D.FTPORefNo , isnull(BD.FNNetPrice,0) as FNNetPriceImport   ,PL.FTAddr1EN   AS FTAddrSold  ,PV.FTRemark   AS FTAddrShip , isnull(ZS.FTSuplCode ,  R.FTSuplCode ) as FTSuplCode "
+                _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_D As D with(nolock) INNER JOIN"
+                _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice AS H WITH(NOLOCK) ON  D.FTInvoiceNo = H.FTInvoiceNo INNER JOIN  "
+                _Cmd &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As T with(nolock) On D.FNHSysStyleId = T.FNHSysStyleId"
+                _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCarton AS C WITH(NOLOCK)  ON     D.FNHSysCartonId  = C.FNHSysCartonId  "
+                _Cmd &= vbCrLf & " 	LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTPackPlan_D AS PD WITH(NOLOCK)  ON D.FTPORef = PD.FTPORef And D.FTPORefNo = PD.FTPORefNo  "
+                _Cmd &= vbCrLf & " And D.FTRangeNo = PD.FTRangeNo And D.FTSizeBreakDown = PD.FTSizeBreakDown And D.FTColorway = PD.FTColorWay "
+                _Cmd &= vbCrLf & " 	LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTPackPlan AS PH WITH(NOLOCK) ON PD.FTPckPlanNo = PH.FTPckPlanNo and PD.FTPORef = PH.FTPORef and PD.FTPORefNo = PH.FTPORefNo "
+                _Cmd &= vbCrLf & " LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo. V_Order_Export_ShipDestination AS BD   ON  convert(nvarchar(5), convert(int, D.FTNikePOLineItem)) = BD.FTNikePOLineItem"
+                '_Cmd &= vbCrLf & "    LEFT OUTER JOIN      (SELECT   O.FNHSysStyleId, BD.FTColorway, BD.FTSizeBreakDown,  BD.FTNikePOLineItem , O.FDShipDate, O.FNHSysShipModeId "
+                '_Cmd &= vbCrLf & " , O.FTPORef ,  case when isnull(BD.FNNetPrice,0) = 0 then BD.FNPrice  else BD.FNNetPrice end FNNetPrice "
+                '_Cmd &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.V_TMERTOrder_Info AS O  LEFT OUTER JOIN "
+                ''_Cmd &= vbCrLf & "        [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub AS S WITH (NOLOCK) ON O.FTOrderNo = S.FTOrderNo LEFT OUTER JOIN "
+                '_Cmd &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS BD WITH (NOLOCK) ON O.FTOrderNo = BD.FTOrderNo  AND O.FTSubOrderNo = BD.FTSubOrderNo ) AS BD  ON  convert(nvarchar(5), convert(int, D.FTNikePOLineItem)) = BD.FTNikePOLineItem "
+                _Cmd &= vbCrLf & "  And D.FTSizeBreakDown = BD.FTSizeBreakDown And D.FTPORef = BD.FTPORef And D.FNHSysStyleId = BD.FNHSysStyleId And RIGHT( PD.FTShortDescription , 3) = BD.FTColorway  " 'and H.FNHSysShipModeId = BD.FNHSysShipModeId and PH.FDShipDate = BD.FDShipDate
+                _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMPlant AS PL with(nolock) ON BD.FNHSysPlantId = PL.FNHSysPlantId "
+                _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMContinent AS PT WITH(NOLOCK) ON BD.FNHSysContinentId = PT.FNHSysContinentId   "
+                _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSupplier AS R WITH(NOLOCK) ON PT.FNHSysSuplId = R.FNHSysSuplId  "
+                _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCMMProvince AS PV with(nolock) on BD.FNHSysProvinceId = PV.FNHSysProvinceId "
+                _Cmd &= vbCrLf & "  left outer join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMVenderPram as VN ON  BD.FNHSysVenderPramId = VN.FNHSysVenderPramId "
+                _Cmd &= vbCrLf & " outer apply (Select  top  1  ZT.FNHSysSuplId , ZS.FTSuplCode  "
+                _Cmd &= vbCrLf & "   from    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCMMCountryForwarder ZT  "
+                _Cmd &= vbCrLf & "  left outer join   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSupplier AS ZS with(nolock) ON ZT.FNHSysSuplId = ZS.FNHSysSuplId"
+                _Cmd &= vbCrLf & " where  BD.FNHSysCountryId  = ZT.FNHSysCountryId  "
+                _Cmd &= vbCrLf & "  and BD.FNHSysVenderPramId  = ZT.FNHSysVenderPramId   ) ZS "
+                _Cmd &= vbCrLf & " "
+                _Cmd &= vbCrLf & " "
 
-            '_Cmd = "    SELECT  distinct O.FNHSysStyleId, BD.FTColorway, BD.FTSizeBreakDown, convert(nvarchar(5), convert(int, BD.FTNikePOLineItem)) as FTNikePOLineItem , O.FDShipDate, O.FNHSysShipModeId "
-            '_Cmd &= vbCrLf & " , O.FTPORef , max(  case when isnull(BD.FNNetPrice,0) = 0 then BD.FNPrice  else BD.FNNetPrice End)"
-            '_Cmd &= vbCrLf & " Over (partition by O.FNHSysStyleId, BD.FTColorway, BD.FTSizeBreakDown ,convert(nvarchar(5), convert(int, BD.FTNikePOLineItem)) , O.FDShipDate, O.FNHSysShipModeId  , O.FTPORef )  as FNNetPrice  "
-            '_Cmd &= vbCrLf & " into #TmpOrderInfo"
-            '_Cmd &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.V_TMERTOrder_Info AS O  LEFT OUTER JOIN "
-            '_Cmd &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS BD WITH (NOLOCK) ON O.FTOrderNo = BD.FTOrderNo  AND O.FTSubOrderNo = BD.FTSubOrderNo  "
-            '_Cmd &= vbCrLf & "    INNER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_D As D with(nolock) ON O.FTPORef = D.FTPORef "
-            '_Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'"
-            Dim _PriceDIstinct As Double = 0
-            _PriceDIstinct = HI.Conn.SQLConn.GetField(" Select  FNPriceDis  from fn_getDistinctExport('" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "')", Conn.DB.DataBaseName.DB_ACCOUNT, "1")
-
-
-            _Cmd &= vbCrLf & " Select distinct D.FTInvoiceNo, D.FTPORef, D.FNHSysStyleId, D.FNCTNS, D.FNTNW, D.FNTGW, D.FNQuantity, ROUND ((isnull(BD.FNNetPrice ,BD.FNPrice) * " & _PriceDIstinct & "),2) as FNUnitPrice "
-            _Cmd &= vbCrLf & " ,ROUND(( isnull(BD.FNNetPrice ,BD.FNPrice) * " & _PriceDIstinct & "),2) * D.FNQuantity as FNTotalAmount, T.FTStyleCode , D.FTColorway, D.FTSizeBreakDown ,D.FTNikePOLineItem ,D.FNHSysCartonId , C.FTCartonCode ,D.FTRangeNo , D.FTLineNo  "
-            _Cmd &= vbCrLf & " , D.FTPORefNo , isnull(BD.FNNetPrice,0) as FNNetPriceImport   ,PL.FTAddr1EN   AS FTAddrSold  ,PV.FTRemark   AS FTAddrShip , isnull(ZS.FTSuplCode ,  R.FTSuplCode ) as FTSuplCode "
-            _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_D As D with(nolock) INNER JOIN"
-            _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice AS H WITH(NOLOCK) ON  D.FTInvoiceNo = H.FTInvoiceNo INNER JOIN  "
-            _Cmd &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As T with(nolock) On D.FNHSysStyleId = T.FNHSysStyleId"
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCarton AS C WITH(NOLOCK)  ON     D.FNHSysCartonId  = C.FNHSysCartonId  "
-            _Cmd &= vbCrLf & " 	LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTPackPlan_D AS PD WITH(NOLOCK)  ON D.FTPORef = PD.FTPORef And D.FTPORefNo = PD.FTPORefNo  "
-            _Cmd &= vbCrLf & " And D.FTRangeNo = PD.FTRangeNo And D.FTSizeBreakDown = PD.FTSizeBreakDown And D.FTColorway = PD.FTColorWay "
-            _Cmd &= vbCrLf & " 	LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTPackPlan AS PH WITH(NOLOCK) ON PD.FTPckPlanNo = PH.FTPckPlanNo and PD.FTPORef = PH.FTPORef and PD.FTPORefNo = PH.FTPORefNo "
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo. V_Order_Export_ShipDestination AS BD   ON  convert(nvarchar(5), convert(int, D.FTNikePOLineItem)) = BD.FTNikePOLineItem"
-            '_Cmd &= vbCrLf & "    LEFT OUTER JOIN      (SELECT   O.FNHSysStyleId, BD.FTColorway, BD.FTSizeBreakDown,  BD.FTNikePOLineItem , O.FDShipDate, O.FNHSysShipModeId "
-            '_Cmd &= vbCrLf & " , O.FTPORef ,  case when isnull(BD.FNNetPrice,0) = 0 then BD.FNPrice  else BD.FNNetPrice end FNNetPrice "
-            '_Cmd &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.V_TMERTOrder_Info AS O  LEFT OUTER JOIN "
-            ''_Cmd &= vbCrLf & "        [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub AS S WITH (NOLOCK) ON O.FTOrderNo = S.FTOrderNo LEFT OUTER JOIN "
-            '_Cmd &= vbCrLf & "       [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS BD WITH (NOLOCK) ON O.FTOrderNo = BD.FTOrderNo  AND O.FTSubOrderNo = BD.FTSubOrderNo ) AS BD  ON  convert(nvarchar(5), convert(int, D.FTNikePOLineItem)) = BD.FTNikePOLineItem "
-            _Cmd &= vbCrLf & "  And D.FTSizeBreakDown = BD.FTSizeBreakDown And D.FTPORef = BD.FTPORef And D.FNHSysStyleId = BD.FNHSysStyleId And RIGHT( PD.FTShortDescription , 3) = BD.FTColorway  " 'and H.FNHSysShipModeId = BD.FNHSysShipModeId and PH.FDShipDate = BD.FDShipDate
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMPlant AS PL with(nolock) ON BD.FNHSysPlantId = PL.FNHSysPlantId "
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMContinent AS PT WITH(NOLOCK) ON BD.FNHSysContinentId = PT.FNHSysContinentId   "
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSupplier AS R WITH(NOLOCK) ON PT.FNHSysSuplId = R.FNHSysSuplId  "
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCMMProvince AS PV with(nolock) on BD.FNHSysProvinceId = PV.FNHSysProvinceId "
-            _Cmd &= vbCrLf & "  left outer join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMVenderPram as VN ON  BD.FNHSysVenderPramId = VN.FNHSysVenderPramId "
-            _Cmd &= vbCrLf & " outer apply (Select  top  1  ZT.FNHSysSuplId , ZS.FTSuplCode  "
-            _Cmd &= vbCrLf & "   from    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCMMCountryForwarder ZT  "
-            _Cmd &= vbCrLf & "  left outer join   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSupplier AS ZS with(nolock) ON ZT.FNHSysSuplId = ZS.FNHSysSuplId"
-            _Cmd &= vbCrLf & " where  BD.FNHSysCountryId  = ZT.FNHSysCountryId  "
-            _Cmd &= vbCrLf & "  and BD.FNHSysVenderPramId  = ZT.FNHSysVenderPramId   ) ZS "
-            _Cmd &= vbCrLf & " "
-            _Cmd &= vbCrLf & " "
-
-            _Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'"
-            _Cmd &= vbCrLf & " ORDER BY  D.FTNikePOLineItem  ASC , D.FTPORef ASC ,D.FTRangeNo ASC , D.FTLineNo  ASC "
+                _Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'"
+                _Cmd &= vbCrLf & " ORDER BY  D.FTNikePOLineItem  ASC , D.FTPORef ASC ,D.FTRangeNo ASC , D.FTLineNo  ASC "
 
 
-            _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
-            Me.ogcdetail.DataSource = _oDt
+                _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+                Me.ogcdetail.DataSource = _oDt
 
 
-            _Cmd = "Select  Distinct FTPORef , FTNikePOLineItem"
-            _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_D As D with(nolock) "
-            _Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'"
-            '_oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
-            Me.ogcPOLine.DataSource = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+                _Cmd = "Select  Distinct FTPORef , FTNikePOLineItem"
+                _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_D As D with(nolock) "
+                _Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'"
+                '_oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+                Me.ogcPOLine.DataSource = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
 
-            Me.FTHarmonizedCode.Text = ""
-            Me.FNHSysExpSoldId_None.Text = ""
-            Me.FNHSysExpShipId_None.Text = ""
-            _SuplCode = ""
-            For Each R As DataRow In _oDt.Rows
-                Me.FNHSysExpSoldId_None.Text = R!FTAddrSold.ToString
-                Me.FNHSysExpShipId_None.Text = R!FTAddrShip.ToString
-                Me.FTHarmonizedCode.Text = "" ' R!FTHTSData.ToString
-                Me.FNHSysSuplId.Text = R!FTSuplCode.ToString
-                _SuplCode = R!FTSuplCode.ToString
-                Exit For
-            Next
+                Me.FTHarmonizedCode.Text = ""
+                Me.FNHSysExpSoldId_None.Text = ""
+                Me.FNHSysExpShipId_None.Text = ""
+                _SuplCode = ""
+                For Each R As DataRow In _oDt.Rows
+                    Me.FNHSysExpSoldId_None.Text = R!FTAddrSold.ToString
+                    Me.FNHSysExpShipId_None.Text = R!FTAddrShip.ToString
+                    Me.FTHarmonizedCode.Text = "" ' R!FTHTSData.ToString
+                    Me.FNHSysSuplId.Text = R!FTSuplCode.ToString
+                    _SuplCode = R!FTSuplCode.ToString
+                    Exit For
+                Next
 
-
-
-            '_Cmd = " SELECT  Top 1  '0' AS FTSelect ,   FTPckPlanNo,P.FTPORef, FNQuantity, FNPackcount, FNNet, FNTotalNet, FNGrossWeight, P.FNHSysUnitId, FNVol, FTVolUnit, isnull( FTApproveState ,'0') as FTApproveState , FTApproveBy,  FDApproveDate "
-            '_Cmd &= vbCrLf & " ,  isnull(P.FDShipDate,  V.FDShipDate) as  FDShipDate  ,  isnull(FNHSysMainMatSpecId,0) as  FNHSysMainMatSpecId  , V.FNHSysProvinceId as  FNHSysProvinceId_Hide  "
-            '_Cmd &= vbCrLf & " ,   V.FTMainMatSpecEN as FTMainMatSpec   "
-            '_Cmd &= vbCrLf & " ,   (Select Top 1 isnull(FTProvinceCode,'') as FTProvinceCode  From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCMMProvince  WITH (NOLOCK)  Where FNHSysProvinceId = V.FNHSysProvinceId )  as FNHSysProvinceId  "
-            '_Cmd &= vbCrLf & " ,     V.FTPlantCode , V.FTCmpCode , V.FNHSysCmpId , V.FTAddressInvoice ,  V.FNHSysCustId , V.FTCustCode , V.FTCustNameEN   , V.FNHSysShipModeId, V.FTShipModeCode  , V.FNHSysCountryId "
-            '_Cmd &= vbCrLf & " ,R.FTInvoiceNo , R.FTInvoiceNoPre  , FTHTSData , FTCatData , CT.FTCustExpProductDesc , V.FTStyleCode  , V.FTProvinceNameEN as FTProvinceName, V.FTCountryNameEN as FTCountryName , V.FTCountry "
-            ''_Cmd &= vbCrLf & "  , case when isnull(CC.FNWidth,0)  = 0 then '0' else   "
-            ''_Cmd &= vbCrLf & "  convert(nvarchar(30),  convert(numeric(18,2),(isnull(CC.FNWidth,0) /10))) + ' x ' +  convert(nvarchar(30), convert(numeric(18,2) , ( CC.FNLength/10)) ) +' x '+  convert(nvarchar(30),  convert(numeric(18,2),(CC.FNWeight * 10))) end AS FNCNT  "
+                '_Cmd = " SELECT  Top 1  '0' AS FTSelect ,   FTPckPlanNo,P.FTPORef, FNQuantity, FNPackcount, FNNet, FNTotalNet, FNGrossWeight, P.FNHSysUnitId, FNVol, FTVolUnit, isnull( FTApproveState ,'0') as FTApproveState , FTApproveBy,  FDApproveDate "
+                '_Cmd &= vbCrLf & " ,  isnull(P.FDShipDate,  V.FDShipDate) as  FDShipDate  ,  isnull(FNHSysMainMatSpecId,0) as  FNHSysMainMatSpecId  , V.FNHSysProvinceId as  FNHSysProvinceId_Hide  "
+                '_Cmd &= vbCrLf & " ,   V.FTMainMatSpecEN as FTMainMatSpec   "
+                '_Cmd &= vbCrLf & " ,   (Select Top 1 isnull(FTProvinceCode,'') as FTProvinceCode  From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCMMProvince  WITH (NOLOCK)  Where FNHSysProvinceId = V.FNHSysProvinceId )  as FNHSysProvinceId  "
+                '_Cmd &= vbCrLf & " ,     V.FTPlantCode , V.FTCmpCode , V.FNHSysCmpId , V.FTAddressInvoice ,  V.FNHSysCustId , V.FTCustCode , V.FTCustNameEN   , V.FNHSysShipModeId, V.FTShipModeCode  , V.FNHSysCountryId "
+                '_Cmd &= vbCrLf & " ,R.FTInvoiceNo , R.FTInvoiceNoPre  , FTHTSData , FTCatData , CT.FTCustExpProductDesc , V.FTStyleCode  , V.FTProvinceNameEN as FTProvinceName, V.FTCountryNameEN as FTCountryName , V.FTCountry "
+                ''_Cmd &= vbCrLf & "  , case when isnull(CC.FNWidth,0)  = 0 then '0' else   "
+                ''_Cmd &= vbCrLf & "  convert(nvarchar(30),  convert(numeric(18,2),(isnull(CC.FNWidth,0) /10))) + ' x ' +  convert(nvarchar(30), convert(numeric(18,2) , ( CC.FNLength/10)) ) +' x '+  convert(nvarchar(30),  convert(numeric(18,2),(CC.FNWeight * 10))) end AS FNCNT  "
 
 
-            '_Cmd &= vbCrLf & " From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTPackPlan AS P WITH(NOLOCK)  "
-            '_Cmd &= vbCrLf & "  LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].. V_ExportInvoice_H AS V ON P.FTPORef = V.FTPORef   "
-            '_Cmd &= vbCrLf & " LEFT OUTER JOIN  (  SELECT Distinct  H.FTInvoiceNo, H.FTInvoiceRefNo, D.FTPORef , isnull(R.FTInvoiceNo,'') AS FTInvoiceNoPre   "
-            '_Cmd &= vbCrLf & "   FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMBookigInvoice AS H WITH (NOLOCK) LEFT OUTER  JOIN  "
-            '_Cmd &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMBookigInvoice_D AS D WITH (NOLOCK) ON H.FTInvoiceNo = D.FTInvoiceNo "
-            '_Cmd &= vbCrLf & "     LEFT OUTER JOIN (	  Select   FTInvoiceNo,FTInvoiceRefNo  From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMInvoice_Ref WITH(NOLOCK)   "
-            '_Cmd &= vbCrLf & "  ) as R ON H.FTInvoiceNo  = R.FTInvoiceRefNo  ) AS R  ON   P.FTPORef  = R.FTPORef"
-            ''_Cmd &= vbCrLf & "  LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..V_TCNMCarton AS CC ON R.FNHSysCartonId = CC.FNHSysCartonId"
+                '_Cmd &= vbCrLf & " From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTPackPlan AS P WITH(NOLOCK)  "
+                '_Cmd &= vbCrLf & "  LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].. V_ExportInvoice_H AS V ON P.FTPORef = V.FTPORef   "
+                '_Cmd &= vbCrLf & " LEFT OUTER JOIN  (  SELECT Distinct  H.FTInvoiceNo, H.FTInvoiceRefNo, D.FTPORef , isnull(R.FTInvoiceNo,'') AS FTInvoiceNoPre   "
+                '_Cmd &= vbCrLf & "   FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMBookigInvoice AS H WITH (NOLOCK) LEFT OUTER  JOIN  "
+                '_Cmd &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMBookigInvoice_D AS D WITH (NOLOCK) ON H.FTInvoiceNo = D.FTInvoiceNo "
+                '_Cmd &= vbCrLf & "     LEFT OUTER JOIN (	  Select   FTInvoiceNo,FTInvoiceRefNo  From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMInvoice_Ref WITH(NOLOCK)   "
+                '_Cmd &= vbCrLf & "  ) as R ON H.FTInvoiceNo  = R.FTInvoiceRefNo  ) AS R  ON   P.FTPORef  = R.FTPORef"
+                ''_Cmd &= vbCrLf & "  LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..V_TCNMCarton AS CC ON R.FNHSysCartonId = CC.FNHSysCartonId"
 
-            '_Cmd &= vbCrLf & "  LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMHTSData AS C WITH(NOLOCK) ON V.FNHSysProdTypeId = C.FNHSysProdTypeId and V.FNHSysGenderId = C.FNHSysGenderId "
-            '_Cmd &= vbCrLf & "  LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "]..TCNMCustomer AS CT WITH(NOLOCK) ON V.FNHSysCustId= CT.FNHSysCustId "
+                '_Cmd &= vbCrLf & "  LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMHTSData AS C WITH(NOLOCK) ON V.FNHSysProdTypeId = C.FNHSysProdTypeId and V.FNHSysGenderId = C.FNHSysGenderId "
+                '_Cmd &= vbCrLf & "  LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "]..TCNMCustomer AS CT WITH(NOLOCK) ON V.FNHSysCustId= CT.FNHSysCustId "
 
-            '_Cmd &= vbCrLf & " where  R.FTInvoiceNoPre='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'"
-            ''_Cmd &= vbCrLf & " and P.FTPORef not in (Select distinct FTPORef  from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_D as D WITH(NOLOCK)   "
-            ''_Cmd &= vbCrLf & "LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMInvoice AS H WITH(NOLOCK) ON D.FTInvoiceNo = H.FTInvoiceNo where isnull( H.FTStateApprove,'') = '1' ) "
-            '_Cmd &= vbCrLf & " ORder by R.FTInvoiceNo  ASC  ,P.FTPORef ASC "
-            'Dim _dt As New System.Data.DataTable
-            '_dt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+                '_Cmd &= vbCrLf & " where  R.FTInvoiceNoPre='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'"
+                ''_Cmd &= vbCrLf & " and P.FTPORef not in (Select distinct FTPORef  from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_D as D WITH(NOLOCK)   "
+                ''_Cmd &= vbCrLf & "LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMInvoice AS H WITH(NOLOCK) ON D.FTInvoiceNo = H.FTInvoiceNo where isnull( H.FTStateApprove,'') = '1' ) "
+                '_Cmd &= vbCrLf & " ORder by R.FTInvoiceNo  ASC  ,P.FTPORef ASC "
+                'Dim _dt As New System.Data.DataTable
+                '_dt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
 
-            'Try
-            '    Me.FTHarmonizedCode.Text = _dt.Rows(0).Item("FTHTSData").ToString
-            'Catch ex As Exception
-            '    Me.FTHarmonizedCode.Text = ""
-            'End Try
+                'Try
+                '    Me.FTHarmonizedCode.Text = _dt.Rows(0).Item("FTHTSData").ToString
+                'Catch ex As Exception
+                '    Me.FTHarmonizedCode.Text = ""
+                'End Try
 
-            _Cmd = "SELECT   D.FTInvoiceNo, D.FTInvoiceRefNo ,FTBookingNo "
-            _Cmd &= vbCrLf & "   FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].. TEXPTCMInvoice_Ref AS D WITH(NOLOCK)   "
-            _Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'"
-            _Cmd &= vbCrLf & " ORDER BY D.FTInvoiceRefNo  ASC "
-            Me.ogcBookRef.DataSource = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+                _Cmd = "SELECT   D.FTInvoiceNo, D.FTInvoiceRefNo ,FTBookingNo "
+                _Cmd &= vbCrLf & "   FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].. TEXPTCMInvoice_Ref AS D WITH(NOLOCK)   "
+                _Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'"
+                _Cmd &= vbCrLf & " ORDER BY D.FTInvoiceRefNo  ASC "
+                Me.ogcBookRef.DataSource = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
 
-            Call LoadChkMainMatDesc()
+                Call LoadChkMainMatDesc()
+
+            Else
+
+                Dim _Cmd As String = ""
+                Dim _oDt As System.Data.DataTable
+
+                Dim _PriceDIstinct As Double = 0
+                _PriceDIstinct = HI.Conn.SQLConn.GetField(" Select  FNPriceDis  from fn_getDistinctExport('" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "')", Conn.DB.DataBaseName.DB_ACCOUNT, "1")
+
+
+                _Cmd &= vbCrLf & " Select  distinct D.FTInvoiceNo, D.FTPORef, D.FNHSysStyleId, D.FNCTNS, D.FNTNW, D.FNTGW, D.FNQuantity, ROUND ((isnull(BD.FNNetPrice ,BD.FNPrice) * 1),2) As FNUnitPrice "
+                _Cmd &= vbCrLf & ",ROUND(( isnull(BD.FNNetPrice ,BD.FNPrice) * 1),2) * D.FNQuantity as FNTotalAmount, T.FTStyleCode , D.FTColorway, D.FTSizeBreakDown ,D.FTNikePOLineItem ,D.FNHSysCartonId , C.FTCartonCode ,D.FTRangeNo , D.FTLineNo "
+                _Cmd &= vbCrLf & " , D.FTPORefNo , isnull(BD.FNNetPrice,0) as FNNetPriceImport   ,PL.FTAddr1EN   AS FTAddrSold  ,PV.FTRemark   AS FTAddrShip , isnull(ZS.FTSuplCode ,  R.FTSuplCode ) as FTSuplCode "
+                _Cmd &= vbCrLf & " ,BD.FNHSysPlantId , BD.FNHSysProvinceId  FROM  [HITECH_ACCOUNT].dbo.TEXPTCMInvoice_D As D with(nolock) INNER JOIN "
+                _Cmd &= vbCrLf & " [HITECH_ACCOUNT].dbo.TEXPTCMInvoice AS H WITH(NOLOCK) ON  D.FTInvoiceNo = H.FTInvoiceNo INNER JOIN "
+                _Cmd &= vbCrLf & " [HITECH_MASTER].dbo.TMERMStyle As T with(nolock) On D.FNHSysStyleId = T.FNHSysStyleId"
+                _Cmd &= vbCrLf & " Left OUTER JOIN [HITECH_MASTER].dbo.TCNMCarton AS C WITH(NOLOCK)  ON     D.FNHSysCartonId  = C.FNHSysCartonId  "
+
+                '_Cmd &= vbCrLf & " --	LEFT OUTER JOIN [HITECH_PRODUCTION].dbo.TPACKOrderPack_Carton_Detail AS PD WITH(NOLOCK)  ON D.FTPORef = PD.FTPORef And D.FTPORefNo = PD.FTPORefNo  "
+                '_Cmd &= vbCrLf & " --And D.FTRangeNo = PD.FTRangeNo And D.FTSizeBreakDown = PD.FTSizeBreakDown And D.FTColorway = PD.FTColorWay "
+                '_Cmd &= vbCrLf & "--	LEFT OUTER JOIN [HITECH_ACCOUNT].dbo.TEXPTPackPlan AS PH WITH(NOLOCK) ON PD.FTPckPlanNo = PH.FTPckPlanNo And PD.FTPORef = PH.FTPORef And PD.FTPORefNo = PH.FTPORefNo "
+
+                _Cmd &= vbCrLf & "Left OUTER JOIN   [HITECH_ACCOUNT].dbo. V_Order_Export_ShipDestination AS BD   ON  convert(nvarchar(5), convert(int, D.FTNikePOLineItem)) = BD.FTNikePOLineItem"
+                _Cmd &= vbCrLf & " And D.FTSizeBreakDown = BD.FTSizeBreakDown And D.FTPORef = BD.FTPORef And D.FNHSysStyleId = BD.FNHSysStyleId-- And RIGHT( PD.FTShortDescription , 3) = BD.FTColorway  "
+                _Cmd &= vbCrLf & " Left OUTER JOIN [HITECH_MASTER].dbo.TMERMPlant AS PL with(nolock) ON BD.FNHSysPlantId = PL.FNHSysPlantId"
+                _Cmd &= vbCrLf & " Left OUTER JOIN [HITECH_MASTER].dbo.TCNMContinent AS PT WITH(NOLOCK) ON BD.FNHSysContinentId = PT.FNHSysContinentId  "
+                _Cmd &= vbCrLf & "Left OUTER JOIN [HITECH_MASTER].dbo.TCNMSupplier AS R WITH(NOLOCK) ON PT.FNHSysSuplId = R.FNHSysSuplId  "
+                _Cmd &= vbCrLf & " Left OUTER JOIN [HITECH_MASTER].dbo.TCMMProvince AS PV with(nolock) on BD.FNHSysProvinceId = PV.FNHSysProvinceId "
+                _Cmd &= vbCrLf & " Left outer join [HITECH_MASTER].dbo.TMERMVenderPram as VN ON  BD.FNHSysVenderPramId = VN.FNHSysVenderPramId "
+                _Cmd &= vbCrLf & " outer apply(Select  top  1  ZT.FNHSysSuplId , ZS.FTSuplCode "
+                _Cmd &= vbCrLf & "  From [HITECH_MASTER].dbo.TCMMCountryForwarder ZT  "
+                _Cmd &= vbCrLf & " Left outer join   [HITECH_MASTER].dbo.TCNMSupplier AS ZS with(nolock) ON ZT.FNHSysSuplId = ZS.FNHSysSuplId"
+                _Cmd &= vbCrLf & "  where  BD.FNHSysCountryId = ZT.FNHSysCountryId  "
+                _Cmd &= vbCrLf & " And BD.FNHSysVenderPramId  = ZT.FNHSysVenderPramId   ) ZS "
+                _Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'"
+                _Cmd &= vbCrLf & " ORDER BY  D.FTNikePOLineItem  ASC , D.FTPORef ASC , D.FTRangeNo ASC , D.FTLineNo  ASC "
+
+
+                _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+                Me.ogcdetail.DataSource = _oDt
+
+
+                _Cmd = "Select  Distinct FTPORef , FTNikePOLineItem"
+                _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_D As D with(nolock) "
+                _Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'"
+                '_oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+                Me.ogcPOLine.DataSource = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                Me.FTHarmonizedCode.Text = ""
+                Me.FNHSysExpSoldId_None.Text = ""
+                Me.FNHSysExpShipId_None.Text = ""
+                _SuplCode = ""
+                For Each R As DataRow In _oDt.Rows
+                    Me.FNHSysExpSoldId_None.Text = R!FTAddrSold.ToString
+                    Me.FNHSysExpShipId_None.Text = R!FTAddrShip.ToString
+                    Me.FTHarmonizedCode.Text = "" ' R!FTHTSData.ToString
+                    Me.FNHSysSuplId.Text = R!FTSuplCode.ToString
+                    _SuplCode = R!FTSuplCode.ToString
+                    Exit For
+                Next
+
+                _Cmd = "SELECT   D.FTInvoiceNo, D.FTInvoiceRefNo ,FTBookingNo "
+                _Cmd &= vbCrLf & "   FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].. TEXPTCMInvoice_Ref AS D WITH(NOLOCK)   "
+                _Cmd &= vbCrLf & " where  D.FTInvoiceNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'"
+                _Cmd &= vbCrLf & " ORDER BY D.FTInvoiceRefNo  ASC "
+                Me.ogcBookRef.DataSource = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+                Call LoadChkMainMatDesc()
+
+            End If
 
         Catch ex As Exception
+
+
 
         End Try
     End Sub
 
     Private Function SaveDataDetail() As Boolean
         Try
+
             Dim _Cmd As String = "" : Dim _oDt As System.Data.DataTable
             _Cmd = "Delete From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TEXPTCMInvoice_D  "
             _Cmd &= vbCrLf & " WHERE FTInvoiceNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'"
@@ -2722,7 +2862,7 @@ Public Class wExpCMInvoice
                 Next
                 _Cmd = _CmdUpd & " , " & _ValueUpd & " " & _Where
                 If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
-                    _Cmd = _CmdIns & " " & _Value
+                    _Cmd= _CmdIns & " " & _Value
                     If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                         HI.Conn.SQLConn.Tran.Rollback()
                         HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
@@ -3236,7 +3376,7 @@ Public Class wExpCMInvoice
             Dim _dt As New System.Data.DataTable
             '_dt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
 
-            _Cmd = "Select '1' AS FTSelect ,  FTInvoiceNo as FTInvoiceGrp,FTInvoiceRefNo as FTInvoiceNo  From   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMInvoice_Ref WITH(NOLOCK)   "
+            _Cmd = "Select '1' AS FTSelect ,  FTInvoiceNo as FTInvoiceGrp, FTInvoiceRefNo as FTInvoiceNo  From   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMInvoice_Ref WITH(NOLOCK)   "
             _Cmd &= vbCrLf & " where FTInvoiceNo ='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
             _dt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
 
@@ -3273,6 +3413,7 @@ Public Class wExpCMInvoice
                     _DocRefDocGrpNo = ""
                     _PreInvoice = ""
                     Dim _RCount As Integer = 1 : _DocInvoce = ""
+
                     For Each R As DataRow In .Select("FTSelect ='1' and FTInvoiceNo <> ''", "FTInvoiceNo  ASC ")
                         _Cmd = "SELECT Top 1  FTInvoiceRefNo  FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMBookigInvoice AS H WITH (NOLOCK) where FTInvoiceNo = '" & R!FTInvoiceNo.ToString & "'"
                         _DocInvoce = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT, "")
@@ -3297,6 +3438,7 @@ Public Class wExpCMInvoice
                         _DocRefDocGrpNo = _DocInvoce
                         _RCount += +1
                     Next
+
                     If _RCount = 1 Then
                         _PreInvoice = ""
 
@@ -3305,6 +3447,7 @@ Public Class wExpCMInvoice
                     _PreInvoiceGrp = _DocInvoce & _PreInvoice
 
                 End If
+
             End With
             Return _PreInvoiceGrp
         Catch ex As Exception
@@ -3739,5 +3882,164 @@ Public Class wExpCMInvoice
         End Try
     End Sub
 
+    Private Sub ocmpreview_p_Click(sender As Object, e As EventArgs) Handles ocmpreview_p.Click
+
+        If Not VerrifyData() Then Exit Sub
+        Dim _spls As New HI.TL.SplashScreen("Loading... Report.Please Wait.", "Preview Report")
+
+        If FNHSysCustId.Text <> "SC" Then
+            '    Call SaveData()
+            '    GenTruckWay()
+
+            '    Dim _FOBDescription As String = "" : Dim _HTSData As String = "" : Dim _CatData As String = ""
+            '    _FOBDescription = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From V_TCNMSupplier_forFOBDesc where FNHSysSuplId=" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
+            '    _HTSData = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From V_TCNMSupplier_forFOBDesc where FNHSysSuplId=" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
+            '    _CatData = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From  [Fn_getCAtData]('3502237429')" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
+
+
+            '    Dim _Cmd As String = ""
+            '    _Cmd = "Delete  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TmpReportExportInv_GrpPrice "
+            '    _Cmd &= vbCrLf & " where Expr1='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
+            '    _Cmd &= vbCrLf & " where  FTUserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            '    HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+            '    _Cmd &= vbCrLf & "    SELECT V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, CONVERT(varchar(20), CONVERT(numeric(18, 2), "
+            '    _Cmd &= vbCrLf & "    V_ReportExportInv.FNUnitPrice)) AS FNUnitPrice, V_ReportExportInv.FTPORef, V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo,   "
+            '    _Cmd &= vbCrLf & "    V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo AS Expr1 "
+            '    _Cmd &= vbCrLf & "    INTO #Tmp "
+            '    _Cmd &= vbCrLf & "    FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..V_ReportExportInv_Assort AS V_ReportExportInv INNER  JOIN "
+            '    _Cmd &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].. V_ReportExportInv_Grp AS V_ReportExportInv_Grp ON V_ReportExportInv.FTInvoiceGrpNo = V_ReportExportInv_Grp.FTInvoiceBookNo "
+            '    _Cmd &= vbCrLf & "                                       [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..V_TMERMMainMatSpec AS V_TMERMMainMatSpec ON V_ReportExportInv.FNHSysStyleId = V_TMERMMainMatSpec.FNHSysStyleId   "
+            '    _Cmd &= vbCrLf & "                                                               AND   V_ReportExportInv.FNHSysSeasonId = V_TMERMMainMatSpec.FNHSysSeasonId"
+            '    _Cmd &= vbCrLf & " where V_ReportExportInv_Grp.FTInvoiceGrpNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
+            '    _Cmd &= vbCrLf & " GROUP BY V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, V_ReportExportInv.FNUnitPrice, V_ReportExportInv.FTPORef, "
+            '    _Cmd &= vbCrLf & " V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo,   V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo "
+            '    _Cmd &= vbCrLf & "    "
+
+            '    _Cmd &= vbCrLf & " insert into     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TmpReportExportInv_GrpPrice "
+            '    _Cmd &= vbCrLf & " (FTUserLogin, FTNikePOLineItem, FNTNW, FNTGW, FNCTNS, FNUnitPrice, FTPORef, FTInvoiceGrpNo, FTInvoiceBookNo, FTMainMatSpecCode, FTRangeNo, Expr1, FNHSysStyleId, FNUnitPriceMuti)"
+            '    _Cmd &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "', V_ReportExportInv.FTNikePOLineItem,  V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS,  isnull(V_ReportExportInv.FNUnitPrice,0) as FNUnitPrice,   "
+            '    _Cmd &= vbCrLf & "       V_ReportExportInv.FTPORef, V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo, V_TMERMMainMatSpec.FTMainMatSpecCode, V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo AS Expr1, V_ReportExportInv.FNHSysStyleId,"
+            '    _Cmd &= vbCrLf & "    (SELECT TOP 1 STUFF "
+            '    _Cmd &= vbCrLf & "     ((SELECT  distinct ' / ' + t2.FNUnitPrice   "
+            '    _Cmd &= vbCrLf & "               FROM       #Tmp  as  t2 "
+            '    _Cmd &= vbCrLf & "     "
+            '    _Cmd &= vbCrLf & "     WHERE   t2.FTPORef = V_ReportExportInv.FTPORef AND t2.FTInvoiceGrpNo = V_ReportExportInv.FTInvoiceGrpNo AND t2.FTRangeNo = V_ReportExportInv.FTRangeNo  " 'AND   t2.FTNikePOLineItem = V_ReportExportInv.FTNikePOLineItem 
+            '    _Cmd &= vbCrLf & "                     FOR XML PATH('')), 1, 2, '') AS FTSubOrderNo) AS FNUnitPriceMuti "
+            '    _Cmd &= vbCrLf & "    FROM     V_ReportExportInv_Assort AS V_ReportExportInv INNER JOIN "
+            '    _Cmd &= vbCrLf & "     V_ReportExportInv_Grp AS V_ReportExportInv_Grp ON V_ReportExportInv.FTInvoiceGrpNo = V_ReportExportInv_Grp.FTInvoiceBookNo INNER JOIN "
+            '    _Cmd &= vbCrLf & "       V_TMERMMainMatSpec AS V_TMERMMainMatSpec ON V_ReportExportInv.FNHSysStyleId = V_TMERMMainMatSpec.FNHSysStyleId  "
+            '    _Cmd &= vbCrLf & " where V_ReportExportInv_Grp.FTInvoiceGrpNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
+            '    _Cmd &= vbCrLf & " GROUP BY V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv_Grp.FTInvoiceBookNo, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, V_ReportExportInv.FNUnitPrice, V_ReportExportInv.FTPORef,  "
+            '    _Cmd &= vbCrLf & "   V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo, V_TMERMMainMatSpec.FTMainMatSpecCode, V_ReportExportInv.FTRangeNo, V_ReportExportInv.FNHSysStyleId, V_ReportExportInv_Grp.FTInvoiceGrpNo"
+            '    HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+
+            '    _Cmd &= vbCrLf & "Delete  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.Tmp_V_ReportExportInv "
+            '    _Cmd &= vbCrLf & " where FTUserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            '    _Cmd &= vbCrLf & " insert into     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.Tmp_V_ReportExportInv "
+            '    _Cmd &= vbCrLf & " ( FTUserLogIn  ,  FTCmpCode, FTCmpNameTH, FTCmpNameEN, FTAddressInvoiceTH, FTAddressInvoiceEN, FTExpSoldAddrEN, FTRemark, FTInvoiceNo, FTInvoiceBy, FDInvoiceDate, FTShipModeCode, FTShipModenNameTH,  "
+            '    _Cmd &= vbCrLf & " FTShipModeNameEN, FTShipPortCode, FTShipPortNameTH, Expr1, FTProvinceCode, FTProvinceNameTH, FTProvinceNameEN, FTPORef, FTStyleCode, FNQuantity, FNUnitPrice, FNTotalAmount, FTTotalAmountTHB, FTTotalAmountENB, "
+            '    _Cmd &= vbCrLf & " FTNikePOLineItem, FTColorway, FTSizeBreakDown, FTVesserName, FNHSysTermOfPMId, FNHSysCrTermId, FNExchangeRate, FNCreditDay, FNCTNS, FNTNW, FNTGW, FNHSysCartonId, FNHSysSeasonId, FNHSysCmpId, "
+            '    _Cmd &= vbCrLf & " FTStateSendApp, FTSandApproveBy, FDSendAapproveDate, FTSendApproveTime, FTStateApprove, FTApproveBy, FDApproveDate, FTApproveTime, FTCustNameEN, FTCustNameTH, FTCustCode, FTExpShipNameEN, FTExpShipCode,  "
+            '    _Cmd &= vbCrLf & "  FDESTTimeDept, FDESTTimeArrl, FTInvoiceBookNo, FDShipDate, FNHSysCurId, FTCurDescEN, FNHSysStyleId, FTRangeNo, FTLineNo, FTDiamondMarkCode, FTInvoiceGrp, FTPORefNo , FNHSysSuplId , FTFOBDescripton) "
+            '    _Cmd &= vbCrLf & "SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  , FTCmpCode, FTCmpNameTH, FTCmpNameEN, FTAddressInvoiceTH, FTAddressInvoiceEN, FTExpSoldAddrEN, FTRemark, FTInvoiceNo, FTInvoiceBy, FDInvoiceDate, FTShipModeCode, FTShipModenNameTH,   "
+            '    _Cmd &= vbCrLf & "FTShipModeNameEN, FTShipPortCode, FTShipPortNameTH, Expr1, FTProvinceCode, FTProvinceNameTH, FTProvinceNameEN, FTPORef, FTStyleCode, FNQuantity, FNUnitPrice, FNTotalAmount, FTTotalAmountTHB, FTTotalAmountENB,  "
+            '    _Cmd &= vbCrLf & " FTNikePOLineItem, FTColorwayCode, FTSizeBreakDown, FTVesserName, FNHSysTermOfPMId, FNHSysCrTermId, FNExchangeRate, FNCreditDay, FNCTNS, FNTNW, FNTGW, FNHSysCartonId, FNHSysSeasonId, FNHSysCmpId, "
+            '    _Cmd &= vbCrLf & " FTStateSendApp, FTSandApproveBy, FDSendAapproveDate, FTSendApproveTime, FTStateApprove, FTApproveBy, FDApproveDate, FTApproveTime, FTCustNameEN, FTCustNameTH, FTCustCode, FTExpShipNameEN, FTExpShipCode, "
+            '    _Cmd &= vbCrLf & " FDESTTimeDept, FDESTTimeArrl, FTInvoiceBookNo, FDShipDate, FNHSysCurId, FTCurDescEN, FNHSysStyleId, FTRangeNo, FTLineNo, FTDiamondMarkCode, FTInvoiceGrp, FTPORefNo ," & Val(Me.FNHSysSuplId.Properties.Tag) & " ,'" & _FOBDescription & "'"
+            '    _Cmd &= vbCrLf & "FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.V_ReportExportInv "
+            '    _Cmd &= vbCrLf & " WHERE  (FTInvoiceNo = '" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "')"
+            '    HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+
+            'Else
+
+
+            Dim _FOBDescription As String = "" : Dim _HTSData As String = "" : Dim _CatData As String = ""
+            _FOBDescription = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From V_TCNMSupplier_forFOBDesc where FNHSysSuplId=" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
+            '_HTSData = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From V_TCNMSupplier_forFOBDesc where FNHSysSuplId=" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
+            '_CatData = HI.Conn.SQLConn.GetField("Select Top 1 FTFOBDescripton  From  [Fn_getCAtData]('3502237429')" & Val(FNHSysSuplId.Properties.Tag), Conn.DB.DataBaseName.DB_ACCOUNT, "")
+
+
+            Dim _Cmd As String = ""
+            _Cmd = "Delete  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TmpReportExportInv_GrpPrice "
+            '_Cmd &= vbCrLf & " where Expr1='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
+            _Cmd &= vbCrLf & " where  FTUserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            'HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+            _Cmd &= vbCrLf & "    SELECT V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, CONVERT(varchar(20), CONVERT(numeric(18, 2), "
+            _Cmd &= vbCrLf & "    V_ReportExportInv.FNUnitPrice)) AS FNUnitPrice, V_ReportExportInv.FTPORef, V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo,   "
+            _Cmd &= vbCrLf & "    V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo AS Expr1 "
+            _Cmd &= vbCrLf & "    INTO #Tmp "
+            _Cmd &= vbCrLf & "    FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..V_ReportExportInv_Assort AS V_ReportExportInv INNER  JOIN "
+            _Cmd &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].. V_ReportExportInv_Grp AS V_ReportExportInv_Grp ON V_ReportExportInv.FTInvoiceGrpNo = V_ReportExportInv_Grp.FTInvoiceBookNo "
+            '_Cmd &= vbCrLf & "                                       [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..V_TMERMMainMatSpec AS V_TMERMMainMatSpec ON V_ReportExportInv.FNHSysStyleId = V_TMERMMainMatSpec.FNHSysStyleId   "
+            '_Cmd &= vbCrLf & "                                                               AND   V_ReportExportInv.FNHSysSeasonId = V_TMERMMainMatSpec.FNHSysSeasonId"
+            _Cmd &= vbCrLf & " where V_ReportExportInv_Grp.FTInvoiceGrpNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
+            _Cmd &= vbCrLf & " GROUP BY V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, V_ReportExportInv.FNUnitPrice, V_ReportExportInv.FTPORef, "
+            _Cmd &= vbCrLf & " V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo,   V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo "
+            _Cmd &= vbCrLf & "    "
+
+            _Cmd &= vbCrLf & " insert into     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TmpReportExportInv_GrpPrice "
+            _Cmd &= vbCrLf & " (FTUserLogin, FTNikePOLineItem, FNTNW, FNTGW, FNCTNS, FNUnitPrice, FTPORef, FTInvoiceGrpNo, FTInvoiceBookNo, FTMainMatSpecCode, FTRangeNo, Expr1, FNHSysStyleId, FNUnitPriceMuti)"
+            _Cmd &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "', V_ReportExportInv.FTNikePOLineItem,  V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS,  isnull(V_ReportExportInv.FNUnitPrice,0) as FNUnitPrice,   "
+            _Cmd &= vbCrLf & "       V_ReportExportInv.FTPORef, V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo, V_TMERMMainMatSpec.FTMainMatSpecCode, V_ReportExportInv.FTRangeNo, V_ReportExportInv_Grp.FTInvoiceGrpNo AS Expr1, V_ReportExportInv.FNHSysStyleId,"
+            _Cmd &= vbCrLf & "    (SELECT TOP 1 STUFF "
+            _Cmd &= vbCrLf & "     ((SELECT  distinct ' / ' + t2.FNUnitPrice   "
+            _Cmd &= vbCrLf & "               FROM       #Tmp  as  t2 "
+            _Cmd &= vbCrLf & "     "
+            _Cmd &= vbCrLf & "     WHERE   t2.FTPORef = V_ReportExportInv.FTPORef AND t2.FTInvoiceGrpNo = V_ReportExportInv.FTInvoiceGrpNo AND t2.FTRangeNo = V_ReportExportInv.FTRangeNo  " 'AND   t2.FTNikePOLineItem = V_ReportExportInv.FTNikePOLineItem 
+            _Cmd &= vbCrLf & "                     FOR XML PATH('')), 1, 2, '') AS FTSubOrderNo) AS FNUnitPriceMuti "
+            _Cmd &= vbCrLf & "    FROM     V_ReportExportInv_Assort AS V_ReportExportInv INNER JOIN "
+            _Cmd &= vbCrLf & "     V_ReportExportInv_Grp AS V_ReportExportInv_Grp ON V_ReportExportInv.FTInvoiceGrpNo = V_ReportExportInv_Grp.FTInvoiceBookNo INNER JOIN "
+            _Cmd &= vbCrLf & "       V_TMERMMainMatSpec AS V_TMERMMainMatSpec ON V_ReportExportInv.FNHSysStyleId = V_TMERMMainMatSpec.FNHSysStyleId  "
+            _Cmd &= vbCrLf & " where V_ReportExportInv_Grp.FTInvoiceGrpNo='" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "' "
+            _Cmd &= vbCrLf & " GROUP BY V_ReportExportInv.FTNikePOLineItem, V_ReportExportInv_Grp.FTInvoiceBookNo, V_ReportExportInv.FNTNW, V_ReportExportInv.FNTGW, V_ReportExportInv.FNCTNS, V_ReportExportInv.FNUnitPrice, V_ReportExportInv.FTPORef,  "
+            _Cmd &= vbCrLf & "   V_ReportExportInv.FTInvoiceGrpNo, V_ReportExportInv.FTInvoiceBookNo, V_TMERMMainMatSpec.FTMainMatSpecCode, V_ReportExportInv.FTRangeNo, V_ReportExportInv.FNHSysStyleId, V_ReportExportInv_Grp.FTInvoiceGrpNo"
+            'HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+
+            _Cmd &= vbCrLf & "Delete  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.Tmp_V_ReportExportInv "
+            _Cmd &= vbCrLf & " where FTUserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            _Cmd &= vbCrLf & " insert into     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.Tmp_V_ReportExportInv "
+            _Cmd &= vbCrLf & " ( FTUserLogIn  ,  FTCmpCode, FTCmpNameTH, FTCmpNameEN, FTAddressInvoiceTH, FTAddressInvoiceEN, FTExpSoldAddrEN, FTRemark, FTInvoiceNo, FTInvoiceBy, FDInvoiceDate, FTShipModeCode, FTShipModenNameTH,  "
+            _Cmd &= vbCrLf & " FTShipModeNameEN, FTShipPortCode, FTShipPortNameTH, Expr1, FTProvinceCode, FTProvinceNameTH, FTProvinceNameEN, FTPORef, FTStyleCode, FNQuantity, FNUnitPrice, FNTotalAmount, FTTotalAmountTHB, FTTotalAmountENB, "
+            _Cmd &= vbCrLf & " FTNikePOLineItem, FTColorway, FTSizeBreakDown, FTVesserName, FNHSysTermOfPMId, FNHSysCrTermId, FNExchangeRate, FNCreditDay, FNCTNS, FNTNW, FNTGW, FNCBM,FTRemarkPallet, FNHSysCartonId, FNHSysSeasonId, FNHSysCmpId, "
+            _Cmd &= vbCrLf & " FTStateSendApp, FTSandApproveBy, FDSendAapproveDate, FTSendApproveTime, FTStateApprove, FTApproveBy, FDApproveDate, FTApproveTime, FTCustNameEN, FTCustNameTH, FTCustCode, FTExpShipNameEN, FTExpShipCode,  "
+            _Cmd &= vbCrLf & "  FDESTTimeDept, FDESTTimeArrl, FTInvoiceBookNo, FDShipDate, FNHSysCurId, FTCurDescEN, FNHSysStyleId, FTRangeNo, FTLineNo, FTDiamondMarkCode, FTInvoiceGrp, FTPORefNo  ,FTShipper, FNHSysSuplId , FTFOBDescripton) "
+            _Cmd &= vbCrLf & "SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  , FTCmpCode, FTCmpNameTH, FTCmpNameEN, FTAddressInvoiceTH, FTAddressInvoiceEN, FTExpSoldAddrEN, FTRemark, FTInvoiceNo, FTInvoiceBy, FDInvoiceDate, FTShipModeCode, FTShipModenNameTH,   "
+            _Cmd &= vbCrLf & "FTShipModeNameEN, FTShipPortCode, FTShipPortNameTH, mode, FTProvinceCode, FTProvinceNameTH, FTProvinceNameEN, FTPORef, FTStyleCode, FNQuantity, FNUnitPrice, FNTotalAmount, FTTotalAmountTHB, FTTotalAmountENB,  "
+            _Cmd &= vbCrLf & " FTNikePOLineItem, FTColorway, FTSizeBreakDown, FTVesserName, FNHSysTermOfPMId, FNHSysCrTermId, FNExchangeRate, FNCreditDay, FNCTNS, FNTNW, FNTGW, FNCBM,FTRemarkPallet, FNHSysCartonId, FNHSysSeasonId, FNHSysCmpId, "
+            _Cmd &= vbCrLf & " FTStateSendApp, FTSandApproveBy, FDSendAapproveDate, FTSendApproveTime, FTStateApprove, FTApproveBy, FDApproveDate, FTApproveTime, FTCustNameEN, FTCustNameTH, FTCustCode, FTExpShipNameEN, FTExpShipCode, "
+            _Cmd &= vbCrLf & " FDESTTimeDept, FDESTTimeArrl, FTInvoiceBookNo, FDShipDate, FNHSysCurId, FTCurDescEN, FNHSysStyleId, FTRangeNo, FTLineNo, FTDiamondMarkCode, FTInvoiceGrp, FTPORefNo ,FTShipper," & Val(Me.FNHSysSuplId.Properties.Tag) & " ,'" & _FOBDescription & "'"
+            _Cmd &= vbCrLf & "FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.V_ReportExportInv "
+            _Cmd &= vbCrLf & " WHERE  (FTInvoiceNo = '" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "')"
+            HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+
+        End If
+
+        Dim _Fm As String = ""
+
+        _Fm = "  {V_ReportExportInv.FTInvoiceNo} = '" & HI.UL.ULF.rpQuoted(Me.FTInvoiceNo.Text) & "'  "
+        With New HI.RP.Report
+            .FormTitle = Me.Text
+            .ReportFolderName = "Account\"
+            Select Case FNHSysCustId.Text
+                Case "SC"
+                    .ReportName = "RptExportInvoice_Non_Nike_PCK_WGH.rpt"
+                Case Else
+                    .ReportName = "RptExportInvoice_Nike.rpt"
+            End Select
+            .Formular = _Fm
+            .Preview()
+        End With
+        Try
+            _spls.Close()
+        Catch ex As Exception
+            _spls.Close()
+        End Try
+
+    End Sub
 
 End Class

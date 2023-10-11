@@ -558,7 +558,6 @@ Public Class wImportExcelDivert
                 BDSize = ListBreakDown.Item(Idx).BreakDownSize
                 BDQty = ListBreakDown.Item(Idx).BreakDownQty
 
-
                 If Idx = 0 Then
                     _Qry &= vbCrLf & "  ( FTColorway ='" & HI.UL.ULF.rpQuoted(OBDColorway) & "' AND FTSizeBreakDown ='" & HI.UL.ULF.rpQuoted(BDSize) & "' AND FNQuantity >=" & BDQty & " ) "
                 Else

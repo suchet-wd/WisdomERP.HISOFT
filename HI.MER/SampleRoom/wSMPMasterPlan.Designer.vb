@@ -19,11 +19,6 @@ Partial Class wSMPMasterPlan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim EditorButtonImageOptions5 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject17 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject18 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject19 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject20 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -39,6 +34,11 @@ Partial Class wSMPMasterPlan
         Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject13 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbStyleHeader = New DevExpress.XtraEditors.GroupControl()
         Me.FTEndRcvOrderDate = New DevExpress.XtraEditors.DateEdit()
         Me.FTEndRcvOrderDate_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -161,9 +161,9 @@ Partial Class wSMPMasterPlan
         Me.CCFNSMPOrderStatus = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNSMPOrderStatus = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTStandBy1 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.ReposFTNote = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.FNHSysBuyId = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTPgmName = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ReposFTNote = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         CType(Me.ogbStyleHeader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbStyleHeader.SuspendLayout()
         CType(Me.FTEndRcvOrderDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -354,7 +354,7 @@ Partial Class wSMPMasterPlan
         '
         Me.FNHSysMerTeamId.Location = New System.Drawing.Point(465, 32)
         Me.FNHSysMerTeamId.Name = "FNHSysMerTeamId"
-        Me.FNHSysMerTeamId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "153", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysMerTeamId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "153", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysMerTeamId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysMerTeamId.Properties.Tag = ""
         Me.FNHSysMerTeamId.Size = New System.Drawing.Size(133, 20)
@@ -450,7 +450,7 @@ Partial Class wSMPMasterPlan
         '
         Me.FNHSysCustId.Location = New System.Drawing.Point(465, 55)
         Me.FNHSysCustId.Name = "FNHSysCustId"
-        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCustId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCustId.Properties.Tag = ""
         Me.FNHSysCustId.Size = New System.Drawing.Size(133, 20)
@@ -518,7 +518,7 @@ Partial Class wSMPMasterPlan
         '
         Me.FNHSysSeasonId.Location = New System.Drawing.Point(144, 55)
         Me.FNHSysSeasonId.Name = "FNHSysSeasonId"
-        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSeasonId.Properties.Tag = ""
         Me.FNHSysSeasonId.Size = New System.Drawing.Size(162, 20)
         Me.FNHSysSeasonId.TabIndex = 548
@@ -556,7 +556,7 @@ Partial Class wSMPMasterPlan
         '
         Me.FNHSysStyleId.Location = New System.Drawing.Point(144, 32)
         Me.FNHSysStyleId.Name = "FNHSysStyleId"
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "235", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "235", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysStyleId.Properties.Tag = ""
         Me.FNHSysStyleId.Size = New System.Drawing.Size(162, 20)
@@ -1076,7 +1076,7 @@ Partial Class wSMPMasterPlan
         Me.CFTFabricDate.OptionsColumn.ReadOnly = True
         Me.CFTFabricDate.Visible = True
         Me.CFTFabricDate.VisibleIndex = 24
-        Me.CFTFabricDate.Width = 64
+        Me.CFTFabricDate.Width = 89
         '
         'CFTActFabricDate
         '
@@ -1108,7 +1108,7 @@ Partial Class wSMPMasterPlan
         Me.CFTAccessoryDate.OptionsColumn.ReadOnly = True
         Me.CFTAccessoryDate.Visible = True
         Me.CFTAccessoryDate.VisibleIndex = 26
-        Me.CFTAccessoryDate.Width = 64
+        Me.CFTAccessoryDate.Width = 86
         '
         'CFTActAccessoryDate
         '
@@ -1988,12 +1988,6 @@ Partial Class wSMPMasterPlan
         Me.FTStandBy1.VisibleIndex = 68
         Me.FTStandBy1.Width = 145
         '
-        'ReposFTNote
-        '
-        Me.ReposFTNote.AutoHeight = False
-        Me.ReposFTNote.MaxLength = 500
-        Me.ReposFTNote.Name = "ReposFTNote"
-        '
         'FNHSysBuyId
         '
         Me.FNHSysBuyId.Caption = "FNHSysBuyId"
@@ -2019,6 +2013,12 @@ Partial Class wSMPMasterPlan
         Me.FTPgmName.Visible = True
         Me.FTPgmName.VisibleIndex = 82
         Me.FTPgmName.Width = 100
+        '
+        'ReposFTNote
+        '
+        Me.ReposFTNote.AutoHeight = False
+        Me.ReposFTNote.MaxLength = 500
+        Me.ReposFTNote.Name = "ReposFTNote"
         '
         'wSMPMasterPlan
         '

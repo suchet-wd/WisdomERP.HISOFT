@@ -327,7 +327,7 @@
         _Qry &= vbCrLf & "  From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS A With(NOLOCK)  "
         _Qry &= vbCrLf & " INNER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift AS S With(NOLOCK)  ON A.FNHSysShiftID = S.FNHSysShiftID"
         _Qry &= vbCrLf & " Where (A.FNHSysEmpID = " & _TFNHSysEmpID & ") "
-        _Qry &= vbCrLf & " And (A.FNEmpStatus = 0) "
+        _Qry &= vbCrLf & " And (A.FNEmpStatus in (0,1) ) "
         _Qry &= vbCrLf & "  Order By FDDateEnd "
 
         ' FNHSysShiftID = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
@@ -373,7 +373,7 @@
 
             _FNHSysEmpID = Integer.Parse(Val(R!FNHSysEmpID.ToString))
 
-            If _FNHSysEmpID = 0 Then
+            If _FNHSysEmpID = 225710009 Then
                 Beep()
             End If
 
@@ -3335,7 +3335,19 @@
             _dt = .Copy()
         End With
 
+        Dim dtline As DataTable
+
         Try
+
+            If _dt.Rows.Count > 0 Then
+                _Qry = " exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.SP_SAMPLEROOM_INCENTIVE_LOAD_SPLIT '" & _SDate & "','" & _EDate & "' "
+                dtline = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
+            End If
+
+
+
+
+
 
             Do While _SDate <= _EDate
 
@@ -3354,6 +3366,10 @@
 
                     dtPriceMiltiple = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
 
+
+                    'If "91SMP-230100082" = R!FTSMPOrderNo.ToString Then
+                    '    MsgBox("91SMP-230100082")
+                    'End If
 
                     _StateSaveDetail = False
                     _dtemptime = New DataTable
@@ -3670,6 +3686,7 @@
                     _dtemptime.Dispose()
 
                     If _StateSaveDetail Then
+
                         _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeam "
                         _Qry &= vbCrLf & " SET FTStateCal='1',FTStateCalBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                         _Qry &= vbCrLf & " ,FTStateCalDate=" & HI.UL.ULDate.FormatDateDB & ""
@@ -3684,6 +3701,34 @@
                         _Qry &= vbCrLf & " WHERE FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSMPOrderNo.ToString) & "' AND FTTeam='" & HI.UL.ULF.rpQuoted(R!FTTeam.ToString) & "' "
 
                         HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
+
+                        _SSewDate = R!FTStartSewDate.ToString
+                        _ESewDate = R!FTFinishSewDate.ToString
+                        '' For Each Rline As DataRow In dtline.Select("FTStateFinishDateOrg='" & _SDate & "'  AND FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSMPOrderNo.ToString) & "' AND  FNHSysEmpID='" & _AllEmp & "' AND FTStartSewDate='" & _SSewDate & "'  AND FTFinishSewDate='" & _ESewDate & "'")
+
+                        For Each Rline As DataRow In dtline.Select(" FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSMPOrderNo.ToString) & "' AND  FNHSysEmpID='" & _AllEmp & "' AND FTStartSewDate='" & _SSewDate & "'  AND FTFinishSewDate='" & _ESewDate & "'")
+
+                            If HI.UL.ULF.rpQuoted(R!FTTeam.ToString) <> HI.UL.ULF.rpQuoted(Rline!FTTeam.ToString) Then
+                                _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeam "
+                                _Qry &= vbCrLf & " SET FTStateCal='1',FTStateCalBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                _Qry &= vbCrLf & " ,FTStateCalDate=" & HI.UL.ULDate.FormatDateDB & ""
+                                _Qry &= vbCrLf & " ,FTStateCalTime=" & HI.UL.ULDate.FormatTimeDB & ""
+                                _Qry &= vbCrLf & " ,FTStateSendApp='0',FTSendAppBy=''"
+                                _Qry &= vbCrLf & " ,FTSendAppDate=''"
+                                _Qry &= vbCrLf & " ,FTSendAppTime=''"
+
+                                _Qry &= vbCrLf & " ,FTStateApprove='0',FTApproveBy=''"
+                                _Qry &= vbCrLf & " ,FTApproveDate=''"
+                                _Qry &= vbCrLf & " ,FTApproveTime=''"
+                                _Qry &= vbCrLf & " WHERE FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSMPOrderNo.ToString) & "' AND FTTeam='" & HI.UL.ULF.rpQuoted(Rline!FTTeam.ToString) & "' "
+
+                                HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
+                            End If
+
+                        Next
+
+
+
 
                     End If
 
@@ -3732,8 +3777,8 @@
         'Dim _Qry As String = ""
         'Dim _StateSaveDetail As Boolean = False
 
-        'cmd = "Select Sum(FNAmount) AS FNAmount"
-        'cmd &= vbCrLf & "   From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPCalculate As B WITH(NOLOCK) "
+        'cmd = "Select Sum(FNAmount) As FNAmount"
+        'cmd &= vbCrLf & "   From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPCalculate As B With(NOLOCK) "
         'cmd &= vbCrLf & "  WHERE FTCalculateDate='" & CalDate & "'"
         'SewAmt = Val(HI.Conn.SQLConn.GetField(cmd, Conn.DB.DataBaseName.DB_SAMPLE, "0"))
 
@@ -3867,6 +3912,10 @@
 
     Private Function DeleteData(Spls As HI.TL.SplashScreen) As Boolean
         Dim _dt As DataTable
+        Dim dtline As DataTable
+        Dim _SSewDate As String = ""
+        Dim _ESewDate As String = ""
+        Dim _AllEmp As String = ""
         Dim _CalDate As String
         Dim _Qry As String = ""
         With CType(ogc.DataSource, DataTable)
@@ -3876,6 +3925,11 @@
 
         Dim _SDate As String = HI.UL.ULDate.ConvertEnDB(FTStartDate.Text)
         Dim _EDate As String = HI.UL.ULDate.ConvertEnDB(FTEndDate.Text)
+
+        If _dt.Rows.Count > 0 Then
+            _Qry = " exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.SP_SAMPLEROOM_INCENTIVE_LOAD_SPLIT '" & _SDate & "','" & _EDate & "' "
+            dtline = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
+        End If
 
         Try
 
@@ -3982,6 +4036,36 @@
 
                         HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
 
+                        _AllEmp = R!FNHSysEmpID.ToString
+                        _SSewDate = R!FTStartSewDate.ToString
+                        _ESewDate = R!FTFinishSewDate.ToString
+
+                        For Each Rline As DataRow In dtline.Select(" FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSMPOrderNo.ToString) & "' AND  FNHSysEmpID='" & _AllEmp & "' AND FTStartSewDate='" & _SSewDate & "'  AND FTFinishSewDate='" & _ESewDate & "'")
+
+                            If HI.UL.ULF.rpQuoted(R!FTTeam.ToString) <> HI.UL.ULF.rpQuoted(Rline!FTTeam.ToString) Then
+                                _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeam "
+                                _Qry &= vbCrLf & " SET FTStateCal='0',FTStateCalBy=''"
+                                _Qry &= vbCrLf & " ,FTStateCalDate=''"
+                                _Qry &= vbCrLf & " ,FTStateCalTime=''"
+
+                                _Qry &= vbCrLf & " ,FTStateSendApp='0',FTSendAppBy=''"
+                                _Qry &= vbCrLf & " ,FTSendAppDate=''"
+                                _Qry &= vbCrLf & " ,FTSendAppTime=''"
+
+                                _Qry &= vbCrLf & " ,FTStateApprove='0',FTApproveBy=''"
+                                _Qry &= vbCrLf & " ,FTApproveDate=''"
+                                _Qry &= vbCrLf & " ,FTApproveTime=''"
+
+                                _Qry &= vbCrLf & " ,FTStateManagerApprove='0',FTManagerApproveBy=''"
+                                _Qry &= vbCrLf & " ,FTManagerApproveDate=''"
+                                _Qry &= vbCrLf & " ,FTManagerApproveTime=''"
+                                _Qry &= vbCrLf & " WHERE FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSMPOrderNo.ToString) & "' AND FTTeam='" & HI.UL.ULF.rpQuoted(Rline!FTTeam.ToString) & "' "
+
+                                HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
+                            End If
+
+                        Next
+
                     Next
 
 
@@ -4055,6 +4139,10 @@
     Private Function SendApproveData(Spls As HI.TL.SplashScreen) As Boolean
 
         Dim _dt As DataTable
+        Dim dtline As DataTable
+        Dim _SSewDate As String = ""
+        Dim _ESewDate As String = ""
+        Dim _AllEmp As String = ""
         Dim _CalDate As String
         Dim _Qry As String = ""
 
@@ -4068,6 +4156,12 @@
         Dim _SDate As String = HI.UL.ULDate.ConvertEnDB(FTStartDate.Text)
         Dim _EDate As String = HI.UL.ULDate.ConvertEnDB(FTEndDate.Text)
 
+
+
+        If _dt.Rows.Count > 0 Then
+            _Qry = " exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.SP_SAMPLEROOM_INCENTIVE_LOAD_SPLIT '" & _SDate & "','" & _EDate & "' "
+            dtline = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
+        End If
         Try
             Do While _SDate <= _EDate
 
@@ -4078,9 +4172,30 @@
                     _Qry &= vbCrLf & " SET FTStateSendApp='1',FTSendAppBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                     _Qry &= vbCrLf & " ,FTSendAppDate=" & HI.UL.ULDate.FormatDateDB & ""
                     _Qry &= vbCrLf & " ,FTSendAppTime=" & HI.UL.ULDate.FormatTimeDB & ""
+
                     _Qry &= vbCrLf & "   WHERE FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSMPOrderNo.ToString) & "' AND FTTeam='" & HI.UL.ULF.rpQuoted(R!FTTeam.ToString) & "' "
 
                     HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
+
+                    _AllEmp = R!FNHSysEmpID.ToString
+                    _SSewDate = R!FTStartSewDate.ToString
+                    _ESewDate = R!FTFinishSewDate.ToString
+
+                    For Each Rline As DataRow In dtline.Select(" FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSMPOrderNo.ToString) & "' AND  FNHSysEmpID='" & _AllEmp & "' AND FTStartSewDate='" & _SSewDate & "'  AND FTFinishSewDate='" & _ESewDate & "'")
+
+                        If HI.UL.ULF.rpQuoted(R!FTTeam.ToString) <> HI.UL.ULF.rpQuoted(Rline!FTTeam.ToString) Then
+                            _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeam "
+                            _Qry &= vbCrLf & " SET FTStateSendApp='1',FTSendAppBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                            _Qry &= vbCrLf & " ,FTSendAppDate=" & HI.UL.ULDate.FormatDateDB & ""
+                            _Qry &= vbCrLf & " ,FTSendAppTime=" & HI.UL.ULDate.FormatTimeDB & ""
+                            _Qry &= vbCrLf & " WHERE FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSMPOrderNo.ToString) & "' AND FTTeam='" & HI.UL.ULF.rpQuoted(Rline!FTTeam.ToString) & "' "
+
+                            HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
+                        End If
+
+                    Next
+
+
                     StateSendCal = True
                 Next
 
@@ -4153,83 +4268,86 @@
         Dim _Spls As New HI.TL.SplashScreen("Loading Data... Please Wait... ")
         Try
 
-            _Qry = " SELECT '1' AS FTSelect,FTStateFinishDate AS FTStateFinishDateOrg"
-            _Qry &= vbCrLf & " 	,CASE WHEN ISDATE(A.FTStateFinishDate) = 1 THEN  Convert(varchar(10),convert(Datetime,A.FTStateFinishDate) ,103) ELSE '' END AS FTStateFinishDate"
-            _Qry &= vbCrLf & " 	, A.FTSMPOrderNo, A.FTTeam , A.FTStateFinish "
-            _Qry &= vbCrLf & ", ISNULL(A.FTStateCal,'0') AS FTStateCal"
-            _Qry &= vbCrLf & " 	,CASE WHEN ISDATE(A.FTStateCalDate) = 1 THEN  Convert(varchar(10),convert(Datetime,A.FTStateCalDate) ,103) ELSE '' END AS FTStateCalDate"
-            _Qry &= vbCrLf & " 	, A.FTStateCalBy"
-            _Qry &= vbCrLf & " 	,ISNULL(Emp.FTEmpName,'') AS FTEmpName"
-            _Qry &= vbCrLf & ",ISNULL(P.FNQuantity,0) AS FNQuantity"
-            _Qry &= vbCrLf & " 	,ISNULL(EmpId.FNHSysEmpID,'') AS FNHSysEmpID"
+            ''_Qry = " SELECT '1' AS FTSelect,FTStateFinishDate AS FTStateFinishDateOrg"
+            ''_Qry &= vbCrLf & " 	,CASE WHEN ISDATE(A.FTStateFinishDate) = 1 THEN  Convert(varchar(10),convert(Datetime,A.FTStateFinishDate) ,103) ELSE '' END AS FTStateFinishDate"
+            ''_Qry &= vbCrLf & " 	, A.FTSMPOrderNo, A.FTTeam , A.FTStateFinish "
+            ''_Qry &= vbCrLf & ", ISNULL(A.FTStateCal,'0') AS FTStateCal"
+            ''_Qry &= vbCrLf & " 	,CASE WHEN ISDATE(A.FTStateCalDate) = 1 THEN  Convert(varchar(10),convert(Datetime,A.FTStateCalDate) ,103) ELSE '' END AS FTStateCalDate"
+            ''_Qry &= vbCrLf & " 	, A.FTStateCalBy"
+            ''_Qry &= vbCrLf & " 	,ISNULL(Emp.FTEmpName,'') AS FTEmpName"
+            ''_Qry &= vbCrLf & ",ISNULL(P.FNQuantity,0) AS FNQuantity"
+            ''_Qry &= vbCrLf & " 	,ISNULL(EmpId.FNHSysEmpID,'') AS FNHSysEmpID"
 
-            _Qry &= vbCrLf & ", ISNULL(A.FTStateSendApp,'0') AS FTStateSendApp"
-            _Qry &= vbCrLf & " 	,CASE WHEN ISDATE(A.FTSendAppDate) = 1 THEN  Convert(varchar(10),convert(Datetime,A.FTSendAppDate) ,103) ELSE '' END AS FTSendAppDate"
-            _Qry &= vbCrLf & " 	, A.FTSendAppBy"
+            ''_Qry &= vbCrLf & ", ISNULL(A.FTStateSendApp,'0') AS FTStateSendApp"
+            ''_Qry &= vbCrLf & " 	,CASE WHEN ISDATE(A.FTSendAppDate) = 1 THEN  Convert(varchar(10),convert(Datetime,A.FTSendAppDate) ,103) ELSE '' END AS FTSendAppDate"
+            ''_Qry &= vbCrLf & " 	, A.FTSendAppBy"
 
-            _Qry &= vbCrLf & ", ISNULL(A.FTStateApprove,'0') AS FTStateApprove"
-            _Qry &= vbCrLf & " 	,CASE WHEN ISDATE(A.FTApproveDate) = 1 THEN  Convert(varchar(10),convert(Datetime,A.FTApproveDate) ,103) ELSE '' END AS FTApproveDate"
-            _Qry &= vbCrLf & " 	, A.FTApproveBy"
+            ''_Qry &= vbCrLf & ", ISNULL(A.FTStateApprove,'0') AS FTStateApprove"
+            ''_Qry &= vbCrLf & " 	,CASE WHEN ISDATE(A.FTApproveDate) = 1 THEN  Convert(varchar(10),convert(Datetime,A.FTApproveDate) ,103) ELSE '' END AS FTApproveDate"
+            ''_Qry &= vbCrLf & " 	, A.FTApproveBy"
 
-            _Qry &= vbCrLf & " 	,ISNULL(EmpCount.FNEmpTeam,0) AS FNEmpTeam"
-            _Qry &= vbCrLf & " 	,ISNULL(Sew.FTStartSewDate,FTStateFinishDate) AS FTStartSewDate"
-            _Qry &= vbCrLf & " 	,ISNULL(SewF.FTFinishSewDate,ISNULL(Sew.FTStartSewDate,FTStateFinishDate) ) AS FTFinishSewDate"
+            ''_Qry &= vbCrLf & " 	,ISNULL(EmpCount.FNEmpTeam,0) AS FNEmpTeam"
+            ''_Qry &= vbCrLf & " 	,ISNULL(Sew.FTStartSewDate,FTStateFinishDate) AS FTStartSewDate"
+            ''_Qry &= vbCrLf & " 	,ISNULL(SewF.FTFinishSewDate,ISNULL(Sew.FTStartSewDate,FTStateFinishDate) ) AS FTFinishSewDate"
 
-            _Qry &= vbCrLf & " ,CASE WHEN ISDATE(ISNULL(SewF.FTFinishSewDate,ISNULL(Sew.FTStartSewDate,FTStateFinishDate) )) = 1 THEN  Convert(varchar(10),convert(Datetime,ISNULL(SewF.FTFinishSewDate,ISNULL(Sew.FTStartSewDate,FTStateFinishDate) )) ,103) ELSE '' END AS FTFinishSewDateShow"
-
-
-            _Qry &= vbCrLf & " FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeam  As A With(NOLOCK)"
-            _Qry &= vbCrLf & " OUTER APPLY ( "
-            _Qry &= vbCrLf & "  Select  STUFF((Select  ', ' + FTEmpName  "
-            _Qry &= vbCrLf & "	From (SELECT Convert(nvarchar(10),Row_number() Over(Order By X1.FNSeq)) + '.'  + X2.FTEmpNameTH + ' ' + FTEmpSurnameTH   AS FTEmpName"
-            _Qry &= vbCrLf & "   FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeamEmp As X1 INNER JOIN"
-            _Qry &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS X2 ON X1.FNHSysEmpID = X2.FNHSysEmpID"
-            _Qry &= vbCrLf & "   WHERE X1.FTSMPOrderNo = A.FTSMPOrderNo "
-            _Qry &= vbCrLf & "   AND X1.FTTeam  = A.FTTeam  "
-            _Qry &= vbCrLf & "  ) As T "
-            _Qry &= vbCrLf & "	FOR XML PATH(''), TYPE ).value('.', 'NVARCHAR(MAX)'),1,1,'') AS FTEmpName"
-            _Qry &= vbCrLf & " ) As Emp	"
-            _Qry &= vbCrLf & " OUTER APPLY ( "
-            _Qry &= vbCrLf & "  Select  STUFF((Select  ',' + FNHSysEmpID  "
-            _Qry &= vbCrLf & "	From (SELECT DISTINCT Convert(nvarchar(130),X1.FNHSysEmpID)   AS FNHSysEmpID"
-            _Qry &= vbCrLf & "   FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeamEmp As X1 INNER JOIN"
-            _Qry &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS X2 ON X1.FNHSysEmpID = X2.FNHSysEmpID"
-            _Qry &= vbCrLf & "   WHERE X1.FTSMPOrderNo = A.FTSMPOrderNo "
-            _Qry &= vbCrLf & "   AND X1.FTTeam  = A.FTTeam  "
-            _Qry &= vbCrLf & "  ) As T "
-            _Qry &= vbCrLf & "	FOR XML PATH(''), TYPE ).value('.', 'NVARCHAR(MAX)'),1,1,'') AS FNHSysEmpID"
-            _Qry &= vbCrLf & " ) As EmpId	"
-            _Qry &= vbCrLf & "  OUTER APPLY (SELECT SUM(FNQuantity) AS FNQuantity"
-            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeamBreakdown As X1 WITH(NOLOCK)"
-            _Qry &= vbCrLf & " WHERE X1.FTSMPOrderNo = A.FTSMPOrderNo "
-            _Qry &= vbCrLf & " And X1.FTTeam  = A.FTTeam"
-            _Qry &= vbCrLf & "  ) P"
+            ''_Qry &= vbCrLf & " ,CASE WHEN ISDATE(ISNULL(SewF.FTFinishSewDate,ISNULL(Sew.FTStartSewDate,FTStateFinishDate) )) = 1 THEN  Convert(varchar(10),convert(Datetime,ISNULL(SewF.FTFinishSewDate,ISNULL(Sew.FTStartSewDate,FTStateFinishDate) )) ,103) ELSE '' END AS FTFinishSewDateShow"
 
 
-            _Qry &= vbCrLf & "  OUTER APPLY (SELECT COUNT(DISTINCT  FNHSysEmpID) AS FNEmpTeam"
-            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeamEmp As X1 WITH(NOLOCK)"
-            _Qry &= vbCrLf & " WHERE X1.FTSMPOrderNo = A.FTSMPOrderNo "
-            _Qry &= vbCrLf & " And X1.FTTeam  = A.FTTeam"
-            _Qry &= vbCrLf & "  ) EmpCount"
+            ''_Qry &= vbCrLf & " FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeam  As A With(NOLOCK)"
+            ''_Qry &= vbCrLf & " OUTER APPLY ( "
+            ''_Qry &= vbCrLf & "  Select  STUFF((Select  ', ' + FTEmpName  "
+            ''_Qry &= vbCrLf & "	From (SELECT Convert(nvarchar(10),Row_number() Over(Order By X1.FNSeq)) + '.'  + X2.FTEmpNameTH + ' ' + FTEmpSurnameTH   AS FTEmpName"
+            ''_Qry &= vbCrLf & "   FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeamEmp As X1 INNER JOIN"
+            ''_Qry &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS X2 ON X1.FNHSysEmpID = X2.FNHSysEmpID"
+            ''_Qry &= vbCrLf & "   WHERE X1.FTSMPOrderNo = A.FTSMPOrderNo "
+            ''_Qry &= vbCrLf & "   AND X1.FTTeam  = A.FTTeam  "
+            ''_Qry &= vbCrLf & "  ) As T "
+            ''_Qry &= vbCrLf & "	FOR XML PATH(''), TYPE ).value('.', 'NVARCHAR(MAX)'),1,1,'') AS FTEmpName"
+            ''_Qry &= vbCrLf & " ) As Emp	"
+            ''_Qry &= vbCrLf & " OUTER APPLY ( "
+            ''_Qry &= vbCrLf & "  Select  STUFF((Select  ',' + FNHSysEmpID  "
+            ''_Qry &= vbCrLf & "	From (SELECT DISTINCT Convert(nvarchar(130),X1.FNHSysEmpID)   AS FNHSysEmpID"
+            ''_Qry &= vbCrLf & "   FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeamEmp As X1 INNER JOIN"
+            ''_Qry &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS X2 ON X1.FNHSysEmpID = X2.FNHSysEmpID"
+            ''_Qry &= vbCrLf & "   WHERE X1.FTSMPOrderNo = A.FTSMPOrderNo "
+            ''_Qry &= vbCrLf & "   AND X1.FTTeam  = A.FTTeam  "
+            ''_Qry &= vbCrLf & "  ) As T "
+            ''_Qry &= vbCrLf & "	FOR XML PATH(''), TYPE ).value('.', 'NVARCHAR(MAX)'),1,1,'') AS FNHSysEmpID"
+            ''_Qry &= vbCrLf & " ) As EmpId	"
+            ''_Qry &= vbCrLf & "  OUTER APPLY (SELECT SUM(FNQuantity) AS FNQuantity"
+            ''_Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeamBreakdown As X1 WITH(NOLOCK)"
+            ''_Qry &= vbCrLf & " WHERE X1.FTSMPOrderNo = A.FTSMPOrderNo "
+            ''_Qry &= vbCrLf & " And X1.FTTeam  = A.FTTeam"
+            ''_Qry &= vbCrLf & "  ) P"
 
-            _Qry &= vbCrLf & "  OUTER APPLY (SELECT MIN(  FTDate) AS FTStartSewDate,MAX(  FTDate) AS FTFinishSewDate"
-            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X1 WITH(NOLOCK)"
-            _Qry &= vbCrLf & " WHERE X1.FTSMPOrderNo = A.FTSMPOrderNo "
-            _Qry &= vbCrLf & " And X1.FTTeam  = A.FTTeam AND X1.FNSampleState=0"
-            _Qry &= vbCrLf & "  ) Sew"
 
-            _Qry &= vbCrLf & "  OUTER APPLY (SELECT MIN(  FTDate) AS FTStartSewDate,MAX(  FTDate) AS FTFinishSewDate"
-            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X1 WITH(NOLOCK)"
-            _Qry &= vbCrLf & " WHERE X1.FTSMPOrderNo = A.FTSMPOrderNo "
-            _Qry &= vbCrLf & " And X1.FTTeam  = A.FTTeam AND X1.FNSampleState=1"
-            _Qry &= vbCrLf & "  ) SewF"
+            ''_Qry &= vbCrLf & "  OUTER APPLY (SELECT COUNT(DISTINCT  FNHSysEmpID) AS FNEmpTeam"
+            ''_Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleTeamEmp As X1 WITH(NOLOCK)"
+            ''_Qry &= vbCrLf & " WHERE X1.FTSMPOrderNo = A.FTSMPOrderNo "
+            ''_Qry &= vbCrLf & " And X1.FTTeam  = A.FTTeam"
+            ''_Qry &= vbCrLf & "  ) EmpCount"
 
-            _Qry &= vbCrLf & " WHERE  (A.FTStateFinishDate >= '" & _SDate & "')  "
-            _Qry &= vbCrLf & "        AND  (A.FTStateFinishDate <= '" & _EDate & "')  "
-            _Qry &= vbCrLf & "        AND (A.FTStateFinish = '1')"
-            _Qry &= vbCrLf & " ORDER BY  A.FTStateFinishDate, A.FTSMPOrderNo, A.FTTeam"
+            ''_Qry &= vbCrLf & "  OUTER APPLY (SELECT MIN(  FTDate) AS FTStartSewDate,MAX(  FTDate) AS FTFinishSewDate"
+            ''_Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X1 WITH(NOLOCK)"
+            ''_Qry &= vbCrLf & " WHERE X1.FTSMPOrderNo = A.FTSMPOrderNo "
+            ''_Qry &= vbCrLf & " And X1.FTTeam  = A.FTTeam AND X1.FNSampleState=0"
+            ''_Qry &= vbCrLf & "  ) Sew"
 
-            dtline = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
+            ''_Qry &= vbCrLf & "  OUTER APPLY (SELECT MIN(  FTDate) AS FTStartSewDate,MAX(  FTDate) AS FTFinishSewDate"
+            ''_Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSampleProcess As X1 WITH(NOLOCK)"
+            ''_Qry &= vbCrLf & " WHERE X1.FTSMPOrderNo = A.FTSMPOrderNo "
+            ''_Qry &= vbCrLf & " And X1.FTTeam  = A.FTTeam AND X1.FNSampleState=1"
+            ''_Qry &= vbCrLf & "  ) SewF"
+
+            ''_Qry &= vbCrLf & " WHERE  (A.FTStateFinishDate >= '" & _SDate & "')  "
+            ''_Qry &= vbCrLf & "        AND  (A.FTStateFinishDate <= '" & _EDate & "')  "
+            ''_Qry &= vbCrLf & "        AND (A.FTStateFinish = '1')"
+            ''_Qry &= vbCrLf & " ORDER BY  A.FTStateFinishDate, A.FTSMPOrderNo, A.FTTeam"
+
+
+            _Qry = " exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.SP_SAMPLEROOM_INCENTIVE_LOAD '" & _SDate & "','" & _EDate & "' "
+
+            dtline = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_SAMPLE)
 
             Me.ogc.DataSource = dtline.Copy
         Catch ex As Exception
@@ -4336,6 +4454,7 @@
                             .Preview()
 
                         End With
+
 
 
                     Next

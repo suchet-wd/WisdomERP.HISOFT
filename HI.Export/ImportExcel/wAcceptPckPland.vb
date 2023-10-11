@@ -1341,27 +1341,31 @@ Public Class wAcceptPckPland
 
 
         Dim state As Boolean = False
-            'oTabmaster 'oTabmasterInden
-            Dim _odt As System.Data.DataTable : Dim _Cmd As String = "" : Dim _FtPONo As String = "" : Dim _dtd As New System.Data.DataTable
-            Dim _FtPONoRef As String = ""
-            Dim _ShipDate As String = ""
-            With DirectCast(Me.ogcPlandM.DataSource, System.Data.DataTable)
-                .AcceptChanges()
-                _odt = .Copy
-                .AcceptChanges()
-            End With
+        'oTabmaster 'oTabmasterInden
+        Dim _odt As System.Data.DataTable : Dim _Cmd As String = "" : Dim _FtPONo As String = "" : Dim _dtd As New System.Data.DataTable : Dim _odp As New System.Data.DataTable
+        Dim _FtPONoRef As String = ""
+        Dim _ShipDate As String = ""
+        Dim _qry As String = ""
+        Dim _FtPACKNO As String = ""
+        Dim _CusCode As String = ""
+        Dim _FNHSysCustId As String = ""
+
+        With DirectCast(Me.ogcPlandM.DataSource, System.Data.DataTable)
+            .AcceptChanges()
+            _odt = .Copy
+            .AcceptChanges()
+        End With
+
         If _odt.Select("FTSelect = '1'  ").Length <= 0 Then
             HI.MG.ShowMsg.mInfo("Pls check data select !!!!", 1803151437, Me.Text, "", MessageBoxIcon.Stop)
             Exit Sub
         End If
         'OR FTStateShipDate ='1'
         'can't check shiptment date
-
         If _odt.Select("(FTShipModeState = '1'  OR FTStateMainMat='1' OR FTStateForwarder='1' OR  FTProvinceState='1') and FTSelect ='1' ").Length > 0 Then
             HI.MG.ShowMsg.mInfo("ข้อมูล Packing กับ ระบบสั่งผลิต ไม่ตรงกัน กรุณาตรวจสอบข้อมูล !!!!", 1907091049, Me.Text, "", MessageBoxIcon.Stop)
             Exit Sub
         End If
-
 
 
         If _odt.Select("FTSelect = '1'  ").Length > 0 Then
@@ -1402,27 +1406,35 @@ Public Class wAcceptPckPland
                 End If
             Next
 
-
         End If
 
 
         _FtPONo = ""
         _FtPONoRef = ""
+
         For Each R As DataRow In _odt.Select("FTSelect = '1'")
             If _FtPONo <> "" Then _FtPONo &= ","
             If _FtPONoRef <> "" Then _FtPONoRef &= ","
             _FtPONo &= "'" & HI.UL.ULF.rpQuoted(R!FTPORef.ToString) & "'"
             _FtPONoRef &= "'" & HI.UL.ULF.rpQuoted(R!FTPORefNo.ToString) & "'"
+
+            If _FtPACKNO <> "" Then _FtPACKNO &= ","
+            _FtPACKNO &= "'" & HI.UL.ULF.rpQuoted(R!FTPackNo.ToString) & "'"
+
             If HI.UL.ULDate.ConvertEN(_ShipDate) > R!FDShipDate.ToString Or _ShipDate = "" Then _ShipDate = R!FDShipDate.ToString
             If R!FDCfmShipDate.ToString <> "" Then
                 _ShipDate = R!FDCfmShipDate.ToString
-
             End If
+
+            _CusCode = R.Item("FTCustCode").ToString
+            _FNHSysCustId = R.Item("FNHSysCustId").ToString
         Next
 
+
+
         _Cmd = " SELECT '1' AS FTSelect ,   FTPckPlanNo, FTPORef, FTRangeNo, FNFrom, FNTo, FTSerialFrom, FTSerialTo, FTPackInstructionCode, FTLineNo, FTStyleCode, FTSKU, FTPONo, "
-        _Cmd &= vbCrLf & "  FTPOLineNo, FTColorWay, FTSizeBreakDown, FTShortDescription, FTShipmentMethod,   FNItemQty, FNQtyPerPack, FNInnerPackCount, FNPackCount,  "
-        _Cmd &= vbCrLf & "      FTR, FTPackCode, FNNetWeight, FNTotalNetWeight, FNGrossNetWeight, FTUnitCode,  FNL, FNW, FNH, FTItemUnitCode, FTScanID ,FTPORefNo"
+        _Cmd &= vbCrLf & " FTPOLineNo, FTColorWay, FTSizeBreakDown, FTShortDescription, FTShipmentMethod,   FNItemQty, FNQtyPerPack, FNInnerPackCount, FNPackCount,  "
+        _Cmd &= vbCrLf & " FTR, FTPackCode, FNNetWeight, FNTotalNetWeight, FNGrossNetWeight, FTUnitCode,  FNL, FNW, FNH, FTItemUnitCode, FTScanID ,FTPORefNo"
         _Cmd &= vbCrLf & " From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTPackPlan_D WITH(NOLOCK)  "
         _Cmd &= vbCrLf & " where  FTPORef in (" & _FtPONo & ")"
         _Cmd &= vbCrLf & " and  FTPORefNo in (" & _FtPONoRef & ")"
@@ -1430,29 +1442,59 @@ Public Class wAcceptPckPland
         _Cmd &= vbCrLf & " SELECT FTPORef+'|'+ FTNikePOLineItem+'|'+FTColorway+'|'+FTSizeBreakDown   "
         _Cmd &= vbCrLf & " From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TEXPTCMBookigInvoice_D WITH(NOLOCK) "
         _Cmd &= vbCrLf & " where  FTPORef in (" & _FtPONo & ")    "
-        _Cmd &= vbCrLf & " and  FTPORefNo in (" & _FtPONoRef & "))"
+        _Cmd &= vbCrLf & " and  FTPORefNo in (" & _FtPONoRef & ")"
         _Cmd &= vbCrLf & " ORDER BY  FTPOLineNo  ASC , FTPORef ASC ,FTRangeNo ASC , FTLineNo  ASC "
 
         _dtd = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
 
 
 
+        _qry = " Select '1' AS FTSelect, p.FTPackNo ,  p.FTPackBy, p.FNHSysStyleId, pd.FTOrderNo ,p.FNOrderPackType, p.FNPackSetValue, p.FTRemark, p.FNHSysCmpId, p.FTStateHanger,"
+        _qry &= vbCrLf & " p.FTCustomerPO , count(pd.FNcartonno) As FNcartonno, pd.FTSubOrderNo, pd.FTColorway, pd.FTSizeBreakDown, sum(pd.FNQuantity) FNQuantity , pd.FNHSysCartonId "
+        _qry &= vbCrLf & ", pd.FNPackCartonSubType, o.FTStyleCode ,pd.FNPackPerCarton, pd.FTPOLine,o.FTGenderCode , '' FTInvoiceNo , FTCartonCode"
+        _qry &= vbCrLf & ", isnull(pw.FNNetNetWeight,0) * sum( pd.FNQuantity ) as FNNetNetWeight"
+        _qry &= vbCrLf & ", isnull(pw.fnweight,0) * sum( pd.FNQuantity ) as FNNetWeight"
+        _qry &= vbCrLf & ", c.FNWeight * count( pd.fncartonno) + (isnull(pw.FNNetNetWeight,0) * sum( pd.FNQuantity )) as FNGW"
+        _qry &= vbCrLf & ", ((((c.FNWidth/2.54)*(c.FNLength/2.54)*(c.FNHeight/2.54))/1728)/35.3185) * count( pd.fncartonno)  as CBM"
+        _qry &= vbCrLf & ",CASE WHEN IsDate(p.FDPackDate) = 1 Then CONVERT(varchar(10),Convert(datetime,p.FDPackDate),103) Else '' END AS FDPackDate"
+        _qry &= vbCrLf & " From  HITECH_PRODUCTION.dbo.TPACKOrderPack p"
+        _qry &= vbCrLf & " Left Join HITECH_PRODUCTION.dbo.TPACKOrderPack_Carton_Detail pd on p.FTPackNo = pd.FTPackNo"
+        _qry &= vbCrLf & " outer apply(select top 1  o.FNHSysStyleId , s.FTStyleCode, g.FTGenderCode from HITECH_MERCHAN.dbo.TMERTOrder o"
+        _qry &= vbCrLf & " Left Join HITECH_MERCHAN.dbo.TMERTOrderSub r on o.FTOrderNo = r.FTOrderNo"
+        _qry &= vbCrLf & " Left Join HITECH_MASTER.dbo.TMERMStyle s with(nolock) on o.FNHSysStyleId = s.FNHSysStyleId"
+        _qry &= vbCrLf & " Left Join HITECH_MASTER.dbo.TMERMGender g on r.FNHSysGenderId = g.FNHSysGenderId"
+        _qry &= vbCrLf & " where o.FTOrderNo = pd.FTOrderNo"
+        _qry &= vbCrLf & " ) o"
+        _qry &= vbCrLf & " Left Join HITECH_MASTER.dbo.TCNMCarton c on pd.FNHSysCartonId = c.FNHSysCartonId"
+        _qry &= vbCrLf & " Left Join HITECH_MASTER.dbo.TPRODMNetWeight pw on o.FNHSysStyleId = pw.FNHSysStyleId "
+        _qry &= vbCrLf & " WHERE P.FTPackNo   in (" & _FtPACKNO & ")"
+        _qry &= vbCrLf & " group by p.FTPackNo , p.FDPackDate, p.FTPackBy, p.FNHSysStyleId, pd.FTOrderNo, p.FNOrderPackType, p.FNPackSetValue, p.FTRemark, p.FNHSysCmpId, p.FTStateHanger,"
+        _qry &= vbCrLf & " p.FTCustomerPO, pd.FTSubOrderNo, pd.FTColorway, pd.FTSizeBreakDown, pd.FNHSysCartonId, pd.FNPackCartonSubType, pd.FNPackPerCarton, pd.FTPOLine,"
+        _qry &= vbCrLf & " o.FTStyleCode, c.FNWeight, c.FNWidth, c.FNLength, c.FNHeight, pw.FNWeight, pw.FNNetNetWeight, o.FTGenderCode , FTCartonCode "
+        _odp = HI.Conn.SQLConn.GetDataTable(_qry, Conn.DB.DataBaseName.DB_PROD)
+
+
         '_odt.Columns.Add("FTInvoiceNo", GetType(String))
         '_odt.AcceptChanges()
         HI.TL.HandlerControl.ClearControl(_wCreateInvForBooking)
-            With _wCreateInvForBooking
-                .FTGenInvType.SelectedIndex = 0
-                .FDShipDate.Text = _ShipDate
-                .ogcPlandM.DataSource = _odt.Select("FTSelect = '1'").CopyToDataTable
-                .ogcPlandD.DataSource = _dtd.Copy
+        With _wCreateInvForBooking
+            .FTGenInvType.SelectedIndex = 0
+            .FDShipDate.Text = _ShipDate
+            .ogcPlandM.DataSource = _odt.Select("FTSelect = '1'").CopyToDataTable
+            .ogcPlandD.DataSource = _dtd.Copy
+            .ogcPlandO.DataSource = _odp.Copy
+            .CusCod = _CusCode
+            .PckNo = _FtPACKNO
+            .SysCustId = _FNHSysCustId
+            .ShowDialog()
+            If Not (.ProcComplete) Then
+                For Each R As DataRow In _odt.Select("FTSelect = '1'")
+                    R!FTSelect = "0"
+                Next
+                Me.ogcPlandM.DataSource = _odt.Copy
 
-                .ShowDialog()
-                If Not (.ProcComplete) Then
-                    For Each R As DataRow In _odt.Select("FTSelect = '1'")
-                        R!FTSelect = "0"
-                    Next
-                    Me.ogcPlandM.DataSource = _odt.Copy
-                    Exit Sub
+
+                Exit Sub
                 Else
                     Dim _odtnew As System.Data.DataTable
                     With DirectCast(.ogcPlandM.DataSource, System.Data.DataTable)
@@ -5068,6 +5110,10 @@ Public Class wAcceptPckPland
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub FTCustomerPO_EditValueChanged(sender As Object, e As EventArgs) Handles FTCustomerPO.EditValueChanged
+
     End Sub
 End Class
 
