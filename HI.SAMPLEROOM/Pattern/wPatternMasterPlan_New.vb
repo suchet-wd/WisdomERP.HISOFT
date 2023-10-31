@@ -35,7 +35,8 @@ Public Class wPatternMasterPlan_New
     Private Sub InitGrid()
         '------Start Add Summary Grid-------------
         Dim sFieldCount As String = ""
-        Dim sFieldSum As String = "FNQuantity|FNQuantityCut|FNQuantityEmb|FNQuantityRcvEmb|FNQuantityPrint|FNQuantityRcvPrint|FNQuantityHeat|FNQuantityRcvHeat|FNQuantityLasor|FNQuantityRcvLasor|FNQuantityPadPrint|FNQuantityRcvPadPrint|FNQuantitySew|FNQuantityFinishSew|FNQuantityQC|FNPass|FNNotPass"
+        Dim sFieldSum As String = "FNQuantity" 'FNQuantity|FNPass|FNNotPass"
+        '"FNQuantity|FNQuantityCut|FNQuantityEmb|FNQuantityRcvEmb|FNQuantityPrint|FNQuantityRcvPrint|FNQuantityHeat|FNQuantityRcvHeat|FNQuantityLasor|FNQuantityRcvLasor|FNQuantityPadPrint|FNQuantityRcvPadPrint|FNQuantitySew|FNQuantityFinishSew|FNQuantityQC|FNPass|FNNotPass"
 
         Dim sFieldGrpCount As String = ""
         Dim sFieldGrpSum As String = ""
@@ -248,20 +249,20 @@ Public Class wPatternMasterPlan_New
 
         With Me.ogvoperation
             .Columns.ColumnByFieldName("FTActPatternDate").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
-            .Columns.ColumnByFieldName("FTActFabricDate").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
-            .Columns.ColumnByFieldName("FTActAccessoryDate").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
-            .Columns.ColumnByFieldName("FTPlanCutDate").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
-            .Columns.ColumnByFieldName("FTEmpCut").OptionsColumn.AllowEdit = False '(Me.ocmsave.Enabled)
-            .Columns.ColumnByFieldName("FTPlanSewDate").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
-            .Columns.ColumnByFieldName("FTStandBy").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
-            .Columns.ColumnByFieldName("FTStandBy1").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
+            '.Columns.ColumnByFieldName("FTActFabricDate").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
+            '.Columns.ColumnByFieldName("FTActAccessoryDate").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
+            '.Columns.ColumnByFieldName("FTPlanCutDate").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
+            '.Columns.ColumnByFieldName("FTEmpCut").OptionsColumn.AllowEdit = False '(Me.ocmsave.Enabled)
+            '.Columns.ColumnByFieldName("FTPlanSewDate").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
+            '.Columns.ColumnByFieldName("FTStandBy").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
+            '.Columns.ColumnByFieldName("FTStandBy1").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
             .Columns.ColumnByFieldName("FTNote1").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
             .Columns.ColumnByFieldName("FTCFMSendSampleDate").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
             .Columns.ColumnByFieldName("FDGacDate").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
 
             .Columns.ColumnByFieldName("FTPatternDate").OptionsColumn.AllowEdit = False
-            .Columns.ColumnByFieldName("FTFabricDate").OptionsColumn.AllowEdit = False
-            .Columns.ColumnByFieldName("FTAccessoryDate").OptionsColumn.AllowEdit = False
+            '.Columns.ColumnByFieldName("FTFabricDate").OptionsColumn.AllowEdit = False
+            '.Columns.ColumnByFieldName("FTAccessoryDate").OptionsColumn.AllowEdit = False
 
             'For Each GridCol As DevExpress.XtraGrid.Columns.GridColumn In .Columns
             '    GridCol.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False
@@ -294,7 +295,7 @@ Public Class wPatternMasterPlan_New
 
         ogcoperation.DataSource = Nothing
 
-        cmd = "   Select  A.FTSMPOrderNo,A.FNSMPOrderStatus AS FNSMPOrderStatusState "
+        cmd = "   Select 'SAMPLEROOM' AS 'Category', A.FTSMPOrderNo,A.FNSMPOrderStatus AS FNSMPOrderStatusState "
         'cmd &= vbCrLf & "  , Case When ISDATE(A.FDSMPOrderDate) = 1 Then  Convert(varchar(10),convert(Datetime,A.FDSMPOrderDate) ,103) Else '' END AS  FDSMPOrderDate"
         'cmd &= vbCrLf & "  , Case When ISDATE(A.FTDeliveryDate) = 1 Then  Convert(varchar(10),convert(Datetime,A.FTDeliveryDate) ,103) Else '' END AS  FTDeliveryDate"
         'cmd &= vbCrLf & "  , Case When ISDATE(A.FDSendToSMPDate) = 1 Then  Convert(varchar(10),convert(Datetime,A.FDSendToSMPDate) ,103) Else '' END AS  FDSendToSMPDate"
@@ -322,12 +323,12 @@ Public Class wPatternMasterPlan_New
         'cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTPlanCutDate) = 1 Then  Convert(varchar(10),convert(Datetime,SMPMP.FTPlanCutDate) ,103) Else '' END AS  FTPlanCutDate"
 
         cmd &= vbCrLf & " , Case When ISDATE(A.FTPatternDate) = 1 Then  convert(Datetime,A.FTPatternDate)  Else NULL END AS  FTPatternDate"
-        cmd &= vbCrLf & " , Case When ISDATE(A.FTFabricDate) = 1 Then  convert(Datetime,A.FTFabricDate)  Else NULL END AS  FTFabricDate"
-        cmd &= vbCrLf & " , Case When ISDATE(A.FTAccessoryDate) = 1 Then  convert(Datetime,A.FTAccessoryDate)  Else NULL END AS  FTAccessoryDate"
         cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTActPatternDate) = 1 Then  convert(Datetime,SMPMP.FTActPatternDate) Else NULL END AS  FTActPatternDate"
-        cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTActFabricDate) = 1 Then  convert(Datetime,SMPMP.FTActFabricDate)  Else NULL END AS  FTActFabricDate"
-        cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTActAccessoryDate) = 1 Then  convert(Datetime,SMPMP.FTActAccessoryDate) Else NULL END AS  FTActAccessoryDate"
-        cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTPlanCutDate) = 1 Then  convert(Datetime,SMPMP.FTPlanCutDate) Else NULL END AS  FTPlanCutDate"
+        'cmd &= vbCrLf & " , Case When ISDATE(A.FTFabricDate) = 1 Then  convert(Datetime,A.FTFabricDate)  Else NULL END AS  FTFabricDate"
+        'cmd &= vbCrLf & " , Case When ISDATE(A.FTAccessoryDate) = 1 Then  convert(Datetime,A.FTAccessoryDate)  Else NULL END AS  FTAccessoryDate"
+        'cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTActFabricDate) = 1 Then  convert(Datetime,SMPMP.FTActFabricDate)  Else NULL END AS  FTActFabricDate"
+        'cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTActAccessoryDate) = 1 Then  convert(Datetime,SMPMP.FTActAccessoryDate) Else NULL END AS  FTActAccessoryDate"
+        'cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTPlanCutDate) = 1 Then  convert(Datetime,SMPMP.FTPlanCutDate) Else NULL END AS  FTPlanCutDate"
 
         ' cmd &= vbCrLf & " ,SMPMP.FTEmpCut  "
         'cmd &= vbCrLf & " ,FTEmpCutName AS FTEmpCut  "
@@ -336,13 +337,12 @@ Public Class wPatternMasterPlan_New
         'cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTPlanSewDate) = 1 Then  Convert(varchar(10),convert(Datetime,SMPMP.FTPlanSewDate) ,103) Else '' END AS  FTPlanSewDate"
         'cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTCFMSendSampleDate) = 1 Then  Convert(varchar(10),convert(Datetime,SMPMP.FTCFMSendSampleDate) ,103) Else '' END AS  FTCFMSendSampleDate"
 
-        cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTPlanCutDate) = 1 Then  convert(Datetime,SMPMP.FTPlanCutDate)  Else NULL END AS  FTPlanCutDate"
-        cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTPlanSewDate) = 1 Then  convert(Datetime,SMPMP.FTPlanSewDate)  Else NULL END AS  FTPlanSewDate"
+        'cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTPlanCutDate) = 1 Then  convert(Datetime,SMPMP.FTPlanCutDate)  Else NULL END AS  FTPlanCutDate"
+        'cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTPlanSewDate) = 1 Then  convert(Datetime,SMPMP.FTPlanSewDate)  Else NULL END AS  FTPlanSewDate"
         cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTCFMSendSampleDate) = 1 Then  convert(Datetime,SMPMP.FTCFMSendSampleDate) Else NULL END AS  FTCFMSendSampleDate"
         cmd &= vbCrLf & " , Case When ISDATE(a.FTGACDate) = 1 Then  convert(Datetime,a.FTGACDate) Else NULL END AS  FDGacDate"
 
         cmd &= vbCrLf & " ,SMPMP.FTStandBy"
-        cmd &= vbCrLf & " ,SMPMP.FTStandBy1"
         cmd &= vbCrLf & " ,SMPMP.FTNote"
         cmd &= vbCrLf & " ,ISNULL(XSAM.FNSam,0) AS FNSMPSam"
         cmd &= vbCrLf & " ,ISNULL(SMPFN.FNQTYFinish,0) AS FNQTYFinish"
@@ -418,14 +418,14 @@ Public Class wPatternMasterPlan_New
         'cmd &= vbCrLf & "   ,Case When ISDATE(FinishSew.FTStartDate) = 1 Then  convert(Datetime,FinishSew.FTStartDate) Else NULL END AS  FTStartDateFinishSew"
         'cmd &= vbCrLf & "   ,Case When ISDATE(FinishSew.FTLastDate) = 1 Then  convert(Datetime,FinishSew.FTLastDate) Else NULL END AS  FTLastDateFinishSew"
         'cmd &= vbCrLf & "  ,FinishSew.FNQuantity As FNQuantityFinishSew"
-        cmd &= vbCrLf & "   ,Case When ISDATE(QC.FTStartDate) = 1 Then  convert(Datetime,QC.FTStartDate) Else NULL END AS  FTStartDateQC"
-        cmd &= vbCrLf & "  ,Case When ISDATE(QC.FTLastDate) = 1 Then  convert(Datetime,QC.FTLastDate) Else NULL END AS  FTLastDateQC"
-        cmd &= vbCrLf & "  ,QC.FNQuantity As FNQuantityQC"
-        cmd &= vbCrLf & "  ,QC.FNPass "
-        cmd &= vbCrLf & "   ,QC.FNNotPass "
+        'cmd &= vbCrLf & "   ,Case When ISDATE(QC.FTStartDate) = 1 Then  convert(Datetime,QC.FTStartDate) Else NULL END AS  FTStartDateQC"
+        'cmd &= vbCrLf & "  ,Case When ISDATE(QC.FTLastDate) = 1 Then  convert(Datetime,QC.FTLastDate) Else NULL END AS  FTLastDateQC"
+        'cmd &= vbCrLf & "  ,QC.FNQuantity As FNQuantityQC"
+        'cmd &= vbCrLf & "  ,QC.FNPass "
+        'cmd &= vbCrLf & "   ,QC.FNNotPass "
         'cmd &= vbCrLf & " ,QC.FTRemark AS FTNote"
         'cmd &= vbCrLf & " ,QC.FTRemark AS CFTNote"
-        cmd &= vbCrLf & " ,QC.FTRemark AS FTNote1 "
+        'cmd &= vbCrLf & " ,QC.FTRemark AS FTNote1 "
         'cmd &= vbCrLf & " ,QC.FTRemark AS QCFTNote"
 
         cmd &= vbCrLf & "  , isnull(MerQC.FTMerAppState , '0') as FTMerAppState  ,  isnull(MerQC.FTRejectState ,'0') as FTRejectState   "
@@ -486,36 +486,21 @@ Public Class wPatternMasterPlan_New
         End If
 
 
-        'If FTStartOrderDate.Text <> "" Then
-        'cmd &= vbCrLf & "  AND A.FDSMPOrderDate >='" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text) & "'"
-        'End If
-
-        'If FTEndOrderDate.Text <> "" Then
-        'cmd &= vbCrLf & "  AND A.FDSMPOrderDate <='" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "'"
-        'End If
-
-
-
-        If FTStartCFMOrderDate.Text <> "" Then
-            cmd &= vbCrLf & "  AND A.FTStateAppDate >='" & HI.UL.ULDate.ConvertEnDB(FTStartCFMOrderDate.Text) & "'"
+        If FTStartOrderDate.Text <> "" And FTEndOrderDate.Text <> "" Then
+            cmd &= vbCrLf & "  AND A.FDSMPOrderDate BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text) &
+                "' AND '" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "'"
         End If
 
-        If FTEndCFMOrderDate.Text <> "" Then
-            cmd &= vbCrLf & "  AND A.FTStateAppDate <='" & HI.UL.ULDate.ConvertEnDB(FTEndCFMOrderDate.Text) & "'"
+        If FTStartReqDate.Text <> "" And FTEndReqDate.Text <> "" Then
+            cmd &= vbCrLf & " AND (OD.FTPatternDate BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FTStartReqDate.Text) &
+                "' AND '" & HI.UL.ULDate.ConvertEnDB(FTEndReqDate.Text) & "')"
         End If
 
 
-
-
-        If FTStartRcvOrderDate.Text <> "" Then
-            cmd &= vbCrLf & "  AND A.FTStateReceiptDate >='" & HI.UL.ULDate.ConvertEnDB(FTStartRcvOrderDate.Text) & "'"
+        If FTStartCFMOrderDate.Text <> "" And FTEndCFMOrderDate.Text <> "" Then
+            cmd &= vbCrLf & "  AND (A.FTStateAppDate >='" & HI.UL.ULDate.ConvertEnDB(FTStartCFMOrderDate.Text) &
+                "' AND '" & HI.UL.ULDate.ConvertEnDB(FTEndCFMOrderDate.Text) & "')"
         End If
-
-        If FTEndRcvOrderDate.Text <> "" Then
-            cmd &= vbCrLf & "  AND A.FTStateReceiptDate <='" & HI.UL.ULDate.ConvertEnDB(FTEndRcvOrderDate.Text) & "'"
-        End If
-
-
 
         cmd &= vbCrLf & "  ) As A"
 
@@ -749,7 +734,105 @@ Public Class wPatternMasterPlan_New
         cmd &= vbCrLf & "  ) As SMPFN"
 
 
-        cmd &= vbCrLf & " ORDER BY  A.FTSMPOrderNo ,A.FNSeq"
+        'cmd &= vbCrLf & " ORDER BY  A.FTSMPOrderNo ,A.FNSeq"
+        cmd &= vbCrLf & " UNION ALL"
+
+        cmd &= vbCrLf & " SELECT 'PRODUCTION' AS 'Category',ISNULL(A.FTOrderNo,'') AS 'FTSMPOrderNo', ISNULL(A.FTStateOrderApp,'') AS 'FNSMPOrderStatusState', "
+
+        cmd &= vbCrLf & " Case When ISDATE(A.FDInsDate) = 1 Then  convert(Datetime,A.FDInsDate) Else NULL END AS 'FDSMPOrderDate', "
+        cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FTDeliveryDate', "
+        cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FDSendToSMPDate', "
+        cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FTStateReceiptDate', "
+        cmd &= vbCrLf & "ISNULL(MST.FTStyleNameEN,'') AS 'FTStyleName',  ISNULL(GD.FTGenderCode,'') AS 'FTGenderCode', "
+        cmd &= vbCrLf & "ISNULL(GD.FTGenderNameEN,'') AS 'FTGenderName', ISNULL(A.FTOrderBy,'') AS 'FTSMPOrderBy', "
+        cmd &= vbCrLf & "ISNULL(A.FTRemark,'') AS 'FTOrderRemark', '' AS 'FNHSysBuyId', "
+        cmd &= vbCrLf & "ISNULL(A.FTSubPgm,'') AS 'FTPgmName',  "
+        cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FTPatternDate', "
+        cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FTActPatternDate', "
+        'cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FTFabricDate', "
+        'cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FTAccessoryDate', "
+        'cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FTActFabricDate', "
+        'cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FTActAccessoryDate', "
+        'cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FTPlanCutDate', "
+        'cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FTPlanCutDate', "
+        'cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FTPlanSewDate', "
+        cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FTCFMSendSampleDate', "
+        cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FDGacDate', "
+        cmd &= vbCrLf & "'' AS 'FTStandBy',  ISNULL(S.FTOther1Note,'') AS 'FTNote', "
+        cmd &= vbCrLf & "0 AS 'FNSMPSam', 0 AS 'FNQTYFinish', '' AS 'FTCustomerTeam', "
+        cmd &= vbCrLf & "ISNULL(A.FNHSysProdTypeId,'') AS 'FNSMPPrototypeNo', ISNULL(MST.FTStyleCode,'') AS 'FTStyleCode', "
+        cmd &= vbCrLf & "ISNULL(MSS.FTSeasonNameEN,'') AS 'FTSeasonCode', "
+        cmd &= vbCrLf & "ISNULL(MCT.FTCustCode,'') AS 'FTCustCode', "
+        cmd &= vbCrLf & "ISNULL(XT.FTNameEN,'') AS 'FNSMPOrderType', "
+        cmd &= vbCrLf & "ISNULL(MCT.FTCustNameEN,'') AS 'FTCustName', "
+        cmd &= vbCrLf & "'' AS 'FNOrderSampleType', '' AS 'FNSMPOrderStatus', "
+        cmd &= vbCrLf & "ISNULL(MMT.FTMerTeamCode,'') AS 'FTMerTeamCode', "
+        cmd &= vbCrLf & "0 AS 'FNSeq', ISNULL(SB.FTSizeBreakDown,'') AS 'FTSizeBreakDown', "
+        cmd &= vbCrLf & "ISNULL(SB.FTColorway,'') AS 'FTColorway', ISNULL(SB.FNQuantity,'') AS 'FNQuantity', "
+        cmd &= vbCrLf & "'' AS 'FTRemark', '' AS 'FNSMPOrderStatus', '' AS 'FTEmpName', "
+        'cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FTStartDateQC', "
+        'cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FTLastDateQC', "
+        'cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FNQuantityQC', "
+        'cmd &= vbCrLf & "0 AS 'FNPass', 0 AS 'FNNotPass', '' AS 'FTNote1', "
+        cmd &= vbCrLf & "A.FNJobState AS 'FTMerAppState', 0 AS 'FTRejectState', "
+        cmd &= vbCrLf & "A.FTStateBy AS 'FTMerAppBy', "
+        cmd &= vbCrLf & "Case When ISDATE('') = 1 Then  convert(Datetime,'') Else NULL END AS 'FDMerAppDate', "
+        cmd &= vbCrLf & "'' AS 'FTMerAppTime', '' AS 'FTMerRemark'"
+
+        cmd &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS A WITH (NOLOCK) "
+        cmd &= vbCrLf & "OUTER APPLY (SELECT * FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS SB WITH (NOLOCK) "
+        cmd &= vbCrLf & "WHERE A.FTOrderNo = SB.FTOrderNo) AS SB "
+        cmd &= vbCrLf & "OUTER APPLY (SELECT * FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub AS S WITH (NOLOCK) "
+        cmd &= vbCrLf & "WHERE A.FTOrderNo = S.FTOrderNo) AS S "
+        cmd &= vbCrLf & "Left OUTER Join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As MST With(NOLOCK) On A.FNHSysStyleId = MST.FNHSysStyleId "
+        cmd &= vbCrLf & "Left OUTER Join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMSeason As MSS With(NOLOCK)  On A.FNHSysSeasonId = MSS.FNHSysSeasonId "
+        cmd &= vbCrLf & "Left OUTER Join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCustomer As MCT With(NOLOCK)  On A.FNHSysCustId = MCT.FNHSysCustId "
+        cmd &= vbCrLf & "Left OUTER Join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMerTeam As MMT With(NOLOCK)  On A.FNHSysMerTeamId = MMT.FNHSysMerTeamId "
+        cmd &= vbCrLf & "Left OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMGender As GD With(NOLOCK)  On S.FNHSysGenderId = GD.FNHSysGenderId "
+        cmd &= vbCrLf & "Left OUTER Join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMBuy AS B  With(NOLOCK)  On A.FNHSysBuyId=B.FNHSysBuyId "
+        cmd &= vbCrLf & "Left OUTER JOIN ( Select FNListIndex,FTNameTH,FTNameEN  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData As L With (NOLOCK) "
+        cmd &= vbCrLf & "WHERE  (FTListName = N'FNSMPOrderType')  ) AS XT ON  A.FNOrderType =XT.FNListIndex "
+
+
+        cmd &= vbCrLf & "    WHERE A.FTOrderNo <> '' "
+
+        If FNHSysCustId.Text <> "" Then
+            cmd &= vbCrLf & " AND A.FNHSysCustId=" & Val(FNHSysCustId.Properties.Tag.ToString) & ""
+        End If
+
+        If FNHSysStyleId.Text <> "" Then
+            cmd &= vbCrLf & " AND A.FNHSysStyleId=" & Val(FNHSysStyleId.Properties.Tag.ToString) & ""
+        End If
+
+        If FNHSysSeasonId.Text <> "" Then
+            cmd &= vbCrLf & "  AND A.FNHSysSeasonId=" & Val(FNHSysSeasonId.Properties.Tag.ToString) & ""
+        End If
+
+        If FNHSysMerTeamId.Text <> "" Then
+            cmd &= vbCrLf & "  AND A.FNHSysMerTeamId=" & Val(FNHSysMerTeamId.Properties.Tag.ToString) & ""
+        End If
+
+
+        If FTStartOrderDate.Text <> "" And FTEndOrderDate.Text <> "" Then
+            cmd &= vbCrLf & "  AND A.FDOrderDate BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text) &
+                "' AND '" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "'"
+        End If
+
+        'If FTStartReqDate.Text <> "" And FTEndReqDate.Text <> "" Then
+        '    cmd &= vbCrLf & " AND (OD.FTPatternDate BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FTStartReqDate.Text) &
+        '        "' AND '" & HI.UL.ULDate.ConvertEnDB(FTEndReqDate.Text) & "')"
+        'End If
+
+
+        'If FTStartCFMOrderDate.Text <> "" And FTEndCFMOrderDate.Text <> "" Then
+        '    cmd &= vbCrLf & "  AND (A.FTStateAppDate >='" & HI.UL.ULDate.ConvertEnDB(FTStartCFMOrderDate.Text) &
+        '        "' AND '" & HI.UL.ULDate.ConvertEnDB(FTEndCFMOrderDate.Text) & "')"
+        'End If
+
+
+        cmd &= vbCrLf & " "
+
+
 
         _dtprod = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_SAMPLE)
 
