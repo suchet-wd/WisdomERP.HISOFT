@@ -30,6 +30,7 @@ namespace HI.Track
         private void InitializeComponent()
         {
             this.ogcCriteria = new DevExpress.XtraEditors.GroupControl();
+            this.chkPermission = new DevExpress.XtraEditors.CheckEdit();
             this.chkShowActive = new DevExpress.XtraEditors.CheckEdit();
             this.ogbDetail = new DevExpress.XtraEditors.GroupControl();
             this.ogbmainprocbutton = new DevExpress.XtraEditors.PanelControl();
@@ -43,16 +44,16 @@ namespace HI.Track
             this.FNEmpStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTStateActive = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FNHSysEmpID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.FTEmpCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EmpName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FDDateStart = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FDDateEnd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTDeptDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTDivisonName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTUserName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.chkPermission = new DevExpress.XtraEditors.CheckEdit();
+            this.EmpCode = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ogcCriteria)).BeginInit();
             this.ogcCriteria.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPermission.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkShowActive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogbDetail)).BeginInit();
             this.ogbDetail.SuspendLayout();
@@ -60,7 +61,6 @@ namespace HI.Track
             this.ogbmainprocbutton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ogcDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogvDetail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkPermission.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ogcCriteria
@@ -74,6 +74,14 @@ namespace HI.Track
             this.ogcCriteria.Size = new System.Drawing.Size(1472, 70);
             this.ogcCriteria.TabIndex = 0;
             this.ogcCriteria.Text = "Employee Listing Criteria";
+            // 
+            // chkPermission
+            // 
+            this.chkPermission.Location = new System.Drawing.Point(25, 50);
+            this.chkPermission.Name = "chkPermission";
+            this.chkPermission.Properties.Caption = "Show Permission";
+            this.chkPermission.Size = new System.Drawing.Size(127, 20);
+            this.chkPermission.TabIndex = 1;
             // 
             // chkShowActive
             // 
@@ -156,14 +164,14 @@ namespace HI.Track
             this.FTCmpCode,
             this.FNEmpStatus,
             this.FTStateActive,
-            this.FNHSysEmpID,
-            this.FTEmpCode,
             this.EmpName,
-            this.FDDateStart,
-            this.FDDateEnd,
+            this.FNHSysEmpID,
+            this.EmpCode,
             this.FTDeptDesc,
             this.FTDivisonName,
-            this.FTUserName});
+            this.FTUserName,
+            this.FDDateStart,
+            this.FDDateEnd});
             this.ogvDetail.CustomizationFormBounds = new System.Drawing.Rectangle(759, 412, 252, 266);
             this.ogvDetail.GridControl = this.ogcDetail;
             this.ogvDetail.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
@@ -236,23 +244,7 @@ namespace HI.Track
             this.FNHSysEmpID.FieldName = "FNHSysEmpID";
             this.FNHSysEmpID.Name = "FNHSysEmpID";
             this.FNHSysEmpID.OptionsColumn.AllowEdit = false;
-            this.FNHSysEmpID.Visible = true;
-            this.FNHSysEmpID.VisibleIndex = 7;
-            this.FNHSysEmpID.Width = 114;
-            // 
-            // FTEmpCode
-            // 
-            this.FTEmpCode.AppearanceCell.Options.UseTextOptions = true;
-            this.FTEmpCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.FTEmpCode.AppearanceHeader.Options.UseTextOptions = true;
-            this.FTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.FTEmpCode.Caption = "FTEmpCode";
-            this.FTEmpCode.FieldName = "FTEmpCode";
-            this.FTEmpCode.Name = "FTEmpCode";
-            this.FTEmpCode.OptionsColumn.AllowEdit = false;
-            this.FTEmpCode.Visible = true;
-            this.FTEmpCode.VisibleIndex = 8;
-            this.FTEmpCode.Width = 108;
+            this.FNHSysEmpID.Width = 108;
             // 
             // EmpName
             // 
@@ -265,7 +257,7 @@ namespace HI.Track
             this.EmpName.Name = "EmpName";
             this.EmpName.OptionsColumn.AllowEdit = false;
             this.EmpName.Visible = true;
-            this.EmpName.VisibleIndex = 9;
+            this.EmpName.VisibleIndex = 8;
             this.EmpName.Width = 193;
             // 
             // FDDateStart
@@ -281,7 +273,7 @@ namespace HI.Track
             this.FDDateStart.Name = "FDDateStart";
             this.FDDateStart.OptionsColumn.AllowEdit = false;
             this.FDDateStart.Visible = true;
-            this.FDDateStart.VisibleIndex = 10;
+            this.FDDateStart.VisibleIndex = 9;
             this.FDDateStart.Width = 118;
             // 
             // FDDateEnd
@@ -297,7 +289,7 @@ namespace HI.Track
             this.FDDateEnd.Name = "FDDateEnd";
             this.FDDateEnd.OptionsColumn.AllowEdit = false;
             this.FDDateEnd.Visible = true;
-            this.FDDateEnd.VisibleIndex = 11;
+            this.FDDateEnd.VisibleIndex = 10;
             this.FDDateEnd.Width = 90;
             // 
             // FTDeptDesc
@@ -312,7 +304,7 @@ namespace HI.Track
             this.FTDeptDesc.OptionsColumn.AllowEdit = false;
             this.FTDeptDesc.Visible = true;
             this.FTDeptDesc.VisibleIndex = 5;
-            this.FTDeptDesc.Width = 145;
+            this.FTDeptDesc.Width = 182;
             // 
             // FTDivisonName
             // 
@@ -326,7 +318,7 @@ namespace HI.Track
             this.FTDivisonName.OptionsColumn.AllowEdit = false;
             this.FTDivisonName.Visible = true;
             this.FTDivisonName.VisibleIndex = 4;
-            this.FTDivisonName.Width = 183;
+            this.FTDivisonName.Width = 222;
             // 
             // FTUserName
             // 
@@ -342,13 +334,19 @@ namespace HI.Track
             this.FTUserName.VisibleIndex = 1;
             this.FTUserName.Width = 97;
             // 
-            // chkPermission
+            // EmpCode
             // 
-            this.chkPermission.Location = new System.Drawing.Point(25, 50);
-            this.chkPermission.Name = "chkPermission";
-            this.chkPermission.Properties.Caption = "Show Permission";
-            this.chkPermission.Size = new System.Drawing.Size(127, 20);
-            this.chkPermission.TabIndex = 1;
+            this.EmpCode.AppearanceCell.Options.UseTextOptions = true;
+            this.EmpCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.EmpCode.AppearanceHeader.Options.UseTextOptions = true;
+            this.EmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.EmpCode.Caption = "EmpCode";
+            this.EmpCode.FieldName = "FTEmpCode";
+            this.EmpCode.Name = "EmpCode";
+            this.EmpCode.OptionsColumn.AllowEdit = false;
+            this.EmpCode.Visible = true;
+            this.EmpCode.VisibleIndex = 7;
+            this.EmpCode.Width = 105;
             // 
             // wEmpListingTracking
             // 
@@ -361,6 +359,7 @@ namespace HI.Track
             this.Text = "wEmpListingTracking";
             ((System.ComponentModel.ISupportInitialize)(this.ogcCriteria)).EndInit();
             this.ogcCriteria.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkPermission.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkShowActive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogbDetail)).EndInit();
             this.ogbDetail.ResumeLayout(false);
@@ -368,7 +367,6 @@ namespace HI.Track
             this.ogbmainprocbutton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ogcDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogvDetail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkPermission.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -385,7 +383,6 @@ namespace HI.Track
         internal DevExpress.XtraGrid.GridControl ogcDetail;
         private DevExpress.XtraGrid.Columns.GridColumn FNEmpStatus;
         private DevExpress.XtraGrid.Columns.GridColumn FNHSysEmpID;
-        private DevExpress.XtraGrid.Columns.GridColumn FTEmpCode;
         private DevExpress.XtraGrid.Columns.GridColumn EmpName;
         private DevExpress.XtraGrid.Columns.GridColumn FDDateStart;
         private DevExpress.XtraGrid.Columns.GridColumn FDDateEnd;
@@ -397,5 +394,6 @@ namespace HI.Track
         private DevExpress.XtraGrid.Columns.GridColumn FTCmpCode;
         private DevExpress.XtraGrid.Columns.GridColumn Number;
         private DevExpress.XtraEditors.CheckEdit chkPermission;
+        private DevExpress.XtraGrid.Columns.GridColumn EmpCode;
     }
 }

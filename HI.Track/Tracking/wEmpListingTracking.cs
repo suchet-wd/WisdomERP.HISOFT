@@ -17,6 +17,21 @@ namespace HI.Track
             this.Close();
         }
 
+        public string CallMethodName
+        {
+            get; set;
+        }
+
+        public string CallMenuName
+        {
+            get; set;
+        }
+
+        public string CallMethodParm
+        {
+            get;set;
+        }
+
         private void ocmLoadData_Click(object sender, EventArgs e)
         {
             if (VerifyField())
@@ -26,19 +41,19 @@ namespace HI.Track
                 try
                 {
                     ogcDetail.DataSource = null;
-                    _Qry = "SELECT em.FNHSysEmpID, EM.FTEmpCode, EM.FNHSysCmpId , Div.FTDivisonCode, Dept.FTDeptCode, ";
+                    _Qry = "SELECT EM.FNHSysEmpID AS FNHSysEmpID, EM.FTEmpCode,  EM.FNHSysCmpId , Div.FTDivisonCode, Dept.FTDeptCode, ";
                     _Qry += "row_number ( ) OVER ( partition BY EM.FNHSysCmpId ORDER BY EM.FNHSysCmpId, Div.FTDivisonCode, Dept.FTDeptCode  DESC ) AS Seq, ";
                     if ((HI.ST.Lang.Language).ToString() == "TH")
-                    {
-                        _Qry += " (EM.FTEmpNameEN + ' ' + EM.FTEmpSurnameEN) AS EmpName, ";
-                        _Qry += " (Dept.FTDeptDescEN) AS FTDeptDesc, ";
-                        _Qry += " (Div.FTDivisonNameEN) AS FTDivisonName, ";
-                    }
-                    else
                     {
                         _Qry += " (EM.FTEmpNameTH + ' ' + EM.FTEmpSurnameTH) AS EmpName, ";
                         _Qry += " (Dept.FTDeptDescTH) AS FTDeptDesc, ";
                         _Qry += " (Div.FTDivisonNameTH) AS FTDivisonName, ";
+                    }
+                    else
+                    {
+                        _Qry += " (EM.FTEmpNameEN + ' ' + EM.FTEmpSurnameEN) AS EmpName, ";
+                        _Qry += " (Dept.FTDeptDescEN) AS FTDeptDesc, ";
+                        _Qry += " (Div.FTDivisonNameEN) AS FTDivisonName, ";
                     }
 
                     _Qry += " Case When ISDATE(EM.FDDateStart) = 1 Then convert(Datetime, EM.FDDateStart) Else NULL END AS FDDateStart ,";
