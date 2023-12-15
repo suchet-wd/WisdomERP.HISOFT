@@ -132,12 +132,6 @@
     <Compile Include="Tracking\wProdLTTracking.Designer.cs">
       <DependentUpon>wProdLTTracking.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tracking\wRptTrackTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tracking\wRptTrackTest.Designer.cs">
-      <DependentUpon>wRptTrackTest.cs</DependentUpon>
-    </Compile>
     <Compile Include="Tracking\wSendJson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,12 +143,6 @@
     </Compile>
     <Compile Include="Tracking\wSPSendSuplChartTable.Designer.cs">
       <DependentUpon>wSPSendSuplChartTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Tracking\wTestControl.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tracking\wTestControl.Designer.cs">
-      <DependentUpon>wTestControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Tracking\wPayrollListingMonthly.cs">
       <SubType>Form</SubType>
@@ -187,17 +175,11 @@
     <EmbeddedResource Include="Tracking\wProdLTTracking.resx">
       <DependentUpon>wProdLTTracking.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tracking\wRptTrackTest.resx">
-      <DependentUpon>wRptTrackTest.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Tracking\wSendJson.resx">
       <DependentUpon>wSendJson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tracking\wSPSendSuplChartTable.resx">
       <DependentUpon>wSPSendSuplChartTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tracking\wTestControl.resx">
-      <DependentUpon>wTestControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tracking\wPayrollListingMonthly.resx">
       <DependentUpon>wPayrollListingMonthly.cs</DependentUpon>

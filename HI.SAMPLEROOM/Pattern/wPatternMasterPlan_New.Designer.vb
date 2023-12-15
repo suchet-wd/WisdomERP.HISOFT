@@ -50,6 +50,8 @@ Partial Class wPatternMasterPlan_New
         Dim SerializableAppearanceObject23 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject24 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbStyleHeader = New DevExpress.XtraEditors.GroupControl()
+        Me.FNYear = New DevExpress.XtraEditors.DateEdit()
+        Me.lblFTYear = New DevExpress.XtraEditors.LabelControl()
         Me.lblTBuyCodeTo = New DevExpress.XtraEditors.LabelControl()
         Me.lblFNHSysBuyId = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysBuyIdTo = New DevExpress.XtraEditors.ButtonEdit()
@@ -88,12 +90,12 @@ Partial Class wPatternMasterPlan_New
         Me.CFTActPatternDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ReposDate = New DevExpress.XtraEditors.Repository.RepositoryItemDateEdit()
         Me.FTDeliveryDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.CFTPatternDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.CFTCFMSendSampleDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cFDGacDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTStyleCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTStyleName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTSeasonCode = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.CFNSMPOrderType = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.CFNSMPPrototypeNo = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.CGFNOrderSampleType = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTCustomerTeam = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTGenderCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTCustCode = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -105,18 +107,18 @@ Partial Class wPatternMasterPlan_New
         Me.FNQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTRemark = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTOrderRemark = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.CFTPatternDate = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.cFDGacDate = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.CFTCFMSendSampleDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTEmpName = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.CGFNOrderSampleType = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.CFNSMPOrderType = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNSeq = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFNSMPSam = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.SubGroup = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.Group = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GroupCust = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.SubGroupCust = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.CFNSMPPrototypeNo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTNote = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTStateFinish = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CCFNSMPOrderStatus = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FNSMPOrderStatus = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.PTStatus = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTStandBy = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ReposFTEmpCut = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.FTBuyCode = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -149,6 +151,8 @@ Partial Class wPatternMasterPlan_New
         Me.Remark = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.ogbStyleHeader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbStyleHeader.SuspendLayout()
+        CType(Me.FNYear.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FNYear.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysBuyIdTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysBuyIdFrom.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTEndReqDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -179,6 +183,8 @@ Partial Class wPatternMasterPlan_New
         '
         'ogbStyleHeader
         '
+        Me.ogbStyleHeader.Controls.Add(Me.FNYear)
+        Me.ogbStyleHeader.Controls.Add(Me.lblFTYear)
         Me.ogbStyleHeader.Controls.Add(Me.lblTBuyCodeTo)
         Me.ogbStyleHeader.Controls.Add(Me.lblFNHSysBuyId)
         Me.ogbStyleHeader.Controls.Add(Me.FNHSysBuyIdTo)
@@ -207,6 +213,35 @@ Partial Class wPatternMasterPlan_New
         Me.ogbStyleHeader.TabIndex = 2
         Me.ogbStyleHeader.Text = "Style Info"
         '
+        'FNYear
+        '
+        Me.FNYear.EditValue = Nothing
+        Me.FNYear.Location = New System.Drawing.Point(434, 31)
+        Me.FNYear.Name = "FNYear"
+        Me.FNYear.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.FNYear.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.FNYear.Properties.DisplayFormat.FormatString = "yyyy"
+        Me.FNYear.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.FNYear.Properties.EditFormat.FormatString = "yyyy"
+        Me.FNYear.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.FNYear.Properties.Mask.EditMask = "yyyy"
+        Me.FNYear.Size = New System.Drawing.Size(133, 20)
+        Me.FNYear.TabIndex = 593
+        '
+        'lblFTYear
+        '
+        Me.lblFTYear.Appearance.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.lblFTYear.Appearance.Options.UseForeColor = True
+        Me.lblFTYear.Appearance.Options.UseTextOptions = True
+        Me.lblFTYear.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.lblFTYear.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.lblFTYear.Location = New System.Drawing.Point(323, 30)
+        Me.lblFTYear.Name = "lblFTYear"
+        Me.lblFTYear.Size = New System.Drawing.Size(105, 19)
+        Me.lblFTYear.TabIndex = 592
+        Me.lblFTYear.Tag = "2|"
+        Me.lblFTYear.Text = "Year :"
+        '
         'lblTBuyCodeTo
         '
         Me.lblTBuyCodeTo.Appearance.ForeColor = System.Drawing.Color.RoyalBlue
@@ -219,7 +254,7 @@ Partial Class wPatternMasterPlan_New
         Me.lblTBuyCodeTo.Size = New System.Drawing.Size(105, 19)
         Me.lblTBuyCodeTo.TabIndex = 590
         Me.lblTBuyCodeTo.Tag = "2|"
-        Me.lblTBuyCodeTo.Text = "FNHSysBuyIdTo"
+        Me.lblTBuyCodeTo.Text = "FNHSysBuyIdTo :"
         '
         'lblFNHSysBuyId
         '
@@ -233,7 +268,7 @@ Partial Class wPatternMasterPlan_New
         Me.lblFNHSysBuyId.Size = New System.Drawing.Size(105, 19)
         Me.lblFNHSysBuyId.TabIndex = 589
         Me.lblFNHSysBuyId.Tag = "2|"
-        Me.lblFNHSysBuyId.Text = "FNHSysBuyId"
+        Me.lblFNHSysBuyId.Text = "FNHSysBuyId :"
         '
         'FNHSysBuyIdTo
         '
@@ -511,7 +546,7 @@ Partial Class wPatternMasterPlan_New
         Me.ogbmainprocbutton.Controls.Add(Me.ocmsave)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmrefresh)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(13, 376)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(31, 299)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(137, 100)
         Me.ogbmainprocbutton.TabIndex = 302
@@ -563,7 +598,7 @@ Partial Class wPatternMasterPlan_New
         '
         'ogvoperation
         '
-        Me.ogvoperation.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.CFNSMPOrderStatus, Me.Category, Me.FTCmpCode, Me.CFTSMPOrderNo, Me.CFDSMPOrderDate, Me.CFTStateReceiptDate, Me.CFTActPatternDate, Me.FTDeliveryDate, Me.CFTPatternDate, Me.CFTCFMSendSampleDate, Me.cFDGacDate, Me.CFTStyleCode, Me.CFTStyleName, Me.CFTSeasonCode, Me.CFTCustomerTeam, Me.CFTGenderCode, Me.CFTCustCode, Me.CFTCustName, Me.FTMerTeamCode, Me.CFTSMPOrderBy, Me.FTColorway, Me.FTSizeBreakDown, Me.FNQuantity, Me.FTRemark, Me.FTOrderRemark, Me.FTEmpName, Me.CGFNOrderSampleType, Me.CFNSMPOrderType, Me.FNSeq, Me.CFNSMPSam, Me.SubGroup, Me.Group, Me.CFNSMPPrototypeNo, Me.CFTNote, Me.CFTStateFinish, Me.CCFNSMPOrderStatus, Me.FNSMPOrderStatus, Me.FTStandBy, Me.FTBuyCode, Me.FTPgmName, Me.cmFTMerRemark, Me.PriorityList, Me.Block, Me.Option1, Me.Details, Me.Job, Me.Type, Me.GroupType, Me.FDGacDate, Me.Gac, Me.LeadTime, Me.PlanDate, Me.OPT, Me.PT, Me.PlanFinishYear, Me.PlanFinishWeek, Me.PlanFinishWY, Me.FinishDate, Me.ActFinishYear, Me.ActFinishWeek, Me.ActFinishWY, Me.PTMaker, Me.PTTeam, Me.InIOTP, Me.ExIOTP, Me.Remark})
+        Me.ogvoperation.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.CFNSMPOrderStatus, Me.Category, Me.FTCmpCode, Me.CFTSMPOrderNo, Me.CFDSMPOrderDate, Me.CFTStateReceiptDate, Me.CFTActPatternDate, Me.FTDeliveryDate, Me.CFTPatternDate, Me.CFTCFMSendSampleDate, Me.cFDGacDate, Me.CFTStyleCode, Me.CFTStyleName, Me.CFTSeasonCode, Me.CFTCustomerTeam, Me.CFTGenderCode, Me.CFTCustCode, Me.CFTCustName, Me.FTMerTeamCode, Me.CFTSMPOrderBy, Me.FTColorway, Me.FTSizeBreakDown, Me.FNQuantity, Me.FTRemark, Me.FTOrderRemark, Me.FTEmpName, Me.CGFNOrderSampleType, Me.CFNSMPOrderType, Me.FNSeq, Me.CFNSMPSam, Me.GroupCust, Me.SubGroupCust, Me.CFNSMPPrototypeNo, Me.CFTNote, Me.CFTStateFinish, Me.CCFNSMPOrderStatus, Me.PTStatus, Me.FTStandBy, Me.FTBuyCode, Me.FTPgmName, Me.cmFTMerRemark, Me.PriorityList, Me.Block, Me.Option1, Me.Details, Me.Job, Me.Type, Me.GroupType, Me.FDGacDate, Me.Gac, Me.LeadTime, Me.PlanDate, Me.OPT, Me.PT, Me.PlanFinishYear, Me.PlanFinishWeek, Me.PlanFinishWY, Me.FinishDate, Me.ActFinishYear, Me.ActFinishWeek, Me.ActFinishWY, Me.PTMaker, Me.PTTeam, Me.InIOTP, Me.ExIOTP, Me.Remark})
         Me.ogvoperation.DetailHeight = 284
         Me.ogvoperation.GridControl = Me.ogcoperation
         Me.ogvoperation.Name = "ogvoperation"
@@ -713,6 +748,62 @@ Partial Class wPatternMasterPlan_New
         Me.FTDeliveryDate.VisibleIndex = 6
         Me.FTDeliveryDate.Width = 97
         '
+        'CFTPatternDate
+        '
+        Me.CFTPatternDate.AppearanceCell.Options.UseTextOptions = True
+        Me.CFTPatternDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.CFTPatternDate.AppearanceHeader.Options.UseTextOptions = True
+        Me.CFTPatternDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.CFTPatternDate.Caption = "วันที่ต้องการ Pattern"
+        Me.CFTPatternDate.ColumnEdit = Me.ReposDate
+        Me.CFTPatternDate.FieldName = "FTPatternDate"
+        Me.CFTPatternDate.MinWidth = 17
+        Me.CFTPatternDate.Name = "CFTPatternDate"
+        Me.CFTPatternDate.OptionsColumn.AllowEdit = False
+        Me.CFTPatternDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.CFTPatternDate.OptionsColumn.AllowMove = False
+        Me.CFTPatternDate.OptionsColumn.ReadOnly = True
+        Me.CFTPatternDate.Visible = True
+        Me.CFTPatternDate.VisibleIndex = 4
+        Me.CFTPatternDate.Width = 95
+        '
+        'CFTCFMSendSampleDate
+        '
+        Me.CFTCFMSendSampleDate.AppearanceCell.Options.UseTextOptions = True
+        Me.CFTCFMSendSampleDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.CFTCFMSendSampleDate.AppearanceHeader.Options.UseTextOptions = True
+        Me.CFTCFMSendSampleDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.CFTCFMSendSampleDate.Caption = "วันที่นัดส่งตัวอย่าง"
+        Me.CFTCFMSendSampleDate.ColumnEdit = Me.ReposDate
+        Me.CFTCFMSendSampleDate.FieldName = "FTCFMSendSampleDate"
+        Me.CFTCFMSendSampleDate.MinWidth = 17
+        Me.CFTCFMSendSampleDate.Name = "CFTCFMSendSampleDate"
+        Me.CFTCFMSendSampleDate.OptionsColumn.AllowEdit = False
+        Me.CFTCFMSendSampleDate.OptionsColumn.AllowMove = False
+        Me.CFTCFMSendSampleDate.OptionsColumn.AllowShowHide = False
+        Me.CFTCFMSendSampleDate.Visible = True
+        Me.CFTCFMSendSampleDate.VisibleIndex = 3
+        Me.CFTCFMSendSampleDate.Width = 89
+        '
+        'cFDGacDate
+        '
+        Me.cFDGacDate.AppearanceCell.Options.UseTextOptions = True
+        Me.cFDGacDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.cFDGacDate.AppearanceHeader.Options.UseTextOptions = True
+        Me.cFDGacDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.cFDGacDate.Caption = "วันที่ส่งมอบ"
+        Me.cFDGacDate.ColumnEdit = Me.ReposDate
+        Me.cFDGacDate.DisplayFormat.FormatString = "dd/MM/yyyy"
+        Me.cFDGacDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.cFDGacDate.FieldName = "FDGacDate"
+        Me.cFDGacDate.Name = "cFDGacDate"
+        Me.cFDGacDate.OptionsColumn.AllowEdit = False
+        Me.cFDGacDate.OptionsColumn.AllowMove = False
+        Me.cFDGacDate.OptionsColumn.AllowShowHide = False
+        Me.cFDGacDate.Visible = True
+        Me.cFDGacDate.VisibleIndex = 8
+        Me.cFDGacDate.Width = 64
+        '
         'CFTStyleCode
         '
         Me.CFTStyleCode.AppearanceCell.Options.UseTextOptions = True
@@ -762,47 +853,6 @@ Partial Class wPatternMasterPlan_New
         Me.CFTSeasonCode.Visible = True
         Me.CFTSeasonCode.VisibleIndex = 11
         Me.CFTSeasonCode.Width = 99
-        '
-        'CFNSMPOrderType
-        '
-        Me.CFNSMPOrderType.AppearanceCell.Options.UseTextOptions = True
-        Me.CFNSMPOrderType.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.CFNSMPOrderType.Caption = "FNSMPOrderType"
-        Me.CFNSMPOrderType.FieldName = "FNSMPOrderType"
-        Me.CFNSMPOrderType.MinWidth = 17
-        Me.CFNSMPOrderType.Name = "CFNSMPOrderType"
-        Me.CFNSMPOrderType.OptionsColumn.AllowEdit = False
-        Me.CFNSMPOrderType.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
-        Me.CFNSMPOrderType.OptionsColumn.AllowMove = False
-        Me.CFNSMPOrderType.OptionsColumn.ReadOnly = True
-        Me.CFNSMPOrderType.Width = 101
-        '
-        'CFNSMPPrototypeNo
-        '
-        Me.CFNSMPPrototypeNo.AppearanceCell.Options.UseTextOptions = True
-        Me.CFNSMPPrototypeNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.CFNSMPPrototypeNo.Caption = "FNSMPPrototypeNo"
-        Me.CFNSMPPrototypeNo.FieldName = "FNSMPPrototypeNo"
-        Me.CFNSMPPrototypeNo.MinWidth = 17
-        Me.CFNSMPPrototypeNo.Name = "CFNSMPPrototypeNo"
-        Me.CFNSMPPrototypeNo.OptionsColumn.AllowEdit = False
-        Me.CFNSMPPrototypeNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
-        Me.CFNSMPPrototypeNo.OptionsColumn.AllowMove = False
-        Me.CFNSMPPrototypeNo.OptionsColumn.ReadOnly = True
-        Me.CFNSMPPrototypeNo.Width = 73
-        '
-        'CGFNOrderSampleType
-        '
-        Me.CGFNOrderSampleType.AppearanceCell.Options.UseTextOptions = True
-        Me.CGFNOrderSampleType.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.CGFNOrderSampleType.Caption = "FNOrderSampleType"
-        Me.CGFNOrderSampleType.FieldName = "FNOrderSampleType"
-        Me.CGFNOrderSampleType.MinWidth = 17
-        Me.CGFNOrderSampleType.Name = "CGFNOrderSampleType"
-        Me.CGFNOrderSampleType.OptionsColumn.AllowEdit = False
-        Me.CGFNOrderSampleType.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
-        Me.CGFNOrderSampleType.OptionsColumn.AllowMove = False
-        Me.CGFNOrderSampleType.OptionsColumn.ReadOnly = True
         '
         'CFTCustomerTeam
         '
@@ -879,7 +929,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTMerTeamCode.OptionsColumn.AllowMove = False
         Me.FTMerTeamCode.OptionsColumn.ReadOnly = True
         Me.FTMerTeamCode.Visible = True
-        Me.FTMerTeamCode.VisibleIndex = 19
+        Me.FTMerTeamCode.VisibleIndex = 21
         Me.FTMerTeamCode.Width = 70
         '
         'CFTSMPOrderBy
@@ -893,7 +943,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTSMPOrderBy.OptionsColumn.AllowMove = False
         Me.CFTSMPOrderBy.OptionsColumn.ReadOnly = True
         Me.CFTSMPOrderBy.Visible = True
-        Me.CFTSMPOrderBy.VisibleIndex = 20
+        Me.CFTSMPOrderBy.VisibleIndex = 22
         Me.CFTSMPOrderBy.Width = 78
         '
         'FTColorway
@@ -907,7 +957,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTColorway.OptionsColumn.AllowMove = False
         Me.FTColorway.OptionsColumn.ReadOnly = True
         Me.FTColorway.Visible = True
-        Me.FTColorway.VisibleIndex = 21
+        Me.FTColorway.VisibleIndex = 23
         Me.FTColorway.Width = 76
         '
         'FTSizeBreakDown
@@ -921,7 +971,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTSizeBreakDown.OptionsColumn.AllowMove = False
         Me.FTSizeBreakDown.OptionsColumn.ReadOnly = True
         Me.FTSizeBreakDown.Visible = True
-        Me.FTSizeBreakDown.VisibleIndex = 22
+        Me.FTSizeBreakDown.VisibleIndex = 24
         Me.FTSizeBreakDown.Width = 90
         '
         'FNQuantity
@@ -937,7 +987,7 @@ Partial Class wPatternMasterPlan_New
         Me.FNQuantity.OptionsColumn.AllowMove = False
         Me.FNQuantity.OptionsColumn.ReadOnly = True
         Me.FNQuantity.Visible = True
-        Me.FNQuantity.VisibleIndex = 23
+        Me.FNQuantity.VisibleIndex = 25
         Me.FNQuantity.Width = 84
         '
         'FTRemark
@@ -965,64 +1015,8 @@ Partial Class wPatternMasterPlan_New
         Me.FTOrderRemark.OptionsColumn.AllowMove = False
         Me.FTOrderRemark.OptionsColumn.ReadOnly = True
         Me.FTOrderRemark.Visible = True
-        Me.FTOrderRemark.VisibleIndex = 25
+        Me.FTOrderRemark.VisibleIndex = 27
         Me.FTOrderRemark.Width = 76
-        '
-        'CFTPatternDate
-        '
-        Me.CFTPatternDate.AppearanceCell.Options.UseTextOptions = True
-        Me.CFTPatternDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.CFTPatternDate.AppearanceHeader.Options.UseTextOptions = True
-        Me.CFTPatternDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.CFTPatternDate.Caption = "วันที่ต้องการ Pattern"
-        Me.CFTPatternDate.ColumnEdit = Me.ReposDate
-        Me.CFTPatternDate.FieldName = "FTPatternDate"
-        Me.CFTPatternDate.MinWidth = 17
-        Me.CFTPatternDate.Name = "CFTPatternDate"
-        Me.CFTPatternDate.OptionsColumn.AllowEdit = False
-        Me.CFTPatternDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.CFTPatternDate.OptionsColumn.AllowMove = False
-        Me.CFTPatternDate.OptionsColumn.ReadOnly = True
-        Me.CFTPatternDate.Visible = True
-        Me.CFTPatternDate.VisibleIndex = 4
-        Me.CFTPatternDate.Width = 95
-        '
-        'cFDGacDate
-        '
-        Me.cFDGacDate.AppearanceCell.Options.UseTextOptions = True
-        Me.cFDGacDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.cFDGacDate.AppearanceHeader.Options.UseTextOptions = True
-        Me.cFDGacDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.cFDGacDate.Caption = "วันที่ส่งมอบ"
-        Me.cFDGacDate.ColumnEdit = Me.ReposDate
-        Me.cFDGacDate.DisplayFormat.FormatString = "dd/MM/yyyy"
-        Me.cFDGacDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.cFDGacDate.FieldName = "FDGacDate"
-        Me.cFDGacDate.Name = "cFDGacDate"
-        Me.cFDGacDate.OptionsColumn.AllowEdit = False
-        Me.cFDGacDate.OptionsColumn.AllowMove = False
-        Me.cFDGacDate.OptionsColumn.AllowShowHide = False
-        Me.cFDGacDate.Visible = True
-        Me.cFDGacDate.VisibleIndex = 8
-        Me.cFDGacDate.Width = 64
-        '
-        'CFTCFMSendSampleDate
-        '
-        Me.CFTCFMSendSampleDate.AppearanceCell.Options.UseTextOptions = True
-        Me.CFTCFMSendSampleDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.CFTCFMSendSampleDate.AppearanceHeader.Options.UseTextOptions = True
-        Me.CFTCFMSendSampleDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.CFTCFMSendSampleDate.Caption = "วันที่นัดส่งตัวอย่าง"
-        Me.CFTCFMSendSampleDate.ColumnEdit = Me.ReposDate
-        Me.CFTCFMSendSampleDate.FieldName = "FTCFMSendSampleDate"
-        Me.CFTCFMSendSampleDate.MinWidth = 17
-        Me.CFTCFMSendSampleDate.Name = "CFTCFMSendSampleDate"
-        Me.CFTCFMSendSampleDate.OptionsColumn.AllowEdit = False
-        Me.CFTCFMSendSampleDate.OptionsColumn.AllowMove = False
-        Me.CFTCFMSendSampleDate.OptionsColumn.AllowShowHide = False
-        Me.CFTCFMSendSampleDate.Visible = True
-        Me.CFTCFMSendSampleDate.VisibleIndex = 3
-        Me.CFTCFMSendSampleDate.Width = 89
         '
         'FTEmpName
         '
@@ -1035,6 +1029,33 @@ Partial Class wPatternMasterPlan_New
         Me.FTEmpName.OptionsColumn.AllowMove = False
         Me.FTEmpName.OptionsColumn.ReadOnly = True
         Me.FTEmpName.Width = 53
+        '
+        'CGFNOrderSampleType
+        '
+        Me.CGFNOrderSampleType.AppearanceCell.Options.UseTextOptions = True
+        Me.CGFNOrderSampleType.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.CGFNOrderSampleType.Caption = "FNOrderSampleType"
+        Me.CGFNOrderSampleType.FieldName = "FNOrderSampleType"
+        Me.CGFNOrderSampleType.MinWidth = 17
+        Me.CGFNOrderSampleType.Name = "CGFNOrderSampleType"
+        Me.CGFNOrderSampleType.OptionsColumn.AllowEdit = False
+        Me.CGFNOrderSampleType.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
+        Me.CGFNOrderSampleType.OptionsColumn.AllowMove = False
+        Me.CGFNOrderSampleType.OptionsColumn.ReadOnly = True
+        '
+        'CFNSMPOrderType
+        '
+        Me.CFNSMPOrderType.AppearanceCell.Options.UseTextOptions = True
+        Me.CFNSMPOrderType.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.CFNSMPOrderType.Caption = "FNSMPOrderType"
+        Me.CFNSMPOrderType.FieldName = "FNSMPOrderType"
+        Me.CFNSMPOrderType.MinWidth = 17
+        Me.CFNSMPOrderType.Name = "CFNSMPOrderType"
+        Me.CFNSMPOrderType.OptionsColumn.AllowEdit = False
+        Me.CFNSMPOrderType.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
+        Me.CFNSMPOrderType.OptionsColumn.AllowMove = False
+        Me.CFNSMPOrderType.OptionsColumn.ReadOnly = True
+        Me.CFNSMPOrderType.Width = 101
         '
         'FNSeq
         '
@@ -1064,23 +1085,41 @@ Partial Class wPatternMasterPlan_New
         Me.CFNSMPSam.OptionsColumn.ReadOnly = True
         Me.CFNSMPSam.Width = 47
         '
-        'SubGroup
+        'GroupCust
         '
-        Me.SubGroup.AppearanceCell.Options.UseTextOptions = True
-        Me.SubGroup.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.SubGroup.Caption = "SubGroup"
-        Me.SubGroup.FieldName = "SubGroup"
-        Me.SubGroup.Name = "SubGroup"
-        Me.SubGroup.OptionsColumn.AllowEdit = False
+        Me.GroupCust.AppearanceCell.Options.UseTextOptions = True
+        Me.GroupCust.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GroupCust.Caption = "GroupCust"
+        Me.GroupCust.FieldName = "GroupCust"
+        Me.GroupCust.Name = "GroupCust"
+        Me.GroupCust.OptionsColumn.AllowEdit = False
+        Me.GroupCust.Visible = True
+        Me.GroupCust.VisibleIndex = 19
         '
-        'Group
+        'SubGroupCust
         '
-        Me.Group.AppearanceCell.Options.UseTextOptions = True
-        Me.Group.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.Group.Caption = "Group"
-        Me.Group.FieldName = "Group"
-        Me.Group.Name = "Group"
-        Me.Group.OptionsColumn.AllowEdit = False
+        Me.SubGroupCust.AppearanceCell.Options.UseTextOptions = True
+        Me.SubGroupCust.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.SubGroupCust.Caption = "SubGroupCust"
+        Me.SubGroupCust.FieldName = "SubGroupCust"
+        Me.SubGroupCust.Name = "SubGroupCust"
+        Me.SubGroupCust.OptionsColumn.AllowEdit = False
+        Me.SubGroupCust.Visible = True
+        Me.SubGroupCust.VisibleIndex = 20
+        '
+        'CFNSMPPrototypeNo
+        '
+        Me.CFNSMPPrototypeNo.AppearanceCell.Options.UseTextOptions = True
+        Me.CFNSMPPrototypeNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.CFNSMPPrototypeNo.Caption = "FNSMPPrototypeNo"
+        Me.CFNSMPPrototypeNo.FieldName = "FNSMPPrototypeNo"
+        Me.CFNSMPPrototypeNo.MinWidth = 17
+        Me.CFNSMPPrototypeNo.Name = "CFNSMPPrototypeNo"
+        Me.CFNSMPPrototypeNo.OptionsColumn.AllowEdit = False
+        Me.CFNSMPPrototypeNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
+        Me.CFNSMPPrototypeNo.OptionsColumn.AllowMove = False
+        Me.CFNSMPPrototypeNo.OptionsColumn.ReadOnly = True
+        Me.CFNSMPPrototypeNo.Width = 73
         '
         'CFTNote
         '
@@ -1112,14 +1151,16 @@ Partial Class wPatternMasterPlan_New
         Me.CCFNSMPOrderStatus.OptionsColumn.AllowEdit = False
         Me.CCFNSMPOrderStatus.Width = 64
         '
-        'FNSMPOrderStatus
+        'PTStatus
         '
-        Me.FNSMPOrderStatus.Caption = "FNSMPOrderStatus"
-        Me.FNSMPOrderStatus.FieldName = "FNSMPOrderStatus"
-        Me.FNSMPOrderStatus.MinWidth = 17
-        Me.FNSMPOrderStatus.Name = "FNSMPOrderStatus"
-        Me.FNSMPOrderStatus.OptionsColumn.AllowEdit = False
-        Me.FNSMPOrderStatus.Width = 64
+        Me.PTStatus.Caption = "PTStatus"
+        Me.PTStatus.FieldName = "FNSMPOrderStatus"
+        Me.PTStatus.MinWidth = 17
+        Me.PTStatus.Name = "PTStatus"
+        Me.PTStatus.OptionsColumn.AllowEdit = False
+        Me.PTStatus.Visible = True
+        Me.PTStatus.VisibleIndex = 47
+        Me.PTStatus.Width = 64
         '
         'FTStandBy
         '
@@ -1132,7 +1173,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTStandBy.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTStandBy.OptionsColumn.AllowMove = False
         Me.FTStandBy.Visible = True
-        Me.FTStandBy.VisibleIndex = 26
+        Me.FTStandBy.VisibleIndex = 28
         Me.FTStandBy.Width = 145
         '
         'ReposFTEmpCut
@@ -1168,7 +1209,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTPgmName.OptionsColumn.AllowMove = False
         Me.FTPgmName.OptionsColumn.ReadOnly = True
         Me.FTPgmName.Visible = True
-        Me.FTPgmName.VisibleIndex = 24
+        Me.FTPgmName.VisibleIndex = 26
         Me.FTPgmName.Width = 100
         '
         'cmFTMerRemark
@@ -1186,6 +1227,8 @@ Partial Class wPatternMasterPlan_New
         Me.PriorityList.FieldName = "PriorityList"
         Me.PriorityList.Name = "PriorityList"
         Me.PriorityList.OptionsColumn.AllowEdit = False
+        Me.PriorityList.Visible = True
+        Me.PriorityList.VisibleIndex = 32
         '
         'Block
         '
@@ -1193,6 +1236,8 @@ Partial Class wPatternMasterPlan_New
         Me.Block.FieldName = "Block"
         Me.Block.Name = "Block"
         Me.Block.OptionsColumn.AllowEdit = False
+        Me.Block.Visible = True
+        Me.Block.VisibleIndex = 31
         '
         'Option1
         '
@@ -1228,6 +1273,8 @@ Partial Class wPatternMasterPlan_New
         Me.GroupType.FieldName = "GroupType"
         Me.GroupType.Name = "GroupType"
         Me.GroupType.OptionsColumn.AllowEdit = False
+        Me.GroupType.Visible = True
+        Me.GroupType.VisibleIndex = 29
         '
         'FDGacDate
         '
@@ -1235,6 +1282,8 @@ Partial Class wPatternMasterPlan_New
         Me.FDGacDate.FieldName = "FDGacDate"
         Me.FDGacDate.Name = "FDGacDate"
         Me.FDGacDate.OptionsColumn.AllowEdit = False
+        Me.FDGacDate.Visible = True
+        Me.FDGacDate.VisibleIndex = 30
         '
         'Gac
         '
@@ -1256,6 +1305,8 @@ Partial Class wPatternMasterPlan_New
         Me.PlanDate.FieldName = "PlanDate"
         Me.PlanDate.Name = "PlanDate"
         Me.PlanDate.OptionsColumn.AllowEdit = False
+        Me.PlanDate.Visible = True
+        Me.PlanDate.VisibleIndex = 33
         '
         'OPT
         '
@@ -1263,6 +1314,8 @@ Partial Class wPatternMasterPlan_New
         Me.OPT.FieldName = "OPT"
         Me.OPT.Name = "OPT"
         Me.OPT.OptionsColumn.AllowEdit = False
+        Me.OPT.Visible = True
+        Me.OPT.VisibleIndex = 34
         '
         'PT
         '
@@ -1270,6 +1323,8 @@ Partial Class wPatternMasterPlan_New
         Me.PT.FieldName = "PT"
         Me.PT.Name = "PT"
         Me.PT.OptionsColumn.AllowEdit = False
+        Me.PT.Visible = True
+        Me.PT.VisibleIndex = 35
         '
         'PlanFinishYear
         '
@@ -1277,6 +1332,8 @@ Partial Class wPatternMasterPlan_New
         Me.PlanFinishYear.FieldName = "PlanFinishYear"
         Me.PlanFinishYear.Name = "PlanFinishYear"
         Me.PlanFinishYear.OptionsColumn.AllowEdit = False
+        Me.PlanFinishYear.Visible = True
+        Me.PlanFinishYear.VisibleIndex = 36
         '
         'PlanFinishWeek
         '
@@ -1284,6 +1341,8 @@ Partial Class wPatternMasterPlan_New
         Me.PlanFinishWeek.FieldName = "PlanFinishWeek"
         Me.PlanFinishWeek.Name = "PlanFinishWeek"
         Me.PlanFinishWeek.OptionsColumn.AllowEdit = False
+        Me.PlanFinishWeek.Visible = True
+        Me.PlanFinishWeek.VisibleIndex = 37
         '
         'PlanFinishWY
         '
@@ -1291,6 +1350,8 @@ Partial Class wPatternMasterPlan_New
         Me.PlanFinishWY.FieldName = "PlanFinishWY"
         Me.PlanFinishWY.Name = "PlanFinishWY"
         Me.PlanFinishWY.OptionsColumn.AllowEdit = False
+        Me.PlanFinishWY.Visible = True
+        Me.PlanFinishWY.VisibleIndex = 38
         '
         'FinishDate
         '
@@ -1298,6 +1359,8 @@ Partial Class wPatternMasterPlan_New
         Me.FinishDate.FieldName = "FinishDate"
         Me.FinishDate.Name = "FinishDate"
         Me.FinishDate.OptionsColumn.AllowEdit = False
+        Me.FinishDate.Visible = True
+        Me.FinishDate.VisibleIndex = 39
         '
         'ActFinishYear
         '
@@ -1305,6 +1368,8 @@ Partial Class wPatternMasterPlan_New
         Me.ActFinishYear.FieldName = "ActFinishYear"
         Me.ActFinishYear.Name = "ActFinishYear"
         Me.ActFinishYear.OptionsColumn.AllowEdit = False
+        Me.ActFinishYear.Visible = True
+        Me.ActFinishYear.VisibleIndex = 40
         '
         'ActFinishWeek
         '
@@ -1312,6 +1377,8 @@ Partial Class wPatternMasterPlan_New
         Me.ActFinishWeek.FieldName = "ActFinishWeek"
         Me.ActFinishWeek.Name = "ActFinishWeek"
         Me.ActFinishWeek.OptionsColumn.AllowEdit = False
+        Me.ActFinishWeek.Visible = True
+        Me.ActFinishWeek.VisibleIndex = 41
         '
         'ActFinishWY
         '
@@ -1319,6 +1386,8 @@ Partial Class wPatternMasterPlan_New
         Me.ActFinishWY.FieldName = "ActFinishWY"
         Me.ActFinishWY.Name = "ActFinishWY"
         Me.ActFinishWY.OptionsColumn.AllowEdit = False
+        Me.ActFinishWY.Visible = True
+        Me.ActFinishWY.VisibleIndex = 42
         '
         'PTMaker
         '
@@ -1326,6 +1395,8 @@ Partial Class wPatternMasterPlan_New
         Me.PTMaker.FieldName = "PTMaker"
         Me.PTMaker.Name = "PTMaker"
         Me.PTMaker.OptionsColumn.AllowEdit = False
+        Me.PTMaker.Visible = True
+        Me.PTMaker.VisibleIndex = 43
         Me.PTMaker.Width = 63
         '
         'PTTeam
@@ -1334,6 +1405,8 @@ Partial Class wPatternMasterPlan_New
         Me.PTTeam.FieldName = "PTTeam"
         Me.PTTeam.Name = "PTTeam"
         Me.PTTeam.OptionsColumn.AllowEdit = False
+        Me.PTTeam.Visible = True
+        Me.PTTeam.VisibleIndex = 44
         Me.PTTeam.Width = 56
         '
         'InIOTP
@@ -1342,6 +1415,8 @@ Partial Class wPatternMasterPlan_New
         Me.InIOTP.FieldName = "InIOTP"
         Me.InIOTP.Name = "InIOTP"
         Me.InIOTP.OptionsColumn.AllowEdit = False
+        Me.InIOTP.Visible = True
+        Me.InIOTP.VisibleIndex = 45
         '
         'ExIOTP
         '
@@ -1349,6 +1424,8 @@ Partial Class wPatternMasterPlan_New
         Me.ExIOTP.FieldName = "ExIOTP"
         Me.ExIOTP.Name = "ExIOTP"
         Me.ExIOTP.OptionsColumn.AllowEdit = False
+        Me.ExIOTP.Visible = True
+        Me.ExIOTP.VisibleIndex = 46
         '
         'Remark
         '
@@ -1368,6 +1445,8 @@ Partial Class wPatternMasterPlan_New
         Me.Text = "Pattern  Master Plan Configuration"
         CType(Me.ogbStyleHeader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbStyleHeader.ResumeLayout(False)
+        CType(Me.FNYear.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNYear.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysBuyIdTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysBuyIdFrom.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTEndReqDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1447,7 +1526,7 @@ Partial Class wPatternMasterPlan_New
     Friend WithEvents CFTStateFinish As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CFNSMPOrderStatus As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CCFNSMPOrderStatus As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FNSMPOrderStatus As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents PTStatus As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTEndOrderDate As DevExpress.XtraEditors.DateEdit
     Friend WithEvents FTEndOrderDate_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTStartOrderDate As DevExpress.XtraEditors.DateEdit
@@ -1458,8 +1537,8 @@ Partial Class wPatternMasterPlan_New
     Friend WithEvents cFDGacDate As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents cmFTMerRemark As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ocmsave As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents Group As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents SubGroup As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GroupCust As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents SubGroupCust As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTCmpCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents PriorityList As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents Block As DevExpress.XtraGrid.Columns.GridColumn
@@ -1495,4 +1574,6 @@ Partial Class wPatternMasterPlan_New
     Friend WithEvents lblTBuyCodeTo As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lblFNHSysBuyId As DevExpress.XtraEditors.LabelControl
     Private WithEvents FNHSysBuyIdTo As DevExpress.XtraEditors.ButtonEdit
+    Friend WithEvents lblFTYear As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents FNYear As DevExpress.XtraEditors.DateEdit
 End Class

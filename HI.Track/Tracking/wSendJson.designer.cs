@@ -30,16 +30,6 @@ namespace HI.Track
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -60,6 +50,16 @@ namespace HI.Track
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ogcCriteria = new DevExpress.XtraEditors.GroupControl();
             this.FTCostSheetNoTo = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -97,6 +97,10 @@ namespace HI.Track
             this.ricMark = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.CostSheetNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CostSheetDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTFileName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TeamMulti = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FNCostSheetColor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Size = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SendCBD = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SendCBDDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SendPicture = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -104,27 +108,27 @@ namespace HI.Track
             this.SendMark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SendMarkDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MerCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.FTUserDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTMerTeamName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTSeason = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.FTCmpCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.FTStyleCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TeamMulti = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Color = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Size = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ProductionDev = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FNCostSheetBuyType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTCmpCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTVenderPramCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTStyleCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FNCostSheetQuotedType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTMSCCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ProductionDev = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Version = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CBDQuoteStatus = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.FTMSCCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTUserDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DateQuoted = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SampleRound = new DevExpress.XtraGrid.Columns.GridColumn();
             this.BaseStyle = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.FTProdDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.QuotedLog = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ItemVender = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.HasImage = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.HasMark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Countryoforigin = new DevExpress.XtraGrid.Columns.GridColumn();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.FTMerTeamName = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ogcCriteria)).BeginInit();
             this.ogcCriteria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FTCostSheetNoTo.Properties)).BeginInit();
@@ -179,10 +183,10 @@ namespace HI.Track
             // 
             // FTCostSheetNoTo
             // 
-            this.FTCostSheetNoTo.Location = new System.Drawing.Point(482, 51);
+            this.FTCostSheetNoTo.Location = new System.Drawing.Point(482, 77);
             this.FTCostSheetNoTo.Name = "FTCostSheetNoTo";
             this.FTCostSheetNoTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", "480", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "480", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.FTCostSheetNoTo.Size = new System.Drawing.Size(247, 20);
             this.FTCostSheetNoTo.TabIndex = 550;
             this.FTCostSheetNoTo.Tag = "2|";
@@ -194,7 +198,7 @@ namespace HI.Track
             this.labelControl3.Appearance.Options.UseTextOptions = true;
             this.labelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl3.Location = new System.Drawing.Point(372, 77);
+            this.labelControl3.Location = new System.Drawing.Point(372, 51);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(104, 18);
             this.labelControl3.TabIndex = 549;
@@ -203,10 +207,10 @@ namespace HI.Track
             // 
             // FNHSysStyleIdTo
             // 
-            this.FNHSysStyleIdTo.Location = new System.Drawing.Point(482, 77);
+            this.FNHSysStyleIdTo.Location = new System.Drawing.Point(482, 51);
             this.FNHSysStyleIdTo.Name = "FNHSysStyleIdTo";
             this.FNHSysStyleIdTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", "249", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", "249", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.FNHSysStyleIdTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.FNHSysStyleIdTo.Properties.Tag = "";
             this.FNHSysStyleIdTo.Size = new System.Drawing.Size(247, 20);
@@ -220,7 +224,7 @@ namespace HI.Track
             this.FNHSysStyleId_lbl.Appearance.Options.UseTextOptions = true;
             this.FNHSysStyleId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.FNHSysStyleId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.FNHSysStyleId_lbl.Location = new System.Drawing.Point(-14, 77);
+            this.FNHSysStyleId_lbl.Location = new System.Drawing.Point(-14, 51);
             this.FNHSysStyleId_lbl.Name = "FNHSysStyleId_lbl";
             this.FNHSysStyleId_lbl.Size = new System.Drawing.Size(127, 18);
             this.FNHSysStyleId_lbl.TabIndex = 547;
@@ -229,10 +233,10 @@ namespace HI.Track
             // 
             // FNHSysStyleId
             // 
-            this.FNHSysStyleId.Location = new System.Drawing.Point(119, 77);
+            this.FNHSysStyleId.Location = new System.Drawing.Point(119, 51);
             this.FNHSysStyleId.Name = "FNHSysStyleId";
             this.FNHSysStyleId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "235", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", "235", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.FNHSysStyleId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.FNHSysStyleId.Properties.Tag = "";
             this.FNHSysStyleId.Size = new System.Drawing.Size(247, 20);
@@ -246,7 +250,7 @@ namespace HI.Track
             this.labelControl1.Appearance.Options.UseTextOptions = true;
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(372, 54);
+            this.labelControl1.Location = new System.Drawing.Point(372, 80);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(107, 13);
             this.labelControl1.TabIndex = 487;
@@ -259,7 +263,7 @@ namespace HI.Track
             this.labelControl2.Appearance.Options.UseTextOptions = true;
             this.labelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl2.Location = new System.Drawing.Point(6, 54);
+            this.labelControl2.Location = new System.Drawing.Point(6, 80);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(107, 13);
             this.labelControl2.TabIndex = 486;
@@ -267,10 +271,10 @@ namespace HI.Track
             // 
             // FTCostSheetNo
             // 
-            this.FTCostSheetNo.Location = new System.Drawing.Point(119, 51);
+            this.FTCostSheetNo.Location = new System.Drawing.Point(119, 77);
             this.FTCostSheetNo.Name = "FTCostSheetNo";
             this.FTCostSheetNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", "472", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", "472", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.FTCostSheetNo.Size = new System.Drawing.Size(247, 20);
             this.FTCostSheetNo.TabIndex = 484;
             this.FTCostSheetNo.Tag = "2|";
@@ -370,7 +374,7 @@ namespace HI.Track
             this.FNHSysSeasonIdTo.Location = new System.Drawing.Point(482, 25);
             this.FNHSysSeasonIdTo.Name = "FNHSysSeasonIdTo";
             this.FNHSysSeasonIdTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", "391", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", "391", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.FNHSysSeasonIdTo.Size = new System.Drawing.Size(247, 20);
             this.FNHSysSeasonIdTo.TabIndex = 2;
             this.FNHSysSeasonIdTo.Tag = "2|";
@@ -380,7 +384,7 @@ namespace HI.Track
             this.FNHSysSeasonId.Location = new System.Drawing.Point(119, 25);
             this.FNHSysSeasonId.Name = "FNHSysSeasonId";
             this.FNHSysSeasonId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", "390", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", "390", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.FNHSysSeasonId.Size = new System.Drawing.Size(247, 20);
             this.FNHSysSeasonId.TabIndex = 1;
             this.FNHSysSeasonId.Tag = "2|";
@@ -418,7 +422,7 @@ namespace HI.Track
             this.ogbmainprocbutton.Controls.Add(this.ocmLoadData);
             this.ogbmainprocbutton.Controls.Add(this.ocmExit);
             this.ogbmainprocbutton.Controls.Add(this.ocmClear);
-            this.ogbmainprocbutton.Location = new System.Drawing.Point(25, 344);
+            this.ogbmainprocbutton.Location = new System.Drawing.Point(25, 281);
             this.ogbmainprocbutton.Name = "ogbmainprocbutton";
             this.ogbmainprocbutton.Size = new System.Drawing.Size(107, 171);
             this.ogbmainprocbutton.TabIndex = 0;
@@ -432,6 +436,7 @@ namespace HI.Track
             this.ocmpostdatajson.TabStop = false;
             this.ocmpostdatajson.Tag = "2|";
             this.ocmpostdatajson.Text = "Export To Json";
+            this.ocmpostdatajson.Visible = false;
             this.ocmpostdatajson.Click += new System.EventHandler(this.ocmpostdatajson_Click);
             // 
             // ocmSendJSON
@@ -442,6 +447,7 @@ namespace HI.Track
             this.ocmSendJSON.TabIndex = 3;
             this.ocmSendJSON.Tag = "2|";
             this.ocmSendJSON.Text = "Send JSON";
+            this.ocmSendJSON.Visible = false;
             // 
             // ocmLoadData
             // 
@@ -498,9 +504,9 @@ namespace HI.Track
             this.Mark,
             this.CostSheetNo,
             this.CostSheetDate,
-            this.FTProdDesc,
+            this.FTFileName,
             this.TeamMulti,
-            this.Color,
+            this.FNCostSheetColor,
             this.Size,
             this.SendCBD,
             this.SendCBDDate,
@@ -513,7 +519,9 @@ namespace HI.Track
             this.FTSeason,
             this.FNCostSheetBuyType,
             this.FTCmpCode,
+            this.FTVenderPramCode,
             this.FTStyleCode,
+            this.FNCostSheetQuotedType,
             this.FTMSCCode,
             this.ProductionDev,
             this.Version,
@@ -524,6 +532,8 @@ namespace HI.Track
             this.BaseStyle,
             this.QuotedLog,
             this.ItemVender,
+            this.HasImage,
+            this.HasMark,
             this.Countryoforigin});
             this.ogvDetail.CustomizationFormBounds = new System.Drawing.Rectangle(759, 412, 252, 266);
             this.ogvDetail.GridControl = this.ogcDetail;
@@ -531,6 +541,7 @@ namespace HI.Track
             this.ogvDetail.Name = "ogvDetail";
             this.ogvDetail.OptionsView.ColumnAutoWidth = false;
             this.ogvDetail.OptionsView.ShowGroupPanel = false;
+            this.ogvDetail.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.ogvDetail_RowStyle);
             this.ogvDetail.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.ogvDetail_CellValueChanged);
             // 
             // CBD
@@ -603,7 +614,7 @@ namespace HI.Track
             this.CostSheetNo.Name = "CostSheetNo";
             this.CostSheetNo.OptionsColumn.AllowEdit = false;
             this.CostSheetNo.Visible = true;
-            this.CostSheetNo.VisibleIndex = 5;
+            this.CostSheetNo.VisibleIndex = 11;
             this.CostSheetNo.Width = 99;
             // 
             // CostSheetDate
@@ -619,8 +630,58 @@ namespace HI.Track
             this.CostSheetDate.Name = "CostSheetDate";
             this.CostSheetDate.OptionsColumn.AllowEdit = false;
             this.CostSheetDate.Visible = true;
-            this.CostSheetDate.VisibleIndex = 6;
+            this.CostSheetDate.VisibleIndex = 12;
             this.CostSheetDate.Width = 79;
+            // 
+            // FTFileName
+            // 
+            this.FTFileName.AppearanceCell.Options.UseTextOptions = true;
+            this.FTFileName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.FTFileName.Caption = "FTFileName";
+            this.FTFileName.FieldName = "FTFileName";
+            this.FTFileName.Name = "FTFileName";
+            this.FTFileName.OptionsColumn.AllowEdit = false;
+            this.FTFileName.OptionsColumn.FixedWidth = true;
+            this.FTFileName.Visible = true;
+            this.FTFileName.VisibleIndex = 13;
+            this.FTFileName.Width = 186;
+            // 
+            // TeamMulti
+            // 
+            this.TeamMulti.AppearanceCell.Options.UseTextOptions = true;
+            this.TeamMulti.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.TeamMulti.Caption = "TeamMulti";
+            this.TeamMulti.FieldName = "FNISTeamMulti";
+            this.TeamMulti.Name = "TeamMulti";
+            this.TeamMulti.OptionsColumn.AllowEdit = false;
+            this.TeamMulti.OptionsColumn.FixedWidth = true;
+            this.TeamMulti.Visible = true;
+            this.TeamMulti.VisibleIndex = 15;
+            this.TeamMulti.Width = 51;
+            // 
+            // FNCostSheetColor
+            // 
+            this.FNCostSheetColor.AppearanceCell.Options.UseTextOptions = true;
+            this.FNCostSheetColor.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.FNCostSheetColor.Caption = "FNCostSheetColor";
+            this.FNCostSheetColor.FieldName = "FNCostSheetColor";
+            this.FNCostSheetColor.Name = "FNCostSheetColor";
+            this.FNCostSheetColor.OptionsColumn.AllowEdit = false;
+            this.FNCostSheetColor.Visible = true;
+            this.FNCostSheetColor.VisibleIndex = 16;
+            this.FNCostSheetColor.Width = 55;
+            // 
+            // Size
+            // 
+            this.Size.AppearanceCell.Options.UseTextOptions = true;
+            this.Size.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.Size.Caption = "Size";
+            this.Size.FieldName = "FNCostSheetSize";
+            this.Size.Name = "Size";
+            this.Size.OptionsColumn.AllowEdit = false;
+            this.Size.Visible = true;
+            this.Size.VisibleIndex = 17;
+            this.Size.Width = 55;
             // 
             // SendCBD
             // 
@@ -633,7 +694,8 @@ namespace HI.Track
             this.SendCBD.Name = "SendCBD";
             this.SendCBD.OptionsColumn.AllowEdit = false;
             this.SendCBD.Visible = true;
-            this.SendCBD.VisibleIndex = 18;
+            this.SendCBD.VisibleIndex = 3;
+            this.SendCBD.Width = 46;
             // 
             // SendCBDDate
             // 
@@ -646,7 +708,7 @@ namespace HI.Track
             this.SendCBDDate.Name = "SendCBDDate";
             this.SendCBDDate.OptionsColumn.AllowEdit = false;
             this.SendCBDDate.Visible = true;
-            this.SendCBDDate.VisibleIndex = 19;
+            this.SendCBDDate.VisibleIndex = 4;
             // 
             // SendPicture
             // 
@@ -659,7 +721,8 @@ namespace HI.Track
             this.SendPicture.Name = "SendPicture";
             this.SendPicture.OptionsColumn.AllowEdit = false;
             this.SendPicture.Visible = true;
-            this.SendPicture.VisibleIndex = 20;
+            this.SendPicture.VisibleIndex = 5;
+            this.SendPicture.Width = 46;
             // 
             // SendPictureDate
             // 
@@ -672,7 +735,7 @@ namespace HI.Track
             this.SendPictureDate.Name = "SendPictureDate";
             this.SendPictureDate.OptionsColumn.AllowEdit = false;
             this.SendPictureDate.Visible = true;
-            this.SendPictureDate.VisibleIndex = 21;
+            this.SendPictureDate.VisibleIndex = 6;
             // 
             // SendMark
             // 
@@ -681,7 +744,8 @@ namespace HI.Track
             this.SendMark.Name = "SendMark";
             this.SendMark.OptionsColumn.AllowEdit = false;
             this.SendMark.Visible = true;
-            this.SendMark.VisibleIndex = 22;
+            this.SendMark.VisibleIndex = 7;
+            this.SendMark.Width = 55;
             // 
             // SendMarkDate
             // 
@@ -690,7 +754,7 @@ namespace HI.Track
             this.SendMarkDate.Name = "SendMarkDate";
             this.SendMarkDate.OptionsColumn.AllowEdit = false;
             this.SendMarkDate.Visible = true;
-            this.SendMarkDate.VisibleIndex = 23;
+            this.SendMarkDate.VisibleIndex = 8;
             // 
             // MerCode
             // 
@@ -701,19 +765,18 @@ namespace HI.Track
             this.MerCode.Name = "MerCode";
             this.MerCode.OptionsColumn.AllowEdit = false;
             this.MerCode.Visible = true;
-            this.MerCode.VisibleIndex = 15;
+            this.MerCode.VisibleIndex = 23;
             this.MerCode.Width = 74;
             // 
-            // FTUserDescription
+            // FTMerTeamName
             // 
-            this.FTUserDescription.AppearanceCell.Options.UseTextOptions = true;
-            this.FTUserDescription.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.FTUserDescription.Caption = "FTUserDescription";
-            this.FTUserDescription.FieldName = "FTUserDescription";
-            this.FTUserDescription.Name = "FTUserDescription";
-            this.FTUserDescription.OptionsColumn.AllowEdit = false;
-            this.FTUserDescription.OptionsColumn.FixedWidth = true;
-            this.FTUserDescription.Width = 120;
+            this.FTMerTeamName.Caption = "FTMerTeamName";
+            this.FTMerTeamName.FieldName = "FTMerTeamName";
+            this.FTMerTeamName.Name = "FTMerTeamName";
+            this.FTMerTeamName.OptionsColumn.AllowEdit = false;
+            this.FTMerTeamName.Visible = true;
+            this.FTMerTeamName.VisibleIndex = 24;
+            this.FTMerTeamName.Width = 180;
             // 
             // FTSeason
             // 
@@ -727,20 +790,43 @@ namespace HI.Track
             this.FTSeason.OptionsColumn.AllowEdit = false;
             this.FTSeason.OptionsColumn.FixedWidth = true;
             this.FTSeason.Visible = true;
-            this.FTSeason.VisibleIndex = 3;
+            this.FTSeason.VisibleIndex = 9;
             this.FTSeason.Width = 73;
+            // 
+            // FNCostSheetBuyType
+            // 
+            this.FNCostSheetBuyType.AppearanceCell.Options.UseTextOptions = true;
+            this.FNCostSheetBuyType.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.FNCostSheetBuyType.Caption = "FNCostSheetBuyType";
+            this.FNCostSheetBuyType.FieldName = "FNCostSheetBuyType";
+            this.FNCostSheetBuyType.Name = "FNCostSheetBuyType";
+            this.FNCostSheetBuyType.OptionsColumn.AllowEdit = false;
+            this.FNCostSheetBuyType.Visible = true;
+            this.FNCostSheetBuyType.VisibleIndex = 18;
+            this.FNCostSheetBuyType.Width = 57;
             // 
             // FTCmpCode
             // 
             this.FTCmpCode.AppearanceCell.Options.UseTextOptions = true;
             this.FTCmpCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.FTCmpCode.AppearanceHeader.Options.UseTextOptions = true;
+            this.FTCmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.FTCmpCode.Caption = "FTCmpCode";
             this.FTCmpCode.FieldName = "FTCmpCode";
             this.FTCmpCode.Name = "FTCmpCode";
             this.FTCmpCode.OptionsColumn.AllowEdit = false;
             this.FTCmpCode.Visible = true;
-            this.FTCmpCode.VisibleIndex = 14;
+            this.FTCmpCode.VisibleIndex = 22;
             this.FTCmpCode.Width = 56;
+            // 
+            // FTVenderPramCode
+            // 
+            this.FTVenderPramCode.Caption = "FTVenderPramCode";
+            this.FTVenderPramCode.FieldName = "FTVenderPramCode";
+            this.FTVenderPramCode.Name = "FTVenderPramCode";
+            this.FTVenderPramCode.OptionsColumn.AllowEdit = false;
+            this.FTVenderPramCode.Visible = true;
+            this.FTVenderPramCode.VisibleIndex = 21;
             // 
             // FTStyleCode
             // 
@@ -752,44 +838,33 @@ namespace HI.Track
             this.FTStyleCode.OptionsColumn.AllowEdit = false;
             this.FTStyleCode.OptionsColumn.FixedWidth = true;
             this.FTStyleCode.Visible = true;
-            this.FTStyleCode.VisibleIndex = 4;
+            this.FTStyleCode.VisibleIndex = 10;
             this.FTStyleCode.Width = 64;
             // 
-            // TeamMulti
+            // FNCostSheetQuotedType
             // 
-            this.TeamMulti.AppearanceCell.Options.UseTextOptions = true;
-            this.TeamMulti.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.TeamMulti.Caption = "TeamMulti";
-            this.TeamMulti.FieldName = "FNISTeamMulti";
-            this.TeamMulti.Name = "TeamMulti";
-            this.TeamMulti.OptionsColumn.AllowEdit = false;
-            this.TeamMulti.OptionsColumn.FixedWidth = true;
-            this.TeamMulti.Visible = true;
-            this.TeamMulti.VisibleIndex = 9;
-            this.TeamMulti.Width = 51;
+            this.FNCostSheetQuotedType.AppearanceCell.Options.UseTextOptions = true;
+            this.FNCostSheetQuotedType.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.FNCostSheetQuotedType.AppearanceHeader.Options.UseTextOptions = true;
+            this.FNCostSheetQuotedType.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.FNCostSheetQuotedType.Caption = "FNCostSheetQuotedType";
+            this.FNCostSheetQuotedType.FieldName = "FNCostSheetQuotedType";
+            this.FNCostSheetQuotedType.Name = "FNCostSheetQuotedType";
+            this.FNCostSheetQuotedType.OptionsColumn.AllowEdit = false;
+            this.FNCostSheetQuotedType.Visible = true;
+            this.FNCostSheetQuotedType.VisibleIndex = 19;
             // 
-            // Color
+            // FTMSCCode
             // 
-            this.Color.AppearanceCell.Options.UseTextOptions = true;
-            this.Color.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.Color.Caption = "Color";
-            this.Color.Name = "Color";
-            this.Color.OptionsColumn.AllowEdit = false;
-            this.Color.Visible = true;
-            this.Color.VisibleIndex = 10;
-            this.Color.Width = 55;
-            // 
-            // Size
-            // 
-            this.Size.AppearanceCell.Options.UseTextOptions = true;
-            this.Size.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.Size.Caption = "Size";
-            this.Size.FieldName = "FNCostSheetSize";
-            this.Size.Name = "Size";
-            this.Size.OptionsColumn.AllowEdit = false;
-            this.Size.Visible = true;
-            this.Size.VisibleIndex = 11;
-            this.Size.Width = 55;
+            this.FTMSCCode.AppearanceCell.Options.UseTextOptions = true;
+            this.FTMSCCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.FTMSCCode.Caption = "FTMSCCode";
+            this.FTMSCCode.FieldName = "FTMSC";
+            this.FTMSCCode.Name = "FTMSCCode";
+            this.FTMSCCode.OptionsColumn.AllowEdit = false;
+            this.FTMSCCode.Visible = true;
+            this.FTMSCCode.VisibleIndex = 20;
+            this.FTMSCCode.Width = 58;
             // 
             // ProductionDev
             // 
@@ -800,20 +875,8 @@ namespace HI.Track
             this.ProductionDev.Name = "ProductionDev";
             this.ProductionDev.OptionsColumn.AllowEdit = false;
             this.ProductionDev.Visible = true;
-            this.ProductionDev.VisibleIndex = 17;
+            this.ProductionDev.VisibleIndex = 25;
             this.ProductionDev.Width = 134;
-            // 
-            // FNCostSheetBuyType
-            // 
-            this.FNCostSheetBuyType.AppearanceCell.Options.UseTextOptions = true;
-            this.FNCostSheetBuyType.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.FNCostSheetBuyType.Caption = "FNCostSheetBuyType";
-            this.FNCostSheetBuyType.FieldName = "FNCostSheetBuyType";
-            this.FNCostSheetBuyType.Name = "FNCostSheetBuyType";
-            this.FNCostSheetBuyType.OptionsColumn.AllowEdit = false;
-            this.FNCostSheetBuyType.Visible = true;
-            this.FNCostSheetBuyType.VisibleIndex = 12;
-            this.FNCostSheetBuyType.Width = 57;
             // 
             // Version
             // 
@@ -824,7 +887,7 @@ namespace HI.Track
             this.Version.Name = "Version";
             this.Version.OptionsColumn.AllowEdit = false;
             this.Version.Visible = true;
-            this.Version.VisibleIndex = 8;
+            this.Version.VisibleIndex = 14;
             this.Version.Width = 31;
             // 
             // CBDQuoteStatus
@@ -838,17 +901,16 @@ namespace HI.Track
             this.CBDQuoteStatus.OptionsColumn.FixedWidth = true;
             this.CBDQuoteStatus.Width = 54;
             // 
-            // FTMSCCode
+            // FTUserDescription
             // 
-            this.FTMSCCode.AppearanceCell.Options.UseTextOptions = true;
-            this.FTMSCCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.FTMSCCode.Caption = "FTMSCCode";
-            this.FTMSCCode.FieldName = "FTMSC";
-            this.FTMSCCode.Name = "FTMSCCode";
-            this.FTMSCCode.OptionsColumn.AllowEdit = false;
-            this.FTMSCCode.Visible = true;
-            this.FTMSCCode.VisibleIndex = 13;
-            this.FTMSCCode.Width = 58;
+            this.FTUserDescription.AppearanceCell.Options.UseTextOptions = true;
+            this.FTUserDescription.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.FTUserDescription.Caption = "FTUserDescription";
+            this.FTUserDescription.FieldName = "FTUserDescription";
+            this.FTUserDescription.Name = "FTUserDescription";
+            this.FTUserDescription.OptionsColumn.AllowEdit = false;
+            this.FTUserDescription.OptionsColumn.FixedWidth = true;
+            this.FTUserDescription.Width = 120;
             // 
             // DateQuoted
             // 
@@ -877,19 +939,6 @@ namespace HI.Track
             this.BaseStyle.OptionsColumn.AllowEdit = false;
             this.BaseStyle.Width = 60;
             // 
-            // FTProdDesc
-            // 
-            this.FTProdDesc.AppearanceCell.Options.UseTextOptions = true;
-            this.FTProdDesc.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.FTProdDesc.Caption = "FTProdDesc";
-            this.FTProdDesc.FieldName = "FTProdDesc";
-            this.FTProdDesc.Name = "FTProdDesc";
-            this.FTProdDesc.OptionsColumn.AllowEdit = false;
-            this.FTProdDesc.OptionsColumn.FixedWidth = true;
-            this.FTProdDesc.Visible = true;
-            this.FTProdDesc.VisibleIndex = 7;
-            this.FTProdDesc.Width = 186;
-            // 
             // QuotedLog
             // 
             this.QuotedLog.AppearanceCell.Options.UseTextOptions = true;
@@ -909,6 +958,20 @@ namespace HI.Track
             this.ItemVender.OptionsColumn.AllowEdit = false;
             this.ItemVender.Width = 70;
             // 
+            // HasImage
+            // 
+            this.HasImage.Caption = "HasImage";
+            this.HasImage.FieldName = "HasImage";
+            this.HasImage.Name = "HasImage";
+            this.HasImage.OptionsColumn.AllowEdit = false;
+            // 
+            // HasMark
+            // 
+            this.HasMark.Caption = "HasMark";
+            this.HasMark.FieldName = "HasMark";
+            this.HasMark.Name = "HasMark";
+            this.HasMark.OptionsColumn.AllowEdit = false;
+            // 
             // Countryoforigin
             // 
             this.Countryoforigin.AppearanceCell.Options.UseTextOptions = true;
@@ -919,16 +982,6 @@ namespace HI.Track
             this.Countryoforigin.OptionsColumn.AllowEdit = false;
             this.Countryoforigin.OptionsColumn.FixedWidth = true;
             this.Countryoforigin.Width = 67;
-            // 
-            // FTMerTeamName
-            // 
-            this.FTMerTeamName.Caption = "FTMerTeamName";
-            this.FTMerTeamName.FieldName = "FTMerTeamName";
-            this.FTMerTeamName.Name = "FTMerTeamName";
-            this.FTMerTeamName.OptionsColumn.AllowEdit = false;
-            this.FTMerTeamName.Visible = true;
-            this.FTMerTeamName.VisibleIndex = 16;
-            this.FTMerTeamName.Width = 180;
             // 
             // wSendJson
             // 
@@ -981,7 +1034,7 @@ namespace HI.Track
         internal DevExpress.XtraGrid.GridControl ogcDetail;
         internal DevExpress.XtraEditors.LabelControl FNHSysSeasonIdTo_lbl;
         internal DevExpress.XtraEditors.LabelControl FNHSysSeasonId_lbl;
-        private DevExpress.XtraGrid.Columns.GridColumn FTProdDesc;
+        private DevExpress.XtraGrid.Columns.GridColumn FTFileName;
         private DevExpress.XtraGrid.Columns.GridColumn FTUserDescription;
         private DevExpress.XtraGrid.Columns.GridColumn Countryoforigin;
         private DevExpress.XtraGrid.Columns.GridColumn TeamMulti;
@@ -995,7 +1048,7 @@ namespace HI.Track
         private DevExpress.XtraGrid.Columns.GridColumn CostSheetNo;
         private DevExpress.XtraGrid.Columns.GridColumn CostSheetDate;
         private DevExpress.XtraGrid.Columns.GridColumn FTCmpCode;
-        private DevExpress.XtraGrid.Columns.GridColumn Color;
+        private DevExpress.XtraGrid.Columns.GridColumn FNCostSheetColor;
         private DevExpress.XtraGrid.Columns.GridColumn Size;
         private DevExpress.XtraGrid.Columns.GridColumn FNCostSheetBuyType;
         private DevExpress.XtraGrid.Columns.GridColumn Version;
@@ -1032,5 +1085,9 @@ namespace HI.Track
         private DevExpress.XtraGrid.Columns.GridColumn SendMark;
         private DevExpress.XtraGrid.Columns.GridColumn SendMarkDate;
         private DevExpress.XtraGrid.Columns.GridColumn FTMerTeamName;
+        private DevExpress.XtraGrid.Columns.GridColumn FTVenderPramCode;
+        private DevExpress.XtraGrid.Columns.GridColumn FNCostSheetQuotedType;
+        private DevExpress.XtraGrid.Columns.GridColumn HasImage;
+        private DevExpress.XtraGrid.Columns.GridColumn HasMark;
     }
 }

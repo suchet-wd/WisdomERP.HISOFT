@@ -13,6 +13,8 @@ namespace HI.Track.Class
         private bool picture;
         private bool mark;
         private string teamMulti;
+        private string styleId;
+        private string venderPramId;
 
         public string CostsheetNo
         {
@@ -42,6 +44,18 @@ namespace HI.Track.Class
         {
             get { return teamMulti; }
             set { teamMulti = value; }
+        }
+
+        public string StyleId
+        {
+            get { return styleId; }
+            set { styleId = value; }
+        }
+
+        public string VenderPramId
+        {
+            get { return venderPramId; }
+            set { venderPramId = value; }
         }
     }
 

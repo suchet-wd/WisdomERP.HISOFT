@@ -8258,7 +8258,7 @@ Public Class wCostSheet
                     If .StateSave = True Then
                         StateSendData = True
 
-                        'dt = CType(.ogcdetail.DataSource, DataTable).Copy
+                        dt = CType(.ogcdetail.DataSource, DataTable).Copy
                     End If
                 End With
 
@@ -9107,7 +9107,7 @@ Public Class wCostSheet
 
                                         ' Dim EFPictureSurlEndPoint As String = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadProductImage?fileName=" & FTFileName.Text.Trim & ".JPG&factoryCode=" & FNHSysVenderPramId.Text.Trim & "&styleNumber=" & FNHSysStyleId.Text.Trim & ""
 
-                                        Dim EFPictureSurlEndPoint As String = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadProductImage?fileName=" & pFileName & "&factoryCode=" & FNHSysVenderPramId.Text.Trim & "&styleNumber=" & FNHSysStyleId.Text.Trim & ""
+                                        Dim EFPictureSurlEndPoint As String = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadProductImage?fileName=" & pFileName & "&factoryCodefactoryCode=" & FNHSysVenderPramId.Text.Trim & "&styleNumber=" & FNHSysStyleId.Text.Trim & ""
 
 
                                         Dim pUri As Uri = New Uri(EFPictureSurlEndPoint)

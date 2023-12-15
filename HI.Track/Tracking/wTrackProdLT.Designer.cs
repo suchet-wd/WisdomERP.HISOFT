@@ -66,11 +66,11 @@ namespace HI.Track
             // 
             // FNHSysSeasonIdTo
             // 
-            this.FNHSysSeasonIdTo.Location = new System.Drawing.Point(453, 46);
+            this.FNHSysSeasonIdTo.Location = new System.Drawing.Point(367, 55);
             this.FNHSysSeasonIdTo.Name = "FNHSysSeasonIdTo";
             this.FNHSysSeasonIdTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.FNHSysSeasonIdTo.Size = new System.Drawing.Size(551, 20);
+            this.FNHSysSeasonIdTo.Size = new System.Drawing.Size(143, 20);
             this.FNHSysSeasonIdTo.TabIndex = 9;
             // 
             // ogbmainprocbutton
@@ -147,29 +147,29 @@ namespace HI.Track
             // 
             // FNHSysSeasonId
             // 
-            this.FNHSysSeasonId.Location = new System.Drawing.Point(99, 46);
+            this.FNHSysSeasonId.Location = new System.Drawing.Point(99, 53);
             this.FNHSysSeasonId.Name = "FNHSysSeasonId";
             this.FNHSysSeasonId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.FNHSysSeasonId.Size = new System.Drawing.Size(253, 20);
+            this.FNHSysSeasonId.Size = new System.Drawing.Size(143, 20);
             this.FNHSysSeasonId.TabIndex = 8;
             // 
             // FNHSysStyleIdTo
             // 
-            this.FNHSysStyleIdTo.Location = new System.Drawing.Point(453, 22);
+            this.FNHSysStyleIdTo.Location = new System.Drawing.Point(367, 29);
             this.FNHSysStyleIdTo.Name = "FNHSysStyleIdTo";
             this.FNHSysStyleIdTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.FNHSysStyleIdTo.Size = new System.Drawing.Size(551, 20);
+            this.FNHSysStyleIdTo.Size = new System.Drawing.Size(143, 20);
             this.FNHSysStyleIdTo.TabIndex = 7;
             // 
             // FNHSysStyleId
             // 
-            this.FNHSysStyleId.Location = new System.Drawing.Point(99, 22);
+            this.FNHSysStyleId.Location = new System.Drawing.Point(99, 29);
             this.FNHSysStyleId.Name = "FNHSysStyleId";
             this.FNHSysStyleId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.FNHSysStyleId.Size = new System.Drawing.Size(253, 20);
+            this.FNHSysStyleId.Size = new System.Drawing.Size(143, 20);
             this.FNHSysStyleId.TabIndex = 1;
             // 
             // groupControl1
@@ -216,7 +216,7 @@ namespace HI.Track
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(5, 49);
+            this.labelControl1.Location = new System.Drawing.Point(5, 56);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(82, 13);
             this.labelControl1.TabIndex = 0;
@@ -224,7 +224,7 @@ namespace HI.Track
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(10, 29);
+            this.labelControl2.Location = new System.Drawing.Point(5, 32);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(71, 13);
             this.labelControl2.TabIndex = 9;
@@ -232,7 +232,7 @@ namespace HI.Track
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(358, 29);
+            this.labelControl3.Location = new System.Drawing.Point(264, 32);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(83, 13);
             this.labelControl3.TabIndex = 10;
@@ -240,7 +240,7 @@ namespace HI.Track
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(358, 49);
+            this.labelControl4.Location = new System.Drawing.Point(264, 56);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(94, 13);
             this.labelControl4.TabIndex = 11;

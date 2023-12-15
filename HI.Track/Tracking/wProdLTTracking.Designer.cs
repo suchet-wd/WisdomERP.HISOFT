@@ -292,6 +292,8 @@ namespace HI.Track
             // 
             // ogvDetail
             // 
+            this.ogvDetail.Appearance.Row.Options.UseTextOptions = true;
+            this.ogvDetail.Appearance.Row.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.ogvDetail.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.FTSeason,
             this.FTDmndSesn,
@@ -482,6 +484,7 @@ namespace HI.Track
             // 
             this.ItemVender.AppearanceCell.Options.UseTextOptions = true;
             this.ItemVender.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.ItemVender.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.ItemVender.Caption = "ItemVender";
             this.ItemVender.FieldName = "ItemVender";
             this.ItemVender.Name = "ItemVender";

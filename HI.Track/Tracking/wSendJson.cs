@@ -11,6 +11,9 @@ using System.Text;
 using System.IO;
 using Newtonsoft.Json;
 using System.Drawing;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
 
 namespace HI.Track
 {
@@ -24,7 +27,8 @@ namespace HI.Track
         public wSendJson()
         {
             InitializeComponent();
-
+            //txtmail.Text = "suraida.y@hi-group.com";
+            //txtpassword.Text = "Nike@007";
             //List<string, bool, bool, bool> _listSelected = new List<string, bool, bool, bool>();
         }
 
@@ -36,90 +40,15 @@ namespace HI.Track
         private void ocmLoadData_Click(object sender, EventArgs e)
         {
             var _Spls = new HI.TL.SplashScreen("Loading...Data Please wait.");
+            txtmail.Text = "";
+            txtpassword.Text = "";
             if (VerifyField())
             {
-                String _Qry = "";
+
                 try
                 {
                     ogcDetail.DataSource = null;
-                    _Qry = "SELECT DISTINCT '0' AS CBD, '0' AS Picture, '0' AS Mark ";
-                    _Qry += "  , (SELECT top 1 JH.FNSeq FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_JsonHistory AS JH WITH(NOLOCK) ";
-                    _Qry += " WHERE  JH.FTCostSheetNo = CS.FTCostSheetNo AND JH.FTSendType = 'CBD Json Standard' ";
-                    _Qry += " ORDER BY JH.FNSeq DESC) AS 'SendCBD' ";
-
-                    _Qry += "  , (SELECT top 1 CONVERT(varchar(10),CONVERT(datetime,JH.FDSendDate), 103) FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_JsonHistory AS JH WITH(NOLOCK) ";
-                    _Qry += " WHERE  JH.FTCostSheetNo = CS.FTCostSheetNo AND JH.FTSendType = 'CBD Json Standard' ";
-                    _Qry += " ORDER BY JH.FNSeq DESC) AS 'SendCBDDate' ";
-
-                    _Qry += "  , (SELECT top 1 JH.FNSeq FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_JsonHistory AS JH WITH(NOLOCK) ";
-                    _Qry += " WHERE  JH.FTCostSheetNo = CS.FTCostSheetNo AND JH.FTSendType = 'Picture' ";
-                    _Qry += " ORDER BY JH.FNSeq DESC) AS 'SendPicture' ";
-
-                    _Qry += "  , (SELECT top 1 CONVERT(varchar(10),CONVERT(datetime,JH.FDSendDate), 103) FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_JsonHistory AS JH WITH(NOLOCK) ";
-                    _Qry += " WHERE  JH.FTCostSheetNo = CS.FTCostSheetNo AND JH.FTSendType = 'Picture' ";
-                    _Qry += " ORDER BY JH.FNSeq DESC) AS 'SendPictureDate' ";
-
-                    _Qry += "  , (SELECT top 1 JH.FNSeq FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_JsonHistory AS JH WITH(NOLOCK) ";
-                    _Qry += " WHERE  JH.FTCostSheetNo = CS.FTCostSheetNo AND JH.FTSendType = 'Mark' ";
-                    _Qry += " ORDER BY JH.FNSeq DESC) AS 'SendMark' ";
-
-                    _Qry += "  , (SELECT top 1 CONVERT(varchar(10),CONVERT(datetime,JH.FDSendDate), 103) FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_JsonHistory AS JH WITH(NOLOCK) ";
-                    _Qry += " WHERE  JH.FTCostSheetNo = CS.FTCostSheetNo AND JH.FTSendType = 'Mark' ";
-                    _Qry += " ORDER BY JH.FNSeq DESC) AS 'SendMarkDate' ";
-                    _Qry += ", CS.FTCostSheetNo, CONVERT(varchar(10),CONVERT(datetime,CS.FDCostSheetDate), 103) AS 'FDCostSheetDate', CS.FTCostSheetBy, CS.FNCostSheetColor, CS.FNVersion, CS.FNCostSheetQuotedType , " +
-                     " CS.FNCostSheetSampleRound, CS.FTCostSheetBy, CS.FTLOProductDeveloper, CS.FNISTeamMulti, CS.FTMSC, CS.FNCostSheetColor, " +
-                     " CS.FNCostSheetSize, S.FTStyleCode, Sea.FTSeasonCode, S.FTStyleCode ";
-
-                    if ((HI.ST.Lang.Language).ToString() == "TH")
-                    {
-                        _Qry += " , mer.FTMerTeamNameTH AS FTMerTeamName ";
-                    }
-                    else
-                    {
-                        _Qry += ", mer.FTMerTeamNameEN AS FTMerTeamName ";
-                    }
-
-                    _Qry += " , CS.FTStateActive, C.FTCmpCode, CS.FNCostSheetBuyType, CS.FNCostSheetQuotedType ";
-
-                    _Qry += " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet AS CS WITH ( NOLOCK ) ";
-
-                    _Qry += "OUTER APPLY (SELECT C.FTCmpCode FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) +
-                        ".dbo.TCNMCmp AS C WITH (NOLOCK) WHERE CS.FNHSysCmpId = C.FNHSysCmpId) AS C";
-
-                    _Qry += " OUTER APPLY (SELECT FTUse,FTMainMatCode, FTSuplCode, TTLG, FNFINALFOB, FTRMDSSeason FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet_Detail WITH ( NOLOCK ) " +
-                    " WHERE CS.FTCostSheetNo = FTCostSheetNo ) AS CSD ";
-
-                    _Qry += " OUTER APPLY(SELECT FTStyleCode, FTStyleNameEN, FTStyleNameTH FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + ".dbo.TMERMStyle WITH (NOLOCK) " +
-                    " WHERE CS.FNHSysStyleId = FNHSysStyleId) AS S ";
-
-                    _Qry += " OUTER APPLY(SELECT FTSeasonCode FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + ".dbo.TMERMSeason WITH (NOLOCK ) " +
-                    " WHERE CS.FNHSysSeasonId = FNHSysSeasonId) AS Sea ";
-
-                    _Qry += " OUTER APPLY(SELECT FTUserDescriptionEN,FTUserDescriptionTH,FNHSysMerTeamId FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) + ".dbo.TSEUserLogin WITH (NOLOCK ) " +
-                    " WHERE CS.FTCostSheetBy = FTUserName) AS ul ";
-
-                    _Qry += " OUTER APPLY(SELECT FTMerTeamNameEN, FTMerTeamNameTH FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + ".dbo.TMERMMerTeam WITH (NOLOCK ) " +
-                    " WHERE ul.FNHSysMerTeamId = FNHSysMerTeamId) AS mer ";
-
-                    _Qry += " WHERE CS.FTCostSheetBy = 'mlkanyarat' " +
-                         // _Qry += " WHERE CS.FTCostSheetBy = '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "' " +
-                         "AND FTSeasonCode BETWEEN '" + FNHSysSeasonId.Text.Trim() + "' AND '" + FNHSysSeasonIdTo.Text.Trim() + "'";
-
-                    DataTable dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
-
-                    if (dt.Rows.Count > 0)
-                    {
-                        txtmail.Enabled = true;
-                        txtpassword.Enabled = true;
-                        ocmpostdatajson2.Enabled = true;
-                    }
-                    else
-                    {
-                        txtmail.Enabled = false;
-                        txtpassword.Enabled = false;
-                        ocmpostdatajson2.Enabled = false;
-                    }
-                    ogcDetail.DataSource = dt;
+                    LoadData();
                 }
                 catch (Exception ex)
                 {
@@ -138,6 +67,111 @@ namespace HI.Track
             HI.TL.HandlerControl.ClearControl(this);
         }
 
+        private void LoadData()
+        {
+            String _Qry = "";
+            _Qry = "SELECT DISTINCT '0' AS CBD, '0' AS Picture, '0' AS Mark \n";
+            _Qry += "  , (SELECT top 1 JH.FNSeq FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_JsonHistory AS JH WITH(NOLOCK) \n";
+            _Qry += " WHERE  JH.FTCostSheetNo = CS.FTCostSheetNo AND JH.FTSendType = 'CBD Json Standard' \n";
+            _Qry += " ORDER BY JH.FNSeq DESC) AS 'SendCBD' \n";
+
+            _Qry += "  , (SELECT top 1 CONVERT(varchar(10),CONVERT(datetime,JH.FDSendDate), 103) FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_JsonHistory AS JH WITH(NOLOCK) \n";
+            _Qry += " WHERE  JH.FTCostSheetNo = CS.FTCostSheetNo AND JH.FTSendType = 'CBD Json Standard' \n";
+            _Qry += " ORDER BY JH.FNSeq DESC) AS 'SendCBDDate' \n";
+
+            _Qry += "  , (SELECT top 1 JH.FNSeq FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_JsonHistory AS JH WITH(NOLOCK) \n";
+            _Qry += " WHERE  JH.FTCostSheetNo = CS.FTCostSheetNo AND JH.FTSendType = 'Picture' ";
+            _Qry += " ORDER BY JH.FNSeq DESC) AS 'SendPicture' \n";
+
+            _Qry += "  , (SELECT top 1 CONVERT(varchar(10),CONVERT(datetime,JH.FDSendDate), 103) FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_JsonHistory AS JH WITH(NOLOCK) \n";
+            _Qry += " WHERE  JH.FTCostSheetNo = CS.FTCostSheetNo AND JH.FTSendType = 'Picture' \n";
+            _Qry += " ORDER BY JH.FNSeq DESC) AS 'SendPictureDate' \n";
+
+            _Qry += "  , (SELECT top 1 JH.FNSeq FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_JsonHistory AS JH WITH(NOLOCK) \n";
+            _Qry += " WHERE  JH.FTCostSheetNo = CS.FTCostSheetNo AND JH.FTSendType = 'Mark' \n";
+            _Qry += " ORDER BY JH.FNSeq DESC) AS 'SendMark' \n";
+
+            _Qry += "  , (SELECT top 1 CONVERT(varchar(10),CONVERT(datetime,JH.FDSendDate), 103) FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_JsonHistory AS JH WITH(NOLOCK) \n";
+            _Qry += " WHERE  JH.FTCostSheetNo = CS.FTCostSheetNo AND JH.FTSendType = 'Mark' \n";
+
+            _Qry += " ORDER BY JH.FNSeq DESC) AS 'SendMarkDate' \n";
+            _Qry += ", CS.FTCostSheetNo, CONVERT(varchar(10),CONVERT(datetime,CS.FDCostSheetDate), 103) AS 'FDCostSheetDate', CS.FTCostSheetBy, CS.FNCostSheetColor, CS.FNVersion, CS.FNCostSheetQuotedType , \n" +
+             " CS.FNCostSheetSampleRound, CS.FTCostSheetBy, CS.FTLOProductDeveloper, CS.FNISTeamMulti, CS.FTMSC, CS.FNCostSheetColor, \n" +
+             " CS.FNCostSheetSize, S.FTStyleCode, Sea.FTSeasonCode, S.FTStyleCode \n";
+
+            if ((HI.ST.Lang.Language).ToString() == "TH")
+            {
+                _Qry += " , mer.FTMerTeamNameTH AS FTMerTeamName \n";
+            }
+            else
+            {
+                _Qry += ", mer.FTMerTeamNameEN AS FTMerTeamName \n";
+            }
+
+            _Qry += " , CS.FTStateActive, C.FTCmpCode, CS.FNCostSheetBuyType, CS.FNCostSheetQuotedType ,v.FTVenderPramCode, CS.FTFileName \n\n";
+            _Qry += ",  CASE WHEN (CF.FBFileImage IS null) THEN '0' ELSE '1' END AS 'HasImage' \n";
+            _Qry += ",  CASE WHEN(CF.FBFileMark IS null) THEN '0' ELSE '1' END AS 'HasMark' \n\n";
+
+            _Qry += " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet AS CS WITH ( NOLOCK ) \n\n";
+
+            _Qry += "OUTER APPLY (SELECT TOP 1 C.FTCmpCode " +
+                "FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + ".dbo.TCNMCmp AS C WITH (NOLOCK) \n" +
+                "WHERE CS.FNHSysCmpId = C.FNHSysCmpId) AS C \n\n";
+
+            _Qry += "OUTER APPLY(SELECT TOP 1 v.FTVenderPramCode " +
+                "FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + ".dbo.TMERMVenderPram AS v WITH (NOLOCK) \n" +
+                "WHERE cs.FNHSysVenderPramId = v.FNHSysVenderPramId) AS v \n\n";
+
+            _Qry += " OUTER APPLY (SELECT TOP 1 FTUse,FTMainMatCode, FTSuplCode, TTLG, FNFINALFOB, FTRMDSSeason " +
+                "FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet_Detail WITH ( NOLOCK ) \n" +
+                " WHERE CS.FTCostSheetNo = FTCostSheetNo ) AS CSD \n\n";
+
+            _Qry += " OUTER APPLY(SELECT TOP 1 FTStyleCode, FTStyleNameEN, FTStyleNameTH FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + ".dbo.TMERMStyle WITH (NOLOCK) \n" +
+            " WHERE CS.FNHSysStyleId = FNHSysStyleId) AS S \n\n";
+
+            _Qry += " OUTER APPLY(SELECT TOP 1 FTSeasonCode FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + ".dbo.TMERMSeason WITH (NOLOCK ) \n" +
+            " WHERE CS.FNHSysSeasonId = FNHSysSeasonId) AS Sea \n\n";
+
+            _Qry += " OUTER APPLY(SELECT TOP 1 FTUserDescriptionEN,FTUserDescriptionTH,FNHSysMerTeamId FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) + ".dbo.TSEUserLogin WITH (NOLOCK ) \n" +
+            " WHERE CS.FTCostSheetBy = FTUserName) AS ul \n\n";
+
+            _Qry += " OUTER APPLY(SELECT TOP 1 FTMerTeamNameEN, FTMerTeamNameTH FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + ".dbo.TMERMMerTeam WITH (NOLOCK ) \n" +
+            " WHERE ul.FNHSysMerTeamId = FNHSysMerTeamId) AS mer \n\n";
+
+            _Qry += " OUTER APPLY(select TOP 1 CF.FBFileImage, CF.FBFileMark FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet_File As CF With(NOLOCK) \n" +
+           " WHERE CF.FTCostSheetNo = CS.FTCostSheetNo) AS CF \n\n";
+
+
+            //_Qry += " WHERE CS.FTCostSheetBy = 'mlsuraida' \n" +
+            _Qry += (HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) == "admin") ?
+                " WHERE CS.FTCostSheetBy <> '' \n" : " WHERE CS.FTCostSheetBy = '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "' \n";
+
+            _Qry += (FNHSysSeasonId.Text.Trim() != "" && FNHSysSeasonIdTo.Text.Trim() != "") ?
+                "AND FTSeasonCode BETWEEN '" + FNHSysSeasonId.Text.Trim() + "' AND '" + FNHSysSeasonIdTo.Text.Trim() + "' \n" : "";
+
+            _Qry += (FNHSysStyleId.Text.Trim() != "" && FNHSysStyleIdTo.Text.Trim() != "") ?
+                "AND FTStyleCode BETWEEN '" + FNHSysStyleId.Text.Trim() + "' AND '" + FNHSysStyleIdTo.Text.Trim() + "' \n" : "";
+
+            _Qry += (FTCostSheetNo.Text.Trim() != "" && FTCostSheetNoTo.Text.Trim() != "") ?
+                "AND FTCostSheetNo BETWEEN '" + FTCostSheetNo.Text.Trim() + "' AND '" + FTCostSheetNoTo.Text.Trim() + "' \n" : "";
+
+            DataTable dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
+
+            if (dt.Rows.Count > 0)
+            {
+                txtmail.Enabled = true;
+                txtpassword.Enabled = true;
+                ocmpostdatajson2.Enabled = true;
+            }
+            else
+            {
+                txtmail.Enabled = false;
+                txtpassword.Enabled = false;
+                ocmpostdatajson2.Enabled = false;
+            }
+            ogcDetail.DataSource = dt;
+            listJSONs.Clear();
+        }
         private bool VerifyField()
         {
             bool checkfield = false;
@@ -145,13 +179,23 @@ namespace HI.Track
             {
                 checkfield = true;
             }
-            if (FNHSysSeasonId.Text == "" && FNHSysSeasonIdTo.Text != "")
+            if (FNHSysStyleId.Text != "" && FNHSysStyleIdTo.Text != "")
             {
-                checkfield = false;
+                checkfield = true;
             }
-            if (FNHSysSeasonId.Text != "" && FNHSysSeasonIdTo.Text == "")
+            if (FTCostSheetNo.Text != "" && FTCostSheetNoTo.Text != "")
             {
-                checkfield = false;
+                checkfield = true;
+            }
+
+            if (!checkfield)
+            {
+                txtmail.Enabled = false;
+                txtpassword.Enabled = false;
+                ocmpostdatajson2.Enabled = false;
+                txtmail.Text = "";
+                txtpassword.Text = "";
+                HI.TL.HandlerControl.ClearControl(this);
             }
             return checkfield;
         }
@@ -217,25 +261,29 @@ namespace HI.Track
                     //if (StateSendCBD || StateSendPicture || StateSendMarkD)
                     if (_l.CBD || _l.Picture || _l.Mark)
                     {
-                        Qry = "select TOP 1  '" + _l.CBD + "' AS FTSelect, 1 FNSeq, FTStateExportUser, FDStateExportDate, FTStateExportTime,";
-                        Qry += _l.TeamMulti.Equals("Y") ? "'CBD Json Team Multi'" : "'CBD Json Standard'";
-                        Qry += " As FTSendType,'' AS FTSendStatus ,'' AS FTSendStatusDescription " +
-                            " from [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet WITH(NOLOCK)  " +
-                            " WHERE FTCostSheetNo='" + _l.CostsheetNo + "'" +
-                            " UNION " +
-                            " select TOP 1  '" + _l.Picture + "' AS FTSelect, 2 FNSeq, FTStateImageExportUser, FDStateImageExportDate, FTStateImageExportTime,'Picture' As FTSendType,'' AS FTSendStatus ,'' AS FTSendStatusDescription  " +
-                            " from [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_File WITH(NOLOCK)  " +
-                            " WHERE FTCostSheetNo='" + _l.CostsheetNo + "'" +
-                            " UNION " +
-                            " select TOP 1  '" + _l.Mark + "' AS FTSelect, 3 FNSeq, FTStateMarkExportUser, FDStateMarkExportDate, FTStateMarkExportTime,'Mark' As FTSendType,'' AS FTSendStatus ,'' AS FTSendStatusDescription  " +
-                            " from [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_File WITH(NOLOCK)  " +
-                            " WHERE FTCostSheetNo='" + _l.CostsheetNo + "'";
+                        Qry = "select TOP 1  '" + _l.CBD + "' AS FTSelect, 1 FNSeq, FTStateExportUser, FDStateExportDate, FTStateExportTime, \n";
+                        Qry += _l.TeamMulti.Equals("Y") ? "'CBD Json Team Multi'" : "'CBD Json Standard' \n";
+                        Qry += " As FTSendType,'' AS FTSendStatus ,'' AS FTSendStatusDescription \n" +
+                            " from [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet WITH(NOLOCK)  \n" +
+                            " WHERE FTCostSheetNo='" + _l.CostsheetNo + "' \n\n" +
+
+                            " UNION \n\n" +
+                            " select TOP 1  '" + _l.Picture + "' AS FTSelect, 2 FNSeq, FTStateImageExportUser, FDStateImageExportDate, \n" +
+                            "FTStateImageExportTime,'Picture' As FTSendType,'' AS FTSendStatus ,'' AS FTSendStatusDescription  \n" +
+                            " from [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_File WITH(NOLOCK)  \n" +
+                            " WHERE FTCostSheetNo='" + _l.CostsheetNo + "'\n\n" +
+
+                            " UNION \n\n" +
+                            " select TOP 1  '" + _l.Mark + "' AS FTSelect, 3 FNSeq, FTStateMarkExportUser, FDStateMarkExportDate, \n" +
+                            "FTStateMarkExportTime,'Mark' As FTSendType,'' AS FTSendStatus ,'' AS FTSendStatusDescription  \n" +
+                            " from [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_File WITH(NOLOCK)  \n" +
+                            " WHERE FTCostSheetNo='" + _l.CostsheetNo + "' \n";
 
                         dt = HI.Conn.SQLConn.GetDataTable(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
 
                         bool teamMulti = _l.TeamMulti.Equals("Y") ? true : false;
                         //r["FTFileName"].ToString(), r["version"].ToString(),
-                        SetdataJSON(_l.CostsheetNo, pMail, pMailPassword, ref dt, teamMulti, _l.CBD, _l.Picture, _l.Mark);
+                        SetdataJSON(_l.CostsheetNo, pMail, pMailPassword, ref dt, teamMulti, _l.CBD, _l.Picture, _l.Mark, _l.VenderPramId, _l.StyleId);
                     }
 
                     //Console.WriteLine(ogvDetail.GetRowCellValue(i, "FTCostSheetNo").ToString(), pMail, pMailPassword, dt, StateSendCBD, StateSendPicture, StateSendMarkD);
@@ -257,20 +305,21 @@ namespace HI.Track
                 }
                 HI.MG.ShowMsg.mInfo("กรุณาทำการเลือกเงื่อนไข อย่างน้อย 1 รายการ !!!", 1406170001, this.Text, "", System.Windows.Forms.MessageBoxIcon.Warning);
             }
+            LoadData();
             _Spls.Close();
         }
 
 
-        static void SetdataJSON(string Docno, string pMail, string pMailPassword, ref DataTable dtdata, bool teamMulti, bool SateCBD, bool StatePicture, bool StateMark)
+        static void SetdataJSON(string Docno, string pMail, string pMailPassword, ref DataTable dtdata, bool teamMulti, bool SateCBD, bool StatePicture, bool StateMark, string venderPramId, string styleCode)
         {
             string Qry = "";
             DataTable dt = new DataTable();
-            string VenderPramCode = "";
-            string Material = "";
-            string FTCurCode = "";
-            int RIndx = 0;
-            decimal InvAmt = 0;
-            decimal GInvAmt = 0;
+            //string VenderPramCode = "";
+            //string Material = "";
+            //string FTCurCode = "";
+            //int RIndx = 0;
+            //decimal InvAmt = 0;
+            //decimal GInvAmt = 0;
 
             CBDJson_Tbl_Imp_FOBSummary Tbl_Imp_FOBSummary = new CBDJson_Tbl_Imp_FOBSummary();
             List<CBDJson_Tbl_Imp_CMP> Tbl_Imp_CMP = new List<CBDJson_Tbl_Imp_CMP>();
@@ -286,67 +335,77 @@ namespace HI.Track
             List<CBDJson_ChildCbds> ChildCbds = new List<CBDJson_ChildCbds>();
 
 
-            Qry = "  Select C.* ,  ISNULL(C.FTStyleCode,'') + '|' +   ISNULL(C.FTMainMatColorCode,'') + '|' +  ISNULL(C.FTTeamName,'')  AS FTTeam";
-            Qry += " FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_Detail As C With (NOLOCK)  ";
+            Qry = "  Select C.* ,  ISNULL(C.FTStyleCode,'') + '|' +   ISNULL(C.FTMainMatColorCode,'') + '|' +  ISNULL(C.FTTeamName,'')  AS FTTeam\n";
+            Qry += " FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_Detail As C With (NOLOCK)  \n";
             Qry += " WHERE C.FTCostSheetNo='" + Docno + "' ";
 
             dt = HI.Conn.SQLConn.GetDataTable(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
 
 
-            Qry = "SELECT DISTINCT CS.*, " +
-                "CASE WHEN CS.FNISTeamMulti = 'Y' THEN ISNULL(TM.FTSeason, ISNULL(Sea.FTSeasonCode, '' )) ELSE ISNULL(Sea.FTSeasonCode, '' ) END AS SeasonParent, " +
-                "Sea.FTSeasonCode AS 'season',cmp.FTCmpCode AS 'factory_code'," +
-                "CASE WHEN CS.FNISTeamMulti = 'Y'  THEN ISNULL(TM.FTStyleCode, '' ) ELSE ISNULL(S.FTStyleCode, '' ) END AS 'style_no', " +
-                "S.FTStyleNameEN AS 'style_name', CS.FNISTeamMulti AS 'is_team_cbd', CS.FNCostSheetColor AS 'color', CS.FNCostSheetSize AS 'size', " +
-                "CS.FNCostSheetBuyType AS 'buy_type', CS.FNVersion AS 'version', CS.FTMSC AS 'msc', CS.FTLOProductDeveloper AS 'developer', " +
-                "CS.FNCostSheetQuotedType AS 'cbd_quote_status', CS.FNCostSheetSampleRound AS 'sample_round', CS.FNHSysStyleIdTo AS 'base_style_no', " +
-                "CS.FTDateQuoted AS 'quoted_date', CS.FTQuotedLog AS 'quote_log', CS.FTFileName AS 'comment', CS.FNTotalFabAmt AS 'total_fabric', " +
-                "CS.FNTotalAccAmt AS 'FNTotalAccAmt', CS.FNChargeFabAmt AS 'charge_fabric', CS.FNChargeAccAmt AS 'FNChargeAccAmt', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country1Cur,'') END AS 'currency1', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country1Exc,'') END AS 'exchange_rate1', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country2Cur,'') END AS 'currency2', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country2Exc,'') END AS 'exchange_rate2', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country3Cur,'') END AS 'currency3', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country3Exc,'') END AS 'exchange_rate3', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country1Extended,0) ELSE ISNULL(TM.FNEXTENDSIZEFOBL4L1, '') END AS 'extended_size_fob1', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country2Extended,0) ELSE ISNULL(TM.FNEXTENDSIZEFOBL4L2, '') END AS 'extended_size_fob2', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country3Extended,0) ELSE ISNULL(TM.FNEXTENDSIZEFOBL4L3, '') END AS 'extended_size_fob3', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country1Final,0) ELSE ISNULL(TM.FTL4LCURRENCYFOB1, '') END AS 'local_currency_fob1', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country2Final,0) ELSE ISNULL(TM.FTL4LCURRENCYFOB2, '') END AS 'local_currency_fob2', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country3Final,0) ELSE ISNULL(TM.FTL4LCURRENCYFOB3, '') END AS 'local_currency_fob3', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNExtendedFOB,0) ELSE ISNULL(TM.FNEXTENDEDSIZEFOB, '') END AS 'FNExtendedFOB', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNGrandTotal,0) ELSE ISNULL(TM.FNFINALFOB, '') END AS 'FinalFOB', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country1,0) ELSE ISNULL(TM.FTL4LORDERCNTY1, '') END AS 'country1', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country2,0) ELSE ISNULL(TM.FTL4LORDERCNTY2, '') END AS 'country2', " +
-                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country3,0) ELSE ISNULL(TM.FTL4LORDERCNTY3, '') END AS 'country3' ";
+            Qry = "SELECT DISTINCT CS.*, \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'Y' THEN ISNULL(TM.FTSeason, ISNULL(Sea.FTSeasonCode, '' )) ELSE ISNULL(Sea.FTSeasonCode, '' ) END AS SeasonParent, \n" +
+                "Sea.FTSeasonCode AS 'season',v.FTVenderPramCode AS 'factory_code', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'Y'  THEN ISNULL(TM.FTStyleCode, '' ) ELSE ISNULL(S.FTStyleCode, '' ) END AS 'style_no', \n" +
+                "S.FTStyleNameEN AS 'style_name', CS.FNISTeamMulti AS 'is_team_cbd', CS.FNCostSheetColor AS 'color', CS.FNCostSheetSize AS 'size', \n" +
+                "CS.FNCostSheetBuyType AS 'buy_type', CS.FNVersion AS 'version', CS.FTMSC AS 'msc', CS.FTLOProductDeveloper AS 'developer', \n" +
+                "CS.FNCostSheetQuotedType AS 'cbd_quote_status', CS.FNCostSheetSampleRound AS 'sample_round', ISNULL(BS.FTStyleCode,'') AS 'base_style_no', \n" +
+                "CS.FTDateQuoted AS 'quoted_date', CS.FTQuotedLog AS 'quote_log', cs.FTRemark AS 'comment', CS.FNTotalFabAmt AS 'total_fabric', \n" +
+                "CS.FNTotalAccAmt AS 'FNTotalAccAmt', CS.FNChargeFabAmt AS 'charge_fabric', CS.FNChargeAccAmt AS 'FNChargeAccAmt', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country1Cur,'') END AS 'currency1', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country1Exc,'') END AS 'exchange_rate1', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country2Cur,'') END AS 'currency2', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country2Exc,'') END AS 'exchange_rate2', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country3Cur,'') END AS 'currency3', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country3Exc,'') END AS 'exchange_rate3', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country1Extended,0) ELSE ISNULL(TM.FNEXTENDSIZEFOBL4L1, '') END AS 'extended_size_fob1', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country2Extended,0) ELSE ISNULL(TM.FNEXTENDSIZEFOBL4L2, '') END AS 'extended_size_fob2', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country3Extended,0) ELSE ISNULL(TM.FNEXTENDSIZEFOBL4L3, '') END AS 'extended_size_fob3', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country1Final,0) ELSE ISNULL(TM.FTL4LCURRENCYFOB1, '') END AS 'local_currency_fob1', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country2Final,0) ELSE ISNULL(TM.FTL4LCURRENCYFOB2, '') END AS 'local_currency_fob2', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country3Final,0) ELSE ISNULL(TM.FTL4LCURRENCYFOB3, '') END AS 'local_currency_fob3', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNExtendedFOB,0) ELSE ISNULL(TM.FNEXTENDEDSIZEFOB, '') END AS 'FNExtendedFOB', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNGrandTotal,0) ELSE ISNULL(TM.FNFINALFOB, '') END AS 'FinalFOB', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country1,0) ELSE ISNULL(TM.FTL4LORDERCNTY1, '') END AS 'country1', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country2,0) ELSE ISNULL(TM.FTL4LORDERCNTY2, '') END AS 'country2', \n" +
+                "CASE WHEN CS.FNISTeamMulti = 'N' THEN ISNULL(CS.FNL4Country3,0) ELSE ISNULL(TM.FTL4LORDERCNTY3, '') END AS 'country3' \n\n";
 
-            Qry += " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet AS CS With(NOLOCK) ";
+            Qry += " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet AS CS With(NOLOCK) \n\n";
 
-            Qry += " OUTER APPLY(SELECT FTUse, FTMainMatCode, FTSuplCode, TTLG, FNFINALFOB, FTRMDSSeason " +
-                " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet_Detail WITH (NOLOCK ) WHERE CS.FTCostSheetNo = FTCostSheetNo) AS CSD";
+            Qry += " OUTER APPLY(SELECT FTUse, FTMainMatCode, FTSuplCode, TTLG, FNFINALFOB, FTRMDSSeason \n" +
+                " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet_Detail WITH (NOLOCK ) WHERE CS.FTCostSheetNo = FTCostSheetNo) AS CSD \n";
 
-            Qry += " OUTER APPLY (SELECT FTSeason, FTStyleCode, FNFINALFOB,FNEXTENDEDSIZEFOB,FNExtendedFOB, FNEXTENDSIZEFOBL4L1, FNEXTENDSIZEFOBL4L2, FNEXTENDSIZEFOBL4L3, " +
-            " FTL4LCURRENCYFOB1,FTL4LCURRENCYFOB2,FTL4LCURRENCYFOB3, FTL4LORDERCNTY1, FTL4LORDERCNTY2, FTL4LORDERCNTY3, FNVersion " +
-            " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet_Detail_TeamMulti WITH ( NOLOCK ) " +
-            " WHERE CS.FTCostSheetNo = FTCostSheetNo ) AS TM ";
+            Qry += " OUTER APPLY (SELECT FTSeason, FTStyleCode, FNFINALFOB,FNEXTENDEDSIZEFOB,FNExtendedFOB, FNEXTENDSIZEFOBL4L1, FNEXTENDSIZEFOBL4L2, FNEXTENDSIZEFOBL4L3, \n" +
+            " FTL4LCURRENCYFOB1,FTL4LCURRENCYFOB2,FTL4LCURRENCYFOB3, FTL4LORDERCNTY1, FTL4LORDERCNTY2, FTL4LORDERCNTY3, FNVersion \n" +
+            " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet_Detail_TeamMulti WITH ( NOLOCK ) \n" +
+            " WHERE CS.FTCostSheetNo = FTCostSheetNo ) AS TM \n\n";
 
-            Qry += " OUTER APPLY(SELECT FTStyleCode, FTStyleNameEN, FTStyleNameTH " +
-                " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + ".dbo.TMERMStyle WITH (NOLOCK) WHERE CS.FNHSysStyleId = FNHSysStyleId) AS S ";
+            Qry += " OUTER APPLY(SELECT FTStyleCode, FTStyleNameEN, FTStyleNameTH \n" +
+                " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + ".dbo.TMERMStyle WITH (NOLOCK) \n" +
+                "WHERE CS.FNHSysStyleId = FNHSysStyleId) AS S \n\n";
 
-            Qry += " OUTER APPLY(SELECT FTSeasonCode FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + "].dbo.TMERMSeason WITH (NOLOCK ) " +
-                " WHERE CS.FNHSysSeasonId = FNHSysSeasonId) AS Sea ";
+            Qry += "OUTER APPLY(SELECT FTStyleCode, FTStyleNameEN, FTStyleNameTH  \n" +
+                "FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + ".dbo.TMERMStyle WITH (NOLOCK) \n" +
+                "WHERE CS.FNHSysStyleIdTo = FNHSysStyleId) AS BS \n\n";
 
-            Qry += " OUTER APPLY(SELECT FTUserDescriptionEN, FTUserDescriptionTH, FNHSysMerTeamId " +
-                " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) + ".dbo.TSEUserLogin WITH(NOLOCK ) WHERE CS.FTCostSheetBy = FTUserName) AS ul ";
+            Qry += " OUTER APPLY(SELECT FTSeasonCode FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + "].dbo.TMERMSeason WITH (NOLOCK ) \n" +
+                " WHERE CS.FNHSysSeasonId = FNHSysSeasonId) AS Sea \n\n";
 
-            Qry += " OUTER APPLY(SELECT FTMerTeamNameEN, FTMerTeamNameTH " +
-                " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + ".dbo.TMERMMerTeam WITH (NOLOCK ) WHERE ul.FNHSysMerTeamId = FNHSysMerTeamId) AS mer ";
+            Qry += " OUTER APPLY(SELECT FTUserDescriptionEN, FTUserDescriptionTH, FNHSysMerTeamId \n" +
+                " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) + ".dbo.TSEUserLogin WITH(NOLOCK ) \n" +
+                "WHERE CS.FTCostSheetBy = FTUserName) AS ul \n\n";
 
-            Qry += " OUTER APPLY(SELECT * FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + "].dbo.TCNMCmp WITH (NOLOCK ) WHERE FNHSysCmpId= CS.FNHSysCmpId) AS Cmp ";
+            Qry += " OUTER APPLY(SELECT FTMerTeamNameEN, FTMerTeamNameTH \n" +
+                " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + ".dbo.TMERMMerTeam WITH (NOLOCK ) \n" +
+                "WHERE ul.FNHSysMerTeamId = FNHSysMerTeamId) AS mer \n\n";
 
-            Qry += " WHERE CS.FTCostSheetNo = '" + Docno + "'";
+            Qry += " OUTER APPLY (SELECT v.FTVenderPramCode FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + "].dbo.TMERMVenderPram AS v WITH (NOLOCK) \n" +
+                "WHERE cs.FNHSysVenderPramId = v.FNHSysVenderPramId) AS v";
+            //Qry += " OUTER APPLY(SELECT * FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) + "].dbo.TCNMCmp WITH (NOLOCK ) " +
+            //    "WHERE FNHSysCmpId= CS.FNHSysCmpId) AS Cmp \n";
 
+            Qry += " WHERE CS.FTCostSheetNo = '" + Docno + "' \n";
 
+            // Data
             dt = HI.Conn.SQLConn.GetDataTable(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
 
             if (dt.Rows.Count > 0)
@@ -362,10 +421,10 @@ namespace HI.Track
                     Tbl_Imp_FOBSummary.packaging = decimal.Parse(r["FNPackagingAmt"].ToString());
                     Tbl_Imp_FOBSummary.other_cost = decimal.Parse(r["FNOtherCostAmt"].ToString());
                     Tbl_Imp_FOBSummary.cmp = decimal.Parse(r["FNCMP"].ToString());
-                    Tbl_Imp_FOBSummary.extended_size_adjustment = decimal.Parse(string.Format(r["FNExtendedPer"].ToString(), "0.0000")) / 100;
+                    Tbl_Imp_FOBSummary.extended_size_adjustment = decimal.Parse(String.Format(r["FNExtendedPer"].ToString(), "0.0000")) / 100;
                     Tbl_Imp_FOBSummary.final_fob = decimal.Parse(r["FNGrandTotal"].ToString());
                     Tbl_Imp_FOBSummary.extended_size_fob = decimal.Parse(r["FNExtendedFOB"].ToString());
-                    Tbl_Imp_FOBSummary.trim_usage_allowance = decimal.Parse(string.Format(r["FNTrinUsageAllowPer"].ToString(), "0.0000")) / 100;
+                    Tbl_Imp_FOBSummary.trim_usage_allowance = decimal.Parse(String.Format(r["FNTrinUsageAllowPer"].ToString(), "0.0000")) / 100;
 
                     Tbl_Imp_L4L1.country = r["country1"].ToString();
                     Tbl_Imp_L4L1.currency = r["currency1"].ToString();
@@ -402,32 +461,32 @@ namespace HI.Track
                         Tbl_Imp_CMP.Add(xPO);
                     }
 
-                    string pWith = "";
+                    //string pWith = "";
                     foreach (DataRow _r in _dt.Select("FNCostType = '1'"))
                     {
                         CBDJson_Tbl_Imp_Fabric xPO = new CBDJson_Tbl_Imp_Fabric();
 
-                        pWith = "";
-                        if (_r["FNWidth"].ToString().Length > 0)
-                        {
+                        //pWith = "";
+                        //if (Decimal.Parse(_r["FNWidth"].ToString()) > 0)
+                        //{
+                        //    pWith = String.Format("{0:0.#}", Decimal.Parse(_r["FNWidth"].ToString()));  //String.Format("{0:0.##}",_r["FNWidth"].ToString());
+                        //    //pWith = String.Format(_d.ToString(),"0.##");
 
-                            pWith = string.Format(_r["FNWidth"].ToString(), "0.00");
+                        //    if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == "0")
+                        //    {
+                        //        pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
+                        //    }
 
-                            if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == "0")
-                            {
-                                pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
-                            }
+                        //    if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == "0")
+                        //    {
+                        //        pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
+                        //    }
 
-                            if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == "0")
-                            {
-                                pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
-                            }
-
-                            if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == ".")
-                            {
-                                pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
-                            }
-                        }
+                        //    if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == ".")
+                        //    {
+                        //        pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
+                        //    }
+                        //}
 
                         xPO.pps_item_number = _r["FTMainMatCode"].ToString();
                         xPO.material_color = _r["FTMainMatColorCode"].ToString();
@@ -435,22 +494,24 @@ namespace HI.Track
                         xPO.vendor = _r["FTSuplCode"].ToString();
                         xPO.country_origin = _r["TTLG"].ToString();
                         xPO.use_location = _r["FTUse"].ToString();
-                        xPO.weight = Decimal.Parse(string.Format(_r["FNWeight"].ToString(), "0.00"));
-                        xPO.width = pWith;
+                        xPO.weight = Decimal.Parse(String.Format(_r["FNWeight"].ToString(), "0.00"));
+                        xPO.width = String.Format("{0:0.#}", Decimal.Parse(_r["FNWidth"].ToString())); //pWith;
                         xPO.width_unit = _r["FTWidthUnit"].ToString();
-                        xPO.marker_efficiency_percentage = Decimal.Parse(string.Format(_r["FNMarkerEff"].ToString(), "0.0000"));
-                        xPO.net_usage = Decimal.Parse(string.Format(_r["FNMarkerUsed"].ToString(), "0.0000"));
-                        xPO.allowance_percentage = Decimal.Parse(string.Format(_r["FNAllowancePer"].ToString(), "0.0000"));
-                        xPO.gross_usage = Decimal.Parse(string.Format(_r["FNTotalUsed"].ToString(), "0.0000"));
+                        Decimal _FNMarkerEff = Decimal.Parse(String.Format(_r["FNMarkerEff"].ToString(), "0.0000")) / 100;
+                        xPO.marker_efficiency_percentage = _FNMarkerEff;
+                        xPO.net_usage = Decimal.Parse(String.Format(_r["FNMarkerUsed"].ToString(), "0.0000"));
+                        Decimal _FNAllowancePer = Decimal.Parse(String.Format(_r["FNAllowancePer"].ToString(), "0.0000")) / 100;
+                        xPO.allowance_percentage = _FNAllowancePer;
+                        xPO.gross_usage = Decimal.Parse(String.Format(_r["FNTotalUsed"].ToString(), "0.0000"));
                         xPO.rmds_season = _r["FTRMDSSeason"].ToString();
                         xPO.rmds_status = _r["FNRMDSStatus"].ToString();
                         xPO.uom = _r["FTUnitCode"].ToString();
-                        xPO.unit_price = Decimal.Parse(string.Format(_r["FNCostPerUOM"].ToString(), "0.000"));
-                        xPO.cost_insurance_freight = Decimal.Parse(string.Format(_r["FNCIF"].ToString(), "0.0000"));
-                        xPO.usage_cost = Decimal.Parse(string.Format(_r["FNUSAGECOST"].ToString(), "0.0000"));
-                        xPO.handling_charge_percentage = Decimal.Parse(string.Format(_r["FNHANDLINGCHARGEPERCENT"].ToString(), "0.0000")) / 100;
-                        xPO.handling_charge_cost = Decimal.Parse(string.Format(_r["FNHANDLINGCHARGECOST"].ToString(), "0.0000"));
-                        xPO.import_duty = Decimal.Parse(string.Format(_r["FNIMPORTDUTYPERCENT"].ToString(), "0.0000")) / 100;
+                        xPO.unit_price = Decimal.Parse(String.Format(_r["FNCostPerUOM"].ToString(), "0.000"));
+                        xPO.cost_insurance_freight = Decimal.Parse(String.Format(_r["FNCIF"].ToString(), "0.0000"));
+                        xPO.usage_cost = Decimal.Parse(String.Format(_r["FNUSAGECOST"].ToString(), "0.0000"));
+                        xPO.handling_charge_percentage = Decimal.Parse(String.Format(_r["FNHANDLINGCHARGEPERCENT"].ToString(), "0.0000")) / 100;
+                        xPO.handling_charge_cost = Decimal.Parse(String.Format(_r["FNHANDLINGCHARGECOST"].ToString(), "0.0000"));
+                        xPO.import_duty = Decimal.Parse(String.Format(_r["FNIMPORTDUTYPERCENT"].ToString(), "0.0000")) / 100;
 
                         Tbl_Imp_Fabric.Add(xPO);
                     }
@@ -459,27 +520,27 @@ namespace HI.Track
                     {
                         CBDJson_Tbl_Imp_Trims xPO = new CBDJson_Tbl_Imp_Trims();
 
-                        pWith = "";
+                        //pWith = "";
 
-                        if (_r["FNWidth"].ToString().Length > 0)
-                        {
-                            pWith = string.Format(_r["FNWidth"].ToString(), "0.00");
+                        //if (Decimal.Parse(_r["FNWidth"].ToString()) > 0)
+                        //{
+                        //    pWith = String.Format(_r["FNWidth"].ToString(), "0.00");
 
-                            if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == "0")
-                            {
-                                pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
-                            }
+                        //    if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == "0")
+                        //    {
+                        //        pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
+                        //    }
 
-                            if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == "0")
-                            {
-                                pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
-                            }
+                        //    if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == "0")
+                        //    {
+                        //        pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
+                        //    }
 
-                            if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == ".")
-                            {
-                                pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
-                            }
-                        }
+                        //    if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == ".")
+                        //    {
+                        //        pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
+                        //    }
+                        //}
 
                         xPO.pps_item_number = _r["FTMainMatCode"].ToString();
                         xPO.material_color = _r["FTMainMatColorCode"].ToString();
@@ -487,20 +548,20 @@ namespace HI.Track
                         xPO.vendor = _r["FTSuplCode"].ToString();
                         xPO.country_origin = _r["TTLG"].ToString();
                         xPO.use_location = _r["FTUse"].ToString();
-                        xPO.width = pWith;
+                        xPO.width = String.Format("{0:0.#}", Decimal.Parse(_r["FNWidth"].ToString())); //pWith;
                         xPO.width_unit = _r["FTWidthUnit"].ToString();
-                        xPO.net_usage = Decimal.Parse(string.Format(_r["FNMarkerUsed"].ToString(), "0.0000"));
-                        xPO.allowance_percentage = Decimal.Parse(string.Format(_r["FNAllowancePer"].ToString(), "0.0000")) / 100;
-                        xPO.gross_usage = Decimal.Parse(string.Format(_r["FNTotalUsed"].ToString(), "0.0000"));
+                        xPO.net_usage = Decimal.Parse(String.Format(_r["FNMarkerUsed"].ToString(), "0.0000"));
+                        xPO.allowance_percentage = Decimal.Parse(String.Format(_r["FNAllowancePer"].ToString(), "0.0000")) / 100;
+                        xPO.gross_usage = Decimal.Parse(String.Format(_r["FNTotalUsed"].ToString(), "0.0000"));
                         xPO.rmds_season = _r["FTRMDSSeason"].ToString();
                         xPO.rmds_status = _r["FNRMDSStatus"].ToString();
                         xPO.uom = _r["FTUnitCode"].ToString();
-                        xPO.unit_price = Decimal.Parse(string.Format(_r["FNCostPerUOM"].ToString(), "0.000"));
-                        xPO.cost_insurance_freight = Decimal.Parse(string.Format(_r["FNCIF"].ToString(), "0.0000"));
-                        xPO.usage_cost = Decimal.Parse(string.Format(_r["FNUSAGECOST"].ToString(), "0.0000"));
-                        xPO.handling_charge_percentage = Decimal.Parse(string.Format(_r["FNHANDLINGCHARGEPERCENT"].ToString(), "0.0000")) / 100;
-                        xPO.handling_charge_cost = Decimal.Parse(string.Format(_r["FNHANDLINGCHARGECOST"].ToString(), "0.0000"));
-                        xPO.import_duty = Decimal.Parse(string.Format(_r["FNIMPORTDUTYPERCENT"].ToString(), "0.0000")) / 100;
+                        xPO.unit_price = Decimal.Parse(String.Format(_r["FNCostPerUOM"].ToString(), "0.000"));
+                        xPO.cost_insurance_freight = Decimal.Parse(String.Format(_r["FNCIF"].ToString(), "0.0000"));
+                        xPO.usage_cost = Decimal.Parse(String.Format(_r["FNUSAGECOST"].ToString(), "0.0000"));
+                        xPO.handling_charge_percentage = Decimal.Parse(String.Format(_r["FNHANDLINGCHARGEPERCENT"].ToString(), "0.0000")) / 100;
+                        xPO.handling_charge_cost = Decimal.Parse(String.Format(_r["FNHANDLINGCHARGECOST"].ToString(), "0.0000"));
+                        xPO.import_duty = Decimal.Parse(String.Format(_r["FNIMPORTDUTYPERCENT"].ToString(), "0.0000")) / 100;
 
                         Tbl_Imp_Trims.Add(xPO);
                     }
@@ -514,13 +575,13 @@ namespace HI.Track
                         xPO.vendor = _r["FTSuplCode"].ToString();
                         xPO.country_origin = _r["TTLG"].ToString();
                         xPO.use_location = _r["FTUse"].ToString();
-                        xPO.net_usage = Decimal.Parse(string.Format(_r["FNMarkerUsed"].ToString(), "0.0000"));
-                        xPO.allowance_percentage = Decimal.Parse(string.Format(_r["FNAllowancePer"].ToString(), "0.0000")) / 100;
-                        xPO.gross_usage = Decimal.Parse(string.Format(_r["FNTotalUsed"].ToString(), "0.0000"));
+                        xPO.net_usage = Decimal.Parse(String.Format(_r["FNMarkerUsed"].ToString(), "0.0000"));
+                        xPO.allowance_percentage = Decimal.Parse(String.Format(_r["FNAllowancePer"].ToString(), "0.0000")) / 100;
+                        xPO.gross_usage = Decimal.Parse(String.Format(_r["FNTotalUsed"].ToString(), "0.0000"));
                         xPO.uom = _r["FTUnitCode"].ToString();
-                        xPO.unit_price = Decimal.Parse(string.Format(_r["FNCostPerUOM"].ToString(), "0.000"));
-                        xPO.usage_cost = Decimal.Parse(string.Format(_r["FNUSAGECOST"].ToString(), "0.0000"));
-                        xPO.import_duty = Decimal.Parse(string.Format(_r["FNIMPORTDUTYPERCENT"].ToString(), "0.0000")) / 100;
+                        xPO.unit_price = Decimal.Parse(String.Format(_r["FNCostPerUOM"].ToString(), "0.000"));
+                        xPO.usage_cost = Decimal.Parse(String.Format(_r["FNUSAGECOST"].ToString(), "0.0000"));
+                        xPO.import_duty = Decimal.Parse(String.Format(_r["FNIMPORTDUTYPERCENT"].ToString(), "0.0000")) / 100;
 
                         Tbl_Imp_Process_Mtrl.Add(xPO);
                     }
@@ -534,11 +595,11 @@ namespace HI.Track
                         xPO.vendor = _r["FTSuplCode"].ToString();
                         xPO.country_origin = _r["TTLG"].ToString();
                         xPO.use_location = _r["FTUse"].ToString();
-                        xPO.gross_usage = Decimal.Parse(string.Format(_r["FNTotalUsed"].ToString(), "0.0000"));
+                        xPO.gross_usage = Decimal.Parse(String.Format(_r["FNTotalUsed"].ToString(), "0.0000"));
                         xPO.uom = _r["FTUnitCode"].ToString();
-                        xPO.unit_price = Decimal.Parse(string.Format(_r["FNCostPerUOM"].ToString(), "0.000"));
-                        xPO.usage_cost = Decimal.Parse(string.Format(_r["FNUSAGECOST"].ToString(), "0.0000"));
-                        xPO.import_duty = Decimal.Parse(string.Format(_r["FNIMPORTDUTYPERCENT"].ToString(), "0.0000")) / 100;
+                        xPO.unit_price = Decimal.Parse(String.Format(_r["FNCostPerUOM"].ToString(), "0.000"));
+                        xPO.usage_cost = Decimal.Parse(String.Format(_r["FNUSAGECOST"].ToString(), "0.0000"));
+                        xPO.import_duty = Decimal.Parse(String.Format(_r["FNIMPORTDUTYPERCENT"].ToString(), "0.0000")) / 100;
 
                         Tbl_Imp_Process_Labor.Add(xPO);
                     }
@@ -546,47 +607,47 @@ namespace HI.Track
                     foreach (DataRow _r in _dt.Select("FNCostType = '5'"))
                     {
                         CBDJson_Tbl_Imp_Packaging xPO = new CBDJson_Tbl_Imp_Packaging();
-                        pWith = "";
-                        if (_r["FNWidth"].ToString().Length > 0)
-                        {
-                            pWith = string.Format(_r["FNWidth"].ToString(), "0.00");
+                        //pWith = "";
+                        //if (Decimal.Parse(_r["FNWidth"].ToString()) > 0)
+                        //{
+                        //    pWith = String.Format(_r["FNWidth"].ToString(), "0.00");
 
-                            if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == "0")
-                            {
-                                pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
-                            }
+                        //    if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == "0")
+                        //    {
+                        //        pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
+                        //    }
 
-                            if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == "0")
-                            {
-                                pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
-                            }
+                        //    if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == "0")
+                        //    {
+                        //        pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
+                        //    }
 
-                            if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == ".")
-                            {
-                                pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
-                            }
-                        }
+                        //    if (Microsoft.VisualBasic.Strings.Right(pWith, 1) == ".")
+                        //    {
+                        //        pWith = Microsoft.VisualBasic.Strings.Left(pWith, pWith.Length - 1);
+                        //    }
+                        //}
 
                         xPO.pps_item_number = _r["FTMainMatCode"].ToString();
                         xPO.description = _r["FTMainMatName"].ToString();
                         xPO.vendor = _r["FTSuplCode"].ToString();
                         xPO.country_origin = _r["TTLG"].ToString();
                         xPO.use_location = _r["FTUse"].ToString();
-                        xPO.width = pWith;
+                        xPO.width = String.Format("{0:0.#}", Decimal.Parse(_r["FNWidth"].ToString())); //pWith;
                         xPO.width_unit = _r["FTWidthUnit"].ToString();
 
-                        xPO.net_usage = Decimal.Parse(string.Format(_r["FNMarkerUsed"].ToString(), "0.0000"));
-                        xPO.allowance_percentage = Decimal.Parse(string.Format(_r["FNAllowancePer"].ToString(), "0.0000")) / 100;
-                        xPO.gross_usage = Decimal.Parse(string.Format(_r["FNTotalUsed"].ToString(), "0.0000"));
+                        xPO.net_usage = Decimal.Parse(String.Format(_r["FNMarkerUsed"].ToString(), "0.0000"));
+                        xPO.allowance_percentage = Decimal.Parse(String.Format(_r["FNAllowancePer"].ToString(), "0.0000")) / 100;
+                        xPO.gross_usage = Decimal.Parse(String.Format(_r["FNTotalUsed"].ToString(), "0.0000"));
                         xPO.rmds_season = _r["FTRMDSSeason"].ToString();
                         xPO.rmds_status = _r["FNRMDSStatus"].ToString();
                         xPO.uom = _r["FTUnitCode"].ToString();
-                        xPO.unit_price = Decimal.Parse(string.Format(_r["FNCostPerUOM"].ToString(), "0.000"));
-                        xPO.cost_insurance_freight = Decimal.Parse(string.Format(_r["FNCIF"].ToString(), "0.0000"));
-                        xPO.usage_cost = Decimal.Parse(string.Format(_r["FNUSAGECOST"].ToString(), "0.0000"));
-                        xPO.handling_charge_percentage = Decimal.Parse(string.Format(_r["FNHANDLINGCHARGEPERCENT"].ToString(), "0.00")) / 100;
-                        xPO.handling_charge_cost = Decimal.Parse(string.Format(_r["FNHANDLINGCHARGECOST"].ToString(), "0.0000"));
-                        xPO.import_duty = Decimal.Parse(string.Format(_r["FNIMPORTDUTYPERCENT"].ToString(), "0.00")) / 100;
+                        xPO.unit_price = Decimal.Parse(String.Format(_r["FNCostPerUOM"].ToString(), "0.000"));
+                        xPO.cost_insurance_freight = Decimal.Parse(String.Format(_r["FNCIF"].ToString(), "0.0000"));
+                        xPO.usage_cost = Decimal.Parse(String.Format(_r["FNUSAGECOST"].ToString(), "0.0000"));
+                        xPO.handling_charge_percentage = Decimal.Parse(String.Format(_r["FNHANDLINGCHARGEPERCENT"].ToString(), "0.00")) / 100;
+                        xPO.handling_charge_cost = Decimal.Parse(String.Format(_r["FNHANDLINGCHARGECOST"].ToString(), "0.0000"));
+                        xPO.import_duty = Decimal.Parse(String.Format(_r["FNIMPORTDUTYPERCENT"].ToString(), "0.00")) / 100;
 
                         Tbl_Imp_Packaging.Add(xPO);
                     }
@@ -596,13 +657,13 @@ namespace HI.Track
                         CBDJson_Tbl_Imp_BEMIS xPO = new CBDJson_Tbl_Imp_BEMIS();
 
                         xPO.pps_item_number = _r["FTMainMatCode"].ToString();
-                        xPO.full_width = Decimal.Parse(string.Format(_r["FNFULLWIDTH"].ToString(), "0.0000"));
-                        xPO.slitting_width = Decimal.Parse(string.Format(_r["FNSLITTINGWIDTH"].ToString(), "0.0000"));
-                        xPO.required_length = Decimal.Parse(string.Format(_r["FNREQUIREDLENGTH"].ToString(), "0.0000"));
-                        xPO.usage_full_width = Decimal.Parse(string.Format(_r["FNNETUSAGEINFULLWIDTH"].ToString(), "0.0000"));
-                        xPO.price_meter = Decimal.Parse(string.Format(_r["FNPRICEINMETER"].ToString(), "0.0000"));
-                        xPO.bemis_slitting_percentage = Decimal.Parse(string.Format(_r["FNBEMISSLITTINGUPCHARGE"].ToString(), "0.0000"));
-                        xPO.price_slitting_width = Decimal.Parse(string.Format(_r["FNPRICEPERSLITTINGWITDH"].ToString(), "0.0000"));
+                        xPO.full_width = Decimal.Parse(String.Format(_r["FNFULLWIDTH"].ToString(), "0.0000"));
+                        xPO.slitting_width = Decimal.Parse(String.Format(_r["FNSLITTINGWIDTH"].ToString(), "0.0000"));
+                        xPO.required_length = Decimal.Parse(String.Format(_r["FNREQUIREDLENGTH"].ToString(), "0.0000"));
+                        xPO.usage_full_width = Decimal.Parse(String.Format(_r["FNNETUSAGEINFULLWIDTH"].ToString(), "0.0000"));
+                        xPO.price_meter = Decimal.Parse(String.Format(_r["FNPRICEINMETER"].ToString(), "0.0000"));
+                        xPO.bemis_slitting_percentage = Decimal.Parse(String.Format(_r["FNBEMISSLITTINGUPCHARGE"].ToString(), "0.0000"));
+                        xPO.price_slitting_width = Decimal.Parse(String.Format(_r["FNPRICEPERSLITTINGWITDH"].ToString(), "0.0000"));
                         Tbl_Imp_BEMIS.Add(xPO);
                     }
 
@@ -711,7 +772,7 @@ namespace HI.Track
                         JSonHeadcer.ChildCbds = ChildCbds;
 
                         updateStateJSON(null, Docno, pMail, pMailPassword,
-                            dtdata, JSonHeadcer, SateCBD, StatePicture, StateMark);
+                            dtdata, JSonHeadcer, SateCBD, StatePicture, StateMark, venderPramId, styleCode);
                     }
                     else
                     {
@@ -752,7 +813,7 @@ namespace HI.Track
                         JSonHeadcer.Tbl_Imp_BEMIS = Tbl_Imp_BEMIS;
 
                         updateStateJSON(JSonHeadcer, Docno, pMail, pMailPassword,
-                            dtdata, null, SateCBD, StatePicture, StateMark);
+                            dtdata, null, SateCBD, StatePicture, StateMark, venderPramId, styleCode);
                     }
                 }
 
@@ -766,22 +827,22 @@ namespace HI.Track
 
         private static void updateStateJSON(CBDJson EFSData, string DocNo,
             string pMail, string pMailPassword, DataTable dtdata,
-            CBDMultiJson EFSMulti, bool SateCBD, bool StatePicture, bool StateMark)
+            CBDMultiJson EFSMulti, bool SateCBD, bool StatePicture, bool StateMark, string venderPramId, string styleCode)
         {
             string Qry = "";
-            /*
-            string Qry = "Update A SET FTStateExport='1'";
-            Qry += " , FTStateExportUser ='" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-            Qry += " ,  FDStateExportDate=" + HI.UL.ULDate.FormatDateDB + " ";
-            Qry += " ,  FTStateExportTime=" + HI.UL.ULDate.FormatTimeDB + " ";
-            Qry += " FROM  " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet As A ";
-            Qry += " WHERE A.FTCostSheetNo='" + DocNo + "'";
+
+            Qry = "Update A SET FTStateExport='1' \n";
+            Qry += " , FTStateExportUser ='" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "' \n";
+            Qry += " ,  FDStateExportDate=" + HI.UL.ULDate.FormatDateDB + " \n";
+            Qry += " ,  FTStateExportTime=" + HI.UL.ULDate.FormatTimeDB + " \n";
+            Qry += " FROM  " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet As A \n";
+            Qry += " WHERE A.FTCostSheetNo='" + DocNo + "' \n";
 
             if (HI.Conn.SQLConn.ExecuteNonQuery(Qry, Conn.DB.DataBaseName.DB_ACCOUNT) == false)
             {
                 Console.WriteLine("Cannot update FTStateExport!!!");
             }
-            */
+
 
             string pFolderJson = _AppCBDJsonPath + "\\" + EFSData.CBDID.Trim().Replace(" / ", " - ").Replace("\\", " - ") +
                 " Post By  " + HI.ST.UserInfo.UserName + "  Time " + DateTime.Now.ToString("yyyyMMdd HHmmss");
@@ -791,8 +852,9 @@ namespace HI.Track
                 System.IO.Directory.CreateDirectory(pFolderJson);
             }
 
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)(3072);
             int PageCount = 0;
-            bool StateTeamMulti = (EFSMulti == null) ? true : false;
+            bool StateTeamMulti = (EFSMulti != null) ? true : false;
             bool postcbdjsonSsatus = false;
             string postcbdjsommessage = "";
             bool postimagejsonSsatus = false;
@@ -825,13 +887,12 @@ namespace HI.Track
 
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
-            string json_data = string.Format("grant_type=password&scope=iam.okta.factoryaffiliations.read iam.okta.factorygroups.read iam.okta.job.read iam.okta.address.read iam.okta.location.read openid email&username={0}&password={1}", (pMail), (pMailPassword));
+            string json_data = String.Format("grant_type=password&scope=iam.okta.factoryaffiliations.read iam.okta.factorygroups.read iam.okta.job.read iam.okta.address.read iam.okta.location.read openid email&username={0}&password={1}", (pMail), (pMailPassword));
 
             Byte[] postBytes = System.Text.Encoding.ASCII.GetBytes(json_data);
 
 
-            //ServicePointManager.SecurityProtocol = DirectCast(3072, SecurityProtocolType);
-            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)(3072);
             Stream postStream = request.GetRequestStream();
             postStream.Write(postBytes, 0, postBytes.Length);
             postStream.Flush();
@@ -842,8 +903,7 @@ namespace HI.Track
             accessToken_id = "";
             try
             {
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;  
-                //DirectCast(3072, SecurityProtocolType)
+                ServicePointManager.SecurityProtocol = (SecurityProtocolType)(3072);
                 System.Net.WebResponse response = request.GetResponse();
                 System.IO.StreamReader streamReader = new System.IO.StreamReader(response.GetResponseStream());
                 // Parse the JSON the way you prefer
@@ -898,16 +958,16 @@ namespace HI.Track
                             StreamWriter sw = new StreamWriter(File.Open(strFile, FileMode.OpenOrCreate));
                             sw.WriteLine((fileExists) ? EFSjson_data : EFSjson_data);
 
-                            Qry = "Update A SET FTStateExport='1'";
-                            Qry += " , FTStateExportUser ='" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                            Qry += " , FDStateExportDate=" + HI.UL.ULDate.FormatDateDB + " ";
-                            Qry += " , FTStateExportTime=" + HI.UL.ULDate.FormatTimeDB + " ";
-                            Qry += " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet As A ";
-                            Qry += " WHERE A.FTCostSheetNo='" + DocNo + "'";
+                            Qry = "Update A SET FTStateExport='1' \n";
+                            Qry += " , FTStateExportUser ='" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "' \n";
+                            Qry += " , FDStateExportDate=" + HI.UL.ULDate.FormatDateDB + " \n";
+                            Qry += " , FTStateExportTime=" + HI.UL.ULDate.FormatTimeDB + " \n";
+                            Qry += " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet As A \n";
+                            Qry += " WHERE A.FTCostSheetNo='" + DocNo + "' \n";
                             Qry += " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
-                                ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, " +
-                                "FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, " +
-                                "FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) ";
+                                ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, \n" +
+                                "FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, \n" +
+                                "FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) \n";
                             Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
                             Qry += "," + HI.UL.ULDate.FormatDateDB;
                             Qry += "," + HI.UL.ULDate.FormatTimeDB;
@@ -981,21 +1041,23 @@ namespace HI.Track
                                 postcbdjsonSsatus = exjsonPostResult.status;
                                 postcbdjsommessage = exjsonPostResult.message;
 
-                                Qry = " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) ";
-                                Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                Qry = " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet_JsonHistory \n" +
+                                    "(FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, \n" +
+                                    "FTSendStatusDescription, FTSendUser, FDSendDate, FTSendTime, FTSendByMail) \n";
+                                Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'\n";
                                 Qry += "," + HI.UL.ULDate.FormatDateDB;
                                 Qry += "," + HI.UL.ULDate.FormatTimeDB;
-                                Qry += ",'" + DocNo + "'";
-                                Qry += ",'" + EFSData.version + "'";
-                                Qry += ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " +
+                                Qry += ",'" + DocNo + "'\n";
+                                Qry += ",'" + EFSData.version + "'\n";
+                                Qry += ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from \n" +
                                     HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
                                     ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" +
-                                    DocNo + "' ),0) +1 ";
-                                Qry += ",'" + HI.UL.ULF.rpQuoted(EFSData.CBDID.Trim()) + "'";
+                                    DocNo + "' ),0) +1 \n";
+                                Qry += ",'" + HI.UL.ULF.rpQuoted(EFSData.CBDID.Trim()) + "'\n";
                                 Qry += (StateTeamMulti == false) ? ",'CBD Json Standard'" : ",'CBD Json Team Multi'";
-                                Qry += ",'False'";
-                                Qry += ",'" + HI.UL.ULF.rpQuoted(postcbdjsommessage) + "'";
-                                Qry += ",'" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                Qry += ",'False'\n";
+                                Qry += ",'" + HI.UL.ULF.rpQuoted(postcbdjsommessage) + "'\n";
+                                Qry += ",'" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'\n";
                                 Qry += "," + HI.UL.ULDate.FormatDateDB;
                                 Qry += "," + HI.UL.ULDate.FormatTimeDB;
                                 Qry += ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
@@ -1012,436 +1074,481 @@ namespace HI.Track
                             {
                                 postcbdjsonSsatus = false;
                                 postcbdjsommessage = excbd1.Message;
-                            }
 
-                            foreach (DataRow Rx in dtdata.Select("FNSeq=1"))
-                            {
-                                Rx["FTSendStatus"] = "";
-                                Rx["FTSendStatusDescription"] = postcbdjsommessage;
-                            }
-                        }
-                        exresponse.Close();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                foreach (DataRow Rx in dtdata.Select("FNSeq=1"))
-                {
-                    Rx["FTSendStatus"] = "";
-                    Rx["FTSendStatusDescription"] = ex.Message;
-                }
-            }
-            if (StatePicture || StateMark)
-            {
-                string _Qry = "";
 
-                _Qry = "select TOP 1 * ";
-                _Qry += " FROM  [" + HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) +
-                    "].dbo.TACCTCostSheet_File As C With (NOLOCK) ";
-                _Qry += " WHERE FTCostSheetNo='" + DocNo + "' ";
-
-                DataTable dtFile = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
-                if (dtFile.Rows.Count > 0)
-                {
-                    try
-                    {
-                        if (StatePicture && dtFile.Rows[0]["FBFileImage"].ToString() != null)
-                        {
-                            try
-                            {
-                                Byte[] data = Encoding.UTF8.GetBytes(dtFile.Rows[0]["FBFileImage"].ToString());
-                                if (data.Length > 0)
+                                foreach (DataRow Rx in dtdata.Select("FNSeq=1"))
                                 {
-                                    Image pImage = Image.FromStream(new MemoryStream(data));
+                                    Rx["FTSendStatus"] = "";
+                                    Rx["FTSendStatusDescription"] = postcbdjsommessage;
+                                }
+                            }
+                            exresponse.Close();
+                        } // End if (exresponse != null).
 
-                                    string strPicFile = pFolderJson + "\\" + EFSData.CBDID.Trim() + ".JPG";
+                        //Finally
 
-                                    pImage.Save(strPicFile, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    } //End catch (WebException excbd)
 
-                                    string pFileName = EFSData.CBDID.Trim() + ".JPG";
-                                    string EFPictureSurlEndPoint = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadProductImage?fileName=" +
-                                        pFileName + "&factoryCode=";// + FNHSysVenderPramId.Text.Trim + "&styleNumber=" + FNHSysStyleId.Text.Trim;
+                } //End if (SateCBD)
 
-                                    FormUpload.FileParameter pFileData = new FormUpload.FileParameter(data, pFileName, "image/jpeg");
-                                    pFileData.File = data;
-                                    pFileData.FileName = pFileName;
-                                    pFileData.ContentType = "image/jpeg";
-                                    Dictionary<String, Object> postParameters = new Dictionary<String, Object>();
 
-                                    postParameters.Add("file", pFileData);
+                if (StatePicture || StateMark)
+                {
+                    string _Qry = "";
 
-                                    //'Create request and receive response
+                    _Qry = "select TOP 1 * FROM  [" + HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) + "].dbo.TACCTCostSheet_File As C With (NOLOCK) \n";
+                    _Qry += " WHERE FTCostSheetNo='" + DocNo + "' ";
 
-                                    System.Net.HttpWebResponse responsepost = FormUpload.MultipartFormDataPost(EFPictureSurlEndPoint, accessToken, accessToken_id, postParameters);
-                                    System.IO.StreamReader streamReaderpost = new System.IO.StreamReader(responsepost.GetResponseStream());
-
-                                    string jsonResponsePostText = streamReaderpost.ReadToEnd();
-                                    RefreshResultJSON jsonPostResult = JsonConvert.DeserializeObject<RefreshResultJSON>(jsonResponsePostText);
-
-                                    postimagejsonSsatus = jsonPostResult.status;
-                                    postimagejsommessage = jsonPostResult.message;
-
-                                    if (postimagejsonSsatus)
+                    DataTable dtFile = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
+                    if (dtFile.Rows.Count > 0)
+                    {
+                        try
+                        {
+                            //Console.WriteLine("FBFileImage Length => " + dtFile.Rows[0]["FBFileImage"].ToString().Length);
+                            if (StatePicture && dtFile.Rows[0]["FBFileImage"].ToString().Length != 0)
+                            {
+                                try
+                                {
+                                    Byte[] data = (Byte[])(dtFile.Rows[0]["FBFileImage"]);
+                                    if (data.Length > 0)
                                     {
-                                        Qry = "Update A SET FTStateImageExport='1'";
-                                        Qry += " , FTStateImageExportUser ='" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                                        Qry += " ,  FDStateImageExportDate=" + HI.UL.ULDate.FormatDateDB + " ";
-                                        Qry += " ,  FTStateImageExportTime=" + HI.UL.ULDate.FormatTimeDB + " ";
-                                        Qry += " FROM  " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet_File As A ";
-                                        Qry += " WHERE   A.FTCostSheetNo='" + DocNo + "'";
-                                        Qry += " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
-                                            ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, " +
-                                            "FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, " +
-                                            "FTSendUser, FDSendDate, FTSendTime, FTSendByMail) ";
-                                        Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                                        Qry += "," + HI.UL.ULDate.FormatDateDB;
-                                        Qry += "," + HI.UL.ULDate.FormatTimeDB;
-                                        Qry += ",'" + DocNo + "'";
-                                        Qry += ",'" + EFSData.version + "'";
-                                        Qry += ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq  from " +
-                                            HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet_JsonHistory as x  " +
-                                            "where x.FTCostSheetNo ='" + DocNo + "' ),0) +1 ";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(EFSData.CBDID.Trim()) + "'";
-                                        Qry += ",'Picture'";
-                                        Qry += ",'True'";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(postimagejsommessage) + "'";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                                        Qry += "," + HI.UL.ULDate.FormatDateDB;
-                                        Qry += "," + HI.UL.ULDate.FormatTimeDB;
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
+                                        Image pImage = Image.FromStream(new MemoryStream(data));
 
+                                        string strPicFile = pFolderJson + "\\" + EFSData.CBDID.Trim() + ".JPG";
 
-                                        HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
+                                        pImage.Save(strPicFile, System.Drawing.Imaging.ImageFormat.Jpeg);
 
-                                        foreach (DataRow Rx in dtdata.Select("FNSeq=2"))
+                                        string pFileName = EFSData.CBDID.Trim() + ".JPG";
+                                        string EFPictureSurlEndPoint = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadProductImage?fileName=" +
+                                            pFileName + "&factoryCode=" + venderPramId + "&styleNumber=" + styleCode;
+
+                                        FormUpload.FileParameter pFileData = new FormUpload.FileParameter(data, pFileName, "image/jpeg");
+                                        pFileData.File = data;
+                                        pFileData.FileName = pFileName;
+                                        pFileData.ContentType = "image/jpeg";
+                                        Dictionary<String, Object> postParameters = new Dictionary<String, Object>();
+
+                                        postParameters.Add("file", pFileData);
+
+                                        //'Create request and receive response
+
+                                        System.Net.HttpWebResponse responsepost = FormUpload.MultipartFormDataPost(EFPictureSurlEndPoint, accessToken, accessToken_id, postParameters);
+                                        System.IO.StreamReader streamReaderpost = new System.IO.StreamReader(responsepost.GetResponseStream());
+
+                                        string jsonResponsePostText = streamReaderpost.ReadToEnd();
+                                        RefreshResultJSON jsonPostResult = JsonConvert.DeserializeObject<RefreshResultJSON>(jsonResponsePostText);
+
+                                        postimagejsonSsatus = jsonPostResult.status;
+                                        postimagejsommessage = jsonPostResult.message;
+
+                                        if (postimagejsonSsatus)
                                         {
-                                            Rx["FTSendStatus"] = "True";
-                                            Rx["FTSendStatusDescription"] = postimagejsommessage;
+                                            Qry = "Update A SET FTStateImageExport='1'";
+                                            Qry += " , FTStateImageExportUser ='" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                            Qry += " ,  FDStateImageExportDate=" + HI.UL.ULDate.FormatDateDB + " ";
+                                            Qry += " ,  FTStateImageExportTime=" + HI.UL.ULDate.FormatTimeDB + " ";
+                                            Qry += " FROM  " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet_File As A ";
+                                            Qry += " WHERE   A.FTCostSheetNo='" + DocNo + "'";
+                                            Qry += " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
+                                                ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, " +
+                                                "FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, " +
+                                                "FTSendUser, FDSendDate, FTSendTime, FTSendByMail) ";
+                                            Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                            Qry += "," + HI.UL.ULDate.FormatDateDB;
+                                            Qry += "," + HI.UL.ULDate.FormatTimeDB;
+                                            Qry += ",'" + DocNo + "'";
+                                            Qry += ",'" + EFSData.version + "'";
+                                            Qry += ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq  from " +
+                                                HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) + ".dbo.TACCTCostSheet_JsonHistory as x  " +
+                                                "where x.FTCostSheetNo ='" + DocNo + "' ),0) +1 ";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(EFSData.CBDID.Trim()) + "'";
+                                            Qry += ",'Picture'";
+                                            Qry += ",'True'";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(postimagejsommessage) + "'";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                            Qry += "," + HI.UL.ULDate.FormatDateDB;
+                                            Qry += "," + HI.UL.ULDate.FormatTimeDB;
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
+
+
+                                            HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
+
+                                            foreach (DataRow Rx in dtdata.Select("FNSeq=2"))
+                                            {
+                                                Rx["FTSendStatus"] = "True";
+                                                Rx["FTSendStatusDescription"] = postimagejsommessage;
+                                            }
+                                            StateAppcept = true;
                                         }
-                                        StateAppcept = true;
+                                        else
+                                        {
+                                            Qry = " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
+                                                ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, " +
+                                                "FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, " +
+                                                "FTSendUser, FDSendDate, FTSendTime, FTSendByMail) ";
+                                            Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                            Qry += "," + HI.UL.ULDate.FormatDateDB;
+                                            Qry += "," + HI.UL.ULDate.FormatTimeDB;
+                                            Qry += ",'" + DocNo + "'";
+                                            Qry += ",'" + EFSData.version + "'";
+                                            Qry += ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " +
+                                                HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
+                                                ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" + DocNo + "' ),0) +1 ";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(EFSData.CBDID.Trim()) + "'";
+                                            Qry += ",'Picture'";
+                                            Qry += ",'False'";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(postimagejsommessage) + "'";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                            Qry += "," + HI.UL.ULDate.FormatDateDB;
+                                            Qry += "," + HI.UL.ULDate.FormatTimeDB;
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
+
+
+                                            HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
+
+                                            foreach (DataRow Rx in dtdata.Select("FNSeq=2"))
+                                            {
+                                                Rx["FTSendStatus"] = "False";
+                                                Rx["FTSendStatusDescription"] = postimagejsommessage;
+                                            }
+
+                                            StateAppcept = false;
+                                            MessageBox.Show(postcbdjsommessage);
+                                            //' MsgBox(postcbdjsommessage)
+                                        }
                                     }
                                     else
                                     {
-                                        Qry = " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
-                                            ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, " +
-                                            "FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, " +
-                                            "FTSendUser, FDSendDate, FTSendTime, FTSendByMail) ";
-                                        Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                                        Qry += "," + HI.UL.ULDate.FormatDateDB;
-                                        Qry += "," + HI.UL.ULDate.FormatTimeDB;
-                                        Qry += ",'" + DocNo + "'";
-                                        Qry += ",'" + EFSData.version + "'";
-                                        Qry += ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " +
-                                            HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
-                                            ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" + DocNo + "' ),0) +1 ";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(EFSData.CBDID.Trim()) + "'";
-                                        Qry += ",'Picture'";
-                                        Qry += ",'False'";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(postimagejsommessage) + "'";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                                        Qry += "," + HI.UL.ULDate.FormatDateDB;
-                                        Qry += "," + HI.UL.ULDate.FormatTimeDB;
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
-
-
-                                        HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
-
-                                        foreach (DataRow Rx in dtdata.Select("FNSeq=2"))
-                                        {
-                                            Rx["FTSendStatus"] = "False";
-                                            Rx["FTSendStatusDescription"] = postimagejsommessage;
-                                        }
-
-                                        StateAppcept = false;
-                                        //' MsgBox(postcbdjsommessage)
+                                        MessageBox.Show("Costsheet Number : " + DocNo + " is don't have Picture!!!");
                                     }
                                 }
 
-                            }
-
-                            catch (WebException eximage)
-                            {
-                                System.Net.WebResponse exresponse = eximage.Response;
-
-                                if (exresponse != null)
+                                catch (WebException eximage)
                                 {
-                                    System.IO.StreamReader reader = new System.IO.StreamReader(exresponse.GetResponseStream());
-                                    try
+                                    System.Net.WebResponse exresponse = eximage.Response;
+
+                                    if (exresponse != null)
                                     {
-                                        string exresponseText = reader.ReadToEnd();
-                                        RefreshResultJSON exjsonPostResult = JsonConvert.DeserializeObject<RefreshResultJSON>(exresponseText);
+                                        System.IO.StreamReader reader = new System.IO.StreamReader(exresponse.GetResponseStream());
+                                        try
+                                        {
+                                            string exresponseText = reader.ReadToEnd();
+                                            RefreshResultJSON exjsonPostResult = JsonConvert.DeserializeObject<RefreshResultJSON>(exresponseText);
 
-                                        postimagejsonSsatus = exjsonPostResult.status;
-                                        postimagejsommessage = exjsonPostResult.message;
+                                            postimagejsonSsatus = exjsonPostResult.status;
+                                            postimagejsommessage = exjsonPostResult.message;
 
-                                        Qry = " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
-                                            ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, " +
-                                            "FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, " +
-                                            "FTSendUser, FDSendDate, FTSendTime, FTSendByMail) ";
-                                        Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                                        Qry += "," + HI.UL.ULDate.FormatDateDB;
-                                        Qry += "," + HI.UL.ULDate.FormatTimeDB;
-                                        Qry += ",'" + DocNo + "'";
-                                        Qry += ",'" + EFSData.version + "'";
-                                        Qry += ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " +
-                                            HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
-                                            ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" +
-                                            DocNo + "' ),0) +1 ";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(EFSData.CBDID.Trim()) + "'";
-                                        Qry += ",'False'";
-                                        Qry += ",'True'";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(postimagejsommessage) + "'";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                                        Qry += "," + HI.UL.ULDate.FormatDateDB;
-                                        Qry += "," + HI.UL.ULDate.FormatTimeDB;
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
+                                            Qry = " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
+                                                ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, " +
+                                                "FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, " +
+                                                "FTSendUser, FDSendDate, FTSendTime, FTSendByMail) ";
+                                            Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                            Qry += "," + HI.UL.ULDate.FormatDateDB;
+                                            Qry += "," + HI.UL.ULDate.FormatTimeDB;
+                                            Qry += ",'" + DocNo + "'";
+                                            Qry += ",'" + EFSData.version + "'";
+                                            Qry += ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " +
+                                                HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
+                                                ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" +
+                                                DocNo + "' ),0) +1 ";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(EFSData.CBDID.Trim()) + "'";
+                                            Qry += ",'False'";
+                                            Qry += ",'True'";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(postimagejsommessage) + "'";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                            Qry += "," + HI.UL.ULDate.FormatDateDB;
+                                            Qry += "," + HI.UL.ULDate.FormatTimeDB;
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
 
-                                        HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
+                                            HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
 
+                                            foreach (DataRow Rx in dtdata.Select("FNSeq=2"))
+                                            {
+                                                Rx["FTSendStatus"] = "False";
+                                                Rx["FTSendStatusDescription"] = postimagejsommessage;
+                                            }
+                                        }
+                                        catch (Exception ex001)
+                                        {
+                                            postimagejsonSsatus = false;
+                                            postimagejsommessage = ex001.Message;
+                                        }
                                         foreach (DataRow Rx in dtdata.Select("FNSeq=2"))
                                         {
-                                            Rx["FTSendStatus"] = "False";
+                                            Rx["FTSendStatus"] = "";
                                             Rx["FTSendStatusDescription"] = postimagejsommessage;
                                         }
                                     }
-                                    catch (Exception ex001)
+                                    exresponse.Close();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Costsheet Number : " + DocNo + " is don't have Picture!!!");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            foreach (DataRow Rx in dtdata.Select("FNSeq=2"))
+                            {
+                                Rx["FTSendStatus"] = "";
+                                Rx["FTSendStatusDescription"] = ex.Message;
+                            }
+                        }
+
+                        try
+                        {
+                            if (StateMark && dtFile.Rows[0]["FBFileMark"] != null)
+                            {
+                                try
+                                {
+                                    Byte[] data = Encoding.UTF8.GetBytes(dtFile.Rows[0]["FBFileMark"].ToString());
+
+                                    if (data.Length > 0)
                                     {
-                                        postimagejsonSsatus = false;
-                                        postimagejsommessage = ex001.Message;
+                                        string strPicFile = pFolderJson + "\\" + EFSData.CBDID.Trim() + ".pdf";
+                                        //PdfViewer1.SaveDocument(strPicFile);
+
+                                        string pFileName = EFSData.CBDID.Trim() + ".pdf";
+
+                                        string EFPictureSurlEndPoint = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadMinimarker" + "?fileName=" + pFileName + "&cbdId=" + EFSData.CBDID.Trim() + "";
+
+                                        Uri pUri = new Uri(EFPictureSurlEndPoint);
+
+                                        FormUpload.FileParameter pFileData = new FormUpload.FileParameter(data, pFileName, "application/pdf");
+                                        pFileData.File = data;
+                                        pFileData.FileName = pFileName;
+                                        pFileData.ContentType = "application/pdf";
+                                        Dictionary<String, Object> postParameters = new Dictionary<String, Object>();
+
+                                        postParameters.Add("file", pFileData);
+
+                                        //'Create request and receive response
+
+                                        System.Net.HttpWebResponse responsepost = FormUpload.MultipartFormDataPost(EFPictureSurlEndPoint, accessToken, accessToken_id, postParameters);
+
+                                        System.IO.StreamReader streamReaderpost = new System.IO.StreamReader(responsepost.GetResponseStream());
+
+                                        string jsonResponsePostText = streamReaderpost.ReadToEnd();
+                                        RefreshResultJSON jsonPostResult = JsonConvert.DeserializeObject<RefreshResultJSON>(jsonResponsePostText);
+
+                                        postmarkjsonSsatus = jsonPostResult.status;
+                                        postmarkjsommessage = jsonPostResult.message;
+
+                                        if (postmarkjsonSsatus)
+                                        {
+
+                                            Qry = "Update A SET FTStateMarkExport='1'";
+                                            Qry += " , FTStateMarkExportUser ='" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                            Qry += " ,  FDStateMarkExportDate=" + HI.UL.ULDate.FormatDateDB + " ";
+                                            Qry += " ,  FTStateMarkExportTime=" + HI.UL.ULDate.FormatTimeDB + " ";
+                                            Qry += " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
+                                                ".dbo.TACCTCostSheet_File As A ";
+                                            Qry += " WHERE A.FTCostSheetNo='" + DocNo + "'";
+                                            Qry += " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
+                                                ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, " +
+                                                "FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, " +
+                                                "FTSendUser, FDSendDate, FTSendTime, FTSendByMail) ";
+                                            Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                            Qry += "," + HI.UL.ULDate.FormatDateDB;
+                                            Qry += "," + HI.UL.ULDate.FormatTimeDB;
+                                            Qry += ",'" + DocNo + "'";
+                                            Qry += ",'" + EFSData.version + "'";
+                                            Qry += ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " +
+                                                HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
+                                                ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" +
+                                                DocNo + "' ),0) +1 ";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(EFSData.CBDID.Trim()) + "'";
+                                            Qry += ",'Mark'";
+                                            Qry += ",'True'";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(postmarkjsommessage) + "'";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                            Qry += "," + HI.UL.ULDate.FormatDateDB;
+                                            Qry += "," + HI.UL.ULDate.FormatTimeDB;
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
+
+                                            HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
+
+                                            foreach (DataRow Rx in dtdata.Select("FNSeq=3"))
+                                            {
+                                                Rx["FTSendStatus"] = "True";
+                                                Rx["FTSendStatusDescription"] = postmarkjsommessage;
+                                            }
+
+                                            StateAppcept = true;
+                                        }
+                                        else
+                                        {
+
+                                            Qry = " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
+                                                ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, " +
+                                                "FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, " +
+                                                "FTSendUser, FDSendDate, FTSendTime, FTSendByMail) ";
+                                            Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                            Qry += "," + HI.UL.ULDate.FormatDateDB;
+                                            Qry += "," + HI.UL.ULDate.FormatTimeDB;
+                                            Qry += ",'" + DocNo + "'";
+                                            Qry += ",'" + EFSData.version + "'";
+                                            Qry += ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " +
+                                                HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
+                                                ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" +
+                                                DocNo + "' ),0) +1 ";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(EFSData.CBDID.Trim()) + "'";
+                                            Qry += ",'Mark'";
+                                            Qry += ",'False'";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(postmarkjsommessage) + "'";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                            Qry += "," + HI.UL.ULDate.FormatDateDB;
+                                            Qry += "," + HI.UL.ULDate.FormatTimeDB;
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
+
+                                            HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
+
+                                            foreach (DataRow Rx in dtdata.Select("FNSeq=3"))
+                                            {
+                                                Rx["FTSendStatus"] = "False";
+                                                Rx["FTSendStatusDescription"] = postmarkjsommessage;
+                                            }
+                                            StateAppcept = false;
+                                            MessageBox.Show(postmarkjsommessage);
+                                            //'MsgBox(postmarkjsommessage)
+                                        }
                                     }
-                                    foreach (DataRow Rx in dtdata.Select("FNSeq=2"))
+                                }
+                                catch (WebException exmark)
+                                {
+                                    System.Net.WebResponse exresponse = exmark.Response;
+                                    if (exresponse == null)
+                                    {
+                                        System.IO.StreamReader reader = new System.IO.StreamReader(exresponse.GetResponseStream());
+                                        try
+                                        {
+                                            string exresponseText = reader.ReadToEnd();
+                                            RefreshResultJSON exjsonPostResult = JsonConvert.DeserializeObject<RefreshResultJSON>(exresponseText);
+
+                                            postmarkjsonSsatus = exjsonPostResult.status;
+                                            postmarkjsommessage = exjsonPostResult.message;
+
+                                            Qry = " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
+                                                ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, " +
+                                                "FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, " +
+                                                "FTSendUser, FDSendDate, FTSendTime, FTSendByMail) ";
+                                            Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                            Qry += "," + HI.UL.ULDate.FormatDateDB;
+                                            Qry += "," + HI.UL.ULDate.FormatTimeDB;
+                                            Qry += ",'" + DocNo + "'";
+                                            Qry += ",'" + EFSData.version + "'";
+                                            Qry += ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " +
+                                                HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
+                                                ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" +
+                                                DocNo + "' ),0) +1 ";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(EFSData.CBDID.Trim()) + "'";
+                                            Qry += ",'Mark'";
+                                            Qry += ",'False'";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(postmarkjsommessage) + "'";
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
+                                            Qry += "," + HI.UL.ULDate.FormatDateDB;
+                                            Qry += "," + HI.UL.ULDate.FormatTimeDB;
+                                            Qry += ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
+
+                                            HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
+
+                                            foreach (DataRow Rx in dtdata.Select("FNSeq=3"))
+                                            {
+                                                Rx["FTSendStatus"] = "False";
+                                                Rx["FTSendStatusDescription"] = postmarkjsommessage;
+                                            }
+                                        }
+                                        catch (Exception ex003)
+                                        {
+                                            postmarkjsonSsatus = false;
+                                            postmarkjsommessage = ex003.Message;
+                                        }
+
+                                        foreach (DataRow Rx in dtdata.Select("FNSeq=3"))
+                                        {
+                                            Rx["FTSendStatus"] = "";
+                                            Rx["FTSendStatusDescription"] = postmarkjsommessage;
+                                        }
+                                        exresponse.Close();
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+
+                                    foreach (DataRow Rx in dtdata.Select("FNSeq=3"))
                                     {
                                         Rx["FTSendStatus"] = "";
-                                        Rx["FTSendStatusDescription"] = postimagejsommessage;
+                                        Rx["FTSendStatusDescription"] = ex.Message;
                                     }
+                                    dtFile.Dispose();
+                                }
+                            }
+                            else
+                            {
+                                if (StateMark)
+                                {
+                                    MessageBox.Show("Costsheet Number : " + DocNo + " is don't have Mark!!!");
+                                }
+                            }
+                        }
+                        catch (WebException ex)
+                        {
+                            System.Net.WebResponse exresponse = ex.Response;
+                            if (exresponse == null)
+                            {
+                                System.IO.StreamReader reader = new System.IO.StreamReader(exresponse.GetResponseStream());
+                                try
+                                {
+                                    string exresponseText = reader.ReadToEnd();
+                                    RefreshTokenResultJSON exjsonPostResult = JsonConvert.DeserializeObject<RefreshTokenResultJSON>(exresponseText);
+                                    MessageBox.Show(exjsonPostResult.error_description);
+                                    //MsgBox(exjsonPostResult.error_description);
+
+                                }
+                                catch (Exception ex001)
+                                {
+                                    postimagejsonSsatus = false;
+                                    MessageBox.Show(ex001.Message);
+                                    //MsgBox(ex001.Message);
                                 }
                                 exresponse.Close();
                             }
                         }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        foreach (DataRow Rx in dtdata.Select("FNSeq=2"))
-                        {
-                            Rx["FTSendStatus"] = "";
-                            Rx["FTSendStatusDescription"] = ex.Message;
-                        }
+                        MessageBox.Show("Costsheet Number : " + DocNo + " is invalid!!!");
                     }
+                } // End if (StatePicture || StateMark)
 
+            } // End Try
+            catch (WebException ex)
+            {
+                MessageBox.Show(ex.Message);
+                WebResponse exresponse = ex.Response;
+                if (exresponse != null)
+                {
+                    System.IO.StreamReader reader = new System.IO.StreamReader(exresponse.GetResponseStream());
                     try
                     {
-                        if (StateMark && dtFile.Rows[0]["FBFileMark"] != null)
-                        {
-                            try
-                            {
-                                Byte[] data = Encoding.UTF8.GetBytes(dtFile.Rows[0]["FBFileMark"].ToString());
+                        string exresponseText = reader.ReadToEnd();
+                        RefreshTokenResultJSON exjsonPostResult = JsonConvert.DeserializeObject<RefreshTokenResultJSON>(exresponseText);
 
-                                if (data.Length > 0)
-                                {
-                                    string strPicFile = pFolderJson + "\\" + EFSData.CBDID.Trim() + ".pdf";
-                                    //PdfViewer1.SaveDocument(strPicFile);
-
-                                    string pFileName = EFSData.CBDID.Trim() + ".pdf";
-
-                                    string EFPictureSurlEndPoint = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadMinimarker" + "?fileName=" + pFileName + "&cbdId=" + EFSData.CBDID.Trim() + "";
-
-                                    Uri pUri = new Uri(EFPictureSurlEndPoint);
-
-                                    FormUpload.FileParameter pFileData = new FormUpload.FileParameter(data, pFileName, "application/pdf");
-                                    pFileData.File = data;
-                                    pFileData.FileName = pFileName;
-                                    pFileData.ContentType = "application/pdf";
-                                    Dictionary<String, Object> postParameters = new Dictionary<String, Object>();
-
-                                    postParameters.Add("file", pFileData);
-
-                                    //'Create request and receive response
-
-                                    System.Net.HttpWebResponse responsepost = FormUpload.MultipartFormDataPost(EFPictureSurlEndPoint, accessToken, accessToken_id, postParameters);
-
-                                    System.IO.StreamReader streamReaderpost = new System.IO.StreamReader(responsepost.GetResponseStream());
-
-                                    string jsonResponsePostText = streamReaderpost.ReadToEnd();
-                                    RefreshResultJSON jsonPostResult = JsonConvert.DeserializeObject<RefreshResultJSON>(jsonResponsePostText);
-
-                                    postmarkjsonSsatus = jsonPostResult.status;
-                                    postmarkjsommessage = jsonPostResult.message;
-
-                                    if (postmarkjsonSsatus)
-                                    {
-
-                                        Qry = "Update A SET FTStateMarkExport='1'";
-                                        Qry += " , FTStateMarkExportUser ='" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                                        Qry += " ,  FDStateMarkExportDate=" + HI.UL.ULDate.FormatDateDB + " ";
-                                        Qry += " ,  FTStateMarkExportTime=" + HI.UL.ULDate.FormatTimeDB + " ";
-                                        Qry += " FROM " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
-                                            ".dbo.TACCTCostSheet_File As A ";
-                                        Qry += " WHERE A.FTCostSheetNo='" + DocNo + "'";
-                                        Qry += " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
-                                            ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, " +
-                                            "FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, " +
-                                            "FTSendUser, FDSendDate, FTSendTime, FTSendByMail) ";
-                                        Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                                        Qry += "," + HI.UL.ULDate.FormatDateDB;
-                                        Qry += "," + HI.UL.ULDate.FormatTimeDB;
-                                        Qry += ",'" + DocNo + "'";
-                                        Qry += ",'" + EFSData.version + "'";
-                                        Qry += ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " +
-                                            HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
-                                            ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" +
-                                            DocNo + "' ),0) +1 ";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(EFSData.CBDID.Trim()) + "'";
-                                        Qry += ",'Mark'";
-                                        Qry += ",'True'";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(postmarkjsommessage) + "'";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                                        Qry += "," + HI.UL.ULDate.FormatDateDB;
-                                        Qry += "," + HI.UL.ULDate.FormatTimeDB;
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
-
-                                        HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
-
-                                        foreach (DataRow Rx in dtdata.Select("FNSeq=3"))
-                                        {
-                                            Rx["FTSendStatus"] = "True";
-                                            Rx["FTSendStatusDescription"] = postmarkjsommessage;
-                                        }
-
-                                        StateAppcept = true;
-                                    }
-                                    else
-                                    {
-
-                                        Qry = " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
-                                            ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, " +
-                                            "FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, " +
-                                            "FTSendUser, FDSendDate, FTSendTime, FTSendByMail) ";
-                                        Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                                        Qry += "," + HI.UL.ULDate.FormatDateDB;
-                                        Qry += "," + HI.UL.ULDate.FormatTimeDB;
-                                        Qry += ",'" + DocNo + "'";
-                                        Qry += ",'" + EFSData.version + "'";
-                                        Qry += ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " +
-                                            HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
-                                            ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" +
-                                            DocNo + "' ),0) +1 ";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(EFSData.CBDID.Trim()) + "'";
-                                        Qry += ",'Mark'";
-                                        Qry += ",'False'";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(postmarkjsommessage) + "'";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                                        Qry += "," + HI.UL.ULDate.FormatDateDB;
-                                        Qry += "," + HI.UL.ULDate.FormatTimeDB;
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
-
-                                        HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
-
-                                        foreach (DataRow Rx in dtdata.Select("FNSeq=3"))
-                                        {
-                                            Rx["FTSendStatus"] = "False";
-                                            Rx["FTSendStatusDescription"] = postmarkjsommessage;
-                                        }
-                                        StateAppcept = false;
-                                        //'MsgBox(postmarkjsommessage)
-                                    }
-                                }
-                            }
-                            catch (WebException exmark)
-                            {
-                                System.Net.WebResponse exresponse = exmark.Response;
-                                if (exresponse == null)
-                                {
-                                    System.IO.StreamReader reader = new System.IO.StreamReader(exresponse.GetResponseStream());
-                                    try
-                                    {
-                                        string exresponseText = reader.ReadToEnd();
-                                        RefreshResultJSON exjsonPostResult = JsonConvert.DeserializeObject<RefreshResultJSON>(exresponseText);
-
-                                        postmarkjsonSsatus = exjsonPostResult.status;
-                                        postmarkjsommessage = exjsonPostResult.message;
-
-                                        Qry = " insert into " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
-                                            ".dbo.TACCTCostSheet_JsonHistory (FTInsUser, FDInsDate, FTInsTime, FTCostSheetNo, " +
-                                            "FNVersion, FNSeq, FTFileName,FTSendType, FTSendStatus, FTSendStatusDescription, " +
-                                            "FTSendUser, FDSendDate, FTSendTime, FTSendByMail) ";
-                                        Qry += " Select '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                                        Qry += "," + HI.UL.ULDate.FormatDateDB;
-                                        Qry += "," + HI.UL.ULDate.FormatTimeDB;
-                                        Qry += ",'" + DocNo + "'";
-                                        Qry += ",'" + EFSData.version + "'";
-                                        Qry += ",ISNULL((select top 1 MAX(FNSeq) AS FNSeq from " +
-                                            HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) +
-                                            ".dbo.TACCTCostSheet_JsonHistory as x  where x.FTCostSheetNo ='" +
-                                            DocNo + "' ),0) +1 ";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(EFSData.CBDID.Trim()) + "'";
-                                        Qry += ",'Mark'";
-                                        Qry += ",'False'";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(postmarkjsommessage) + "'";
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "'";
-                                        Qry += "," + HI.UL.ULDate.FormatDateDB;
-                                        Qry += "," + HI.UL.ULDate.FormatTimeDB;
-                                        Qry += ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
-
-                                        HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
-
-                                        foreach (DataRow Rx in dtdata.Select("FNSeq=3"))
-                                        {
-                                            Rx["FTSendStatus"] = "False";
-                                            Rx["FTSendStatusDescription"] = postmarkjsommessage;
-                                        }
-                                    }
-                                    catch (Exception ex003)
-                                    {
-                                        postmarkjsonSsatus = false;
-                                        postmarkjsommessage = ex003.Message;
-                                    }
-
-                                    foreach (DataRow Rx in dtdata.Select("FNSeq=3"))
-                                    {
-                                        Rx["FTSendStatus"] = "";
-                                        Rx["FTSendStatusDescription"] = postmarkjsommessage;
-                                    }
-                                    exresponse.Close();
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-
-                                foreach (DataRow Rx in dtdata.Select("FNSeq=3"))
-                                {
-                                    Rx["FTSendStatus"] = "";
-                                    Rx["FTSendStatusDescription"] = ex.Message;
-                                }
-                                dtFile.Dispose();
-                            }
-                        }
                     }
-                    catch (WebException ex)
+                    catch (Exception ex001)
                     {
-                        System.Net.WebResponse exresponse = ex.Response;
-                        if (exresponse == null)
-                        {
-                            System.IO.StreamReader reader = new System.IO.StreamReader(exresponse.GetResponseStream());
-                            try
-                            {
-                                string exresponseText = reader.ReadToEnd();
-                                RefreshTokenResultJSON exjsonPostResult = JsonConvert.DeserializeObject<RefreshTokenResultJSON>(exresponseText);
-
-                                //MsgBox(exjsonPostResult.error_description);
-
-                            }
-                            catch (Exception ex001)
-                            {
-                                postimagejsonSsatus = false;
-                                //MsgBox(ex001.Message);
-                            }
-                            exresponse.Close();
-                        }
+                        postimagejsonSsatus = false;
+                        MessageBox.Show(ex001.Message);
+                        //MsgBox(ex001.Message)
                     }
-                }
-            }
-        }
+                    exresponse.Close();
+                    //return false;
+                } //End f (exresponse != null)
+
+            } //End catch (WebException ex)
+
+        } //End updateStateJSON
 
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
@@ -1451,7 +1558,7 @@ namespace HI.Track
         }
 
 
-        static void ListJsonManage(string _csNo, string _cbd, string _picture, string _mark, string _teamMulti)
+        static void ListJsonManage(string _csNo, string _cbd, string _picture, string _mark, string _teamMulti, string _venderPramId, string _styleId)
         {
             if (listJSONs.Find(x => x.CostsheetNo.Contains(_csNo)) == null)
             {
@@ -1461,6 +1568,8 @@ namespace HI.Track
                 _new.Picture = (_picture == "1") ? true : false;
                 _new.Mark = (_mark == "1") ? true : false;
                 _new.TeamMulti = _teamMulti;
+                _new.VenderPramId = _venderPramId;
+                _new.StyleId = _styleId;
                 listJSONs.Add(_new);
             }
             else
@@ -1500,11 +1609,22 @@ namespace HI.Track
                 string _picture = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "Picture").ToString();
                 string _mark = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "Mark").ToString();
                 string _teamMulti = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "FNISTeamMulti").ToString();
-                ListJsonManage(_csNo, _cbd, _picture, _mark, _teamMulti);
+                string _venderPramId = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "FTVenderPramCode").ToString();
+                string _styleId = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "FTStyleCode").ToString();
+                if (ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "SendCBDDate").ToString() != "" && c.Checked == true)
+                {
+                    c.Checked = false;
+                    MessageBox.Show("Costsheet Number : " + _csNo + " already send!!!");
+                }
+                else
+                {
+                    ListJsonManage(_csNo, _cbd, _picture, _mark, _teamMulti, _venderPramId, _styleId);
+                }
+                
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
             _Spls.Close();
         }
@@ -1520,11 +1640,23 @@ namespace HI.Track
                 string _picture = (c.Checked) ? "1" : "0"; //ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "Picture").ToString();
                 string _mark = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "Mark").ToString();
                 string _teamMulti = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "FNISTeamMulti").ToString();
-                ListJsonManage(_csNo, _cbd, _picture, _mark, _teamMulti);
+                string _venderPramId = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "FTVenderPramCode").ToString();
+                string _styleId = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "FTStyleCode").ToString();
+                if (ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "HasImage").ToString() == "0" && c.Checked == true)
+                {
+                    c.Checked = false;
+                    MessageBox.Show("Costsheet Number : " + _csNo + " is don't have Picture!!!");
+                }
+                else
+                {
+                    ListJsonManage(_csNo, _cbd, _picture, _mark, _teamMulti, _venderPramId, _styleId);
+                }
+
+                //ListJsonManage(_csNo, _cbd, _picture, _mark, _teamMulti);
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
             _Spls.Close();
         }
@@ -1534,17 +1666,29 @@ namespace HI.Track
             var _Spls = new HI.TL.SplashScreen("Loading...Data Please wait.");
             try
             {
+
                 DevExpress.XtraEditors.CheckEdit c = (DevExpress.XtraEditors.CheckEdit)sender;
                 string _csNo = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "FTCostSheetNo").ToString();
                 string _cbd = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "CBD").ToString();
                 string _picture = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "Picture").ToString();
                 string _mark = (c.Checked) ? "1" : "0"; //ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "Mark").ToString();
                 string _teamMulti = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "FNISTeamMulti").ToString();
-                ListJsonManage(_csNo, _cbd, _picture, _mark, _teamMulti);
+                string _venderPramId = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "FTVenderPramCode").ToString();
+                string _styleId = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "FTStyleCode").ToString();
+                if (ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "HasMark").ToString() == "0" && c.Checked == true)
+                {
+                    c.Checked = false;
+                    MessageBox.Show("Costsheet Number : " + _csNo + " is don't have Mark!!!");
+                }
+                else
+                {
+                    ListJsonManage(_csNo, _cbd, _picture, _mark, _teamMulti, _venderPramId, _styleId);
+                }
+                //ListJsonManage(_csNo, _cbd, _picture, _mark, _teamMulti);
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
             _Spls.Close();
         }
@@ -1564,14 +1708,45 @@ namespace HI.Track
                     ogvDetail.SetRowCellValue(i, ogvDetail.Columns.ColumnByFieldName("CBD"), _State);
                     ogvDetail.SetRowCellValue(i, ogvDetail.Columns.ColumnByFieldName("Picture"), _State);
                     ogvDetail.SetRowCellValue(i, ogvDetail.Columns.ColumnByFieldName("Mark"), _State);
-                    ListJsonManage(_csNo, _State, _State, _State, _teamMulti);
+                    string _venderPramId = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "FTVenderPramCode").ToString();
+                    string _styleId = ogvDetail.GetRowCellValue(ogvDetail.FocusedRowHandle, "FTStyleCode").ToString();
+                    ListJsonManage(_csNo, _State, _State, _State, _teamMulti, _venderPramId, _styleId);
+                    //ListJsonManage(_csNo, _State, _State, _State, _teamMulti);
                 }
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
             _Spls.Close();
+        }
+
+
+        private bool IsSendCBD(GridView view, int row)
+        {
+            return (Convert.ToString(view.GetRowCellValue(row, "SendCBDDate")) != "") ? true : false;
+        }
+
+        private bool IsSendPicture(GridView view, int row)
+        {
+            return (Convert.ToString(view.GetRowCellValue(row, "SendPictureDate")) != "") ? true : false;
+        }
+
+        private bool IsSendMark(GridView view, int row)
+        {
+            return (Convert.ToString(view.GetRowCellValue(row, "SendMarkDate")) != "") ? true : false;
+        }
+
+        private void ogvDetail_RowStyle(object sender, RowStyleEventArgs e)
+        {
+            if (IsSendCBD(ogvDetail, e.RowHandle))
+            {
+                e.Appearance.ForeColor = Color.Blue;
+            }
+            if (IsSendCBD(ogvDetail, e.RowHandle) && IsSendPicture(ogvDetail, e.RowHandle) && IsSendMark(ogvDetail, e.RowHandle))
+            {
+                e.Appearance.ForeColor = Color.Magenta;
+            }
         }
     }
 }
