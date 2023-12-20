@@ -58,6 +58,4 @@ namespace HI.Track.Class
             set { venderPramId = value; }
         }
     }
-
-
 }

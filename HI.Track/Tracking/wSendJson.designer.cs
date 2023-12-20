@@ -821,6 +821,8 @@ namespace HI.Track
             // 
             // FTVenderPramCode
             // 
+            this.FTVenderPramCode.AppearanceCell.Options.UseTextOptions = true;
+            this.FTVenderPramCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.FTVenderPramCode.Caption = "FTVenderPramCode";
             this.FTVenderPramCode.FieldName = "FTVenderPramCode";
             this.FTVenderPramCode.Name = "FTVenderPramCode";
