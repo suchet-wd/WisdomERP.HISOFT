@@ -20,23 +20,17 @@ namespace HI.Track.Tracking
 
         private void ocmClose_Click(object sender, EventArgs e)
         {
+            ogcdetail.DataSource = null;
             this.Close();
         }
 
         private void ogvdetail_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
         {
-            if (IsPass(ogvdetail, e.RowHandle))
-            {
-                e.Appearance.ForeColor = Color.Green;
-            }
-            else
-            {
-                e.Appearance.ForeColor = Color.Red;
-            }
+            e.Appearance.ForeColor = (IsPass(ogvdetail, e.RowHandle)) ? Color.Green : Color.Red;
         }
         private bool IsPass(GridView view, int row)
         {
-            return (Convert.ToString(view.GetRowCellValue(row, "SendStatus")) == "True") ? true : false;
+            return (Convert.ToString(view.GetRowCellValue(row, "Status")) == "True") ? true : false;
         }
     }
 }

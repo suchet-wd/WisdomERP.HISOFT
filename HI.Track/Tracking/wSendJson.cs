@@ -24,14 +24,13 @@ namespace HI.Track
         private static string _SysPath = Application.StartupPath + "\\";
         private static string tW_SysPath = Application.StartupPath + "\\Images";
         private static string _AppCBDJsonPath = Application.StartupPath + "\\CBDJson";
-        private wSendJsonStatus _SendJsonStatus = new wSendJsonStatus();
+
         private static List<HI.Track.Class.listJSONS> listJSONs = new List<HI.Track.Class.listJSONS>();
         private static List<HI.Track.Class.SendJsonStatus> _listJsonStatus = new List<HI.Track.Class.SendJsonStatus>();
 
         public wSendJson()
         {
             InitializeComponent();
-            //DataTable _dtNotPass = CreateSendDataTable();
         }
 
         private void ocmExit_Click(object sender, EventArgs e)
@@ -216,8 +215,6 @@ namespace HI.Track
 
         }
 
-
-
         private void ocmpostdatajson2_Click(object sender, EventArgs e)
         {
             var _Spls = new HI.TL.SplashScreen("Loading...Data Please wait.");
@@ -258,16 +255,15 @@ namespace HI.Track
                         {
                             totalPass = totalPass + 1;
                         }
-
-                        //SetdataJSON(_l.CostsheetNo, pMail, pMailPassword, teamMulti, _l.CBD, _l.Picture, _l.Mark, _l.VenderPramId, _l.StyleId);
                     }
                 }
-                //DataTable _dt = new DataTable();
-                //_dt.Rows.Add(_listJsonStatus);
-                _SendJsonStatus.ogcdetail.DataSource = new BindingList<HI.Track.Class.SendJsonStatus>(_listJsonStatus); ;
+                
+                wSendJsonStatus _SendJsonStatus = new wSendJsonStatus();
+                BindingList<HI.Track.Class.SendJsonStatus> bl = new BindingList<HI.Track.Class.SendJsonStatus>(_listJsonStatus);
+                _SendJsonStatus.ogcdetail.DataSource = bl;
                 _SendJsonStatus.Show();
-                //MessageBox.Show("Total " + totalPass + " Costsheet already send.");
-                //HI.MG.ShowMsg.mInfo("Total " + totalPass + " Costsheet already send.", 1406170001, this.Text, "", System.Windows.Forms.MessageBoxIcon.Information);
+                listJSONs.Clear();
+                //_listJsonStatus.Clear();
             }
             else
             {
@@ -932,7 +928,7 @@ namespace HI.Track
                             //DataRow myDataRow = new DataRow();
 
                             HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
-                            new wSendJson().InsertSendJsonStatus(DocNo, (StateTeamMulti == false) ? "CBD Json Standard" : "CBD Json Team Multi", "True", postmarkjsommessage);
+                            new wSendJson().InsertSendJsonStatus(DocNo, (StateTeamMulti == false) ? "CBD Json Standard" : "CBD Json Team Multi", "True", postcbdjsommessage);
 
                             foreach (DataRow Rx in dtdata.Select("FNSeq=1"))
                             {
@@ -953,7 +949,7 @@ namespace HI.Track
                             Qry += "," + HI.UL.ULDate.FormatDateDB + "," + HI.UL.ULDate.FormatTimeDB + ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
 
                             HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
-                            new wSendJson().InsertSendJsonStatus(DocNo, (StateTeamMulti == false) ? "CBD Json Standard'" : "CBD Json Team Multi'", "False", postmarkjsommessage);
+                            new wSendJson().InsertSendJsonStatus(DocNo, (StateTeamMulti == false) ? "CBD Json Standard'" : "CBD Json Team Multi'", "False", postcbdjsommessage);
 
                             foreach (DataRow Rx in dtdata.Select("FNSeq=1"))
                             {
@@ -992,7 +988,7 @@ namespace HI.Track
                                 Qry += "," + HI.UL.ULDate.FormatDateDB + "," + HI.UL.ULDate.FormatTimeDB + ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
 
                                 HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
-                                new wSendJson().InsertSendJsonStatus(DocNo, (StateTeamMulti == false) ? "CBD Json Standard" : "CBD Json Team Multi", "False", postmarkjsommessage);
+                                new wSendJson().InsertSendJsonStatus(DocNo, (StateTeamMulti == false) ? "CBD Json Standard" : "CBD Json Team Multi", "False", postcbdjsommessage);
 
                                 foreach (DataRow Rx in dtdata.Select("FNSeq=1"))
                                 {
@@ -1035,7 +1031,7 @@ namespace HI.Track
                         try
                         {
                             //Console.WriteLine("FBFileImage Length => " + dtFile.Rows[0]["FBFileImage"].ToString().Length);
-                            if (StatePicture && dtFile.Rows[0]["FBFileImage"].ToString().Length != 0)
+                            if (StatePicture && dtFile.Rows[0]["FBFileImage"] != null)
                             {
                                 try
                                 {
@@ -1091,7 +1087,7 @@ namespace HI.Track
                                             Qry += ", " + HI.UL.ULDate.FormatTimeDB + ", '" + HI.UL.ULF.rpQuoted(pMail) + "'";
 
                                             HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
-                                            new wSendJson().InsertSendJsonStatus(DocNo, "Picture", "True", postmarkjsommessage);
+                                            new wSendJson().InsertSendJsonStatus(DocNo, "Picture", "True", postimagejsommessage);
 
                                             foreach (DataRow Rx in dtdata.Select("FNSeq=2"))
                                             {
@@ -1115,7 +1111,7 @@ namespace HI.Track
                                             Qry += "," + HI.UL.ULDate.FormatTimeDB + ",'" + HI.UL.ULF.rpQuoted(pMail) + "'";
 
                                             HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
-                                            new wSendJson().InsertSendJsonStatus(DocNo, "Picture", "False", postmarkjsommessage);
+                                            new wSendJson().InsertSendJsonStatus(DocNo, "Picture", "False", postimagejsommessage);
 
                                             foreach (DataRow Rx in dtdata.Select("FNSeq=2"))
                                             {
@@ -1130,8 +1126,10 @@ namespace HI.Track
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Costsheet Number : " + DocNo + " is don't have Picture!!!");
-                                        //HI.MG.ShowMsg.mInfo("Costsheet Number : " + DocNo + " is don't have Picture!!!", 1406170001, this.Text, "", System.Windows.Forms.MessageBoxIcon.Information);
+                                        if (StatePicture == true)
+                                        {
+                                            new wSendJson().InsertSendJsonStatus(DocNo, "Picture", "False", postimagejsommessage);
+                                        }
                                     }
                                 }
 
@@ -1188,8 +1186,10 @@ namespace HI.Track
                             }
                             else
                             {
-                                //HI.MG.ShowMsg.mInfo("Costsheet Number : " + DocNo + " is don't have Picture!!!", 1406170001, this.Text, "", System.Windows.Forms.MessageBoxIcon.Information);
-                                MessageBox.Show("Costsheet Number : " + DocNo + " is don't have Picture!!!");
+                                if (StatePicture == true)
+                                {
+                                    new wSendJson().InsertSendJsonStatus(DocNo, "Picture", "False", postimagejsommessage);
+                                }
                             }
                         }
                         catch (Exception ex)
@@ -1203,7 +1203,7 @@ namespace HI.Track
 
                         try
                         {
-                            if (StateMark && dtFile.Rows[0]["FBFileMark"].ToString().Length != 0)
+                            if (StateMark && dtFile.Rows[0]["FBFileMark"] != null)
                             {
                                 try
                                 {
@@ -1360,7 +1360,7 @@ namespace HI.Track
                             {
                                 if (StateMark)
                                 {
-                                    MessageBox.Show("Costsheet Number : " + DocNo + " is don't have Mark!!!");
+                                    new wSendJson().InsertSendJsonStatus(DocNo, "Picture", "False", postmarkjsommessage);
                                 }
                             }
                         }
@@ -1390,7 +1390,8 @@ namespace HI.Track
                     }
                     else
                     {
-                        MessageBox.Show("Costsheet Number : " + DocNo + " is invalid!!!");
+                        new wSendJson().InsertSendJsonStatus(DocNo, "System", "False", "Costsheet Number : " + DocNo + " is invalid!!!");
+                        //MessageBox.Show("Costsheet Number : " + DocNo + " is invalid!!!");
                     }
                 } // End if (StatePicture || StateMark)
 
@@ -1637,7 +1638,7 @@ namespace HI.Track
             HI.Track.Class.SendJsonStatus sjs = new HI.Track.Class.SendJsonStatus();
             sjs.CostSheetNo = DocNo;
             sjs.SendType = type;
-            sjs.SendStatus = status;
+            sjs.Status = status;
             sjs.SendRemark = remark;
             _listJsonStatus.Add(sjs);
         }

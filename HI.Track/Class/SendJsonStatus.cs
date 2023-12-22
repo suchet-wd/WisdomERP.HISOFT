@@ -10,12 +10,12 @@ namespace HI.Track.Class
     {
         private string costSheetNo;
         private string sendType;
-        private string sendStatus;
+        private string status;
         private string sendRemark;
 
         public string CostSheetNo { get => costSheetNo; set => costSheetNo = value; }
         public string SendType { get => sendType; set => sendType = value; }
-        public string SendStatus { get => sendStatus; set => sendStatus = value; }
+        public string Status { get => status; set => status = value; }
         public string SendRemark { get => sendRemark; set => sendRemark = value; }
     }
 }

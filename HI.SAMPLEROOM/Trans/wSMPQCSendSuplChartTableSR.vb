@@ -192,65 +192,6 @@ Public Class wSMPQCSendSuplChartTableSR
 
             Dim _oDt As DataTable = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_SAMPLE)
 
-            '------------------------  OLD CODE   ----------------------------------------
-            'If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
-            '    _Cmd = "Select  max(Q.FTQCSupDetailNameTH) As FTQCSupDetailName"
-            'Else
-            '    _Cmd = "Select  max(Q.FTQCSupDetailNameEN) As FTQCSupDetailName"
-            'End If
-            '_Cmd &= vbCrLf & "    , sum(T.FNDefectQty) As FNDefectQty   , S.FTSuplCode"
-
-            '_Cmd &= vbCrLf & " From(Select Q.FDInsDate, (Select Top 1 B.FTBarcodeSendSuplNo From   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcode_SendSupl As B  With (NOLOCK) "
-            ''' _Cmd &= vbCrLf & "LEFT OUTER JOIN    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd As P  With (NOLOCK)  On B.FTOrderProdNo = P.FTOrderProdNo"
-            '_Cmd &= vbCrLf & " INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder As O With (NOLOCK)  On B.FTOrderProdNo = O.FTSMPOrderNo"
-            '_Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As T With (NOLOCK)  On O.FNHSysStyleId = T.FNHSysStyleId"
-            '_Cmd &= vbCrLf & " INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBundle As BB With (NOLOCK)  On B.FTBarcodeBundleNo = BB.FTBarcodeBundleNo"
-            '_Cmd &= vbCrLf & " WHERE O.FTSMPOrderNo = D.FTOrderNo And T.FTStyleCode =D.FTStyleCode"
-            '_Cmd &= vbCrLf & " And BB.FNBunbleSeq = D.FNBunbleSeq And BB.FTColorway =D.FTColorway"
-            '_Cmd &= vbCrLf & " And BB.FTSizeBreakDown = D.FTSizeBreakDown) As FTBarcodeSendSuplNo, D.FNHSysQCSuplDetailId , Q.FNDefectQty"
-            '_Cmd &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTSendSuplDefect As Q With (NOLOCK) "
-            '_Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTSendSuplDefect_Detail As D With (NOLOCK) On Q.FTBarcodeSendSuplNo = D.FTBarcodeSendSuplNo"
-            '_Cmd &= vbCrLf & " WHERE Q.FNDefectQty > 0"
-
-            'If FTSMPOrderNo.Text <> "" Then
-            '    _Cmd &= vbCrLf & " And D.FTOrderNo >='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "'"
-            'End If
-
-            'If FTSMPOrderNoTo.Text <> "" Then
-            '    _Cmd &= vbCrLf & " AND D.FTOrderNo <='" & HI.UL.ULF.rpQuoted(FTSMPOrderNoTo.Text) & "'"
-            'End If
-
-            '_Cmd &= vbCrLf & " UNION ALL"
-            '_Cmd &= vbCrLf & " SELECT Q.FDInsDate, Q.FTBarcodeSendSuplNo, D.FNHSysQCSuplDetailId  , 1 as FNDefectQty"
-            '_Cmd &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPtSendSuplDefect AS Q WITH (NOLOCK) "
-            '_Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTSendSuplDefect_Detail AS D WITH (NOLOCK) ON Q.FTBarcodeSendSuplNo = D.FTBarcodeSendSuplNo"
-            '_Cmd &= vbCrLf & " WHERE Q.FNDefectQty > 0  "
-
-            '_Cmd &= vbCrLf & " ) AS T LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TQAMQCSuplDetail AS Q WITH(NOLOCK) ON T.FNHSysQCSuplDetailId = Q.FNHSysQCSuplDetailId"
-            '_Cmd &= vbCrLf & " INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcode_SendSupl AS B WITH(NOLOCK) ON T.FTBarcodeSendSuplNo = B.FTBarcodeSendSuplNo"
-            '_Cmd &= vbCrLf & " LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSupplier AS S WITH(NOLOCK) ON B.FNHSysSuplId = S.FNHSysSuplId"
-            '_Cmd &= vbCrLf & " WHERE B.FNHSysCmpId= '" & HI.UL.ULF.rpQuoted(_Cmp) & "' "
-
-            'If Me.FTStartSendSupl.Text <> "" And Me.FTEndSendSupl.Text <> "" Then
-            '    _Cmd &= vbCrLf & " AND CONVERT(VARCHAR(10),T.FDInsDate,111) BETWEEN '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartSendSupl.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndSendSupl.Text) & "'"
-            'End If
-            'If Me.FNHSysSuplId.Text <> "" Then
-            '    _Cmd &= vbCrLf & " AND S.FTSuplCode = '" & HI.UL.ULF.rpQuoted(Me.FNHSysSuplId.Text) & "'"
-            'End If
-
-
-            'If FTSMPOrderNo.Text <> "" Then
-            '    _Cmd &= vbCrLf & " AND B.FTOrderProdNo >='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "'"
-            'End If
-
-            'If FTSMPOrderNoTo.Text <> "" Then
-            '    _Cmd &= vbCrLf & " AND B.FTOrderProdNo <='" & HI.UL.ULF.rpQuoted(FTSMPOrderNoTo.Text) & "'"
-            'End If
-
-            '_Cmd &= vbCrLf & "GROUP BY T.FNHSysQCSuplDetailId, S.FTSuplCode"
-            '_Cmd &= vbCrLf & "ORDER BY S.FTSuplCode "
-            'Dim _oDt As DataTable = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_SAMPLE)
-
             _Cmd = " SELECT SUM(D.FNQuantity) AS FNQuantity , P.FTSuplCode"
             _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTReceiveSupl AS R WITH (NOLOCK) "
             _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTReceiveSupl_Barcode AS B WITH (NOLOCK) ON R.FTRcvSuplNo = B.FTRcvSuplNo "
@@ -503,8 +444,4 @@ Public Class wSMPQCSendSuplChartTableSR
         End Try
     End Sub
 
-
-    Private Sub FNHSysSuplId_EditValueChanged(sender As Object, e As EventArgs)
-
-    End Sub
 End Class

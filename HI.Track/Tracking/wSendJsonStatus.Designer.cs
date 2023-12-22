@@ -80,6 +80,7 @@ namespace HI.Track.Tracking
             this.ogvdetail.GridControl = this.ogcdetail;
             this.ogvdetail.Name = "ogvdetail";
             this.ogvdetail.OptionsCustomization.AllowQuickHideColumns = false;
+            this.ogvdetail.OptionsSelection.EnableAppearanceHideSelection = false;
             this.ogvdetail.OptionsView.ColumnAutoWidth = false;
             this.ogvdetail.OptionsView.ShowGroupPanel = false;
             this.ogvdetail.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.ogvdetail_RowStyle);
@@ -136,7 +137,7 @@ namespace HI.Track.Tracking
             this.SendRemark.OptionsColumn.ReadOnly = true;
             this.SendRemark.Visible = true;
             this.SendRemark.VisibleIndex = 3;
-            this.SendRemark.Width = 439;
+            this.SendRemark.Width = 513;
             // 
             // RepositoryFTSelect
             // 
@@ -148,7 +149,7 @@ namespace HI.Track.Tracking
             // 
             // ocmClose
             // 
-            this.ocmClose.Location = new System.Drawing.Point(12, 423);
+            this.ocmClose.Location = new System.Drawing.Point(316, 423);
             this.ocmClose.Name = "ocmClose";
             this.ocmClose.Size = new System.Drawing.Size(120, 25);
             this.ocmClose.TabIndex = 9;
