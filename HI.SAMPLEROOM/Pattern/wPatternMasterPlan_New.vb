@@ -294,7 +294,8 @@ Public Class wPatternMasterPlan_New
         ogcPattern.DataSource = Nothing
 
         If chkSample.Checked Then
-            cmd &= vbCrLf & " Select 'SAMPLEROOM' AS 'Category', A.FTSMPOrderNo, A.FNSMPOrderStatus AS FNSMPOrderStatusState "
+            cmd &= vbCrLf & " SELECT '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID', '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID_Hide',"
+            cmd &= vbCrLf & " 'SAMPLEROOM' AS 'Category','' AS 'FTPositCode', '' AS 'FTPositCode_Hide', '' AS 'FTEmpCode', '' AS 'FTEmpCode_Hide', A.FTSMPOrderNo, A.FNSMPOrderStatus AS FNSMPOrderStatusState "
             cmd &= vbCrLf & " , Case When ISDATE(A.FDSMPOrderDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,A.FDSMPOrderDate),103),'') Else NULL END AS FDSMPOrderDate"
             cmd &= vbCrLf & " , Case When ISDATE(A.FTDeliveryDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,A.FTDeliveryDate),103),'') Else NULL END AS FTDeliveryDate"
             cmd &= vbCrLf & " , Case When ISDATE(A.FDSendToSMPDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,A.FDSendToSMPDate),103),'') Else NULL END AS FDSendToSMPDate"
@@ -474,7 +475,8 @@ Public Class wPatternMasterPlan_New
         End If
 
         If chkProd.Checked Then
-            cmd &= vbCrLf & " SELECT 'PRODUCTION' AS 'Category',ISNULL(A.FTOrderNo,'') AS 'FTSMPOrderNo', ISNULL(A.FNJobState,'') AS 'FNSMPOrderStatusState' "
+            cmd &= vbCrLf & " SELECT '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID', '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID_Hide',"
+            cmd &= vbCrLf & " 'PRODUCTION' AS 'Category','' AS 'FTPositCode', '' AS 'FTPositCode_Hide','' AS 'FTEmpCode', '' AS 'FTEmpCode_Hide', ISNULL(A.FTOrderNo,'') AS 'FTSMPOrderNo', ISNULL(A.FNJobState,'') AS 'FNSMPOrderStatusState' "
             cmd &= vbCrLf & " , Case When ISDATE(A.FDInsDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,A.FDInsDate),103),'') Else NULL END  AS 'FDSMPOrderDate' "
             cmd &= vbCrLf & " , '' AS 'FTDeliveryDate' "
             cmd &= vbCrLf & " , '' AS 'FDSendToSMPDate' "
