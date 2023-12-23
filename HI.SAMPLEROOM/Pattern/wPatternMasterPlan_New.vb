@@ -50,7 +50,7 @@ Public Class wPatternMasterPlan_New
 
         Dim sFieldCustomGrpSum As String = ""
 
-        With ogvoperation
+        With ogvPattern
             .ClearGrouping()
             .ClearDocument()
 
@@ -123,13 +123,13 @@ Public Class wPatternMasterPlan_New
         _RowHandleHold = 0
     End Sub
 
-    Private Sub ogvsummary_CustomSummaryCalculate(ByVal sender As Object, ByVal e As DevExpress.Data.CustomSummaryEventArgs) Handles ogvoperation.CustomSummaryCalculate
+    Private Sub ogvsummary_CustomSummaryCalculate(ByVal sender As Object, ByVal e As DevExpress.Data.CustomSummaryEventArgs)
         Try
             If e.SummaryProcess = CustomSummaryProcess.Start Then
                 InitSummaryStartValue()
             End If
 
-            With ogvoperation
+            With ogvPattern
                 'Select Case CType(e.Item, DevExpress.XtraGrid.GridSummaryItem).FieldName.ToString
                 '    Case "FNSMPSam"
                 '        If e.FieldValue IsNot Nothing AndAlso e.FieldValue IsNot DBNull.Value Then
@@ -211,7 +211,7 @@ Public Class wPatternMasterPlan_New
         _Qry &= vbCrLf & "   WHERE SOP.FTTeam='" & HI.UL.ULF.rpQuoted(Key.ToString) & "' "
         _Qry &= vbCrLf & "  ORDER BY SOP.FNSeq ASC"
         Dim _dt As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
-        Me.ogcoperation.DataSource = _dt
+        Me.ogcPattern.DataSource = _dt
 
     End Sub
 
@@ -251,7 +251,7 @@ Public Class wPatternMasterPlan_New
 
     Private Sub wOperationByStyle_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        With Me.ogvoperation
+        With Me.ogvPattern
             .Columns.ColumnByFieldName("FTActPatternDate").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
             .Columns.ColumnByFieldName("FTPatternDate").OptionsColumn.AllowEdit = False
 
@@ -282,7 +282,7 @@ Public Class wPatternMasterPlan_New
 
     End Sub
 
-    Private Sub ogcoperation_Click(sender As Object, e As EventArgs) Handles ogcoperation.Click
+    Private Sub ogcoperation_Click(sender As Object, e As EventArgs) Handles ogcPattern.Click
 
     End Sub
 
@@ -291,7 +291,7 @@ Public Class wPatternMasterPlan_New
         Dim cmd As String = ""
         Dim _dtprod As DataTable
 
-        ogcoperation.DataSource = Nothing
+        ogcPattern.DataSource = Nothing
 
         If chkSample.Checked Then
             cmd &= vbCrLf & " Select 'SAMPLEROOM' AS 'Category', A.FTSMPOrderNo, A.FNSMPOrderStatus AS FNSMPOrderStatusState "
@@ -586,7 +586,7 @@ Public Class wPatternMasterPlan_New
 
         _dtprod = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_SAMPLE)
 
-        ogcoperation.DataSource = _dtprod.Copy
+        ogcPattern.DataSource = _dtprod.Copy
 
         _dtprod.Dispose()
     End Sub
@@ -837,9 +837,9 @@ Public Class wPatternMasterPlan_New
     '    End Try
     'End Sub
 
-    Private Sub ogvoperation_CellMerge(sender As Object, e As CellMergeEventArgs) Handles ogvoperation.CellMerge
+    Private Sub ogvoperation_CellMerge(sender As Object, e As CellMergeEventArgs)
         Try
-            With Me.ogvoperation
+            With Me.ogvPattern
                 Select Case e.Column.FieldName
                     Case "FTSMPOrderBy", "FTMerTeamCode", "FTCustName", "FTCustCode", "FTGenderCode", "FTCustomerTeam", "FNOrderSampleType", "FNSMPPrototypeNo", "FNSMPSam", "FNSMPOrderType", "FTSeasonCode", "FTStyleName", "FTStyleCode", "FTStateReceiptDate", "FDSMPOrderDate"
                         If ("" & .GetRowCellValue(e.RowHandle1, "FTSMPOrderNo").ToString = "" & .GetRowCellValue(e.RowHandle2, "FTSMPOrderNo").ToString) _
@@ -878,9 +878,9 @@ Public Class wPatternMasterPlan_New
 
     End Sub
 
-    Private Sub ogvoperation_RowStyle(sender As Object, e As RowStyleEventArgs) Handles ogvoperation.RowStyle
+    Private Sub ogvoperation_RowStyle(sender As Object, e As RowStyleEventArgs)
         Try
-            With Me.ogvoperation
+            With Me.ogvPattern
                 If (Val(.GetRowCellValue(e.RowHandle, "FNSMPOrderStatusState")) = 2) Then
 
                     e.Appearance.ForeColor = System.Drawing.Color.Red
@@ -904,7 +904,7 @@ Public Class wPatternMasterPlan_New
         Try
             If _FocusedRowHendle < -1 Then Exit Sub
             Try
-                With CType(Me.ogvoperation, DevExpress.XtraGrid.Views.Grid.GridView)
+                With CType(Me.ogvPattern, DevExpress.XtraGrid.Views.Grid.GridView)
 
                     Dim _TDate As String
                     .FocusedColumn = _FocusedColumn
@@ -970,4 +970,22 @@ Public Class wPatternMasterPlan_New
         End Try
     End Sub
 
+    Private Sub ogvPattern_RowStyle(sender As Object, e As RowStyleEventArgs) Handles ogvPattern.RowStyle
+        Try
+            With Me.ogvPattern
+                If (Val(.GetRowCellValue(e.RowHandle, "FNSMPOrderStatusState")) = 2) Then
+
+                    e.Appearance.ForeColor = System.Drawing.Color.Red
+
+                ElseIf (Val(.GetRowCellValue(e.RowHandle, "FNSMPOrderStatusState")) = 1) Then
+
+                    e.Appearance.ForeColor = System.Drawing.Color.Green
+
+                End If
+            End With
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class
