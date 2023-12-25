@@ -31,13 +31,13 @@ Public Class wPatternMasterPlan_New
         End With
 
         InitGrid()
-        Dim _year As Date = New Date.Now
-        Me.FNYear.Text = _year.Year
+
 
     End Sub
 
 #Region "Initial Grid"
     Private Sub InitGrid()
+        Me.FNYear.Text = New Date.Now.Year
         '------Start Add Summary Grid-------------
         Dim sFieldCount As String = ""
         Dim sFieldSum As String = "FNQuantity" 'FNQuantity|FNPass|FNNotPass"
@@ -225,8 +225,6 @@ Public Class wPatternMasterPlan_New
         Me.Close()
     End Sub
 
-
-
     Private Function CheckProcess(key As String, Optional showmsg As Boolean = True) As Boolean
         Dim stateprocess As Boolean = False
 
@@ -278,14 +276,10 @@ Public Class wPatternMasterPlan_New
     End Sub
 
     Private Sub ocmclear_Click(sender As Object, e As EventArgs)
+
         HI.TL.HandlerControl.ClearControl(Me)
 
     End Sub
-
-    Private Sub ogcoperation_Click(sender As Object, e As EventArgs) Handles ogcPattern.Click
-
-    End Sub
-
 
     Private Sub LoadOrderProdDetail()
         Dim cmd As String = ""
@@ -294,98 +288,82 @@ Public Class wPatternMasterPlan_New
         ogcPattern.DataSource = Nothing
 
         If chkSample.Checked Then
-            cmd &= vbCrLf & " SELECT '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID', '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID_Hide',"
-            cmd &= vbCrLf & " 'SAMPLEROOM' AS 'Category','' AS 'FTPositCode', '' AS 'FTPositCode_Hide', '' AS 'FTEmpCode', '' AS 'FTEmpCode_Hide', A.FTSMPOrderNo, A.FNSMPOrderStatus AS FNSMPOrderStatusState "
-            cmd &= vbCrLf & " , Case When ISDATE(A.FDSMPOrderDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,A.FDSMPOrderDate),103),'') Else NULL END AS FDSMPOrderDate"
-            cmd &= vbCrLf & " , Case When ISDATE(A.FTDeliveryDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,A.FTDeliveryDate),103),'') Else NULL END AS FTDeliveryDate"
-            cmd &= vbCrLf & " , Case When ISDATE(A.FDSendToSMPDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,A.FDSendToSMPDate),103),'') Else NULL END AS FDSendToSMPDate"
-            cmd &= vbCrLf & " , Case When ISDATE(A.FTStateReceiptDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,A.FTStateReceiptDate),103),'') Else NULL END AS FTStateReceiptDate"
-            cmd &= vbCrLf & " , A.FTStyleName"
-            cmd &= vbCrLf & " , A.FTGenderCode "
-            cmd &= vbCrLf & " , A.FTGenderName"
-            cmd &= vbCrLf & " , A.FTSMPOrderBy "
-            cmd &= vbCrLf & " , A.FTOrderRemark"
-            cmd &= vbCrLf & " , A.FTBuyCode"
-            cmd &= vbCrLf & " , A.FTPgmName"
-            cmd &= vbCrLf & " , Case When ISDATE(A.FTPatternDate) = 1 Then  CONVERT(varchar(10),convert(Datetime,A.FTPatternDate),103) Else NULL END AS  FTPatternDate"
-            cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTActPatternDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,SMPMP.FTActPatternDate),103),'') Else NULL END AS  FTActPatternDate"
-            cmd &= vbCrLf & " , Case When ISDATE(SMPMP.FTCFMSendSampleDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,SMPMP.FTCFMSendSampleDate),103),'') Else NULL END AS  FTCFMSendSampleDate"
-            cmd &= vbCrLf & " , Case When ISDATE(a.FTGACDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,a.FTGACDate),103),'') Else NULL END  AS  FDGacDate"
-            cmd &= vbCrLf & " , Case When ISDATE('') = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,''),103),'') Else NULL END  AS OGacDate"
-
-
-            cmd &= vbCrLf & " , SMPMP.FTStandBy"
-            cmd &= vbCrLf & " , SMPMP.FTNote"
-            cmd &= vbCrLf & " , ISNULL(XSAM.FNSam,0) AS FNSMPSam"
-            cmd &= vbCrLf & " , A.FTCustomerTeam  "
-            cmd &= vbCrLf & " , A.FNSMPPrototypeNo"
-            cmd &= vbCrLf & " , A.FTStyleCode"
-            cmd &= vbCrLf & " , A.FTSeasonCode"
-            cmd &= vbCrLf & " , A.FTCustCode"
-            cmd &= vbCrLf & "   , CASE WHEN A.FTCustCode = 'NI' THEN 'NIKE'  ELSE 'NON NIKE' END AS 'GroupCust' "
-            cmd &= vbCrLf & "   , CASE WHEN A.FTCustCode = 'NI' THEN 'NIKE' WHEN A.FTCustCode = 'ZS' OR  A.FTCustCode = 'FNT' THEN 'TRACK ON NIKE' ELSE 'NON NIKE' END AS 'SubGroupCust' "
+            cmd &= vbCrLf & "SELECT '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID', '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID_Hide', "
+            cmd &= vbCrLf & "'' AS 'FTPatternTypeCode','' AS 'FTPatternTypeCode_Hide','' AS 'FTPatternGrpTypeCode','' AS 'FTPatternGrpTypeCode_Hide', "
+            cmd &= vbCrLf & "'SAMPLEROOM' AS 'Category', "
+            cmd &= vbCrLf & "'' AS 'FTPositCode', '' AS 'FTPositCode_Hide', '' AS 'FTEmpCode', '' AS 'FTEmpCode_Hide', "
+            cmd &= vbCrLf & "A.FTSMPOrderNo, A.FNSMPOrderStatus As FNSMPOrderStatusState "
+            cmd &= vbCrLf & ", CASE WHEN ISDATE(A.FDSMPOrderDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,A.FDSMPOrderDate),103),'') Else NULL END AS FDSMPOrderDate"
+            cmd &= vbCrLf & ", CASE WHEN ISDATE(A.FTDeliveryDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,A.FTDeliveryDate),103),'') Else NULL END AS FTDeliveryDate"
+            cmd &= vbCrLf & ", CASE WHEN ISDATE(A.FDSendToSMPDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,A.FDSendToSMPDate),103),'') Else NULL END AS FDSendToSMPDate"
+            cmd &= vbCrLf & ", CASE WHEN ISDATE(A.FTStateReceiptDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,A.FTStateReceiptDate),103),'') Else NULL END AS FTStateReceiptDate"
+            cmd &= vbCrLf & ", A.FTStyleName"
+            cmd &= vbCrLf & ", A.FTGenderCode "
+            cmd &= vbCrLf & ", A.FTGenderName"
+            cmd &= vbCrLf & ", A.FTSMPOrderBy "
+            cmd &= vbCrLf & ", A.FTOrderRemark"
+            cmd &= vbCrLf & ", A.FTBuyCode"
+            cmd &= vbCrLf & ", A.FTPgmName"
+            cmd &= vbCrLf & ", CASE WHEN ISDATE(A.FTPatternDate) = 1 Then CONVERT(varchar(10),convert(Datetime,A.FTPatternDate),103) Else NULL END AS  FTPatternDate"
+            cmd &= vbCrLf & ", CASE WHEN ISDATE(SMPMP.FTActPatternDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,SMPMP.FTActPatternDate),103),'') Else NULL END AS  FTActPatternDate"
+            cmd &= vbCrLf & ", CASE WHEN ISDATE(SMPMP.FTCFMSendSampleDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,SMPMP.FTCFMSendSampleDate),103),'') Else NULL END AS  FTCFMSendSampleDate"
+            cmd &= vbCrLf & ", CASE WHEN ISDATE(a.FTGACDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,a.FTGACDate),103),'') Else NULL END  AS  FDGacDate"
+            cmd &= vbCrLf & ", CASE WHEN ISDATE('') = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,''),103),'') Else NULL END  AS OGacDate"
+            cmd &= vbCrLf & ", SMPMP.FTStandBy"
+            cmd &= vbCrLf & ", SMPMP.FTNote"
+            cmd &= vbCrLf & ", ISNULL(XSAM.FNSam,0) AS FNSMPSam"
+            cmd &= vbCrLf & ", A.FTCustomerTeam  "
+            cmd &= vbCrLf & ", A.FNSMPPrototypeNo"
+            cmd &= vbCrLf & ", A.FTStyleCode"
+            cmd &= vbCrLf & ", A.FTSeasonCode"
+            cmd &= vbCrLf & ", A.FTCustCode"
+            cmd &= vbCrLf & ", CASE WHEN A.FTCustCode = 'NI' THEN 'NIKE'  ELSE 'NON NIKE' END AS 'GroupCust' "
+            cmd &= vbCrLf & ", CASE WHEN A.FTCustCode = 'NI' THEN 'NIKE' WHEN A.FTCustCode = 'ZS' OR  A.FTCustCode = 'FNT' THEN 'TRACK ON NIKE' ELSE 'NON NIKE' END AS 'SubGroupCust' "
 
             If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
-                cmd &= vbCrLf & " , ISNULL(XT.FTNameTH,'') AS FNSMPOrderType"
-                cmd &= vbCrLf & " , A.FTCustNameTH AS FTCustName"
-                cmd &= vbCrLf & " , ISNULL(XTOT.FTNameTH,'') AS FNOrderSampleType"
-                cmd &= vbCrLf & " , ISNULL(XTOTST.FTNameTH,'') AS FNSMPOrderStatus"
+                cmd &= vbCrLf & ", ISNULL(XT.FTNameTH,'') AS FNSMPOrderType"
+                cmd &= vbCrLf & ", A.FTCustNameTH AS FTCustName"
+                cmd &= vbCrLf & ", ISNULL(XTOT.FTNameTH,'') AS FNOrderSampleType"
+                cmd &= vbCrLf & ", ISNULL(XTOTST.FTNameTH,'') AS FNSMPOrderStatus"
             Else
-                cmd &= vbCrLf & " , ISNULL(XT.FTNameEN,'') AS FNSMPOrderType"
-                cmd &= vbCrLf & " , A.FTCustNameEN AS FTCustName"
-                cmd &= vbCrLf & " , ISNULL(XTOT.FTNameEN,'') AS FNOrderSampleType"
-                cmd &= vbCrLf & " , ISNULL(XTOTST.FTNameEN,'') AS FNSMPOrderStatus"
+                cmd &= vbCrLf & ", ISNULL(XT.FTNameEN,'') AS FNSMPOrderType"
+                cmd &= vbCrLf & ", A.FTCustNameEN AS FTCustName"
+                cmd &= vbCrLf & ", ISNULL(XTOT.FTNameEN,'') AS FNOrderSampleType"
+                cmd &= vbCrLf & ", ISNULL(XTOTST.FTNameEN,'') AS FNSMPOrderStatus"
             End If
 
-            cmd &= vbCrLf & " , A.FTMerTeamCode"
+            cmd &= vbCrLf & ", A.FTMerTeamCode"
+            ' FTSizeBreakDown
+            cmd &= vbCrLf & ", STUFF((Select ','+ B.FTSizeBreakDown  FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPOrder_Breakdown AS B "
+            cmd &= vbCrLf & "where B.FTSMPOrderNo = A.FTSMPOrderNo AND A.FTColorway = B.FTColorway "
+            cmd &= vbCrLf & "ORDER BY B.FNSeq FOR XML PATH('')),1,1,'') AS FTSizeBreakDown "
+            cmd &= vbCrLf & ", A.FTColorway"
+            cmd &= vbCrLf & ", SUM(A.FNQuantity) AS FNQuantity"
+            cmd &= vbCrLf & ", A.FTRemark"
+            cmd &= vbCrLf & ", A.FNSMPOrderStatus, C.FTCmpCode"
 
-            cmd &= vbCrLf & " , STUFF((Select ','+ B.FTSizeBreakDown  FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPOrder_Breakdown AS B "
-            cmd &= vbCrLf & " where B.FTSMPOrderNo = A.FTSMPOrderNo AND A.FTColorway = B.FTColorway  "
-            cmd &= vbCrLf & " ORDER BY B.FNSeq FOR XML PATH('')),1,1,'') AS FTSizeBreakDown"
+            ' Start As A
+            cmd &= vbCrLf & vbCrLf & " "
+            cmd &= vbCrLf & "FROM (Select A.FTSMPOrderNo, A.FDSMPOrderDate, A.FNSMPOrderType, A.FNSMPPrototypeNo, MST.FTStyleCode, MSS.FTSeasonCode "
+            cmd &= vbCrLf & ", MCT.FTCustCode, MCT.FTCustNameTH, MCT.FTCustNameEN, MMT.FTMerTeamCode, OD.FNSeq, OD.FTSizeBreakDown "
+            cmd &= vbCrLf & ", OD.FTColorway, OD.FNQuantity, OD.FTDeliveryDate, OD.FTRemark, A.FTStateAppDate AS FDSendToSMPDate "
+            cmd &= vbCrLf & ", A.FTStateReceiptDate, MST.FTStyleNameEN AS 'FTStyleName', GD.FTGenderCode, GD.FTGenderNameEN  AS 'FTGenderName' "
+            cmd &= vbCrLf & ", A.FTSMPOrderBy, B.FTBuyCode, A.FTPgmName "
+            cmd &= vbCrLf & ", CASE WHEN ISNULL(A.FTRemark,'') <> '' THEN ISNULL(A.FTRemark,'') + char(30) ELSE  '' END AS FTOrderRemark "
+            cmd &= vbCrLf & ", OD.FTPatternDate, OD.FTFabricDate, OD.FTAccessoryDate, A.FNOrderSampleType "
+            cmd &= vbCrLf & ", A.FTCustomerTeam, ISNULL(A.FNSMPOrderStatus,0) AS FNSMPOrderStatus, OD.FTGACDate "
+            cmd &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder As A With(NOLOCK) "
+            cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As MST With(NOLOCK) On A.FNHSysStyleId = MST.FNHSysStyleId "
+            cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMSeason As MSS With(NOLOCK)  On A.FNHSysSeasonId = MSS.FNHSysSeasonId "
+            cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCustomer As MCT With(NOLOCK)  On A.FNHSysCustId = MCT.FNHSysCustId "
+            cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMerTeam As MMT With(NOLOCK)  On A.FNHSysMerTeamId = MMT.FNHSysMerTeamId "
+            cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder_Breakdown As OD With(NOLOCK)  On A.FTSMPOrderNo = OD.FTSMPOrderNo"
+            cmd &= vbCrLf & "LEFT OUTER Join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMBuy AS B  With(NOLOCK)  On A.FNHSysBuyId=B.FNHSysBuyId "
+            cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMGender As GD With(NOLOCK)  On A.FNHSysGenderId = GD.FNHSysGenderId "
 
-            cmd &= vbCrLf & " , A.FTColorway"
-            cmd &= vbCrLf & " , SUM(A.FNQuantity) AS FNQuantity"
-            cmd &= vbCrLf & " , A.FTRemark"
-            cmd &= vbCrLf & " , A.FNSMPOrderStatus, C.FTCmpCode"
+            cmd &= vbCrLf & "OUTER APPLY( Select TOP 1 *  FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TPTNOrder As pto With (NOLOCK) WHERE (pto.FTOrderNo = A.FTSMPOrderNo)) As pto "
 
-            cmd &= vbCrLf & " FROM (Select A.FTSMPOrderNo, A.FDSMPOrderDate, A.FNSMPOrderType "
-            cmd &= vbCrLf & " , A.FNSMPPrototypeNo, MST.FTStyleCode, MSS.FTSeasonCode "
-            cmd &= vbCrLf & " , MCT.FTCustCode "
-            cmd &= vbCrLf & " , MCT.FTCustNameTH, MCT.FTCustNameEN, MMT.FTMerTeamCode, OD.FNSeq "
-            cmd &= vbCrLf & " , OD.FTSizeBreakDown"
-            cmd &= vbCrLf & " , OD.FTColorway"
-            cmd &= vbCrLf & " , OD.FNQuantity"
-            cmd &= vbCrLf & " , OD.FTDeliveryDate"
-            cmd &= vbCrLf & " , OD.FTRemark"
-            cmd &= vbCrLf & " , A.FTStateAppDate AS FDSendToSMPDate "
-            cmd &= vbCrLf & " , A.FTStateReceiptDate"
-            cmd &= vbCrLf & " , MST.FTStyleNameEN  AS FTStyleName"
-            cmd &= vbCrLf & " , GD.FTGenderCode "
-            cmd &= vbCrLf & " , GD.FTGenderNameEN  AS FTGenderName"
-            cmd &= vbCrLf & " , A.FTSMPOrderBy "
-            cmd &= vbCrLf & " , B.FTBuyCode"
-            cmd &= vbCrLf & " , A.FTPgmName"
-            cmd &= vbCrLf & " , CASE WHEN ISNULL(A.FTRemark,'') <> ''  THEN ISNULL(A.FTRemark,'') + char(30) ELSE  '' END "
-            cmd &= vbCrLf & " + CASE WHEN ISNULL(FTStateEmb,'')='1' THEN 'Emb,' ELSE '' END"
-            cmd &= vbCrLf & " + CASE WHEN ISNULL(FTStatePrint,'')='1' THEN 'Print,' ELSE '' END"
-            cmd &= vbCrLf & " + CASE WHEN ISNULL(FTStateHeat,'')='1' THEN 'Heat,' ELSE '' END"
-            cmd &= vbCrLf & " + CASE WHEN ISNULL(FTStateLaser,'')='1' THEN 'Laser,' ELSE '' END"
-            cmd &= vbCrLf & " + CASE WHEN ISNULL(FTStateWindows,'')='1' THEN 'window' ELSE '' END AS FTOrderRemark"
-            cmd &= vbCrLf & " , OD.FTPatternDate "
-            cmd &= vbCrLf & " , OD.FTFabricDate "
-            cmd &= vbCrLf & " , OD.FTAccessoryDate "
-            cmd &= vbCrLf & " , A.FNOrderSampleType "
-            cmd &= vbCrLf & " , A.FTCustomerTeam, ISNULL(A.FNSMPOrderStatus,0) AS FNSMPOrderStatus  , OD.FTGACDate  "
-            cmd &= vbCrLf & " From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder As A With(NOLOCK)  "
-            cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As MST With(NOLOCK) On A.FNHSysStyleId = MST.FNHSysStyleId "
-            cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMSeason As MSS With(NOLOCK)  On A.FNHSysSeasonId = MSS.FNHSysSeasonId "
-            cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCustomer As MCT With(NOLOCK)  On A.FNHSysCustId = MCT.FNHSysCustId "
-            cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMerTeam As MMT With(NOLOCK)  On A.FNHSysMerTeamId = MMT.FNHSysMerTeamId "
-            cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder_Breakdown As OD With(NOLOCK)  On A.FTSMPOrderNo = OD.FTSMPOrderNo"
-            cmd &= vbCrLf & " LEFT OUTER Join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMBuy AS B  With(NOLOCK)  On A.FNHSysBuyId=B.FNHSysBuyId "
-            cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMGender As GD With(NOLOCK)  On A.FNHSysGenderId = GD.FNHSysGenderId "
-
-            cmd &= vbCrLf & " WHERE A.FTSMPOrderNo <> '' "
+            cmd &= vbCrLf & "WHERE A.FTSMPOrderNo <> '' "
 
             If FNYear.Text <> "" Then
                 cmd &= vbCrLf & " And A.FDSMPOrderDate BETWEEN '" + FNYear.Text + "/01/01' AND '" + FNYear.Text + "/12/31' "
@@ -419,51 +397,39 @@ Public Class wPatternMasterPlan_New
             End If
 
             If FNHSysBuyIdFrom.Text <> "" And FNHSysBuyIdTo.Text <> "" Then
-                cmd &= vbCrLf & "  AND B.FTBuyCode BETWEEN '" & FNHSysBuyIdFrom.Text & "' AND '" & FNHSysBuyIdTo.Text & "'"
+                cmd &= vbCrLf & " AND B.FTBuyCode BETWEEN '" & FNHSysBuyIdFrom.Text & "' AND '" & FNHSysBuyIdTo.Text & "'"
             End If
 
-            cmd &= vbCrLf & " ) As A"
+            cmd &= vbCrLf & ") As A "
+            'End As A
+            cmd &= vbCrLf & "OUTER APPLY (SELECT C.FTCmpCode FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp AS C WITH (NOLOCK) WHERE FNHSysCmpId = C.FNHSysCmpId) AS C "
 
-            cmd &= vbCrLf & " OUTER APPLY (SELECT C.FTCmpCode FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp AS C WITH (NOLOCK) WHERE FNHSysCmpId = C.FNHSysCmpId) AS C "
+            cmd &= vbCrLf & "OUTER APPLY ( Select SUM(FNSam) AS FNSam FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSam As SSAM With (NOLOCK) "
+            cmd &= vbCrLf & "WHERE  (SSAM.FTSMPOrderNo =A.FTSMPOrderNo) ) AS XSAM "
 
-            cmd &= vbCrLf & " OUTER APPLY (  "
-            cmd &= vbCrLf & " Select SUM(FNSam) AS FNSam "
-            cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPSam As SSAM With (NOLOCK) "
-            cmd &= vbCrLf & " WHERE  (SSAM.FTSMPOrderNo =A.FTSMPOrderNo)  "
-            cmd &= vbCrLf & " ) AS XSAM"
+            cmd &= vbCrLf & "LEFT OUTER JOIN ( Select FNListIndex,FTNameTH,FTNameEN FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData As L With (NOLOCK) "
+            cmd &= vbCrLf & "WHERE  (FTListName = N'FNSMPOrderType') ) AS XT ON  A.FNSMPOrderType =XT.FNListIndex "
 
-            cmd &= vbCrLf & " LEFT OUTER JOIN (  "
-            cmd &= vbCrLf & " Select FNListIndex,FTNameTH,FTNameEN "
-            cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData As L With (NOLOCK) "
-            cmd &= vbCrLf & " WHERE  (FTListName = N'FNSMPOrderType')  "
-            cmd &= vbCrLf & " ) AS XT ON  A.FNSMPOrderType =XT.FNListIndex "
+            cmd &= vbCrLf & "LEFT OUTER JOIN ( Select FNListIndex,FTNameTH,FTNameEN FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData As L With (NOLOCK) "
+            cmd &= vbCrLf & "Where (FTListName = N'FNOrderSampleType') ) As XTOT On  A.FNOrderSampleType = XTOT.FNListIndex"
 
-            cmd &= vbCrLf & " Left OUTER JOIN (  "
-            cmd &= vbCrLf & " Select  FNListIndex,FTNameTH,FTNameEN "
-            cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData As L With (NOLOCK) "
-            cmd &= vbCrLf & " Where (FTListName = N'FNOrderSampleType')  "
-            cmd &= vbCrLf & " ) As XTOT On  A.FNOrderSampleType = XTOT.FNListIndex"
+            cmd &= vbCrLf & "LEFT OUTER JOIN ( Select FNListIndex,FTNameTH,FTNameEN FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData As L With (NOLOCK) "
+            cmd &= vbCrLf & "Where (FTListName = N'FNSMPOrderStatus') ) As XTOTST On  A.FNSMPOrderStatus = XTOTST.FNListIndex"
 
-            cmd &= vbCrLf & " Left OUTER JOIN (  "
-            cmd &= vbCrLf & " Select  FNListIndex,FTNameTH,FTNameEN "
-            cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData As L With (NOLOCK) "
-            cmd &= vbCrLf & " Where (FTListName = N'FNSMPOrderStatus')  "
-            cmd &= vbCrLf & " ) As XTOTST On  A.FNSMPOrderStatus = XTOTST.FNListIndex"
+            cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrderMasterPlan As SMPMP With(NOLOCK) "
+            cmd &= vbCrLf & "On A.FTSMPOrderNo =SMPMP.FTSMPOrderNo " 'And A.FTSizeBreakDown =SMPMP.FTSizeBreakDown And A.FTColorway=SMPMP.FTColorway "
 
-            cmd &= vbCrLf & " Left OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrderMasterPlan As SMPMP With(NOLOCK)"
-            cmd &= vbCrLf & " On A.FTSMPOrderNo =SMPMP.FTSMPOrderNo" 'And A.FTSizeBreakDown =SMPMP.FTSizeBreakDown And A.FTColorway=SMPMP.FTColorway "
-
-            cmd &= vbCrLf & " GROUP BY A.FTSMPOrderNo, A.FNSMPOrderStatus, A.FDSMPOrderDate, A.FTDeliveryDate, A.FDSendToSMPDate, A.FTStateReceiptDate, "
-            cmd &= vbCrLf & " A.FTStyleName, A.FTGenderCode, A.FTGenderName, A.FTSMPOrderBy, A.FTOrderRemark, A.FTBuyCode, A.FTPgmName, A.FTPatternDate, "
-            cmd &= vbCrLf & " SMPMP.FTActPatternDate, SMPMP.FTCFMSendSampleDate, A.FTGACDate, SMPMP.FTStandBy, SMPMP.FTNote, XSAM.FNSam, A.FTCustomerTeam, "
-            cmd &= vbCrLf & " A.FNSMPPrototypeNo, A.FTStyleCode, A.FTSeasonCode, A.FTCustCode, "
-            cmd &= vbCrLf & " A.FTMerTeamCode, A.FTColorway, A.FTRemark, C.FTCmpCode"
+            cmd &= vbCrLf & vbCrLf & "GROUP BY A.FTSMPOrderNo, A.FNSMPOrderStatus, A.FDSMPOrderDate, A.FTDeliveryDate, A.FDSendToSMPDate, A.FTStateReceiptDate, "
+            cmd &= vbCrLf & "A.FTStyleName, A.FTGenderCode, A.FTGenderName, A.FTSMPOrderBy, A.FTOrderRemark, A.FTBuyCode, A.FTPgmName, A.FTPatternDate, "
+            cmd &= vbCrLf & "SMPMP.FTActPatternDate, SMPMP.FTCFMSendSampleDate, A.FTGACDate, SMPMP.FTStandBy, SMPMP.FTNote, XSAM.FNSam, A.FTCustomerTeam, "
+            cmd &= vbCrLf & "A.FNSMPPrototypeNo, A.FTStyleCode, A.FTSeasonCode, A.FTCustCode, "
+            cmd &= vbCrLf & "A.FTMerTeamCode, A.FTColorway, A.FTRemark, C.FTCmpCode"
             cmd &= vbCrLf & " "
 
             If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
-                cmd &= vbCrLf & ",XT.FTNameTH, A.FTCustNameTH, XTOT.FTNameTH, XTOTST.FTNameTH"
+                cmd &= vbCrLf & ",XT.FTNameTH, A.FTCustNameTH, XTOT.FTNameTH, XTOTST.FTNameTH "
             Else
-                cmd &= vbCrLf & ",XT.FTNameEN, A.FTCustNameEN, XTOT.FTNameEN, XTOTST.FTNameEN"
+                cmd &= vbCrLf & ",XT.FTNameEN, A.FTCustNameEN, XTOT.FTNameEN, XTOTST.FTNameEN "
             End If
         End If
 
@@ -475,114 +441,118 @@ Public Class wPatternMasterPlan_New
         End If
 
         If chkProd.Checked Then
-            cmd &= vbCrLf & " SELECT '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID', '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID_Hide',"
-            cmd &= vbCrLf & " 'PRODUCTION' AS 'Category','' AS 'FTPositCode', '' AS 'FTPositCode_Hide','' AS 'FTEmpCode', '' AS 'FTEmpCode_Hide', ISNULL(A.FTOrderNo,'') AS 'FTSMPOrderNo', ISNULL(A.FNJobState,'') AS 'FNSMPOrderStatusState' "
-            cmd &= vbCrLf & " , Case When ISDATE(A.FDInsDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,A.FDInsDate),103),'') Else NULL END  AS 'FDSMPOrderDate' "
-            cmd &= vbCrLf & " , '' AS 'FTDeliveryDate' "
-            cmd &= vbCrLf & " , '' AS 'FDSendToSMPDate' "
-            cmd &= vbCrLf & " , '' AS 'FTStateReceiptDate' "
-            cmd &= vbCrLf & " , ISNULL(MST.FTStyleNameEN,'') AS 'FTStyleName',  ISNULL(GD.FTGenderCode,'') AS 'FTGenderCode' "
-            cmd &= vbCrLf & " , ISNULL(GD.FTGenderNameEN,'') AS 'FTGenderName', ISNULL(A.FTOrderBy,'') AS 'FTSMPOrderBy' "
-            cmd &= vbCrLf & " , ISNULL(A.FTRemark,'') AS 'FTOrderRemark', B.FTBuyCode AS 'FTBuyCode' "
-            cmd &= vbCrLf & " , ISNULL(A.FTSubPgm,'') AS 'FTPgmName'  "
-            cmd &= vbCrLf & " , Case When ISDATE(PT.FTPatternDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,PT.FTPatternDate),103),'') Else NULL END AS FTPatternDate "
-            cmd &= vbCrLf & " , Case When ISDATE(PT.FTActPatternDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,PT.FTActPatternDate),103),'') Else NULL END AS FTActPatternDate "
-            cmd &= vbCrLf & " , '' AS 'FTCFMSendSampleDate' "
-            cmd &= vbCrLf & " , Case When ISDATE(S.FDShipDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,S.FDShipDate),103),'') Else NULL END AS 'FDGacDate' "
-            cmd &= vbCrLf & " , Case When ISDATE(S.FDShipDateOrginal) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,S.FDShipDateOrginal),103),'') Else NULL END AS 'OGacDate' "
+            cmd &= vbCrLf & "SELECT '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID', '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID_Hide', "
+            cmd &= vbCrLf & "'' AS 'FTPatternTypeCode','' AS 'FTPatternTypeCode_Hide','' AS 'FTPatternGrpTypeCode','' AS 'FTPatternGrpTypeCode_Hide', "
+            cmd &= vbCrLf & "'PRODUCTION' AS 'Category','' AS 'FTPositCode', '' AS 'FTPositCode_Hide','' AS 'FTEmpCode', '' AS 'FTEmpCode_Hide', "
+            cmd &= vbCrLf & "ISNULL(A.FTOrderNo,'') AS 'FTSMPOrderNo', ISNULL(A.FNJobState,'') AS 'FNSMPOrderStatusState' "
+            cmd &= vbCrLf & ", Case When ISDATE(A.FDInsDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,A.FDInsDate),103),'') Else NULL END  AS 'FDSMPOrderDate' "
+            cmd &= vbCrLf & ", '' AS 'FTDeliveryDate' "
+            cmd &= vbCrLf & ", '' AS 'FDSendToSMPDate' "
+            cmd &= vbCrLf & ", '' AS 'FTStateReceiptDate' "
+            cmd &= vbCrLf & ", ISNULL(MST.FTStyleNameEN,'') AS 'FTStyleName', ISNULL(GD.FTGenderCode,'') AS 'FTGenderCode' "
+            cmd &= vbCrLf & ", ISNULL(GD.FTGenderNameEN,'') AS 'FTGenderName', ISNULL(A.FTOrderBy,'') AS 'FTSMPOrderBy' "
+            cmd &= vbCrLf & ", ISNULL(A.FTRemark,'') AS 'FTOrderRemark', B.FTBuyCode AS 'FTBuyCode' "
+            cmd &= vbCrLf & ", ISNULL(A.FTSubPgm,'') AS 'FTPgmName'  "
+            cmd &= vbCrLf & ", PT.FTPatternDate AS 'FTPatternDate' "
+            cmd &= vbCrLf & ", PT.FTActPatternDate AS 'FTActPatternDate' "
+            cmd &= vbCrLf & ", '' AS 'FTCFMSendSampleDate' "
+            cmd &= vbCrLf & ", CASE WHEN ISDATE(S.FDShipDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,S.FDShipDate),103),'') Else NULL END AS 'FDGacDate' "
+            cmd &= vbCrLf & ", CASE WHEN ISDATE(S.FDShipDateOrginal) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,S.FDShipDateOrginal),103),'') Else NULL END AS 'OGacDate' "
 
-            cmd &= vbCrLf & " , '' AS 'FTStandBy',  ISNULL(S.FTOther1Note,'') AS 'FTNote' "
-            cmd &= vbCrLf & " , 0 AS 'FNSMPSam', '' AS 'FTCustomerTeam' "
-            cmd &= vbCrLf & " , ISNULL(A.FNHSysProdTypeId,'') AS 'FNSMPPrototypeNo', ISNULL(MST.FTStyleCode,'') AS 'FTStyleCode' "
-            cmd &= vbCrLf & " , ISNULL(MSS.FTSeasonNameEN,'') AS 'FTSeasonCode' "
-            cmd &= vbCrLf & " , ISNULL(MCT.FTCustCode,'') AS 'FTCustCode' "
-            cmd &= vbCrLf & " , CASE WHEN MCT.FTCustCode = 'NI' THEN 'NIKE' ELSE 'NON NIKE' END AS 'GroupCust' "
-            cmd &= vbCrLf & " , CASE WHEN MCT.FTCustCode = 'NI' THEN 'NIKE' WHEN MCT.FTCustCode = 'ZS' OR  MCT.FTCustCode = 'FNT' "
-            cmd &= vbCrLf & " THEN 'TRACK ON NIKE' ELSE 'NON NIKE' END AS 'SubGroupCust' "
+            cmd &= vbCrLf & ", '' AS 'FTStandBy',  ISNULL(S.FTOther1Note,'') AS 'FTNote' "
+            cmd &= vbCrLf & ", 0 AS 'FNSMPSam', '' AS 'FTCustomerTeam' "
+            cmd &= vbCrLf & ", ISNULL(A.FNHSysProdTypeId,'') AS 'FNSMPPrototypeNo', ISNULL(MST.FTStyleCode,'') AS 'FTStyleCode' "
+            cmd &= vbCrLf & ", ISNULL(MSS.FTSeasonNameEN,'') AS 'FTSeasonCode' "
+            cmd &= vbCrLf & ", ISNULL(MCT.FTCustCode,'') AS 'FTCustCode' "
+            cmd &= vbCrLf & ", CASE WHEN MCT.FTCustCode = 'NI' THEN 'NIKE' ELSE 'NON NIKE' END AS 'GroupCust' "
+            cmd &= vbCrLf & ", CASE WHEN MCT.FTCustCode = 'NI' THEN 'NIKE' WHEN (MCT.FTCustCode = 'ZS' OR  MCT.FTCustCode = 'FNT') "
+            cmd &= vbCrLf & "THEN 'TRACK ON NIKE' ELSE 'NON NIKE' END AS 'SubGroupCust' "
 
             If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
-                cmd &= vbCrLf & " , ISNULL(ODT.FTNameTH,'') AS FNSMPOrderType"
-                cmd &= vbCrLf & " , MCT.FTCustNameTH AS FTCustName"
-                cmd &= vbCrLf & " , '' AS FNOrderSampleType"
-                cmd &= vbCrLf & " , ISNULL(XT.FTNameTH,'') AS FNSMPOrderStatus"
+                cmd &= vbCrLf & ", ISNULL(ODT.FTNameTH,'') AS FNSMPOrderType "
+                cmd &= vbCrLf & ", MCT.FTCustNameTH AS FTCustName "
+                cmd &= vbCrLf & ", '' AS FNOrderSampleType "
+                cmd &= vbCrLf & ", ISNULL(XT.FTNameTH,'') AS FNSMPOrderStatus "
             Else
-                cmd &= vbCrLf & " , ISNULL(ODT.FTNameEN,'') AS FNSMPOrderType"
-                cmd &= vbCrLf & " , MCT.FTCustNameEN  AS FTCustName"
-                cmd &= vbCrLf & " , '' AS FNOrderSampleType"
-                cmd &= vbCrLf & " , ISNULL(XT.FTNameEN,'') AS FNSMPOrderStatus"
+                cmd &= vbCrLf & ", ISNULL(ODT.FTNameEN,'') AS FNSMPOrderType "
+                cmd &= vbCrLf & ", MCT.FTCustNameEN AS FTCustName "
+                cmd &= vbCrLf & ", '' AS FNOrderSampleType "
+                cmd &= vbCrLf & ", ISNULL(XT.FTNameEN,'') AS FNSMPOrderStatus "
             End If
 
-            cmd &= vbCrLf & " , ISNULL(MMT.FTMerTeamCode,'') AS 'FTMerTeamCode' "
+            cmd &= vbCrLf & ", ISNULL(MMT.FTMerTeamCode,'') AS 'FTMerTeamCode' "
 
-            cmd &= vbCrLf & " , STUFF((Select DISTINCT ','+ B.FTSizeBreakDown FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTOrderSub_BreakDown AS B "
-            cmd &= vbCrLf & " where B.FTOrderNo = A.FTOrderNo AND SB.FTColorway = B.FTColorway FOR XML PATH('')),1,1,'') AS FTSizeBreakDown "
+            cmd &= vbCrLf & ", STUFF((Select DISTINCT ','+ B.FTSizeBreakDown FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTOrderSub_BreakDown AS B "
+            cmd &= vbCrLf & "where B.FTOrderNo = A.FTOrderNo AND SB.FTColorway = B.FTColorway FOR XML PATH('')),1,1,'') AS FTSizeBreakDown "
 
-            cmd &= vbCrLf & " , ISNULL(SB.FTColorway,'') AS 'FTColorway', ISNULL(SUM(SB.FNQuantity),0) AS 'FNQuantity' "
-            cmd &= vbCrLf & " , A.FTRemark AS 'FTRemark', '' AS 'FNSMPOrderStatus', C.FTCmpCode"
+            cmd &= vbCrLf & ", ISNULL(SB.FTColorway,'') AS 'FTColorway', ISNULL(SUM(SB.FNQuantity),0) AS 'FNQuantity' "
+            cmd &= vbCrLf & ", A.FTRemark AS 'FTRemark', '' AS 'FNSMPOrderStatus', C.FTCmpCode "
 
-
-            cmd &= vbCrLf & " From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTOrder AS A WITH (NOLOCK) "
-            cmd &= vbCrLf & " OUTER APPLY( SELECT * FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TPTNOrder AS PT WITH (NOLOCK) WHERE PT.FTOrderNo = A.FTOrderNo) AS PT"
-            cmd &= vbCrLf & " OUTER APPLY (SELECT C.FTCmpCode FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TCNMCmp AS C WITH (NOLOCK) WHERE A.FNHSysCmpId = C.FNHSysCmpId) AS C"
-            cmd &= vbCrLf & " OUTER APPLY (SELECT * FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTOrderSub_BreakDown AS SB WITH (NOLOCK) "
-            cmd &= vbCrLf & " WHERE A.FTOrderNo = SB.FTOrderNo) AS SB "
-            cmd &= vbCrLf & " OUTER APPLY (SELECT * FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTOrderSub AS S WITH (NOLOCK) "
-            cmd &= vbCrLf & " WHERE A.FTOrderNo = S.FTOrderNo) AS S "
-            cmd &= vbCrLf & " LEFT OUTER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TMERMStyle As MST With(NOLOCK) On A.FNHSysStyleId = MST.FNHSysStyleId "
-            cmd &= vbCrLf & " LEFT OUTER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TMERMSeason As MSS With(NOLOCK) On A.FNHSysSeasonId = MSS.FNHSysSeasonId "
-            cmd &= vbCrLf & " LEFT OUTER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TCNMCustomer As MCT With(NOLOCK) On A.FNHSysCustId = MCT.FNHSysCustId "
-            cmd &= vbCrLf & " LEFT OUTER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TMERMMerTeam As MMT With(NOLOCK) On A.FNHSysMerTeamId = MMT.FNHSysMerTeamId "
-            cmd &= vbCrLf & " LEFT OUTER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TMERMGender As GD With(NOLOCK) On S.FNHSysGenderId = GD.FNHSysGenderId "
-            cmd &= vbCrLf & " LEFT OUTER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TMERMBuy AS B  With(NOLOCK) On A.FNHSysBuyId=B.FNHSysBuyId "
-            cmd &= vbCrLf & " LEFT OUTER JOIN ( Select FNListIndex,FTNameTH,FTNameEN  FROM  "
-            cmd &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData As L With (NOLOCK) "
-            cmd &= vbCrLf & " WHERE  (FTListName = N'FNJobState')  ) AS XT ON  A.FNJobState = XT.FNListIndex "
-
-            cmd &= vbCrLf & " OUTER APPLY ( Select FNListIndex,FTNameTH,FTNameEN  FROM  "
+            cmd &= vbCrLf & vbCrLf & " "
+            cmd &= vbCrLf & "From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTOrder AS A WITH (NOLOCK) "
+            cmd &= vbCrLf & "OUTER APPLY( SELECT * FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TPTNOrder AS PT WITH (NOLOCK) WHERE PT.FTOrderNo = A.FTOrderNo) AS PT"
+            cmd &= vbCrLf & "OUTER APPLY (SELECT C.FTCmpCode FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TCNMCmp AS C WITH (NOLOCK) WHERE A.FNHSysCmpId = C.FNHSysCmpId) AS C"
+            cmd &= vbCrLf & "OUTER APPLY (SELECT * FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTOrderSub_BreakDown AS SB WITH (NOLOCK) "
+            cmd &= vbCrLf & "WHERE A.FTOrderNo = SB.FTOrderNo) AS SB "
+            cmd &= vbCrLf & "OUTER APPLY (SELECT * FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTOrderSub AS S WITH (NOLOCK) "
+            cmd &= vbCrLf & "WHERE A.FTOrderNo = S.FTOrderNo) AS S "
+            cmd &= vbCrLf & "LEFT OUTER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TMERMStyle As MST With(NOLOCK) On A.FNHSysStyleId = MST.FNHSysStyleId "
+            cmd &= vbCrLf & "LEFT OUTER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TMERMSeason As MSS With(NOLOCK) On A.FNHSysSeasonId = MSS.FNHSysSeasonId "
+            cmd &= vbCrLf & "LEFT OUTER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TCNMCustomer As MCT With(NOLOCK) On A.FNHSysCustId = MCT.FNHSysCustId "
+            cmd &= vbCrLf & "LEFT OUTER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TMERMMerTeam As MMT With(NOLOCK) On A.FNHSysMerTeamId = MMT.FNHSysMerTeamId "
+            cmd &= vbCrLf & "LEFT OUTER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TMERMGender As GD With(NOLOCK) On S.FNHSysGenderId = GD.FNHSysGenderId "
+            cmd &= vbCrLf & "LEFT OUTER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TMERMBuy AS B  With(NOLOCK) On A.FNHSysBuyId=B.FNHSysBuyId "
+            cmd &= vbCrLf & "LEFT OUTER JOIN ( Select FNListIndex,FTNameTH,FTNameEN  FROM  "
             cmd &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData As L With (NOLOCK) "
-            cmd &= vbCrLf & " WHERE  (FTListName = N'FNOrderSetType'  AND  A.FNOrderType = XT.FNListIndex )) AS ODT"
+            cmd &= vbCrLf & "WHERE  (FTListName = N'FNJobState')  ) AS XT ON  A.FNJobState = XT.FNListIndex "
 
-            cmd &= vbCrLf & " WHERE A.FTOrderNo <> '' "
+            cmd &= vbCrLf & "OUTER APPLY ( Select FNListIndex,FTNameTH,FTNameEN  FROM  "
+            cmd &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData As L With (NOLOCK) "
+            cmd &= vbCrLf & "WHERE (FTListName = N'FNOrderSetType'  AND  A.FNOrderType = XT.FNListIndex )) AS ODT"
+
+            cmd &= vbCrLf & "OUTER APPLY( Select TOP 1 *  FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TPTNOrder As pto With (NOLOCK) WHERE (pto.FTOrderNo = A.FTOrderNo)) As pto "
+
+            cmd &= vbCrLf & "WHERE A.FTOrderNo <> '' "
 
             If (FNYear.Text <> "") Then
                 cmd &= vbCrLf & " And A.FDOrderDate BETWEEN '" + FNYear.Text + "/01/01' AND '" + FNYear.Text + "/12/31' "
             End If
 
             If (FNHSysCustId.Text <> "") Then
-                cmd &= vbCrLf & " AND A.FNHSysCustId=" & Val(FNHSysCustId.Properties.Tag.ToString) & ""
+                cmd &= vbCrLf & " AND A.FNHSysCustId=" & Val(FNHSysCustId.Properties.Tag.ToString) & " "
             End If
 
             If (FNHSysStyleId.Text <> "") Then
-                cmd &= vbCrLf & " AND A.FNHSysStyleId=" & Val(FNHSysStyleId.Properties.Tag.ToString) & ""
+                cmd &= vbCrLf & " AND A.FNHSysStyleId=" & Val(FNHSysStyleId.Properties.Tag.ToString) & " "
             End If
 
             If (FNHSysSeasonId.Text <> "") Then
-                cmd &= vbCrLf & "  AND A.FNHSysSeasonId=" & Val(FNHSysSeasonId.Properties.Tag.ToString) & ""
+                cmd &= vbCrLf & " AND A.FNHSysSeasonId=" & Val(FNHSysSeasonId.Properties.Tag.ToString) & " "
             End If
 
             If (FNHSysMerTeamId.Text <> "") Then
-                cmd &= vbCrLf & "  AND A.FNHSysMerTeamId=" & Val(FNHSysMerTeamId.Properties.Tag.ToString) & ""
+                cmd &= vbCrLf & " AND A.FNHSysMerTeamId=" & Val(FNHSysMerTeamId.Properties.Tag.ToString) & " "
             End If
 
             If (FTStartOrderDate.Text <> "" And FTEndOrderDate.Text <> "") Then
-                cmd &= vbCrLf & "  AND A.FDOrderDate BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text)
-                cmd &= "' AND '" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "'"
+                cmd &= vbCrLf & " AND A.FDOrderDate BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text)
+                cmd &= "' AND '" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "' "
             End If
 
             If (FNHSysBuyIdFrom.Text <> "" And FNHSysBuyIdTo.Text <> "") Then
-                cmd &= vbCrLf & "  AND B.FTBuyCode BETWEEN '" & FNHSysBuyIdFrom.Text & "' AND '" & FNHSysBuyIdTo.Text & "'"
+                cmd &= vbCrLf & "  AND B.FTBuyCode BETWEEN '" & FNHSysBuyIdFrom.Text & "' AND '" & FNHSysBuyIdTo.Text & "' "
             End If
 
-            cmd &= vbCrLf & " GROUP BY A.FTOrderNo, A.FTStateOrderApp, A.FDInsDate, GD.FTGenderCode, A.FTOrderBy, "
+            cmd &= vbCrLf & vbCrLf & " GROUP BY A.FTOrderNo, A.FTStateOrderApp, A.FDInsDate, GD.FTGenderCode, A.FTOrderBy, "
             cmd &= vbCrLf & " A.FTRemark, A.FTSubPgm, B.FTBuyCode, S.FTOther1Note, A.FNHSysProdTypeId, MST.FTStyleCode, "
             cmd &= vbCrLf & " MCT.FTCustCode, MMT.FTMerTeamCode, SB.FTColorway, A.FNJobState, A.FTStateBy, C.FTCmpCode,"
             cmd &= vbCrLf & " PT.FTPatternDate, PT.FTActPatternDate, S.FDShipDate, S.FDShipDateOrginal"
             cmd &= vbCrLf & " , MST.FTStyleNameEN, GD.FTGenderNameEN, MSS.FTSeasonNameEN "
 
             If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
-                cmd &= vbCrLf & ",ODT.FTNameTH, XT.FTNameTH, MCT.FTCustNameTH "
+                cmd &= vbCrLf & ", ODT.FTNameTH, XT.FTNameTH, MCT.FTCustNameTH "
             Else
-                cmd &= vbCrLf & ",ODT.FTNameEN, XT.FTNameEN, MCT.FTCustNameEN "
+                cmd &= vbCrLf & ", ODT.FTNameEN, XT.FTNameEN, MCT.FTCustNameEN "
             End If
         End If
 

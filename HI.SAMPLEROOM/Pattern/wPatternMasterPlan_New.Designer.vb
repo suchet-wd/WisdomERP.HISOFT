@@ -104,10 +104,8 @@ Partial Class wPatternMasterPlan_New
         Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
         Me.ogcPattern = New DevExpress.XtraGrid.GridControl()
         Me.ogvPattern = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.FNHSysCmpID_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.CFNSMPOrderStatus = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.Category = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FTCmpCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.CFNSMPOrderStatus = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTSMPOrderNo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFDSMPOrderDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTStateReceiptDate = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -129,9 +127,6 @@ Partial Class wPatternMasterPlan_New
         Me.FTColorway = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSizeBreakDown = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FTRemark = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FTOrderRemark = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FTEmpName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GroupCust = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.SubGroupCust = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTStandBy = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -139,14 +134,21 @@ Partial Class wPatternMasterPlan_New
         Me.FTPgmName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.PriorityList = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.Block = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTCmpCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTEmpCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.rFTEmpCode = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.FTEmpCode_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTPatternTypeCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.rFTPatternTypeCode = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
         Me.FTPatternTypeCode_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTPatternGrpTypeCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.rFTPatternGrpTypeCode = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
         Me.FTPatternGrpTypeCode_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.OGac = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTPositCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.rFTPositCode = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.FTPositCode_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.LeadTime = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.OGac = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.PlanDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.OPT = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.PT = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -157,16 +159,14 @@ Partial Class wPatternMasterPlan_New
         Me.ActFinishYear = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ActFinishWeek = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ActFinishWY = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FTEmpCode = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.rFTEmpCode = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
-        Me.FTPositCode = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.rFTPositCode = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
         Me.InIOTP = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ExIOTP = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTOrderRemark = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.Remark = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTRemark = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTEmpName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNHSysCmpID = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FTPositCode_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FTEmpCode_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNHSysCmpID_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.ogbStyleHeader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbStyleHeader.SuspendLayout()
         CType(Me.chkSample.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -198,9 +198,9 @@ Partial Class wPatternMasterPlan_New
         CType(Me.ogvPattern, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReposDate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReposDate.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.rFTEmpCode, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.rFTPatternTypeCode, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.rFTPatternGrpTypeCode, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.rFTEmpCode, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.rFTPositCode, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -656,7 +656,7 @@ Partial Class wPatternMasterPlan_New
         '
         'ogvPattern
         '
-        Me.ogvPattern.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Category, Me.CFNSMPOrderStatus, Me.CFTSMPOrderNo, Me.CFDSMPOrderDate, Me.CFTStateReceiptDate, Me.CFTActPatternDate, Me.FTDeliveryDate, Me.CFTPatternDate, Me.CFTCFMSendSampleDate, Me.cFDGacDate, Me.CFTStyleCode, Me.CFTStyleName, Me.CFTSeasonCode, Me.CFTCustomerTeam, Me.CFTGenderCode, Me.CFTCustCode, Me.CFTCustName, Me.FTMerTeamCode, Me.CFTSMPOrderBy, Me.FTColorway, Me.FTSizeBreakDown, Me.FNQuantity, Me.FTOrderRemark, Me.GroupCust, Me.SubGroupCust, Me.FTStandBy, Me.FTBuyCode, Me.FTPgmName, Me.PriorityList, Me.Block, Me.FTPatternTypeCode, Me.FTCmpCode, Me.FTPatternGrpTypeCode, Me.OGac, Me.LeadTime, Me.PlanDate, Me.OPT, Me.PT, Me.PlanFinishYear, Me.PlanFinishWeek, Me.PlanFinishWY, Me.FinishDate, Me.ActFinishYear, Me.ActFinishWeek, Me.ActFinishWY, Me.FTEmpCode, Me.FTPositCode, Me.InIOTP, Me.ExIOTP, Me.Remark, Me.FTRemark, Me.FTEmpName, Me.FNHSysCmpID, Me.FNHSysCmpID_Hide, Me.FTPositCode_Hide, Me.FTEmpCode_Hide, Me.FTPatternTypeCode_Hide, Me.FTPatternGrpTypeCode_Hide})
+        Me.ogvPattern.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Category, Me.CFNSMPOrderStatus, Me.CFTSMPOrderNo, Me.CFDSMPOrderDate, Me.CFTStateReceiptDate, Me.CFTActPatternDate, Me.FTDeliveryDate, Me.CFTPatternDate, Me.CFTCFMSendSampleDate, Me.cFDGacDate, Me.CFTStyleCode, Me.CFTStyleName, Me.CFTSeasonCode, Me.CFTCustomerTeam, Me.CFTGenderCode, Me.CFTCustCode, Me.CFTCustName, Me.FTMerTeamCode, Me.CFTSMPOrderBy, Me.FTColorway, Me.FTSizeBreakDown, Me.FNQuantity, Me.GroupCust, Me.SubGroupCust, Me.FTStandBy, Me.FTBuyCode, Me.FTPgmName, Me.PriorityList, Me.Block, Me.FTCmpCode, Me.FTEmpCode, Me.FTEmpCode_Hide, Me.FTPatternTypeCode, Me.FTPatternTypeCode_Hide, Me.FTPatternGrpTypeCode, Me.FTPatternGrpTypeCode_Hide, Me.FTPositCode, Me.FTPositCode_Hide, Me.LeadTime, Me.OGac, Me.PlanDate, Me.OPT, Me.PT, Me.PlanFinishYear, Me.PlanFinishWeek, Me.PlanFinishWY, Me.FinishDate, Me.ActFinishYear, Me.ActFinishWeek, Me.ActFinishWY, Me.InIOTP, Me.ExIOTP, Me.FTOrderRemark, Me.Remark, Me.FTRemark, Me.FTEmpName, Me.FNHSysCmpID, Me.FNHSysCmpID_Hide})
         Me.ogvPattern.DetailHeight = 284
         Me.ogvPattern.GridControl = Me.ogcPattern
         Me.ogvPattern.Name = "ogvPattern"
@@ -666,26 +666,6 @@ Partial Class wPatternMasterPlan_New
         Me.ogvPattern.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
         Me.ogvPattern.OptionsView.ShowGroupPanel = False
         Me.ogvPattern.Tag = "2|"
-        '
-        'FNHSysCmpID_Hide
-        '
-        Me.FNHSysCmpID_Hide.Caption = "FNHSysCmpID_Hide"
-        Me.FNHSysCmpID_Hide.FieldName = "FNHSysCmpID_Hide"
-        Me.FNHSysCmpID_Hide.Name = "FNHSysCmpID_Hide"
-        '
-        'CFNSMPOrderStatus
-        '
-        Me.CFNSMPOrderStatus.AppearanceCell.Options.UseTextOptions = True
-        Me.CFNSMPOrderStatus.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.CFNSMPOrderStatus.Caption = "Status"
-        Me.CFNSMPOrderStatus.FieldName = "FNSMPOrderStatus"
-        Me.CFNSMPOrderStatus.MinWidth = 17
-        Me.CFNSMPOrderStatus.Name = "CFNSMPOrderStatus"
-        Me.CFNSMPOrderStatus.OptionsColumn.AllowEdit = False
-        Me.CFNSMPOrderStatus.OptionsColumn.ReadOnly = True
-        Me.CFNSMPOrderStatus.Visible = True
-        Me.CFNSMPOrderStatus.VisibleIndex = 11
-        Me.CFNSMPOrderStatus.Width = 79
         '
         'Category
         '
@@ -701,18 +681,19 @@ Partial Class wPatternMasterPlan_New
         Me.Category.VisibleIndex = 0
         Me.Category.Width = 94
         '
-        'FTCmpCode
+        'CFNSMPOrderStatus
         '
-        Me.FTCmpCode.AppearanceCell.Options.UseTextOptions = True
-        Me.FTCmpCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTCmpCode.AppearanceHeader.Options.UseTextOptions = True
-        Me.FTCmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTCmpCode.Caption = "FTCmpCode"
-        Me.FTCmpCode.FieldName = "FTCmpCode"
-        Me.FTCmpCode.Name = "FTCmpCode"
-        Me.FTCmpCode.OptionsColumn.AllowEdit = False
-        Me.FTCmpCode.Visible = True
-        Me.FTCmpCode.VisibleIndex = 14
+        Me.CFNSMPOrderStatus.AppearanceCell.Options.UseTextOptions = True
+        Me.CFNSMPOrderStatus.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.CFNSMPOrderStatus.Caption = "Status"
+        Me.CFNSMPOrderStatus.FieldName = "FNSMPOrderStatus"
+        Me.CFNSMPOrderStatus.MinWidth = 17
+        Me.CFNSMPOrderStatus.Name = "CFNSMPOrderStatus"
+        Me.CFNSMPOrderStatus.OptionsColumn.AllowEdit = False
+        Me.CFNSMPOrderStatus.OptionsColumn.ReadOnly = True
+        Me.CFNSMPOrderStatus.Visible = True
+        Me.CFNSMPOrderStatus.VisibleIndex = 11
+        Me.CFNSMPOrderStatus.Width = 79
         '
         'CFTSMPOrderNo
         '
@@ -729,7 +710,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTSMPOrderNo.OptionsColumn.AllowMove = False
         Me.CFTSMPOrderNo.OptionsColumn.ReadOnly = True
         Me.CFTSMPOrderNo.Visible = True
-        Me.CFTSMPOrderNo.VisibleIndex = 3
+        Me.CFTSMPOrderNo.VisibleIndex = 1
         Me.CFTSMPOrderNo.Width = 104
         '
         'CFDSMPOrderDate
@@ -745,7 +726,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFDSMPOrderDate.OptionsColumn.AllowMove = False
         Me.CFDSMPOrderDate.OptionsColumn.ReadOnly = True
         Me.CFDSMPOrderDate.Visible = True
-        Me.CFDSMPOrderDate.VisibleIndex = 4
+        Me.CFDSMPOrderDate.VisibleIndex = 2
         Me.CFDSMPOrderDate.Width = 98
         '
         'CFTStateReceiptDate
@@ -761,7 +742,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTStateReceiptDate.OptionsColumn.AllowMove = False
         Me.CFTStateReceiptDate.OptionsColumn.ReadOnly = True
         Me.CFTStateReceiptDate.Visible = True
-        Me.CFTStateReceiptDate.VisibleIndex = 9
+        Me.CFTStateReceiptDate.VisibleIndex = 14
         Me.CFTStateReceiptDate.Width = 105
         '
         'CFTActPatternDate
@@ -778,7 +759,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTActPatternDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.CFTActPatternDate.OptionsColumn.AllowMove = False
         Me.CFTActPatternDate.Visible = True
-        Me.CFTActPatternDate.VisibleIndex = 7
+        Me.CFTActPatternDate.VisibleIndex = 5
         Me.CFTActPatternDate.Width = 64
         '
         'ReposDate
@@ -809,7 +790,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTDeliveryDate.OptionsColumn.AllowMove = False
         Me.FTDeliveryDate.OptionsColumn.ReadOnly = True
         Me.FTDeliveryDate.Visible = True
-        Me.FTDeliveryDate.VisibleIndex = 8
+        Me.FTDeliveryDate.VisibleIndex = 10
         Me.FTDeliveryDate.Width = 97
         '
         'CFTPatternDate
@@ -828,7 +809,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTPatternDate.OptionsColumn.AllowMove = False
         Me.CFTPatternDate.OptionsColumn.ReadOnly = True
         Me.CFTPatternDate.Visible = True
-        Me.CFTPatternDate.VisibleIndex = 6
+        Me.CFTPatternDate.VisibleIndex = 4
         Me.CFTPatternDate.Width = 95
         '
         'CFTCFMSendSampleDate
@@ -846,7 +827,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTCFMSendSampleDate.OptionsColumn.AllowMove = False
         Me.CFTCFMSendSampleDate.OptionsColumn.AllowShowHide = False
         Me.CFTCFMSendSampleDate.Visible = True
-        Me.CFTCFMSendSampleDate.VisibleIndex = 5
+        Me.CFTCFMSendSampleDate.VisibleIndex = 3
         Me.CFTCFMSendSampleDate.Width = 89
         '
         'cFDGacDate
@@ -865,7 +846,7 @@ Partial Class wPatternMasterPlan_New
         Me.cFDGacDate.OptionsColumn.AllowMove = False
         Me.cFDGacDate.OptionsColumn.AllowShowHide = False
         Me.cFDGacDate.Visible = True
-        Me.cFDGacDate.VisibleIndex = 10
+        Me.cFDGacDate.VisibleIndex = 12
         Me.cFDGacDate.Width = 64
         '
         'CFTStyleCode
@@ -883,7 +864,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTStyleCode.OptionsColumn.AllowMove = False
         Me.CFTStyleCode.OptionsColumn.ReadOnly = True
         Me.CFTStyleCode.Visible = True
-        Me.CFTStyleCode.VisibleIndex = 16
+        Me.CFTStyleCode.VisibleIndex = 18
         Me.CFTStyleCode.Width = 84
         '
         'CFTStyleName
@@ -899,7 +880,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTStyleName.OptionsColumn.AllowMove = False
         Me.CFTStyleName.OptionsColumn.ReadOnly = True
         Me.CFTStyleName.Visible = True
-        Me.CFTStyleName.VisibleIndex = 17
+        Me.CFTStyleName.VisibleIndex = 19
         Me.CFTStyleName.Width = 93
         '
         'CFTSeasonCode
@@ -915,7 +896,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTSeasonCode.OptionsColumn.AllowMove = False
         Me.CFTSeasonCode.OptionsColumn.ReadOnly = True
         Me.CFTSeasonCode.Visible = True
-        Me.CFTSeasonCode.VisibleIndex = 13
+        Me.CFTSeasonCode.VisibleIndex = 16
         Me.CFTSeasonCode.Width = 99
         '
         'CFTCustomerTeam
@@ -931,7 +912,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTCustomerTeam.OptionsColumn.AllowMove = False
         Me.CFTCustomerTeam.OptionsColumn.ReadOnly = True
         Me.CFTCustomerTeam.Visible = True
-        Me.CFTCustomerTeam.VisibleIndex = 18
+        Me.CFTCustomerTeam.VisibleIndex = 20
         Me.CFTCustomerTeam.Width = 93
         '
         'CFTGenderCode
@@ -947,7 +928,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTGenderCode.OptionsColumn.AllowMove = False
         Me.CFTGenderCode.OptionsColumn.ReadOnly = True
         Me.CFTGenderCode.Visible = True
-        Me.CFTGenderCode.VisibleIndex = 19
+        Me.CFTGenderCode.VisibleIndex = 21
         Me.CFTGenderCode.Width = 86
         '
         'CFTCustCode
@@ -963,7 +944,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTCustCode.OptionsColumn.AllowMove = False
         Me.CFTCustCode.OptionsColumn.ReadOnly = True
         Me.CFTCustCode.Visible = True
-        Me.CFTCustCode.VisibleIndex = 20
+        Me.CFTCustCode.VisibleIndex = 22
         Me.CFTCustCode.Width = 78
         '
         'CFTCustName
@@ -977,7 +958,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTCustName.OptionsColumn.AllowMove = False
         Me.CFTCustName.OptionsColumn.ReadOnly = True
         Me.CFTCustName.Visible = True
-        Me.CFTCustName.VisibleIndex = 21
+        Me.CFTCustName.VisibleIndex = 23
         Me.CFTCustName.Width = 179
         '
         'FTMerTeamCode
@@ -993,7 +974,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTMerTeamCode.OptionsColumn.AllowMove = False
         Me.FTMerTeamCode.OptionsColumn.ReadOnly = True
         Me.FTMerTeamCode.Visible = True
-        Me.FTMerTeamCode.VisibleIndex = 24
+        Me.FTMerTeamCode.VisibleIndex = 26
         Me.FTMerTeamCode.Width = 70
         '
         'CFTSMPOrderBy
@@ -1007,7 +988,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTSMPOrderBy.OptionsColumn.AllowMove = False
         Me.CFTSMPOrderBy.OptionsColumn.ReadOnly = True
         Me.CFTSMPOrderBy.Visible = True
-        Me.CFTSMPOrderBy.VisibleIndex = 25
+        Me.CFTSMPOrderBy.VisibleIndex = 27
         Me.CFTSMPOrderBy.Width = 78
         '
         'FTColorway
@@ -1021,7 +1002,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTColorway.OptionsColumn.AllowMove = False
         Me.FTColorway.OptionsColumn.ReadOnly = True
         Me.FTColorway.Visible = True
-        Me.FTColorway.VisibleIndex = 26
+        Me.FTColorway.VisibleIndex = 28
         Me.FTColorway.Width = 76
         '
         'FTSizeBreakDown
@@ -1035,7 +1016,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTSizeBreakDown.OptionsColumn.AllowMove = False
         Me.FTSizeBreakDown.OptionsColumn.ReadOnly = True
         Me.FTSizeBreakDown.Visible = True
-        Me.FTSizeBreakDown.VisibleIndex = 28
+        Me.FTSizeBreakDown.VisibleIndex = 30
         Me.FTSizeBreakDown.Width = 90
         '
         'FNQuantity
@@ -1051,48 +1032,8 @@ Partial Class wPatternMasterPlan_New
         Me.FNQuantity.OptionsColumn.AllowMove = False
         Me.FNQuantity.OptionsColumn.ReadOnly = True
         Me.FNQuantity.Visible = True
-        Me.FNQuantity.VisibleIndex = 29
+        Me.FNQuantity.VisibleIndex = 31
         Me.FNQuantity.Width = 84
-        '
-        'FTRemark
-        '
-        Me.FTRemark.Caption = "FTRemark"
-        Me.FTRemark.FieldName = "FTRemark"
-        Me.FTRemark.MinWidth = 17
-        Me.FTRemark.Name = "FTRemark"
-        Me.FTRemark.OptionsColumn.AllowEdit = False
-        Me.FTRemark.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTRemark.OptionsColumn.AllowMove = False
-        Me.FTRemark.OptionsColumn.ReadOnly = True
-        Me.FTRemark.Width = 131
-        '
-        'FTOrderRemark
-        '
-        Me.FTOrderRemark.AppearanceCell.Options.UseTextOptions = True
-        Me.FTOrderRemark.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.FTOrderRemark.Caption = "FTOrderRemark"
-        Me.FTOrderRemark.FieldName = "FTOrderRemark"
-        Me.FTOrderRemark.MinWidth = 17
-        Me.FTOrderRemark.Name = "FTOrderRemark"
-        Me.FTOrderRemark.OptionsColumn.AllowEdit = False
-        Me.FTOrderRemark.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTOrderRemark.OptionsColumn.AllowMove = False
-        Me.FTOrderRemark.OptionsColumn.ReadOnly = True
-        Me.FTOrderRemark.Visible = True
-        Me.FTOrderRemark.VisibleIndex = 31
-        Me.FTOrderRemark.Width = 76
-        '
-        'FTEmpName
-        '
-        Me.FTEmpName.Caption = "FTEmpName"
-        Me.FTEmpName.FieldName = "FTEmpName"
-        Me.FTEmpName.MinWidth = 17
-        Me.FTEmpName.Name = "FTEmpName"
-        Me.FTEmpName.OptionsColumn.AllowEdit = False
-        Me.FTEmpName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTEmpName.OptionsColumn.AllowMove = False
-        Me.FTEmpName.OptionsColumn.ReadOnly = True
-        Me.FTEmpName.Width = 53
         '
         'GroupCust
         '
@@ -1103,7 +1044,7 @@ Partial Class wPatternMasterPlan_New
         Me.GroupCust.Name = "GroupCust"
         Me.GroupCust.OptionsColumn.AllowEdit = False
         Me.GroupCust.Visible = True
-        Me.GroupCust.VisibleIndex = 22
+        Me.GroupCust.VisibleIndex = 24
         '
         'SubGroupCust
         '
@@ -1114,7 +1055,7 @@ Partial Class wPatternMasterPlan_New
         Me.SubGroupCust.Name = "SubGroupCust"
         Me.SubGroupCust.OptionsColumn.AllowEdit = False
         Me.SubGroupCust.Visible = True
-        Me.SubGroupCust.VisibleIndex = 23
+        Me.SubGroupCust.VisibleIndex = 25
         '
         'FTStandBy
         '
@@ -1126,7 +1067,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTStandBy.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTStandBy.OptionsColumn.AllowMove = False
         Me.FTStandBy.Visible = True
-        Me.FTStandBy.VisibleIndex = 32
+        Me.FTStandBy.VisibleIndex = 34
         Me.FTStandBy.Width = 145
         '
         'FTBuyCode
@@ -1143,7 +1084,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTBuyCode.OptionsColumn.AllowMove = False
         Me.FTBuyCode.OptionsColumn.ReadOnly = True
         Me.FTBuyCode.Visible = True
-        Me.FTBuyCode.VisibleIndex = 12
+        Me.FTBuyCode.VisibleIndex = 15
         Me.FTBuyCode.Width = 110
         '
         'FTPgmName
@@ -1156,7 +1097,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTPgmName.OptionsColumn.AllowMove = False
         Me.FTPgmName.OptionsColumn.ReadOnly = True
         Me.FTPgmName.Visible = True
-        Me.FTPgmName.VisibleIndex = 30
+        Me.FTPgmName.VisibleIndex = 32
         Me.FTPgmName.Width = 100
         '
         'PriorityList
@@ -1166,7 +1107,7 @@ Partial Class wPatternMasterPlan_New
         Me.PriorityList.Name = "PriorityList"
         Me.PriorityList.OptionsColumn.AllowEdit = False
         Me.PriorityList.Visible = True
-        Me.PriorityList.VisibleIndex = 34
+        Me.PriorityList.VisibleIndex = 36
         '
         'Block
         '
@@ -1175,7 +1116,42 @@ Partial Class wPatternMasterPlan_New
         Me.Block.Name = "Block"
         Me.Block.OptionsColumn.AllowEdit = False
         Me.Block.Visible = True
-        Me.Block.VisibleIndex = 33
+        Me.Block.VisibleIndex = 35
+        '
+        'FTCmpCode
+        '
+        Me.FTCmpCode.AppearanceCell.Options.UseTextOptions = True
+        Me.FTCmpCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTCmpCode.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTCmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTCmpCode.Caption = "FTCmpCode"
+        Me.FTCmpCode.FieldName = "FTCmpCode"
+        Me.FTCmpCode.Name = "FTCmpCode"
+        Me.FTCmpCode.OptionsColumn.AllowEdit = False
+        Me.FTCmpCode.Visible = True
+        Me.FTCmpCode.VisibleIndex = 17
+        '
+        'FTEmpCode
+        '
+        Me.FTEmpCode.Caption = "FTEmpCode"
+        Me.FTEmpCode.ColumnEdit = Me.rFTEmpCode
+        Me.FTEmpCode.FieldName = "FTEmpCode"
+        Me.FTEmpCode.Name = "FTEmpCode"
+        Me.FTEmpCode.Visible = True
+        Me.FTEmpCode.VisibleIndex = 6
+        Me.FTEmpCode.Width = 63
+        '
+        'rFTEmpCode
+        '
+        Me.rFTEmpCode.AutoHeight = False
+        Me.rFTEmpCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "703", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.rFTEmpCode.Name = "rFTEmpCode"
+        '
+        'FTEmpCode_Hide
+        '
+        Me.FTEmpCode_Hide.Caption = "FTEmpCode_Hide"
+        Me.FTEmpCode_Hide.FieldName = "FTEmpCode_Hide"
+        Me.FTEmpCode_Hide.Name = "FTEmpCode_Hide"
         '
         'FTPatternTypeCode
         '
@@ -1184,12 +1160,12 @@ Partial Class wPatternMasterPlan_New
         Me.FTPatternTypeCode.FieldName = "FTPatternTypeCode"
         Me.FTPatternTypeCode.Name = "FTPatternTypeCode"
         Me.FTPatternTypeCode.Visible = True
-        Me.FTPatternTypeCode.VisibleIndex = 15
+        Me.FTPatternTypeCode.VisibleIndex = 8
         '
         'rFTPatternTypeCode
         '
         Me.rFTPatternTypeCode.AutoHeight = False
-        Me.rFTPatternTypeCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "704", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.rFTPatternTypeCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "704", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.rFTPatternTypeCode.Name = "rFTPatternTypeCode"
         '
         'FTPatternTypeCode_Hide
@@ -1205,12 +1181,12 @@ Partial Class wPatternMasterPlan_New
         Me.FTPatternGrpTypeCode.FieldName = "FTPatternGrpTypeCode"
         Me.FTPatternGrpTypeCode.Name = "FTPatternGrpTypeCode"
         Me.FTPatternGrpTypeCode.Visible = True
-        Me.FTPatternGrpTypeCode.VisibleIndex = 27
+        Me.FTPatternGrpTypeCode.VisibleIndex = 29
         '
         'rFTPatternGrpTypeCode
         '
         Me.rFTPatternGrpTypeCode.AutoHeight = False
-        Me.rFTPatternGrpTypeCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "705", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.rFTPatternGrpTypeCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "705", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.rFTPatternGrpTypeCode.Name = "rFTPatternGrpTypeCode"
         '
         'FTPatternGrpTypeCode_Hide
@@ -1219,130 +1195,6 @@ Partial Class wPatternMasterPlan_New
         Me.FTPatternGrpTypeCode_Hide.FieldName = "FTPatternGrpTypeCode_Hide"
         Me.FTPatternGrpTypeCode_Hide.Name = "FTPatternGrpTypeCode_Hide"
         '
-        'OGac
-        '
-        Me.OGac.Caption = "OGac"
-        Me.OGac.FieldName = "OGac"
-        Me.OGac.Name = "OGac"
-        Me.OGac.OptionsColumn.AllowEdit = False
-        Me.OGac.Visible = True
-        Me.OGac.VisibleIndex = 47
-        '
-        'LeadTime
-        '
-        Me.LeadTime.Caption = "LeadTime"
-        Me.LeadTime.FieldName = "LeadTime"
-        Me.LeadTime.Name = "LeadTime"
-        Me.LeadTime.OptionsColumn.AllowEdit = False
-        Me.LeadTime.Visible = True
-        Me.LeadTime.VisibleIndex = 48
-        '
-        'PlanDate
-        '
-        Me.PlanDate.Caption = "PlanDate"
-        Me.PlanDate.FieldName = "PlanDate"
-        Me.PlanDate.Name = "PlanDate"
-        Me.PlanDate.OptionsColumn.AllowEdit = False
-        Me.PlanDate.Visible = True
-        Me.PlanDate.VisibleIndex = 35
-        '
-        'OPT
-        '
-        Me.OPT.Caption = "OPT"
-        Me.OPT.FieldName = "OPT"
-        Me.OPT.Name = "OPT"
-        Me.OPT.OptionsColumn.AllowEdit = False
-        Me.OPT.Visible = True
-        Me.OPT.VisibleIndex = 36
-        '
-        'PT
-        '
-        Me.PT.Caption = "PT"
-        Me.PT.FieldName = "PT"
-        Me.PT.Name = "PT"
-        Me.PT.OptionsColumn.AllowEdit = False
-        Me.PT.Visible = True
-        Me.PT.VisibleIndex = 37
-        '
-        'PlanFinishYear
-        '
-        Me.PlanFinishYear.Caption = "PlanFinishYear"
-        Me.PlanFinishYear.FieldName = "PlanFinishYear"
-        Me.PlanFinishYear.Name = "PlanFinishYear"
-        Me.PlanFinishYear.OptionsColumn.AllowEdit = False
-        Me.PlanFinishYear.Visible = True
-        Me.PlanFinishYear.VisibleIndex = 38
-        '
-        'PlanFinishWeek
-        '
-        Me.PlanFinishWeek.Caption = "PlanFinishWeek"
-        Me.PlanFinishWeek.FieldName = "PlanFinishWeek"
-        Me.PlanFinishWeek.Name = "PlanFinishWeek"
-        Me.PlanFinishWeek.OptionsColumn.AllowEdit = False
-        Me.PlanFinishWeek.Visible = True
-        Me.PlanFinishWeek.VisibleIndex = 39
-        '
-        'PlanFinishWY
-        '
-        Me.PlanFinishWY.Caption = "PlanFinishWY"
-        Me.PlanFinishWY.FieldName = "PlanFinishWY"
-        Me.PlanFinishWY.Name = "PlanFinishWY"
-        Me.PlanFinishWY.OptionsColumn.AllowEdit = False
-        Me.PlanFinishWY.Visible = True
-        Me.PlanFinishWY.VisibleIndex = 40
-        '
-        'FinishDate
-        '
-        Me.FinishDate.Caption = "FinishDate"
-        Me.FinishDate.FieldName = "FinishDate"
-        Me.FinishDate.Name = "FinishDate"
-        Me.FinishDate.OptionsColumn.AllowEdit = False
-        Me.FinishDate.Visible = True
-        Me.FinishDate.VisibleIndex = 41
-        '
-        'ActFinishYear
-        '
-        Me.ActFinishYear.Caption = "ActFinishYear"
-        Me.ActFinishYear.FieldName = "ActFinishYear"
-        Me.ActFinishYear.Name = "ActFinishYear"
-        Me.ActFinishYear.OptionsColumn.AllowEdit = False
-        Me.ActFinishYear.Visible = True
-        Me.ActFinishYear.VisibleIndex = 42
-        '
-        'ActFinishWeek
-        '
-        Me.ActFinishWeek.Caption = "ActFinishWeek"
-        Me.ActFinishWeek.FieldName = "ActFinishWeek"
-        Me.ActFinishWeek.Name = "ActFinishWeek"
-        Me.ActFinishWeek.OptionsColumn.AllowEdit = False
-        Me.ActFinishWeek.Visible = True
-        Me.ActFinishWeek.VisibleIndex = 43
-        '
-        'ActFinishWY
-        '
-        Me.ActFinishWY.Caption = "ActFinishWY"
-        Me.ActFinishWY.FieldName = "ActFinishWY"
-        Me.ActFinishWY.Name = "ActFinishWY"
-        Me.ActFinishWY.OptionsColumn.AllowEdit = False
-        Me.ActFinishWY.Visible = True
-        Me.ActFinishWY.VisibleIndex = 44
-        '
-        'FTEmpCode
-        '
-        Me.FTEmpCode.Caption = "FTEmpCode"
-        Me.FTEmpCode.ColumnEdit = Me.rFTEmpCode
-        Me.FTEmpCode.FieldName = "FTEmpCode"
-        Me.FTEmpCode.Name = "FTEmpCode"
-        Me.FTEmpCode.Visible = True
-        Me.FTEmpCode.VisibleIndex = 1
-        Me.FTEmpCode.Width = 63
-        '
-        'rFTEmpCode
-        '
-        Me.rFTEmpCode.AutoHeight = False
-        Me.rFTEmpCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "703", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.rFTEmpCode.Name = "rFTEmpCode"
-        '
         'FTPositCode
         '
         Me.FTPositCode.Caption = "FTPositCode"
@@ -1350,7 +1202,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTPositCode.FieldName = "FTPositCode"
         Me.FTPositCode.Name = "FTPositCode"
         Me.FTPositCode.Visible = True
-        Me.FTPositCode.VisibleIndex = 2
+        Me.FTPositCode.VisibleIndex = 7
         Me.FTPositCode.Width = 56
         '
         'rFTPositCode
@@ -1359,6 +1211,120 @@ Partial Class wPatternMasterPlan_New
         Me.rFTPositCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", "702", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.rFTPositCode.Name = "rFTPositCode"
         '
+        'FTPositCode_Hide
+        '
+        Me.FTPositCode_Hide.Caption = "FTPositCode_Hide"
+        Me.FTPositCode_Hide.FieldName = "FTPositCode_Hide"
+        Me.FTPositCode_Hide.Name = "FTPositCode_Hide"
+        '
+        'LeadTime
+        '
+        Me.LeadTime.Caption = "LeadTime"
+        Me.LeadTime.FieldName = "LeadTime"
+        Me.LeadTime.Name = "LeadTime"
+        Me.LeadTime.OptionsColumn.AllowEdit = False
+        Me.LeadTime.Visible = True
+        Me.LeadTime.VisibleIndex = 9
+        '
+        'OGac
+        '
+        Me.OGac.Caption = "OGac"
+        Me.OGac.FieldName = "OGac"
+        Me.OGac.Name = "OGac"
+        Me.OGac.OptionsColumn.AllowEdit = False
+        Me.OGac.Visible = True
+        Me.OGac.VisibleIndex = 13
+        '
+        'PlanDate
+        '
+        Me.PlanDate.Caption = "PlanDate"
+        Me.PlanDate.FieldName = "PlanDate"
+        Me.PlanDate.Name = "PlanDate"
+        Me.PlanDate.OptionsColumn.AllowEdit = False
+        Me.PlanDate.Visible = True
+        Me.PlanDate.VisibleIndex = 37
+        '
+        'OPT
+        '
+        Me.OPT.Caption = "OPT"
+        Me.OPT.FieldName = "OPT"
+        Me.OPT.Name = "OPT"
+        Me.OPT.OptionsColumn.AllowEdit = False
+        Me.OPT.Visible = True
+        Me.OPT.VisibleIndex = 38
+        '
+        'PT
+        '
+        Me.PT.Caption = "PT"
+        Me.PT.FieldName = "PT"
+        Me.PT.Name = "PT"
+        Me.PT.OptionsColumn.AllowEdit = False
+        Me.PT.Visible = True
+        Me.PT.VisibleIndex = 39
+        '
+        'PlanFinishYear
+        '
+        Me.PlanFinishYear.Caption = "PlanFinishYear"
+        Me.PlanFinishYear.FieldName = "PlanFinishYear"
+        Me.PlanFinishYear.Name = "PlanFinishYear"
+        Me.PlanFinishYear.OptionsColumn.AllowEdit = False
+        Me.PlanFinishYear.Visible = True
+        Me.PlanFinishYear.VisibleIndex = 40
+        '
+        'PlanFinishWeek
+        '
+        Me.PlanFinishWeek.Caption = "PlanFinishWeek"
+        Me.PlanFinishWeek.FieldName = "PlanFinishWeek"
+        Me.PlanFinishWeek.Name = "PlanFinishWeek"
+        Me.PlanFinishWeek.OptionsColumn.AllowEdit = False
+        Me.PlanFinishWeek.Visible = True
+        Me.PlanFinishWeek.VisibleIndex = 41
+        '
+        'PlanFinishWY
+        '
+        Me.PlanFinishWY.Caption = "PlanFinishWY"
+        Me.PlanFinishWY.FieldName = "PlanFinishWY"
+        Me.PlanFinishWY.Name = "PlanFinishWY"
+        Me.PlanFinishWY.OptionsColumn.AllowEdit = False
+        Me.PlanFinishWY.Visible = True
+        Me.PlanFinishWY.VisibleIndex = 42
+        '
+        'FinishDate
+        '
+        Me.FinishDate.Caption = "FinishDate"
+        Me.FinishDate.FieldName = "FinishDate"
+        Me.FinishDate.Name = "FinishDate"
+        Me.FinishDate.OptionsColumn.AllowEdit = False
+        Me.FinishDate.Visible = True
+        Me.FinishDate.VisibleIndex = 43
+        '
+        'ActFinishYear
+        '
+        Me.ActFinishYear.Caption = "ActFinishYear"
+        Me.ActFinishYear.FieldName = "ActFinishYear"
+        Me.ActFinishYear.Name = "ActFinishYear"
+        Me.ActFinishYear.OptionsColumn.AllowEdit = False
+        Me.ActFinishYear.Visible = True
+        Me.ActFinishYear.VisibleIndex = 44
+        '
+        'ActFinishWeek
+        '
+        Me.ActFinishWeek.Caption = "ActFinishWeek"
+        Me.ActFinishWeek.FieldName = "ActFinishWeek"
+        Me.ActFinishWeek.Name = "ActFinishWeek"
+        Me.ActFinishWeek.OptionsColumn.AllowEdit = False
+        Me.ActFinishWeek.Visible = True
+        Me.ActFinishWeek.VisibleIndex = 45
+        '
+        'ActFinishWY
+        '
+        Me.ActFinishWY.Caption = "ActFinishWY"
+        Me.ActFinishWY.FieldName = "ActFinishWY"
+        Me.ActFinishWY.Name = "ActFinishWY"
+        Me.ActFinishWY.OptionsColumn.AllowEdit = False
+        Me.ActFinishWY.Visible = True
+        Me.ActFinishWY.VisibleIndex = 46
+        '
         'InIOTP
         '
         Me.InIOTP.Caption = "InIOTP"
@@ -1366,7 +1332,7 @@ Partial Class wPatternMasterPlan_New
         Me.InIOTP.Name = "InIOTP"
         Me.InIOTP.OptionsColumn.AllowEdit = False
         Me.InIOTP.Visible = True
-        Me.InIOTP.VisibleIndex = 45
+        Me.InIOTP.VisibleIndex = 47
         '
         'ExIOTP
         '
@@ -1375,7 +1341,23 @@ Partial Class wPatternMasterPlan_New
         Me.ExIOTP.Name = "ExIOTP"
         Me.ExIOTP.OptionsColumn.AllowEdit = False
         Me.ExIOTP.Visible = True
-        Me.ExIOTP.VisibleIndex = 46
+        Me.ExIOTP.VisibleIndex = 48
+        '
+        'FTOrderRemark
+        '
+        Me.FTOrderRemark.AppearanceCell.Options.UseTextOptions = True
+        Me.FTOrderRemark.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.FTOrderRemark.Caption = "FTOrderRemark"
+        Me.FTOrderRemark.FieldName = "FTOrderRemark"
+        Me.FTOrderRemark.MinWidth = 17
+        Me.FTOrderRemark.Name = "FTOrderRemark"
+        Me.FTOrderRemark.OptionsColumn.AllowEdit = False
+        Me.FTOrderRemark.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTOrderRemark.OptionsColumn.AllowMove = False
+        Me.FTOrderRemark.OptionsColumn.ReadOnly = True
+        Me.FTOrderRemark.Visible = True
+        Me.FTOrderRemark.VisibleIndex = 33
+        Me.FTOrderRemark.Width = 76
         '
         'Remark
         '
@@ -1384,23 +1366,41 @@ Partial Class wPatternMasterPlan_New
         Me.Remark.Name = "Remark"
         Me.Remark.OptionsColumn.AllowEdit = False
         '
+        'FTRemark
+        '
+        Me.FTRemark.Caption = "FTRemark"
+        Me.FTRemark.FieldName = "FTRemark"
+        Me.FTRemark.MinWidth = 17
+        Me.FTRemark.Name = "FTRemark"
+        Me.FTRemark.OptionsColumn.AllowEdit = False
+        Me.FTRemark.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTRemark.OptionsColumn.AllowMove = False
+        Me.FTRemark.OptionsColumn.ReadOnly = True
+        Me.FTRemark.Width = 131
+        '
+        'FTEmpName
+        '
+        Me.FTEmpName.Caption = "FTEmpName"
+        Me.FTEmpName.FieldName = "FTEmpName"
+        Me.FTEmpName.MinWidth = 17
+        Me.FTEmpName.Name = "FTEmpName"
+        Me.FTEmpName.OptionsColumn.AllowEdit = False
+        Me.FTEmpName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTEmpName.OptionsColumn.AllowMove = False
+        Me.FTEmpName.OptionsColumn.ReadOnly = True
+        Me.FTEmpName.Width = 53
+        '
         'FNHSysCmpID
         '
         Me.FNHSysCmpID.Caption = "FNHSysCmpID"
         Me.FNHSysCmpID.FieldName = "FNHSysCmpID"
         Me.FNHSysCmpID.Name = "FNHSysCmpID"
         '
-        'FTPositCode_Hide
+        'FNHSysCmpID_Hide
         '
-        Me.FTPositCode_Hide.Caption = "FTPositCode_Hide"
-        Me.FTPositCode_Hide.FieldName = "FTPositCode_Hide"
-        Me.FTPositCode_Hide.Name = "FTPositCode_Hide"
-        '
-        'FTEmpCode_Hide
-        '
-        Me.FTEmpCode_Hide.Caption = "FTEmpCode_Hide"
-        Me.FTEmpCode_Hide.FieldName = "FTEmpCode_Hide"
-        Me.FTEmpCode_Hide.Name = "FTEmpCode_Hide"
+        Me.FNHSysCmpID_Hide.Caption = "FNHSysCmpID_Hide"
+        Me.FNHSysCmpID_Hide.FieldName = "FNHSysCmpID_Hide"
+        Me.FNHSysCmpID_Hide.Name = "FNHSysCmpID_Hide"
         '
         'wPatternMasterPlan_New
         '
@@ -1442,9 +1442,9 @@ Partial Class wPatternMasterPlan_New
         CType(Me.ogvPattern, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReposDate.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReposDate, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.rFTEmpCode, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.rFTPatternTypeCode, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.rFTPatternGrpTypeCode, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.rFTEmpCode, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.rFTPositCode, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

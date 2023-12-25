@@ -616,11 +616,13 @@ Public Class wProdSendSuplTracking
                     _Qry = "select A.FTStyleCode,A.FTSendSuplNo,A.FTOrderNo,A.FTBarcodeSendSuplNo,A.FDSendSuplDate,A.FTColorway, A.FTSizeBreakDown , FTSendSuplBy ,FTRcvSuplBy"
                     _Qry &= vbCrLf & ",A.FTBarcodeBundleNo,A.FNBunbleSeq,SSm.FNSendSuplState,SST.FTSenSuplTypeName"
                     _Qry &= vbCrLf & ",B.FDRcvSuplDate,B.FTRcvSuplNo,O.FTPORef as FTPORef,C.FTCmpCode,S.FTSuplCode"
+
                     If ST.Lang.Language = ST.Lang.eLang.TH Then
                         _Qry &= vbCrLf & ",C.FTCmpNameTH as FTCmpName,S.FTSuplNameTH as FTSuplName,Part.FTPartNameTH as FTPartName"
                     Else
                         _Qry &= vbCrLf & ",C.FTCmpNameEN as FTCmpName,S.FTSuplNameEN as FTSuplName,Part.FTPartNameEN as FTPartName"
                     End If
+
                     _Qry &= vbCrLf & " ,A.FNSendQuantity AS FNSendQuantity "
                     _Qry &= vbCrLf & " ,B.FNRcvQuantity AS FNRcvQuantity, "
 
@@ -654,11 +656,23 @@ Public Class wProdSendSuplTracking
                     _Qry &= vbCrLf & " A.FNSendQuantity ELSE RS2B_BC.FNBalQuantity END END AS FTRcvApproveQty, "
                     _Qry &= vbCrLf & "  Convert(VARCHAR(10), Convert(DateTime, RS2B_BC.FTStateBranchAcceptDate), 103) As FTRcvApproveDate, "
 
-
-                    _Qry &= vbCrLf & " CASE WHEN SS2B_BC.FTStateBranchAcceptBy IS NOT NULL THEN CASE WHEN RS2B_BC.FTStateBranchAcceptBy IS NULL THEN "
-                    _Qry &= vbCrLf & " A.FNSendQuantity ELSE RS2B_BC.FNBalQuantity - SS2B_BC.FNBalQuantity  END END  AS FTRcvApproveBal "
-                    ' ----- End Add By Chet 29 Mar 2023 ----- 
+                    'SS2B_BC.FTStateBranchAcceptBy IS NOT NULL THEN CASE WHEN 
+                    _Qry &= vbCrLf & " CASE WHEN RS2B_BC.FTStateBranchAcceptBy IS NULL THEN "
+                    _Qry &= vbCrLf & " B.FNRcvQuantity ELSE ISNULL(RS2B_BC.FNBalQuantity,0) - ISNULL(SS2B_BC.FNBalQuantity,0)  END AS FTRcvApproveBal "
+                    ' ----- End Add By Chet 29 Mar 2023  / 25 Dec 2023 ----- 
                     _Qry &= vbCrLf & " ,ISNULL( SPLN.FTNote, '' ) AS FTNote"
+
+
+                    '' best add  unisect receive 20231211 
+                    If ST.Lang.Language = ST.Lang.eLang.TH Then
+                        _Qry &= vbCrLf & ",RS2B_BC.FNHSysUnitSectId  ,US.FTUnitSectCode ,US.FTUnitSectNameTH AS FTUnitSectName"
+                    Else
+                        _Qry &= vbCrLf & ",RS2B_BC.FNHSysUnitSectId  ,US.FTUnitSectCode ,US.FTUnitSectNameEN AS FTUnitSectName "
+                    End If
+
+                    '' best end add 20231211
+
+
 
                     _Qry &= vbCrLf & "from"
                     _Qry &= vbCrLf & "(Select AA.FTSendSuplNo,K.FTOrderNo,K.FTBarcodeSendSuplNo,BD.FNQuantity As FNSendQuantity"
@@ -829,11 +843,15 @@ Public Class wProdSendSuplTracking
                     _Qry &= vbCrLf & " Left OUTER JOIN (select FTSendSuplNo, FTStateBranchAcceptBy, FTStateBranchAcceptDate, FNBalQuantity, FTBarcodeSendSuplNo, FNQuantity "
                     _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTSendSuplToBranch_Barcode) as SS2B_BC "
                     _Qry &= vbCrLf & " ON SS2B_BC.FTSendSuplNo = A.FTSendSuplNo AND SS2B_BC.FTBarcodeSendSuplNo = A.FTBarcodeSendSuplNo "
-                    _Qry &= vbCrLf & " Left OUTER JOIN (select FTRcvSuplNo, FTStateBranchAcceptBy, FTStateBranchAcceptDate, FNBalQuantity, FTBarcodeSendSuplNo "
+
+                    _Qry &= vbCrLf & " Left OUTER JOIN (select FTRcvSuplNo, FTStateBranchAcceptBy, FTStateBranchAcceptDate, FNBalQuantity, FTBarcodeSendSuplNo , FNHSysUnitSectId "
                     _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTReceiveSuplToBranch_Barcode) as RS2B_BC "
                     _Qry &= vbCrLf & " ON RS2B_BC.FTRcvSuplNo = B.FTRcvSuplNo AND RS2B_BC.FTBarcodeSendSuplNo = B.FTBarcodeSendSuplNo "
-                    _Qry &= vbCrLf & " OUTER APPLY ( SELECT FTNote FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.FNT_GetPartSendSuplDesc_SemiPart "
-                    _Qry &= vbCrLf & "(  O.FNHSysStyleId ) AS SPLN WHERE A.FNHSysPartId = SPLN.FNHSysPartId AND A.FNSendSuplType = SPLN.FNSendSuplType ) AS SPLN"
+
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT top 1  FNHSysUnitSectId, FTUnitSectCode, FTUnitSectNameTH, FTUnitSectNameEN FROM  HITECH_MASTER.dbo.TCNMUnitSect WHERE FNHSysUnitSectId = RS2B_BC.FNHSysUnitSectId) US "
+
+                    _Qry &= vbCrLf & " OUTER APPLY ( SELECT top 1  FTNote FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.FN_Get_SendSuplDesc (    A.FTBarcodeSendSuplNo ,A.FTBarcodeBundleNo  ) A  "
+                    _Qry &= vbCrLf & "  ) AS SPLN"
                     ' ----- End Add By Chet 29 Mar 2023 ----- 
 
 
@@ -892,7 +910,7 @@ Public Class wProdSendSuplTracking
             'Else
             Select Case c.FieldName.ToString
                 Case "FTStyleCode", "FTOrderNo", "FTCmpCode", "FTCmpName", "FTColorway", "FTSizeBreakDown", "FTSenSuplTypeName" _
-                    , "FTPartName", "FTSuplCode", "FTSuplName", "FTSendSuplNo", "FDSendSuplDate", "FNSendSuplState", "FTRcvSuplNo", "FDRcvSuplDate"
+                    , "FTPartName", "FTSuplCode", "FTSuplName", "FTSendSuplNo", "FDSendSuplDate", "FNSendSuplState", "FTRcvSuplNo", "FDRcvSuplDate", "FTUnitSectCode"
                     c.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True
                     c.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
                 Case Else
@@ -1309,6 +1327,20 @@ Public Class wProdSendSuplTracking
                         Case "FTRcvSuplBy"
 
                             If ("" & .GetRowCellValue(e.RowHandle1, "FTRcvSuplNo").ToString = "" & .GetRowCellValue(e.RowHandle2, "FTRcvSuplNo").ToString) Then
+
+                                e.Merge = (e.CellValue1.ToString = e.CellValue2.ToString)
+                                e.Handled = True
+                                e.Column.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+
+                            Else
+
+                                e.Merge = False
+                                e.Handled = True
+
+                            End If
+                        Case "FTUnitSectCode"
+
+                            If ("" & .GetRowCellValue(e.RowHandle1, "FTUnitSectCode").ToString = "" & .GetRowCellValue(e.RowHandle2, "FTUnitSectCode").ToString) Then
 
                                 e.Merge = (e.CellValue1.ToString = e.CellValue2.ToString)
                                 e.Handled = True

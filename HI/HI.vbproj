@@ -397,7 +397,6 @@
     <Content Include="bin\Debug\DatabaseWSMCENTER.xml" />
     <Content Include="bin\Debug\DatabaseLao.xml" />
     <Content Include="bin\Debug\Database.xml" />
-    <Content Include="bin\Debug\Database_91.xml" />
     <Content Include="bin\Debug\NikeFileInvoice.xml" />
     <Content Include="Wisdom.ico" />
     <Content Include="Wisdom_logo_Hires.ico" />
