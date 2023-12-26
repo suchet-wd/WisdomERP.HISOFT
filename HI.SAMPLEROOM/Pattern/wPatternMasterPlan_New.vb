@@ -30,8 +30,24 @@ Public Class wPatternMasterPlan_New
 
         End With
 
-        InitGrid()
 
+        With rFTEmpCode
+
+            AddHandler .Leave, AddressOf ItemEmpCode_Leave
+
+        End With
+
+
+        With rFTPatternTypeCode
+
+        End With
+
+
+        With rFTPatternGrpTypeCode
+
+        End With
+
+        InitGrid()
 
     End Sub
 
@@ -289,7 +305,7 @@ Public Class wPatternMasterPlan_New
 
         If chkSample.Checked Then
             cmd &= vbCrLf & "SELECT '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID', '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID_Hide', "
-            cmd &= vbCrLf & "'' AS 'FTPatternTypeCode','' AS 'FTPatternTypeCode_Hide','' AS 'FTPatternGrpTypeCode','' AS 'FTPatternGrpTypeCode_Hide', "
+            cmd &= vbCrLf & "'' AS 'FTPTNTypeCode','' AS 'FTPTNTypeCode_Hide','' AS 'FTPTNGrpTypeCode','' AS 'FTPTNGrpTypeCode_Hide', "
             cmd &= vbCrLf & "'SAMPLEROOM' AS 'Category', "
             cmd &= vbCrLf & "'' AS 'FTPositCode', '' AS 'FTPositCode_Hide', '' AS 'FTEmpCode', '' AS 'FTEmpCode_Hide', "
             cmd &= vbCrLf & "A.FTSMPOrderNo, A.FNSMPOrderStatus As FNSMPOrderStatusState "
@@ -442,7 +458,7 @@ Public Class wPatternMasterPlan_New
 
         If chkProd.Checked Then
             cmd &= vbCrLf & "SELECT '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID', '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID_Hide', "
-            cmd &= vbCrLf & "'' AS 'FTPatternTypeCode','' AS 'FTPatternTypeCode_Hide','' AS 'FTPatternGrpTypeCode','' AS 'FTPatternGrpTypeCode_Hide', "
+            cmd &= vbCrLf & "'' AS 'FTPTNTypeCode','' AS 'FTPTNTypeCode_Hide','' AS 'FTPTNGrpTypeCode','' AS 'FTPTNGrpTypeCode_Hide', "
             cmd &= vbCrLf & "'PRODUCTION' AS 'Category','' AS 'FTPositCode', '' AS 'FTPositCode_Hide','' AS 'FTEmpCode', '' AS 'FTEmpCode_Hide', "
             cmd &= vbCrLf & "ISNULL(A.FTOrderNo,'') AS 'FTSMPOrderNo', ISNULL(A.FNJobState,'') AS 'FNSMPOrderStatusState' "
             cmd &= vbCrLf & ", Case When ISDATE(A.FDInsDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,A.FDInsDate),103),'') Else NULL END  AS 'FDSMPOrderDate' "
@@ -716,98 +732,53 @@ Public Class wPatternMasterPlan_New
 
             End With
 
-
-
         Catch ex As Exception
 
         End Try
     End Sub
 
-    'Private Sub ReposFTEmpCut_Click(sender As Object, e As EventArgs) Handles ReposFTEmpCut.Click
-    '    Try
-    '        With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
-    '            If .FocusedRowHandle < -1 Then Exit Sub
+    Private Sub ItemEmpCode_Leave(sender As Object, e As System.EventArgs)
+        Try
+            With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
 
-    '            GridDataBefore = (.GetFocusedRowCellValue(.FocusedColumn)).ToString()
+                If .FocusedRowHandle < -1 Then Exit Sub
 
-    '        End With
+                If Not HI.MG.ShowMsg.mConfirmProcessDefaultNo(MG.ShowMsg.ProcessType.mSave, CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).FocusedColumn.Caption) Then
+                    Exit Sub
+                End If
 
-
-    '    Catch ex As Exception
-    '        GridDataBefore = ""
-    '    End Try
-    'End Sub
-
-    'Private Sub ReposFTEmpCut_Leave(sender As Object, e As EventArgs) Handles ReposFTEmpCut.Leave
-    '    Try
-    '        With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
-    '            If .FocusedRowHandle < -1 Then Exit Sub
-    '            If Not HI.MG.ShowMsg.mConfirmProcessDefaultNo(MG.ShowMsg.ProcessType.mSave, CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).FocusedColumn.Caption) Then
-
-    '                Exit Sub
-    '            End If
-
-    '            Dim NewData As String = sender.Text
-
-    '            If NewData <> GridDataBefore Then
-
-    '                Dim CategCategory As String = .GetRowCellValue(.FocusedRowHandle, "Category").ToString()
-    '                Dim OrderNo As String = .GetRowCellValue(.FocusedRowHandle, "FTSMPOrderNo").ToString()
-    '                Dim Color As String = .GetRowCellValue(.FocusedRowHandle, "FTColorway").ToString()
-    '                Dim Size As String = .GetRowCellValue(.FocusedRowHandle, "FTSizeBreakDown").ToString()
-    '                Dim FieldName As String = .FocusedColumn.FieldName.ToString
-
-    '                Dim cmdstring As String = ""
-
-    '            End If
-
-    '            GridDataBefore = ""
-    '        End With
-
-    '    Catch ex As Exception
-    '    End Try
-    'End Sub
-
-    'Private Sub ReposFTNote_Click(sender As Object, e As EventArgs)
-    '    Try
-    '        With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
-
-    '            GridDataBefore = (.GetFocusedRowCellValue(.FocusedColumn)).ToString()
-
-    '        End With
-
-    '    Catch ex As Exception
-    '        GridDataBefore = ""
-    '    End Try
-    'End Sub
-
-    'Private Sub ReposFTNote_Leave(sender As Object, e As EventArgs)
-    '    Try
-    '        With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
-    '            If .FocusedRowHandle < -1 Then Exit Sub
-    '            If Not HI.MG.ShowMsg.mConfirmProcess(MG.ShowMsg.ProcessType.mSave, CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).FocusedColumn.Caption) Then
-
-    '                Exit Sub
-    '            End If
-
-    '            Dim NewData As String = sender.Text
-
-    '            If NewData <> GridDataBefore Then
-
-    '                Dim OrderNo As String = .GetRowCellValue(.FocusedRowHandle, "FTSMPOrderNo").ToString()
-    '                Dim Color As String = .GetRowCellValue(.FocusedRowHandle, "FTColorway").ToString()
-    '                Dim Size As String = .GetRowCellValue(.FocusedRowHandle, "FTSizeBreakDown").ToString()
-    '                Dim FieldName As String = .FocusedColumn.FieldName.ToString
+                Dim _EmpCode As String
+                Me.ocmsave.Visible = True
+                _EmpCode = CType(sender, DevExpress.XtraEditors.ButtonEdit).EditValue
+                'Dim _FNHSysEmpID As String = .GetRowCellValue(.FocusedRowHandle, "FNHSysEmpID").ToString()
+                CType(sender, DevExpress.XtraEditors.ButtonEdit).Text = _EmpCode
 
 
-    '            End If
+                'If _TDate = "" Then
+                '    .SetRowCellValue(.FocusedRowHandle, .FocusedColumn.FieldName.ToString, "")
+                'Else
+                '    .SetRowCellValue(.FocusedRowHandle, .FocusedColumn.FieldName.ToString, HI.UL.ULDate.ConvertEN(_TDate))
+                'End If
 
-    '            GridDataBefore = ""
-    '        End With
+                'Dim NewData As String = HI.UL.ULDate.ConvertEN(_TDate)
+                'If NewData <> GridDataBefore Then
 
-    '    Catch ex As Exception
-    '    End Try
-    'End Sub
+                'Dim OrderNo As String = .GetRowCellValue(.FocusedRowHandle, "FTSMPOrderNo").ToString()
+                'Dim FieldName As String = .FocusedColumn.FieldName.ToString
+
+                Dim cmdstring As String = ""
+
+
+                'If HI.Conn.SQLConn.ExecuteNonQuery(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE) = False Then
+
+                'End If
+
+
+            End With
+
+        Catch ex As Exception
+        End Try
+    End Sub
 
     Private Sub ogvoperation_CellMerge(sender As Object, e As CellMergeEventArgs)
         Try
@@ -835,6 +806,9 @@ Public Class wPatternMasterPlan_New
                             e.Merge = False
                             e.Handled = True
                         End If
+
+                        'Case "FTOrderRemark"
+                        '    e.Column.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
 
                     Case Else
                         e.Merge = False
