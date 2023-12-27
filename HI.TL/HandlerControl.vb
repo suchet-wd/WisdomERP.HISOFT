@@ -1987,7 +1987,8 @@ Public Class HandlerControl
                     _TDate = ""
                 End Try
 
-                CType(sender, DevExpress.XtraEditors.DateEdit).Text = _TDate 'HI.Conn.oDate.Convert_Date_En_To_DB(CType(sender, DevExpress.XtraEditors.DateEdit).Text)
+                CType(sender, DevExpress.XtraEditors.DateEdit).Text = _TDate
+                'HI.Conn.oDate.Convert_Date_En_To_DB(CType(sender, DevExpress.XtraEditors.DateEdit).Text)
                 .SetRowCellValue(.FocusedRowHandle, .FocusedColumn.FieldName.ToString, HI.UL.ULDate.ConvertEN(_TDate))
 
             End With

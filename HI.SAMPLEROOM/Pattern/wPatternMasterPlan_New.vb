@@ -32,19 +32,20 @@ Public Class wPatternMasterPlan_New
 
 
         With rFTEmpCode
-
             AddHandler .Leave, AddressOf ItemEmpCode_Leave
-
         End With
 
+        With rFTPositCode
+            AddHandler .Leave, AddressOf ItemPosition_Leave
+        End With
 
         With rFTPatternTypeCode
-
+            AddHandler .Leave, AddressOf ItemTypeCode_Leave
         End With
 
 
         With rFTPatternGrpTypeCode
-
+            AddHandler .Leave, AddressOf ItemGrpTypeCode_Leave
         End With
 
         InitGrid()
@@ -772,6 +773,86 @@ Public Class wPatternMasterPlan_New
                 'If HI.Conn.SQLConn.ExecuteNonQuery(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE) = False Then
 
                 'End If
+
+
+            End With
+
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub ItemPosition_Leave(sender As Object, e As System.EventArgs)
+        Try
+            With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
+
+                If .FocusedRowHandle < -1 Then Exit Sub
+
+                If Not HI.MG.ShowMsg.mConfirmProcessDefaultNo(MG.ShowMsg.ProcessType.mSave, CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).FocusedColumn.Caption) Then
+                    Exit Sub
+                End If
+
+                Dim _PositionCode As String
+                Me.ocmsave.Visible = True
+                _PositionCode = CType(sender, DevExpress.XtraEditors.ButtonEdit).EditValue
+                'Dim _FNHSysEmpID As String = .GetRowCellValue(.FocusedRowHandle, "FNHSysEmpID").ToString()
+                CType(sender, DevExpress.XtraEditors.ButtonEdit).Text = _PositionCode
+
+
+                Dim cmdstring As String = ""
+
+
+
+            End With
+
+        Catch ex As Exception
+        End Try
+    End Sub
+    Private Sub ItemTypeCode_Leave(sender As Object, e As System.EventArgs)
+        Try
+            With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
+
+                If .FocusedRowHandle < -1 Then Exit Sub
+
+                If Not HI.MG.ShowMsg.mConfirmProcessDefaultNo(MG.ShowMsg.ProcessType.mSave, CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).FocusedColumn.Caption) Then
+                    Exit Sub
+                End If
+
+                Dim _TypeCode As String
+                Me.ocmsave.Visible = True
+                _TypeCode = CType(sender, DevExpress.XtraEditors.ButtonEdit).EditValue
+                'Dim _FNHSysEmpID As String = .GetRowCellValue(.FocusedRowHandle, "FNHSysEmpID").ToString()
+                CType(sender, DevExpress.XtraEditors.ButtonEdit).Text = _TypeCode
+
+
+                Dim cmdstring As String = ""
+
+
+
+            End With
+
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub ItemGrpTypeCode_Leave(sender As Object, e As System.EventArgs)
+        Try
+            With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
+
+                If .FocusedRowHandle < -1 Then Exit Sub
+
+                If Not HI.MG.ShowMsg.mConfirmProcessDefaultNo(MG.ShowMsg.ProcessType.mSave, CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView).FocusedColumn.Caption) Then
+                    Exit Sub
+                End If
+
+                Dim _GrpTypeCode As String
+                Me.ocmsave.Visible = True
+                _GrpTypeCode = CType(sender, DevExpress.XtraEditors.ButtonEdit).EditValue
+                'Dim _FNHSysEmpID As String = .GetRowCellValue(.FocusedRowHandle, "FNHSysEmpID").ToString()
+                CType(sender, DevExpress.XtraEditors.ButtonEdit).Text = _GrpTypeCode
+
+
+                Dim cmdstring As String = ""
+
 
 
             End With
