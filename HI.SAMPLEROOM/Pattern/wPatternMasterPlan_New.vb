@@ -31,22 +31,26 @@ Public Class wPatternMasterPlan_New
         End With
 
 
-        With rFTEmpCode
-            AddHandler .Leave, AddressOf ItemEmpCode_Leave
+        With rFTEmp
+            AddHandler .Leave, AddressOf ItemString_GotFocus
+            AddHandler .Leave, AddressOf ItemString_Leave
         End With
 
-        With rFTPositCode
-            AddHandler .Leave, AddressOf ItemPosition_Leave
+        With rFTPosit
+            AddHandler .Leave, AddressOf ItemString_GotFocus
+            AddHandler .Leave, AddressOf ItemString_Leave
         End With
 
-        With rFTPatternTypeCode
-            AddHandler .Leave, AddressOf ItemTypeCode_Leave
+        With rFTPTNType
+            AddHandler .Leave, AddressOf ItemString_GotFocus
+            AddHandler .Leave, AddressOf ItemString_Leave
         End With
 
 
-        With rFTPatternGrpTypeCode
-            AddHandler .Leave, AddressOf ItemGrpTypeCode_Leave
-        End With
+        'With rFTPatternGrpTypeCode
+        '    AddHandler .Click, AddressOf ItemString_GotFocus
+        '    AddHandler .Leave, AddressOf ItemGrpTypeCode_Leave
+        'End With
 
         InitGrid()
 
@@ -267,8 +271,8 @@ Public Class wPatternMasterPlan_New
     Private Sub wOperationByStyle_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         With Me.ogvPattern
-            .Columns.ColumnByFieldName("FTActPatternDate").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
-            .Columns.ColumnByFieldName("FTPatternDate").OptionsColumn.AllowEdit = False
+            .Columns.ColumnByFieldName("FTActPTNDate").OptionsColumn.AllowEdit = (Me.ocmsave.Enabled)
+            .Columns.ColumnByFieldName("FTPTNDate").OptionsColumn.AllowEdit = False
 
             '.Columns.ColumnByFieldName("FTFabricDate").OptionsColumn.AllowEdit = False
             '.Columns.ColumnByFieldName("FTAccessoryDate").OptionsColumn.AllowEdit = False
@@ -321,8 +325,8 @@ Public Class wPatternMasterPlan_New
             cmd &= vbCrLf & ", A.FTOrderRemark"
             cmd &= vbCrLf & ", A.FTBuyCode"
             cmd &= vbCrLf & ", A.FTPgmName"
-            cmd &= vbCrLf & ", CASE WHEN ISDATE(A.FTPatternDate) = 1 Then CONVERT(varchar(10),convert(Datetime,A.FTPatternDate),103) Else NULL END AS  FTPatternDate"
-            cmd &= vbCrLf & ", CASE WHEN ISDATE(SMPMP.FTActPatternDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,SMPMP.FTActPatternDate),103),'') Else NULL END AS  FTActPatternDate"
+            cmd &= vbCrLf & ", CASE WHEN ISDATE(A.FTPatternDate) = 1 Then CONVERT(varchar(10),convert(Datetime,A.FTPatternDate),103) Else NULL END AS 'FTPTNDate'"
+            cmd &= vbCrLf & ", CASE WHEN ISDATE(SMPMP.FTActPatternDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,SMPMP.FTActPatternDate),103),'') Else NULL END AS 'FTActPTNDate'"
             cmd &= vbCrLf & ", CASE WHEN ISDATE(SMPMP.FTCFMSendSampleDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,SMPMP.FTCFMSendSampleDate),103),'') Else NULL END AS  FTCFMSendSampleDate"
             cmd &= vbCrLf & ", CASE WHEN ISDATE(a.FTGACDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,a.FTGACDate),103),'') Else NULL END  AS  FDGacDate"
             cmd &= vbCrLf & ", CASE WHEN ISDATE('') = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,''),103),'') Else NULL END  AS OGacDate"
@@ -470,8 +474,8 @@ Public Class wPatternMasterPlan_New
             cmd &= vbCrLf & ", ISNULL(GD.FTGenderNameEN,'') AS 'FTGenderName', ISNULL(A.FTOrderBy,'') AS 'FTSMPOrderBy' "
             cmd &= vbCrLf & ", ISNULL(A.FTRemark,'') AS 'FTOrderRemark', B.FTBuyCode AS 'FTBuyCode' "
             cmd &= vbCrLf & ", ISNULL(A.FTSubPgm,'') AS 'FTPgmName'  "
-            cmd &= vbCrLf & ", PT.FTPatternDate AS 'FTPatternDate' "
-            cmd &= vbCrLf & ", PT.FTActPatternDate AS 'FTActPatternDate' "
+            cmd &= vbCrLf & ", PT.FTPTNDate AS 'FTPTNDate' "
+            cmd &= vbCrLf & ", PT.FTActPTNDate AS 'FTActPTNDate' "
             cmd &= vbCrLf & ", '' AS 'FTCFMSendSampleDate' "
             cmd &= vbCrLf & ", CASE WHEN ISDATE(S.FDShipDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,S.FDShipDate),103),'') Else NULL END AS 'FDGacDate' "
             cmd &= vbCrLf & ", CASE WHEN ISDATE(S.FDShipDateOrginal) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,S.FDShipDateOrginal),103),'') Else NULL END AS 'OGacDate' "
@@ -563,7 +567,7 @@ Public Class wPatternMasterPlan_New
             cmd &= vbCrLf & vbCrLf & " GROUP BY A.FTOrderNo, A.FTStateOrderApp, A.FDInsDate, GD.FTGenderCode, A.FTOrderBy, "
             cmd &= vbCrLf & " A.FTRemark, A.FTSubPgm, B.FTBuyCode, S.FTOther1Note, A.FNHSysProdTypeId, MST.FTStyleCode, "
             cmd &= vbCrLf & " MCT.FTCustCode, MMT.FTMerTeamCode, SB.FTColorway, A.FNJobState, A.FTStateBy, C.FTCmpCode,"
-            cmd &= vbCrLf & " PT.FTPatternDate, PT.FTActPatternDate, S.FDShipDate, S.FDShipDateOrginal"
+            cmd &= vbCrLf & " PT.FTPTNDate,PT.FTActPTNDate, S.FDShipDate, S.FDShipDateOrginal"
             cmd &= vbCrLf & " , MST.FTStyleNameEN, GD.FTGenderNameEN, MSS.FTSeasonNameEN "
 
             If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
@@ -632,7 +636,7 @@ Public Class wPatternMasterPlan_New
                     Dim Category As String = .GetRowCellValue(.FocusedRowHandle, "Category").ToString()
                     Dim OrderNo As String = .GetRowCellValue(.FocusedRowHandle, "FTSMPOrderNo").ToString()
                     Dim Color As String = .GetRowCellValue(.FocusedRowHandle, "FTColorway").ToString()
-                    Dim FTActPatternDate As String = .GetRowCellValue(.FocusedRowHandle, "FTActPatternDate").ToString()
+                    Dim FTActPatternDate As String = .GetRowCellValue(.FocusedRowHandle, "FTActPTNDate").ToString()
                     'Dim Size As String = .GetRowCellValue(.FocusedRowHandle, "FTSizeBreakDown").ToString()
                     Dim FieldName As String = .FocusedColumn.FieldName.ToString
 
@@ -672,7 +676,7 @@ Public Class wPatternMasterPlan_New
                         cmdstring &= vbCrLf & " "
                         cmdstring &= vbCrLf & "BEGIN"
                         cmdstring &= vbCrLf & "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TPTNOrder  "
-                        cmdstring &= vbCrLf & "(FTOrderNo, FTActPatternDate, FTActPatternDateUser, FTActPatternDateDate, FTActPatternDateTime,FTInsUser,FDInsDate,FTInsTime) "
+                        cmdstring &= vbCrLf & "(FTOrderNo, FTActPTNDate, FTActPTNDateUser, FTActPTNDateDate, FTActPTNDateTime,FTInsUser,FDInsDate,FTInsTime) "
                         cmdstring &= vbCrLf & " VALUES "
                         cmdstring &= vbCrLf & "('" & HI.UL.ULF.rpQuoted(OrderNo) & "','" & HI.UL.ULF.rpQuoted(NewData) & "','"
                         cmdstring &= vbCrLf & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "',"
@@ -738,7 +742,21 @@ Public Class wPatternMasterPlan_New
         End Try
     End Sub
 
-    Private Sub ItemEmpCode_Leave(sender As Object, e As System.EventArgs)
+    Private Sub ItemString_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs)
+        Try
+            With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
+
+                GridDataBefore = (.GetFocusedRowCellValue(.FocusedColumn))
+                'Val(FNHSysSeasonId.Properties.Tag.ToString)
+
+            End With
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub ItemString_Leave(sender As Object, e As System.EventArgs)
         Try
             With CType(sender.Parent.MainView, DevExpress.XtraGrid.Views.Grid.GridView)
 
@@ -750,30 +768,50 @@ Public Class wPatternMasterPlan_New
 
                 Dim _EmpCode As String
                 Me.ocmsave.Visible = True
-                _EmpCode = CType(sender, DevExpress.XtraEditors.ButtonEdit).EditValue
-                'Dim _FNHSysEmpID As String = .GetRowCellValue(.FocusedRowHandle, "FNHSysEmpID").ToString()
-                CType(sender, DevExpress.XtraEditors.ButtonEdit).Text = _EmpCode
+                Dim OrderNo As String = .GetRowCellValue(.FocusedRowHandle, "FTSMPOrderNo").ToString()
+                _EmpCode = CType(sender, DevExpress.XtraEditors.ButtonEdit).Text
+
+                Dim NewData As String = _EmpCode
+                If NewData <> GridDataBefore Then
 
 
-                'If _TDate = "" Then
-                '    .SetRowCellValue(.FocusedRowHandle, .FocusedColumn.FieldName.ToString, "")
-                'Else
-                '    .SetRowCellValue(.FocusedRowHandle, .FocusedColumn.FieldName.ToString, HI.UL.ULDate.ConvertEN(_TDate))
-                'End If
+                    Dim FTEmpCode As String = .GetRowCellValue(.FocusedRowHandle, "FTEmpCode").ToString()
+                    Dim FieldName As String = .FocusedColumn.Name.ToString
+                    'FieldName.ToString
 
-                'Dim NewData As String = HI.UL.ULDate.ConvertEN(_TDate)
-                'If NewData <> GridDataBefore Then
+                    Dim cmdstring As String = ""
+                    cmdstring = "BEGIN"
+                    cmdstring &= vbCrLf & " If EXISTS(SELECT FTOrderNo FROM [HITECH_SAMPLEROOM].dbo.TPTNOrder WHERE FTOrderNo = '" & HI.UL.ULF.rpQuoted(OrderNo) & "')  "
+                    cmdstring &= vbCrLf & " "
+                    cmdstring &= vbCrLf & "BEGIN"
+                    cmdstring &= vbCrLf & "UPDATE [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TPTNOrder Set "
+                    cmdstring &= vbCrLf & " " & FieldName & "='" & GridDataBefore & "'"
+                    cmdstring &= vbCrLf & ",FTUpdUser = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    cmdstring &= vbCrLf & ",FDUpdDate = " & HI.UL.ULDate.FormatDateDB & ""
+                    cmdstring &= vbCrLf & ",FTUpdTime = " & HI.UL.ULDate.FormatTimeDB & " "
+                    cmdstring &= vbCrLf & " WHERE FTOrderNo = '" & HI.UL.ULF.rpQuoted(OrderNo) & "' "
+                    'AND FTColorway='" & HI.UL.ULF.rpQuoted(Color) & "' "
+                    cmdstring &= vbCrLf & "END"
+                    cmdstring &= vbCrLf & " "
+                    cmdstring &= vbCrLf & "ELSE"
+                    cmdstring &= vbCrLf & " "
+                    cmdstring &= vbCrLf & "BEGIN"
+                    cmdstring &= vbCrLf & "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TPTNOrder  "
+                    cmdstring &= vbCrLf & "(FTOrderNo, " & FieldName & ",FTInsUser,FDInsDate,FTInsTime) "
+                    cmdstring &= vbCrLf & " VALUES "
+                    cmdstring &= vbCrLf & "('" & HI.UL.ULF.rpQuoted(OrderNo) & "','" & GridDataBefore & "',"
+                    cmdstring &= vbCrLf & "'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "',"
+                    cmdstring &= vbCrLf & HI.UL.ULDate.FormatDateDB & ","
+                    cmdstring &= vbCrLf & HI.UL.ULDate.FormatTimeDB & ")"
+                    cmdstring &= vbCrLf & "END"
+                    cmdstring &= vbCrLf & " "
+                    cmdstring &= vbCrLf & "END"
 
-                'Dim OrderNo As String = .GetRowCellValue(.FocusedRowHandle, "FTSMPOrderNo").ToString()
-                'Dim FieldName As String = .FocusedColumn.FieldName.ToString
+                    'If HI.Conn.SQLConn.ExecuteNonQuery(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE) = False Then
 
-                Dim cmdstring As String = ""
+                    'End If
 
-
-                'If HI.Conn.SQLConn.ExecuteNonQuery(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE) = False Then
-
-                'End If
-
+                End If
 
             End With
 
@@ -799,7 +837,7 @@ Public Class wPatternMasterPlan_New
 
 
                 Dim cmdstring As String = ""
-
+                cmdstring = Val(sender.Properties.Tag.ToString)
 
 
             End With
@@ -825,7 +863,7 @@ Public Class wPatternMasterPlan_New
 
 
                 Dim cmdstring As String = ""
-
+                cmdstring = Val(sender.Properties.Tag.ToString)
 
 
             End With
