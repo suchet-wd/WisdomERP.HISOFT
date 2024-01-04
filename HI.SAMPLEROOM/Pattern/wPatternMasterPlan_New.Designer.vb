@@ -19,6 +19,11 @@ Partial Class wPatternMasterPlan_New
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim EditorButtonImageOptions8 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject29 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject30 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject31 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject32 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -49,26 +54,6 @@ Partial Class wPatternMasterPlan_New
         Dim SerializableAppearanceObject22 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject23 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject24 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions7 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject25 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject26 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject27 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject28 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions8 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject29 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject30 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject31 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject32 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions9 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject33 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject34 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject35 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject36 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions10 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject37 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject38 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject39 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject40 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbStyleHeader = New DevExpress.XtraEditors.GroupControl()
         Me.chkSample = New DevExpress.XtraEditors.CheckEdit()
         Me.chkProd = New DevExpress.XtraEditors.CheckEdit()
@@ -121,13 +106,13 @@ Partial Class wPatternMasterPlan_New
         Me.Block = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTStyleName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTSMPOrderNo = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FTSizeBreakDown = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.CFDSMPOrderDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSize = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FNHSysPTNTypeId = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.rFTPTNType = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
-        Me.FNHSysPTNTypeId_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FNHSysPTNGrpTypeId = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FNHSysPTNGrpTypeId_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTPatternTypeCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ReposPTNType = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.FTPatternTypeCode_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTPTNGrpType = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.cFDGacDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.cFDOGacDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.LeadTime = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -140,27 +125,18 @@ Partial Class wPatternMasterPlan_New
         Me.ActFinishYear = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ActFinishWeek = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ActFinishWY = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FNHSysEmpID = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.rFTEmp = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
-        Me.FNHSysEmpID_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FTEmpCode = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FTEmpCode_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FNHSysPositId = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.rFTPosit = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
-        Me.FNHSysPositId_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.CFNSMPOrderStatus = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.PatternMaker = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.PatternTeam = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.OrderStatus = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.OrderStatus_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.InIOTP = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ExIOTP = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTOrderRemark = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.CFDSMPOrderDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTDeliveryDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTCFMSendSampleDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTCustomerTeam = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTGenderCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTSMPOrderBy = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FTColorway = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FTStandBy = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.PlanDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FinishDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTStateReceiptDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.Remark = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -168,7 +144,6 @@ Partial Class wPatternMasterPlan_New
         Me.FTEmpName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNHSysCmpID = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNHSysCmpID_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.rFTPTNGrpType = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
         CType(Me.ogbStyleHeader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbStyleHeader.SuspendLayout()
         CType(Me.chkSample.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -200,10 +175,7 @@ Partial Class wPatternMasterPlan_New
         CType(Me.ogvPattern, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReposDate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReposDate.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.rFTPTNType, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.rFTEmp, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.rFTPosit, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.rFTPTNGrpType, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ReposPTNType, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ogbStyleHeader
@@ -248,7 +220,7 @@ Partial Class wPatternMasterPlan_New
         Me.chkSample.Name = "chkSample"
         Me.chkSample.Properties.Caption = "Sample Room"
         Me.chkSample.Size = New System.Drawing.Size(91, 20)
-        Me.chkSample.TabIndex = 596
+        Me.chkSample.TabIndex = 13
         '
         'chkProd
         '
@@ -257,7 +229,7 @@ Partial Class wPatternMasterPlan_New
         Me.chkProd.Name = "chkProd"
         Me.chkProd.Properties.Caption = "Production"
         Me.chkProd.Size = New System.Drawing.Size(75, 20)
-        Me.chkProd.TabIndex = 595
+        Me.chkProd.TabIndex = 12
         '
         'lblFilterType
         '
@@ -286,7 +258,7 @@ Partial Class wPatternMasterPlan_New
         Me.FNYear.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.FNYear.Properties.Mask.EditMask = "yyyy"
         Me.FNYear.Size = New System.Drawing.Size(133, 20)
-        Me.FNYear.TabIndex = 593
+        Me.FNYear.TabIndex = 2
         '
         'lblFTYear
         '
@@ -334,19 +306,19 @@ Partial Class wPatternMasterPlan_New
         '
         Me.FNHSysBuyIdTo.Location = New System.Drawing.Point(434, 57)
         Me.FNHSysBuyIdTo.Name = "FNHSysBuyIdTo"
-        Me.FNHSysBuyIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysBuyIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBuyIdTo.Properties.Tag = "113"
         Me.FNHSysBuyIdTo.Size = New System.Drawing.Size(133, 20)
-        Me.FNHSysBuyIdTo.TabIndex = 3
+        Me.FNHSysBuyIdTo.TabIndex = 4
         '
         'FNHSysBuyIdFrom
         '
         Me.FNHSysBuyIdFrom.Location = New System.Drawing.Point(144, 56)
         Me.FNHSysBuyIdFrom.Name = "FNHSysBuyIdFrom"
-        Me.FNHSysBuyIdFrom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysBuyIdFrom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBuyIdFrom.Properties.Tag = ""
         Me.FNHSysBuyIdFrom.Size = New System.Drawing.Size(162, 20)
-        Me.FNHSysBuyIdFrom.TabIndex = 2
+        Me.FNHSysBuyIdFrom.TabIndex = 3
         '
         'FTEndReqDate
         '
@@ -361,7 +333,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTEndReqDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndReqDate.Properties.NullDate = ""
         Me.FTEndReqDate.Size = New System.Drawing.Size(132, 20)
-        Me.FTEndReqDate.TabIndex = 7
+        Me.FTEndReqDate.TabIndex = 8
         Me.FTEndReqDate.Tag = "2|"
         '
         'LabelControl5
@@ -391,7 +363,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTStartReqDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartReqDate.Properties.NullDate = ""
         Me.FTStartReqDate.Size = New System.Drawing.Size(162, 20)
-        Me.FTStartReqDate.TabIndex = 6
+        Me.FTStartReqDate.TabIndex = 7
         Me.FTStartReqDate.Tag = "2|"
         '
         'LabelControl6
@@ -421,7 +393,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTEndOrderDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndOrderDate.Properties.NullDate = ""
         Me.FTEndOrderDate.Size = New System.Drawing.Size(132, 20)
-        Me.FTEndOrderDate.TabIndex = 9
+        Me.FTEndOrderDate.TabIndex = 10
         Me.FTEndOrderDate.Tag = "2|"
         '
         'FTEndOrderDate_lbl
@@ -451,7 +423,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTStartOrderDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartOrderDate.Properties.NullDate = ""
         Me.FTStartOrderDate.Size = New System.Drawing.Size(162, 20)
-        Me.FTStartOrderDate.TabIndex = 8
+        Me.FTStartOrderDate.TabIndex = 9
         Me.FTStartOrderDate.Tag = "2|"
         '
         'FTStartOrderDate_lbl
@@ -472,11 +444,11 @@ Partial Class wPatternMasterPlan_New
         '
         Me.FNHSysMerTeamId.Location = New System.Drawing.Point(144, 107)
         Me.FNHSysMerTeamId.Name = "FNHSysMerTeamId"
-        Me.FNHSysMerTeamId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "153", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysMerTeamId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "153", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysMerTeamId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysMerTeamId.Properties.Tag = ""
         Me.FNHSysMerTeamId.Size = New System.Drawing.Size(162, 20)
-        Me.FNHSysMerTeamId.TabIndex = 5
+        Me.FNHSysMerTeamId.TabIndex = 6
         Me.FNHSysMerTeamId.Tag = "2|"
         '
         'FNHSysMerTeamId_lbl
@@ -508,11 +480,11 @@ Partial Class wPatternMasterPlan_New
         '
         Me.FNHSysCustId.Location = New System.Drawing.Point(144, 185)
         Me.FNHSysCustId.Name = "FNHSysCustId"
-        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCustId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCustId.Properties.Tag = ""
         Me.FNHSysCustId.Size = New System.Drawing.Size(162, 20)
-        Me.FNHSysCustId.TabIndex = 10
+        Me.FNHSysCustId.TabIndex = 11
         Me.FNHSysCustId.Tag = "2|"
         '
         'FNHSysCustId_lbl
@@ -533,7 +505,7 @@ Partial Class wPatternMasterPlan_New
         '
         Me.FNHSysSeasonId.Location = New System.Drawing.Point(144, 30)
         Me.FNHSysSeasonId.Name = "FNHSysSeasonId"
-        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSeasonId.Properties.Tag = ""
         Me.FNHSysSeasonId.Size = New System.Drawing.Size(162, 20)
         Me.FNHSysSeasonId.TabIndex = 1
@@ -571,11 +543,11 @@ Partial Class wPatternMasterPlan_New
         '
         Me.FNHSysStyleId.Location = New System.Drawing.Point(144, 81)
         Me.FNHSysStyleId.Name = "FNHSysStyleId"
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "235", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "235", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysStyleId.Properties.Tag = ""
         Me.FNHSysStyleId.Size = New System.Drawing.Size(162, 20)
-        Me.FNHSysStyleId.TabIndex = 4
+        Me.FNHSysStyleId.TabIndex = 5
         Me.FNHSysStyleId.Tag = "2|"
         '
         'ogboperation
@@ -649,7 +621,7 @@ Partial Class wPatternMasterPlan_New
         Me.ogcPattern.Location = New System.Drawing.Point(2, 23)
         Me.ogcPattern.MainView = Me.ogvPattern
         Me.ogcPattern.Name = "ogcPattern"
-        Me.ogcPattern.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.ReposDate, Me.rFTPosit, Me.rFTEmp, Me.rFTPTNType, Me.rFTPTNGrpType})
+        Me.ogcPattern.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.ReposDate, Me.ReposPTNType})
         Me.ogcPattern.Size = New System.Drawing.Size(1641, 440)
         Me.ogcPattern.TabIndex = 301
         Me.ogcPattern.TabStop = False
@@ -658,7 +630,7 @@ Partial Class wPatternMasterPlan_New
         '
         'ogvPattern
         '
-        Me.ogvPattern.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Category, Me.GroupCust, Me.SubGroupCust, Me.CFTCustCode, Me.CFTCustName, Me.FTActPTNDate, Me.FTMerTeamCode, Me.CFTSeasonCode, Me.FTPgmName, Me.FTBuyCode, Me.FTCmpCode, Me.PriorityList, Me.CFTStyleCode, Me.Block, Me.CFTStyleName, Me.CFTSMPOrderNo, Me.FTSizeBreakDown, Me.FNQuantity, Me.FNHSysPTNTypeId, Me.FNHSysPTNTypeId_Hide, Me.FNHSysPTNGrpTypeId, Me.FNHSysPTNGrpTypeId_Hide, Me.cFDGacDate, Me.cFDOGacDate, Me.LeadTime, Me.CFTPatternDate, Me.OPT, Me.PT, Me.PlanFinishYear, Me.PlanFinishWeek, Me.PlanFinishWY, Me.ActFinishYear, Me.ActFinishWeek, Me.ActFinishWY, Me.FNHSysEmpID, Me.FNHSysEmpID_Hide, Me.FTEmpCode, Me.FTEmpCode_Hide, Me.FNHSysPositId, Me.FNHSysPositId_Hide, Me.CFNSMPOrderStatus, Me.InIOTP, Me.ExIOTP, Me.FTOrderRemark, Me.CFDSMPOrderDate, Me.FTDeliveryDate, Me.CFTCFMSendSampleDate, Me.CFTCustomerTeam, Me.CFTGenderCode, Me.CFTSMPOrderBy, Me.FTColorway, Me.FTStandBy, Me.PlanDate, Me.FinishDate, Me.CFTStateReceiptDate, Me.Remark, Me.FTRemark, Me.FTEmpName, Me.FNHSysCmpID, Me.FNHSysCmpID_Hide})
+        Me.ogvPattern.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Category, Me.GroupCust, Me.SubGroupCust, Me.CFTCustCode, Me.CFTCustName, Me.FTActPTNDate, Me.FTMerTeamCode, Me.CFTSeasonCode, Me.FTPgmName, Me.FTBuyCode, Me.FTCmpCode, Me.PriorityList, Me.CFTStyleCode, Me.Block, Me.CFTStyleName, Me.CFTSMPOrderNo, Me.CFDSMPOrderDate, Me.FTSize, Me.FNQuantity, Me.FTPatternTypeCode, Me.FTPatternTypeCode_Hide, Me.FTPTNGrpType, Me.cFDGacDate, Me.cFDOGacDate, Me.LeadTime, Me.CFTPatternDate, Me.OPT, Me.PT, Me.PlanFinishYear, Me.PlanFinishWeek, Me.PlanFinishWY, Me.ActFinishYear, Me.ActFinishWeek, Me.ActFinishWY, Me.PatternMaker, Me.PatternTeam, Me.OrderStatus, Me.OrderStatus_Hide, Me.InIOTP, Me.ExIOTP, Me.FTOrderRemark, Me.FTDeliveryDate, Me.CFTCFMSendSampleDate, Me.CFTCustomerTeam, Me.CFTGenderCode, Me.CFTSMPOrderBy, Me.FinishDate, Me.CFTStateReceiptDate, Me.Remark, Me.FTRemark, Me.FTEmpName, Me.FNHSysCmpID, Me.FNHSysCmpID_Hide})
         Me.ogvPattern.DetailHeight = 284
         Me.ogvPattern.GridControl = Me.ogcPattern
         Me.ogvPattern.Name = "ogvPattern"
@@ -681,7 +653,7 @@ Partial Class wPatternMasterPlan_New
         Me.Category.OptionsColumn.AllowEdit = False
         Me.Category.Visible = True
         Me.Category.VisibleIndex = 0
-        Me.Category.Width = 94
+        Me.Category.Width = 85
         '
         'GroupCust
         '
@@ -693,6 +665,7 @@ Partial Class wPatternMasterPlan_New
         Me.GroupCust.OptionsColumn.AllowEdit = False
         Me.GroupCust.Visible = True
         Me.GroupCust.VisibleIndex = 1
+        Me.GroupCust.Width = 65
         '
         'SubGroupCust
         '
@@ -704,6 +677,7 @@ Partial Class wPatternMasterPlan_New
         Me.SubGroupCust.OptionsColumn.AllowEdit = False
         Me.SubGroupCust.Visible = True
         Me.SubGroupCust.VisibleIndex = 2
+        Me.SubGroupCust.Width = 60
         '
         'CFTCustCode
         '
@@ -719,7 +693,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTCustCode.OptionsColumn.ReadOnly = True
         Me.CFTCustCode.Visible = True
         Me.CFTCustCode.VisibleIndex = 3
-        Me.CFTCustCode.Width = 78
+        Me.CFTCustCode.Width = 59
         '
         'CFTCustName
         '
@@ -795,7 +769,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTSeasonCode.OptionsColumn.ReadOnly = True
         Me.CFTSeasonCode.Visible = True
         Me.CFTSeasonCode.VisibleIndex = 7
-        Me.CFTSeasonCode.Width = 99
+        Me.CFTSeasonCode.Width = 77
         '
         'FTPgmName
         '
@@ -808,7 +782,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTPgmName.OptionsColumn.ReadOnly = True
         Me.FTPgmName.Visible = True
         Me.FTPgmName.VisibleIndex = 8
-        Me.FTPgmName.Width = 100
+        Me.FTPgmName.Width = 71
         '
         'FTBuyCode
         '
@@ -825,7 +799,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTBuyCode.OptionsColumn.ReadOnly = True
         Me.FTBuyCode.Visible = True
         Me.FTBuyCode.VisibleIndex = 9
-        Me.FTBuyCode.Width = 110
+        Me.FTBuyCode.Width = 76
         '
         'FTCmpCode
         '
@@ -839,6 +813,7 @@ Partial Class wPatternMasterPlan_New
         Me.FTCmpCode.OptionsColumn.AllowEdit = False
         Me.FTCmpCode.Visible = True
         Me.FTCmpCode.VisibleIndex = 10
+        Me.FTCmpCode.Width = 42
         '
         'PriorityList
         '
@@ -848,6 +823,7 @@ Partial Class wPatternMasterPlan_New
         Me.PriorityList.OptionsColumn.AllowEdit = False
         Me.PriorityList.Visible = True
         Me.PriorityList.VisibleIndex = 11
+        Me.PriorityList.Width = 51
         '
         'CFTStyleCode
         '
@@ -865,7 +841,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTStyleCode.OptionsColumn.ReadOnly = True
         Me.CFTStyleCode.Visible = True
         Me.CFTStyleCode.VisibleIndex = 12
-        Me.CFTStyleCode.Width = 84
+        Me.CFTStyleCode.Width = 59
         '
         'Block
         '
@@ -875,6 +851,7 @@ Partial Class wPatternMasterPlan_New
         Me.Block.OptionsColumn.AllowEdit = False
         Me.Block.Visible = True
         Me.Block.VisibleIndex = 13
+        Me.Block.Width = 47
         '
         'CFTStyleName
         '
@@ -910,19 +887,35 @@ Partial Class wPatternMasterPlan_New
         Me.CFTSMPOrderNo.VisibleIndex = 15
         Me.CFTSMPOrderNo.Width = 104
         '
-        'FTSizeBreakDown
+        'CFDSMPOrderDate
         '
-        Me.FTSizeBreakDown.Caption = "FTSizeBreakDown"
-        Me.FTSizeBreakDown.FieldName = "FTSizeBreakDown"
-        Me.FTSizeBreakDown.MinWidth = 17
-        Me.FTSizeBreakDown.Name = "FTSizeBreakDown"
-        Me.FTSizeBreakDown.OptionsColumn.AllowEdit = False
-        Me.FTSizeBreakDown.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTSizeBreakDown.OptionsColumn.AllowMove = False
-        Me.FTSizeBreakDown.OptionsColumn.ReadOnly = True
-        Me.FTSizeBreakDown.Visible = True
-        Me.FTSizeBreakDown.VisibleIndex = 16
-        Me.FTSizeBreakDown.Width = 90
+        Me.CFDSMPOrderDate.AppearanceCell.Options.UseTextOptions = True
+        Me.CFDSMPOrderDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.CFDSMPOrderDate.Caption = "FDSMPOrderDate"
+        Me.CFDSMPOrderDate.FieldName = "FDSMPOrderDate"
+        Me.CFDSMPOrderDate.MinWidth = 17
+        Me.CFDSMPOrderDate.Name = "CFDSMPOrderDate"
+        Me.CFDSMPOrderDate.OptionsColumn.AllowEdit = False
+        Me.CFDSMPOrderDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
+        Me.CFDSMPOrderDate.OptionsColumn.AllowMove = False
+        Me.CFDSMPOrderDate.OptionsColumn.ReadOnly = True
+        Me.CFDSMPOrderDate.Visible = True
+        Me.CFDSMPOrderDate.VisibleIndex = 16
+        Me.CFDSMPOrderDate.Width = 76
+        '
+        'FTSize
+        '
+        Me.FTSize.Caption = "FTSize"
+        Me.FTSize.FieldName = "FTSize"
+        Me.FTSize.MinWidth = 17
+        Me.FTSize.Name = "FTSize"
+        Me.FTSize.OptionsColumn.AllowEdit = False
+        Me.FTSize.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTSize.OptionsColumn.AllowMove = False
+        Me.FTSize.OptionsColumn.ReadOnly = True
+        Me.FTSize.Visible = True
+        Me.FTSize.VisibleIndex = 17
+        Me.FTSize.Width = 90
         '
         'FNQuantity
         '
@@ -937,47 +930,47 @@ Partial Class wPatternMasterPlan_New
         Me.FNQuantity.OptionsColumn.AllowMove = False
         Me.FNQuantity.OptionsColumn.ReadOnly = True
         Me.FNQuantity.Visible = True
-        Me.FNQuantity.VisibleIndex = 17
-        Me.FNQuantity.Width = 84
+        Me.FNQuantity.VisibleIndex = 18
+        Me.FNQuantity.Width = 68
         '
-        'FNHSysPTNTypeId
+        'FTPatternTypeCode
         '
-        Me.FNHSysPTNTypeId.Caption = "FNHSysPTNTypeId"
-        Me.FNHSysPTNTypeId.ColumnEdit = Me.rFTPTNType
-        Me.FNHSysPTNTypeId.FieldName = "FTPTNTypeCode"
-        Me.FNHSysPTNTypeId.Name = "FNHSysPTNTypeId"
-        Me.FNHSysPTNTypeId.Visible = True
-        Me.FNHSysPTNTypeId.VisibleIndex = 18
+        Me.FTPatternTypeCode.AppearanceCell.Options.UseTextOptions = True
+        Me.FTPatternTypeCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTPatternTypeCode.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTPatternTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTPatternTypeCode.Caption = "FTPatternTypeCode"
+        Me.FTPatternTypeCode.ColumnEdit = Me.ReposPTNType
+        Me.FTPatternTypeCode.FieldName = "FTPatternTypeCode"
+        Me.FTPatternTypeCode.Name = "FTPatternTypeCode"
+        Me.FTPatternTypeCode.Visible = True
+        Me.FTPatternTypeCode.VisibleIndex = 19
         '
-        'rFTPTNType
+        'ReposPTNType
         '
-        Me.rFTPTNType.AutoHeight = False
-        Me.rFTPTNType.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "704", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.rFTPTNType.Name = "rFTPTNType"
+        Me.ReposPTNType.AutoHeight = False
+        Me.ReposPTNType.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "703", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ReposPTNType.Name = "ReposPTNType"
         '
-        'FNHSysPTNTypeId_Hide
+        'FTPatternTypeCode_Hide
         '
-        Me.FNHSysPTNTypeId_Hide.Caption = "FNHSysPTNTypeId_Hide"
-        Me.FNHSysPTNTypeId_Hide.FieldName = "FTPTNTypeCode"
-        Me.FNHSysPTNTypeId_Hide.Name = "FNHSysPTNTypeId_Hide"
-        Me.FNHSysPTNTypeId_Hide.OptionsColumn.AllowEdit = False
-        Me.FNHSysPTNTypeId_Hide.Visible = True
-        Me.FNHSysPTNTypeId_Hide.VisibleIndex = 46
+        Me.FTPatternTypeCode_Hide.Caption = "FTPatternTypeCode_Hide"
+        Me.FTPatternTypeCode_Hide.FieldName = "FTPatternTypeCode"
+        Me.FTPatternTypeCode_Hide.Name = "FTPatternTypeCode_Hide"
+        Me.FTPatternTypeCode_Hide.OptionsColumn.AllowEdit = False
         '
-        'FNHSysPTNGrpTypeId
+        'FTPTNGrpType
         '
-        Me.FNHSysPTNGrpTypeId.Caption = "FNHSysPTNGrpTypeId"
-        Me.FNHSysPTNGrpTypeId.FieldName = "FTPTNGrpTypeCode"
-        Me.FNHSysPTNGrpTypeId.Name = "FNHSysPTNGrpTypeId"
-        Me.FNHSysPTNGrpTypeId.Visible = True
-        Me.FNHSysPTNGrpTypeId.VisibleIndex = 19
-        '
-        'FNHSysPTNGrpTypeId_Hide
-        '
-        Me.FNHSysPTNGrpTypeId_Hide.Caption = "FNHSysPTNGrpTypeId_Hide"
-        Me.FNHSysPTNGrpTypeId_Hide.FieldName = "FTPTNGrpTypeCode"
-        Me.FNHSysPTNGrpTypeId_Hide.Name = "FNHSysPTNGrpTypeId_Hide"
-        Me.FNHSysPTNGrpTypeId_Hide.OptionsColumn.AllowEdit = False
+        Me.FTPTNGrpType.AppearanceCell.Options.UseTextOptions = True
+        Me.FTPTNGrpType.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTPTNGrpType.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTPTNGrpType.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTPTNGrpType.Caption = "FTPTNGrpType"
+        Me.FTPTNGrpType.FieldName = "FTPTNGrpType"
+        Me.FTPTNGrpType.Name = "FTPTNGrpType"
+        Me.FTPTNGrpType.OptionsColumn.AllowEdit = False
+        Me.FTPTNGrpType.Visible = True
+        Me.FTPTNGrpType.VisibleIndex = 21
         '
         'cFDGacDate
         '
@@ -995,27 +988,37 @@ Partial Class wPatternMasterPlan_New
         Me.cFDGacDate.OptionsColumn.AllowMove = False
         Me.cFDGacDate.OptionsColumn.AllowShowHide = False
         Me.cFDGacDate.Visible = True
-        Me.cFDGacDate.VisibleIndex = 20
-        Me.cFDGacDate.Width = 64
+        Me.cFDGacDate.VisibleIndex = 21
+        Me.cFDGacDate.Width = 58
         '
         'cFDOGacDate
         '
+        Me.cFDOGacDate.AppearanceCell.Options.UseTextOptions = True
+        Me.cFDOGacDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.cFDOGacDate.AppearanceHeader.Options.UseTextOptions = True
+        Me.cFDOGacDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.cFDOGacDate.Caption = "OGAC"
         Me.cFDOGacDate.ColumnEdit = Me.ReposDate
         Me.cFDOGacDate.FieldName = "FDOGacDate"
         Me.cFDOGacDate.Name = "cFDOGacDate"
         Me.cFDOGacDate.OptionsColumn.AllowEdit = False
         Me.cFDOGacDate.Visible = True
-        Me.cFDOGacDate.VisibleIndex = 21
+        Me.cFDOGacDate.VisibleIndex = 22
+        Me.cFDOGacDate.Width = 54
         '
         'LeadTime
         '
+        Me.LeadTime.AppearanceCell.Options.UseTextOptions = True
+        Me.LeadTime.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.LeadTime.AppearanceHeader.Options.UseTextOptions = True
+        Me.LeadTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.LeadTime.Caption = "LeadTime"
         Me.LeadTime.FieldName = "LeadTime"
         Me.LeadTime.Name = "LeadTime"
         Me.LeadTime.OptionsColumn.AllowEdit = False
         Me.LeadTime.Visible = True
-        Me.LeadTime.VisibleIndex = 22
+        Me.LeadTime.VisibleIndex = 24
+        Me.LeadTime.Width = 51
         '
         'CFTPatternDate
         '
@@ -1033,160 +1036,167 @@ Partial Class wPatternMasterPlan_New
         Me.CFTPatternDate.OptionsColumn.AllowMove = False
         Me.CFTPatternDate.OptionsColumn.ReadOnly = True
         Me.CFTPatternDate.Visible = True
-        Me.CFTPatternDate.VisibleIndex = 23
-        Me.CFTPatternDate.Width = 95
+        Me.CFTPatternDate.VisibleIndex = 24
+        Me.CFTPatternDate.Width = 72
         '
         'OPT
         '
+        Me.OPT.AppearanceCell.Options.UseTextOptions = True
+        Me.OPT.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.OPT.AppearanceHeader.Options.UseTextOptions = True
+        Me.OPT.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.OPT.Caption = "OPT"
         Me.OPT.FieldName = "OPT"
         Me.OPT.Name = "OPT"
         Me.OPT.OptionsColumn.AllowEdit = False
         Me.OPT.Visible = True
-        Me.OPT.VisibleIndex = 24
+        Me.OPT.VisibleIndex = 26
         '
         'PT
         '
+        Me.PT.AppearanceCell.Options.UseTextOptions = True
+        Me.PT.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.PT.AppearanceHeader.Options.UseTextOptions = True
+        Me.PT.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.PT.Caption = "PT"
         Me.PT.FieldName = "PT"
         Me.PT.Name = "PT"
         Me.PT.OptionsColumn.AllowEdit = False
         Me.PT.Visible = True
-        Me.PT.VisibleIndex = 25
+        Me.PT.VisibleIndex = 27
         '
         'PlanFinishYear
         '
+        Me.PlanFinishYear.AppearanceCell.Options.UseTextOptions = True
+        Me.PlanFinishYear.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.PlanFinishYear.AppearanceHeader.Options.UseTextOptions = True
+        Me.PlanFinishYear.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.PlanFinishYear.Caption = "PlanFinishYear"
         Me.PlanFinishYear.FieldName = "PlanFinishYear"
         Me.PlanFinishYear.Name = "PlanFinishYear"
         Me.PlanFinishYear.OptionsColumn.AllowEdit = False
         Me.PlanFinishYear.Visible = True
-        Me.PlanFinishYear.VisibleIndex = 26
+        Me.PlanFinishYear.VisibleIndex = 28
         '
         'PlanFinishWeek
         '
+        Me.PlanFinishWeek.AppearanceCell.Options.UseTextOptions = True
+        Me.PlanFinishWeek.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.PlanFinishWeek.AppearanceHeader.Options.UseTextOptions = True
+        Me.PlanFinishWeek.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.PlanFinishWeek.Caption = "PlanFinishWeek"
         Me.PlanFinishWeek.FieldName = "PlanFinishWeek"
         Me.PlanFinishWeek.Name = "PlanFinishWeek"
         Me.PlanFinishWeek.OptionsColumn.AllowEdit = False
         Me.PlanFinishWeek.Visible = True
-        Me.PlanFinishWeek.VisibleIndex = 27
+        Me.PlanFinishWeek.VisibleIndex = 29
         '
         'PlanFinishWY
         '
+        Me.PlanFinishWY.AppearanceCell.Options.UseTextOptions = True
+        Me.PlanFinishWY.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.PlanFinishWY.AppearanceHeader.Options.UseTextOptions = True
+        Me.PlanFinishWY.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.PlanFinishWY.Caption = "PlanFinishWY"
         Me.PlanFinishWY.FieldName = "PlanFinishWY"
         Me.PlanFinishWY.Name = "PlanFinishWY"
         Me.PlanFinishWY.OptionsColumn.AllowEdit = False
         Me.PlanFinishWY.Visible = True
-        Me.PlanFinishWY.VisibleIndex = 28
+        Me.PlanFinishWY.VisibleIndex = 30
         '
         'ActFinishYear
         '
+        Me.ActFinishYear.AppearanceCell.Options.UseTextOptions = True
+        Me.ActFinishYear.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ActFinishYear.AppearanceHeader.Options.UseTextOptions = True
+        Me.ActFinishYear.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ActFinishYear.Caption = "ActFinishYear"
         Me.ActFinishYear.FieldName = "ActFinishYear"
         Me.ActFinishYear.Name = "ActFinishYear"
         Me.ActFinishYear.OptionsColumn.AllowEdit = False
         Me.ActFinishYear.Visible = True
-        Me.ActFinishYear.VisibleIndex = 29
+        Me.ActFinishYear.VisibleIndex = 31
         '
         'ActFinishWeek
         '
+        Me.ActFinishWeek.AppearanceCell.Options.UseTextOptions = True
+        Me.ActFinishWeek.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ActFinishWeek.AppearanceHeader.Options.UseTextOptions = True
+        Me.ActFinishWeek.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ActFinishWeek.Caption = "ActFinishWeek"
         Me.ActFinishWeek.FieldName = "ActFinishWeek"
         Me.ActFinishWeek.Name = "ActFinishWeek"
         Me.ActFinishWeek.OptionsColumn.AllowEdit = False
         Me.ActFinishWeek.Visible = True
-        Me.ActFinishWeek.VisibleIndex = 30
+        Me.ActFinishWeek.VisibleIndex = 32
         '
         'ActFinishWY
         '
+        Me.ActFinishWY.AppearanceCell.Options.UseTextOptions = True
+        Me.ActFinishWY.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ActFinishWY.AppearanceHeader.Options.UseTextOptions = True
+        Me.ActFinishWY.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ActFinishWY.Caption = "ActFinishWY"
         Me.ActFinishWY.FieldName = "ActFinishWY"
         Me.ActFinishWY.Name = "ActFinishWY"
         Me.ActFinishWY.OptionsColumn.AllowEdit = False
         Me.ActFinishWY.Visible = True
-        Me.ActFinishWY.VisibleIndex = 31
+        Me.ActFinishWY.VisibleIndex = 33
         '
-        'FNHSysEmpID
+        'PatternMaker
         '
-        Me.FNHSysEmpID.Caption = "FNHSysEmpID"
-        Me.FNHSysEmpID.ColumnEdit = Me.rFTEmp
-        Me.FNHSysEmpID.FieldName = "FTEmpCode"
-        Me.FNHSysEmpID.Name = "FNHSysEmpID"
-        Me.FNHSysEmpID.Visible = True
-        Me.FNHSysEmpID.VisibleIndex = 32
-        Me.FNHSysEmpID.Width = 63
+        Me.PatternMaker.AppearanceCell.Options.UseTextOptions = True
+        Me.PatternMaker.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.PatternMaker.AppearanceHeader.Options.UseTextOptions = True
+        Me.PatternMaker.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.PatternMaker.Caption = "PatternMaker"
+        Me.PatternMaker.FieldName = "TPTNOrderBy"
+        Me.PatternMaker.Name = "PatternMaker"
+        Me.PatternMaker.OptionsColumn.AllowEdit = False
+        Me.PatternMaker.Visible = True
+        Me.PatternMaker.VisibleIndex = 34
+        Me.PatternMaker.Width = 63
         '
-        'rFTEmp
+        'PatternTeam
         '
-        Me.rFTEmp.AutoHeight = False
-        Me.rFTEmp.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "703", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.rFTEmp.Name = "rFTEmp"
+        Me.PatternTeam.AppearanceCell.Options.UseTextOptions = True
+        Me.PatternTeam.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.PatternTeam.AppearanceHeader.Options.UseTextOptions = True
+        Me.PatternTeam.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.PatternTeam.Caption = "PatternTeam"
+        Me.PatternTeam.FieldName = "PatternTeam"
+        Me.PatternTeam.Name = "PatternTeam"
+        Me.PatternTeam.OptionsColumn.AllowEdit = False
+        Me.PatternTeam.Visible = True
+        Me.PatternTeam.VisibleIndex = 35
+        Me.PatternTeam.Width = 56
         '
-        'FNHSysEmpID_Hide
+        'OrderStatus
         '
-        Me.FNHSysEmpID_Hide.Caption = "FNHSysEmpID_Hide"
-        Me.FNHSysEmpID_Hide.FieldName = "FTEmpCode"
-        Me.FNHSysEmpID_Hide.Name = "FNHSysEmpID_Hide"
-        Me.FNHSysEmpID_Hide.OptionsColumn.AllowEdit = False
-        Me.FNHSysEmpID_Hide.Visible = True
-        Me.FNHSysEmpID_Hide.VisibleIndex = 33
+        Me.OrderStatus.AppearanceCell.Options.UseTextOptions = True
+        Me.OrderStatus.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.OrderStatus.AppearanceHeader.Options.UseTextOptions = True
+        Me.OrderStatus.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.OrderStatus.Caption = "Status"
+        Me.OrderStatus.FieldName = "OrderStatus"
+        Me.OrderStatus.MinWidth = 17
+        Me.OrderStatus.Name = "OrderStatus"
+        Me.OrderStatus.OptionsColumn.AllowEdit = False
+        Me.OrderStatus.OptionsColumn.ReadOnly = True
+        Me.OrderStatus.Visible = True
+        Me.OrderStatus.VisibleIndex = 38
+        Me.OrderStatus.Width = 67
         '
-        'FTEmpCode
+        'OrderStatus_Hide
         '
-        Me.FTEmpCode.Caption = "FTEmpCode"
-        Me.FTEmpCode.FieldName = "FTEmpCode"
-        Me.FTEmpCode.Name = "FTEmpCode"
-        Me.FTEmpCode.OptionsColumn.AllowEdit = False
-        Me.FTEmpCode.Visible = True
-        Me.FTEmpCode.VisibleIndex = 34
-        '
-        'FTEmpCode_Hide
-        '
-        Me.FTEmpCode_Hide.Caption = "FTEmpCode_Hide"
-        Me.FTEmpCode_Hide.FieldName = "FTEmpCode"
-        Me.FTEmpCode_Hide.Name = "FTEmpCode_Hide"
-        Me.FTEmpCode_Hide.OptionsColumn.AllowEdit = False
-        Me.FTEmpCode_Hide.Visible = True
-        Me.FTEmpCode_Hide.VisibleIndex = 35
-        '
-        'FNHSysPositId
-        '
-        Me.FNHSysPositId.Caption = "FNHSysPositId"
-        Me.FNHSysPositId.ColumnEdit = Me.rFTPosit
-        Me.FNHSysPositId.FieldName = "FTPositCode"
-        Me.FNHSysPositId.Name = "FNHSysPositId"
-        Me.FNHSysPositId.Visible = True
-        Me.FNHSysPositId.VisibleIndex = 36
-        Me.FNHSysPositId.Width = 56
-        '
-        'rFTPosit
-        '
-        Me.rFTPosit.AutoHeight = False
-        Me.rFTPosit.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "702", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.rFTPosit.Name = "rFTPosit"
-        '
-        'FNHSysPositId_Hide
-        '
-        Me.FNHSysPositId_Hide.Caption = "FNHSysPositId_Hide"
-        Me.FNHSysPositId_Hide.FieldName = "FTPositCode"
-        Me.FNHSysPositId_Hide.Name = "FNHSysPositId_Hide"
-        Me.FNHSysPositId_Hide.OptionsColumn.AllowEdit = False
-        '
-        'CFNSMPOrderStatus
-        '
-        Me.CFNSMPOrderStatus.AppearanceCell.Options.UseTextOptions = True
-        Me.CFNSMPOrderStatus.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.CFNSMPOrderStatus.Caption = "Status"
-        Me.CFNSMPOrderStatus.FieldName = "FNSMPOrderStatus"
-        Me.CFNSMPOrderStatus.MinWidth = 17
-        Me.CFNSMPOrderStatus.Name = "CFNSMPOrderStatus"
-        Me.CFNSMPOrderStatus.OptionsColumn.AllowEdit = False
-        Me.CFNSMPOrderStatus.OptionsColumn.ReadOnly = True
-        Me.CFNSMPOrderStatus.Visible = True
-        Me.CFNSMPOrderStatus.VisibleIndex = 37
-        Me.CFNSMPOrderStatus.Width = 79
+        Me.OrderStatus_Hide.AppearanceCell.Options.UseTextOptions = True
+        Me.OrderStatus_Hide.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.OrderStatus_Hide.AppearanceHeader.Options.UseTextOptions = True
+        Me.OrderStatus_Hide.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.OrderStatus_Hide.Caption = "OrderStatus_Hide"
+        Me.OrderStatus_Hide.FieldName = "OrderStatus_Hide"
+        Me.OrderStatus_Hide.Name = "OrderStatus_Hide"
+        Me.OrderStatus_Hide.OptionsColumn.AllowEdit = False
         '
         'InIOTP
         '
@@ -1195,7 +1205,7 @@ Partial Class wPatternMasterPlan_New
         Me.InIOTP.Name = "InIOTP"
         Me.InIOTP.OptionsColumn.AllowEdit = False
         Me.InIOTP.Visible = True
-        Me.InIOTP.VisibleIndex = 38
+        Me.InIOTP.VisibleIndex = 36
         '
         'ExIOTP
         '
@@ -1204,7 +1214,7 @@ Partial Class wPatternMasterPlan_New
         Me.ExIOTP.Name = "ExIOTP"
         Me.ExIOTP.OptionsColumn.AllowEdit = False
         Me.ExIOTP.Visible = True
-        Me.ExIOTP.VisibleIndex = 39
+        Me.ExIOTP.VisibleIndex = 37
         '
         'FTOrderRemark
         '
@@ -1219,24 +1229,8 @@ Partial Class wPatternMasterPlan_New
         Me.FTOrderRemark.OptionsColumn.AllowMove = False
         Me.FTOrderRemark.OptionsColumn.ReadOnly = True
         Me.FTOrderRemark.Visible = True
-        Me.FTOrderRemark.VisibleIndex = 40
+        Me.FTOrderRemark.VisibleIndex = 39
         Me.FTOrderRemark.Width = 76
-        '
-        'CFDSMPOrderDate
-        '
-        Me.CFDSMPOrderDate.AppearanceCell.Options.UseTextOptions = True
-        Me.CFDSMPOrderDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.CFDSMPOrderDate.Caption = "FDSMPOrderDate"
-        Me.CFDSMPOrderDate.FieldName = "FDSMPOrderDate"
-        Me.CFDSMPOrderDate.MinWidth = 17
-        Me.CFDSMPOrderDate.Name = "CFDSMPOrderDate"
-        Me.CFDSMPOrderDate.OptionsColumn.AllowEdit = False
-        Me.CFDSMPOrderDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
-        Me.CFDSMPOrderDate.OptionsColumn.AllowMove = False
-        Me.CFDSMPOrderDate.OptionsColumn.ReadOnly = True
-        Me.CFDSMPOrderDate.Visible = True
-        Me.CFDSMPOrderDate.VisibleIndex = 41
-        Me.CFDSMPOrderDate.Width = 98
         '
         'FTDeliveryDate
         '
@@ -1310,42 +1304,6 @@ Partial Class wPatternMasterPlan_New
         Me.CFTSMPOrderBy.OptionsColumn.ReadOnly = True
         Me.CFTSMPOrderBy.Width = 78
         '
-        'FTColorway
-        '
-        Me.FTColorway.Caption = "FTColorway"
-        Me.FTColorway.FieldName = "FTColorway"
-        Me.FTColorway.MinWidth = 17
-        Me.FTColorway.Name = "FTColorway"
-        Me.FTColorway.OptionsColumn.AllowEdit = False
-        Me.FTColorway.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTColorway.OptionsColumn.AllowMove = False
-        Me.FTColorway.OptionsColumn.ReadOnly = True
-        Me.FTColorway.Visible = True
-        Me.FTColorway.VisibleIndex = 42
-        Me.FTColorway.Width = 76
-        '
-        'FTStandBy
-        '
-        Me.FTStandBy.Caption = "FTStandBy"
-        Me.FTStandBy.FieldName = "FTStandBy"
-        Me.FTStandBy.MinWidth = 17
-        Me.FTStandBy.Name = "FTStandBy"
-        Me.FTStandBy.OptionsColumn.AllowEdit = False
-        Me.FTStandBy.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTStandBy.OptionsColumn.AllowMove = False
-        Me.FTStandBy.Visible = True
-        Me.FTStandBy.VisibleIndex = 43
-        Me.FTStandBy.Width = 145
-        '
-        'PlanDate
-        '
-        Me.PlanDate.Caption = "PlanDate"
-        Me.PlanDate.FieldName = "PlanDate"
-        Me.PlanDate.Name = "PlanDate"
-        Me.PlanDate.OptionsColumn.AllowEdit = False
-        Me.PlanDate.Visible = True
-        Me.PlanDate.VisibleIndex = 44
-        '
         'FinishDate
         '
         Me.FinishDate.Caption = "FinishDate"
@@ -1353,7 +1311,7 @@ Partial Class wPatternMasterPlan_New
         Me.FinishDate.Name = "FinishDate"
         Me.FinishDate.OptionsColumn.AllowEdit = False
         Me.FinishDate.Visible = True
-        Me.FinishDate.VisibleIndex = 45
+        Me.FinishDate.VisibleIndex = 40
         '
         'CFTStateReceiptDate
         '
@@ -1413,12 +1371,6 @@ Partial Class wPatternMasterPlan_New
         Me.FNHSysCmpID_Hide.Name = "FNHSysCmpID_Hide"
         Me.FNHSysCmpID_Hide.OptionsColumn.AllowEdit = False
         '
-        'rFTPTNGrpType
-        '
-        Me.rFTPTNGrpType.AutoHeight = False
-        Me.rFTPTNGrpType.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "705", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.rFTPTNGrpType.Name = "rFTPTNGrpType"
-        '
         'wPatternMasterPlan_New
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1459,10 +1411,7 @@ Partial Class wPatternMasterPlan_New
         CType(Me.ogvPattern, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReposDate.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReposDate, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.rFTPTNType, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.rFTEmp, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.rFTPosit, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.rFTPTNGrpType, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ReposPTNType, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1481,8 +1430,7 @@ Partial Class wPatternMasterPlan_New
     Friend WithEvents CFTCustCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CFTCustName As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTMerTeamCode As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FTSizeBreakDown As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FTColorway As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSize As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FNQuantity As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTDeliveryDate As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTRemark As DevExpress.XtraGrid.Columns.GridColumn
@@ -1506,12 +1454,11 @@ Partial Class wPatternMasterPlan_New
     Friend WithEvents FTActPTNDate As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ReposDate As DevExpress.XtraEditors.Repository.RepositoryItemDateEdit
     Friend WithEvents CFTCFMSendSampleDate As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents CFNSMPOrderStatus As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents OrderStatus As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTEndOrderDate As DevExpress.XtraEditors.DateEdit
     Friend WithEvents FTEndOrderDate_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTStartOrderDate As DevExpress.XtraEditors.DateEdit
     Friend WithEvents FTStartOrderDate_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTStandBy As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTBuyCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTPgmName As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents cFDGacDate As DevExpress.XtraGrid.Columns.GridColumn
@@ -1521,11 +1468,10 @@ Partial Class wPatternMasterPlan_New
     Friend WithEvents FTCmpCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents PriorityList As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents Block As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FNHSysPTNTypeId As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FNHSysPTNGrpTypeId As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTPatternTypeCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTPTNGrpType As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents cFDOGacDate As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents LeadTime As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents PlanDate As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents OPT As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents PT As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents PlanFinishYear As DevExpress.XtraGrid.Columns.GridColumn
@@ -1535,8 +1481,8 @@ Partial Class wPatternMasterPlan_New
     Friend WithEvents ActFinishYear As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ActFinishWeek As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ActFinishWY As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FNHSysEmpID As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FNHSysPositId As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents PatternMaker As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents PatternTeam As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents InIOTP As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ExIOTP As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents Remark As DevExpress.XtraGrid.Columns.GridColumn
@@ -1554,16 +1500,9 @@ Partial Class wPatternMasterPlan_New
     Friend WithEvents chkSample As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents chkProd As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents lblFilterType As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents rFTPosit As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
-    Friend WithEvents rFTEmp As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
-    Friend WithEvents FNHSysPositId_Hide As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FNHSysEmpID_Hide As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FNHSysCmpID_Hide As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FNHSysCmpID As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents rFTPTNType As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
-    Friend WithEvents rFTPTNGrpType As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
-    Friend WithEvents FNHSysPTNTypeId_Hide As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FNHSysPTNGrpTypeId_Hide As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FTEmpCode As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FTEmpCode_Hide As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents OrderStatus_Hide As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ReposPTNType As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
+    Friend WithEvents FTPatternTypeCode_Hide As DevExpress.XtraGrid.Columns.GridColumn
 End Class

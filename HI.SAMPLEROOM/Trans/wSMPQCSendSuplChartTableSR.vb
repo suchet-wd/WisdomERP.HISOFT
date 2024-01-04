@@ -117,9 +117,9 @@ Public Class wSMPQCSendSuplChartTableSR
             ' --------------------------------------------------------------------------------------------------------------'
 
             If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
-                _Cmd = "Select max(Q.FTQCSupDetailNameTH) As FTQCSupDetailName, sum(T.FNDefectQty) AS FNDefectQty, S.FTSuplCode, t.FTBarcodeSendSuplNo "
+                _Cmd = "Select max(Q.FTQCSupDetailNameTH) As FTQCSupDetailName, sum(T.FNDefectQty) AS FNDefectQty, S.FTSuplCode "  ', t.FTBarcodeSendSuplNo
             Else
-                _Cmd = "Select max(Q.FTQCSupDetailNameEN) As FTQCSupDetailName, sum(T.FNDefectQty) AS FNDefectQty, S.FTSuplCode, t.FTBarcodeSendSuplNo "
+                _Cmd = "Select max(Q.FTQCSupDetailNameEN) As FTQCSupDetailName, sum(T.FNDefectQty) AS FNDefectQty, S.FTSuplCode " ', t.FTBarcodeSendSuplNo
             End If
 
             _Cmd &= vbCrLf & " From (SELECT Q.FDInsDate, (Select Top 1 B.FTBarcodeSendSuplNo From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcode_SendSupl AS B  WITH (NOLOCK) "
@@ -187,7 +187,7 @@ Public Class wSMPQCSendSuplChartTableSR
 
             _Cmd &= vbCrLf & " And bx.FTBarcodeSendSuplNo = b.FTBarcodeSendSuplNo ) "
 
-            _Cmd &= vbCrLf & "GROUP BY T.FNHSysQCSuplDetailId, S.FTSuplCode, t.FTBarcodeSendSuplNo"
+            _Cmd &= vbCrLf & "GROUP BY T.FNHSysQCSuplDetailId, S.FTSuplCode" ', t.FTBarcodeSendSuplNo
             _Cmd &= vbCrLf & "ORDER BY S.FTSuplCode"
 
             Dim _oDt As DataTable = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_SAMPLE)
@@ -262,6 +262,12 @@ Public Class wSMPQCSendSuplChartTableSR
                     dt.Rows.Add(x!FTSuplCode.ToString)
                 End If
             Next
+            If dt.Rows.Count = 0 And _oDt.Rows.Count = 0 Then
+                For Each xx As DataRow In _oDtSum.Select("FTSuplCode <>''", "FTSuplCode")
+                    _oDt.Rows.Add("", 0, xx!FTSuplCode.ToString)
+                    dt.Rows.Add(xx!FTSuplCode.ToString)
+                Next
+            End If
             For Each R As DataRow In dt.Rows
                 'Me.oCTabPacking.TabPages.Add(Microsoft.VisualBasic.Left(R!FTRawMatNameEN.ToString, 20))
                 Dim _TabPage As New DevExpress.XtraTab.XtraTabPage
@@ -320,16 +326,21 @@ Public Class wSMPQCSendSuplChartTableSR
                     _dt.Rows.Add(Me.FNSendSuplDefectQty_lbl.Text, _GrandTotal, Nothing)
                     '
                     For Each X As DataRow In oDt.Rows
-                        _dt.Rows.Add(X!FTQCSupDetailName.ToString, CInt("0" & X!FNDefectQty.ToString), CInt("0" & X!FNDefectQty.ToString) / _GrandTotal)
+                        If _GrandTotal <> 0 Then
+                            _dt.Rows.Add(X!FTQCSupDetailName.ToString, CInt("0" & X!FNDefectQty.ToString), CInt("0" & X!FNDefectQty.ToString) / _GrandTotal)
+                        Else
+                            _dt.Rows.Add(X!FTQCSupDetailName.ToString, CInt("0" & X!FNDefectQty.ToString), CInt("0" & X!FNDefectQty.ToString) / 1)
+                        End If
                     Next
                 Catch ex As Exception
                 End Try
 
-                If (_StateDefual) Then
-                    Call CreateGrid(_GridV, _dt, _Grid)
-                Else
-                    Call CreateGrid(_GridV, _dt, _Grid)
-                End If
+                'If (_StateDefual) Then
+                '    Call CreateGrid(_GridV, _dt, _Grid)
+                'Else
+                '    Call CreateGrid(_GridV, _dt, _Grid)
+                'End If
+                Call CreateGrid(_GridV, _dt, _Grid)
                 HI.TL.HandlerControl.AddHandlerObj(_TabPage)
                 Me.otabDetail.TabPages.Add(_TabPage)
 
