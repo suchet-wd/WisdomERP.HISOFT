@@ -21,6 +21,11 @@ Partial Class wSMPQCSendSuplChartTableSR
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wSMPQCSendSuplChartTableSR))
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -36,20 +41,17 @@ Partial Class wSMPQCSendSuplChartTableSR
         Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.DockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.oCriteria = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
+        Me.FTSMPOrderNoTo = New DevExpress.XtraEditors.ButtonEdit()
         Me.FTSMPOrderNo = New DevExpress.XtraEditors.ButtonEdit()
         Me.EndQCDate = New DevExpress.XtraEditors.DateEdit()
         Me.FNHSysSuplId = New DevExpress.XtraEditors.ButtonEdit()
         Me.EFTDateQC_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.SFTDateQC_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
+        Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmload = New DevExpress.XtraEditors.SimpleButton()
         Me.StartQCDate = New DevExpress.XtraEditors.DateEdit()
@@ -75,10 +77,10 @@ Partial Class wSMPQCSendSuplChartTableSR
         Me.ogvGFNQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ogvGFNQuantityPercent = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.BehaviorManager1 = New DevExpress.Utils.Behaviors.BehaviorManager(Me.components)
-        Me.FTSMPOrderNoTo = New DevExpress.XtraEditors.ButtonEdit()
         CType(Me.DockManager, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.oCriteria.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
+        CType(Me.FTSMPOrderNoTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTSMPOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EndQCDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EndQCDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,7 +103,6 @@ Partial Class wSMPQCSendSuplChartTableSR
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvdetail, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BehaviorManager1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTSMPOrderNoTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DockManager
@@ -153,14 +154,56 @@ Partial Class wSMPQCSendSuplChartTableSR
         Me.DockPanel1_Container.Size = New System.Drawing.Size(1096, 130)
         Me.DockPanel1_Container.TabIndex = 0
         '
+        'FTSMPOrderNoTo
+        '
+        Me.FTSMPOrderNoTo.EnterMoveNextControl = True
+        Me.FTSMPOrderNoTo.Location = New System.Drawing.Point(486, 78)
+        Me.FTSMPOrderNoTo.Name = "FTSMPOrderNoTo"
+        Me.FTSMPOrderNoTo.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTSMPOrderNoTo.Properties.Appearance.Options.UseBackColor = True
+        Me.FTSMPOrderNoTo.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FTSMPOrderNoTo.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FTSMPOrderNoTo.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FTSMPOrderNoTo.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FTSMPOrderNoTo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FTSMPOrderNoTo.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FTSMPOrderNoTo.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FTSMPOrderNoTo.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FTSMPOrderNoTo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTSMPOrderNoTo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FTSMPOrderNoTo.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTSMPOrderNoTo.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FTSMPOrderNoTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "569", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSMPOrderNoTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.FTSMPOrderNoTo.Properties.MaxLength = 30
+        Me.FTSMPOrderNoTo.Size = New System.Drawing.Size(130, 20)
+        Me.FTSMPOrderNoTo.TabIndex = 517
+        Me.FTSMPOrderNoTo.Tag = "2|"
+        '
         'FTSMPOrderNo
         '
+        Me.FTSMPOrderNo.EnterMoveNextControl = True
         Me.FTSMPOrderNo.Location = New System.Drawing.Point(167, 77)
         Me.FTSMPOrderNo.Name = "FTSMPOrderNo"
-        Me.FTSMPOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "568", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FTSMPOrderNo.Properties.Tag = ""
-        Me.FTSMPOrderNo.Size = New System.Drawing.Size(130, 20)
-        Me.FTSMPOrderNo.TabIndex = 5
+        Me.FTSMPOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTSMPOrderNo.Properties.Appearance.Options.UseBackColor = True
+        Me.FTSMPOrderNo.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FTSMPOrderNo.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FTSMPOrderNo.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FTSMPOrderNo.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FTSMPOrderNo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FTSMPOrderNo.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FTSMPOrderNo.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FTSMPOrderNo.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FTSMPOrderNo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTSMPOrderNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FTSMPOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTSMPOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FTSMPOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "568", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSMPOrderNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.FTSMPOrderNo.Properties.MaxLength = 30
+        Me.FTSMPOrderNo.Size = New System.Drawing.Size(131, 20)
+        Me.FTSMPOrderNo.TabIndex = 516
         Me.FTSMPOrderNo.Tag = "2|"
         '
         'EndQCDate
@@ -236,12 +279,23 @@ Partial Class wSMPQCSendSuplChartTableSR
         '
         'ogbmainprocbutton
         '
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
         Me.ogbmainprocbutton.Location = New System.Drawing.Point(981, 9)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(106, 65)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(106, 112)
         Me.ogbmainprocbutton.TabIndex = 393
+        '
+        'ocmclear
+        '
+        Me.ocmclear.Location = New System.Drawing.Point(6, 63)
+        Me.ocmclear.Name = "ocmclear"
+        Me.ocmclear.Size = New System.Drawing.Size(95, 25)
+        Me.ocmclear.TabIndex = 97
+        Me.ocmclear.TabStop = False
+        Me.ocmclear.Tag = "2|"
+        Me.ocmclear.Text = "CLEAR"
         '
         'ocmexit
         '
@@ -546,16 +600,6 @@ Partial Class wSMPQCSendSuplChartTableSR
         Me.ogvGFNQuantityPercent.VisibleIndex = 2
         Me.ogvGFNQuantityPercent.Width = 64
         '
-        'FTSMPOrderNoTo
-        '
-        Me.FTSMPOrderNoTo.Location = New System.Drawing.Point(486, 78)
-        Me.FTSMPOrderNoTo.Name = "FTSMPOrderNoTo"
-        Me.FTSMPOrderNoTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "569", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FTSMPOrderNoTo.Properties.Tag = ""
-        Me.FTSMPOrderNoTo.Size = New System.Drawing.Size(130, 20)
-        Me.FTSMPOrderNoTo.TabIndex = 532
-        Me.FTSMPOrderNoTo.Tag = "2|"
-        '
         'wSMPQCSendSuplChartTableSR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -568,6 +612,7 @@ Partial Class wSMPQCSendSuplChartTableSR
         CType(Me.DockManager, System.ComponentModel.ISupportInitialize).EndInit()
         Me.oCriteria.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
+        CType(Me.FTSMPOrderNoTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTSMPOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EndQCDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EndQCDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -591,7 +636,6 @@ Partial Class wSMPQCSendSuplChartTableSR
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogvdetail, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BehaviorManager1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTSMPOrderNoTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -627,7 +671,8 @@ Partial Class wSMPQCSendSuplChartTableSR
     Friend WithEvents EFTDateQC_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents SFTDateQC_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents StartQCDate As DevExpress.XtraEditors.DateEdit
-    Friend WithEvents FTSMPOrderNo As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents BehaviorManager1 As DevExpress.Utils.Behaviors.BehaviorManager
     Friend WithEvents FTSMPOrderNoTo As DevExpress.XtraEditors.ButtonEdit
+    Friend WithEvents FTSMPOrderNo As DevExpress.XtraEditors.ButtonEdit
+    Friend WithEvents ocmclear As DevExpress.XtraEditors.SimpleButton
 End Class

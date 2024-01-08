@@ -3,6 +3,7 @@ Imports System.Drawing
 Imports DevExpress.Data
 
 Public Class wSMPQCSendSuplChartTableSR
+    Private _FormHeader As New List(Of HI.TL.DynamicForm)()
 
     Sub New()
 
@@ -249,11 +250,19 @@ Public Class wSMPQCSendSuplChartTableSR
             With dt
                 .Columns.Add("FTSuplCode", GetType(String))
             End With
-            If _oDt Is Nothing Then
+            If _oDt Is Nothing Or _oDt.Rows.Count = 0 Then
                 _StateDefual = True
                 _oDt = New DataTable
                 _oDt.Columns.Add("FTSuplCode", GetType(String))
-                _oDt.Rows.Add("Detail")
+                If _oDt Is Nothing Then
+                    _oDt.Rows.Add("Detail")
+                ElseIf _oDt.Rows.Count = 0 Then
+                    If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
+                        _oDt.Rows.Add("ไม่มีข้อมูลตามเงื่อนไขที่กำหนด")
+                    Else
+                        _oDt.Rows.Add("There is no information according to the specified conditions.")
+                    End If
+                End If
             End If
             Me.otabDetail.TabPages.Clear()
             Dim _Fillter As String = ""
@@ -268,6 +277,7 @@ Public Class wSMPQCSendSuplChartTableSR
                     dt.Rows.Add(xx!FTSuplCode.ToString)
                 Next
             End If
+
             For Each R As DataRow In dt.Rows
                 'Me.oCTabPacking.TabPages.Add(Microsoft.VisualBasic.Left(R!FTRawMatNameEN.ToString, 20))
                 Dim _TabPage As New DevExpress.XtraTab.XtraTabPage
@@ -332,6 +342,7 @@ Public Class wSMPQCSendSuplChartTableSR
                             _dt.Rows.Add(X!FTQCSupDetailName.ToString, CInt("0" & X!FNDefectQty.ToString), CInt("0" & X!FNDefectQty.ToString) / 1)
                         End If
                     Next
+
                 Catch ex As Exception
                 End Try
 
@@ -455,4 +466,27 @@ Public Class wSMPQCSendSuplChartTableSR
         End Try
     End Sub
 
+    Private Sub ocmclear_Click(sender As Object, e As EventArgs) Handles ocmclear.Click
+        Me.otabDetail.TabPages.Clear()
+        Me.FormRefresh()
+    End Sub
+
+    Private Sub FormRefresh()
+        HI.TL.HandlerControl.ClearControl(Me)
+
+        For Each Obj As Object In Me.Controls.Find(Me.MainKey, True)
+            Select Case HI.ENM.Control.GeTypeControl(Obj)
+                Case ENM.Control.ControlType.ButtonEdit
+                    With CType(Obj, DevExpress.XtraEditors.ButtonEdit)
+                        .Focus()
+                    End With
+            End Select
+        Next
+    End Sub
+
+    Public ReadOnly Property MainKey As String
+        Get
+            Return _FormHeader(0).MainKey
+        End Get
+    End Property
 End Class
