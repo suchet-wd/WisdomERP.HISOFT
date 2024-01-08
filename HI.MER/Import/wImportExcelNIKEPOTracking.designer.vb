@@ -20,6 +20,10 @@ Partial Class wImportExcelNIKEPOTracking
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.ogbheader = New DevExpress.XtraEditors.GroupControl()
+        Me.olbcustpo = New DevExpress.XtraEditors.LabelControl()
+        Me.FTCustomerPO = New DevExpress.XtraEditors.TextEdit()
+        Me.FNImportOrderDataType = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.FNImportOrderDataType_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTEndGacDate = New DevExpress.XtraEditors.DateEdit()
         Me.FTEndGacDate_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTStartGacDate = New DevExpress.XtraEditors.DateEdit()
@@ -35,10 +39,12 @@ Partial Class wImportExcelNIKEPOTracking
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
         Me.ocmrefresh = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
-        Me.FNImportOrderDataType = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.FNImportOrderDataType_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FTTradigPO_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FTTradigPO = New DevExpress.XtraEditors.TextEdit()
         CType(Me.ogbheader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbheader.SuspendLayout()
+        CType(Me.FTCustomerPO.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FNImportOrderDataType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTEndGacDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTEndGacDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStartGacDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,11 +60,15 @@ Partial Class wImportExcelNIKEPOTracking
         CType(Me.ogvdt1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbmainprocbutton.SuspendLayout()
-        CType(Me.FNImportOrderDataType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FTTradigPO.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ogbheader
         '
+        Me.ogbheader.Controls.Add(Me.FTTradigPO_lbl)
+        Me.ogbheader.Controls.Add(Me.FTTradigPO)
+        Me.ogbheader.Controls.Add(Me.olbcustpo)
+        Me.ogbheader.Controls.Add(Me.FTCustomerPO)
         Me.ogbheader.Controls.Add(Me.FNImportOrderDataType)
         Me.ogbheader.Controls.Add(Me.FNImportOrderDataType_lbl)
         Me.ogbheader.Controls.Add(Me.FTEndGacDate)
@@ -74,6 +84,72 @@ Partial Class wImportExcelNIKEPOTracking
         Me.ogbheader.Name = "ogbheader"
         Me.ogbheader.Size = New System.Drawing.Size(1062, 105)
         Me.ogbheader.TabIndex = 139
+        '
+        'olbcustpo
+        '
+        Me.olbcustpo.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.olbcustpo.Appearance.Options.UseForeColor = True
+        Me.olbcustpo.Appearance.Options.UseTextOptions = True
+        Me.olbcustpo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.olbcustpo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.olbcustpo.Location = New System.Drawing.Point(564, 26)
+        Me.olbcustpo.Name = "olbcustpo"
+        Me.olbcustpo.Size = New System.Drawing.Size(140, 19)
+        Me.olbcustpo.TabIndex = 564
+        Me.olbcustpo.Tag = "2|"
+        Me.olbcustpo.Text = "Customer PO:"
+        '
+        'FTCustomerPO
+        '
+        Me.FTCustomerPO.Location = New System.Drawing.Point(713, 28)
+        Me.FTCustomerPO.Name = "FTCustomerPO"
+        Me.FTCustomerPO.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTCustomerPO.Properties.Appearance.Options.UseBackColor = True
+        Me.FTCustomerPO.Size = New System.Drawing.Size(206, 20)
+        Me.FTCustomerPO.TabIndex = 563
+        Me.FTCustomerPO.Tag = "2|"
+        '
+        'FNImportOrderDataType
+        '
+        Me.FNImportOrderDataType.EditValue = ""
+        Me.FNImportOrderDataType.EnterMoveNextControl = True
+        Me.FNImportOrderDataType.Location = New System.Drawing.Point(153, 74)
+        Me.FNImportOrderDataType.Name = "FNImportOrderDataType"
+        Me.FNImportOrderDataType.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FNImportOrderDataType.Properties.Appearance.Options.UseBackColor = True
+        Me.FNImportOrderDataType.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FNImportOrderDataType.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FNImportOrderDataType.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FNImportOrderDataType.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FNImportOrderDataType.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNImportOrderDataType.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNImportOrderDataType.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNImportOrderDataType.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNImportOrderDataType.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNImportOrderDataType.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNImportOrderDataType.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNImportOrderDataType.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNImportOrderDataType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.FNImportOrderDataType.Properties.Items.AddRange(New Object() {"Recent Import Order Data", "All History Import Data"})
+        Me.FNImportOrderDataType.Properties.Tag = ""
+        Me.FNImportOrderDataType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.FNImportOrderDataType.Size = New System.Drawing.Size(171, 20)
+        Me.FNImportOrderDataType.TabIndex = 561
+        Me.FNImportOrderDataType.Tag = "2|"
+        '
+        'FNImportOrderDataType_lbl
+        '
+        Me.FNImportOrderDataType_lbl.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.FNImportOrderDataType_lbl.Appearance.Options.UseForeColor = True
+        Me.FNImportOrderDataType_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNImportOrderDataType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNImportOrderDataType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNImportOrderDataType_lbl.Location = New System.Drawing.Point(27, 75)
+        Me.FNImportOrderDataType_lbl.Name = "FNImportOrderDataType_lbl"
+        Me.FNImportOrderDataType_lbl.Size = New System.Drawing.Size(123, 18)
+        Me.FNImportOrderDataType_lbl.TabIndex = 562
+        Me.FNImportOrderDataType_lbl.Tag = "2|"
+        Me.FNImportOrderDataType_lbl.Text = "Data Type :"
         '
         'FTEndGacDate
         '
@@ -263,47 +339,29 @@ Partial Class wImportExcelNIKEPOTracking
         Me.ocmexit.Tag = "2|"
         Me.ocmexit.Text = "EXIT"
         '
-        'FNImportOrderDataType
+        'FTTradigPO_lbl
         '
-        Me.FNImportOrderDataType.EditValue = ""
-        Me.FNImportOrderDataType.EnterMoveNextControl = True
-        Me.FNImportOrderDataType.Location = New System.Drawing.Point(153, 74)
-        Me.FNImportOrderDataType.Name = "FNImportOrderDataType"
-        Me.FNImportOrderDataType.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FNImportOrderDataType.Properties.Appearance.Options.UseBackColor = True
-        Me.FNImportOrderDataType.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
-        Me.FNImportOrderDataType.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
-        Me.FNImportOrderDataType.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.FNImportOrderDataType.Properties.AppearanceDisabled.Options.UseForeColor = True
-        Me.FNImportOrderDataType.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
-        Me.FNImportOrderDataType.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
-        Me.FNImportOrderDataType.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.FNImportOrderDataType.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.FNImportOrderDataType.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FNImportOrderDataType.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FNImportOrderDataType.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNImportOrderDataType.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNImportOrderDataType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.FNImportOrderDataType.Properties.Items.AddRange(New Object() {"Recent Import Order Data", "All History Import Data"})
-        Me.FNImportOrderDataType.Properties.Tag = ""
-        Me.FNImportOrderDataType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNImportOrderDataType.Size = New System.Drawing.Size(171, 20)
-        Me.FNImportOrderDataType.TabIndex = 561
-        Me.FNImportOrderDataType.Tag = "2|"
+        Me.FTTradigPO_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FTTradigPO_lbl.Appearance.Options.UseForeColor = True
+        Me.FTTradigPO_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTTradigPO_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTTradigPO_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTTradigPO_lbl.Location = New System.Drawing.Point(564, 54)
+        Me.FTTradigPO_lbl.Name = "FTTradigPO_lbl"
+        Me.FTTradigPO_lbl.Size = New System.Drawing.Size(140, 19)
+        Me.FTTradigPO_lbl.TabIndex = 566
+        Me.FTTradigPO_lbl.Tag = "2|"
+        Me.FTTradigPO_lbl.Text = "Tradig PO:"
         '
-        'FNImportOrderDataType_lbl
+        'FTTradigPO
         '
-        Me.FNImportOrderDataType_lbl.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(53, Byte), Integer))
-        Me.FNImportOrderDataType_lbl.Appearance.Options.UseForeColor = True
-        Me.FNImportOrderDataType_lbl.Appearance.Options.UseTextOptions = True
-        Me.FNImportOrderDataType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FNImportOrderDataType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNImportOrderDataType_lbl.Location = New System.Drawing.Point(27, 75)
-        Me.FNImportOrderDataType_lbl.Name = "FNImportOrderDataType_lbl"
-        Me.FNImportOrderDataType_lbl.Size = New System.Drawing.Size(123, 18)
-        Me.FNImportOrderDataType_lbl.TabIndex = 562
-        Me.FNImportOrderDataType_lbl.Tag = "2|"
-        Me.FNImportOrderDataType_lbl.Text = "Data Type :"
+        Me.FTTradigPO.Location = New System.Drawing.Point(713, 54)
+        Me.FTTradigPO.Name = "FTTradigPO"
+        Me.FTTradigPO.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTTradigPO.Properties.Appearance.Options.UseBackColor = True
+        Me.FTTradigPO.Size = New System.Drawing.Size(206, 20)
+        Me.FTTradigPO.TabIndex = 565
+        Me.FTTradigPO.Tag = "2|"
         '
         'wImportExcelNIKEPOTracking
         '
@@ -319,6 +377,8 @@ Partial Class wImportExcelNIKEPOTracking
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.ogbheader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbheader.ResumeLayout(False)
+        CType(Me.FTCustomerPO.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNImportOrderDataType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTEndGacDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTEndGacDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStartGacDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -334,7 +394,7 @@ Partial Class wImportExcelNIKEPOTracking
         CType(Me.ogvdt1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbmainprocbutton.ResumeLayout(False)
-        CType(Me.FNImportOrderDataType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTTradigPO.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -356,4 +416,8 @@ Partial Class wImportExcelNIKEPOTracking
     Friend WithEvents ocmexit As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents FNImportOrderDataType As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents FNImportOrderDataType_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents olbcustpo As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents FTCustomerPO As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents FTTradigPO_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents FTTradigPO As DevExpress.XtraEditors.TextEdit
 End Class

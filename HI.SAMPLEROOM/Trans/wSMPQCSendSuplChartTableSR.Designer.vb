@@ -177,7 +177,7 @@ Partial Class wSMPQCSendSuplChartTableSR
         Me.FTSMPOrderNoTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTSMPOrderNoTo.Properties.MaxLength = 30
         Me.FTSMPOrderNoTo.Size = New System.Drawing.Size(130, 20)
-        Me.FTSMPOrderNoTo.TabIndex = 517
+        Me.FTSMPOrderNoTo.TabIndex = 6
         Me.FTSMPOrderNoTo.Tag = "2|"
         '
         'FTSMPOrderNo
@@ -203,7 +203,7 @@ Partial Class wSMPQCSendSuplChartTableSR
         Me.FTSMPOrderNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTSMPOrderNo.Properties.MaxLength = 30
         Me.FTSMPOrderNo.Size = New System.Drawing.Size(131, 20)
-        Me.FTSMPOrderNo.TabIndex = 516
+        Me.FTSMPOrderNo.TabIndex = 5
         Me.FTSMPOrderNo.Tag = "2|"
         '
         'EndQCDate
@@ -342,12 +342,12 @@ Partial Class wSMPQCSendSuplChartTableSR
         Me.FTOrderNoTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNoTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNoTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNoTo_lbl.Location = New System.Drawing.Point(381, 78)
+        Me.FTOrderNoTo_lbl.Location = New System.Drawing.Point(366, 78)
         Me.FTOrderNoTo_lbl.Name = "FTOrderNoTo_lbl"
-        Me.FTOrderNoTo_lbl.Size = New System.Drawing.Size(101, 19)
+        Me.FTOrderNoTo_lbl.Size = New System.Drawing.Size(116, 19)
         Me.FTOrderNoTo_lbl.TabIndex = 398
         Me.FTOrderNoTo_lbl.Tag = "2|"
-        Me.FTOrderNoTo_lbl.Text = "To Order No :"
+        Me.FTOrderNoTo_lbl.Text = "To Sample Order No :"
         '
         'FTOrderNo_lbl
         '
@@ -356,12 +356,12 @@ Partial Class wSMPQCSendSuplChartTableSR
         Me.FTOrderNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(50, 77)
+        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(38, 77)
         Me.FTOrderNo_lbl.Name = "FTOrderNo_lbl"
-        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(114, 19)
+        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(126, 19)
         Me.FTOrderNo_lbl.TabIndex = 397
         Me.FTOrderNo_lbl.Tag = "2|"
-        Me.FTOrderNo_lbl.Text = "From Order No :"
+        Me.FTOrderNo_lbl.Text = "From Sample Order No :"
         '
         'EndRcvDate
         '

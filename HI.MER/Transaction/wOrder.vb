@@ -970,21 +970,29 @@ Public Class wOrder
     End Sub
 
     Private Function CheckBookingRefer() As Boolean
-        If Me.FNOrderType.SelectedIndex = 17 Then
-            Dim _Qry As String = ""
-            _Qry = "SELECT TOP 1 FTOrderNo"
-            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS A WITH(NOLOCK)"
-            _Qry &= vbCrLf & " WHERE FTOrderNoRef<>'' AND  FTOrderNoRef='" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text) & "'"
+        'If Me.FNOrderType.SelectedIndex = 17 Then
 
-            If (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "") <> "") Then
-                HI.MG.ShowMsg.mInfo("Order Booking ถูกนำไปอ้างอิง FO. อื่นๆแล้วไม่สามารถทำการแก้ไขได้ !!!", 1505057018, Me.Text, "", MessageBoxIcon.Warning)
-                Return True
+        Try
+            If Val(HI.TL.CboList.GetIndexByValue(FNOrderType.Properties.Tag.ToString, FNOrderType.SelectedIndex)) = 17 Then
+
+                Dim _Qry As String = ""
+                _Qry = "SELECT TOP 1 FTOrderNo"
+                _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS A WITH(NOLOCK)"
+                _Qry &= vbCrLf & " WHERE FTOrderNoRef<>'' AND  FTOrderNoRef='" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text) & "'"
+
+                If (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "") <> "") Then
+                    HI.MG.ShowMsg.mInfo("Order Booking ถูกนำไปอ้างอิง FO. อื่นๆแล้วไม่สามารถทำการแก้ไขได้ !!!", 1505057018, Me.Text, "", MessageBoxIcon.Warning)
+                    Return True
+                Else
+                    Return False
+                End If
             Else
                 Return False
             End If
-        Else
+        Catch ex As Exception
             Return False
-        End If
+        End Try
+
     End Function
 
     Private Sub CheckStateOrder()
@@ -5725,8 +5733,10 @@ Public Class wOrder
 
             If (_StateNew) Then
                 If Not (_ManualCode) Then
+                    Dim pListValue As String = HI.TL.CboList.GetListValue(FNOrderType.Properties.Tag.ToString, FNOrderType.SelectedIndex)
+
                     '_Key = HI.TL.Document.GetDocumentNo(Me.SysDBName, Me.SysTableName, "", False, Me.FNHSysCustId.Text.Trim().ToString()).ToString
-                    _Key = HI.TL.Document.GetDocumentNo(Me.SysDBName, Me.SysTableName, FNOrderType.SelectedIndex.ToString, False, HI.TL.CboList.GetListRefer(FNOrderType.Properties.Tag.ToString, FNOrderType.SelectedIndex) & Me.FNHSysCmpRunId.Text.Trim().ToString()).ToString()
+                    _Key = HI.TL.Document.GetDocumentNo(Me.SysDBName, Me.SysTableName, pListValue, False, HI.TL.CboList.GetListRefer(FNOrderType.Properties.Tag.ToString, FNOrderType.SelectedIndex) & Me.FNHSysCmpRunId.Text.Trim().ToString()).ToString()
                     REM 2014/05/14 _Key = HI.TL.Document.GetDocumentNo(Me.SysDBName, Me.SysTableName, "", False, _tPreFixCustOrderNo).ToString()
                 End If
                 _SysKey = HI.TL.RunID.GetRunNoID(Me.SysTableName, Me.MainKey, Conn.DB.DataBaseName.DB_MERCHAN).ToString()
@@ -10990,8 +11000,16 @@ Public Class wOrder
                                     End With
                                 Case "DevExpress.XtraEditors.ComboBoxEdit".ToUpper
                                     With CType(Obj, DevExpress.XtraEditors.ComboBoxEdit)
+
                                         Try
-                                            .SelectedIndex = Val(R.Item(Col).ToString)
+                                            '.SelectedIndex = Val(R.Item(Col).ToString)
+
+                                            If "" & .Properties.Tag.ToString <> "" Then
+                                                .SelectedIndex = HI.TL.CboList.GetIndexByValue(.Properties.Tag.ToString, Val(R.Item(Col).ToString))
+                                            Else
+                                                .SelectedIndex = Val(R.Item(Col).ToString)
+                                            End If
+
                                         Catch ex As Exception
                                             .SelectedIndex = -1
                                         End Try
@@ -11857,145 +11875,6 @@ Public Class wOrder
 
     End Function
 
-    Private Function W_PRCbShowBrowseDataSubOrderInfo_BACKUP_20150107_1516(ByVal ptSubOrderNo$) As Boolean
-        Try
-            _ProcLoad = True
-
-            Static _Proc As Boolean
-
-            If Not (_Proc) Then
-                _Proc = True
-
-                Dim _Dt As DataTable
-                Dim _Str As String
-
-                Dim oStrBuilder As New System.Text.StringBuilder()
-
-                oStrBuilder.Remove(0, oStrBuilder.Length)
-
-                oStrBuilder.AppendLine("SELECT A.[FDSubOrderDate]")
-                oStrBuilder.AppendLine("     , A.[FTSubOrderBy]")
-                oStrBuilder.AppendLine("     , A.[FDProDate]")
-                oStrBuilder.AppendLine("     , A.[FDShipDate]")
-                oStrBuilder.AppendLine("     , ISNULL((SELECT TOP 1 L1.FTContinentCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TCNMContinent AS L1 WITH (NOLOCK) WHERE L1.FNHSysContinentId = A.FNHSysContinentId),'') AS FNHSysContinentId")
-                oStrBuilder.AppendLine("     , ISNULL((SELECT TOP 1 L2.FTCountryCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TCNMCountry AS L2 WITH (NOLOCK) WHERE L2.FNHSysCountryId = A.FNHSysCountryId AND L2.FNHSysContinentId = A.FNHSysContinentId),'') AS FNHSysCountryId")
-                oStrBuilder.AppendLine("     , ISNULL((SELECT TOP 1 L3.FTProvinceCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TCMMProvince AS L3 WITH (NOLOCK) WHERE L3.FNHSysProvinceId = A.FNHSysProvinceId AND L3.FNHSysCountryId = A.FNHSysCountryId),'')  AS FNHSysProvinceId")
-                oStrBuilder.AppendLine("     , ISNULL((SELECT TOP 1 L4.FTShipModeCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TCNMShipMode AS L4 WITH (NOLOCK) WHERE L4.FNHSysShipModeId = A.FNHSysShipModeId),'') AS FNHSysShipModeId")
-                oStrBuilder.AppendLine("     , ISNULL((SELECT TOP 1 L5.FTCurCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TFINMCurrency AS L5 WITH (NOLOCK) WHERE L5.FNHSysCurId = A.FNHSysCurId),'') AS FNHSysCurId")
-                oStrBuilder.AppendLine("     , ISNULL((SELECT TOP 1 L6.FTGenderCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMGender AS L6 WITH (NOLOCK) WHERE L6.FNHSysGenderId = A.FNHSysGenderId),'') AS FNHSysGenderId")
-                oStrBuilder.AppendLine("     , ISNULL((SELECT TOP 1 L7.FTUnitCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TCNMUnit AS L7 WITH (NOLOCK) WHERE L7.FNHSysUnitId = A.FNHSysUnitId),'')  AS FNHSysUnitId")
-                oStrBuilder.AppendLine("     , A.[FNSubOrderState]")
-                oStrBuilder.AppendLine("     , A.[FTStateEmb]")
-                oStrBuilder.AppendLine("     , A.[FTStatePrint]")
-                oStrBuilder.AppendLine("     , A.[FTStateHeat]")
-                oStrBuilder.AppendLine("     , A.[FTStateLaser]")
-                oStrBuilder.AppendLine("     , A.[FTStateWindows]")
-                oStrBuilder.AppendLine("     , A.[FTCustRef]")
-                oStrBuilder.AppendLine("     , A.[FTRemark] AS FTRemarkSubOrderNo")
-                REM 2014/12/18
-                'oStrBuilder.AppendLine("     , A.[FNSubOrderQty]")
-                'oStrBuilder.AppendLine("     , A.[FNSubOrderAmt]")
-                oStrBuilder.AppendLine("     , ISNULL((SELECT TOP 1 L8.FTShipPortCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TCNMShipPort AS L8 WITH (NOLOCK) WHERE L8.FNHSysShipPortId = A.FNHSysShipPortId),'') AS FNHSysShipPortId")
-                oStrBuilder.AppendLine("     , A.FTUpdUser AS FTUpdUserSubOrder")
-                oStrBuilder.AppendLine("     , A.FDUpdDate AS FDUpdDate_OrderSub")
-                oStrBuilder.AppendLine("     , A.FTUpdTime AS FTUpdTime_OrderSub")
-                oStrBuilder.AppendLine("FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..[TMERTOrderSub] AS A")
-                oStrBuilder.AppendLine("WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'")
-                oStrBuilder.AppendLine("      AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Properties.Tag.ToString().Trim()) & "';")
-
-                _Str = oStrBuilder.ToString()
-
-                _Dt = HI.Conn.SQLConn.GetDataTable(_Str, _DBEnum)
-
-                Dim _FieldName As String = ""
-                For Each R As DataRow In _Dt.Rows
-                    For Each Col As DataColumn In _Dt.Columns
-                        _FieldName = Col.ColumnName.ToString
-
-                        For Each Obj As Object In Me.Controls.Find(_FieldName, True)
-
-                            Select Case Obj.GetType.FullName.ToString.ToUpper
-
-                                Case "DevExpress.XtraEditors.ButtonEdit".ToUpper
-
-                                    With CType(Obj, DevExpress.XtraEditors.ButtonEdit)
-
-                                        If _FieldName.ToUpper <> Me.FTSubOrderNo.Name.ToString.ToUpper Then
-                                            .Text = R.Item(Col).ToString
-                                        End If
-
-                                    End With
-
-                                Case "DevExpress.XtraEditors.CalcEdit".ToUpper
-                                    With CType(Obj, DevExpress.XtraEditors.CalcEdit)
-                                        .Value = Val(R.Item(Col).ToString)
-                                    End With
-                                Case "DevExpress.XtraEditors.ComboBoxEdit".ToUpper
-                                    With CType(Obj, DevExpress.XtraEditors.ComboBoxEdit)
-                                        Try
-                                            .SelectedIndex = Val(R.Item(Col).ToString)
-                                        Catch ex As Exception
-                                            .SelectedIndex = -1
-                                        End Try
-                                    End With
-                                Case "DevExpress.XtraEditors.CheckEdit".ToUpper
-                                    With CType(Obj, DevExpress.XtraEditors.CheckEdit)
-                                        .EditValue = (Integer.Parse(Val(R.Item(Col).ToString))).ToString
-                                    End With
-                                Case "DevExpress.XtraEditors.MemoEdit".ToUpper, "DevExpress.XtraEditors.TextEdit".ToUpper
-                                    If _FieldName.ToString = "FDUpdDate_OrderSub" Then
-                                        Obj.Text = HI.UL.ULDate.ConvertEN(R.Item(Col))
-                                    Else
-                                        Obj.Text = R.Item(Col).ToString
-                                    End If
-                                Case "DevExpress.XtraEditors.PictureEdit".ToUpper
-                                    With CType(Obj, DevExpress.XtraEditors.PictureEdit)
-                                        Try
-                                            .Image = HI.UL.ULImage.LoadImage("" & .Properties.Tag.ToString & R.Item(Col).ToString) ' hImage ' ' Image.FromFile("" & .Properties.Tag.ToString & R.Item(Col).ToString)
-                                        Catch ex As Exception
-                                            .Image = Nothing
-                                        End Try
-                                    End With
-                                Case "DevExpress.XtraEditors.DateEdit".ToUpper
-                                    Try
-                                        With CType(Obj, DevExpress.XtraEditors.DateEdit)
-                                            If .Properties.DisplayFormat.FormatString = "d" Then
-                                                .DateTime = CDate(R.Item(Col).ToString)
-                                            Else
-                                                .Text = HI.UL.ULDate.ConvertEN(R.Item(Col).ToString)
-                                            End If
-                                        End With
-                                    Catch ex As Exception
-                                        With CType(Obj, DevExpress.XtraEditors.DateEdit)
-                                            .Text = ""
-                                        End With
-                                    End Try
-
-                                Case Else
-                                    Obj.Text = R.Item(Col).ToString
-                            End Select
-
-                        Next
-
-                    Next
-
-                    Exit For
-
-                Next
-
-                _Proc = False
-
-            End If
-
-            _ProcLoad = False
-
-            Return True
-        Catch ex As Exception
-            'MsgBox(ex.Message().ToString() & ControlChars.CrLf & ex.StackTrace().ToString(), MsgBoxStyle.OkOnly, My.Application.Info.Title)
-            Return False
-        End Try
-
-    End Function
 
     Private Function W_PRCbShowBrowseDataSubOrderInfo(ByVal ptSubOrderNo$) As Boolean
         Try
@@ -12087,7 +11966,15 @@ Public Class wOrder
                                 Case "DevExpress.XtraEditors.ComboBoxEdit".ToUpper
                                     With CType(Obj, DevExpress.XtraEditors.ComboBoxEdit)
                                         Try
-                                            .SelectedIndex = Val(R.Item(Col).ToString)
+
+                                            If .Properties.Tag.ToString <> "" Then
+                                                .SelectedIndex = Val(HI.TL.CboList.GetIndexByValue(.Properties.Tag.ToString, Val(R.Item(Col).ToString)))
+                                            Else
+                                                .SelectedIndex = Val(R.Item(Col).ToString)
+                                            End If
+
+
+
                                         Catch ex As Exception
                                             .SelectedIndex = -1
                                         End Try

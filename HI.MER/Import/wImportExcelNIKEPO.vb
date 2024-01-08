@@ -120,60 +120,71 @@ Public Class wImportExcelNIKEPO
 
                                         Else
 
-                                            If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.DateTime Then
 
-                                            Else
-
-                                                If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.Numeric AndAlso opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper <> "UPC".ToUpper Then
-
+                                            Select Case opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper
+                                                Case "Purchase Order Number".ToUpper, "Trading Co PO Number".ToUpper, "PO Line Item Number".ToUpper, "Ship To Customer Number".ToUpper, "UPC".ToUpper
                                                     opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
+                                                Case "UPC".ToUpper
 
-                                                Else
+                                                    If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.None Then
+                                                        opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "0"
+                                                    End If
 
-                                                    Select Case opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper
-                                                        Case "Purchase Order Number".ToUpper, "Trading Co PO Number".ToUpper, "PO Line Item Number".ToUpper, "Ship To Customer Number"
+                                                Case Else
+                                                    If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.DateTime Then
+
+                                                    Else
+
+                                                        If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.Numeric AndAlso opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper <> "UPC".ToUpper Then
+
                                                             opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
-                                                        Case "UPC".ToUpper
 
-                                                            If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.None Then
-                                                                opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "0"
-                                                            End If
+                                                        Else
 
-                                                    End Select
+                                                        End If
 
-                                                End If
+                                                    End If
+                                            End Select
 
-                                            End If
 
                                         End If
 
 
                                     Else
 
-                                        If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.DateTime Then
 
-                                        Else
+                                        Select Case opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper
 
-                                            If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.Numeric AndAlso opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper <> "Order Lines/Variant EAN".ToUpper Then
+                                            Case "Order Reference".ToUpper, "Trading Co PO Number".ToUpper, "PO Line Item Number".ToUpper, "Ship To Customer Number".ToUpper, "UPC".ToUpper, "Order Lines/Variant EAN".ToUpper
                                                 opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
+                                            Case "Order Lines/Variant EAN".ToUpper
 
-                                            Else
+                                                If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.None Then
+                                                    opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "0"
+                                                End If
 
-                                                Select Case opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper
+                                            Case Else
+                                                If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.DateTime Then
 
-                                                    Case "Order Reference".ToUpper, "Trading Co PO Number".ToUpper, "PO Line Item Number".ToUpper, "Ship To Customer Number"
+                                                Else
+
+
+
+                                                    If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.Numeric AndAlso opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper <> "Order Lines/Variant EAN".ToUpper Then
                                                         opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
-                                                    Case "Order Lines/Variant EAN".ToUpper
 
-                                                        If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.None Then
-                                                            opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "0"
-                                                        End If
+                                                    Else
 
-                                                End Select
 
-                                            End If
 
-                                        End If
+                                                    End If
+
+                                                End If
+
+                                        End Select
+
+
+
                                     End If
 
                                 Catch ex As Exception
@@ -1408,11 +1419,17 @@ Public Class wImportExcelNIKEPO
                         Exit Sub
                     End If
 
+                Dim pTTCompalte As Integer = 0
+                Dim pTTNotCompalte As Integer = 0
+
                 If HI.MG.ShowMsg.mConfirmProcess("You would to Import Net Price !!!", 1404244582, "Confirm") = True Then
 
                     Dim _Spls As New HI.TL.SplashScreen("Importing Net Price Data .....Please Wait")
 
-                    If csOrder.ImportFactoryOrderNetPrice(_Spls, FNImportOrderType.SelectedIndex, Val(FNHSysCustId.Properties.Tag.ToString), Val(FNHSysCmpRunId.Properties.Tag.ToString), FNHSysCmpRunId.Text, Val(FNHSysBuyId.Properties.Tag.ToString), Val(FNHSysMerTeamId.Properties.Tag.ToString), True) = True Then
+
+
+
+                    If csOrder.ImportFactoryOrderNetPrice(_Spls, FNImportOrderType.SelectedIndex, Val(FNHSysCustId.Properties.Tag.ToString), Val(FNHSysCmpRunId.Properties.Tag.ToString), FNHSysCmpRunId.Text, Val(FNHSysBuyId.Properties.Tag.ToString), Val(FNHSysMerTeamId.Properties.Tag.ToString), pTTCompalte, pTTNotCompalte, True) = True Then
 
                         '...clear temp after process import order complete
                         '---------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1448,14 +1465,24 @@ Public Class wImportExcelNIKEPO
                         'Me.ogcdt1.DataSource = Nothing
 
                         _Spls.Close()
-                        Select Case HI.ST.Lang.Language
 
-                            Case HI.ST.Lang.eLang.TH
-                                HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, "นำเข้าข้อมูลรายการใบสั่งผลิต เรียบร้อยแล้ว...")
 
-                            Case Else
-                                HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, "Import Factory Order No. Complete...")
-                        End Select
+                        Dim msgcomplete As String = "Update Complete Total " & pTTCompalte & " Rows"
+
+                        If pTTNotCompalte > 0 Then
+                            msgcomplete &= Environment.NewLine & "Can not find data for update Total " & pTTNotCompalte & " Rows"
+                        End If
+
+                        'Select Case HI.ST.Lang.Language
+
+                        '    Case HI.ST.Lang.eLang.TH
+                        '        HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, "นำเข้าข้อมูลรายการใบสั่งผลิต เรียบร้อยแล้ว...")
+
+                        '    Case Else
+                        '        HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, "Import Factory Order No. Complete...")
+                        'End Select
+
+                        HI.MG.ShowMsg.mInfo("Update Data Complete ", 15421141, Me.Text, msgcomplete)
 
                     Else
 

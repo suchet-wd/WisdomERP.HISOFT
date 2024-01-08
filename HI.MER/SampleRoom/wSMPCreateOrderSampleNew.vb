@@ -514,7 +514,15 @@ Public Class wSMPCreateOrderSampleNew
                         Case ENM.Control.ControlType.ComboBoxEdit
                             With CType(Obj, DevExpress.XtraEditors.ComboBoxEdit)
                                 Try
-                                    .SelectedIndex = Val(R.Item(Col).ToString)
+                                    ' .SelectedIndex = Val(R.Item(Col).ToString)
+
+                                    If "" & .Properties.Tag.ToString <> "" Then
+                                        .SelectedIndex = HI.TL.CboList.GetIndexByValue(.Properties.Tag.ToString, Val(R.Item(Col).ToString))
+                                    Else
+                                        .SelectedIndex = Val(R.Item(Col).ToString)
+
+                                    End If
+
                                 Catch ex As Exception
                                     .SelectedIndex = -1
                                 End Try
@@ -651,12 +659,11 @@ Public Class wSMPCreateOrderSampleNew
                             Case ENM.Control.ControlType.ComboBoxEdit
 
                                 With CType(Obj, DevExpress.XtraEditors.ComboBoxEdit)
-
-                                    Try
-                                        .SelectedIndex = Val(R.Item(Col).ToString)
-                                    Catch ex As Exception
-                                    End Try
-
+                                    If "" & .Properties.Tag.ToString <> "" Then
+                                        .SelectedIndex = HI.TL.CboList.GetIndexByValue(.Properties.Tag.ToString, Val(R.Item(Col).ToString))
+                                    Else
+                                        .SelectedIndex = -1
+                                    End If
                                 End With
                         End Select
 
@@ -1113,8 +1120,9 @@ Public Class wSMPCreateOrderSampleNew
 
             FNSMPPrototypeNo.Value = PTNo
 
-            If FNSMPOrderType.SelectedIndex = 29 Then
-                _Key = HI.TL.Document.GetDocumentNo(Me.SysDBName, Me.SysTableName, "29", False, _CmpH).ToString
+            Dim pValueSTO As String = HI.TL.CboList.GetListValue(FNSMPOrderType.Properties.Tag.ToString, FNSMPOrderType.SelectedIndex)
+            If Val(pValueSTO) = 29 Then
+                _Key = HI.TL.Document.GetDocumentNo(Me.SysDBName, Me.SysTableName, pValueSTO, False, _CmpH).ToString
             Else
                 _Key = HI.TL.Document.GetDocumentNo(Me.SysDBName, Me.SysTableName, "", False, _CmpH).ToString
             End If
@@ -1159,9 +1167,17 @@ Public Class wSMPCreateOrderSampleNew
                                     Case ENM.Control.ControlType.ComboBoxEdit
 
                                         With CType(Obj, DevExpress.XtraEditors.ComboBoxEdit)
-                                            _Val = .SelectedIndex.ToString
-                                        End With
+                                            '  _Val = .SelectedIndex.ToString
 
+                                            With CType(Obj, DevExpress.XtraEditors.ComboBoxEdit)
+                                                If "" & .Properties.Tag.ToString <> "" Then
+                                                    _Val = HI.TL.CboList.GetListValue(.Properties.Tag.ToString, .SelectedIndex)
+                                                Else
+                                                    _Val = .SelectedIndex.ToString
+                                                End If
+                                            End With
+
+                                        End With
                                     Case ENM.Control.ControlType.CheckEdit
 
                                         With CType(Obj, DevExpress.XtraEditors.CheckEdit)
@@ -1255,7 +1271,11 @@ Public Class wSMPCreateOrderSampleNew
                                         End With
                                     Case ENM.Control.ControlType.ComboBoxEdit
                                         With CType(Obj, DevExpress.XtraEditors.ComboBoxEdit)
-                                            _Val = .SelectedIndex.ToString
+                                            If "" & .Properties.Tag.ToString <> "" Then
+                                                _Val = HI.TL.CboList.GetListValue(.Properties.Tag.ToString, .SelectedIndex)
+                                            Else
+                                                _Val = .SelectedIndex.ToString
+                                            End If
                                         End With
                                     Case ENM.Control.ControlType.CheckEdit
                                         With CType(Obj, DevExpress.XtraEditors.CheckEdit)
@@ -1774,7 +1794,15 @@ Public Class wSMPCreateOrderSampleNew
                         Case ENM.Control.ControlType.ComboBoxEdit
                             With CType(Obj, DevExpress.XtraEditors.ComboBoxEdit)
                                 Try
-                                    .SelectedIndex = Val(R.Item(Col).ToString)
+                                    ' .SelectedIndex = Val(R.Item(Col).ToString)
+
+                                    If "" & .Properties.Tag.ToString <> "" Then
+                                        .SelectedIndex = HI.TL.CboList.GetIndexByValue(.Properties.Tag.ToString, Val(R.Item(Col).ToString))
+                                    Else
+                                        .SelectedIndex = Val(R.Item(Col).ToString)
+
+                                    End If
+
                                 Catch ex As Exception
                                     .SelectedIndex = -1
                                 End Try

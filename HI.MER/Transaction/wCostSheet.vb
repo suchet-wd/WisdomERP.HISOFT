@@ -5196,7 +5196,23 @@ Public Class wCostSheet
             End Try
 
 
-            _Qry = "    select *  "
+            _Qry = "    select FTInsUser, FDInsDate, FTInsTime, FTUpdUser, FDUpdDate, FTUpdTime, FTCostSheetNo, FNRevised, FNVersion, FNSeq, FTMSC, FTSeason, FTStyleCode, FTColorway, FTTeamName, FNBaseFOB, FNAllowancePer, "
+            _Qry &= vbCrLf & "     FTItem1, FTProcesssubType1, FTDescription1, FTSuplCode1, FNUnitPrice1, FNCIF1, FNUSAGECOST1, FNHandlingChargePercent1, FNHandlingChargeCost1, FNTotalCost1, FNImportDutyPecent1, FTItem2, FTProcesssubType2, "
+            _Qry &= vbCrLf & "    FTDescription2, FTSuplCode2, FNUnitPrice2, FNCIF2, FNUSAGECOST2, FNHandlingChargePercent2, FNHandlingChargeCost2, FNTotalCost2, FNImportDutyPecent2, FTItem3, FTProcesssubType3, FTDescription3, FTSuplCode3, "
+            _Qry &= vbCrLf & "    FNUnitPrice3, FNCIF3, FNUSAGECOST3, FNHandlingChargePercent3, FNHandlingChargeCost3, FNTotalCost3, FNImportDutyPecent3, FTItem4, FTProcesssubType4, FTDescription4, FTSuplCode4, FNUnitPrice4, FNCIF4, "
+            _Qry &= vbCrLf & "    FNUSAGECOST4, FNHandlingChargePercent4, FNHandlingChargeCost4, FNTotalCost4, FNImportDutyPecent4, FTItem5, FTProcesssubType5, FTDescription5, FTSuplCode5, FNUnitPrice5, FNCIF5, FNUSAGECOST5, "
+            _Qry &= vbCrLf & "    FNHandlingChargePercent5, FNHandlingChargeCost5, FNTotalCost5, FNImportDutyPecent5, FTItem6, FTProcesssubType6, FTDescription6, FTSuplCode6, FNUnitPrice6, FNCIF6, FNUSAGECOST6, FNHandlingChargePercent6, "
+            _Qry &= vbCrLf & "    FNHandlingChargeCost6, FNTotalCost6, FNImportDutyPecent6, FTItem7, FTProcesssubType7, FTDescription7, FTSuplCode7, FNUnitPrice7, FNCIF7, FNUSAGECOST7, FNHandlingChargePercent7, FNHandlingChargeCost7, "
+            _Qry &= vbCrLf & "    FNTotalCost7, FNImportDutyPecent7, FTItem8, FTProcesssubType8, FTDescription8, FTSuplCode8, FNUnitPrice8, FNCIF8, FNUSAGECOST8, FNHandlingChargePercent8, FNHandlingChargeCost8, FNTotalCost8, "
+            _Qry &= vbCrLf & "    FNImportDutyPecent8, FTItem9, FTProcesssubType9, FTDescription9, FTSuplCode9, FNUnitPrice9, FNCIF9, FNUSAGECOST9, FNHandlingChargePercent9, FNHandlingChargeCost9, FNTotalCost9, FNImportDutyPecent9, "
+            _Qry &= vbCrLf & "    FTItem10, FTProcesssubType10, FTDescription10, FTSuplCode10, FNUnitPrice10, FNCIF10, FNUSAGECOST10, FNHandlingChargePercent10, FNHandlingChargeCost10, FNTotalCost10, FNImportDutyPecent10, FTItem11, "
+            _Qry &= vbCrLf & "   FTProcesssubType11, FTDescription11, FTSuplCode11, FNUnitPrice11, FNCIF11, FNUSAGECOST11, FNHandlingChargePercent11, FNHandlingChargeCost11, FNTotalCost11, FNImportDutyPecent11, FTItem12, "
+            _Qry &= vbCrLf & "   FTProcesssubType12, FTDescription12, FTSuplCode12, FNUnitPrice12, FNCIF12, FNUSAGECOST12, FNHandlingChargePercent12, FNHandlingChargeCost12, FNTotalCost12, FNImportDutyPecent12, FTItem13, "
+            _Qry &= vbCrLf & "   FTProcesssubType13, FTDescription13, FTSuplCode13, FNUnitPrice13, FNCIF13, FNUSAGECOST13, FNHandlingChargePercent13, FNHandlingChargeCost13, FNTotalCost13, FNImportDutyPecent13, FTItem14, "
+            _Qry &= vbCrLf & "  FTProcesssubType14, FTDescription14, FTSuplCode14, FNUnitPrice14, FNCIF14, FNUSAGECOST14, FNHandlingChargePercent14, FNHandlingChargeCost14, FNTotalCost14, FNImportDutyPecent14, FTItem15, "
+            _Qry &= vbCrLf & "   FTProcesssubType15, FTDescription15, FTSuplCode15, FNUnitPrice15, FNCIF15, FNUSAGECOST15, FNHandlingChargePercent15, FNHandlingChargeCost15, FNTotalCost15, FNImportDutyPecent15, FNTotalUsgeCost, "
+            _Qry &= vbCrLf & "   FNTotalHandlingChargeCost, FNFINALFOB, FNEXTENDEDSIZEFOB, FTL4LORDERCNTY1, FTL4LCURRENCYFOB1, FNEXTENDSIZEFOBL4L1, FTL4LORDERCNTY2, FTL4LCURRENCYFOB2, FNEXTENDSIZEFOBL4L2, "
+            _Qry &= vbCrLf & "   FTL4LORDERCNTY3, FTL4LCURRENCYFOB3, FNEXTENDSIZEFOBL4L3, FTPRODUCTDEVELOPER, FTRemark  "
             _Qry &= vbCrLf & "  FROM    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail_TeamMulti As C With (NOLOCK) "
             _Qry &= vbCrLf & " WHERE FTCostSheetNo='" & HI.UL.ULF.rpQuoted(Me.FTCostSheetNo.Text) & "' "
             _Qry &= vbCrLf & "  ORDER BY FNSeq"
@@ -6666,7 +6682,6 @@ Public Class wCostSheet
 
         End Select
 
-
         Call UpdateMiltidata()
 
     End Sub
@@ -6693,16 +6708,31 @@ Public Class wCostSheet
 
         'cmd = "SELECT   FTCusItemCodeRef AS FTMainMatCode, Max(FNHSysMainMatId) AS FNHSysMainMatId, MAX(LEFT(FTMainMatNameEN,200)) AS FTMainMatName from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMainMat WITH(NOLOCK) WHERE FTStateActive='1' AND ISNULL(FTCusItemCodeRef,'') <>'' group by FTCusItemCodeRef Order by FTCusItemCodeRef "
 
-        cmd = " SELECT A.* FROM ( SELECT   A.FTMat AS FTMainMatCode, 0 AS FNHSysMainMatId, MAX(LEFT(A.FTMaterialDescription,200)) AS FTMainMatName,A.FTSupplierLocationCode AS FTSuplCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO) As FTCOFO,A.FTRMDSSESNCD AS FTSeason,(A.FTMatColor) AS FTMatColor,MAX(LEFT(A.FTSMStatus,1)) As FTSMStatus "
+        'cmd = " SELECT A.* FROM ( SELECT   A.FTMat AS FTMainMatCode, 0 AS FNHSysMainMatId, MAX(LEFT(A.FTMaterialDescription,200)) AS FTMainMatName,A.FTSupplierLocationCode AS FTSuplCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO) As FTCOFO,A.FTRMDSSESNCD AS FTSeason,(A.FTMatColor) AS FTMatColor,MAX(LEFT(A.FTSMStatus,1)) As FTSMStatus "
+        'cmd &= vbCrLf & " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.THITRMDSMasterFile AS A WITH(NOLOCK) "
+        'cmd &= vbCrLf & "  OUTER APPLY (SELECT TOP 1  CCOF2.FTCOFOCode   "
+        'cmd &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO AS CCOF WITH(NOLOCK) "
+        'cmd &= vbCrLf & "   INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO AS CCOF2 WITH(NOLOCK) ON CCOF.FNHSysCOFOIdTo = CCOF2.FNHSysCOFOId"
+        'cmd &= vbCrLf & "   WHERE  CCOF.FTCOFOCode =A.FTMCO "
+        'cmd &= vbCrLf & "   ) AS CCOF "
+
+
+        'cmd &= vbCrLf & " group by A.FTMat,A.FTSupplierLocationCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO),A.FTRMDSSESNCD ,A.FTMatColor"
+        '
+        ' Chage from MCO TO FTLiaisonOfficeCode 2023-10-25 Mail from Suraphan Limpakornkul  Mail Date 2023-10-19 13.41
+        cmd = " SELECT A.* FROM ( SELECT   A.FTMat AS FTMainMatCode, 0 AS FNHSysMainMatId, MAX(LEFT(A.FTMaterialDescription,200)) AS FTMainMatName,A.FTSupplierLocationCode AS FTSuplCode,ISNULL(CCOF.FTCOFOCode, A.FTLiaisonOfficeCode) As FTCOFO,A.FTRMDSSESNCD AS FTSeason,(A.FTMatColor) AS FTMatColor,MAX(LEFT(A.FTSMStatus,1)) As FTSMStatus "
         cmd &= vbCrLf & " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.THITRMDSMasterFile AS A WITH(NOLOCK) "
         cmd &= vbCrLf & "  OUTER APPLY (SELECT TOP 1  CCOF2.FTCOFOCode   "
         cmd &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO AS CCOF WITH(NOLOCK) "
         cmd &= vbCrLf & "   INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO AS CCOF2 WITH(NOLOCK) ON CCOF.FNHSysCOFOIdTo = CCOF2.FNHSysCOFOId"
-        cmd &= vbCrLf & "   WHERE  CCOF.FTCOFOCode =A.FTMCO "
+        cmd &= vbCrLf & "   WHERE  CCOF.FTCOFOCode =A.FTLiaisonOfficeCode "
         cmd &= vbCrLf & "   ) AS CCOF "
 
 
-        cmd &= vbCrLf & " group by A.FTMat,A.FTSupplierLocationCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO),A.FTRMDSSESNCD ,A.FTMatColor"
+        cmd &= vbCrLf & " group by A.FTMat,A.FTSupplierLocationCode,ISNULL(CCOF.FTCOFOCode, A.FTLiaisonOfficeCode),A.FTRMDSSESNCD ,A.FTMatColor"
+
+        ' Chage from MCO TO FTLiaisonOfficeCode 2023-10-25 Mail from Suraphan Limpakornkul  Mail Date 2023-10-19 13.41
+
         cmd &= vbCrLf & " UNION "
         cmd &= vbCrLf & " SELECT   M.FTCusItemCodeRef AS FTMainMatCode, Max(M.FNHSysMainMatId) AS FNHSysMainMatId, MAX(LEFT(M.FTMainMatNameEN,200)) AS FTMainMatName,ISNULL(S.FTNikeVenderCode,'') AS FTSuplCode,ISNULL(S.FTCOFOCode,'') AS FTCOFO,'' ,'' AS FTMatColor,'' As FTSMStatus"
         cmd &= vbCrLf & "  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMainMat AS M WITH(NOLOCK) "
@@ -6745,18 +6775,34 @@ Public Class wCostSheet
         'cmd &= vbCrLf & "  group by  A.FTNikeVenderCode "
         'cmd &= vbCrLf & "  Order  by A.FTNikeVenderCode "
 
-        cmd = "SELECT   A.FTSupplierLocationCode AS FTSuplCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO) As FTCOFO,0 AS FNHSysSuplId,MAX(A.FTSupplierLocationName) as FTSuplName "
+
+        ' Chage from MCO TO FTLiaisonOfficeCode 2023-10-25 Mail from Suraphan Limpakornkul  Mail Date 2023-10-19 13.41
+
+        'cmd = "SELECT   A.FTSupplierLocationCode AS FTSuplCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO) As FTCOFO,0 AS FNHSysSuplId,MAX(A.FTSupplierLocationName) as FTSuplName "
+        'cmd &= vbCrLf & " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.THITRMDSMasterFile  AS A WITH(NOLOCK) "
+
+        'cmd &= vbCrLf & "  OUTER APPLY (SELECT TOP 1  CCOF2.FTCOFOCode   "
+        'cmd &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO AS CCOF WITH(NOLOCK) "
+        'cmd &= vbCrLf & "   INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO AS CCOF2 WITH(NOLOCK) ON CCOF.FNHSysCOFOIdTo = CCOF2.FNHSysCOFOId"
+        'cmd &= vbCrLf & "   WHERE  CCOF.FTCOFOCode =A.FTMCO "
+        'cmd &= vbCrLf & "   ) AS CCOF "
+
+        'cmd &= vbCrLf & " group by A.FTSupplierLocationCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO) "
+        'cmd &= vbCrLf & " ORDER BY A.FTSupplierLocationCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO) "
+
+        cmd = "SELECT   A.FTSupplierLocationCode AS FTSuplCode,ISNULL(CCOF.FTCOFOCode, A.FTLiaisonOfficeCode) As FTCOFO,0 AS FNHSysSuplId,MAX(A.FTSupplierLocationName) as FTSuplName "
         cmd &= vbCrLf & " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.THITRMDSMasterFile  AS A WITH(NOLOCK) "
 
         cmd &= vbCrLf & "  OUTER APPLY (SELECT TOP 1  CCOF2.FTCOFOCode   "
         cmd &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO AS CCOF WITH(NOLOCK) "
         cmd &= vbCrLf & "   INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO AS CCOF2 WITH(NOLOCK) ON CCOF.FNHSysCOFOIdTo = CCOF2.FNHSysCOFOId"
-        cmd &= vbCrLf & "   WHERE  CCOF.FTCOFOCode =A.FTMCO "
+        cmd &= vbCrLf & "   WHERE  CCOF.FTCOFOCode =A.FTLiaisonOfficeCode "
         cmd &= vbCrLf & "   ) AS CCOF "
 
-        cmd &= vbCrLf & " group by A.FTSupplierLocationCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO) "
-        cmd &= vbCrLf & " ORDER BY A.FTSupplierLocationCode,ISNULL(CCOF.FTCOFOCode, A.FTMCO) "
+        cmd &= vbCrLf & " group by A.FTSupplierLocationCode,ISNULL(CCOF.FTCOFOCode, A.FTLiaisonOfficeCode) "
+        cmd &= vbCrLf & " ORDER BY A.FTSupplierLocationCode,ISNULL(CCOF.FTCOFOCode, A.FTLiaisonOfficeCode) "
 
+        ' Chage from MCO TO FTLiaisonOfficeCode 2023-10-25 Mail from Suraphan Limpakornkul  Mail Date 2023-10-19 13.41
         dt = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_MASTER)
 
         RepositoryItemGridLookUpEditFTSuplCode.DataSource = dt.Copy
@@ -6900,14 +6946,28 @@ Public Class wCostSheet
 
                 Dim cmdstring As String = ""
 
-                cmdstring = " select top 2 CASE WHEN SRFP.FTSupplierLocationName Like N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,ISNULL(U.FTUnitCode,'') AS FTPRICINGSTARDARDUOM  "
+                ' Chage from Price TO Column Q and unit to column AG 2023-10-25 Mail from Suraphan Limpakornkul  Mail Date 2023-10-19 13.41
+
+                'cmdstring = " select top 2 CASE WHEN SRFP.FTSupplierLocationName Like N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,ISNULL(U.FTUnitCode,'') AS FTPRICINGSTARDARDUOM  "
+                'cmdstring &= vbCrLf & "  from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK)  "
+                'cmdstring &= vbCrLf & "  Outer apply (select top 1 U.FTUnitCode FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit AS U WITH(NOLOCK) WHERE U.FTUnitCode =SRFP.FTPRICINGSTARDARDUOM AND  U.FTStateActive='1' AND U.FTStateUnitCBD='1') AS U "
+                'cmdstring &= vbCrLf & "  WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' "
+                'cmdstring &= vbCrLf & "  And  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' "
+                'cmdstring &= vbCrLf & "  And SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' "
+                'cmdstring &= vbCrLf & "  And (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' ) "
+                'cmdstring &= vbCrLf & " ORDER BY FTMatColor DESC "
+
+
+                cmdstring = " select top 2 SRFP.FNUSDLY AS FNSTDPrice,FTSMStatus,ISNULL(U.FTUnitCode,'') AS FTPRICINGSTARDARDUOM  "
                 cmdstring &= vbCrLf & "  from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK)  "
-                cmdstring &= vbCrLf & "  Outer apply (select top 1 U.FTUnitCode FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit AS U WITH(NOLOCK) WHERE U.FTUnitCode =SRFP.FTPRICINGSTARDARDUOM AND  U.FTStateActive='1' AND U.FTStateUnitCBD='1') AS U "
+                cmdstring &= vbCrLf & "  Outer apply (select top 1 U.FTUnitCode FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit AS U WITH(NOLOCK) WHERE U.FTUnitCode =SRFP.FTPRICINGSTARDARDUOM2 AND  U.FTStateActive='1' AND U.FTStateUnitCBD='1') AS U "
                 cmdstring &= vbCrLf & "  WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' "
                 cmdstring &= vbCrLf & "  And  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' "
                 cmdstring &= vbCrLf & "  And SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' "
                 cmdstring &= vbCrLf & "  And (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' ) "
                 cmdstring &= vbCrLf & " ORDER BY FTMatColor DESC "
+
+                ' Chage from Price TO Column Q and unit to column AG 2023-10-25 Mail from Suraphan Limpakornkul  Mail Date 2023-10-19 13.41
 
                 dtPrice = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
 
@@ -7101,7 +7161,15 @@ Public Class wCostSheet
                 Dim dtPrice As DataTable
                 Dim pUOM As String = ""
 
-                Dim cmdstring As String = "select top 2 CASE WHEN SRFP.FTSupplierLocationName LIKE N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,FTPRICINGSTARDARDUOM    from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK) WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' AND  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "'  AND SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' AND (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' )  ORDER BY FTMatColor DESC "
+
+
+                ' Chage from Price TO Column Q and unit to column AG 2023-10-25 Mail from Suraphan Limpakornkul  Mail Date 2023-10-19 13.41
+
+                ' Dim cmdstring As String = "select top 2 CASE WHEN SRFP.FTSupplierLocationName LIKE N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,FTPRICINGSTARDARDUOM    from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK) WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' AND  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "'  AND SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' AND (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' )  ORDER BY FTMatColor DESC "
+
+                Dim cmdstring As String = "select top 2  SRFP.FNUSDLY AS FNSTDPrice,FTSMStatus,FTPRICINGSTARDARDUOM2 AS FTPRICINGSTARDARDUOM    from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK) WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' AND  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "'  AND SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' AND (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' )  ORDER BY FTMatColor DESC "
+                ' Chage from Price TO Column Q and unit to column AG 2023-10-25 Mail from Suraphan Limpakornkul  Mail Date 2023-10-19 13.41
+
 
                 dtPrice = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
 
@@ -7874,15 +7942,39 @@ Public Class wCostSheet
 
                 Dim cmdstring As String = "" ' "select top 2 CASE WHEN SRFP.FTSupplierLocationName LIKE N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,FTPRICINGSTARDARDUOM    from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK) WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' AND  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' AND SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' AND (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' )  ORDER BY FTMatColor DESC "
 
-                cmdstring = " select top 2 CASE WHEN SRFP.FTSupplierLocationName Like N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,ISNULL(U.FTUnitCode,'') AS FTPRICINGSTARDARDUOM  "
+                'cmdstring = " select top 2 CASE WHEN SRFP.FTSupplierLocationName Like N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,ISNULL(U.FTUnitCode,'') AS FTPRICINGSTARDARDUOM  "
+                'cmdstring &= vbCrLf & "  from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK)  "
+                'cmdstring &= vbCrLf & "  Outer apply (select top 1 U.FTUnitCode FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit AS U WITH(NOLOCK) WHERE U.FTUnitCode =SRFP.FTPRICINGSTARDARDUOM AND  U.FTStateActive='1' AND U.FTStateUnitCBD='1') AS U "
+                'cmdstring &= vbCrLf & "  WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' "
+                'cmdstring &= vbCrLf & "  And  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' "
+                'cmdstring &= vbCrLf & "  And SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' "
+                'cmdstring &= vbCrLf & "  And (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' ) "
+                'cmdstring &= vbCrLf & " ORDER BY FTMatColor DESC "
+
+
+
+                ' Chage from Price TO Column Q and unit to column AG 2023-10-25 Mail from Suraphan Limpakornkul  Mail Date 2023-10-19 13.41
+
+                'cmdstring = " select top 2 CASE WHEN SRFP.FTSupplierLocationName Like N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,ISNULL(U.FTUnitCode,'') AS FTPRICINGSTARDARDUOM  "
+                'cmdstring &= vbCrLf & "  from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK)  "
+                'cmdstring &= vbCrLf & "  Outer apply (select top 1 U.FTUnitCode FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit AS U WITH(NOLOCK) WHERE U.FTUnitCode =SRFP.FTPRICINGSTARDARDUOM AND  U.FTStateActive='1' AND U.FTStateUnitCBD='1') AS U "
+                'cmdstring &= vbCrLf & "  WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' "
+                'cmdstring &= vbCrLf & "  And  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' "
+                'cmdstring &= vbCrLf & "  And SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' "
+                'cmdstring &= vbCrLf & "  And (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' ) "
+                'cmdstring &= vbCrLf & " ORDER BY FTMatColor DESC "
+
+
+                cmdstring = " select top 2 SRFP.FNUSDLY AS FNSTDPrice,FTSMStatus,ISNULL(U.FTUnitCode,'') AS FTPRICINGSTARDARDUOM  "
                 cmdstring &= vbCrLf & "  from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK)  "
-                cmdstring &= vbCrLf & "  Outer apply (select top 1 U.FTUnitCode FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit AS U WITH(NOLOCK) WHERE U.FTUnitCode =SRFP.FTPRICINGSTARDARDUOM AND  U.FTStateActive='1' AND U.FTStateUnitCBD='1') AS U "
+                cmdstring &= vbCrLf & "  Outer apply (select top 1 U.FTUnitCode FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit AS U WITH(NOLOCK) WHERE U.FTUnitCode =SRFP.FTPRICINGSTARDARDUOM2 AND  U.FTStateActive='1' AND U.FTStateUnitCBD='1') AS U "
                 cmdstring &= vbCrLf & "  WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' "
                 cmdstring &= vbCrLf & "  And  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' "
                 cmdstring &= vbCrLf & "  And SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' "
                 cmdstring &= vbCrLf & "  And (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' ) "
                 cmdstring &= vbCrLf & " ORDER BY FTMatColor DESC "
 
+                ' Chage from Price TO Column Q and unit to column AG 2023-10-25 Mail from Suraphan Limpakornkul  Mail Date 2023-10-19 13.41
 
                 dtPrice = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
 
@@ -8079,7 +8171,15 @@ Public Class wCostSheet
 
                 Dim pUOM As String = ""
 
-                Dim cmdstring As String = "select top 2 CASE WHEN SRFP.FTSupplierLocationName Like N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,FTPRICINGSTARDARDUOM    from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK) WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' AND  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' AND SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' AND (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' )  ORDER BY FTMatColor DESC "
+                ' Chage from Price TO Column Q and unit to column AG 2023-10-25 Mail from Suraphan Limpakornkul  Mail Date 2023-10-19 13.41
+
+                '  Dim cmdstring As String = "select top 2 CASE WHEN SRFP.FTSupplierLocationName Like N'%Vilene%' THEN SRFP.FNUSDLY  ELSE SRFP.FNSTDPrice END AS FNSTDPrice,FTSMStatus,FTPRICINGSTARDARDUOM    from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK) WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' AND  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' AND SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' AND (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' )  ORDER BY FTMatColor DESC "
+
+                Dim cmdstring As String = "select top 2 SRFP.FNUSDLY AS FNSTDPrice,FTSMStatus,FTPRICINGSTARDARDUOM2 as FTPRICINGSTARDARDUOM   from  " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.THITRMDSMasterFile AS SRFP WITH(NOLOCK) WHERE  SRFP.FTMat ='" & HI.UL.ULF.rpQuoted(MatCode) & "' AND  SRFP.FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(suplCode) & "' AND SRFP.FTRMDSSESNCD='" & HI.UL.ULF.rpQuoted(RSeason) & "' AND (FTMatColor ='' OR FTMatColor='" & HI.UL.ULF.rpQuoted(RMatColor) & "' )  ORDER BY FTMatColor DESC "
+
+
+                ' Chage from Price TO Column Q and unit to column AG 2023-10-25 Mail from Suraphan Limpakornkul  Mail Date 2023-10-19 13.41
+
 
                 dtPrice = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
 
@@ -8334,8 +8434,8 @@ Public Class wCostSheet
         cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "].dbo.TACCTCostSheet_Detail As C With (NOLOCK)  "
         cmdstring &= vbCrLf & " WHERE C.FTCostSheetNo='" & HI.UL.ULF.rpQuoted(FTCostSheetNo.Text) & "' "
 
-        dt = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
 
+        dt = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_ACCOUNT)
         If dt.Rows.Count > 0 Then
 
             With JSonHeadcer
@@ -9107,7 +9207,7 @@ Public Class wCostSheet
 
                                         ' Dim EFPictureSurlEndPoint As String = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadProductImage?fileName=" & FTFileName.Text.Trim & ".JPG&factoryCode=" & FNHSysVenderPramId.Text.Trim & "&styleNumber=" & FNHSysStyleId.Text.Trim & ""
 
-                                        Dim EFPictureSurlEndPoint As String = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadProductImage?fileName=" & pFileName & "&factoryCodefactoryCode=" & FNHSysVenderPramId.Text.Trim & "&styleNumber=" & FNHSysStyleId.Text.Trim & ""
+                                        Dim EFPictureSurlEndPoint As String = "https://apcm-apim-qa.partner.nike-cloud.com/service-api/post_UploadProductImage?fileName=" & pFileName & "&factoryCode=" & FNHSysVenderPramId.Text.Trim & "&styleNumber=" & FNHSysStyleId.Text.Trim & ""
 
 
                                         Dim pUri As Uri = New Uri(EFPictureSurlEndPoint)

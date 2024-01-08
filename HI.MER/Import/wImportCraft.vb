@@ -3654,7 +3654,10 @@ Public Class wImportCraft
             FNQtySpecialType = 0
             FNQtySpecialTypeQty = 0
 
-            Dim OrderType As Integer = 9
+
+            Dim OrderTypeValue As Integer = 9
+            Dim OrderType As Integer = OrderTypeValue 'TL.CboList.GetListValue("FNOrderType", OrderTypeValue)
+            Dim OrderTypeIndx As Integer = HI.TL.CboList.GetIndexByValue("FNOrderType", OrderTypeValue)
 
             nFNHSysCustId = Val(Me.FNHSysCustId.Properties.Tag) : nFNHSysCmpRunId = 0 : nFNHSysBuyId = Val(Me.FNHSysBuyId.Properties.Tag)
             nFNHSysVenderPramId = 0
@@ -3694,7 +3697,7 @@ Public Class wImportCraft
                         tSql &= Environment.NewLine & "SET @TblName = N'TMERTOrder';"
                         tSql &= Environment.NewLine & "SET @DocType = '" & OrderType.ToString & "';"
                         tSql &= Environment.NewLine & "SET @GetFotmat = '';"
-                        tSql &= Environment.NewLine & "SET @AddPrefix = N'" & HI.TL.CboList.GetListRefer("FNOrderType", OrderType) & HI.UL.ULF.rpQuoted(ComRun) & "';"
+                        tSql &= Environment.NewLine & "SET @AddPrefix = N'" & HI.TL.CboList.GetListRefer("FNOrderType", OrderTypeIndx) & HI.UL.ULF.rpQuoted(ComRun) & "';"
                         tSql &= Environment.NewLine & "DECLARE @tblSrcConfigDoc AS TABLE(FTRunNo NVARCHAR(30), FTRunStr NVARCHAR(30), FNRunning INT, FNRunningNoMax INT);"
                         tSql &= Environment.NewLine & "INSERT INTO @tblSrcConfigDoc(FTRunNo, FTRunStr, FNRunning, FNRunningNoMax)"
                         tSql &= Environment.NewLine & "EXEC SP_GET_FACTORY_ORDERNO_MAX @DBName, @TblName, @DocType, @GetFotmat,@AddPrefix;"

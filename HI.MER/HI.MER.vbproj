@@ -260,6 +260,12 @@
     <Compile Include="Import\wCheckFileImportOrder.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Import\wImportOrderExcelNonNike.Designer.vb">
+      <DependentUpon>wImportOrderExcelNonNike.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Import\wImportOrderExcelNonNike.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Import\wImportQPPQRS.Designer.vb">
       <DependentUpon>wImportQPPQRS.vb</DependentUpon>
     </Compile>
@@ -1055,6 +1061,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Import\wCheckFileImportOrder.resx">
       <DependentUpon>wCheckFileImportOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import\wImportOrderExcelNonNike.resx">
+      <DependentUpon>wImportOrderExcelNonNike.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Import\wImportQPPQRS.resx">
       <DependentUpon>wImportQPPQRS.vb</DependentUpon>

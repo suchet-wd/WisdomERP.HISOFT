@@ -768,9 +768,11 @@ Public Class wCopyOrder
             _bCopyOrderComplete = True
             nLoopCopyOrder = 1
 
+            Dim pListValue As String = HI.TL.CboList.GetListValue(FNOrderType.Properties.Tag.ToString, FNOrderType.SelectedIndex)
+
             Do While (_bCopyOrderComplete) AndAlso (nLoopCopyOrder <= nFNCopyOrderNo)
 
-                _tFTOrderNoDest = HI.TL.Document.GetDocumentNo(_tSysDBName, _tSysTableName, Me.FNOrderType.SelectedIndex.ToString(), False, HI.TL.CboList.GetListRefer(FNOrderType.Properties.Tag.ToString, FNOrderType.SelectedIndex) & Me.FNHSysCmpRunId.Text.Trim().ToString()).ToString()
+                _tFTOrderNoDest = HI.TL.Document.GetDocumentNo(_tSysDBName, _tSysTableName, pListValue, False, HI.TL.CboList.GetListRefer(FNOrderType.Properties.Tag.ToString, FNOrderType.SelectedIndex) & Me.FNHSysCmpRunId.Text.Trim().ToString()).ToString()
 
                 HI.Conn.SQLConn._ConnString = HI.Conn.DB.ConnectionString(Conn.DB.DataBaseName.DB_MERCHAN)
                 HI.Conn.SQLConn.SqlConnectionOpen()
@@ -786,7 +788,7 @@ Public Class wCopyOrder
                     tSql &= vbCrLf & "SELECT TOP 1 '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                     tSql &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB & ",'" & HI.UL.ULF.rpQuoted(_tFTOrderNoDest) & "'"
                     tSql &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-                    tSql &= vbCrLf & ", " & Me.FNOrderType.SelectedIndex & "," & _FNHSysCmpId & "," & _FNHSysCmpRunId & ", " & _FNHSysStyleId & ", FTPORef," & _FNHSysCustId & " "
+                    tSql &= vbCrLf & ", " & pListValue & "," & _FNHSysCmpId & "," & _FNHSysCmpRunId & ", " & _FNHSysStyleId & ", FTPORef," & _FNHSysCustId & " "
                     tSql &= vbCrLf & ", FNHSysAgencyId, FNHSysProdTypeId, FNHSysBuyerId, FTMainMaterial, FTCombination, FTRemark, FNHSysBrandId, FNHSysBuyId"
                     tSql &= vbCrLf & ", 0 AS FNJobState,  FNHSysPlantId, FNHSysBuyGrpId, FNHSysMerTeamId, FPOrderImage1, FPOrderImage2, FPOrderImage3, FPOrderImage4,FNHSysSeasonId,FNHSysVenderPramId," & Val(HI.ST.SysInfo.CmpID) & ""
                     tSql &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..[TMERTOrder] WITH(NOLOCK)"

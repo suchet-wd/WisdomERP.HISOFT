@@ -89,6 +89,8 @@ Partial Class wImportSalesman
         Me.oColFTColorwayCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.oColFTShipModeDesc = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.oColFTUnitDesc = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.oColFTSubPGM = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.oColFTCmp = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.XtraTabPage2 = New DevExpress.XtraTab.XtraTabPage()
         Me.ogdImportOrder = New DevExpress.XtraGrid.GridControl()
         Me.ogvImportOrder = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -128,8 +130,6 @@ Partial Class wImportSalesman
         Me.FNHSysCustId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysCustId_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.oColFTSubPGM = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.oColFTCmp = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.ogbBrowseFile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbBrowseFile.SuspendLayout()
         CType(Me.FTFilePath.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -539,11 +539,35 @@ Partial Class wImportSalesman
         Me.oColFTUnitDesc.VisibleIndex = 20
         Me.oColFTUnitDesc.Width = 41
         '
+        'oColFTSubPGM
+        '
+        Me.oColFTSubPGM.Caption = "Sub PGM"
+        Me.oColFTSubPGM.FieldName = "FTSubPGM"
+        Me.oColFTSubPGM.MinWidth = 22
+        Me.oColFTSubPGM.Name = "oColFTSubPGM"
+        Me.oColFTSubPGM.OptionsColumn.AllowEdit = False
+        Me.oColFTSubPGM.OptionsColumn.ReadOnly = True
+        Me.oColFTSubPGM.Visible = True
+        Me.oColFTSubPGM.VisibleIndex = 21
+        Me.oColFTSubPGM.Width = 96
+        '
+        'oColFTCmp
+        '
+        Me.oColFTCmp.Caption = "Cmp."
+        Me.oColFTCmp.FieldName = "FTCmp"
+        Me.oColFTCmp.MinWidth = 22
+        Me.oColFTCmp.Name = "oColFTCmp"
+        Me.oColFTCmp.OptionsColumn.AllowEdit = False
+        Me.oColFTCmp.OptionsColumn.ReadOnly = True
+        Me.oColFTCmp.Visible = True
+        Me.oColFTCmp.VisibleIndex = 22
+        Me.oColFTCmp.Width = 80
+        '
         'XtraTabPage2
         '
         Me.XtraTabPage2.Controls.Add(Me.ogdImportOrder)
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(1017, 385)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(1017, 379)
         Me.XtraTabPage2.Text = "Raw Data Import Order"
         '
         'ogdImportOrder
@@ -552,7 +576,7 @@ Partial Class wImportSalesman
         Me.ogdImportOrder.Location = New System.Drawing.Point(0, 0)
         Me.ogdImportOrder.MainView = Me.ogvImportOrder
         Me.ogdImportOrder.Name = "ogdImportOrder"
-        Me.ogdImportOrder.Size = New System.Drawing.Size(1017, 385)
+        Me.ogdImportOrder.Size = New System.Drawing.Size(1017, 379)
         Me.ogdImportOrder.TabIndex = 0
         Me.ogdImportOrder.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvImportOrder})
         '
@@ -570,7 +594,7 @@ Partial Class wImportSalesman
         Me.ogbmainprocbutton.Controls.Add(Me.ocmReadExcel)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclearclsr)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmExit)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(221, 30)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(221, 43)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(582, 57)
         Me.ogbmainprocbutton.TabIndex = 462
@@ -1014,30 +1038,6 @@ Partial Class wImportSalesman
         'Timer1
         '
         Me.Timer1.Interval = 1000
-        '
-        'oColFTSubPGM
-        '
-        Me.oColFTSubPGM.Caption = "Sub PGM"
-        Me.oColFTSubPGM.FieldName = "FTSubPGM"
-        Me.oColFTSubPGM.MinWidth = 22
-        Me.oColFTSubPGM.Name = "oColFTSubPGM"
-        Me.oColFTSubPGM.OptionsColumn.AllowEdit = False
-        Me.oColFTSubPGM.OptionsColumn.ReadOnly = True
-        Me.oColFTSubPGM.Visible = True
-        Me.oColFTSubPGM.VisibleIndex = 21
-        Me.oColFTSubPGM.Width = 96
-        '
-        'oColFTCmp
-        '
-        Me.oColFTCmp.Caption = "Cmp."
-        Me.oColFTCmp.FieldName = "FTCmp"
-        Me.oColFTCmp.MinWidth = 22
-        Me.oColFTCmp.Name = "oColFTCmp"
-        Me.oColFTCmp.OptionsColumn.AllowEdit = False
-        Me.oColFTCmp.OptionsColumn.ReadOnly = True
-        Me.oColFTCmp.Visible = True
-        Me.oColFTCmp.VisibleIndex = 22
-        Me.oColFTCmp.Width = 80
         '
         'wImportSalesman
         '

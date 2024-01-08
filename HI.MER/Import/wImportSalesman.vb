@@ -4704,8 +4704,9 @@ Public Class wImportSalesman
 
                 Exit For
             Next
+            Dim OrderTypeValue As Integer = 13
+            Dim OrderType As Integer = HI.TL.CboList.GetIndexByValue("FNOrderType", OrderTypeValue)
 
-            Dim OrderType As Integer = 13
 
 
             nFNHSysCustId = Val(Me.FNHSysCustId.Properties.Tag) : nFNHSysCmpRunId = Val(Me.FNHSysCmpRunId.Properties.Tag) : nFNHSysBuyId = Val(Me.FNHSysBuyId.Properties.Tag)
@@ -4840,7 +4841,7 @@ Public Class wImportSalesman
                 tSql &= Environment.NewLine & " SELECT NULL AS FTInsUser, CONVERT(VARCHAR(10),GETDATE(),111) AS FDInsDate, CONVERT(VARCHAR(8),GETDATE(),114) AS FTInsTime"
                 tSql &= Environment.NewLine & "     , NULL AS FTUpdUser, NULL AS FDUpdDate, NULL AS FTUpdTime"
                 tSql &= Environment.NewLine & "     , @FTRunNo + (RIGHT(@FTRunStr, @FNRunning - LEN(CONVERT(VARCHAR(30) , (ROW_NUMBER() OVER(ORDER BY B.FTMerTeamCode ASC,A.FTStyleNo ASC,A.FTPONO ASC) + @FNRunningNoMax)))) + CONVERT(VARCHAR(30) , (ROW_NUMBER() OVER(ORDER BY B.FTMerTeamCode ASC,A.FTStyleNo ASC,A.FTPONO ASC) + @FNRunningNoMax))) AS FTOrderNo"
-                tSql &= Environment.NewLine & "     ,  A.FDOrderDate AS FTOrderDate, NULL AS FTOrderBy, " & OrderType.ToString & " AS FNOrderType"
+                tSql &= Environment.NewLine & "     ,  A.FDOrderDate AS FTOrderDate, NULL AS FTOrderBy, " & OrderTypeValue.ToString & " AS FNOrderType"
                 tSql &= Environment.NewLine & "     , NULL AS FNHSysCmpId, " & nFNHSysCmpRunId & " AS FNHSysCmpRunId"
                 tSql &= Environment.NewLine & "     , ISNULL((SELECT L1.FNHSysStyleId FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TMERMStyle] AS L1 WITH(NOLOCK) WHERE L1.FTStyleCode = A.FTStyleNo), NULL) AS FNHSysStyleId"
                 tSql &= Environment.NewLine & "     , A.FTPONo, " & nFNHSysCustId & " AS FNHSysCustId"

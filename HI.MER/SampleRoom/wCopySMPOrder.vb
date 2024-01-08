@@ -135,7 +135,7 @@ Public Class wCopySMPOrder
                 _Cmd &= vbCrLf & "SELECT TOP 1 '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB & ""
                 _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_tFTOrderNoDest) & "'"
                 _Cmd &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-                _Cmd &= vbCrLf & "," & FNSMPOrderType.SelectedIndex & "  AS FNSMPOrderType," & FNSMPPrototypeNo.Value & " AS  FNSMPPrototypeNo, " & Val(FNHSysCmpId.Properties.Tag.ToString()) & " AS FNHSysCmpId, FNHSysCmpRunId, FNHSysStyleId,  "
+                _Cmd &= vbCrLf & "," & HI.TL.CboList.GetListValue(FNSMPOrderType.Properties.Tag.ToString, FNSMPOrderType.SelectedIndex) & "  AS FNSMPOrderType," & FNSMPPrototypeNo.Value & " AS  FNSMPPrototypeNo, " & Val(FNHSysCmpId.Properties.Tag.ToString()) & " AS FNHSysCmpId, FNHSysCmpRunId, FNHSysStyleId,  "
                 _Cmd &= vbCrLf & "      FNHSysSeasonId, FNHSysCustId, FNHSysMerTeamId, FTRemark, FTStateSendToSMP, FTSendToSMPBy, FDSendToSMPDate, FTSendToSMPTime, FPOrderImage1, FPOrderImage2, FPOrderImage3, FPOrderImage4, "
                 _Cmd &= vbCrLf & "     FTStateEmb, FTStatePrint, FTStateHeat, FTStateLaser, FTStateWindows, FTFabticA, FTFabticB, FTFabticC, FTFabticD, FTBlock, FTPattern "
                 _Cmd &= vbCrLf & "     ," & HI.ST.SysInfo.CmpID & " FNHSysCmpIdCreate,0  FNRevisedNo "

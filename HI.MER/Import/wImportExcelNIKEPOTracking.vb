@@ -101,8 +101,6 @@ Public Class wImportExcelNIKEPOTracking
 
 
     End Sub
-
-
     Private Sub ocmexit_Click_1(sender As Object, e As EventArgs) Handles ocmexit.Click
         Me.Close()
     End Sub
@@ -112,7 +110,7 @@ Public Class wImportExcelNIKEPOTracking
         ogcdt1.DataSource = Nothing
         ogvdt1.Columns.Clear()
 
-        If (FTStartGacDate.Text <> "" And FTEndGacDate.Text <> "") Or (FTStartDocDate.Text <> "" And FTEndDocDate.Text <> "") Then
+        If (FTStartGacDate.Text <> "" AndAlso FTEndGacDate.Text <> "") OrElse (FTStartDocDate.Text <> "" AndAlso FTEndDocDate.Text <> "") OrElse FTCustomerPO.Text.Trim <> "" OrElse FTTradigPO.Text.Trim <> "" Then
 
             Dim cmdstring As String = ""
 
@@ -131,18 +129,26 @@ Public Class wImportExcelNIKEPOTracking
             End If
 
 
-            If (FTStartGacDate.Text <> "" And FTEndGacDate.Text <> "") Then
-                cmdstring &= vbCrLf & " AND  Convert(varchar(10),X.[GAC],111) >='" & HI.UL.ULDate.ConvertEnDB(FTStartGacDate.Text) & "' "
-                cmdstring &= vbCrLf & " AND  Convert(varchar(10),X.[GAC],111) <='" & HI.UL.ULDate.ConvertEnDB(FTEndGacDate.Text) & "' "
+            If (FTStartGacDate.Text <> "" AndAlso FTEndGacDate.Text <> "") Then
+                cmdstring &= vbCrLf & " AND  X.[GAC] >=Convert(date,'" & HI.UL.ULDate.ConvertEnDB(FTStartGacDate.Text) & "') "
+                cmdstring &= vbCrLf & " AND  X.[GAC] <=Convert(date,'" & HI.UL.ULDate.ConvertEnDB(FTEndGacDate.Text) & "') "
 
             End If
 
-            If (FTStartDocDate.Text <> "" And FTEndDocDate.Text <> "") Then
+            If (FTStartDocDate.Text <> "" AndAlso FTEndDocDate.Text <> "") Then
 
-                cmdstring &= vbCrLf & " AND  Convert(varchar(10),X.[Document Date],111) >='" & HI.UL.ULDate.ConvertEnDB(FTStartDocDate.Text) & "' "
-                cmdstring &= vbCrLf & " AND  Convert(varchar(10),X.[Document Date],111) <='" & HI.UL.ULDate.ConvertEnDB(FTEndDocDate.Text) & "' "
+                cmdstring &= vbCrLf & " AND  X.[Document Date] >=Convert(date,'" & HI.UL.ULDate.ConvertEnDB(FTStartDocDate.Text) & "') "
+                cmdstring &= vbCrLf & " AND  X.[Document Date] <=Convert(date,'" & HI.UL.ULDate.ConvertEnDB(FTEndDocDate.Text) & "') "
 
 
+            End If
+
+            If FTCustomerPO.Text.Trim <> "" Then
+                cmdstring &= vbCrLf & " AND  X.[Purchase Order Number] ='" & HI.UL.ULF.rpQuoted(FTCustomerPO.Text.Trim) & "' "
+            End If
+
+            If FTTradigPO.Text.Trim <> "" Then
+                cmdstring &= vbCrLf & " AND  X.[Trading Co PO Number] ='" & HI.UL.ULF.rpQuoted(FTTradigPO.Text.Trim) & "' "
             End If
 
             Dim Spls As New HI.TL.SplashScreen("Loading data ... Please wait")

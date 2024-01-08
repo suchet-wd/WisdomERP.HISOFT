@@ -5,6 +5,7 @@ Imports System.Windows.Forms
 Public Class wQCSendSuplReportSR
     Private pGridData As DataTable
     Private pGridDataScn As DataTable
+    Private _FormHeader As New List(Of HI.TL.DynamicForm)()
     Sub New()
 
         ' This call is required by the designer.
@@ -1086,4 +1087,32 @@ Public Class wQCSendSuplReportSR
     Private Sub oCriteria_Click(sender As Object, e As EventArgs) Handles oCriteria.Click
 
     End Sub
+
+    Private Sub ocmclear_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ocmclear_Click_1(sender As Object, e As EventArgs) Handles ocmclear.Click
+        Me.otabDetail.TabPages.Clear()
+        Me.FormRefresh()
+    End Sub
+
+    Private Sub FormRefresh()
+        HI.TL.HandlerControl.ClearControl(Me)
+
+        For Each Obj As Object In Me.Controls.Find(Me.MainKey, True)
+            Select Case HI.ENM.Control.GeTypeControl(Obj)
+                Case ENM.Control.ControlType.ButtonEdit
+                    With CType(Obj, DevExpress.XtraEditors.ButtonEdit)
+                        .Focus()
+                    End With
+            End Select
+        Next
+    End Sub
+
+    Public ReadOnly Property MainKey As String
+        Get
+            Return _FormHeader(0).MainKey
+        End Get
+    End Property
 End Class
