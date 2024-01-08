@@ -49,7 +49,7 @@ Public Class wPatternMasterPlan_New
 
 #Region "Initial Grid"
     Private Sub InitGrid()
-        Me.FNYear.Text = New Date.Now.Year
+        'Me.FNYear.Text = New Date.Now.Year
         '------Start Add Summary Grid-------------
         Dim sFieldCount As String = ""
         Dim sFieldSum As String = "FNQuantity" 'FNQuantity|FNPass|FNNotPass"
@@ -301,12 +301,18 @@ Public Class wPatternMasterPlan_New
 
         If chkSample.Checked Then
             cmd &= "SELECT '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID' "
-            cmd &= vbCrLf & ", ptt.FTPatternTypeNameEN AS 'FTPatternType',ptt.FTPatternTypeNameEN AS 'FTPatternType_Hide' "
+            If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
+                cmd &= vbCrLf & ", ptt.FTPatternTypeNameTH AS 'FTPatternType',ptt.FTPatternTypeNameTH AS 'FTPatternType_Hide' "
+                cmd &= vbCrLf & ", ptg.FTPatternGrpTypeNameTH AS 'FTPtnGrpName',ptg.FTPatternGrpTypeNameTH AS 'FTPtnGrpName_Hide' "
+                cmd &= vbCrLf & ", us.FTUnitSectNameTH AS 'PatternTeam' "
+            Else
+                cmd &= vbCrLf & ", ptt.FTPatternTypeNameEN AS 'FTPatternType',ptt.FTPatternTypeNameEN AS 'FTPatternType_Hide' "
+                cmd &= vbCrLf & ", ptg.FTPatternGrpTypeNameEN AS 'FTPtnGrpName',ptg.FTPatternGrpTypeNameEN AS 'FTPtnGrpName_Hide' "
+                cmd &= vbCrLf & ", us.FTUnitSectNameEN AS 'PatternTeam' "
+            End If
             cmd &= vbCrLf & ", PT.FNHSysPTNTypeId AS 'FNHSysPatternTypeId', PT.FNHSysPTNTypeId AS 'FNHSysPatternTypeId_Hide' "
-            cmd &= vbCrLf & ", ptg.FTPatternGrpTypeNameEN AS 'FTPtnGrpName',ptg.FTPatternGrpTypeNameEN AS 'FTPtnGrpName_Hide' "
             cmd &= vbCrLf & ", PT.FNHSysPTNGrpTypeId AS 'FNHSysPatternGrpTypeId', PT.FNHSysPTNGrpTypeId AS 'FNHSysPatternGrpTypeId_Hide' "
             cmd &= vbCrLf & ", ptg.FTLeadTime AS 'FTLeadTime', ptg.FTLeadTime AS 'FTLeadTime_Hide' "
-            cmd &= vbCrLf & ", us.FTUnitSectNameEN AS 'PatternTeam' "
             cmd &= vbCrLf & ", 'SAMPLEROOM' AS 'Category' "
             cmd &= vbCrLf & ", PT.TPTNOrderBy AS 'TPTNOrderBy' "
             cmd &= vbCrLf & ", A.FTSMPOrderNo "
@@ -317,9 +323,6 @@ Public Class wPatternMasterPlan_New
             cmd &= vbCrLf & ", DatePart(Year, Convert(DateTime, A.FDSMPOrderDate)+35) AS 'ActFinishYear'"
             cmd &= vbCrLf & ", CONVERT(varchar(10),DatePart(week, Convert(DateTime, A.FDSMPOrderDate)+30)) + '-' + CONVERT(varchar(10),DatePart(Year, Convert(DateTime, A.FDSMPOrderDate)+30)) AS 'PlanFinishWY'"
             cmd &= vbCrLf & ", CONVERT(varchar(10),DatePart(week, Convert(DateTime, A.FDSMPOrderDate)+35)) + '-' + CONVERT(varchar(10),DatePart(Year, Convert(DateTime, A.FDSMPOrderDate)+35))  AS 'ActFinishWY'"
-            'cmd &= vbCrLf & ", CASE WHEN ISDATE(A.FTDeliveryDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,A.FTDeliveryDate),103),'') Else NULL END AS FTDeliveryDate"
-            'cmd &= vbCrLf & ", CASE WHEN ISDATE(A.FDSendToSMPDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,A.FDSendToSMPDate),103),'') Else NULL END AS FDSendToSMPDate"
-            'cmd &= vbCrLf & ", CASE WHEN ISDATE(A.FTStateReceiptDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,A.FTStateReceiptDate),103),'') Else NULL END AS FTStateReceiptDate"
             cmd &= vbCrLf & ", A.FTStyleName"
             cmd &= vbCrLf & ", A.FTGenderCode "
             cmd &= vbCrLf & ", A.FTGenderName"
@@ -332,8 +335,6 @@ Public Class wPatternMasterPlan_New
             cmd &= vbCrLf & ", CASE WHEN ISDATE(SMPMP.FTCFMSendSampleDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,SMPMP.FTCFMSendSampleDate),103),'') Else NULL END AS  FTCFMSendSampleDate"
             cmd &= vbCrLf & ", CASE WHEN ISDATE(a.FTGACDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,a.FTGACDate),103),'') Else NULL END  AS  FDGacDate"
             cmd &= vbCrLf & ", CASE WHEN ISDATE('') = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,''),103),'') Else NULL END  AS OGacDate"
-            'cmd &= vbCrLf & ", SMPMP.FTStandBy"
-            'cmd &= vbCrLf & ", SMPMP.FTNote"
             cmd &= vbCrLf & ", ISNULL(XSAM.FNSam,0) AS FNSMPSam"
             cmd &= vbCrLf & ", A.FTCustomerTeam  "
             cmd &= vbCrLf & ", A.FNSMPPrototypeNo"
@@ -356,24 +357,19 @@ Public Class wPatternMasterPlan_New
             End If
 
             cmd &= vbCrLf & ", A.FTMerTeamCode"
-            ' FTSizeBreakDown
-            'cmd &= vbCrLf & ", STUFF((Select ','+ B.FTSizeBreakDown  FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPOrder_Breakdown AS B "
-            'cmd &= vbCrLf & "where B.FTSMPOrderNo = A.FTSMPOrderNo AND A.FTColorway = B.FTColorway "
-            'cmd &= vbCrLf & "ORDER BY B.FNSeq FOR XML PATH('')),1,1,'') AS FTSizeBreakDown "
             cmd &= vbCrLf & ", STUFF((Select DISTINCT ','+ B.FTSizeBreakDown From HITECH_SAMPLEROOM.dbo.TSMPOrder_Breakdown AS B "
             cmd &= vbCrLf & "Where B.FTSMPOrderNo = A.FTSMPOrderNo For Xml PATH('')),1,1,'') AS FTSize "
-            'cmd &= vbCrLf & ", A.FTColorway"
             cmd &= vbCrLf & ", SUM(A.FNQuantity) AS FNQuantity"
             cmd &= vbCrLf & ", A.FTRemark"
             cmd &= vbCrLf & ", A.OrderStatus_Hide AS 'OrderStatus_Hide', C.FTCmpCode"
 
             ' Start As A
             'OD.FNSeq,
-            cmd &= vbCrLf & vbCrLf & " "
+            cmd &= vbCrLf & vbCrLf
             cmd &= vbCrLf & "FROM (Select A.FTSMPOrderNo, A.FDSMPOrderDate, A.FNSMPOrderType, A.FNSMPPrototypeNo, MST.FTStyleCode, MSS.FTSeasonCode "
             cmd &= vbCrLf & ", MCT.FTCustCode, MCT.FTCustNameTH, MCT.FTCustNameEN, MMT.FTMerTeamCode,  OD.FTSizeBreakDown "
-            cmd &= vbCrLf & ", OD.FNQuantity, OD.FTRemark " ', OD.FTColorway, OD.FTDeliveryDate, A.FTStateAppDate AS FDSendToSMPDate
-            cmd &= vbCrLf & ", MST.FTStyleNameEN AS 'FTStyleName', GD.FTGenderCode, GD.FTGenderNameEN  AS 'FTGenderName' " ', A.FTStateReceiptDate
+            cmd &= vbCrLf & ", OD.FNQuantity, OD.FTRemark "
+            cmd &= vbCrLf & ", MST.FTStyleNameEN AS 'FTStyleName', GD.FTGenderCode, GD.FTGenderNameEN  AS 'FTGenderName' "
             cmd &= vbCrLf & ", A.FTSMPOrderBy, B.FTBuyCode, A.FTPgmName "
             cmd &= vbCrLf & ", CASE WHEN ISNULL(A.FTRemark,'') <> '' THEN ISNULL(A.FTRemark,'') + char(30) ELSE  '' END AS FTOrderRemark "
             cmd &= vbCrLf & ", OD.FTPatternDate, OD.FTFabricDate, OD.FTAccessoryDate, A.FNOrderSampleType "
@@ -395,13 +391,10 @@ Public Class wPatternMasterPlan_New
             cmd &= vbCrLf
             cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMGender As GD With(NOLOCK)  On A.FNHSysGenderId = GD.FNHSysGenderId "
 
-            'cmd &= vbCrLf & "OUTER APPLY( Select TOP 1 *  FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TPTNOrder As pto With (NOLOCK) WHERE (pto.FTOrderNo = A.FTSMPOrderNo)) As pto "
-
-
             cmd &= vbCrLf & "WHERE A.FTSMPOrderNo <> '' "
 
-            If FNYear.Text <> "" Then
-                cmd &= vbCrLf & " And A.FDSMPOrderDate BETWEEN '" + FNYear.Text + "/01/01' AND '" + FNYear.Text + "/12/31' "
+            If FTPayYear.Text <> "" Then
+                cmd &= vbCrLf & " And A.FDSMPOrderDate BETWEEN '" + FTPayYear.Text + "/01/01' AND '" + FTPayYear.Text + "/12/31' "
             End If
 
             If FNHSysCustId.Text <> "" Then
@@ -465,7 +458,7 @@ Public Class wPatternMasterPlan_New
             cmd &= vbCrLf & "FROM HITECH_HR.dbo.THRMEmployee AS e WITH (NOLOCK) WHERE e.FNHSysEmpID = ul.FNHSysEmpID) AS e"
             cmd &= vbCrLf
             cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrderMasterPlan As SMPMP With(NOLOCK) "
-            cmd &= vbCrLf & "On A.FTSMPOrderNo = SMPMP.FTSMPOrderNo " 'And A.FTSizeBreakDown =SMPMP.FTSizeBreakDown And A.FTColorway=SMPMP.FTColorway "
+            cmd &= vbCrLf & "On A.FTSMPOrderNo = SMPMP.FTSMPOrderNo "
             cmd &= vbCrLf
             cmd &= vbCrLf & "OUTER APPLY (SELECT TOP 1 us.FTUnitSectNameEN, us.FTUnitSectNameTH "
             cmd &= vbCrLf & "From HITECH_HR.dbo.HRDV_TCNMUnitSect AS us WITH (NOLOCK) WHERE e.FNHSysUnitSectId = us.FNHSysUnitSectId) AS us"
@@ -478,18 +471,16 @@ Public Class wPatternMasterPlan_New
             cmd &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TPTNMType AS ptt WITH (NOLOCK) "
             cmd &= vbCrLf & "WHERE PT.FNHSysPTNTypeId = ptt.FNHSysPatternTypeId) AS ptt "
             cmd &= vbCrLf
-            cmd &= vbCrLf & "GROUP BY A.FTSMPOrderNo, A.OrderStatus_Hide, A.FDSMPOrderDate,PT.FTActPTNDate " ', A.FTDeliveryDate, A.FDSendToSMPDate, A.FTStateReceiptDate,
+            cmd &= vbCrLf & "GROUP BY A.FTSMPOrderNo, A.OrderStatus_Hide, A.FDSMPOrderDate,PT.FTActPTNDate "
             cmd &= vbCrLf & ", A.FTStyleName, A.FTGenderCode, A.FTGenderName, A.FTSMPOrderBy, A.FTOrderRemark, A.FTBuyCode, A.FTPgmName, A.FTPatternDate "
             cmd &= vbCrLf & ", SMPMP.FTActPatternDate, SMPMP.FTCFMSendSampleDate, A.FTGACDate, XSAM.FNSam, A.FTCustomerTeam "
-            ', SMPMP.FTStandBy, SMPMP.FTNote
-            cmd &= vbCrLf & ", A.FNSMPPrototypeNo, A.FTStyleCode, A.FTSeasonCode, A.FTCustCode "
-            cmd &= vbCrLf & ", A.FTMerTeamCode, A.FTRemark, C.FTCmpCode,PT.TPTNOrderBy" ', A.FTColorway
+            cmd &= vbCrLf & ", A.FNSMPPrototypeNo, A.FTStyleCode, A.FTSeasonCode, A.FTCustCode, ptg.FTPatternGrpTypeCode, ptg.FTLeadTime "
+            cmd &= vbCrLf & ", A.FTMerTeamCode, A.FTRemark, C.FTCmpCode,PT.TPTNOrderBy, ptt.FTPatternTypeCode, PT.FNHSysPTNTypeId, PT.FNHSysPTNGrpTypeId"
             cmd &= vbCrLf & ", XT.FTNameTH, A.FTCustNameTH, XTOT.FTNameTH, XTOTST.FTNameTH "
+            cmd &= vbCrLf & ", ptg.FTPatternGrpTypeNameTH, ptt.FTPatternTypeNameTH "
             cmd &= vbCrLf & ", XT.FTNameEN, A.FTCustNameEN, XTOT.FTNameEN, XTOTST.FTNameEN "
-            cmd &= vbCrLf & ", ptg.FTPatternGrpTypeCode, ptg.FTLeadTime, ptg.FTPatternGrpTypeNameEN, ptg.FTPatternGrpTypeNameTH "
-            cmd &= vbCrLf & ", ptt.FTPatternTypeCode, ptt.FTPatternTypeNameEN, ptt.FTPatternTypeNameTH "
-            cmd &= vbCrLf & ", PT.FNHSysPTNTypeId, PT.FNHSysPTNGrpTypeId, us.FTUnitSectNameEN,us.FTUnitSectNameTH"
-            'cmd &= vbCrLf & ", ul.FTUserDescriptionEN, us.FTUnitSectNameEN, ul.FTUserDescriptionTH, us.FTUnitSectNameTH "
+            cmd &= vbCrLf & ", ptg.FTPatternGrpTypeNameEN, ptt.FTPatternTypeNameEN "
+            cmd &= vbCrLf & ", us.FTUnitSectNameEN,us.FTUnitSectNameTH"
         End If
 
         '-----------------------------------------------------------------------------------------------
@@ -501,16 +492,19 @@ Public Class wPatternMasterPlan_New
 
         If chkProd.Checked Then
             cmd &= vbCrLf & "SELECT '" & HI.ST.SysInfo.CmpID & "' AS 'FNHSysCmpID' "
-            'cmd &= vbCrLf & ", '' AS 'FTPatternType','' AS 'FTPatternType_Hide', '' AS 'FNHSysPatternTypeId', '' AS 'FNHSysPatternTypeId_Hide' "
-            'cmd &= vbCrLf & ", '' AS 'FTPtnGrpName','' AS 'FTPtnGrpName_Hide', '' AS 'FNHSysPatternGrpTypeId', '' AS 'FNHSysPatternGrpTypeId_Hide' "
-            'cmd &= vbCrLf & ", '' AS 'FTLeadTime','' AS 'FTLeadTime_Hide' "
-            'cmd &= vbCrLf & ", '' AS 'PatternMarker',us.FTUnitSectNameEN AS 'PatternTeam' "
-            cmd &= vbCrLf & ", ptt.FTPatternTypeNameEN AS 'FTPatternType',ptt.FTPatternTypeNameEN AS 'FTPatternType_Hide' "
+            If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
+                cmd &= vbCrLf & ", ptt.FTPatternTypeNameTH AS 'FTPatternType',ptt.FTPatternTypeNameTH AS 'FTPatternType_Hide' "
+                cmd &= vbCrLf & ", ptg.FTPatternGrpTypeNameTH AS 'FTPtnGrpName',ptg.FTPatternGrpTypeNameTH AS 'FTPtnGrpName_Hide' "
+                cmd &= vbCrLf & ", us.FTUnitSectNameTH AS 'PatternTeam' "
+            Else
+                cmd &= vbCrLf & ", ptt.FTPatternTypeNameEN AS 'FTPatternType',ptt.FTPatternTypeNameEN AS 'FTPatternType_Hide' "
+                cmd &= vbCrLf & ", ptg.FTPatternGrpTypeNameEN AS 'FTPtnGrpName',ptg.FTPatternGrpTypeNameEN AS 'FTPtnGrpName_Hide' "
+                cmd &= vbCrLf & ", us.FTUnitSectNameEN AS 'PatternTeam' "
+            End If
+
             cmd &= vbCrLf & ", PT.FNHSysPTNTypeId AS 'FNHSysPatternTypeId', PT.FNHSysPTNTypeId AS 'FNHSysPatternTypeId_Hide' "
-            cmd &= vbCrLf & ", ptg.FTPatternGrpTypeNameEN AS 'FTPtnGrpName',ptg.FTPatternGrpTypeNameEN AS 'FTPtnGrpName_Hide' "
             cmd &= vbCrLf & ", PT.FNHSysPTNGrpTypeId AS 'FNHSysPatternGrpTypeId', PT.FNHSysPTNGrpTypeId AS 'FNHSysPatternGrpTypeId_Hide' "
             cmd &= vbCrLf & ", ptg.FTLeadTime AS 'FTLeadTime', ptg.FTLeadTime AS 'FTLeadTime_Hide' "
-            cmd &= vbCrLf & ", us.FTUnitSectNameEN AS 'PatternTeam' "
             cmd &= vbCrLf & ", 'PRODUCTION' AS 'Category', PT.TPTNOrderBy AS 'TPTNOrderBy' "
             cmd &= vbCrLf & ", ISNULL(A.FTOrderNo,'') AS 'FTSMPOrderNo'"
             cmd &= vbCrLf & ", Case When ISDATE(A.FDInsDate) = 1 Then  ISNULL(CONVERT(varchar(10),convert(Datetime,A.FDInsDate),103),'') Else NULL END  AS 'FDSMPOrderDate' "
@@ -520,9 +514,6 @@ Public Class wPatternMasterPlan_New
             cmd &= vbCrLf & ", DatePart(Year, Convert(DateTime, A.FDInsDate)+35) AS 'ActFinishYear'"
             cmd &= vbCrLf & ", CONVERT(varchar(10),DatePart(week, Convert(DateTime, A.FDInsDate)+30)) + '-' + CONVERT(varchar(10),DatePart(Year, Convert(DateTime, A.FDInsDate)+30)) AS 'PlanFinishWY'"
             cmd &= vbCrLf & ", CONVERT(varchar(10),DatePart(week, Convert(DateTime, A.FDInsDate)+35)) + '-' + CONVERT(varchar(10),DatePart(Year, Convert(DateTime, A.FDInsDate)+35))  AS 'ActFinishWY'"
-            'cmd &= vbCrLf & ", '' AS 'FTDeliveryDate' "
-            'cmd &= vbCrLf & ", '' AS 'FDSendToSMPDate' "
-            'cmd &= vbCrLf & ", '' AS 'FTStateReceiptDate' "
             cmd &= vbCrLf & ", ISNULL(MST.FTStyleNameEN,'') AS 'FTStyleName', ISNULL(GD.FTGenderCode,'') AS 'FTGenderCode' "
             cmd &= vbCrLf & ", ISNULL(GD.FTGenderNameEN,'') AS 'FTGenderName', ISNULL(A.FTOrderBy,'') AS 'FTSMPOrderBy' "
             cmd &= vbCrLf & ", ISNULL(A.FTRemark,'') AS 'FTOrderRemark', B.FTBuyCode AS 'FTBuyCode' "
@@ -532,8 +523,6 @@ Public Class wPatternMasterPlan_New
             cmd &= vbCrLf & ", '' AS 'FTCFMSendSampleDate' "
             cmd &= vbCrLf & ", CASE WHEN ISDATE(S.FDShipDate) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,S.FDShipDate),103),'') Else NULL END AS 'FDGacDate' "
             cmd &= vbCrLf & ", CASE WHEN ISDATE(S.FDShipDateOrginal) = 1 Then ISNULL(CONVERT(varchar(10),convert(Datetime,S.FDShipDateOrginal),103),'') Else NULL END AS 'OGacDate' "
-
-            'cmd &= vbCrLf & ", '' AS 'FTStandBy',  ISNULL(S.FTOther1Note,'') AS 'FTNote' "
             cmd &= vbCrLf & ", 0 AS 'FNSMPSam', '' AS 'FTCustomerTeam' "
             cmd &= vbCrLf & ", ISNULL(A.FNHSysProdTypeId,'') AS 'FNSMPPrototypeNo', ISNULL(MST.FTStyleCode,'') AS 'FTStyleCode' "
             cmd &= vbCrLf & ", ISNULL(MSS.FTSeasonNameEN,'') AS 'FTSeasonCode' "
@@ -615,12 +604,11 @@ Public Class wPatternMasterPlan_New
             cmd &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TPTNMType AS ptt WITH (NOLOCK) "
             cmd &= vbCrLf & "WHERE PT.FNHSysPTNTypeId = ptt.FNHSysPatternTypeId) AS ptt "
             cmd &= vbCrLf
-            'WHERE PT.TPTNOrderBy = 'n91pornthip'
 
             cmd &= vbCrLf & "WHERE A.FTOrderNo <> '' "
 
-            If (FNYear.Text <> "") Then
-                cmd &= vbCrLf & " And A.FDOrderDate BETWEEN '" + FNYear.Text + "/01/01' AND '" + FNYear.Text + "/12/31' "
+            If (FTPayYear.Text <> "") Then
+                cmd &= vbCrLf & " And A.FDOrderDate BETWEEN '" + FTPayYear.Text + "/01/01' AND '" + FTPayYear.Text + "/12/31' "
             End If
 
             If (FNHSysCustId.Text <> "") Then
@@ -650,14 +638,14 @@ Public Class wPatternMasterPlan_New
 
             cmd &= vbCrLf & vbCrLf & " GROUP BY A.FTOrderNo, A.FTStateOrderApp, A.FDInsDate, GD.FTGenderCode, A.FTOrderBy "
             cmd &= vbCrLf & ", A.FTRemark, A.FTSubPgm, B.FTBuyCode, S.FTOther1Note, A.FNHSysProdTypeId, MST.FTStyleCode "
-            cmd &= vbCrLf & ", MCT.FTCustCode, MMT.FTMerTeamCode, A.FNJobState, A.FTStateBy, C.FTCmpCode " ', SB.FTColorway
+            cmd &= vbCrLf & ", MCT.FTCustCode, MMT.FTMerTeamCode, A.FNJobState, A.FTStateBy, C.FTCmpCode "
             cmd &= vbCrLf & ", PT.FTPTNDate, PT.FTActPTNDate, S.FDShipDate, S.FDShipDateOrginal, PT.TPTNOrderBy,A.FNJobState "
+            cmd &= vbCrLf & ", ptg.FTPatternGrpTypeCode, ptg.FTLeadTime, ptt.FTPatternTypeCode, PT.FNHSysPTNTypeId, PT.FNHSysPTNGrpTypeId "
             cmd &= vbCrLf & ", ODT.FTNameTH, XT.FTNameTH, MCT.FTCustNameTH, MST.FTStyleNameTH, GD.FTGenderNameTH, MSS.FTSeasonNameTH "
+            cmd &= vbCrLf & ", ptt.FTPatternTypeNameTH,us.FTUnitSectNameTH, ul.FTUserDescriptionTH, ptg.FTPatternGrpTypeNameTH  "
             cmd &= vbCrLf & ", ODT.FTNameEN, XT.FTNameEN, MCT.FTCustNameEN, MST.FTStyleNameEN, GD.FTGenderNameEN, MSS.FTSeasonNameEN "
-            cmd &= vbCrLf & ", ul.FTUserDescriptionEN, us.FTUnitSectNameEN, ul.FTUserDescriptionTH, us.FTUnitSectNameTH "
-            cmd &= vbCrLf & ", ptg.FTPatternGrpTypeCode, ptg.FTLeadTime, ptg.FTPatternGrpTypeNameEN, ptg.FTPatternGrpTypeNameTH "
-            cmd &= vbCrLf & ", ptt.FTPatternTypeCode, ptt.FTPatternTypeNameEN, ptt.FTPatternTypeNameTH "
-            cmd &= vbCrLf & ", PT.FNHSysPTNTypeId, PT.FNHSysPTNGrpTypeId, us.FTUnitSectNameEN,us.FTUnitSectNameTH"
+            cmd &= vbCrLf & ", ptt.FTPatternTypeNameEN, us.FTUnitSectNameEN, ul.FTUserDescriptionEN, ptg.FTPatternGrpTypeNameEN "
+
         End If
 
         _dtprod = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_SAMPLE)

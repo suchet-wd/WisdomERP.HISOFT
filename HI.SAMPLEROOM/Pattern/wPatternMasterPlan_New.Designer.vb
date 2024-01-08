@@ -19,6 +19,21 @@ Partial Class wPatternMasterPlan_New
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim EditorButtonImageOptions10 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject37 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject38 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject39 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject40 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions9 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject33 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject34 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject35 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject36 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions8 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject29 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject30 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject31 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject32 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -39,26 +54,10 @@ Partial Class wPatternMasterPlan_New
         Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions5 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject17 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject18 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject19 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject20 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions6 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject21 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject22 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject23 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject24 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions7 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject25 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject26 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject27 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject28 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbStyleHeader = New DevExpress.XtraEditors.GroupControl()
         Me.chkSample = New DevExpress.XtraEditors.CheckEdit()
         Me.chkProd = New DevExpress.XtraEditors.CheckEdit()
         Me.lblFilterType = New DevExpress.XtraEditors.LabelControl()
-        Me.FNYear = New DevExpress.XtraEditors.DateEdit()
         Me.lblFTYear = New DevExpress.XtraEditors.LabelControl()
         Me.lblTBuyCodeTo = New DevExpress.XtraEditors.LabelControl()
         Me.lblFNHSysBuyId = New DevExpress.XtraEditors.LabelControl()
@@ -146,12 +145,11 @@ Partial Class wPatternMasterPlan_New
         Me.FTEmpName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNHSysCmpID = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNHSysCmpID_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTPayYear = New DevExpress.XtraEditors.ComboBoxEdit()
         CType(Me.ogbStyleHeader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbStyleHeader.SuspendLayout()
         CType(Me.chkSample.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chkProd.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNYear.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNYear.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysBuyIdTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysBuyIdFrom.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTEndReqDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -178,14 +176,15 @@ Partial Class wPatternMasterPlan_New
         CType(Me.ReposDate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReposDate.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReposPatternType, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FTPayYear.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ogbStyleHeader
         '
+        Me.ogbStyleHeader.Controls.Add(Me.FTPayYear)
         Me.ogbStyleHeader.Controls.Add(Me.chkSample)
         Me.ogbStyleHeader.Controls.Add(Me.chkProd)
         Me.ogbStyleHeader.Controls.Add(Me.lblFilterType)
-        Me.ogbStyleHeader.Controls.Add(Me.FNYear)
         Me.ogbStyleHeader.Controls.Add(Me.lblFTYear)
         Me.ogbStyleHeader.Controls.Add(Me.lblTBuyCodeTo)
         Me.ogbStyleHeader.Controls.Add(Me.lblFNHSysBuyId)
@@ -247,21 +246,6 @@ Partial Class wPatternMasterPlan_New
         Me.lblFilterType.Tag = "2|"
         Me.lblFilterType.Text = "Show Type :"
         '
-        'FNYear
-        '
-        Me.FNYear.EditValue = Nothing
-        Me.FNYear.Location = New System.Drawing.Point(434, 31)
-        Me.FNYear.Name = "FNYear"
-        Me.FNYear.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.FNYear.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.FNYear.Properties.DisplayFormat.FormatString = "yyyy"
-        Me.FNYear.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FNYear.Properties.EditFormat.FormatString = "yyyy"
-        Me.FNYear.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FNYear.Properties.Mask.EditMask = "yyyy"
-        Me.FNYear.Size = New System.Drawing.Size(133, 20)
-        Me.FNYear.TabIndex = 2
-        '
         'lblFTYear
         '
         Me.lblFTYear.Appearance.ForeColor = System.Drawing.Color.RoyalBlue
@@ -308,7 +292,7 @@ Partial Class wPatternMasterPlan_New
         '
         Me.FNHSysBuyIdTo.Location = New System.Drawing.Point(434, 57)
         Me.FNHSysBuyIdTo.Name = "FNHSysBuyIdTo"
-        Me.FNHSysBuyIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysBuyIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBuyIdTo.Properties.Tag = "113"
         Me.FNHSysBuyIdTo.Size = New System.Drawing.Size(133, 20)
         Me.FNHSysBuyIdTo.TabIndex = 4
@@ -317,7 +301,7 @@ Partial Class wPatternMasterPlan_New
         '
         Me.FNHSysBuyIdFrom.Location = New System.Drawing.Point(144, 56)
         Me.FNHSysBuyIdFrom.Name = "FNHSysBuyIdFrom"
-        Me.FNHSysBuyIdFrom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysBuyIdFrom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBuyIdFrom.Properties.Tag = ""
         Me.FNHSysBuyIdFrom.Size = New System.Drawing.Size(162, 20)
         Me.FNHSysBuyIdFrom.TabIndex = 3
@@ -446,7 +430,7 @@ Partial Class wPatternMasterPlan_New
         '
         Me.FNHSysMerTeamId.Location = New System.Drawing.Point(144, 107)
         Me.FNHSysMerTeamId.Name = "FNHSysMerTeamId"
-        Me.FNHSysMerTeamId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "153", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysMerTeamId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "153", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysMerTeamId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysMerTeamId.Properties.Tag = ""
         Me.FNHSysMerTeamId.Size = New System.Drawing.Size(162, 20)
@@ -482,7 +466,7 @@ Partial Class wPatternMasterPlan_New
         '
         Me.FNHSysCustId.Location = New System.Drawing.Point(144, 185)
         Me.FNHSysCustId.Name = "FNHSysCustId"
-        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCustId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCustId.Properties.Tag = ""
         Me.FNHSysCustId.Size = New System.Drawing.Size(162, 20)
@@ -507,7 +491,7 @@ Partial Class wPatternMasterPlan_New
         '
         Me.FNHSysSeasonId.Location = New System.Drawing.Point(144, 30)
         Me.FNHSysSeasonId.Name = "FNHSysSeasonId"
-        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSeasonId.Properties.Tag = ""
         Me.FNHSysSeasonId.Size = New System.Drawing.Size(162, 20)
         Me.FNHSysSeasonId.TabIndex = 1
@@ -545,7 +529,7 @@ Partial Class wPatternMasterPlan_New
         '
         Me.FNHSysStyleId.Location = New System.Drawing.Point(144, 81)
         Me.FNHSysStyleId.Name = "FNHSysStyleId"
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "235", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "235", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysStyleId.Properties.Tag = ""
         Me.FNHSysStyleId.Size = New System.Drawing.Size(162, 20)
@@ -947,7 +931,7 @@ Partial Class wPatternMasterPlan_New
         'ReposPatternType
         '
         Me.ReposPatternType.AutoHeight = False
-        Me.ReposPatternType.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "703", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ReposPatternType.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "703", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ReposPatternType.Name = "ReposPatternType"
         '
         'FTPatternType_Hide
@@ -1386,6 +1370,33 @@ Partial Class wPatternMasterPlan_New
         Me.FNHSysCmpID_Hide.Name = "FNHSysCmpID_Hide"
         Me.FNHSysCmpID_Hide.OptionsColumn.AllowEdit = False
         '
+        'FTPayYear
+        '
+        Me.FTPayYear.EditValue = ""
+        Me.FTPayYear.EnterMoveNextControl = True
+        Me.FTPayYear.Location = New System.Drawing.Point(434, 31)
+        Me.FTPayYear.Name = "FTPayYear"
+        Me.FTPayYear.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTPayYear.Properties.Appearance.Options.UseBackColor = True
+        Me.FTPayYear.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FTPayYear.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FTPayYear.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FTPayYear.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FTPayYear.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FTPayYear.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FTPayYear.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FTPayYear.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FTPayYear.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTPayYear.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FTPayYear.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTPayYear.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FTPayYear.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.FTPayYear.Properties.Tag = "FNPayYear"
+        Me.FTPayYear.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.FTPayYear.Size = New System.Drawing.Size(132, 20)
+        Me.FTPayYear.TabIndex = 595
+        Me.FTPayYear.Tag = "2|"
+        '
         'wPatternMasterPlan_New
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1399,8 +1410,6 @@ Partial Class wPatternMasterPlan_New
         Me.ogbStyleHeader.ResumeLayout(False)
         CType(Me.chkSample.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chkProd.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNYear.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNYear.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysBuyIdTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysBuyIdFrom.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTEndReqDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1427,6 +1436,7 @@ Partial Class wPatternMasterPlan_New
         CType(Me.ReposDate.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReposDate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReposPatternType, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTPayYear.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1509,7 +1519,6 @@ Partial Class wPatternMasterPlan_New
     Friend WithEvents lblFNHSysBuyId As DevExpress.XtraEditors.LabelControl
     Private WithEvents FNHSysBuyIdTo As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents lblFTYear As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FNYear As DevExpress.XtraEditors.DateEdit
     Friend WithEvents chkSample As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents chkProd As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents lblFilterType As DevExpress.XtraEditors.LabelControl
@@ -1522,4 +1531,5 @@ Partial Class wPatternMasterPlan_New
     Friend WithEvents FTPtnGrpName As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTPtnGrpName_Hide As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTLeadTime_Hide As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTPayYear As DevExpress.XtraEditors.ComboBoxEdit
 End Class
