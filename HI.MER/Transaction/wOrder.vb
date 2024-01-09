@@ -7538,6 +7538,9 @@ Public Class wOrder
                 _Str &= Environment.NewLine & ",[FNHSysGenderId],[FNHSysUnitId],[FTStateEmb]"
                 _Str &= Environment.NewLine & ",[FTStatePrint],[FTStateHeat],[FTStateLaser],[FTStateWindows]"
                 _Str &= Environment.NewLine & ",[FTRemark],[FNHSysShipPortId]"
+                'Add By Chet 09 Dec 2024
+                _Str &= Environment.NewLine & ",[FNPackCartonSubType],[FNPackPerCarton]"
+                'End Add By Chet 09 Dec 2024
                 _Str &= Environment.NewLine & ",[FTInsUser],[FDInsDate],[FTInsTime]"
                 _Str &= Environment.NewLine & ",[FTUpdUser],[FDUpdDate],[FTUpdTime],[FTCustRef],[FTPORef],[FNHSysPlantId],[FNHSysBuyGrpId],[FNOrderSetType],[FTStateSewOnly],FTPOTrading,FNHSysShipToAccountId)"
                 _Str &= "VALUES ('" & Me.FTOrderNo.Text & "','" & tFTSubOrderNo & "','" & HI.UL.ULDate.ConvertEnDB(Me.FDSubOrderDate.Text) & "',N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
@@ -7546,6 +7549,9 @@ Public Class wOrder
                 _Str &= "," & Val(Me.FNHSysGenderId.Properties.Tag.ToString()) & "," & Val(Me.FNHSysUnitId.Properties.Tag.ToString()) & ",'" & Me.FTStateEmb.EditValue.ToString & "'"
                 _Str &= ",'" & Me.FTStatePrint.EditValue.ToString() & "','" & Me.FTStateHeat.EditValue.ToString() & "','" & Me.FTStateLaser.EditValue.ToString() & "','" & Me.FTStateWindows.EditValue.ToString() & "'"
                 _Str &= ",'" & HI.UL.ULF.rpQuoted(Me.FTRemarkSubOrderNo.Text) & "'," & Val(Me.FNHSysShipPortId.Properties.Tag.ToString())
+                'Add By Chet 09 Dec 2024
+                _Str &= ",'" & HI.UL.ULF.rpQuoted(Me.FNPackCartonSubType.Text) & "'," & Val(Me.FNPackPerCaton.Properties.Tag.ToString())
+                'End Add By Chet 09 Dec 2024
                 _Str &= ",N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB
                 _Str &= ",N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB & ",N'" & HI.UL.ULF.rpQuoted(Me.FTCustRef.Text) & "',N'" & HI.UL.ULF.rpQuoted(Me.FTSubPORef.Text.Trim()) & "'"
                 _Str &= "," & Val(FNHSysPlantId.Properties.Tag.ToString) & "," & Val(FNHSysBuyGrpId.Properties.Tag.ToString) & "," & FNOrderSetType.SelectedIndex & ",'" & FTStateSewOnly.EditValue.ToString & "',N'" & HI.UL.ULF.rpQuoted(Me.FTPOTrading.Text) & "'," & Val(FNHSysShipToAccountId.Properties.Tag.ToString) & ")"

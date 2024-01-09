@@ -414,6 +414,18 @@ Partial Class wOrder
         Me.otab = New DevExpress.XtraTab.XtraTabControl()
         Me.otpOrderBreakdown = New DevExpress.XtraTab.XtraTabPage()
         Me.ogbOrder = New DevExpress.XtraEditors.GroupControl()
+        Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
+        Me.ocmDivert = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmInsertSeqNo = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmchangecolorway = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmdeleteallsize = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmcombinebreakdown = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmdeleteallcolrway = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmreseq = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmcopycomsewpacksize = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmremovecomponent = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmaddcomponent = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmimportcomponentfrombom = New DevExpress.XtraEditors.SimpleButton()
         Me.FNHSysCmpIdTo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysCmpIdTo_None = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysCmpIdTo = New DevExpress.XtraEditors.ButtonEdit()
@@ -724,18 +736,6 @@ Partial Class wOrder
         Me.cFNHSysMeasId = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemFNHSysMeasId = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
         Me.cFNHSysMeasId_None = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
-        Me.ocmDivert = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmInsertSeqNo = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmchangecolorway = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmdeleteallsize = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmcombinebreakdown = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmdeleteallcolrway = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmreseq = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmcopycomsewpacksize = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmremovecomponent = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmaddcomponent = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmimportcomponentfrombom = New DevExpress.XtraEditors.SimpleButton()
         Me.ReposFNLeaveRight = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
         Me.RepColFTFinAmt3 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
         Me.RepColFTFinAmt4 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
@@ -786,291 +786,291 @@ Partial Class wOrder
         Me.FTStatePurchase = New DevExpress.XtraEditors.CheckEdit()
         Me.FTStateReserve = New DevExpress.XtraEditors.CheckEdit()
         Me.FTStateMRP = New DevExpress.XtraEditors.CheckEdit()
-        CType(Me.FNJobState.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTUpdTime.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDUpdDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTUpdUser.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysCmpRunId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateOrderApp.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysCmpRunId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysCmpId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysCmpId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTOrderBy.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysStyleId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNOrderType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysStyleId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNSubOrderState.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDOrderDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDOrderDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysAgencyId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysAgencyId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTPORef.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTImage4.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTImage3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTImage2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTImage1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.otab, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.otab.SuspendLayout()
-        Me.otpOrderBreakdown.SuspendLayout()
-        CType(Me.ogbOrder, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbOrder.SuspendLayout()
-        CType(Me.FNHSysCmpIdTo_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysCmpIdTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTSubPgm.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateInfoOrderRevised.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateInfoOrder.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNOrderTestAmnt.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNOrderTestQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysMerTeamId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysMerTeamId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysVenderPramId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysVenderPramId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNAmntExtra.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysBrandId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysBrandId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysBuyId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysBuyId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNGrandAmt.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNGrandQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNOrderAmt.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNExtraQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNOrderQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTCombination.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTMainMaterial.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysBuyerId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysBuyerId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysProdTypeId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysProdTypeId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysCustId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysCustId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogbOrderRemark, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbOrderRemark.SuspendLayout()
-        CType(Me.FTRemark.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogbColorwaySizeBreakdown, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbColorwaySizeBreakdown.SuspendLayout()
-        CType(Me.ogdColorSizeBreakdown, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogbCurrencyInfo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbCurrencyInfo.SuspendLayout()
-        CType(Me.ogdCurrencyBreakdown, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.otpSubOrder.SuspendLayout()
-        CType(Me.ogbSubOrderBreakdownInfo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbSubOrderBreakdownInfo.SuspendLayout()
-        CType(Me.otbsuborderno, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.otbsuborderno.SuspendLayout()
-        Me.otpsubbreakdown.SuspendLayout()
-        CType(Me.ogdSubOrdBreakDown, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogvSubOrdBreakdown, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.otpsubbreakdownprice.SuspendLayout()
-        CType(Me.ogdSubOrdBreakDownSummary, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogvSubOrdBreakdownSummary, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelControl1.SuspendLayout()
-        Me.XtraScrollableControl2.SuspendLayout()
-        CType(Me.FNExternalQtyTest.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNColorSeq.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTSizeBreakDown.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNGarmentQtyTest.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTColorway.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNAmt.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNExtraQtySubOrder.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTColorway_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNQuantityExtra.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNQuantity.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNPrice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateSubCombine.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTUpdUserSubOrder.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDUpdDate_OrderSub.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTUpdTime_OrderSub.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogbSubOrder, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbSubOrder.SuspendLayout()
-        CType(Me.FTStateApprovedSubOrderNoRevised.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateApprovedSubOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTSubOrderNoDivertRef.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateSubPacking.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateSubSewing.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateSubCutting.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateSubMRP.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.XtraScrollableControl1.SuspendLayout()
-        CType(Me.FNHSysAFSId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysShipToAccountId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysShipToAccountId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNExternalQtyTestSub.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTPOTrading.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateSewOnly.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNOrderSetType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTSubPORef.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDShipDateOrginal.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDShipDateOrginal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTSubOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNSubOrderGarmentTestAmnt.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateSubProduction.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysBuyGrpId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysBuyGrpId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNSubOrderGarmentTestQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysPlantId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysPlantId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDSubOrderDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDSubOrderDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTCustRef.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNSubOrderExtraAmt.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDProDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDProDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNSubOrderExtraQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDShipDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDShipDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysContinentId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysContinentId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysProvinceId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysProvinceId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysShipPortId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysShipPortId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysShipModeId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysShipModeId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTRemarkSubOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysCurId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNSubOrderAmt.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysCurId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNSubOrderQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysGenderId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysGenderId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateWindows.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateLaser.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysUnitId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateHeat.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysUnitId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStatePrint.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateEmb.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysCountryId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysCountryId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogbpay, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbpay.SuspendLayout()
-        CType(Me.FTAccNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysPayRollPayId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysBankBranchId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysPayRollPayId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysBankBranchId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysBankId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysBankId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.otbSubOrderComponent.SuspendLayout()
-        CType(Me.ogbComponent, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbComponent.SuspendLayout()
-        CType(Me.ogdOrderSubComponent, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogvOrderSubComponent, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemMemoEditFTMainMatDescComponent, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemMemoEditFTComponent, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepFNConSmp, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemMemoEditFTRemarkComponent, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemMemoExEditFTMainMatDesc, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateApprovedComponentRevised.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateApprovedComponent.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.otpSubOrderSewInfo.SuspendLayout()
-        CType(Me.otbsewing, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.otbsewing.SuspendLayout()
-        Me.otpsubordersewing.SuspendLayout()
-        CType(Me.ogbSubOrderSewInfo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbSubOrderSewInfo.SuspendLayout()
-        CType(Me.FTStateApprovedSewRevised.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateApprovedSew.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTImageSewing.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTSewNote.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTSewDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNSewSeq.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogdOrderSubSewing, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogvOrderSubSewing, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemMemoEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemPictureEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.otpsewingpdf.SuspendLayout()
-        CType(Me.grdpdfdetail, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.otpSubOrderPackInfo.SuspendLayout()
-        CType(Me.ogbSubOrderPackInfo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbSubOrderPackInfo.SuspendLayout()
-        CType(Me.FTStateApprovedPackRevised.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateApprovedPack.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTImagePacking.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTPackNote.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTPackDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNPackSeq.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogdOrderSubPack, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogvOrderSubPack, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemMemoEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemMemoEdit4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemPictureEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.otpSubOrderPakingCartonInfo.SuspendLayout()
-        CType(Me.ogbPackCartonDT, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbPackCartonDT.SuspendLayout()
-        CType(Me.ogdOrderSubPackCarton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogvOrderSubPackCarton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogbPackCartonHD, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbPackCartonHD.SuspendLayout()
-        CType(Me.FTStateApprovedPackRatioRevised.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateApprovedPackRatio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNPackPerCaton.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNPackCartonSubType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.otpSubOrderSizeSpec.SuspendLayout()
-        CType(Me.ogbSubOrderSizeSpec, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbSubOrderSizeSpec.SuspendLayout()
-        CType(Me.FTStateApprovedSizeSpecRevised.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateApprovedSizeSpec.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogdSizeSpec, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogvSizeSpec, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemFNHSysMeasId, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbmainprocbutton.SuspendLayout()
-        CType(Me.ReposFNLeaveRight, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepColFTFinAmt3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepColFTFinAmt4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCalcEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCalcEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCalcEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepColFTRetEmpCard, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepColFTDestroyCard, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepColFTBackListSta, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepColFTRetEquipment, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCalcEdit4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepFTStaOutstanding, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCalcEdit5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCalcEdit6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCalcEdit7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCalcEdit8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCalcEdit9, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCalcEdit10, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogbImageOrder, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbImageOrder.SuspendLayout()
-        Me.XtraScrollableControl3.SuspendLayout()
-        CType(Me.FTStateProduction.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateAdjust.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupControl2.SuspendLayout()
-        Me.DockPanel1_Container.SuspendLayout()
-        CType(Me.FTStatePrintBarcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysCmpIdCreate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateOrderAppSub.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateCombine.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateOrderAppSizeSpec.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateOrderAppPackRatio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateOrderAppPack.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateOrderAppSew.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateOrderAppComponent.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateTransferWH.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTOrderNoRef.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStatePacking.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateSewing.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateCutting.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysSeasonId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysSeasonId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateTransferOut.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateTransferIn.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateReceive.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateSourcing.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStatePurchase.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateReserve.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateMRP.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
+        CType(Me.FNJobState.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTUpdTime.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FDUpdDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTUpdUser.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysCmpRunId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateOrderApp.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysCmpRunId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysCmpId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysCmpId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTOrderBy.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysStyleId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNOrderType.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysStyleId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNSubOrderState.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FDOrderDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FDOrderDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysAgencyId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysAgencyId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTPORef.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTImage4.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTImage3.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTImage2.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTImage1.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.otab, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.otab.SuspendLayout
+        Me.otpOrderBreakdown.SuspendLayout
+        CType(Me.ogbOrder, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbOrder.SuspendLayout
+        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbmainprocbutton.SuspendLayout
+        CType(Me.FNHSysCmpIdTo_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysCmpIdTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTSubPgm.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateInfoOrderRevised.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateInfoOrder.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNOrderTestAmnt.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNOrderTestQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysMerTeamId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysMerTeamId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysVenderPramId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysVenderPramId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNAmntExtra.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysBrandId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysBrandId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysBuyId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysBuyId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNGrandAmt.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNGrandQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNOrderAmt.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNExtraQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNOrderQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTCombination.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTMainMaterial.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysBuyerId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysBuyerId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysProdTypeId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysProdTypeId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysCustId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysCustId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogbOrderRemark, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbOrderRemark.SuspendLayout
+        CType(Me.FTRemark.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogbColorwaySizeBreakdown, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbColorwaySizeBreakdown.SuspendLayout
+        CType(Me.ogdColorSizeBreakdown, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogbCurrencyInfo, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbCurrencyInfo.SuspendLayout
+        CType(Me.ogdCurrencyBreakdown, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.otpSubOrder.SuspendLayout
+        CType(Me.ogbSubOrderBreakdownInfo, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbSubOrderBreakdownInfo.SuspendLayout
+        CType(Me.otbsuborderno, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.otbsuborderno.SuspendLayout
+        Me.otpsubbreakdown.SuspendLayout
+        CType(Me.ogdSubOrdBreakDown, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogvSubOrdBreakdown, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.otpsubbreakdownprice.SuspendLayout
+        CType(Me.ogdSubOrdBreakDownSummary, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogvSubOrdBreakdownSummary, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.PanelControl1.SuspendLayout
+        Me.XtraScrollableControl2.SuspendLayout
+        CType(Me.FNExternalQtyTest.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNColorSeq.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTSizeBreakDown.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNGarmentQtyTest.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTColorway.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNAmt.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNExtraQtySubOrder.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTColorway_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNQuantityExtra.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNQuantity.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNPrice.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateSubCombine.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTUpdUserSubOrder.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FDUpdDate_OrderSub.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTUpdTime_OrderSub.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogbSubOrder, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbSubOrder.SuspendLayout
+        CType(Me.FTStateApprovedSubOrderNoRevised.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateApprovedSubOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTSubOrderNoDivertRef.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateSubPacking.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateSubSewing.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateSubCutting.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateSubMRP.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.XtraScrollableControl1.SuspendLayout
+        CType(Me.FNHSysAFSId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysShipToAccountId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysShipToAccountId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNExternalQtyTestSub.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTPOTrading.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateSewOnly.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNOrderSetType.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTSubPORef.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FDShipDateOrginal.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FDShipDateOrginal.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTSubOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNSubOrderGarmentTestAmnt.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateSubProduction.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysBuyGrpId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysBuyGrpId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNSubOrderGarmentTestQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysPlantId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysPlantId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FDSubOrderDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FDSubOrderDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTCustRef.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNSubOrderExtraAmt.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FDProDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FDProDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNSubOrderExtraQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FDShipDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FDShipDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysContinentId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysContinentId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysProvinceId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysProvinceId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysShipPortId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysShipPortId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysShipModeId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysShipModeId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTRemarkSubOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysCurId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNSubOrderAmt.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysCurId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNSubOrderQty.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysGenderId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysGenderId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateWindows.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateLaser.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysUnitId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateHeat.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysUnitId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStatePrint.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateEmb.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysCountryId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysCountryId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogbpay, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbpay.SuspendLayout
+        CType(Me.FTAccNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysPayRollPayId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysBankBranchId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysPayRollPayId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysBankBranchId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysBankId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysBankId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.otbSubOrderComponent.SuspendLayout
+        CType(Me.ogbComponent, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbComponent.SuspendLayout
+        CType(Me.ogdOrderSubComponent, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogvOrderSubComponent, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemMemoEditFTMainMatDescComponent, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemMemoEditFTComponent, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepFNConSmp, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemMemoEditFTRemarkComponent, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemMemoExEditFTMainMatDesc, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateApprovedComponentRevised.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateApprovedComponent.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.otpSubOrderSewInfo.SuspendLayout
+        CType(Me.otbsewing, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.otbsewing.SuspendLayout
+        Me.otpsubordersewing.SuspendLayout
+        CType(Me.ogbSubOrderSewInfo, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbSubOrderSewInfo.SuspendLayout
+        CType(Me.FTStateApprovedSewRevised.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateApprovedSew.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTImageSewing.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTSewNote.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTSewDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNSewSeq.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogdOrderSubSewing, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogvOrderSubSewing, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemMemoEdit2, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemPictureEdit2, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.otpsewingpdf.SuspendLayout
+        CType(Me.grdpdfdetail, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.otpSubOrderPackInfo.SuspendLayout
+        CType(Me.ogbSubOrderPackInfo, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbSubOrderPackInfo.SuspendLayout
+        CType(Me.FTStateApprovedPackRevised.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateApprovedPack.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTImagePacking.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTPackNote.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTPackDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNPackSeq.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogdOrderSubPack, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogvOrderSubPack, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemMemoEdit3, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemMemoEdit4, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemPictureEdit3, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.otpSubOrderPakingCartonInfo.SuspendLayout
+        CType(Me.ogbPackCartonDT, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbPackCartonDT.SuspendLayout
+        CType(Me.ogdOrderSubPackCarton, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogvOrderSubPackCarton, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogbPackCartonHD, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbPackCartonHD.SuspendLayout
+        CType(Me.FTStateApprovedPackRatioRevised.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateApprovedPackRatio.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNPackPerCaton.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNPackCartonSubType.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.otpSubOrderSizeSpec.SuspendLayout
+        CType(Me.ogbSubOrderSizeSpec, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbSubOrderSizeSpec.SuspendLayout
+        CType(Me.FTStateApprovedSizeSpecRevised.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateApprovedSizeSpec.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogdSizeSpec, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogvSizeSpec, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemFNHSysMeasId, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ReposFNLeaveRight, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepColFTFinAmt3, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepColFTFinAmt4, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEdit1, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEdit2, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEdit3, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepColFTRetEmpCard, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepColFTDestroyCard, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepColFTBackListSta, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepColFTRetEquipment, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEdit4, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepFTStaOutstanding, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEdit5, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEdit6, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEdit7, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEdit8, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEdit9, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemCalcEdit10, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogbImageOrder, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ogbImageOrder.SuspendLayout
+        Me.XtraScrollableControl3.SuspendLayout
+        CType(Me.FTStateProduction.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateAdjust.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.GroupControl2.SuspendLayout
+        Me.DockPanel1_Container.SuspendLayout
+        CType(Me.FTStatePrintBarcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysCmpIdCreate.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateOrderAppSub.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateCombine.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateOrderAppSizeSpec.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateOrderAppPackRatio.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateOrderAppPack.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateOrderAppSew.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateOrderAppComponent.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateTransferWH.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTOrderNoRef.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStatePacking.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateSewing.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateCutting.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysSeasonId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FNHSysSeasonId.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateTransferOut.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateTransferIn.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateReceive.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateSourcing.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStatePurchase.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateReserve.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTStateMRP.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SuspendLayout
         '
         'ocmcancel
         '
@@ -1788,6 +1788,148 @@ Partial Class wOrder
         Me.ogbOrder.Size = New System.Drawing.Size(450, 402)
         Me.ogbOrder.TabIndex = 0
         Me.ogbOrder.Text = "Order Information"
+        '
+        'ogbmainprocbutton
+        '
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmDivert)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmInsertSeqNo)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmchangecolorway)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmdeleteallsize)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmcombinebreakdown)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmdeleteallcolrway)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmreseq)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmcopycomsewpacksize)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmremovecomponent)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmaddcomponent)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmimportcomponentfrombom)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmcancel)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmDelete)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmSendApprove)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmSave)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmcopy)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmRefresh)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmRemoveOrdSizeSpec)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmExit)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmAddOrdSizeSpec)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmPreview)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmNewRecord)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmclearclsr)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmRemoveDT)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmAddDT)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(135, 86)
+        Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(1089, 181)
+        Me.ogbmainprocbutton.TabIndex = 434
+        '
+        'ocmDivert
+        '
+        Me.ocmDivert.Location = New System.Drawing.Point(637, 97)
+        Me.ocmDivert.Name = "ocmDivert"
+        Me.ocmDivert.Size = New System.Drawing.Size(95, 25)
+        Me.ocmDivert.TabIndex = 129
+        Me.ocmDivert.TabStop = False
+        Me.ocmDivert.Tag = "2|"
+        Me.ocmDivert.Text = "DIVERT"
+        '
+        'ocmInsertSeqNo
+        '
+        Me.ocmInsertSeqNo.Location = New System.Drawing.Point(328, 65)
+        Me.ocmInsertSeqNo.Name = "ocmInsertSeqNo"
+        Me.ocmInsertSeqNo.Size = New System.Drawing.Size(84, 25)
+        Me.ocmInsertSeqNo.TabIndex = 128
+        Me.ocmInsertSeqNo.TabStop = False
+        Me.ocmInsertSeqNo.Tag = "2|"
+        Me.ocmInsertSeqNo.Text = "Insert Item"
+        '
+        'ocmchangecolorway
+        '
+        Me.ocmchangecolorway.Location = New System.Drawing.Point(585, 65)
+        Me.ocmchangecolorway.Name = "ocmchangecolorway"
+        Me.ocmchangecolorway.Size = New System.Drawing.Size(146, 25)
+        Me.ocmchangecolorway.TabIndex = 127
+        Me.ocmchangecolorway.TabStop = False
+        Me.ocmchangecolorway.Tag = "2|"
+        Me.ocmchangecolorway.Text = "Change Colorway"
+        '
+        'ocmdeleteallsize
+        '
+        Me.ocmdeleteallsize.Location = New System.Drawing.Point(585, 37)
+        Me.ocmdeleteallsize.Name = "ocmdeleteallsize"
+        Me.ocmdeleteallsize.Size = New System.Drawing.Size(146, 25)
+        Me.ocmdeleteallsize.TabIndex = 126
+        Me.ocmdeleteallsize.TabStop = False
+        Me.ocmdeleteallsize.Tag = "2|"
+        Me.ocmdeleteallsize.Text = "Remove Size All Colorway"
+        '
+        'ocmcombinebreakdown
+        '
+        Me.ocmcombinebreakdown.Location = New System.Drawing.Point(741, 9)
+        Me.ocmcombinebreakdown.Name = "ocmcombinebreakdown"
+        Me.ocmcombinebreakdown.Size = New System.Drawing.Size(131, 22)
+        Me.ocmcombinebreakdown.TabIndex = 529
+        Me.ocmcombinebreakdown.TabStop = False
+        Me.ocmcombinebreakdown.Tag = "2|"
+        Me.ocmcombinebreakdown.Text = "Combine Breakdown"
+        '
+        'ocmdeleteallcolrway
+        '
+        Me.ocmdeleteallcolrway.Location = New System.Drawing.Point(585, 8)
+        Me.ocmdeleteallcolrway.Name = "ocmdeleteallcolrway"
+        Me.ocmdeleteallcolrway.Size = New System.Drawing.Size(146, 25)
+        Me.ocmdeleteallcolrway.TabIndex = 125
+        Me.ocmdeleteallcolrway.TabStop = False
+        Me.ocmdeleteallcolrway.Tag = "2|"
+        Me.ocmdeleteallcolrway.Text = "Remove Colorway All Size"
+        '
+        'ocmreseq
+        '
+        Me.ocmreseq.Location = New System.Drawing.Point(512, 40)
+        Me.ocmreseq.Name = "ocmreseq"
+        Me.ocmreseq.Size = New System.Drawing.Size(67, 25)
+        Me.ocmreseq.TabIndex = 124
+        Me.ocmreseq.TabStop = False
+        Me.ocmreseq.Tag = "2|"
+        Me.ocmreseq.Text = "Reseq"
+        '
+        'ocmcopycomsewpacksize
+        '
+        Me.ocmcopycomsewpacksize.Location = New System.Drawing.Point(441, 97)
+        Me.ocmcopycomsewpacksize.Name = "ocmcopycomsewpacksize"
+        Me.ocmcopycomsewpacksize.Size = New System.Drawing.Size(189, 25)
+        Me.ocmcopycomsewpacksize.TabIndex = 123
+        Me.ocmcopycomsewpacksize.TabStop = False
+        Me.ocmcopycomsewpacksize.Tag = "2|"
+        Me.ocmcopycomsewpacksize.Text = "Copy Component Sewing Packing Size"
+        '
+        'ocmremovecomponent
+        '
+        Me.ocmremovecomponent.Location = New System.Drawing.Point(443, 69)
+        Me.ocmremovecomponent.Name = "ocmremovecomponent"
+        Me.ocmremovecomponent.Size = New System.Drawing.Size(136, 25)
+        Me.ocmremovecomponent.TabIndex = 122
+        Me.ocmremovecomponent.TabStop = False
+        Me.ocmremovecomponent.Tag = "2|"
+        Me.ocmremovecomponent.Text = "Remove Component"
+        '
+        'ocmaddcomponent
+        '
+        Me.ocmaddcomponent.Location = New System.Drawing.Point(418, 40)
+        Me.ocmaddcomponent.Name = "ocmaddcomponent"
+        Me.ocmaddcomponent.Size = New System.Drawing.Size(88, 25)
+        Me.ocmaddcomponent.TabIndex = 121
+        Me.ocmaddcomponent.TabStop = False
+        Me.ocmaddcomponent.Tag = "2|"
+        Me.ocmaddcomponent.Text = "Add Component Detail "
+        '
+        'ocmimportcomponentfrombom
+        '
+        Me.ocmimportcomponentfrombom.Location = New System.Drawing.Point(418, 8)
+        Me.ocmimportcomponentfrombom.Name = "ocmimportcomponentfrombom"
+        Me.ocmimportcomponentfrombom.Size = New System.Drawing.Size(161, 25)
+        Me.ocmimportcomponentfrombom.TabIndex = 120
+        Me.ocmimportcomponentfrombom.TabStop = False
+        Me.ocmimportcomponentfrombom.Tag = "2|"
+        Me.ocmimportcomponentfrombom.Text = "Importcomponentfrombom"
         '
         'FNHSysCmpIdTo_lbl
         '
@@ -2664,7 +2806,7 @@ Partial Class wOrder
         Me.otpSubOrder.Controls.Add(Me.ogbSubOrder)
         Me.otpSubOrder.Controls.Add(Me.ogbpay)
         Me.otpSubOrder.Name = "otpSubOrder"
-        Me.otpSubOrder.Size = New System.Drawing.Size(1302, 451)
+        Me.otpSubOrder.Size = New System.Drawing.Size(1302, 413)
         Me.otpSubOrder.Text = "Sub Order Information"
         '
         'ogbSubOrderBreakdownInfo
@@ -2682,7 +2824,7 @@ Partial Class wOrder
         Me.ogbSubOrderBreakdownInfo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbSubOrderBreakdownInfo.Location = New System.Drawing.Point(0, 188)
         Me.ogbSubOrderBreakdownInfo.Name = "ogbSubOrderBreakdownInfo"
-        Me.ogbSubOrderBreakdownInfo.Size = New System.Drawing.Size(1302, 263)
+        Me.ogbSubOrderBreakdownInfo.Size = New System.Drawing.Size(1302, 225)
         Me.ogbSubOrderBreakdownInfo.TabIndex = 2
         Me.ogbSubOrderBreakdownInfo.Text = "Sub Order Breakdown Info Detail"
         '
@@ -2696,7 +2838,7 @@ Partial Class wOrder
         Me.otbsuborderno.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otbsuborderno.Name = "otbsuborderno"
         Me.otbsuborderno.SelectedTabPage = Me.otpsubbreakdown
-        Me.otbsuborderno.Size = New System.Drawing.Size(1300, 176)
+        Me.otbsuborderno.Size = New System.Drawing.Size(1300, 138)
         Me.otbsuborderno.TabIndex = 533
         Me.otbsuborderno.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpsubbreakdown, Me.otpsubbreakdownprice})
         '
@@ -2705,7 +2847,7 @@ Partial Class wOrder
         Me.otpsubbreakdown.Controls.Add(Me.ogdSubOrdBreakDown)
         Me.otpsubbreakdown.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpsubbreakdown.Name = "otpsubbreakdown"
-        Me.otpsubbreakdown.Size = New System.Drawing.Size(1274, 174)
+        Me.otpsubbreakdown.Size = New System.Drawing.Size(1274, 136)
         Me.otpsubbreakdown.Text = "Breakdown"
         '
         'ogdSubOrdBreakDown
@@ -2714,7 +2856,7 @@ Partial Class wOrder
         Me.ogdSubOrdBreakDown.Location = New System.Drawing.Point(0, 0)
         Me.ogdSubOrdBreakDown.MainView = Me.ogvSubOrdBreakdown
         Me.ogdSubOrdBreakDown.Name = "ogdSubOrdBreakDown"
-        Me.ogdSubOrdBreakDown.Size = New System.Drawing.Size(1274, 174)
+        Me.ogdSubOrdBreakDown.Size = New System.Drawing.Size(1274, 136)
         Me.ogdSubOrdBreakDown.TabIndex = 526
         Me.ogdSubOrdBreakDown.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvSubOrdBreakdown})
         '
@@ -2829,7 +2971,7 @@ Partial Class wOrder
         Me.otpsubbreakdownprice.Controls.Add(Me.ogdSubOrdBreakDownSummary)
         Me.otpsubbreakdownprice.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpsubbreakdownprice.Name = "otpsubbreakdownprice"
-        Me.otpsubbreakdownprice.Size = New System.Drawing.Size(1274, 174)
+        Me.otpsubbreakdownprice.Size = New System.Drawing.Size(1274, 136)
         Me.otpsubbreakdownprice.Text = "Breakdown Price"
         '
         'ogdSubOrdBreakDownSummary
@@ -2838,7 +2980,7 @@ Partial Class wOrder
         Me.ogdSubOrdBreakDownSummary.Location = New System.Drawing.Point(0, 0)
         Me.ogdSubOrdBreakDownSummary.MainView = Me.ogvSubOrdBreakdownSummary
         Me.ogdSubOrdBreakDownSummary.Name = "ogdSubOrdBreakDownSummary"
-        Me.ogdSubOrdBreakDownSummary.Size = New System.Drawing.Size(1274, 174)
+        Me.ogdSubOrdBreakDownSummary.Size = New System.Drawing.Size(1274, 136)
         Me.ogdSubOrdBreakDownSummary.TabIndex = 0
         Me.ogdSubOrdBreakDownSummary.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvSubOrdBreakdownSummary})
         '
@@ -4774,7 +4916,7 @@ Partial Class wOrder
         '
         Me.otbSubOrderComponent.Controls.Add(Me.ogbComponent)
         Me.otbSubOrderComponent.Name = "otbSubOrderComponent"
-        Me.otbSubOrderComponent.Size = New System.Drawing.Size(1302, 451)
+        Me.otbSubOrderComponent.Size = New System.Drawing.Size(1302, 413)
         Me.otbSubOrderComponent.Text = "Sub Order Component"
         '
         'ogbComponent
@@ -4785,7 +4927,7 @@ Partial Class wOrder
         Me.ogbComponent.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbComponent.Location = New System.Drawing.Point(0, 0)
         Me.ogbComponent.Name = "ogbComponent"
-        Me.ogbComponent.Size = New System.Drawing.Size(1302, 451)
+        Me.ogbComponent.Size = New System.Drawing.Size(1302, 413)
         Me.ogbComponent.TabIndex = 1
         '
         'ogdOrderSubComponent
@@ -4795,7 +4937,7 @@ Partial Class wOrder
         Me.ogdOrderSubComponent.MainView = Me.ogvOrderSubComponent
         Me.ogdOrderSubComponent.Name = "ogdOrderSubComponent"
         Me.ogdOrderSubComponent.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemMemoExEditFTMainMatDesc, Me.RepositoryItemMemoEditFTMainMatDescComponent, Me.RepositoryItemMemoEditFTComponent, Me.RepositoryItemMemoEditFTRemarkComponent, Me.RepFNConSmp})
-        Me.ogdOrderSubComponent.Size = New System.Drawing.Size(1298, 426)
+        Me.ogdOrderSubComponent.Size = New System.Drawing.Size(1298, 388)
         Me.ogdOrderSubComponent.TabIndex = 541
         Me.ogdOrderSubComponent.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvOrderSubComponent})
         '
@@ -5015,7 +5157,7 @@ Partial Class wOrder
         '
         Me.otpSubOrderSewInfo.Controls.Add(Me.otbsewing)
         Me.otpSubOrderSewInfo.Name = "otpSubOrderSewInfo"
-        Me.otpSubOrderSewInfo.Size = New System.Drawing.Size(1302, 451)
+        Me.otpSubOrderSewInfo.Size = New System.Drawing.Size(1302, 413)
         Me.otpSubOrderSewInfo.Text = "Sub Order Sewing Info"
         '
         'otbsewing
@@ -5025,7 +5167,7 @@ Partial Class wOrder
         Me.otbsewing.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otbsewing.Name = "otbsewing"
         Me.otbsewing.SelectedTabPage = Me.otpsubordersewing
-        Me.otbsewing.Size = New System.Drawing.Size(1302, 451)
+        Me.otbsewing.Size = New System.Drawing.Size(1302, 413)
         Me.otbsewing.TabIndex = 502
         Me.otbsewing.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpsubordersewing, Me.otpsewingpdf})
         '
@@ -5034,7 +5176,7 @@ Partial Class wOrder
         Me.otpsubordersewing.Controls.Add(Me.ogbSubOrderSewInfo)
         Me.otpsubordersewing.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpsubordersewing.Name = "otpsubordersewing"
-        Me.otpsubordersewing.Size = New System.Drawing.Size(1300, 426)
+        Me.otpsubordersewing.Size = New System.Drawing.Size(1300, 388)
         Me.otpsubordersewing.Text = "Sub Order Sewing"
         '
         'ogbSubOrderSewInfo
@@ -5055,7 +5197,7 @@ Partial Class wOrder
         Me.ogbSubOrderSewInfo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbSubOrderSewInfo.Location = New System.Drawing.Point(0, 0)
         Me.ogbSubOrderSewInfo.Name = "ogbSubOrderSewInfo"
-        Me.ogbSubOrderSewInfo.Size = New System.Drawing.Size(1300, 426)
+        Me.ogbSubOrderSewInfo.Size = New System.Drawing.Size(1300, 388)
         Me.ogbSubOrderSewInfo.TabIndex = 501
         Me.ogbSubOrderSewInfo.Text = "Sub Order Sewing Info"
         '
@@ -5231,7 +5373,7 @@ Partial Class wOrder
         Me.ogdOrderSubSewing.MainView = Me.ogvOrderSubSewing
         Me.ogdOrderSubSewing.Name = "ogdOrderSubSewing"
         Me.ogdOrderSubSewing.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit1, Me.RepositoryItemPictureEdit2, Me.RepositoryItemMemoEdit1, Me.RepositoryItemMemoEdit2})
-        Me.ogdOrderSubSewing.Size = New System.Drawing.Size(1296, 257)
+        Me.ogdOrderSubSewing.Size = New System.Drawing.Size(1296, 219)
         Me.ogdOrderSubSewing.TabIndex = 1
         Me.ogdOrderSubSewing.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvOrderSubSewing})
         '
@@ -5333,7 +5475,7 @@ Partial Class wOrder
         Me.otpsewingpdf.Controls.Add(Me.grdpdfdetail)
         Me.otpsewingpdf.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpsewingpdf.Name = "otpsewingpdf"
-        Me.otpsewingpdf.Size = New System.Drawing.Size(1300, 426)
+        Me.otpsewingpdf.Size = New System.Drawing.Size(1300, 388)
         Me.otpsewingpdf.Text = "PDF File Sewing"
         '
         'grdpdfdetail
@@ -5341,7 +5483,7 @@ Partial Class wOrder
         Me.grdpdfdetail.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdpdfdetail.Location = New System.Drawing.Point(0, 0)
         Me.grdpdfdetail.Name = "grdpdfdetail"
-        Me.grdpdfdetail.Size = New System.Drawing.Size(1300, 426)
+        Me.grdpdfdetail.Size = New System.Drawing.Size(1300, 388)
         Me.grdpdfdetail.TabIndex = 4
         Me.grdpdfdetail.Tag = "2|"
         Me.grdpdfdetail.Text = "Detail"
@@ -5350,7 +5492,7 @@ Partial Class wOrder
         '
         Me.otpSubOrderPackInfo.Controls.Add(Me.ogbSubOrderPackInfo)
         Me.otpSubOrderPackInfo.Name = "otpSubOrderPackInfo"
-        Me.otpSubOrderPackInfo.Size = New System.Drawing.Size(1302, 451)
+        Me.otpSubOrderPackInfo.Size = New System.Drawing.Size(1302, 413)
         Me.otpSubOrderPackInfo.Text = "Sub Order Pack Info"
         '
         'ogbSubOrderPackInfo
@@ -5371,7 +5513,7 @@ Partial Class wOrder
         Me.ogbSubOrderPackInfo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbSubOrderPackInfo.Location = New System.Drawing.Point(0, 0)
         Me.ogbSubOrderPackInfo.Name = "ogbSubOrderPackInfo"
-        Me.ogbSubOrderPackInfo.Size = New System.Drawing.Size(1302, 451)
+        Me.ogbSubOrderPackInfo.Size = New System.Drawing.Size(1302, 413)
         Me.ogbSubOrderPackInfo.TabIndex = 500
         Me.ogbSubOrderPackInfo.Text = "Sub Order Pack Info"
         '
@@ -5555,7 +5697,7 @@ Partial Class wOrder
         Me.ogdOrderSubPack.MainView = Me.ogvOrderSubPack
         Me.ogdOrderSubPack.Name = "ogdOrderSubPack"
         Me.ogdOrderSubPack.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit3, Me.RepositoryItemMemoEdit3, Me.RepositoryItemMemoEdit4})
-        Me.ogdOrderSubPack.Size = New System.Drawing.Size(1298, 310)
+        Me.ogdOrderSubPack.Size = New System.Drawing.Size(1298, 272)
         Me.ogdOrderSubPack.TabIndex = 0
         Me.ogdOrderSubPack.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvOrderSubPack})
         '
@@ -5653,7 +5795,7 @@ Partial Class wOrder
         Me.otpSubOrderPakingCartonInfo.Controls.Add(Me.ogbPackCartonDT)
         Me.otpSubOrderPakingCartonInfo.Controls.Add(Me.ogbPackCartonHD)
         Me.otpSubOrderPakingCartonInfo.Name = "otpSubOrderPakingCartonInfo"
-        Me.otpSubOrderPakingCartonInfo.Size = New System.Drawing.Size(1302, 451)
+        Me.otpSubOrderPakingCartonInfo.Size = New System.Drawing.Size(1302, 413)
         Me.otpSubOrderPakingCartonInfo.Text = "Sub Order Packing Carton Info"
         '
         'ogbPackCartonDT
@@ -5864,7 +6006,7 @@ Partial Class wOrder
         '
         Me.otpSubOrderSizeSpec.Controls.Add(Me.ogbSubOrderSizeSpec)
         Me.otpSubOrderSizeSpec.Name = "otpSubOrderSizeSpec"
-        Me.otpSubOrderSizeSpec.Size = New System.Drawing.Size(1302, 451)
+        Me.otpSubOrderSizeSpec.Size = New System.Drawing.Size(1302, 413)
         Me.otpSubOrderSizeSpec.Text = "Sub Order Size Spec"
         '
         'ogbSubOrderSizeSpec
@@ -5875,7 +6017,7 @@ Partial Class wOrder
         Me.ogbSubOrderSizeSpec.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbSubOrderSizeSpec.Location = New System.Drawing.Point(0, 0)
         Me.ogbSubOrderSizeSpec.Name = "ogbSubOrderSizeSpec"
-        Me.ogbSubOrderSizeSpec.Size = New System.Drawing.Size(1302, 451)
+        Me.ogbSubOrderSizeSpec.Size = New System.Drawing.Size(1302, 413)
         Me.ogbSubOrderSizeSpec.TabIndex = 0
         Me.ogbSubOrderSizeSpec.Text = "Sub Order Size Spec Info"
         '
@@ -5914,7 +6056,7 @@ Partial Class wOrder
         Me.ogdSizeSpec.MainView = Me.ogvSizeSpec
         Me.ogdSizeSpec.Name = "ogdSizeSpec"
         Me.ogdSizeSpec.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemFNHSysMeasId})
-        Me.ogdSizeSpec.Size = New System.Drawing.Size(1298, 426)
+        Me.ogdSizeSpec.Size = New System.Drawing.Size(1298, 388)
         Me.ogdSizeSpec.TabIndex = 0
         Me.ogdSizeSpec.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvSizeSpec})
         '
@@ -5982,148 +6124,6 @@ Partial Class wOrder
         Me.cFNHSysMeasId_None.Caption = "FNHSysMeasId_None"
         Me.cFNHSysMeasId_None.FieldName = "FNHSysMeasId_None"
         Me.cFNHSysMeasId_None.Name = "cFNHSysMeasId_None"
-        '
-        'ogbmainprocbutton
-        '
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmDivert)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmInsertSeqNo)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmchangecolorway)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmdeleteallsize)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmcombinebreakdown)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmdeleteallcolrway)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmreseq)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmcopycomsewpacksize)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmremovecomponent)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmaddcomponent)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmimportcomponentfrombom)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmcancel)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmDelete)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmSendApprove)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmSave)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmcopy)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmRefresh)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmRemoveOrdSizeSpec)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmExit)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmAddOrdSizeSpec)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmPreview)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmNewRecord)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmclearclsr)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmRemoveDT)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmAddDT)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(103, 191)
-        Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(1089, 181)
-        Me.ogbmainprocbutton.TabIndex = 434
-        '
-        'ocmDivert
-        '
-        Me.ocmDivert.Location = New System.Drawing.Point(637, 97)
-        Me.ocmDivert.Name = "ocmDivert"
-        Me.ocmDivert.Size = New System.Drawing.Size(95, 25)
-        Me.ocmDivert.TabIndex = 129
-        Me.ocmDivert.TabStop = False
-        Me.ocmDivert.Tag = "2|"
-        Me.ocmDivert.Text = "DIVERT"
-        '
-        'ocmInsertSeqNo
-        '
-        Me.ocmInsertSeqNo.Location = New System.Drawing.Point(328, 65)
-        Me.ocmInsertSeqNo.Name = "ocmInsertSeqNo"
-        Me.ocmInsertSeqNo.Size = New System.Drawing.Size(84, 25)
-        Me.ocmInsertSeqNo.TabIndex = 128
-        Me.ocmInsertSeqNo.TabStop = False
-        Me.ocmInsertSeqNo.Tag = "2|"
-        Me.ocmInsertSeqNo.Text = "Insert Item"
-        '
-        'ocmchangecolorway
-        '
-        Me.ocmchangecolorway.Location = New System.Drawing.Point(585, 65)
-        Me.ocmchangecolorway.Name = "ocmchangecolorway"
-        Me.ocmchangecolorway.Size = New System.Drawing.Size(146, 25)
-        Me.ocmchangecolorway.TabIndex = 127
-        Me.ocmchangecolorway.TabStop = False
-        Me.ocmchangecolorway.Tag = "2|"
-        Me.ocmchangecolorway.Text = "Change Colorway"
-        '
-        'ocmdeleteallsize
-        '
-        Me.ocmdeleteallsize.Location = New System.Drawing.Point(585, 37)
-        Me.ocmdeleteallsize.Name = "ocmdeleteallsize"
-        Me.ocmdeleteallsize.Size = New System.Drawing.Size(146, 25)
-        Me.ocmdeleteallsize.TabIndex = 126
-        Me.ocmdeleteallsize.TabStop = False
-        Me.ocmdeleteallsize.Tag = "2|"
-        Me.ocmdeleteallsize.Text = "Remove Size All Colorway"
-        '
-        'ocmcombinebreakdown
-        '
-        Me.ocmcombinebreakdown.Location = New System.Drawing.Point(741, 9)
-        Me.ocmcombinebreakdown.Name = "ocmcombinebreakdown"
-        Me.ocmcombinebreakdown.Size = New System.Drawing.Size(131, 22)
-        Me.ocmcombinebreakdown.TabIndex = 529
-        Me.ocmcombinebreakdown.TabStop = False
-        Me.ocmcombinebreakdown.Tag = "2|"
-        Me.ocmcombinebreakdown.Text = "Combine Breakdown"
-        '
-        'ocmdeleteallcolrway
-        '
-        Me.ocmdeleteallcolrway.Location = New System.Drawing.Point(585, 8)
-        Me.ocmdeleteallcolrway.Name = "ocmdeleteallcolrway"
-        Me.ocmdeleteallcolrway.Size = New System.Drawing.Size(146, 25)
-        Me.ocmdeleteallcolrway.TabIndex = 125
-        Me.ocmdeleteallcolrway.TabStop = False
-        Me.ocmdeleteallcolrway.Tag = "2|"
-        Me.ocmdeleteallcolrway.Text = "Remove Colorway All Size"
-        '
-        'ocmreseq
-        '
-        Me.ocmreseq.Location = New System.Drawing.Point(512, 40)
-        Me.ocmreseq.Name = "ocmreseq"
-        Me.ocmreseq.Size = New System.Drawing.Size(67, 25)
-        Me.ocmreseq.TabIndex = 124
-        Me.ocmreseq.TabStop = False
-        Me.ocmreseq.Tag = "2|"
-        Me.ocmreseq.Text = "Reseq"
-        '
-        'ocmcopycomsewpacksize
-        '
-        Me.ocmcopycomsewpacksize.Location = New System.Drawing.Point(441, 97)
-        Me.ocmcopycomsewpacksize.Name = "ocmcopycomsewpacksize"
-        Me.ocmcopycomsewpacksize.Size = New System.Drawing.Size(189, 25)
-        Me.ocmcopycomsewpacksize.TabIndex = 123
-        Me.ocmcopycomsewpacksize.TabStop = False
-        Me.ocmcopycomsewpacksize.Tag = "2|"
-        Me.ocmcopycomsewpacksize.Text = "Copy Component Sewing Packing Size"
-        '
-        'ocmremovecomponent
-        '
-        Me.ocmremovecomponent.Location = New System.Drawing.Point(443, 69)
-        Me.ocmremovecomponent.Name = "ocmremovecomponent"
-        Me.ocmremovecomponent.Size = New System.Drawing.Size(136, 25)
-        Me.ocmremovecomponent.TabIndex = 122
-        Me.ocmremovecomponent.TabStop = False
-        Me.ocmremovecomponent.Tag = "2|"
-        Me.ocmremovecomponent.Text = "Remove Component"
-        '
-        'ocmaddcomponent
-        '
-        Me.ocmaddcomponent.Location = New System.Drawing.Point(418, 40)
-        Me.ocmaddcomponent.Name = "ocmaddcomponent"
-        Me.ocmaddcomponent.Size = New System.Drawing.Size(88, 25)
-        Me.ocmaddcomponent.TabIndex = 121
-        Me.ocmaddcomponent.TabStop = False
-        Me.ocmaddcomponent.Tag = "2|"
-        Me.ocmaddcomponent.Text = "Add Component Detail "
-        '
-        'ocmimportcomponentfrombom
-        '
-        Me.ocmimportcomponentfrombom.Location = New System.Drawing.Point(418, 8)
-        Me.ocmimportcomponentfrombom.Name = "ocmimportcomponentfrombom"
-        Me.ocmimportcomponentfrombom.Size = New System.Drawing.Size(161, 25)
-        Me.ocmimportcomponentfrombom.TabIndex = 120
-        Me.ocmimportcomponentfrombom.TabStop = False
-        Me.ocmimportcomponentfrombom.Tag = "2|"
-        Me.ocmimportcomponentfrombom.Text = "Importcomponentfrombom"
         '
         'ReposFNLeaveRight
         '
@@ -6351,6 +6351,7 @@ Partial Class wOrder
         '
         'DockPanel1_Container
         '
+        Me.DockPanel1_Container.Controls.Add(Me.ogbmainprocbutton)
         Me.DockPanel1_Container.Controls.Add(Me.FTStatePrintBarcode)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysCmpIdCreate)
         Me.DockPanel1_Container.Controls.Add(Me.FTStateOrderAppSub)
@@ -6771,295 +6772,294 @@ Partial Class wOrder
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1304, 639)
-        Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.otab)
         Me.Controls.Add(Me.GroupControl2)
         Me.Name = "wOrder"
         Me.Text = "wOrder"
-        CType(Me.FNJobState.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTUpdTime.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDUpdDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTUpdUser.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysCmpRunId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateOrderApp.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysCmpRunId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysCmpId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysCmpId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTOrderBy.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysStyleId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNOrderType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysStyleId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNSubOrderState.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDOrderDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDOrderDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysAgencyId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysAgencyId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTPORef.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTImage4.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTImage3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTImage2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTImage1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.otab, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNJobState.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTUpdTime.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FDUpdDate.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTUpdUser.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysCmpRunId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateOrderApp.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysCmpRunId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysCmpId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysCmpId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTOrderBy.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysStyleId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNOrderType.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysStyleId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNSubOrderState.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FDOrderDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FDOrderDate.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysAgencyId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysAgencyId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTPORef.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTImage4.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTImage3.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTImage2.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTImage1.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.otab, System.ComponentModel.ISupportInitialize).EndInit
         Me.otab.ResumeLayout(False)
         Me.otpOrderBreakdown.ResumeLayout(False)
-        CType(Me.ogbOrder, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogbOrder, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbOrder.ResumeLayout(False)
-        CType(Me.FNHSysCmpIdTo_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysCmpIdTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTSubPgm.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateInfoOrderRevised.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateInfoOrder.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNOrderTestAmnt.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNOrderTestQty.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysMerTeamId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysMerTeamId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysVenderPramId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysVenderPramId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNAmntExtra.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysBrandId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysBrandId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysBuyId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysBuyId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNGrandAmt.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNGrandQty.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNOrderAmt.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNExtraQty.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNOrderQty.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTCombination.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTMainMaterial.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysBuyerId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysBuyerId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysProdTypeId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysProdTypeId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysCustId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysCustId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogbOrderRemark, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit
+        Me.ogbmainprocbutton.ResumeLayout(False)
+        CType(Me.FNHSysCmpIdTo_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysCmpIdTo.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTSubPgm.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateInfoOrderRevised.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateInfoOrder.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNOrderTestAmnt.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNOrderTestQty.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysMerTeamId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysMerTeamId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysVenderPramId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysVenderPramId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNAmntExtra.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysBrandId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysBrandId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysBuyId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysBuyId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNGrandAmt.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNGrandQty.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNOrderAmt.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNExtraQty.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNOrderQty.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTCombination.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTMainMaterial.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysBuyerId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysBuyerId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysProdTypeId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysProdTypeId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysCustId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysCustId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogbOrderRemark, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbOrderRemark.ResumeLayout(False)
-        CType(Me.FTRemark.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogbColorwaySizeBreakdown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTRemark.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogbColorwaySizeBreakdown, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbColorwaySizeBreakdown.ResumeLayout(False)
-        CType(Me.ogdColorSizeBreakdown, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogbCurrencyInfo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogdColorSizeBreakdown, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogbCurrencyInfo, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbCurrencyInfo.ResumeLayout(False)
-        CType(Me.ogdCurrencyBreakdown, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogdCurrencyBreakdown, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).EndInit
         Me.otpSubOrder.ResumeLayout(False)
-        CType(Me.ogbSubOrderBreakdownInfo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogbSubOrderBreakdownInfo, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbSubOrderBreakdownInfo.ResumeLayout(False)
-        CType(Me.otbsuborderno, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.otbsuborderno, System.ComponentModel.ISupportInitialize).EndInit
         Me.otbsuborderno.ResumeLayout(False)
         Me.otpsubbreakdown.ResumeLayout(False)
-        CType(Me.ogdSubOrdBreakDown, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogvSubOrdBreakdown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogdSubOrdBreakDown, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogvSubOrdBreakdown, System.ComponentModel.ISupportInitialize).EndInit
         Me.otpsubbreakdownprice.ResumeLayout(False)
-        CType(Me.ogdSubOrdBreakDownSummary, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogvSubOrdBreakdownSummary, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogdSubOrdBreakDownSummary, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogvSubOrdBreakdownSummary, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit
         Me.PanelControl1.ResumeLayout(False)
         Me.XtraScrollableControl2.ResumeLayout(False)
-        CType(Me.FNExternalQtyTest.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNColorSeq.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTSizeBreakDown.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNGarmentQtyTest.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTColorway.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNAmt.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNExtraQtySubOrder.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTColorway_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNQuantityExtra.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNQuantity.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNPrice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateSubCombine.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTUpdUserSubOrder.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDUpdDate_OrderSub.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTUpdTime_OrderSub.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogbSubOrder, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNExternalQtyTest.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNColorSeq.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTSizeBreakDown.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNGarmentQtyTest.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTColorway.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNAmt.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNExtraQtySubOrder.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTColorway_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNQuantityExtra.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNQuantity.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNPrice.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateSubCombine.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTUpdUserSubOrder.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FDUpdDate_OrderSub.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTUpdTime_OrderSub.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogbSubOrder, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbSubOrder.ResumeLayout(False)
-        CType(Me.FTStateApprovedSubOrderNoRevised.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateApprovedSubOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTSubOrderNoDivertRef.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateSubPacking.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateSubSewing.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateSubCutting.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateSubMRP.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTStateApprovedSubOrderNoRevised.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateApprovedSubOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTSubOrderNoDivertRef.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateSubPacking.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateSubSewing.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateSubCutting.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateSubMRP.Properties, System.ComponentModel.ISupportInitialize).EndInit
         Me.XtraScrollableControl1.ResumeLayout(False)
-        CType(Me.FNHSysAFSId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysShipToAccountId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysShipToAccountId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNExternalQtyTestSub.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTPOTrading.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateSewOnly.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNOrderSetType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTSubPORef.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDShipDateOrginal.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDShipDateOrginal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTSubOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNSubOrderGarmentTestAmnt.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateSubProduction.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysBuyGrpId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysBuyGrpId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNSubOrderGarmentTestQty.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysPlantId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysPlantId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDSubOrderDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDSubOrderDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTCustRef.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNSubOrderExtraAmt.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDProDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDProDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNSubOrderExtraQty.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDShipDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDShipDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysContinentId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysContinentId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysProvinceId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysProvinceId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysShipPortId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysShipPortId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysShipModeId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysShipModeId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTRemarkSubOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysCurId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNSubOrderAmt.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysCurId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNSubOrderQty.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysGenderId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysGenderId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateWindows.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateLaser.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysUnitId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateHeat.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysUnitId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStatePrint.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateEmb.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysCountryId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysCountryId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogbpay, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNHSysAFSId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysShipToAccountId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysShipToAccountId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNExternalQtyTestSub.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTPOTrading.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateSewOnly.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNOrderSetType.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTSubPORef.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FDShipDateOrginal.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FDShipDateOrginal.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTSubOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNSubOrderGarmentTestAmnt.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateSubProduction.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysBuyGrpId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysBuyGrpId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNSubOrderGarmentTestQty.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysPlantId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysPlantId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FDSubOrderDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FDSubOrderDate.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTCustRef.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNSubOrderExtraAmt.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FDProDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FDProDate.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNSubOrderExtraQty.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FDShipDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FDShipDate.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysContinentId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysContinentId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysProvinceId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysProvinceId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysShipPortId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysShipPortId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysShipModeId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysShipModeId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTRemarkSubOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysCurId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNSubOrderAmt.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysCurId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNSubOrderQty.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysGenderId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysGenderId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateWindows.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateLaser.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysUnitId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateHeat.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysUnitId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStatePrint.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateEmb.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysCountryId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysCountryId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogbpay, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbpay.ResumeLayout(False)
-        CType(Me.FTAccNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysPayRollPayId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysBankBranchId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysPayRollPayId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysBankBranchId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysBankId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysBankId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTAccNo.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysPayRollPayId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysBankBranchId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysPayRollPayId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysBankBranchId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysBankId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysBankId.Properties, System.ComponentModel.ISupportInitialize).EndInit
         Me.otbSubOrderComponent.ResumeLayout(False)
-        CType(Me.ogbComponent, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogbComponent, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbComponent.ResumeLayout(False)
-        CType(Me.ogdOrderSubComponent, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogvOrderSubComponent, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemMemoEditFTMainMatDescComponent, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemMemoEditFTComponent, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepFNConSmp, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemMemoEditFTRemarkComponent, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemMemoExEditFTMainMatDesc, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateApprovedComponentRevised.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateApprovedComponent.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogdOrderSubComponent, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogvOrderSubComponent, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemMemoEditFTMainMatDescComponent, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemMemoEditFTComponent, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepFNConSmp, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemMemoEditFTRemarkComponent, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemMemoExEditFTMainMatDesc, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateApprovedComponentRevised.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateApprovedComponent.Properties, System.ComponentModel.ISupportInitialize).EndInit
         Me.otpSubOrderSewInfo.ResumeLayout(False)
-        CType(Me.otbsewing, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.otbsewing, System.ComponentModel.ISupportInitialize).EndInit
         Me.otbsewing.ResumeLayout(False)
         Me.otpsubordersewing.ResumeLayout(False)
-        CType(Me.ogbSubOrderSewInfo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogbSubOrderSewInfo, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbSubOrderSewInfo.ResumeLayout(False)
-        CType(Me.FTStateApprovedSewRevised.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateApprovedSew.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTImageSewing.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTSewNote.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTSewDescription.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNSewSeq.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogdOrderSubSewing, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogvOrderSubSewing, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemMemoEdit2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemPictureEdit2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTStateApprovedSewRevised.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateApprovedSew.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTImageSewing.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTSewNote.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTSewDescription.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNSewSeq.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogdOrderSubSewing, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogvOrderSubSewing, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemMemoEdit2, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemPictureEdit2, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).EndInit
         Me.otpsewingpdf.ResumeLayout(False)
-        CType(Me.grdpdfdetail, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdpdfdetail, System.ComponentModel.ISupportInitialize).EndInit
         Me.otpSubOrderPackInfo.ResumeLayout(False)
-        CType(Me.ogbSubOrderPackInfo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogbSubOrderPackInfo, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbSubOrderPackInfo.ResumeLayout(False)
-        CType(Me.FTStateApprovedPackRevised.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateApprovedPack.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTImagePacking.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTPackNote.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTPackDescription.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNPackSeq.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogdOrderSubPack, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogvOrderSubPack, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemMemoEdit3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemMemoEdit4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemPictureEdit3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTStateApprovedPackRevised.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateApprovedPack.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTImagePacking.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTPackNote.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTPackDescription.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNPackSeq.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogdOrderSubPack, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogvOrderSubPack, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemMemoEdit3, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemMemoEdit4, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemPictureEdit3, System.ComponentModel.ISupportInitialize).EndInit
         Me.otpSubOrderPakingCartonInfo.ResumeLayout(False)
-        CType(Me.ogbPackCartonDT, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogbPackCartonDT, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbPackCartonDT.ResumeLayout(False)
-        CType(Me.ogdOrderSubPackCarton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogvOrderSubPackCarton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogbPackCartonHD, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogdOrderSubPackCarton, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogvOrderSubPackCarton, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogbPackCartonHD, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbPackCartonHD.ResumeLayout(False)
-        CType(Me.FTStateApprovedPackRatioRevised.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateApprovedPackRatio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNPackPerCaton.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNPackCartonSubType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTStateApprovedPackRatioRevised.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateApprovedPackRatio.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNPackPerCaton.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNPackCartonSubType.Properties, System.ComponentModel.ISupportInitialize).EndInit
         Me.otpSubOrderSizeSpec.ResumeLayout(False)
-        CType(Me.ogbSubOrderSizeSpec, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogbSubOrderSizeSpec, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbSubOrderSizeSpec.ResumeLayout(False)
-        CType(Me.FTStateApprovedSizeSpecRevised.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateApprovedSizeSpec.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogdSizeSpec, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogvSizeSpec, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemFNHSysMeasId, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ogbmainprocbutton.ResumeLayout(False)
-        CType(Me.ReposFNLeaveRight, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepColFTFinAmt3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepColFTFinAmt4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCalcEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCalcEdit2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCalcEdit3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepColFTRetEmpCard, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepColFTDestroyCard, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepColFTBackListSta, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepColFTRetEquipment, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCalcEdit4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepFTStaOutstanding, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCalcEdit5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCalcEdit6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCalcEdit7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCalcEdit8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCalcEdit9, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCalcEdit10, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogbImageOrder, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTStateApprovedSizeSpecRevised.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateApprovedSizeSpec.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogdSizeSpec, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogvSizeSpec, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemFNHSysMeasId, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ReposFNLeaveRight, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepColFTFinAmt3, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepColFTFinAmt4, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEdit1, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEdit2, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEdit3, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepColFTRetEmpCard, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepColFTDestroyCard, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepColFTBackListSta, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepColFTRetEquipment, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEdit4, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepFTStaOutstanding, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEdit5, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEdit6, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEdit7, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEdit8, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEdit9, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemCalcEdit10, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogbImageOrder, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbImageOrder.ResumeLayout(False)
         Me.XtraScrollableControl3.ResumeLayout(False)
-        CType(Me.FTStateProduction.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateAdjust.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTStateProduction.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateAdjust.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).EndInit
         Me.GroupControl2.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
-        CType(Me.FTStatePrintBarcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysCmpIdCreate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateOrderAppSub.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateCombine.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateOrderAppSizeSpec.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateOrderAppPackRatio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateOrderAppPack.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateOrderAppSew.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateOrderAppComponent.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateTransferWH.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTOrderNoRef.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStatePacking.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateSewing.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateCutting.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysSeasonId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysSeasonId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateTransferOut.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateTransferIn.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateReceive.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateSourcing.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStatePurchase.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateReserve.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateMRP.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTStatePrintBarcode.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysCmpIdCreate.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateOrderAppSub.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateCombine.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateOrderAppSizeSpec.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateOrderAppPackRatio.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateOrderAppPack.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateOrderAppSew.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateOrderAppComponent.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateTransferWH.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTOrderNoRef.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStatePacking.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateSewing.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateCutting.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysSeasonId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FNHSysSeasonId.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateTransferOut.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateTransferIn.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateReceive.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateSourcing.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStatePurchase.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateReserve.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTStateMRP.Properties, System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(False)
 
     End Sub

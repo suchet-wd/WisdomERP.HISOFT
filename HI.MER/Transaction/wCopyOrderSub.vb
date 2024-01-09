@@ -882,7 +882,8 @@ Public Class wCopyOrderSub
                     tSql &= vbCrLf & " , FDProDate, FDShipDate, FNHSysBuyId, FNHSysContinentId,"
                     tSql &= vbCrLf & " FNHSysCountryId, FNHSysProvinceId, FNHSysShipModeId, FNHSysCurId, FNHSysGenderId, FNHSysUnitId, FNSubOrderState, FTStateEmb, FTStatePrint, FTStateHeat, FTStateLaser, FTStateWindows,"
                     tSql &= vbCrLf & " FTStateOther1, FTOther1Note, FTStateOther2, FTOther2Note, FTStateOther3, FTOther3Note1, FTRemark, FNHSysShipPortId,"
-                    tSql &= vbCrLf & " FDShipDateOrginal, FTCustRef, FNPackCartonSubType, 0 AS FNPackPerCarton,FNHSysPlantId,FNHSysBuyGrpId,FNOrderSetType"
+                    tSql &= vbCrLf & " FDShipDateOrginal, FTCustRef, FNPackCartonSubType, FNPackPerCarton,FNHSysPlantId,FNHSysBuyGrpId,FNOrderSetType"
+                    'Modify 0 AS FNPackPerCarton -> FNPackPerCarton Bye Chet [09 Jan 2024]
                     tSql &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[TMERTOrderSub] WITH(NOLOCK)"
                     tSql &= vbCrLf & "WHERE FTSubOrderNo = '" & HI.UL.ULF.rpQuoted(_tFTSubOrderNoSrc) & "'"
 

@@ -845,14 +845,16 @@ Public Class wCopyOrder
                             tSql &= vbCrLf & ", FNHSysCountryId, FNHSysProvinceId, FNHSysShipModeId, FNHSysCurId, FNHSysGenderId, FNHSysUnitId, FNSubOrderState"
                             tSql &= vbCrLf & ", FTStateEmb, FTStatePrint, FTStateHeat, FTStateLaser, FTStateWindows,FTStateOther1"
                             tSql &= vbCrLf & ", FTOther1Note, FTStateOther2, FTOther2Note, FTStateOther3, FTOther3Note1, FTRemark, FNHSysShipPortId"
-                            tSql &= vbCrLf & ", FDShipDateOrginal, FTCustRef)"
+                            tSql &= vbCrLf & ", FDShipDateOrginal, FTCustRef, FNPackCartonSubType, FNPackPerCarton)"
+                            ' Add Column FNPackCartonSubType, FNPackPerCarton By Chet
                             tSql &= vbCrLf & "SELECT TOP 1 '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                             tSql &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB & ",'" & HI.UL.ULF.rpQuoted(_tFTOrderNoDest) & "','" & HI.UL.ULF.rpQuoted(_tFTSubOrderNoDest) & "'"
                             tSql &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                             tSql &= vbCrLf & " , FDProDate, FDShipDate, FNHSysBuyId, FNHSysContinentId, "
                             tSql &= vbCrLf & " FNHSysCountryId, FNHSysProvinceId, FNHSysShipModeId, FNHSysCurId, FNHSysGenderId, FNHSysUnitId, FNSubOrderState, FTStateEmb, FTStatePrint, FTStateHeat, FTStateLaser, FTStateWindows,"
                             tSql &= vbCrLf & " FTStateOther1, FTOther1Note, FTStateOther2, FTOther2Note, FTStateOther3, FTOther3Note1, FTRemark, FNHSysShipPortId,"
-                            tSql &= vbCrLf & " FDShipDateOrginal, FTCustRef"
+                            tSql &= vbCrLf & " FDShipDateOrginal, FTCustRef, FNPackCartonSubType, FNPackPerCarton"
+                            ' Add Column FNPackCartonSubType, FNPackPerCarton By Chet
                             tSql &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[TMERTOrderSub] WITH(NOLOCK)"
                             tSql &= vbCrLf & "WHERE FTOrderNo = '" & HI.UL.ULF.rpQuoted(_tFTOrderNoSrc) & "'"
 
