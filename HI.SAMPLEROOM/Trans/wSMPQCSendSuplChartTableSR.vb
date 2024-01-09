@@ -1,16 +1,11 @@
-﻿Imports System.Windows.Forms
-Imports System.Drawing
-Imports DevExpress.Data
+﻿Imports DevExpress.Data
 
 Public Class wSMPQCSendSuplChartTableSR
     Private _FormHeader As New List(Of HI.TL.DynamicForm)()
 
     Sub New()
 
-        ' This call is required by the designer.
         InitializeComponent()
-
-        ' Add any initialization after the InitializeComponent() call.
 
     End Sub
 
@@ -22,7 +17,7 @@ Public Class wSMPQCSendSuplChartTableSR
         End Try
     End Sub
 
-    Private Function VerrifyData() As Boolean
+    Private Function VerifyData() As Boolean
         Try
             If FTSMPOrderNo.Text <> "" And FTSMPOrderNoTo.Text = "" Then
                 HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.SelectData, Me.FTOrderNoTo_lbl.Text)
@@ -72,24 +67,6 @@ Public Class wSMPQCSendSuplChartTableSR
                 Return False
             End If
 
-            'If FTSMPOrderNo.Text = "" Then
-
-            '    If Me.StartRcvDate.Text = "" Then
-            '        HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.SelectData, Me.FTStartRcv_lbl.Text)
-            '        Me.StartRcvDate.Focus()
-            '        Return False
-            '    End If
-            '    If Me.EndRcvDate.Text = "" Then
-            '        HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.SelectData, Me.FTEndRcv_lbl.Text)
-            '        Me.EndRcvDate.Focus()
-            '        Return False
-            '    End If
-
-            'Else
-
-            'End If
-
-
             Return True
         Catch ex As Exception
         End Try
@@ -97,7 +74,7 @@ Public Class wSMPQCSendSuplChartTableSR
 
     Private Sub ocmload_Click(sender As Object, e As EventArgs) Handles ocmload.Click
         Try
-            If VerrifyData() Then
+            If VerifyData() Then
                 Dim _Spls As New HI.TL.SplashScreen("Loading Data... Please Wait... ")
                 Try
                     Call LoadData()
@@ -118,9 +95,9 @@ Public Class wSMPQCSendSuplChartTableSR
             ' --------------------------------------------------------------------------------------------------------------'
 
             If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
-                _Cmd = "Select max(Q.FTQCSupDetailNameTH) As FTQCSupDetailName, sum(T.FNDefectQty) AS FNDefectQty, S.FTSuplCode "  ', t.FTBarcodeSendSuplNo
+                _Cmd = "Select max(Q.FTQCSupDetailNameTH) As FTQCSupDetailName, sum(T.FNDefectQty) AS FNDefectQty, S.FTSuplCode "
             Else
-                _Cmd = "Select max(Q.FTQCSupDetailNameEN) As FTQCSupDetailName, sum(T.FNDefectQty) AS FNDefectQty, S.FTSuplCode " ', t.FTBarcodeSendSuplNo
+                _Cmd = "Select max(Q.FTQCSupDetailNameEN) As FTQCSupDetailName, sum(T.FNDefectQty) AS FNDefectQty, S.FTSuplCode "
             End If
 
             _Cmd &= vbCrLf & " From (SELECT Q.FDInsDate, (Select Top 1 B.FTBarcodeSendSuplNo From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcode_SendSupl AS B  WITH (NOLOCK) "
@@ -188,7 +165,7 @@ Public Class wSMPQCSendSuplChartTableSR
 
             _Cmd &= vbCrLf & " And bx.FTBarcodeSendSuplNo = b.FTBarcodeSendSuplNo ) "
 
-            _Cmd &= vbCrLf & "GROUP BY T.FNHSysQCSuplDetailId, S.FTSuplCode" ', t.FTBarcodeSendSuplNo
+            _Cmd &= vbCrLf & "GROUP BY T.FNHSysQCSuplDetailId, S.FTSuplCode"
             _Cmd &= vbCrLf & "ORDER BY S.FTSuplCode"
 
             Dim _oDt As DataTable = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_SAMPLE)
@@ -279,7 +256,6 @@ Public Class wSMPQCSendSuplChartTableSR
             End If
 
             For Each R As DataRow In dt.Rows
-                'Me.oCTabPacking.TabPages.Add(Microsoft.VisualBasic.Left(R!FTRawMatNameEN.ToString, 20))
                 Dim _TabPage As New DevExpress.XtraTab.XtraTabPage
                 Dim _Grid As New DevExpress.XtraGrid.GridControl
                 With _TabPage
@@ -302,7 +278,6 @@ Public Class wSMPQCSendSuplChartTableSR
                     .OptionsView.ShowColumnHeaders = True
                     .OptionsView.ShowGroupPanel = False
                     .OptionsView.ColumnAutoWidth = False
-                    '.OptionsView.ShowAutoFilterRow = True
                     AddHandler .RowStyle, AddressOf GridView1_RowStyle
                     AddHandler .CustomSummaryCalculate, AddressOf GridView1_CustomSummaryCalculate
                 End With
@@ -329,12 +304,11 @@ Public Class wSMPQCSendSuplChartTableSR
                         _dt.Rows.Add(Me.FNSendSuplQty_lbl.Text, X!FNQuantity.ToString, Nothing)
                     Next
                     For Each X As DataRow In oDt.Rows
-                        '   _GrandTotal += +CInt("0" & R!FNDefectQty.ToString)
                         _GrandTotal = _GrandTotal + X!FNDefectQty.ToString
                     Next
-                    '************************
+
                     _dt.Rows.Add(Me.FNSendSuplDefectQty_lbl.Text, _GrandTotal, Nothing)
-                    '
+
                     For Each X As DataRow In oDt.Rows
                         If _GrandTotal <> 0 Then
                             _dt.Rows.Add(X!FTQCSupDetailName.ToString, CInt("0" & X!FNDefectQty.ToString), CInt("0" & X!FNDefectQty.ToString) / _GrandTotal)
@@ -346,15 +320,9 @@ Public Class wSMPQCSendSuplChartTableSR
                 Catch ex As Exception
                 End Try
 
-                'If (_StateDefual) Then
-                '    Call CreateGrid(_GridV, _dt, _Grid)
-                'Else
-                '    Call CreateGrid(_GridV, _dt, _Grid)
-                'End If
                 Call CreateGrid(_GridV, _dt, _Grid)
                 HI.TL.HandlerControl.AddHandlerObj(_TabPage)
                 Me.otabDetail.TabPages.Add(_TabPage)
-
             Next
 
         Catch ex As Exception
@@ -448,12 +416,6 @@ Public Class wSMPQCSendSuplChartTableSR
             Select Case e.RowHandle
                 Case 0, 1
                     e.Appearance.BackColor = Color.Salmon
-
-                    'e.Appearance.BackColor2 = Color.SeaShell
-                Case Else
-                    'With CType(sender, DevExpress.XtraGrid.Views.Grid.GridView).Columns
-                    '    .ColumnByFieldName("FTName").AppearanceCell.BackColor
-                    'End With
             End Select
         Catch ex As Exception
         End Try
@@ -469,6 +431,7 @@ Public Class wSMPQCSendSuplChartTableSR
     Private Sub ocmclear_Click(sender As Object, e As EventArgs) Handles ocmclear.Click
         Me.otabDetail.TabPages.Clear()
         Me.FormRefresh()
+
     End Sub
 
     Private Sub FormRefresh()
@@ -483,10 +446,10 @@ Public Class wSMPQCSendSuplChartTableSR
             End Select
         Next
     End Sub
-
     Public ReadOnly Property MainKey As String
         Get
             Return _FormHeader(0).MainKey
         End Get
     End Property
+
 End Class

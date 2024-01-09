@@ -41,11 +41,12 @@ Partial Class wQCSendSuplReportSR
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
         Me.FTOrderNoTo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
+        Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmload = New DevExpress.XtraEditors.SimpleButton()
-        Me.FTOrderNoTo = New DevExpress.XtraEditors.ButtonEdit()
+        Me.FTSMPOrderNoTo = New DevExpress.XtraEditors.ButtonEdit()
         Me.FTOrderNo_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTOrderNo = New DevExpress.XtraEditors.ButtonEdit()
+        Me.FTSMPOrderNo = New DevExpress.XtraEditors.ButtonEdit()
         Me.EFTDateTrans = New DevExpress.XtraEditors.DateEdit()
         Me.FNHSysCmpId_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysCmpId_None = New DevExpress.XtraEditors.TextEdit()
@@ -76,14 +77,13 @@ Partial Class wQCSendSuplReportSR
         Me.GridBand3 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
         Me.GridBand4 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
         Me.GridBand5 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
-        Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.DockManager, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.oCriteria.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbmainprocbutton.SuspendLayout()
-        CType(Me.FTOrderNoTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FTSMPOrderNoTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FTSMPOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EFTDateTrans.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EFTDateTrans.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysCmpId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -131,17 +131,17 @@ Partial Class wQCSendSuplReportSR
         Me.oCriteria.Options.AllowDockFill = False
         Me.oCriteria.Options.FloatOnDblClick = False
         Me.oCriteria.Options.ShowCloseButton = False
-        Me.oCriteria.OriginalSize = New System.Drawing.Size(200, 115)
-        Me.oCriteria.Size = New System.Drawing.Size(1090, 115)
+        Me.oCriteria.OriginalSize = New System.Drawing.Size(200, 112)
+        Me.oCriteria.Size = New System.Drawing.Size(1090, 112)
         Me.oCriteria.Text = "Criteria"
         '
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.FTOrderNoTo_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.ogbmainprocbutton)
-        Me.DockPanel1_Container.Controls.Add(Me.FTOrderNoTo)
+        Me.DockPanel1_Container.Controls.Add(Me.FTSMPOrderNoTo)
         Me.DockPanel1_Container.Controls.Add(Me.FTOrderNo_lbl)
-        Me.DockPanel1_Container.Controls.Add(Me.FTOrderNo)
+        Me.DockPanel1_Container.Controls.Add(Me.FTSMPOrderNo)
         Me.DockPanel1_Container.Controls.Add(Me.EFTDateTrans)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysCmpId_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysCmpId_None)
@@ -151,7 +151,7 @@ Partial Class wQCSendSuplReportSR
         Me.DockPanel1_Container.Controls.Add(Me.SFTDateTrans)
         Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1084, 85)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1084, 82)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FTOrderNoTo_lbl
@@ -161,9 +161,9 @@ Partial Class wQCSendSuplReportSR
         Me.FTOrderNoTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNoTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNoTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNoTo_lbl.Location = New System.Drawing.Point(269, 50)
+        Me.FTOrderNoTo_lbl.Location = New System.Drawing.Point(289, 54)
         Me.FTOrderNoTo_lbl.Name = "FTOrderNoTo_lbl"
-        Me.FTOrderNoTo_lbl.Size = New System.Drawing.Size(176, 19)
+        Me.FTOrderNoTo_lbl.Size = New System.Drawing.Size(156, 19)
         Me.FTOrderNoTo_lbl.TabIndex = 516
         Me.FTOrderNoTo_lbl.Tag = "2|"
         Me.FTOrderNoTo_lbl.Text = "To Order No :"
@@ -177,6 +177,16 @@ Partial Class wQCSendSuplReportSR
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(207, 71)
         Me.ogbmainprocbutton.TabIndex = 392
+        '
+        'ocmclear
+        '
+        Me.ocmclear.Location = New System.Drawing.Point(106, 5)
+        Me.ocmclear.Name = "ocmclear"
+        Me.ocmclear.Size = New System.Drawing.Size(95, 25)
+        Me.ocmclear.TabIndex = 400
+        Me.ocmclear.TabStop = False
+        Me.ocmclear.Tag = "2|"
+        Me.ocmclear.Text = "CLEAR"
         '
         'ocmexit
         '
@@ -199,31 +209,31 @@ Partial Class wQCSendSuplReportSR
         Me.ocmload.Tag = "2|"
         Me.ocmload.Text = "LoadData"
         '
-        'FTOrderNoTo
+        'FTSMPOrderNoTo
         '
-        Me.FTOrderNoTo.EnterMoveNextControl = True
-        Me.FTOrderNoTo.Location = New System.Drawing.Point(451, 50)
-        Me.FTOrderNoTo.Name = "FTOrderNoTo"
-        Me.FTOrderNoTo.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FTOrderNoTo.Properties.Appearance.Options.UseBackColor = True
-        Me.FTOrderNoTo.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
-        Me.FTOrderNoTo.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderNoTo.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.FTOrderNoTo.Properties.AppearanceDisabled.Options.UseForeColor = True
-        Me.FTOrderNoTo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
-        Me.FTOrderNoTo.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderNoTo.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.FTOrderNoTo.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.FTOrderNoTo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FTOrderNoTo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderNoTo.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FTOrderNoTo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTOrderNoTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "569", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FTOrderNoTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTOrderNoTo.Properties.MaxLength = 30
-        Me.FTOrderNoTo.Size = New System.Drawing.Size(120, 20)
-        Me.FTOrderNoTo.TabIndex = 515
-        Me.FTOrderNoTo.Tag = "2|"
+        Me.FTSMPOrderNoTo.EnterMoveNextControl = True
+        Me.FTSMPOrderNoTo.Location = New System.Drawing.Point(451, 54)
+        Me.FTSMPOrderNoTo.Name = "FTSMPOrderNoTo"
+        Me.FTSMPOrderNoTo.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTSMPOrderNoTo.Properties.Appearance.Options.UseBackColor = True
+        Me.FTSMPOrderNoTo.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FTSMPOrderNoTo.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FTSMPOrderNoTo.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FTSMPOrderNoTo.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FTSMPOrderNoTo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FTSMPOrderNoTo.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FTSMPOrderNoTo.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FTSMPOrderNoTo.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FTSMPOrderNoTo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTSMPOrderNoTo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FTSMPOrderNoTo.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTSMPOrderNoTo.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FTSMPOrderNoTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "569", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSMPOrderNoTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.FTSMPOrderNoTo.Properties.MaxLength = 30
+        Me.FTSMPOrderNoTo.Size = New System.Drawing.Size(125, 20)
+        Me.FTSMPOrderNoTo.TabIndex = 4
+        Me.FTSMPOrderNoTo.Tag = "2|"
         '
         'FTOrderNo_lbl
         '
@@ -232,44 +242,44 @@ Partial Class wQCSendSuplReportSR
         Me.FTOrderNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(11, 49)
+        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(11, 53)
         Me.FTOrderNo_lbl.Name = "FTOrderNo_lbl"
         Me.FTOrderNo_lbl.Size = New System.Drawing.Size(144, 19)
         Me.FTOrderNo_lbl.TabIndex = 514
         Me.FTOrderNo_lbl.Tag = "2|"
         Me.FTOrderNo_lbl.Text = "From Order No :"
         '
-        'FTOrderNo
+        'FTSMPOrderNo
         '
-        Me.FTOrderNo.EnterMoveNextControl = True
-        Me.FTOrderNo.Location = New System.Drawing.Point(158, 50)
-        Me.FTOrderNo.Name = "FTOrderNo"
-        Me.FTOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FTOrderNo.Properties.Appearance.Options.UseBackColor = True
-        Me.FTOrderNo.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
-        Me.FTOrderNo.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderNo.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.FTOrderNo.Properties.AppearanceDisabled.Options.UseForeColor = True
-        Me.FTOrderNo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
-        Me.FTOrderNo.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderNo.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.FTOrderNo.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.FTOrderNo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FTOrderNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "568", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FTOrderNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTOrderNo.Properties.MaxLength = 30
-        Me.FTOrderNo.Size = New System.Drawing.Size(111, 20)
-        Me.FTOrderNo.TabIndex = 513
-        Me.FTOrderNo.Tag = "2|"
+        Me.FTSMPOrderNo.EnterMoveNextControl = True
+        Me.FTSMPOrderNo.Location = New System.Drawing.Point(158, 54)
+        Me.FTSMPOrderNo.Name = "FTSMPOrderNo"
+        Me.FTSMPOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTSMPOrderNo.Properties.Appearance.Options.UseBackColor = True
+        Me.FTSMPOrderNo.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FTSMPOrderNo.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FTSMPOrderNo.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FTSMPOrderNo.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FTSMPOrderNo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FTSMPOrderNo.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FTSMPOrderNo.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FTSMPOrderNo.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FTSMPOrderNo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTSMPOrderNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FTSMPOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTSMPOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FTSMPOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "568", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSMPOrderNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.FTSMPOrderNo.Properties.MaxLength = 30
+        Me.FTSMPOrderNo.Size = New System.Drawing.Size(125, 20)
+        Me.FTSMPOrderNo.TabIndex = 3
+        Me.FTSMPOrderNo.Tag = "2|"
         '
         'EFTDateTrans
         '
         Me.EFTDateTrans.EditValue = Nothing
         Me.EFTDateTrans.EnterMoveNextControl = True
-        Me.EFTDateTrans.Location = New System.Drawing.Point(451, 24)
+        Me.EFTDateTrans.Location = New System.Drawing.Point(451, 28)
         Me.EFTDateTrans.Name = "EFTDateTrans"
         Me.EFTDateTrans.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.EFTDateTrans.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -278,8 +288,8 @@ Partial Class wQCSendSuplReportSR
         Me.EFTDateTrans.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.EFTDateTrans.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.EFTDateTrans.Properties.NullDate = ""
-        Me.EFTDateTrans.Size = New System.Drawing.Size(120, 20)
-        Me.EFTDateTrans.TabIndex = 508
+        Me.EFTDateTrans.Size = New System.Drawing.Size(125, 20)
+        Me.EFTDateTrans.TabIndex = 2
         Me.EFTDateTrans.Tag = "2|"
         '
         'FNHSysCmpId_lbl
@@ -300,7 +310,7 @@ Partial Class wQCSendSuplReportSR
         '
         Me.FNHSysCmpId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(270, 3)
+        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(289, 2)
         Me.FNHSysCmpId_None.Name = "FNHSysCmpId_None"
         Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
@@ -320,7 +330,7 @@ Partial Class wQCSendSuplReportSR
         Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(113, 20)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(126, 20)
         Me.FNHSysCmpId.TabIndex = 510
         Me.FNHSysCmpId.Tag = ""
         '
@@ -331,7 +341,7 @@ Partial Class wQCSendSuplReportSR
         Me.EFTDateTrans_lbl.Appearance.Options.UseTextOptions = True
         Me.EFTDateTrans_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.EFTDateTrans_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.EFTDateTrans_lbl.Location = New System.Drawing.Point(302, 23)
+        Me.EFTDateTrans_lbl.Location = New System.Drawing.Point(302, 27)
         Me.EFTDateTrans_lbl.Name = "EFTDateTrans_lbl"
         Me.EFTDateTrans_lbl.Size = New System.Drawing.Size(143, 20)
         Me.EFTDateTrans_lbl.TabIndex = 509
@@ -345,7 +355,7 @@ Partial Class wQCSendSuplReportSR
         Me.SFTDateTrans_lbl.Appearance.Options.UseTextOptions = True
         Me.SFTDateTrans_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.SFTDateTrans_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.SFTDateTrans_lbl.Location = New System.Drawing.Point(8, 24)
+        Me.SFTDateTrans_lbl.Location = New System.Drawing.Point(8, 28)
         Me.SFTDateTrans_lbl.Name = "SFTDateTrans_lbl"
         Me.SFTDateTrans_lbl.Size = New System.Drawing.Size(146, 20)
         Me.SFTDateTrans_lbl.TabIndex = 507
@@ -356,7 +366,7 @@ Partial Class wQCSendSuplReportSR
         '
         Me.SFTDateTrans.EditValue = Nothing
         Me.SFTDateTrans.EnterMoveNextControl = True
-        Me.SFTDateTrans.Location = New System.Drawing.Point(157, 24)
+        Me.SFTDateTrans.Location = New System.Drawing.Point(157, 28)
         Me.SFTDateTrans.Name = "SFTDateTrans"
         Me.SFTDateTrans.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.SFTDateTrans.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -365,8 +375,8 @@ Partial Class wQCSendSuplReportSR
         Me.SFTDateTrans.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.SFTDateTrans.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.SFTDateTrans.Properties.NullDate = ""
-        Me.SFTDateTrans.Size = New System.Drawing.Size(112, 20)
-        Me.SFTDateTrans.TabIndex = 506
+        Me.SFTDateTrans.Size = New System.Drawing.Size(125, 20)
+        Me.SFTDateTrans.TabIndex = 1
         Me.SFTDateTrans.Tag = "2|"
         '
         'ogcdetail
@@ -377,7 +387,7 @@ Partial Class wQCSendSuplReportSR
         Me.ogcdetail.MainView = Me.ogvdetail
         Me.ogcdetail.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ogcdetail.Name = "ogcdetail"
-        Me.ogcdetail.Size = New System.Drawing.Size(1086, 407)
+        Me.ogcdetail.Size = New System.Drawing.Size(1086, 410)
         Me.ogcdetail.TabIndex = 396
         Me.ogcdetail.TabStop = False
         Me.ogcdetail.Tag = "2|"
@@ -396,10 +406,10 @@ Partial Class wQCSendSuplReportSR
         'otabDetail
         '
         Me.otabDetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.otabDetail.Location = New System.Drawing.Point(0, 115)
+        Me.otabDetail.Location = New System.Drawing.Point(0, 112)
         Me.otabDetail.Name = "otabDetail"
         Me.otabDetail.SelectedTabPage = Me.otabpageEm
-        Me.otabDetail.Size = New System.Drawing.Size(1090, 457)
+        Me.otabDetail.Size = New System.Drawing.Size(1090, 460)
         Me.otabDetail.TabIndex = 398
         Me.otabDetail.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otabpageEm, Me.otabpageScn})
         '
@@ -407,7 +417,7 @@ Partial Class wQCSendSuplReportSR
         '
         Me.otabpageEm.Controls.Add(Me.otbSubEmbroidery)
         Me.otabpageEm.Name = "otabpageEm"
-        Me.otabpageEm.Size = New System.Drawing.Size(1088, 432)
+        Me.otabpageEm.Size = New System.Drawing.Size(1088, 435)
         Me.otabpageEm.Text = "Embroidery"
         '
         'otbSubEmbroidery
@@ -416,7 +426,7 @@ Partial Class wQCSendSuplReportSR
         Me.otbSubEmbroidery.Location = New System.Drawing.Point(0, 0)
         Me.otbSubEmbroidery.Name = "otbSubEmbroidery"
         Me.otbSubEmbroidery.SelectedTabPage = Me.otbSubEmDetail
-        Me.otbSubEmbroidery.Size = New System.Drawing.Size(1088, 432)
+        Me.otbSubEmbroidery.Size = New System.Drawing.Size(1088, 435)
         Me.otbSubEmbroidery.TabIndex = 397
         Me.otbSubEmbroidery.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otbSubEmHead, Me.otbSubEmDetail})
         '
@@ -424,14 +434,14 @@ Partial Class wQCSendSuplReportSR
         '
         Me.otbSubEmDetail.Controls.Add(Me.ogcdetail)
         Me.otbSubEmDetail.Name = "otbSubEmDetail"
-        Me.otbSubEmDetail.Size = New System.Drawing.Size(1086, 407)
+        Me.otbSubEmDetail.Size = New System.Drawing.Size(1086, 410)
         Me.otbSubEmDetail.Text = "Detail"
         '
         'otbSubEmHead
         '
         Me.otbSubEmHead.Controls.Add(Me.ogcEmSum)
         Me.otbSubEmHead.Name = "otbSubEmHead"
-        Me.otbSubEmHead.Size = New System.Drawing.Size(1086, 412)
+        Me.otbSubEmHead.Size = New System.Drawing.Size(1086, 407)
         Me.otbSubEmHead.Text = "Summary"
         '
         'ogcEmSum
@@ -442,7 +452,7 @@ Partial Class wQCSendSuplReportSR
         Me.ogcEmSum.MainView = Me.ogvEmSum
         Me.ogcEmSum.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ogcEmSum.Name = "ogcEmSum"
-        Me.ogcEmSum.Size = New System.Drawing.Size(1086, 412)
+        Me.ogcEmSum.Size = New System.Drawing.Size(1086, 407)
         Me.ogcEmSum.TabIndex = 397
         Me.ogcEmSum.TabStop = False
         Me.ogcEmSum.Tag = "2|"
@@ -463,7 +473,7 @@ Partial Class wQCSendSuplReportSR
         Me.otabpageScn.Controls.Add(Me.otbSubScreen)
         Me.otabpageScn.Name = "otabpageScn"
         Me.otabpageScn.PageVisible = False
-        Me.otabpageScn.Size = New System.Drawing.Size(1088, 437)
+        Me.otabpageScn.Size = New System.Drawing.Size(1088, 432)
         Me.otabpageScn.Text = "Screen"
         '
         'otbSubScreen
@@ -472,7 +482,7 @@ Partial Class wQCSendSuplReportSR
         Me.otbSubScreen.Location = New System.Drawing.Point(0, 0)
         Me.otbSubScreen.Name = "otbSubScreen"
         Me.otbSubScreen.SelectedTabPage = Me.otbSubScreenSum
-        Me.otbSubScreen.Size = New System.Drawing.Size(1088, 437)
+        Me.otbSubScreen.Size = New System.Drawing.Size(1088, 432)
         Me.otbSubScreen.TabIndex = 398
         Me.otbSubScreen.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otbSubScreenSum, Me.otbSubScreenDetail})
         '
@@ -480,7 +490,7 @@ Partial Class wQCSendSuplReportSR
         '
         Me.otbSubScreenSum.Controls.Add(Me.ogcScnSum)
         Me.otbSubScreenSum.Name = "otbSubScreenSum"
-        Me.otbSubScreenSum.Size = New System.Drawing.Size(1086, 412)
+        Me.otbSubScreenSum.Size = New System.Drawing.Size(1086, 407)
         Me.otbSubScreenSum.Text = "Summary"
         '
         'ogcScnSum
@@ -491,7 +501,7 @@ Partial Class wQCSendSuplReportSR
         Me.ogcScnSum.MainView = Me.ogvScnSum
         Me.ogcScnSum.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ogcScnSum.Name = "ogcScnSum"
-        Me.ogcScnSum.Size = New System.Drawing.Size(1086, 412)
+        Me.ogcScnSum.Size = New System.Drawing.Size(1086, 407)
         Me.ogcScnSum.TabIndex = 398
         Me.ogcScnSum.TabStop = False
         Me.ogcScnSum.Tag = "2|"
@@ -511,7 +521,7 @@ Partial Class wQCSendSuplReportSR
         '
         Me.otbSubScreenDetail.Controls.Add(Me.ogcDetailScn)
         Me.otbSubScreenDetail.Name = "otbSubScreenDetail"
-        Me.otbSubScreenDetail.Size = New System.Drawing.Size(1086, 412)
+        Me.otbSubScreenDetail.Size = New System.Drawing.Size(1086, 407)
         Me.otbSubScreenDetail.Text = "Detail"
         '
         'ogcDetailScn
@@ -522,7 +532,7 @@ Partial Class wQCSendSuplReportSR
         Me.ogcDetailScn.MainView = Me.ogvDetailScn
         Me.ogcDetailScn.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ogcDetailScn.Name = "ogcDetailScn"
-        Me.ogcDetailScn.Size = New System.Drawing.Size(1086, 412)
+        Me.ogcDetailScn.Size = New System.Drawing.Size(1086, 407)
         Me.ogcDetailScn.TabIndex = 397
         Me.ogcDetailScn.TabStop = False
         Me.ogcDetailScn.Tag = "2|"
@@ -578,16 +588,6 @@ Partial Class wQCSendSuplReportSR
         Me.GridBand5.Name = "GridBand5"
         Me.GridBand5.VisibleIndex = -1
         '
-        'ocmclear
-        '
-        Me.ocmclear.Location = New System.Drawing.Point(106, 5)
-        Me.ocmclear.Name = "ocmclear"
-        Me.ocmclear.Size = New System.Drawing.Size(95, 25)
-        Me.ocmclear.TabIndex = 400
-        Me.ocmclear.TabStop = False
-        Me.ocmclear.Tag = "2|"
-        Me.ocmclear.Text = "CLEAR"
-        '
         'wQCSendSuplReportSR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -602,8 +602,8 @@ Partial Class wQCSendSuplReportSR
         Me.DockPanel1_Container.ResumeLayout(False)
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbmainprocbutton.ResumeLayout(False)
-        CType(Me.FTOrderNoTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTSMPOrderNoTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTSMPOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EFTDateTrans.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EFTDateTrans.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysCmpId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -671,8 +671,8 @@ Partial Class wQCSendSuplReportSR
     Friend WithEvents GridBand4 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
     Friend WithEvents GridBand5 As DevExpress.XtraGrid.Views.BandedGrid.GridBand
     Friend WithEvents FTOrderNoTo_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTOrderNoTo As DevExpress.XtraEditors.ButtonEdit
+    Friend WithEvents FTSMPOrderNoTo As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FTOrderNo_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTOrderNo As DevExpress.XtraEditors.ButtonEdit
+    Friend WithEvents FTSMPOrderNo As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents ocmclear As DevExpress.XtraEditors.SimpleButton
 End Class
