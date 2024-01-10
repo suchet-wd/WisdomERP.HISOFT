@@ -137,7 +137,7 @@ Public Class wOrder
         JobClose = 3
     End Enum
 
-  
+
     Sub New()
         ' This call is required by the designer.
         InitializeComponent()
@@ -490,6 +490,43 @@ Public Class wOrder
         End If
 
     End Function
+
+    ' Add Verify Data before Send Approve [10 Jan 2024 By Chet]
+    Private Function VerifyData(_OrderNo As String) As Boolean
+
+        If (HI.ST.UserInfo.UserName.ToUpper = FTUpdUser.Text.ToUpper) Or (HI.ST.SysInfo.Admin) Or FTUpdUser.Text.ToUpper = "" Then
+            Return True
+        Else
+            Dim _Qry As String = ""
+            _Qry = "SELECT FTOrderNo, FTSubOrderNo, FNHSysPlantId as 'Plant', FNHSysContinentId as 'Continent', FNHSysCountryId as 'Country', "
+            _Qry &= vbCrLf & " FNHSysProvinceId as 'Province', FNHSysShipModeId as 'ShipMode', FNHSysBuyGrpId as 'BuyGrp', "
+            _Qry &= vbCrLf & " FNPackCartonSubType as 'Continent', FNPackPerCarton as 'PackPerCarton' "
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub AS os"
+            _Qry &= vbCrLf & " WHERE os.FTOrderNo = '" & _OrderNo & "'  "
+
+            Dim tmpVerifyData As System.Data.DataTable
+
+            tmpVerifyData = HI.Conn.SQLConn.GetDataTable(_Qry, HI.Conn.DB.DataBaseName.DB_MERCHAN)
+
+            For Each R As DataRow In tmpVerifyData.Rows
+                Dim _FTSubOrderNo As String
+                _FTSubOrderNo = R.Item("FTSubOrderNo")
+                Try
+                    For Each C As DataColumn In tmpVerifyData.Columns
+                        If String.IsNullOrEmpty(R.Item(C.ColumnName).ToString) Then
+                            HI.MG.ShowMsg.mInfo("Please assign " & C.ColumnName & " on " & _FTSubOrderNo, 1511061348, Me.Text, "Please assign " & C.ColumnName & " on " & _FTSubOrderNo, MessageBoxIcon.Warning)
+                            Return False
+                        End If
+                    Next
+                Catch ex As Exception
+
+                End Try
+            Next
+            Return True
+        End If
+
+    End Function
+    ' End Add Verify Data before Send Approve [10 Jan 2024 By Chet]
 
 #Region "Property Factory Sub Order Component"
     Private Class oSubOrerComponent
@@ -921,7 +958,7 @@ Public Class wOrder
 
             If tTextFTApprovedInfoState = "0" Then
                 Dim tRevisedTime As String = Val(HI.Conn.SQLConn.GetField("SELECT A.FNCntApprovedPackRatio FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_ApprovedInfo AS A (NOLOCK) WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text.Trim) & "' AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Text.Trim) & "'", HI.Conn.DB.DataBaseName.DB_MERCHAN, "0")).ToString
-         
+
                 Me.FTStateApprovedPackRatio.Visible = False
                 Me.FTStateApprovedPackRatio.Checked = False
                 'Me.FTStateApprovedPackRatio.Text = "Revised Information ( " & tRevisedTime & " )"
@@ -1086,7 +1123,7 @@ Public Class wOrder
         Me.FTStateOrderAppPack.Checked = False
         Me.FTStateOrderAppPackRatio.Checked = False
         Me.FTStateOrderAppSizeSpec.Checked = False
-       
+
 
         _Qry = "   SELECT MIN(ISNULL(B.FTStateApprovedSubOrderNo,'0')) AS FTStateApprovedSubOrderNo"
         _Qry &= vbCrLf & "  , MIN(ISNULL(B.FTStateApprovedComponent,'0')) AS FTStateApprovedComponent"
@@ -1358,7 +1395,7 @@ Public Class wOrder
                     End If
 
                 Catch ex As Exception
-        
+
 
                     If Not oReader Is Nothing Then
                         oReader.Close()
@@ -1452,7 +1489,7 @@ Public Class wOrder
                     End If
 
                 Catch ex As Exception
-       
+
 
                     If Not oReader Is Nothing Then
                         oReader.Close()
@@ -1615,7 +1652,7 @@ Public Class wOrder
                     sSQLRevised &= Environment.NewLine & "WHERE A.FTOrderNo = @FTOrderNo;"
 
                     If HI.Conn.SQLConn.ExecuteNonQuery(sSQLRevised, HI.Conn.DB.DataBaseName.DB_MERCHAN) = True Then
-     
+
                     End If
 
                 End If
@@ -1661,7 +1698,7 @@ Public Class wOrder
 
                         For nLoopColRevised As Integer = 0 To DTAfterRevisedSubOrder.Columns.Count - 1
                             If Not DTAfterRevisedSubOrder.Rows(nLoopRevisedSub)(nLoopColRevised).Equals(DTBeforeRevisedSubOrder.Rows(nLoopRevisedSub)(nLoopColRevised)) = True Then
-          
+
 
                                 bFlagRevised = True
 
@@ -1699,7 +1736,7 @@ Public Class wOrder
                         sSQLRevisedSub &= Environment.NewLine & "      AND A.FTSubOrderNo = @FTSubOrderNo;"
 
                         If HI.Conn.SQLConn.ExecuteNonQuery(sSQLRevisedSub, HI.Conn.DB.DataBaseName.DB_MERCHAN) = True Then
-                  
+
 
                         End If
 
@@ -1839,7 +1876,7 @@ Public Class wOrder
                 tSQLRevised &= Environment.NewLine & "      AND A.FTSubOrderNo = @FTSubOrderNo;"
 
                 If HI.Conn.SQLConn.ExecuteNonQuery(tSQLRevised, HI.Conn.DB.DataBaseName.DB_MERCHAN) = True Then
-            
+
                 End If
 
             End If
@@ -1978,7 +2015,7 @@ Public Class wOrder
                 tSQLRevised &= Environment.NewLine & "      AND A.FTSubOrderNo = @FTSubOrderNo;"
 
                 If HI.Conn.SQLConn.ExecuteNonQuery(tSQLRevised, HI.Conn.DB.DataBaseName.DB_MERCHAN) = True Then
-         
+
                 End If
 
             End If
@@ -1987,7 +2024,7 @@ Public Class wOrder
             DTAfterRevisedComponent = Nothing
 
         Catch ex As Exception
- 
+
         End Try
     End Sub
 
@@ -2104,7 +2141,7 @@ Public Class wOrder
                 tSQLRevised &= Environment.NewLine & "      AND A.FTSubOrderNo = @FTSubOrderNo;"
 
                 If HI.Conn.SQLConn.ExecuteNonQuery(tSQLRevised, HI.Conn.DB.DataBaseName.DB_MERCHAN) = True Then
-     
+
                 End If
 
             End If
@@ -2188,7 +2225,7 @@ Public Class wOrder
                         tSQLRevised &= Environment.NewLine & "      AND A.FTSubOrderNo = @FTSubOrderNo;"
 
                         If HI.Conn.SQLConn.ExecuteNonQuery(tSQLRevised, HI.Conn.DB.DataBaseName.DB_MERCHAN) = True Then
-            
+
                         End If
 
                     End If
@@ -2278,7 +2315,7 @@ Public Class wOrder
                     tSQLRevisedDT &= Environment.NewLine & "      AND A.FTSubOrderNo = @FTSubOrderNo;"
 
                     If HI.Conn.SQLConn.ExecuteNonQuery(tSQLRevisedDT, HI.Conn.DB.DataBaseName.DB_MERCHAN) = True Then
-          
+
                     End If
 
                 End If
@@ -2291,7 +2328,7 @@ Public Class wOrder
 
         Catch ex As Exception
             '...Nothing 
-   
+
         End Try
 
     End Sub
@@ -2445,7 +2482,7 @@ Public Class wOrder
             tSQLRevisedDT &= Environment.NewLine & "      AND A.FTSubOrderNo = @FTSubOrderNo;"
 
             If HI.Conn.SQLConn.ExecuteNonQuery(tSQLRevisedDT, HI.Conn.DB.DataBaseName.DB_MERCHAN) = True Then
-         
+
             End If
         End If
 
@@ -3069,7 +3106,7 @@ Public Class wOrder
     End Sub
 
     Private Sub Proc_Copy(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmcopy.Click
- 
+
         Select Case Me.otab.SelectedTabPageIndex
             Case eTabIndexs.FactoryOrderNo
                 If Me.FTOrderNo.Properties.Tag.ToString().Trim() <> "" Then
@@ -3136,6 +3173,11 @@ Public Class wOrder
             HI.MG.ShowMsg.mInfo("บัญชีได้ทำการปิดจ๊อบแล้วไม่สามารถทำรายการใดๆได้อีก !!!", 1502260678, Me.Text, , MessageBoxIcon.Warning)
             Exit Sub
         End If
+        ' Add Verify Data before Send Approve [10 Jan 2024 By Chet]
+        If VerifyData(Me.FTOrderNo.Text) = False Then
+            Exit Sub
+        End If
+        ' End Add Verify Data before Send Approve [10 Jan 2024 By Chet]
         If Me.FTOrderNo.Properties.Tag.ToString() <> "" Then
             If W_PRCbSendApproveOrder(Me.FTOrderNo.Properties.Tag.ToString()) = True Then
 
@@ -4034,60 +4076,60 @@ Public Class wOrder
                     HI.MG.ShowMsg.mInfo("คุณไม่สามารถทำการ เพิ่มหรือแก้ไขยอดได้ !!! {Divert Factory Sub Order No} !!!", 1501080004, Me.Text, Me.FTOrderNo.Text & "|" & Me.FTSubOrderNo.Text, MessageBoxIcon.Warning)
                     Exit Sub
                 End If
-                    '========================================================================================================================================================================================
+                '========================================================================================================================================================================================
 
-                    sSQL = ""
-                    sSQL = "SELECT A.FTOrderNo, A.FTSubOrderNo, A.FNHSysMatColorId, A.FNHSysMatSizeId, A.FNQuantity, A.FNPrice, A.FNExtraQty"
-                    sSQL &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_BreakDown AS A (NOLOCK)"
-                    sSQL &= Environment.NewLine & "WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text.Trim) & "'"
-                    sSQL &= Environment.NewLine & "      AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Text.Trim) & "'"
-                    sSQL &= Environment.NewLine & "      AND A.FNHSysMatColorId = " & Val(Me.FTColorway.Properties.Tag)
-                    sSQL &= Environment.NewLine & "      AND A.FNHSysMatSizeId = " & Val(Me.FTSizeBreakDown.Properties.Tag) & ";"
+                sSQL = ""
+                sSQL = "SELECT A.FTOrderNo, A.FTSubOrderNo, A.FNHSysMatColorId, A.FNHSysMatSizeId, A.FNQuantity, A.FNPrice, A.FNExtraQty"
+                sSQL &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_BreakDown AS A (NOLOCK)"
+                sSQL &= Environment.NewLine & "WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text.Trim) & "'"
+                sSQL &= Environment.NewLine & "      AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Text.Trim) & "'"
+                sSQL &= Environment.NewLine & "      AND A.FNHSysMatColorId = " & Val(Me.FTColorway.Properties.Tag)
+                sSQL &= Environment.NewLine & "      AND A.FNHSysMatSizeId = " & Val(Me.FTSizeBreakDown.Properties.Tag) & ";"
 
-                    Dim tmpDTBreakdown As System.Data.DataTable
+                Dim tmpDTBreakdown As System.Data.DataTable
 
-                    tmpDTBreakdown = HI.Conn.SQLConn.GetDataTable(sSQL, HI.Conn.DB.DataBaseName.DB_MERCHAN)
+                tmpDTBreakdown = HI.Conn.SQLConn.GetDataTable(sSQL, HI.Conn.DB.DataBaseName.DB_MERCHAN)
 
-                    If Not DBNull.Value.Equals(tmpDTBreakdown) AndAlso tmpDTBreakdown.Rows.Count > 0 Then
-                        '...already exists record
-                        Dim numFNQuantityPrev As Integer, numFNQuantityAdjust As Integer
-                        Dim numFNPricePrev As Double, numFNPriceAFAdjust As Integer
-                        Dim numFNExtraQtyPrev As Double, numFNExtraQtyAdjust As Integer
+                If Not DBNull.Value.Equals(tmpDTBreakdown) AndAlso tmpDTBreakdown.Rows.Count > 0 Then
+                    '...already exists record
+                    Dim numFNQuantityPrev As Integer, numFNQuantityAdjust As Integer
+                    Dim numFNPricePrev As Double, numFNPriceAFAdjust As Integer
+                    Dim numFNExtraQtyPrev As Double, numFNExtraQtyAdjust As Integer
 
-                        numFNQuantityPrev = 0 : numFNPricePrev = 0 : numFNExtraQtyPrev = 0
-                        numFNQuantityAdjust = 0 : numFNPriceAFAdjust = 0 : numFNExtraQtyAdjust = 0
+                    numFNQuantityPrev = 0 : numFNPricePrev = 0 : numFNExtraQtyPrev = 0
+                    numFNQuantityAdjust = 0 : numFNPriceAFAdjust = 0 : numFNExtraQtyAdjust = 0
 
-                        For Each oDataRow As System.Data.DataRow In tmpDTBreakdown.Rows
-                            numFNQuantityPrev = Val(oDataRow!FNQuantity.ToString)
-                            numFNPricePrev = Val(oDataRow!FNPrice.ToString)
-                            numFNExtraQtyPrev = Val(oDataRow!FNExtraQty.ToString)
+                    For Each oDataRow As System.Data.DataRow In tmpDTBreakdown.Rows
+                        numFNQuantityPrev = Val(oDataRow!FNQuantity.ToString)
+                        numFNPricePrev = Val(oDataRow!FNPrice.ToString)
+                        numFNExtraQtyPrev = Val(oDataRow!FNExtraQty.ToString)
 
-                            Exit For
+                        Exit For
 
-                        Next
+                    Next
 
-                        numFNQuantityAdjust = Me.FNQuantity.Value
-                        numFNPriceAFAdjust = Me.FNPrice.Value
-                        numFNExtraQtyAdjust = Me.FNExtraQtySubOrder.Value
+                    numFNQuantityAdjust = Me.FNQuantity.Value
+                    numFNPriceAFAdjust = Me.FNPrice.Value
+                    numFNExtraQtyAdjust = Me.FNExtraQtySubOrder.Value
 
-                        If (numFNQuantityPrev + numFNPricePrev + numFNExtraQtyPrev) <> (numFNQuantityAdjust + numFNPriceAFAdjust + numFNExtraQtyAdjust) Then
-                            If (Me.FTStateSubMRP.Checked) Then
-                                HI.MG.ShowMsg.mInfo("พบข้อมูล การ Generate MPR ก่อนหน้านี้แล้ว หากท่่านทำการแก้ไขรายการข้อมูล Breakdown ของ Sub Order No. ควรทำการคำนวณ MPR ใหม่อีกครั้ง !!!", 16042701787, Me.Text, Me.FTOrderNo.Text & "|" & Me.FTSubOrderNo.Text, MessageBoxIcon.Warning)
-                            End If
-
+                    If (numFNQuantityPrev + numFNPricePrev + numFNExtraQtyPrev) <> (numFNQuantityAdjust + numFNPriceAFAdjust + numFNExtraQtyAdjust) Then
+                        If (Me.FTStateSubMRP.Checked) Then
+                            HI.MG.ShowMsg.mInfo("พบข้อมูล การ Generate MPR ก่อนหน้านี้แล้ว หากท่่านทำการแก้ไขรายการข้อมูล Breakdown ของ Sub Order No. ควรทำการคำนวณ MPR ใหม่อีกครั้ง !!!", 16042701787, Me.Text, Me.FTOrderNo.Text & "|" & Me.FTSubOrderNo.Text, MessageBoxIcon.Warning)
                         End If
 
                     End If
 
-                    If Not tmpDTBreakdown Is Nothing Then tmpDTBreakdown.Dispose()
+                End If
 
-                    If CheckDivertAfter(Me.FTOrderNo.Text, FTSubOrderNo.Text) = False Then
-                        Exit Sub
-                    End If
+                If Not tmpDTBreakdown Is Nothing Then tmpDTBreakdown.Dispose()
 
-                    If CreateDocumentMI(Me.FTOrderNo.Text, FTSubOrderNo.Text) Then
-                        Exit Sub
-                    End If
+                If CheckDivertAfter(Me.FTOrderNo.Text, FTSubOrderNo.Text) = False Then
+                    Exit Sub
+                End If
+
+                If CreateDocumentMI(Me.FTOrderNo.Text, FTSubOrderNo.Text) Then
+                    Exit Sub
+                End If
 
                 Call W_PRCbSaveSubOrderDT()
                 Call CreateDataLogBreakDownChange(FTOrderNo.Text.Trim(), FTSubOrderNo.Text.Trim(), _Colorway, _SizeBreakDown, _BdOrg, _NewQuantity)
@@ -4098,9 +4140,9 @@ Public Class wOrder
                 HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
 
             Case eTabIndexs.FactorySubOrderNoSewing
-                    Call W_PRCbSaveSubOrderSewing()
+                Call W_PRCbSaveSubOrderSewing()
             Case eTabIndexs.FactorySubOrderNoPacking
-                    Call W_PRCbSaveSubOrderPack()
+                Call W_PRCbSaveSubOrderPack()
             Case eTabIndexs.FactorySubOrderNoComponent
         End Select
     End Sub
@@ -4151,8 +4193,8 @@ Public Class wOrder
             '                   "ท่านจะต้องทำการ คำนวณรายการ MPR ใหม่อีกครั้ง !!!", 1501080005, Me.Text, Me.FTOrderNo.Text & "|" & Me.FTSubOrderNo.Text, MessageBoxIcon.Warning)
             'MsgBox("พบรายการข้อมูลการ Generate MPR สำหรับรายการ Factory sub order no. นี้" & Environment.NewLine & "หลังจากที่ท่านทำการ Divert Sub Order No Breakdown แล้ว." & Environment.NewLine & "ท่านจะต้องทำการ คำนวณรายการ MPR ใหม่อีกครั้ง !!!", MsgBoxStyle.OkOnly + MsgBoxStyle.Information, My.Application.Info.Title.ToString)
 
-            If HI.MG.ShowMsg.mConfirmProcess("พบรายการข้อมูลการ Generate MPR สำหรับรายการ FO No. Sub นี้" & Microsoft.VisualBasic.vbCrLf & _
-                                             "หลังจากที่ท่านทำการ Divert FO No. Sub Breakdown แล้ว จะต้องทำการคำนวณรายการ MPR ใหม่อีกครั้ง!!!" & Microsoft.VisualBasic.vbCrLf & _
+            If HI.MG.ShowMsg.mConfirmProcess("พบรายการข้อมูลการ Generate MPR สำหรับรายการ FO No. Sub นี้" & Microsoft.VisualBasic.vbCrLf &
+                                             "หลังจากที่ท่านทำการ Divert FO No. Sub Breakdown แล้ว จะต้องทำการคำนวณรายการ MPR ใหม่อีกครั้ง!!!" & Microsoft.VisualBasic.vbCrLf &
                                              "ท่านต้องการดำเนินการต่อใช่หรือไม่ ?", 1501080005, Me.FTOrderNo.Text & "|" & Me.FTSubOrderNo.Text) = False Then
                 Exit Sub
 
@@ -4209,7 +4251,7 @@ Public Class wOrder
                 FTSubOrderNo.Focus()
 
             End If
-          
+
         Else
 
             HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.SelectData, Me.Text, FTOrderNo_lbl.Text)
@@ -4704,7 +4746,7 @@ Public Class wOrder
             tSql &= Environment.NewLine & "DECLARE @tblMainMaterial AS TABLE(FTOrderNo NVARCHAR(30), FTMainMaterial NVARCHAR(500));"
             tSql &= Environment.NewLine & "SET @FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text.Trim()) & "';"
             tSql &= Environment.NewLine & "INSERT INTO @tblMainMaterial(FTMainMaterial)"
-            Select Case HI.ST.Lang.Language 
+            Select Case HI.ST.Lang.Language
                 Case HI.ST.Lang.eLang.TH
                     tSql &= Environment.NewLine & tGetMainMaterialDesc & "N'TH';"
                 Case Else
@@ -4880,7 +4922,7 @@ Public Class wOrder
 
     Private Function W_PRCbRemoveGridViewColumn(ByVal pGridView As DevExpress.XtraGrid.Views.Grid.GridView) As DevExpress.XtraGrid.Views.Grid.GridView
         Try
- 
+
             With pGridView
                 For nLoopColGridView As Integer = .Columns.Count - 1 To 0 Step -1
                     Select Case .Columns.Item(nLoopColGridView).Name.ToString.ToUpper
@@ -7256,7 +7298,7 @@ Public Class wOrder
 
             oStrBuilder.Remove(0, oStrBuilder.Length)
 
-         
+
 
             oStrBuilder.AppendLine("SELECT TOP 1 A.FTOrderNo AS FTOrderNo, B.FTStyleCode AS FTStyleCode")
 
@@ -7274,12 +7316,12 @@ Public Class wOrder
             HI.Conn.SQLConn.Cmd = HI.Conn.SQLConn.Cnn.CreateCommand
             HI.Conn.SQLConn.Tran = HI.Conn.SQLConn.Cnn.BeginTransaction
 
-            tsql = ""
-            tsql = "DELETE A"
-            tsql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_SizeSpec AS A"
-            tsql &= Environment.NewLine & "WHERE  A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(tFTOrderNo) & "'"
+            tSql = ""
+            tSql = "DELETE A"
+            tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_SizeSpec AS A"
+            tSql &= Environment.NewLine & "WHERE  A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(tFTOrderNo) & "'"
 
-            If HI.Conn.SQLConn.Execute_Tran(tsql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) < 0 Then
+            If HI.Conn.SQLConn.Execute_Tran(tSql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) < 0 Then
                 'HI.Conn.SQLConn.Tran.Rollback()
                 'HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
                 'HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
@@ -7288,38 +7330,24 @@ Public Class wOrder
 
             End If
 
-            tsql = ""
-            tsql = "DELETE A"
-            tsql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_Bundle AS A (NOLOCK)"
-            tsql &= Environment.NewLine & "WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
+            tSql = ""
+            tSql = "DELETE A"
+            tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_Bundle AS A (NOLOCK)"
+            tSql &= Environment.NewLine & "WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
 
-            If HI.Conn.SQLConn.Execute_Tran(tsql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) < 0 Then
+            If HI.Conn.SQLConn.Execute_Tran(tSql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) < 0 Then
                 'HI.Conn.SQLConn.Tran.Rollback()
                 'HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
                 'HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
                 'Return False
             End If
 
-            tsql = ""
-            tsql = "DELETE A"
-            tsql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_Pack AS A"
-            tsql &= Environment.NewLine & "WHERE  A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
+            tSql = ""
+            tSql = "DELETE A"
+            tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_Pack AS A"
+            tSql &= Environment.NewLine & "WHERE  A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
 
-            If HI.Conn.SQLConn.Execute_Tran(tsql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) < 0 Then
-                'HI.Conn.SQLConn.Tran.Rollback()
-                'HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
-                'HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
-
-                'Return False
-
-            End If
-
-            tsql = ""
-            tsql = "DELETE A"
-            tsql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_Sew AS A"
-            tsql &= Environment.NewLine & "WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
-
-            If HI.Conn.SQLConn.Execute_Tran(tsql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) < 0 Then
+            If HI.Conn.SQLConn.Execute_Tran(tSql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) < 0 Then
                 'HI.Conn.SQLConn.Tran.Rollback()
                 'HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
                 'HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
@@ -7328,12 +7356,12 @@ Public Class wOrder
 
             End If
 
-            tsql = ""
-            tsql = "DELETE A"
-            tsql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..[TMERTOrderSub_Component] AS A"
-            tsql &= Environment.NewLine & "WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "';"
+            tSql = ""
+            tSql = "DELETE A"
+            tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_Sew AS A"
+            tSql &= Environment.NewLine & "WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
 
-            If HI.Conn.SQLConn.Execute_Tran(tsql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) < 0 Then
+            If HI.Conn.SQLConn.Execute_Tran(tSql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) < 0 Then
                 'HI.Conn.SQLConn.Tran.Rollback()
                 'HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
                 'HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
@@ -7342,12 +7370,12 @@ Public Class wOrder
 
             End If
 
-            tsql = ""
-            tsql = "DELETE A"
-            tsql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_BreakDown AS A"
-            tsql &= Environment.NewLine & "WHERE A.FTOrderNo = '" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
+            tSql = ""
+            tSql = "DELETE A"
+            tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..[TMERTOrderSub_Component] AS A"
+            tSql &= Environment.NewLine & "WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "';"
 
-            If HI.Conn.SQLConn.ExecuteTran(tsql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) < 0 Then
+            If HI.Conn.SQLConn.Execute_Tran(tSql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) < 0 Then
                 'HI.Conn.SQLConn.Tran.Rollback()
                 'HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
                 'HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
@@ -7356,12 +7384,26 @@ Public Class wOrder
 
             End If
 
-            tsql = ""
-            tsql = "DELETE A"
-            tsql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub AS A"
-            tsql &= Environment.NewLine & "WHERE A.FTOrderNo = '" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
+            tSql = ""
+            tSql = "DELETE A"
+            tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_BreakDown AS A"
+            tSql &= Environment.NewLine & "WHERE A.FTOrderNo = '" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
 
-            If HI.Conn.SQLConn.ExecuteTran(tsql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) < 0 Then
+            If HI.Conn.SQLConn.ExecuteTran(tSql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) < 0 Then
+                'HI.Conn.SQLConn.Tran.Rollback()
+                'HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                'HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+
+                'Return False
+
+            End If
+
+            tSql = ""
+            tSql = "DELETE A"
+            tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub AS A"
+            tSql &= Environment.NewLine & "WHERE A.FTOrderNo = '" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
+
+            If HI.Conn.SQLConn.ExecuteTran(tSql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) < 0 Then
                 'HI.Conn.SQLConn.Tran.Rollback()
                 'HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
                 'HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
@@ -7385,11 +7427,11 @@ Public Class wOrder
             'End If
             '========================================================================================================================================
             tSql = ""
-            tsql = "DELETE A"
-            tsql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..[TMERTOrder] A"
-            tsql &= Environment.NewLine & "WHERE A.FTOrderNo = '" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
+            tSql = "DELETE A"
+            tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..[TMERTOrder] A"
+            tSql &= Environment.NewLine & "WHERE A.FTOrderNo = '" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
 
-            If HI.Conn.SQLConn.ExecuteTran(tsql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+            If HI.Conn.SQLConn.ExecuteTran(tSql, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                 HI.Conn.SQLConn.Tran.Rollback()
                 HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
                 HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
@@ -8326,7 +8368,7 @@ Public Class wOrder
                             HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
                             HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
                             Return False
-                            End If
+                        End If
 
                         HI.Conn.SQLConn.Tran.Commit()
                         HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
@@ -8747,7 +8789,7 @@ Public Class wOrder
             ''---------------------------------------------------------------------------------------------------------
             Dim _CMDisPer As Double = GetCMDisPer(Me.FTOrderNo.Properties.Tag.ToString().Trim())
 
-         
+
             tSql = ""
             tSql = "UPDATE A"
             tSql &= Environment.NewLine & "SET A.[FNPrice] = " & nFNPrice_Tmp
@@ -9977,7 +10019,7 @@ Public Class wOrder
 
             Return True
         Catch ex As Exception
- 
+
             Return False
         End Try
 
@@ -10044,7 +10086,7 @@ Public Class wOrder
                                             Dim oSewingSeqImage As System.Drawing.Image = HI.UL.ULImage.LoadImage("" & tPathImgExtend)
                                             HI.UL.ULImage.SaveImage(oSewingSeqImage, tmpNewImageName, "" & _SystemFilePath & "\OrderNo\SubOrderNo\Packing\")
                                         Else
-                                      
+
                                         End If
 
                                     End If
@@ -10121,9 +10163,9 @@ Public Class wOrder
                 End If
 
             End If
-            
+
         Catch ex As Exception
-   
+
         End Try
 
         Return bRet
@@ -10174,7 +10216,7 @@ Public Class wOrder
                         '================================================================================================================================================
 
                         If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_MERCHAN) = True Then
-        
+
                             '...validate revised packing sequence
                             '...update revised size packing information
                             '======================================================================================================================================================================================
@@ -10204,7 +10246,7 @@ Public Class wOrder
                                 tSQLRevised &= Environment.NewLine & "      AND A.FTSubOrderNo = @FTSubOrderNo;"
 
                                 If HI.Conn.SQLConn.ExecuteNonQuery(tSQLRevised, HI.Conn.DB.DataBaseName.DB_MERCHAN) = True Then
-                            
+
                                 End If
                             End If
                             '======================================================================================================================================================================================
@@ -10392,7 +10434,7 @@ Public Class wOrder
 
             Return True
         Catch ex As Exception
-       
+
             Return False
         End Try
 
@@ -10502,7 +10544,7 @@ Public Class wOrder
 
             Return True
         Catch ex As Exception
-   
+
             Return False
         End Try
 
@@ -10632,7 +10674,7 @@ Public Class wOrder
 
             Return True
         Catch ex As Exception
- 
+
             Return False
         End Try
 
@@ -10699,7 +10741,7 @@ Public Class wOrder
                                             Dim oSewingSeqImage As System.Drawing.Image = HI.UL.ULImage.LoadImage("" & tPathImgExtend)
                                             HI.UL.ULImage.SaveImage(oSewingSeqImage, tmpNewImageName, "" & _SystemFilePath & "\OrderNo\SubOrderNo\Sewing\")
                                         Else
-                                       
+
                                         End If
 
                                     End If
@@ -10776,9 +10818,9 @@ Public Class wOrder
                 End If
 
             End If
-            
+
         Catch ex As Exception
-     
+
         End Try
 
         Return bRet
@@ -10795,7 +10837,7 @@ Public Class wOrder
 
 
         Catch ex As Exception
-      
+
         End Try
 
         Return bRetDelSubOrdComponent
@@ -10845,7 +10887,7 @@ Public Class wOrder
                         '==============================================================================================================================================
 
                         If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_MERCHAN) = True Then
-                     
+
                             '...validate revised sewing sequence
                             '...update revised size sewing information
                             '======================================================================================================================================================================================
@@ -10875,7 +10917,7 @@ Public Class wOrder
                                 tSQLRevised &= Environment.NewLine & "      AND A.FTSubOrderNo = @FTSubOrderNo;"
 
                                 If HI.Conn.SQLConn.ExecuteNonQuery(tSQLRevised, HI.Conn.DB.DataBaseName.DB_MERCHAN) = True Then
-                           
+
                                 End If
                             End If
                             '======================================================================================================================================================================================
@@ -11259,7 +11301,7 @@ Public Class wOrder
                         '_Str = ""
                         '_Str = "SELECT A.FNApprovedInfoCnt FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrder_ApprovedInfo AS A (NOLOCK) WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text.Trim) & "';"
                         'tRevisedTime = Val(HI.Conn.SQLConn.GetField(_Str, HI.Conn.DB.DataBaseName.DB_MERCHAN, "0")).ToString
-                 
+
                         Me.FTStateInfoOrder.Visible = False
                         Me.FTStateInfoOrder.Checked = False
                         'Me.FTStateInfoOrder.Text = "Revised Information ( " & HI.Conn.SQLConn.GetField("SELECT A.FNApprovedInfoCnt FROM  [" & HI.Conn.DB.DataBaseName.DB_MERCHAN & "]..TMERTOrder_ApprovedInfo AS A (NOLOCK) WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text.Trim) & "'", HI.Conn.DB.DataBaseName.DB_MERCHAN, "") & " )"
@@ -11864,7 +11906,7 @@ Public Class wOrder
 
         Catch ex As Exception
 
- 
+
 
             Me.FNOrderQty.Value = 0
             Me.FNExtraQty.Value = 0
@@ -20959,7 +21001,7 @@ Public Class wOrder
 
             If tTextFTApprovedInfoState = "0" Then
                 Dim tRevisedTime As String = Val(HI.Conn.SQLConn.GetField("SELECT A.FNCntApprovedPacking FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_ApprovedInfo AS A (NOLOCK) WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text.Trim) & "' AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Text.Trim) & "'", HI.Conn.DB.DataBaseName.DB_MERCHAN, "0")).ToString
-    
+
                 Me.FTStateApprovedPack.Visible = False
                 Me.FTStateApprovedPack.Checked = False
                 'Me.FTStateApprovedPack.Text = "Revised Information ( " & tRevisedTime & " )"
@@ -20997,7 +21039,7 @@ Public Class wOrder
             Return True
         Catch ex As Exception
             'Throw New Exception(ex.Message().ToString() & ControlChars.CrLf & ex.StackTrace().ToString())
-  
+
             Return False
         End Try
 
@@ -21474,7 +21516,7 @@ Public Class wOrder
             End If
 
         Catch ex As Exception
-  
+
         End Try
 
         Return _bRet
@@ -21922,7 +21964,7 @@ Public Class wOrder
 
             Catch ex As Exception
                 'MsgBox(ex.Message().ToString() & Environment.NewLine & ex.StackTrace().ToString(), MsgBoxStyle.OkOnly, My.Application.Info.Title)
-   
+
                 HI.Conn.SQLConn.Tran.Rollback()
                 HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
                 HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
@@ -22050,7 +22092,7 @@ Public Class wOrder
 
                     Return True
                 Catch ex As Exception
-    
+
                     HI.Conn.SQLConn.Tran.Rollback()
                     HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
                     HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
@@ -23428,7 +23470,7 @@ Public Class wOrder
                     Me.FNQuantity.SelectAll()
 
                 End If
-              
+
             End With
 
         Catch ex As Exception
@@ -24955,14 +24997,14 @@ Public Class wOrder
                         'If Microsoft.VisualBasic.Left(_SizeCode, "FNAmnt".Length).ToUpper = "FNAmnt".ToUpper Then
                         _SizeCode = _SizeCode.Replace("FNAmnt", "")
 
-                            ' Dim _SizeId As Integer = Integer.Parse(Val(.FocusedColumn.Tag.ToString))
+                        ' Dim _SizeId As Integer = Integer.Parse(Val(.FocusedColumn.Tag.ToString))
 
-                            If HI.MG.ShowMsg.mConfirmProcessDefaultNo("คุณต้องการทำการลบข้อมูลของ Size นี้ ทุก Colorway ใช่หรือไม่ ?", 1410270014, _SizeCode) = True Then
-                                If Me.DeleteAllColorwayOrSizeAllSub("", _SizeCode) Then
+                        If HI.MG.ShowMsg.mConfirmProcessDefaultNo("คุณต้องการทำการลบข้อมูลของ Size นี้ ทุก Colorway ใช่หรือไม่ ?", 1410270014, _SizeCode) = True Then
+                            If Me.DeleteAllColorwayOrSizeAllSub("", _SizeCode) Then
                                 Call W_PRCbShowBrowseDataOrderBreakdownInfo()
                             End If
 
-                            End If
+                        End If
                         '
                         'Else
                         '  HI.MG.ShowMsg.mInfo("", 1410270013, Me.Text, , MessageBoxIcon.Warning)
@@ -25437,7 +25479,7 @@ Public Class wOrder
             End With
 
         Catch ex As Exception
-           
+
         End Try
 
     End Sub
@@ -25472,7 +25514,7 @@ Public Class wOrder
             End With
 
         Catch ex As Exception
-   
+
         End Try
 
     End Sub
@@ -25484,7 +25526,7 @@ Public Class wOrder
                 Me.LoadCompleteFTImage1 = True
             End If
         Catch ex As Exception
-       
+
         End Try
     End Sub
 
@@ -25497,7 +25539,7 @@ Public Class wOrder
 
             End If
         Catch ex As Exception
-  
+
         End Try
     End Sub
 
@@ -25508,7 +25550,7 @@ Public Class wOrder
                 Me.LoadCompleteFTImage3 = True
             End If
         Catch ex As Exception
-  
+
         End Try
     End Sub
 
@@ -25519,7 +25561,7 @@ Public Class wOrder
                 Me.LoadCompleteFTImage4 = True
             End If
         Catch ex As Exception
-      
+
         End Try
     End Sub
 
@@ -25532,7 +25574,7 @@ Public Class wOrder
         'Catch ex As Exception
         '    FNPrice.Properties.ReadOnly = False
         'End Try
-       
+
     End Sub
 
     Private Sub FTStateSubCutting_EditValueChanging(sender As Object, e As XtraEditors.Controls.ChangingEventArgs) Handles FTStateSubCutting.EditValueChanging
@@ -25635,7 +25677,7 @@ Public Class wOrder
                     Me.FNHSysCmpId.Properties.ReadOnly = False
                     Me.FNHSysCmpId.Properties.Buttons(0).Enabled = True
                 End If
-              
+
             End If
         End If
     End Sub
