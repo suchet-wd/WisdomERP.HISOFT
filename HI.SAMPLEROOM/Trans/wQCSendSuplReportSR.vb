@@ -477,6 +477,7 @@ Public Class wQCSendSuplReportSR
                             '   .Caption = Str
                         Else
                             .Caption = ogvdetail.Columns.ColumnByFieldName(Str).Caption.ToString
+                            .Caption = ogvdetail.Columns.ColumnByFieldName(Str).Caption.ToString
                         End If
 
                         .Columns.Add(ogv.Columns.ColumnByFieldName(Str))

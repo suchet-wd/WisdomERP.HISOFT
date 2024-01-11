@@ -491,42 +491,79 @@ Public Class wOrder
 
     End Function
 
-    ' Add Verify Data before Send Approve [10 Jan 2024 By Chet]
+
     Private Function VerifyData(_OrderNo As String) As Boolean
+        ' Add Verify Data before Send Approve [10 Jan 2024 By Chet]
 
-        If (HI.ST.UserInfo.UserName.ToUpper = FTUpdUser.Text.ToUpper) Or (HI.ST.SysInfo.Admin) Or FTUpdUser.Text.ToUpper = "" Then
-            Return True
-        Else
-            Dim _Qry As String = ""
-            _Qry = "SELECT FTOrderNo, FTSubOrderNo, FNHSysPlantId as 'Plant', FNHSysContinentId as 'Continent', FNHSysCountryId as 'Country', "
-            _Qry &= vbCrLf & " FNHSysProvinceId as 'Province', FNHSysShipModeId as 'ShipMode', FNHSysBuyGrpId as 'BuyGrp', "
-            _Qry &= vbCrLf & " FNPackCartonSubType as 'Continent', FNPackPerCarton as 'PackPerCarton' "
-            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub AS os"
-            _Qry &= vbCrLf & " WHERE os.FTOrderNo = '" & _OrderNo & "'  "
+        Dim _Qry As String = ""
+        _Qry = "SELECT FTOrderNo, FTSubOrderNo, FNHSysPlantId as 'Plant', FNHSysContinentId as 'Continent', FNHSysCountryId as 'Country', "
+        _Qry &= vbCrLf & " FNHSysProvinceId as 'Province', FNHSysShipModeId as 'ShipMode', FNHSysBuyGrpId as 'Buy Group', "
+        _Qry &= vbCrLf & " FNPackCartonSubType as 'Pack Type', FNPackPerCarton as 'Ratio/Carton' "
+        _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub AS os"
+        _Qry &= vbCrLf & " WHERE os.FTOrderNo = '" & _OrderNo & "'  "
 
-            Dim tmpVerifyData As System.Data.DataTable
+        Dim tmpVerifyData As System.Data.DataTable
 
-            tmpVerifyData = HI.Conn.SQLConn.GetDataTable(_Qry, HI.Conn.DB.DataBaseName.DB_MERCHAN)
+        tmpVerifyData = HI.Conn.SQLConn.GetDataTable(_Qry, HI.Conn.DB.DataBaseName.DB_MERCHAN)
 
-            For Each R As DataRow In tmpVerifyData.Rows
-                Dim _FTSubOrderNo As String
-                _FTSubOrderNo = R.Item("FTSubOrderNo")
-                Try
-                    For Each C As DataColumn In tmpVerifyData.Columns
-                        If String.IsNullOrEmpty(R.Item(C.ColumnName).ToString) Then
-                            HI.MG.ShowMsg.mInfo("Please assign " & C.ColumnName & " on " & _FTSubOrderNo, 1511061348, Me.Text, "Please assign " & C.ColumnName & " on " & _FTSubOrderNo, MessageBoxIcon.Warning)
+        For Each R As DataRow In tmpVerifyData.Rows
+            Dim _FTSubOrderNo As String
+            _FTSubOrderNo = R.Item("FTSubOrderNo")
+            Try
+                For Each C As DataColumn In tmpVerifyData.Columns
+                    If String.IsNullOrEmpty(R.Item(C.ColumnName).ToString) Or (R.Item(C.ColumnName).ToString = "0") Then
+                        If C.ColumnName <> "Pack Type" Then
+                            HI.MG.ShowMsg.mInfo("Please Assign " & C.ColumnName & " on " & _FTSubOrderNo, 1511061348, Me.Text, "Please assign " & C.ColumnName & " on " & _FTSubOrderNo, MessageBoxIcon.Warning)
                             Return False
                         End If
-                    Next
-                Catch ex As Exception
+                    End If
+                    If (C.ColumnName = "Ratio/Carton") And (R.Item("Pack Type").ToString <> "0") Then
+                        _Qry = "SELECT DISTINCT SUM(ISNULL(sb.FNQuantity,0)) as 'SumQty' FROM TMERTOrderSub_Bundle as sb WITH (NOLOCK) "
+                        _Qry &= vbCrLf & "WHERE sb.FTOrderNo = '" & _OrderNo & "' AND sb.FTSubOrderNo = '" & _FTSubOrderNo & "' GROUP BY FTColorway"
 
-                End Try
-            Next
-            Return True
-        End If
+                        Dim tmpQty As System.Data.DataTable
+
+                        tmpQty = HI.Conn.SQLConn.GetDataTable(_Qry, HI.Conn.DB.DataBaseName.DB_MERCHAN)
+
+                        If tmpQty.Rows.Count > 0 Then
+                            For Each Rq As DataRow In tmpQty.Rows
+                                If Val(Rq.Item("SumQty")) <> Val(R.Item("Ratio/Carton")) Then
+                                    HI.MG.ShowMsg.mInfo("Please Check Assort Quantity " & C.ColumnName & " on " &
+                                                        _FTSubOrderNo, 1511061348, Me.Text, "Please Check Assort Quantity " &
+                                                        C.ColumnName & " on " & _FTSubOrderNo, MessageBoxIcon.Warning)
+                                    Return False
+                                End If
+                            Next
+                        End If
+                    End If
+                Next
+            Catch ex As Exception
+
+            End Try
+        Next
+        Return True
+        ' End Add Verify Data before Send Approve [10 Jan 2024 By Chet]
 
     End Function
-    ' End Add Verify Data before Send Approve [10 Jan 2024 By Chet]
+
+
+
+    Private Function AutoApproved(_OrderNo As String, _User As String) As Boolean
+        ' Add Auto Approved when Send Approve [11 Jan 2024 By Chet]
+
+        Dim _Qry As String = ""
+        _Qry = "EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.[SP_AUTOAPPROVED] '" & _OrderNo & "' ,'" & _User & "'"
+
+        'HI.Conn.SQLConn.GetDataTable(_Qry, HI.Conn.DB.DataBaseName.DB_MERCHAN) Then
+        If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN) = "0" Then
+            Return False
+        End If
+
+        Return True
+
+        ' End Add Verify Data before Send Approve [11 Jan 2024 By Chet]
+    End Function
+
 
 #Region "Property Factory Sub Order Component"
     Private Class oSubOrerComponent
@@ -3178,6 +3215,7 @@ Public Class wOrder
             Exit Sub
         End If
         ' End Add Verify Data before Send Approve [10 Jan 2024 By Chet]
+
         If Me.FTOrderNo.Properties.Tag.ToString() <> "" Then
             If W_PRCbSendApproveOrder(Me.FTOrderNo.Properties.Tag.ToString()) = True Then
 
@@ -3187,12 +3225,34 @@ Public Class wOrder
                     Case Else
                         HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, "Send Approve Factory Ordre No. : " & Me.FTOrderNo.Text & " complete...")
                 End Select
-
             End If
+
+            ' Add Auto Approved when Send Approve [11 Jan 2024 By Chet]
+            If AutoApproved(Me.FTOrderNo.Text, HI.ST.UserInfo.UserName.ToUpper) = False Then
+                Select Case HI.ST.Lang.Language
+                    Case HI.ST.Lang.eLang.TH
+                        HI.MG.ShowMsg.mInfo("ไม่สามารถอนุมัติเลขที่ใบสั่งผลิต : " & Me.FTOrderNo.Text & "!!!", 1511061348, Me.Text,
+                                                "ไม่สามารถอนุมัติเลขที่ใบสั่งผลิต : " & Me.FTOrderNo.Text & "!!!", MessageBoxIcon.Warning)
+                    Case Else
+                        HI.MG.ShowMsg.mInfo("Cannot Approve Factory Ordre No. : " & Me.FTOrderNo.Text & "!!!", 1511061348, Me.Text,
+                                                "Cannot Approve Factory Ordre No. : " & Me.FTOrderNo.Text & "!!!", MessageBoxIcon.Warning)
+                End Select
+
+                Exit Sub
+            Else
+                Select Case HI.ST.Lang.Language
+                    Case HI.ST.Lang.eLang.TH
+                        HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, "ทำการอนุมัติเลขที่ใบสั่งผลิต : " & Me.FTOrderNo.Text & " เรียบร้อยแล้ว...")
+                    Case Else
+                        HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, "Approve Factory Order No. : " & Me.FTOrderNo.Text & " Successful...")
+                End Select
+            End If
+            ' End Add Auto Approved when Send Approve [11 Jan 2024 By Chet]
         Else
             HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, Me.FTOrderNo_lbl.Text)
             Me.FTOrderNo.Focus()
         End If
+
     End Sub
 
     Private Sub Proc_Refresh(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmRefresh.Click
@@ -7580,9 +7640,6 @@ Public Class wOrder
                 _Str &= Environment.NewLine & ",[FNHSysGenderId],[FNHSysUnitId],[FTStateEmb]"
                 _Str &= Environment.NewLine & ",[FTStatePrint],[FTStateHeat],[FTStateLaser],[FTStateWindows]"
                 _Str &= Environment.NewLine & ",[FTRemark],[FNHSysShipPortId]"
-                'Add By Chet 09 Dec 2024
-                _Str &= Environment.NewLine & ",[FNPackCartonSubType],[FNPackPerCarton]"
-                'End Add By Chet 09 Dec 2024
                 _Str &= Environment.NewLine & ",[FTInsUser],[FDInsDate],[FTInsTime]"
                 _Str &= Environment.NewLine & ",[FTUpdUser],[FDUpdDate],[FTUpdTime],[FTCustRef],[FTPORef],[FNHSysPlantId],[FNHSysBuyGrpId],[FNOrderSetType],[FTStateSewOnly],FTPOTrading,FNHSysShipToAccountId)"
                 _Str &= "VALUES ('" & Me.FTOrderNo.Text & "','" & tFTSubOrderNo & "','" & HI.UL.ULDate.ConvertEnDB(Me.FDSubOrderDate.Text) & "',N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
@@ -7591,9 +7648,6 @@ Public Class wOrder
                 _Str &= "," & Val(Me.FNHSysGenderId.Properties.Tag.ToString()) & "," & Val(Me.FNHSysUnitId.Properties.Tag.ToString()) & ",'" & Me.FTStateEmb.EditValue.ToString & "'"
                 _Str &= ",'" & Me.FTStatePrint.EditValue.ToString() & "','" & Me.FTStateHeat.EditValue.ToString() & "','" & Me.FTStateLaser.EditValue.ToString() & "','" & Me.FTStateWindows.EditValue.ToString() & "'"
                 _Str &= ",'" & HI.UL.ULF.rpQuoted(Me.FTRemarkSubOrderNo.Text) & "'," & Val(Me.FNHSysShipPortId.Properties.Tag.ToString())
-                'Add By Chet 09 Dec 2024
-                _Str &= ",'" & HI.UL.ULF.rpQuoted(Me.FNPackCartonSubType.Text) & "'," & Val(Me.FNPackPerCaton.Properties.Tag.ToString())
-                'End Add By Chet 09 Dec 2024
                 _Str &= ",N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB
                 _Str &= ",N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB & ",N'" & HI.UL.ULF.rpQuoted(Me.FTCustRef.Text) & "',N'" & HI.UL.ULF.rpQuoted(Me.FTSubPORef.Text.Trim()) & "'"
                 _Str &= "," & Val(FNHSysPlantId.Properties.Tag.ToString) & "," & Val(FNHSysBuyGrpId.Properties.Tag.ToString) & "," & FNOrderSetType.SelectedIndex & ",'" & FTStateSewOnly.EditValue.ToString & "',N'" & HI.UL.ULF.rpQuoted(Me.FTPOTrading.Text) & "'," & Val(FNHSysShipToAccountId.Properties.Tag.ToString) & ")"

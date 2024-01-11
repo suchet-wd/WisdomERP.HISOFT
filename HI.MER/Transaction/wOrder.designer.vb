@@ -6010,7 +6010,7 @@ Partial Class wOrder
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclearclsr)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmRemoveDT)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmAddDT)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(100, 59)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(60, 38)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(1089, 181)
         Me.ogbmainprocbutton.TabIndex = 434
