@@ -170,7 +170,7 @@ Public Class wSMPQCSendSuplChartTableSR
 
             Dim _oDt As DataTable = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_SAMPLE)
 
-            _Cmd = " SELECT SUM(D.FNQuantity) AS FNQuantity , P.FTSuplCode"
+            _Cmd = " SELECT SUM(D.FNQuantity) AS FNQuantity , SUM(SSD.FNDefectQty) AS FNDefectQty, P.FTSuplCode"
             _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTReceiveSupl AS R WITH (NOLOCK) "
             _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTReceiveSupl_Barcode AS B WITH (NOLOCK) ON R.FTRcvSuplNo = B.FTRcvSuplNo "
             _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcode_SendSupl AS S WITH(NOLOCK) ON B.FTBarcodeSendSuplNo = S.FTBarcodeSendSuplNo "
@@ -292,6 +292,7 @@ Public Class wSMPQCSendSuplChartTableSR
 
                 Dim RData As New DataTable
                 Dim _GrandTotal As Integer = 0
+                Dim _GrandItemTotal As Integer = 0
                 Dim oDt As DataTable = _oDt.Select("FTSuplCode='" & R!FTSuplCode.ToString & "'").CopyToDataTable
                 Dim _dt As New DataTable
                 With _dt
@@ -300,14 +301,26 @@ Public Class wSMPQCSendSuplChartTableSR
                     .Columns.Add("FNQuantityPercent", GetType(Double))
                 End With
                 Try
+                    ' Add Row Total Quantity
                     For Each X As DataRow In _oDtSum.Select("FTSuplCode='" & R!FTSuplCode.ToString & "'")
                         _dt.Rows.Add(Me.FNSendSuplQty_lbl.Text, X!FNQuantity.ToString, Nothing)
+                    Next
+                    For Each X As DataRow In oDt.Rows
+                        _GrandItemTotal = _GrandItemTotal + X!FNDefectQty.ToString
+                    Next
+
+                    ' Add Row Total Defect
+                    For Each X As DataRow In _oDtSum.Select("FTSuplCode='" & R!FTSuplCode.ToString & "'")
+                        _dt.Rows.Add(Me.FNSendSuplDefectQty_lbl.Text, X!FNDefectQty.ToString, Nothing)
                     Next
                     For Each X As DataRow In oDt.Rows
                         _GrandTotal = _GrandTotal + X!FNDefectQty.ToString
                     Next
 
-                    _dt.Rows.Add(Me.FNSendSuplDefectQty_lbl.Text, _GrandTotal, Nothing)
+                    _dt.Rows.Add(Me.FNSendSuplDefectItemQty_lbl.Text, _GrandTotal, Nothing)
+
+                    '_dt.Rows.Add(Me.FNSendSuplDefectItemQty_lbl.Text, _GrandItemTotal, Nothing)
+
 
                     For Each X As DataRow In oDt.Rows
                         If _GrandTotal <> 0 Then
@@ -414,7 +427,11 @@ Public Class wSMPQCSendSuplChartTableSR
     Private Sub GridView1_RowStyle(sender As Object, e As DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs)
         Try
             Select Case e.RowHandle
-                Case 0, 1
+                Case 0
+                    e.Appearance.BackColor = Color.LightGreen
+                Case 1
+                    e.Appearance.BackColor = Color.LightSkyBlue
+                Case 2
                     e.Appearance.BackColor = Color.Salmon
             End Select
         Catch ex As Exception

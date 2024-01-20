@@ -3246,6 +3246,7 @@ Public Class wOrder
                     Case Else
                         HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, "Approve Factory Order No. : " & Me.FTOrderNo.Text & " Successful...")
                 End Select
+                Call Proc_Refresh(sender, Nothing)
             End If
             ' End Add Auto Approved when Send Approve [11 Jan 2024 By Chet]
         Else

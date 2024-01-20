@@ -441,7 +441,7 @@ Partial Class wQCSendSuplReportSR
         '
         Me.otbSubEmHead.Controls.Add(Me.ogcEmSum)
         Me.otbSubEmHead.Name = "otbSubEmHead"
-        Me.otbSubEmHead.Size = New System.Drawing.Size(1086, 407)
+        Me.otbSubEmHead.Size = New System.Drawing.Size(1086, 410)
         Me.otbSubEmHead.Text = "Summary"
         '
         'ogcEmSum
@@ -452,7 +452,7 @@ Partial Class wQCSendSuplReportSR
         Me.ogcEmSum.MainView = Me.ogvEmSum
         Me.ogcEmSum.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ogcEmSum.Name = "ogcEmSum"
-        Me.ogcEmSum.Size = New System.Drawing.Size(1086, 407)
+        Me.ogcEmSum.Size = New System.Drawing.Size(1086, 410)
         Me.ogcEmSum.TabIndex = 397
         Me.ogcEmSum.TabStop = False
         Me.ogcEmSum.Tag = "2|"
@@ -473,7 +473,7 @@ Partial Class wQCSendSuplReportSR
         Me.otabpageScn.Controls.Add(Me.otbSubScreen)
         Me.otabpageScn.Name = "otabpageScn"
         Me.otabpageScn.PageVisible = False
-        Me.otabpageScn.Size = New System.Drawing.Size(1088, 432)
+        Me.otabpageScn.Size = New System.Drawing.Size(1088, 435)
         Me.otabpageScn.Text = "Screen"
         '
         'otbSubScreen
@@ -482,7 +482,7 @@ Partial Class wQCSendSuplReportSR
         Me.otbSubScreen.Location = New System.Drawing.Point(0, 0)
         Me.otbSubScreen.Name = "otbSubScreen"
         Me.otbSubScreen.SelectedTabPage = Me.otbSubScreenSum
-        Me.otbSubScreen.Size = New System.Drawing.Size(1088, 432)
+        Me.otbSubScreen.Size = New System.Drawing.Size(1088, 435)
         Me.otbSubScreen.TabIndex = 398
         Me.otbSubScreen.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otbSubScreenSum, Me.otbSubScreenDetail})
         '
@@ -490,7 +490,7 @@ Partial Class wQCSendSuplReportSR
         '
         Me.otbSubScreenSum.Controls.Add(Me.ogcScnSum)
         Me.otbSubScreenSum.Name = "otbSubScreenSum"
-        Me.otbSubScreenSum.Size = New System.Drawing.Size(1086, 407)
+        Me.otbSubScreenSum.Size = New System.Drawing.Size(1086, 410)
         Me.otbSubScreenSum.Text = "Summary"
         '
         'ogcScnSum
@@ -501,7 +501,7 @@ Partial Class wQCSendSuplReportSR
         Me.ogcScnSum.MainView = Me.ogvScnSum
         Me.ogcScnSum.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ogcScnSum.Name = "ogcScnSum"
-        Me.ogcScnSum.Size = New System.Drawing.Size(1086, 407)
+        Me.ogcScnSum.Size = New System.Drawing.Size(1086, 410)
         Me.ogcScnSum.TabIndex = 398
         Me.ogcScnSum.TabStop = False
         Me.ogcScnSum.Tag = "2|"
@@ -521,7 +521,7 @@ Partial Class wQCSendSuplReportSR
         '
         Me.otbSubScreenDetail.Controls.Add(Me.ogcDetailScn)
         Me.otbSubScreenDetail.Name = "otbSubScreenDetail"
-        Me.otbSubScreenDetail.Size = New System.Drawing.Size(1086, 407)
+        Me.otbSubScreenDetail.Size = New System.Drawing.Size(1086, 410)
         Me.otbSubScreenDetail.Text = "Detail"
         '
         'ogcDetailScn
@@ -532,7 +532,7 @@ Partial Class wQCSendSuplReportSR
         Me.ogcDetailScn.MainView = Me.ogvDetailScn
         Me.ogcDetailScn.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ogcDetailScn.Name = "ogcDetailScn"
-        Me.ogcDetailScn.Size = New System.Drawing.Size(1086, 407)
+        Me.ogcDetailScn.Size = New System.Drawing.Size(1086, 410)
         Me.ogcDetailScn.TabIndex = 397
         Me.ogcDetailScn.TabStop = False
         Me.ogcDetailScn.Tag = "2|"

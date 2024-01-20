@@ -77,6 +77,7 @@ Partial Class wSMPQCSendSuplChartTableSR
         Me.ogvGFNQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ogvGFNQuantityPercent = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.BehaviorManager1 = New DevExpress.Utils.Behaviors.BehaviorManager(Me.components)
+        Me.FNSendSuplDefectItemQty_lbl = New DevExpress.XtraEditors.LabelControl()
         CType(Me.DockManager, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.oCriteria.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
@@ -520,6 +521,7 @@ Partial Class wSMPQCSendSuplChartTableSR
         '
         'XtraTabPage1
         '
+        Me.XtraTabPage1.Controls.Add(Me.FNSendSuplDefectItemQty_lbl)
         Me.XtraTabPage1.Controls.Add(Me.FNSendSuplDefectQty_lbl)
         Me.XtraTabPage1.Controls.Add(Me.FNSendSuplQty_lbl)
         Me.XtraTabPage1.Name = "XtraTabPage1"
@@ -600,6 +602,16 @@ Partial Class wSMPQCSendSuplChartTableSR
         Me.ogvGFNQuantityPercent.VisibleIndex = 2
         Me.ogvGFNQuantityPercent.Width = 64
         '
+        'FNSendSuplDefectItemQty_lbl
+        '
+        Me.FNSendSuplDefectItemQty_lbl.Location = New System.Drawing.Point(261, 69)
+        Me.FNSendSuplDefectItemQty_lbl.Name = "FNSendSuplDefectItemQty_lbl"
+        Me.FNSendSuplDefectItemQty_lbl.Size = New System.Drawing.Size(112, 13)
+        Me.FNSendSuplDefectItemQty_lbl.TabIndex = 1
+        Me.FNSendSuplDefectItemQty_lbl.Tag = "2|"
+        Me.FNSendSuplDefectItemQty_lbl.Text = "จำนวนชิ้นงานเสียทั้งหมด"
+        Me.FNSendSuplDefectItemQty_lbl.Visible = False
+        '
         'wSMPQCSendSuplChartTableSR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -675,4 +687,5 @@ Partial Class wSMPQCSendSuplChartTableSR
     Friend WithEvents FTSMPOrderNoTo As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FTSMPOrderNo As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents ocmclear As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents FNSendSuplDefectItemQty_lbl As DevExpress.XtraEditors.LabelControl
 End Class

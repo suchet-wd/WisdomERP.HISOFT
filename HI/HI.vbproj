@@ -392,8 +392,8 @@
     <Content Include="bin\Debug\DatabaseBKMer.xml" />
     <Content Include="bin\Debug\DatabaseDDNS.xml" />
     <Content Include="bin\Debug\DatabaseLaoBK.xml" />
-    <Content Include="bin\Debug\DatabaseMer.xml" />
     <Content Include="bin\Debug\Database.xml" />
+    <Content Include="bin\Debug\DatabaseCen.xml" />
     <Content Include="bin\Debug\Database91.xml" />
     <Content Include="bin\Debug\DatabaseWSMCENTER.xml" />
     <Content Include="bin\Debug\DatabaseLao.xml" />
