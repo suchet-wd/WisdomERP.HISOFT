@@ -518,7 +518,7 @@ Public Class wOrder
                         End If
                     End If
                     If (C.ColumnName = "Ratio/Carton") And (R.Item("Pack Type").ToString <> "0") Then
-                        _Qry = "SELECT DISTINCT SUM(ISNULL(sb.FNQuantity,0)) as 'SumQty' FROM TMERTOrderSub_Bundle as sb WITH (NOLOCK) "
+                        _Qry = "SELECT DISTINCT SUM(ISNULL(sb.FNQuantity,0)) as 'SumQty' FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_Bundle as sb WITH (NOLOCK) "
                         _Qry &= vbCrLf & "WHERE sb.FTOrderNo = '" & _OrderNo & "' AND sb.FTSubOrderNo = '" & _FTSubOrderNo & "' GROUP BY FTColorway"
 
                         Dim tmpQty As System.Data.DataTable
@@ -3299,7 +3299,8 @@ Public Class wOrder
                 If Me.FTSubOrderNo.Text.Trim() <> "" Then
                     If Me.FTSubOrderNo.Properties.Tag.ToString() <> "" And Me.FTOrderNo.Properties.Tag.ToString() <> "" Then
                         Dim tSql As String = ""
-                        tSql = "SELECT TOP 1 A.FTSubOrderNo FROM HITECH_MERCHAN..TMERTOrderSub AS A WITH(NOLOCK) WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString()) & "' AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Properties.Tag.ToString()) & "'"
+                        ' Edit By Chet 26 Jan 2024
+                        tSql = "SELECT TOP 1 A.FTSubOrderNo FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub AS A WITH(NOLOCK) WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString()) & "' AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Properties.Tag.ToString()) & "'"
                         If HI.Conn.SQLConn.GetField(tSql, HI.Conn.DB.DataBaseName.DB_MERCHAN, "") <> "" Then
                             Call W_PRCbShowBrowseDataSubOrderInfo(Me.FTSubOrderNo.Properties.Tag.ToString())
                             Call W_PRCbShowBrowseDataSubOrderComponent(Me.FTOrderNo.Text.Trim, Me.FTSubOrderNo.Text.Trim)
@@ -6149,7 +6150,8 @@ Public Class wOrder
                                 Select Case UCase(_FieldName)
                                     Case UCase("FDInsDate"), UCase("FTInsDate"), UCase("FTInsTime"), UCase("FTInsUser")
                                     Case UCase("FTOrderBy")
-                                        If Val(HI.Conn.SQLConn.GetFieldOnBeginTrans("SELECT TOP 1 A.FNHSysCmpId FROM [HITECH_MERCHAN]..[TMERTOrder] AS A WITH(NOLoCK) WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text.Trim()) & "'", HI.Conn.DB.DataBaseName.DB_MERCHAN, "0")) = 0 Then
+                                        ' Edit By Chet 26 Jan 2024
+                                        If Val(HI.Conn.SQLConn.GetFieldOnBeginTrans("SELECT TOP 1 A.FNHSysCmpId FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..[TMERTOrder] AS A WITH(NOLoCK) WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text.Trim()) & "'", HI.Conn.DB.DataBaseName.DB_MERCHAN, "0")) = 0 Then
                                             _bFONoBlankComp = True
                                             If _Values <> "" Then _Values &= ","
                                         End If
@@ -9619,7 +9621,8 @@ Public Class wOrder
         cmd &= vbCrLf & "   INNER Join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..[TMERTOrderSub] As B4 With(NOLOCK) On B.FTOrderNo = B4.FTOrderNo "
         cmd &= vbCrLf & "    WHERE B.FTOrderNo='" & HI.UL.ULF.rpQuoted(FTOrderNo.Text) & "' AND B4.FTSubOrderNo='" & HI.UL.ULF.rpQuoted(FTSubOrderNo.Text) & "' "
         cmd &= vbCrLf & "  ) As A "
-        cmd &= vbCrLf & "    INNER Join [HITECH_MERCHAN]..TMERTStyle_Packing As P With(NOLOCK) On A.FNHSysStyleId = P.FNHSysStyleId And A.FNHSysSeasonId = P.FNHSysSeasonId  "
+        ' Edit By Chet 26 Jan 2024
+        cmd &= vbCrLf & "    INNER Join [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTStyle_Packing As P With(NOLOCK) On A.FNHSysStyleId = P.FNHSysStyleId And A.FNHSysSeasonId = P.FNHSysSeasonId  "
 
         HI.Conn.SQLConn.ExecuteOnly(cmd, Conn.DB.DataBaseName.DB_MERCHAN)
 
@@ -9647,7 +9650,8 @@ Public Class wOrder
 
 
             oStrBuilder.AppendLine("  Select @BOMID = ISNULL(B2.FNHSysBomId ,ISNULL(B1.FNHSysBomId,0 )) ")
-            oStrBuilder.AppendLine("  FROM HITECH_MERCHAN.dbo.TMERTOrder As O With(NOLOCK) ")
+            ' Edit By chet 26 Jan 2024 add [{0}] + , HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN)))
+            oStrBuilder.AppendLine(String.Format("  FROM [{0}].dbo.TMERTOrder As O With(NOLOCK) ", HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN)))
             oStrBuilder.AppendLine(String.Format(" OUTER APPLY(SELECT TOP 1 B1.FNHSysBomId FROM [{0}]..[TMERTBOM] As B1 With(NOLOCK) WHERE B1.FNHSysStyleId = O.FNHSysStyleId And B1.FNHSysSeasonId = O.FNHSysSeasonId And B1.FNBomType =2 And ISNULL(B1.FNStateBomOrder,0) =0 And B1.FTStateActive ='1' ORDER BY B1.FNBomVersion  ) AS B1 ", HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN)))
             oStrBuilder.AppendLine(" OUTER APPLY(SELECT TOP 1 B2.FNHSysBomId ")
             oStrBuilder.AppendLine(String.Format(" FROM [{0}]..[TMERTBOM] As B2 With(NOLOCK)  ", HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN)))
@@ -9972,7 +9976,8 @@ Public Class wOrder
                 tSql = ""
                 tSql = "DECLARE @FNPackSeqMax AS INT;"
                 tSql &= Environment.NewLine & "SELECT @FNPackSeqMax = (ISNULL(MAX(A.FNPackSeq),0) + 1)"
-                tSql &= Environment.NewLine & "FROM HITECH_MERCHAN.dbo.TMERTOrderSub_Pack AS A"
+                ' Edit By Chet 26 Jan 2024
+                tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_Pack AS A"
                 tSql &= Environment.NewLine & "WHERE A.FTOrderNo = N'" & Me.FTOrderNo.Properties.Tag.ToString() & "'"
                 tSql &= Environment.NewLine & "      AND A.FTSubOrderNo = N'" & Me.FTSubOrderNo.Properties.Tag.ToString() & "'"
                 tSql &= Environment.NewLine & "--PRINT '@FNPackSeqMax : ' + CONVERT(VARCHAR(10), @FNPackSeqMax);"
@@ -11509,9 +11514,11 @@ Public Class wOrder
             oStrBuilder.AppendLine("SET @tOrderNo = N'" & Me.FTOrderNo.Text & "';")
             oStrBuilder.AppendLine("SET @ColListSize = N'';")
             oStrBuilder.AppendLine("SELECT @ColListSize = STUFF(( SELECT ', p.' + QUOTENAME(M2.FTMatSizeCode)")
-            oStrBuilder.AppendLine("                              FROM HITECH_MASTER.dbo.TMERMMatSize AS M2")
+            ' Edit By Chet 26 Jan 2024
+            oStrBuilder.AppendLine("                              FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS M2")
             oStrBuilder.AppendLine("                              WHERE EXISTS(SELECT 'T'")
-            oStrBuilder.AppendLine("                                    FROM HITECH_MERCHAN.dbo.TMERTOrderSub_BreakDown AS M1")
+            ' Edit By Chet 26 Jan 2024
+            oStrBuilder.AppendLine("                                    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS M1")
             oStrBuilder.AppendLine("                                    WHERE M1.FNHSysMatSizeId = M2.FNHSysMatSizeId")
             oStrBuilder.AppendLine("                                          AND M1.FTOrderNo = @tOrderNo)")
             oStrBuilder.AppendLine("                              ORDER BY M2.FNMatSizeSeq ASC")
@@ -11519,16 +11526,20 @@ Public Class wOrder
             oStrBuilder.AppendLine("                             ), 1, 2, '');")
             oStrBuilder.AppendLine("PRINT @ColListSize;")
             oStrBuilder.AppendLine("SET @oStrBuilder = N'SELECT ROW_NUMBER() OVER(ORDER BY p.FNHSysMatColorId ASC) AS FNSeq' + CHAR(13) +")
-            oStrBuilder.AppendLine("             '               ,(SELECT q.FTMatColorCode FROM HITECH_MASTER.dbo.TMERMMatColor AS q WHERE q.FNHSysMatColorId = p.FNHSysMatColorId) AS FTMatColorCode' + CHAR(13) +")
+            ' Edit By Chet 26 Jan 2024
+            oStrBuilder.AppendLine("             '               ,(SELECT q.FTMatColorCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatColor AS q WHERE q.FNHSysMatColorId = p.FNHSysMatColorId) AS FTMatColorCode' + CHAR(13) +")
 
             If HI.ST.Lang.Language = HI.ST.Lang.eLang.EN Then
-                oStrBuilder.AppendLine("             '               ,(SELECT q.FTMatColorNameEN FROM HITECH_MASTER.dbo.TMERMMatColor AS q WHERE q.FNHSysMatColorId = p.FNHSysMatColorId) AS FTMatColorName, ' + @ColListSize + ' ' + CHAR(13) +")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("             '               ,(SELECT q.FTMatColorNameEN FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatColor AS q WHERE q.FNHSysMatColorId = p.FNHSysMatColorId) AS FTMatColorName, ' + @ColListSize + ' ' + CHAR(13) +")
             Else
-                oStrBuilder.AppendLine("             '               ,(SELECT q.FTMatColorNameTH FROM HITECH_MASTER.dbo.TMERMMatColor AS q WHERE q.FNHSysMatColorId = p.FNHSysMatColorId) AS FTMatColorName, ' + @ColListSize + ' ' + CHAR(13) +")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("             '               ,(SELECT q.FTMatColorNameTH FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatColor AS q WHERE q.FNHSysMatColorId = p.FNHSysMatColorId) AS FTMatColorName, ' + @ColListSize + ' ' + CHAR(13) +")
             End If
 
             oStrBuilder.AppendLine("             'FROM (SELECT L1.FNHSysMatColorId, L1.FNQuantity, L2.FTMatSizeCode' + CHAR(13) +")
-            oStrBuilder.AppendLine("             '      FROM HITECH_MERCHAN.dbo.TMERTOrderSub_BreakDown AS L1 INNER JOIN HITECH_MASTER.dbo.TMERMMatSize AS L2 ON L1.FNHSysMatSizeId = L2.FNHSysMatSizeId' + CHAR(13) +")
+            ' Edit By Chet 26 Jan2024
+            oStrBuilder.AppendLine("             '      FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS L1 INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS L2 ON L1.FNHSysMatSizeId = L2.FNHSysMatSizeId' + CHAR(13) +")
             oStrBuilder.AppendLine("             '      WHERE L1.FTOrderNO = ''' + @tOrderNo + ''') AS j' + CHAR(13) +")
             oStrBuilder.AppendLine("             '      PIVOT' + CHAR(13) +")
             oStrBuilder.AppendLine("             '     (' + CHAR(13) +")
@@ -12684,7 +12695,8 @@ Public Class wOrder
                 oStrBuilder.AppendLine("      ,D.FNHSysMatSizeId, D.FTMatSizeCode, D.FTMatSizeNameEN AS FTMatSizeName")
                 oStrBuilder.AppendLine("      ,B.FNQuantity, B.FNPrice, B.FNAmt AS FNAmnt, B.FNExtraQty AS FNExtraQtyPercent")
                 oStrBuilder.AppendLine("      ,B.FNQuantityExtra, B.FNGrandQuantity, B.FNGrandAmnt")
-                oStrBuilder.AppendLine("FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_BreakDown AS B INNER JOIN HITECH_MASTER.dbo.TMERMMatColor AS C ON B.FNHSysMatColorId = C.FNHSysMatColorId")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_BreakDown AS B INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatColor AS C ON B.FNHSysMatColorId = C.FNHSysMatColorId")
                 oStrBuilder.AppendLine("     INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMMatSize AS D ON B.FNHSysMatSizeId = D.FNHSysMatSizeId")
                 oStrBuilder.AppendLine("WHERE B.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'")
                 oStrBuilder.AppendLine("      AND B.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Properties.Tag.ToString().Trim()) & "'")
@@ -13042,9 +13054,11 @@ Public Class wOrder
         Try
             tSql = ""
             tSql = "SELECT A.FNHSysMatSizeId, A.FTMatSizeCode, A.FTMatSizeNameEN AS FTMatSizeName"
-            tSql &= ControlChars.CrLf & "FROM HITECH_MASTER.dbo.TMERMMatSize AS A"
+            ' Edit By Chet 26 Jan 2024
+            tSql &= ControlChars.CrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS A"
             tSql &= ControlChars.CrLf & "WHERE EXISTS (SELECT 'T'"
-            tSql &= ControlChars.CrLf & "              FROM HITECH_MERCHAN.dbo.TMERTOrderSub_BreakDown AS L1"
+            ' Edit By Chet 26 Jan 2024
+            tSql &= ControlChars.CrLf & "              FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS L1"
             tSql &= ControlChars.CrLf & "              WHERE L1.FTOrderNo = N'" & Me.FTOrderNo.Properties.Tag.ToString() & "'"
             tSql &= ControlChars.CrLf & "                    AND L1.FTSubOrderNo = N'" & Me.FTSubOrderNo.Properties.Tag.ToString() & "'"
             tSql &= ControlChars.CrLf & "                    AND L1.FNHSysMatSizeId = A.FNHSysMatSizeId)"
@@ -13481,8 +13495,10 @@ Public Class wOrder
                 oStrBuilder.AppendLine("      ,D.FNHSysMatSizeId, D.FTMatSizeCode, D.FTMatSizeNameEN AS FTMatSizeName")
                 oStrBuilder.AppendLine("      ,B.FNQuantity, B.FNPrice, B.FNAmt AS FNAmnt, B.FNExtraQty AS FNExtraQtyPercent")
                 oStrBuilder.AppendLine("      ,B.FNQuantityExtra, B.FNGrandQuantity, B.FNGrandAmnt")
-                oStrBuilder.AppendLine("FROM dbo.TMERTOrderSub_BreakDown AS B INNER JOIN HITECH_MASTER.dbo.TMERMMatColor AS C ON B.FNHSysMatColorId = C.FNHSysMatColorId")
-                oStrBuilder.AppendLine("     INNER JOIN HITECH_MASTER.dbo.TMERMMatSize AS D ON B.FNHSysMatSizeId = D.FNHSysMatSizeId")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("FROM dbo.TMERTOrderSub_BreakDown AS B INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatColor AS C ON B.FNHSysMatColorId = C.FNHSysMatColorId")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("     INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS D ON B.FNHSysMatSizeId = D.FNHSysMatSizeId")
                 oStrBuilder.AppendLine("WHERE B.FTOrderNo = N'" & Me.FTOrderNo.Properties.Tag.ToString() & "'")
                 oStrBuilder.AppendLine("      AND B.FTSubOrderNo = N'" & Me.FTSubOrderNo.Properties.Tag.ToString() & "'")
                 oStrBuilder.AppendLine("ORDER BY C.FNMatColorSeq ASC, D.FNMatSizeSeq ASC;")
@@ -13585,8 +13601,10 @@ Public Class wOrder
                 oStrBuilder.AppendLine("      ,D.FNHSysMatSizeId, D.FTMatSizeCode, D.FTMatSizeNameEN AS FTMatSizeName")
                 oStrBuilder.AppendLine("      ,B.FNQuantity, B.FNPrice, B.FNAmt AS FNAmnt, B.FNExtraQty AS FNExtraQtyPercent")
                 oStrBuilder.AppendLine("      ,B.FNQuantityExtra, B.FNGrandQuantity, B.FNGrandAmnt")
-                oStrBuilder.AppendLine("FROM dbo.TMERTOrderSub_BreakDown AS B INNER JOIN HITECH_MASTER.dbo.TMERMMatColor AS C ON B.FNHSysMatColorId = C.FNHSysMatColorId")
-                oStrBuilder.AppendLine("     INNER JOIN HITECH_MASTER.dbo.TMERMMatSize AS D ON B.FNHSysMatSizeId = D.FNHSysMatSizeId")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("FROM dbo.TMERTOrderSub_BreakDown AS B INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatColor AS C ON B.FNHSysMatColorId = C.FNHSysMatColorId")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("     INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS D ON B.FNHSysMatSizeId = D.FNHSysMatSizeId")
                 oStrBuilder.AppendLine("WHERE B.FTOrderNo = N'" & Me.FTOrderNo.Properties.Tag.ToString() & "'")
                 oStrBuilder.AppendLine("      AND B.FTSubOrderNo = N'" & Me.FTSubOrderNo.Properties.Tag.ToString() & "'")
                 oStrBuilder.AppendLine("ORDER BY C.FNMatColorSeq ASC, D.FNMatSizeSeq ASC;")
@@ -13970,9 +13988,11 @@ Public Class wOrder
         Try
             tSql = ""
             tSql = "SELECT A.FNHSysMatSizeId, A.FTMatSizeCode, A.FTMatSizeNameEN AS FTMatSizeName"
-            tSql &= ControlChars.CrLf & "FROM HITECH_MASTER.dbo.TMERMMatSize AS A"
+            ' Edit By Chet 26 Jan 2024
+            tSql &= ControlChars.CrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS A"
             tSql &= ControlChars.CrLf & "WHERE EXISTS (SELECT 'T'"
-            tSql &= ControlChars.CrLf & "              FROM HITECH_MERCHAN.dbo.TMERTOrderSub_BreakDown AS L1"
+            ' Edit By Chet 26 Jan 2024
+            tSql &= ControlChars.CrLf & "              FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS L1"
             tSql &= ControlChars.CrLf & "              WHERE L1.FTOrderNo = N'" & Me.FTOrderNo.Properties.Tag.ToString() & "'"
             tSql &= ControlChars.CrLf & "                    AND L1.FTSubOrderNo = N'" & Me.FTSubOrderNo.Properties.Tag.ToString() & "'"
             tSql &= ControlChars.CrLf & "                    AND L1.FNHSysMatSizeId = A.FNHSysMatSizeId)"
@@ -14452,8 +14472,10 @@ Public Class wOrder
                 oStrBuilder.AppendLine("      ,D.FNHSysMatSizeId, D.FTMatSizeCode, D.FTMatSizeNameEN AS FTMatSizeName")
                 oStrBuilder.AppendLine("      ,B.FNQuantity, B.FNPrice, B.FNAmt AS FNAmnt, B.FNExtraQty AS FNExtraQtyPercent")
                 oStrBuilder.AppendLine("      ,B.FNQuantityExtra, B.FNGrandQuantity, B.FNGrandAmnt")
-                oStrBuilder.AppendLine("FROM dbo.TMERTOrderSub_BreakDown AS B INNER JOIN HITECH_MASTER.dbo.TMERMMatColor AS C ON B.FNHSysMatColorId = C.FNHSysMatColorId")
-                oStrBuilder.AppendLine("     INNER JOIN HITECH_MASTER.dbo.TMERMMatSize AS D ON B.FNHSysMatSizeId = D.FNHSysMatSizeId")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("FROM dbo.TMERTOrderSub_BreakDown AS B INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatColor AS C ON B.FNHSysMatColorId = C.FNHSysMatColorId")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("     INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS D ON B.FNHSysMatSizeId = D.FNHSysMatSizeId")
                 oStrBuilder.AppendLine("WHERE B.FTOrderNo = N'" & Me.FTOrderNo.Properties.Tag.ToString() & "'")
                 oStrBuilder.AppendLine("      AND B.FTSubOrderNo = N'" & Me.FTSubOrderNo.Properties.Tag.ToString() & "'")
                 oStrBuilder.AppendLine("ORDER BY C.FNMatColorSeq ASC, D.FNMatSizeSeq ASC;")
@@ -14558,8 +14580,10 @@ Public Class wOrder
                 oStrBuilder.AppendLine("      ,D.FNHSysMatSizeId, D.FTMatSizeCode, D.FTMatSizeNameEN AS FTMatSizeName")
                 oStrBuilder.AppendLine("      ,B.FNQuantity, B.FNPrice, B.FNAmt AS FNAmnt, B.FNExtraQty AS FNExtraQtyPercent")
                 oStrBuilder.AppendLine("      ,B.FNQuantityExtra, B.FNGrandQuantity, B.FNGrandAmnt")
-                oStrBuilder.AppendLine("FROM dbo.TMERTOrderSub_BreakDown AS B INNER JOIN HITECH_MASTER.dbo.TMERMMatColor AS C ON B.FNHSysMatColorId = C.FNHSysMatColorId")
-                oStrBuilder.AppendLine("     INNER JOIN HITECH_MASTER.dbo.TMERMMatSize AS D ON B.FNHSysMatSizeId = D.FNHSysMatSizeId")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("FROM dbo.TMERTOrderSub_BreakDown AS B INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatColor AS C ON B.FNHSysMatColorId = C.FNHSysMatColorId")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("     INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS D ON B.FNHSysMatSizeId = D.FNHSysMatSizeId")
                 oStrBuilder.AppendLine("WHERE B.FTOrderNo = N'" & Me.FTOrderNo.Properties.Tag.ToString() & "'")
                 oStrBuilder.AppendLine("      AND B.FTSubOrderNo = N'" & Me.FTSubOrderNo.Properties.Tag.ToString() & "'")
                 oStrBuilder.AppendLine("ORDER BY C.FNMatColorSeq ASC, D.FNMatSizeSeq ASC;")
@@ -14961,9 +14985,11 @@ Public Class wOrder
         Try
             tSql = ""
             tSql = "SELECT A.FNHSysMatSizeId, A.FTMatSizeCode, A.FTMatSizeNameEN AS FTMatSizeName"
-            tSql &= ControlChars.CrLf & "FROM HITECH_MASTER.dbo.TMERMMatSize AS A"
+            ' Edit By Chet 26 Jan 2024
+            tSql &= ControlChars.CrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS A"
             tSql &= ControlChars.CrLf & "WHERE EXISTS (SELECT 'T'"
-            tSql &= ControlChars.CrLf & "              FROM HITECH_MERCHAN.dbo.TMERTOrderSub_BreakDown AS L1"
+            ' Edit By Chet 26 Jan 2024
+            tSql &= ControlChars.CrLf & "              FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS L1"
             tSql &= ControlChars.CrLf & "              WHERE L1.FTOrderNo = N'" & Me.FTOrderNo.Properties.Tag.ToString() & "'"
             tSql &= ControlChars.CrLf & "                    AND L1.FTSubOrderNo = N'" & Me.FTSubOrderNo.Properties.Tag.ToString() & "'"
             tSql &= ControlChars.CrLf & "                    AND L1.FNHSysMatSizeId = A.FNHSysMatSizeId)"
@@ -15446,8 +15472,10 @@ Public Class wOrder
                 oStrBuilder.AppendLine("      ,D.FNHSysMatSizeId, D.FTMatSizeCode, D.FTMatSizeNameEN AS FTMatSizeName")
                 oStrBuilder.AppendLine("      ,B.FNQuantity, B.FNPrice, B.FNAmt AS FNAmnt, B.FNExtraQty AS FNExtraQtyPercent")
                 oStrBuilder.AppendLine("      ,B.FNQuantityExtra, B.FNGrandQuantity, B.FNGrandAmnt")
-                oStrBuilder.AppendLine("FROM dbo.TMERTOrderSub_BreakDown AS B INNER JOIN HITECH_MASTER.dbo.TMERMMatColor AS C ON B.FNHSysMatColorId = C.FNHSysMatColorId")
-                oStrBuilder.AppendLine("     INNER JOIN HITECH_MASTER.dbo.TMERMMatSize AS D ON B.FNHSysMatSizeId = D.FNHSysMatSizeId")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("FROM dbo.TMERTOrderSub_BreakDown AS B INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatColor AS C ON B.FNHSysMatColorId = C.FNHSysMatColorId")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("     INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS D ON B.FNHSysMatSizeId = D.FNHSysMatSizeId")
                 oStrBuilder.AppendLine("WHERE B.FTOrderNo = N'" & Me.FTOrderNo.Properties.Tag.ToString() & "'")
                 oStrBuilder.AppendLine("      AND B.FTSubOrderNo = N'" & Me.FTSubOrderNo.Properties.Tag.ToString() & "'")
                 oStrBuilder.AppendLine("ORDER BY C.FNMatColorSeq ASC, D.FNMatSizeSeq ASC;")
@@ -15552,8 +15580,10 @@ Public Class wOrder
                 oStrBuilder.AppendLine("      ,D.FNHSysMatSizeId, D.FTMatSizeCode, D.FTMatSizeNameEN AS FTMatSizeName")
                 oStrBuilder.AppendLine("      ,B.FNQuantity, B.FNPrice, B.FNAmt AS FNAmnt, B.FNExtraQty AS FNExtraQtyPercent")
                 oStrBuilder.AppendLine("      ,B.FNQuantityExtra, B.FNGrandQuantity, B.FNGrandAmnt")
-                oStrBuilder.AppendLine("FROM dbo.TMERTOrderSub_BreakDown AS B INNER JOIN HITECH_MASTER.dbo.TMERMMatColor AS C ON B.FNHSysMatColorId = C.FNHSysMatColorId")
-                oStrBuilder.AppendLine("     INNER JOIN HITECH_MASTER.dbo.TMERMMatSize AS D ON B.FNHSysMatSizeId = D.FNHSysMatSizeId")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("FROM dbo.TMERTOrderSub_BreakDown AS B INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatColor AS C ON B.FNHSysMatColorId = C.FNHSysMatColorId")
+                ' Edit By Chet 26 Jan 2024
+                oStrBuilder.AppendLine("     INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS D ON B.FNHSysMatSizeId = D.FNHSysMatSizeId")
                 oStrBuilder.AppendLine("WHERE B.FTOrderNo = N'" & Me.FTOrderNo.Properties.Tag.ToString() & "'")
                 oStrBuilder.AppendLine("      AND B.FTSubOrderNo = N'" & Me.FTSubOrderNo.Properties.Tag.ToString() & "'")
                 oStrBuilder.AppendLine("ORDER BY C.FNMatColorSeq ASC, D.FNMatSizeSeq ASC;")
@@ -20519,9 +20549,11 @@ Public Class wOrder
         Try
             tSql = ""
             tSql = "SELECT A.FNHSysMatSizeId, A.FTMatSizeCode, A.FTMatSizeNameEN AS FTMatSizeName"
-            tSql &= Environment.NewLine & "FROM HITECH_MASTER.dbo.TMERMMatSize AS A"
+            ' Edit By Chet 26 Jan 2024
+            tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS A"
             tSql &= Environment.NewLine & "WHERE  EXISTS (SELECT 'T'"
-            tSql &= Environment.NewLine & "               FROM HITECH_MERCHAN.dbo.TMERTOrderSub_BreakDown AS L1"
+            ' Edit By Chet 26 Jan 2024
+            tSql &= Environment.NewLine & "               FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS L1"
             tSql &= Environment.NewLine & "               WHERE L1.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(ptFTOrderNo) & "'"
             tSql &= Environment.NewLine & "                     AND L1.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(ptFTSubOrderNo) & "'"
             tSql &= Environment.NewLine & "                     AND L1.FNHSysMatSizeId = A.FNHSysMatSizeId)"
@@ -20663,7 +20695,8 @@ Public Class wOrder
 
                 tSql = ""
                 tSql = "SELECT MAX(A.FNSeq) AS FNMaxSeq"
-                tSql &= Environment.NewLine & "FROM HITECH_MERCHAN.dbo.TMERTOrderSub_SizeSpec AS A"
+                ' Edit By chet 26 Jan 2024
+                tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_SizeSpec AS A"
                 tSql &= Environment.NewLine & "WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
                 tSql &= Environment.NewLine & "      AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Properties.Tag.ToString()) & "'"
                 tSql &= Environment.NewLine & "GROUP BY A.FTOrderNo, A.FTSubOrderNo;"
@@ -20672,7 +20705,8 @@ Public Class wOrder
 
                 tSql = ""
                 tSql = "SELECT A.FNHSysMatSizeId, B.FTMatSizeCode, A.FNSeq, A.FTSizeSpecDesc, A.FTSizeSpecExtension"
-                tSql &= Environment.NewLine & "FROM HITECH_MERCHAN.dbo.TMERTOrderSub_SizeSpec AS A INNER JOIN HITECH_MASTER.dbo.TMERMMatSize AS B ON A.FNHSysMatSizeId = B.FNHSysMatSizeId"
+                ' Edit By Chet 26 Jan 2024
+                tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_SizeSpec AS A INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS B ON A.FNHSysMatSizeId = B.FNHSysMatSizeId"
                 tSql &= Environment.NewLine & "WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Properties.Tag.ToString().Trim()) & "'"
                 tSql &= Environment.NewLine & "      AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Properties.Tag.ToString().Trim()) & "'"
                 tSql &= Environment.NewLine & "ORDER BY B.FNMatSizeSeq ASC, A.FNSeq ASC;"
@@ -21773,7 +21807,8 @@ Public Class wOrder
                 tSql = "SELECT  A.FTOrderNo, A.FTSubOrderNo, A.FNSeq"
                 tSql &= Environment.NewLine & "          , ISNULL((SELECT TOP 1 L1.FTMatSizeCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TMERMMatSize] AS L1 WITH(NOLOCK) WHERE L1.FNHSysMatSizeId = A.FNHSysMatSizeId),'') AS [FNHSysMatSizeId]"
                 tSql &= Environment.NewLine & "          , A.FTSizeSpecDesc, A.FTSizeSpecExtension, ISNULL(A.FTTolerant,'') AS FTSizeSpecTolerant"
-                tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..[TMERTOrderSub_SizeSpec] AS A WITH(NOLOCK) INNER JOIN [HITECH_MASTER]..[TMERMMatSize] AS B ON A.FNHSysMatSizeId = B.FNHSysMatSizeId"
+                ' Edit By Chet 26 Jan 2024
+                tSql &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..[TMERTOrderSub_SizeSpec] AS A WITH(NOLOCK) INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..[TMERMMatSize] AS B ON A.FNHSysMatSizeId = B.FNHSysMatSizeId"
                 tSql &= Environment.NewLine & "WHERE A.FTOrderNo = N'" & HI.UL.ULF.rpQuoted(tFTOrderNo) & "'"
                 tSql &= Environment.NewLine & "      AND A.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(tFTSubOrderNo) & "'"
                 tSql &= Environment.NewLine & "ORDER BY A.FNSeq ASC, B.FNMatSizeSeq ASC;"
@@ -24283,6 +24318,8 @@ Public Class wOrder
                     .ockPacking.Checked = True
                     .ockSewing.Checked = True
                     .ockSizeSpec.Checked = True
+                    ' Add ockPackRatio Check By Chet [22 Jan 2024]
+                    .ockPackRatio.Checked = True
                     .ShowDialog()
 
                     If (.AddComponent) Then
