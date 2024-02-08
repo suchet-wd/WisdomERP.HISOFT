@@ -206,42 +206,48 @@ Public Class wPatternMasterPlan_New
             cmd &= vbCrLf & ", @YearStart = '" + FTPayYear.Text + "/01/01' , @YearEnd = '" + FTPayYear.Text + "/12/31' "
         End If
 
-        If (FNHSysCustId.Text <> "") Then
-            cmd &= vbCrLf & ", @FNHSysCustId = '" & Val(FNHSysCustId.Properties.Tag.ToString) & "' "
-        Else
-            cmd &= vbCrLf & ", @FNHSysCustId =  null"
-        End If
+        'If (FNHSysCustId.Text <> "") Then
+        '    cmd &= vbCrLf & ", @FNHSysCustId = '" & Val(FNHSysCustId.Properties.Tag.ToString) & "' "
+        '    'Else
+        '    '    cmd &= vbCrLf & ", @FNHSysCustId =  null"
+        'End If
 
         If (FNHSysStyleId.Text <> "") Then
+            'If (FNHSysStyleId.Text <> "" And FNHSysStyleIdTo.Text <> "") Then
             cmd &= vbCrLf & ", @FNHSysStyleId = '" & Val(FNHSysStyleId.Properties.Tag.ToString) & "' "
-        Else
-            cmd &= vbCrLf & ", @FNHSysStyleId = null"
+            cmd &= vbCrLf & ", @FNHSysStyleIdTo = '" & Val(FNHSysStyleId.Properties.Tag.ToString) & "' "
         End If
 
         If (FNHSysSeasonId.Text <> "") Then
+            'If (FNHSysSeasonId.Text <> "" And FNHSysSeasonIdTo.Text <> "") Then
             cmd &= vbCrLf & ", @FNHSysSeasonId = '" & Val(FNHSysSeasonId.Properties.Tag.ToString) & "' "
-        Else
-            cmd &= vbCrLf & ", @FNHSysSeasonId = null"
+            cmd &= vbCrLf & ", @FNHSysSeasonIdTo = '" & Val(FNHSysSeasonId.Properties.Tag.ToString) & "' "
         End If
 
-        If (FNHSysMerTeamId.Text <> "") Then
-            cmd &= vbCrLf & ", @FNHSysMerTeamId = '" & Val(FNHSysMerTeamId.Properties.Tag.ToString) & "' "
-        Else
-            cmd &= vbCrLf & ", @FNHSysMerTeamId = null "
+        If (FTUserName.Text <> "") Then
+            'If (FNHSysMerTeamId.Text <> "" And FNHSysMerTeamIdTo.Text <> "") Then
+            cmd &= vbCrLf & ", @FTUserName = '" & FTUserName.Text & "' "
+            cmd &= vbCrLf & ", @FTUserNameTo = '" & FTUserName.Text & "' "
         End If
+
+        If (FNHSysBuyId.Text <> "") Then
+            'If (FNHSysBuyIdFrom.Text <> "" And FNHSysBuyIdTo.Text <> "") Then
+            cmd &= vbCrLf & ", @FNHSysBuyIdFrom = '" & FNHSysBuyId.Properties.Tag.ToString & "' "
+            cmd &= vbCrLf & ", @FNHSysBuyIdTo = '" & FNHSysBuyId.Properties.Tag.ToString & "' "
+        End If
+
 
         If (FTStartOrderDate.Text <> "" And FTEndOrderDate.Text <> "") Then
-            cmd &= vbCrLf & ", @OrderDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text)
-            cmd &= vbCrLf & "', @OrderDateTo = '" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "' "
-        Else
-            cmd &= vbCrLf & ", @OrderDate = null , @OrderDateTo = null "
+            cmd &= vbCrLf & ", @OrderDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text) & "' "
+            cmd &= vbCrLf & ", @OrderDateTo = '" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "' "
         End If
 
-        If (FNHSysBuyIdFrom.Text <> "" And FNHSysBuyIdTo.Text <> "") Then
-            cmd &= vbCrLf & ", @FNHSysBuyIdFrom = '" & FNHSysBuyIdFrom.Text & "', @FNHSysBuyIdTo = '" & FNHSysBuyIdTo.Text & "' "
-        Else
-            cmd &= vbCrLf & ", @FNHSysBuyIdFrom = null , @FNHSysBuyIdTo = null "
+        If (FTStartReqDate.Text <> "" And FTEndReqDate.Text <> "") Then
+            cmd &= vbCrLf & ", @FTPatternDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartReqDate.Text)
+            cmd &= vbCrLf & "', @FTPatternDateTo = '" & HI.UL.ULDate.ConvertEnDB(FTEndReqDate.Text) & "' "
         End If
+
+
 
         _dtprod = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_SAMPLE)
 
@@ -424,7 +430,7 @@ Public Class wPatternMasterPlan_New
     Private Function SavePatternData(p As PatternChanged)
         Dim cmdstring As String = ""
         cmdstring = "BEGIN"
-        cmdstring &= vbCrLf & " If EXISTS(SELECT FTOrderNo FROM [HITECH_SAMPLEROOM].dbo.TPTNOrder WHERE FTOrderNo = '" & p.Job & "')  "
+        cmdstring &= vbCrLf & " If EXISTS(SELECT FTOrderNo FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TPTNOrder WHERE FTOrderNo = '" & p.Job & "')  "
         cmdstring &= vbCrLf
         cmdstring &= vbCrLf & " BEGIN"
         cmdstring &= vbCrLf & "   UPDATE [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TPTNOrder Set "
@@ -437,7 +443,7 @@ Public Class wPatternMasterPlan_New
         If (p.PTDate.ToString() <> "01-01-0001" Or p.PTDate.ToString() <> "12:00:00 AM") Then
             cmdstring &= vbCrLf & "   , FTPTNDate = '" & HI.UL.ULDate.ConvertEnDB(p.PTDate) & "'"
         End If
-        'cmdstring &= vbCrLf & "   , FTPtnNote = '" & p.FTPtnNote & "' "
+        cmdstring &= vbCrLf & "   , FTPtnNote = '" & p.FTPtnNote & "' "
         cmdstring &= vbCrLf & "   WHERE FTOrderNo = '" & p.Job & "' "
         'cmdstring &= vbCrLf & " " & FieldName & "='" & GridDataBefore & "'"
         cmdstring &= vbCrLf & " END"
@@ -447,9 +453,9 @@ Public Class wPatternMasterPlan_New
         cmdstring &= vbCrLf & " BEGIN"
         cmdstring &= vbCrLf & "   INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TPTNOrder  "
         If (p.PTDate.ToString() <> "01-01-0001" Or p.PTDate.ToString() <> "12:00:00 AM") Then
-            cmdstring &= vbCrLf & "   (FTOrderNo, TPTNOrderBy, FNHSysPTNTypeId, FNHSysPTNGrpTypeId, FTPTNDate, FTInsUser, FDInsDate, FTInsTime) "
+            cmdstring &= vbCrLf & "   (FTOrderNo, TPTNOrderBy, FNHSysPTNTypeId, FNHSysPTNGrpTypeId, FTPtnNote, FTPTNDate, FTInsUser, FDInsDate, FTInsTime) "
         Else
-            cmdstring &= vbCrLf & "   (FTOrderNo, TPTNOrderBy, FNHSysPTNTypeId, FNHSysPTNGrpTypeId, FTInsUser, FDInsDate, FTInsTime) "
+            cmdstring &= vbCrLf & "   (FTOrderNo, TPTNOrderBy, FNHSysPTNTypeId, FNHSysPTNGrpTypeId, FTPtnNote, FTInsUser, FDInsDate, FTInsTime) "
         End If
 
         'cmdstring &= vbCrLf & "(FTOrderNo, " & FieldName & ",FTInsUser,FDInsDate,FTInsTime) "
@@ -458,6 +464,7 @@ Public Class wPatternMasterPlan_New
         cmdstring &= vbCrLf & "   , '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
         cmdstring &= vbCrLf & "   , '" & p.PTTypeId & "'"
         cmdstring &= vbCrLf & "   , '" & p.GrpTypeId & "'"
+        cmdstring &= vbCrLf & "   , '" & p.FTPtnNote & "'"
         If (p.PTDate.ToString() <> "01-01-0001" Or p.PTDate.ToString() <> "12:00:00 AM") Then
             cmdstring &= vbCrLf & "   , '" & HI.UL.ULDate.ConvertEnDB(p.PTDate) & "'"
         End If
