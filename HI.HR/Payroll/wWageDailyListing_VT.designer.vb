@@ -19,8 +19,7 @@ Partial Class wWageDailyListing_VT
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wWageDailyListing))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wWageDailyListing_VT))
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -158,7 +157,7 @@ Partial Class wWageDailyListing_VT
         Me.FNNetIncen = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.cFNBonusAmt = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNNetPerDay = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
+        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager()
         Me.hideContainerTop = New DevExpress.XtraBars.Docking.AutoHideContainer()
         Me.ogbheader.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
@@ -213,7 +212,7 @@ Partial Class wWageDailyListing_VT
         Me.ogbheader.DockVertical = DevExpress.Utils.DefaultBoolean.[False]
         Me.ogbheader.ID = New System.Guid("77b9346d-8d15-4323-af1e-af82afa9902a")
         Me.ogbheader.ImageOptions.Image = CType(resources.GetObject("ogbheader.ImageOptions.Image"), System.Drawing.Image)
-        Me.ogbheader.Location = New System.Drawing.Point(0, 0)
+        Me.ogbheader.Location = New System.Drawing.Point(0, 42)
         Me.ogbheader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbheader.Name = "ogbheader"
         Me.ogbheader.Options.AllowDockBottom = False

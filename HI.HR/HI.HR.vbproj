@@ -292,6 +292,12 @@
     <Compile Include="Employee\wEmployeeViewPic.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Employee\wEmployeeWorkforce.designer.vb">
+      <DependentUpon>wEmployeeWorkforce.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\wEmployeeWorkforce.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Employee\wEmployee_CVN.Designer.vb">
       <DependentUpon>wEmployee_CVN.vb</DependentUpon>
     </Compile>
@@ -502,6 +508,12 @@
     <Compile Include="Master\wTrainTopic.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Payroll\wAdjustPayroll_CVN.Designer.vb">
+      <DependentUpon>wAdjustPayroll_CVN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll\wAdjustPayroll_CVN.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Payroll\wCalculatePayroll_CVN.designer.vb">
       <DependentUpon>wCalculatePayroll_CVN.vb</DependentUpon>
     </Compile>
@@ -532,10 +544,22 @@
     <Compile Include="Payroll\wJobMinutesDaily.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Payroll\wPayrollListingMonthly_LA.Designer.vb">
+      <DependentUpon>wPayrollListingMonthly_LA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll\wPayrollListingMonthly_LA.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Payroll\wPayrollListing_AccountGroup.designer.vb">
       <DependentUpon>wPayrollListing_AccountGroup.vb</DependentUpon>
     </Compile>
     <Compile Include="Payroll\wPayrollListing_AccountGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payroll\wPayrollListing_AccountGroup_LA.designer.vb">
+      <DependentUpon>wPayrollListing_AccountGroup_LA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payroll\wPayrollListing_AccountGroup_LA.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Payroll\wPayrollListing_CVN.designer.vb">
@@ -977,12 +1001,6 @@
       <DependentUpon>wEmployeeLeaveOfYear.vb</DependentUpon>
     </Compile>
     <Compile Include="Tracking\wEmployeeLeaveOfYear.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tracking\wPayrollListingMonthly_LA.Designer.vb">
-      <DependentUpon>wPayrollListingMonthly_LA.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Tracking\wPayrollListingMonthly_LA.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Tracking\wRptEmpDailyWage.designer.vb">
@@ -1450,6 +1468,9 @@
     <EmbeddedResource Include="Employee\wEmployeeViewPic.resx">
       <DependentUpon>wEmployeeViewPic.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Employee\wEmployeeWorkforce.resx">
+      <DependentUpon>wEmployeeWorkforce.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employee\wEmployee_CVN.resx">
       <DependentUpon>wEmployee_CVN.vb</DependentUpon>
     </EmbeddedResource>
@@ -1557,6 +1578,9 @@
     <EmbeddedResource Include="Master\wTrainTopic.resx">
       <DependentUpon>wTrainTopic.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Payroll\wAdjustPayroll_CVN.resx">
+      <DependentUpon>wAdjustPayroll_CVN.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Payroll\wCalculatePayroll_CVN.resx">
       <DependentUpon>wCalculatePayroll_CVN.vb</DependentUpon>
     </EmbeddedResource>
@@ -1572,8 +1596,14 @@
     <EmbeddedResource Include="Payroll\wJobMinutesDaily.resx">
       <DependentUpon>wJobMinutesDaily.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Payroll\wPayrollListingMonthly_LA.resx">
+      <DependentUpon>wPayrollListingMonthly_LA.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Payroll\wPayrollListing_AccountGroup.resx">
       <DependentUpon>wPayrollListing_AccountGroup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payroll\wPayrollListing_AccountGroup_LA.resx">
+      <DependentUpon>wPayrollListing_AccountGroup_LA.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payroll\wPayrollListing_CVN.resx">
       <DependentUpon>wPayrollListing_CVN.vb</DependentUpon>
@@ -1795,9 +1825,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tracking\wEmployeeLeaveOfYear.resx">
       <DependentUpon>wEmployeeLeaveOfYear.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tracking\wPayrollListingMonthly_LA.resx">
-      <DependentUpon>wPayrollListingMonthly_LA.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tracking\wRptEmpDailyWage.resx">
       <DependentUpon>wRptEmpDailyWage.vb</DependentUpon>
@@ -2073,7 +2100,6 @@
   <ItemGroup>
     <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

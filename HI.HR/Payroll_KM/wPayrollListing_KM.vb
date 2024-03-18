@@ -49,7 +49,7 @@ Public Class wPayrollListing_KM
     Private Sub InitGrid()
         '------Start Add Summary Grid-------------
         Dim sFieldCount As String = "FTEmpCode"
-        Dim sFieldSum As String = "FCBaht|FCOt1_Baht|FCOt15_Baht|FCOt2_Baht|FCOt3_Baht|FCOt4_Baht|FNIncentiveAmt|FCNetBaht|FNPayLeaveVacationBaht|FNPayLeaveOtherBaht|FNTotalAdd|FNTotalAddOther|FNTotalExpense|FNTotalExpenseOther|FNTotalIncome|FNTotalRecalSSO|FNSocial|FNTax|FHolidayBaht|FNNetpayDiff|FNNetpay|FTUnionDuesAmt"
+        Dim sFieldSum As String = "FCBaht|FCOt1_Baht|FCOt15_Baht|FCOt2_Baht|FCOt3_Baht|FCOt4_Baht|FNIncentiveAmt|FCNetBaht|FNPayLeaveVacationBaht|FNPayLeaveOtherBaht|FNTotalAdd|FNTotalAddOther|FNTotalExpense|FNTotalExpenseOther|FNTotalIncome|FNTotalRecalSSO|FNSocial|FNTax|FHolidayBaht|FNNetpayDiff|FNNetpay|FTUnionDuesAmt|FNWorkShift|FNSpecialSkill"
         sFieldSum &= "|FNSeniorityAmt44|FNSeniorityAmt45|FNSeniorityAmt46|FNSeniorityAmt47"
         Dim sFieldGrpCount As String = "FTEmpCode"
         Dim sFieldGrpSum As String = "FCBaht|FNTotalIncome|FNTotalRecalSSO|FNSocial|FNTax|FNNetpay"
@@ -347,11 +347,30 @@ Public Class wPayrollListing_KM
 
             _Qry &= vbCrLf & "  , P.FNAttandanceAmt, P.FNHealtCareAmt "
             _Qry &= vbCrLf & " ,P.FNTransportAmt, P.FNChildCareAmt, P.FNOTMealAmt, P.FNSocialBase, P.FNWorkAgeSalary, P.FNOTMealAmtUS,P.FNNetpayDiff "
+
+
+            If ST.Lang.Language = ST.Lang.eLang.TH Then
+                _Qry &= vbCrLf & ", UNI.FTNameTH AS FTUnion  "
+            Else
+                _Qry &= vbCrLf & ", UNI.FTNameEN AS FTUnion  "
+            End If
             _Qry &= vbCrLf & " , VP.[108] as FTUnionDuesAmt  "
+
+
             _Qry &= vbCrLf & " , VP.[044] AS FNSeniorityAmt44, VP.[045] as FNSeniorityAmt45, VP.[046] as  FNSeniorityAmt46, VP.[047] as FNSeniorityAmt47"
 
             _Qry &= vbCrLf & "  , VP.[039] AS FNBonus "
-            _Qry &= vbCrLf & "  , VP.[050] AS FNAllowance "
+
+            _Qry &= vbCrLf & "  , VP.[017] AS FNAllowance "
+            _Qry &= vbCrLf & "  , VP.[048] AS FNAllowance_NewYear "
+            _Qry &= vbCrLf & "  , VP.[050] AS FNAllowance_Trip "
+
+
+            _Qry &= vbCrLf & "  , VP.[001] AS FNWorkShift "
+            _Qry &= vbCrLf & "  , VP.[013] AS FNSpecialSkill "
+
+
+
             _Qry &= vbCrLf & "  , P.[FNVacationRetMin] AS FNVacationRetMin "
             _Qry &= vbCrLf & "  , P.[FNReturnTax] AS FNReturnTax "
             _Qry &= vbCrLf & "  , P.[FNParturitionLeaveBaht] AS FNParturitionLeaveBaht "
@@ -360,6 +379,18 @@ Public Class wPayrollListing_KM
             _Qry &= vbCrLf & "  , P.[FNTotalRecalPensionScheme] AS FNTotalRecalPensionScheme "
             _Qry &= vbCrLf & "  , P.[FNPensionScheme] AS FNPensionScheme "
             _Qry &= vbCrLf & "  , P.[FNPensionSchemeCmp] AS FNPensionSchemeCmp "
+
+            _Qry &= vbCrLf & "  , P.[FNParturitionLeaveUS1] AS FNParturitionLeaveUS1 "
+            _Qry &= vbCrLf & "  , P.[FNParturitionLeaveUS2] AS FNParturitionLeaveUS2 "
+            _Qry &= vbCrLf & "  , P.[FNParturitionLeaveUS3] AS FNParturitionLeaveUS3 "
+            _Qry &= vbCrLf & "  , P.[FNPensionSchemeAdvance2] AS FNPensionSchemeAdvance2 "
+            _Qry &= vbCrLf & "  , P.[FNPensionSchemeAdvance3] AS FNPensionSchemeAdvance3 "
+
+            _Qry &= vbCrLf & " ,CASE WHEN ISDATE(M.FDDateStart) =1 THEN CONVERT(varchar(10),Convert(datetime,M.FDDateStart),103) ELSE '' END AS FDDateStart "
+            _Qry &= vbCrLf & " ,CASE WHEN ISDATE(M.FDBirthDate) =1 THEN CONVERT(varchar(10),Convert(datetime,M.FDBirthDate),103) ELSE '' END AS FDBirthDate "
+
+            _Qry &= vbCrLf & " , P.FTEmpIdNo "
+            _Qry &= vbCrLf & " , M.FTSocialNo  "
 
 
             _Qry &= vbCrLf & "  FROM            [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) INNER JOIN"
@@ -375,6 +406,9 @@ Public Class wPayrollListing_KM
             _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.V_PayrollFin AS VP ON M.FNHSysEmpID=VP.FNHSysEmpID and P.FTPayYear = VP.FTPayYear and  P.FTPayTerm  = VP.FTPayTerm "
 
             _Qry &= vbCrLf & " OUTER APPLY (SELECT TOP 1 * FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].[dbo].[HSysListData] WHERE FTListName='FNEmpTypeGroup' AND ET.FNEmpTypeGroup=FNListIndex ) L "
+
+            _Qry &= vbCrLf & " OUTER APPLY (SELECT TOP 1 * FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].[dbo].[HSysListData] WHERE FTListName='FNUnion' AND P.FNUnion=FNListIndex ) UNI "
+
 
             _Qry &= vbCrLf & "  WHERE        (M.FTEmpCode <> '')"
             _Qry &= vbCrLf & "   AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & "  "

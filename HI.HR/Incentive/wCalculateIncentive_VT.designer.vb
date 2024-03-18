@@ -19,12 +19,6 @@ Partial Class wCalculateIncentive_VT
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject13 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -35,6 +29,11 @@ Partial Class wCalculateIncentive_VT
         Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.FNHSysUnitSectIdTo_None = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysUnitSectIdTo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysUnitSectIdTo = New DevExpress.XtraEditors.ButtonEdit()
@@ -314,7 +313,7 @@ Partial Class wCalculateIncentive_VT
         Me.ogbreqtime = New DevExpress.XtraEditors.GroupControl()
         Me.FTEndDate = New DevExpress.XtraEditors.DateEdit()
         Me.FTEndDate_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
+        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager()
         Me.ogbheader = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
         Me.FNCalculateIncentiveType = New DevExpress.XtraEditors.ComboBoxEdit()
@@ -451,7 +450,7 @@ Partial Class wCalculateIncentive_VT
         Me.FNHSysUnitSectIdTo.Location = New System.Drawing.Point(662, 65)
         Me.FNHSysUnitSectIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectIdTo.Name = "FNHSysUnitSectIdTo"
-        Me.FNHSysUnitSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "255", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysUnitSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "255", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectIdTo.Properties.Tag = "57"
         Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(131, 23)
         Me.FNHSysUnitSectIdTo.TabIndex = 9
@@ -489,7 +488,7 @@ Partial Class wCalculateIncentive_VT
         Me.FNHSysUnitSectId.Location = New System.Drawing.Point(204, 63)
         Me.FNHSysUnitSectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
-        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "248", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "248", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.Tag = "57"
         Me.FNHSysUnitSectId.Size = New System.Drawing.Size(131, 23)
         Me.FNHSysUnitSectId.TabIndex = 8
@@ -565,7 +564,7 @@ Partial Class wCalculateIncentive_VT
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
         Me.FNHSysCmpId.Size = New System.Drawing.Size(132, 23)
@@ -585,7 +584,7 @@ Partial Class wCalculateIncentive_VT
         Me.ogbemployee.Location = New System.Drawing.Point(5, 84)
         Me.ogbemployee.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbemployee.Name = "ogbemployee"
-        Me.ogbemployee.Size = New System.Drawing.Size(1382, 706)
+        Me.ogbemployee.Size = New System.Drawing.Size(1382, 959)
         Me.ogbemployee.TabIndex = 4
         Me.ogbemployee.Text = "Employee"
         '
@@ -677,7 +676,7 @@ Partial Class wCalculateIncentive_VT
         Me.otxtabctrl.Location = New System.Drawing.Point(2, 24)
         Me.otxtabctrl.Name = "otxtabctrl"
         Me.otxtabctrl.SelectedTabPage = Me.otpcaltype4
-        Me.otxtabctrl.Size = New System.Drawing.Size(1378, 680)
+        Me.otxtabctrl.Size = New System.Drawing.Size(1378, 933)
         Me.otxtabctrl.TabIndex = 100001
         Me.otxtabctrl.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpcaltype0, Me.otpcaltype1, Me.otpcaltype2, Me.otpcaltype3, Me.otpcaltype4, Me.otpcaltype5, Me.otpcaltype6, Me.otpcaltype7, Me.XtraTabPage1, Me.XtraTabPage2})
         '
@@ -686,7 +685,7 @@ Partial Class wCalculateIncentive_VT
         Me.otpcaltype4.Controls.Add(Me.ogc4)
         Me.otpcaltype4.Name = "otpcaltype4"
         Me.otpcaltype4.PageVisible = False
-        Me.otpcaltype4.Size = New System.Drawing.Size(1368, 643)
+        Me.otpcaltype4.Size = New System.Drawing.Size(1368, 896)
         Me.otpcaltype4.Text = "คำนวณพนักงาน PADPRINT"
         '
         'ogc4
@@ -698,7 +697,7 @@ Partial Class wCalculateIncentive_VT
         Me.ogc4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc4.Name = "ogc4"
         Me.ogc4.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit10, Me.RepositoryItemCheckEdit11, Me.RepositoryItemCheckEdit12, Me.RepositoryItemCalcEdit4})
-        Me.ogc4.Size = New System.Drawing.Size(1368, 643)
+        Me.ogc4.Size = New System.Drawing.Size(1368, 896)
         Me.ogc4.TabIndex = 6
         Me.ogc4.TabStop = False
         Me.ogc4.Tag = "2|"
@@ -1096,7 +1095,7 @@ Partial Class wCalculateIncentive_VT
         Me.otpcaltype0.Controls.Add(Me.ogc)
         Me.otpcaltype0.Name = "otpcaltype0"
         Me.otpcaltype0.PageVisible = False
-        Me.otpcaltype0.Size = New System.Drawing.Size(1376, 640)
+        Me.otpcaltype0.Size = New System.Drawing.Size(1376, 893)
         Me.otpcaltype0.Text = "คำนวณพนักงานเย็บ + พับแพ็ค + รีด"
         '
         'ogc
@@ -1108,7 +1107,7 @@ Partial Class wCalculateIncentive_VT
         Me.ogc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Name = "ogc"
         Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSelect, Me.RepositoryFTApproveState, Me.ReposFTStateDaily, Me.RepQuantity})
-        Me.ogc.Size = New System.Drawing.Size(1376, 640)
+        Me.ogc.Size = New System.Drawing.Size(1376, 893)
         Me.ogc.TabIndex = 4
         Me.ogc.TabStop = False
         Me.ogc.Tag = "2|"
@@ -1655,7 +1654,7 @@ Partial Class wCalculateIncentive_VT
         Me.otpcaltype1.Controls.Add(Me.ogc1)
         Me.otpcaltype1.Name = "otpcaltype1"
         Me.otpcaltype1.PageVisible = False
-        Me.otpcaltype1.Size = New System.Drawing.Size(1376, 640)
+        Me.otpcaltype1.Size = New System.Drawing.Size(1376, 893)
         Me.otpcaltype1.Text = "คำนวณพนักงานตัด BU"
         '
         'ogc1
@@ -1667,7 +1666,7 @@ Partial Class wCalculateIncentive_VT
         Me.ogc1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc1.Name = "ogc1"
         Me.ogc1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepC1FTSelect, Me.RepositoryItemCheckEdit2, Me.RepositoryItemCheckEdit3, Me.RepFNIncentiveAmt})
-        Me.ogc1.Size = New System.Drawing.Size(1376, 640)
+        Me.ogc1.Size = New System.Drawing.Size(1376, 893)
         Me.ogc1.TabIndex = 5
         Me.ogc1.TabStop = False
         Me.ogc1.Tag = "2|"
@@ -1920,7 +1919,7 @@ Partial Class wCalculateIncentive_VT
         Me.otpcaltype2.Controls.Add(Me.ogc2)
         Me.otpcaltype2.Name = "otpcaltype2"
         Me.otpcaltype2.PageVisible = False
-        Me.otpcaltype2.Size = New System.Drawing.Size(1376, 640)
+        Me.otpcaltype2.Size = New System.Drawing.Size(1376, 893)
         Me.otpcaltype2.Text = "คำนวณพนักงานสต๊อกผ้า"
         '
         'ogc2
@@ -1932,7 +1931,7 @@ Partial Class wCalculateIncentive_VT
         Me.ogc2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc2.Name = "ogc2"
         Me.ogc2.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit4, Me.RepositoryItemCheckEdit5, Me.RepositoryItemCheckEdit6, Me.RepositoryItemCalcEdit2})
-        Me.ogc2.Size = New System.Drawing.Size(1376, 640)
+        Me.ogc2.Size = New System.Drawing.Size(1376, 893)
         Me.ogc2.TabIndex = 5
         Me.ogc2.TabStop = False
         Me.ogc2.Tag = "2|"
@@ -2182,7 +2181,7 @@ Partial Class wCalculateIncentive_VT
         Me.otpcaltype3.Controls.Add(Me.ogc3)
         Me.otpcaltype3.Name = "otpcaltype3"
         Me.otpcaltype3.PageVisible = False
-        Me.otpcaltype3.Size = New System.Drawing.Size(1376, 640)
+        Me.otpcaltype3.Size = New System.Drawing.Size(1376, 893)
         Me.otpcaltype3.Text = "คำนวณพนักงานตัด Auto"
         '
         'ogc3
@@ -2194,7 +2193,7 @@ Partial Class wCalculateIncentive_VT
         Me.ogc3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc3.Name = "ogc3"
         Me.ogc3.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit7, Me.RepositoryItemCheckEdit8, Me.RepositoryItemCheckEdit9, Me.RepositoryItemCalcEdit3})
-        Me.ogc3.Size = New System.Drawing.Size(1376, 640)
+        Me.ogc3.Size = New System.Drawing.Size(1376, 893)
         Me.ogc3.TabIndex = 6
         Me.ogc3.TabStop = False
         Me.ogc3.Tag = "2|"
@@ -2448,7 +2447,7 @@ Partial Class wCalculateIncentive_VT
         Me.otpcaltype5.Controls.Add(Me.ogc5)
         Me.otpcaltype5.Name = "otpcaltype5"
         Me.otpcaltype5.PageVisible = False
-        Me.otpcaltype5.Size = New System.Drawing.Size(1376, 640)
+        Me.otpcaltype5.Size = New System.Drawing.Size(1376, 893)
         Me.otpcaltype5.Text = "คำนวณพนักงาน ปัก,พิมพ์"
         '
         'ogc5
@@ -2460,7 +2459,7 @@ Partial Class wCalculateIncentive_VT
         Me.ogc5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc5.Name = "ogc5"
         Me.ogc5.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit13, Me.RepositoryItemCheckEdit14, Me.RepositoryItemCheckEdit15, Me.RepositoryItemCalcEdit5})
-        Me.ogc5.Size = New System.Drawing.Size(1376, 640)
+        Me.ogc5.Size = New System.Drawing.Size(1376, 893)
         Me.ogc5.TabIndex = 5
         Me.ogc5.TabStop = False
         Me.ogc5.Tag = "2|"
@@ -2876,7 +2875,7 @@ Partial Class wCalculateIncentive_VT
         Me.otpcaltype6.Controls.Add(Me.ogc10)
         Me.otpcaltype6.Name = "otpcaltype6"
         Me.otpcaltype6.PageVisible = False
-        Me.otpcaltype6.Size = New System.Drawing.Size(1376, 640)
+        Me.otpcaltype6.Size = New System.Drawing.Size(1376, 893)
         Me.otpcaltype6.Text = "LEAD EMBROIDERY"
         '
         'ogc10
@@ -2888,7 +2887,7 @@ Partial Class wCalculateIncentive_VT
         Me.ogc10.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc10.Name = "ogc10"
         Me.ogc10.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemCheckEdit16, Me.RepositoryItemCheckEdit17, Me.RepositoryItemCalcEdit1})
-        Me.ogc10.Size = New System.Drawing.Size(1376, 640)
+        Me.ogc10.Size = New System.Drawing.Size(1376, 893)
         Me.ogc10.TabIndex = 7
         Me.ogc10.TabStop = False
         Me.ogc10.Tag = "2|"
@@ -3130,7 +3129,7 @@ Partial Class wCalculateIncentive_VT
         Me.otpcaltype7.Controls.Add(Me.ogc11)
         Me.otpcaltype7.Name = "otpcaltype7"
         Me.otpcaltype7.PageVisible = False
-        Me.otpcaltype7.Size = New System.Drawing.Size(1376, 640)
+        Me.otpcaltype7.Size = New System.Drawing.Size(1376, 893)
         Me.otpcaltype7.Text = "LEAD PADPRINT"
         '
         'ogc11
@@ -3142,7 +3141,7 @@ Partial Class wCalculateIncentive_VT
         Me.ogc11.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc11.Name = "ogc11"
         Me.ogc11.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit18, Me.RepositoryItemCheckEdit19, Me.RepositoryItemCheckEdit20, Me.RepositoryItemCalcEdit6})
-        Me.ogc11.Size = New System.Drawing.Size(1376, 640)
+        Me.ogc11.Size = New System.Drawing.Size(1376, 893)
         Me.ogc11.TabIndex = 7
         Me.ogc11.TabStop = False
         Me.ogc11.Tag = "2|"
@@ -3383,7 +3382,7 @@ Partial Class wCalculateIncentive_VT
         '
         Me.XtraTabPage1.Controls.Add(Me.ogc8)
         Me.XtraTabPage1.Name = "XtraTabPage1"
-        Me.XtraTabPage1.Size = New System.Drawing.Size(1376, 640)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(1376, 893)
         Me.XtraTabPage1.Text = "Chief Sewing"
         '
         'ogc8
@@ -3395,7 +3394,7 @@ Partial Class wCalculateIncentive_VT
         Me.ogc8.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc8.Name = "ogc8"
         Me.ogc8.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit21, Me.RepositoryItemCheckEdit22, Me.RepositoryItemCheckEdit23, Me.RepositoryItemCalcEdit7})
-        Me.ogc8.Size = New System.Drawing.Size(1376, 640)
+        Me.ogc8.Size = New System.Drawing.Size(1376, 893)
         Me.ogc8.TabIndex = 6
         Me.ogc8.TabStop = False
         Me.ogc8.Tag = "2|"
@@ -3636,7 +3635,7 @@ Partial Class wCalculateIncentive_VT
         '
         Me.XtraTabPage2.Controls.Add(Me.ogc9)
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(1376, 640)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(1376, 893)
         Me.XtraTabPage2.Text = "BU"
         '
         'ogc9
@@ -3648,7 +3647,7 @@ Partial Class wCalculateIncentive_VT
         Me.ogc9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc9.Name = "ogc9"
         Me.ogc9.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit24, Me.RepositoryItemCheckEdit25, Me.RepositoryItemCheckEdit26, Me.RepositoryItemCalcEdit8})
-        Me.ogc9.Size = New System.Drawing.Size(1376, 640)
+        Me.ogc9.Size = New System.Drawing.Size(1376, 893)
         Me.ogc9.TabIndex = 7
         Me.ogc9.TabStop = False
         Me.ogc9.Tag = "2|"
@@ -4043,7 +4042,7 @@ Partial Class wCalculateIncentive_VT
         Me.ogbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbdetail.Name = "ogbdetail"
         Me.ogbdetail.ShowCaption = False
-        Me.ogbdetail.Size = New System.Drawing.Size(1392, 797)
+        Me.ogbdetail.Size = New System.Drawing.Size(1392, 1050)
         Me.ogbdetail.TabIndex = 100001
         Me.ogbdetail.Text = "GroupControl1"
         '
@@ -4051,7 +4050,7 @@ Partial Class wCalculateIncentive_VT
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1392, 926)
+        Me.ClientSize = New System.Drawing.Size(1392, 1179)
         Me.Controls.Add(Me.ogbdetail)
         Me.Controls.Add(Me.ogbheader)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle

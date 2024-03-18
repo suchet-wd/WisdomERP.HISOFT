@@ -95,12 +95,29 @@ Public Class wImportTimeCardFromSQL
             cmd &= vbCrLf & " ,Convert(varchar(8),Getdate(),114) "
             cmd &= vbCrLf & " ,Convert(nvarchar(10),Case When Convert(nvarchar(5),A.CHECKTIME,108) >='00:00' AND Convert(nvarchar(5),A.CHECKTIME,108) <='05:00' THEN  DATEADD(day,-1,A.CHECKTIME) ELSE A.CHECKTIME END ,111) AS FTDate "
             cmd &= vbCrLf & " ,Replace(Convert(nvarchar(5),A.CHECKTIME,108),':','') As FTTime  "
-            cmd &= vbCrLf & " ,  B.BADGENUMBER  "
-            cmd &= vbCrLf & " ,   A.sn ,Convert(varchar(10),A.CHECKTIME,111)  "
-            cmd &= vbCrLf & "  From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRTTempTimeFinger As A WITH(NOLOCK)  INNER Join  "
-            cmd &= vbCrLf & "       " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_TIME) & ".dbo.USERINFO As B With(NOLOCK) On A.USERID = B.USERID "
-            cmd &= vbCrLf & " WHERE A.FTUserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-            cmd &= vbCrLf & "   GROUP BY  B.BADGENUMBER	 "
+
+
+            If (HI.ST.SysInfo.CmpID = 2015760004) Then ' empbarcode  เพิ่มตัวอักษร นำหน้า
+                cmd &= vbCrLf & " ,  B.SSN  "
+                cmd &= vbCrLf & " ,   A.sn ,Convert(varchar(10),A.CHECKTIME,111)  "
+                cmd &= vbCrLf & "  From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRTTempTimeFinger As A WITH(NOLOCK)  INNER Join  "
+                cmd &= vbCrLf & "       " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_TIME) & ".dbo.USERINFO As B With(NOLOCK) On A.USERID = B.USERID "
+                cmd &= vbCrLf & " WHERE A.FTUserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                cmd &= vbCrLf & "   GROUP BY  B.SSN	 "
+            Else
+                cmd &= vbCrLf & " ,  B.BADGENUMBER  "
+                cmd &= vbCrLf & " ,   A.sn ,Convert(varchar(10),A.CHECKTIME,111)  "
+                cmd &= vbCrLf & "  From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRTTempTimeFinger As A WITH(NOLOCK)  INNER Join  "
+                cmd &= vbCrLf & "       " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_TIME) & ".dbo.USERINFO As B With(NOLOCK) On A.USERID = B.USERID "
+                cmd &= vbCrLf & " WHERE A.FTUserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                cmd &= vbCrLf & "   GROUP BY  B.BADGENUMBER	 "
+
+            End If
+
+
+
+
+
             cmd &= vbCrLf & " ,  A.sn  "
             cmd &= vbCrLf & " ,Convert(nvarchar(10),Case When Convert(nvarchar(5),A.CHECKTIME,108) >='00:00' AND Convert(nvarchar(5),A.CHECKTIME,108) <='05:00' THEN  DATEADD(day,-1,A.CHECKTIME) ELSE A.CHECKTIME END ,111) "
             cmd &= vbCrLf & "  ,Convert(nvarchar(5),A.CHECKTIME,108),Convert(varchar(10),A.CHECKTIME,111)  "

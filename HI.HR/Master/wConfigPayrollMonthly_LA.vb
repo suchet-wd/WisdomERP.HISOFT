@@ -52,7 +52,7 @@ Public Class wConfigPayrollMonthly_LA
 
 
         _Qry = " SELECT M.FNHSysEmpID , E.FTEmpCode "
-        _Qry &= vbCrLf & " , E.FTEmpNameTH + ' ' + E.FTEmpSurnameTH AS 'FTEmpNameTH'  "
+        _Qry &= vbCrLf & " , E.FTEmpNameTH + ' ' + E.FTEmpSurnameTH AS 'FTEmpNameLocal'  "
         _Qry &= vbCrLf & " , E.FTEmpNameEN + ' ' + E.FTEmpSurnameEN AS 'FTEmpNameEN'  "
         _Qry &= vbCrLf & " , M.FNSalary, FCOt1_Baht, FNTotalIncome "
         _Qry &= vbCrLf & " , FNTotalRecalSSO, FNSocial, FNSocialCmp "
@@ -60,6 +60,17 @@ Public Class wConfigPayrollMonthly_LA
         _Qry &= vbCrLf & " , FNTax20, FNTax25 "
         _Qry &= vbCrLf & "  , FNNetpay "
         _Qry &= vbCrLf & "   , M.FNHSysCmpId , FTStateActive "
+        _Qry &= vbCrLf & "   , M.FTTaxNo_TH, M.FTSocialNo_TH "
+
+
+        _Qry &= vbCrLf & "  , M.FTAddrNo, M.FTAddrHome, M.FTAddrMoo, M.FTAddrSoi, M.FTAddrRoad, M.FTAddrTumbol, M.FTAddrAmphur, M.FTAddrProvince, M.FTAddrPostCode, M.FTAddrTel "
+        _Qry &= vbCrLf & "  , M.FTAddrNo1, M.FTAddrHome1, M.FTAddrMoo1, M.FTAddrSoi1, M.FTAddrRoad1, M.FTAddrTumbol1, M.FTAddrAmphur1, M.FTAddrProvince1, M.FTAddrPostCode1, M.FTAddrTel1 "
+        _Qry &= vbCrLf & "  "
+
+        _Qry &= vbCrLf & "  "
+        _Qry &= vbCrLf & "  , M.FTEmpNameTH  , M.FTEmpSurnameTH "
+
+
 
         _Qry &= vbCrLf & "     FROM     " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRMPayroll_Monthly M "
         _Qry &= vbCrLf & " LEFT JOIN  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRMEmployee E ON E.FNHSysEmpID = M.FNHSysEmpID AND  E.FNHSysCmpId = M.FNHSysCmpId "
@@ -172,7 +183,7 @@ Public Class wConfigPayrollMonthly_LA
         Try
             Dim _FNHSysEmpID As String = ogv.GetFocusedRowCellValue("FNHSysEmpID").ToString()
             Dim _FTEmpCode As String = ogv.GetFocusedRowCellValue("FTEmpCode").ToString()
-            Dim _FTEmpNameTH As String = ogv.GetFocusedRowCellValue("FTEmpNameTH").ToString()
+            Dim _FTEmpNameLocal As String = ogv.GetFocusedRowCellValue("FTEmpNameLocal").ToString()
             Dim _FTEmpNameEN As String = ogv.GetFocusedRowCellValue("FTEmpNameEN").ToString()
 
 
@@ -189,6 +200,43 @@ Public Class wConfigPayrollMonthly_LA
             Dim _FNHSysCmpId As String = ogv.GetFocusedRowCellValue("FNHSysCmpId").ToString()
 
             Dim _FTStateActive As String = ogv.GetFocusedRowCellValue("FTStateActive").ToString()
+
+
+            Dim _FTTaxNo_TH As String = ogv.GetFocusedRowCellValue("FTTaxNo_TH").ToString()
+            Dim _FTSocialNo_TH As String = ogv.GetFocusedRowCellValue("FTSocialNo_TH").ToString()
+
+            Dim _FTAddrNo As String = ogv.GetFocusedRowCellValue("FTAddrNo").ToString()
+            Dim _FTAddrHome As String = ogv.GetFocusedRowCellValue("FTAddrHome").ToString()
+            Dim _FTAddrMoo As String = ogv.GetFocusedRowCellValue("FTAddrMoo").ToString()
+            Dim _FTAddrSoi As String = ogv.GetFocusedRowCellValue("FTAddrSoi").ToString()
+            Dim _FTAddrRoad As String = ogv.GetFocusedRowCellValue("FTAddrRoad").ToString()
+            Dim _FTAddrTumbol As String = ogv.GetFocusedRowCellValue("FTAddrTumbol").ToString()
+            Dim _FTAddrAmphur As String = ogv.GetFocusedRowCellValue("FTAddrAmphur").ToString()
+            Dim _FTAddrProvince As String = ogv.GetFocusedRowCellValue("FTAddrProvince").ToString()
+            Dim _FTAddrPostCode As String = ogv.GetFocusedRowCellValue("FTAddrPostCode").ToString()
+            Dim _FTAddrTel As String = ogv.GetFocusedRowCellValue("FTAddrTel").ToString()
+
+            Dim _FTAddrNo1 As String = ogv.GetFocusedRowCellValue("FTAddrNo1").ToString()
+            Dim _FTAddrHome1 As String = ogv.GetFocusedRowCellValue("FTAddrHome1").ToString()
+            Dim _FTAddrMoo1 As String = ogv.GetFocusedRowCellValue("FTAddrMoo1").ToString()
+            Dim _FTAddrSoi1 As String = ogv.GetFocusedRowCellValue("FTAddrSoi1").ToString()
+            Dim _FTAddrRoad1 As String = ogv.GetFocusedRowCellValue("FTAddrRoad1").ToString()
+            Dim _FTAddrTumbol1 As String = ogv.GetFocusedRowCellValue("FTAddrTumbol1").ToString()
+            Dim _FTAddrAmphur1 As String = ogv.GetFocusedRowCellValue("FTAddrAmphur1").ToString()
+            Dim _FTAddrProvince1 As String = ogv.GetFocusedRowCellValue("FTAddrProvince1").ToString()
+            Dim _FTAddrPostCode1 As String = ogv.GetFocusedRowCellValue("FTAddrPostCode1").ToString()
+            Dim _FTAddrTel1 As String = ogv.GetFocusedRowCellValue("FTAddrTel1").ToString()
+
+
+            Dim _FTEmpNameTH As String = ogv.GetFocusedRowCellValue("FTEmpNameTH").ToString()
+            Dim _FTEmpSurnameTH As String = ogv.GetFocusedRowCellValue("FTEmpSurnameTH").ToString()
+
+
+
+
+
+
+
 
 
 
@@ -222,7 +270,7 @@ Public Class wConfigPayrollMonthly_LA
 
                 .FNHSysEmpID.Properties.Tag = _FNHSysEmpID
                 .FNHSysEmpID.Text = _FTEmpCode
-                .FNHSysEmpID_None.Text = _FTEmpNameTH
+                .FNHSysEmpID_None.Text = _FTEmpNameLocal
 
                 .FNSalary.Text = Val(_FNSalary)
                 .FCOt1_Baht.Text = Val(_FCOt1_Baht)
@@ -233,6 +281,36 @@ Public Class wConfigPayrollMonthly_LA
                 .FNTotalRecalTAX.Text = Val(_FNTotalRecalTAX)
                 .FNTax.Text = Val(_FNTax)
                 .FNNetpay.Text = Val(_FNNetpay)
+
+                .FTSocialNo_TH.Text = _FTSocialNo_TH
+                .FTTaxNo_TH.Text = _FTTaxNo_TH
+
+                .FTAddrNo.Text = _FTAddrNo
+                .FTAddrHome.Text = _FTAddrHome
+                .FTAddrMoo.Text = _FTAddrMoo
+                .FTAddrSoi.Text = _FTAddrSoi
+                .FTAddrRoad.Text = _FTAddrRoad
+                .FTAddrTumbol.Text = _FTAddrTumbol
+                .FTAddrAmphur.Text = _FTAddrAmphur
+                .FTAddrProvince.Text = _FTAddrProvince
+                .FTAddrPostCode.Text = _FTAddrPostCode
+                .FTAddrTel.Text = _FTAddrTel
+
+                .FTAddrNo1.Text = _FTAddrNo1
+                .FTAddrHome1.Text = _FTAddrHome1
+                .FTAddrMoo1.Text = _FTAddrMoo1
+                .FTAddrSoi1.Text = _FTAddrSoi1
+                .FTAddrRoad1.Text = _FTAddrRoad1
+                .FTAddrTumbol1.Text = _FTAddrTumbol1
+                .FTAddrAmphur1.Text = _FTAddrAmphur1
+                .FTAddrProvince1.Text = _FTAddrProvince1
+                .FTAddrPostCode1.Text = _FTAddrPostCode1
+                .FTAddrTel1.Text = _FTAddrTel1
+
+                .FTEmpnameTH.Text = _FTEmpNameTH
+                .FTEmpSurnameTH.Text = _FTEmpSurnameTH
+
+
                 .ShowDialog()
 
                 LoadData()

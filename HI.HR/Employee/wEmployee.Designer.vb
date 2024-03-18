@@ -19,11 +19,16 @@ Partial Class wEmployee
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions89 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject369 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject370 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject371 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject372 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions90 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject373 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject374 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject375 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject376 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -274,12 +279,12 @@ Partial Class wEmployee
         Dim SerializableAppearanceObject202 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject203 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject204 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim GridLevelNode2 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Dim EditorButtonImageOptions52 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject205 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject206 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject207 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject208 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Dim EditorButtonImageOptions53 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject209 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject210 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -425,61 +430,52 @@ Partial Class wEmployee
         Dim SerializableAppearanceObject322 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject323 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject324 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions82 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject325 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject326 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject327 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject328 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions83 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject329 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject330 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject331 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject332 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions84 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject333 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject334 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject335 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject336 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions85 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject337 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject338 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject339 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject340 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions86 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim EditorButtonImageOptions82 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject341 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject342 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject343 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject344 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions87 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim EditorButtonImageOptions83 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject345 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject346 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject347 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject348 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions88 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim EditorButtonImageOptions91 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject377 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject378 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject379 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject380 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions84 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject349 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject350 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject351 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject352 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions89 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim EditorButtonImageOptions85 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject353 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject354 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject355 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject356 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions90 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim EditorButtonImageOptions86 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject357 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject358 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject359 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject360 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions91 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject361 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject362 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject363 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject364 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions92 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject365 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject366 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject367 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject368 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ReposFNLeaveRight = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
         Me.otab = New DevExpress.XtraTab.XtraTabControl()
         Me.otpempwork = New DevExpress.XtraTab.XtraTabPage()
@@ -774,6 +770,8 @@ Partial Class wEmployee
         Me.GroupControl36 = New DevExpress.XtraEditors.GroupControl()
         Me.GroupControl33 = New DevExpress.XtraEditors.GroupControl()
         Me.ogrpUnion = New DevExpress.XtraEditors.GroupControl()
+        Me.FNUnion_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FNUnion = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.FDEndDateUnion = New DevExpress.XtraEditors.DateEdit()
         Me.FDStartDateUnion = New DevExpress.XtraEditors.DateEdit()
         Me.FDRegisterDateUnion = New DevExpress.XtraEditors.DateEdit()
@@ -1094,6 +1092,7 @@ Partial Class wEmployee
         Me.ogbex = New DevExpress.XtraEditors.GroupControl()
         Me.FTProtectiveEquipment = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.FTHealthRiskFactors = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.FTResignCause = New DevExpress.XtraEditors.MemoEdit()
         Me.FTProtectiveEquipment_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTHealthRiskFactors_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNExperienceSeq = New DevExpress.XtraEditors.CalcEdit()
@@ -1109,7 +1108,6 @@ Partial Class wEmployee
         Me.FTBusinessType_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTCmpName = New DevExpress.XtraEditors.TextEdit()
         Me.FTCmpName_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTResignCause = New DevExpress.XtraEditors.MemoEdit()
         Me.FTResignCause_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FDEndDate = New DevExpress.XtraEditors.DateEdit()
         Me.FDEndDate_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -1310,16 +1308,6 @@ Partial Class wEmployee
         Me.FTDiseaseNote_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl39 = New DevExpress.XtraEditors.LabelControl()
         Me.XtraTabPage1 = New DevExpress.XtraTab.XtraTabPage()
-        Me.ogbPass = New DevExpress.XtraEditors.GroupControl()
-        Me.FNPassportSeq = New DevExpress.XtraEditors.CalcEdit()
-        Me.FTPassPortNo = New DevExpress.XtraEditors.TextEdit()
-        Me.FTPassPortNo_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTPassportNote1 = New DevExpress.XtraEditors.MemoEdit()
-        Me.FTPassportNote_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FDDateofExpiry2 = New DevExpress.XtraEditors.DateEdit()
-        Me.FDDateofExpiry2_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FDDateofIssue2 = New DevExpress.XtraEditors.DateEdit()
-        Me.FDDateofIssue2_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.ogcdetail = New DevExpress.XtraGrid.GridControl()
         Me.ogvdetail = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.FNPassportSeq1 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -1332,6 +1320,16 @@ Partial Class wEmployee
         Me.oColFTImagePack = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FDDateofIssue1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FDDateofExpiry1 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ogbPass = New DevExpress.XtraEditors.GroupControl()
+        Me.FNPassportSeq = New DevExpress.XtraEditors.CalcEdit()
+        Me.FTPassPortNo = New DevExpress.XtraEditors.TextEdit()
+        Me.FTPassPortNo_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FTPassportNote1 = New DevExpress.XtraEditors.MemoEdit()
+        Me.FTPassportNote_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FDDateofExpiry2 = New DevExpress.XtraEditors.DateEdit()
+        Me.FDDateofExpiry2_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FDDateofIssue2 = New DevExpress.XtraEditors.DateEdit()
+        Me.FDDateofIssue2_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.XtraTabPage2 = New DevExpress.XtraTab.XtraTabPage()
         Me.ogcvisa = New DevExpress.XtraGrid.GridControl()
         Me.ogvvisa = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -1709,6 +1707,7 @@ Partial Class wEmployee
         Me.GroupControl33.SuspendLayout
         CType(Me.ogrpUnion, System.ComponentModel.ISupportInitialize).BeginInit
         Me.ogrpUnion.SuspendLayout
+        CType(Me.FNUnion.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FDEndDateUnion.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FDEndDateUnion.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FDStartDateUnion.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1899,6 +1898,7 @@ Partial Class wEmployee
         Me.ogbex.SuspendLayout
         CType(Me.FTProtectiveEquipment.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FTHealthRiskFactors.Properties, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.FTResignCause.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FNExperienceSeq.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FTContractName.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FTEndSalary.Properties, System.ComponentModel.ISupportInitialize).BeginInit
@@ -1906,7 +1906,6 @@ Partial Class wEmployee
         CType(Me.FTPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FTBusinessType.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FTCmpName.Properties, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.FTResignCause.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FDEndDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FDEndDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FDStartDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit
@@ -2045,6 +2044,11 @@ Partial Class wEmployee
         CType(Me.FTStateDisease.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FTStateNoDisease.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         Me.XtraTabPage1.SuspendLayout
+        CType(Me.ogcdetail, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ogvdetail, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemMemoEdit3, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemMemoEdit4, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.RepositoryItemPictureEdit3, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ogbPass, System.ComponentModel.ISupportInitialize).BeginInit
         Me.ogbPass.SuspendLayout
         CType(Me.FNPassportSeq.Properties, System.ComponentModel.ISupportInitialize).BeginInit
@@ -2054,11 +2058,6 @@ Partial Class wEmployee
         CType(Me.FDDateofExpiry2.Properties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FDDateofIssue2.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.FDDateofIssue2.Properties, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ogcdetail, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.ogvdetail, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemMemoEdit3, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemMemoEdit4, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RepositoryItemPictureEdit3, System.ComponentModel.ISupportInitialize).BeginInit
         Me.XtraTabPage2.SuspendLayout
         CType(Me.ogcvisa, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.ogvvisa, System.ComponentModel.ISupportInitialize).BeginInit
@@ -2146,7 +2145,7 @@ Partial Class wEmployee
         'ReposFNLeaveRight
         '
         Me.ReposFNLeaveRight.AutoHeight = False
-        Me.ReposFNLeaveRight.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ReposFNLeaveRight.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions89, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject369, SerializableAppearanceObject370, SerializableAppearanceObject371, SerializableAppearanceObject372, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ReposFNLeaveRight.MaxLength = 5
         Me.ReposFNLeaveRight.Name = "ReposFNLeaveRight"
         Me.ReposFNLeaveRight.Precision = 2
@@ -2155,12 +2154,12 @@ Partial Class wEmployee
         '
         Me.otab.HeaderAutoFill = DevExpress.Utils.DefaultBoolean.[False]
         Me.otab.HeaderOrientation = DevExpress.XtraTab.TabOrientation.Horizontal
-        Me.otab.Location = New System.Drawing.Point(-1, 135)
-        Me.otab.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otab.Location = New System.Drawing.Point(-1, 166)
+        Me.otab.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otab.Name = "otab"
         Me.otab.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.otab.SelectedTabPage = Me.otpempwork
-        Me.otab.Size = New System.Drawing.Size(1407, 734)
+        Me.otab.Size = New System.Drawing.Size(1641, 903)
         Me.otab.TabIndex = 0
         Me.otab.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpempwork, Me.otpemp, Me.otpempfin, Me.otpempeduc, Me.otpfamily, Me.otpemprefer, Me.otpeexperience, Me.otpempleavein, Me.otpemptrain, Me.otpemppunishment, Me.XtraTabPage8, Me.XtraTabPage1, Me.XtraTabPage2, Me.XtraTabPage3, Me.XtraTabPage4, Me.XtraTabPage5})
         Me.otab.TabStop = False
@@ -2169,9 +2168,9 @@ Partial Class wEmployee
         '
         Me.otpempwork.Controls.Add(Me.XtraTabControl1)
         Me.otpempwork.Controls.Add(Me.XtraScrollableControl1)
-        Me.otpempwork.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otpempwork.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otpempwork.Name = "otpempwork"
-        Me.otpempwork.Size = New System.Drawing.Size(1405, 709)
+        Me.otpempwork.Size = New System.Drawing.Size(1631, 866)
         Me.otpempwork.Text = "การทำงาน"
         '
         'XtraTabControl1
@@ -2181,7 +2180,7 @@ Partial Class wEmployee
         Me.XtraTabControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.XtraTabPage6
-        Me.XtraTabControl1.Size = New System.Drawing.Size(1405, 709)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(1631, 866)
         Me.XtraTabControl1.TabIndex = 7
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage6, Me.XtraTabPage7})
         '
@@ -2190,7 +2189,7 @@ Partial Class wEmployee
         Me.XtraTabPage6.Controls.Add(Me.GroupControl34)
         Me.XtraTabPage6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage6.Name = "XtraTabPage6"
-        Me.XtraTabPage6.Size = New System.Drawing.Size(1403, 684)
+        Me.XtraTabPage6.Size = New System.Drawing.Size(1621, 830)
         Me.XtraTabPage6.Text = "XtraTabPage6"
         '
         'GroupControl34
@@ -2200,11 +2199,11 @@ Partial Class wEmployee
         Me.GroupControl34.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupControl34.FireScrollEventOnMouseWheel = True
         Me.GroupControl34.Location = New System.Drawing.Point(0, 0)
-        Me.GroupControl34.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupControl34.MinimumSize = New System.Drawing.Size(448, 67)
+        Me.GroupControl34.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.GroupControl34.MinimumSize = New System.Drawing.Size(523, 82)
         Me.GroupControl34.Name = "GroupControl34"
         Me.GroupControl34.ShowCaption = False
-        Me.GroupControl34.Size = New System.Drawing.Size(1403, 684)
+        Me.GroupControl34.Size = New System.Drawing.Size(1621, 830)
         Me.GroupControl34.TabIndex = 307
         Me.GroupControl34.Text = "ขาดงาน - สาย"
         '
@@ -2216,11 +2215,11 @@ Partial Class wEmployee
         Me.GroupControl27.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupControl27.FireScrollEventOnMouseWheel = True
         Me.GroupControl27.Location = New System.Drawing.Point(2, 2)
-        Me.GroupControl27.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupControl27.MinimumSize = New System.Drawing.Size(448, 67)
+        Me.GroupControl27.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.GroupControl27.MinimumSize = New System.Drawing.Size(523, 82)
         Me.GroupControl27.Name = "GroupControl27"
         Me.GroupControl27.ShowCaption = False
-        Me.GroupControl27.Size = New System.Drawing.Size(690, 680)
+        Me.GroupControl27.Size = New System.Drawing.Size(787, 826)
         Me.GroupControl27.TabIndex = 305
         Me.GroupControl27.Text = "ขาดงาน - สาย"
         '
@@ -2238,11 +2237,11 @@ Partial Class wEmployee
         Me.GroupControl2.Controls.Add(Me.FNHSysShiftID_lbl)
         Me.GroupControl2.Controls.Add(Me.FNHSysShiftID_None)
         Me.GroupControl2.Controls.Add(Me.FNHSysShiftID)
-        Me.GroupControl2.Location = New System.Drawing.Point(8, 241)
-        Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupControl2.MinimumSize = New System.Drawing.Size(449, 162)
+        Me.GroupControl2.Location = New System.Drawing.Point(9, 297)
+        Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.GroupControl2.MinimumSize = New System.Drawing.Size(524, 199)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(659, 170)
+        Me.GroupControl2.Size = New System.Drawing.Size(769, 209)
         Me.GroupControl2.TabIndex = 3
         Me.GroupControl2.Text = " การทำงาน"
         '
@@ -2250,26 +2249,26 @@ Partial Class wEmployee
         '
         Me.FNHSysDirectId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysDirectId_None.Location = New System.Drawing.Point(322, 120)
-        Me.FNHSysDirectId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDirectId_None.Location = New System.Drawing.Point(376, 148)
+        Me.FNHSysDirectId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysDirectId_None.Name = "FNHSysDirectId_None"
         Me.FNHSysDirectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDirectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDirectId_None.Properties.ReadOnly = True
-        Me.FNHSysDirectId_None.Size = New System.Drawing.Size(310, 20)
+        Me.FNHSysDirectId_None.Size = New System.Drawing.Size(362, 23)
         Me.FNHSysDirectId_None.TabIndex = 424
         Me.FNHSysDirectId_None.Tag = "2|"
         Me.FNHSysDirectId_None.Visible = False
         '
         'FTDeligentCode
         '
-        Me.FTDeligentCode.Location = New System.Drawing.Point(162, 122)
-        Me.FTDeligentCode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDeligentCode.Location = New System.Drawing.Point(189, 150)
+        Me.FTDeligentCode.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDeligentCode.Name = "FTDeligentCode"
-        Me.FTDeligentCode.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "72", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTDeligentCode.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions90, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject373, SerializableAppearanceObject374, SerializableAppearanceObject375, SerializableAppearanceObject376, "", "72", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTDeligentCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTDeligentCode.Properties.Tag = ""
-        Me.FTDeligentCode.Size = New System.Drawing.Size(155, 20)
+        Me.FTDeligentCode.Size = New System.Drawing.Size(181, 23)
         Me.FTDeligentCode.TabIndex = 423
         Me.FTDeligentCode.Tag = "2|"
         '
@@ -2280,10 +2279,10 @@ Partial Class wEmployee
         Me.FTDeligentCode_lbl.Appearance.Options.UseTextOptions = True
         Me.FTDeligentCode_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTDeligentCode_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTDeligentCode_lbl.Location = New System.Drawing.Point(27, 118)
-        Me.FTDeligentCode_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDeligentCode_lbl.Location = New System.Drawing.Point(31, 145)
+        Me.FTDeligentCode_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDeligentCode_lbl.Name = "FTDeligentCode_lbl"
-        Me.FTDeligentCode_lbl.Size = New System.Drawing.Size(131, 22)
+        Me.FTDeligentCode_lbl.Size = New System.Drawing.Size(153, 27)
         Me.FTDeligentCode_lbl.TabIndex = 422
         Me.FTDeligentCode_lbl.Tag = "2|"
         Me.FTDeligentCode_lbl.Text = "Deligent Code :"
@@ -2293,10 +2292,10 @@ Partial Class wEmployee
         Me.FNPaidOTSta_lbl.Appearance.Options.UseTextOptions = True
         Me.FNPaidOTSta_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNPaidOTSta_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNPaidOTSta_lbl.Location = New System.Drawing.Point(13, 96)
-        Me.FNPaidOTSta_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNPaidOTSta_lbl.Location = New System.Drawing.Point(15, 118)
+        Me.FNPaidOTSta_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNPaidOTSta_lbl.Name = "FNPaidOTSta_lbl"
-        Me.FNPaidOTSta_lbl.Size = New System.Drawing.Size(146, 23)
+        Me.FNPaidOTSta_lbl.Size = New System.Drawing.Size(170, 28)
         Me.FNPaidOTSta_lbl.TabIndex = 304
         Me.FNPaidOTSta_lbl.Tag = "2|"
         Me.FNPaidOTSta_lbl.Text = "จ่าย OT :"
@@ -2305,8 +2304,8 @@ Partial Class wEmployee
         '
         Me.FNPaidOTSta.EditValue = ""
         Me.FNPaidOTSta.EnterMoveNextControl = True
-        Me.FNPaidOTSta.Location = New System.Drawing.Point(162, 98)
-        Me.FNPaidOTSta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNPaidOTSta.Location = New System.Drawing.Point(189, 121)
+        Me.FNPaidOTSta.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNPaidOTSta.Name = "FNPaidOTSta"
         Me.FNPaidOTSta.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNPaidOTSta.Properties.Appearance.Options.UseBackColor = True
@@ -2325,7 +2324,7 @@ Partial Class wEmployee
         Me.FNPaidOTSta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNPaidOTSta.Properties.Tag = "FNStateOT"
         Me.FNPaidOTSta.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNPaidOTSta.Size = New System.Drawing.Size(264, 20)
+        Me.FNPaidOTSta.Size = New System.Drawing.Size(308, 23)
         Me.FNPaidOTSta.TabIndex = 3
         Me.FNPaidOTSta.Tag = "2|"
         '
@@ -2334,10 +2333,10 @@ Partial Class wEmployee
         Me.FNLateCutSta_lbl.Appearance.Options.UseTextOptions = True
         Me.FNLateCutSta_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNLateCutSta_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNLateCutSta_lbl.Location = New System.Drawing.Point(8, 72)
-        Me.FNLateCutSta_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNLateCutSta_lbl.Location = New System.Drawing.Point(9, 89)
+        Me.FNLateCutSta_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNLateCutSta_lbl.Name = "FNLateCutSta_lbl"
-        Me.FNLateCutSta_lbl.Size = New System.Drawing.Size(151, 25)
+        Me.FNLateCutSta_lbl.Size = New System.Drawing.Size(176, 31)
         Me.FNLateCutSta_lbl.TabIndex = 302
         Me.FNLateCutSta_lbl.Tag = "2|"
         Me.FNLateCutSta_lbl.Text = "หักสาย :"
@@ -2346,8 +2345,8 @@ Partial Class wEmployee
         '
         Me.FNLateCutSta.EditValue = ""
         Me.FNLateCutSta.EnterMoveNextControl = True
-        Me.FNLateCutSta.Location = New System.Drawing.Point(162, 75)
-        Me.FNLateCutSta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNLateCutSta.Location = New System.Drawing.Point(189, 92)
+        Me.FNLateCutSta.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNLateCutSta.Name = "FNLateCutSta"
         Me.FNLateCutSta.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNLateCutSta.Properties.Appearance.Options.UseBackColor = True
@@ -2366,7 +2365,7 @@ Partial Class wEmployee
         Me.FNLateCutSta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNLateCutSta.Properties.Tag = "FNStateLateCut"
         Me.FNLateCutSta.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNLateCutSta.Size = New System.Drawing.Size(264, 20)
+        Me.FNLateCutSta.Size = New System.Drawing.Size(308, 23)
         Me.FNLateCutSta.TabIndex = 2
         Me.FNLateCutSta.Tag = "2|"
         '
@@ -2375,10 +2374,10 @@ Partial Class wEmployee
         Me.FNScanCtrl_lbl.Appearance.Options.UseTextOptions = True
         Me.FNScanCtrl_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNScanCtrl_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNScanCtrl_lbl.Location = New System.Drawing.Point(10, 53)
-        Me.FNScanCtrl_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNScanCtrl_lbl.Location = New System.Drawing.Point(12, 65)
+        Me.FNScanCtrl_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNScanCtrl_lbl.Name = "FNScanCtrl_lbl"
-        Me.FNScanCtrl_lbl.Size = New System.Drawing.Size(148, 25)
+        Me.FNScanCtrl_lbl.Size = New System.Drawing.Size(173, 31)
         Me.FNScanCtrl_lbl.TabIndex = 300
         Me.FNScanCtrl_lbl.Tag = "2|"
         Me.FNScanCtrl_lbl.Text = "Scan :"
@@ -2387,8 +2386,8 @@ Partial Class wEmployee
         '
         Me.FNScanCtrl.EditValue = ""
         Me.FNScanCtrl.EnterMoveNextControl = True
-        Me.FNScanCtrl.Location = New System.Drawing.Point(162, 52)
-        Me.FNScanCtrl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNScanCtrl.Location = New System.Drawing.Point(189, 64)
+        Me.FNScanCtrl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNScanCtrl.Name = "FNScanCtrl"
         Me.FNScanCtrl.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNScanCtrl.Properties.Appearance.Options.UseBackColor = True
@@ -2407,7 +2406,7 @@ Partial Class wEmployee
         Me.FNScanCtrl.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNScanCtrl.Properties.Tag = "FNScanCard"
         Me.FNScanCtrl.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNScanCtrl.Size = New System.Drawing.Size(264, 20)
+        Me.FNScanCtrl.Size = New System.Drawing.Size(308, 23)
         Me.FNScanCtrl.TabIndex = 1
         Me.FNScanCtrl.Tag = "2|"
         '
@@ -2418,34 +2417,34 @@ Partial Class wEmployee
         Me.FNHSysShiftID_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysShiftID_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysShiftID_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysShiftID_lbl.Location = New System.Drawing.Point(5, 30)
-        Me.FNHSysShiftID_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysShiftID_lbl.Location = New System.Drawing.Point(6, 37)
+        Me.FNHSysShiftID_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysShiftID_lbl.Name = "FNHSysShiftID_lbl"
-        Me.FNHSysShiftID_lbl.Size = New System.Drawing.Size(155, 22)
+        Me.FNHSysShiftID_lbl.Size = New System.Drawing.Size(181, 27)
         Me.FNHSysShiftID_lbl.TabIndex = 298
         Me.FNHSysShiftID_lbl.Tag = "2|"
         Me.FNHSysShiftID_lbl.Text = "Shift :"
         '
         'FNHSysShiftID_None
         '
-        Me.FNHSysShiftID_None.Location = New System.Drawing.Point(247, 29)
-        Me.FNHSysShiftID_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysShiftID_None.Location = New System.Drawing.Point(288, 36)
+        Me.FNHSysShiftID_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysShiftID_None.Name = "FNHSysShiftID_None"
         Me.FNHSysShiftID_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysShiftID_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysShiftID_None.Properties.ReadOnly = True
-        Me.FNHSysShiftID_None.Size = New System.Drawing.Size(178, 20)
+        Me.FNHSysShiftID_None.Size = New System.Drawing.Size(208, 23)
         Me.FNHSysShiftID_None.TabIndex = 297
         Me.FNHSysShiftID_None.Tag = "2|"
         '
         'FNHSysShiftID
         '
-        Me.FNHSysShiftID.Location = New System.Drawing.Point(162, 29)
-        Me.FNHSysShiftID.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysShiftID.Location = New System.Drawing.Point(189, 36)
+        Me.FNHSysShiftID.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysShiftID.Name = "FNHSysShiftID"
-        Me.FNHSysShiftID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "56", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysShiftID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "56", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysShiftID.Properties.Tag = "56"
-        Me.FNHSysShiftID.Size = New System.Drawing.Size(84, 20)
+        Me.FNHSysShiftID.Size = New System.Drawing.Size(98, 23)
         Me.FNHSysShiftID.TabIndex = 0
         Me.FNHSysShiftID.Tag = "2|"
         '
@@ -2475,11 +2474,11 @@ Partial Class wEmployee
         Me.ogbstatus.Controls.Add(Me.FDDateProbation_lbl)
         Me.ogbstatus.Controls.Add(Me.FDDateStart)
         Me.ogbstatus.Controls.Add(Me.FDDateStart_lbl)
-        Me.ogbstatus.Location = New System.Drawing.Point(8, 6)
-        Me.ogbstatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogbstatus.MinimumSize = New System.Drawing.Size(565, 192)
+        Me.ogbstatus.Location = New System.Drawing.Point(9, 7)
+        Me.ogbstatus.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.ogbstatus.MinimumSize = New System.Drawing.Size(659, 236)
         Me.ogbstatus.Name = "ogbstatus"
-        Me.ogbstatus.Size = New System.Drawing.Size(659, 237)
+        Me.ogbstatus.Size = New System.Drawing.Size(769, 292)
         Me.ogbstatus.TabIndex = 0
         Me.ogbstatus.Text = "สถานะ"
         '
@@ -2487,8 +2486,8 @@ Partial Class wEmployee
         '
         Me.FDDateTransfer.EditValue = Nothing
         Me.FDDateTransfer.EnterMoveNextControl = True
-        Me.FDDateTransfer.Location = New System.Drawing.Point(120, 79)
-        Me.FDDateTransfer.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateTransfer.Location = New System.Drawing.Point(140, 97)
+        Me.FDDateTransfer.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateTransfer.Name = "FDDateTransfer"
         Me.FDDateTransfer.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateTransfer.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -2497,7 +2496,7 @@ Partial Class wEmployee
         Me.FDDateTransfer.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateTransfer.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.FDDateTransfer.Properties.NullDate = ""
-        Me.FDDateTransfer.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateTransfer.Size = New System.Drawing.Size(136, 23)
         Me.FDDateTransfer.TabIndex = 3
         Me.FDDateTransfer.Tag = "2|"
         '
@@ -2506,10 +2505,10 @@ Partial Class wEmployee
         Me.FDDateTransfer_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateTransfer_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateTransfer_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateTransfer_lbl.Location = New System.Drawing.Point(7, 76)
-        Me.FDDateTransfer_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateTransfer_lbl.Location = New System.Drawing.Point(8, 94)
+        Me.FDDateTransfer_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateTransfer_lbl.Name = "FDDateTransfer_lbl"
-        Me.FDDateTransfer_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateTransfer_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateTransfer_lbl.TabIndex = 308
         Me.FDDateTransfer_lbl.Tag = "2|"
         Me.FDDateTransfer_lbl.Text = "Promote Date :"
@@ -2518,8 +2517,8 @@ Partial Class wEmployee
         '
         Me.FDRetire.EditValue = Nothing
         Me.FDRetire.EnterMoveNextControl = True
-        Me.FDRetire.Location = New System.Drawing.Point(356, 125)
-        Me.FDRetire.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDRetire.Location = New System.Drawing.Point(415, 154)
+        Me.FDRetire.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDRetire.Name = "FDRetire"
         Me.FDRetire.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[True]
         Me.FDRetire.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -2530,7 +2529,7 @@ Partial Class wEmployee
         Me.FDRetire.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDRetire.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDRetire.Properties.NullDate = ""
-        Me.FDRetire.Size = New System.Drawing.Size(117, 20)
+        Me.FDRetire.Size = New System.Drawing.Size(136, 23)
         Me.FDRetire.TabIndex = 6
         Me.FDRetire.Tag = "2|"
         '
@@ -2539,10 +2538,10 @@ Partial Class wEmployee
         Me.FDRetire_lbl.Appearance.Options.UseTextOptions = True
         Me.FDRetire_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDRetire_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDRetire_lbl.Location = New System.Drawing.Point(241, 122)
-        Me.FDRetire_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDRetire_lbl.Location = New System.Drawing.Point(281, 150)
+        Me.FDRetire_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDRetire_lbl.Name = "FDRetire_lbl"
-        Me.FDRetire_lbl.Size = New System.Drawing.Size(112, 25)
+        Me.FDRetire_lbl.Size = New System.Drawing.Size(131, 31)
         Me.FDRetire_lbl.TabIndex = 306
         Me.FDRetire_lbl.Tag = "2|"
         Me.FDRetire_lbl.Text = "Retire Date :"
@@ -2554,28 +2553,28 @@ Partial Class wEmployee
         Me.FTResign_lbl.Appearance.Options.UseTextOptions = True
         Me.FTResign_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTResign_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTResign_lbl.Location = New System.Drawing.Point(10, 150)
-        Me.FTResign_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTResign_lbl.Location = New System.Drawing.Point(12, 185)
+        Me.FTResign_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTResign_lbl.Name = "FTResign_lbl"
-        Me.FTResign_lbl.Size = New System.Drawing.Size(107, 23)
+        Me.FTResign_lbl.Size = New System.Drawing.Size(125, 28)
         Me.FTResign_lbl.TabIndex = 305
         Me.FTResign_lbl.Tag = "2|"
         Me.FTResign_lbl.Text = "Resign Note :"
         '
         'FTResign
         '
-        Me.FTResign.Location = New System.Drawing.Point(123, 154)
+        Me.FTResign.Location = New System.Drawing.Point(143, 190)
         Me.FTResign.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FTResign.Name = "FTResign"
-        Me.FTResign.Size = New System.Drawing.Size(435, 76)
+        Me.FTResign.Size = New System.Drawing.Size(507, 94)
         Me.FTResign.TabIndex = 309
         '
         'FDDateEnd
         '
         Me.FDDateEnd.EditValue = Nothing
         Me.FDDateEnd.EnterMoveNextControl = True
-        Me.FDDateEnd.Location = New System.Drawing.Point(120, 125)
-        Me.FDDateEnd.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateEnd.Location = New System.Drawing.Point(140, 154)
+        Me.FDDateEnd.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateEnd.Name = "FDDateEnd"
         Me.FDDateEnd.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[True]
         Me.FDDateEnd.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -2586,7 +2585,7 @@ Partial Class wEmployee
         Me.FDDateEnd.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateEnd.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateEnd.Properties.NullDate = ""
-        Me.FDDateEnd.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateEnd.Size = New System.Drawing.Size(136, 23)
         Me.FDDateEnd.TabIndex = 5
         Me.FDDateEnd.Tag = "2|"
         '
@@ -2595,10 +2594,10 @@ Partial Class wEmployee
         Me.FDDateEnd_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateEnd_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateEnd_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateEnd_lbl.Location = New System.Drawing.Point(6, 123)
-        Me.FDDateEnd_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateEnd_lbl.Location = New System.Drawing.Point(7, 151)
+        Me.FDDateEnd_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateEnd_lbl.Name = "FDDateEnd_lbl"
-        Me.FDDateEnd_lbl.Size = New System.Drawing.Size(112, 25)
+        Me.FDDateEnd_lbl.Size = New System.Drawing.Size(131, 31)
         Me.FDDateEnd_lbl.TabIndex = 302
         Me.FDDateEnd_lbl.Tag = "2|"
         Me.FDDateEnd_lbl.Text = "Resign Date :"
@@ -2608,10 +2607,10 @@ Partial Class wEmployee
         Me.FTWorkDay_Day.Appearance.Options.UseTextOptions = True
         Me.FTWorkDay_Day.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.FTWorkDay_Day.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTWorkDay_Day.Location = New System.Drawing.Point(523, 52)
-        Me.FTWorkDay_Day.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTWorkDay_Day.Location = New System.Drawing.Point(610, 64)
+        Me.FTWorkDay_Day.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTWorkDay_Day.Name = "FTWorkDay_Day"
-        Me.FTWorkDay_Day.Size = New System.Drawing.Size(35, 25)
+        Me.FTWorkDay_Day.Size = New System.Drawing.Size(41, 31)
         Me.FTWorkDay_Day.TabIndex = 301
         Me.FTWorkDay_Day.Tag = "2|"
         Me.FTWorkDay_Day.Text = "Day"
@@ -2621,10 +2620,10 @@ Partial Class wEmployee
         Me.LabelControl16.Appearance.Options.UseTextOptions = True
         Me.LabelControl16.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl16.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl16.Location = New System.Drawing.Point(448, 53)
-        Me.LabelControl16.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl16.Location = New System.Drawing.Point(523, 65)
+        Me.LabelControl16.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl16.Name = "LabelControl16"
-        Me.LabelControl16.Size = New System.Drawing.Size(35, 25)
+        Me.LabelControl16.Size = New System.Drawing.Size(41, 31)
         Me.LabelControl16.TabIndex = 301
         Me.LabelControl16.Tag = "2|"
         Me.LabelControl16.Text = "Month"
@@ -2634,47 +2633,47 @@ Partial Class wEmployee
         Me.LabelControl15.Appearance.Options.UseTextOptions = True
         Me.LabelControl15.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl15.Location = New System.Drawing.Point(378, 53)
-        Me.LabelControl15.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl15.Location = New System.Drawing.Point(441, 65)
+        Me.LabelControl15.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl15.Name = "LabelControl15"
-        Me.LabelControl15.Size = New System.Drawing.Size(30, 25)
+        Me.LabelControl15.Size = New System.Drawing.Size(35, 31)
         Me.LabelControl15.TabIndex = 300
         Me.LabelControl15.Tag = "2|"
         Me.LabelControl15.Text = "Year"
         '
         'FTWorkDay
         '
-        Me.FTWorkDay.Location = New System.Drawing.Point(484, 57)
-        Me.FTWorkDay.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTWorkDay.Location = New System.Drawing.Point(565, 70)
+        Me.FTWorkDay.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTWorkDay.Name = "FTWorkDay"
         Me.FTWorkDay.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTWorkDay.Properties.Appearance.Options.UseBackColor = True
         Me.FTWorkDay.Properties.ReadOnly = True
-        Me.FTWorkDay.Size = New System.Drawing.Size(35, 20)
+        Me.FTWorkDay.Size = New System.Drawing.Size(41, 23)
         Me.FTWorkDay.TabIndex = 299
         Me.FTWorkDay.Tag = "2|"
         '
         'FTWorkMonth
         '
-        Me.FTWorkMonth.Location = New System.Drawing.Point(407, 56)
-        Me.FTWorkMonth.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTWorkMonth.Location = New System.Drawing.Point(475, 69)
+        Me.FTWorkMonth.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTWorkMonth.Name = "FTWorkMonth"
         Me.FTWorkMonth.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTWorkMonth.Properties.Appearance.Options.UseBackColor = True
         Me.FTWorkMonth.Properties.ReadOnly = True
-        Me.FTWorkMonth.Size = New System.Drawing.Size(35, 20)
+        Me.FTWorkMonth.Size = New System.Drawing.Size(41, 23)
         Me.FTWorkMonth.TabIndex = 299
         Me.FTWorkMonth.Tag = "2|"
         '
         'FTWorkYear
         '
-        Me.FTWorkYear.Location = New System.Drawing.Point(337, 56)
-        Me.FTWorkYear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTWorkYear.Location = New System.Drawing.Point(393, 69)
+        Me.FTWorkYear.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTWorkYear.Name = "FTWorkYear"
         Me.FTWorkYear.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTWorkYear.Properties.Appearance.Options.UseBackColor = True
         Me.FTWorkYear.Properties.ReadOnly = True
-        Me.FTWorkYear.Size = New System.Drawing.Size(37, 20)
+        Me.FTWorkYear.Size = New System.Drawing.Size(43, 23)
         Me.FTWorkYear.TabIndex = 298
         Me.FTWorkYear.Tag = "2|"
         '
@@ -2683,23 +2682,23 @@ Partial Class wEmployee
         Me.LabelControl14.Appearance.Options.UseTextOptions = True
         Me.LabelControl14.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl14.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl14.Location = New System.Drawing.Point(241, 53)
-        Me.LabelControl14.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl14.Location = New System.Drawing.Point(281, 65)
+        Me.LabelControl14.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl14.Name = "LabelControl14"
-        Me.LabelControl14.Size = New System.Drawing.Size(93, 25)
+        Me.LabelControl14.Size = New System.Drawing.Size(108, 31)
         Me.LabelControl14.TabIndex = 297
         Me.LabelControl14.Tag = "2|"
         Me.LabelControl14.Text = "Work Age :"
         '
         'FNHSysResignId_None
         '
-        Me.FNHSysResignId_None.Location = New System.Drawing.Point(240, 102)
-        Me.FNHSysResignId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysResignId_None.Location = New System.Drawing.Point(280, 126)
+        Me.FNHSysResignId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysResignId_None.Name = "FNHSysResignId_None"
         Me.FNHSysResignId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysResignId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysResignId_None.Properties.ReadOnly = True
-        Me.FNHSysResignId_None.Size = New System.Drawing.Size(299, 20)
+        Me.FNHSysResignId_None.Size = New System.Drawing.Size(349, 23)
         Me.FNHSysResignId_None.TabIndex = 296
         Me.FNHSysResignId_None.Tag = "2|"
         '
@@ -2708,22 +2707,22 @@ Partial Class wEmployee
         Me.FNHSysResignId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysResignId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysResignId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysResignId_lbl.Location = New System.Drawing.Point(6, 101)
-        Me.FNHSysResignId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysResignId_lbl.Location = New System.Drawing.Point(7, 124)
+        Me.FNHSysResignId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysResignId_lbl.Name = "FNHSysResignId_lbl"
-        Me.FNHSysResignId_lbl.Size = New System.Drawing.Size(112, 25)
+        Me.FNHSysResignId_lbl.Size = New System.Drawing.Size(131, 31)
         Me.FNHSysResignId_lbl.TabIndex = 295
         Me.FNHSysResignId_lbl.Tag = "2|"
         Me.FNHSysResignId_lbl.Text = "Resign Code :"
         '
         'FNHSysResignId
         '
-        Me.FNHSysResignId.Location = New System.Drawing.Point(120, 102)
-        Me.FNHSysResignId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysResignId.Location = New System.Drawing.Point(140, 126)
+        Me.FNHSysResignId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysResignId.Name = "FNHSysResignId"
-        Me.FNHSysResignId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "54", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysResignId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "54", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysResignId.Properties.Tag = "54"
-        Me.FNHSysResignId.Size = New System.Drawing.Size(117, 20)
+        Me.FNHSysResignId.Size = New System.Drawing.Size(136, 23)
         Me.FNHSysResignId.TabIndex = 4
         Me.FNHSysResignId.Tag = "2|"
         '
@@ -2732,10 +2731,10 @@ Partial Class wEmployee
         Me.FNEmpStatus_lbl.Appearance.Options.UseTextOptions = True
         Me.FNEmpStatus_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNEmpStatus_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNEmpStatus_lbl.Location = New System.Drawing.Point(6, 54)
-        Me.FNEmpStatus_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNEmpStatus_lbl.Location = New System.Drawing.Point(7, 66)
+        Me.FNEmpStatus_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNEmpStatus_lbl.Name = "FNEmpStatus_lbl"
-        Me.FNEmpStatus_lbl.Size = New System.Drawing.Size(113, 25)
+        Me.FNEmpStatus_lbl.Size = New System.Drawing.Size(132, 31)
         Me.FNEmpStatus_lbl.TabIndex = 293
         Me.FNEmpStatus_lbl.Tag = "2|"
         Me.FNEmpStatus_lbl.Text = "Status :"
@@ -2744,8 +2743,8 @@ Partial Class wEmployee
         '
         Me.FNEmpStatus.EditValue = ""
         Me.FNEmpStatus.EnterMoveNextControl = True
-        Me.FNEmpStatus.Location = New System.Drawing.Point(120, 56)
-        Me.FNEmpStatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNEmpStatus.Location = New System.Drawing.Point(140, 69)
+        Me.FNEmpStatus.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNEmpStatus.Name = "FNEmpStatus"
         Me.FNEmpStatus.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNEmpStatus.Properties.Appearance.Options.UseBackColor = True
@@ -2764,7 +2763,7 @@ Partial Class wEmployee
         Me.FNEmpStatus.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNEmpStatus.Properties.Tag = "FNEmpStatus"
         Me.FNEmpStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNEmpStatus.Size = New System.Drawing.Size(117, 20)
+        Me.FNEmpStatus.Size = New System.Drawing.Size(136, 23)
         Me.FNEmpStatus.TabIndex = 2
         Me.FNEmpStatus.Tag = "2|"
         '
@@ -2772,8 +2771,8 @@ Partial Class wEmployee
         '
         Me.FDDateProbation.EditValue = Nothing
         Me.FDDateProbation.EnterMoveNextControl = True
-        Me.FDDateProbation.Location = New System.Drawing.Point(335, 33)
-        Me.FDDateProbation.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateProbation.Location = New System.Drawing.Point(391, 41)
+        Me.FDDateProbation.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateProbation.Name = "FDDateProbation"
         Me.FDDateProbation.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateProbation.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -2784,7 +2783,7 @@ Partial Class wEmployee
         Me.FDDateProbation.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateProbation.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateProbation.Properties.NullDate = ""
-        Me.FDDateProbation.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateProbation.Size = New System.Drawing.Size(136, 23)
         Me.FDDateProbation.TabIndex = 1
         Me.FDDateProbation.Tag = "2|"
         '
@@ -2793,10 +2792,10 @@ Partial Class wEmployee
         Me.FDDateProbation_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateProbation_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateProbation_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateProbation_lbl.Location = New System.Drawing.Point(244, 30)
-        Me.FDDateProbation_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateProbation_lbl.Location = New System.Drawing.Point(285, 37)
+        Me.FDDateProbation_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateProbation_lbl.Name = "FDDateProbation_lbl"
-        Me.FDDateProbation_lbl.Size = New System.Drawing.Size(90, 25)
+        Me.FDDateProbation_lbl.Size = New System.Drawing.Size(105, 31)
         Me.FDDateProbation_lbl.TabIndex = 279
         Me.FDDateProbation_lbl.Tag = "2|"
         Me.FDDateProbation_lbl.Text = "Pro Date :"
@@ -2805,8 +2804,8 @@ Partial Class wEmployee
         '
         Me.FDDateStart.EditValue = Nothing
         Me.FDDateStart.EnterMoveNextControl = True
-        Me.FDDateStart.Location = New System.Drawing.Point(120, 33)
-        Me.FDDateStart.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateStart.Location = New System.Drawing.Point(140, 41)
+        Me.FDDateStart.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateStart.Name = "FDDateStart"
         Me.FDDateStart.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateStart.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -2815,7 +2814,7 @@ Partial Class wEmployee
         Me.FDDateStart.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateStart.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.FDDateStart.Properties.NullDate = ""
-        Me.FDDateStart.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateStart.Size = New System.Drawing.Size(136, 23)
         Me.FDDateStart.TabIndex = 0
         Me.FDDateStart.Tag = "2|"
         '
@@ -2824,10 +2823,10 @@ Partial Class wEmployee
         Me.FDDateStart_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateStart_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateStart_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateStart_lbl.Location = New System.Drawing.Point(7, 31)
-        Me.FDDateStart_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateStart_lbl.Location = New System.Drawing.Point(8, 38)
+        Me.FDDateStart_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateStart_lbl.Name = "FDDateStart_lbl"
-        Me.FDDateStart_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateStart_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateStart_lbl.TabIndex = 276
         Me.FDDateStart_lbl.Tag = "2|"
         Me.FDDateStart_lbl.Text = "Start Date :"
@@ -2841,11 +2840,11 @@ Partial Class wEmployee
         Me.GroupControl1.Controls.Add(Me.FTAbsentH)
         Me.GroupControl1.Controls.Add(Me.LabelControl26)
         Me.GroupControl1.FireScrollEventOnMouseWheel = True
-        Me.GroupControl1.Location = New System.Drawing.Point(8, 411)
-        Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupControl1.MinimumSize = New System.Drawing.Size(448, 67)
+        Me.GroupControl1.Location = New System.Drawing.Point(9, 506)
+        Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.GroupControl1.MinimumSize = New System.Drawing.Size(523, 82)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(659, 89)
+        Me.GroupControl1.Size = New System.Drawing.Size(769, 110)
         Me.GroupControl1.TabIndex = 4
         Me.GroupControl1.Text = "ขาดงาน - สาย"
         '
@@ -2854,10 +2853,10 @@ Partial Class wEmployee
         Me.LabelControl34.Appearance.Options.UseTextOptions = True
         Me.LabelControl34.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl34.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl34.Location = New System.Drawing.Point(495, 32)
-        Me.LabelControl34.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl34.Location = New System.Drawing.Point(577, 39)
+        Me.LabelControl34.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl34.Name = "LabelControl34"
-        Me.LabelControl34.Size = New System.Drawing.Size(64, 25)
+        Me.LabelControl34.Size = New System.Drawing.Size(75, 31)
         Me.LabelControl34.TabIndex = 304
         Me.LabelControl34.Tag = "2|"
         Me.LabelControl34.Text = "Minute"
@@ -2867,10 +2866,10 @@ Partial Class wEmployee
         Me.LabelControl33.Appearance.Options.UseTextOptions = True
         Me.LabelControl33.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl33.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl33.Location = New System.Drawing.Point(214, 31)
-        Me.LabelControl33.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl33.Location = New System.Drawing.Point(250, 38)
+        Me.LabelControl33.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl33.Name = "LabelControl33"
-        Me.LabelControl33.Size = New System.Drawing.Size(64, 25)
+        Me.LabelControl33.Size = New System.Drawing.Size(75, 31)
         Me.LabelControl33.TabIndex = 303
         Me.LabelControl33.Tag = "2|"
         Me.LabelControl33.Text = "Hour"
@@ -2880,39 +2879,39 @@ Partial Class wEmployee
         Me.LabelControl29.Appearance.Options.UseTextOptions = True
         Me.LabelControl29.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl29.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl29.Location = New System.Drawing.Point(295, 33)
-        Me.LabelControl29.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl29.Location = New System.Drawing.Point(344, 41)
+        Me.LabelControl29.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl29.Name = "LabelControl29"
-        Me.LabelControl29.Size = New System.Drawing.Size(96, 21)
+        Me.LabelControl29.Size = New System.Drawing.Size(112, 26)
         Me.LabelControl29.TabIndex = 302
         Me.LabelControl29.Tag = "2|"
         Me.LabelControl29.Text = "สาย :"
         '
         'FTLateMin
         '
-        Me.FTLateMin.Location = New System.Drawing.Point(395, 32)
-        Me.FTLateMin.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTLateMin.Location = New System.Drawing.Point(461, 39)
+        Me.FTLateMin.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTLateMin.Name = "FTLateMin"
         Me.FTLateMin.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTLateMin.Properties.Appearance.Options.UseBackColor = True
         Me.FTLateMin.Properties.Appearance.Options.UseTextOptions = True
         Me.FTLateMin.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTLateMin.Properties.ReadOnly = True
-        Me.FTLateMin.Size = New System.Drawing.Size(94, 20)
+        Me.FTLateMin.Size = New System.Drawing.Size(110, 23)
         Me.FTLateMin.TabIndex = 301
         Me.FTLateMin.Tag = "2|"
         '
         'FTAbsentH
         '
-        Me.FTAbsentH.Location = New System.Drawing.Point(111, 31)
-        Me.FTAbsentH.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAbsentH.Location = New System.Drawing.Point(129, 38)
+        Me.FTAbsentH.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAbsentH.Name = "FTAbsentH"
         Me.FTAbsentH.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTAbsentH.Properties.Appearance.Options.UseBackColor = True
         Me.FTAbsentH.Properties.Appearance.Options.UseTextOptions = True
         Me.FTAbsentH.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAbsentH.Properties.ReadOnly = True
-        Me.FTAbsentH.Size = New System.Drawing.Size(98, 20)
+        Me.FTAbsentH.Size = New System.Drawing.Size(114, 23)
         Me.FTAbsentH.TabIndex = 300
         Me.FTAbsentH.Tag = "2|"
         '
@@ -2921,10 +2920,10 @@ Partial Class wEmployee
         Me.LabelControl26.Appearance.Options.UseTextOptions = True
         Me.LabelControl26.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl26.Location = New System.Drawing.Point(12, 32)
-        Me.LabelControl26.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl26.Location = New System.Drawing.Point(14, 39)
+        Me.LabelControl26.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl26.Name = "LabelControl26"
-        Me.LabelControl26.Size = New System.Drawing.Size(96, 21)
+        Me.LabelControl26.Size = New System.Drawing.Size(112, 26)
         Me.LabelControl26.TabIndex = 299
         Me.LabelControl26.Tag = "2|"
         Me.LabelControl26.Text = "ขาดงาน :"
@@ -2933,12 +2932,12 @@ Partial Class wEmployee
         '
         Me.GroupControl30.Controls.Add(Me.ogbwork)
         Me.GroupControl30.FireScrollEventOnMouseWheel = True
-        Me.GroupControl30.Location = New System.Drawing.Point(699, 7)
-        Me.GroupControl30.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupControl30.MinimumSize = New System.Drawing.Size(448, 67)
+        Me.GroupControl30.Location = New System.Drawing.Point(794, 9)
+        Me.GroupControl30.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.GroupControl30.MinimumSize = New System.Drawing.Size(523, 82)
         Me.GroupControl30.Name = "GroupControl30"
         Me.GroupControl30.ShowCaption = False
-        Me.GroupControl30.Size = New System.Drawing.Size(556, 852)
+        Me.GroupControl30.Size = New System.Drawing.Size(649, 1049)
         Me.GroupControl30.TabIndex = 306
         Me.GroupControl30.Text = "ขาดงาน - สาย"
         '
@@ -2947,19 +2946,21 @@ Partial Class wEmployee
         Me.ogbwork.Controls.Add(Me.ogdLeave)
         Me.ogbwork.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbwork.Location = New System.Drawing.Point(2, 2)
-        Me.ogbwork.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbwork.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbwork.Name = "ogbwork"
-        Me.ogbwork.Size = New System.Drawing.Size(552, 848)
+        Me.ogbwork.Size = New System.Drawing.Size(645, 1045)
         Me.ogbwork.TabIndex = 2
         Me.ogbwork.Text = "ลางาน"
         '
         'ogdLeave
         '
         Me.ogdLeave.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdLeave.Location = New System.Drawing.Point(2, 23)
+        Me.ogdLeave.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogdLeave.Location = New System.Drawing.Point(2, 27)
         Me.ogdLeave.MainView = Me.ogvleave
+        Me.ogdLeave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdLeave.Name = "ogdLeave"
-        Me.ogdLeave.Size = New System.Drawing.Size(548, 823)
+        Me.ogdLeave.Size = New System.Drawing.Size(641, 1016)
         Me.ogdLeave.TabIndex = 3
         Me.ogdLeave.TabStop = False
         Me.ogdLeave.Tag = "2|"
@@ -2968,7 +2969,6 @@ Partial Class wEmployee
         'ogvleave
         '
         Me.ogvleave.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTLeaveCode, Me.FTLeaveName, Me.FNLeaveRight, Me.FNLeaveUsed, Me.FNLeaveBal})
-        Me.ogvleave.DetailHeight = 284
         Me.ogvleave.GridControl = Me.ogdLeave
         Me.ogvleave.Name = "ogvleave"
         Me.ogvleave.OptionsCustomization.AllowGroup = False
@@ -2982,12 +2982,10 @@ Partial Class wEmployee
         '
         Me.FTLeaveCode.Caption = "FTLeaveCode"
         Me.FTLeaveCode.FieldName = "FTLeaveCode"
-        Me.FTLeaveCode.MinWidth = 17
         Me.FTLeaveCode.Name = "FTLeaveCode"
         Me.FTLeaveCode.OptionsColumn.AllowEdit = False
         Me.FTLeaveCode.OptionsColumn.AllowMove = False
         Me.FTLeaveCode.OptionsColumn.ReadOnly = True
-        Me.FTLeaveCode.Width = 64
         '
         'FTLeaveName
         '
@@ -2995,7 +2993,6 @@ Partial Class wEmployee
         Me.FTLeaveName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTLeaveName.Caption = "FTLeaveName"
         Me.FTLeaveName.FieldName = "FTLeaveName"
-        Me.FTLeaveName.MinWidth = 17
         Me.FTLeaveName.Name = "FTLeaveName"
         Me.FTLeaveName.OptionsColumn.AllowEdit = False
         Me.FTLeaveName.OptionsColumn.AllowMove = False
@@ -3003,7 +3000,7 @@ Partial Class wEmployee
         Me.FTLeaveName.OptionsColumn.ReadOnly = True
         Me.FTLeaveName.Visible = True
         Me.FTLeaveName.VisibleIndex = 0
-        Me.FTLeaveName.Width = 132
+        Me.FTLeaveName.Width = 154
         '
         'FNLeaveRight
         '
@@ -3014,7 +3011,6 @@ Partial Class wEmployee
         Me.FNLeaveRight.Caption = "FNLeaveRight"
         Me.FNLeaveRight.ColumnEdit = Me.ReposFNLeaveRight
         Me.FNLeaveRight.FieldName = "FNLeaveRight"
-        Me.FNLeaveRight.MinWidth = 17
         Me.FNLeaveRight.Name = "FNLeaveRight"
         Me.FNLeaveRight.OptionsColumn.AllowEdit = False
         Me.FNLeaveRight.OptionsColumn.AllowMove = False
@@ -3022,7 +3018,7 @@ Partial Class wEmployee
         Me.FNLeaveRight.OptionsColumn.ReadOnly = True
         Me.FNLeaveRight.Visible = True
         Me.FNLeaveRight.VisibleIndex = 1
-        Me.FNLeaveRight.Width = 78
+        Me.FNLeaveRight.Width = 91
         '
         'FNLeaveUsed
         '
@@ -3032,7 +3028,6 @@ Partial Class wEmployee
         Me.FNLeaveUsed.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNLeaveUsed.Caption = "FNLeaveUsed"
         Me.FNLeaveUsed.FieldName = "FNLeaveUsed"
-        Me.FNLeaveUsed.MinWidth = 17
         Me.FNLeaveUsed.Name = "FNLeaveUsed"
         Me.FNLeaveUsed.OptionsColumn.AllowEdit = False
         Me.FNLeaveUsed.OptionsColumn.AllowMove = False
@@ -3040,7 +3035,7 @@ Partial Class wEmployee
         Me.FNLeaveUsed.OptionsColumn.ReadOnly = True
         Me.FNLeaveUsed.Visible = True
         Me.FNLeaveUsed.VisibleIndex = 2
-        Me.FNLeaveUsed.Width = 61
+        Me.FNLeaveUsed.Width = 71
         '
         'FNLeaveBal
         '
@@ -3050,7 +3045,6 @@ Partial Class wEmployee
         Me.FNLeaveBal.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNLeaveBal.Caption = "FNLeaveBal"
         Me.FNLeaveBal.FieldName = "FNLeaveBal"
-        Me.FNLeaveBal.MinWidth = 17
         Me.FNLeaveBal.Name = "FNLeaveBal"
         Me.FNLeaveBal.OptionsColumn.AllowEdit = False
         Me.FNLeaveBal.OptionsColumn.AllowMove = False
@@ -3058,11 +3052,10 @@ Partial Class wEmployee
         Me.FNLeaveBal.OptionsColumn.ReadOnly = True
         Me.FNLeaveBal.Visible = True
         Me.FNLeaveBal.VisibleIndex = 3
-        Me.FNLeaveBal.Width = 66
+        Me.FNLeaveBal.Width = 77
         '
         'GridView1
         '
-        Me.GridView1.DetailHeight = 284
         Me.GridView1.GridControl = Me.ogdLeave
         Me.GridView1.Name = "GridView1"
         '
@@ -3072,7 +3065,7 @@ Partial Class wEmployee
         Me.XtraTabPage7.Controls.Add(Me.ogborg)
         Me.XtraTabPage7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage7.Name = "XtraTabPage7"
-        Me.XtraTabPage7.Size = New System.Drawing.Size(1403, 684)
+        Me.XtraTabPage7.Size = New System.Drawing.Size(1629, 836)
         Me.XtraTabPage7.Text = "XtraTabPage7"
         '
         'GroupControl3
@@ -3103,12 +3096,11 @@ Partial Class wEmployee
         Me.GroupControl3.Controls.Add(Me.FNHSysDeptIdOrg_None)
         Me.GroupControl3.Controls.Add(Me.LabelControl37)
         Me.GroupControl3.Controls.Add(Me.FNHSysDeptIdOrg)
-        Me.GroupControl3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupControl3.Location = New System.Drawing.Point(677, 0)
-        Me.GroupControl3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupControl3.MinimumSize = New System.Drawing.Size(542, 191)
+        Me.GroupControl3.Location = New System.Drawing.Point(777, 0)
+        Me.GroupControl3.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.GroupControl3.MinimumSize = New System.Drawing.Size(632, 235)
         Me.GroupControl3.Name = "GroupControl3"
-        Me.GroupControl3.Size = New System.Drawing.Size(726, 684)
+        Me.GroupControl3.Size = New System.Drawing.Size(811, 831)
         Me.GroupControl3.TabIndex = 3
         Me.GroupControl3.Text = "Organize"
         '
@@ -3116,8 +3108,8 @@ Partial Class wEmployee
         '
         Me.FTAccountGroupCode_Org.EditValue = ""
         Me.FTAccountGroupCode_Org.EnterMoveNextControl = True
-        Me.FTAccountGroupCode_Org.Location = New System.Drawing.Point(141, 188)
-        Me.FTAccountGroupCode_Org.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAccountGroupCode_Org.Location = New System.Drawing.Point(164, 231)
+        Me.FTAccountGroupCode_Org.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAccountGroupCode_Org.Name = "FTAccountGroupCode_Org"
         Me.FTAccountGroupCode_Org.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTAccountGroupCode_Org.Properties.Appearance.Options.UseBackColor = True
@@ -3137,31 +3129,31 @@ Partial Class wEmployee
         Me.FTAccountGroupCode_Org.Properties.ReadOnly = True
         Me.FTAccountGroupCode_Org.Properties.Tag = "FNJobLevel"
         Me.FTAccountGroupCode_Org.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FTAccountGroupCode_Org.Size = New System.Drawing.Size(155, 20)
+        Me.FTAccountGroupCode_Org.Size = New System.Drawing.Size(181, 23)
         Me.FTAccountGroupCode_Org.TabIndex = 426
         Me.FTAccountGroupCode_Org.Tag = "2|"
         '
         'FTAccountGroupName_Org
         '
-        Me.FTAccountGroupName_Org.Location = New System.Drawing.Point(301, 188)
-        Me.FTAccountGroupName_Org.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAccountGroupName_Org.Location = New System.Drawing.Point(351, 231)
+        Me.FTAccountGroupName_Org.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAccountGroupName_Org.Name = "FTAccountGroupName_Org"
         Me.FTAccountGroupName_Org.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTAccountGroupName_Org.Properties.Appearance.Options.UseBackColor = True
         Me.FTAccountGroupName_Org.Properties.ReadOnly = True
-        Me.FTAccountGroupName_Org.Size = New System.Drawing.Size(343, 20)
+        Me.FTAccountGroupName_Org.Size = New System.Drawing.Size(400, 23)
         Me.FTAccountGroupName_Org.TabIndex = 299
         Me.FTAccountGroupName_Org.Tag = "2|"
         '
         'FNHSysCmpIdOrg_None
         '
-        Me.FNHSysCmpIdOrg_None.Location = New System.Drawing.Point(301, 75)
-        Me.FNHSysCmpIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpIdOrg_None.Location = New System.Drawing.Point(351, 92)
+        Me.FNHSysCmpIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysCmpIdOrg_None.Name = "FNHSysCmpIdOrg_None"
         Me.FNHSysCmpIdOrg_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpIdOrg_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCmpIdOrg_None.Properties.ReadOnly = True
-        Me.FNHSysCmpIdOrg_None.Size = New System.Drawing.Size(343, 20)
+        Me.FNHSysCmpIdOrg_None.Size = New System.Drawing.Size(400, 23)
         Me.FNHSysCmpIdOrg_None.TabIndex = 298
         Me.FNHSysCmpIdOrg_None.Tag = "2|"
         '
@@ -3170,34 +3162,34 @@ Partial Class wEmployee
         Me.LabelControl17.Appearance.Options.UseTextOptions = True
         Me.LabelControl17.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl17.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl17.Location = New System.Drawing.Point(13, 75)
-        Me.LabelControl17.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl17.Location = New System.Drawing.Point(15, 92)
+        Me.LabelControl17.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl17.Name = "LabelControl17"
-        Me.LabelControl17.Size = New System.Drawing.Size(125, 21)
+        Me.LabelControl17.Size = New System.Drawing.Size(146, 26)
         Me.LabelControl17.TabIndex = 297
         Me.LabelControl17.Tag = "2|"
         Me.LabelControl17.Text = "Company :"
         '
         'FNHSysCmpIdOrg
         '
-        Me.FNHSysCmpIdOrg.Location = New System.Drawing.Point(141, 76)
-        Me.FNHSysCmpIdOrg.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpIdOrg.Location = New System.Drawing.Point(164, 94)
+        Me.FNHSysCmpIdOrg.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysCmpIdOrg.Name = "FNHSysCmpIdOrg"
-        Me.FNHSysCmpIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "668", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCmpIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "668", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpIdOrg.Properties.Tag = "2|"
-        Me.FNHSysCmpIdOrg.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysCmpIdOrg.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysCmpIdOrg.TabIndex = 296
         Me.FNHSysCmpIdOrg.Tag = "2|"
         '
         'FNHSysCountryIdOrg_None
         '
-        Me.FNHSysCountryIdOrg_None.Location = New System.Drawing.Point(301, 52)
-        Me.FNHSysCountryIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCountryIdOrg_None.Location = New System.Drawing.Point(351, 64)
+        Me.FNHSysCountryIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysCountryIdOrg_None.Name = "FNHSysCountryIdOrg_None"
         Me.FNHSysCountryIdOrg_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCountryIdOrg_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCountryIdOrg_None.Properties.ReadOnly = True
-        Me.FNHSysCountryIdOrg_None.Size = New System.Drawing.Size(343, 20)
+        Me.FNHSysCountryIdOrg_None.Size = New System.Drawing.Size(400, 23)
         Me.FNHSysCountryIdOrg_None.TabIndex = 295
         Me.FNHSysCountryIdOrg_None.Tag = "2|"
         '
@@ -3206,34 +3198,34 @@ Partial Class wEmployee
         Me.LabelControl12.Appearance.Options.UseTextOptions = True
         Me.LabelControl12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl12.Location = New System.Drawing.Point(13, 52)
-        Me.LabelControl12.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl12.Location = New System.Drawing.Point(15, 64)
+        Me.LabelControl12.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl12.Name = "LabelControl12"
-        Me.LabelControl12.Size = New System.Drawing.Size(125, 21)
+        Me.LabelControl12.Size = New System.Drawing.Size(146, 26)
         Me.LabelControl12.TabIndex = 294
         Me.LabelControl12.Tag = "2|"
         Me.LabelControl12.Text = "Country :"
         '
         'FNHSysCountryIdOrg
         '
-        Me.FNHSysCountryIdOrg.Location = New System.Drawing.Point(141, 54)
-        Me.FNHSysCountryIdOrg.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCountryIdOrg.Location = New System.Drawing.Point(164, 66)
+        Me.FNHSysCountryIdOrg.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysCountryIdOrg.Name = "FNHSysCountryIdOrg"
-        Me.FNHSysCountryIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "669", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCountryIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "669", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCountryIdOrg.Properties.Tag = "2|"
-        Me.FNHSysCountryIdOrg.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysCountryIdOrg.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysCountryIdOrg.TabIndex = 293
         Me.FNHSysCountryIdOrg.Tag = "2|"
         '
         'FNHSysCLevelIdOrg_None
         '
-        Me.FNHSysCLevelIdOrg_None.Location = New System.Drawing.Point(301, 28)
-        Me.FNHSysCLevelIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCLevelIdOrg_None.Location = New System.Drawing.Point(351, 34)
+        Me.FNHSysCLevelIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysCLevelIdOrg_None.Name = "FNHSysCLevelIdOrg_None"
         Me.FNHSysCLevelIdOrg_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCLevelIdOrg_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCLevelIdOrg_None.Properties.ReadOnly = True
-        Me.FNHSysCLevelIdOrg_None.Size = New System.Drawing.Size(343, 20)
+        Me.FNHSysCLevelIdOrg_None.Size = New System.Drawing.Size(400, 23)
         Me.FNHSysCLevelIdOrg_None.TabIndex = 292
         Me.FNHSysCLevelIdOrg_None.Tag = "2|"
         '
@@ -3242,34 +3234,34 @@ Partial Class wEmployee
         Me.LabelControl10.Appearance.Options.UseTextOptions = True
         Me.LabelControl10.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl10.Location = New System.Drawing.Point(10, 32)
-        Me.LabelControl10.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl10.Location = New System.Drawing.Point(12, 39)
+        Me.LabelControl10.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl10.Name = "LabelControl10"
-        Me.LabelControl10.Size = New System.Drawing.Size(125, 21)
+        Me.LabelControl10.Size = New System.Drawing.Size(146, 26)
         Me.LabelControl10.TabIndex = 291
         Me.LabelControl10.Tag = "2|"
         Me.LabelControl10.Text = "C Level :"
         '
         'FNHSysCLevelIdOrg
         '
-        Me.FNHSysCLevelIdOrg.Location = New System.Drawing.Point(141, 30)
-        Me.FNHSysCLevelIdOrg.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCLevelIdOrg.Location = New System.Drawing.Point(164, 37)
+        Me.FNHSysCLevelIdOrg.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysCLevelIdOrg.Name = "FNHSysCLevelIdOrg"
-        Me.FNHSysCLevelIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "652", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCLevelIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "652", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCLevelIdOrg.Properties.Tag = "2|"
-        Me.FNHSysCLevelIdOrg.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysCLevelIdOrg.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysCLevelIdOrg.TabIndex = 290
         Me.FNHSysCLevelIdOrg.Tag = "2|"
         '
         'FNHSysPositIdOrg_None
         '
-        Me.FNHSysPositIdOrg_None.Location = New System.Drawing.Point(301, 212)
-        Me.FNHSysPositIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPositIdOrg_None.Location = New System.Drawing.Point(351, 261)
+        Me.FNHSysPositIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysPositIdOrg_None.Name = "FNHSysPositIdOrg_None"
         Me.FNHSysPositIdOrg_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysPositIdOrg_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysPositIdOrg_None.Properties.ReadOnly = True
-        Me.FNHSysPositIdOrg_None.Size = New System.Drawing.Size(343, 20)
+        Me.FNHSysPositIdOrg_None.Size = New System.Drawing.Size(400, 23)
         Me.FNHSysPositIdOrg_None.TabIndex = 289
         Me.FNHSysPositIdOrg_None.Tag = "2|"
         '
@@ -3278,34 +3270,34 @@ Partial Class wEmployee
         Me.LabelControl21.Appearance.Options.UseTextOptions = True
         Me.LabelControl21.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl21.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl21.Location = New System.Drawing.Point(13, 212)
-        Me.LabelControl21.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl21.Location = New System.Drawing.Point(15, 261)
+        Me.LabelControl21.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl21.Name = "LabelControl21"
-        Me.LabelControl21.Size = New System.Drawing.Size(125, 21)
+        Me.LabelControl21.Size = New System.Drawing.Size(146, 26)
         Me.LabelControl21.TabIndex = 288
         Me.LabelControl21.Tag = "2|"
         Me.LabelControl21.Text = "Position :"
         '
         'FNHSysPositIdOrg
         '
-        Me.FNHSysPositIdOrg.Location = New System.Drawing.Point(141, 212)
-        Me.FNHSysPositIdOrg.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPositIdOrg.Location = New System.Drawing.Point(164, 261)
+        Me.FNHSysPositIdOrg.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysPositIdOrg.Name = "FNHSysPositIdOrg"
-        Me.FNHSysPositIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "639", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysPositIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "639", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysPositIdOrg.Properties.Tag = "2|"
-        Me.FNHSysPositIdOrg.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysPositIdOrg.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysPositIdOrg.TabIndex = 4
         Me.FNHSysPositIdOrg.Tag = "2|"
         '
         'FNHSysUnitSectIdOrg_None
         '
-        Me.FNHSysUnitSectIdOrg_None.Location = New System.Drawing.Point(301, 166)
-        Me.FNHSysUnitSectIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectIdOrg_None.Location = New System.Drawing.Point(351, 204)
+        Me.FNHSysUnitSectIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysUnitSectIdOrg_None.Name = "FNHSysUnitSectIdOrg_None"
         Me.FNHSysUnitSectIdOrg_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectIdOrg_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectIdOrg_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectIdOrg_None.Size = New System.Drawing.Size(343, 20)
+        Me.FNHSysUnitSectIdOrg_None.Size = New System.Drawing.Size(400, 23)
         Me.FNHSysUnitSectIdOrg_None.TabIndex = 286
         Me.FNHSysUnitSectIdOrg_None.Tag = "2|"
         '
@@ -3314,34 +3306,34 @@ Partial Class wEmployee
         Me.LabelControl23.Appearance.Options.UseTextOptions = True
         Me.LabelControl23.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl23.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl23.Location = New System.Drawing.Point(13, 166)
-        Me.LabelControl23.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl23.Location = New System.Drawing.Point(15, 204)
+        Me.LabelControl23.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl23.Name = "LabelControl23"
-        Me.LabelControl23.Size = New System.Drawing.Size(125, 21)
+        Me.LabelControl23.Size = New System.Drawing.Size(146, 26)
         Me.LabelControl23.TabIndex = 285
         Me.LabelControl23.Tag = "2|"
         Me.LabelControl23.Text = "Unit Sect :"
         '
         'FNHSysUnitSectIdOrg
         '
-        Me.FNHSysUnitSectIdOrg.Location = New System.Drawing.Point(141, 166)
-        Me.FNHSysUnitSectIdOrg.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectIdOrg.Location = New System.Drawing.Point(164, 204)
+        Me.FNHSysUnitSectIdOrg.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysUnitSectIdOrg.Name = "FNHSysUnitSectIdOrg"
-        Me.FNHSysUnitSectIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "641", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysUnitSectIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "641", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectIdOrg.Properties.Tag = "2|"
-        Me.FNHSysUnitSectIdOrg.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysUnitSectIdOrg.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysUnitSectIdOrg.TabIndex = 3
         Me.FNHSysUnitSectIdOrg.Tag = "2|"
         '
         'FNHSysSectIdOrg_None
         '
-        Me.FNHSysSectIdOrg_None.Location = New System.Drawing.Point(301, 143)
-        Me.FNHSysSectIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectIdOrg_None.Location = New System.Drawing.Point(351, 176)
+        Me.FNHSysSectIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysSectIdOrg_None.Name = "FNHSysSectIdOrg_None"
         Me.FNHSysSectIdOrg_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectIdOrg_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectIdOrg_None.Properties.ReadOnly = True
-        Me.FNHSysSectIdOrg_None.Size = New System.Drawing.Size(343, 20)
+        Me.FNHSysSectIdOrg_None.Size = New System.Drawing.Size(400, 23)
         Me.FNHSysSectIdOrg_None.TabIndex = 283
         Me.FNHSysSectIdOrg_None.Tag = "2|"
         '
@@ -3350,34 +3342,34 @@ Partial Class wEmployee
         Me.LabelControl31.Appearance.Options.UseTextOptions = True
         Me.LabelControl31.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl31.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl31.Location = New System.Drawing.Point(13, 141)
-        Me.LabelControl31.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl31.Location = New System.Drawing.Point(15, 174)
+        Me.LabelControl31.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl31.Name = "LabelControl31"
-        Me.LabelControl31.Size = New System.Drawing.Size(125, 21)
+        Me.LabelControl31.Size = New System.Drawing.Size(146, 26)
         Me.LabelControl31.TabIndex = 282
         Me.LabelControl31.Tag = "2|"
         Me.LabelControl31.Text = "Sect :"
         '
         'FNHSysSectIdOrg
         '
-        Me.FNHSysSectIdOrg.Location = New System.Drawing.Point(141, 143)
-        Me.FNHSysSectIdOrg.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectIdOrg.Location = New System.Drawing.Point(164, 176)
+        Me.FNHSysSectIdOrg.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysSectIdOrg.Name = "FNHSysSectIdOrg"
-        Me.FNHSysSectIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "640", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSectIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "640", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectIdOrg.Properties.Tag = "2|"
-        Me.FNHSysSectIdOrg.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysSectIdOrg.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysSectIdOrg.TabIndex = 2
         Me.FNHSysSectIdOrg.Tag = "2|"
         '
         'FNHSysDivisonIdOrg_None
         '
-        Me.FNHSysDivisonIdOrg_None.Location = New System.Drawing.Point(301, 98)
-        Me.FNHSysDivisonIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonIdOrg_None.Location = New System.Drawing.Point(351, 121)
+        Me.FNHSysDivisonIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysDivisonIdOrg_None.Name = "FNHSysDivisonIdOrg_None"
         Me.FNHSysDivisonIdOrg_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonIdOrg_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonIdOrg_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonIdOrg_None.Size = New System.Drawing.Size(343, 20)
+        Me.FNHSysDivisonIdOrg_None.Size = New System.Drawing.Size(400, 23)
         Me.FNHSysDivisonIdOrg_None.TabIndex = 280
         Me.FNHSysDivisonIdOrg_None.Tag = "2|"
         '
@@ -3386,34 +3378,34 @@ Partial Class wEmployee
         Me.LabelControl35.Appearance.Options.UseTextOptions = True
         Me.LabelControl35.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl35.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl35.Location = New System.Drawing.Point(13, 97)
-        Me.LabelControl35.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl35.Location = New System.Drawing.Point(15, 119)
+        Me.LabelControl35.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl35.Name = "LabelControl35"
-        Me.LabelControl35.Size = New System.Drawing.Size(125, 21)
+        Me.LabelControl35.Size = New System.Drawing.Size(146, 26)
         Me.LabelControl35.TabIndex = 279
         Me.LabelControl35.Tag = "2|"
         Me.LabelControl35.Text = "Devision :"
         '
         'FNHSysDivisonIdOrg
         '
-        Me.FNHSysDivisonIdOrg.Location = New System.Drawing.Point(141, 98)
-        Me.FNHSysDivisonIdOrg.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonIdOrg.Location = New System.Drawing.Point(164, 121)
+        Me.FNHSysDivisonIdOrg.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysDivisonIdOrg.Name = "FNHSysDivisonIdOrg"
-        Me.FNHSysDivisonIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "638", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDivisonIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "638", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonIdOrg.Properties.Tag = "2|"
-        Me.FNHSysDivisonIdOrg.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysDivisonIdOrg.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysDivisonIdOrg.TabIndex = 1
         Me.FNHSysDivisonIdOrg.Tag = "2|"
         '
         'FNHSysDeptIdOrg_None
         '
-        Me.FNHSysDeptIdOrg_None.Location = New System.Drawing.Point(301, 121)
-        Me.FNHSysDeptIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptIdOrg_None.Location = New System.Drawing.Point(351, 149)
+        Me.FNHSysDeptIdOrg_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysDeptIdOrg_None.Name = "FNHSysDeptIdOrg_None"
         Me.FNHSysDeptIdOrg_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptIdOrg_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptIdOrg_None.Properties.ReadOnly = True
-        Me.FNHSysDeptIdOrg_None.Size = New System.Drawing.Size(343, 20)
+        Me.FNHSysDeptIdOrg_None.Size = New System.Drawing.Size(400, 23)
         Me.FNHSysDeptIdOrg_None.TabIndex = 277
         Me.FNHSysDeptIdOrg_None.Tag = "2|"
         '
@@ -3422,22 +3414,22 @@ Partial Class wEmployee
         Me.LabelControl37.Appearance.Options.UseTextOptions = True
         Me.LabelControl37.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl37.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl37.Location = New System.Drawing.Point(13, 119)
-        Me.LabelControl37.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl37.Location = New System.Drawing.Point(15, 146)
+        Me.LabelControl37.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl37.Name = "LabelControl37"
-        Me.LabelControl37.Size = New System.Drawing.Size(125, 21)
+        Me.LabelControl37.Size = New System.Drawing.Size(146, 26)
         Me.LabelControl37.TabIndex = 276
         Me.LabelControl37.Tag = "2|"
         Me.LabelControl37.Text = "Department :"
         '
         'FNHSysDeptIdOrg
         '
-        Me.FNHSysDeptIdOrg.Location = New System.Drawing.Point(141, 121)
-        Me.FNHSysDeptIdOrg.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptIdOrg.Location = New System.Drawing.Point(164, 149)
+        Me.FNHSysDeptIdOrg.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysDeptIdOrg.Name = "FNHSysDeptIdOrg"
-        Me.FNHSysDeptIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "637", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDeptIdOrg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "637", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptIdOrg.Properties.Tag = "2|"
-        Me.FNHSysDeptIdOrg.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysDeptIdOrg.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysDeptIdOrg.TabIndex = 0
         Me.FNHSysDeptIdOrg.Tag = "2|"
         '
@@ -3481,23 +3473,23 @@ Partial Class wEmployee
         Me.ogborg.Controls.Add(Me.FNHSysDeptId)
         Me.ogborg.Dock = System.Windows.Forms.DockStyle.Left
         Me.ogborg.Location = New System.Drawing.Point(0, 0)
-        Me.ogborg.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogborg.MinimumSize = New System.Drawing.Size(542, 191)
+        Me.ogborg.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.ogborg.MinimumSize = New System.Drawing.Size(632, 235)
         Me.ogborg.Name = "ogborg"
-        Me.ogborg.Size = New System.Drawing.Size(677, 684)
+        Me.ogborg.Size = New System.Drawing.Size(790, 836)
         Me.ogborg.TabIndex = 2
         Me.ogborg.Text = "Organize"
         '
         'FTStateEnablon
         '
         Me.FTStateEnablon.EditValue = "0"
-        Me.FTStateEnablon.Location = New System.Drawing.Point(134, 334)
-        Me.FTStateEnablon.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateEnablon.Location = New System.Drawing.Point(156, 411)
+        Me.FTStateEnablon.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateEnablon.Name = "FTStateEnablon"
         Me.FTStateEnablon.Properties.Caption = "Enablon"
         Me.FTStateEnablon.Properties.ValueChecked = "1"
         Me.FTStateEnablon.Properties.ValueUnchecked = "0"
-        Me.FTStateEnablon.Size = New System.Drawing.Size(133, 20)
+        Me.FTStateEnablon.Size = New System.Drawing.Size(155, 20)
         Me.FTStateEnablon.TabIndex = 429
         Me.FTStateEnablon.Tag = "2|"
         '
@@ -3506,23 +3498,23 @@ Partial Class wEmployee
         Me.FNEnablonType_lbl.Appearance.Options.UseTextOptions = True
         Me.FNEnablonType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNEnablonType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNEnablonType_lbl.Location = New System.Drawing.Point(20, 358)
-        Me.FNEnablonType_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNEnablonType_lbl.Location = New System.Drawing.Point(23, 441)
+        Me.FNEnablonType_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNEnablonType_lbl.Name = "FNEnablonType_lbl"
-        Me.FNEnablonType_lbl.Size = New System.Drawing.Size(113, 25)
+        Me.FNEnablonType_lbl.Size = New System.Drawing.Size(132, 31)
         Me.FNEnablonType_lbl.TabIndex = 428
         Me.FNEnablonType_lbl.Tag = "2|"
         Me.FNEnablonType_lbl.Text = "Enablon :"
         '
         'FTAccountGroupName
         '
-        Me.FTAccountGroupName.Location = New System.Drawing.Point(295, 190)
-        Me.FTAccountGroupName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAccountGroupName.Location = New System.Drawing.Point(344, 234)
+        Me.FTAccountGroupName.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAccountGroupName.Name = "FTAccountGroupName"
         Me.FTAccountGroupName.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTAccountGroupName.Properties.Appearance.Options.UseBackColor = True
         Me.FTAccountGroupName.Properties.ReadOnly = True
-        Me.FTAccountGroupName.Size = New System.Drawing.Size(309, 20)
+        Me.FTAccountGroupName.Size = New System.Drawing.Size(360, 23)
         Me.FTAccountGroupName.TabIndex = 425
         Me.FTAccountGroupName.Tag = "2|"
         '
@@ -3530,8 +3522,8 @@ Partial Class wEmployee
         '
         Me.FNEnablonType.EditValue = ""
         Me.FNEnablonType.EnterMoveNextControl = True
-        Me.FNEnablonType.Location = New System.Drawing.Point(135, 362)
-        Me.FNEnablonType.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNEnablonType.Location = New System.Drawing.Point(157, 446)
+        Me.FNEnablonType.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNEnablonType.Name = "FNEnablonType"
         Me.FNEnablonType.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNEnablonType.Properties.Appearance.Options.UseBackColor = True
@@ -3550,7 +3542,7 @@ Partial Class wEmployee
         Me.FNEnablonType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNEnablonType.Properties.Tag = "FNEnablonType"
         Me.FNEnablonType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNEnablonType.Size = New System.Drawing.Size(154, 20)
+        Me.FNEnablonType.Size = New System.Drawing.Size(180, 23)
         Me.FNEnablonType.TabIndex = 427
         Me.FNEnablonType.Tag = "2|"
         '
@@ -3558,8 +3550,8 @@ Partial Class wEmployee
         '
         Me.FTAccountGroupCode.EditValue = ""
         Me.FTAccountGroupCode.EnterMoveNextControl = True
-        Me.FTAccountGroupCode.Location = New System.Drawing.Point(134, 190)
-        Me.FTAccountGroupCode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAccountGroupCode.Location = New System.Drawing.Point(156, 234)
+        Me.FTAccountGroupCode.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAccountGroupCode.Name = "FTAccountGroupCode"
         Me.FTAccountGroupCode.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTAccountGroupCode.Properties.Appearance.Options.UseBackColor = True
@@ -3579,7 +3571,7 @@ Partial Class wEmployee
         Me.FTAccountGroupCode.Properties.ReadOnly = True
         Me.FTAccountGroupCode.Properties.Tag = "FNJobLevel"
         Me.FTAccountGroupCode.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FTAccountGroupCode.Size = New System.Drawing.Size(155, 20)
+        Me.FTAccountGroupCode.Size = New System.Drawing.Size(181, 23)
         Me.FTAccountGroupCode.TabIndex = 424
         Me.FTAccountGroupCode.Tag = "2|"
         '
@@ -3587,13 +3579,13 @@ Partial Class wEmployee
         '
         Me.TextEdit2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextEdit2.Location = New System.Drawing.Point(135, 30)
-        Me.TextEdit2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TextEdit2.Location = New System.Drawing.Point(345, 37)
+        Me.TextEdit2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.TextEdit2.Name = "TextEdit2"
         Me.TextEdit2.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.TextEdit2.Properties.Appearance.Options.UseBackColor = True
         Me.TextEdit2.Properties.ReadOnly = True
-        Me.TextEdit2.Size = New System.Drawing.Size(513, 20)
+        Me.TextEdit2.Size = New System.Drawing.Size(358, 23)
         Me.TextEdit2.TabIndex = 423
         Me.TextEdit2.Tag = "2|"
         '
@@ -3601,25 +3593,25 @@ Partial Class wEmployee
         '
         Me.TextEdit1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextEdit1.Location = New System.Drawing.Point(134, 28)
-        Me.TextEdit1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TextEdit1.Location = New System.Drawing.Point(156, 37)
+        Me.TextEdit1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.TextEdit1.Name = "TextEdit1"
         Me.TextEdit1.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.TextEdit1.Properties.Appearance.Options.UseBackColor = True
         Me.TextEdit1.Properties.ReadOnly = True
-        Me.TextEdit1.Size = New System.Drawing.Size(170, 20)
+        Me.TextEdit1.Size = New System.Drawing.Size(181, 23)
         Me.TextEdit1.TabIndex = 300
         Me.TextEdit1.Tag = "2|"
         '
         'FTUserNameMngFac
         '
-        Me.FTUserNameMngFac.Location = New System.Drawing.Point(134, 308)
-        Me.FTUserNameMngFac.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTUserNameMngFac.Location = New System.Drawing.Point(156, 379)
+        Me.FTUserNameMngFac.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTUserNameMngFac.Name = "FTUserNameMngFac"
-        Me.FTUserNameMngFac.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "354", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTUserNameMngFac.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "354", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTUserNameMngFac.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTUserNameMngFac.Properties.Tag = ""
-        Me.FTUserNameMngFac.Size = New System.Drawing.Size(155, 20)
+        Me.FTUserNameMngFac.Size = New System.Drawing.Size(181, 23)
         Me.FTUserNameMngFac.TabIndex = 422
         Me.FTUserNameMngFac.Tag = "2|"
         '
@@ -3628,10 +3620,10 @@ Partial Class wEmployee
         Me.LabelControl19.Appearance.Options.UseTextOptions = True
         Me.LabelControl19.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl19.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl19.Location = New System.Drawing.Point(8, 27)
-        Me.LabelControl19.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl19.Location = New System.Drawing.Point(9, 36)
+        Me.LabelControl19.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl19.Name = "LabelControl19"
-        Me.LabelControl19.Size = New System.Drawing.Size(125, 21)
+        Me.LabelControl19.Size = New System.Drawing.Size(146, 26)
         Me.LabelControl19.TabIndex = 299
         Me.LabelControl19.Tag = "2|"
         Me.LabelControl19.Text = "C Level :"
@@ -3643,10 +3635,10 @@ Partial Class wEmployee
         Me.FTUserNameMngFac_lbl.Appearance.Options.UseTextOptions = True
         Me.FTUserNameMngFac_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTUserNameMngFac_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTUserNameMngFac_lbl.Location = New System.Drawing.Point(3, 306)
-        Me.FTUserNameMngFac_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTUserNameMngFac_lbl.Location = New System.Drawing.Point(3, 377)
+        Me.FTUserNameMngFac_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTUserNameMngFac_lbl.Name = "FTUserNameMngFac_lbl"
-        Me.FTUserNameMngFac_lbl.Size = New System.Drawing.Size(131, 22)
+        Me.FTUserNameMngFac_lbl.Size = New System.Drawing.Size(153, 27)
         Me.FTUserNameMngFac_lbl.TabIndex = 421
         Me.FTUserNameMngFac_lbl.Tag = "2|"
         Me.FTUserNameMngFac_lbl.Text = "FTUserNameMngFac :"
@@ -3658,23 +3650,23 @@ Partial Class wEmployee
         Me.FTUserNameChk_lbl.Appearance.Options.UseTextOptions = True
         Me.FTUserNameChk_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTUserNameChk_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTUserNameChk_lbl.Location = New System.Drawing.Point(3, 284)
-        Me.FTUserNameChk_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTUserNameChk_lbl.Location = New System.Drawing.Point(3, 350)
+        Me.FTUserNameChk_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTUserNameChk_lbl.Name = "FTUserNameChk_lbl"
-        Me.FTUserNameChk_lbl.Size = New System.Drawing.Size(131, 22)
+        Me.FTUserNameChk_lbl.Size = New System.Drawing.Size(153, 27)
         Me.FTUserNameChk_lbl.TabIndex = 421
         Me.FTUserNameChk_lbl.Tag = "2|"
         Me.FTUserNameChk_lbl.Text = "FTUserNameChk :"
         '
         'FTUserNameChk
         '
-        Me.FTUserNameChk.Location = New System.Drawing.Point(134, 287)
-        Me.FTUserNameChk.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTUserNameChk.Location = New System.Drawing.Point(156, 353)
+        Me.FTUserNameChk.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTUserNameChk.Name = "FTUserNameChk"
-        Me.FTUserNameChk.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", "353", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTUserNameChk.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "353", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTUserNameChk.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTUserNameChk.Properties.Tag = ""
-        Me.FTUserNameChk.Size = New System.Drawing.Size(155, 20)
+        Me.FTUserNameChk.Size = New System.Drawing.Size(181, 23)
         Me.FTUserNameChk.TabIndex = 420
         Me.FTUserNameChk.Tag = "2|"
         '
@@ -3683,10 +3675,10 @@ Partial Class wEmployee
         Me.FNHSysEmpIDLeader_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysEmpIDLeader_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysEmpIDLeader_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysEmpIDLeader_lbl.Location = New System.Drawing.Point(6, 310)
-        Me.FNHSysEmpIDLeader_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpIDLeader_lbl.Location = New System.Drawing.Point(7, 382)
+        Me.FNHSysEmpIDLeader_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysEmpIDLeader_lbl.Name = "FNHSysEmpIDLeader_lbl"
-        Me.FNHSysEmpIDLeader_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysEmpIDLeader_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNHSysEmpIDLeader_lbl.TabIndex = 295
         Me.FNHSysEmpIDLeader_lbl.Tag = "2|"
         Me.FNHSysEmpIDLeader_lbl.Text = "Leader :"
@@ -3694,61 +3686,61 @@ Partial Class wEmployee
         '
         'FNHSysEmpIDLeader_None
         '
-        Me.FNHSysEmpIDLeader_None.Location = New System.Drawing.Point(294, 310)
-        Me.FNHSysEmpIDLeader_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpIDLeader_None.Location = New System.Drawing.Point(343, 382)
+        Me.FNHSysEmpIDLeader_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysEmpIDLeader_None.Name = "FNHSysEmpIDLeader_None"
         Me.FNHSysEmpIDLeader_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpIDLeader_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpIDLeader_None.Properties.ReadOnly = True
-        Me.FNHSysEmpIDLeader_None.Size = New System.Drawing.Size(309, 20)
+        Me.FNHSysEmpIDLeader_None.Size = New System.Drawing.Size(360, 23)
         Me.FNHSysEmpIDLeader_None.TabIndex = 294
         Me.FNHSysEmpIDLeader_None.Tag = "2|"
         Me.FNHSysEmpIDLeader_None.Visible = False
         '
         'FNHSysEmpIDLeader
         '
-        Me.FNHSysEmpIDLeader.Location = New System.Drawing.Point(134, 310)
-        Me.FNHSysEmpIDLeader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpIDLeader.Location = New System.Drawing.Point(156, 382)
+        Me.FNHSysEmpIDLeader.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysEmpIDLeader.Name = "FNHSysEmpIDLeader"
-        Me.FNHSysEmpIDLeader.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", "77", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FNHSysEmpIDLeader.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysEmpIDLeader.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", "77", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysEmpIDLeader.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysEmpIDLeader.TabIndex = 6
         Me.FNHSysEmpIDLeader.Tag = "2|"
         Me.FNHSysEmpIDLeader.Visible = False
         '
         'FTUserNameMngFac_None
         '
-        Me.FTUserNameMngFac_None.Location = New System.Drawing.Point(294, 310)
-        Me.FTUserNameMngFac_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTUserNameMngFac_None.Location = New System.Drawing.Point(343, 382)
+        Me.FTUserNameMngFac_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTUserNameMngFac_None.Name = "FTUserNameMngFac_None"
         Me.FTUserNameMngFac_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTUserNameMngFac_None.Properties.Appearance.Options.UseBackColor = True
         Me.FTUserNameMngFac_None.Properties.ReadOnly = True
-        Me.FTUserNameMngFac_None.Size = New System.Drawing.Size(123, 20)
+        Me.FTUserNameMngFac_None.Size = New System.Drawing.Size(143, 23)
         Me.FTUserNameMngFac_None.TabIndex = 291
         Me.FTUserNameMngFac_None.Tag = "2|"
         '
         'FTUserNameChk_None
         '
-        Me.FTUserNameChk_None.Location = New System.Drawing.Point(294, 287)
-        Me.FTUserNameChk_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTUserNameChk_None.Location = New System.Drawing.Point(343, 353)
+        Me.FTUserNameChk_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTUserNameChk_None.Name = "FTUserNameChk_None"
         Me.FTUserNameChk_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTUserNameChk_None.Properties.Appearance.Options.UseBackColor = True
         Me.FTUserNameChk_None.Properties.ReadOnly = True
-        Me.FTUserNameChk_None.Size = New System.Drawing.Size(309, 20)
+        Me.FTUserNameChk_None.Size = New System.Drawing.Size(360, 23)
         Me.FTUserNameChk_None.TabIndex = 291
         Me.FTUserNameChk_None.Tag = "2|"
         '
         'FNHSysPositId_None
         '
-        Me.FNHSysPositId_None.Location = New System.Drawing.Point(296, 214)
-        Me.FNHSysPositId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPositId_None.Location = New System.Drawing.Point(345, 263)
+        Me.FNHSysPositId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysPositId_None.Name = "FNHSysPositId_None"
         Me.FNHSysPositId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysPositId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysPositId_None.Properties.ReadOnly = True
-        Me.FNHSysPositId_None.Size = New System.Drawing.Size(308, 20)
+        Me.FNHSysPositId_None.Size = New System.Drawing.Size(359, 23)
         Me.FNHSysPositId_None.TabIndex = 289
         Me.FNHSysPositId_None.Tag = "2|"
         '
@@ -3757,34 +3749,34 @@ Partial Class wEmployee
         Me.FNHSysPositId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysPositId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysPositId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysPositId_lbl.Location = New System.Drawing.Point(8, 211)
-        Me.FNHSysPositId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPositId_lbl.Location = New System.Drawing.Point(9, 260)
+        Me.FNHSysPositId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysPositId_lbl.Name = "FNHSysPositId_lbl"
-        Me.FNHSysPositId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysPositId_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNHSysPositId_lbl.TabIndex = 288
         Me.FNHSysPositId_lbl.Tag = "2|"
         Me.FNHSysPositId_lbl.Text = "Position :"
         '
         'FNHSysPositId
         '
-        Me.FNHSysPositId.Location = New System.Drawing.Point(134, 214)
-        Me.FNHSysPositId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPositId.Location = New System.Drawing.Point(156, 263)
+        Me.FNHSysPositId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysPositId.Name = "FNHSysPositId"
-        Me.FNHSysPositId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", "50", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysPositId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", "50", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysPositId.Properties.Tag = "50"
-        Me.FNHSysPositId.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysPositId.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysPositId.TabIndex = 4
         Me.FNHSysPositId.Tag = "2|"
         '
         'FNHSysUnitSectId_None
         '
-        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(296, 167)
-        Me.FNHSysUnitSectId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(345, 206)
+        Me.FNHSysUnitSectId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysUnitSectId_None.Name = "FNHSysUnitSectId_None"
         Me.FNHSysUnitSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(308, 20)
+        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(359, 23)
         Me.FNHSysUnitSectId_None.TabIndex = 286
         Me.FNHSysUnitSectId_None.Tag = "2|"
         '
@@ -3793,22 +3785,22 @@ Partial Class wEmployee
         Me.FNHSysUnitSectId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysUnitSectId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysUnitSectId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysUnitSectId_lbl.Location = New System.Drawing.Point(8, 166)
-        Me.FNHSysUnitSectId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectId_lbl.Location = New System.Drawing.Point(9, 204)
+        Me.FNHSysUnitSectId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysUnitSectId_lbl.Name = "FNHSysUnitSectId_lbl"
-        Me.FNHSysUnitSectId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysUnitSectId_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNHSysUnitSectId_lbl.TabIndex = 285
         Me.FNHSysUnitSectId_lbl.Tag = "2|"
         Me.FNHSysUnitSectId_lbl.Text = "Unit Sect :"
         '
         'FNHSysUnitSectId
         '
-        Me.FNHSysUnitSectId.Location = New System.Drawing.Point(134, 167)
-        Me.FNHSysUnitSectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectId.Location = New System.Drawing.Point(156, 206)
+        Me.FNHSysUnitSectId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
-        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions17, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject65, SerializableAppearanceObject66, SerializableAppearanceObject67, SerializableAppearanceObject68, "", "57", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", "57", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.Tag = "57"
-        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysUnitSectId.TabIndex = 3
         Me.FNHSysUnitSectId.Tag = "2|"
         '
@@ -3817,10 +3809,10 @@ Partial Class wEmployee
         Me.FNJobRole_lbl.Appearance.Options.UseTextOptions = True
         Me.FNJobRole_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNJobRole_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNJobRole_lbl.Location = New System.Drawing.Point(21, 261)
-        Me.FNJobRole_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNJobRole_lbl.Location = New System.Drawing.Point(24, 321)
+        Me.FNJobRole_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNJobRole_lbl.Name = "FNJobRole_lbl"
-        Me.FNJobRole_lbl.Size = New System.Drawing.Size(112, 15)
+        Me.FNJobRole_lbl.Size = New System.Drawing.Size(131, 18)
         Me.FNJobRole_lbl.TabIndex = 293
         Me.FNJobRole_lbl.Tag = "2|"
         Me.FNJobRole_lbl.Text = "FNJobRole :"
@@ -3830,23 +3822,23 @@ Partial Class wEmployee
         Me.FNJobLevel_lbl.Appearance.Options.UseTextOptions = True
         Me.FNJobLevel_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNJobLevel_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNJobLevel_lbl.Location = New System.Drawing.Point(21, 236)
-        Me.FNJobLevel_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNJobLevel_lbl.Location = New System.Drawing.Point(24, 290)
+        Me.FNJobLevel_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNJobLevel_lbl.Name = "FNJobLevel_lbl"
-        Me.FNJobLevel_lbl.Size = New System.Drawing.Size(112, 15)
+        Me.FNJobLevel_lbl.Size = New System.Drawing.Size(131, 18)
         Me.FNJobLevel_lbl.TabIndex = 293
         Me.FNJobLevel_lbl.Tag = "2|"
         Me.FNJobLevel_lbl.Text = "FNJobLevel :"
         '
         'FNHSysSectId_None
         '
-        Me.FNHSysSectId_None.Location = New System.Drawing.Point(296, 145)
-        Me.FNHSysSectId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectId_None.Location = New System.Drawing.Point(345, 178)
+        Me.FNHSysSectId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysSectId_None.Name = "FNHSysSectId_None"
         Me.FNHSysSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectId_None.Properties.ReadOnly = True
-        Me.FNHSysSectId_None.Size = New System.Drawing.Size(308, 20)
+        Me.FNHSysSectId_None.Size = New System.Drawing.Size(359, 23)
         Me.FNHSysSectId_None.TabIndex = 283
         Me.FNHSysSectId_None.Tag = "2|"
         '
@@ -3854,8 +3846,8 @@ Partial Class wEmployee
         '
         Me.FNJobRole.EditValue = ""
         Me.FNJobRole.EnterMoveNextControl = True
-        Me.FNJobRole.Location = New System.Drawing.Point(134, 259)
-        Me.FNJobRole.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNJobRole.Location = New System.Drawing.Point(156, 319)
+        Me.FNJobRole.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNJobRole.Name = "FNJobRole"
         Me.FNJobRole.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNJobRole.Properties.Appearance.Options.UseBackColor = True
@@ -3875,7 +3867,7 @@ Partial Class wEmployee
         Me.FNJobRole.Properties.ReadOnly = True
         Me.FNJobRole.Properties.Tag = "FNJobRole"
         Me.FNJobRole.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNJobRole.Size = New System.Drawing.Size(155, 20)
+        Me.FNJobRole.Size = New System.Drawing.Size(181, 23)
         Me.FNJobRole.TabIndex = 2
         Me.FNJobRole.Tag = "2|"
         '
@@ -3883,8 +3875,8 @@ Partial Class wEmployee
         '
         Me.FNJobLevel.EditValue = ""
         Me.FNJobLevel.EnterMoveNextControl = True
-        Me.FNJobLevel.Location = New System.Drawing.Point(134, 237)
-        Me.FNJobLevel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNJobLevel.Location = New System.Drawing.Point(156, 292)
+        Me.FNJobLevel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNJobLevel.Name = "FNJobLevel"
         Me.FNJobLevel.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNJobLevel.Properties.Appearance.Options.UseBackColor = True
@@ -3904,7 +3896,7 @@ Partial Class wEmployee
         Me.FNJobLevel.Properties.ReadOnly = True
         Me.FNJobLevel.Properties.Tag = "FNJobLevel"
         Me.FNJobLevel.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNJobLevel.Size = New System.Drawing.Size(155, 20)
+        Me.FNJobLevel.Size = New System.Drawing.Size(181, 23)
         Me.FNJobLevel.TabIndex = 2
         Me.FNJobLevel.Tag = "2|"
         '
@@ -3913,34 +3905,34 @@ Partial Class wEmployee
         Me.FNHSysSectId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysSectId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysSectId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysSectId_lbl.Location = New System.Drawing.Point(8, 143)
-        Me.FNHSysSectId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectId_lbl.Location = New System.Drawing.Point(9, 176)
+        Me.FNHSysSectId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysSectId_lbl.Name = "FNHSysSectId_lbl"
-        Me.FNHSysSectId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysSectId_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNHSysSectId_lbl.TabIndex = 282
         Me.FNHSysSectId_lbl.Tag = "2|"
         Me.FNHSysSectId_lbl.Text = "Sect :"
         '
         'FNHSysSectId
         '
-        Me.FNHSysSectId.Location = New System.Drawing.Point(134, 145)
-        Me.FNHSysSectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectId.Location = New System.Drawing.Point(156, 178)
+        Me.FNHSysSectId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysSectId.Name = "FNHSysSectId"
-        Me.FNHSysSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions18, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject69, SerializableAppearanceObject70, SerializableAppearanceObject71, SerializableAppearanceObject72, "", "55", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions17, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject65, SerializableAppearanceObject66, SerializableAppearanceObject67, SerializableAppearanceObject68, "", "55", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectId.Properties.Tag = "55"
-        Me.FNHSysSectId.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysSectId.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysSectId.TabIndex = 2
         Me.FNHSysSectId.Tag = "2|"
         '
         'FNHSysDivisonId_None
         '
-        Me.FNHSysDivisonId_None.Location = New System.Drawing.Point(296, 97)
-        Me.FNHSysDivisonId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonId_None.Location = New System.Drawing.Point(345, 119)
+        Me.FNHSysDivisonId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysDivisonId_None.Name = "FNHSysDivisonId_None"
         Me.FNHSysDivisonId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonId_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonId_None.Size = New System.Drawing.Size(0, 20)
+        Me.FNHSysDivisonId_None.Size = New System.Drawing.Size(0, 23)
         Me.FNHSysDivisonId_None.TabIndex = 280
         Me.FNHSysDivisonId_None.Tag = "2|"
         '
@@ -3949,34 +3941,34 @@ Partial Class wEmployee
         Me.FNHSysDivisonId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysDivisonId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysDivisonId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysDivisonId_lbl.Location = New System.Drawing.Point(8, 97)
-        Me.FNHSysDivisonId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonId_lbl.Location = New System.Drawing.Point(9, 119)
+        Me.FNHSysDivisonId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysDivisonId_lbl.Name = "FNHSysDivisonId_lbl"
-        Me.FNHSysDivisonId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysDivisonId_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNHSysDivisonId_lbl.TabIndex = 279
         Me.FNHSysDivisonId_lbl.Tag = "2|"
         Me.FNHSysDivisonId_lbl.Text = "Devision :"
         '
         'FNHSysDivisonId
         '
-        Me.FNHSysDivisonId.Location = New System.Drawing.Point(134, 98)
-        Me.FNHSysDivisonId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonId.Location = New System.Drawing.Point(156, 121)
+        Me.FNHSysDivisonId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysDivisonId.Name = "FNHSysDivisonId"
-        Me.FNHSysDivisonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions19, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject73, SerializableAppearanceObject74, SerializableAppearanceObject75, SerializableAppearanceObject76, "", "46", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDivisonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions18, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject69, SerializableAppearanceObject70, SerializableAppearanceObject71, SerializableAppearanceObject72, "", "46", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonId.Properties.Tag = "46"
-        Me.FNHSysDivisonId.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysDivisonId.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysDivisonId.TabIndex = 1
         Me.FNHSysDivisonId.Tag = "2|"
         '
         'FNHSysDeptId_None
         '
-        Me.FNHSysDeptId_None.Location = New System.Drawing.Point(296, 121)
-        Me.FNHSysDeptId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptId_None.Location = New System.Drawing.Point(345, 149)
+        Me.FNHSysDeptId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysDeptId_None.Name = "FNHSysDeptId_None"
         Me.FNHSysDeptId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptId_None.Properties.ReadOnly = True
-        Me.FNHSysDeptId_None.Size = New System.Drawing.Size(308, 20)
+        Me.FNHSysDeptId_None.Size = New System.Drawing.Size(359, 23)
         Me.FNHSysDeptId_None.TabIndex = 277
         Me.FNHSysDeptId_None.Tag = "2|"
         '
@@ -3985,22 +3977,22 @@ Partial Class wEmployee
         Me.FNHSysDeptId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysDeptId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysDeptId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysDeptId_lbl.Location = New System.Drawing.Point(8, 119)
-        Me.FNHSysDeptId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptId_lbl.Location = New System.Drawing.Point(9, 146)
+        Me.FNHSysDeptId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysDeptId_lbl.Name = "FNHSysDeptId_lbl"
-        Me.FNHSysDeptId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysDeptId_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNHSysDeptId_lbl.TabIndex = 276
         Me.FNHSysDeptId_lbl.Tag = "2|"
         Me.FNHSysDeptId_lbl.Text = "Department :"
         '
         'FNHSysDeptId
         '
-        Me.FNHSysDeptId.Location = New System.Drawing.Point(134, 121)
-        Me.FNHSysDeptId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptId.Location = New System.Drawing.Point(156, 149)
+        Me.FNHSysDeptId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysDeptId.Name = "FNHSysDeptId"
-        Me.FNHSysDeptId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions20, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject77, SerializableAppearanceObject78, SerializableAppearanceObject79, SerializableAppearanceObject80, "", "23", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDeptId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions19, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject73, SerializableAppearanceObject74, SerializableAppearanceObject75, SerializableAppearanceObject76, "", "23", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptId.Properties.Tag = "23"
-        Me.FNHSysDeptId.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysDeptId.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysDeptId.TabIndex = 0
         Me.FNHSysDeptId.Tag = "2|"
         '
@@ -4010,16 +4002,16 @@ Partial Class wEmployee
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.XtraScrollableControl1.Controls.Add(Me.opntabwork)
-        Me.XtraScrollableControl1.Location = New System.Drawing.Point(3, 0)
-        Me.XtraScrollableControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.XtraScrollableControl1.Location = New System.Drawing.Point(10, 0)
+        Me.XtraScrollableControl1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(10396, 5077)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(36787, 18901)
         Me.XtraScrollableControl1.TabIndex = 5
         '
         'opntabwork
         '
-        Me.opntabwork.Location = New System.Drawing.Point(15, 6)
-        Me.opntabwork.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.opntabwork.Location = New System.Drawing.Point(6, 2)
+        Me.opntabwork.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.opntabwork.Name = "opntabwork"
         Me.opntabwork.Size = New System.Drawing.Size(2, 2)
         Me.opntabwork.TabIndex = 6
@@ -4029,9 +4021,9 @@ Partial Class wEmployee
         '
         Me.otpemp.Controls.Add(Me.GroupControl31)
         Me.otpemp.Controls.Add(Me.GroupControl5)
-        Me.otpemp.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otpemp.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otpemp.Name = "otpemp"
-        Me.otpemp.Size = New System.Drawing.Size(1405, 709)
+        Me.otpemp.Size = New System.Drawing.Size(1639, 872)
         Me.otpemp.Text = "ส่วนตัว"
         '
         'GroupControl31
@@ -4039,12 +4031,11 @@ Partial Class wEmployee
         Me.GroupControl31.Controls.Add(Me.ogbadd1)
         Me.GroupControl31.Controls.Add(Me.ogbadd2)
         Me.GroupControl31.Controls.Add(Me.ogbpay)
-        Me.GroupControl31.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupControl31.Location = New System.Drawing.Point(647, 0)
-        Me.GroupControl31.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl31.Location = New System.Drawing.Point(786, 1)
+        Me.GroupControl31.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl31.Name = "GroupControl31"
         Me.GroupControl31.ShowCaption = False
-        Me.GroupControl31.Size = New System.Drawing.Size(758, 709)
+        Me.GroupControl31.Size = New System.Drawing.Size(850, 866)
         Me.GroupControl31.TabIndex = 2
         Me.GroupControl31.Text = "การจ่ายเงิน"
         '
@@ -4072,19 +4063,19 @@ Partial Class wEmployee
         Me.ogbadd1.Controls.Add(Me.FTAddrMoo_lbl)
         Me.ogbadd1.Controls.Add(Me.FTAddrNo)
         Me.ogbadd1.Controls.Add(Me.FTAddrNo_lbl)
-        Me.ogbadd1.Location = New System.Drawing.Point(9, 119)
-        Me.ogbadd1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbadd1.Location = New System.Drawing.Point(2, 139)
+        Me.ogbadd1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbadd1.Name = "ogbadd1"
-        Me.ogbadd1.Size = New System.Drawing.Size(1210, 186)
+        Me.ogbadd1.Size = New System.Drawing.Size(1379, 229)
         Me.ogbadd1.TabIndex = 369
         Me.ogbadd1.Text = "ที่อยู่ตามทะเบียนบ้าน"
         '
         'FTAddrTel
         '
-        Me.FTAddrTel.Location = New System.Drawing.Point(87, 96)
-        Me.FTAddrTel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrTel.Location = New System.Drawing.Point(101, 118)
+        Me.FTAddrTel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrTel.Name = "FTAddrTel"
-        Me.FTAddrTel.Size = New System.Drawing.Size(93, 20)
+        Me.FTAddrTel.Size = New System.Drawing.Size(108, 23)
         Me.FTAddrTel.TabIndex = 9
         Me.FTAddrTel.Tag = "2|"
         '
@@ -4093,20 +4084,20 @@ Partial Class wEmployee
         Me.FTAddrTel_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrTel_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrTel_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrTel_lbl.Location = New System.Drawing.Point(9, 93)
-        Me.FTAddrTel_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrTel_lbl.Location = New System.Drawing.Point(10, 114)
+        Me.FTAddrTel_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrTel_lbl.Name = "FTAddrTel_lbl"
-        Me.FTAddrTel_lbl.Size = New System.Drawing.Size(73, 25)
+        Me.FTAddrTel_lbl.Size = New System.Drawing.Size(85, 31)
         Me.FTAddrTel_lbl.TabIndex = 365
         Me.FTAddrTel_lbl.Tag = "2|"
         Me.FTAddrTel_lbl.Text = "โทรศัพท์ :"
         '
         'FTAddrPostCode
         '
-        Me.FTAddrPostCode.Location = New System.Drawing.Point(462, 72)
-        Me.FTAddrPostCode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrPostCode.Location = New System.Drawing.Point(539, 89)
+        Me.FTAddrPostCode.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrPostCode.Name = "FTAddrPostCode"
-        Me.FTAddrPostCode.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrPostCode.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrPostCode.TabIndex = 8
         Me.FTAddrPostCode.Tag = "2|"
         '
@@ -4115,20 +4106,20 @@ Partial Class wEmployee
         Me.FTAddrPostCode_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrPostCode_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrPostCode_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrPostCode_lbl.Location = New System.Drawing.Point(375, 68)
-        Me.FTAddrPostCode_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrPostCode_lbl.Location = New System.Drawing.Point(437, 84)
+        Me.FTAddrPostCode_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrPostCode_lbl.Name = "FTAddrPostCode_lbl"
-        Me.FTAddrPostCode_lbl.Size = New System.Drawing.Size(84, 25)
+        Me.FTAddrPostCode_lbl.Size = New System.Drawing.Size(98, 31)
         Me.FTAddrPostCode_lbl.TabIndex = 363
         Me.FTAddrPostCode_lbl.Tag = "2|"
         Me.FTAddrPostCode_lbl.Text = "รหัสไปรษณีย์ :"
         '
         'FTAddrProvince
         '
-        Me.FTAddrProvince.Location = New System.Drawing.Point(247, 72)
-        Me.FTAddrProvince.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrProvince.Location = New System.Drawing.Point(288, 89)
+        Me.FTAddrProvince.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrProvince.Name = "FTAddrProvince"
-        Me.FTAddrProvince.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrProvince.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrProvince.TabIndex = 7
         Me.FTAddrProvince.Tag = "2|"
         '
@@ -4137,20 +4128,20 @@ Partial Class wEmployee
         Me.FTAddrProvince_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrProvince_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrProvince_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrProvince_lbl.Location = New System.Drawing.Point(189, 68)
-        Me.FTAddrProvince_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrProvince_lbl.Location = New System.Drawing.Point(220, 84)
+        Me.FTAddrProvince_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrProvince_lbl.Name = "FTAddrProvince_lbl"
-        Me.FTAddrProvince_lbl.Size = New System.Drawing.Size(55, 25)
+        Me.FTAddrProvince_lbl.Size = New System.Drawing.Size(64, 31)
         Me.FTAddrProvince_lbl.TabIndex = 361
         Me.FTAddrProvince_lbl.Tag = "2|"
         Me.FTAddrProvince_lbl.Text = "จังหวัด :"
         '
         'FTAddrTumbol
         '
-        Me.FTAddrTumbol.Location = New System.Drawing.Point(463, 49)
-        Me.FTAddrTumbol.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrTumbol.Location = New System.Drawing.Point(540, 60)
+        Me.FTAddrTumbol.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrTumbol.Name = "FTAddrTumbol"
-        Me.FTAddrTumbol.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrTumbol.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrTumbol.TabIndex = 5
         Me.FTAddrTumbol.Tag = "2|"
         '
@@ -4159,20 +4150,20 @@ Partial Class wEmployee
         Me.FTAddrTumbol_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrTumbol_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrTumbol_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrTumbol_lbl.Location = New System.Drawing.Point(375, 46)
-        Me.FTAddrTumbol_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrTumbol_lbl.Location = New System.Drawing.Point(437, 57)
+        Me.FTAddrTumbol_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrTumbol_lbl.Name = "FTAddrTumbol_lbl"
-        Me.FTAddrTumbol_lbl.Size = New System.Drawing.Size(84, 25)
+        Me.FTAddrTumbol_lbl.Size = New System.Drawing.Size(98, 31)
         Me.FTAddrTumbol_lbl.TabIndex = 359
         Me.FTAddrTumbol_lbl.Tag = "2|"
         Me.FTAddrTumbol_lbl.Text = "แขวง :"
         '
         'FTAddrAmphur
         '
-        Me.FTAddrAmphur.Location = New System.Drawing.Point(74, 72)
-        Me.FTAddrAmphur.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrAmphur.Location = New System.Drawing.Point(86, 89)
+        Me.FTAddrAmphur.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrAmphur.Name = "FTAddrAmphur"
-        Me.FTAddrAmphur.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrAmphur.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrAmphur.TabIndex = 6
         Me.FTAddrAmphur.Tag = "2|"
         '
@@ -4181,20 +4172,20 @@ Partial Class wEmployee
         Me.FTAddrAmphur_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrAmphur_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrAmphur_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrAmphur_lbl.Location = New System.Drawing.Point(5, 68)
-        Me.FTAddrAmphur_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrAmphur_lbl.Location = New System.Drawing.Point(6, 84)
+        Me.FTAddrAmphur_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrAmphur_lbl.Name = "FTAddrAmphur_lbl"
-        Me.FTAddrAmphur_lbl.Size = New System.Drawing.Size(63, 25)
+        Me.FTAddrAmphur_lbl.Size = New System.Drawing.Size(73, 31)
         Me.FTAddrAmphur_lbl.TabIndex = 357
         Me.FTAddrAmphur_lbl.Tag = "2|"
         Me.FTAddrAmphur_lbl.Text = "เขต :"
         '
         'FTAddrRoad
         '
-        Me.FTAddrRoad.Location = New System.Drawing.Point(247, 49)
-        Me.FTAddrRoad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrRoad.Location = New System.Drawing.Point(288, 60)
+        Me.FTAddrRoad.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrRoad.Name = "FTAddrRoad"
-        Me.FTAddrRoad.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrRoad.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrRoad.TabIndex = 4
         Me.FTAddrRoad.Tag = "2|"
         '
@@ -4203,20 +4194,20 @@ Partial Class wEmployee
         Me.FTAddrRoad_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrRoad_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrRoad_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrRoad_lbl.Location = New System.Drawing.Point(181, 46)
-        Me.FTAddrRoad_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrRoad_lbl.Location = New System.Drawing.Point(211, 57)
+        Me.FTAddrRoad_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrRoad_lbl.Name = "FTAddrRoad_lbl"
-        Me.FTAddrRoad_lbl.Size = New System.Drawing.Size(63, 25)
+        Me.FTAddrRoad_lbl.Size = New System.Drawing.Size(73, 31)
         Me.FTAddrRoad_lbl.TabIndex = 355
         Me.FTAddrRoad_lbl.Tag = "2|"
         Me.FTAddrRoad_lbl.Text = "ถนน :"
         '
         'FTAddrSoi
         '
-        Me.FTAddrSoi.Location = New System.Drawing.Point(74, 49)
-        Me.FTAddrSoi.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrSoi.Location = New System.Drawing.Point(86, 60)
+        Me.FTAddrSoi.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrSoi.Name = "FTAddrSoi"
-        Me.FTAddrSoi.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrSoi.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrSoi.TabIndex = 3
         Me.FTAddrSoi.Tag = "2|"
         '
@@ -4225,20 +4216,20 @@ Partial Class wEmployee
         Me.FTAddrSoi_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrSoi_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrSoi_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrSoi_lbl.Location = New System.Drawing.Point(16, 46)
-        Me.FTAddrSoi_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrSoi_lbl.Location = New System.Drawing.Point(19, 57)
+        Me.FTAddrSoi_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrSoi_lbl.Name = "FTAddrSoi_lbl"
-        Me.FTAddrSoi_lbl.Size = New System.Drawing.Size(52, 25)
+        Me.FTAddrSoi_lbl.Size = New System.Drawing.Size(61, 31)
         Me.FTAddrSoi_lbl.TabIndex = 353
         Me.FTAddrSoi_lbl.Tag = "2|"
         Me.FTAddrSoi_lbl.Text = "ซอย :"
         '
         'FTAddrHome
         '
-        Me.FTAddrHome.Location = New System.Drawing.Point(462, 26)
-        Me.FTAddrHome.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrHome.Location = New System.Drawing.Point(539, 32)
+        Me.FTAddrHome.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrHome.Name = "FTAddrHome"
-        Me.FTAddrHome.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrHome.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrHome.TabIndex = 2
         Me.FTAddrHome.Tag = "2|"
         '
@@ -4247,20 +4238,20 @@ Partial Class wEmployee
         Me.FTAddrHome_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrHome_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrHome_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrHome_lbl.Location = New System.Drawing.Point(402, 21)
-        Me.FTAddrHome_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrHome_lbl.Location = New System.Drawing.Point(469, 26)
+        Me.FTAddrHome_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrHome_lbl.Name = "FTAddrHome_lbl"
-        Me.FTAddrHome_lbl.Size = New System.Drawing.Size(57, 25)
+        Me.FTAddrHome_lbl.Size = New System.Drawing.Size(66, 31)
         Me.FTAddrHome_lbl.TabIndex = 351
         Me.FTAddrHome_lbl.Tag = "2|"
         Me.FTAddrHome_lbl.Text = "หมู่บ้าน :"
         '
         'FTAddrMoo
         '
-        Me.FTAddrMoo.Location = New System.Drawing.Point(247, 26)
-        Me.FTAddrMoo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrMoo.Location = New System.Drawing.Point(288, 32)
+        Me.FTAddrMoo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrMoo.Name = "FTAddrMoo"
-        Me.FTAddrMoo.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrMoo.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrMoo.TabIndex = 1
         Me.FTAddrMoo.Tag = "2|"
         '
@@ -4269,20 +4260,20 @@ Partial Class wEmployee
         Me.FTAddrMoo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrMoo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrMoo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrMoo_lbl.Location = New System.Drawing.Point(182, 23)
-        Me.FTAddrMoo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrMoo_lbl.Location = New System.Drawing.Point(212, 28)
+        Me.FTAddrMoo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrMoo_lbl.Name = "FTAddrMoo_lbl"
-        Me.FTAddrMoo_lbl.Size = New System.Drawing.Size(62, 25)
+        Me.FTAddrMoo_lbl.Size = New System.Drawing.Size(72, 31)
         Me.FTAddrMoo_lbl.TabIndex = 349
         Me.FTAddrMoo_lbl.Tag = "2|"
         Me.FTAddrMoo_lbl.Text = "หมู่ที่ :"
         '
         'FTAddrNo
         '
-        Me.FTAddrNo.Location = New System.Drawing.Point(74, 26)
-        Me.FTAddrNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrNo.Location = New System.Drawing.Point(86, 32)
+        Me.FTAddrNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrNo.Name = "FTAddrNo"
-        Me.FTAddrNo.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrNo.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrNo.TabIndex = 0
         Me.FTAddrNo.Tag = "2|"
         '
@@ -4291,10 +4282,10 @@ Partial Class wEmployee
         Me.FTAddrNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrNo_lbl.Location = New System.Drawing.Point(4, 23)
-        Me.FTAddrNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrNo_lbl.Location = New System.Drawing.Point(5, 28)
+        Me.FTAddrNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrNo_lbl.Name = "FTAddrNo_lbl"
-        Me.FTAddrNo_lbl.Size = New System.Drawing.Size(64, 25)
+        Me.FTAddrNo_lbl.Size = New System.Drawing.Size(75, 31)
         Me.FTAddrNo_lbl.TabIndex = 347
         Me.FTAddrNo_lbl.Tag = "2|"
         Me.FTAddrNo_lbl.Text = "เลขที่ :"
@@ -4323,19 +4314,19 @@ Partial Class wEmployee
         Me.ogbadd2.Controls.Add(Me.FTAddrMoo1_lbl)
         Me.ogbadd2.Controls.Add(Me.FTAddrNo1)
         Me.ogbadd2.Controls.Add(Me.FTAddrNo1_lbl)
-        Me.ogbadd2.Location = New System.Drawing.Point(12, 309)
-        Me.ogbadd2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbadd2.Location = New System.Drawing.Point(2, 369)
+        Me.ogbadd2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbadd2.Name = "ogbadd2"
-        Me.ogbadd2.Size = New System.Drawing.Size(1210, 132)
+        Me.ogbadd2.Size = New System.Drawing.Size(1379, 162)
         Me.ogbadd2.TabIndex = 368
         Me.ogbadd2.Text = "ที่อยู่ปัจจุบัน"
         '
         'FTAddrTel1
         '
-        Me.FTAddrTel1.Location = New System.Drawing.Point(86, 99)
-        Me.FTAddrTel1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrTel1.Location = New System.Drawing.Point(100, 122)
+        Me.FTAddrTel1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrTel1.Name = "FTAddrTel1"
-        Me.FTAddrTel1.Size = New System.Drawing.Size(93, 20)
+        Me.FTAddrTel1.Size = New System.Drawing.Size(108, 23)
         Me.FTAddrTel1.TabIndex = 9
         Me.FTAddrTel1.Tag = "2|"
         '
@@ -4344,20 +4335,20 @@ Partial Class wEmployee
         Me.FTAddrTel1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrTel1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrTel1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrTel1_lbl.Location = New System.Drawing.Point(15, 96)
-        Me.FTAddrTel1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrTel1_lbl.Location = New System.Drawing.Point(17, 118)
+        Me.FTAddrTel1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrTel1_lbl.Name = "FTAddrTel1_lbl"
-        Me.FTAddrTel1_lbl.Size = New System.Drawing.Size(66, 25)
+        Me.FTAddrTel1_lbl.Size = New System.Drawing.Size(77, 31)
         Me.FTAddrTel1_lbl.TabIndex = 365
         Me.FTAddrTel1_lbl.Tag = "2|"
         Me.FTAddrTel1_lbl.Text = "โทรศัพท์ :"
         '
         'FTAddrPostCode1
         '
-        Me.FTAddrPostCode1.Location = New System.Drawing.Point(461, 72)
-        Me.FTAddrPostCode1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrPostCode1.Location = New System.Drawing.Point(538, 89)
+        Me.FTAddrPostCode1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrPostCode1.Name = "FTAddrPostCode1"
-        Me.FTAddrPostCode1.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrPostCode1.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrPostCode1.TabIndex = 8
         Me.FTAddrPostCode1.Tag = "2|"
         '
@@ -4366,20 +4357,20 @@ Partial Class wEmployee
         Me.FTAddrPostCode1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrPostCode1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrPostCode1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrPostCode1_lbl.Location = New System.Drawing.Point(379, 69)
-        Me.FTAddrPostCode1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrPostCode1_lbl.Location = New System.Drawing.Point(442, 85)
+        Me.FTAddrPostCode1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrPostCode1_lbl.Name = "FTAddrPostCode1_lbl"
-        Me.FTAddrPostCode1_lbl.Size = New System.Drawing.Size(80, 25)
+        Me.FTAddrPostCode1_lbl.Size = New System.Drawing.Size(93, 31)
         Me.FTAddrPostCode1_lbl.TabIndex = 363
         Me.FTAddrPostCode1_lbl.Tag = "2|"
         Me.FTAddrPostCode1_lbl.Text = "รหัสไปรษณีย์ :"
         '
         'FTAddrProvince1
         '
-        Me.FTAddrProvince1.Location = New System.Drawing.Point(244, 72)
-        Me.FTAddrProvince1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrProvince1.Location = New System.Drawing.Point(285, 89)
+        Me.FTAddrProvince1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrProvince1.Name = "FTAddrProvince1"
-        Me.FTAddrProvince1.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrProvince1.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrProvince1.TabIndex = 7
         Me.FTAddrProvince1.Tag = "2|"
         '
@@ -4388,20 +4379,20 @@ Partial Class wEmployee
         Me.FTAddrProvince1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrProvince1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrProvince1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrProvince1_lbl.Location = New System.Drawing.Point(195, 69)
-        Me.FTAddrProvince1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrProvince1_lbl.Location = New System.Drawing.Point(227, 85)
+        Me.FTAddrProvince1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrProvince1_lbl.Name = "FTAddrProvince1_lbl"
-        Me.FTAddrProvince1_lbl.Size = New System.Drawing.Size(47, 25)
+        Me.FTAddrProvince1_lbl.Size = New System.Drawing.Size(55, 31)
         Me.FTAddrProvince1_lbl.TabIndex = 361
         Me.FTAddrProvince1_lbl.Tag = "2|"
         Me.FTAddrProvince1_lbl.Text = "จังหวัด :"
         '
         'FTAddrTumbol1
         '
-        Me.FTAddrTumbol1.Location = New System.Drawing.Point(461, 49)
-        Me.FTAddrTumbol1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrTumbol1.Location = New System.Drawing.Point(538, 60)
+        Me.FTAddrTumbol1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrTumbol1.Name = "FTAddrTumbol1"
-        Me.FTAddrTumbol1.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrTumbol1.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrTumbol1.TabIndex = 5
         Me.FTAddrTumbol1.Tag = "2|"
         '
@@ -4410,20 +4401,20 @@ Partial Class wEmployee
         Me.FTAddrTumbol1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrTumbol1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrTumbol1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrTumbol1_lbl.Location = New System.Drawing.Point(375, 46)
-        Me.FTAddrTumbol1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrTumbol1_lbl.Location = New System.Drawing.Point(437, 57)
+        Me.FTAddrTumbol1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrTumbol1_lbl.Name = "FTAddrTumbol1_lbl"
-        Me.FTAddrTumbol1_lbl.Size = New System.Drawing.Size(84, 25)
+        Me.FTAddrTumbol1_lbl.Size = New System.Drawing.Size(98, 31)
         Me.FTAddrTumbol1_lbl.TabIndex = 359
         Me.FTAddrTumbol1_lbl.Tag = "2|"
         Me.FTAddrTumbol1_lbl.Text = "แขวง :"
         '
         'FTAddrAmphur1
         '
-        Me.FTAddrAmphur1.Location = New System.Drawing.Point(80, 72)
-        Me.FTAddrAmphur1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrAmphur1.Location = New System.Drawing.Point(93, 89)
+        Me.FTAddrAmphur1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrAmphur1.Name = "FTAddrAmphur1"
-        Me.FTAddrAmphur1.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrAmphur1.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrAmphur1.TabIndex = 6
         Me.FTAddrAmphur1.Tag = "2|"
         '
@@ -4432,20 +4423,20 @@ Partial Class wEmployee
         Me.FTAddrAmphur1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrAmphur1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrAmphur1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrAmphur1_lbl.Location = New System.Drawing.Point(3, 69)
-        Me.FTAddrAmphur1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrAmphur1_lbl.Location = New System.Drawing.Point(3, 85)
+        Me.FTAddrAmphur1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrAmphur1_lbl.Name = "FTAddrAmphur1_lbl"
-        Me.FTAddrAmphur1_lbl.Size = New System.Drawing.Size(69, 25)
+        Me.FTAddrAmphur1_lbl.Size = New System.Drawing.Size(80, 31)
         Me.FTAddrAmphur1_lbl.TabIndex = 357
         Me.FTAddrAmphur1_lbl.Tag = "2|"
         Me.FTAddrAmphur1_lbl.Text = "เขต :"
         '
         'FTAddrRoad1
         '
-        Me.FTAddrRoad1.Location = New System.Drawing.Point(244, 49)
-        Me.FTAddrRoad1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrRoad1.Location = New System.Drawing.Point(285, 60)
+        Me.FTAddrRoad1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrRoad1.Name = "FTAddrRoad1"
-        Me.FTAddrRoad1.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrRoad1.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrRoad1.TabIndex = 4
         Me.FTAddrRoad1.Tag = "2|"
         '
@@ -4454,20 +4445,20 @@ Partial Class wEmployee
         Me.FTAddrRoad1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrRoad1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrRoad1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrRoad1_lbl.Location = New System.Drawing.Point(204, 46)
-        Me.FTAddrRoad1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrRoad1_lbl.Location = New System.Drawing.Point(238, 57)
+        Me.FTAddrRoad1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrRoad1_lbl.Name = "FTAddrRoad1_lbl"
-        Me.FTAddrRoad1_lbl.Size = New System.Drawing.Size(39, 25)
+        Me.FTAddrRoad1_lbl.Size = New System.Drawing.Size(45, 31)
         Me.FTAddrRoad1_lbl.TabIndex = 355
         Me.FTAddrRoad1_lbl.Tag = "2|"
         Me.FTAddrRoad1_lbl.Text = "ถนน :"
         '
         'FTAddrSoi1
         '
-        Me.FTAddrSoi1.Location = New System.Drawing.Point(80, 49)
-        Me.FTAddrSoi1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrSoi1.Location = New System.Drawing.Point(93, 60)
+        Me.FTAddrSoi1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrSoi1.Name = "FTAddrSoi1"
-        Me.FTAddrSoi1.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrSoi1.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrSoi1.TabIndex = 3
         Me.FTAddrSoi1.Tag = "2|"
         '
@@ -4476,20 +4467,20 @@ Partial Class wEmployee
         Me.FTAddrSoi1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrSoi1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrSoi1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrSoi1_lbl.Location = New System.Drawing.Point(27, 46)
-        Me.FTAddrSoi1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrSoi1_lbl.Location = New System.Drawing.Point(31, 57)
+        Me.FTAddrSoi1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrSoi1_lbl.Name = "FTAddrSoi1_lbl"
-        Me.FTAddrSoi1_lbl.Size = New System.Drawing.Size(45, 25)
+        Me.FTAddrSoi1_lbl.Size = New System.Drawing.Size(52, 31)
         Me.FTAddrSoi1_lbl.TabIndex = 353
         Me.FTAddrSoi1_lbl.Tag = "2|"
         Me.FTAddrSoi1_lbl.Text = "ซอย :"
         '
         'FTAddrHome1
         '
-        Me.FTAddrHome1.Location = New System.Drawing.Point(461, 25)
-        Me.FTAddrHome1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrHome1.Location = New System.Drawing.Point(538, 31)
+        Me.FTAddrHome1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrHome1.Name = "FTAddrHome1"
-        Me.FTAddrHome1.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrHome1.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrHome1.TabIndex = 2
         Me.FTAddrHome1.Tag = "2|"
         '
@@ -4498,20 +4489,20 @@ Partial Class wEmployee
         Me.FTAddrHome1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrHome1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrHome1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrHome1_lbl.Location = New System.Drawing.Point(402, 22)
-        Me.FTAddrHome1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrHome1_lbl.Location = New System.Drawing.Point(469, 27)
+        Me.FTAddrHome1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrHome1_lbl.Name = "FTAddrHome1_lbl"
-        Me.FTAddrHome1_lbl.Size = New System.Drawing.Size(57, 25)
+        Me.FTAddrHome1_lbl.Size = New System.Drawing.Size(66, 31)
         Me.FTAddrHome1_lbl.TabIndex = 351
         Me.FTAddrHome1_lbl.Tag = "2|"
         Me.FTAddrHome1_lbl.Text = "หมู่บ้าน :"
         '
         'FTAddrMoo1
         '
-        Me.FTAddrMoo1.Location = New System.Drawing.Point(244, 27)
-        Me.FTAddrMoo1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrMoo1.Location = New System.Drawing.Point(285, 33)
+        Me.FTAddrMoo1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrMoo1.Name = "FTAddrMoo1"
-        Me.FTAddrMoo1.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrMoo1.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrMoo1.TabIndex = 1
         Me.FTAddrMoo1.Tag = "2|"
         '
@@ -4520,20 +4511,20 @@ Partial Class wEmployee
         Me.FTAddrMoo1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrMoo1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrMoo1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrMoo1_lbl.Location = New System.Drawing.Point(193, 22)
-        Me.FTAddrMoo1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrMoo1_lbl.Location = New System.Drawing.Point(225, 27)
+        Me.FTAddrMoo1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrMoo1_lbl.Name = "FTAddrMoo1_lbl"
-        Me.FTAddrMoo1_lbl.Size = New System.Drawing.Size(51, 25)
+        Me.FTAddrMoo1_lbl.Size = New System.Drawing.Size(59, 31)
         Me.FTAddrMoo1_lbl.TabIndex = 349
         Me.FTAddrMoo1_lbl.Tag = "2|"
         Me.FTAddrMoo1_lbl.Text = "หมู่ที่ :"
         '
         'FTAddrNo1
         '
-        Me.FTAddrNo1.Location = New System.Drawing.Point(80, 27)
-        Me.FTAddrNo1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrNo1.Location = New System.Drawing.Point(93, 33)
+        Me.FTAddrNo1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrNo1.Name = "FTAddrNo1"
-        Me.FTAddrNo1.Size = New System.Drawing.Size(78, 20)
+        Me.FTAddrNo1.Size = New System.Drawing.Size(91, 23)
         Me.FTAddrNo1.TabIndex = 0
         Me.FTAddrNo1.Tag = "2|"
         '
@@ -4542,10 +4533,10 @@ Partial Class wEmployee
         Me.FTAddrNo1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAddrNo1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAddrNo1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAddrNo1_lbl.Location = New System.Drawing.Point(15, 23)
-        Me.FTAddrNo1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAddrNo1_lbl.Location = New System.Drawing.Point(17, 28)
+        Me.FTAddrNo1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAddrNo1_lbl.Name = "FTAddrNo1_lbl"
-        Me.FTAddrNo1_lbl.Size = New System.Drawing.Size(58, 25)
+        Me.FTAddrNo1_lbl.Size = New System.Drawing.Size(68, 31)
         Me.FTAddrNo1_lbl.TabIndex = 347
         Me.FTAddrNo1_lbl.Tag = "2|"
         Me.FTAddrNo1_lbl.Text = "เลขที่ :"
@@ -4565,30 +4556,30 @@ Partial Class wEmployee
         Me.ogbpay.Controls.Add(Me.FNHSysBankId_None)
         Me.ogbpay.Controls.Add(Me.FNHSysBankId)
         Me.ogbpay.Controls.Add(Me.FNHSysBankId_lbl)
-        Me.ogbpay.Location = New System.Drawing.Point(4, 1)
-        Me.ogbpay.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbpay.Location = New System.Drawing.Point(2, 5)
+        Me.ogbpay.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbpay.Name = "ogbpay"
-        Me.ogbpay.Size = New System.Drawing.Size(1216, 110)
+        Me.ogbpay.Size = New System.Drawing.Size(1385, 135)
         Me.ogbpay.TabIndex = 1
         Me.ogbpay.Text = "การจ่ายเงิน"
         '
         'FTAccNo
         '
-        Me.FTAccNo.Location = New System.Drawing.Point(393, 27)
-        Me.FTAccNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAccNo.Location = New System.Drawing.Point(458, 33)
+        Me.FTAccNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAccNo.Name = "FTAccNo"
-        Me.FTAccNo.Size = New System.Drawing.Size(148, 20)
+        Me.FTAccNo.Size = New System.Drawing.Size(173, 23)
         Me.FTAccNo.TabIndex = 1
         Me.FTAccNo.Tag = "2|"
         '
         'FNHSysPayRollPayId
         '
-        Me.FNHSysPayRollPayId.Location = New System.Drawing.Point(87, 27)
-        Me.FNHSysPayRollPayId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPayRollPayId.Location = New System.Drawing.Point(101, 33)
+        Me.FNHSysPayRollPayId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysPayRollPayId.Name = "FNHSysPayRollPayId"
-        Me.FNHSysPayRollPayId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions21, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject81, SerializableAppearanceObject82, SerializableAppearanceObject83, SerializableAppearanceObject84, "", "49", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysPayRollPayId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions20, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject77, SerializableAppearanceObject78, SerializableAppearanceObject79, SerializableAppearanceObject80, "", "49", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysPayRollPayId.Properties.Tag = "49"
-        Me.FNHSysPayRollPayId.Size = New System.Drawing.Size(93, 20)
+        Me.FNHSysPayRollPayId.Size = New System.Drawing.Size(108, 23)
         Me.FNHSysPayRollPayId.TabIndex = 0
         Me.FNHSysPayRollPayId.Tag = "2|"
         '
@@ -4597,35 +4588,35 @@ Partial Class wEmployee
         Me.FNHSysPayRollPayId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysPayRollPayId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysPayRollPayId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysPayRollPayId_lbl.Location = New System.Drawing.Point(3, 25)
-        Me.FNHSysPayRollPayId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPayRollPayId_lbl.Location = New System.Drawing.Point(3, 31)
+        Me.FNHSysPayRollPayId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysPayRollPayId_lbl.Name = "FNHSysPayRollPayId_lbl"
-        Me.FNHSysPayRollPayId_lbl.Size = New System.Drawing.Size(83, 25)
+        Me.FNHSysPayRollPayId_lbl.Size = New System.Drawing.Size(97, 31)
         Me.FNHSysPayRollPayId_lbl.TabIndex = 346
         Me.FNHSysPayRollPayId_lbl.Tag = "2|"
         Me.FNHSysPayRollPayId_lbl.Text = "การจ่ายเงิน :"
         '
         'FNHSysBankBranchId_None
         '
-        Me.FNHSysBankBranchId_None.Location = New System.Drawing.Point(439, 47)
-        Me.FNHSysBankBranchId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBankBranchId_None.Location = New System.Drawing.Point(512, 58)
+        Me.FNHSysBankBranchId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysBankBranchId_None.Name = "FNHSysBankBranchId_None"
         Me.FNHSysBankBranchId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysBankBranchId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysBankBranchId_None.Properties.ReadOnly = True
-        Me.FNHSysBankBranchId_None.Size = New System.Drawing.Size(101, 20)
+        Me.FNHSysBankBranchId_None.Size = New System.Drawing.Size(118, 23)
         Me.FNHSysBankBranchId_None.TabIndex = 355
         Me.FNHSysBankBranchId_None.Tag = "2|"
         '
         'FNHSysPayRollPayId_None
         '
-        Me.FNHSysPayRollPayId_None.Location = New System.Drawing.Point(182, 27)
-        Me.FNHSysPayRollPayId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPayRollPayId_None.Location = New System.Drawing.Point(212, 33)
+        Me.FNHSysPayRollPayId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysPayRollPayId_None.Name = "FNHSysPayRollPayId_None"
         Me.FNHSysPayRollPayId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysPayRollPayId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysPayRollPayId_None.Properties.ReadOnly = True
-        Me.FNHSysPayRollPayId_None.Size = New System.Drawing.Size(105, 20)
+        Me.FNHSysPayRollPayId_None.Size = New System.Drawing.Size(122, 23)
         Me.FNHSysPayRollPayId_None.TabIndex = 347
         Me.FNHSysPayRollPayId_None.Tag = "2|"
         '
@@ -4634,10 +4625,10 @@ Partial Class wEmployee
         Me.FNHSysBankBranchId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysBankBranchId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysBankBranchId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysBankBranchId_lbl.Location = New System.Drawing.Point(295, 44)
-        Me.FNHSysBankBranchId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBankBranchId_lbl.Location = New System.Drawing.Point(344, 54)
+        Me.FNHSysBankBranchId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysBankBranchId_lbl.Name = "FNHSysBankBranchId_lbl"
-        Me.FNHSysBankBranchId_lbl.Size = New System.Drawing.Size(55, 25)
+        Me.FNHSysBankBranchId_lbl.Size = New System.Drawing.Size(64, 31)
         Me.FNHSysBankBranchId_lbl.TabIndex = 354
         Me.FNHSysBankBranchId_lbl.Tag = "2|"
         Me.FNHSysBankBranchId_lbl.Text = "สาขา :"
@@ -4647,45 +4638,45 @@ Partial Class wEmployee
         Me.FTAccNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAccNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAccNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAccNo_lbl.Location = New System.Drawing.Point(291, 24)
-        Me.FTAccNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAccNo_lbl.Location = New System.Drawing.Point(339, 30)
+        Me.FTAccNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAccNo_lbl.Name = "FTAccNo_lbl"
-        Me.FTAccNo_lbl.Size = New System.Drawing.Size(96, 23)
+        Me.FTAccNo_lbl.Size = New System.Drawing.Size(112, 28)
         Me.FTAccNo_lbl.TabIndex = 348
         Me.FTAccNo_lbl.Tag = "2|"
         Me.FTAccNo_lbl.Text = "หมายเลขบัญชี :"
         '
         'FNHSysBankBranchId
         '
-        Me.FNHSysBankBranchId.Location = New System.Drawing.Point(351, 47)
-        Me.FNHSysBankBranchId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBankBranchId.Location = New System.Drawing.Point(409, 58)
+        Me.FNHSysBankBranchId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysBankBranchId.Name = "FNHSysBankBranchId"
-        Me.FNHSysBankBranchId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions22, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject85, SerializableAppearanceObject86, SerializableAppearanceObject87, SerializableAppearanceObject88, "", "43", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysBankBranchId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions21, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject81, SerializableAppearanceObject82, SerializableAppearanceObject83, SerializableAppearanceObject84, "", "43", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBankBranchId.Properties.Tag = "43"
-        Me.FNHSysBankBranchId.Size = New System.Drawing.Size(85, 20)
+        Me.FNHSysBankBranchId.Size = New System.Drawing.Size(99, 23)
         Me.FNHSysBankBranchId.TabIndex = 3
         Me.FNHSysBankBranchId.Tag = "2|"
         '
         'FNHSysBankId_None
         '
-        Me.FNHSysBankId_None.Location = New System.Drawing.Point(182, 47)
-        Me.FNHSysBankId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBankId_None.Location = New System.Drawing.Point(212, 58)
+        Me.FNHSysBankId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysBankId_None.Name = "FNHSysBankId_None"
         Me.FNHSysBankId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysBankId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysBankId_None.Properties.ReadOnly = True
-        Me.FNHSysBankId_None.Size = New System.Drawing.Size(105, 20)
+        Me.FNHSysBankId_None.Size = New System.Drawing.Size(122, 23)
         Me.FNHSysBankId_None.TabIndex = 352
         Me.FNHSysBankId_None.Tag = "2|"
         '
         'FNHSysBankId
         '
-        Me.FNHSysBankId.Location = New System.Drawing.Point(87, 48)
-        Me.FNHSysBankId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBankId.Location = New System.Drawing.Point(101, 59)
+        Me.FNHSysBankId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysBankId.Name = "FNHSysBankId"
-        Me.FNHSysBankId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions23, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject89, SerializableAppearanceObject90, SerializableAppearanceObject91, SerializableAppearanceObject92, "", "1", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysBankId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions22, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject85, SerializableAppearanceObject86, SerializableAppearanceObject87, SerializableAppearanceObject88, "", "1", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBankId.Properties.Tag = "1"
-        Me.FNHSysBankId.Size = New System.Drawing.Size(93, 20)
+        Me.FNHSysBankId.Size = New System.Drawing.Size(108, 23)
         Me.FNHSysBankId.TabIndex = 2
         Me.FNHSysBankId.Tag = "2|"
         '
@@ -4694,10 +4685,10 @@ Partial Class wEmployee
         Me.FNHSysBankId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysBankId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysBankId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysBankId_lbl.Location = New System.Drawing.Point(8, 47)
-        Me.FNHSysBankId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBankId_lbl.Location = New System.Drawing.Point(9, 58)
+        Me.FNHSysBankId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysBankId_lbl.Name = "FNHSysBankId_lbl"
-        Me.FNHSysBankId_lbl.Size = New System.Drawing.Size(78, 25)
+        Me.FNHSysBankId_lbl.Size = New System.Drawing.Size(91, 31)
         Me.FNHSysBankId_lbl.TabIndex = 351
         Me.FNHSysBankId_lbl.Tag = "2|"
         Me.FNHSysBankId_lbl.Text = "ธนาคาร :"
@@ -4813,9 +4804,9 @@ Partial Class wEmployee
         Me.GroupControl5.FireScrollEventOnMouseWheel = True
         Me.GroupControl5.InvertTouchScroll = True
         Me.GroupControl5.Location = New System.Drawing.Point(0, 0)
-        Me.GroupControl5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl5.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl5.Name = "GroupControl5"
-        Me.GroupControl5.Size = New System.Drawing.Size(647, 709)
+        Me.GroupControl5.Size = New System.Drawing.Size(779, 872)
         Me.GroupControl5.TabIndex = 1
         Me.GroupControl5.Text = "ข้อมูส่วนตัว"
         '
@@ -4823,8 +4814,8 @@ Partial Class wEmployee
         '
         Me.FDDateMOUex.EditValue = Nothing
         Me.FDDateMOUex.EnterMoveNextControl = True
-        Me.FDDateMOUex.Location = New System.Drawing.Point(507, 445)
-        Me.FDDateMOUex.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateMOUex.Location = New System.Drawing.Point(591, 548)
+        Me.FDDateMOUex.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateMOUex.Name = "FDDateMOUex"
         Me.FDDateMOUex.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FDDateMOUex.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
@@ -4835,7 +4826,7 @@ Partial Class wEmployee
         Me.FDDateMOUex.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateMOUex.Properties.NullDate = ""
         Me.FDDateMOUex.Properties.ReadOnly = True
-        Me.FDDateMOUex.Size = New System.Drawing.Size(102, 20)
+        Me.FDDateMOUex.Size = New System.Drawing.Size(119, 23)
         Me.FDDateMOUex.TabIndex = 410
         Me.FDDateMOUex.Tag = "2|"
         '
@@ -4844,10 +4835,10 @@ Partial Class wEmployee
         Me.FDDateMOUex_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateMOUex_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateMOUex_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateMOUex_lbl.Location = New System.Drawing.Point(425, 442)
-        Me.FDDateMOUex_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateMOUex_lbl.Location = New System.Drawing.Point(496, 544)
+        Me.FDDateMOUex_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateMOUex_lbl.Name = "FDDateMOUex_lbl"
-        Me.FDDateMOUex_lbl.Size = New System.Drawing.Size(76, 25)
+        Me.FDDateMOUex_lbl.Size = New System.Drawing.Size(89, 31)
         Me.FDDateMOUex_lbl.TabIndex = 411
         Me.FDDateMOUex_lbl.Tag = "2|"
         Me.FDDateMOUex_lbl.Text = "วันที่หมดอายุ :"
@@ -4856,8 +4847,8 @@ Partial Class wEmployee
         '
         Me.FDDateMOU.EditValue = Nothing
         Me.FDDateMOU.EnterMoveNextControl = True
-        Me.FDDateMOU.Location = New System.Drawing.Point(327, 445)
-        Me.FDDateMOU.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateMOU.Location = New System.Drawing.Point(381, 548)
+        Me.FDDateMOU.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateMOU.Name = "FDDateMOU"
         Me.FDDateMOU.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateMOU.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -4869,7 +4860,7 @@ Partial Class wEmployee
         Me.FDDateMOU.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateMOU.Properties.NullDate = ""
         Me.FDDateMOU.Properties.ReadOnly = True
-        Me.FDDateMOU.Size = New System.Drawing.Size(93, 20)
+        Me.FDDateMOU.Size = New System.Drawing.Size(108, 23)
         Me.FDDateMOU.TabIndex = 408
         Me.FDDateMOU.Tag = "2|"
         '
@@ -4878,21 +4869,21 @@ Partial Class wEmployee
         Me.FDDateMOU_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateMOU_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateMOU_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateMOU_lbl.Location = New System.Drawing.Point(248, 440)
-        Me.FDDateMOU_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateMOU_lbl.Location = New System.Drawing.Point(289, 542)
+        Me.FDDateMOU_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateMOU_lbl.Name = "FDDateMOU_lbl"
-        Me.FDDateMOU_lbl.Size = New System.Drawing.Size(77, 25)
+        Me.FDDateMOU_lbl.Size = New System.Drawing.Size(90, 31)
         Me.FDDateMOU_lbl.TabIndex = 409
         Me.FDDateMOU_lbl.Tag = "2|"
         Me.FDDateMOU_lbl.Text = "วันที่ออก :"
         '
         'FTMOUDoccument
         '
-        Me.FTMOUDoccument.Location = New System.Drawing.Point(134, 444)
-        Me.FTMOUDoccument.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMOUDoccument.Location = New System.Drawing.Point(156, 546)
+        Me.FTMOUDoccument.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMOUDoccument.Name = "FTMOUDoccument"
         Me.FTMOUDoccument.Properties.ReadOnly = True
-        Me.FTMOUDoccument.Size = New System.Drawing.Size(109, 20)
+        Me.FTMOUDoccument.Size = New System.Drawing.Size(127, 23)
         Me.FTMOUDoccument.TabIndex = 406
         Me.FTMOUDoccument.Tag = "2|"
         '
@@ -4901,10 +4892,10 @@ Partial Class wEmployee
         Me.FTMOUDoccument_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMOUDoccument_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMOUDoccument_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMOUDoccument_lbl.Location = New System.Drawing.Point(-1, 441)
-        Me.FTMOUDoccument_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMOUDoccument_lbl.Location = New System.Drawing.Point(-1, 543)
+        Me.FTMOUDoccument_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMOUDoccument_lbl.Name = "FTMOUDoccument_lbl"
-        Me.FTMOUDoccument_lbl.Size = New System.Drawing.Size(135, 22)
+        Me.FTMOUDoccument_lbl.Size = New System.Drawing.Size(157, 27)
         Me.FTMOUDoccument_lbl.TabIndex = 407
         Me.FTMOUDoccument_lbl.Tag = "2|"
         Me.FTMOUDoccument_lbl.Text = "FTMOUDoccument :"
@@ -4913,8 +4904,8 @@ Partial Class wEmployee
         '
         Me.FDDateCalSocialSta.EditValue = Nothing
         Me.FDDateCalSocialSta.EnterMoveNextControl = True
-        Me.FDDateCalSocialSta.Location = New System.Drawing.Point(434, 467)
-        Me.FDDateCalSocialSta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateCalSocialSta.Location = New System.Drawing.Point(506, 575)
+        Me.FDDateCalSocialSta.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateCalSocialSta.Name = "FDDateCalSocialSta"
         Me.FDDateCalSocialSta.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateCalSocialSta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -4925,7 +4916,7 @@ Partial Class wEmployee
         Me.FDDateCalSocialSta.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateCalSocialSta.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateCalSocialSta.Properties.NullDate = ""
-        Me.FDDateCalSocialSta.Size = New System.Drawing.Size(175, 20)
+        Me.FDDateCalSocialSta.Size = New System.Drawing.Size(204, 23)
         Me.FDDateCalSocialSta.TabIndex = 404
         Me.FDDateCalSocialSta.Tag = "2|"
         '
@@ -4934,29 +4925,29 @@ Partial Class wEmployee
         Me.FDDateCalSocialSta_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateCalSocialSta_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateCalSocialSta_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateCalSocialSta_lbl.Location = New System.Drawing.Point(296, 465)
-        Me.FDDateCalSocialSta_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateCalSocialSta_lbl.Location = New System.Drawing.Point(345, 572)
+        Me.FDDateCalSocialSta_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateCalSocialSta_lbl.Name = "FDDateCalSocialSta_lbl"
-        Me.FDDateCalSocialSta_lbl.Size = New System.Drawing.Size(136, 25)
+        Me.FDDateCalSocialSta_lbl.Size = New System.Drawing.Size(159, 31)
         Me.FDDateCalSocialSta_lbl.TabIndex = 405
         Me.FDDateCalSocialSta_lbl.Tag = "2|"
         Me.FDDateCalSocialSta_lbl.Text = "วันที่คำนวณประกันสังคม :"
         '
         'FTAlienNo
         '
-        Me.FTAlienNo.Location = New System.Drawing.Point(135, 467)
-        Me.FTAlienNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAlienNo.Location = New System.Drawing.Point(157, 575)
+        Me.FTAlienNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAlienNo.Name = "FTAlienNo"
-        Me.FTAlienNo.Size = New System.Drawing.Size(155, 20)
+        Me.FTAlienNo.Size = New System.Drawing.Size(181, 23)
         Me.FTAlienNo.TabIndex = 402
         Me.FTAlienNo.Tag = "2|"
         '
         'FTDiesea
         '
-        Me.FTDiesea.Location = New System.Drawing.Point(433, 353)
-        Me.FTDiesea.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDiesea.Location = New System.Drawing.Point(505, 434)
+        Me.FTDiesea.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDiesea.Name = "FTDiesea"
-        Me.FTDiesea.Size = New System.Drawing.Size(176, 20)
+        Me.FTDiesea.Size = New System.Drawing.Size(205, 23)
         Me.FTDiesea.TabIndex = 32
         Me.FTDiesea.Tag = "2|"
         '
@@ -4965,10 +4956,10 @@ Partial Class wEmployee
         Me.FTDiesea_lbl.Appearance.Options.UseTextOptions = True
         Me.FTDiesea_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTDiesea_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTDiesea_lbl.Location = New System.Drawing.Point(323, 350)
-        Me.FTDiesea_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDiesea_lbl.Location = New System.Drawing.Point(377, 431)
+        Me.FTDiesea_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDiesea_lbl.Name = "FTDiesea_lbl"
-        Me.FTDiesea_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FTDiesea_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FTDiesea_lbl.TabIndex = 377
         Me.FTDiesea_lbl.Tag = "2|"
         Me.FTDiesea_lbl.Text = "โรคประจำตัว :"
@@ -4978,10 +4969,10 @@ Partial Class wEmployee
         Me.FTAlienNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTAlienNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTAlienNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTAlienNo_lbl.Location = New System.Drawing.Point(-1, 466)
-        Me.FTAlienNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTAlienNo_lbl.Location = New System.Drawing.Point(-1, 574)
+        Me.FTAlienNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTAlienNo_lbl.Name = "FTAlienNo_lbl"
-        Me.FTAlienNo_lbl.Size = New System.Drawing.Size(135, 22)
+        Me.FTAlienNo_lbl.Size = New System.Drawing.Size(157, 27)
         Me.FTAlienNo_lbl.TabIndex = 403
         Me.FTAlienNo_lbl.Tag = "2|"
         Me.FTAlienNo_lbl.Text = "หมายเลขประจำตัว :"
@@ -4990,8 +4981,8 @@ Partial Class wEmployee
         '
         Me.FDDateUntil.EditValue = Nothing
         Me.FDDateUntil.EnterMoveNextControl = True
-        Me.FDDateUntil.Location = New System.Drawing.Point(507, 422)
-        Me.FDDateUntil.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateUntil.Location = New System.Drawing.Point(591, 519)
+        Me.FDDateUntil.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateUntil.Name = "FDDateUntil"
         Me.FDDateUntil.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FDDateUntil.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
@@ -5002,16 +4993,16 @@ Partial Class wEmployee
         Me.FDDateUntil.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateUntil.Properties.NullDate = ""
         Me.FDDateUntil.Properties.ReadOnly = True
-        Me.FDDateUntil.Size = New System.Drawing.Size(102, 20)
+        Me.FDDateUntil.Size = New System.Drawing.Size(119, 23)
         Me.FDDateUntil.TabIndex = 400
         Me.FDDateUntil.Tag = "2|"
         '
         'FTHobby
         '
-        Me.FTHobby.Location = New System.Drawing.Point(134, 353)
-        Me.FTHobby.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTHobby.Location = New System.Drawing.Point(156, 434)
+        Me.FTHobby.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTHobby.Name = "FTHobby"
-        Me.FTHobby.Size = New System.Drawing.Size(156, 20)
+        Me.FTHobby.Size = New System.Drawing.Size(182, 23)
         Me.FTHobby.TabIndex = 31
         Me.FTHobby.Tag = "2|"
         '
@@ -5020,10 +5011,10 @@ Partial Class wEmployee
         Me.FDDateUntil_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateUntil_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateUntil_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateUntil_lbl.Location = New System.Drawing.Point(426, 419)
-        Me.FDDateUntil_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateUntil_lbl.Location = New System.Drawing.Point(497, 516)
+        Me.FDDateUntil_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateUntil_lbl.Name = "FDDateUntil_lbl"
-        Me.FDDateUntil_lbl.Size = New System.Drawing.Size(76, 25)
+        Me.FDDateUntil_lbl.Size = New System.Drawing.Size(89, 31)
         Me.FDDateUntil_lbl.TabIndex = 401
         Me.FDDateUntil_lbl.Tag = "2|"
         Me.FDDateUntil_lbl.Text = "วันที่หมดอายุ :"
@@ -5033,10 +5024,10 @@ Partial Class wEmployee
         Me.FTHobby_lbl.Appearance.Options.UseTextOptions = True
         Me.FTHobby_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTHobby_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTHobby_lbl.Location = New System.Drawing.Point(24, 350)
-        Me.FTHobby_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTHobby_lbl.Location = New System.Drawing.Point(28, 431)
+        Me.FTHobby_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTHobby_lbl.Name = "FTHobby_lbl"
-        Me.FTHobby_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FTHobby_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FTHobby_lbl.TabIndex = 375
         Me.FTHobby_lbl.Tag = "2|"
         Me.FTHobby_lbl.Text = "งานอดิเรก :"
@@ -5045,8 +5036,8 @@ Partial Class wEmployee
         '
         Me.FDDateValid.EditValue = Nothing
         Me.FDDateValid.EnterMoveNextControl = True
-        Me.FDDateValid.Location = New System.Drawing.Point(328, 422)
-        Me.FDDateValid.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateValid.Location = New System.Drawing.Point(383, 519)
+        Me.FDDateValid.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateValid.Name = "FDDateValid"
         Me.FDDateValid.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateValid.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -5058,7 +5049,7 @@ Partial Class wEmployee
         Me.FDDateValid.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateValid.Properties.NullDate = ""
         Me.FDDateValid.Properties.ReadOnly = True
-        Me.FDDateValid.Size = New System.Drawing.Size(93, 20)
+        Me.FDDateValid.Size = New System.Drawing.Size(108, 23)
         Me.FDDateValid.TabIndex = 398
         Me.FDDateValid.Tag = "2|"
         '
@@ -5067,21 +5058,21 @@ Partial Class wEmployee
         Me.FDDateValid_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateValid_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateValid_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateValid_lbl.Location = New System.Drawing.Point(248, 417)
-        Me.FDDateValid_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateValid_lbl.Location = New System.Drawing.Point(289, 513)
+        Me.FDDateValid_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateValid_lbl.Name = "FDDateValid_lbl"
-        Me.FDDateValid_lbl.Size = New System.Drawing.Size(78, 25)
+        Me.FDDateValid_lbl.Size = New System.Drawing.Size(91, 31)
         Me.FDDateValid_lbl.TabIndex = 399
         Me.FDDateValid_lbl.Tag = "2|"
         Me.FDDateValid_lbl.Text = "วันที่ออก :"
         '
         'FTWorkPermitNo
         '
-        Me.FTWorkPermitNo.Location = New System.Drawing.Point(135, 422)
-        Me.FTWorkPermitNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTWorkPermitNo.Location = New System.Drawing.Point(157, 519)
+        Me.FTWorkPermitNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTWorkPermitNo.Name = "FTWorkPermitNo"
         Me.FTWorkPermitNo.Properties.ReadOnly = True
-        Me.FTWorkPermitNo.Size = New System.Drawing.Size(108, 20)
+        Me.FTWorkPermitNo.Size = New System.Drawing.Size(126, 23)
         Me.FTWorkPermitNo.TabIndex = 396
         Me.FTWorkPermitNo.Tag = "2|"
         '
@@ -5090,10 +5081,10 @@ Partial Class wEmployee
         Me.FTWorkPermitNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTWorkPermitNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTWorkPermitNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTWorkPermitNo_lbl.Location = New System.Drawing.Point(0, 418)
-        Me.FTWorkPermitNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTWorkPermitNo_lbl.Location = New System.Drawing.Point(0, 514)
+        Me.FTWorkPermitNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTWorkPermitNo_lbl.Name = "FTWorkPermitNo_lbl"
-        Me.FTWorkPermitNo_lbl.Size = New System.Drawing.Size(135, 22)
+        Me.FTWorkPermitNo_lbl.Size = New System.Drawing.Size(157, 27)
         Me.FTWorkPermitNo_lbl.TabIndex = 397
         Me.FTWorkPermitNo_lbl.Tag = "2|"
         Me.FTWorkPermitNo_lbl.Text = "เลขที่ใบอนุญาติ :"
@@ -5102,8 +5093,8 @@ Partial Class wEmployee
         '
         Me.FDDateVisasExpiry.EditValue = Nothing
         Me.FDDateVisasExpiry.EnterMoveNextControl = True
-        Me.FDDateVisasExpiry.Location = New System.Drawing.Point(507, 398)
-        Me.FDDateVisasExpiry.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateVisasExpiry.Location = New System.Drawing.Point(591, 490)
+        Me.FDDateVisasExpiry.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateVisasExpiry.Name = "FDDateVisasExpiry"
         Me.FDDateVisasExpiry.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FDDateVisasExpiry.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
@@ -5114,7 +5105,7 @@ Partial Class wEmployee
         Me.FDDateVisasExpiry.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateVisasExpiry.Properties.NullDate = ""
         Me.FDDateVisasExpiry.Properties.ReadOnly = True
-        Me.FDDateVisasExpiry.Size = New System.Drawing.Size(104, 20)
+        Me.FDDateVisasExpiry.Size = New System.Drawing.Size(121, 23)
         Me.FDDateVisasExpiry.TabIndex = 394
         Me.FDDateVisasExpiry.Tag = "2|"
         '
@@ -5123,10 +5114,10 @@ Partial Class wEmployee
         Me.FDDateVisasExpiry_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateVisasExpiry_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateVisasExpiry_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateVisasExpiry_lbl.Location = New System.Drawing.Point(428, 396)
-        Me.FDDateVisasExpiry_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateVisasExpiry_lbl.Location = New System.Drawing.Point(499, 487)
+        Me.FDDateVisasExpiry_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateVisasExpiry_lbl.Name = "FDDateVisasExpiry_lbl"
-        Me.FDDateVisasExpiry_lbl.Size = New System.Drawing.Size(76, 25)
+        Me.FDDateVisasExpiry_lbl.Size = New System.Drawing.Size(89, 31)
         Me.FDDateVisasExpiry_lbl.TabIndex = 395
         Me.FDDateVisasExpiry_lbl.Tag = "2|"
         Me.FDDateVisasExpiry_lbl.Text = "วันที่หมดอายุ :"
@@ -5135,8 +5126,8 @@ Partial Class wEmployee
         '
         Me.FDDateVisas.EditValue = Nothing
         Me.FDDateVisas.EnterMoveNextControl = True
-        Me.FDDateVisas.Location = New System.Drawing.Point(329, 400)
-        Me.FDDateVisas.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateVisas.Location = New System.Drawing.Point(384, 492)
+        Me.FDDateVisas.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateVisas.Name = "FDDateVisas"
         Me.FDDateVisas.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateVisas.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -5148,7 +5139,7 @@ Partial Class wEmployee
         Me.FDDateVisas.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateVisas.Properties.NullDate = ""
         Me.FDDateVisas.Properties.ReadOnly = True
-        Me.FDDateVisas.Size = New System.Drawing.Size(93, 20)
+        Me.FDDateVisas.Size = New System.Drawing.Size(108, 23)
         Me.FDDateVisas.TabIndex = 392
         Me.FDDateVisas.Tag = "2|"
         '
@@ -5157,21 +5148,21 @@ Partial Class wEmployee
         Me.FDDateVisas_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateVisas_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateVisas_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateVisas_lbl.Location = New System.Drawing.Point(248, 395)
-        Me.FDDateVisas_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateVisas_lbl.Location = New System.Drawing.Point(289, 486)
+        Me.FDDateVisas_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateVisas_lbl.Name = "FDDateVisas_lbl"
-        Me.FDDateVisas_lbl.Size = New System.Drawing.Size(78, 25)
+        Me.FDDateVisas_lbl.Size = New System.Drawing.Size(91, 31)
         Me.FDDateVisas_lbl.TabIndex = 393
         Me.FDDateVisas_lbl.Tag = "2|"
         Me.FDDateVisas_lbl.Text = "วันที่ออก :"
         '
         'FTVisasNo
         '
-        Me.FTVisasNo.Location = New System.Drawing.Point(135, 398)
-        Me.FTVisasNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTVisasNo.Location = New System.Drawing.Point(157, 490)
+        Me.FTVisasNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTVisasNo.Name = "FTVisasNo"
         Me.FTVisasNo.Properties.ReadOnly = True
-        Me.FTVisasNo.Size = New System.Drawing.Size(107, 20)
+        Me.FTVisasNo.Size = New System.Drawing.Size(125, 23)
         Me.FTVisasNo.TabIndex = 390
         Me.FTVisasNo.Tag = "2|"
         '
@@ -5180,10 +5171,10 @@ Partial Class wEmployee
         Me.FTVisasNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTVisasNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTVisasNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTVisasNo_lbl.Location = New System.Drawing.Point(-2, 396)
-        Me.FTVisasNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTVisasNo_lbl.Location = New System.Drawing.Point(-2, 487)
+        Me.FTVisasNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTVisasNo_lbl.Name = "FTVisasNo_lbl"
-        Me.FTVisasNo_lbl.Size = New System.Drawing.Size(135, 22)
+        Me.FTVisasNo_lbl.Size = New System.Drawing.Size(157, 27)
         Me.FTVisasNo_lbl.TabIndex = 391
         Me.FTVisasNo_lbl.Tag = "2|"
         Me.FTVisasNo_lbl.Text = "เลขที่วีซ่า :"
@@ -5192,8 +5183,8 @@ Partial Class wEmployee
         '
         Me.FDDateofExpiry.EditValue = Nothing
         Me.FDDateofExpiry.EnterMoveNextControl = True
-        Me.FDDateofExpiry.Location = New System.Drawing.Point(507, 376)
-        Me.FDDateofExpiry.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofExpiry.Location = New System.Drawing.Point(591, 463)
+        Me.FDDateofExpiry.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofExpiry.Name = "FDDateofExpiry"
         Me.FDDateofExpiry.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateofExpiry.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -5205,7 +5196,7 @@ Partial Class wEmployee
         Me.FDDateofExpiry.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateofExpiry.Properties.NullDate = ""
         Me.FDDateofExpiry.Properties.ReadOnly = True
-        Me.FDDateofExpiry.Size = New System.Drawing.Size(104, 20)
+        Me.FDDateofExpiry.Size = New System.Drawing.Size(121, 23)
         Me.FDDateofExpiry.TabIndex = 388
         Me.FDDateofExpiry.Tag = "2|"
         '
@@ -5214,10 +5205,10 @@ Partial Class wEmployee
         Me.FDDateofExpiry_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateofExpiry_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateofExpiry_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateofExpiry_lbl.Location = New System.Drawing.Point(428, 373)
-        Me.FDDateofExpiry_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofExpiry_lbl.Location = New System.Drawing.Point(499, 459)
+        Me.FDDateofExpiry_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofExpiry_lbl.Name = "FDDateofExpiry_lbl"
-        Me.FDDateofExpiry_lbl.Size = New System.Drawing.Size(75, 25)
+        Me.FDDateofExpiry_lbl.Size = New System.Drawing.Size(87, 31)
         Me.FDDateofExpiry_lbl.TabIndex = 389
         Me.FDDateofExpiry_lbl.Tag = "2|"
         Me.FDDateofExpiry_lbl.Text = "วันที่หมดอายุ :"
@@ -5226,8 +5217,8 @@ Partial Class wEmployee
         '
         Me.FDDateofIssue.EditValue = Nothing
         Me.FDDateofIssue.EnterMoveNextControl = True
-        Me.FDDateofIssue.Location = New System.Drawing.Point(328, 376)
-        Me.FDDateofIssue.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofIssue.Location = New System.Drawing.Point(383, 463)
+        Me.FDDateofIssue.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofIssue.Name = "FDDateofIssue"
         Me.FDDateofIssue.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateofIssue.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -5239,7 +5230,7 @@ Partial Class wEmployee
         Me.FDDateofIssue.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateofIssue.Properties.NullDate = ""
         Me.FDDateofIssue.Properties.ReadOnly = True
-        Me.FDDateofIssue.Size = New System.Drawing.Size(94, 20)
+        Me.FDDateofIssue.Size = New System.Drawing.Size(110, 23)
         Me.FDDateofIssue.TabIndex = 386
         Me.FDDateofIssue.Tag = "2|"
         '
@@ -5248,21 +5239,21 @@ Partial Class wEmployee
         Me.FDDateofIssue_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateofIssue_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateofIssue_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateofIssue_lbl.Location = New System.Drawing.Point(248, 372)
-        Me.FDDateofIssue_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofIssue_lbl.Location = New System.Drawing.Point(289, 458)
+        Me.FDDateofIssue_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofIssue_lbl.Name = "FDDateofIssue_lbl"
-        Me.FDDateofIssue_lbl.Size = New System.Drawing.Size(76, 25)
+        Me.FDDateofIssue_lbl.Size = New System.Drawing.Size(89, 31)
         Me.FDDateofIssue_lbl.TabIndex = 387
         Me.FDDateofIssue_lbl.Tag = "2|"
         Me.FDDateofIssue_lbl.Text = "วันที่ออก :"
         '
         'FTPassPostNo
         '
-        Me.FTPassPostNo.Location = New System.Drawing.Point(134, 375)
-        Me.FTPassPostNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTPassPostNo.Location = New System.Drawing.Point(156, 462)
+        Me.FTPassPostNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTPassPostNo.Name = "FTPassPostNo"
         Me.FTPassPostNo.Properties.ReadOnly = True
-        Me.FTPassPostNo.Size = New System.Drawing.Size(109, 20)
+        Me.FTPassPostNo.Size = New System.Drawing.Size(127, 23)
         Me.FTPassPostNo.TabIndex = 384
         Me.FTPassPostNo.Tag = "2|"
         '
@@ -5271,10 +5262,10 @@ Partial Class wEmployee
         Me.FTPassPostNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTPassPostNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTPassPostNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTPassPostNo_lbl.Location = New System.Drawing.Point(-2, 374)
-        Me.FTPassPostNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTPassPostNo_lbl.Location = New System.Drawing.Point(-2, 460)
+        Me.FTPassPostNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTPassPostNo_lbl.Name = "FTPassPostNo_lbl"
-        Me.FTPassPostNo_lbl.Size = New System.Drawing.Size(135, 22)
+        Me.FTPassPostNo_lbl.Size = New System.Drawing.Size(157, 27)
         Me.FTPassPostNo_lbl.TabIndex = 385
         Me.FTPassPostNo_lbl.Tag = "2|"
         Me.FTPassPostNo_lbl.Text = "เลขที่พาสปอร์ต :"
@@ -5282,13 +5273,13 @@ Partial Class wEmployee
         'FTStateWorkpermit
         '
         Me.FTStateWorkpermit.EditValue = "0"
-        Me.FTStateWorkpermit.Location = New System.Drawing.Point(349, 263)
-        Me.FTStateWorkpermit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateWorkpermit.Location = New System.Drawing.Point(407, 324)
+        Me.FTStateWorkpermit.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateWorkpermit.Name = "FTStateWorkpermit"
         Me.FTStateWorkpermit.Properties.Caption = "มีใบอุญาตทำงานที่ต่างแดน"
         Me.FTStateWorkpermit.Properties.ValueChecked = "1"
         Me.FTStateWorkpermit.Properties.ValueUnchecked = "0"
-        Me.FTStateWorkpermit.Size = New System.Drawing.Size(261, 20)
+        Me.FTStateWorkpermit.Size = New System.Drawing.Size(304, 21)
         Me.FTStateWorkpermit.TabIndex = 383
         Me.FTStateWorkpermit.Tag = "2|"
         '
@@ -5296,8 +5287,8 @@ Partial Class wEmployee
         '
         Me.FNMotorCycleStatus.EditValue = ""
         Me.FNMotorCycleStatus.EnterMoveNextControl = True
-        Me.FNMotorCycleStatus.Location = New System.Drawing.Point(134, 331)
-        Me.FNMotorCycleStatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMotorCycleStatus.Location = New System.Drawing.Point(156, 407)
+        Me.FNMotorCycleStatus.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNMotorCycleStatus.Name = "FNMotorCycleStatus"
         Me.FNMotorCycleStatus.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNMotorCycleStatus.Properties.Appearance.Options.UseBackColor = True
@@ -5316,7 +5307,7 @@ Partial Class wEmployee
         Me.FNMotorCycleStatus.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNMotorCycleStatus.Properties.Tag = "FNState"
         Me.FNMotorCycleStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNMotorCycleStatus.Size = New System.Drawing.Size(90, 20)
+        Me.FNMotorCycleStatus.Size = New System.Drawing.Size(105, 23)
         Me.FNMotorCycleStatus.TabIndex = 28
         Me.FNMotorCycleStatus.Tag = "2|"
         '
@@ -5324,8 +5315,8 @@ Partial Class wEmployee
         '
         Me.FNCarStatus.EditValue = ""
         Me.FNCarStatus.EnterMoveNextControl = True
-        Me.FNCarStatus.Location = New System.Drawing.Point(134, 309)
-        Me.FNCarStatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNCarStatus.Location = New System.Drawing.Point(156, 380)
+        Me.FNCarStatus.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNCarStatus.Name = "FNCarStatus"
         Me.FNCarStatus.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNCarStatus.Properties.Appearance.Options.UseBackColor = True
@@ -5344,7 +5335,7 @@ Partial Class wEmployee
         Me.FNCarStatus.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNCarStatus.Properties.Tag = "FNState"
         Me.FNCarStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNCarStatus.Size = New System.Drawing.Size(90, 20)
+        Me.FNCarStatus.Size = New System.Drawing.Size(105, 23)
         Me.FNCarStatus.TabIndex = 25
         Me.FNCarStatus.Tag = "2|"
         '
@@ -5353,10 +5344,10 @@ Partial Class wEmployee
         Me.FTMotorCycleLicense_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMotorCycleLicense_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMotorCycleLicense_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMotorCycleLicense_lbl.Location = New System.Drawing.Point(407, 331)
-        Me.FTMotorCycleLicense_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotorCycleLicense_lbl.Location = New System.Drawing.Point(475, 407)
+        Me.FTMotorCycleLicense_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotorCycleLicense_lbl.Name = "FTMotorCycleLicense_lbl"
-        Me.FTMotorCycleLicense_lbl.Size = New System.Drawing.Size(112, 25)
+        Me.FTMotorCycleLicense_lbl.Size = New System.Drawing.Size(131, 31)
         Me.FTMotorCycleLicense_lbl.TabIndex = 374
         Me.FTMotorCycleLicense_lbl.Tag = "2|"
         Me.FTMotorCycleLicense_lbl.Text = "หมายเลขใบขับขี่ :"
@@ -5366,10 +5357,10 @@ Partial Class wEmployee
         Me.FTMotorCycleId_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMotorCycleId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMotorCycleId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMotorCycleId_lbl.Location = New System.Drawing.Point(209, 331)
-        Me.FTMotorCycleId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotorCycleId_lbl.Location = New System.Drawing.Point(244, 407)
+        Me.FTMotorCycleId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotorCycleId_lbl.Name = "FTMotorCycleId_lbl"
-        Me.FTMotorCycleId_lbl.Size = New System.Drawing.Size(117, 25)
+        Me.FTMotorCycleId_lbl.Size = New System.Drawing.Size(136, 31)
         Me.FTMotorCycleId_lbl.TabIndex = 373
         Me.FTMotorCycleId_lbl.Tag = "2|"
         Me.FTMotorCycleId_lbl.Text = "ทะเบียน :"
@@ -5379,29 +5370,29 @@ Partial Class wEmployee
         Me.FNMotorCycleStatus_lbl.Appearance.Options.UseTextOptions = True
         Me.FNMotorCycleStatus_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNMotorCycleStatus_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNMotorCycleStatus_lbl.Location = New System.Drawing.Point(26, 331)
-        Me.FNMotorCycleStatus_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMotorCycleStatus_lbl.Location = New System.Drawing.Point(30, 407)
+        Me.FNMotorCycleStatus_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNMotorCycleStatus_lbl.Name = "FNMotorCycleStatus_lbl"
-        Me.FNMotorCycleStatus_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FNMotorCycleStatus_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FNMotorCycleStatus_lbl.TabIndex = 372
         Me.FNMotorCycleStatus_lbl.Tag = "2|"
         Me.FNMotorCycleStatus_lbl.Text = "รถจักรยานยนต์ :"
         '
         'FTMotorCycleLicense
         '
-        Me.FTMotorCycleLicense.Location = New System.Drawing.Point(520, 333)
-        Me.FTMotorCycleLicense.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotorCycleLicense.Location = New System.Drawing.Point(607, 410)
+        Me.FTMotorCycleLicense.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotorCycleLicense.Name = "FTMotorCycleLicense"
-        Me.FTMotorCycleLicense.Size = New System.Drawing.Size(90, 20)
+        Me.FTMotorCycleLicense.Size = New System.Drawing.Size(105, 23)
         Me.FTMotorCycleLicense.TabIndex = 30
         Me.FTMotorCycleLicense.Tag = "2|"
         '
         'FTMotorCycleId
         '
-        Me.FTMotorCycleId.Location = New System.Drawing.Point(329, 331)
-        Me.FTMotorCycleId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotorCycleId.Location = New System.Drawing.Point(384, 407)
+        Me.FTMotorCycleId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotorCycleId.Name = "FTMotorCycleId"
-        Me.FTMotorCycleId.Size = New System.Drawing.Size(62, 20)
+        Me.FTMotorCycleId.Size = New System.Drawing.Size(72, 23)
         Me.FTMotorCycleId.TabIndex = 29
         Me.FTMotorCycleId.Tag = "2|"
         '
@@ -5410,10 +5401,10 @@ Partial Class wEmployee
         Me.FTCarLicense_lbl.Appearance.Options.UseTextOptions = True
         Me.FTCarLicense_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTCarLicense_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTCarLicense_lbl.Location = New System.Drawing.Point(407, 305)
-        Me.FTCarLicense_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTCarLicense_lbl.Location = New System.Drawing.Point(475, 375)
+        Me.FTCarLicense_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTCarLicense_lbl.Name = "FTCarLicense_lbl"
-        Me.FTCarLicense_lbl.Size = New System.Drawing.Size(112, 25)
+        Me.FTCarLicense_lbl.Size = New System.Drawing.Size(131, 31)
         Me.FTCarLicense_lbl.TabIndex = 368
         Me.FTCarLicense_lbl.Tag = "2|"
         Me.FTCarLicense_lbl.Text = "หมายเลขใบขับขี่ :"
@@ -5423,10 +5414,10 @@ Partial Class wEmployee
         Me.FTCarId_lbl.Appearance.Options.UseTextOptions = True
         Me.FTCarId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTCarId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTCarId_lbl.Location = New System.Drawing.Point(209, 309)
-        Me.FTCarId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTCarId_lbl.Location = New System.Drawing.Point(244, 380)
+        Me.FTCarId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTCarId_lbl.Name = "FTCarId_lbl"
-        Me.FTCarId_lbl.Size = New System.Drawing.Size(117, 25)
+        Me.FTCarId_lbl.Size = New System.Drawing.Size(136, 31)
         Me.FTCarId_lbl.TabIndex = 367
         Me.FTCarId_lbl.Tag = "2|"
         Me.FTCarId_lbl.Text = "ทะเบียน :"
@@ -5436,38 +5427,38 @@ Partial Class wEmployee
         Me.FNCarStatus_lbl.Appearance.Options.UseTextOptions = True
         Me.FNCarStatus_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNCarStatus_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNCarStatus_lbl.Location = New System.Drawing.Point(26, 309)
-        Me.FNCarStatus_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNCarStatus_lbl.Location = New System.Drawing.Point(30, 380)
+        Me.FNCarStatus_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNCarStatus_lbl.Name = "FNCarStatus_lbl"
-        Me.FNCarStatus_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FNCarStatus_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FNCarStatus_lbl.TabIndex = 366
         Me.FNCarStatus_lbl.Tag = "2|"
         Me.FNCarStatus_lbl.Text = "รถยนต์ :"
         '
         'FTCarLicense
         '
-        Me.FTCarLicense.Location = New System.Drawing.Point(520, 310)
-        Me.FTCarLicense.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTCarLicense.Location = New System.Drawing.Point(607, 382)
+        Me.FTCarLicense.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTCarLicense.Name = "FTCarLicense"
-        Me.FTCarLicense.Size = New System.Drawing.Size(90, 20)
+        Me.FTCarLicense.Size = New System.Drawing.Size(105, 23)
         Me.FTCarLicense.TabIndex = 27
         Me.FTCarLicense.Tag = "2|"
         '
         'FTCarId
         '
-        Me.FTCarId.Location = New System.Drawing.Point(329, 309)
-        Me.FTCarId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTCarId.Location = New System.Drawing.Point(384, 380)
+        Me.FTCarId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTCarId.Name = "FTCarId"
-        Me.FTCarId.Size = New System.Drawing.Size(62, 20)
+        Me.FTCarId.Size = New System.Drawing.Size(72, 23)
         Me.FTCarId.TabIndex = 26
         Me.FTCarId.Tag = "2|"
         '
         'FTEmail
         '
-        Me.FTEmail.Location = New System.Drawing.Point(428, 284)
-        Me.FTEmail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmail.Location = New System.Drawing.Point(499, 350)
+        Me.FTEmail.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmail.Name = "FTEmail"
-        Me.FTEmail.Size = New System.Drawing.Size(183, 20)
+        Me.FTEmail.Size = New System.Drawing.Size(213, 23)
         Me.FTEmail.TabIndex = 24
         Me.FTEmail.Tag = "2|"
         '
@@ -5476,20 +5467,20 @@ Partial Class wEmployee
         Me.FTEmail_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEmail_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEmail_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEmail_lbl.Location = New System.Drawing.Point(321, 280)
-        Me.FTEmail_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmail_lbl.Location = New System.Drawing.Point(374, 345)
+        Me.FTEmail_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmail_lbl.Name = "FTEmail_lbl"
-        Me.FTEmail_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FTEmail_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FTEmail_lbl.TabIndex = 361
         Me.FTEmail_lbl.Tag = "2|"
         Me.FTEmail_lbl.Text = "E - Mail :"
         '
         'FTMobile
         '
-        Me.FTMobile.Location = New System.Drawing.Point(134, 284)
-        Me.FTMobile.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMobile.Location = New System.Drawing.Point(156, 350)
+        Me.FTMobile.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMobile.Name = "FTMobile"
-        Me.FTMobile.Size = New System.Drawing.Size(155, 20)
+        Me.FTMobile.Size = New System.Drawing.Size(181, 23)
         Me.FTMobile.TabIndex = 23
         Me.FTMobile.Tag = "2|"
         '
@@ -5498,10 +5489,10 @@ Partial Class wEmployee
         Me.FTMobile_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMobile_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMobile_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMobile_lbl.Location = New System.Drawing.Point(26, 284)
-        Me.FTMobile_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMobile_lbl.Location = New System.Drawing.Point(30, 350)
+        Me.FTMobile_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMobile_lbl.Name = "FTMobile_lbl"
-        Me.FTMobile_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FTMobile_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FTMobile_lbl.TabIndex = 359
         Me.FTMobile_lbl.Tag = "2|"
         Me.FTMobile_lbl.Text = "เบอร์มือถือ :"
@@ -5511,10 +5502,10 @@ Partial Class wEmployee
         Me.FNMilitary_lbl.Appearance.Options.UseTextOptions = True
         Me.FNMilitary_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNMilitary_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNMilitary_lbl.Location = New System.Drawing.Point(9, 262)
-        Me.FNMilitary_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMilitary_lbl.Location = New System.Drawing.Point(10, 322)
+        Me.FNMilitary_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNMilitary_lbl.Name = "FNMilitary_lbl"
-        Me.FNMilitary_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNMilitary_lbl.Size = New System.Drawing.Size(146, 31)
         Me.FNMilitary_lbl.TabIndex = 357
         Me.FNMilitary_lbl.Tag = "2|"
         Me.FNMilitary_lbl.Text = "สถานะทางทหาร :"
@@ -5523,8 +5514,8 @@ Partial Class wEmployee
         '
         Me.FNMilitary.EditValue = ""
         Me.FNMilitary.EnterMoveNextControl = True
-        Me.FNMilitary.Location = New System.Drawing.Point(135, 262)
-        Me.FNMilitary.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMilitary.Location = New System.Drawing.Point(157, 322)
+        Me.FNMilitary.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNMilitary.Name = "FNMilitary"
         Me.FNMilitary.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNMilitary.Properties.Appearance.Options.UseBackColor = True
@@ -5543,7 +5534,7 @@ Partial Class wEmployee
         Me.FNMilitary.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNMilitary.Properties.Tag = "FNMilitary"
         Me.FNMilitary.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNMilitary.Size = New System.Drawing.Size(155, 20)
+        Me.FNMilitary.Size = New System.Drawing.Size(181, 23)
         Me.FNMilitary.TabIndex = 21
         Me.FNMilitary.Tag = "2|"
         '
@@ -5551,8 +5542,8 @@ Partial Class wEmployee
         '
         Me.FDFundEnd.EditValue = Nothing
         Me.FDFundEnd.EnterMoveNextControl = True
-        Me.FDFundEnd.Location = New System.Drawing.Point(432, 242)
-        Me.FDFundEnd.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDFundEnd.Location = New System.Drawing.Point(504, 298)
+        Me.FDFundEnd.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDFundEnd.Name = "FDFundEnd"
         Me.FDFundEnd.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDFundEnd.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -5563,7 +5554,7 @@ Partial Class wEmployee
         Me.FDFundEnd.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDFundEnd.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDFundEnd.Properties.NullDate = ""
-        Me.FDFundEnd.Size = New System.Drawing.Size(177, 20)
+        Me.FDFundEnd.Size = New System.Drawing.Size(206, 23)
         Me.FDFundEnd.TabIndex = 20
         Me.FDFundEnd.Tag = "2|"
         '
@@ -5572,10 +5563,10 @@ Partial Class wEmployee
         Me.FDFundEnd_lbl.Appearance.Options.UseTextOptions = True
         Me.FDFundEnd_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDFundEnd_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDFundEnd_lbl.Location = New System.Drawing.Point(321, 239)
-        Me.FDFundEnd_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDFundEnd_lbl.Location = New System.Drawing.Point(374, 294)
+        Me.FDFundEnd_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDFundEnd_lbl.Name = "FDFundEnd_lbl"
-        Me.FDFundEnd_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDFundEnd_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDFundEnd_lbl.TabIndex = 343
         Me.FDFundEnd_lbl.Tag = "2|"
         Me.FDFundEnd_lbl.Text = "วันที่ออก :"
@@ -5584,8 +5575,8 @@ Partial Class wEmployee
         '
         Me.FDFundBegin.EditValue = Nothing
         Me.FDFundBegin.EnterMoveNextControl = True
-        Me.FDFundBegin.Location = New System.Drawing.Point(135, 240)
-        Me.FDFundBegin.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDFundBegin.Location = New System.Drawing.Point(157, 295)
+        Me.FDFundBegin.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDFundBegin.Name = "FDFundBegin"
         Me.FDFundBegin.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDFundBegin.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -5596,7 +5587,7 @@ Partial Class wEmployee
         Me.FDFundBegin.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDFundBegin.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDFundBegin.Properties.NullDate = ""
-        Me.FDFundBegin.Size = New System.Drawing.Size(154, 20)
+        Me.FDFundBegin.Size = New System.Drawing.Size(180, 23)
         Me.FDFundBegin.TabIndex = 19
         Me.FDFundBegin.Tag = "2|"
         '
@@ -5605,20 +5596,20 @@ Partial Class wEmployee
         Me.FDFundBegin_lbl.Appearance.Options.UseTextOptions = True
         Me.FDFundBegin_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDFundBegin_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDFundBegin_lbl.Location = New System.Drawing.Point(24, 240)
-        Me.FDFundBegin_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDFundBegin_lbl.Location = New System.Drawing.Point(28, 295)
+        Me.FDFundBegin_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDFundBegin_lbl.Name = "FDFundBegin_lbl"
-        Me.FDFundBegin_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDFundBegin_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDFundBegin_lbl.TabIndex = 341
         Me.FDFundBegin_lbl.Tag = "2|"
         Me.FDFundBegin_lbl.Text = "วันที่เข้า :"
         '
         'FTFundIDNo
         '
-        Me.FTFundIDNo.Location = New System.Drawing.Point(433, 221)
-        Me.FTFundIDNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFundIDNo.Location = New System.Drawing.Point(505, 272)
+        Me.FTFundIDNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFundIDNo.Name = "FTFundIDNo"
-        Me.FTFundIDNo.Size = New System.Drawing.Size(157, 20)
+        Me.FTFundIDNo.Size = New System.Drawing.Size(183, 23)
         Me.FTFundIDNo.TabIndex = 18
         Me.FTFundIDNo.Tag = "2|"
         '
@@ -5627,23 +5618,23 @@ Partial Class wEmployee
         Me.FTFundIDNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTFundIDNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTFundIDNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTFundIDNo_lbl.Location = New System.Drawing.Point(307, 219)
-        Me.FTFundIDNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFundIDNo_lbl.Location = New System.Drawing.Point(358, 270)
+        Me.FTFundIDNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFundIDNo_lbl.Name = "FTFundIDNo_lbl"
-        Me.FTFundIDNo_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTFundIDNo_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTFundIDNo_lbl.TabIndex = 339
         Me.FTFundIDNo_lbl.Tag = "2|"
         Me.FTFundIDNo_lbl.Text = "หมายเลขกองทุน :"
         '
         'FNHSysHospitalId_None
         '
-        Me.FNHSysHospitalId_None.Location = New System.Drawing.Point(213, 221)
-        Me.FNHSysHospitalId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysHospitalId_None.Location = New System.Drawing.Point(248, 272)
+        Me.FNHSysHospitalId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysHospitalId_None.Name = "FNHSysHospitalId_None"
         Me.FNHSysHospitalId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysHospitalId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysHospitalId_None.Properties.ReadOnly = True
-        Me.FNHSysHospitalId_None.Size = New System.Drawing.Size(76, 20)
+        Me.FNHSysHospitalId_None.Size = New System.Drawing.Size(89, 23)
         Me.FNHSysHospitalId_None.TabIndex = 338
         Me.FNHSysHospitalId_None.Tag = "2|"
         '
@@ -5652,22 +5643,22 @@ Partial Class wEmployee
         Me.FNHSysHospitalId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysHospitalId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysHospitalId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysHospitalId_lbl.Location = New System.Drawing.Point(26, 219)
-        Me.FNHSysHospitalId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysHospitalId_lbl.Location = New System.Drawing.Point(30, 270)
+        Me.FNHSysHospitalId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysHospitalId_lbl.Name = "FNHSysHospitalId_lbl"
-        Me.FNHSysHospitalId_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FNHSysHospitalId_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FNHSysHospitalId_lbl.TabIndex = 337
         Me.FNHSysHospitalId_lbl.Tag = "2|"
         Me.FNHSysHospitalId_lbl.Text = "โรงพยาบาล :"
         '
         'FNHSysHospitalId
         '
-        Me.FNHSysHospitalId.Location = New System.Drawing.Point(135, 220)
-        Me.FNHSysHospitalId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysHospitalId.Location = New System.Drawing.Point(157, 271)
+        Me.FNHSysHospitalId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysHospitalId.Name = "FNHSysHospitalId"
-        Me.FNHSysHospitalId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions24, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject93, SerializableAppearanceObject94, SerializableAppearanceObject95, SerializableAppearanceObject96, "", "47", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysHospitalId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions23, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject89, SerializableAppearanceObject90, SerializableAppearanceObject91, SerializableAppearanceObject92, "", "47", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysHospitalId.Properties.Tag = "47"
-        Me.FNHSysHospitalId.Size = New System.Drawing.Size(76, 20)
+        Me.FNHSysHospitalId.Size = New System.Drawing.Size(89, 23)
         Me.FNHSysHospitalId.TabIndex = 17
         Me.FNHSysHospitalId.Tag = "2|"
         '
@@ -5676,10 +5667,10 @@ Partial Class wEmployee
         Me.LabelControl56.Appearance.Options.UseTextOptions = True
         Me.LabelControl56.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl56.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl56.Location = New System.Drawing.Point(336, 196)
-        Me.LabelControl56.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl56.Location = New System.Drawing.Point(392, 241)
+        Me.LabelControl56.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl56.Name = "LabelControl56"
-        Me.LabelControl56.Size = New System.Drawing.Size(94, 25)
+        Me.LabelControl56.Size = New System.Drawing.Size(110, 31)
         Me.LabelControl56.TabIndex = 335
         Me.LabelControl56.Tag = "2|"
         Me.LabelControl56.Text = "สถานภาพ :"
@@ -5688,8 +5679,8 @@ Partial Class wEmployee
         '
         Me.FNMaritalStatus.EditValue = ""
         Me.FNMaritalStatus.EnterMoveNextControl = True
-        Me.FNMaritalStatus.Location = New System.Drawing.Point(433, 198)
-        Me.FNMaritalStatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMaritalStatus.Location = New System.Drawing.Point(505, 244)
+        Me.FNMaritalStatus.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNMaritalStatus.Name = "FNMaritalStatus"
         Me.FNMaritalStatus.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNMaritalStatus.Properties.Appearance.Options.UseBackColor = True
@@ -5708,7 +5699,7 @@ Partial Class wEmployee
         Me.FNMaritalStatus.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNMaritalStatus.Properties.Tag = "FNMaritalStatus"
         Me.FNMaritalStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNMaritalStatus.Size = New System.Drawing.Size(177, 20)
+        Me.FNMaritalStatus.Size = New System.Drawing.Size(206, 23)
         Me.FNMaritalStatus.TabIndex = 16
         Me.FNMaritalStatus.Tag = "2|"
         '
@@ -5717,10 +5708,10 @@ Partial Class wEmployee
         Me.LabelControl55.Appearance.Options.UseTextOptions = True
         Me.LabelControl55.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl55.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl55.Location = New System.Drawing.Point(40, 197)
-        Me.LabelControl55.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl55.Location = New System.Drawing.Point(47, 242)
+        Me.LabelControl55.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl55.Name = "LabelControl55"
-        Me.LabelControl55.Size = New System.Drawing.Size(94, 25)
+        Me.LabelControl55.Size = New System.Drawing.Size(110, 31)
         Me.LabelControl55.TabIndex = 333
         Me.LabelControl55.Tag = "2|"
         Me.LabelControl55.Text = "ผ้ประกันตน :"
@@ -5729,8 +5720,8 @@ Partial Class wEmployee
         '
         Me.FNEverRegisSta.EditValue = ""
         Me.FNEverRegisSta.EnterMoveNextControl = True
-        Me.FNEverRegisSta.Location = New System.Drawing.Point(135, 198)
-        Me.FNEverRegisSta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNEverRegisSta.Location = New System.Drawing.Point(157, 244)
+        Me.FNEverRegisSta.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNEverRegisSta.Name = "FNEverRegisSta"
         Me.FNEverRegisSta.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNEverRegisSta.Properties.Appearance.Options.UseBackColor = True
@@ -5749,7 +5740,7 @@ Partial Class wEmployee
         Me.FNEverRegisSta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNEverRegisSta.Properties.Tag = "FNEverRegisSta"
         Me.FNEverRegisSta.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNEverRegisSta.Size = New System.Drawing.Size(155, 20)
+        Me.FNEverRegisSta.Size = New System.Drawing.Size(181, 23)
         Me.FNEverRegisSta.TabIndex = 15
         Me.FNEverRegisSta.Tag = "2|"
         '
@@ -5758,10 +5749,10 @@ Partial Class wEmployee
         Me.FNCalSocialSta_lbl.Appearance.Options.UseTextOptions = True
         Me.FNCalSocialSta_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNCalSocialSta_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNCalSocialSta_lbl.Location = New System.Drawing.Point(40, 175)
-        Me.FNCalSocialSta_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNCalSocialSta_lbl.Location = New System.Drawing.Point(47, 215)
+        Me.FNCalSocialSta_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNCalSocialSta_lbl.Name = "FNCalSocialSta_lbl"
-        Me.FNCalSocialSta_lbl.Size = New System.Drawing.Size(94, 25)
+        Me.FNCalSocialSta_lbl.Size = New System.Drawing.Size(110, 31)
         Me.FNCalSocialSta_lbl.TabIndex = 331
         Me.FNCalSocialSta_lbl.Tag = "2|"
         Me.FNCalSocialSta_lbl.Text = "ประกันสังคม :"
@@ -5770,8 +5761,8 @@ Partial Class wEmployee
         '
         Me.FNCalSocialSta.EditValue = ""
         Me.FNCalSocialSta.EnterMoveNextControl = True
-        Me.FNCalSocialSta.Location = New System.Drawing.Point(135, 176)
-        Me.FNCalSocialSta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNCalSocialSta.Location = New System.Drawing.Point(157, 217)
+        Me.FNCalSocialSta.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNCalSocialSta.Name = "FNCalSocialSta"
         Me.FNCalSocialSta.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNCalSocialSta.Properties.Appearance.Options.UseBackColor = True
@@ -5790,7 +5781,7 @@ Partial Class wEmployee
         Me.FNCalSocialSta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNCalSocialSta.Properties.Tag = "FNCalSocialSta"
         Me.FNCalSocialSta.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNCalSocialSta.Size = New System.Drawing.Size(155, 20)
+        Me.FNCalSocialSta.Size = New System.Drawing.Size(181, 23)
         Me.FNCalSocialSta.TabIndex = 13
         Me.FNCalSocialSta.Tag = "2|"
         '
@@ -5799,10 +5790,10 @@ Partial Class wEmployee
         Me.FNCalTaxSta_lbl.Appearance.Options.UseTextOptions = True
         Me.FNCalTaxSta_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNCalTaxSta_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNCalTaxSta_lbl.Location = New System.Drawing.Point(40, 154)
-        Me.FNCalTaxSta_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNCalTaxSta_lbl.Location = New System.Drawing.Point(47, 190)
+        Me.FNCalTaxSta_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNCalTaxSta_lbl.Name = "FNCalTaxSta_lbl"
-        Me.FNCalTaxSta_lbl.Size = New System.Drawing.Size(94, 25)
+        Me.FNCalTaxSta_lbl.Size = New System.Drawing.Size(110, 31)
         Me.FNCalTaxSta_lbl.TabIndex = 329
         Me.FNCalTaxSta_lbl.Tag = "2|"
         Me.FNCalTaxSta_lbl.Text = "ภาษี :"
@@ -5811,8 +5802,8 @@ Partial Class wEmployee
         '
         Me.FNCalTaxSta.EditValue = ""
         Me.FNCalTaxSta.EnterMoveNextControl = True
-        Me.FNCalTaxSta.Location = New System.Drawing.Point(135, 154)
-        Me.FNCalTaxSta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNCalTaxSta.Location = New System.Drawing.Point(157, 190)
+        Me.FNCalTaxSta.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNCalTaxSta.Name = "FNCalTaxSta"
         Me.FNCalTaxSta.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNCalTaxSta.Properties.Appearance.Options.UseBackColor = True
@@ -5831,16 +5822,16 @@ Partial Class wEmployee
         Me.FNCalTaxSta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNCalTaxSta.Properties.Tag = "FNCalTaxSta"
         Me.FNCalTaxSta.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNCalTaxSta.Size = New System.Drawing.Size(155, 20)
+        Me.FNCalTaxSta.Size = New System.Drawing.Size(181, 23)
         Me.FNCalTaxSta.TabIndex = 11
         Me.FNCalTaxSta.Tag = "2|"
         '
         'FTSocialNo
         '
-        Me.FTSocialNo.Location = New System.Drawing.Point(433, 177)
-        Me.FTSocialNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSocialNo.Location = New System.Drawing.Point(505, 218)
+        Me.FTSocialNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTSocialNo.Name = "FTSocialNo"
-        Me.FTSocialNo.Size = New System.Drawing.Size(177, 20)
+        Me.FTSocialNo.Size = New System.Drawing.Size(206, 23)
         Me.FTSocialNo.TabIndex = 14
         Me.FTSocialNo.Tag = "2|"
         '
@@ -5849,20 +5840,20 @@ Partial Class wEmployee
         Me.FTSocialNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSocialNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSocialNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSocialNo_lbl.Location = New System.Drawing.Point(307, 177)
-        Me.FTSocialNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSocialNo_lbl.Location = New System.Drawing.Point(358, 218)
+        Me.FTSocialNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTSocialNo_lbl.Name = "FTSocialNo_lbl"
-        Me.FTSocialNo_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTSocialNo_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTSocialNo_lbl.TabIndex = 326
         Me.FTSocialNo_lbl.Tag = "2|"
         Me.FTSocialNo_lbl.Text = "เลขที่ผู้ประกันตน :"
         '
         'FTTaxNo
         '
-        Me.FTTaxNo.Location = New System.Drawing.Point(433, 155)
-        Me.FTTaxNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTTaxNo.Location = New System.Drawing.Point(505, 191)
+        Me.FTTaxNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTTaxNo.Name = "FTTaxNo"
-        Me.FTTaxNo.Size = New System.Drawing.Size(177, 20)
+        Me.FTTaxNo.Size = New System.Drawing.Size(206, 23)
         Me.FTTaxNo.TabIndex = 12
         Me.FTTaxNo.Tag = "2|"
         '
@@ -5871,23 +5862,23 @@ Partial Class wEmployee
         Me.FTTaxNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTTaxNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTTaxNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTTaxNo_lbl.Location = New System.Drawing.Point(307, 156)
-        Me.FTTaxNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTTaxNo_lbl.Location = New System.Drawing.Point(358, 192)
+        Me.FTTaxNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTTaxNo_lbl.Name = "FTTaxNo_lbl"
-        Me.FTTaxNo_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTTaxNo_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTTaxNo_lbl.TabIndex = 324
         Me.FTTaxNo_lbl.Tag = "2|"
         Me.FTTaxNo_lbl.Text = "เลขที่ผู้เสียถาษี :"
         '
         'FNHSysReligionId_None
         '
-        Me.FNHSysReligionId_None.Location = New System.Drawing.Point(511, 134)
-        Me.FNHSysReligionId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysReligionId_None.Location = New System.Drawing.Point(596, 165)
+        Me.FNHSysReligionId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysReligionId_None.Name = "FNHSysReligionId_None"
         Me.FNHSysReligionId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysReligionId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysReligionId_None.Properties.ReadOnly = True
-        Me.FNHSysReligionId_None.Size = New System.Drawing.Size(99, 20)
+        Me.FNHSysReligionId_None.Size = New System.Drawing.Size(115, 23)
         Me.FNHSysReligionId_None.TabIndex = 323
         Me.FNHSysReligionId_None.Tag = "2|"
         '
@@ -5896,34 +5887,34 @@ Partial Class wEmployee
         Me.FNHSysReligionId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysReligionId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysReligionId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysReligionId_lbl.Location = New System.Drawing.Point(323, 132)
-        Me.FNHSysReligionId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysReligionId_lbl.Location = New System.Drawing.Point(377, 162)
+        Me.FNHSysReligionId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysReligionId_lbl.Name = "FNHSysReligionId_lbl"
-        Me.FNHSysReligionId_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FNHSysReligionId_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FNHSysReligionId_lbl.TabIndex = 322
         Me.FNHSysReligionId_lbl.Tag = "2|"
         Me.FNHSysReligionId_lbl.Text = "ศาสนา :"
         '
         'FNHSysReligionId
         '
-        Me.FNHSysReligionId.Location = New System.Drawing.Point(433, 134)
-        Me.FNHSysReligionId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysReligionId.Location = New System.Drawing.Point(505, 165)
+        Me.FNHSysReligionId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysReligionId.Name = "FNHSysReligionId"
-        Me.FNHSysReligionId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions25, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject97, SerializableAppearanceObject98, SerializableAppearanceObject99, SerializableAppearanceObject100, "", "53", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysReligionId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions24, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject93, SerializableAppearanceObject94, SerializableAppearanceObject95, SerializableAppearanceObject96, "", "53", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysReligionId.Properties.Tag = "53"
-        Me.FNHSysReligionId.Size = New System.Drawing.Size(78, 20)
+        Me.FNHSysReligionId.Size = New System.Drawing.Size(91, 23)
         Me.FNHSysReligionId.TabIndex = 10
         Me.FNHSysReligionId.Tag = "2|"
         '
         'FNHSysNationalityId_None
         '
-        Me.FNHSysNationalityId_None.Location = New System.Drawing.Point(195, 132)
-        Me.FNHSysNationalityId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysNationalityId_None.Location = New System.Drawing.Point(227, 162)
+        Me.FNHSysNationalityId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysNationalityId_None.Name = "FNHSysNationalityId_None"
         Me.FNHSysNationalityId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysNationalityId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysNationalityId_None.Properties.ReadOnly = True
-        Me.FNHSysNationalityId_None.Size = New System.Drawing.Size(94, 20)
+        Me.FNHSysNationalityId_None.Size = New System.Drawing.Size(110, 23)
         Me.FNHSysNationalityId_None.TabIndex = 320
         Me.FNHSysNationalityId_None.Tag = "2|"
         '
@@ -5932,34 +5923,34 @@ Partial Class wEmployee
         Me.FNHSysNationalityId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysNationalityId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysNationalityId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysNationalityId_lbl.Location = New System.Drawing.Point(27, 134)
-        Me.FNHSysNationalityId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysNationalityId_lbl.Location = New System.Drawing.Point(31, 165)
+        Me.FNHSysNationalityId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysNationalityId_lbl.Name = "FNHSysNationalityId_lbl"
-        Me.FNHSysNationalityId_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FNHSysNationalityId_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FNHSysNationalityId_lbl.TabIndex = 319
         Me.FNHSysNationalityId_lbl.Tag = "2|"
         Me.FNHSysNationalityId_lbl.Text = "สัญชาติ :"
         '
         'FNHSysNationalityId
         '
-        Me.FNHSysNationalityId.Location = New System.Drawing.Point(135, 132)
-        Me.FNHSysNationalityId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysNationalityId.Location = New System.Drawing.Point(157, 162)
+        Me.FNHSysNationalityId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysNationalityId.Name = "FNHSysNationalityId"
-        Me.FNHSysNationalityId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions26, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject101, SerializableAppearanceObject102, SerializableAppearanceObject103, SerializableAppearanceObject104, "", "48", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysNationalityId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions25, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject97, SerializableAppearanceObject98, SerializableAppearanceObject99, SerializableAppearanceObject100, "", "48", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysNationalityId.Properties.Tag = "48"
-        Me.FNHSysNationalityId.Size = New System.Drawing.Size(58, 20)
+        Me.FNHSysNationalityId.Size = New System.Drawing.Size(68, 23)
         Me.FNHSysNationalityId.TabIndex = 9
         Me.FNHSysNationalityId.Tag = "2|"
         '
         'FNHSysRaceId_None
         '
-        Me.FNHSysRaceId_None.Location = New System.Drawing.Point(511, 112)
-        Me.FNHSysRaceId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysRaceId_None.Location = New System.Drawing.Point(596, 138)
+        Me.FNHSysRaceId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysRaceId_None.Name = "FNHSysRaceId_None"
         Me.FNHSysRaceId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysRaceId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysRaceId_None.Properties.ReadOnly = True
-        Me.FNHSysRaceId_None.Size = New System.Drawing.Size(99, 20)
+        Me.FNHSysRaceId_None.Size = New System.Drawing.Size(115, 23)
         Me.FNHSysRaceId_None.TabIndex = 317
         Me.FNHSysRaceId_None.Tag = "2|"
         '
@@ -5968,34 +5959,34 @@ Partial Class wEmployee
         Me.FNHSysRaceId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysRaceId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysRaceId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysRaceId_lbl.Location = New System.Drawing.Point(323, 110)
-        Me.FNHSysRaceId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysRaceId_lbl.Location = New System.Drawing.Point(377, 135)
+        Me.FNHSysRaceId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysRaceId_lbl.Name = "FNHSysRaceId_lbl"
-        Me.FNHSysRaceId_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FNHSysRaceId_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FNHSysRaceId_lbl.TabIndex = 316
         Me.FNHSysRaceId_lbl.Tag = "2|"
         Me.FNHSysRaceId_lbl.Text = "เฃื้อชาติ :"
         '
         'FNHSysRaceId
         '
-        Me.FNHSysRaceId.Location = New System.Drawing.Point(433, 112)
-        Me.FNHSysRaceId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysRaceId.Location = New System.Drawing.Point(505, 138)
+        Me.FNHSysRaceId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysRaceId.Name = "FNHSysRaceId"
-        Me.FNHSysRaceId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions27, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject105, SerializableAppearanceObject106, SerializableAppearanceObject107, SerializableAppearanceObject108, "", "52", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysRaceId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions26, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject101, SerializableAppearanceObject102, SerializableAppearanceObject103, SerializableAppearanceObject104, "", "52", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysRaceId.Properties.Tag = "52"
-        Me.FNHSysRaceId.Size = New System.Drawing.Size(78, 20)
+        Me.FNHSysRaceId.Size = New System.Drawing.Size(91, 23)
         Me.FNHSysRaceId.TabIndex = 8
         Me.FNHSysRaceId.Tag = "2|"
         '
         'FNHSysBldId_None
         '
-        Me.FNHSysBldId_None.Location = New System.Drawing.Point(195, 110)
-        Me.FNHSysBldId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBldId_None.Location = New System.Drawing.Point(227, 135)
+        Me.FNHSysBldId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysBldId_None.Name = "FNHSysBldId_None"
         Me.FNHSysBldId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysBldId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysBldId_None.Properties.ReadOnly = True
-        Me.FNHSysBldId_None.Size = New System.Drawing.Size(95, 20)
+        Me.FNHSysBldId_None.Size = New System.Drawing.Size(111, 23)
         Me.FNHSysBldId_None.TabIndex = 314
         Me.FNHSysBldId_None.Tag = "2|"
         '
@@ -6004,22 +5995,22 @@ Partial Class wEmployee
         Me.FNHSysBldId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysBldId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysBldId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysBldId_lbl.Location = New System.Drawing.Point(26, 110)
-        Me.FNHSysBldId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBldId_lbl.Location = New System.Drawing.Point(30, 135)
+        Me.FNHSysBldId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysBldId_lbl.Name = "FNHSysBldId_lbl"
-        Me.FNHSysBldId_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FNHSysBldId_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FNHSysBldId_lbl.TabIndex = 313
         Me.FNHSysBldId_lbl.Tag = "2|"
         Me.FNHSysBldId_lbl.Text = "Blood :"
         '
         'FNHSysBldId
         '
-        Me.FNHSysBldId.Location = New System.Drawing.Point(135, 110)
-        Me.FNHSysBldId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysBldId.Location = New System.Drawing.Point(157, 135)
+        Me.FNHSysBldId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysBldId.Name = "FNHSysBldId"
-        Me.FNHSysBldId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions28, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject109, SerializableAppearanceObject110, SerializableAppearanceObject111, SerializableAppearanceObject112, "", "44", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysBldId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions27, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject105, SerializableAppearanceObject106, SerializableAppearanceObject107, SerializableAppearanceObject108, "", "44", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBldId.Properties.Tag = "44"
-        Me.FNHSysBldId.Size = New System.Drawing.Size(58, 20)
+        Me.FNHSysBldId.Size = New System.Drawing.Size(68, 23)
         Me.FNHSysBldId.TabIndex = 7
         Me.FNHSysBldId.Tag = "2|"
         '
@@ -6028,10 +6019,10 @@ Partial Class wEmployee
         Me.FCHeight_lbl.Appearance.Options.UseTextOptions = True
         Me.FCHeight_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCHeight_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCHeight_lbl.Location = New System.Drawing.Point(333, 86)
-        Me.FCHeight_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCHeight_lbl.Location = New System.Drawing.Point(388, 106)
+        Me.FCHeight_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCHeight_lbl.Name = "FCHeight_lbl"
-        Me.FCHeight_lbl.Size = New System.Drawing.Size(97, 25)
+        Me.FCHeight_lbl.Size = New System.Drawing.Size(113, 31)
         Me.FCHeight_lbl.TabIndex = 311
         Me.FCHeight_lbl.Tag = "2|"
         Me.FCHeight_lbl.Text = "ส่วนสูง :"
@@ -6041,10 +6032,10 @@ Partial Class wEmployee
         Me.FCWeight_lbl.Appearance.Options.UseTextOptions = True
         Me.FCWeight_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCWeight_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCWeight_lbl.Location = New System.Drawing.Point(24, 86)
-        Me.FCWeight_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCWeight_lbl.Location = New System.Drawing.Point(28, 106)
+        Me.FCWeight_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCWeight_lbl.Name = "FCWeight_lbl"
-        Me.FCWeight_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FCWeight_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FCWeight_lbl.TabIndex = 310
         Me.FCWeight_lbl.Tag = "2|"
         Me.FCWeight_lbl.Text = "น้ำหนัก :"
@@ -6052,8 +6043,8 @@ Partial Class wEmployee
         'FCHeight
         '
         Me.FCHeight.EnterMoveNextControl = True
-        Me.FCHeight.Location = New System.Drawing.Point(433, 89)
-        Me.FCHeight.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCHeight.Location = New System.Drawing.Point(505, 110)
+        Me.FCHeight.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCHeight.Name = "FCHeight"
         Me.FCHeight.Properties.Appearance.Options.UseTextOptions = True
         Me.FCHeight.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -6065,18 +6056,18 @@ Partial Class wEmployee
         Me.FCHeight.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCHeight.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCHeight.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCHeight.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions29, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject113, SerializableAppearanceObject114, SerializableAppearanceObject115, SerializableAppearanceObject116, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCHeight.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions28, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject109, SerializableAppearanceObject110, SerializableAppearanceObject111, SerializableAppearanceObject112, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCHeight.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCHeight.Properties.Precision = 2
-        Me.FCHeight.Size = New System.Drawing.Size(177, 20)
+        Me.FCHeight.Size = New System.Drawing.Size(206, 23)
         Me.FCHeight.TabIndex = 6
         Me.FCHeight.Tag = "2|"
         '
         'FCWeight
         '
         Me.FCWeight.EnterMoveNextControl = True
-        Me.FCWeight.Location = New System.Drawing.Point(135, 88)
-        Me.FCWeight.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCWeight.Location = New System.Drawing.Point(157, 108)
+        Me.FCWeight.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCWeight.Name = "FCWeight"
         Me.FCWeight.Properties.Appearance.Options.UseTextOptions = True
         Me.FCWeight.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -6088,10 +6079,10 @@ Partial Class wEmployee
         Me.FCWeight.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCWeight.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCWeight.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCWeight.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions30, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject117, SerializableAppearanceObject118, SerializableAppearanceObject119, SerializableAppearanceObject120, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCWeight.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions29, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject113, SerializableAppearanceObject114, SerializableAppearanceObject115, SerializableAppearanceObject116, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCWeight.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCWeight.Properties.Precision = 2
-        Me.FCWeight.Size = New System.Drawing.Size(154, 20)
+        Me.FCWeight.Size = New System.Drawing.Size(180, 23)
         Me.FCWeight.TabIndex = 5
         Me.FCWeight.Tag = "2|"
         '
@@ -6100,23 +6091,23 @@ Partial Class wEmployee
         Me.LabelControl44.Appearance.Options.UseTextOptions = True
         Me.LabelControl44.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl44.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl44.Location = New System.Drawing.Point(537, 65)
-        Me.LabelControl44.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl44.Location = New System.Drawing.Point(626, 80)
+        Me.LabelControl44.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl44.Name = "LabelControl44"
-        Me.LabelControl44.Size = New System.Drawing.Size(35, 25)
+        Me.LabelControl44.Size = New System.Drawing.Size(41, 31)
         Me.LabelControl44.TabIndex = 307
         Me.LabelControl44.Tag = "2|"
         Me.LabelControl44.Text = "Day"
         '
         'olaEmpAgeDay
         '
-        Me.olaEmpAgeDay.Location = New System.Drawing.Point(491, 66)
-        Me.olaEmpAgeDay.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.olaEmpAgeDay.Location = New System.Drawing.Point(573, 81)
+        Me.olaEmpAgeDay.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.olaEmpAgeDay.Name = "olaEmpAgeDay"
         Me.olaEmpAgeDay.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.olaEmpAgeDay.Properties.Appearance.Options.UseBackColor = True
         Me.olaEmpAgeDay.Properties.ReadOnly = True
-        Me.olaEmpAgeDay.Size = New System.Drawing.Size(41, 20)
+        Me.olaEmpAgeDay.Size = New System.Drawing.Size(48, 23)
         Me.olaEmpAgeDay.TabIndex = 306
         Me.olaEmpAgeDay.Tag = "2|"
         '
@@ -6125,10 +6116,10 @@ Partial Class wEmployee
         Me.LabelControl42.Appearance.Options.UseTextOptions = True
         Me.LabelControl42.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl42.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl42.Location = New System.Drawing.Point(445, 66)
-        Me.LabelControl42.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl42.Location = New System.Drawing.Point(519, 81)
+        Me.LabelControl42.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl42.Name = "LabelControl42"
-        Me.LabelControl42.Size = New System.Drawing.Size(35, 25)
+        Me.LabelControl42.Size = New System.Drawing.Size(41, 31)
         Me.LabelControl42.TabIndex = 305
         Me.LabelControl42.Tag = "2|"
         Me.LabelControl42.Text = "Month"
@@ -6138,35 +6129,35 @@ Partial Class wEmployee
         Me.LabelControl43.Appearance.Options.UseTextOptions = True
         Me.LabelControl43.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl43.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl43.Location = New System.Drawing.Point(356, 65)
-        Me.LabelControl43.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl43.Location = New System.Drawing.Point(415, 80)
+        Me.LabelControl43.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl43.Name = "LabelControl43"
-        Me.LabelControl43.Size = New System.Drawing.Size(35, 25)
+        Me.LabelControl43.Size = New System.Drawing.Size(41, 31)
         Me.LabelControl43.TabIndex = 304
         Me.LabelControl43.Tag = "2|"
         Me.LabelControl43.Text = "Year"
         '
         'olaEmpAgeMonth
         '
-        Me.olaEmpAgeMonth.Location = New System.Drawing.Point(398, 66)
-        Me.olaEmpAgeMonth.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.olaEmpAgeMonth.Location = New System.Drawing.Point(464, 81)
+        Me.olaEmpAgeMonth.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.olaEmpAgeMonth.Name = "olaEmpAgeMonth"
         Me.olaEmpAgeMonth.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.olaEmpAgeMonth.Properties.Appearance.Options.UseBackColor = True
         Me.olaEmpAgeMonth.Properties.ReadOnly = True
-        Me.olaEmpAgeMonth.Size = New System.Drawing.Size(41, 20)
+        Me.olaEmpAgeMonth.Size = New System.Drawing.Size(48, 23)
         Me.olaEmpAgeMonth.TabIndex = 303
         Me.olaEmpAgeMonth.Tag = "2|"
         '
         'olaEmpAgeYear
         '
-        Me.olaEmpAgeYear.Location = New System.Drawing.Point(300, 66)
-        Me.olaEmpAgeYear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.olaEmpAgeYear.Location = New System.Drawing.Point(350, 81)
+        Me.olaEmpAgeYear.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.olaEmpAgeYear.Name = "olaEmpAgeYear"
         Me.olaEmpAgeYear.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.olaEmpAgeYear.Properties.Appearance.Options.UseBackColor = True
         Me.olaEmpAgeYear.Properties.ReadOnly = True
-        Me.olaEmpAgeYear.Size = New System.Drawing.Size(41, 20)
+        Me.olaEmpAgeYear.Size = New System.Drawing.Size(48, 23)
         Me.olaEmpAgeYear.TabIndex = 302
         Me.olaEmpAgeYear.Tag = "2|"
         '
@@ -6174,8 +6165,8 @@ Partial Class wEmployee
         '
         Me.FDBirthDate.EditValue = Nothing
         Me.FDBirthDate.EnterMoveNextControl = True
-        Me.FDBirthDate.Location = New System.Drawing.Point(135, 66)
-        Me.FDBirthDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDBirthDate.Location = New System.Drawing.Point(157, 81)
+        Me.FDBirthDate.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDBirthDate.Name = "FDBirthDate"
         Me.FDBirthDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDBirthDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -6186,7 +6177,7 @@ Partial Class wEmployee
         Me.FDBirthDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDBirthDate.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDBirthDate.Properties.NullDate = ""
-        Me.FDBirthDate.Size = New System.Drawing.Size(154, 20)
+        Me.FDBirthDate.Size = New System.Drawing.Size(180, 23)
         Me.FDBirthDate.TabIndex = 4
         Me.FDBirthDate.Tag = "2|"
         '
@@ -6195,10 +6186,10 @@ Partial Class wEmployee
         Me.FDBirthDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDBirthDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDBirthDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDBirthDate_lbl.Location = New System.Drawing.Point(24, 66)
-        Me.FDBirthDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDBirthDate_lbl.Location = New System.Drawing.Point(28, 81)
+        Me.FDBirthDate_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDBirthDate_lbl.Name = "FDBirthDate_lbl"
-        Me.FDBirthDate_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDBirthDate_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDBirthDate_lbl.TabIndex = 296
         Me.FDBirthDate_lbl.Tag = "2|"
         Me.FDBirthDate_lbl.Text = "วันเกิด :"
@@ -6207,8 +6198,8 @@ Partial Class wEmployee
         '
         Me.FDDateIdNoEnd.EditValue = Nothing
         Me.FDDateIdNoEnd.EnterMoveNextControl = True
-        Me.FDDateIdNoEnd.Location = New System.Drawing.Point(433, 44)
-        Me.FDDateIdNoEnd.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateIdNoEnd.Location = New System.Drawing.Point(505, 54)
+        Me.FDDateIdNoEnd.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateIdNoEnd.Name = "FDDateIdNoEnd"
         Me.FDDateIdNoEnd.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateIdNoEnd.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -6219,7 +6210,7 @@ Partial Class wEmployee
         Me.FDDateIdNoEnd.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateIdNoEnd.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateIdNoEnd.Properties.NullDate = ""
-        Me.FDDateIdNoEnd.Size = New System.Drawing.Size(177, 20)
+        Me.FDDateIdNoEnd.Size = New System.Drawing.Size(206, 23)
         Me.FDDateIdNoEnd.TabIndex = 3
         Me.FDDateIdNoEnd.Tag = "2|"
         '
@@ -6228,10 +6219,10 @@ Partial Class wEmployee
         Me.FDDateIdNoEnd_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateIdNoEnd_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateIdNoEnd_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateIdNoEnd_lbl.Location = New System.Drawing.Point(321, 43)
-        Me.FDDateIdNoEnd_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateIdNoEnd_lbl.Location = New System.Drawing.Point(374, 53)
+        Me.FDDateIdNoEnd_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateIdNoEnd_lbl.Name = "FDDateIdNoEnd_lbl"
-        Me.FDDateIdNoEnd_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateIdNoEnd_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateIdNoEnd_lbl.TabIndex = 294
         Me.FDDateIdNoEnd_lbl.Tag = "2|"
         Me.FDDateIdNoEnd_lbl.Text = "วันที่หมดอายุ :"
@@ -6240,8 +6231,8 @@ Partial Class wEmployee
         '
         Me.FDDateIdNoAssign.EditValue = Nothing
         Me.FDDateIdNoAssign.EnterMoveNextControl = True
-        Me.FDDateIdNoAssign.Location = New System.Drawing.Point(135, 44)
-        Me.FDDateIdNoAssign.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateIdNoAssign.Location = New System.Drawing.Point(157, 54)
+        Me.FDDateIdNoAssign.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateIdNoAssign.Name = "FDDateIdNoAssign"
         Me.FDDateIdNoAssign.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateIdNoAssign.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -6252,7 +6243,7 @@ Partial Class wEmployee
         Me.FDDateIdNoAssign.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateIdNoAssign.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateIdNoAssign.Properties.NullDate = ""
-        Me.FDDateIdNoAssign.Size = New System.Drawing.Size(154, 20)
+        Me.FDDateIdNoAssign.Size = New System.Drawing.Size(180, 23)
         Me.FDDateIdNoAssign.TabIndex = 2
         Me.FDDateIdNoAssign.Tag = "2|"
         '
@@ -6261,20 +6252,20 @@ Partial Class wEmployee
         Me.FDDateIdNoAssign_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateIdNoAssign_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateIdNoAssign_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateIdNoAssign_lbl.Location = New System.Drawing.Point(24, 43)
-        Me.FDDateIdNoAssign_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateIdNoAssign_lbl.Location = New System.Drawing.Point(28, 53)
+        Me.FDDateIdNoAssign_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateIdNoAssign_lbl.Name = "FDDateIdNoAssign_lbl"
-        Me.FDDateIdNoAssign_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateIdNoAssign_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateIdNoAssign_lbl.TabIndex = 292
         Me.FDDateIdNoAssign_lbl.Tag = "2|"
         Me.FDDateIdNoAssign_lbl.Text = "วันที่ออก :"
         '
         'FTEmpIdNoBy
         '
-        Me.FTEmpIdNoBy.Location = New System.Drawing.Point(433, 22)
-        Me.FTEmpIdNoBy.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpIdNoBy.Location = New System.Drawing.Point(505, 27)
+        Me.FTEmpIdNoBy.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpIdNoBy.Name = "FTEmpIdNoBy"
-        Me.FTEmpIdNoBy.Size = New System.Drawing.Size(177, 20)
+        Me.FTEmpIdNoBy.Size = New System.Drawing.Size(206, 23)
         Me.FTEmpIdNoBy.TabIndex = 1
         Me.FTEmpIdNoBy.Tag = "2|"
         '
@@ -6283,20 +6274,20 @@ Partial Class wEmployee
         Me.FTEmpIdNoBy_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEmpIdNoBy_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEmpIdNoBy_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEmpIdNoBy_lbl.Location = New System.Drawing.Point(305, 21)
-        Me.FTEmpIdNoBy_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpIdNoBy_lbl.Location = New System.Drawing.Point(356, 26)
+        Me.FTEmpIdNoBy_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpIdNoBy_lbl.Name = "FTEmpIdNoBy_lbl"
-        Me.FTEmpIdNoBy_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTEmpIdNoBy_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTEmpIdNoBy_lbl.TabIndex = 290
         Me.FTEmpIdNoBy_lbl.Tag = "2|"
         Me.FTEmpIdNoBy_lbl.Text = "ออกโดย :"
         '
         'FTEmpIdNo
         '
-        Me.FTEmpIdNo.Location = New System.Drawing.Point(135, 22)
-        Me.FTEmpIdNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpIdNo.Location = New System.Drawing.Point(157, 27)
+        Me.FTEmpIdNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpIdNo.Name = "FTEmpIdNo"
-        Me.FTEmpIdNo.Size = New System.Drawing.Size(155, 20)
+        Me.FTEmpIdNo.Size = New System.Drawing.Size(181, 23)
         Me.FTEmpIdNo.TabIndex = 100
         Me.FTEmpIdNo.Tag = "2|"
         '
@@ -6305,10 +6296,10 @@ Partial Class wEmployee
         Me.FTEmpIdNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEmpIdNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEmpIdNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEmpIdNo_lbl.Location = New System.Drawing.Point(-1, 21)
-        Me.FTEmpIdNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpIdNo_lbl.Location = New System.Drawing.Point(-1, 26)
+        Me.FTEmpIdNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpIdNo_lbl.Name = "FTEmpIdNo_lbl"
-        Me.FTEmpIdNo_lbl.Size = New System.Drawing.Size(135, 22)
+        Me.FTEmpIdNo_lbl.Size = New System.Drawing.Size(157, 27)
         Me.FTEmpIdNo_lbl.TabIndex = 288
         Me.FTEmpIdNo_lbl.Tag = "2|"
         Me.FTEmpIdNo_lbl.Text = "บัตรประชาชน :"
@@ -6316,9 +6307,9 @@ Partial Class wEmployee
         'otpempfin
         '
         Me.otpempfin.Controls.Add(Me.GroupControl36)
-        Me.otpempfin.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otpempfin.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otpempfin.Name = "otpempfin"
-        Me.otpempfin.Size = New System.Drawing.Size(1405, 709)
+        Me.otpempfin.Size = New System.Drawing.Size(1639, 872)
         Me.otpempfin.Text = "การเงิน"
         '
         'GroupControl36
@@ -6327,10 +6318,10 @@ Partial Class wEmployee
         Me.GroupControl36.Controls.Add(Me.XtraScrollableControl3)
         Me.GroupControl36.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupControl36.Location = New System.Drawing.Point(0, 0)
-        Me.GroupControl36.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl36.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl36.Name = "GroupControl36"
         Me.GroupControl36.ShowCaption = False
-        Me.GroupControl36.Size = New System.Drawing.Size(1405, 709)
+        Me.GroupControl36.Size = New System.Drawing.Size(1639, 872)
         Me.GroupControl36.TabIndex = 325
         Me.GroupControl36.Text = "อัตราค่าจ้าง"
         '
@@ -6342,15 +6333,17 @@ Partial Class wEmployee
         Me.GroupControl33.Controls.Add(Me.ogbFCIncomeBefore)
         Me.GroupControl33.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupControl33.Location = New System.Drawing.Point(2, 2)
-        Me.GroupControl33.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl33.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl33.Name = "GroupControl33"
         Me.GroupControl33.ShowCaption = False
-        Me.GroupControl33.Size = New System.Drawing.Size(807, 705)
+        Me.GroupControl33.Size = New System.Drawing.Size(941, 868)
         Me.GroupControl33.TabIndex = 324
         Me.GroupControl33.Text = "อัตราค่าจ้าง"
         '
         'ogrpUnion
         '
+        Me.ogrpUnion.Controls.Add(Me.FNUnion_lbl)
+        Me.ogrpUnion.Controls.Add(Me.FNUnion)
         Me.ogrpUnion.Controls.Add(Me.FDEndDateUnion)
         Me.ogrpUnion.Controls.Add(Me.FDStartDateUnion)
         Me.ogrpUnion.Controls.Add(Me.FDRegisterDateUnion)
@@ -6358,19 +6351,60 @@ Partial Class wEmployee
         Me.ogrpUnion.Controls.Add(Me.FDRegisterDateUnion_lbl)
         Me.ogrpUnion.Controls.Add(Me.FDEndDateUnion_lbl)
         Me.ogrpUnion.Controls.Add(Me.FDStartDateUnion_lbl)
-        Me.ogrpUnion.Location = New System.Drawing.Point(2, 426)
-        Me.ogrpUnion.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogrpUnion.Location = New System.Drawing.Point(2, 524)
+        Me.ogrpUnion.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogrpUnion.Name = "ogrpUnion"
-        Me.ogrpUnion.Size = New System.Drawing.Size(782, 96)
+        Me.ogrpUnion.Size = New System.Drawing.Size(937, 155)
         Me.ogrpUnion.TabIndex = 2
         Me.ogrpUnion.Text = "สหภาพ"
+        '
+        'FNUnion_lbl
+        '
+        Me.FNUnion_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNUnion_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNUnion_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNUnion_lbl.Location = New System.Drawing.Point(36, 59)
+        Me.FNUnion_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.FNUnion_lbl.Name = "FNUnion_lbl"
+        Me.FNUnion_lbl.Size = New System.Drawing.Size(110, 31)
+        Me.FNUnion_lbl.TabIndex = 386
+        Me.FNUnion_lbl.Tag = "2|"
+        Me.FNUnion_lbl.Text = "Union Name :"
+        '
+        'FNUnion
+        '
+        Me.FNUnion.EditValue = ""
+        Me.FNUnion.EnterMoveNextControl = True
+        Me.FNUnion.Location = New System.Drawing.Point(150, 63)
+        Me.FNUnion.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.FNUnion.Name = "FNUnion"
+        Me.FNUnion.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FNUnion.Properties.Appearance.Options.UseBackColor = True
+        Me.FNUnion.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FNUnion.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FNUnion.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FNUnion.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FNUnion.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNUnion.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNUnion.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNUnion.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNUnion.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNUnion.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNUnion.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNUnion.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNUnion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.FNUnion.Properties.Tag = "FNUnion"
+        Me.FNUnion.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.FNUnion.Size = New System.Drawing.Size(181, 23)
+        Me.FNUnion.TabIndex = 385
+        Me.FNUnion.Tag = "2|"
         '
         'FDEndDateUnion
         '
         Me.FDEndDateUnion.EditValue = Nothing
         Me.FDEndDateUnion.EnterMoveNextControl = True
-        Me.FDEndDateUnion.Location = New System.Drawing.Point(496, 58)
-        Me.FDEndDateUnion.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDEndDateUnion.Location = New System.Drawing.Point(580, 107)
+        Me.FDEndDateUnion.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDEndDateUnion.Name = "FDEndDateUnion"
         Me.FDEndDateUnion.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDEndDateUnion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -6381,7 +6415,7 @@ Partial Class wEmployee
         Me.FDEndDateUnion.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDEndDateUnion.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDEndDateUnion.Properties.NullDate = ""
-        Me.FDEndDateUnion.Size = New System.Drawing.Size(154, 20)
+        Me.FDEndDateUnion.Size = New System.Drawing.Size(180, 23)
         Me.FDEndDateUnion.TabIndex = 384
         Me.FDEndDateUnion.Tag = "2|"
         '
@@ -6389,8 +6423,8 @@ Partial Class wEmployee
         '
         Me.FDStartDateUnion.EditValue = Nothing
         Me.FDStartDateUnion.EnterMoveNextControl = True
-        Me.FDStartDateUnion.Location = New System.Drawing.Point(129, 58)
-        Me.FDStartDateUnion.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDStartDateUnion.Location = New System.Drawing.Point(150, 107)
+        Me.FDStartDateUnion.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDStartDateUnion.Name = "FDStartDateUnion"
         Me.FDStartDateUnion.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDStartDateUnion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -6401,7 +6435,7 @@ Partial Class wEmployee
         Me.FDStartDateUnion.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDStartDateUnion.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDStartDateUnion.Properties.NullDate = ""
-        Me.FDStartDateUnion.Size = New System.Drawing.Size(154, 20)
+        Me.FDStartDateUnion.Size = New System.Drawing.Size(180, 23)
         Me.FDStartDateUnion.TabIndex = 384
         Me.FDStartDateUnion.Tag = "2|"
         '
@@ -6409,8 +6443,8 @@ Partial Class wEmployee
         '
         Me.FDRegisterDateUnion.EditValue = Nothing
         Me.FDRegisterDateUnion.EnterMoveNextControl = True
-        Me.FDRegisterDateUnion.Location = New System.Drawing.Point(496, 24)
-        Me.FDRegisterDateUnion.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDRegisterDateUnion.Location = New System.Drawing.Point(580, 66)
+        Me.FDRegisterDateUnion.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDRegisterDateUnion.Name = "FDRegisterDateUnion"
         Me.FDRegisterDateUnion.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDRegisterDateUnion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -6421,19 +6455,19 @@ Partial Class wEmployee
         Me.FDRegisterDateUnion.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDRegisterDateUnion.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDRegisterDateUnion.Properties.NullDate = ""
-        Me.FDRegisterDateUnion.Size = New System.Drawing.Size(154, 20)
+        Me.FDRegisterDateUnion.Size = New System.Drawing.Size(180, 23)
         Me.FDRegisterDateUnion.TabIndex = 384
         Me.FDRegisterDateUnion.Tag = "2|"
         '
         'FTStateUnionMember
         '
-        Me.FTStateUnionMember.Location = New System.Drawing.Point(129, 25)
-        Me.FTStateUnionMember.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateUnionMember.Location = New System.Drawing.Point(440, 32)
+        Me.FTStateUnionMember.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateUnionMember.Name = "FTStateUnionMember"
         Me.FTStateUnionMember.Properties.Caption = "สถานะ สมาชิกสหภาพ"
         Me.FTStateUnionMember.Properties.ValueChecked = "1"
         Me.FTStateUnionMember.Properties.ValueUnchecked = "0"
-        Me.FTStateUnionMember.Size = New System.Drawing.Size(215, 20)
+        Me.FTStateUnionMember.Size = New System.Drawing.Size(251, 21)
         Me.FTStateUnionMember.TabIndex = 383
         Me.FTStateUnionMember.Tag = "2|"
         '
@@ -6443,10 +6477,10 @@ Partial Class wEmployee
         Me.FDRegisterDateUnion_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDRegisterDateUnion_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FDRegisterDateUnion_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDRegisterDateUnion_lbl.Location = New System.Drawing.Point(350, 24)
-        Me.FDRegisterDateUnion_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDRegisterDateUnion_lbl.Location = New System.Drawing.Point(409, 66)
+        Me.FDRegisterDateUnion_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDRegisterDateUnion_lbl.Name = "FDRegisterDateUnion_lbl"
-        Me.FDRegisterDateUnion_lbl.Size = New System.Drawing.Size(141, 18)
+        Me.FDRegisterDateUnion_lbl.Size = New System.Drawing.Size(164, 22)
         Me.FDRegisterDateUnion_lbl.TabIndex = 355
         Me.FDRegisterDateUnion_lbl.Tag = "2|"
         Me.FDRegisterDateUnion_lbl.Text = "Union Register Date :"
@@ -6457,10 +6491,10 @@ Partial Class wEmployee
         Me.FDEndDateUnion_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDEndDateUnion_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FDEndDateUnion_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDEndDateUnion_lbl.Location = New System.Drawing.Point(364, 50)
-        Me.FDEndDateUnion_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDEndDateUnion_lbl.Location = New System.Drawing.Point(426, 98)
+        Me.FDEndDateUnion_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDEndDateUnion_lbl.Name = "FDEndDateUnion_lbl"
-        Me.FDEndDateUnion_lbl.Size = New System.Drawing.Size(127, 30)
+        Me.FDEndDateUnion_lbl.Size = New System.Drawing.Size(148, 37)
         Me.FDEndDateUnion_lbl.TabIndex = 355
         Me.FDEndDateUnion_lbl.Tag = "2|"
         Me.FDEndDateUnion_lbl.Text = "Union End Date :"
@@ -6471,10 +6505,10 @@ Partial Class wEmployee
         Me.FDStartDateUnion_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDStartDateUnion_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FDStartDateUnion_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDStartDateUnion_lbl.Location = New System.Drawing.Point(-3, 52)
-        Me.FDStartDateUnion_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDStartDateUnion_lbl.Location = New System.Drawing.Point(-2, 100)
+        Me.FDStartDateUnion_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDStartDateUnion_lbl.Name = "FDStartDateUnion_lbl"
-        Me.FDStartDateUnion_lbl.Size = New System.Drawing.Size(127, 30)
+        Me.FDStartDateUnion_lbl.Size = New System.Drawing.Size(148, 37)
         Me.FDStartDateUnion_lbl.TabIndex = 355
         Me.FDStartDateUnion_lbl.Tag = "2|"
         Me.FDStartDateUnion_lbl.Text = "Union Start Date :"
@@ -6493,10 +6527,11 @@ Partial Class wEmployee
         Me.GroupControl9.Controls.Add(Me.LabelControl2)
         Me.GroupControl9.Controls.Add(Me.FNSalary_lbl)
         Me.GroupControl9.Controls.Add(Me.FNSalary)
-        Me.GroupControl9.Location = New System.Drawing.Point(0, 66)
-        Me.GroupControl9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl9.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GroupControl9.Location = New System.Drawing.Point(2, 2)
+        Me.GroupControl9.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl9.Name = "GroupControl9"
-        Me.GroupControl9.Size = New System.Drawing.Size(783, 84)
+        Me.GroupControl9.Size = New System.Drawing.Size(937, 100)
         Me.GroupControl9.TabIndex = 0
         Me.GroupControl9.Text = "อัตราค่าจ้าง"
         '
@@ -6505,10 +6540,10 @@ Partial Class wEmployee
         Me.LabelControl7.Appearance.Options.UseTextOptions = True
         Me.LabelControl7.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl7.Location = New System.Drawing.Point(610, 54)
-        Me.LabelControl7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl7.Location = New System.Drawing.Point(712, 66)
+        Me.LabelControl7.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl7.Name = "LabelControl7"
-        Me.LabelControl7.Size = New System.Drawing.Size(35, 25)
+        Me.LabelControl7.Size = New System.Drawing.Size(41, 31)
         Me.LabelControl7.TabIndex = 323
         Me.LabelControl7.Tag = "2|"
         Me.LabelControl7.Text = "บาท"
@@ -6516,8 +6551,8 @@ Partial Class wEmployee
         'olainput10
         '
         Me.olainput10.EnterMoveNextControl = True
-        Me.olainput10.Location = New System.Drawing.Point(525, 54)
-        Me.olainput10.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.olainput10.Location = New System.Drawing.Point(612, 66)
+        Me.olainput10.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.olainput10.Name = "olainput10"
         Me.olainput10.Properties.Appearance.Options.UseTextOptions = True
         Me.olainput10.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -6529,11 +6564,11 @@ Partial Class wEmployee
         Me.olainput10.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.olainput10.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.olainput10.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.olainput10.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions31, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject121, SerializableAppearanceObject122, SerializableAppearanceObject123, SerializableAppearanceObject124, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.olainput10.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions30, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject117, SerializableAppearanceObject118, SerializableAppearanceObject119, SerializableAppearanceObject120, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.olainput10.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.olainput10.Properties.Precision = 2
         Me.olainput10.Properties.ReadOnly = True
-        Me.olainput10.Size = New System.Drawing.Size(82, 20)
+        Me.olainput10.Size = New System.Drawing.Size(96, 23)
         Me.olainput10.TabIndex = 322
         Me.olainput10.Tag = "2|"
         '
@@ -6542,10 +6577,10 @@ Partial Class wEmployee
         Me.LabelControl8.Appearance.Options.UseTextOptions = True
         Me.LabelControl8.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl8.Location = New System.Drawing.Point(385, 52)
-        Me.LabelControl8.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl8.Location = New System.Drawing.Point(449, 64)
+        Me.LabelControl8.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl8.Name = "LabelControl8"
-        Me.LabelControl8.Size = New System.Drawing.Size(140, 25)
+        Me.LabelControl8.Size = New System.Drawing.Size(163, 31)
         Me.LabelControl8.TabIndex = 321
         Me.LabelControl8.Tag = "2|"
         Me.LabelControl8.Text = "ภาษีสะสม :"
@@ -6555,10 +6590,10 @@ Partial Class wEmployee
         Me.LabelControl5.Appearance.Options.UseTextOptions = True
         Me.LabelControl5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl5.Location = New System.Drawing.Point(292, 54)
-        Me.LabelControl5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl5.Location = New System.Drawing.Point(341, 66)
+        Me.LabelControl5.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(33, 25)
+        Me.LabelControl5.Size = New System.Drawing.Size(38, 31)
         Me.LabelControl5.TabIndex = 320
         Me.LabelControl5.Tag = "2|"
         Me.LabelControl5.Text = "บาท"
@@ -6566,8 +6601,8 @@ Partial Class wEmployee
         'olainput9
         '
         Me.olainput9.EnterMoveNextControl = True
-        Me.olainput9.Location = New System.Drawing.Point(204, 54)
-        Me.olainput9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.olainput9.Location = New System.Drawing.Point(238, 66)
+        Me.olainput9.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.olainput9.Name = "olainput9"
         Me.olainput9.Properties.Appearance.Options.UseTextOptions = True
         Me.olainput9.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -6579,11 +6614,11 @@ Partial Class wEmployee
         Me.olainput9.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.olainput9.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.olainput9.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.olainput9.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions32, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject125, SerializableAppearanceObject126, SerializableAppearanceObject127, SerializableAppearanceObject128, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.olainput9.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions31, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject121, SerializableAppearanceObject122, SerializableAppearanceObject123, SerializableAppearanceObject124, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.olainput9.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.olainput9.Properties.Precision = 2
         Me.olainput9.Properties.ReadOnly = True
-        Me.olainput9.Size = New System.Drawing.Size(82, 20)
+        Me.olainput9.Size = New System.Drawing.Size(96, 23)
         Me.olainput9.TabIndex = 319
         Me.olainput9.Tag = "2|"
         '
@@ -6592,10 +6627,10 @@ Partial Class wEmployee
         Me.LabelControl6.Appearance.Options.UseTextOptions = True
         Me.LabelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl6.Location = New System.Drawing.Point(6, 52)
-        Me.LabelControl6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl6.Location = New System.Drawing.Point(7, 64)
+        Me.LabelControl6.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(195, 25)
+        Me.LabelControl6.Size = New System.Drawing.Size(227, 31)
         Me.LabelControl6.TabIndex = 318
         Me.LabelControl6.Tag = "2|"
         Me.LabelControl6.Text = "ประกันสังคมสะสม :"
@@ -6605,10 +6640,10 @@ Partial Class wEmployee
         Me.LabelControl4.Appearance.Options.UseTextOptions = True
         Me.LabelControl4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl4.Location = New System.Drawing.Point(610, 31)
-        Me.LabelControl4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl4.Location = New System.Drawing.Point(712, 38)
+        Me.LabelControl4.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(35, 25)
+        Me.LabelControl4.Size = New System.Drawing.Size(41, 31)
         Me.LabelControl4.TabIndex = 317
         Me.LabelControl4.Tag = "2|"
         Me.LabelControl4.Text = "บาท"
@@ -6616,8 +6651,8 @@ Partial Class wEmployee
         'olainput4
         '
         Me.olainput4.EnterMoveNextControl = True
-        Me.olainput4.Location = New System.Drawing.Point(525, 31)
-        Me.olainput4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.olainput4.Location = New System.Drawing.Point(612, 38)
+        Me.olainput4.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.olainput4.Name = "olainput4"
         Me.olainput4.Properties.Appearance.Options.UseTextOptions = True
         Me.olainput4.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -6629,11 +6664,11 @@ Partial Class wEmployee
         Me.olainput4.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.olainput4.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.olainput4.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.olainput4.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions33, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject129, SerializableAppearanceObject130, SerializableAppearanceObject131, SerializableAppearanceObject132, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.olainput4.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions32, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject125, SerializableAppearanceObject126, SerializableAppearanceObject127, SerializableAppearanceObject128, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.olainput4.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.olainput4.Properties.Precision = 2
         Me.olainput4.Properties.ReadOnly = True
-        Me.olainput4.Size = New System.Drawing.Size(82, 20)
+        Me.olainput4.Size = New System.Drawing.Size(96, 23)
         Me.olainput4.TabIndex = 316
         Me.olainput4.Tag = "2|"
         '
@@ -6642,10 +6677,10 @@ Partial Class wEmployee
         Me.LabelControl3.Appearance.Options.UseTextOptions = True
         Me.LabelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl3.Location = New System.Drawing.Point(385, 30)
-        Me.LabelControl3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl3.Location = New System.Drawing.Point(449, 37)
+        Me.LabelControl3.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(140, 25)
+        Me.LabelControl3.Size = New System.Drawing.Size(163, 31)
         Me.LabelControl3.TabIndex = 315
         Me.LabelControl3.Tag = "2|"
         Me.LabelControl3.Text = "ค่าจ้างสะสม :"
@@ -6655,10 +6690,10 @@ Partial Class wEmployee
         Me.LabelControl2.Appearance.Options.UseTextOptions = True
         Me.LabelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl2.Location = New System.Drawing.Point(290, 31)
-        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl2.Location = New System.Drawing.Point(338, 38)
+        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(34, 25)
+        Me.LabelControl2.Size = New System.Drawing.Size(40, 31)
         Me.LabelControl2.TabIndex = 314
         Me.LabelControl2.Tag = "2|"
         Me.LabelControl2.Text = "บาท"
@@ -6668,10 +6703,10 @@ Partial Class wEmployee
         Me.FNSalary_lbl.Appearance.Options.UseTextOptions = True
         Me.FNSalary_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNSalary_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNSalary_lbl.Location = New System.Drawing.Point(8, 30)
-        Me.FNSalary_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNSalary_lbl.Location = New System.Drawing.Point(9, 37)
+        Me.FNSalary_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNSalary_lbl.Name = "FNSalary_lbl"
-        Me.FNSalary_lbl.Size = New System.Drawing.Size(192, 25)
+        Me.FNSalary_lbl.Size = New System.Drawing.Size(224, 31)
         Me.FNSalary_lbl.TabIndex = 313
         Me.FNSalary_lbl.Tag = "2|"
         Me.FNSalary_lbl.Text = "ค่าจ้าง :"
@@ -6679,8 +6714,8 @@ Partial Class wEmployee
         'FNSalary
         '
         Me.FNSalary.EnterMoveNextControl = True
-        Me.FNSalary.Location = New System.Drawing.Point(204, 31)
-        Me.FNSalary.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNSalary.Location = New System.Drawing.Point(238, 38)
+        Me.FNSalary.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNSalary.Name = "FNSalary"
         Me.FNSalary.Properties.Appearance.Options.UseTextOptions = True
         Me.FNSalary.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -6692,10 +6727,10 @@ Partial Class wEmployee
         Me.FNSalary.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNSalary.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNSalary.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNSalary.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions34, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject133, SerializableAppearanceObject134, SerializableAppearanceObject135, SerializableAppearanceObject136, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNSalary.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions33, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject129, SerializableAppearanceObject130, SerializableAppearanceObject131, SerializableAppearanceObject132, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNSalary.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNSalary.Properties.Precision = 2
-        Me.FNSalary.Size = New System.Drawing.Size(82, 20)
+        Me.FNSalary.Size = New System.Drawing.Size(96, 23)
         Me.FNSalary.TabIndex = 312
         Me.FNSalary.Tag = "2|"
         '
@@ -6750,10 +6785,10 @@ Partial Class wEmployee
         Me.GroupControl4.Controls.Add(Me.LabelControl9)
         Me.GroupControl4.Controls.Add(Me.FCModFather_lbl)
         Me.GroupControl4.Controls.Add(Me.FCModFather)
-        Me.GroupControl4.Location = New System.Drawing.Point(0, 151)
-        Me.GroupControl4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl4.Location = New System.Drawing.Point(0, 186)
+        Me.GroupControl4.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl4.Name = "GroupControl4"
-        Me.GroupControl4.Size = New System.Drawing.Size(787, 276)
+        Me.GroupControl4.Size = New System.Drawing.Size(939, 340)
         Me.GroupControl4.TabIndex = 1
         Me.GroupControl4.Text = "อัตราลดหย่อน"
         '
@@ -6762,10 +6797,10 @@ Partial Class wEmployee
         Me.LabelControl1.Appearance.Options.UseTextOptions = True
         Me.LabelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl1.Location = New System.Drawing.Point(649, 134)
-        Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl1.Location = New System.Drawing.Point(757, 165)
+        Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(23, 25)
+        Me.LabelControl1.Size = New System.Drawing.Size(27, 31)
         Me.LabelControl1.TabIndex = 389
         Me.LabelControl1.Tag = "2|"
         Me.LabelControl1.Text = "บาท"
@@ -6776,10 +6811,10 @@ Partial Class wEmployee
         Me.FCDeductDonateStudy๘สิส.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCDeductDonateStudy๘สิส.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCDeductDonateStudy๘สิส.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCDeductDonateStudy๘สิส.Location = New System.Drawing.Point(317, 112)
-        Me.FCDeductDonateStudy๘สิส.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCDeductDonateStudy๘สิส.Location = New System.Drawing.Point(370, 138)
+        Me.FCDeductDonateStudy๘สิส.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCDeductDonateStudy๘สิส.Name = "FCDeductDonateStudy๘สิส"
-        Me.FCDeductDonateStudy๘สิส.Size = New System.Drawing.Size(241, 30)
+        Me.FCDeductDonateStudy๘สิส.Size = New System.Drawing.Size(281, 37)
         Me.FCDeductDonateStudy๘สิส.TabIndex = 388
         Me.FCDeductDonateStudy๘สิส.Tag = "2|"
         Me.FCDeductDonateStudy๘สิส.Text = "เงินบริจาคเพื่อการศึกษา :"
@@ -6787,8 +6822,8 @@ Partial Class wEmployee
         'FCDeductDonateStudy
         '
         Me.FCDeductDonateStudy.EnterMoveNextControl = True
-        Me.FCDeductDonateStudy.Location = New System.Drawing.Point(563, 113)
-        Me.FCDeductDonateStudy.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCDeductDonateStudy.Location = New System.Drawing.Point(657, 139)
+        Me.FCDeductDonateStudy.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCDeductDonateStudy.Name = "FCDeductDonateStudy"
         Me.FCDeductDonateStudy.Properties.Appearance.Options.UseTextOptions = True
         Me.FCDeductDonateStudy.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -6800,58 +6835,58 @@ Partial Class wEmployee
         Me.FCDeductDonateStudy.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCDeductDonateStudy.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCDeductDonateStudy.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCDeductDonateStudy.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions35, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject137, SerializableAppearanceObject138, SerializableAppearanceObject139, SerializableAppearanceObject140, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCDeductDonateStudy.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions34, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject133, SerializableAppearanceObject134, SerializableAppearanceObject135, SerializableAppearanceObject136, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCDeductDonateStudy.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCDeductDonateStudy.Properties.Precision = 2
-        Me.FCDeductDonateStudy.Size = New System.Drawing.Size(82, 20)
+        Me.FCDeductDonateStudy.Size = New System.Drawing.Size(96, 23)
         Me.FCDeductDonateStudy.TabIndex = 12
         Me.FCDeductDonateStudy.Tag = "2|"
         '
         'FTHealthInsurIDMotherMate
         '
-        Me.FTHealthInsurIDMotherMate.Location = New System.Drawing.Point(379, 232)
-        Me.FTHealthInsurIDMotherMate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTHealthInsurIDMotherMate.Location = New System.Drawing.Point(442, 286)
+        Me.FTHealthInsurIDMotherMate.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTHealthInsurIDMotherMate.Name = "FTHealthInsurIDMotherMate"
         Me.FTHealthInsurIDMotherMate.Properties.Caption = "แสดงเลขที่บัตรประชาชนของมารดาคู่สมรส"
         Me.FTHealthInsurIDMotherMate.Properties.ValueChecked = "1"
         Me.FTHealthInsurIDMotherMate.Properties.ValueUnchecked = "0"
-        Me.FTHealthInsurIDMotherMate.Size = New System.Drawing.Size(257, 20)
+        Me.FTHealthInsurIDMotherMate.Size = New System.Drawing.Size(300, 21)
         Me.FTHealthInsurIDMotherMate.TabIndex = 386
         Me.FTHealthInsurIDMotherMate.Tag = "2|"
         '
         'FTHealthInsurIDFatherMate
         '
-        Me.FTHealthInsurIDFatherMate.Location = New System.Drawing.Point(99, 232)
-        Me.FTHealthInsurIDFatherMate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTHealthInsurIDFatherMate.Location = New System.Drawing.Point(115, 286)
+        Me.FTHealthInsurIDFatherMate.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTHealthInsurIDFatherMate.Name = "FTHealthInsurIDFatherMate"
         Me.FTHealthInsurIDFatherMate.Properties.Caption = "แสดงเลขที่บัตรประชาชนของบิดาคู่สมรส"
         Me.FTHealthInsurIDFatherMate.Properties.ValueChecked = "1"
         Me.FTHealthInsurIDFatherMate.Properties.ValueUnchecked = "0"
-        Me.FTHealthInsurIDFatherMate.Size = New System.Drawing.Size(248, 20)
+        Me.FTHealthInsurIDFatherMate.Size = New System.Drawing.Size(289, 21)
         Me.FTHealthInsurIDFatherMate.TabIndex = 385
         Me.FTHealthInsurIDFatherMate.Tag = "2|"
         '
         'FTHealthInsurIDMother
         '
-        Me.FTHealthInsurIDMother.Location = New System.Drawing.Point(379, 209)
-        Me.FTHealthInsurIDMother.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTHealthInsurIDMother.Location = New System.Drawing.Point(442, 257)
+        Me.FTHealthInsurIDMother.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTHealthInsurIDMother.Name = "FTHealthInsurIDMother"
         Me.FTHealthInsurIDMother.Properties.Caption = "แสดงเลขที่บัตรประชาชนของมารดา"
         Me.FTHealthInsurIDMother.Properties.ValueChecked = "1"
         Me.FTHealthInsurIDMother.Properties.ValueUnchecked = "0"
-        Me.FTHealthInsurIDMother.Size = New System.Drawing.Size(257, 20)
+        Me.FTHealthInsurIDMother.Size = New System.Drawing.Size(300, 21)
         Me.FTHealthInsurIDMother.TabIndex = 384
         Me.FTHealthInsurIDMother.Tag = "2|"
         '
         'FTHealthInsurIDFather
         '
-        Me.FTHealthInsurIDFather.Location = New System.Drawing.Point(99, 209)
-        Me.FTHealthInsurIDFather.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTHealthInsurIDFather.Location = New System.Drawing.Point(115, 257)
+        Me.FTHealthInsurIDFather.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTHealthInsurIDFather.Name = "FTHealthInsurIDFather"
         Me.FTHealthInsurIDFather.Properties.Caption = "แสดงเลขที่บัตรประชาชนของบิดา"
         Me.FTHealthInsurIDFather.Properties.ValueChecked = "1"
         Me.FTHealthInsurIDFather.Properties.ValueUnchecked = "0"
-        Me.FTHealthInsurIDFather.Size = New System.Drawing.Size(215, 20)
+        Me.FTHealthInsurIDFather.Size = New System.Drawing.Size(251, 21)
         Me.FTHealthInsurIDFather.TabIndex = 383
         Me.FTHealthInsurIDFather.Tag = "2|"
         '
@@ -6860,10 +6895,10 @@ Partial Class wEmployee
         Me.LabelControl40.Appearance.Options.UseTextOptions = True
         Me.LabelControl40.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl40.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl40.Location = New System.Drawing.Point(286, 184)
-        Me.LabelControl40.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl40.Location = New System.Drawing.Point(334, 226)
+        Me.LabelControl40.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl40.Name = "LabelControl40"
-        Me.LabelControl40.Size = New System.Drawing.Size(35, 25)
+        Me.LabelControl40.Size = New System.Drawing.Size(41, 31)
         Me.LabelControl40.TabIndex = 356
         Me.LabelControl40.Tag = "2|"
         Me.LabelControl40.Text = "บาท"
@@ -6874,10 +6909,10 @@ Partial Class wEmployee
         Me.FCHealthInsurFatherMotherMate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCHealthInsurFatherMotherMate_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCHealthInsurFatherMotherMate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCHealthInsurFatherMotherMate_lbl.Location = New System.Drawing.Point(7, 182)
-        Me.FCHealthInsurFatherMotherMate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCHealthInsurFatherMotherMate_lbl.Location = New System.Drawing.Point(8, 224)
+        Me.FCHealthInsurFatherMotherMate_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCHealthInsurFatherMotherMate_lbl.Name = "FCHealthInsurFatherMotherMate_lbl"
-        Me.FCHealthInsurFatherMotherMate_lbl.Size = New System.Drawing.Size(195, 30)
+        Me.FCHealthInsurFatherMotherMate_lbl.Size = New System.Drawing.Size(227, 37)
         Me.FCHealthInsurFatherMotherMate_lbl.TabIndex = 355
         Me.FCHealthInsurFatherMotherMate_lbl.Tag = "2|"
         Me.FCHealthInsurFatherMotherMate_lbl.Text = "เบี้ยประกันสุขภาพบิดามารดา :"
@@ -6885,8 +6920,8 @@ Partial Class wEmployee
         'FCHealthInsurFatherMotherMate
         '
         Me.FCHealthInsurFatherMotherMate.EnterMoveNextControl = True
-        Me.FCHealthInsurFatherMotherMate.Location = New System.Drawing.Point(204, 184)
-        Me.FCHealthInsurFatherMotherMate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCHealthInsurFatherMotherMate.Location = New System.Drawing.Point(238, 226)
+        Me.FCHealthInsurFatherMotherMate.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCHealthInsurFatherMotherMate.Name = "FCHealthInsurFatherMotherMate"
         Me.FCHealthInsurFatherMotherMate.Properties.Appearance.Options.UseTextOptions = True
         Me.FCHealthInsurFatherMotherMate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -6898,10 +6933,10 @@ Partial Class wEmployee
         Me.FCHealthInsurFatherMotherMate.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCHealthInsurFatherMotherMate.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCHealthInsurFatherMotherMate.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCHealthInsurFatherMotherMate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions36, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject141, SerializableAppearanceObject142, SerializableAppearanceObject143, SerializableAppearanceObject144, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCHealthInsurFatherMotherMate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions35, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject137, SerializableAppearanceObject138, SerializableAppearanceObject139, SerializableAppearanceObject140, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCHealthInsurFatherMotherMate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCHealthInsurFatherMotherMate.Properties.Precision = 2
-        Me.FCHealthInsurFatherMotherMate.Size = New System.Drawing.Size(82, 20)
+        Me.FCHealthInsurFatherMotherMate.Size = New System.Drawing.Size(96, 23)
         Me.FCHealthInsurFatherMotherMate.TabIndex = 7
         Me.FCHealthInsurFatherMotherMate.Tag = "2|"
         '
@@ -6910,10 +6945,10 @@ Partial Class wEmployee
         Me.LabelControl45.Appearance.Options.UseTextOptions = True
         Me.LabelControl45.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl45.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl45.Location = New System.Drawing.Point(287, 160)
-        Me.LabelControl45.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl45.Location = New System.Drawing.Point(335, 197)
+        Me.LabelControl45.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl45.Name = "LabelControl45"
-        Me.LabelControl45.Size = New System.Drawing.Size(29, 25)
+        Me.LabelControl45.Size = New System.Drawing.Size(34, 31)
         Me.LabelControl45.TabIndex = 353
         Me.LabelControl45.Tag = "2|"
         Me.LabelControl45.Text = "บาท"
@@ -6924,10 +6959,10 @@ Partial Class wEmployee
         Me.FCExceptAgeOverMate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCExceptAgeOverMate_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCExceptAgeOverMate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCExceptAgeOverMate_lbl.Location = New System.Drawing.Point(8, 159)
-        Me.FCExceptAgeOverMate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCExceptAgeOverMate_lbl.Location = New System.Drawing.Point(9, 196)
+        Me.FCExceptAgeOverMate_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCExceptAgeOverMate_lbl.Name = "FCExceptAgeOverMate_lbl"
-        Me.FCExceptAgeOverMate_lbl.Size = New System.Drawing.Size(195, 30)
+        Me.FCExceptAgeOverMate_lbl.Size = New System.Drawing.Size(227, 37)
         Me.FCExceptAgeOverMate_lbl.TabIndex = 352
         Me.FCExceptAgeOverMate_lbl.Tag = "2|"
         Me.FCExceptAgeOverMate_lbl.Text = "คู่สมรสอายุตั้งแต่ 65 ปีขึ้นไป :"
@@ -6935,8 +6970,8 @@ Partial Class wEmployee
         'FCExceptAgeOverMate
         '
         Me.FCExceptAgeOverMate.EnterMoveNextControl = True
-        Me.FCExceptAgeOverMate.Location = New System.Drawing.Point(204, 160)
-        Me.FCExceptAgeOverMate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCExceptAgeOverMate.Location = New System.Drawing.Point(238, 197)
+        Me.FCExceptAgeOverMate.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCExceptAgeOverMate.Name = "FCExceptAgeOverMate"
         Me.FCExceptAgeOverMate.Properties.Appearance.Options.UseTextOptions = True
         Me.FCExceptAgeOverMate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -6948,10 +6983,10 @@ Partial Class wEmployee
         Me.FCExceptAgeOverMate.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCExceptAgeOverMate.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCExceptAgeOverMate.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCExceptAgeOverMate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions37, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject145, SerializableAppearanceObject146, SerializableAppearanceObject147, SerializableAppearanceObject148, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCExceptAgeOverMate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions36, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject141, SerializableAppearanceObject142, SerializableAppearanceObject143, SerializableAppearanceObject144, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCExceptAgeOverMate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCExceptAgeOverMate.Properties.Precision = 2
-        Me.FCExceptAgeOverMate.Size = New System.Drawing.Size(82, 20)
+        Me.FCExceptAgeOverMate.Size = New System.Drawing.Size(96, 23)
         Me.FCExceptAgeOverMate.TabIndex = 6
         Me.FCExceptAgeOverMate.Tag = "2|"
         '
@@ -6960,10 +6995,10 @@ Partial Class wEmployee
         Me.LabelControl36.Appearance.Options.UseTextOptions = True
         Me.LabelControl36.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl36.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl36.Location = New System.Drawing.Point(647, 109)
-        Me.LabelControl36.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl36.Location = New System.Drawing.Point(755, 134)
+        Me.LabelControl36.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl36.Name = "LabelControl36"
-        Me.LabelControl36.Size = New System.Drawing.Size(29, 25)
+        Me.LabelControl36.Size = New System.Drawing.Size(34, 31)
         Me.LabelControl36.TabIndex = 350
         Me.LabelControl36.Tag = "2|"
         Me.LabelControl36.Text = "บาท"
@@ -6974,10 +7009,10 @@ Partial Class wEmployee
         Me.FCDisabledDependents_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCDisabledDependents_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCDisabledDependents_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCDisabledDependents_lbl.Location = New System.Drawing.Point(322, 157)
-        Me.FCDisabledDependents_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCDisabledDependents_lbl.Location = New System.Drawing.Point(376, 193)
+        Me.FCDisabledDependents_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCDisabledDependents_lbl.Name = "FCDisabledDependents_lbl"
-        Me.FCDisabledDependents_lbl.Size = New System.Drawing.Size(241, 30)
+        Me.FCDisabledDependents_lbl.Size = New System.Drawing.Size(281, 37)
         Me.FCDisabledDependents_lbl.TabIndex = 349
         Me.FCDisabledDependents_lbl.Tag = "2|"
         Me.FCDisabledDependents_lbl.Text = "เลี้ยงดูคนพิการหรือทุพพลภาพ :"
@@ -6985,8 +7020,8 @@ Partial Class wEmployee
         'FCDisabledDependents
         '
         Me.FCDisabledDependents.EnterMoveNextControl = True
-        Me.FCDisabledDependents.Location = New System.Drawing.Point(563, 160)
-        Me.FCDisabledDependents.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCDisabledDependents.Location = New System.Drawing.Point(657, 197)
+        Me.FCDisabledDependents.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCDisabledDependents.Name = "FCDisabledDependents"
         Me.FCDisabledDependents.Properties.Appearance.Options.UseTextOptions = True
         Me.FCDisabledDependents.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -6998,10 +7033,10 @@ Partial Class wEmployee
         Me.FCDisabledDependents.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCDisabledDependents.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCDisabledDependents.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCDisabledDependents.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions38, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject149, SerializableAppearanceObject150, SerializableAppearanceObject151, SerializableAppearanceObject152, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCDisabledDependents.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions37, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject145, SerializableAppearanceObject146, SerializableAppearanceObject147, SerializableAppearanceObject148, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCDisabledDependents.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCDisabledDependents.Properties.Precision = 2
-        Me.FCDisabledDependents.Size = New System.Drawing.Size(82, 20)
+        Me.FCDisabledDependents.Size = New System.Drawing.Size(96, 23)
         Me.FCDisabledDependents.TabIndex = 14
         Me.FCDisabledDependents.Tag = "2|"
         '
@@ -7010,10 +7045,10 @@ Partial Class wEmployee
         Me.LabelControl38.Appearance.Options.UseTextOptions = True
         Me.LabelControl38.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl38.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl38.Location = New System.Drawing.Point(287, 137)
-        Me.LabelControl38.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl38.Location = New System.Drawing.Point(335, 169)
+        Me.LabelControl38.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl38.Name = "LabelControl38"
-        Me.LabelControl38.Size = New System.Drawing.Size(29, 25)
+        Me.LabelControl38.Size = New System.Drawing.Size(34, 31)
         Me.LabelControl38.TabIndex = 347
         Me.LabelControl38.Tag = "2|"
         Me.LabelControl38.Text = "บาท"
@@ -7024,10 +7059,10 @@ Partial Class wEmployee
         Me.FCExceptAgeOver_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCExceptAgeOver_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCExceptAgeOver_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCExceptAgeOver_lbl.Location = New System.Drawing.Point(6, 136)
-        Me.FCExceptAgeOver_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCExceptAgeOver_lbl.Location = New System.Drawing.Point(7, 167)
+        Me.FCExceptAgeOver_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCExceptAgeOver_lbl.Name = "FCExceptAgeOver_lbl"
-        Me.FCExceptAgeOver_lbl.Size = New System.Drawing.Size(195, 30)
+        Me.FCExceptAgeOver_lbl.Size = New System.Drawing.Size(227, 37)
         Me.FCExceptAgeOver_lbl.TabIndex = 346
         Me.FCExceptAgeOver_lbl.Tag = "2|"
         Me.FCExceptAgeOver_lbl.Text = "ผู้มีเงินได้ตั้งแต่ 65 ปีขึ้นไป :"
@@ -7035,8 +7070,8 @@ Partial Class wEmployee
         'FCExceptAgeOver
         '
         Me.FCExceptAgeOver.EnterMoveNextControl = True
-        Me.FCExceptAgeOver.Location = New System.Drawing.Point(204, 137)
-        Me.FCExceptAgeOver.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCExceptAgeOver.Location = New System.Drawing.Point(238, 169)
+        Me.FCExceptAgeOver.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCExceptAgeOver.Name = "FCExceptAgeOver"
         Me.FCExceptAgeOver.Properties.Appearance.Options.UseTextOptions = True
         Me.FCExceptAgeOver.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -7048,10 +7083,10 @@ Partial Class wEmployee
         Me.FCExceptAgeOver.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCExceptAgeOver.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCExceptAgeOver.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCExceptAgeOver.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions39, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject153, SerializableAppearanceObject154, SerializableAppearanceObject155, SerializableAppearanceObject156, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCExceptAgeOver.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions38, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject149, SerializableAppearanceObject150, SerializableAppearanceObject151, SerializableAppearanceObject152, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCExceptAgeOver.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCExceptAgeOver.Properties.Precision = 2
-        Me.FCExceptAgeOver.Size = New System.Drawing.Size(82, 20)
+        Me.FCExceptAgeOver.Size = New System.Drawing.Size(96, 23)
         Me.FCExceptAgeOver.TabIndex = 5
         Me.FCExceptAgeOver.Tag = "2|"
         '
@@ -7060,10 +7095,10 @@ Partial Class wEmployee
         Me.LabelControl30.Appearance.Options.UseTextOptions = True
         Me.LabelControl30.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl30.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl30.Location = New System.Drawing.Point(647, 157)
-        Me.LabelControl30.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl30.Location = New System.Drawing.Point(755, 193)
+        Me.LabelControl30.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl30.Name = "LabelControl30"
-        Me.LabelControl30.Size = New System.Drawing.Size(29, 25)
+        Me.LabelControl30.Size = New System.Drawing.Size(34, 31)
         Me.LabelControl30.TabIndex = 344
         Me.LabelControl30.Tag = "2|"
         Me.LabelControl30.Text = "บาท"
@@ -7074,10 +7109,10 @@ Partial Class wEmployee
         Me.FCDeductDividend_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCDeductDividend_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCDeductDividend_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCDeductDividend_lbl.Location = New System.Drawing.Point(317, 135)
-        Me.FCDeductDividend_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCDeductDividend_lbl.Location = New System.Drawing.Point(370, 166)
+        Me.FCDeductDividend_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCDeductDividend_lbl.Name = "FCDeductDividend_lbl"
-        Me.FCDeductDividend_lbl.Size = New System.Drawing.Size(241, 30)
+        Me.FCDeductDividend_lbl.Size = New System.Drawing.Size(281, 37)
         Me.FCDeductDividend_lbl.TabIndex = 343
         Me.FCDeductDividend_lbl.Tag = "2|"
         Me.FCDeductDividend_lbl.Text = "ลดหย่อนเงินปันผล :"
@@ -7085,8 +7120,8 @@ Partial Class wEmployee
         'FCDeductDividend
         '
         Me.FCDeductDividend.EnterMoveNextControl = True
-        Me.FCDeductDividend.Location = New System.Drawing.Point(563, 136)
-        Me.FCDeductDividend.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCDeductDividend.Location = New System.Drawing.Point(657, 167)
+        Me.FCDeductDividend.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCDeductDividend.Name = "FCDeductDividend"
         Me.FCDeductDividend.Properties.Appearance.Options.UseTextOptions = True
         Me.FCDeductDividend.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -7098,10 +7133,10 @@ Partial Class wEmployee
         Me.FCDeductDividend.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCDeductDividend.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCDeductDividend.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCDeductDividend.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions40, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject157, SerializableAppearanceObject158, SerializableAppearanceObject159, SerializableAppearanceObject160, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCDeductDividend.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions39, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject153, SerializableAppearanceObject154, SerializableAppearanceObject155, SerializableAppearanceObject156, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCDeductDividend.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCDeductDividend.Properties.Precision = 2
-        Me.FCDeductDividend.Size = New System.Drawing.Size(82, 20)
+        Me.FCDeductDividend.Size = New System.Drawing.Size(96, 23)
         Me.FCDeductDividend.TabIndex = 13
         Me.FCDeductDividend.Tag = "2|"
         '
@@ -7110,10 +7145,10 @@ Partial Class wEmployee
         Me.LabelControl32.Appearance.Options.UseTextOptions = True
         Me.LabelControl32.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl32.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl32.Location = New System.Drawing.Point(287, 114)
-        Me.LabelControl32.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl32.Location = New System.Drawing.Point(335, 140)
+        Me.LabelControl32.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl32.Name = "LabelControl32"
-        Me.LabelControl32.Size = New System.Drawing.Size(29, 25)
+        Me.LabelControl32.Size = New System.Drawing.Size(34, 31)
         Me.LabelControl32.TabIndex = 341
         Me.LabelControl32.Tag = "2|"
         Me.LabelControl32.Text = "บาท"
@@ -7124,10 +7159,10 @@ Partial Class wEmployee
         Me.FCDeductDonate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCDeductDonate_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCDeductDonate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCDeductDonate_lbl.Location = New System.Drawing.Point(7, 113)
-        Me.FCDeductDonate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCDeductDonate_lbl.Location = New System.Drawing.Point(8, 139)
+        Me.FCDeductDonate_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCDeductDonate_lbl.Name = "FCDeductDonate_lbl"
-        Me.FCDeductDonate_lbl.Size = New System.Drawing.Size(195, 30)
+        Me.FCDeductDonate_lbl.Size = New System.Drawing.Size(227, 37)
         Me.FCDeductDonate_lbl.TabIndex = 340
         Me.FCDeductDonate_lbl.Tag = "2|"
         Me.FCDeductDonate_lbl.Text = "ลดหย่อนเงินบริจาค :"
@@ -7135,8 +7170,8 @@ Partial Class wEmployee
         'FCDeductDonate
         '
         Me.FCDeductDonate.EnterMoveNextControl = True
-        Me.FCDeductDonate.Location = New System.Drawing.Point(204, 114)
-        Me.FCDeductDonate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCDeductDonate.Location = New System.Drawing.Point(238, 140)
+        Me.FCDeductDonate.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCDeductDonate.Name = "FCDeductDonate"
         Me.FCDeductDonate.Properties.Appearance.Options.UseTextOptions = True
         Me.FCDeductDonate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -7148,10 +7183,10 @@ Partial Class wEmployee
         Me.FCDeductDonate.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCDeductDonate.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCDeductDonate.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCDeductDonate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions41, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject161, SerializableAppearanceObject162, SerializableAppearanceObject163, SerializableAppearanceObject164, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCDeductDonate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions40, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject157, SerializableAppearanceObject158, SerializableAppearanceObject159, SerializableAppearanceObject160, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCDeductDonate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCDeductDonate.Properties.Precision = 2
-        Me.FCDeductDonate.Size = New System.Drawing.Size(82, 20)
+        Me.FCDeductDonate.Size = New System.Drawing.Size(96, 23)
         Me.FCDeductDonate.TabIndex = 4
         Me.FCDeductDonate.Tag = "2|"
         '
@@ -7160,10 +7195,10 @@ Partial Class wEmployee
         Me.LabelControl24.Appearance.Options.UseTextOptions = True
         Me.LabelControl24.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl24.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl24.Location = New System.Drawing.Point(647, 86)
-        Me.LabelControl24.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl24.Location = New System.Drawing.Point(755, 106)
+        Me.LabelControl24.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl24.Name = "LabelControl24"
-        Me.LabelControl24.Size = New System.Drawing.Size(29, 25)
+        Me.LabelControl24.Size = New System.Drawing.Size(34, 31)
         Me.LabelControl24.TabIndex = 338
         Me.LabelControl24.Tag = "2|"
         Me.LabelControl24.Text = "บาท"
@@ -7174,10 +7209,10 @@ Partial Class wEmployee
         Me.FCUnitLTF_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCUnitLTF_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCUnitLTF_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCUnitLTF_lbl.Location = New System.Drawing.Point(317, 89)
-        Me.FCUnitLTF_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCUnitLTF_lbl.Location = New System.Drawing.Point(370, 110)
+        Me.FCUnitLTF_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCUnitLTF_lbl.Name = "FCUnitLTF_lbl"
-        Me.FCUnitLTF_lbl.Size = New System.Drawing.Size(241, 30)
+        Me.FCUnitLTF_lbl.Size = New System.Drawing.Size(281, 37)
         Me.FCUnitLTF_lbl.TabIndex = 337
         Me.FCUnitLTF_lbl.Tag = "2|"
         Me.FCUnitLTF_lbl.Text = "ค่าซื้อหน่วยลงทุน LTF :"
@@ -7185,8 +7220,8 @@ Partial Class wEmployee
         'FCUnitLTF
         '
         Me.FCUnitLTF.EnterMoveNextControl = True
-        Me.FCUnitLTF.Location = New System.Drawing.Point(563, 90)
-        Me.FCUnitLTF.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCUnitLTF.Location = New System.Drawing.Point(657, 111)
+        Me.FCUnitLTF.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCUnitLTF.Name = "FCUnitLTF"
         Me.FCUnitLTF.Properties.Appearance.Options.UseTextOptions = True
         Me.FCUnitLTF.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -7198,10 +7233,10 @@ Partial Class wEmployee
         Me.FCUnitLTF.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCUnitLTF.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCUnitLTF.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCUnitLTF.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions42, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject165, SerializableAppearanceObject166, SerializableAppearanceObject167, SerializableAppearanceObject168, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCUnitLTF.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions41, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject161, SerializableAppearanceObject162, SerializableAppearanceObject163, SerializableAppearanceObject164, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCUnitLTF.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCUnitLTF.Properties.Precision = 2
-        Me.FCUnitLTF.Size = New System.Drawing.Size(82, 20)
+        Me.FCUnitLTF.Size = New System.Drawing.Size(96, 23)
         Me.FCUnitLTF.TabIndex = 11
         Me.FCUnitLTF.Tag = "2|"
         '
@@ -7210,10 +7245,10 @@ Partial Class wEmployee
         Me.LabelControl27.Appearance.Options.UseTextOptions = True
         Me.LabelControl27.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl27.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl27.Location = New System.Drawing.Point(649, 64)
-        Me.LabelControl27.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl27.Location = New System.Drawing.Point(757, 79)
+        Me.LabelControl27.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl27.Name = "LabelControl27"
-        Me.LabelControl27.Size = New System.Drawing.Size(23, 25)
+        Me.LabelControl27.Size = New System.Drawing.Size(27, 31)
         Me.LabelControl27.TabIndex = 335
         Me.LabelControl27.Tag = "2|"
         Me.LabelControl27.Text = "บาท"
@@ -7224,10 +7259,10 @@ Partial Class wEmployee
         Me.FCUnitRMF_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCUnitRMF_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCUnitRMF_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCUnitRMF_lbl.Location = New System.Drawing.Point(317, 64)
-        Me.FCUnitRMF_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCUnitRMF_lbl.Location = New System.Drawing.Point(370, 79)
+        Me.FCUnitRMF_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCUnitRMF_lbl.Name = "FCUnitRMF_lbl"
-        Me.FCUnitRMF_lbl.Size = New System.Drawing.Size(241, 30)
+        Me.FCUnitRMF_lbl.Size = New System.Drawing.Size(281, 37)
         Me.FCUnitRMF_lbl.TabIndex = 334
         Me.FCUnitRMF_lbl.Tag = "2|"
         Me.FCUnitRMF_lbl.Text = "ค่าซื้อหน่วยลงทุน RMF :"
@@ -7235,8 +7270,8 @@ Partial Class wEmployee
         'FCUnitRMF
         '
         Me.FCUnitRMF.EnterMoveNextControl = True
-        Me.FCUnitRMF.Location = New System.Drawing.Point(563, 67)
-        Me.FCUnitRMF.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCUnitRMF.Location = New System.Drawing.Point(657, 82)
+        Me.FCUnitRMF.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCUnitRMF.Name = "FCUnitRMF"
         Me.FCUnitRMF.Properties.Appearance.Options.UseTextOptions = True
         Me.FCUnitRMF.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -7248,10 +7283,10 @@ Partial Class wEmployee
         Me.FCUnitRMF.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCUnitRMF.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCUnitRMF.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCUnitRMF.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions43, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject169, SerializableAppearanceObject170, SerializableAppearanceObject171, SerializableAppearanceObject172, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCUnitRMF.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions42, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject165, SerializableAppearanceObject166, SerializableAppearanceObject167, SerializableAppearanceObject168, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCUnitRMF.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCUnitRMF.Properties.Precision = 2
-        Me.FCUnitRMF.Size = New System.Drawing.Size(82, 20)
+        Me.FCUnitRMF.Size = New System.Drawing.Size(96, 23)
         Me.FCUnitRMF.TabIndex = 10
         Me.FCUnitRMF.Tag = "2|"
         '
@@ -7260,10 +7295,10 @@ Partial Class wEmployee
         Me.LabelControl20.Appearance.Options.UseTextOptions = True
         Me.LabelControl20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl20.Location = New System.Drawing.Point(286, 91)
-        Me.LabelControl20.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl20.Location = New System.Drawing.Point(334, 112)
+        Me.LabelControl20.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl20.Name = "LabelControl20"
-        Me.LabelControl20.Size = New System.Drawing.Size(35, 25)
+        Me.LabelControl20.Size = New System.Drawing.Size(41, 31)
         Me.LabelControl20.TabIndex = 332
         Me.LabelControl20.Tag = "2|"
         Me.LabelControl20.Text = "บาท"
@@ -7274,10 +7309,10 @@ Partial Class wEmployee
         Me.FCInterest_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCInterest_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCInterest_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCInterest_lbl.Location = New System.Drawing.Point(7, 91)
-        Me.FCInterest_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCInterest_lbl.Location = New System.Drawing.Point(8, 112)
+        Me.FCInterest_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCInterest_lbl.Name = "FCInterest_lbl"
-        Me.FCInterest_lbl.Size = New System.Drawing.Size(195, 30)
+        Me.FCInterest_lbl.Size = New System.Drawing.Size(227, 37)
         Me.FCInterest_lbl.TabIndex = 331
         Me.FCInterest_lbl.Tag = "2|"
         Me.FCInterest_lbl.Text = "ดอกเบี้ยเงินกู้เพื่อที่อยู่อาศัย :"
@@ -7285,8 +7320,8 @@ Partial Class wEmployee
         'FCInterest
         '
         Me.FCInterest.EnterMoveNextControl = True
-        Me.FCInterest.Location = New System.Drawing.Point(204, 91)
-        Me.FCInterest.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCInterest.Location = New System.Drawing.Point(238, 112)
+        Me.FCInterest.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCInterest.Name = "FCInterest"
         Me.FCInterest.Properties.Appearance.Options.UseTextOptions = True
         Me.FCInterest.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -7298,10 +7333,10 @@ Partial Class wEmployee
         Me.FCInterest.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCInterest.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCInterest.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCInterest.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions44, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject173, SerializableAppearanceObject174, SerializableAppearanceObject175, SerializableAppearanceObject176, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCInterest.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions43, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject169, SerializableAppearanceObject170, SerializableAppearanceObject171, SerializableAppearanceObject172, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCInterest.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCInterest.Properties.Precision = 2
-        Me.FCInterest.Size = New System.Drawing.Size(82, 20)
+        Me.FCInterest.Size = New System.Drawing.Size(96, 23)
         Me.FCInterest.TabIndex = 3
         Me.FCInterest.Tag = "2|"
         '
@@ -7310,10 +7345,10 @@ Partial Class wEmployee
         Me.LabelControl22.Appearance.Options.UseTextOptions = True
         Me.LabelControl22.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl22.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl22.Location = New System.Drawing.Point(287, 68)
-        Me.LabelControl22.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl22.Location = New System.Drawing.Point(335, 84)
+        Me.LabelControl22.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl22.Name = "LabelControl22"
-        Me.LabelControl22.Size = New System.Drawing.Size(29, 25)
+        Me.LabelControl22.Size = New System.Drawing.Size(34, 31)
         Me.LabelControl22.TabIndex = 329
         Me.LabelControl22.Tag = "2|"
         Me.LabelControl22.Text = "บาท"
@@ -7324,10 +7359,10 @@ Partial Class wEmployee
         Me.FCPremium_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCPremium_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCPremium_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCPremium_lbl.Location = New System.Drawing.Point(8, 67)
-        Me.FCPremium_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCPremium_lbl.Location = New System.Drawing.Point(9, 82)
+        Me.FCPremium_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCPremium_lbl.Name = "FCPremium_lbl"
-        Me.FCPremium_lbl.Size = New System.Drawing.Size(195, 30)
+        Me.FCPremium_lbl.Size = New System.Drawing.Size(227, 37)
         Me.FCPremium_lbl.TabIndex = 328
         Me.FCPremium_lbl.Tag = "2|"
         Me.FCPremium_lbl.Text = "ประกันชีวิตส่วนบุคคล :"
@@ -7335,8 +7370,8 @@ Partial Class wEmployee
         'FCPremium
         '
         Me.FCPremium.EnterMoveNextControl = True
-        Me.FCPremium.Location = New System.Drawing.Point(204, 68)
-        Me.FCPremium.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCPremium.Location = New System.Drawing.Point(238, 84)
+        Me.FCPremium.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCPremium.Name = "FCPremium"
         Me.FCPremium.Properties.Appearance.Options.UseTextOptions = True
         Me.FCPremium.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -7348,10 +7383,10 @@ Partial Class wEmployee
         Me.FCPremium.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCPremium.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCPremium.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCPremium.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions45, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject177, SerializableAppearanceObject178, SerializableAppearanceObject179, SerializableAppearanceObject180, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCPremium.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions44, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject173, SerializableAppearanceObject174, SerializableAppearanceObject175, SerializableAppearanceObject176, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCPremium.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCPremium.Properties.Precision = 2
-        Me.FCPremium.Size = New System.Drawing.Size(82, 20)
+        Me.FCPremium.Size = New System.Drawing.Size(96, 23)
         Me.FCPremium.TabIndex = 2
         Me.FCPremium.Tag = "2|"
         '
@@ -7360,10 +7395,10 @@ Partial Class wEmployee
         Me.LabelControl13.Appearance.Options.UseTextOptions = True
         Me.LabelControl13.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl13.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl13.Location = New System.Drawing.Point(647, 42)
-        Me.LabelControl13.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl13.Location = New System.Drawing.Point(755, 52)
+        Me.LabelControl13.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl13.Name = "LabelControl13"
-        Me.LabelControl13.Size = New System.Drawing.Size(29, 25)
+        Me.LabelControl13.Size = New System.Drawing.Size(34, 31)
         Me.LabelControl13.TabIndex = 326
         Me.LabelControl13.Tag = "2|"
         Me.LabelControl13.Text = "บาท"
@@ -7374,10 +7409,10 @@ Partial Class wEmployee
         Me.FCModMateMother_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCModMateMother_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCModMateMother_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCModMateMother_lbl.Location = New System.Drawing.Point(317, 42)
-        Me.FCModMateMother_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCModMateMother_lbl.Location = New System.Drawing.Point(370, 52)
+        Me.FCModMateMother_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCModMateMother_lbl.Name = "FCModMateMother_lbl"
-        Me.FCModMateMother_lbl.Size = New System.Drawing.Size(241, 30)
+        Me.FCModMateMother_lbl.Size = New System.Drawing.Size(281, 37)
         Me.FCModMateMother_lbl.TabIndex = 325
         Me.FCModMateMother_lbl.Tag = "2|"
         Me.FCModMateMother_lbl.Text = "ลดหย่อนมารดาคู่สมรส :"
@@ -7385,8 +7420,8 @@ Partial Class wEmployee
         'FCModMateMother
         '
         Me.FCModMateMother.EnterMoveNextControl = True
-        Me.FCModMateMother.Location = New System.Drawing.Point(563, 45)
-        Me.FCModMateMother.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCModMateMother.Location = New System.Drawing.Point(657, 55)
+        Me.FCModMateMother.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCModMateMother.Name = "FCModMateMother"
         Me.FCModMateMother.Properties.Appearance.Options.UseTextOptions = True
         Me.FCModMateMother.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -7398,10 +7433,10 @@ Partial Class wEmployee
         Me.FCModMateMother.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCModMateMother.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCModMateMother.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCModMateMother.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions46, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject181, SerializableAppearanceObject182, SerializableAppearanceObject183, SerializableAppearanceObject184, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCModMateMother.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions45, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject177, SerializableAppearanceObject178, SerializableAppearanceObject179, SerializableAppearanceObject180, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCModMateMother.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCModMateMother.Properties.Precision = 2
-        Me.FCModMateMother.Size = New System.Drawing.Size(82, 20)
+        Me.FCModMateMother.Size = New System.Drawing.Size(96, 23)
         Me.FCModMateMother.TabIndex = 9
         Me.FCModMateMother.Tag = "2|"
         '
@@ -7410,10 +7445,10 @@ Partial Class wEmployee
         Me.LabelControl18.Appearance.Options.UseTextOptions = True
         Me.LabelControl18.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl18.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl18.Location = New System.Drawing.Point(287, 45)
-        Me.LabelControl18.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl18.Location = New System.Drawing.Point(335, 55)
+        Me.LabelControl18.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl18.Name = "LabelControl18"
-        Me.LabelControl18.Size = New System.Drawing.Size(29, 25)
+        Me.LabelControl18.Size = New System.Drawing.Size(34, 31)
         Me.LabelControl18.TabIndex = 323
         Me.LabelControl18.Tag = "2|"
         Me.LabelControl18.Text = "บาท"
@@ -7424,10 +7459,10 @@ Partial Class wEmployee
         Me.FCModMateFather_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCModMateFather_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCModMateFather_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCModMateFather_lbl.Location = New System.Drawing.Point(7, 44)
-        Me.FCModMateFather_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCModMateFather_lbl.Location = New System.Drawing.Point(8, 54)
+        Me.FCModMateFather_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCModMateFather_lbl.Name = "FCModMateFather_lbl"
-        Me.FCModMateFather_lbl.Size = New System.Drawing.Size(195, 30)
+        Me.FCModMateFather_lbl.Size = New System.Drawing.Size(227, 37)
         Me.FCModMateFather_lbl.TabIndex = 322
         Me.FCModMateFather_lbl.Tag = "2|"
         Me.FCModMateFather_lbl.Text = "ลดหย่อนบิดาคู่สมรส :"
@@ -7435,8 +7470,8 @@ Partial Class wEmployee
         'FCModMateFather
         '
         Me.FCModMateFather.EnterMoveNextControl = True
-        Me.FCModMateFather.Location = New System.Drawing.Point(204, 45)
-        Me.FCModMateFather.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCModMateFather.Location = New System.Drawing.Point(238, 55)
+        Me.FCModMateFather.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCModMateFather.Name = "FCModMateFather"
         Me.FCModMateFather.Properties.Appearance.Options.UseTextOptions = True
         Me.FCModMateFather.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -7448,10 +7483,10 @@ Partial Class wEmployee
         Me.FCModMateFather.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCModMateFather.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCModMateFather.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCModMateFather.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions47, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject185, SerializableAppearanceObject186, SerializableAppearanceObject187, SerializableAppearanceObject188, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCModMateFather.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions46, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject181, SerializableAppearanceObject182, SerializableAppearanceObject183, SerializableAppearanceObject184, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCModMateFather.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCModMateFather.Properties.Precision = 2
-        Me.FCModMateFather.Size = New System.Drawing.Size(82, 20)
+        Me.FCModMateFather.Size = New System.Drawing.Size(96, 23)
         Me.FCModMateFather.TabIndex = 1
         Me.FCModMateFather.Tag = "2|"
         '
@@ -7460,10 +7495,10 @@ Partial Class wEmployee
         Me.LabelControl11.Appearance.Options.UseTextOptions = True
         Me.LabelControl11.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl11.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl11.Location = New System.Drawing.Point(647, 19)
-        Me.LabelControl11.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl11.Location = New System.Drawing.Point(755, 23)
+        Me.LabelControl11.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl11.Name = "LabelControl11"
-        Me.LabelControl11.Size = New System.Drawing.Size(29, 25)
+        Me.LabelControl11.Size = New System.Drawing.Size(34, 31)
         Me.LabelControl11.TabIndex = 320
         Me.LabelControl11.Tag = "2|"
         Me.LabelControl11.Text = "บาท"
@@ -7474,10 +7509,10 @@ Partial Class wEmployee
         Me.FCModMother_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCModMother_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCModMother_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCModMother_lbl.Location = New System.Drawing.Point(317, 21)
-        Me.FCModMother_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCModMother_lbl.Location = New System.Drawing.Point(370, 26)
+        Me.FCModMother_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCModMother_lbl.Name = "FCModMother_lbl"
-        Me.FCModMother_lbl.Size = New System.Drawing.Size(241, 30)
+        Me.FCModMother_lbl.Size = New System.Drawing.Size(281, 37)
         Me.FCModMother_lbl.TabIndex = 319
         Me.FCModMother_lbl.Tag = "2|"
         Me.FCModMother_lbl.Text = "ลดหย่อนมารดา :"
@@ -7485,8 +7520,8 @@ Partial Class wEmployee
         'FCModMother
         '
         Me.FCModMother.EnterMoveNextControl = True
-        Me.FCModMother.Location = New System.Drawing.Point(563, 22)
-        Me.FCModMother.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCModMother.Location = New System.Drawing.Point(657, 27)
+        Me.FCModMother.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCModMother.Name = "FCModMother"
         Me.FCModMother.Properties.Appearance.Options.UseTextOptions = True
         Me.FCModMother.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -7498,10 +7533,10 @@ Partial Class wEmployee
         Me.FCModMother.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCModMother.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCModMother.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCModMother.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions48, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject189, SerializableAppearanceObject190, SerializableAppearanceObject191, SerializableAppearanceObject192, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCModMother.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions47, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject185, SerializableAppearanceObject186, SerializableAppearanceObject187, SerializableAppearanceObject188, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCModMother.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCModMother.Properties.Precision = 2
-        Me.FCModMother.Size = New System.Drawing.Size(82, 20)
+        Me.FCModMother.Size = New System.Drawing.Size(96, 23)
         Me.FCModMother.TabIndex = 8
         Me.FCModMother.Tag = "2|"
         '
@@ -7510,10 +7545,10 @@ Partial Class wEmployee
         Me.LabelControl9.Appearance.Options.UseTextOptions = True
         Me.LabelControl9.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl9.Location = New System.Drawing.Point(287, 22)
-        Me.LabelControl9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl9.Location = New System.Drawing.Point(335, 27)
+        Me.LabelControl9.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl9.Name = "LabelControl9"
-        Me.LabelControl9.Size = New System.Drawing.Size(29, 25)
+        Me.LabelControl9.Size = New System.Drawing.Size(34, 31)
         Me.LabelControl9.TabIndex = 317
         Me.LabelControl9.Tag = "2|"
         Me.LabelControl9.Text = "บาท"
@@ -7524,10 +7559,10 @@ Partial Class wEmployee
         Me.FCModFather_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCModFather_lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.FCModFather_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCModFather_lbl.Location = New System.Drawing.Point(8, 21)
-        Me.FCModFather_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCModFather_lbl.Location = New System.Drawing.Point(9, 26)
+        Me.FCModFather_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCModFather_lbl.Name = "FCModFather_lbl"
-        Me.FCModFather_lbl.Size = New System.Drawing.Size(195, 30)
+        Me.FCModFather_lbl.Size = New System.Drawing.Size(227, 37)
         Me.FCModFather_lbl.TabIndex = 316
         Me.FCModFather_lbl.Tag = "2|"
         Me.FCModFather_lbl.Text = "ลดหย่อนบิดา :"
@@ -7535,8 +7570,8 @@ Partial Class wEmployee
         'FCModFather
         '
         Me.FCModFather.EnterMoveNextControl = True
-        Me.FCModFather.Location = New System.Drawing.Point(204, 22)
-        Me.FCModFather.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCModFather.Location = New System.Drawing.Point(238, 27)
+        Me.FCModFather.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCModFather.Name = "FCModFather"
         Me.FCModFather.Properties.Appearance.Options.UseTextOptions = True
         Me.FCModFather.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -7548,10 +7583,10 @@ Partial Class wEmployee
         Me.FCModFather.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCModFather.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCModFather.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCModFather.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions49, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject193, SerializableAppearanceObject194, SerializableAppearanceObject195, SerializableAppearanceObject196, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCModFather.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions48, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject189, SerializableAppearanceObject190, SerializableAppearanceObject191, SerializableAppearanceObject192, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCModFather.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCModFather.Properties.Precision = 2
-        Me.FCModFather.Size = New System.Drawing.Size(82, 20)
+        Me.FCModFather.Size = New System.Drawing.Size(96, 23)
         Me.FCModFather.TabIndex = 0
         Me.FCModFather.Tag = "2|"
         '
@@ -7566,11 +7601,10 @@ Partial Class wEmployee
         Me.ogbFCIncomeBefore.Controls.Add(Me.LabelControl47)
         Me.ogbFCIncomeBefore.Controls.Add(Me.FCIncomeBefore)
         Me.ogbFCIncomeBefore.Controls.Add(Me.FCIncomeBefore_lbl)
-        Me.ogbFCIncomeBefore.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ogbFCIncomeBefore.Location = New System.Drawing.Point(2, 2)
-        Me.ogbFCIncomeBefore.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbFCIncomeBefore.Location = New System.Drawing.Point(1, 101)
+        Me.ogbFCIncomeBefore.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbFCIncomeBefore.Name = "ogbFCIncomeBefore"
-        Me.ogbFCIncomeBefore.Size = New System.Drawing.Size(803, 81)
+        Me.ogbFCIncomeBefore.Size = New System.Drawing.Size(937, 89)
         Me.ogbFCIncomeBefore.TabIndex = 2
         Me.ogbFCIncomeBefore.Text = "รายได้สะสมก่อนเริ่มงาน"
         '
@@ -7579,10 +7613,10 @@ Partial Class wEmployee
         Me.LabelControl51.Appearance.Options.UseTextOptions = True
         Me.LabelControl51.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl51.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl51.Location = New System.Drawing.Point(406, 31)
-        Me.LabelControl51.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl51.Location = New System.Drawing.Point(474, 38)
+        Me.LabelControl51.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl51.Name = "LabelControl51"
-        Me.LabelControl51.Size = New System.Drawing.Size(37, 25)
+        Me.LabelControl51.Size = New System.Drawing.Size(43, 31)
         Me.LabelControl51.TabIndex = 329
         Me.LabelControl51.Tag = "2|"
         Me.LabelControl51.Text = "บาท"
@@ -7590,8 +7624,8 @@ Partial Class wEmployee
         'FCSocialBefore
         '
         Me.FCSocialBefore.EnterMoveNextControl = True
-        Me.FCSocialBefore.Location = New System.Drawing.Point(335, 31)
-        Me.FCSocialBefore.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCSocialBefore.Location = New System.Drawing.Point(391, 38)
+        Me.FCSocialBefore.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCSocialBefore.Name = "FCSocialBefore"
         Me.FCSocialBefore.Properties.Appearance.Options.UseTextOptions = True
         Me.FCSocialBefore.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -7603,10 +7637,10 @@ Partial Class wEmployee
         Me.FCSocialBefore.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCSocialBefore.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCSocialBefore.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCSocialBefore.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions50, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject197, SerializableAppearanceObject198, SerializableAppearanceObject199, SerializableAppearanceObject200, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCSocialBefore.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions49, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject193, SerializableAppearanceObject194, SerializableAppearanceObject195, SerializableAppearanceObject196, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCSocialBefore.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCSocialBefore.Properties.Precision = 2
-        Me.FCSocialBefore.Size = New System.Drawing.Size(63, 20)
+        Me.FCSocialBefore.Size = New System.Drawing.Size(73, 23)
         Me.FCSocialBefore.TabIndex = 328
         Me.FCSocialBefore.Tag = "2|"
         '
@@ -7615,10 +7649,10 @@ Partial Class wEmployee
         Me.FCSocialBefore_lbl.Appearance.Options.UseTextOptions = True
         Me.FCSocialBefore_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCSocialBefore_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCSocialBefore_lbl.Location = New System.Drawing.Point(243, 30)
-        Me.FCSocialBefore_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCSocialBefore_lbl.Location = New System.Drawing.Point(283, 37)
+        Me.FCSocialBefore_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCSocialBefore_lbl.Name = "FCSocialBefore_lbl"
-        Me.FCSocialBefore_lbl.Size = New System.Drawing.Size(87, 25)
+        Me.FCSocialBefore_lbl.Size = New System.Drawing.Size(101, 31)
         Me.FCSocialBefore_lbl.TabIndex = 327
         Me.FCSocialBefore_lbl.Tag = "2|"
         Me.FCSocialBefore_lbl.Text = "ประกันสังคม"
@@ -7628,10 +7662,10 @@ Partial Class wEmployee
         Me.LabelControl49.Appearance.Options.UseTextOptions = True
         Me.LabelControl49.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl49.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl49.Location = New System.Drawing.Point(622, 30)
-        Me.LabelControl49.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl49.Location = New System.Drawing.Point(726, 37)
+        Me.LabelControl49.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl49.Name = "LabelControl49"
-        Me.LabelControl49.Size = New System.Drawing.Size(54, 25)
+        Me.LabelControl49.Size = New System.Drawing.Size(63, 31)
         Me.LabelControl49.TabIndex = 326
         Me.LabelControl49.Tag = "2|"
         Me.LabelControl49.Text = "บาท"
@@ -7639,8 +7673,8 @@ Partial Class wEmployee
         'FCTaxBefore
         '
         Me.FCTaxBefore.EnterMoveNextControl = True
-        Me.FCTaxBefore.Location = New System.Drawing.Point(532, 31)
-        Me.FCTaxBefore.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCTaxBefore.Location = New System.Drawing.Point(621, 38)
+        Me.FCTaxBefore.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCTaxBefore.Name = "FCTaxBefore"
         Me.FCTaxBefore.Properties.Appearance.Options.UseTextOptions = True
         Me.FCTaxBefore.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -7652,10 +7686,10 @@ Partial Class wEmployee
         Me.FCTaxBefore.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCTaxBefore.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCTaxBefore.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCTaxBefore.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions51, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject201, SerializableAppearanceObject202, SerializableAppearanceObject203, SerializableAppearanceObject204, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCTaxBefore.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions50, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject197, SerializableAppearanceObject198, SerializableAppearanceObject199, SerializableAppearanceObject200, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCTaxBefore.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCTaxBefore.Properties.Precision = 2
-        Me.FCTaxBefore.Size = New System.Drawing.Size(86, 20)
+        Me.FCTaxBefore.Size = New System.Drawing.Size(100, 23)
         Me.FCTaxBefore.TabIndex = 325
         Me.FCTaxBefore.Tag = "2|"
         '
@@ -7664,10 +7698,10 @@ Partial Class wEmployee
         Me.FCTaxBefore_lbl.Appearance.Options.UseTextOptions = True
         Me.FCTaxBefore_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCTaxBefore_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCTaxBefore_lbl.Location = New System.Drawing.Point(461, 31)
-        Me.FCTaxBefore_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCTaxBefore_lbl.Location = New System.Drawing.Point(538, 38)
+        Me.FCTaxBefore_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCTaxBefore_lbl.Name = "FCTaxBefore_lbl"
-        Me.FCTaxBefore_lbl.Size = New System.Drawing.Size(66, 25)
+        Me.FCTaxBefore_lbl.Size = New System.Drawing.Size(77, 31)
         Me.FCTaxBefore_lbl.TabIndex = 324
         Me.FCTaxBefore_lbl.Tag = "2|"
         Me.FCTaxBefore_lbl.Text = "ภาษีสะสม :"
@@ -7677,10 +7711,10 @@ Partial Class wEmployee
         Me.LabelControl47.Appearance.Options.UseTextOptions = True
         Me.LabelControl47.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl47.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl47.Location = New System.Drawing.Point(197, 30)
-        Me.LabelControl47.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl47.Location = New System.Drawing.Point(230, 37)
+        Me.LabelControl47.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl47.Name = "LabelControl47"
-        Me.LabelControl47.Size = New System.Drawing.Size(54, 25)
+        Me.LabelControl47.Size = New System.Drawing.Size(63, 31)
         Me.LabelControl47.TabIndex = 320
         Me.LabelControl47.Tag = "2|"
         Me.LabelControl47.Text = "บาท"
@@ -7688,8 +7722,8 @@ Partial Class wEmployee
         'FCIncomeBefore
         '
         Me.FCIncomeBefore.EnterMoveNextControl = True
-        Me.FCIncomeBefore.Location = New System.Drawing.Point(107, 31)
-        Me.FCIncomeBefore.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCIncomeBefore.Location = New System.Drawing.Point(125, 38)
+        Me.FCIncomeBefore.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCIncomeBefore.Name = "FCIncomeBefore"
         Me.FCIncomeBefore.Properties.Appearance.Options.UseTextOptions = True
         Me.FCIncomeBefore.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -7701,10 +7735,10 @@ Partial Class wEmployee
         Me.FCIncomeBefore.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCIncomeBefore.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCIncomeBefore.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCIncomeBefore.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions52, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject205, SerializableAppearanceObject206, SerializableAppearanceObject207, SerializableAppearanceObject208, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCIncomeBefore.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions51, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject201, SerializableAppearanceObject202, SerializableAppearanceObject203, SerializableAppearanceObject204, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCIncomeBefore.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCIncomeBefore.Properties.Precision = 2
-        Me.FCIncomeBefore.Size = New System.Drawing.Size(86, 20)
+        Me.FCIncomeBefore.Size = New System.Drawing.Size(100, 23)
         Me.FCIncomeBefore.TabIndex = 319
         Me.FCIncomeBefore.Tag = "2|"
         '
@@ -7713,10 +7747,10 @@ Partial Class wEmployee
         Me.FCIncomeBefore_lbl.Appearance.Options.UseTextOptions = True
         Me.FCIncomeBefore_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCIncomeBefore_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCIncomeBefore_lbl.Location = New System.Drawing.Point(28, 31)
-        Me.FCIncomeBefore_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCIncomeBefore_lbl.Location = New System.Drawing.Point(33, 38)
+        Me.FCIncomeBefore_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCIncomeBefore_lbl.Name = "FCIncomeBefore_lbl"
-        Me.FCIncomeBefore_lbl.Size = New System.Drawing.Size(72, 25)
+        Me.FCIncomeBefore_lbl.Size = New System.Drawing.Size(84, 31)
         Me.FCIncomeBefore_lbl.TabIndex = 318
         Me.FCIncomeBefore_lbl.Tag = "2|"
         Me.FCIncomeBefore_lbl.Text = "รายได้ :"
@@ -7728,16 +7762,16 @@ Partial Class wEmployee
         Me.XtraScrollableControl3.Controls.Add(Me.GroupControl11)
         Me.XtraScrollableControl3.Controls.Add(Me.GroupControl12)
         Me.XtraScrollableControl3.Controls.Add(Me.GroupControl10)
-        Me.XtraScrollableControl3.Location = New System.Drawing.Point(813, 4)
-        Me.XtraScrollableControl3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.XtraScrollableControl3.Location = New System.Drawing.Point(948, 5)
+        Me.XtraScrollableControl3.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.XtraScrollableControl3.Name = "XtraScrollableControl3"
-        Me.XtraScrollableControl3.Size = New System.Drawing.Size(585, 568)
+        Me.XtraScrollableControl3.Size = New System.Drawing.Size(682, 699)
         Me.XtraScrollableControl3.TabIndex = 7
         '
         'opnfin
         '
-        Me.opnfin.Location = New System.Drawing.Point(39, 42)
-        Me.opnfin.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.opnfin.Location = New System.Drawing.Point(37, 41)
+        Me.opnfin.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.opnfin.Name = "opnfin"
         Me.opnfin.Size = New System.Drawing.Size(2, 2)
         Me.opnfin.TabIndex = 0
@@ -7748,22 +7782,22 @@ Partial Class wEmployee
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupControl7.Controls.Add(Me.ogdDeductSum)
-        Me.GroupControl7.Location = New System.Drawing.Point(343, 315)
-        Me.GroupControl7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl7.Location = New System.Drawing.Point(400, 388)
+        Me.GroupControl7.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl7.Name = "GroupControl7"
-        Me.GroupControl7.Size = New System.Drawing.Size(241, 249)
+        Me.GroupControl7.Size = New System.Drawing.Size(281, 306)
         Me.GroupControl7.TabIndex = 3
         Me.GroupControl7.Text = "รายหักสะสม"
         '
         'ogdDeductSum
         '
         Me.ogdDeductSum.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdDeductSum.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogdDeductSum.Location = New System.Drawing.Point(2, 23)
+        Me.ogdDeductSum.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.ogdDeductSum.Location = New System.Drawing.Point(2, 27)
         Me.ogdDeductSum.MainView = Me.GridView4
-        Me.ogdDeductSum.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogdDeductSum.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogdDeductSum.Name = "ogdDeductSum"
-        Me.ogdDeductSum.Size = New System.Drawing.Size(237, 224)
+        Me.ogdDeductSum.Size = New System.Drawing.Size(277, 277)
         Me.ogdDeductSum.TabIndex = 6
         Me.ogdDeductSum.TabStop = False
         Me.ogdDeductSum.Tag = "2|"
@@ -7772,7 +7806,6 @@ Partial Class wEmployee
         'GridView4
         '
         Me.GridView4.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn1, Me.GridColumn2, Me.GridColumn3})
-        Me.GridView4.DetailHeight = 284
         Me.GridView4.GridControl = Me.ogdDeductSum
         Me.GridView4.Name = "GridView4"
         Me.GridView4.OptionsCustomization.AllowGroup = False
@@ -7786,12 +7819,10 @@ Partial Class wEmployee
         '
         Me.GridColumn1.Caption = "FTFinCode"
         Me.GridColumn1.FieldName = "FTFinCode"
-        Me.GridColumn1.MinWidth = 17
         Me.GridColumn1.Name = "GridColumn1"
         Me.GridColumn1.OptionsColumn.AllowEdit = False
         Me.GridColumn1.OptionsColumn.AllowMove = False
         Me.GridColumn1.OptionsColumn.ReadOnly = True
-        Me.GridColumn1.Width = 64
         '
         'GridColumn2
         '
@@ -7799,7 +7830,6 @@ Partial Class wEmployee
         Me.GridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn2.Caption = "FTFinDesc"
         Me.GridColumn2.FieldName = "FTFinDesc"
-        Me.GridColumn2.MinWidth = 17
         Me.GridColumn2.Name = "GridColumn2"
         Me.GridColumn2.OptionsColumn.AllowEdit = False
         Me.GridColumn2.OptionsColumn.AllowMove = False
@@ -7807,7 +7837,7 @@ Partial Class wEmployee
         Me.GridColumn2.OptionsColumn.ReadOnly = True
         Me.GridColumn2.Visible = True
         Me.GridColumn2.VisibleIndex = 0
-        Me.GridColumn2.Width = 71
+        Me.GridColumn2.Width = 83
         '
         'GridColumn3
         '
@@ -7817,7 +7847,6 @@ Partial Class wEmployee
         Me.GridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn3.Caption = "FTFinAmt"
         Me.GridColumn3.FieldName = "FTFinAmt"
-        Me.GridColumn3.MinWidth = 17
         Me.GridColumn3.Name = "GridColumn3"
         Me.GridColumn3.OptionsColumn.AllowEdit = False
         Me.GridColumn3.OptionsColumn.AllowMove = False
@@ -7825,32 +7854,31 @@ Partial Class wEmployee
         Me.GridColumn3.OptionsColumn.ReadOnly = True
         Me.GridColumn3.Visible = True
         Me.GridColumn3.VisibleIndex = 1
-        Me.GridColumn3.Width = 64
         '
         'GroupControl11
         '
         Me.GroupControl11.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupControl11.Controls.Add(Me.ogdDeduct)
-        Me.GroupControl11.Location = New System.Drawing.Point(339, 0)
-        Me.GroupControl11.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl11.Location = New System.Drawing.Point(395, 0)
+        Me.GroupControl11.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl11.Name = "GroupControl11"
-        Me.GroupControl11.Size = New System.Drawing.Size(241, 314)
+        Me.GroupControl11.Size = New System.Drawing.Size(281, 386)
         Me.GroupControl11.TabIndex = 5
         Me.GroupControl11.Text = "รายการรายหัก"
         '
         'ogdDeduct
         '
         Me.ogdDeduct.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdDeduct.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        GridLevelNode1.RelationName = "Level1"
-        Me.ogdDeduct.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
-        Me.ogdDeduct.Location = New System.Drawing.Point(2, 23)
+        Me.ogdDeduct.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        GridLevelNode2.RelationName = "Level1"
+        Me.ogdDeduct.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode2})
+        Me.ogdDeduct.Location = New System.Drawing.Point(2, 27)
         Me.ogdDeduct.MainView = Me.GridView3
-        Me.ogdDeduct.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogdDeduct.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogdDeduct.Name = "ogdDeduct"
         Me.ogdDeduct.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepColFTFinAmt4})
-        Me.ogdDeduct.Size = New System.Drawing.Size(237, 289)
+        Me.ogdDeduct.Size = New System.Drawing.Size(277, 357)
         Me.ogdDeduct.TabIndex = 8
         Me.ogdDeduct.TabStop = False
         Me.ogdDeduct.Tag = "2|"
@@ -7859,7 +7887,6 @@ Partial Class wEmployee
         'GridView3
         '
         Me.GridView3.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFTFinCode4, Me.ColFTFinDesc4, Me.ColFTFinAmt4})
-        Me.GridView3.DetailHeight = 284
         Me.GridView3.GridControl = Me.ogdDeduct
         Me.GridView3.Name = "GridView3"
         Me.GridView3.OptionsCustomization.AllowGroup = False
@@ -7873,12 +7900,10 @@ Partial Class wEmployee
         '
         Me.ColFTFinCode4.Caption = "FTFinCode"
         Me.ColFTFinCode4.FieldName = "FTFinCode"
-        Me.ColFTFinCode4.MinWidth = 17
         Me.ColFTFinCode4.Name = "ColFTFinCode4"
         Me.ColFTFinCode4.OptionsColumn.AllowEdit = False
         Me.ColFTFinCode4.OptionsColumn.AllowMove = False
         Me.ColFTFinCode4.OptionsColumn.ReadOnly = True
-        Me.ColFTFinCode4.Width = 64
         '
         'ColFTFinDesc4
         '
@@ -7886,7 +7911,6 @@ Partial Class wEmployee
         Me.ColFTFinDesc4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFTFinDesc4.Caption = "FTFinDesc"
         Me.ColFTFinDesc4.FieldName = "FTFinDesc"
-        Me.ColFTFinDesc4.MinWidth = 17
         Me.ColFTFinDesc4.Name = "ColFTFinDesc4"
         Me.ColFTFinDesc4.OptionsColumn.AllowEdit = False
         Me.ColFTFinDesc4.OptionsColumn.AllowMove = False
@@ -7894,7 +7918,7 @@ Partial Class wEmployee
         Me.ColFTFinDesc4.OptionsColumn.ReadOnly = True
         Me.ColFTFinDesc4.Visible = True
         Me.ColFTFinDesc4.VisibleIndex = 0
-        Me.ColFTFinDesc4.Width = 74
+        Me.ColFTFinDesc4.Width = 86
         '
         'ColFTFinAmt4
         '
@@ -7907,13 +7931,12 @@ Partial Class wEmployee
         Me.ColFTFinAmt4.Caption = "FTFinAmt"
         Me.ColFTFinAmt4.ColumnEdit = Me.RepColFTFinAmt4
         Me.ColFTFinAmt4.FieldName = "FTFinAmt"
-        Me.ColFTFinAmt4.MinWidth = 17
         Me.ColFTFinAmt4.Name = "ColFTFinAmt4"
         Me.ColFTFinAmt4.OptionsColumn.AllowMove = False
         Me.ColFTFinAmt4.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTFinAmt4.Visible = True
         Me.ColFTFinAmt4.VisibleIndex = 1
-        Me.ColFTFinAmt4.Width = 55
+        Me.ColFTFinAmt4.Width = 64
         '
         'RepColFTFinAmt4
         '
@@ -7925,23 +7948,23 @@ Partial Class wEmployee
         'GroupControl12
         '
         Me.GroupControl12.Controls.Add(Me.ogdIncome)
-        Me.GroupControl12.Location = New System.Drawing.Point(1, 2)
-        Me.GroupControl12.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl12.Location = New System.Drawing.Point(1, 1)
+        Me.GroupControl12.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl12.Name = "GroupControl12"
-        Me.GroupControl12.Size = New System.Drawing.Size(333, 313)
+        Me.GroupControl12.Size = New System.Drawing.Size(386, 383)
         Me.GroupControl12.TabIndex = 6
         Me.GroupControl12.Text = "รายการรายได้"
         '
         'ogdIncome
         '
         Me.ogdIncome.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdIncome.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogdIncome.Location = New System.Drawing.Point(2, 23)
+        Me.ogdIncome.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.ogdIncome.Location = New System.Drawing.Point(2, 27)
         Me.ogdIncome.MainView = Me.GridView2
-        Me.ogdIncome.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogdIncome.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogdIncome.Name = "ogdIncome"
         Me.ogdIncome.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepColFTFinAmt3})
-        Me.ogdIncome.Size = New System.Drawing.Size(329, 288)
+        Me.ogdIncome.Size = New System.Drawing.Size(382, 354)
         Me.ogdIncome.TabIndex = 7
         Me.ogdIncome.TabStop = False
         Me.ogdIncome.Tag = "2|"
@@ -7950,7 +7973,6 @@ Partial Class wEmployee
         'GridView2
         '
         Me.GridView2.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFTFinCode3, Me.ColFTFinDesc3, Me.ColFTFinAmt3})
-        Me.GridView2.DetailHeight = 284
         Me.GridView2.GridControl = Me.ogdIncome
         Me.GridView2.Name = "GridView2"
         Me.GridView2.OptionsCustomization.AllowGroup = False
@@ -7964,12 +7986,10 @@ Partial Class wEmployee
         '
         Me.ColFTFinCode3.Caption = "FTFinCode"
         Me.ColFTFinCode3.FieldName = "FTFinCode"
-        Me.ColFTFinCode3.MinWidth = 17
         Me.ColFTFinCode3.Name = "ColFTFinCode3"
         Me.ColFTFinCode3.OptionsColumn.AllowEdit = False
         Me.ColFTFinCode3.OptionsColumn.AllowMove = False
         Me.ColFTFinCode3.OptionsColumn.ReadOnly = True
-        Me.ColFTFinCode3.Width = 64
         '
         'ColFTFinDesc3
         '
@@ -7977,7 +7997,6 @@ Partial Class wEmployee
         Me.ColFTFinDesc3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFTFinDesc3.Caption = "FTFinDesc"
         Me.ColFTFinDesc3.FieldName = "FTFinDesc"
-        Me.ColFTFinDesc3.MinWidth = 17
         Me.ColFTFinDesc3.Name = "ColFTFinDesc3"
         Me.ColFTFinDesc3.OptionsColumn.AllowEdit = False
         Me.ColFTFinDesc3.OptionsColumn.AllowMove = False
@@ -7985,7 +8004,7 @@ Partial Class wEmployee
         Me.ColFTFinDesc3.OptionsColumn.ReadOnly = True
         Me.ColFTFinDesc3.Visible = True
         Me.ColFTFinDesc3.VisibleIndex = 0
-        Me.ColFTFinDesc3.Width = 86
+        Me.ColFTFinDesc3.Width = 100
         '
         'ColFTFinAmt3
         '
@@ -7998,13 +8017,12 @@ Partial Class wEmployee
         Me.ColFTFinAmt3.Caption = "FTFinAmt"
         Me.ColFTFinAmt3.ColumnEdit = Me.RepColFTFinAmt3
         Me.ColFTFinAmt3.FieldName = "FTFinAmt"
-        Me.ColFTFinAmt3.MinWidth = 17
         Me.ColFTFinAmt3.Name = "ColFTFinAmt3"
         Me.ColFTFinAmt3.OptionsColumn.AllowMove = False
         Me.ColFTFinAmt3.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTFinAmt3.Visible = True
         Me.ColFTFinAmt3.VisibleIndex = 1
-        Me.ColFTFinAmt3.Width = 51
+        Me.ColFTFinAmt3.Width = 59
         '
         'RepColFTFinAmt3
         '
@@ -8018,22 +8036,22 @@ Partial Class wEmployee
         Me.GroupControl10.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupControl10.Controls.Add(Me.ogdIncomeSum)
-        Me.GroupControl10.Location = New System.Drawing.Point(3, 315)
-        Me.GroupControl10.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl10.Location = New System.Drawing.Point(3, 388)
+        Me.GroupControl10.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl10.Name = "GroupControl10"
-        Me.GroupControl10.Size = New System.Drawing.Size(329, 249)
+        Me.GroupControl10.Size = New System.Drawing.Size(384, 306)
         Me.GroupControl10.TabIndex = 4
         Me.GroupControl10.Text = "รายได้สะสม"
         '
         'ogdIncomeSum
         '
         Me.ogdIncomeSum.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdIncomeSum.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogdIncomeSum.Location = New System.Drawing.Point(2, 23)
+        Me.ogdIncomeSum.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.ogdIncomeSum.Location = New System.Drawing.Point(2, 27)
         Me.ogdIncomeSum.MainView = Me.GridView5
-        Me.ogdIncomeSum.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogdIncomeSum.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogdIncomeSum.Name = "ogdIncomeSum"
-        Me.ogdIncomeSum.Size = New System.Drawing.Size(325, 224)
+        Me.ogdIncomeSum.Size = New System.Drawing.Size(380, 277)
         Me.ogdIncomeSum.TabIndex = 5
         Me.ogdIncomeSum.TabStop = False
         Me.ogdIncomeSum.Tag = "2|"
@@ -8042,7 +8060,6 @@ Partial Class wEmployee
         'GridView5
         '
         Me.GridView5.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFTFinCode, Me.ColFTFinDesc, Me.ColFTFinAmt})
-        Me.GridView5.DetailHeight = 284
         Me.GridView5.GridControl = Me.ogdIncomeSum
         Me.GridView5.Name = "GridView5"
         Me.GridView5.OptionsCustomization.AllowGroup = False
@@ -8056,12 +8073,10 @@ Partial Class wEmployee
         '
         Me.ColFTFinCode.Caption = "FTFinCode"
         Me.ColFTFinCode.FieldName = "FTFinCode"
-        Me.ColFTFinCode.MinWidth = 17
         Me.ColFTFinCode.Name = "ColFTFinCode"
         Me.ColFTFinCode.OptionsColumn.AllowEdit = False
         Me.ColFTFinCode.OptionsColumn.AllowMove = False
         Me.ColFTFinCode.OptionsColumn.ReadOnly = True
-        Me.ColFTFinCode.Width = 64
         '
         'ColFTFinDesc
         '
@@ -8069,7 +8084,6 @@ Partial Class wEmployee
         Me.ColFTFinDesc.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFTFinDesc.Caption = "FTFinDesc"
         Me.ColFTFinDesc.FieldName = "FTFinDesc"
-        Me.ColFTFinDesc.MinWidth = 17
         Me.ColFTFinDesc.Name = "ColFTFinDesc"
         Me.ColFTFinDesc.OptionsColumn.AllowEdit = False
         Me.ColFTFinDesc.OptionsColumn.AllowMove = False
@@ -8077,7 +8091,7 @@ Partial Class wEmployee
         Me.ColFTFinDesc.OptionsColumn.ReadOnly = True
         Me.ColFTFinDesc.Visible = True
         Me.ColFTFinDesc.VisibleIndex = 0
-        Me.ColFTFinDesc.Width = 86
+        Me.ColFTFinDesc.Width = 100
         '
         'ColFTFinAmt
         '
@@ -8087,7 +8101,6 @@ Partial Class wEmployee
         Me.ColFTFinAmt.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFTFinAmt.Caption = "FTFinAmt"
         Me.ColFTFinAmt.FieldName = "FTFinAmt"
-        Me.ColFTFinAmt.MinWidth = 17
         Me.ColFTFinAmt.Name = "ColFTFinAmt"
         Me.ColFTFinAmt.OptionsColumn.AllowEdit = False
         Me.ColFTFinAmt.OptionsColumn.AllowMove = False
@@ -8095,37 +8108,36 @@ Partial Class wEmployee
         Me.ColFTFinAmt.OptionsColumn.ReadOnly = True
         Me.ColFTFinAmt.Visible = True
         Me.ColFTFinAmt.VisibleIndex = 1
-        Me.ColFTFinAmt.Width = 51
+        Me.ColFTFinAmt.Width = 59
         '
         'otpempeduc
         '
         Me.otpempeduc.AutoScroll = True
         Me.otpempeduc.Controls.Add(Me.GroupControl15)
         Me.otpempeduc.Controls.Add(Me.ogbeduc)
-        Me.otpempeduc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otpempeduc.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otpempeduc.Name = "otpempeduc"
-        Me.otpempeduc.Size = New System.Drawing.Size(1405, 709)
+        Me.otpempeduc.Size = New System.Drawing.Size(1639, 872)
         Me.otpempeduc.Text = "การศึกษา"
         '
         'GroupControl15
         '
         Me.GroupControl15.Controls.Add(Me.ogceduc)
-        Me.GroupControl15.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupControl15.Location = New System.Drawing.Point(0, 85)
-        Me.GroupControl15.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl15.Location = New System.Drawing.Point(0, 165)
+        Me.GroupControl15.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl15.Name = "GroupControl15"
-        Me.GroupControl15.Size = New System.Drawing.Size(1405, 624)
+        Me.GroupControl15.Size = New System.Drawing.Size(1631, 702)
         Me.GroupControl15.TabIndex = 305
         '
         'ogceduc
         '
-        Me.ogceduc.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogceduc.Location = New System.Drawing.Point(-2, 22)
+        Me.ogceduc.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.ogceduc.Location = New System.Drawing.Point(-2, 27)
         Me.ogceduc.MainView = Me.ogveduc
-        Me.ogceduc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogceduc.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogceduc.Name = "ogceduc"
         Me.ogceduc.ShowOnlyPredefinedDetails = True
-        Me.ogceduc.Size = New System.Drawing.Size(1401, 460)
+        Me.ogceduc.Size = New System.Drawing.Size(1634, 566)
         Me.ogceduc.TabIndex = 5
         Me.ogceduc.Tag = "2|"
         Me.ogceduc.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogveduc})
@@ -8133,7 +8145,6 @@ Partial Class wEmployee
         'ogveduc
         '
         Me.ogveduc.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNColSeqNo, Me.FTColCourCode, Me.FNTColSysCourseId, Me.FTColCourName, Me.FTUniversityCode, Me.FTUniversityName, Me.FTUniversityBranchCode, Me.FTColYearBegin, Me.FTColYearEnd, Me.FCColGrade, Me.FTUniversityBranchName, Me.FTFacultyCode, Me.FTFacultyName, Me.FTFacultyBranchCode, Me.FTFacultyBranchName, Me.FTFacultyMajorCode, Me.FTFacultyMajorName})
-        Me.ogveduc.DetailHeight = 284
         Me.ogveduc.GridControl = Me.ogceduc
         Me.ogveduc.Name = "ogveduc"
         Me.ogveduc.OptionsCustomization.AllowGroup = False
@@ -8147,12 +8158,10 @@ Partial Class wEmployee
         '
         Me.FNColSeqNo.Caption = "FNSeqNo"
         Me.FNColSeqNo.FieldName = "FNSeqNo"
-        Me.FNColSeqNo.MinWidth = 17
         Me.FNColSeqNo.Name = "FNColSeqNo"
         Me.FNColSeqNo.OptionsColumn.AllowEdit = False
         Me.FNColSeqNo.OptionsColumn.AllowMove = False
         Me.FNColSeqNo.OptionsColumn.ReadOnly = True
-        Me.FNColSeqNo.Width = 64
         '
         'FTColCourCode
         '
@@ -8160,7 +8169,6 @@ Partial Class wEmployee
         Me.FTColCourCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTColCourCode.Caption = "FTCourCode"
         Me.FTColCourCode.FieldName = "FTCourCode"
-        Me.FTColCourCode.MinWidth = 17
         Me.FTColCourCode.Name = "FTColCourCode"
         Me.FTColCourCode.OptionsColumn.AllowEdit = False
         Me.FTColCourCode.OptionsColumn.AllowMove = False
@@ -8168,18 +8176,16 @@ Partial Class wEmployee
         Me.FTColCourCode.OptionsColumn.ReadOnly = True
         Me.FTColCourCode.Visible = True
         Me.FTColCourCode.VisibleIndex = 0
-        Me.FTColCourCode.Width = 65
+        Me.FTColCourCode.Width = 76
         '
         'FNTColSysCourseId
         '
         Me.FNTColSysCourseId.Caption = "FNHSysCourseId"
         Me.FNTColSysCourseId.FieldName = "FNHSysCourseId"
-        Me.FNTColSysCourseId.MinWidth = 17
         Me.FNTColSysCourseId.Name = "FNTColSysCourseId"
         Me.FNTColSysCourseId.OptionsColumn.AllowEdit = False
         Me.FNTColSysCourseId.OptionsColumn.AllowMove = False
         Me.FNTColSysCourseId.OptionsColumn.ReadOnly = True
-        Me.FNTColSysCourseId.Width = 64
         '
         'FTColCourName
         '
@@ -8187,7 +8193,6 @@ Partial Class wEmployee
         Me.FTColCourName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTColCourName.Caption = "FTCourName"
         Me.FTColCourName.FieldName = "FTCourName"
-        Me.FTColCourName.MinWidth = 17
         Me.FTColCourName.Name = "FTColCourName"
         Me.FTColCourName.OptionsColumn.AllowEdit = False
         Me.FTColCourName.OptionsColumn.AllowMove = False
@@ -8195,7 +8200,7 @@ Partial Class wEmployee
         Me.FTColCourName.OptionsColumn.ReadOnly = True
         Me.FTColCourName.Visible = True
         Me.FTColCourName.VisibleIndex = 1
-        Me.FTColCourName.Width = 125
+        Me.FTColCourName.Width = 146
         '
         'FTUniversityCode
         '
@@ -8203,7 +8208,6 @@ Partial Class wEmployee
         Me.FTUniversityCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTUniversityCode.Caption = "FTUniversityCode"
         Me.FTUniversityCode.FieldName = "FTUniversityCode"
-        Me.FTUniversityCode.MinWidth = 17
         Me.FTUniversityCode.Name = "FTUniversityCode"
         Me.FTUniversityCode.OptionsColumn.AllowEdit = False
         Me.FTUniversityCode.OptionsColumn.AllowMove = False
@@ -8211,7 +8215,7 @@ Partial Class wEmployee
         Me.FTUniversityCode.OptionsColumn.ReadOnly = True
         Me.FTUniversityCode.Visible = True
         Me.FTUniversityCode.VisibleIndex = 2
-        Me.FTUniversityCode.Width = 77
+        Me.FTUniversityCode.Width = 90
         '
         'FTUniversityName
         '
@@ -8219,7 +8223,6 @@ Partial Class wEmployee
         Me.FTUniversityName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTUniversityName.Caption = "FTUniversityName"
         Me.FTUniversityName.FieldName = "FTUniversityName"
-        Me.FTUniversityName.MinWidth = 17
         Me.FTUniversityName.Name = "FTUniversityName"
         Me.FTUniversityName.OptionsColumn.AllowEdit = False
         Me.FTUniversityName.OptionsColumn.AllowMove = False
@@ -8227,7 +8230,7 @@ Partial Class wEmployee
         Me.FTUniversityName.OptionsColumn.ReadOnly = True
         Me.FTUniversityName.Visible = True
         Me.FTUniversityName.VisibleIndex = 3
-        Me.FTUniversityName.Width = 150
+        Me.FTUniversityName.Width = 175
         '
         'FTUniversityBranchCode
         '
@@ -8235,7 +8238,6 @@ Partial Class wEmployee
         Me.FTUniversityBranchCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTUniversityBranchCode.Caption = "FTUniversityBranchCode"
         Me.FTUniversityBranchCode.FieldName = "FTUniversityBranchCode"
-        Me.FTUniversityBranchCode.MinWidth = 17
         Me.FTUniversityBranchCode.Name = "FTUniversityBranchCode"
         Me.FTUniversityBranchCode.OptionsColumn.AllowEdit = False
         Me.FTUniversityBranchCode.OptionsColumn.AllowMove = False
@@ -8243,7 +8245,7 @@ Partial Class wEmployee
         Me.FTUniversityBranchCode.OptionsColumn.ReadOnly = True
         Me.FTUniversityBranchCode.Visible = True
         Me.FTUniversityBranchCode.VisibleIndex = 4
-        Me.FTUniversityBranchCode.Width = 86
+        Me.FTUniversityBranchCode.Width = 100
         '
         'FTColYearBegin
         '
@@ -8253,7 +8255,6 @@ Partial Class wEmployee
         Me.FTColYearBegin.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTColYearBegin.Caption = "FTYearBegin"
         Me.FTColYearBegin.FieldName = "FTYearBegin"
-        Me.FTColYearBegin.MinWidth = 17
         Me.FTColYearBegin.Name = "FTColYearBegin"
         Me.FTColYearBegin.OptionsColumn.AllowEdit = False
         Me.FTColYearBegin.OptionsColumn.AllowMove = False
@@ -8261,7 +8262,6 @@ Partial Class wEmployee
         Me.FTColYearBegin.OptionsColumn.ReadOnly = True
         Me.FTColYearBegin.Visible = True
         Me.FTColYearBegin.VisibleIndex = 12
-        Me.FTColYearBegin.Width = 64
         '
         'FTColYearEnd
         '
@@ -8271,7 +8271,6 @@ Partial Class wEmployee
         Me.FTColYearEnd.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTColYearEnd.Caption = "FTYearEnd"
         Me.FTColYearEnd.FieldName = "FTYearEnd"
-        Me.FTColYearEnd.MinWidth = 17
         Me.FTColYearEnd.Name = "FTColYearEnd"
         Me.FTColYearEnd.OptionsColumn.AllowEdit = False
         Me.FTColYearEnd.OptionsColumn.AllowMove = False
@@ -8279,7 +8278,6 @@ Partial Class wEmployee
         Me.FTColYearEnd.OptionsColumn.ReadOnly = True
         Me.FTColYearEnd.Visible = True
         Me.FTColYearEnd.VisibleIndex = 13
-        Me.FTColYearEnd.Width = 64
         '
         'FCColGrade
         '
@@ -8289,7 +8287,6 @@ Partial Class wEmployee
         Me.FCColGrade.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FCColGrade.Caption = "FCGrade"
         Me.FCColGrade.FieldName = "FCGrade"
-        Me.FCColGrade.MinWidth = 17
         Me.FCColGrade.Name = "FCColGrade"
         Me.FCColGrade.OptionsColumn.AllowEdit = False
         Me.FCColGrade.OptionsColumn.AllowMove = False
@@ -8297,84 +8294,75 @@ Partial Class wEmployee
         Me.FCColGrade.OptionsColumn.ReadOnly = True
         Me.FCColGrade.Visible = True
         Me.FCColGrade.VisibleIndex = 14
-        Me.FCColGrade.Width = 64
         '
         'FTUniversityBranchName
         '
         Me.FTUniversityBranchName.Caption = "FTUniversityBranchName"
         Me.FTUniversityBranchName.FieldName = "FTUniversityBranchName"
-        Me.FTUniversityBranchName.MinWidth = 17
         Me.FTUniversityBranchName.Name = "FTUniversityBranchName"
         Me.FTUniversityBranchName.OptionsColumn.AllowEdit = False
         Me.FTUniversityBranchName.Visible = True
         Me.FTUniversityBranchName.VisibleIndex = 5
-        Me.FTUniversityBranchName.Width = 129
+        Me.FTUniversityBranchName.Width = 150
         '
         'FTFacultyCode
         '
         Me.FTFacultyCode.Caption = "FTFacultyCode"
         Me.FTFacultyCode.FieldName = "FTFacultyCode"
-        Me.FTFacultyCode.MinWidth = 17
         Me.FTFacultyCode.Name = "FTFacultyCode"
         Me.FTFacultyCode.OptionsColumn.AllowEdit = False
         Me.FTFacultyCode.Visible = True
         Me.FTFacultyCode.VisibleIndex = 6
-        Me.FTFacultyCode.Width = 82
+        Me.FTFacultyCode.Width = 96
         '
         'FTFacultyName
         '
         Me.FTFacultyName.Caption = "FTFacultyName"
         Me.FTFacultyName.FieldName = "FTFacultyName"
-        Me.FTFacultyName.MinWidth = 17
         Me.FTFacultyName.Name = "FTFacultyName"
         Me.FTFacultyName.OptionsColumn.AllowEdit = False
         Me.FTFacultyName.Visible = True
         Me.FTFacultyName.VisibleIndex = 7
-        Me.FTFacultyName.Width = 105
+        Me.FTFacultyName.Width = 122
         '
         'FTFacultyBranchCode
         '
         Me.FTFacultyBranchCode.Caption = "FTFacultyBranchCode"
         Me.FTFacultyBranchCode.FieldName = "FTFacultyBranchCode"
-        Me.FTFacultyBranchCode.MinWidth = 17
         Me.FTFacultyBranchCode.Name = "FTFacultyBranchCode"
         Me.FTFacultyBranchCode.OptionsColumn.AllowEdit = False
         Me.FTFacultyBranchCode.Visible = True
         Me.FTFacultyBranchCode.VisibleIndex = 8
-        Me.FTFacultyBranchCode.Width = 86
+        Me.FTFacultyBranchCode.Width = 100
         '
         'FTFacultyBranchName
         '
         Me.FTFacultyBranchName.Caption = "FTFacultyBranchName"
         Me.FTFacultyBranchName.FieldName = "FTFacultyBranchName"
-        Me.FTFacultyBranchName.MinWidth = 17
         Me.FTFacultyBranchName.Name = "FTFacultyBranchName"
         Me.FTFacultyBranchName.OptionsColumn.AllowEdit = False
         Me.FTFacultyBranchName.Visible = True
         Me.FTFacultyBranchName.VisibleIndex = 9
-        Me.FTFacultyBranchName.Width = 116
+        Me.FTFacultyBranchName.Width = 135
         '
         'FTFacultyMajorCode
         '
         Me.FTFacultyMajorCode.Caption = "FTFacultyMajorCode"
         Me.FTFacultyMajorCode.FieldName = "FTFacultyMajorCode"
-        Me.FTFacultyMajorCode.MinWidth = 17
         Me.FTFacultyMajorCode.Name = "FTFacultyMajorCode"
         Me.FTFacultyMajorCode.OptionsColumn.AllowEdit = False
         Me.FTFacultyMajorCode.Visible = True
         Me.FTFacultyMajorCode.VisibleIndex = 10
-        Me.FTFacultyMajorCode.Width = 64
         '
         'FTFacultyMajorName
         '
         Me.FTFacultyMajorName.Caption = "FTFacultyMajorName"
         Me.FTFacultyMajorName.FieldName = "FTFacultyMajorName"
-        Me.FTFacultyMajorName.MinWidth = 17
         Me.FTFacultyMajorName.Name = "FTFacultyMajorName"
         Me.FTFacultyMajorName.OptionsColumn.AllowEdit = False
         Me.FTFacultyMajorName.Visible = True
         Me.FTFacultyMajorName.VisibleIndex = 11
-        Me.FTFacultyMajorName.Width = 135
+        Me.FTFacultyMajorName.Width = 157
         '
         'ogbeduc
         '
@@ -8405,32 +8393,32 @@ Partial Class wEmployee
         Me.ogbeduc.Controls.Add(Me.FNHSysCourseId)
         Me.ogbeduc.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbeduc.Location = New System.Drawing.Point(0, 0)
-        Me.ogbeduc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbeduc.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbeduc.Name = "ogbeduc"
         Me.ogbeduc.ShowCaption = False
-        Me.ogbeduc.Size = New System.Drawing.Size(1405, 85)
+        Me.ogbeduc.Size = New System.Drawing.Size(1639, 155)
         Me.ogbeduc.TabIndex = 6
         '
         'FNHSysFacultyMajorId_None
         '
-        Me.FNHSysFacultyMajorId_None.Location = New System.Drawing.Point(891, 58)
-        Me.FNHSysFacultyMajorId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysFacultyMajorId_None.Location = New System.Drawing.Point(1039, 71)
+        Me.FNHSysFacultyMajorId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysFacultyMajorId_None.Name = "FNHSysFacultyMajorId_None"
         Me.FNHSysFacultyMajorId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysFacultyMajorId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysFacultyMajorId_None.Properties.ReadOnly = True
-        Me.FNHSysFacultyMajorId_None.Size = New System.Drawing.Size(264, 20)
+        Me.FNHSysFacultyMajorId_None.Size = New System.Drawing.Size(308, 23)
         Me.FNHSysFacultyMajorId_None.TabIndex = 337
         Me.FNHSysFacultyMajorId_None.Tag = "2|"
         '
         'FNHSysFacultyMajorId
         '
-        Me.FNHSysFacultyMajorId.Location = New System.Drawing.Point(733, 58)
-        Me.FNHSysFacultyMajorId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysFacultyMajorId.Location = New System.Drawing.Point(855, 71)
+        Me.FNHSysFacultyMajorId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysFacultyMajorId.Name = "FNHSysFacultyMajorId"
-        Me.FNHSysFacultyMajorId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions53, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject209, SerializableAppearanceObject210, SerializableAppearanceObject211, SerializableAppearanceObject212, "", "592", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysFacultyMajorId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions52, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject205, SerializableAppearanceObject206, SerializableAppearanceObject207, SerializableAppearanceObject208, "", "592", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysFacultyMajorId.Properties.Tag = "67"
-        Me.FNHSysFacultyMajorId.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysFacultyMajorId.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysFacultyMajorId.TabIndex = 336
         Me.FNHSysFacultyMajorId.Tag = "2|"
         '
@@ -8439,57 +8427,57 @@ Partial Class wEmployee
         Me.FNHSysFacultyMajorId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysFacultyMajorId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysFacultyMajorId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysFacultyMajorId_lbl.Location = New System.Drawing.Point(618, 56)
-        Me.FNHSysFacultyMajorId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysFacultyMajorId_lbl.Location = New System.Drawing.Point(721, 69)
+        Me.FNHSysFacultyMajorId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysFacultyMajorId_lbl.Name = "FNHSysFacultyMajorId_lbl"
-        Me.FNHSysFacultyMajorId_lbl.Size = New System.Drawing.Size(113, 21)
+        Me.FNHSysFacultyMajorId_lbl.Size = New System.Drawing.Size(132, 26)
         Me.FNHSysFacultyMajorId_lbl.TabIndex = 335
         Me.FNHSysFacultyMajorId_lbl.Tag = "2|"
         Me.FNHSysFacultyMajorId_lbl.Text = "วิชาเอก :"
         '
         'FNHSysFacultyBranchId_None
         '
-        Me.FNHSysFacultyBranchId_None.Location = New System.Drawing.Point(891, 36)
-        Me.FNHSysFacultyBranchId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysFacultyBranchId_None.Location = New System.Drawing.Point(1039, 44)
+        Me.FNHSysFacultyBranchId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysFacultyBranchId_None.Name = "FNHSysFacultyBranchId_None"
         Me.FNHSysFacultyBranchId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysFacultyBranchId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysFacultyBranchId_None.Properties.ReadOnly = True
-        Me.FNHSysFacultyBranchId_None.Size = New System.Drawing.Size(264, 20)
+        Me.FNHSysFacultyBranchId_None.Size = New System.Drawing.Size(308, 23)
         Me.FNHSysFacultyBranchId_None.TabIndex = 334
         Me.FNHSysFacultyBranchId_None.Tag = "2|"
         '
         'FNHSysFacultyBranchId
         '
-        Me.FNHSysFacultyBranchId.Location = New System.Drawing.Point(733, 36)
-        Me.FNHSysFacultyBranchId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysFacultyBranchId.Location = New System.Drawing.Point(855, 44)
+        Me.FNHSysFacultyBranchId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysFacultyBranchId.Name = "FNHSysFacultyBranchId"
-        Me.FNHSysFacultyBranchId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions54, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject213, SerializableAppearanceObject214, SerializableAppearanceObject215, SerializableAppearanceObject216, "", "591", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysFacultyBranchId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions53, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject209, SerializableAppearanceObject210, SerializableAppearanceObject211, SerializableAppearanceObject212, "", "591", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysFacultyBranchId.Properties.Tag = "67"
-        Me.FNHSysFacultyBranchId.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysFacultyBranchId.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysFacultyBranchId.TabIndex = 333
         Me.FNHSysFacultyBranchId.Tag = "2|"
         '
         'FNHSysFacultyId_None
         '
-        Me.FNHSysFacultyId_None.Location = New System.Drawing.Point(891, 10)
-        Me.FNHSysFacultyId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysFacultyId_None.Location = New System.Drawing.Point(1039, 12)
+        Me.FNHSysFacultyId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysFacultyId_None.Name = "FNHSysFacultyId_None"
         Me.FNHSysFacultyId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysFacultyId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysFacultyId_None.Properties.ReadOnly = True
-        Me.FNHSysFacultyId_None.Size = New System.Drawing.Size(264, 20)
+        Me.FNHSysFacultyId_None.Size = New System.Drawing.Size(308, 23)
         Me.FNHSysFacultyId_None.TabIndex = 332
         Me.FNHSysFacultyId_None.Tag = "2|"
         '
         'FNHSysFacultyId
         '
-        Me.FNHSysFacultyId.Location = New System.Drawing.Point(733, 10)
-        Me.FNHSysFacultyId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysFacultyId.Location = New System.Drawing.Point(855, 12)
+        Me.FNHSysFacultyId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysFacultyId.Name = "FNHSysFacultyId"
-        Me.FNHSysFacultyId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions55, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject217, SerializableAppearanceObject218, SerializableAppearanceObject219, SerializableAppearanceObject220, "", "590", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysFacultyId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions54, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject213, SerializableAppearanceObject214, SerializableAppearanceObject215, SerializableAppearanceObject216, "", "590", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysFacultyId.Properties.Tag = "67"
-        Me.FNHSysFacultyId.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysFacultyId.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysFacultyId.TabIndex = 331
         Me.FNHSysFacultyId.Tag = "2|"
         '
@@ -8498,34 +8486,34 @@ Partial Class wEmployee
         Me.FNHSysFacultyId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysFacultyId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysFacultyId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysFacultyId_lbl.Location = New System.Drawing.Point(618, 8)
-        Me.FNHSysFacultyId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysFacultyId_lbl.Location = New System.Drawing.Point(721, 10)
+        Me.FNHSysFacultyId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysFacultyId_lbl.Name = "FNHSysFacultyId_lbl"
-        Me.FNHSysFacultyId_lbl.Size = New System.Drawing.Size(113, 21)
+        Me.FNHSysFacultyId_lbl.Size = New System.Drawing.Size(132, 26)
         Me.FNHSysFacultyId_lbl.TabIndex = 330
         Me.FNHSysFacultyId_lbl.Tag = "2|"
         Me.FNHSysFacultyId_lbl.Text = "คณะ :"
         '
         'FNHSysUniversityBranchId_None
         '
-        Me.FNHSysUniversityBranchId_None.Location = New System.Drawing.Point(282, 56)
-        Me.FNHSysUniversityBranchId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUniversityBranchId_None.Location = New System.Drawing.Point(329, 69)
+        Me.FNHSysUniversityBranchId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysUniversityBranchId_None.Name = "FNHSysUniversityBranchId_None"
         Me.FNHSysUniversityBranchId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUniversityBranchId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUniversityBranchId_None.Properties.ReadOnly = True
-        Me.FNHSysUniversityBranchId_None.Size = New System.Drawing.Size(285, 20)
+        Me.FNHSysUniversityBranchId_None.Size = New System.Drawing.Size(332, 23)
         Me.FNHSysUniversityBranchId_None.TabIndex = 329
         Me.FNHSysUniversityBranchId_None.Tag = "2|"
         '
         'FNHSysUniversityBranchId
         '
-        Me.FNHSysUniversityBranchId.Location = New System.Drawing.Point(124, 56)
-        Me.FNHSysUniversityBranchId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUniversityBranchId.Location = New System.Drawing.Point(145, 69)
+        Me.FNHSysUniversityBranchId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysUniversityBranchId.Name = "FNHSysUniversityBranchId"
-        Me.FNHSysUniversityBranchId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions56, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject221, SerializableAppearanceObject222, SerializableAppearanceObject223, SerializableAppearanceObject224, "", "589", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysUniversityBranchId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions55, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject217, SerializableAppearanceObject218, SerializableAppearanceObject219, SerializableAppearanceObject220, "", "589", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUniversityBranchId.Properties.Tag = "67"
-        Me.FNHSysUniversityBranchId.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysUniversityBranchId.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysUniversityBranchId.TabIndex = 328
         Me.FNHSysUniversityBranchId.Tag = "2|"
         '
@@ -8534,42 +8522,42 @@ Partial Class wEmployee
         Me.FNHSysUniversityBranchId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysUniversityBranchId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysUniversityBranchId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysUniversityBranchId_lbl.Location = New System.Drawing.Point(9, 54)
-        Me.FNHSysUniversityBranchId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUniversityBranchId_lbl.Location = New System.Drawing.Point(10, 66)
+        Me.FNHSysUniversityBranchId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysUniversityBranchId_lbl.Name = "FNHSysUniversityBranchId_lbl"
-        Me.FNHSysUniversityBranchId_lbl.Size = New System.Drawing.Size(113, 21)
+        Me.FNHSysUniversityBranchId_lbl.Size = New System.Drawing.Size(132, 26)
         Me.FNHSysUniversityBranchId_lbl.TabIndex = 327
         Me.FNHSysUniversityBranchId_lbl.Tag = "2|"
         Me.FNHSysUniversityBranchId_lbl.Text = "วิทยาเขต :"
         '
         'FNHSysUniversityId_None
         '
-        Me.FNHSysUniversityId_None.Location = New System.Drawing.Point(282, 34)
-        Me.FNHSysUniversityId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUniversityId_None.Location = New System.Drawing.Point(329, 42)
+        Me.FNHSysUniversityId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysUniversityId_None.Name = "FNHSysUniversityId_None"
         Me.FNHSysUniversityId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUniversityId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUniversityId_None.Properties.ReadOnly = True
-        Me.FNHSysUniversityId_None.Size = New System.Drawing.Size(285, 20)
+        Me.FNHSysUniversityId_None.Size = New System.Drawing.Size(332, 23)
         Me.FNHSysUniversityId_None.TabIndex = 326
         Me.FNHSysUniversityId_None.Tag = "2|"
         '
         'FNHSysUniversityId
         '
-        Me.FNHSysUniversityId.Location = New System.Drawing.Point(124, 34)
-        Me.FNHSysUniversityId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUniversityId.Location = New System.Drawing.Point(145, 42)
+        Me.FNHSysUniversityId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysUniversityId.Name = "FNHSysUniversityId"
-        Me.FNHSysUniversityId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions57, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject225, SerializableAppearanceObject226, SerializableAppearanceObject227, SerializableAppearanceObject228, "", "588", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysUniversityId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions56, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject221, SerializableAppearanceObject222, SerializableAppearanceObject223, SerializableAppearanceObject224, "", "588", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUniversityId.Properties.Tag = "67"
-        Me.FNHSysUniversityId.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysUniversityId.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysUniversityId.TabIndex = 325
         Me.FNHSysUniversityId.Tag = "2|"
         '
         'FNCourseSeqNo
         '
         Me.FNCourseSeqNo.EnterMoveNextControl = True
-        Me.FNCourseSeqNo.Location = New System.Drawing.Point(580, 16)
-        Me.FNCourseSeqNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNCourseSeqNo.Location = New System.Drawing.Point(677, 20)
+        Me.FNCourseSeqNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNCourseSeqNo.Name = "FNCourseSeqNo"
         Me.FNCourseSeqNo.Properties.Appearance.Options.UseTextOptions = True
         Me.FNCourseSeqNo.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -8581,10 +8569,10 @@ Partial Class wEmployee
         Me.FNCourseSeqNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNCourseSeqNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNCourseSeqNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNCourseSeqNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions58, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject229, SerializableAppearanceObject230, SerializableAppearanceObject231, SerializableAppearanceObject232, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNCourseSeqNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions57, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject225, SerializableAppearanceObject226, SerializableAppearanceObject227, SerializableAppearanceObject228, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNCourseSeqNo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNCourseSeqNo.Properties.Precision = 2
-        Me.FNCourseSeqNo.Size = New System.Drawing.Size(40, 20)
+        Me.FNCourseSeqNo.Size = New System.Drawing.Size(47, 23)
         Me.FNCourseSeqNo.TabIndex = 324
         Me.FNCourseSeqNo.Tag = "2|"
         Me.FNCourseSeqNo.Visible = False
@@ -8594,10 +8582,10 @@ Partial Class wEmployee
         Me.FCGrade_lbl.Appearance.Options.UseTextOptions = True
         Me.FCGrade_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FCGrade_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FCGrade_lbl.Location = New System.Drawing.Point(591, 85)
-        Me.FCGrade_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCGrade_lbl.Location = New System.Drawing.Point(689, 105)
+        Me.FCGrade_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCGrade_lbl.Name = "FCGrade_lbl"
-        Me.FCGrade_lbl.Size = New System.Drawing.Size(108, 22)
+        Me.FCGrade_lbl.Size = New System.Drawing.Size(126, 27)
         Me.FCGrade_lbl.TabIndex = 321
         Me.FCGrade_lbl.Tag = "2|"
         Me.FCGrade_lbl.Text = "เกรดเฉลี่ย :"
@@ -8605,8 +8593,8 @@ Partial Class wEmployee
         'FCGrade
         '
         Me.FCGrade.EnterMoveNextControl = True
-        Me.FCGrade.Location = New System.Drawing.Point(708, 87)
-        Me.FCGrade.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FCGrade.Location = New System.Drawing.Point(828, 108)
+        Me.FCGrade.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FCGrade.Name = "FCGrade"
         Me.FCGrade.Properties.Appearance.Options.UseTextOptions = True
         Me.FCGrade.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -8618,10 +8606,10 @@ Partial Class wEmployee
         Me.FCGrade.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FCGrade.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FCGrade.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FCGrade.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions59, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject233, SerializableAppearanceObject234, SerializableAppearanceObject235, SerializableAppearanceObject236, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FCGrade.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions58, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject229, SerializableAppearanceObject230, SerializableAppearanceObject231, SerializableAppearanceObject232, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FCGrade.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCGrade.Properties.Precision = 2
-        Me.FCGrade.Size = New System.Drawing.Size(139, 20)
+        Me.FCGrade.Size = New System.Drawing.Size(162, 23)
         Me.FCGrade.TabIndex = 320
         Me.FCGrade.Tag = "2|"
         '
@@ -8629,11 +8617,11 @@ Partial Class wEmployee
         '
         Me.FTYearEnd.EditValue = Nothing
         Me.FTYearEnd.EnterMoveNextControl = True
-        Me.FTYearEnd.Location = New System.Drawing.Point(478, 87)
-        Me.FTYearEnd.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTYearEnd.Location = New System.Drawing.Point(558, 107)
+        Me.FTYearEnd.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTYearEnd.Name = "FTYearEnd"
         Me.FTYearEnd.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTYearEnd.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions60, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject237, SerializableAppearanceObject238, SerializableAppearanceObject239, SerializableAppearanceObject240, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTYearEnd.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions59, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject233, SerializableAppearanceObject234, SerializableAppearanceObject235, SerializableAppearanceObject236, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTYearEnd.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTYearEnd.Properties.DisplayFormat.FormatString = "yyyy"
         Me.FTYearEnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -8641,7 +8629,7 @@ Partial Class wEmployee
         Me.FTYearEnd.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTYearEnd.Properties.Mask.EditMask = "yyyy"
         Me.FTYearEnd.Properties.NullDate = ""
-        Me.FTYearEnd.Size = New System.Drawing.Size(77, 20)
+        Me.FTYearEnd.Size = New System.Drawing.Size(90, 23)
         Me.FTYearEnd.TabIndex = 308
         Me.FTYearEnd.Tag = "2|"
         '
@@ -8649,11 +8637,11 @@ Partial Class wEmployee
         '
         Me.FTYearBegin.EditValue = Nothing
         Me.FTYearBegin.EnterMoveNextControl = True
-        Me.FTYearBegin.Location = New System.Drawing.Point(272, 91)
-        Me.FTYearBegin.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTYearBegin.Location = New System.Drawing.Point(286, 107)
+        Me.FTYearBegin.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTYearBegin.Name = "FTYearBegin"
         Me.FTYearBegin.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTYearBegin.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions61, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject241, SerializableAppearanceObject242, SerializableAppearanceObject243, SerializableAppearanceObject244, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTYearBegin.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions60, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject237, SerializableAppearanceObject238, SerializableAppearanceObject239, SerializableAppearanceObject240, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTYearBegin.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTYearBegin.Properties.DisplayFormat.FormatString = "yyyy"
         Me.FTYearBegin.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -8661,7 +8649,7 @@ Partial Class wEmployee
         Me.FTYearBegin.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTYearBegin.Properties.Mask.EditMask = "yyyy"
         Me.FTYearBegin.Properties.NullDate = ""
-        Me.FTYearBegin.Size = New System.Drawing.Size(87, 20)
+        Me.FTYearBegin.Size = New System.Drawing.Size(101, 23)
         Me.FTYearBegin.TabIndex = 307
         Me.FTYearBegin.Tag = "2|"
         '
@@ -8672,10 +8660,10 @@ Partial Class wEmployee
         Me.FTYearEnd_lbl.Appearance.Options.UseTextOptions = True
         Me.FTYearEnd_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTYearEnd_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTYearEnd_lbl.Location = New System.Drawing.Point(381, 84)
-        Me.FTYearEnd_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTYearEnd_lbl.Location = New System.Drawing.Point(393, 103)
+        Me.FTYearEnd_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTYearEnd_lbl.Name = "FTYearEnd_lbl"
-        Me.FTYearEnd_lbl.Size = New System.Drawing.Size(85, 25)
+        Me.FTYearEnd_lbl.Size = New System.Drawing.Size(159, 31)
         Me.FTYearEnd_lbl.TabIndex = 306
         Me.FTYearEnd_lbl.Tag = "2|"
         Me.FTYearEnd_lbl.Text = "ปีที่จบ :"
@@ -8687,10 +8675,10 @@ Partial Class wEmployee
         Me.FTYearBegin_lbl.Appearance.Options.UseTextOptions = True
         Me.FTYearBegin_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTYearBegin_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTYearBegin_lbl.Location = New System.Drawing.Point(165, 88)
-        Me.FTYearBegin_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTYearBegin_lbl.Location = New System.Drawing.Point(162, 106)
+        Me.FTYearBegin_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTYearBegin_lbl.Name = "FTYearBegin_lbl"
-        Me.FTYearBegin_lbl.Size = New System.Drawing.Size(101, 21)
+        Me.FTYearBegin_lbl.Size = New System.Drawing.Size(118, 26)
         Me.FTYearBegin_lbl.TabIndex = 305
         Me.FTYearBegin_lbl.Tag = "2|"
         Me.FTYearBegin_lbl.Text = "ปีที่เริ่ม :"
@@ -8700,10 +8688,10 @@ Partial Class wEmployee
         Me.FNHSysFacultyBranchId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysFacultyBranchId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysFacultyBranchId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysFacultyBranchId_lbl.Location = New System.Drawing.Point(606, 32)
-        Me.FNHSysFacultyBranchId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysFacultyBranchId_lbl.Location = New System.Drawing.Point(707, 39)
+        Me.FNHSysFacultyBranchId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysFacultyBranchId_lbl.Name = "FNHSysFacultyBranchId_lbl"
-        Me.FNHSysFacultyBranchId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysFacultyBranchId_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNHSysFacultyBranchId_lbl.TabIndex = 304
         Me.FNHSysFacultyBranchId_lbl.Tag = "2|"
         Me.FNHSysFacultyBranchId_lbl.Text = "สาขา :"
@@ -8713,23 +8701,23 @@ Partial Class wEmployee
         Me.FTInstitute_lbl.Appearance.Options.UseTextOptions = True
         Me.FTInstitute_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTInstitute_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTInstitute_lbl.Location = New System.Drawing.Point(9, 32)
-        Me.FTInstitute_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTInstitute_lbl.Location = New System.Drawing.Point(10, 39)
+        Me.FTInstitute_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTInstitute_lbl.Name = "FTInstitute_lbl"
-        Me.FTInstitute_lbl.Size = New System.Drawing.Size(113, 21)
+        Me.FTInstitute_lbl.Size = New System.Drawing.Size(132, 26)
         Me.FTInstitute_lbl.TabIndex = 302
         Me.FTInstitute_lbl.Tag = "2|"
         Me.FTInstitute_lbl.Text = "มหาวิทยาลัย :"
         '
         'FNHSysCourseId_None
         '
-        Me.FNHSysCourseId_None.Location = New System.Drawing.Point(282, 12)
-        Me.FNHSysCourseId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCourseId_None.Location = New System.Drawing.Point(329, 15)
+        Me.FNHSysCourseId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysCourseId_None.Name = "FNHSysCourseId_None"
         Me.FNHSysCourseId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCourseId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCourseId_None.Properties.ReadOnly = True
-        Me.FNHSysCourseId_None.Size = New System.Drawing.Size(285, 20)
+        Me.FNHSysCourseId_None.Size = New System.Drawing.Size(332, 23)
         Me.FNHSysCourseId_None.TabIndex = 298
         Me.FNHSysCourseId_None.Tag = "2|"
         '
@@ -8740,41 +8728,41 @@ Partial Class wEmployee
         Me.FNHSysCourseId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCourseId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCourseId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCourseId_lbl.Location = New System.Drawing.Point(-2, 12)
-        Me.FNHSysCourseId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCourseId_lbl.Location = New System.Drawing.Point(-2, 15)
+        Me.FNHSysCourseId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysCourseId_lbl.Name = "FNHSysCourseId_lbl"
-        Me.FNHSysCourseId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysCourseId_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNHSysCourseId_lbl.TabIndex = 297
         Me.FNHSysCourseId_lbl.Tag = "2|"
         Me.FNHSysCourseId_lbl.Text = "วุฒิการศึกษา :"
         '
         'FNHSysCourseId
         '
-        Me.FNHSysCourseId.Location = New System.Drawing.Point(125, 12)
-        Me.FNHSysCourseId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCourseId.Location = New System.Drawing.Point(146, 15)
+        Me.FNHSysCourseId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysCourseId.Name = "FNHSysCourseId"
-        Me.FNHSysCourseId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions62, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject245, SerializableAppearanceObject246, SerializableAppearanceObject247, SerializableAppearanceObject248, "", "67", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCourseId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions61, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject241, SerializableAppearanceObject242, SerializableAppearanceObject243, SerializableAppearanceObject244, "", "67", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCourseId.Properties.Tag = "67"
-        Me.FNHSysCourseId.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysCourseId.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysCourseId.TabIndex = 296
         Me.FNHSysCourseId.Tag = "2|"
         '
         'otpfamily
         '
         Me.otpfamily.Controls.Add(Me.otbfamily)
-        Me.otpfamily.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otpfamily.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otpfamily.Name = "otpfamily"
-        Me.otpfamily.Size = New System.Drawing.Size(1405, 709)
+        Me.otpfamily.Size = New System.Drawing.Size(1639, 872)
         Me.otpfamily.Text = "ครอบครัว"
         '
         'otbfamily
         '
         Me.otbfamily.Dock = System.Windows.Forms.DockStyle.Fill
         Me.otbfamily.Location = New System.Drawing.Point(0, 0)
-        Me.otbfamily.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otbfamily.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otbfamily.Name = "otbfamily"
         Me.otbfamily.SelectedTabPage = Me.otpfa
-        Me.otbfamily.Size = New System.Drawing.Size(1405, 709)
+        Me.otbfamily.Size = New System.Drawing.Size(1639, 872)
         Me.otbfamily.TabIndex = 0
         Me.otbfamily.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpfa, Me.otpbrother, Me.otpchild})
         Me.otbfamily.TabPageWidth = 120
@@ -8783,9 +8771,9 @@ Partial Class wEmployee
         '
         Me.otpfa.Controls.Add(Me.GroupControl32)
         Me.otpfa.Controls.Add(Me.GroupControl8)
-        Me.otpfa.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otpfa.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otpfa.Name = "otpfa"
-        Me.otpfa.Size = New System.Drawing.Size(1403, 684)
+        Me.otpfa.Size = New System.Drawing.Size(1629, 835)
         Me.otpfa.Text = "ครอบครัว"
         '
         'GroupControl32
@@ -8793,10 +8781,10 @@ Partial Class wEmployee
         Me.GroupControl32.Controls.Add(Me.GroupControl22)
         Me.GroupControl32.Controls.Add(Me.GroupControl23)
         Me.GroupControl32.Controls.Add(Me.GroupControl24)
-        Me.GroupControl32.Location = New System.Drawing.Point(651, 0)
-        Me.GroupControl32.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl32.Location = New System.Drawing.Point(759, 0)
+        Me.GroupControl32.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl32.Name = "GroupControl32"
-        Me.GroupControl32.Size = New System.Drawing.Size(659, 546)
+        Me.GroupControl32.Size = New System.Drawing.Size(863, 761)
         Me.GroupControl32.TabIndex = 389
         Me.GroupControl32.Text = "บิดา คู่สมรส"
         '
@@ -8821,10 +8809,10 @@ Partial Class wEmployee
         Me.GroupControl22.Controls.Add(Me.FTMateName)
         Me.GroupControl22.Controls.Add(Me.FTMateName_lbl)
         Me.GroupControl22.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupControl22.Location = New System.Drawing.Point(2, 23)
-        Me.GroupControl22.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl22.Location = New System.Drawing.Point(2, 27)
+        Me.GroupControl22.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl22.Name = "GroupControl22"
-        Me.GroupControl22.Size = New System.Drawing.Size(655, 230)
+        Me.GroupControl22.Size = New System.Drawing.Size(859, 283)
         Me.GroupControl22.TabIndex = 3
         Me.GroupControl22.Text = "คู่สมรส"
         '
@@ -8833,10 +8821,10 @@ Partial Class wEmployee
         Me.FTMateIncome_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMateIncome_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMateIncome_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMateIncome_lbl.Location = New System.Drawing.Point(21, 68)
-        Me.FTMateIncome_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateIncome_lbl.Location = New System.Drawing.Point(24, 84)
+        Me.FTMateIncome_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateIncome_lbl.Name = "FTMateIncome_lbl"
-        Me.FTMateIncome_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTMateIncome_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTMateIncome_lbl.TabIndex = 391
         Me.FTMateIncome_lbl.Tag = "2|"
         Me.FTMateIncome_lbl.Text = "รายได้ :"
@@ -8845,8 +8833,8 @@ Partial Class wEmployee
         '
         Me.FTMateIncome.EditValue = ""
         Me.FTMateIncome.EnterMoveNextControl = True
-        Me.FTMateIncome.Location = New System.Drawing.Point(147, 66)
-        Me.FTMateIncome.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateIncome.Location = New System.Drawing.Point(171, 81)
+        Me.FTMateIncome.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateIncome.Name = "FTMateIncome"
         Me.FTMateIncome.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTMateIncome.Properties.Appearance.Options.UseBackColor = True
@@ -8865,7 +8853,7 @@ Partial Class wEmployee
         Me.FTMateIncome.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FTMateIncome.Properties.Tag = "FNIncome"
         Me.FTMateIncome.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FTMateIncome.Size = New System.Drawing.Size(159, 20)
+        Me.FTMateIncome.Size = New System.Drawing.Size(185, 23)
         Me.FTMateIncome.TabIndex = 390
         Me.FTMateIncome.Tag = "2|"
         '
@@ -8873,10 +8861,10 @@ Partial Class wEmployee
         '
         Me.FTMateTel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTMateTel.Location = New System.Drawing.Point(147, 202)
-        Me.FTMateTel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateTel.Location = New System.Drawing.Point(171, 249)
+        Me.FTMateTel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateTel.Name = "FTMateTel"
-        Me.FTMateTel.Size = New System.Drawing.Size(687, 20)
+        Me.FTMateTel.Size = New System.Drawing.Size(897, 23)
         Me.FTMateTel.TabIndex = 389
         Me.FTMateTel.Tag = "2|"
         '
@@ -8885,10 +8873,10 @@ Partial Class wEmployee
         Me.FTMateTel_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMateTel_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMateTel_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMateTel_lbl.Location = New System.Drawing.Point(30, 199)
-        Me.FTMateTel_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateTel_lbl.Location = New System.Drawing.Point(35, 245)
+        Me.FTMateTel_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateTel_lbl.Name = "FTMateTel_lbl"
-        Me.FTMateTel_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTMateTel_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTMateTel_lbl.TabIndex = 388
         Me.FTMateTel_lbl.Tag = "2|"
         Me.FTMateTel_lbl.Text = "หมายเลขโทรศัพท์ :"
@@ -8898,10 +8886,10 @@ Partial Class wEmployee
         Me.FTMateIDNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMateIDNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMateIDNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMateIDNo_lbl.Location = New System.Drawing.Point(8, 82)
-        Me.FTMateIDNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateIDNo_lbl.Location = New System.Drawing.Point(9, 101)
+        Me.FTMateIDNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateIDNo_lbl.Name = "FTMateIDNo_lbl"
-        Me.FTMateIDNo_lbl.Size = New System.Drawing.Size(136, 25)
+        Me.FTMateIDNo_lbl.Size = New System.Drawing.Size(159, 31)
         Me.FTMateIDNo_lbl.TabIndex = 387
         Me.FTMateIDNo_lbl.Tag = "2|"
         Me.FTMateIDNo_lbl.Text = "บัตรประจำตัวประชาชน :"
@@ -8910,10 +8898,10 @@ Partial Class wEmployee
         '
         Me.FTMateIDNo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTMateIDNo.Location = New System.Drawing.Point(147, 85)
-        Me.FTMateIDNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateIDNo.Location = New System.Drawing.Point(171, 105)
+        Me.FTMateIDNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateIDNo.Name = "FTMateIDNo"
-        Me.FTMateIDNo.Size = New System.Drawing.Size(170, 20)
+        Me.FTMateIDNo.Size = New System.Drawing.Size(293, 23)
         Me.FTMateIDNo.TabIndex = 386
         Me.FTMateIDNo.Tag = "2|"
         '
@@ -8922,10 +8910,10 @@ Partial Class wEmployee
         Me.FNMateLife_lbl.Appearance.Options.UseTextOptions = True
         Me.FNMateLife_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNMateLife_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNMateLife_lbl.Location = New System.Drawing.Point(21, 45)
-        Me.FNMateLife_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMateLife_lbl.Location = New System.Drawing.Point(24, 55)
+        Me.FNMateLife_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNMateLife_lbl.Name = "FNMateLife_lbl"
-        Me.FNMateLife_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNMateLife_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNMateLife_lbl.TabIndex = 385
         Me.FNMateLife_lbl.Tag = "2|"
         Me.FNMateLife_lbl.Text = "สถานะ :"
@@ -8934,8 +8922,8 @@ Partial Class wEmployee
         '
         Me.FNMateLife.EditValue = ""
         Me.FNMateLife.EnterMoveNextControl = True
-        Me.FNMateLife.Location = New System.Drawing.Point(147, 44)
-        Me.FNMateLife.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMateLife.Location = New System.Drawing.Point(171, 54)
+        Me.FNMateLife.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNMateLife.Name = "FNMateLife"
         Me.FNMateLife.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNMateLife.Properties.Appearance.Options.UseBackColor = True
@@ -8954,7 +8942,7 @@ Partial Class wEmployee
         Me.FNMateLife.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNMateLife.Properties.Tag = "FNLife"
         Me.FNMateLife.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNMateLife.Size = New System.Drawing.Size(159, 20)
+        Me.FNMateLife.Size = New System.Drawing.Size(185, 23)
         Me.FNMateLife.TabIndex = 384
         Me.FNMateLife.Tag = "2|"
         '
@@ -8962,10 +8950,10 @@ Partial Class wEmployee
         '
         Me.FTMateAddrWork.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTMateAddrWork.Location = New System.Drawing.Point(147, 180)
-        Me.FTMateAddrWork.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateAddrWork.Location = New System.Drawing.Point(171, 222)
+        Me.FTMateAddrWork.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateAddrWork.Name = "FTMateAddrWork"
-        Me.FTMateAddrWork.Size = New System.Drawing.Size(687, 20)
+        Me.FTMateAddrWork.Size = New System.Drawing.Size(897, 23)
         Me.FTMateAddrWork.TabIndex = 362
         Me.FTMateAddrWork.Tag = "2|"
         '
@@ -8974,10 +8962,10 @@ Partial Class wEmployee
         Me.FTMateAddrWork_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMateAddrWork_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMateAddrWork_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMateAddrWork_lbl.Location = New System.Drawing.Point(30, 176)
-        Me.FTMateAddrWork_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateAddrWork_lbl.Location = New System.Drawing.Point(35, 217)
+        Me.FTMateAddrWork_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateAddrWork_lbl.Name = "FTMateAddrWork_lbl"
-        Me.FTMateAddrWork_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTMateAddrWork_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTMateAddrWork_lbl.TabIndex = 361
         Me.FTMateAddrWork_lbl.Tag = "2|"
         Me.FTMateAddrWork_lbl.Text = "ที่ทำงาน :"
@@ -8987,10 +8975,10 @@ Partial Class wEmployee
         Me.FTMatePosit_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMatePosit_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMatePosit_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMatePosit_lbl.Location = New System.Drawing.Point(28, 154)
-        Me.FTMatePosit_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMatePosit_lbl.Location = New System.Drawing.Point(33, 190)
+        Me.FTMatePosit_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMatePosit_lbl.Name = "FTMatePosit_lbl"
-        Me.FTMatePosit_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTMatePosit_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTMatePosit_lbl.TabIndex = 360
         Me.FTMatePosit_lbl.Tag = "2|"
         Me.FTMatePosit_lbl.Text = "ตำแหน่ง :"
@@ -8999,10 +8987,10 @@ Partial Class wEmployee
         '
         Me.FTMatePosit.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTMatePosit.Location = New System.Drawing.Point(147, 158)
-        Me.FTMatePosit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMatePosit.Location = New System.Drawing.Point(171, 194)
+        Me.FTMatePosit.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMatePosit.Name = "FTMatePosit"
-        Me.FTMatePosit.Size = New System.Drawing.Size(687, 20)
+        Me.FTMatePosit.Size = New System.Drawing.Size(897, 23)
         Me.FTMatePosit.TabIndex = 359
         Me.FTMatePosit.Tag = "2|"
         '
@@ -9010,10 +8998,10 @@ Partial Class wEmployee
         '
         Me.FTMateCareer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTMateCareer.Location = New System.Drawing.Point(147, 133)
-        Me.FTMateCareer.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateCareer.Location = New System.Drawing.Point(171, 164)
+        Me.FTMateCareer.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateCareer.Name = "FTMateCareer"
-        Me.FTMateCareer.Size = New System.Drawing.Size(687, 20)
+        Me.FTMateCareer.Size = New System.Drawing.Size(897, 23)
         Me.FTMateCareer.TabIndex = 358
         Me.FTMateCareer.Tag = "2|"
         '
@@ -9022,10 +9010,10 @@ Partial Class wEmployee
         Me.FTMateCareer_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMateCareer_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMateCareer_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMateCareer_lbl.Location = New System.Drawing.Point(30, 130)
-        Me.FTMateCareer_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateCareer_lbl.Location = New System.Drawing.Point(35, 160)
+        Me.FTMateCareer_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateCareer_lbl.Name = "FTMateCareer_lbl"
-        Me.FTMateCareer_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTMateCareer_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTMateCareer_lbl.TabIndex = 357
         Me.FTMateCareer_lbl.Tag = "2|"
         Me.FTMateCareer_lbl.Text = "อาชีพ :"
@@ -9035,10 +9023,10 @@ Partial Class wEmployee
         Me.FTMateAddr_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMateAddr_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMateAddr_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMateAddr_lbl.Location = New System.Drawing.Point(8, 108)
-        Me.FTMateAddr_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateAddr_lbl.Location = New System.Drawing.Point(9, 133)
+        Me.FTMateAddr_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateAddr_lbl.Name = "FTMateAddr_lbl"
-        Me.FTMateAddr_lbl.Size = New System.Drawing.Size(136, 25)
+        Me.FTMateAddr_lbl.Size = New System.Drawing.Size(159, 31)
         Me.FTMateAddr_lbl.TabIndex = 356
         Me.FTMateAddr_lbl.Tag = "2|"
         Me.FTMateAddr_lbl.Text = "ที่อยู่ :"
@@ -9047,10 +9035,10 @@ Partial Class wEmployee
         '
         Me.FTMateAddr.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTMateAddr.Location = New System.Drawing.Point(147, 111)
-        Me.FTMateAddr.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateAddr.Location = New System.Drawing.Point(171, 137)
+        Me.FTMateAddr.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateAddr.Name = "FTMateAddr"
-        Me.FTMateAddr.Size = New System.Drawing.Size(687, 20)
+        Me.FTMateAddr.Size = New System.Drawing.Size(897, 23)
         Me.FTMateAddr.TabIndex = 355
         Me.FTMateAddr.Tag = "2|"
         '
@@ -9058,10 +9046,10 @@ Partial Class wEmployee
         '
         Me.FTMateName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTMateName.Location = New System.Drawing.Point(147, 23)
-        Me.FTMateName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateName.Location = New System.Drawing.Point(171, 28)
+        Me.FTMateName.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateName.Name = "FTMateName"
-        Me.FTMateName.Size = New System.Drawing.Size(967, 20)
+        Me.FTMateName.Size = New System.Drawing.Size(1223, 23)
         Me.FTMateName.TabIndex = 354
         Me.FTMateName.Tag = "2|"
         '
@@ -9070,10 +9058,10 @@ Partial Class wEmployee
         Me.FTMateName_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMateName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMateName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMateName_lbl.Location = New System.Drawing.Point(30, 17)
-        Me.FTMateName_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateName_lbl.Location = New System.Drawing.Point(35, 21)
+        Me.FTMateName_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateName_lbl.Name = "FTMateName_lbl"
-        Me.FTMateName_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTMateName_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTMateName_lbl.TabIndex = 353
         Me.FTMateName_lbl.Tag = "2|"
         Me.FTMateName_lbl.Text = "ชื่อ - นามสกุล :"
@@ -9084,10 +9072,10 @@ Partial Class wEmployee
         Me.GroupControl23.Controls.Add(Me.FTMateFatherIDNo)
         Me.GroupControl23.Controls.Add(Me.FTMateFatherName)
         Me.GroupControl23.Controls.Add(Me.FTMateFatherName_lbl)
-        Me.GroupControl23.Location = New System.Drawing.Point(4, 423)
-        Me.GroupControl23.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl23.Location = New System.Drawing.Point(5, 422)
+        Me.GroupControl23.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl23.Name = "GroupControl23"
-        Me.GroupControl23.Size = New System.Drawing.Size(640, 209)
+        Me.GroupControl23.Size = New System.Drawing.Size(857, 331)
         Me.GroupControl23.TabIndex = 4
         Me.GroupControl23.Text = "บิดา คู่สมรส"
         '
@@ -9096,10 +9084,10 @@ Partial Class wEmployee
         Me.FTMateFatherIDNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMateFatherIDNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMateFatherIDNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMateFatherIDNo_lbl.Location = New System.Drawing.Point(8, 38)
-        Me.FTMateFatherIDNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateFatherIDNo_lbl.Location = New System.Drawing.Point(9, 47)
+        Me.FTMateFatherIDNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateFatherIDNo_lbl.Name = "FTMateFatherIDNo_lbl"
-        Me.FTMateFatherIDNo_lbl.Size = New System.Drawing.Size(136, 25)
+        Me.FTMateFatherIDNo_lbl.Size = New System.Drawing.Size(159, 31)
         Me.FTMateFatherIDNo_lbl.TabIndex = 387
         Me.FTMateFatherIDNo_lbl.Tag = "2|"
         Me.FTMateFatherIDNo_lbl.Text = "บัตรประจำตัวประชาชน :"
@@ -9108,10 +9096,10 @@ Partial Class wEmployee
         '
         Me.FTMateFatherIDNo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTMateFatherIDNo.Location = New System.Drawing.Point(147, 46)
-        Me.FTMateFatherIDNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateFatherIDNo.Location = New System.Drawing.Point(171, 57)
+        Me.FTMateFatherIDNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateFatherIDNo.Name = "FTMateFatherIDNo"
-        Me.FTMateFatherIDNo.Size = New System.Drawing.Size(678, 20)
+        Me.FTMateFatherIDNo.Size = New System.Drawing.Size(902, 23)
         Me.FTMateFatherIDNo.TabIndex = 386
         Me.FTMateFatherIDNo.Tag = "2|"
         '
@@ -9119,10 +9107,10 @@ Partial Class wEmployee
         '
         Me.FTMateFatherName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTMateFatherName.Location = New System.Drawing.Point(147, 24)
-        Me.FTMateFatherName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateFatherName.Location = New System.Drawing.Point(171, 30)
+        Me.FTMateFatherName.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateFatherName.Name = "FTMateFatherName"
-        Me.FTMateFatherName.Size = New System.Drawing.Size(678, 20)
+        Me.FTMateFatherName.Size = New System.Drawing.Size(902, 23)
         Me.FTMateFatherName.TabIndex = 354
         Me.FTMateFatherName.Tag = "2|"
         '
@@ -9131,10 +9119,10 @@ Partial Class wEmployee
         Me.FTMateFatherName_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMateFatherName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMateFatherName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMateFatherName_lbl.Location = New System.Drawing.Point(30, 17)
-        Me.FTMateFatherName_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateFatherName_lbl.Location = New System.Drawing.Point(35, 21)
+        Me.FTMateFatherName_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateFatherName_lbl.Name = "FTMateFatherName_lbl"
-        Me.FTMateFatherName_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTMateFatherName_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTMateFatherName_lbl.TabIndex = 353
         Me.FTMateFatherName_lbl.Tag = "2|"
         Me.FTMateFatherName_lbl.Text = "ชื่อ - นามสกุล :"
@@ -9145,10 +9133,10 @@ Partial Class wEmployee
         Me.GroupControl24.Controls.Add(Me.FTMateMotherIDNo)
         Me.GroupControl24.Controls.Add(Me.FTMateMotherName)
         Me.GroupControl24.Controls.Add(Me.FTMateMotherName_lbl)
-        Me.GroupControl24.Location = New System.Drawing.Point(3, 251)
-        Me.GroupControl24.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl24.Location = New System.Drawing.Point(3, 309)
+        Me.GroupControl24.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl24.Name = "GroupControl24"
-        Me.GroupControl24.Size = New System.Drawing.Size(604, 164)
+        Me.GroupControl24.Size = New System.Drawing.Size(857, 110)
         Me.GroupControl24.TabIndex = 5
         Me.GroupControl24.Text = "มารดา คู่สมรส"
         '
@@ -9157,10 +9145,10 @@ Partial Class wEmployee
         Me.FTMateMotherIDNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMateMotherIDNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMateMotherIDNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMateMotherIDNo_lbl.Location = New System.Drawing.Point(8, 44)
-        Me.FTMateMotherIDNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateMotherIDNo_lbl.Location = New System.Drawing.Point(9, 54)
+        Me.FTMateMotherIDNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateMotherIDNo_lbl.Name = "FTMateMotherIDNo_lbl"
-        Me.FTMateMotherIDNo_lbl.Size = New System.Drawing.Size(136, 25)
+        Me.FTMateMotherIDNo_lbl.Size = New System.Drawing.Size(159, 31)
         Me.FTMateMotherIDNo_lbl.TabIndex = 387
         Me.FTMateMotherIDNo_lbl.Tag = "2|"
         Me.FTMateMotherIDNo_lbl.Text = "บัตรประจำตัวประชาชน :"
@@ -9169,10 +9157,10 @@ Partial Class wEmployee
         '
         Me.FTMateMotherIDNo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTMateMotherIDNo.Location = New System.Drawing.Point(147, 51)
-        Me.FTMateMotherIDNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateMotherIDNo.Location = New System.Drawing.Point(171, 63)
+        Me.FTMateMotherIDNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateMotherIDNo.Name = "FTMateMotherIDNo"
-        Me.FTMateMotherIDNo.Size = New System.Drawing.Size(813, 20)
+        Me.FTMateMotherIDNo.Size = New System.Drawing.Size(1101, 23)
         Me.FTMateMotherIDNo.TabIndex = 386
         Me.FTMateMotherIDNo.Tag = "2|"
         '
@@ -9180,10 +9168,10 @@ Partial Class wEmployee
         '
         Me.FTMateMotherName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTMateMotherName.Location = New System.Drawing.Point(146, 29)
-        Me.FTMateMotherName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateMotherName.Location = New System.Drawing.Point(170, 36)
+        Me.FTMateMotherName.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateMotherName.Name = "FTMateMotherName"
-        Me.FTMateMotherName.Size = New System.Drawing.Size(813, 20)
+        Me.FTMateMotherName.Size = New System.Drawing.Size(1101, 23)
         Me.FTMateMotherName.TabIndex = 354
         Me.FTMateMotherName.Tag = "2|"
         '
@@ -9192,10 +9180,10 @@ Partial Class wEmployee
         Me.FTMateMotherName_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMateMotherName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMateMotherName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMateMotherName_lbl.Location = New System.Drawing.Point(30, 22)
-        Me.FTMateMotherName_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMateMotherName_lbl.Location = New System.Drawing.Point(35, 27)
+        Me.FTMateMotherName_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMateMotherName_lbl.Name = "FTMateMotherName_lbl"
-        Me.FTMateMotherName_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTMateMotherName_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTMateMotherName_lbl.TabIndex = 353
         Me.FTMateMotherName_lbl.Tag = "2|"
         Me.FTMateMotherName_lbl.Text = "ชื่อ - นามสกุล :"
@@ -9206,9 +9194,9 @@ Partial Class wEmployee
         Me.GroupControl8.Controls.Add(Me.GroupControl21)
         Me.GroupControl8.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupControl8.Location = New System.Drawing.Point(0, 0)
-        Me.GroupControl8.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl8.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl8.Name = "GroupControl8"
-        Me.GroupControl8.Size = New System.Drawing.Size(646, 684)
+        Me.GroupControl8.Size = New System.Drawing.Size(754, 835)
         Me.GroupControl8.TabIndex = 388
         Me.GroupControl8.Text = "บิดา คู่สมรส"
         '
@@ -9230,19 +9218,19 @@ Partial Class wEmployee
         Me.GroupControl20.Controls.Add(Me.FTFatherAddr)
         Me.GroupControl20.Controls.Add(Me.FTFatherName)
         Me.GroupControl20.Controls.Add(Me.FTFatherName_lbl)
-        Me.GroupControl20.Location = New System.Drawing.Point(4, 24)
-        Me.GroupControl20.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl20.Location = New System.Drawing.Point(5, 30)
+        Me.GroupControl20.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl20.Name = "GroupControl20"
-        Me.GroupControl20.Size = New System.Drawing.Size(642, 219)
+        Me.GroupControl20.Size = New System.Drawing.Size(749, 270)
         Me.GroupControl20.TabIndex = 1
         Me.GroupControl20.Text = "บิดา"
         '
         'FTFatherTel
         '
-        Me.FTFatherTel.Location = New System.Drawing.Point(147, 161)
-        Me.FTFatherTel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFatherTel.Location = New System.Drawing.Point(171, 198)
+        Me.FTFatherTel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFatherTel.Name = "FTFatherTel"
-        Me.FTFatherTel.Size = New System.Drawing.Size(280, 20)
+        Me.FTFatherTel.Size = New System.Drawing.Size(327, 23)
         Me.FTFatherTel.TabIndex = 389
         Me.FTFatherTel.Tag = "2|"
         '
@@ -9251,10 +9239,10 @@ Partial Class wEmployee
         Me.FTFatherTel_lbl.Appearance.Options.UseTextOptions = True
         Me.FTFatherTel_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTFatherTel_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTFatherTel_lbl.Location = New System.Drawing.Point(30, 160)
-        Me.FTFatherTel_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFatherTel_lbl.Location = New System.Drawing.Point(35, 197)
+        Me.FTFatherTel_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFatherTel_lbl.Name = "FTFatherTel_lbl"
-        Me.FTFatherTel_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTFatherTel_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTFatherTel_lbl.TabIndex = 388
         Me.FTFatherTel_lbl.Tag = "2|"
         Me.FTFatherTel_lbl.Text = "หมายเลขโทรศัพท์ :"
@@ -9264,20 +9252,20 @@ Partial Class wEmployee
         Me.FTFatherIDNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTFatherIDNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTFatherIDNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTFatherIDNo_lbl.Location = New System.Drawing.Point(8, 67)
-        Me.FTFatherIDNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFatherIDNo_lbl.Location = New System.Drawing.Point(9, 82)
+        Me.FTFatherIDNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFatherIDNo_lbl.Name = "FTFatherIDNo_lbl"
-        Me.FTFatherIDNo_lbl.Size = New System.Drawing.Size(136, 25)
+        Me.FTFatherIDNo_lbl.Size = New System.Drawing.Size(159, 31)
         Me.FTFatherIDNo_lbl.TabIndex = 387
         Me.FTFatherIDNo_lbl.Tag = "2|"
         Me.FTFatherIDNo_lbl.Text = "บัตรประจำตัวประชาชน :"
         '
         'FTFatherIDNo
         '
-        Me.FTFatherIDNo.Location = New System.Drawing.Point(147, 69)
-        Me.FTFatherIDNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFatherIDNo.Location = New System.Drawing.Point(171, 85)
+        Me.FTFatherIDNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFatherIDNo.Name = "FTFatherIDNo"
-        Me.FTFatherIDNo.Size = New System.Drawing.Size(280, 20)
+        Me.FTFatherIDNo.Size = New System.Drawing.Size(327, 23)
         Me.FTFatherIDNo.TabIndex = 386
         Me.FTFatherIDNo.Tag = "2|"
         '
@@ -9286,10 +9274,10 @@ Partial Class wEmployee
         Me.FNFatherLife_lbl.Appearance.Options.UseTextOptions = True
         Me.FNFatherLife_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNFatherLife_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNFatherLife_lbl.Location = New System.Drawing.Point(21, 47)
-        Me.FNFatherLife_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNFatherLife_lbl.Location = New System.Drawing.Point(24, 58)
+        Me.FNFatherLife_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNFatherLife_lbl.Name = "FNFatherLife_lbl"
-        Me.FNFatherLife_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNFatherLife_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNFatherLife_lbl.TabIndex = 385
         Me.FNFatherLife_lbl.Tag = "2|"
         Me.FNFatherLife_lbl.Text = "สถานะ :"
@@ -9298,8 +9286,8 @@ Partial Class wEmployee
         '
         Me.FNFatherLife.EditValue = ""
         Me.FNFatherLife.EnterMoveNextControl = True
-        Me.FNFatherLife.Location = New System.Drawing.Point(147, 46)
-        Me.FNFatherLife.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNFatherLife.Location = New System.Drawing.Point(171, 57)
+        Me.FNFatherLife.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNFatherLife.Name = "FNFatherLife"
         Me.FNFatherLife.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNFatherLife.Properties.Appearance.Options.UseBackColor = True
@@ -9318,16 +9306,16 @@ Partial Class wEmployee
         Me.FNFatherLife.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNFatherLife.Properties.Tag = "FNLife"
         Me.FNFatherLife.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNFatherLife.Size = New System.Drawing.Size(159, 20)
+        Me.FNFatherLife.Size = New System.Drawing.Size(185, 23)
         Me.FNFatherLife.TabIndex = 384
         Me.FNFatherLife.Tag = "2|"
         '
         'FTFatherAddrWork
         '
-        Me.FTFatherAddrWork.Location = New System.Drawing.Point(147, 138)
-        Me.FTFatherAddrWork.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFatherAddrWork.Location = New System.Drawing.Point(171, 170)
+        Me.FTFatherAddrWork.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFatherAddrWork.Name = "FTFatherAddrWork"
-        Me.FTFatherAddrWork.Size = New System.Drawing.Size(407, 20)
+        Me.FTFatherAddrWork.Size = New System.Drawing.Size(475, 23)
         Me.FTFatherAddrWork.TabIndex = 362
         Me.FTFatherAddrWork.Tag = "2|"
         '
@@ -9336,10 +9324,10 @@ Partial Class wEmployee
         Me.FTFatherAddrWork_lbl.Appearance.Options.UseTextOptions = True
         Me.FTFatherAddrWork_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTFatherAddrWork_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTFatherAddrWork_lbl.Location = New System.Drawing.Point(30, 137)
-        Me.FTFatherAddrWork_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFatherAddrWork_lbl.Location = New System.Drawing.Point(35, 169)
+        Me.FTFatherAddrWork_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFatherAddrWork_lbl.Name = "FTFatherAddrWork_lbl"
-        Me.FTFatherAddrWork_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTFatherAddrWork_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTFatherAddrWork_lbl.TabIndex = 361
         Me.FTFatherAddrWork_lbl.Tag = "2|"
         Me.FTFatherAddrWork_lbl.Text = "ที่ทำงาน :"
@@ -9349,29 +9337,29 @@ Partial Class wEmployee
         Me.FTFatherPosit_lbl.Appearance.Options.UseTextOptions = True
         Me.FTFatherPosit_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTFatherPosit_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTFatherPosit_lbl.Location = New System.Drawing.Point(310, 115)
-        Me.FTFatherPosit_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFatherPosit_lbl.Location = New System.Drawing.Point(362, 142)
+        Me.FTFatherPosit_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFatherPosit_lbl.Name = "FTFatherPosit_lbl"
-        Me.FTFatherPosit_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTFatherPosit_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTFatherPosit_lbl.TabIndex = 360
         Me.FTFatherPosit_lbl.Tag = "2|"
         Me.FTFatherPosit_lbl.Text = "ตำแหน่ง :"
         '
         'FTFatherPosit
         '
-        Me.FTFatherPosit.Location = New System.Drawing.Point(429, 115)
-        Me.FTFatherPosit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFatherPosit.Location = New System.Drawing.Point(500, 142)
+        Me.FTFatherPosit.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFatherPosit.Name = "FTFatherPosit"
-        Me.FTFatherPosit.Size = New System.Drawing.Size(125, 20)
+        Me.FTFatherPosit.Size = New System.Drawing.Size(146, 23)
         Me.FTFatherPosit.TabIndex = 359
         Me.FTFatherPosit.Tag = "2|"
         '
         'FTFatherCareer
         '
-        Me.FTFatherCareer.Location = New System.Drawing.Point(147, 115)
-        Me.FTFatherCareer.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFatherCareer.Location = New System.Drawing.Point(171, 142)
+        Me.FTFatherCareer.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFatherCareer.Name = "FTFatherCareer"
-        Me.FTFatherCareer.Size = New System.Drawing.Size(159, 20)
+        Me.FTFatherCareer.Size = New System.Drawing.Size(185, 23)
         Me.FTFatherCareer.TabIndex = 358
         Me.FTFatherCareer.Tag = "2|"
         '
@@ -9380,10 +9368,10 @@ Partial Class wEmployee
         Me.FTFatherCareer_lbl.Appearance.Options.UseTextOptions = True
         Me.FTFatherCareer_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTFatherCareer_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTFatherCareer_lbl.Location = New System.Drawing.Point(30, 114)
-        Me.FTFatherCareer_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFatherCareer_lbl.Location = New System.Drawing.Point(35, 140)
+        Me.FTFatherCareer_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFatherCareer_lbl.Name = "FTFatherCareer_lbl"
-        Me.FTFatherCareer_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTFatherCareer_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTFatherCareer_lbl.TabIndex = 357
         Me.FTFatherCareer_lbl.Tag = "2|"
         Me.FTFatherCareer_lbl.Text = "อาชีพ :"
@@ -9393,29 +9381,29 @@ Partial Class wEmployee
         Me.FTFatherAddr_lbl.Appearance.Options.UseTextOptions = True
         Me.FTFatherAddr_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTFatherAddr_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTFatherAddr_lbl.Location = New System.Drawing.Point(8, 92)
-        Me.FTFatherAddr_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFatherAddr_lbl.Location = New System.Drawing.Point(9, 113)
+        Me.FTFatherAddr_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFatherAddr_lbl.Name = "FTFatherAddr_lbl"
-        Me.FTFatherAddr_lbl.Size = New System.Drawing.Size(136, 25)
+        Me.FTFatherAddr_lbl.Size = New System.Drawing.Size(159, 31)
         Me.FTFatherAddr_lbl.TabIndex = 356
         Me.FTFatherAddr_lbl.Tag = "2|"
         Me.FTFatherAddr_lbl.Text = "ที่อยู่ :"
         '
         'FTFatherAddr
         '
-        Me.FTFatherAddr.Location = New System.Drawing.Point(147, 92)
-        Me.FTFatherAddr.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFatherAddr.Location = New System.Drawing.Point(171, 113)
+        Me.FTFatherAddr.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFatherAddr.Name = "FTFatherAddr"
-        Me.FTFatherAddr.Size = New System.Drawing.Size(406, 20)
+        Me.FTFatherAddr.Size = New System.Drawing.Size(474, 23)
         Me.FTFatherAddr.TabIndex = 355
         Me.FTFatherAddr.Tag = "2|"
         '
         'FTFatherName
         '
-        Me.FTFatherName.Location = New System.Drawing.Point(147, 23)
-        Me.FTFatherName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFatherName.Location = New System.Drawing.Point(171, 28)
+        Me.FTFatherName.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFatherName.Name = "FTFatherName"
-        Me.FTFatherName.Size = New System.Drawing.Size(280, 20)
+        Me.FTFatherName.Size = New System.Drawing.Size(327, 23)
         Me.FTFatherName.TabIndex = 354
         Me.FTFatherName.Tag = "2|"
         '
@@ -9424,10 +9412,10 @@ Partial Class wEmployee
         Me.FTFatherName_lbl.Appearance.Options.UseTextOptions = True
         Me.FTFatherName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTFatherName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTFatherName_lbl.Location = New System.Drawing.Point(30, 22)
-        Me.FTFatherName_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFatherName_lbl.Location = New System.Drawing.Point(35, 27)
+        Me.FTFatherName_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFatherName_lbl.Name = "FTFatherName_lbl"
-        Me.FTFatherName_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTFatherName_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTFatherName_lbl.TabIndex = 353
         Me.FTFatherName_lbl.Tag = "2|"
         Me.FTFatherName_lbl.Text = "ชื่อ - นามสกุล :"
@@ -9450,19 +9438,19 @@ Partial Class wEmployee
         Me.GroupControl21.Controls.Add(Me.FTMotherAddr)
         Me.GroupControl21.Controls.Add(Me.FTMotherName)
         Me.GroupControl21.Controls.Add(Me.FTMotherName_lbl)
-        Me.GroupControl21.Location = New System.Drawing.Point(12, 251)
-        Me.GroupControl21.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl21.Location = New System.Drawing.Point(14, 309)
+        Me.GroupControl21.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl21.Name = "GroupControl21"
-        Me.GroupControl21.Size = New System.Drawing.Size(634, 377)
+        Me.GroupControl21.Size = New System.Drawing.Size(740, 464)
         Me.GroupControl21.TabIndex = 2
         Me.GroupControl21.Text = "มารดา"
         '
         'FTMotherTel
         '
-        Me.FTMotherTel.Location = New System.Drawing.Point(147, 163)
-        Me.FTMotherTel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotherTel.Location = New System.Drawing.Point(171, 201)
+        Me.FTMotherTel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotherTel.Name = "FTMotherTel"
-        Me.FTMotherTel.Size = New System.Drawing.Size(280, 20)
+        Me.FTMotherTel.Size = New System.Drawing.Size(327, 23)
         Me.FTMotherTel.TabIndex = 389
         Me.FTMotherTel.Tag = "2|"
         '
@@ -9471,10 +9459,10 @@ Partial Class wEmployee
         Me.FTMotherTel_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMotherTel_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMotherTel_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMotherTel_lbl.Location = New System.Drawing.Point(30, 162)
-        Me.FTMotherTel_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotherTel_lbl.Location = New System.Drawing.Point(35, 199)
+        Me.FTMotherTel_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotherTel_lbl.Name = "FTMotherTel_lbl"
-        Me.FTMotherTel_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTMotherTel_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTMotherTel_lbl.TabIndex = 388
         Me.FTMotherTel_lbl.Tag = "2|"
         Me.FTMotherTel_lbl.Text = "หมายเลขโทรศัพท์ :"
@@ -9484,20 +9472,20 @@ Partial Class wEmployee
         Me.FTMotherIDNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMotherIDNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMotherIDNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMotherIDNo_lbl.Location = New System.Drawing.Point(8, 67)
-        Me.FTMotherIDNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotherIDNo_lbl.Location = New System.Drawing.Point(9, 82)
+        Me.FTMotherIDNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotherIDNo_lbl.Name = "FTMotherIDNo_lbl"
-        Me.FTMotherIDNo_lbl.Size = New System.Drawing.Size(136, 25)
+        Me.FTMotherIDNo_lbl.Size = New System.Drawing.Size(159, 31)
         Me.FTMotherIDNo_lbl.TabIndex = 387
         Me.FTMotherIDNo_lbl.Tag = "2|"
         Me.FTMotherIDNo_lbl.Text = "บัตรประจำตัวประชาชน :"
         '
         'FTMotherIDNo
         '
-        Me.FTMotherIDNo.Location = New System.Drawing.Point(147, 69)
-        Me.FTMotherIDNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotherIDNo.Location = New System.Drawing.Point(171, 85)
+        Me.FTMotherIDNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotherIDNo.Name = "FTMotherIDNo"
-        Me.FTMotherIDNo.Size = New System.Drawing.Size(280, 20)
+        Me.FTMotherIDNo.Size = New System.Drawing.Size(327, 23)
         Me.FTMotherIDNo.TabIndex = 386
         Me.FTMotherIDNo.Tag = "2|"
         '
@@ -9506,10 +9494,10 @@ Partial Class wEmployee
         Me.FNMotherLife_lbl.Appearance.Options.UseTextOptions = True
         Me.FNMotherLife_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNMotherLife_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNMotherLife_lbl.Location = New System.Drawing.Point(21, 47)
-        Me.FNMotherLife_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMotherLife_lbl.Location = New System.Drawing.Point(24, 58)
+        Me.FNMotherLife_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNMotherLife_lbl.Name = "FNMotherLife_lbl"
-        Me.FNMotherLife_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNMotherLife_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNMotherLife_lbl.TabIndex = 385
         Me.FNMotherLife_lbl.Tag = "2|"
         Me.FNMotherLife_lbl.Text = "สถานะ :"
@@ -9518,8 +9506,8 @@ Partial Class wEmployee
         '
         Me.FNMotherLife.EditValue = ""
         Me.FNMotherLife.EnterMoveNextControl = True
-        Me.FNMotherLife.Location = New System.Drawing.Point(147, 46)
-        Me.FNMotherLife.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMotherLife.Location = New System.Drawing.Point(171, 57)
+        Me.FNMotherLife.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNMotherLife.Name = "FNMotherLife"
         Me.FNMotherLife.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNMotherLife.Properties.Appearance.Options.UseBackColor = True
@@ -9538,16 +9526,16 @@ Partial Class wEmployee
         Me.FNMotherLife.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNMotherLife.Properties.Tag = "FNLife"
         Me.FNMotherLife.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNMotherLife.Size = New System.Drawing.Size(159, 20)
+        Me.FNMotherLife.Size = New System.Drawing.Size(185, 23)
         Me.FNMotherLife.TabIndex = 384
         Me.FNMotherLife.Tag = "2|"
         '
         'FTMotherAddrWork
         '
-        Me.FTMotherAddrWork.Location = New System.Drawing.Point(147, 140)
-        Me.FTMotherAddrWork.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotherAddrWork.Location = New System.Drawing.Point(171, 172)
+        Me.FTMotherAddrWork.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotherAddrWork.Name = "FTMotherAddrWork"
-        Me.FTMotherAddrWork.Size = New System.Drawing.Size(406, 20)
+        Me.FTMotherAddrWork.Size = New System.Drawing.Size(474, 23)
         Me.FTMotherAddrWork.TabIndex = 362
         Me.FTMotherAddrWork.Tag = "2|"
         '
@@ -9556,10 +9544,10 @@ Partial Class wEmployee
         Me.FTMotherAddrWork_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMotherAddrWork_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMotherAddrWork_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMotherAddrWork_lbl.Location = New System.Drawing.Point(30, 139)
-        Me.FTMotherAddrWork_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotherAddrWork_lbl.Location = New System.Drawing.Point(35, 171)
+        Me.FTMotherAddrWork_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotherAddrWork_lbl.Name = "FTMotherAddrWork_lbl"
-        Me.FTMotherAddrWork_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTMotherAddrWork_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTMotherAddrWork_lbl.TabIndex = 361
         Me.FTMotherAddrWork_lbl.Tag = "2|"
         Me.FTMotherAddrWork_lbl.Text = "ที่ทำงาน :"
@@ -9569,29 +9557,29 @@ Partial Class wEmployee
         Me.FTMotherPosit_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMotherPosit_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMotherPosit_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMotherPosit_lbl.Location = New System.Drawing.Point(310, 115)
-        Me.FTMotherPosit_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotherPosit_lbl.Location = New System.Drawing.Point(362, 142)
+        Me.FTMotherPosit_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotherPosit_lbl.Name = "FTMotherPosit_lbl"
-        Me.FTMotherPosit_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTMotherPosit_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTMotherPosit_lbl.TabIndex = 360
         Me.FTMotherPosit_lbl.Tag = "2|"
         Me.FTMotherPosit_lbl.Text = "ตำแหน่ง :"
         '
         'FTMotherPosit
         '
-        Me.FTMotherPosit.Location = New System.Drawing.Point(429, 115)
-        Me.FTMotherPosit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotherPosit.Location = New System.Drawing.Point(500, 142)
+        Me.FTMotherPosit.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotherPosit.Name = "FTMotherPosit"
-        Me.FTMotherPosit.Size = New System.Drawing.Size(125, 20)
+        Me.FTMotherPosit.Size = New System.Drawing.Size(146, 23)
         Me.FTMotherPosit.TabIndex = 359
         Me.FTMotherPosit.Tag = "2|"
         '
         'FTMotherCareer
         '
-        Me.FTMotherCareer.Location = New System.Drawing.Point(147, 116)
-        Me.FTMotherCareer.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotherCareer.Location = New System.Drawing.Point(171, 143)
+        Me.FTMotherCareer.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotherCareer.Name = "FTMotherCareer"
-        Me.FTMotherCareer.Size = New System.Drawing.Size(159, 20)
+        Me.FTMotherCareer.Size = New System.Drawing.Size(185, 23)
         Me.FTMotherCareer.TabIndex = 358
         Me.FTMotherCareer.Tag = "2|"
         '
@@ -9600,10 +9588,10 @@ Partial Class wEmployee
         Me.FTMotherCareer_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMotherCareer_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMotherCareer_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMotherCareer_lbl.Location = New System.Drawing.Point(30, 115)
-        Me.FTMotherCareer_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotherCareer_lbl.Location = New System.Drawing.Point(35, 142)
+        Me.FTMotherCareer_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotherCareer_lbl.Name = "FTMotherCareer_lbl"
-        Me.FTMotherCareer_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTMotherCareer_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTMotherCareer_lbl.TabIndex = 357
         Me.FTMotherCareer_lbl.Tag = "2|"
         Me.FTMotherCareer_lbl.Text = "อาชีพ :"
@@ -9613,29 +9601,29 @@ Partial Class wEmployee
         Me.FTMotherAddr_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMotherAddr_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMotherAddr_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMotherAddr_lbl.Location = New System.Drawing.Point(8, 92)
-        Me.FTMotherAddr_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotherAddr_lbl.Location = New System.Drawing.Point(9, 113)
+        Me.FTMotherAddr_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotherAddr_lbl.Name = "FTMotherAddr_lbl"
-        Me.FTMotherAddr_lbl.Size = New System.Drawing.Size(136, 25)
+        Me.FTMotherAddr_lbl.Size = New System.Drawing.Size(159, 31)
         Me.FTMotherAddr_lbl.TabIndex = 356
         Me.FTMotherAddr_lbl.Tag = "2|"
         Me.FTMotherAddr_lbl.Text = "ที่อยู่ :"
         '
         'FTMotherAddr
         '
-        Me.FTMotherAddr.Location = New System.Drawing.Point(147, 92)
-        Me.FTMotherAddr.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotherAddr.Location = New System.Drawing.Point(171, 113)
+        Me.FTMotherAddr.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotherAddr.Name = "FTMotherAddr"
-        Me.FTMotherAddr.Size = New System.Drawing.Size(406, 20)
+        Me.FTMotherAddr.Size = New System.Drawing.Size(474, 23)
         Me.FTMotherAddr.TabIndex = 355
         Me.FTMotherAddr.Tag = "2|"
         '
         'FTMotherName
         '
-        Me.FTMotherName.Location = New System.Drawing.Point(147, 23)
-        Me.FTMotherName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotherName.Location = New System.Drawing.Point(171, 28)
+        Me.FTMotherName.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotherName.Name = "FTMotherName"
-        Me.FTMotherName.Size = New System.Drawing.Size(280, 20)
+        Me.FTMotherName.Size = New System.Drawing.Size(327, 23)
         Me.FTMotherName.TabIndex = 354
         Me.FTMotherName.Tag = "2|"
         '
@@ -9644,10 +9632,10 @@ Partial Class wEmployee
         Me.FTMotherName_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMotherName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMotherName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMotherName_lbl.Location = New System.Drawing.Point(30, 22)
-        Me.FTMotherName_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMotherName_lbl.Location = New System.Drawing.Point(35, 27)
+        Me.FTMotherName_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMotherName_lbl.Name = "FTMotherName_lbl"
-        Me.FTMotherName_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTMotherName_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTMotherName_lbl.TabIndex = 353
         Me.FTMotherName_lbl.Tag = "2|"
         Me.FTMotherName_lbl.Text = "ชื่อ - นามสกุล :"
@@ -9656,31 +9644,31 @@ Partial Class wEmployee
         '
         Me.otpbrother.Controls.Add(Me.GroupControl26)
         Me.otpbrother.Controls.Add(Me.ogbfam)
-        Me.otpbrother.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otpbrother.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otpbrother.Name = "otpbrother"
-        Me.otpbrother.Size = New System.Drawing.Size(1403, 684)
+        Me.otpbrother.Size = New System.Drawing.Size(1637, 841)
         Me.otpbrother.Text = "พี่น้อง"
         '
         'GroupControl26
         '
         Me.GroupControl26.Controls.Add(Me.ogdFamily)
         Me.GroupControl26.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupControl26.Location = New System.Drawing.Point(0, 105)
-        Me.GroupControl26.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl26.Location = New System.Drawing.Point(0, 129)
+        Me.GroupControl26.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl26.Name = "GroupControl26"
-        Me.GroupControl26.Size = New System.Drawing.Size(1403, 579)
+        Me.GroupControl26.Size = New System.Drawing.Size(1637, 712)
         Me.GroupControl26.TabIndex = 310
         '
         'ogdFamily
         '
         Me.ogdFamily.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdFamily.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogdFamily.Location = New System.Drawing.Point(2, 23)
+        Me.ogdFamily.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.ogdFamily.Location = New System.Drawing.Point(2, 27)
         Me.ogdFamily.MainView = Me.ogvFamily
-        Me.ogdFamily.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogdFamily.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogdFamily.Name = "ogdFamily"
         Me.ogdFamily.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit5})
-        Me.ogdFamily.Size = New System.Drawing.Size(1399, 554)
+        Me.ogdFamily.Size = New System.Drawing.Size(1633, 683)
         Me.ogdFamily.TabIndex = 5
         Me.ogdFamily.TabStop = False
         Me.ogdFamily.Tag = "2|"
@@ -9689,7 +9677,6 @@ Partial Class wEmployee
         'ogvFamily
         '
         Me.ogvFamily.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNFamSeqNo, Me.FTColFamilyName, Me.FTFamilySexInd, Me.FTColFamilySex})
-        Me.ogvFamily.DetailHeight = 284
         Me.ogvFamily.GridControl = Me.ogdFamily
         Me.ogvFamily.Name = "ogvFamily"
         Me.ogvFamily.OptionsCustomization.AllowGroup = False
@@ -9707,14 +9694,13 @@ Partial Class wEmployee
         Me.FNFamSeqNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNFamSeqNo.Caption = "FNSeqNo"
         Me.FNFamSeqNo.FieldName = "FNSeqNo"
-        Me.FNFamSeqNo.MinWidth = 17
         Me.FNFamSeqNo.Name = "FNFamSeqNo"
         Me.FNFamSeqNo.OptionsColumn.AllowEdit = False
         Me.FNFamSeqNo.OptionsColumn.AllowMove = False
         Me.FNFamSeqNo.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNFamSeqNo.Visible = True
         Me.FNFamSeqNo.VisibleIndex = 0
-        Me.FNFamSeqNo.Width = 71
+        Me.FNFamSeqNo.Width = 83
         '
         'FTColFamilyName
         '
@@ -9722,22 +9708,19 @@ Partial Class wEmployee
         Me.FTColFamilyName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTColFamilyName.Caption = "FTFamilyName"
         Me.FTColFamilyName.FieldName = "FTFamilyName"
-        Me.FTColFamilyName.MinWidth = 17
         Me.FTColFamilyName.Name = "FTColFamilyName"
         Me.FTColFamilyName.OptionsColumn.AllowEdit = False
         Me.FTColFamilyName.OptionsColumn.AllowMove = False
         Me.FTColFamilyName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTColFamilyName.Visible = True
         Me.FTColFamilyName.VisibleIndex = 1
-        Me.FTColFamilyName.Width = 397
+        Me.FTColFamilyName.Width = 463
         '
         'FTFamilySexInd
         '
         Me.FTFamilySexInd.Caption = "FTFamilySexInd"
         Me.FTFamilySexInd.FieldName = "FTFamilySexInd"
-        Me.FTFamilySexInd.MinWidth = 17
         Me.FTFamilySexInd.Name = "FTFamilySexInd"
-        Me.FTFamilySexInd.Width = 64
         '
         'FTColFamilySex
         '
@@ -9745,14 +9728,13 @@ Partial Class wEmployee
         Me.FTColFamilySex.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTColFamilySex.Caption = "FTFamilySex"
         Me.FTColFamilySex.FieldName = "FTFamilySex"
-        Me.FTColFamilySex.MinWidth = 17
         Me.FTColFamilySex.Name = "FTColFamilySex"
         Me.FTColFamilySex.OptionsColumn.AllowEdit = False
         Me.FTColFamilySex.OptionsColumn.AllowMove = False
         Me.FTColFamilySex.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTColFamilySex.Visible = True
         Me.FTColFamilySex.VisibleIndex = 2
-        Me.FTColFamilySex.Width = 81
+        Me.FTColFamilySex.Width = 94
         '
         'RepositoryItemCalcEdit5
         '
@@ -9772,10 +9754,10 @@ Partial Class wEmployee
         Me.ogbfam.Controls.Add(Me.FNFamilySeqNo)
         Me.ogbfam.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbfam.Location = New System.Drawing.Point(0, 0)
-        Me.ogbfam.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbfam.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbfam.Name = "ogbfam"
         Me.ogbfam.ShowCaption = False
-        Me.ogbfam.Size = New System.Drawing.Size(1403, 105)
+        Me.ogbfam.Size = New System.Drawing.Size(1637, 129)
         Me.ogbfam.TabIndex = 7
         '
         'FTFamilySex_lbl
@@ -9783,10 +9765,10 @@ Partial Class wEmployee
         Me.FTFamilySex_lbl.Appearance.Options.UseTextOptions = True
         Me.FTFamilySex_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTFamilySex_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTFamilySex_lbl.Location = New System.Drawing.Point(566, 17)
-        Me.FTFamilySex_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFamilySex_lbl.Location = New System.Drawing.Point(660, 21)
+        Me.FTFamilySex_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFamilySex_lbl.Name = "FTFamilySex_lbl"
-        Me.FTFamilySex_lbl.Size = New System.Drawing.Size(83, 22)
+        Me.FTFamilySex_lbl.Size = New System.Drawing.Size(97, 27)
         Me.FTFamilySex_lbl.TabIndex = 358
         Me.FTFamilySex_lbl.Tag = "2|"
         Me.FTFamilySex_lbl.Text = "Sex :"
@@ -9795,8 +9777,8 @@ Partial Class wEmployee
         '
         Me.FTFamilySex.EditValue = ""
         Me.FTFamilySex.EnterMoveNextControl = True
-        Me.FTFamilySex.Location = New System.Drawing.Point(652, 16)
-        Me.FTFamilySex.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFamilySex.Location = New System.Drawing.Point(761, 20)
+        Me.FTFamilySex.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFamilySex.Name = "FTFamilySex"
         Me.FTFamilySex.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTFamilySex.Properties.Appearance.Options.UseBackColor = True
@@ -9815,16 +9797,16 @@ Partial Class wEmployee
         Me.FTFamilySex.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FTFamilySex.Properties.Tag = "FNEmpSex"
         Me.FTFamilySex.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FTFamilySex.Size = New System.Drawing.Size(106, 20)
+        Me.FTFamilySex.Size = New System.Drawing.Size(124, 23)
         Me.FTFamilySex.TabIndex = 357
         Me.FTFamilySex.Tag = "2|"
         '
         'FTFamilyName
         '
-        Me.FTFamilyName.Location = New System.Drawing.Point(317, 16)
-        Me.FTFamilyName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFamilyName.Location = New System.Drawing.Point(370, 20)
+        Me.FTFamilyName.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFamilyName.Name = "FTFamilyName"
-        Me.FTFamilyName.Size = New System.Drawing.Size(246, 20)
+        Me.FTFamilyName.Size = New System.Drawing.Size(287, 23)
         Me.FTFamilyName.TabIndex = 356
         Me.FTFamilyName.Tag = "2|"
         '
@@ -9835,10 +9817,10 @@ Partial Class wEmployee
         Me.FTFamilyName_lbl.Appearance.Options.UseTextOptions = True
         Me.FTFamilyName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTFamilyName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTFamilyName_lbl.Location = New System.Drawing.Point(201, 16)
-        Me.FTFamilyName_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFamilyName_lbl.Location = New System.Drawing.Point(234, 20)
+        Me.FTFamilyName_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFamilyName_lbl.Name = "FTFamilyName_lbl"
-        Me.FTFamilyName_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTFamilyName_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTFamilyName_lbl.TabIndex = 355
         Me.FTFamilyName_lbl.Tag = "2|"
         Me.FTFamilyName_lbl.Text = "ชื่อ - นามสกุล :"
@@ -9850,10 +9832,10 @@ Partial Class wEmployee
         Me.FNFamilySeqNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNFamilySeqNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNFamilySeqNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNFamilySeqNo_lbl.Location = New System.Drawing.Point(14, 17)
-        Me.FNFamilySeqNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNFamilySeqNo_lbl.Location = New System.Drawing.Point(16, 21)
+        Me.FNFamilySeqNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNFamilySeqNo_lbl.Name = "FNFamilySeqNo_lbl"
-        Me.FNFamilySeqNo_lbl.Size = New System.Drawing.Size(97, 21)
+        Me.FNFamilySeqNo_lbl.Size = New System.Drawing.Size(113, 26)
         Me.FNFamilySeqNo_lbl.TabIndex = 321
         Me.FNFamilySeqNo_lbl.Tag = "2|"
         Me.FNFamilySeqNo_lbl.Text = "ลำดับ :"
@@ -9861,8 +9843,8 @@ Partial Class wEmployee
         'FNFamilySeqNo
         '
         Me.FNFamilySeqNo.EnterMoveNextControl = True
-        Me.FNFamilySeqNo.Location = New System.Drawing.Point(113, 16)
-        Me.FNFamilySeqNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNFamilySeqNo.Location = New System.Drawing.Point(132, 20)
+        Me.FNFamilySeqNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNFamilySeqNo.Name = "FNFamilySeqNo"
         Me.FNFamilySeqNo.Properties.Appearance.Options.UseTextOptions = True
         Me.FNFamilySeqNo.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -9874,10 +9856,10 @@ Partial Class wEmployee
         Me.FNFamilySeqNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNFamilySeqNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNFamilySeqNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNFamilySeqNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions63, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject249, SerializableAppearanceObject250, SerializableAppearanceObject251, SerializableAppearanceObject252, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNFamilySeqNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions62, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject245, SerializableAppearanceObject246, SerializableAppearanceObject247, SerializableAppearanceObject248, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNFamilySeqNo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNFamilySeqNo.Properties.Precision = 0
-        Me.FNFamilySeqNo.Size = New System.Drawing.Size(82, 20)
+        Me.FNFamilySeqNo.Size = New System.Drawing.Size(96, 23)
         Me.FNFamilySeqNo.TabIndex = 320
         Me.FNFamilySeqNo.Tag = "2|"
         '
@@ -9885,31 +9867,31 @@ Partial Class wEmployee
         '
         Me.otpchild.Controls.Add(Me.GroupControl28)
         Me.otpchild.Controls.Add(Me.ogbchild)
-        Me.otpchild.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otpchild.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otpchild.Name = "otpchild"
-        Me.otpchild.Size = New System.Drawing.Size(1403, 684)
+        Me.otpchild.Size = New System.Drawing.Size(1637, 841)
         Me.otpchild.Text = "บุตร"
         '
         'GroupControl28
         '
         Me.GroupControl28.Controls.Add(Me.ogdChild)
         Me.GroupControl28.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupControl28.Location = New System.Drawing.Point(0, 174)
-        Me.GroupControl28.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl28.Location = New System.Drawing.Point(0, 214)
+        Me.GroupControl28.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl28.Name = "GroupControl28"
-        Me.GroupControl28.Size = New System.Drawing.Size(1403, 510)
+        Me.GroupControl28.Size = New System.Drawing.Size(1637, 627)
         Me.GroupControl28.TabIndex = 311
         '
         'ogdChild
         '
         Me.ogdChild.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdChild.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogdChild.Location = New System.Drawing.Point(2, 23)
+        Me.ogdChild.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.ogdChild.Location = New System.Drawing.Point(2, 27)
         Me.ogdChild.MainView = Me.ogvChild
-        Me.ogdChild.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogdChild.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogdChild.Name = "ogdChild"
         Me.ogdChild.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit6, Me.RepositoryItemCheckEditFTStateNotDisTax})
-        Me.ogdChild.Size = New System.Drawing.Size(1399, 485)
+        Me.ogdChild.Size = New System.Drawing.Size(1633, 598)
         Me.ogdChild.TabIndex = 5
         Me.ogdChild.TabStop = False
         Me.ogdChild.Tag = "2|"
@@ -9918,7 +9900,6 @@ Partial Class wEmployee
         'ogvChild
         '
         Me.ogvChild.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNColChildSeqNo, Me.FTColChildName, Me.FDColChildBirthDate, Me.FTColStudySta, Me.ColFTStudyStaName, Me.ColFTChildSex, Me.ColFTChildSexName, Me.cFTStateNotDisTax})
-        Me.ogvChild.DetailHeight = 284
         Me.ogvChild.GridControl = Me.ogdChild
         Me.ogvChild.Name = "ogvChild"
         Me.ogvChild.OptionsCustomization.AllowGroup = False
@@ -9936,7 +9917,6 @@ Partial Class wEmployee
         Me.FNColChildSeqNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNColChildSeqNo.Caption = "FNSeqNo"
         Me.FNColChildSeqNo.FieldName = "FNSeqNo"
-        Me.FNColChildSeqNo.MinWidth = 17
         Me.FNColChildSeqNo.Name = "FNColChildSeqNo"
         Me.FNColChildSeqNo.OptionsColumn.AllowEdit = False
         Me.FNColChildSeqNo.OptionsColumn.AllowMove = False
@@ -9944,7 +9924,6 @@ Partial Class wEmployee
         Me.FNColChildSeqNo.OptionsColumn.ReadOnly = True
         Me.FNColChildSeqNo.Visible = True
         Me.FNColChildSeqNo.VisibleIndex = 0
-        Me.FNColChildSeqNo.Width = 64
         '
         'FTColChildName
         '
@@ -9952,7 +9931,6 @@ Partial Class wEmployee
         Me.FTColChildName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTColChildName.Caption = "FTChildName"
         Me.FTColChildName.FieldName = "FTChildName"
-        Me.FTColChildName.MinWidth = 17
         Me.FTColChildName.Name = "FTColChildName"
         Me.FTColChildName.OptionsColumn.AllowEdit = False
         Me.FTColChildName.OptionsColumn.AllowMove = False
@@ -9960,7 +9938,7 @@ Partial Class wEmployee
         Me.FTColChildName.OptionsColumn.ReadOnly = True
         Me.FTColChildName.Visible = True
         Me.FTColChildName.VisibleIndex = 1
-        Me.FTColChildName.Width = 316
+        Me.FTColChildName.Width = 369
         '
         'FDColChildBirthDate
         '
@@ -9970,7 +9948,6 @@ Partial Class wEmployee
         Me.FDColChildBirthDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FDColChildBirthDate.Caption = "FDChildBirthDate"
         Me.FDColChildBirthDate.FieldName = "FDChildBirthDate"
-        Me.FDColChildBirthDate.MinWidth = 17
         Me.FDColChildBirthDate.Name = "FDColChildBirthDate"
         Me.FDColChildBirthDate.OptionsColumn.AllowEdit = False
         Me.FDColChildBirthDate.OptionsColumn.AllowMove = False
@@ -9978,15 +9955,13 @@ Partial Class wEmployee
         Me.FDColChildBirthDate.OptionsColumn.ReadOnly = True
         Me.FDColChildBirthDate.Visible = True
         Me.FDColChildBirthDate.VisibleIndex = 2
-        Me.FDColChildBirthDate.Width = 90
+        Me.FDColChildBirthDate.Width = 105
         '
         'FTColStudySta
         '
         Me.FTColStudySta.Caption = "FTStudySta"
         Me.FTColStudySta.FieldName = "FTStudySta"
-        Me.FTColStudySta.MinWidth = 17
         Me.FTColStudySta.Name = "FTColStudySta"
-        Me.FTColStudySta.Width = 64
         '
         'ColFTStudyStaName
         '
@@ -9996,7 +9971,6 @@ Partial Class wEmployee
         Me.ColFTStudyStaName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFTStudyStaName.Caption = "FTStudyStaName"
         Me.ColFTStudyStaName.FieldName = "FTStudyStaName"
-        Me.ColFTStudyStaName.MinWidth = 17
         Me.ColFTStudyStaName.Name = "ColFTStudyStaName"
         Me.ColFTStudyStaName.OptionsColumn.AllowEdit = False
         Me.ColFTStudyStaName.OptionsColumn.AllowMove = False
@@ -10004,15 +9978,13 @@ Partial Class wEmployee
         Me.ColFTStudyStaName.OptionsColumn.ReadOnly = True
         Me.ColFTStudyStaName.Visible = True
         Me.ColFTStudyStaName.VisibleIndex = 3
-        Me.ColFTStudyStaName.Width = 105
+        Me.ColFTStudyStaName.Width = 122
         '
         'ColFTChildSex
         '
         Me.ColFTChildSex.Caption = "FTChildSex"
         Me.ColFTChildSex.FieldName = "FTChildSex"
-        Me.ColFTChildSex.MinWidth = 17
         Me.ColFTChildSex.Name = "ColFTChildSex"
-        Me.ColFTChildSex.Width = 64
         '
         'ColFTChildSexName
         '
@@ -10022,7 +9994,6 @@ Partial Class wEmployee
         Me.ColFTChildSexName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFTChildSexName.Caption = "FTChildSexName"
         Me.ColFTChildSexName.FieldName = "FTChildSexName"
-        Me.ColFTChildSexName.MinWidth = 17
         Me.ColFTChildSexName.Name = "ColFTChildSexName"
         Me.ColFTChildSexName.OptionsColumn.AllowEdit = False
         Me.ColFTChildSexName.OptionsColumn.AllowMove = False
@@ -10030,20 +10001,18 @@ Partial Class wEmployee
         Me.ColFTChildSexName.OptionsColumn.ReadOnly = True
         Me.ColFTChildSexName.Visible = True
         Me.ColFTChildSexName.VisibleIndex = 4
-        Me.ColFTChildSexName.Width = 77
+        Me.ColFTChildSexName.Width = 90
         '
         'cFTStateNotDisTax
         '
         Me.cFTStateNotDisTax.Caption = "FTStateNotDisTax"
         Me.cFTStateNotDisTax.ColumnEdit = Me.RepositoryItemCheckEditFTStateNotDisTax
         Me.cFTStateNotDisTax.FieldName = "FTStateNotDisTax"
-        Me.cFTStateNotDisTax.MinWidth = 17
         Me.cFTStateNotDisTax.Name = "cFTStateNotDisTax"
         Me.cFTStateNotDisTax.OptionsColumn.AllowEdit = False
         Me.cFTStateNotDisTax.OptionsColumn.ReadOnly = True
         Me.cFTStateNotDisTax.Visible = True
         Me.cFTStateNotDisTax.VisibleIndex = 5
-        Me.cFTStateNotDisTax.Width = 64
         '
         'RepositoryItemCheckEditFTStateNotDisTax
         '
@@ -10075,22 +10044,22 @@ Partial Class wEmployee
         Me.ogbchild.Controls.Add(Me.FNChildSeqNo)
         Me.ogbchild.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbchild.Location = New System.Drawing.Point(0, 0)
-        Me.ogbchild.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbchild.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbchild.Name = "ogbchild"
         Me.ogbchild.ShowCaption = False
-        Me.ogbchild.Size = New System.Drawing.Size(1403, 174)
+        Me.ogbchild.Size = New System.Drawing.Size(1637, 214)
         Me.ogbchild.TabIndex = 8
         '
         'FTStateNotDisTax
         '
-        Me.FTStateNotDisTax.Location = New System.Drawing.Point(609, 14)
+        Me.FTStateNotDisTax.Location = New System.Drawing.Point(710, 17)
         Me.FTStateNotDisTax.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FTStateNotDisTax.Name = "FTStateNotDisTax"
         Me.FTStateNotDisTax.Properties.AutoHeight = False
         Me.FTStateNotDisTax.Properties.Caption = "FTStateNotDisTax"
         Me.FTStateNotDisTax.Properties.ValueChecked = "1"
         Me.FTStateNotDisTax.Properties.ValueUnchecked = "0"
-        Me.FTStateNotDisTax.Size = New System.Drawing.Size(217, 16)
+        Me.FTStateNotDisTax.Size = New System.Drawing.Size(253, 20)
         Me.FTStateNotDisTax.TabIndex = 363
         Me.FTStateNotDisTax.Tag = "2|"
         '
@@ -10099,10 +10068,10 @@ Partial Class wEmployee
         Me.FTStudySta_lbl.Appearance.Options.UseTextOptions = True
         Me.FTStudySta_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTStudySta_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTStudySta_lbl.Location = New System.Drawing.Point(479, 37)
-        Me.FTStudySta_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStudySta_lbl.Location = New System.Drawing.Point(559, 46)
+        Me.FTStudySta_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStudySta_lbl.Name = "FTStudySta_lbl"
-        Me.FTStudySta_lbl.Size = New System.Drawing.Size(98, 25)
+        Me.FTStudySta_lbl.Size = New System.Drawing.Size(114, 31)
         Me.FTStudySta_lbl.TabIndex = 362
         Me.FTStudySta_lbl.Tag = "2|"
         Me.FTStudySta_lbl.Text = "การศึกษา :"
@@ -10111,8 +10080,8 @@ Partial Class wEmployee
         '
         Me.FTStudySta.EditValue = ""
         Me.FTStudySta.EnterMoveNextControl = True
-        Me.FTStudySta.Location = New System.Drawing.Point(579, 37)
-        Me.FTStudySta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStudySta.Location = New System.Drawing.Point(675, 46)
+        Me.FTStudySta.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStudySta.Name = "FTStudySta"
         Me.FTStudySta.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTStudySta.Properties.Appearance.Options.UseBackColor = True
@@ -10131,7 +10100,7 @@ Partial Class wEmployee
         Me.FTStudySta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FTStudySta.Properties.Tag = "FNStudy"
         Me.FTStudySta.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FTStudySta.Size = New System.Drawing.Size(106, 20)
+        Me.FTStudySta.Size = New System.Drawing.Size(124, 23)
         Me.FTStudySta.TabIndex = 361
         Me.FTStudySta.Tag = "2|"
         '
@@ -10139,8 +10108,8 @@ Partial Class wEmployee
         '
         Me.FDChildBirthDate.EditValue = Nothing
         Me.FDChildBirthDate.EnterMoveNextControl = True
-        Me.FDChildBirthDate.Location = New System.Drawing.Point(376, 37)
-        Me.FDChildBirthDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDChildBirthDate.Location = New System.Drawing.Point(439, 46)
+        Me.FDChildBirthDate.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDChildBirthDate.Name = "FDChildBirthDate"
         Me.FDChildBirthDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDChildBirthDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -10151,7 +10120,7 @@ Partial Class wEmployee
         Me.FDChildBirthDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDChildBirthDate.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDChildBirthDate.Properties.NullDate = ""
-        Me.FDChildBirthDate.Size = New System.Drawing.Size(103, 20)
+        Me.FDChildBirthDate.Size = New System.Drawing.Size(120, 23)
         Me.FDChildBirthDate.TabIndex = 359
         Me.FDChildBirthDate.Tag = "2|"
         '
@@ -10160,10 +10129,10 @@ Partial Class wEmployee
         Me.FDChildBirthDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDChildBirthDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDChildBirthDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDChildBirthDate_lbl.Location = New System.Drawing.Point(266, 37)
-        Me.FDChildBirthDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDChildBirthDate_lbl.Location = New System.Drawing.Point(310, 46)
+        Me.FDChildBirthDate_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDChildBirthDate_lbl.Name = "FDChildBirthDate_lbl"
-        Me.FDChildBirthDate_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDChildBirthDate_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDChildBirthDate_lbl.TabIndex = 360
         Me.FDChildBirthDate_lbl.Tag = "2|"
         Me.FDChildBirthDate_lbl.Text = "วันเกิด :"
@@ -10173,10 +10142,10 @@ Partial Class wEmployee
         Me.FTChildSex_lbl.Appearance.Options.UseTextOptions = True
         Me.FTChildSex_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTChildSex_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTChildSex_lbl.Location = New System.Drawing.Point(59, 37)
-        Me.FTChildSex_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTChildSex_lbl.Location = New System.Drawing.Point(69, 46)
+        Me.FTChildSex_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTChildSex_lbl.Name = "FTChildSex_lbl"
-        Me.FTChildSex_lbl.Size = New System.Drawing.Size(98, 25)
+        Me.FTChildSex_lbl.Size = New System.Drawing.Size(114, 31)
         Me.FTChildSex_lbl.TabIndex = 358
         Me.FTChildSex_lbl.Tag = "2|"
         Me.FTChildSex_lbl.Text = "Sex :"
@@ -10185,8 +10154,8 @@ Partial Class wEmployee
         '
         Me.FTChildSex.EditValue = ""
         Me.FTChildSex.EnterMoveNextControl = True
-        Me.FTChildSex.Location = New System.Drawing.Point(159, 37)
-        Me.FTChildSex.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTChildSex.Location = New System.Drawing.Point(185, 46)
+        Me.FTChildSex.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTChildSex.Name = "FTChildSex"
         Me.FTChildSex.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTChildSex.Properties.Appearance.Options.UseBackColor = True
@@ -10205,16 +10174,16 @@ Partial Class wEmployee
         Me.FTChildSex.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FTChildSex.Properties.Tag = "FNEmpSex"
         Me.FTChildSex.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FTChildSex.Size = New System.Drawing.Size(106, 20)
+        Me.FTChildSex.Size = New System.Drawing.Size(124, 23)
         Me.FTChildSex.TabIndex = 357
         Me.FTChildSex.Tag = "2|"
         '
         'FTChildName
         '
-        Me.FTChildName.Location = New System.Drawing.Point(376, 12)
-        Me.FTChildName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTChildName.Location = New System.Drawing.Point(439, 15)
+        Me.FTChildName.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTChildName.Name = "FTChildName"
-        Me.FTChildName.Size = New System.Drawing.Size(204, 20)
+        Me.FTChildName.Size = New System.Drawing.Size(238, 23)
         Me.FTChildName.TabIndex = 356
         Me.FTChildName.Tag = "2|"
         '
@@ -10225,10 +10194,10 @@ Partial Class wEmployee
         Me.FTChildName_lbl.Appearance.Options.UseTextOptions = True
         Me.FTChildName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTChildName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTChildName_lbl.Location = New System.Drawing.Point(257, 12)
-        Me.FTChildName_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTChildName_lbl.Location = New System.Drawing.Point(300, 15)
+        Me.FTChildName_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTChildName_lbl.Name = "FTChildName_lbl"
-        Me.FTChildName_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTChildName_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTChildName_lbl.TabIndex = 355
         Me.FTChildName_lbl.Tag = "2|"
         Me.FTChildName_lbl.Text = "ชื่อ - นามสกุล :"
@@ -10240,10 +10209,10 @@ Partial Class wEmployee
         Me.FNChildSeqNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNChildSeqNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNChildSeqNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNChildSeqNo_lbl.Location = New System.Drawing.Point(61, 15)
-        Me.FNChildSeqNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNChildSeqNo_lbl.Location = New System.Drawing.Point(71, 18)
+        Me.FNChildSeqNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNChildSeqNo_lbl.Name = "FNChildSeqNo_lbl"
-        Me.FNChildSeqNo_lbl.Size = New System.Drawing.Size(97, 21)
+        Me.FNChildSeqNo_lbl.Size = New System.Drawing.Size(113, 26)
         Me.FNChildSeqNo_lbl.TabIndex = 321
         Me.FNChildSeqNo_lbl.Tag = "2|"
         Me.FNChildSeqNo_lbl.Text = "ลำดับ :"
@@ -10251,8 +10220,8 @@ Partial Class wEmployee
         'FNChildSeqNo
         '
         Me.FNChildSeqNo.EnterMoveNextControl = True
-        Me.FNChildSeqNo.Location = New System.Drawing.Point(159, 14)
-        Me.FNChildSeqNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNChildSeqNo.Location = New System.Drawing.Point(185, 17)
+        Me.FNChildSeqNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNChildSeqNo.Name = "FNChildSeqNo"
         Me.FNChildSeqNo.Properties.Appearance.Options.UseTextOptions = True
         Me.FNChildSeqNo.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -10264,19 +10233,19 @@ Partial Class wEmployee
         Me.FNChildSeqNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNChildSeqNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNChildSeqNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNChildSeqNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions64, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject253, SerializableAppearanceObject254, SerializableAppearanceObject255, SerializableAppearanceObject256, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNChildSeqNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions63, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject249, SerializableAppearanceObject250, SerializableAppearanceObject251, SerializableAppearanceObject252, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNChildSeqNo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNChildSeqNo.Properties.Precision = 0
-        Me.FNChildSeqNo.Size = New System.Drawing.Size(57, 20)
+        Me.FNChildSeqNo.Size = New System.Drawing.Size(66, 23)
         Me.FNChildSeqNo.TabIndex = 320
         Me.FNChildSeqNo.Tag = "2|"
         '
         'otpemprefer
         '
         Me.otpemprefer.Controls.Add(Me.GroupControl35)
-        Me.otpemprefer.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otpemprefer.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otpemprefer.Name = "otpemprefer"
-        Me.otpemprefer.Size = New System.Drawing.Size(1405, 709)
+        Me.otpemprefer.Size = New System.Drawing.Size(1639, 872)
         Me.otpemprefer.Text = "บุคคลอ้างอิง"
         '
         'GroupControl35
@@ -10285,10 +10254,10 @@ Partial Class wEmployee
         Me.GroupControl35.Controls.Add(Me.GroupControl13)
         Me.GroupControl35.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupControl35.Location = New System.Drawing.Point(0, 0)
-        Me.GroupControl35.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl35.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl35.Name = "GroupControl35"
         Me.GroupControl35.ShowCaption = False
-        Me.GroupControl35.Size = New System.Drawing.Size(1405, 709)
+        Me.GroupControl35.Size = New System.Drawing.Size(1639, 872)
         Me.GroupControl35.TabIndex = 384
         Me.GroupControl35.Text = "บุคคลอ้างอิง 2"
         '
@@ -10310,11 +10279,11 @@ Partial Class wEmployee
         Me.GroupControl6.Controls.Add(Me.FTRefAddr)
         Me.GroupControl6.Controls.Add(Me.FTRefName)
         Me.GroupControl6.Controls.Add(Me.FTRefName_lbl)
-        Me.GroupControl6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupControl6.Location = New System.Drawing.Point(2, 490)
-        Me.GroupControl6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupControl6.Location = New System.Drawing.Point(2, 329)
+        Me.GroupControl6.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl6.Name = "GroupControl6"
-        Me.GroupControl6.Size = New System.Drawing.Size(1401, 452)
+        Me.GroupControl6.Size = New System.Drawing.Size(1635, 541)
         Me.GroupControl6.TabIndex = 0
         Me.GroupControl6.Text = "บุคคลอ้างอิง 1"
         '
@@ -10323,10 +10292,10 @@ Partial Class wEmployee
         Me.FTRefNote_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefNote_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefNote_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefNote_lbl.Location = New System.Drawing.Point(30, 124)
-        Me.FTRefNote_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefNote_lbl.Location = New System.Drawing.Point(35, 153)
+        Me.FTRefNote_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefNote_lbl.Name = "FTRefNote_lbl"
-        Me.FTRefNote_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTRefNote_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTRefNote_lbl.TabIndex = 383
         Me.FTRefNote_lbl.Tag = "2|"
         Me.FTRefNote_lbl.Text = "หมายเหตุ :"
@@ -10337,20 +10306,20 @@ Partial Class wEmployee
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTRefNote.EditValue = ""
-        Me.FTRefNote.Location = New System.Drawing.Point(150, 128)
-        Me.FTRefNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefNote.Location = New System.Drawing.Point(170, 158)
+        Me.FTRefNote.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefNote.Name = "FTRefNote"
         Me.FTRefNote.Properties.MaxLength = 500
-        Me.FTRefNote.Size = New System.Drawing.Size(673, 295)
+        Me.FTRefNote.Size = New System.Drawing.Size(787, 175)
         Me.FTRefNote.TabIndex = 382
         Me.FTRefNote.Tag = "2|"
         '
         'FTRefRelation
         '
-        Me.FTRefRelation.Location = New System.Drawing.Point(147, 100)
-        Me.FTRefRelation.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefRelation.Location = New System.Drawing.Point(171, 123)
+        Me.FTRefRelation.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefRelation.Name = "FTRefRelation"
-        Me.FTRefRelation.Size = New System.Drawing.Size(162, 20)
+        Me.FTRefRelation.Size = New System.Drawing.Size(189, 23)
         Me.FTRefRelation.TabIndex = 366
         Me.FTRefRelation.Tag = "2|"
         '
@@ -10359,10 +10328,10 @@ Partial Class wEmployee
         Me.FTRefRelation_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefRelation_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefRelation_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefRelation_lbl.Location = New System.Drawing.Point(24, 100)
-        Me.FTRefRelation_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefRelation_lbl.Location = New System.Drawing.Point(28, 123)
+        Me.FTRefRelation_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefRelation_lbl.Name = "FTRefRelation_lbl"
-        Me.FTRefRelation_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTRefRelation_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTRefRelation_lbl.TabIndex = 365
         Me.FTRefRelation_lbl.Tag = "2|"
         Me.FTRefRelation_lbl.Text = "ความสัมพันธ์ :"
@@ -10372,29 +10341,29 @@ Partial Class wEmployee
         Me.FTRefTel_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefTel_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefTel_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefTel_lbl.Location = New System.Drawing.Point(460, 77)
-        Me.FTRefTel_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefTel_lbl.Location = New System.Drawing.Point(537, 95)
+        Me.FTRefTel_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefTel_lbl.Name = "FTRefTel_lbl"
-        Me.FTRefTel_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTRefTel_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTRefTel_lbl.TabIndex = 364
         Me.FTRefTel_lbl.Tag = "2|"
         Me.FTRefTel_lbl.Text = "โทรศัพท์ :"
         '
         'FTRefTel
         '
-        Me.FTRefTel.Location = New System.Drawing.Point(577, 77)
-        Me.FTRefTel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefTel.Location = New System.Drawing.Point(673, 95)
+        Me.FTRefTel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefTel.Name = "FTRefTel"
-        Me.FTRefTel.Size = New System.Drawing.Size(196, 20)
+        Me.FTRefTel.Size = New System.Drawing.Size(229, 23)
         Me.FTRefTel.TabIndex = 363
         Me.FTRefTel.Tag = "2|"
         '
         'FTRefAddrWork
         '
-        Me.FTRefAddrWork.Location = New System.Drawing.Point(147, 77)
-        Me.FTRefAddrWork.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefAddrWork.Location = New System.Drawing.Point(171, 95)
+        Me.FTRefAddrWork.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefAddrWork.Name = "FTRefAddrWork"
-        Me.FTRefAddrWork.Size = New System.Drawing.Size(280, 20)
+        Me.FTRefAddrWork.Size = New System.Drawing.Size(327, 23)
         Me.FTRefAddrWork.TabIndex = 362
         Me.FTRefAddrWork.Tag = "2|"
         '
@@ -10403,10 +10372,10 @@ Partial Class wEmployee
         Me.FTRefAddrWork_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefAddrWork_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefAddrWork_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefAddrWork_lbl.Location = New System.Drawing.Point(30, 75)
-        Me.FTRefAddrWork_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefAddrWork_lbl.Location = New System.Drawing.Point(35, 92)
+        Me.FTRefAddrWork_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefAddrWork_lbl.Name = "FTRefAddrWork_lbl"
-        Me.FTRefAddrWork_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTRefAddrWork_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTRefAddrWork_lbl.TabIndex = 361
         Me.FTRefAddrWork_lbl.Tag = "2|"
         Me.FTRefAddrWork_lbl.Text = "ที่ทำงาน :"
@@ -10416,29 +10385,29 @@ Partial Class wEmployee
         Me.FTRefPosit_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefPosit_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefPosit_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefPosit_lbl.Location = New System.Drawing.Point(458, 53)
-        Me.FTRefPosit_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefPosit_lbl.Location = New System.Drawing.Point(534, 65)
+        Me.FTRefPosit_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefPosit_lbl.Name = "FTRefPosit_lbl"
-        Me.FTRefPosit_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTRefPosit_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTRefPosit_lbl.TabIndex = 360
         Me.FTRefPosit_lbl.Tag = "2|"
         Me.FTRefPosit_lbl.Text = "ตำแหน่ง :"
         '
         'FTRefPosit
         '
-        Me.FTRefPosit.Location = New System.Drawing.Point(577, 54)
-        Me.FTRefPosit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefPosit.Location = New System.Drawing.Point(673, 66)
+        Me.FTRefPosit.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefPosit.Name = "FTRefPosit"
-        Me.FTRefPosit.Size = New System.Drawing.Size(197, 20)
+        Me.FTRefPosit.Size = New System.Drawing.Size(230, 23)
         Me.FTRefPosit.TabIndex = 359
         Me.FTRefPosit.Tag = "2|"
         '
         'FTRefCareer
         '
-        Me.FTRefCareer.Location = New System.Drawing.Point(147, 54)
-        Me.FTRefCareer.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefCareer.Location = New System.Drawing.Point(171, 66)
+        Me.FTRefCareer.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefCareer.Name = "FTRefCareer"
-        Me.FTRefCareer.Size = New System.Drawing.Size(280, 20)
+        Me.FTRefCareer.Size = New System.Drawing.Size(327, 23)
         Me.FTRefCareer.TabIndex = 358
         Me.FTRefCareer.Tag = "2|"
         '
@@ -10447,10 +10416,10 @@ Partial Class wEmployee
         Me.FTRefCareer_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefCareer_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefCareer_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefCareer_lbl.Location = New System.Drawing.Point(30, 53)
-        Me.FTRefCareer_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefCareer_lbl.Location = New System.Drawing.Point(35, 65)
+        Me.FTRefCareer_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefCareer_lbl.Name = "FTRefCareer_lbl"
-        Me.FTRefCareer_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTRefCareer_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTRefCareer_lbl.TabIndex = 357
         Me.FTRefCareer_lbl.Tag = "2|"
         Me.FTRefCareer_lbl.Text = "อาชีพ :"
@@ -10460,10 +10429,10 @@ Partial Class wEmployee
         Me.FTRefAddr_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefAddr_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefAddr_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefAddr_lbl.Location = New System.Drawing.Point(439, 31)
-        Me.FTRefAddr_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefAddr_lbl.Location = New System.Drawing.Point(512, 38)
+        Me.FTRefAddr_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefAddr_lbl.Name = "FTRefAddr_lbl"
-        Me.FTRefAddr_lbl.Size = New System.Drawing.Size(136, 25)
+        Me.FTRefAddr_lbl.Size = New System.Drawing.Size(159, 31)
         Me.FTRefAddr_lbl.TabIndex = 356
         Me.FTRefAddr_lbl.Tag = "2|"
         Me.FTRefAddr_lbl.Text = "ที่อยู่ :"
@@ -10472,19 +10441,19 @@ Partial Class wEmployee
         '
         Me.FTRefAddr.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTRefAddr.Location = New System.Drawing.Point(577, 31)
-        Me.FTRefAddr.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefAddr.Location = New System.Drawing.Point(673, 38)
+        Me.FTRefAddr.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefAddr.Name = "FTRefAddr"
-        Me.FTRefAddr.Size = New System.Drawing.Size(1131, 20)
+        Me.FTRefAddr.Size = New System.Drawing.Size(1320, 23)
         Me.FTRefAddr.TabIndex = 355
         Me.FTRefAddr.Tag = "2|"
         '
         'FTRefName
         '
-        Me.FTRefName.Location = New System.Drawing.Point(147, 31)
-        Me.FTRefName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefName.Location = New System.Drawing.Point(171, 38)
+        Me.FTRefName.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefName.Name = "FTRefName"
-        Me.FTRefName.Size = New System.Drawing.Size(280, 20)
+        Me.FTRefName.Size = New System.Drawing.Size(327, 23)
         Me.FTRefName.TabIndex = 354
         Me.FTRefName.Tag = "2|"
         '
@@ -10493,10 +10462,10 @@ Partial Class wEmployee
         Me.FTRefName_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefName_lbl.Location = New System.Drawing.Point(30, 30)
-        Me.FTRefName_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefName_lbl.Location = New System.Drawing.Point(35, 37)
+        Me.FTRefName_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefName_lbl.Name = "FTRefName_lbl"
-        Me.FTRefName_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTRefName_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTRefName_lbl.TabIndex = 353
         Me.FTRefName_lbl.Tag = "2|"
         Me.FTRefName_lbl.Text = "ชื่อ - นามสกุล :"
@@ -10521,9 +10490,9 @@ Partial Class wEmployee
         Me.GroupControl13.Controls.Add(Me.FTRefName1_lbl)
         Me.GroupControl13.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupControl13.Location = New System.Drawing.Point(2, 2)
-        Me.GroupControl13.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl13.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl13.Name = "GroupControl13"
-        Me.GroupControl13.Size = New System.Drawing.Size(1401, 488)
+        Me.GroupControl13.Size = New System.Drawing.Size(1635, 327)
         Me.GroupControl13.TabIndex = 1
         Me.GroupControl13.Text = "บุคคลอ้างอิง 2"
         '
@@ -10532,10 +10501,10 @@ Partial Class wEmployee
         Me.FTRefNote1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefNote1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefNote1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefNote1_lbl.Location = New System.Drawing.Point(30, 126)
-        Me.FTRefNote1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefNote1_lbl.Location = New System.Drawing.Point(35, 155)
+        Me.FTRefNote1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefNote1_lbl.Name = "FTRefNote1_lbl"
-        Me.FTRefNote1_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTRefNote1_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTRefNote1_lbl.TabIndex = 383
         Me.FTRefNote1_lbl.Tag = "2|"
         Me.FTRefNote1_lbl.Text = "หมายเหตุ :"
@@ -10546,20 +10515,20 @@ Partial Class wEmployee
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTRefNote1.EditValue = ""
-        Me.FTRefNote1.Location = New System.Drawing.Point(150, 130)
-        Me.FTRefNote1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefNote1.Location = New System.Drawing.Point(175, 160)
+        Me.FTRefNote1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefNote1.Name = "FTRefNote1"
         Me.FTRefNote1.Properties.MaxLength = 500
-        Me.FTRefNote1.Size = New System.Drawing.Size(730, 279)
+        Me.FTRefNote1.Size = New System.Drawing.Size(854, 135)
         Me.FTRefNote1.TabIndex = 382
         Me.FTRefNote1.Tag = "2|"
         '
         'FTRefRelation1
         '
-        Me.FTRefRelation1.Location = New System.Drawing.Point(146, 102)
-        Me.FTRefRelation1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefRelation1.Location = New System.Drawing.Point(170, 126)
+        Me.FTRefRelation1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefRelation1.Name = "FTRefRelation1"
-        Me.FTRefRelation1.Size = New System.Drawing.Size(162, 20)
+        Me.FTRefRelation1.Size = New System.Drawing.Size(189, 23)
         Me.FTRefRelation1.TabIndex = 366
         Me.FTRefRelation1.Tag = "2|"
         '
@@ -10568,10 +10537,10 @@ Partial Class wEmployee
         Me.FTRefRelation1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefRelation1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefRelation1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefRelation1_lbl.Location = New System.Drawing.Point(27, 99)
-        Me.FTRefRelation1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefRelation1_lbl.Location = New System.Drawing.Point(31, 122)
+        Me.FTRefRelation1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefRelation1_lbl.Name = "FTRefRelation1_lbl"
-        Me.FTRefRelation1_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTRefRelation1_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTRefRelation1_lbl.TabIndex = 365
         Me.FTRefRelation1_lbl.Tag = "2|"
         Me.FTRefRelation1_lbl.Text = "ความสัมพันธ์ :"
@@ -10581,29 +10550,29 @@ Partial Class wEmployee
         Me.FTRefTel1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefTel1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefTel1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefTel1_lbl.Location = New System.Drawing.Point(460, 78)
-        Me.FTRefTel1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefTel1_lbl.Location = New System.Drawing.Point(537, 96)
+        Me.FTRefTel1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefTel1_lbl.Name = "FTRefTel1_lbl"
-        Me.FTRefTel1_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTRefTel1_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTRefTel1_lbl.TabIndex = 364
         Me.FTRefTel1_lbl.Tag = "2|"
         Me.FTRefTel1_lbl.Text = "โทรศัพท์ :"
         '
         'FTRefTel1
         '
-        Me.FTRefTel1.Location = New System.Drawing.Point(577, 78)
-        Me.FTRefTel1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefTel1.Location = New System.Drawing.Point(673, 96)
+        Me.FTRefTel1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefTel1.Name = "FTRefTel1"
-        Me.FTRefTel1.Size = New System.Drawing.Size(162, 20)
+        Me.FTRefTel1.Size = New System.Drawing.Size(189, 23)
         Me.FTRefTel1.TabIndex = 363
         Me.FTRefTel1.Tag = "2|"
         '
         'FTRefAddrWork1
         '
-        Me.FTRefAddrWork1.Location = New System.Drawing.Point(147, 78)
-        Me.FTRefAddrWork1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefAddrWork1.Location = New System.Drawing.Point(171, 96)
+        Me.FTRefAddrWork1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefAddrWork1.Name = "FTRefAddrWork1"
-        Me.FTRefAddrWork1.Size = New System.Drawing.Size(280, 20)
+        Me.FTRefAddrWork1.Size = New System.Drawing.Size(327, 23)
         Me.FTRefAddrWork1.TabIndex = 362
         Me.FTRefAddrWork1.Tag = "2|"
         '
@@ -10612,10 +10581,10 @@ Partial Class wEmployee
         Me.FTRefAddrWork1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefAddrWork1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefAddrWork1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefAddrWork1_lbl.Location = New System.Drawing.Point(30, 76)
-        Me.FTRefAddrWork1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefAddrWork1_lbl.Location = New System.Drawing.Point(35, 94)
+        Me.FTRefAddrWork1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefAddrWork1_lbl.Name = "FTRefAddrWork1_lbl"
-        Me.FTRefAddrWork1_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTRefAddrWork1_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTRefAddrWork1_lbl.TabIndex = 361
         Me.FTRefAddrWork1_lbl.Tag = "2|"
         Me.FTRefAddrWork1_lbl.Text = "ที่ทำงาน :"
@@ -10625,29 +10594,29 @@ Partial Class wEmployee
         Me.FTRefPosit1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefPosit1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefPosit1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefPosit1_lbl.Location = New System.Drawing.Point(458, 53)
-        Me.FTRefPosit1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefPosit1_lbl.Location = New System.Drawing.Point(534, 65)
+        Me.FTRefPosit1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefPosit1_lbl.Name = "FTRefPosit1_lbl"
-        Me.FTRefPosit1_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTRefPosit1_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTRefPosit1_lbl.TabIndex = 360
         Me.FTRefPosit1_lbl.Tag = "2|"
         Me.FTRefPosit1_lbl.Text = "ตำแหน่ง :"
         '
         'FTRefPosit1
         '
-        Me.FTRefPosit1.Location = New System.Drawing.Point(577, 54)
-        Me.FTRefPosit1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefPosit1.Location = New System.Drawing.Point(673, 66)
+        Me.FTRefPosit1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefPosit1.Name = "FTRefPosit1"
-        Me.FTRefPosit1.Size = New System.Drawing.Size(196, 20)
+        Me.FTRefPosit1.Size = New System.Drawing.Size(229, 23)
         Me.FTRefPosit1.TabIndex = 359
         Me.FTRefPosit1.Tag = "2|"
         '
         'FTRefCareer1
         '
-        Me.FTRefCareer1.Location = New System.Drawing.Point(147, 54)
-        Me.FTRefCareer1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefCareer1.Location = New System.Drawing.Point(171, 66)
+        Me.FTRefCareer1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefCareer1.Name = "FTRefCareer1"
-        Me.FTRefCareer1.Size = New System.Drawing.Size(280, 20)
+        Me.FTRefCareer1.Size = New System.Drawing.Size(327, 23)
         Me.FTRefCareer1.TabIndex = 358
         Me.FTRefCareer1.Tag = "2|"
         '
@@ -10656,10 +10625,10 @@ Partial Class wEmployee
         Me.FTRefCareer1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefCareer1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefCareer1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefCareer1_lbl.Location = New System.Drawing.Point(30, 53)
-        Me.FTRefCareer1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefCareer1_lbl.Location = New System.Drawing.Point(35, 65)
+        Me.FTRefCareer1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefCareer1_lbl.Name = "FTRefCareer1_lbl"
-        Me.FTRefCareer1_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTRefCareer1_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTRefCareer1_lbl.TabIndex = 357
         Me.FTRefCareer1_lbl.Tag = "2|"
         Me.FTRefCareer1_lbl.Text = "อาชีพ :"
@@ -10669,10 +10638,10 @@ Partial Class wEmployee
         Me.FTRefAddr1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefAddr1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefAddr1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefAddr1_lbl.Location = New System.Drawing.Point(439, 31)
-        Me.FTRefAddr1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefAddr1_lbl.Location = New System.Drawing.Point(512, 38)
+        Me.FTRefAddr1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefAddr1_lbl.Name = "FTRefAddr1_lbl"
-        Me.FTRefAddr1_lbl.Size = New System.Drawing.Size(136, 25)
+        Me.FTRefAddr1_lbl.Size = New System.Drawing.Size(159, 31)
         Me.FTRefAddr1_lbl.TabIndex = 356
         Me.FTRefAddr1_lbl.Tag = "2|"
         Me.FTRefAddr1_lbl.Text = "ที่อยู่ :"
@@ -10681,19 +10650,19 @@ Partial Class wEmployee
         '
         Me.FTRefAddr1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTRefAddr1.Location = New System.Drawing.Point(577, 31)
-        Me.FTRefAddr1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefAddr1.Location = New System.Drawing.Point(673, 38)
+        Me.FTRefAddr1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefAddr1.Name = "FTRefAddr1"
-        Me.FTRefAddr1.Size = New System.Drawing.Size(925, 20)
+        Me.FTRefAddr1.Size = New System.Drawing.Size(1081, 23)
         Me.FTRefAddr1.TabIndex = 355
         Me.FTRefAddr1.Tag = "2|"
         '
         'FTRefName1
         '
-        Me.FTRefName1.Location = New System.Drawing.Point(147, 31)
-        Me.FTRefName1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefName1.Location = New System.Drawing.Point(171, 38)
+        Me.FTRefName1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefName1.Name = "FTRefName1"
-        Me.FTRefName1.Size = New System.Drawing.Size(280, 20)
+        Me.FTRefName1.Size = New System.Drawing.Size(327, 23)
         Me.FTRefName1.TabIndex = 354
         Me.FTRefName1.Tag = "2|"
         '
@@ -10702,10 +10671,10 @@ Partial Class wEmployee
         Me.FTRefName1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRefName1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRefName1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRefName1_lbl.Location = New System.Drawing.Point(30, 30)
-        Me.FTRefName1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRefName1_lbl.Location = New System.Drawing.Point(35, 37)
+        Me.FTRefName1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRefName1_lbl.Name = "FTRefName1_lbl"
-        Me.FTRefName1_lbl.Size = New System.Drawing.Size(115, 25)
+        Me.FTRefName1_lbl.Size = New System.Drawing.Size(134, 31)
         Me.FTRefName1_lbl.TabIndex = 353
         Me.FTRefName1_lbl.Tag = "2|"
         Me.FTRefName1_lbl.Text = "ชื่อ - นามสกุล :"
@@ -10714,32 +10683,31 @@ Partial Class wEmployee
         '
         Me.otpeexperience.Controls.Add(Me.GroupControl29)
         Me.otpeexperience.Controls.Add(Me.ogbex)
-        Me.otpeexperience.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otpeexperience.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otpeexperience.Name = "otpeexperience"
-        Me.otpeexperience.Size = New System.Drawing.Size(1405, 709)
+        Me.otpeexperience.Size = New System.Drawing.Size(1639, 872)
         Me.otpeexperience.Text = "ประสบการณ์"
         '
         'GroupControl29
         '
-        Me.GroupControl29.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupControl29.AutoSize = True
         Me.GroupControl29.Controls.Add(Me.ogdExperience)
-        Me.GroupControl29.Location = New System.Drawing.Point(7, 508)
-        Me.GroupControl29.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl29.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupControl29.Location = New System.Drawing.Point(0, 288)
+        Me.GroupControl29.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl29.Name = "GroupControl29"
-        Me.GroupControl29.Size = New System.Drawing.Size(4662, 5587)
+        Me.GroupControl29.Size = New System.Drawing.Size(1639, 584)
         Me.GroupControl29.TabIndex = 309
         '
         'ogdExperience
         '
         Me.ogdExperience.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdExperience.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogdExperience.Location = New System.Drawing.Point(2, 23)
+        Me.ogdExperience.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.ogdExperience.Location = New System.Drawing.Point(2, 27)
         Me.ogdExperience.MainView = Me.ogvExperience
-        Me.ogdExperience.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogdExperience.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogdExperience.Name = "ogdExperience"
-        Me.ogdExperience.Size = New System.Drawing.Size(4658, 5562)
+        Me.ogdExperience.Size = New System.Drawing.Size(1635, 555)
         Me.ogdExperience.TabIndex = 5
         Me.ogdExperience.TabStop = False
         Me.ogdExperience.Tag = "2|"
@@ -10748,7 +10716,6 @@ Partial Class wEmployee
         'ogvExperience
         '
         Me.ogvExperience.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColexFNSeqNo, Me.ColExFTCmpName, Me.ColExFTBusinessType, Me.ColExFTContractName, Me.ColExFTPosition, Me.ColExFTResponsibility, Me.ColExFDStartDate, Me.ColExFDEndDate, Me.ColExFTResignCause, Me.ColExFTEndSalary, Me.ColExFTHealthRiskFactors, Me.ColExFTProtectiveEquipment})
-        Me.ogvExperience.DetailHeight = 284
         Me.ogvExperience.GridControl = Me.ogdExperience
         Me.ogvExperience.Name = "ogvExperience"
         Me.ogvExperience.OptionsCustomization.AllowGroup = False
@@ -10762,9 +10729,7 @@ Partial Class wEmployee
         '
         Me.ColexFNSeqNo.Caption = "FNSeqNo"
         Me.ColexFNSeqNo.FieldName = "FNSeqNo"
-        Me.ColexFNSeqNo.MinWidth = 17
         Me.ColexFNSeqNo.Name = "ColexFNSeqNo"
-        Me.ColexFNSeqNo.Width = 64
         '
         'ColExFTCmpName
         '
@@ -10772,7 +10737,6 @@ Partial Class wEmployee
         Me.ColExFTCmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColExFTCmpName.Caption = "FTCmpName"
         Me.ColExFTCmpName.FieldName = "FTCmpName"
-        Me.ColExFTCmpName.MinWidth = 17
         Me.ColExFTCmpName.Name = "ColExFTCmpName"
         Me.ColExFTCmpName.OptionsColumn.AllowEdit = False
         Me.ColExFTCmpName.OptionsColumn.AllowMove = False
@@ -10780,7 +10744,7 @@ Partial Class wEmployee
         Me.ColExFTCmpName.OptionsColumn.ReadOnly = True
         Me.ColExFTCmpName.Visible = True
         Me.ColExFTCmpName.VisibleIndex = 0
-        Me.ColExFTCmpName.Width = 183
+        Me.ColExFTCmpName.Width = 213
         '
         'ColExFTBusinessType
         '
@@ -10788,7 +10752,6 @@ Partial Class wEmployee
         Me.ColExFTBusinessType.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColExFTBusinessType.Caption = "FTBusinessType"
         Me.ColExFTBusinessType.FieldName = "FTBusinessType"
-        Me.ColExFTBusinessType.MinWidth = 17
         Me.ColExFTBusinessType.Name = "ColExFTBusinessType"
         Me.ColExFTBusinessType.OptionsColumn.AllowEdit = False
         Me.ColExFTBusinessType.OptionsColumn.AllowMove = False
@@ -10796,7 +10759,7 @@ Partial Class wEmployee
         Me.ColExFTBusinessType.OptionsColumn.ReadOnly = True
         Me.ColExFTBusinessType.Visible = True
         Me.ColExFTBusinessType.VisibleIndex = 1
-        Me.ColExFTBusinessType.Width = 144
+        Me.ColExFTBusinessType.Width = 168
         '
         'ColExFTContractName
         '
@@ -10804,7 +10767,6 @@ Partial Class wEmployee
         Me.ColExFTContractName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColExFTContractName.Caption = "FTContractName"
         Me.ColExFTContractName.FieldName = "FTContractName"
-        Me.ColExFTContractName.MinWidth = 17
         Me.ColExFTContractName.Name = "ColExFTContractName"
         Me.ColExFTContractName.OptionsColumn.AllowEdit = False
         Me.ColExFTContractName.OptionsColumn.AllowMove = False
@@ -10812,7 +10774,7 @@ Partial Class wEmployee
         Me.ColExFTContractName.OptionsColumn.ReadOnly = True
         Me.ColExFTContractName.Visible = True
         Me.ColExFTContractName.VisibleIndex = 2
-        Me.ColExFTContractName.Width = 159
+        Me.ColExFTContractName.Width = 185
         '
         'ColExFTPosition
         '
@@ -10820,7 +10782,6 @@ Partial Class wEmployee
         Me.ColExFTPosition.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColExFTPosition.Caption = "FTPosition"
         Me.ColExFTPosition.FieldName = "FTPosition"
-        Me.ColExFTPosition.MinWidth = 17
         Me.ColExFTPosition.Name = "ColExFTPosition"
         Me.ColExFTPosition.OptionsColumn.AllowEdit = False
         Me.ColExFTPosition.OptionsColumn.AllowMove = False
@@ -10828,7 +10789,7 @@ Partial Class wEmployee
         Me.ColExFTPosition.OptionsColumn.ReadOnly = True
         Me.ColExFTPosition.Visible = True
         Me.ColExFTPosition.VisibleIndex = 3
-        Me.ColExFTPosition.Width = 133
+        Me.ColExFTPosition.Width = 155
         '
         'ColExFTResponsibility
         '
@@ -10836,7 +10797,6 @@ Partial Class wEmployee
         Me.ColExFTResponsibility.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColExFTResponsibility.Caption = "FTResponsibility"
         Me.ColExFTResponsibility.FieldName = "FTResponsibility"
-        Me.ColExFTResponsibility.MinWidth = 17
         Me.ColExFTResponsibility.Name = "ColExFTResponsibility"
         Me.ColExFTResponsibility.OptionsColumn.AllowEdit = False
         Me.ColExFTResponsibility.OptionsColumn.AllowMove = False
@@ -10844,7 +10804,7 @@ Partial Class wEmployee
         Me.ColExFTResponsibility.OptionsColumn.ReadOnly = True
         Me.ColExFTResponsibility.Visible = True
         Me.ColExFTResponsibility.VisibleIndex = 4
-        Me.ColExFTResponsibility.Width = 190
+        Me.ColExFTResponsibility.Width = 222
         '
         'ColExFDStartDate
         '
@@ -10854,7 +10814,6 @@ Partial Class wEmployee
         Me.ColExFDStartDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColExFDStartDate.Caption = "FDStartDate"
         Me.ColExFDStartDate.FieldName = "FDStartDate"
-        Me.ColExFDStartDate.MinWidth = 17
         Me.ColExFDStartDate.Name = "ColExFDStartDate"
         Me.ColExFDStartDate.OptionsColumn.AllowEdit = False
         Me.ColExFDStartDate.OptionsColumn.AllowMove = False
@@ -10862,7 +10821,7 @@ Partial Class wEmployee
         Me.ColExFDStartDate.OptionsColumn.ReadOnly = True
         Me.ColExFDStartDate.Visible = True
         Me.ColExFDStartDate.VisibleIndex = 5
-        Me.ColExFDStartDate.Width = 73
+        Me.ColExFDStartDate.Width = 85
         '
         'ColExFDEndDate
         '
@@ -10872,7 +10831,6 @@ Partial Class wEmployee
         Me.ColExFDEndDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColExFDEndDate.Caption = "FDEndDate"
         Me.ColExFDEndDate.FieldName = "FDEndDate"
-        Me.ColExFDEndDate.MinWidth = 17
         Me.ColExFDEndDate.Name = "ColExFDEndDate"
         Me.ColExFDEndDate.OptionsColumn.AllowEdit = False
         Me.ColExFDEndDate.OptionsColumn.AllowMove = False
@@ -10880,7 +10838,7 @@ Partial Class wEmployee
         Me.ColExFDEndDate.OptionsColumn.ReadOnly = True
         Me.ColExFDEndDate.Visible = True
         Me.ColExFDEndDate.VisibleIndex = 6
-        Me.ColExFDEndDate.Width = 72
+        Me.ColExFDEndDate.Width = 84
         '
         'ColExFTResignCause
         '
@@ -10888,7 +10846,6 @@ Partial Class wEmployee
         Me.ColExFTResignCause.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColExFTResignCause.Caption = "FTResignCause"
         Me.ColExFTResignCause.FieldName = "FTResignCause"
-        Me.ColExFTResignCause.MinWidth = 17
         Me.ColExFTResignCause.Name = "ColExFTResignCause"
         Me.ColExFTResignCause.OptionsColumn.AllowEdit = False
         Me.ColExFTResignCause.OptionsColumn.AllowMove = False
@@ -10896,7 +10853,7 @@ Partial Class wEmployee
         Me.ColExFTResignCause.OptionsColumn.ReadOnly = True
         Me.ColExFTResignCause.Visible = True
         Me.ColExFTResignCause.VisibleIndex = 7
-        Me.ColExFTResignCause.Width = 194
+        Me.ColExFTResignCause.Width = 226
         '
         'ColExFTEndSalary
         '
@@ -10906,7 +10863,6 @@ Partial Class wEmployee
         Me.ColExFTEndSalary.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColExFTEndSalary.Caption = "FTEndSalary"
         Me.ColExFTEndSalary.FieldName = "FTEndSalary"
-        Me.ColExFTEndSalary.MinWidth = 17
         Me.ColExFTEndSalary.Name = "ColExFTEndSalary"
         Me.ColExFTEndSalary.OptionsColumn.AllowEdit = False
         Me.ColExFTEndSalary.OptionsColumn.AllowMove = False
@@ -10914,12 +10870,13 @@ Partial Class wEmployee
         Me.ColExFTEndSalary.OptionsColumn.ReadOnly = True
         Me.ColExFTEndSalary.Visible = True
         Me.ColExFTEndSalary.VisibleIndex = 8
-        Me.ColExFTEndSalary.Width = 78
+        Me.ColExFTEndSalary.Width = 91
         '
         'ColExFTHealthRiskFactors
         '
         Me.ColExFTHealthRiskFactors.Caption = "FTHealthRiskFactors"
         Me.ColExFTHealthRiskFactors.FieldName = "FTHealthRiskFactors"
+        Me.ColExFTHealthRiskFactors.MinWidth = 23
         Me.ColExFTHealthRiskFactors.Name = "ColExFTHealthRiskFactors"
         Me.ColExFTHealthRiskFactors.OptionsColumn.AllowEdit = False
         Me.ColExFTHealthRiskFactors.OptionsColumn.AllowMove = False
@@ -10927,11 +10884,13 @@ Partial Class wEmployee
         Me.ColExFTHealthRiskFactors.OptionsColumn.ReadOnly = True
         Me.ColExFTHealthRiskFactors.Visible = True
         Me.ColExFTHealthRiskFactors.VisibleIndex = 10
+        Me.ColExFTHealthRiskFactors.Width = 87
         '
         'ColExFTProtectiveEquipment
         '
         Me.ColExFTProtectiveEquipment.Caption = "FTProtectiveEquipment"
         Me.ColExFTProtectiveEquipment.FieldName = "FTProtectiveEquipment"
+        Me.ColExFTProtectiveEquipment.MinWidth = 23
         Me.ColExFTProtectiveEquipment.Name = "ColExFTProtectiveEquipment"
         Me.ColExFTProtectiveEquipment.OptionsColumn.AllowEdit = False
         Me.ColExFTProtectiveEquipment.OptionsColumn.AllowMove = False
@@ -10939,11 +10898,13 @@ Partial Class wEmployee
         Me.ColExFTProtectiveEquipment.OptionsColumn.ReadOnly = True
         Me.ColExFTProtectiveEquipment.Visible = True
         Me.ColExFTProtectiveEquipment.VisibleIndex = 9
+        Me.ColExFTProtectiveEquipment.Width = 87
         '
         'ogbex
         '
         Me.ogbex.Controls.Add(Me.FTProtectiveEquipment)
         Me.ogbex.Controls.Add(Me.FTHealthRiskFactors)
+        Me.ogbex.Controls.Add(Me.FTResignCause)
         Me.ogbex.Controls.Add(Me.FTProtectiveEquipment_lbl)
         Me.ogbex.Controls.Add(Me.FTHealthRiskFactors_lbl)
         Me.ogbex.Controls.Add(Me.FNExperienceSeq)
@@ -10959,7 +10920,6 @@ Partial Class wEmployee
         Me.ogbex.Controls.Add(Me.FTBusinessType_lbl)
         Me.ogbex.Controls.Add(Me.FTCmpName)
         Me.ogbex.Controls.Add(Me.FTCmpName_lbl)
-        Me.ogbex.Controls.Add(Me.FTResignCause)
         Me.ogbex.Controls.Add(Me.FTResignCause_lbl)
         Me.ogbex.Controls.Add(Me.FDEndDate)
         Me.ogbex.Controls.Add(Me.FDEndDate_lbl)
@@ -10967,39 +10927,55 @@ Partial Class wEmployee
         Me.ogbex.Controls.Add(Me.FDStartDate_lbl)
         Me.ogbex.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbex.Location = New System.Drawing.Point(0, 0)
-        Me.ogbex.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbex.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbex.Name = "ogbex"
         Me.ogbex.ShowCaption = False
-        Me.ogbex.Size = New System.Drawing.Size(1405, 316)
+        Me.ogbex.Size = New System.Drawing.Size(1639, 288)
         Me.ogbex.TabIndex = 308
         '
         'FTProtectiveEquipment
         '
-        Me.FTProtectiveEquipment.Location = New System.Drawing.Point(666, 101)
+        Me.FTProtectiveEquipment.Location = New System.Drawing.Point(777, 124)
+        Me.FTProtectiveEquipment.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTProtectiveEquipment.Name = "FTProtectiveEquipment"
         Me.FTProtectiveEquipment.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FTProtectiveEquipment.Properties.Tag = "FTProtectiveEquipment"
-        Me.FTProtectiveEquipment.Size = New System.Drawing.Size(352, 20)
+        Me.FTProtectiveEquipment.Size = New System.Drawing.Size(411, 23)
         Me.FTProtectiveEquipment.TabIndex = 487
         '
         'FTHealthRiskFactors
         '
-        Me.FTHealthRiskFactors.Location = New System.Drawing.Point(124, 101)
+        Me.FTHealthRiskFactors.Location = New System.Drawing.Point(145, 124)
+        Me.FTHealthRiskFactors.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTHealthRiskFactors.Name = "FTHealthRiskFactors"
         Me.FTHealthRiskFactors.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FTHealthRiskFactors.Properties.Tag = "FTHealthRiskFactors"
-        Me.FTHealthRiskFactors.Size = New System.Drawing.Size(352, 20)
+        Me.FTHealthRiskFactors.Size = New System.Drawing.Size(411, 23)
         Me.FTHealthRiskFactors.TabIndex = 486
+        '
+        'FTResignCause
+        '
+        Me.FTResignCause.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FTResignCause.EditValue = ""
+        Me.FTResignCause.Location = New System.Drawing.Point(143, 153)
+        Me.FTResignCause.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.FTResignCause.Name = "FTResignCause"
+        Me.FTResignCause.Properties.MaxLength = 500
+        Me.FTResignCause.Size = New System.Drawing.Size(1052, 107)
+        Me.FTResignCause.TabIndex = 380
+        Me.FTResignCause.Tag = "2|"
         '
         'FTProtectiveEquipment_lbl
         '
         Me.FTProtectiveEquipment_lbl.Appearance.Options.UseTextOptions = True
         Me.FTProtectiveEquipment_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTProtectiveEquipment_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTProtectiveEquipment_lbl.Location = New System.Drawing.Point(545, 101)
-        Me.FTProtectiveEquipment_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTProtectiveEquipment_lbl.Location = New System.Drawing.Point(636, 124)
+        Me.FTProtectiveEquipment_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTProtectiveEquipment_lbl.Name = "FTProtectiveEquipment_lbl"
-        Me.FTProtectiveEquipment_lbl.Size = New System.Drawing.Size(120, 21)
+        Me.FTProtectiveEquipment_lbl.Size = New System.Drawing.Size(140, 26)
         Me.FTProtectiveEquipment_lbl.TabIndex = 404
         Me.FTProtectiveEquipment_lbl.Tag = "2|"
         Me.FTProtectiveEquipment_lbl.Text = "อุปกรณ์ป้องกันอันตราย :"
@@ -11009,10 +10985,10 @@ Partial Class wEmployee
         Me.FTHealthRiskFactors_lbl.Appearance.Options.UseTextOptions = True
         Me.FTHealthRiskFactors_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTHealthRiskFactors_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTHealthRiskFactors_lbl.Location = New System.Drawing.Point(-2, 100)
-        Me.FTHealthRiskFactors_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTHealthRiskFactors_lbl.Location = New System.Drawing.Point(-2, 123)
+        Me.FTHealthRiskFactors_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTHealthRiskFactors_lbl.Name = "FTHealthRiskFactors_lbl"
-        Me.FTHealthRiskFactors_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTHealthRiskFactors_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTHealthRiskFactors_lbl.TabIndex = 402
         Me.FTHealthRiskFactors_lbl.Tag = "2|"
         Me.FTHealthRiskFactors_lbl.Text = "ปัจจัยที่เสี่ยงต่อสุขภาพ :"
@@ -11020,8 +10996,8 @@ Partial Class wEmployee
         'FNExperienceSeq
         '
         Me.FNExperienceSeq.EnterMoveNextControl = True
-        Me.FNExperienceSeq.Location = New System.Drawing.Point(840, 55)
-        Me.FNExperienceSeq.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNExperienceSeq.Location = New System.Drawing.Point(980, 68)
+        Me.FNExperienceSeq.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNExperienceSeq.Name = "FNExperienceSeq"
         Me.FNExperienceSeq.Properties.Appearance.Options.UseTextOptions = True
         Me.FNExperienceSeq.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -11033,20 +11009,20 @@ Partial Class wEmployee
         Me.FNExperienceSeq.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNExperienceSeq.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNExperienceSeq.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNExperienceSeq.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions65, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject257, SerializableAppearanceObject258, SerializableAppearanceObject259, SerializableAppearanceObject260, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNExperienceSeq.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions64, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject253, SerializableAppearanceObject254, SerializableAppearanceObject255, SerializableAppearanceObject256, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNExperienceSeq.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNExperienceSeq.Properties.Precision = 2
-        Me.FNExperienceSeq.Size = New System.Drawing.Size(40, 20)
+        Me.FNExperienceSeq.Size = New System.Drawing.Size(47, 23)
         Me.FNExperienceSeq.TabIndex = 400
         Me.FNExperienceSeq.Tag = "2|"
         Me.FNExperienceSeq.Visible = False
         '
         'FTContractName
         '
-        Me.FTContractName.Location = New System.Drawing.Point(124, 75)
-        Me.FTContractName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTContractName.Location = New System.Drawing.Point(145, 92)
+        Me.FTContractName.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTContractName.Name = "FTContractName"
-        Me.FTContractName.Size = New System.Drawing.Size(414, 20)
+        Me.FTContractName.Size = New System.Drawing.Size(483, 23)
         Me.FTContractName.TabIndex = 398
         Me.FTContractName.Tag = "2|"
         '
@@ -11055,10 +11031,10 @@ Partial Class wEmployee
         Me.FTContractName_lbl.Appearance.Options.UseTextOptions = True
         Me.FTContractName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTContractName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTContractName_lbl.Location = New System.Drawing.Point(-1, 76)
-        Me.FTContractName_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTContractName_lbl.Location = New System.Drawing.Point(-1, 94)
+        Me.FTContractName_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTContractName_lbl.Name = "FTContractName_lbl"
-        Me.FTContractName_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTContractName_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTContractName_lbl.TabIndex = 399
         Me.FTContractName_lbl.Tag = "2|"
         Me.FTContractName_lbl.Text = "บุคคลติดต่อ :"
@@ -11068,10 +11044,10 @@ Partial Class wEmployee
         Me.FTEndSalary_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEndSalary_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEndSalary_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEndSalary_lbl.Location = New System.Drawing.Point(567, 53)
-        Me.FTEndSalary_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEndSalary_lbl.Location = New System.Drawing.Point(661, 65)
+        Me.FTEndSalary_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEndSalary_lbl.Name = "FTEndSalary_lbl"
-        Me.FTEndSalary_lbl.Size = New System.Drawing.Size(97, 21)
+        Me.FTEndSalary_lbl.Size = New System.Drawing.Size(113, 26)
         Me.FTEndSalary_lbl.TabIndex = 397
         Me.FTEndSalary_lbl.Tag = "2|"
         Me.FTEndSalary_lbl.Text = "เงินเดือน :"
@@ -11079,8 +11055,8 @@ Partial Class wEmployee
         'FTEndSalary
         '
         Me.FTEndSalary.EnterMoveNextControl = True
-        Me.FTEndSalary.Location = New System.Drawing.Point(665, 52)
-        Me.FTEndSalary.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEndSalary.Location = New System.Drawing.Point(776, 64)
+        Me.FTEndSalary.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEndSalary.Name = "FTEndSalary"
         Me.FTEndSalary.Properties.Appearance.Options.UseTextOptions = True
         Me.FTEndSalary.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -11092,10 +11068,10 @@ Partial Class wEmployee
         Me.FTEndSalary.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTEndSalary.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTEndSalary.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTEndSalary.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions66, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject261, SerializableAppearanceObject262, SerializableAppearanceObject263, SerializableAppearanceObject264, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTEndSalary.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions65, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject257, SerializableAppearanceObject258, SerializableAppearanceObject259, SerializableAppearanceObject260, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTEndSalary.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FTEndSalary.Properties.Precision = 2
-        Me.FTEndSalary.Size = New System.Drawing.Size(126, 20)
+        Me.FTEndSalary.Size = New System.Drawing.Size(147, 23)
         Me.FTEndSalary.TabIndex = 396
         Me.FTEndSalary.Tag = "2|"
         '
@@ -11103,10 +11079,10 @@ Partial Class wEmployee
         '
         Me.FTResponsibility.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTResponsibility.Location = New System.Drawing.Point(665, 29)
-        Me.FTResponsibility.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTResponsibility.Location = New System.Drawing.Point(776, 36)
+        Me.FTResponsibility.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTResponsibility.Name = "FTResponsibility"
-        Me.FTResponsibility.Size = New System.Drawing.Size(1490, 20)
+        Me.FTResponsibility.Size = New System.Drawing.Size(2171, 23)
         Me.FTResponsibility.TabIndex = 394
         Me.FTResponsibility.Tag = "2|"
         '
@@ -11117,20 +11093,20 @@ Partial Class wEmployee
         Me.FTResponsibility_lbl.Appearance.Options.UseTextOptions = True
         Me.FTResponsibility_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTResponsibility_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTResponsibility_lbl.Location = New System.Drawing.Point(539, 29)
-        Me.FTResponsibility_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTResponsibility_lbl.Location = New System.Drawing.Point(629, 36)
+        Me.FTResponsibility_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTResponsibility_lbl.Name = "FTResponsibility_lbl"
-        Me.FTResponsibility_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTResponsibility_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTResponsibility_lbl.TabIndex = 395
         Me.FTResponsibility_lbl.Tag = "2|"
         Me.FTResponsibility_lbl.Text = "หน้าที่ :"
         '
         'FTPosition
         '
-        Me.FTPosition.Location = New System.Drawing.Point(124, 29)
-        Me.FTPosition.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTPosition.Location = New System.Drawing.Point(145, 36)
+        Me.FTPosition.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTPosition.Name = "FTPosition"
-        Me.FTPosition.Size = New System.Drawing.Size(414, 20)
+        Me.FTPosition.Size = New System.Drawing.Size(483, 23)
         Me.FTPosition.TabIndex = 392
         Me.FTPosition.Tag = "2|"
         '
@@ -11141,10 +11117,10 @@ Partial Class wEmployee
         Me.FTPosition_lbl.Appearance.Options.UseTextOptions = True
         Me.FTPosition_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTPosition_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTPosition_lbl.Location = New System.Drawing.Point(-1, 29)
-        Me.FTPosition_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTPosition_lbl.Location = New System.Drawing.Point(-1, 36)
+        Me.FTPosition_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTPosition_lbl.Name = "FTPosition_lbl"
-        Me.FTPosition_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTPosition_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTPosition_lbl.TabIndex = 393
         Me.FTPosition_lbl.Tag = "2|"
         Me.FTPosition_lbl.Text = "ตำแหน่ง :"
@@ -11154,10 +11130,10 @@ Partial Class wEmployee
         Me.FTBusinessType.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTBusinessType.ImeMode = System.Windows.Forms.ImeMode.Alpha
-        Me.FTBusinessType.Location = New System.Drawing.Point(665, 6)
-        Me.FTBusinessType.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTBusinessType.Location = New System.Drawing.Point(776, 7)
+        Me.FTBusinessType.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTBusinessType.Name = "FTBusinessType"
-        Me.FTBusinessType.Size = New System.Drawing.Size(1490, 20)
+        Me.FTBusinessType.Size = New System.Drawing.Size(2171, 23)
         Me.FTBusinessType.TabIndex = 390
         Me.FTBusinessType.Tag = "2|"
         '
@@ -11166,20 +11142,20 @@ Partial Class wEmployee
         Me.FTBusinessType_lbl.Appearance.Options.UseTextOptions = True
         Me.FTBusinessType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTBusinessType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBusinessType_lbl.Location = New System.Drawing.Point(540, 6)
-        Me.FTBusinessType_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTBusinessType_lbl.Location = New System.Drawing.Point(630, 7)
+        Me.FTBusinessType_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTBusinessType_lbl.Name = "FTBusinessType_lbl"
-        Me.FTBusinessType_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTBusinessType_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTBusinessType_lbl.TabIndex = 391
         Me.FTBusinessType_lbl.Tag = "2|"
         Me.FTBusinessType_lbl.Text = "ประเภทธุรกิจ :"
         '
         'FTCmpName
         '
-        Me.FTCmpName.Location = New System.Drawing.Point(124, 6)
-        Me.FTCmpName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTCmpName.Location = New System.Drawing.Point(145, 7)
+        Me.FTCmpName.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTCmpName.Name = "FTCmpName"
-        Me.FTCmpName.Size = New System.Drawing.Size(414, 20)
+        Me.FTCmpName.Size = New System.Drawing.Size(483, 23)
         Me.FTCmpName.TabIndex = 388
         Me.FTCmpName.Tag = "2|"
         '
@@ -11190,37 +11166,23 @@ Partial Class wEmployee
         Me.FTCmpName_lbl.Appearance.Options.UseTextOptions = True
         Me.FTCmpName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTCmpName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTCmpName_lbl.Location = New System.Drawing.Point(-1, 6)
-        Me.FTCmpName_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTCmpName_lbl.Location = New System.Drawing.Point(-1, 7)
+        Me.FTCmpName_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTCmpName_lbl.Name = "FTCmpName_lbl"
-        Me.FTCmpName_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTCmpName_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTCmpName_lbl.TabIndex = 389
         Me.FTCmpName_lbl.Tag = "2|"
         Me.FTCmpName_lbl.Text = "ชื่อบริษัท :"
-        '
-        'FTResignCause
-        '
-        Me.FTResignCause.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTResignCause.EditValue = ""
-        Me.FTResignCause.Location = New System.Drawing.Point(126, 124)
-        Me.FTResignCause.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FTResignCause.Name = "FTResignCause"
-        Me.FTResignCause.Properties.MaxLength = 500
-        Me.FTResignCause.Size = New System.Drawing.Size(2579, 265)
-        Me.FTResignCause.TabIndex = 380
-        Me.FTResignCause.Tag = "2|"
         '
         'FTResignCause_lbl
         '
         Me.FTResignCause_lbl.Appearance.Options.UseTextOptions = True
         Me.FTResignCause_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTResignCause_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTResignCause_lbl.Location = New System.Drawing.Point(14, 120)
-        Me.FTResignCause_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTResignCause_lbl.Location = New System.Drawing.Point(16, 148)
+        Me.FTResignCause_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTResignCause_lbl.Name = "FTResignCause_lbl"
-        Me.FTResignCause_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FTResignCause_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FTResignCause_lbl.TabIndex = 381
         Me.FTResignCause_lbl.Tag = "2|"
         Me.FTResignCause_lbl.Text = "หมายเหตุ :"
@@ -11229,8 +11191,8 @@ Partial Class wEmployee
         '
         Me.FDEndDate.EditValue = Nothing
         Me.FDEndDate.EnterMoveNextControl = True
-        Me.FDEndDate.Location = New System.Drawing.Point(359, 51)
-        Me.FDEndDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDEndDate.Location = New System.Drawing.Point(419, 63)
+        Me.FDEndDate.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDEndDate.Name = "FDEndDate"
         Me.FDEndDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDEndDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -11241,7 +11203,7 @@ Partial Class wEmployee
         Me.FDEndDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDEndDate.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDEndDate.Properties.NullDate = ""
-        Me.FDEndDate.Size = New System.Drawing.Size(117, 20)
+        Me.FDEndDate.Size = New System.Drawing.Size(136, 23)
         Me.FDEndDate.TabIndex = 325
         Me.FDEndDate.Tag = "2|"
         '
@@ -11252,10 +11214,10 @@ Partial Class wEmployee
         Me.FDEndDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDEndDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDEndDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDEndDate_lbl.Location = New System.Drawing.Point(243, 52)
-        Me.FDEndDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDEndDate_lbl.Location = New System.Drawing.Point(283, 64)
+        Me.FDEndDate_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDEndDate_lbl.Name = "FDEndDate_lbl"
-        Me.FDEndDate_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDEndDate_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDEndDate_lbl.TabIndex = 327
         Me.FDEndDate_lbl.Tag = "2|"
         Me.FDEndDate_lbl.Text = "วันที่ลาออก :"
@@ -11264,8 +11226,8 @@ Partial Class wEmployee
         '
         Me.FDStartDate.EditValue = Nothing
         Me.FDStartDate.EnterMoveNextControl = True
-        Me.FDStartDate.Location = New System.Drawing.Point(124, 51)
-        Me.FDStartDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDStartDate.Location = New System.Drawing.Point(145, 63)
+        Me.FDStartDate.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDStartDate.Name = "FDStartDate"
         Me.FDStartDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDStartDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -11276,7 +11238,7 @@ Partial Class wEmployee
         Me.FDStartDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDStartDate.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDStartDate.Properties.NullDate = ""
-        Me.FDStartDate.Size = New System.Drawing.Size(117, 20)
+        Me.FDStartDate.Size = New System.Drawing.Size(136, 23)
         Me.FDStartDate.TabIndex = 324
         Me.FDStartDate.Tag = "2|"
         '
@@ -11287,10 +11249,10 @@ Partial Class wEmployee
         Me.FDStartDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDStartDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDStartDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDStartDate_lbl.Location = New System.Drawing.Point(14, 51)
-        Me.FDStartDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDStartDate_lbl.Location = New System.Drawing.Point(16, 63)
+        Me.FDStartDate_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDStartDate_lbl.Name = "FDStartDate_lbl"
-        Me.FDStartDate_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDStartDate_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDStartDate_lbl.TabIndex = 326
         Me.FDStartDate_lbl.Tag = "2|"
         Me.FDStartDate_lbl.Text = "วันที่เริ่มงาน :"
@@ -11299,31 +11261,31 @@ Partial Class wEmployee
         '
         Me.otpempleavein.Controls.Add(Me.GroupControl16)
         Me.otpempleavein.Controls.Add(Me.ogbresign)
-        Me.otpempleavein.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otpempleavein.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otpempleavein.Name = "otpempleavein"
-        Me.otpempleavein.Size = New System.Drawing.Size(1405, 709)
+        Me.otpempleavein.Size = New System.Drawing.Size(1639, 872)
         Me.otpempleavein.Text = "การเข้าออก"
         '
         'GroupControl16
         '
         Me.GroupControl16.Controls.Add(Me.ogdResign)
         Me.GroupControl16.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupControl16.Location = New System.Drawing.Point(0, 325)
-        Me.GroupControl16.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl16.Location = New System.Drawing.Point(0, 256)
+        Me.GroupControl16.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl16.Name = "GroupControl16"
-        Me.GroupControl16.Size = New System.Drawing.Size(1405, 384)
+        Me.GroupControl16.Size = New System.Drawing.Size(1639, 616)
         Me.GroupControl16.TabIndex = 307
         '
         'ogdResign
         '
         Me.ogdResign.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdResign.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogdResign.Location = New System.Drawing.Point(2, 23)
+        Me.ogdResign.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.ogdResign.Location = New System.Drawing.Point(2, 27)
         Me.ogdResign.MainView = Me.ogvResign
-        Me.ogdResign.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogdResign.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogdResign.Name = "ogdResign"
         Me.ogdResign.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit3, Me.RepColFTRetEmpCard, Me.RepColFTDestroyCard, Me.RepColFTBackListSta, Me.RepColFTRetEquipment})
-        Me.ogdResign.Size = New System.Drawing.Size(1401, 359)
+        Me.ogdResign.Size = New System.Drawing.Size(1635, 587)
         Me.ogdResign.TabIndex = 5
         Me.ogdResign.TabStop = False
         Me.ogdResign.Tag = "2|"
@@ -11332,7 +11294,6 @@ Partial Class wEmployee
         'ogvResign
         '
         Me.ogvResign.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFDDateBegin, Me.ColFDDateResign, Me.ColFDDelEMailDate, Me.ColFTRetEmpCard, Me.ColFTDestroyCard, Me.ColFTBackListSta, Me.ColFTRetEquipment, Me.ColFTResignName, Me.ColFNHSysResignId, Me.ColFTResignNote})
-        Me.ogvResign.DetailHeight = 284
         Me.ogvResign.GridControl = Me.ogdResign
         Me.ogvResign.Name = "ogvResign"
         Me.ogvResign.OptionsCustomization.AllowGroup = False
@@ -11350,7 +11311,6 @@ Partial Class wEmployee
         Me.ColFDDateBegin.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFDDateBegin.Caption = "FDDateBegin"
         Me.ColFDDateBegin.FieldName = "FDDateBegin"
-        Me.ColFDDateBegin.MinWidth = 17
         Me.ColFDDateBegin.Name = "ColFDDateBegin"
         Me.ColFDDateBegin.OptionsColumn.AllowEdit = False
         Me.ColFDDateBegin.OptionsColumn.AllowMove = False
@@ -11358,7 +11318,6 @@ Partial Class wEmployee
         Me.ColFDDateBegin.OptionsColumn.ReadOnly = True
         Me.ColFDDateBegin.Visible = True
         Me.ColFDDateBegin.VisibleIndex = 0
-        Me.ColFDDateBegin.Width = 64
         '
         'ColFDDateResign
         '
@@ -11368,7 +11327,6 @@ Partial Class wEmployee
         Me.ColFDDateResign.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFDDateResign.Caption = "FDDateResign"
         Me.ColFDDateResign.FieldName = "FDDateResign"
-        Me.ColFDDateResign.MinWidth = 17
         Me.ColFDDateResign.Name = "ColFDDateResign"
         Me.ColFDDateResign.OptionsColumn.AllowEdit = False
         Me.ColFDDateResign.OptionsColumn.AllowMove = False
@@ -11376,7 +11334,6 @@ Partial Class wEmployee
         Me.ColFDDateResign.OptionsColumn.ReadOnly = True
         Me.ColFDDateResign.Visible = True
         Me.ColFDDateResign.VisibleIndex = 1
-        Me.ColFDDateResign.Width = 64
         '
         'ColFDDelEMailDate
         '
@@ -11386,7 +11343,6 @@ Partial Class wEmployee
         Me.ColFDDelEMailDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFDDelEMailDate.Caption = "FDDelEMailDate"
         Me.ColFDDelEMailDate.FieldName = "FDDelEMailDate"
-        Me.ColFDDelEMailDate.MinWidth = 17
         Me.ColFDDelEMailDate.Name = "ColFDDelEMailDate"
         Me.ColFDDelEMailDate.OptionsColumn.AllowEdit = False
         Me.ColFDDelEMailDate.OptionsColumn.AllowMove = False
@@ -11394,7 +11350,6 @@ Partial Class wEmployee
         Me.ColFDDelEMailDate.OptionsColumn.ReadOnly = True
         Me.ColFDDelEMailDate.Visible = True
         Me.ColFDDelEMailDate.VisibleIndex = 2
-        Me.ColFDDelEMailDate.Width = 64
         '
         'ColFTRetEmpCard
         '
@@ -11405,7 +11360,6 @@ Partial Class wEmployee
         Me.ColFTRetEmpCard.Caption = "FTRetEmpCard"
         Me.ColFTRetEmpCard.ColumnEdit = Me.RepColFTRetEmpCard
         Me.ColFTRetEmpCard.FieldName = "FTRetEmpCard"
-        Me.ColFTRetEmpCard.MinWidth = 17
         Me.ColFTRetEmpCard.Name = "ColFTRetEmpCard"
         Me.ColFTRetEmpCard.OptionsColumn.AllowEdit = False
         Me.ColFTRetEmpCard.OptionsColumn.AllowMove = False
@@ -11413,7 +11367,6 @@ Partial Class wEmployee
         Me.ColFTRetEmpCard.OptionsColumn.ReadOnly = True
         Me.ColFTRetEmpCard.Visible = True
         Me.ColFTRetEmpCard.VisibleIndex = 3
-        Me.ColFTRetEmpCard.Width = 64
         '
         'RepColFTRetEmpCard
         '
@@ -11432,7 +11385,6 @@ Partial Class wEmployee
         Me.ColFTDestroyCard.Caption = "FTDestroyCard"
         Me.ColFTDestroyCard.ColumnEdit = Me.RepColFTDestroyCard
         Me.ColFTDestroyCard.FieldName = "FTDestroyCard"
-        Me.ColFTDestroyCard.MinWidth = 17
         Me.ColFTDestroyCard.Name = "ColFTDestroyCard"
         Me.ColFTDestroyCard.OptionsColumn.AllowEdit = False
         Me.ColFTDestroyCard.OptionsColumn.AllowMove = False
@@ -11440,7 +11392,6 @@ Partial Class wEmployee
         Me.ColFTDestroyCard.OptionsColumn.ReadOnly = True
         Me.ColFTDestroyCard.Visible = True
         Me.ColFTDestroyCard.VisibleIndex = 4
-        Me.ColFTDestroyCard.Width = 64
         '
         'RepColFTDestroyCard
         '
@@ -11459,7 +11410,6 @@ Partial Class wEmployee
         Me.ColFTBackListSta.Caption = "FTBackListSta"
         Me.ColFTBackListSta.ColumnEdit = Me.RepColFTBackListSta
         Me.ColFTBackListSta.FieldName = "FTBackListSta"
-        Me.ColFTBackListSta.MinWidth = 17
         Me.ColFTBackListSta.Name = "ColFTBackListSta"
         Me.ColFTBackListSta.OptionsColumn.AllowEdit = False
         Me.ColFTBackListSta.OptionsColumn.AllowMove = False
@@ -11467,7 +11417,6 @@ Partial Class wEmployee
         Me.ColFTBackListSta.OptionsColumn.ReadOnly = True
         Me.ColFTBackListSta.Visible = True
         Me.ColFTBackListSta.VisibleIndex = 5
-        Me.ColFTBackListSta.Width = 64
         '
         'RepColFTBackListSta
         '
@@ -11486,7 +11435,6 @@ Partial Class wEmployee
         Me.ColFTRetEquipment.Caption = "FTRetEquipment"
         Me.ColFTRetEquipment.ColumnEdit = Me.RepColFTRetEquipment
         Me.ColFTRetEquipment.FieldName = "FTRetEquipment"
-        Me.ColFTRetEquipment.MinWidth = 17
         Me.ColFTRetEquipment.Name = "ColFTRetEquipment"
         Me.ColFTRetEquipment.OptionsColumn.AllowEdit = False
         Me.ColFTRetEquipment.OptionsColumn.AllowMove = False
@@ -11494,7 +11442,7 @@ Partial Class wEmployee
         Me.ColFTRetEquipment.OptionsColumn.ReadOnly = True
         Me.ColFTRetEquipment.Visible = True
         Me.ColFTRetEquipment.VisibleIndex = 6
-        Me.ColFTRetEquipment.Width = 60
+        Me.ColFTRetEquipment.Width = 70
         '
         'RepColFTRetEquipment
         '
@@ -11510,7 +11458,6 @@ Partial Class wEmployee
         Me.ColFTResignName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFTResignName.Caption = "FTResignName"
         Me.ColFTResignName.FieldName = "FTResignName"
-        Me.ColFTResignName.MinWidth = 17
         Me.ColFTResignName.Name = "ColFTResignName"
         Me.ColFTResignName.OptionsColumn.AllowEdit = False
         Me.ColFTResignName.OptionsColumn.AllowMove = False
@@ -11518,15 +11465,13 @@ Partial Class wEmployee
         Me.ColFTResignName.OptionsColumn.ReadOnly = True
         Me.ColFTResignName.Visible = True
         Me.ColFTResignName.VisibleIndex = 7
-        Me.ColFTResignName.Width = 111
+        Me.ColFTResignName.Width = 129
         '
         'ColFNHSysResignId
         '
         Me.ColFNHSysResignId.Caption = "FNHSysResignId"
         Me.ColFNHSysResignId.FieldName = "FNHSysResignId"
-        Me.ColFNHSysResignId.MinWidth = 17
         Me.ColFNHSysResignId.Name = "ColFNHSysResignId"
-        Me.ColFNHSysResignId.Width = 64
         '
         'ColFTResignNote
         '
@@ -11534,7 +11479,6 @@ Partial Class wEmployee
         Me.ColFTResignNote.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFTResignNote.Caption = "FTResignNote"
         Me.ColFTResignNote.FieldName = "FTResignNote"
-        Me.ColFTResignNote.MinWidth = 17
         Me.ColFTResignNote.Name = "ColFTResignNote"
         Me.ColFTResignNote.OptionsColumn.AllowEdit = False
         Me.ColFTResignNote.OptionsColumn.AllowMove = False
@@ -11542,7 +11486,7 @@ Partial Class wEmployee
         Me.ColFTResignNote.OptionsColumn.ReadOnly = True
         Me.ColFTResignNote.Visible = True
         Me.ColFTResignNote.VisibleIndex = 8
-        Me.ColFTResignNote.Width = 252
+        Me.ColFTResignNote.Width = 294
         '
         'RepositoryItemCalcEdit3
         '
@@ -11571,18 +11515,18 @@ Partial Class wEmployee
         Me.ogbresign.Controls.Add(Me.FNHSysResignId2)
         Me.ogbresign.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbresign.Location = New System.Drawing.Point(0, 0)
-        Me.ogbresign.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbresign.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbresign.Name = "ogbresign"
         Me.ogbresign.ShowCaption = False
-        Me.ogbresign.Size = New System.Drawing.Size(1405, 325)
+        Me.ogbresign.Size = New System.Drawing.Size(1639, 256)
         Me.ogbresign.TabIndex = 306
         '
         'FDDelEMailDate
         '
         Me.FDDelEMailDate.EditValue = Nothing
         Me.FDDelEMailDate.EnterMoveNextControl = True
-        Me.FDDelEMailDate.Location = New System.Drawing.Point(629, 7)
-        Me.FDDelEMailDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDelEMailDate.Location = New System.Drawing.Point(734, 9)
+        Me.FDDelEMailDate.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDelEMailDate.Name = "FDDelEMailDate"
         Me.FDDelEMailDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDelEMailDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -11593,7 +11537,7 @@ Partial Class wEmployee
         Me.FDDelEMailDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDelEMailDate.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDelEMailDate.Properties.NullDate = ""
-        Me.FDDelEMailDate.Size = New System.Drawing.Size(122, 20)
+        Me.FDDelEMailDate.Size = New System.Drawing.Size(142, 23)
         Me.FDDelEMailDate.TabIndex = 389
         Me.FDDelEMailDate.Tag = "2|"
         '
@@ -11602,59 +11546,59 @@ Partial Class wEmployee
         Me.FDDelEMailDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDelEMailDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDelEMailDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDelEMailDate_lbl.Location = New System.Drawing.Point(481, 7)
-        Me.FDDelEMailDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDelEMailDate_lbl.Location = New System.Drawing.Point(561, 9)
+        Me.FDDelEMailDate_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDelEMailDate_lbl.Name = "FDDelEMailDate_lbl"
-        Me.FDDelEMailDate_lbl.Size = New System.Drawing.Size(147, 25)
+        Me.FDDelEMailDate_lbl.Size = New System.Drawing.Size(171, 31)
         Me.FDDelEMailDate_lbl.TabIndex = 390
         Me.FDDelEMailDate_lbl.Tag = "2|"
         Me.FDDelEMailDate_lbl.Text = "วันที่ลบ E-Mail :"
         '
         'FTBackListSta
         '
-        Me.FTBackListSta.Location = New System.Drawing.Point(758, 62)
-        Me.FTBackListSta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTBackListSta.Location = New System.Drawing.Point(884, 76)
+        Me.FTBackListSta.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTBackListSta.Name = "FTBackListSta"
         Me.FTBackListSta.Properties.Caption = "Blacklist"
         Me.FTBackListSta.Properties.ValueChecked = "1"
         Me.FTBackListSta.Properties.ValueUnchecked = "0"
-        Me.FTBackListSta.Size = New System.Drawing.Size(212, 20)
+        Me.FTBackListSta.Size = New System.Drawing.Size(247, 20)
         Me.FTBackListSta.TabIndex = 388
         Me.FTBackListSta.Tag = "2|"
         '
         'FTRetEquipment
         '
-        Me.FTRetEquipment.Location = New System.Drawing.Point(549, 60)
-        Me.FTRetEquipment.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRetEquipment.Location = New System.Drawing.Point(640, 74)
+        Me.FTRetEquipment.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRetEquipment.Name = "FTRetEquipment"
         Me.FTRetEquipment.Properties.Caption = "คืนอุปกรณื"
         Me.FTRetEquipment.Properties.ValueChecked = "1"
         Me.FTRetEquipment.Properties.ValueUnchecked = "0"
-        Me.FTRetEquipment.Size = New System.Drawing.Size(202, 20)
+        Me.FTRetEquipment.Size = New System.Drawing.Size(236, 21)
         Me.FTRetEquipment.TabIndex = 387
         Me.FTRetEquipment.Tag = "2|"
         '
         'FTDestroyCard
         '
-        Me.FTDestroyCard.Location = New System.Drawing.Point(330, 60)
-        Me.FTDestroyCard.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDestroyCard.Location = New System.Drawing.Point(385, 74)
+        Me.FTDestroyCard.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDestroyCard.Name = "FTDestroyCard"
         Me.FTDestroyCard.Properties.Caption = "ทำลายบัตรพนักงาน"
         Me.FTDestroyCard.Properties.ValueChecked = "1"
         Me.FTDestroyCard.Properties.ValueUnchecked = "0"
-        Me.FTDestroyCard.Size = New System.Drawing.Size(212, 20)
+        Me.FTDestroyCard.Size = New System.Drawing.Size(247, 21)
         Me.FTDestroyCard.TabIndex = 386
         Me.FTDestroyCard.Tag = "2|"
         '
         'FTRetEmpCard
         '
-        Me.FTRetEmpCard.Location = New System.Drawing.Point(120, 60)
-        Me.FTRetEmpCard.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRetEmpCard.Location = New System.Drawing.Point(140, 74)
+        Me.FTRetEmpCard.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRetEmpCard.Name = "FTRetEmpCard"
         Me.FTRetEmpCard.Properties.Caption = "คืนบัตรพนักงาน"
         Me.FTRetEmpCard.Properties.ValueChecked = "1"
         Me.FTRetEmpCard.Properties.ValueUnchecked = "0"
-        Me.FTRetEmpCard.Size = New System.Drawing.Size(203, 20)
+        Me.FTRetEmpCard.Size = New System.Drawing.Size(237, 21)
         Me.FTRetEmpCard.TabIndex = 385
         Me.FTRetEmpCard.Tag = "2|"
         '
@@ -11664,11 +11608,11 @@ Partial Class wEmployee
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTResignNote.EditValue = ""
-        Me.FTResignNote.Location = New System.Drawing.Point(129, 85)
-        Me.FTResignNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTResignNote.Location = New System.Drawing.Point(147, 105)
+        Me.FTResignNote.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTResignNote.Name = "FTResignNote"
         Me.FTResignNote.Properties.MaxLength = 500
-        Me.FTResignNote.Size = New System.Drawing.Size(1392, 210)
+        Me.FTResignNote.Size = New System.Drawing.Size(895, 133)
         Me.FTResignNote.TabIndex = 380
         Me.FTResignNote.Tag = "2|"
         '
@@ -11677,10 +11621,10 @@ Partial Class wEmployee
         Me.FTResignNote_lbl.Appearance.Options.UseTextOptions = True
         Me.FTResignNote_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTResignNote_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTResignNote_lbl.Location = New System.Drawing.Point(14, 81)
-        Me.FTResignNote_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTResignNote_lbl.Location = New System.Drawing.Point(16, 100)
+        Me.FTResignNote_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTResignNote_lbl.Name = "FTResignNote_lbl"
-        Me.FTResignNote_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FTResignNote_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FTResignNote_lbl.TabIndex = 381
         Me.FTResignNote_lbl.Tag = "2|"
         Me.FTResignNote_lbl.Text = "หมายเหตุ :"
@@ -11689,8 +11633,8 @@ Partial Class wEmployee
         '
         Me.FDDateResign.EditValue = Nothing
         Me.FDDateResign.EnterMoveNextControl = True
-        Me.FDDateResign.Location = New System.Drawing.Point(360, 7)
-        Me.FDDateResign.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateResign.Location = New System.Drawing.Point(420, 9)
+        Me.FDDateResign.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateResign.Name = "FDDateResign"
         Me.FDDateResign.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateResign.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -11701,7 +11645,7 @@ Partial Class wEmployee
         Me.FDDateResign.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateResign.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateResign.Properties.NullDate = ""
-        Me.FDDateResign.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateResign.Size = New System.Drawing.Size(136, 23)
         Me.FDDateResign.TabIndex = 325
         Me.FDDateResign.Tag = "2|"
         '
@@ -11712,10 +11656,10 @@ Partial Class wEmployee
         Me.FDDateResign_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateResign_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateResign_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateResign_lbl.Location = New System.Drawing.Point(247, 7)
-        Me.FDDateResign_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateResign_lbl.Location = New System.Drawing.Point(288, 9)
+        Me.FDDateResign_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateResign_lbl.Name = "FDDateResign_lbl"
-        Me.FDDateResign_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateResign_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateResign_lbl.TabIndex = 327
         Me.FDDateResign_lbl.Tag = "2|"
         Me.FDDateResign_lbl.Text = "วันที่ลาออก :"
@@ -11724,8 +11668,8 @@ Partial Class wEmployee
         '
         Me.FDDateBegin.EditValue = Nothing
         Me.FDDateBegin.EnterMoveNextControl = True
-        Me.FDDateBegin.Location = New System.Drawing.Point(124, 7)
-        Me.FDDateBegin.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateBegin.Location = New System.Drawing.Point(145, 9)
+        Me.FDDateBegin.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateBegin.Name = "FDDateBegin"
         Me.FDDateBegin.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateBegin.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -11736,7 +11680,7 @@ Partial Class wEmployee
         Me.FDDateBegin.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateBegin.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateBegin.Properties.NullDate = ""
-        Me.FDDateBegin.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateBegin.Size = New System.Drawing.Size(136, 23)
         Me.FDDateBegin.TabIndex = 324
         Me.FDDateBegin.Tag = "2|"
         '
@@ -11747,10 +11691,10 @@ Partial Class wEmployee
         Me.FDDateBegin_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateBegin_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateBegin_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateBegin_lbl.Location = New System.Drawing.Point(10, 7)
-        Me.FDDateBegin_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateBegin_lbl.Location = New System.Drawing.Point(12, 9)
+        Me.FDDateBegin_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateBegin_lbl.Name = "FDDateBegin_lbl"
-        Me.FDDateBegin_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateBegin_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateBegin_lbl.TabIndex = 326
         Me.FDDateBegin_lbl.Tag = "2|"
         Me.FDDateBegin_lbl.Text = "วันที่เริ่มงาน :"
@@ -11759,13 +11703,13 @@ Partial Class wEmployee
         '
         Me.FNHSysResignId2_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysResignId2_None.Location = New System.Drawing.Point(256, 33)
-        Me.FNHSysResignId2_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysResignId2_None.Location = New System.Drawing.Point(299, 41)
+        Me.FNHSysResignId2_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysResignId2_None.Name = "FNHSysResignId2_None"
         Me.FNHSysResignId2_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysResignId2_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysResignId2_None.Properties.ReadOnly = True
-        Me.FNHSysResignId2_None.Size = New System.Drawing.Size(1223, 20)
+        Me.FNHSysResignId2_None.Size = New System.Drawing.Size(2228, 23)
         Me.FNHSysResignId2_None.TabIndex = 298
         Me.FNHSysResignId2_None.Tag = "2|"
         '
@@ -11776,31 +11720,31 @@ Partial Class wEmployee
         Me.FNHSysResignId2_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysResignId2_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysResignId2_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysResignId2_lbl.Location = New System.Drawing.Point(-2, 32)
-        Me.FNHSysResignId2_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysResignId2_lbl.Location = New System.Drawing.Point(-2, 39)
+        Me.FNHSysResignId2_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysResignId2_lbl.Name = "FNHSysResignId2_lbl"
-        Me.FNHSysResignId2_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysResignId2_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNHSysResignId2_lbl.TabIndex = 297
         Me.FNHSysResignId2_lbl.Tag = "2|"
         Me.FNHSysResignId2_lbl.Text = "เหตุผล :"
         '
         'FNHSysResignId2
         '
-        Me.FNHSysResignId2.Location = New System.Drawing.Point(125, 32)
-        Me.FNHSysResignId2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysResignId2.Location = New System.Drawing.Point(146, 39)
+        Me.FNHSysResignId2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysResignId2.Name = "FNHSysResignId2"
-        Me.FNHSysResignId2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions67, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject265, SerializableAppearanceObject266, SerializableAppearanceObject267, SerializableAppearanceObject268, "", "68", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysResignId2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions66, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject261, SerializableAppearanceObject262, SerializableAppearanceObject263, SerializableAppearanceObject264, "", "68", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysResignId2.Properties.Tag = "68"
-        Me.FNHSysResignId2.Size = New System.Drawing.Size(115, 20)
+        Me.FNHSysResignId2.Size = New System.Drawing.Size(134, 23)
         Me.FNHSysResignId2.TabIndex = 296
         Me.FNHSysResignId2.Tag = "2|"
         '
         'otpemptrain
         '
         Me.otpemptrain.Controls.Add(Me.ogpDetail)
-        Me.otpemptrain.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otpemptrain.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otpemptrain.Name = "otpemptrain"
-        Me.otpemptrain.Size = New System.Drawing.Size(1405, 709)
+        Me.otpemptrain.Size = New System.Drawing.Size(1639, 872)
         Me.otpemptrain.Text = "การอบรม"
         '
         'ogpDetail
@@ -11808,21 +11752,22 @@ Partial Class wEmployee
         Me.ogpDetail.Controls.Add(Me.ogctrain)
         Me.ogpDetail.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogpDetail.Location = New System.Drawing.Point(0, 0)
+        Me.ogpDetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogpDetail.Name = "ogpDetail"
-        Me.ogpDetail.Size = New System.Drawing.Size(1405, 709)
+        Me.ogpDetail.Size = New System.Drawing.Size(1639, 872)
         Me.ogpDetail.TabIndex = 5
         Me.ogpDetail.Text = "Detail"
         '
         'ogctrain
         '
         Me.ogctrain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogctrain.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogctrain.Location = New System.Drawing.Point(2, 23)
+        Me.ogctrain.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.ogctrain.Location = New System.Drawing.Point(2, 27)
         Me.ogctrain.MainView = Me.ogvtrain
-        Me.ogctrain.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogctrain.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogctrain.Name = "ogctrain"
         Me.ogctrain.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit1})
-        Me.ogctrain.Size = New System.Drawing.Size(1401, 684)
+        Me.ogctrain.Size = New System.Drawing.Size(1635, 843)
         Me.ogctrain.TabIndex = 5
         Me.ogctrain.TabStop = False
         Me.ogctrain.Tag = "2|"
@@ -11831,7 +11776,6 @@ Partial Class wEmployee
         'ogvtrain
         '
         Me.ogvtrain.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNTrainSeqNo, Me.FTTrainCode, Me.FTTrainDesc, Me.FTTrainType, Me.FTPurpose, Me.FTTrainer, Me.FDTrainDateBegin, Me.FDTrainDateEnd, Me.FTStartTime, Me.FTEndTime, Me.FNSumHours, Me.FTLocation, Me.FCCostPerEmp, Me.FTEvaluate, Me.FTTrainNote, Me.FTDocNo, Me.FDDocDate})
-        Me.ogvtrain.DetailHeight = 284
         Me.ogvtrain.GridControl = Me.ogctrain
         Me.ogvtrain.Name = "ogvtrain"
         Me.ogvtrain.OptionsCustomization.AllowGroup = False
@@ -11848,13 +11792,11 @@ Partial Class wEmployee
         Me.FNTrainSeqNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNTrainSeqNo.Caption = "FNSeqNo"
         Me.FNTrainSeqNo.FieldName = "FNSeqNo"
-        Me.FNTrainSeqNo.MinWidth = 17
         Me.FNTrainSeqNo.Name = "FNTrainSeqNo"
         Me.FNTrainSeqNo.OptionsColumn.AllowEdit = False
         Me.FNTrainSeqNo.OptionsColumn.AllowMove = False
         Me.FNTrainSeqNo.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNTrainSeqNo.OptionsColumn.ReadOnly = True
-        Me.FNTrainSeqNo.Width = 64
         '
         'FTTrainCode
         '
@@ -11862,7 +11804,6 @@ Partial Class wEmployee
         Me.FTTrainCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTTrainCode.Caption = "FTTrainCode"
         Me.FTTrainCode.FieldName = "FTTrainCode"
-        Me.FTTrainCode.MinWidth = 17
         Me.FTTrainCode.Name = "FTTrainCode"
         Me.FTTrainCode.OptionsColumn.AllowEdit = False
         Me.FTTrainCode.OptionsColumn.AllowMove = False
@@ -11870,7 +11811,7 @@ Partial Class wEmployee
         Me.FTTrainCode.OptionsColumn.ReadOnly = True
         Me.FTTrainCode.Visible = True
         Me.FTTrainCode.VisibleIndex = 0
-        Me.FTTrainCode.Width = 105
+        Me.FTTrainCode.Width = 122
         '
         'FTTrainDesc
         '
@@ -11878,7 +11819,6 @@ Partial Class wEmployee
         Me.FTTrainDesc.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTTrainDesc.Caption = "FTTrainDesc"
         Me.FTTrainDesc.FieldName = "FTTrainDesc"
-        Me.FTTrainDesc.MinWidth = 17
         Me.FTTrainDesc.Name = "FTTrainDesc"
         Me.FTTrainDesc.OptionsColumn.AllowEdit = False
         Me.FTTrainDesc.OptionsColumn.AllowMove = False
@@ -11886,7 +11826,7 @@ Partial Class wEmployee
         Me.FTTrainDesc.OptionsColumn.ReadOnly = True
         Me.FTTrainDesc.Visible = True
         Me.FTTrainDesc.VisibleIndex = 1
-        Me.FTTrainDesc.Width = 244
+        Me.FTTrainDesc.Width = 285
         '
         'FTTrainType
         '
@@ -11894,7 +11834,6 @@ Partial Class wEmployee
         Me.FTTrainType.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTTrainType.Caption = "FTType"
         Me.FTTrainType.FieldName = "FTType"
-        Me.FTTrainType.MinWidth = 17
         Me.FTTrainType.Name = "FTTrainType"
         Me.FTTrainType.OptionsColumn.AllowEdit = False
         Me.FTTrainType.OptionsColumn.AllowMove = False
@@ -11902,7 +11841,6 @@ Partial Class wEmployee
         Me.FTTrainType.OptionsColumn.ReadOnly = True
         Me.FTTrainType.Visible = True
         Me.FTTrainType.VisibleIndex = 2
-        Me.FTTrainType.Width = 64
         '
         'FTPurpose
         '
@@ -11910,13 +11848,11 @@ Partial Class wEmployee
         Me.FTPurpose.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTPurpose.Caption = "FTPurpose"
         Me.FTPurpose.FieldName = "FTPurpose"
-        Me.FTPurpose.MinWidth = 17
         Me.FTPurpose.Name = "FTPurpose"
         Me.FTPurpose.OptionsColumn.AllowEdit = False
         Me.FTPurpose.OptionsColumn.ReadOnly = True
         Me.FTPurpose.Visible = True
         Me.FTPurpose.VisibleIndex = 3
-        Me.FTPurpose.Width = 64
         '
         'FTTrainer
         '
@@ -11924,7 +11860,6 @@ Partial Class wEmployee
         Me.FTTrainer.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTTrainer.Caption = "FTTrainer"
         Me.FTTrainer.FieldName = "FTTrainer"
-        Me.FTTrainer.MinWidth = 17
         Me.FTTrainer.Name = "FTTrainer"
         Me.FTTrainer.OptionsColumn.AllowEdit = False
         Me.FTTrainer.OptionsColumn.AllowMove = False
@@ -11932,7 +11867,7 @@ Partial Class wEmployee
         Me.FTTrainer.OptionsColumn.ReadOnly = True
         Me.FTTrainer.Visible = True
         Me.FTTrainer.VisibleIndex = 4
-        Me.FTTrainer.Width = 327
+        Me.FTTrainer.Width = 381
         '
         'FDTrainDateBegin
         '
@@ -11942,7 +11877,6 @@ Partial Class wEmployee
         Me.FDTrainDateBegin.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FDTrainDateBegin.Caption = "FDDateBegin"
         Me.FDTrainDateBegin.FieldName = "FDDateBegin"
-        Me.FDTrainDateBegin.MinWidth = 17
         Me.FDTrainDateBegin.Name = "FDTrainDateBegin"
         Me.FDTrainDateBegin.OptionsColumn.AllowEdit = False
         Me.FDTrainDateBegin.OptionsColumn.AllowMove = False
@@ -11950,7 +11884,6 @@ Partial Class wEmployee
         Me.FDTrainDateBegin.OptionsColumn.ReadOnly = True
         Me.FDTrainDateBegin.Visible = True
         Me.FDTrainDateBegin.VisibleIndex = 5
-        Me.FDTrainDateBegin.Width = 64
         '
         'FDTrainDateEnd
         '
@@ -11960,7 +11893,6 @@ Partial Class wEmployee
         Me.FDTrainDateEnd.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FDTrainDateEnd.Caption = "FDDateEnd"
         Me.FDTrainDateEnd.FieldName = "FDDateEnd"
-        Me.FDTrainDateEnd.MinWidth = 17
         Me.FDTrainDateEnd.Name = "FDTrainDateEnd"
         Me.FDTrainDateEnd.OptionsColumn.AllowEdit = False
         Me.FDTrainDateEnd.OptionsColumn.AllowMove = False
@@ -11968,7 +11900,6 @@ Partial Class wEmployee
         Me.FDTrainDateEnd.OptionsColumn.ReadOnly = True
         Me.FDTrainDateEnd.Visible = True
         Me.FDTrainDateEnd.VisibleIndex = 6
-        Me.FDTrainDateEnd.Width = 64
         '
         'FTStartTime
         '
@@ -11976,7 +11907,6 @@ Partial Class wEmployee
         Me.FTStartTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTStartTime.Caption = "FTStartTime"
         Me.FTStartTime.FieldName = "FTStartTime"
-        Me.FTStartTime.MinWidth = 17
         Me.FTStartTime.Name = "FTStartTime"
         Me.FTStartTime.OptionsColumn.AllowEdit = False
         Me.FTStartTime.OptionsColumn.AllowMove = False
@@ -11984,7 +11914,6 @@ Partial Class wEmployee
         Me.FTStartTime.OptionsColumn.ReadOnly = True
         Me.FTStartTime.Visible = True
         Me.FTStartTime.VisibleIndex = 7
-        Me.FTStartTime.Width = 64
         '
         'FTEndTime
         '
@@ -11992,7 +11921,6 @@ Partial Class wEmployee
         Me.FTEndTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTEndTime.Caption = "FTEndTime"
         Me.FTEndTime.FieldName = "FTEndTime"
-        Me.FTEndTime.MinWidth = 17
         Me.FTEndTime.Name = "FTEndTime"
         Me.FTEndTime.OptionsColumn.AllowEdit = False
         Me.FTEndTime.OptionsColumn.AllowMove = False
@@ -12000,7 +11928,6 @@ Partial Class wEmployee
         Me.FTEndTime.OptionsColumn.ReadOnly = True
         Me.FTEndTime.Visible = True
         Me.FTEndTime.VisibleIndex = 8
-        Me.FTEndTime.Width = 64
         '
         'FNSumHours
         '
@@ -12008,7 +11935,6 @@ Partial Class wEmployee
         Me.FNSumHours.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNSumHours.Caption = "FNSumHours"
         Me.FNSumHours.FieldName = "FNSumHours"
-        Me.FNSumHours.MinWidth = 17
         Me.FNSumHours.Name = "FNSumHours"
         Me.FNSumHours.OptionsColumn.AllowEdit = False
         Me.FNSumHours.OptionsColumn.AllowMove = False
@@ -12016,7 +11942,6 @@ Partial Class wEmployee
         Me.FNSumHours.OptionsColumn.ReadOnly = True
         Me.FNSumHours.Visible = True
         Me.FNSumHours.VisibleIndex = 9
-        Me.FNSumHours.Width = 64
         '
         'FTLocation
         '
@@ -12024,7 +11949,6 @@ Partial Class wEmployee
         Me.FTLocation.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTLocation.Caption = "FTLocation"
         Me.FTLocation.FieldName = "FTLocation"
-        Me.FTLocation.MinWidth = 17
         Me.FTLocation.Name = "FTLocation"
         Me.FTLocation.OptionsColumn.AllowEdit = False
         Me.FTLocation.OptionsColumn.AllowMove = False
@@ -12032,7 +11956,7 @@ Partial Class wEmployee
         Me.FTLocation.OptionsColumn.ReadOnly = True
         Me.FTLocation.Visible = True
         Me.FTLocation.VisibleIndex = 10
-        Me.FTLocation.Width = 363
+        Me.FTLocation.Width = 423
         '
         'FCCostPerEmp
         '
@@ -12044,7 +11968,6 @@ Partial Class wEmployee
         Me.FCCostPerEmp.DisplayFormat.FormatString = "{0:n2}"
         Me.FCCostPerEmp.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FCCostPerEmp.FieldName = "FCCostPerEmp"
-        Me.FCCostPerEmp.MinWidth = 17
         Me.FCCostPerEmp.Name = "FCCostPerEmp"
         Me.FCCostPerEmp.OptionsColumn.AllowEdit = False
         Me.FCCostPerEmp.OptionsColumn.AllowMove = False
@@ -12052,7 +11975,7 @@ Partial Class wEmployee
         Me.FCCostPerEmp.OptionsColumn.ReadOnly = True
         Me.FCCostPerEmp.Visible = True
         Me.FCCostPerEmp.VisibleIndex = 11
-        Me.FCCostPerEmp.Width = 73
+        Me.FCCostPerEmp.Width = 85
         '
         'FTEvaluate
         '
@@ -12060,7 +11983,6 @@ Partial Class wEmployee
         Me.FTEvaluate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTEvaluate.Caption = "FTEvaluate"
         Me.FTEvaluate.FieldName = "FTEvaluate"
-        Me.FTEvaluate.MinWidth = 17
         Me.FTEvaluate.Name = "FTEvaluate"
         Me.FTEvaluate.OptionsColumn.AllowEdit = False
         Me.FTEvaluate.OptionsColumn.AllowMove = False
@@ -12068,7 +11990,7 @@ Partial Class wEmployee
         Me.FTEvaluate.OptionsColumn.ReadOnly = True
         Me.FTEvaluate.Visible = True
         Me.FTEvaluate.VisibleIndex = 12
-        Me.FTEvaluate.Width = 86
+        Me.FTEvaluate.Width = 100
         '
         'FTTrainNote
         '
@@ -12076,7 +11998,6 @@ Partial Class wEmployee
         Me.FTTrainNote.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTTrainNote.Caption = "FTTrainNote"
         Me.FTTrainNote.FieldName = "FTTrainNote"
-        Me.FTTrainNote.MinWidth = 17
         Me.FTTrainNote.Name = "FTTrainNote"
         Me.FTTrainNote.OptionsColumn.AllowEdit = False
         Me.FTTrainNote.OptionsColumn.AllowMove = False
@@ -12084,7 +12005,7 @@ Partial Class wEmployee
         Me.FTTrainNote.OptionsColumn.ReadOnly = True
         Me.FTTrainNote.Visible = True
         Me.FTTrainNote.VisibleIndex = 13
-        Me.FTTrainNote.Width = 210
+        Me.FTTrainNote.Width = 245
         '
         'FTDocNo
         '
@@ -12092,9 +12013,7 @@ Partial Class wEmployee
         Me.FTDocNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTDocNo.Caption = "FTDocNo"
         Me.FTDocNo.FieldName = "FTDocNo"
-        Me.FTDocNo.MinWidth = 17
         Me.FTDocNo.Name = "FTDocNo"
-        Me.FTDocNo.Width = 64
         '
         'FDDocDate
         '
@@ -12102,9 +12021,7 @@ Partial Class wEmployee
         Me.FDDocDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FDDocDate.Caption = "FDDocDate"
         Me.FDDocDate.FieldName = "FDDocDate"
-        Me.FDDocDate.MinWidth = 17
         Me.FDDocDate.Name = "FDDocDate"
-        Me.FDDocDate.Width = 64
         '
         'RepositoryItemCalcEdit1
         '
@@ -12118,9 +12035,9 @@ Partial Class wEmployee
         '
         Me.otpemppunishment.Controls.Add(Me.GroupControl18)
         Me.otpemppunishment.Controls.Add(Me.ogbpunsh)
-        Me.otpemppunishment.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otpemppunishment.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.otpemppunishment.Name = "otpemppunishment"
-        Me.otpemppunishment.Size = New System.Drawing.Size(1405, 709)
+        Me.otpemppunishment.Size = New System.Drawing.Size(1639, 872)
         Me.otpemppunishment.Text = "การลงโทษ"
         '
         'GroupControl18
@@ -12129,22 +12046,22 @@ Partial Class wEmployee
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupControl18.Controls.Add(Me.ogdPunishment)
-        Me.GroupControl18.Location = New System.Drawing.Point(4, 376)
-        Me.GroupControl18.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl18.Location = New System.Drawing.Point(6, 313)
+        Me.GroupControl18.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl18.Name = "GroupControl18"
-        Me.GroupControl18.Size = New System.Drawing.Size(1997, 686)
+        Me.GroupControl18.Size = New System.Drawing.Size(2913, 1321)
         Me.GroupControl18.TabIndex = 309
         '
         'ogdPunishment
         '
         Me.ogdPunishment.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdPunishment.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogdPunishment.Location = New System.Drawing.Point(2, 23)
+        Me.ogdPunishment.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.ogdPunishment.Location = New System.Drawing.Point(2, 27)
         Me.ogdPunishment.MainView = Me.ogvPunishment
-        Me.ogdPunishment.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogdPunishment.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogdPunishment.Name = "ogdPunishment"
         Me.ogdPunishment.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit4, Me.RepFTStaOutstanding, Me.RepoCheckEditTSuspended})
-        Me.ogdPunishment.Size = New System.Drawing.Size(1993, 661)
+        Me.ogdPunishment.Size = New System.Drawing.Size(2909, 1292)
         Me.ogdPunishment.TabIndex = 5
         Me.ogdPunishment.TabStop = False
         Me.ogdPunishment.Tag = "2|"
@@ -12153,7 +12070,6 @@ Partial Class wEmployee
         'ogvPunishment
         '
         Me.ogvPunishment.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFNSeqNo, Me.FDColDatePunishment, Me.FDColFDDateEndPunishment, Me.FTColLevelCode, Me.FTColCause, Me.FTColPunishmentBy, Me.FTColLevelName, Me.FTColStaOutstanding, Me.ColFNHSysPunishmentLvId, Me.FDColFTSuspended})
-        Me.ogvPunishment.DetailHeight = 284
         Me.ogvPunishment.GridControl = Me.ogdPunishment
         Me.ogvPunishment.Name = "ogvPunishment"
         Me.ogvPunishment.OptionsCustomization.AllowGroup = False
@@ -12167,9 +12083,7 @@ Partial Class wEmployee
         '
         Me.ColFNSeqNo.Caption = "FNSeqNo"
         Me.ColFNSeqNo.FieldName = "FNSeqNo"
-        Me.ColFNSeqNo.MinWidth = 17
         Me.ColFNSeqNo.Name = "ColFNSeqNo"
-        Me.ColFNSeqNo.Width = 64
         '
         'FDColDatePunishment
         '
@@ -12179,7 +12093,6 @@ Partial Class wEmployee
         Me.FDColDatePunishment.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FDColDatePunishment.Caption = "FDDatePunishment"
         Me.FDColDatePunishment.FieldName = "FDDatePunishment"
-        Me.FDColDatePunishment.MinWidth = 17
         Me.FDColDatePunishment.Name = "FDColDatePunishment"
         Me.FDColDatePunishment.OptionsColumn.AllowEdit = False
         Me.FDColDatePunishment.OptionsColumn.AllowMove = False
@@ -12187,13 +12100,13 @@ Partial Class wEmployee
         Me.FDColDatePunishment.OptionsColumn.ReadOnly = True
         Me.FDColDatePunishment.Visible = True
         Me.FDColDatePunishment.VisibleIndex = 0
-        Me.FDColDatePunishment.Width = 83
+        Me.FDColDatePunishment.Width = 97
         '
         'FDColFDDateEndPunishment
         '
         Me.FDColFDDateEndPunishment.Caption = "FDDateEndPunishment"
         Me.FDColFDDateEndPunishment.FieldName = "FDDateEndPunishment"
-        Me.FDColFDDateEndPunishment.MinWidth = 21
+        Me.FDColFDDateEndPunishment.MinWidth = 24
         Me.FDColFDDateEndPunishment.Name = "FDColFDDateEndPunishment"
         Me.FDColFDDateEndPunishment.OptionsColumn.AllowEdit = False
         Me.FDColFDDateEndPunishment.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -12201,7 +12114,7 @@ Partial Class wEmployee
         Me.FDColFDDateEndPunishment.OptionsColumn.ReadOnly = True
         Me.FDColFDDateEndPunishment.Visible = True
         Me.FDColFDDateEndPunishment.VisibleIndex = 1
-        Me.FDColFDDateEndPunishment.Width = 81
+        Me.FDColFDDateEndPunishment.Width = 94
         '
         'FTColLevelCode
         '
@@ -12209,7 +12122,6 @@ Partial Class wEmployee
         Me.FTColLevelCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTColLevelCode.Caption = "FTLevelCode"
         Me.FTColLevelCode.FieldName = "FTLevelCode"
-        Me.FTColLevelCode.MinWidth = 17
         Me.FTColLevelCode.Name = "FTColLevelCode"
         Me.FTColLevelCode.OptionsColumn.AllowEdit = False
         Me.FTColLevelCode.OptionsColumn.AllowMove = False
@@ -12217,7 +12129,7 @@ Partial Class wEmployee
         Me.FTColLevelCode.OptionsColumn.ReadOnly = True
         Me.FTColLevelCode.Visible = True
         Me.FTColLevelCode.VisibleIndex = 2
-        Me.FTColLevelCode.Width = 118
+        Me.FTColLevelCode.Width = 138
         '
         'FTColCause
         '
@@ -12225,7 +12137,6 @@ Partial Class wEmployee
         Me.FTColCause.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTColCause.Caption = "FTCause"
         Me.FTColCause.FieldName = "FTCause"
-        Me.FTColCause.MinWidth = 17
         Me.FTColCause.Name = "FTColCause"
         Me.FTColCause.OptionsColumn.AllowEdit = False
         Me.FTColCause.OptionsColumn.AllowMove = False
@@ -12233,7 +12144,7 @@ Partial Class wEmployee
         Me.FTColCause.OptionsColumn.ReadOnly = True
         Me.FTColCause.Visible = True
         Me.FTColCause.VisibleIndex = 3
-        Me.FTColCause.Width = 211
+        Me.FTColCause.Width = 246
         '
         'FTColPunishmentBy
         '
@@ -12241,7 +12152,6 @@ Partial Class wEmployee
         Me.FTColPunishmentBy.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTColPunishmentBy.Caption = "FTPunishmentBy"
         Me.FTColPunishmentBy.FieldName = "FTPunishmentBy"
-        Me.FTColPunishmentBy.MinWidth = 17
         Me.FTColPunishmentBy.Name = "FTColPunishmentBy"
         Me.FTColPunishmentBy.OptionsColumn.AllowEdit = False
         Me.FTColPunishmentBy.OptionsColumn.AllowMove = False
@@ -12249,7 +12159,7 @@ Partial Class wEmployee
         Me.FTColPunishmentBy.OptionsColumn.ReadOnly = True
         Me.FTColPunishmentBy.Visible = True
         Me.FTColPunishmentBy.VisibleIndex = 4
-        Me.FTColPunishmentBy.Width = 134
+        Me.FTColPunishmentBy.Width = 156
         '
         'FTColLevelName
         '
@@ -12257,7 +12167,6 @@ Partial Class wEmployee
         Me.FTColLevelName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTColLevelName.Caption = "FTLevelName"
         Me.FTColLevelName.FieldName = "FTLevelName"
-        Me.FTColLevelName.MinWidth = 17
         Me.FTColLevelName.Name = "FTColLevelName"
         Me.FTColLevelName.OptionsColumn.AllowEdit = False
         Me.FTColLevelName.OptionsColumn.AllowMove = False
@@ -12265,7 +12174,7 @@ Partial Class wEmployee
         Me.FTColLevelName.OptionsColumn.ReadOnly = True
         Me.FTColLevelName.Visible = True
         Me.FTColLevelName.VisibleIndex = 5
-        Me.FTColLevelName.Width = 187
+        Me.FTColLevelName.Width = 218
         '
         'FTColStaOutstanding
         '
@@ -12274,13 +12183,11 @@ Partial Class wEmployee
         Me.FTColStaOutstanding.Caption = "FTStaOutstanding"
         Me.FTColStaOutstanding.ColumnEdit = Me.RepFTStaOutstanding
         Me.FTColStaOutstanding.FieldName = "FTStaOutstanding"
-        Me.FTColStaOutstanding.MinWidth = 17
         Me.FTColStaOutstanding.Name = "FTColStaOutstanding"
         Me.FTColStaOutstanding.OptionsColumn.AllowEdit = False
         Me.FTColStaOutstanding.OptionsColumn.AllowMove = False
         Me.FTColStaOutstanding.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTColStaOutstanding.OptionsColumn.ReadOnly = True
-        Me.FTColStaOutstanding.Width = 64
         '
         'RepFTStaOutstanding
         '
@@ -12294,23 +12201,21 @@ Partial Class wEmployee
         '
         Me.ColFNHSysPunishmentLvId.Caption = "FNHSysPunishmentLvId"
         Me.ColFNHSysPunishmentLvId.FieldName = "FNHSysPunishmentLvId"
-        Me.ColFNHSysPunishmentLvId.MinWidth = 17
         Me.ColFNHSysPunishmentLvId.Name = "ColFNHSysPunishmentLvId"
-        Me.ColFNHSysPunishmentLvId.Width = 64
         '
         'FDColFTSuspended
         '
         Me.FDColFTSuspended.Caption = "FTSuspended"
         Me.FDColFTSuspended.ColumnEdit = Me.RepoCheckEditTSuspended
         Me.FDColFTSuspended.FieldName = "FTSuspended"
-        Me.FDColFTSuspended.MinWidth = 21
+        Me.FDColFTSuspended.MinWidth = 24
         Me.FDColFTSuspended.Name = "FDColFTSuspended"
         Me.FDColFTSuspended.OptionsColumn.AllowEdit = False
         Me.FDColFTSuspended.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDColFTSuspended.OptionsColumn.ReadOnly = True
         Me.FDColFTSuspended.Visible = True
         Me.FDColFTSuspended.VisibleIndex = 6
-        Me.FDColFTSuspended.Width = 81
+        Me.FDColFTSuspended.Width = 94
         '
         'RepoCheckEditTSuspended
         '
@@ -12359,38 +12264,38 @@ Partial Class wEmployee
         Me.ogbpunsh.Controls.Add(Me.FNHSysPunishmentLvId)
         Me.ogbpunsh.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbpunsh.Location = New System.Drawing.Point(0, 0)
-        Me.ogbpunsh.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbpunsh.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbpunsh.Name = "ogbpunsh"
         Me.ogbpunsh.ShowCaption = False
-        Me.ogbpunsh.Size = New System.Drawing.Size(1405, 528)
+        Me.ogbpunsh.Size = New System.Drawing.Size(1639, 249)
         Me.ogbpunsh.TabIndex = 308
         '
         '_FTInsTime
         '
-        Me._FTInsTime.Location = New System.Drawing.Point(1027, 6)
-        Me._FTInsTime.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me._FTInsTime.Location = New System.Drawing.Point(1198, 7)
+        Me._FTInsTime.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me._FTInsTime.Name = "_FTInsTime"
-        Me._FTInsTime.Size = New System.Drawing.Size(45, 20)
+        Me._FTInsTime.Size = New System.Drawing.Size(52, 23)
         Me._FTInsTime.TabIndex = 426
         Me._FTInsTime.Tag = "2|"
         Me._FTInsTime.Visible = False
         '
         '_FTInsDate
         '
-        Me._FTInsDate.Location = New System.Drawing.Point(976, 4)
-        Me._FTInsDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me._FTInsDate.Location = New System.Drawing.Point(1139, 5)
+        Me._FTInsDate.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me._FTInsDate.Name = "_FTInsDate"
-        Me._FTInsDate.Size = New System.Drawing.Size(45, 20)
+        Me._FTInsDate.Size = New System.Drawing.Size(52, 23)
         Me._FTInsDate.TabIndex = 425
         Me._FTInsDate.Tag = "2|"
         Me._FTInsDate.Visible = False
         '
         '_FTInsUser
         '
-        Me._FTInsUser.Location = New System.Drawing.Point(926, 5)
-        Me._FTInsUser.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me._FTInsUser.Location = New System.Drawing.Point(1080, 6)
+        Me._FTInsUser.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me._FTInsUser.Name = "_FTInsUser"
-        Me._FTInsUser.Size = New System.Drawing.Size(45, 20)
+        Me._FTInsUser.Size = New System.Drawing.Size(52, 23)
         Me._FTInsUser.TabIndex = 424
         Me._FTInsUser.Tag = "2|"
         Me._FTInsUser.Visible = False
@@ -12399,10 +12304,11 @@ Partial Class wEmployee
         '
         Me.FTOut2M.EditValue = Nothing
         Me.FTOut2M.EnterMoveNextControl = True
-        Me.FTOut2M.Location = New System.Drawing.Point(990, 65)
+        Me.FTOut2M.Location = New System.Drawing.Point(1155, 80)
+        Me.FTOut2M.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOut2M.Name = "FTOut2M"
         Me.FTOut2M.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTOut2M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions68, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject269, SerializableAppearanceObject270, SerializableAppearanceObject271, SerializableAppearanceObject272, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTOut2M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions67, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject265, SerializableAppearanceObject266, SerializableAppearanceObject267, SerializableAppearanceObject268, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOut2M.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTOut2M.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTOut2M.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -12410,7 +12316,7 @@ Partial Class wEmployee
         Me.FTOut2M.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTOut2M.Properties.Mask.EditMask = "HH:mm"
         Me.FTOut2M.Properties.NullDate = ""
-        Me.FTOut2M.Size = New System.Drawing.Size(20, 20)
+        Me.FTOut2M.Size = New System.Drawing.Size(23, 23)
         Me.FTOut2M.TabIndex = 423
         Me.FTOut2M.Tag = "2|"
         Me.FTOut2M.Visible = False
@@ -12419,10 +12325,11 @@ Partial Class wEmployee
         '
         Me.FTIn2M.EditValue = Nothing
         Me.FTIn2M.EnterMoveNextControl = True
-        Me.FTIn2M.Location = New System.Drawing.Point(969, 65)
+        Me.FTIn2M.Location = New System.Drawing.Point(1130, 80)
+        Me.FTIn2M.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTIn2M.Name = "FTIn2M"
         Me.FTIn2M.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTIn2M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions69, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject273, SerializableAppearanceObject274, SerializableAppearanceObject275, SerializableAppearanceObject276, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTIn2M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions68, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject269, SerializableAppearanceObject270, SerializableAppearanceObject271, SerializableAppearanceObject272, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTIn2M.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTIn2M.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTIn2M.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -12430,7 +12337,7 @@ Partial Class wEmployee
         Me.FTIn2M.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTIn2M.Properties.Mask.EditMask = "HH:mm"
         Me.FTIn2M.Properties.NullDate = ""
-        Me.FTIn2M.Size = New System.Drawing.Size(20, 20)
+        Me.FTIn2M.Size = New System.Drawing.Size(23, 23)
         Me.FTIn2M.TabIndex = 422
         Me.FTIn2M.Tag = "2|"
         Me.FTIn2M.Visible = False
@@ -12439,10 +12346,11 @@ Partial Class wEmployee
         '
         Me.FTOut1M.EditValue = Nothing
         Me.FTOut1M.EnterMoveNextControl = True
-        Me.FTOut1M.Location = New System.Drawing.Point(947, 65)
+        Me.FTOut1M.Location = New System.Drawing.Point(1105, 80)
+        Me.FTOut1M.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOut1M.Name = "FTOut1M"
         Me.FTOut1M.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTOut1M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions70, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject277, SerializableAppearanceObject278, SerializableAppearanceObject279, SerializableAppearanceObject280, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTOut1M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions69, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject273, SerializableAppearanceObject274, SerializableAppearanceObject275, SerializableAppearanceObject276, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOut1M.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTOut1M.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTOut1M.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -12450,7 +12358,7 @@ Partial Class wEmployee
         Me.FTOut1M.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTOut1M.Properties.Mask.EditMask = "HH:mm"
         Me.FTOut1M.Properties.NullDate = ""
-        Me.FTOut1M.Size = New System.Drawing.Size(20, 20)
+        Me.FTOut1M.Size = New System.Drawing.Size(23, 23)
         Me.FTOut1M.TabIndex = 421
         Me.FTOut1M.Tag = "2|"
         Me.FTOut1M.Visible = False
@@ -12459,10 +12367,11 @@ Partial Class wEmployee
         '
         Me.FTIn1M.EditValue = Nothing
         Me.FTIn1M.EnterMoveNextControl = True
-        Me.FTIn1M.Location = New System.Drawing.Point(926, 65)
+        Me.FTIn1M.Location = New System.Drawing.Point(1080, 80)
+        Me.FTIn1M.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTIn1M.Name = "FTIn1M"
         Me.FTIn1M.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTIn1M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions71, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject281, SerializableAppearanceObject282, SerializableAppearanceObject283, SerializableAppearanceObject284, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTIn1M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions70, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject277, SerializableAppearanceObject278, SerializableAppearanceObject279, SerializableAppearanceObject280, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTIn1M.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTIn1M.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTIn1M.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -12470,7 +12379,7 @@ Partial Class wEmployee
         Me.FTIn1M.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTIn1M.Properties.Mask.EditMask = "HH:mm"
         Me.FTIn1M.Properties.NullDate = ""
-        Me.FTIn1M.Size = New System.Drawing.Size(20, 20)
+        Me.FTIn1M.Size = New System.Drawing.Size(23, 23)
         Me.FTIn1M.TabIndex = 420
         Me.FTIn1M.Tag = "2|"
         Me.FTIn1M.Visible = False
@@ -12479,10 +12388,11 @@ Partial Class wEmployee
         '
         Me.FTOut2.EditValue = Nothing
         Me.FTOut2.EnterMoveNextControl = True
-        Me.FTOut2.Location = New System.Drawing.Point(991, 42)
+        Me.FTOut2.Location = New System.Drawing.Point(1156, 52)
+        Me.FTOut2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOut2.Name = "FTOut2"
         Me.FTOut2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTOut2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions72, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject285, SerializableAppearanceObject286, SerializableAppearanceObject287, SerializableAppearanceObject288, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTOut2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions71, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject281, SerializableAppearanceObject282, SerializableAppearanceObject283, SerializableAppearanceObject284, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOut2.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTOut2.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTOut2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -12490,7 +12400,7 @@ Partial Class wEmployee
         Me.FTOut2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTOut2.Properties.Mask.EditMask = "HH:mm"
         Me.FTOut2.Properties.NullDate = ""
-        Me.FTOut2.Size = New System.Drawing.Size(20, 20)
+        Me.FTOut2.Size = New System.Drawing.Size(23, 23)
         Me.FTOut2.TabIndex = 419
         Me.FTOut2.Tag = "2|"
         Me.FTOut2.Visible = False
@@ -12499,10 +12409,11 @@ Partial Class wEmployee
         '
         Me.FTIn2.EditValue = Nothing
         Me.FTIn2.EnterMoveNextControl = True
-        Me.FTIn2.Location = New System.Drawing.Point(970, 42)
+        Me.FTIn2.Location = New System.Drawing.Point(1132, 52)
+        Me.FTIn2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTIn2.Name = "FTIn2"
         Me.FTIn2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTIn2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions73, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject289, SerializableAppearanceObject290, SerializableAppearanceObject291, SerializableAppearanceObject292, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTIn2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions72, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject285, SerializableAppearanceObject286, SerializableAppearanceObject287, SerializableAppearanceObject288, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTIn2.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTIn2.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTIn2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -12510,7 +12421,7 @@ Partial Class wEmployee
         Me.FTIn2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTIn2.Properties.Mask.EditMask = "HH:mm"
         Me.FTIn2.Properties.NullDate = ""
-        Me.FTIn2.Size = New System.Drawing.Size(20, 20)
+        Me.FTIn2.Size = New System.Drawing.Size(23, 23)
         Me.FTIn2.TabIndex = 418
         Me.FTIn2.Tag = "2|"
         Me.FTIn2.Visible = False
@@ -12519,10 +12430,11 @@ Partial Class wEmployee
         '
         Me.FTOut1.EditValue = Nothing
         Me.FTOut1.EnterMoveNextControl = True
-        Me.FTOut1.Location = New System.Drawing.Point(948, 42)
+        Me.FTOut1.Location = New System.Drawing.Point(1106, 52)
+        Me.FTOut1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOut1.Name = "FTOut1"
         Me.FTOut1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTOut1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions74, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject293, SerializableAppearanceObject294, SerializableAppearanceObject295, SerializableAppearanceObject296, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTOut1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions73, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject289, SerializableAppearanceObject290, SerializableAppearanceObject291, SerializableAppearanceObject292, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOut1.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTOut1.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTOut1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -12530,7 +12442,7 @@ Partial Class wEmployee
         Me.FTOut1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTOut1.Properties.Mask.EditMask = "HH:mm"
         Me.FTOut1.Properties.NullDate = ""
-        Me.FTOut1.Size = New System.Drawing.Size(20, 20)
+        Me.FTOut1.Size = New System.Drawing.Size(23, 23)
         Me.FTOut1.TabIndex = 417
         Me.FTOut1.Tag = "2|"
         Me.FTOut1.Visible = False
@@ -12539,10 +12451,11 @@ Partial Class wEmployee
         '
         Me.FTIn1.EditValue = Nothing
         Me.FTIn1.EnterMoveNextControl = True
-        Me.FTIn1.Location = New System.Drawing.Point(926, 42)
+        Me.FTIn1.Location = New System.Drawing.Point(1080, 52)
+        Me.FTIn1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTIn1.Name = "FTIn1"
         Me.FTIn1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTIn1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions75, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject297, SerializableAppearanceObject298, SerializableAppearanceObject299, SerializableAppearanceObject300, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTIn1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions74, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject293, SerializableAppearanceObject294, SerializableAppearanceObject295, SerializableAppearanceObject296, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTIn1.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTIn1.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTIn1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -12550,7 +12463,7 @@ Partial Class wEmployee
         Me.FTIn1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTIn1.Properties.Mask.EditMask = "HH:mm"
         Me.FTIn1.Properties.NullDate = ""
-        Me.FTIn1.Size = New System.Drawing.Size(20, 20)
+        Me.FTIn1.Size = New System.Drawing.Size(23, 23)
         Me.FTIn1.TabIndex = 416
         Me.FTIn1.Tag = "2|"
         Me.FTIn1.Visible = False
@@ -12559,14 +12472,15 @@ Partial Class wEmployee
         '
         Me.FTETime.EditValue = Nothing
         Me.FTETime.EnterMoveNextControl = True
-        Me.FTETime.Location = New System.Drawing.Point(816, 5)
+        Me.FTETime.Location = New System.Drawing.Point(952, 6)
+        Me.FTETime.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTETime.Name = "FTETime"
         Me.FTETime.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTETime.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FTETime.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTETime.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTETime.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTETime.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions76, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject301, SerializableAppearanceObject302, SerializableAppearanceObject303, SerializableAppearanceObject304, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTETime.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions75, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject297, SerializableAppearanceObject298, SerializableAppearanceObject299, SerializableAppearanceObject300, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTETime.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTETime.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTETime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -12574,7 +12488,7 @@ Partial Class wEmployee
         Me.FTETime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTETime.Properties.Mask.EditMask = "HH:mm"
         Me.FTETime.Properties.NullDate = ""
-        Me.FTETime.Size = New System.Drawing.Size(58, 20)
+        Me.FTETime.Size = New System.Drawing.Size(68, 23)
         Me.FTETime.TabIndex = 393
         Me.FTETime.Tag = "2|"
         Me.FTETime.Visible = False
@@ -12583,14 +12497,15 @@ Partial Class wEmployee
         '
         Me.FTSTime.EditValue = Nothing
         Me.FTSTime.EnterMoveNextControl = True
-        Me.FTSTime.Location = New System.Drawing.Point(253, 7)
+        Me.FTSTime.Location = New System.Drawing.Point(295, 9)
+        Me.FTSTime.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSTime.Name = "FTSTime"
         Me.FTSTime.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTSTime.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FTSTime.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTSTime.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSTime.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTSTime.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions77, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject305, SerializableAppearanceObject306, SerializableAppearanceObject307, SerializableAppearanceObject308, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSTime.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions76, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject301, SerializableAppearanceObject302, SerializableAppearanceObject303, SerializableAppearanceObject304, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTSTime.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTSTime.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTSTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -12598,21 +12513,21 @@ Partial Class wEmployee
         Me.FTSTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTSTime.Properties.Mask.EditMask = "HH:mm"
         Me.FTSTime.Properties.NullDate = ""
-        Me.FTSTime.Size = New System.Drawing.Size(58, 20)
+        Me.FTSTime.Size = New System.Drawing.Size(68, 23)
         Me.FTSTime.TabIndex = 392
         Me.FTSTime.Tag = "2|"
         Me.FTSTime.Visible = False
         '
         'FTSuspended
         '
-        Me.FTSuspended.Location = New System.Drawing.Point(640, 53)
-        Me.FTSuspended.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSuspended.Location = New System.Drawing.Point(747, 65)
+        Me.FTSuspended.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTSuspended.Name = "FTSuspended"
         Me.FTSuspended.Properties.Caption = "มีผลกับการพักงาน"
         Me.FTSuspended.Properties.ReadOnly = True
         Me.FTSuspended.Properties.ValueChecked = "1"
         Me.FTSuspended.Properties.ValueUnchecked = "0"
-        Me.FTSuspended.Size = New System.Drawing.Size(268, 20)
+        Me.FTSuspended.Size = New System.Drawing.Size(313, 21)
         Me.FTSuspended.TabIndex = 391
         Me.FTSuspended.Tag = "2|"
         '
@@ -12620,8 +12535,8 @@ Partial Class wEmployee
         '
         Me.FDDateEndPunishment.EditValue = Nothing
         Me.FDDateEndPunishment.EnterMoveNextControl = True
-        Me.FDDateEndPunishment.Location = New System.Drawing.Point(390, 7)
-        Me.FDDateEndPunishment.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateEndPunishment.Location = New System.Drawing.Point(455, 9)
+        Me.FDDateEndPunishment.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateEndPunishment.Name = "FDDateEndPunishment"
         Me.FDDateEndPunishment.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateEndPunishment.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -12632,7 +12547,7 @@ Partial Class wEmployee
         Me.FDDateEndPunishment.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateEndPunishment.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateEndPunishment.Properties.NullDate = ""
-        Me.FDDateEndPunishment.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateEndPunishment.Size = New System.Drawing.Size(136, 23)
         Me.FDDateEndPunishment.TabIndex = 389
         Me.FDDateEndPunishment.Tag = "2|"
         '
@@ -12643,10 +12558,10 @@ Partial Class wEmployee
         Me.FDDateEndPunishment_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateEndPunishment_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateEndPunishment_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateEndPunishment_lbl.Location = New System.Drawing.Point(263, 6)
-        Me.FDDateEndPunishment_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateEndPunishment_lbl.Location = New System.Drawing.Point(307, 7)
+        Me.FDDateEndPunishment_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateEndPunishment_lbl.Name = "FDDateEndPunishment_lbl"
-        Me.FDDateEndPunishment_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateEndPunishment_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateEndPunishment_lbl.TabIndex = 390
         Me.FDDateEndPunishment_lbl.Tag = "2|"
         Me.FDDateEndPunishment_lbl.Text = "ถึงวันที่ :"
@@ -12654,8 +12569,8 @@ Partial Class wEmployee
         'FNPunishmentSeqNo
         '
         Me.FNPunishmentSeqNo.EnterMoveNextControl = True
-        Me.FNPunishmentSeqNo.Location = New System.Drawing.Point(580, 53)
-        Me.FNPunishmentSeqNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNPunishmentSeqNo.Location = New System.Drawing.Point(677, 65)
+        Me.FNPunishmentSeqNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNPunishmentSeqNo.Name = "FNPunishmentSeqNo"
         Me.FNPunishmentSeqNo.Properties.Appearance.Options.UseTextOptions = True
         Me.FNPunishmentSeqNo.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -12667,20 +12582,20 @@ Partial Class wEmployee
         Me.FNPunishmentSeqNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPunishmentSeqNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPunishmentSeqNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPunishmentSeqNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions78, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject309, SerializableAppearanceObject310, SerializableAppearanceObject311, SerializableAppearanceObject312, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPunishmentSeqNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions77, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject305, SerializableAppearanceObject306, SerializableAppearanceObject307, SerializableAppearanceObject308, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPunishmentSeqNo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPunishmentSeqNo.Properties.Precision = 2
-        Me.FNPunishmentSeqNo.Size = New System.Drawing.Size(40, 20)
+        Me.FNPunishmentSeqNo.Size = New System.Drawing.Size(47, 23)
         Me.FNPunishmentSeqNo.TabIndex = 388
         Me.FNPunishmentSeqNo.Tag = "2|"
         Me.FNPunishmentSeqNo.Visible = False
         '
         'FTPunishmentBy
         '
-        Me.FTPunishmentBy.Location = New System.Drawing.Point(124, 53)
-        Me.FTPunishmentBy.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTPunishmentBy.Location = New System.Drawing.Point(145, 65)
+        Me.FTPunishmentBy.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTPunishmentBy.Name = "FTPunishmentBy"
-        Me.FTPunishmentBy.Size = New System.Drawing.Size(414, 20)
+        Me.FTPunishmentBy.Size = New System.Drawing.Size(483, 23)
         Me.FTPunishmentBy.TabIndex = 386
         Me.FTPunishmentBy.Tag = "2|"
         '
@@ -12691,23 +12606,23 @@ Partial Class wEmployee
         Me.FTPunishmentBy_lbl.Appearance.Options.UseTextOptions = True
         Me.FTPunishmentBy_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTPunishmentBy_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTPunishmentBy_lbl.Location = New System.Drawing.Point(-2, 54)
-        Me.FTPunishmentBy_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTPunishmentBy_lbl.Location = New System.Drawing.Point(-2, 66)
+        Me.FTPunishmentBy_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTPunishmentBy_lbl.Name = "FTPunishmentBy_lbl"
-        Me.FTPunishmentBy_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTPunishmentBy_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTPunishmentBy_lbl.TabIndex = 387
         Me.FTPunishmentBy_lbl.Tag = "2|"
         Me.FTPunishmentBy_lbl.Text = "ลงโทษโดย :"
         '
         'FTStaOutstanding
         '
-        Me.FTStaOutstanding.Location = New System.Drawing.Point(543, 7)
-        Me.FTStaOutstanding.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStaOutstanding.Location = New System.Drawing.Point(633, 9)
+        Me.FTStaOutstanding.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStaOutstanding.Name = "FTStaOutstanding"
         Me.FTStaOutstanding.Properties.Caption = "มีผลกับพนักงานดีเด่น"
         Me.FTStaOutstanding.Properties.ValueChecked = "1"
         Me.FTStaOutstanding.Properties.ValueUnchecked = "0"
-        Me.FTStaOutstanding.Size = New System.Drawing.Size(268, 20)
+        Me.FTStaOutstanding.Size = New System.Drawing.Size(313, 21)
         Me.FTStaOutstanding.TabIndex = 385
         Me.FTStaOutstanding.Tag = "2|"
         Me.FTStaOutstanding.Visible = False
@@ -12718,11 +12633,11 @@ Partial Class wEmployee
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTCause.EditValue = ""
-        Me.FTCause.Location = New System.Drawing.Point(145, 77)
-        Me.FTCause.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTCause.Location = New System.Drawing.Point(184, 95)
+        Me.FTCause.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTCause.Name = "FTCause"
         Me.FTCause.Properties.MaxLength = 500
-        Me.FTCause.Size = New System.Drawing.Size(2712, 517)
+        Me.FTCause.Size = New System.Drawing.Size(4927, 146)
         Me.FTCause.TabIndex = 380
         Me.FTCause.Tag = "2|"
         '
@@ -12731,10 +12646,10 @@ Partial Class wEmployee
         Me.FTCause_lbl.Appearance.Options.UseTextOptions = True
         Me.FTCause_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTCause_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTCause_lbl.Location = New System.Drawing.Point(14, 77)
-        Me.FTCause_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTCause_lbl.Location = New System.Drawing.Point(16, 95)
+        Me.FTCause_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTCause_lbl.Name = "FTCause_lbl"
-        Me.FTCause_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FTCause_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FTCause_lbl.TabIndex = 381
         Me.FTCause_lbl.Tag = "2|"
         Me.FTCause_lbl.Text = "สาเหตุ :"
@@ -12743,8 +12658,8 @@ Partial Class wEmployee
         '
         Me.FDDatePunishment.EditValue = Nothing
         Me.FDDatePunishment.EnterMoveNextControl = True
-        Me.FDDatePunishment.Location = New System.Drawing.Point(124, 7)
-        Me.FDDatePunishment.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDatePunishment.Location = New System.Drawing.Point(145, 9)
+        Me.FDDatePunishment.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDatePunishment.Name = "FDDatePunishment"
         Me.FDDatePunishment.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDatePunishment.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -12755,7 +12670,7 @@ Partial Class wEmployee
         Me.FDDatePunishment.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDatePunishment.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDatePunishment.Properties.NullDate = ""
-        Me.FDDatePunishment.Size = New System.Drawing.Size(117, 20)
+        Me.FDDatePunishment.Size = New System.Drawing.Size(136, 23)
         Me.FDDatePunishment.TabIndex = 324
         Me.FDDatePunishment.Tag = "2|"
         '
@@ -12766,10 +12681,10 @@ Partial Class wEmployee
         Me.FDDatePunishment_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDatePunishment_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDatePunishment_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDatePunishment_lbl.Location = New System.Drawing.Point(10, 7)
-        Me.FDDatePunishment_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDatePunishment_lbl.Location = New System.Drawing.Point(12, 9)
+        Me.FDDatePunishment_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDatePunishment_lbl.Name = "FDDatePunishment_lbl"
-        Me.FDDatePunishment_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDatePunishment_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDatePunishment_lbl.TabIndex = 326
         Me.FDDatePunishment_lbl.Tag = "2|"
         Me.FDDatePunishment_lbl.Text = "วันที่ :"
@@ -12778,13 +12693,13 @@ Partial Class wEmployee
         '
         Me.FNHSysPunishmentLvId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysPunishmentLvId_None.Location = New System.Drawing.Point(285, 30)
-        Me.FNHSysPunishmentLvId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPunishmentLvId_None.Location = New System.Drawing.Point(332, 37)
+        Me.FNHSysPunishmentLvId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysPunishmentLvId_None.Name = "FNHSysPunishmentLvId_None"
         Me.FNHSysPunishmentLvId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysPunishmentLvId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysPunishmentLvId_None.Properties.ReadOnly = True
-        Me.FNHSysPunishmentLvId_None.Size = New System.Drawing.Size(1683, 20)
+        Me.FNHSysPunishmentLvId_None.Size = New System.Drawing.Size(3066, 23)
         Me.FNHSysPunishmentLvId_None.TabIndex = 298
         Me.FNHSysPunishmentLvId_None.Tag = "2|"
         '
@@ -12795,22 +12710,22 @@ Partial Class wEmployee
         Me.FNHSysPunishmentLvId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysPunishmentLvId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysPunishmentLvId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysPunishmentLvId_lbl.Location = New System.Drawing.Point(-3, 30)
-        Me.FNHSysPunishmentLvId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPunishmentLvId_lbl.Location = New System.Drawing.Point(-3, 37)
+        Me.FNHSysPunishmentLvId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysPunishmentLvId_lbl.Name = "FNHSysPunishmentLvId_lbl"
-        Me.FNHSysPunishmentLvId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysPunishmentLvId_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNHSysPunishmentLvId_lbl.TabIndex = 297
         Me.FNHSysPunishmentLvId_lbl.Tag = "2|"
         Me.FNHSysPunishmentLvId_lbl.Text = "บทลงโทษ :"
         '
         'FNHSysPunishmentLvId
         '
-        Me.FNHSysPunishmentLvId.Location = New System.Drawing.Point(124, 30)
-        Me.FNHSysPunishmentLvId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPunishmentLvId.Location = New System.Drawing.Point(145, 37)
+        Me.FNHSysPunishmentLvId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysPunishmentLvId.Name = "FNHSysPunishmentLvId"
-        Me.FNHSysPunishmentLvId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions79, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject313, SerializableAppearanceObject314, SerializableAppearanceObject315, SerializableAppearanceObject316, "", "69", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysPunishmentLvId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions78, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject309, SerializableAppearanceObject310, SerializableAppearanceObject311, SerializableAppearanceObject312, "", "69", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysPunishmentLvId.Properties.Tag = "69"
-        Me.FNHSysPunishmentLvId.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysPunishmentLvId.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysPunishmentLvId.TabIndex = 296
         Me.FNHSysPunishmentLvId.Tag = "2|"
         '
@@ -12818,8 +12733,9 @@ Partial Class wEmployee
         '
         Me.XtraTabPage8.Controls.Add(Me.GroupControl17)
         Me.XtraTabPage8.Controls.Add(Me.GroupControl14)
+        Me.XtraTabPage8.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.XtraTabPage8.Name = "XtraTabPage8"
-        Me.XtraTabPage8.Size = New System.Drawing.Size(1405, 709)
+        Me.XtraTabPage8.Size = New System.Drawing.Size(1639, 872)
         Me.XtraTabPage8.Text = "XtraTabPage8"
         '
         'GroupControl17
@@ -12853,21 +12769,21 @@ Partial Class wEmployee
         Me.GroupControl17.Controls.Add(Me.FTStateNoSmoking)
         Me.GroupControl17.Controls.Add(Me.FTSmoking_lbl)
         Me.GroupControl17.Controls.Add(Me.LabelControl41)
-        Me.GroupControl17.Location = New System.Drawing.Point(4488, 32)
-        Me.GroupControl17.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl17.Location = New System.Drawing.Point(6545, 49)
+        Me.GroupControl17.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl17.Name = "GroupControl17"
-        Me.GroupControl17.Size = New System.Drawing.Size(5383, 2810)
+        Me.GroupControl17.Size = New System.Drawing.Size(7850, 4322)
         Me.GroupControl17.TabIndex = 2
         Me.GroupControl17.Text = "ประวัติการเจ็บป่วย"
         '
         'FTOther
         '
         Me.FTOther.EditValue = ""
-        Me.FTOther.Location = New System.Drawing.Point(35, 214)
-        Me.FTOther.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTOther.Location = New System.Drawing.Point(41, 263)
+        Me.FTOther.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTOther.Name = "FTOther"
         Me.FTOther.Properties.MaxLength = 500
-        Me.FTOther.Size = New System.Drawing.Size(418, 49)
+        Me.FTOther.Size = New System.Drawing.Size(488, 60)
         Me.FTOther.TabIndex = 407
         Me.FTOther.Tag = "2|"
         '
@@ -12876,10 +12792,10 @@ Partial Class wEmployee
         Me.LabelControl76.Appearance.Options.UseTextOptions = True
         Me.LabelControl76.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl76.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl76.Location = New System.Drawing.Point(10, 185)
-        Me.LabelControl76.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl76.Location = New System.Drawing.Point(12, 228)
+        Me.LabelControl76.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl76.Name = "LabelControl76"
-        Me.LabelControl76.Size = New System.Drawing.Size(186, 25)
+        Me.LabelControl76.Size = New System.Drawing.Size(217, 31)
         Me.LabelControl76.TabIndex = 406
         Me.LabelControl76.Tag = "2|"
         Me.LabelControl76.Text = "ข้อมูลทางสุขภาพอื่น ๆ ที่เป็นประโยชน์"
@@ -12889,22 +12805,22 @@ Partial Class wEmployee
         Me.FTMonthAlcohol_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMonthAlcohol_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMonthAlcohol_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMonthAlcohol_lbl.Location = New System.Drawing.Point(479, 155)
-        Me.FTMonthAlcohol_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMonthAlcohol_lbl.Location = New System.Drawing.Point(559, 191)
+        Me.FTMonthAlcohol_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMonthAlcohol_lbl.Name = "FTMonthAlcohol_lbl"
-        Me.FTMonthAlcohol_lbl.Size = New System.Drawing.Size(25, 25)
+        Me.FTMonthAlcohol_lbl.Size = New System.Drawing.Size(29, 31)
         Me.FTMonthAlcohol_lbl.TabIndex = 405
         Me.FTMonthAlcohol_lbl.Tag = "2|"
         Me.FTMonthAlcohol_lbl.Text = "เดือน"
         '
         'FTMonthAlcohol
         '
-        Me.FTMonthAlcohol.Location = New System.Drawing.Point(430, 158)
-        Me.FTMonthAlcohol.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMonthAlcohol.Location = New System.Drawing.Point(502, 194)
+        Me.FTMonthAlcohol.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMonthAlcohol.Name = "FTMonthAlcohol"
         Me.FTMonthAlcohol.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTMonthAlcohol.Properties.Appearance.Options.UseBackColor = True
-        Me.FTMonthAlcohol.Size = New System.Drawing.Size(46, 20)
+        Me.FTMonthAlcohol.Size = New System.Drawing.Size(54, 23)
         Me.FTMonthAlcohol.TabIndex = 404
         Me.FTMonthAlcohol.Tag = ""
         '
@@ -12913,100 +12829,100 @@ Partial Class wEmployee
         Me.FTYearAlcohol_lbl.Appearance.Options.UseTextOptions = True
         Me.FTYearAlcohol_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTYearAlcohol_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTYearAlcohol_lbl.Location = New System.Drawing.Point(413, 155)
-        Me.FTYearAlcohol_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTYearAlcohol_lbl.Location = New System.Drawing.Point(482, 191)
+        Me.FTYearAlcohol_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTYearAlcohol_lbl.Name = "FTYearAlcohol_lbl"
-        Me.FTYearAlcohol_lbl.Size = New System.Drawing.Size(11, 25)
+        Me.FTYearAlcohol_lbl.Size = New System.Drawing.Size(13, 31)
         Me.FTYearAlcohol_lbl.TabIndex = 403
         Me.FTYearAlcohol_lbl.Tag = "2|"
         Me.FTYearAlcohol_lbl.Text = "ปี"
         '
         'FTYearAlcohol
         '
-        Me.FTYearAlcohol.Location = New System.Drawing.Point(366, 158)
-        Me.FTYearAlcohol.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTYearAlcohol.Location = New System.Drawing.Point(427, 194)
+        Me.FTYearAlcohol.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTYearAlcohol.Name = "FTYearAlcohol"
         Me.FTYearAlcohol.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTYearAlcohol.Properties.Appearance.Options.UseBackColor = True
-        Me.FTYearAlcohol.Size = New System.Drawing.Size(46, 20)
+        Me.FTYearAlcohol.Size = New System.Drawing.Size(54, 23)
         Me.FTYearAlcohol.TabIndex = 402
         Me.FTYearAlcohol.Tag = ""
         '
         'FTStateQuitAlcohol
         '
         Me.FTStateQuitAlcohol.EditValue = "0"
-        Me.FTStateQuitAlcohol.Location = New System.Drawing.Point(184, 158)
-        Me.FTStateQuitAlcohol.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateQuitAlcohol.Location = New System.Drawing.Point(215, 194)
+        Me.FTStateQuitAlcohol.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateQuitAlcohol.Name = "FTStateQuitAlcohol"
         Me.FTStateQuitAlcohol.Properties.Caption = "เคยแต่เลิกแล้ว ระยะเวลาที่ดื่มนาน"
         Me.FTStateQuitAlcohol.Properties.ValueChecked = "1"
         Me.FTStateQuitAlcohol.Properties.ValueUnchecked = "0"
-        Me.FTStateQuitAlcohol.Size = New System.Drawing.Size(183, 20)
+        Me.FTStateQuitAlcohol.Size = New System.Drawing.Size(213, 21)
         Me.FTStateQuitAlcohol.TabIndex = 401
         Me.FTStateQuitAlcohol.Tag = "2|"
         '
         'FTStateOverThreeAlcohol
         '
         Me.FTStateOverThreeAlcohol.EditValue = "0"
-        Me.FTStateOverThreeAlcohol.Location = New System.Drawing.Point(19, 158)
-        Me.FTStateOverThreeAlcohol.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateOverThreeAlcohol.Location = New System.Drawing.Point(22, 194)
+        Me.FTStateOverThreeAlcohol.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateOverThreeAlcohol.Name = "FTStateOverThreeAlcohol"
         Me.FTStateOverThreeAlcohol.Properties.Caption = "ดื่มมากกว่า 3 ครั้ง ต่อสัปดาห์"
         Me.FTStateOverThreeAlcohol.Properties.ValueChecked = "1"
         Me.FTStateOverThreeAlcohol.Properties.ValueUnchecked = "0"
-        Me.FTStateOverThreeAlcohol.Size = New System.Drawing.Size(151, 20)
+        Me.FTStateOverThreeAlcohol.Size = New System.Drawing.Size(176, 21)
         Me.FTStateOverThreeAlcohol.TabIndex = 400
         Me.FTStateOverThreeAlcohol.Tag = "2|"
         '
         'FTStateThreeAlcohol
         '
         Me.FTStateThreeAlcohol.EditValue = "0"
-        Me.FTStateThreeAlcohol.Location = New System.Drawing.Point(424, 133)
-        Me.FTStateThreeAlcohol.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateThreeAlcohol.Location = New System.Drawing.Point(495, 164)
+        Me.FTStateThreeAlcohol.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateThreeAlcohol.Name = "FTStateThreeAlcohol"
         Me.FTStateThreeAlcohol.Properties.Caption = "ดื่ม 2-3 ครั้ง ต่อสัปดาห์"
         Me.FTStateThreeAlcohol.Properties.ValueChecked = "1"
         Me.FTStateThreeAlcohol.Properties.ValueUnchecked = "0"
-        Me.FTStateThreeAlcohol.Size = New System.Drawing.Size(131, 20)
+        Me.FTStateThreeAlcohol.Size = New System.Drawing.Size(153, 21)
         Me.FTStateThreeAlcohol.TabIndex = 399
         Me.FTStateThreeAlcohol.Tag = "2|"
         '
         'FTStateOneAlcohol
         '
         Me.FTStateOneAlcohol.EditValue = "0"
-        Me.FTStateOneAlcohol.Location = New System.Drawing.Point(289, 133)
-        Me.FTStateOneAlcohol.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateOneAlcohol.Location = New System.Drawing.Point(337, 164)
+        Me.FTStateOneAlcohol.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateOneAlcohol.Name = "FTStateOneAlcohol"
         Me.FTStateOneAlcohol.Properties.Caption = "ดื่ม 1 ครั้ง ต่อสัปดาห์"
         Me.FTStateOneAlcohol.Properties.ValueChecked = "1"
         Me.FTStateOneAlcohol.Properties.ValueUnchecked = "0"
-        Me.FTStateOneAlcohol.Size = New System.Drawing.Size(129, 20)
+        Me.FTStateOneAlcohol.Size = New System.Drawing.Size(150, 21)
         Me.FTStateOneAlcohol.TabIndex = 398
         Me.FTStateOneAlcohol.Tag = "2|"
         '
         'FTStateLessAlcohol
         '
         Me.FTStateLessAlcohol.EditValue = "0"
-        Me.FTStateLessAlcohol.Location = New System.Drawing.Point(82, 133)
-        Me.FTStateLessAlcohol.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateLessAlcohol.Location = New System.Drawing.Point(96, 164)
+        Me.FTStateLessAlcohol.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateLessAlcohol.Name = "FTStateLessAlcohol"
         Me.FTStateLessAlcohol.Properties.Caption = "โดยปกติดื่มน้อยกว่า 1 ครั้ง ต่อสัปดาห์"
         Me.FTStateLessAlcohol.Properties.ValueChecked = "1"
         Me.FTStateLessAlcohol.Properties.ValueUnchecked = "0"
-        Me.FTStateLessAlcohol.Size = New System.Drawing.Size(202, 20)
+        Me.FTStateLessAlcohol.Size = New System.Drawing.Size(236, 21)
         Me.FTStateLessAlcohol.TabIndex = 397
         Me.FTStateLessAlcohol.Tag = "2|"
         '
         'FTStateNoAlcohol
         '
         Me.FTStateNoAlcohol.EditValue = "0"
-        Me.FTStateNoAlcohol.Location = New System.Drawing.Point(19, 133)
-        Me.FTStateNoAlcohol.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateNoAlcohol.Location = New System.Drawing.Point(22, 164)
+        Me.FTStateNoAlcohol.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateNoAlcohol.Name = "FTStateNoAlcohol"
         Me.FTStateNoAlcohol.Properties.Caption = "ไม่เคย"
         Me.FTStateNoAlcohol.Properties.ValueChecked = "1"
         Me.FTStateNoAlcohol.Properties.ValueUnchecked = "0"
-        Me.FTStateNoAlcohol.Size = New System.Drawing.Size(57, 20)
+        Me.FTStateNoAlcohol.Size = New System.Drawing.Size(66, 21)
         Me.FTStateNoAlcohol.TabIndex = 396
         Me.FTStateNoAlcohol.Tag = "2|"
         '
@@ -13015,22 +12931,22 @@ Partial Class wEmployee
         Me.LabelControl73.Appearance.Options.UseTextOptions = True
         Me.LabelControl73.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl73.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl73.Location = New System.Drawing.Point(5, 106)
-        Me.LabelControl73.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl73.Location = New System.Drawing.Point(6, 130)
+        Me.LabelControl73.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl73.Name = "LabelControl73"
-        Me.LabelControl73.Size = New System.Drawing.Size(362, 25)
+        Me.LabelControl73.Size = New System.Drawing.Size(422, 31)
         Me.LabelControl73.TabIndex = 395
         Me.LabelControl73.Tag = "2|"
         Me.LabelControl73.Text = "เคยคื่มสุรา เบียร์ หรือ เครื่องดื่มที่มีแอลกอฮอล์บ้างหรือไม่"
         '
         'FTSmokingQ
         '
-        Me.FTSmokingQ.Location = New System.Drawing.Point(442, 80)
-        Me.FTSmokingQ.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSmokingQ.Location = New System.Drawing.Point(516, 98)
+        Me.FTSmokingQ.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTSmokingQ.Name = "FTSmokingQ"
         Me.FTSmokingQ.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTSmokingQ.Properties.Appearance.Options.UseBackColor = True
-        Me.FTSmokingQ.Size = New System.Drawing.Size(92, 20)
+        Me.FTSmokingQ.Size = New System.Drawing.Size(107, 23)
         Me.FTSmokingQ.TabIndex = 394
         Me.FTSmokingQ.Tag = ""
         '
@@ -13039,10 +12955,10 @@ Partial Class wEmployee
         Me.FTSmokingQ1_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSmokingQ1_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSmokingQ1_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSmokingQ1_lbl.Location = New System.Drawing.Point(540, 77)
-        Me.FTSmokingQ1_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSmokingQ1_lbl.Location = New System.Drawing.Point(630, 95)
+        Me.FTSmokingQ1_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTSmokingQ1_lbl.Name = "FTSmokingQ1_lbl"
-        Me.FTSmokingQ1_lbl.Size = New System.Drawing.Size(39, 25)
+        Me.FTSmokingQ1_lbl.Size = New System.Drawing.Size(45, 31)
         Me.FTSmokingQ1_lbl.TabIndex = 393
         Me.FTSmokingQ1_lbl.Tag = "2|"
         Me.FTSmokingQ1_lbl.Text = "มวน/วัน"
@@ -13052,10 +12968,10 @@ Partial Class wEmployee
         Me.FTSmokingQ_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSmokingQ_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSmokingQ_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSmokingQ_lbl.Location = New System.Drawing.Point(336, 77)
-        Me.FTSmokingQ_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSmokingQ_lbl.Location = New System.Drawing.Point(392, 95)
+        Me.FTSmokingQ_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTSmokingQ_lbl.Name = "FTSmokingQ_lbl"
-        Me.FTSmokingQ_lbl.Size = New System.Drawing.Size(100, 25)
+        Me.FTSmokingQ_lbl.Size = New System.Drawing.Size(117, 31)
         Me.FTSmokingQ_lbl.TabIndex = 392
         Me.FTSmokingQ_lbl.Tag = "2|"
         Me.FTSmokingQ_lbl.Text = "ปริมาณขณะก่อนเลิก"
@@ -13065,22 +12981,22 @@ Partial Class wEmployee
         Me.FTMonthSmoking_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMonthSmoking_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMonthSmoking_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMonthSmoking_lbl.Location = New System.Drawing.Point(305, 77)
-        Me.FTMonthSmoking_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMonthSmoking_lbl.Location = New System.Drawing.Point(356, 95)
+        Me.FTMonthSmoking_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMonthSmoking_lbl.Name = "FTMonthSmoking_lbl"
-        Me.FTMonthSmoking_lbl.Size = New System.Drawing.Size(25, 25)
+        Me.FTMonthSmoking_lbl.Size = New System.Drawing.Size(29, 31)
         Me.FTMonthSmoking_lbl.TabIndex = 391
         Me.FTMonthSmoking_lbl.Tag = "2|"
         Me.FTMonthSmoking_lbl.Text = "เดือน"
         '
         'FTMonthSmoking
         '
-        Me.FTMonthSmoking.Location = New System.Drawing.Point(256, 80)
-        Me.FTMonthSmoking.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMonthSmoking.Location = New System.Drawing.Point(299, 98)
+        Me.FTMonthSmoking.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMonthSmoking.Name = "FTMonthSmoking"
         Me.FTMonthSmoking.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTMonthSmoking.Properties.Appearance.Options.UseBackColor = True
-        Me.FTMonthSmoking.Size = New System.Drawing.Size(46, 20)
+        Me.FTMonthSmoking.Size = New System.Drawing.Size(54, 23)
         Me.FTMonthSmoking.TabIndex = 390
         Me.FTMonthSmoking.Tag = ""
         '
@@ -13089,72 +13005,72 @@ Partial Class wEmployee
         Me.FTYearSmoking_lbl.Appearance.Options.UseTextOptions = True
         Me.FTYearSmoking_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTYearSmoking_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTYearSmoking_lbl.Location = New System.Drawing.Point(239, 77)
-        Me.FTYearSmoking_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTYearSmoking_lbl.Location = New System.Drawing.Point(279, 95)
+        Me.FTYearSmoking_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTYearSmoking_lbl.Name = "FTYearSmoking_lbl"
-        Me.FTYearSmoking_lbl.Size = New System.Drawing.Size(11, 25)
+        Me.FTYearSmoking_lbl.Size = New System.Drawing.Size(13, 31)
         Me.FTYearSmoking_lbl.TabIndex = 389
         Me.FTYearSmoking_lbl.Tag = "2|"
         Me.FTYearSmoking_lbl.Text = "ปี"
         '
         'FTYearSmoking
         '
-        Me.FTYearSmoking.Location = New System.Drawing.Point(192, 80)
-        Me.FTYearSmoking.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTYearSmoking.Location = New System.Drawing.Point(224, 98)
+        Me.FTYearSmoking.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTYearSmoking.Name = "FTYearSmoking"
         Me.FTYearSmoking.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTYearSmoking.Properties.Appearance.Options.UseBackColor = True
-        Me.FTYearSmoking.Size = New System.Drawing.Size(46, 20)
+        Me.FTYearSmoking.Size = New System.Drawing.Size(54, 23)
         Me.FTYearSmoking.TabIndex = 388
         Me.FTYearSmoking.Tag = ""
         '
         'FTStateQuitSmoking
         '
         Me.FTStateQuitSmoking.EditValue = "0"
-        Me.FTStateQuitSmoking.Location = New System.Drawing.Point(19, 80)
-        Me.FTStateQuitSmoking.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateQuitSmoking.Location = New System.Drawing.Point(22, 98)
+        Me.FTStateQuitSmoking.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateQuitSmoking.Name = "FTStateQuitSmoking"
         Me.FTStateQuitSmoking.Properties.Caption = "เคยแต่เลิกแล้ว ระยะที่เคยสูบนาน"
         Me.FTStateQuitSmoking.Properties.ValueChecked = "1"
         Me.FTStateQuitSmoking.Properties.ValueUnchecked = "0"
-        Me.FTStateQuitSmoking.Size = New System.Drawing.Size(177, 20)
+        Me.FTStateQuitSmoking.Size = New System.Drawing.Size(206, 21)
         Me.FTStateQuitSmoking.TabIndex = 387
         Me.FTStateQuitSmoking.Tag = "2|"
         '
         'FTSmoking
         '
-        Me.FTSmoking.Location = New System.Drawing.Point(275, 55)
-        Me.FTSmoking.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSmoking.Location = New System.Drawing.Point(321, 68)
+        Me.FTSmoking.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTSmoking.Name = "FTSmoking"
         Me.FTSmoking.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTSmoking.Properties.Appearance.Options.UseBackColor = True
-        Me.FTSmoking.Size = New System.Drawing.Size(92, 20)
+        Me.FTSmoking.Size = New System.Drawing.Size(107, 23)
         Me.FTSmoking.TabIndex = 386
         Me.FTSmoking.Tag = ""
         '
         'FTStateSmoking
         '
         Me.FTStateSmoking.EditValue = "0"
-        Me.FTStateSmoking.Location = New System.Drawing.Point(102, 55)
-        Me.FTStateSmoking.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateSmoking.Location = New System.Drawing.Point(119, 68)
+        Me.FTStateSmoking.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateSmoking.Name = "FTStateSmoking"
         Me.FTStateSmoking.Properties.Caption = "เคยและปัจจุบันยังสูบอยู่ปริมาณ"
         Me.FTStateSmoking.Properties.ValueChecked = "1"
         Me.FTStateSmoking.Properties.ValueUnchecked = "0"
-        Me.FTStateSmoking.Size = New System.Drawing.Size(167, 20)
+        Me.FTStateSmoking.Size = New System.Drawing.Size(195, 21)
         Me.FTStateSmoking.TabIndex = 385
         Me.FTStateSmoking.Tag = "2|"
         '
         'FTStateNoSmoking
         '
         Me.FTStateNoSmoking.EditValue = "0"
-        Me.FTStateNoSmoking.Location = New System.Drawing.Point(19, 55)
-        Me.FTStateNoSmoking.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateNoSmoking.Location = New System.Drawing.Point(22, 68)
+        Me.FTStateNoSmoking.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateNoSmoking.Name = "FTStateNoSmoking"
         Me.FTStateNoSmoking.Properties.Caption = "ไม่เคย"
         Me.FTStateNoSmoking.Properties.ValueChecked = "1"
         Me.FTStateNoSmoking.Properties.ValueUnchecked = "0"
-        Me.FTStateNoSmoking.Size = New System.Drawing.Size(57, 20)
+        Me.FTStateNoSmoking.Size = New System.Drawing.Size(66, 21)
         Me.FTStateNoSmoking.TabIndex = 384
         Me.FTStateNoSmoking.Tag = "2|"
         '
@@ -13163,10 +13079,10 @@ Partial Class wEmployee
         Me.FTSmoking_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSmoking_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSmoking_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSmoking_lbl.Location = New System.Drawing.Point(373, 52)
-        Me.FTSmoking_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSmoking_lbl.Location = New System.Drawing.Point(435, 64)
+        Me.FTSmoking_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTSmoking_lbl.Name = "FTSmoking_lbl"
-        Me.FTSmoking_lbl.Size = New System.Drawing.Size(45, 25)
+        Me.FTSmoking_lbl.Size = New System.Drawing.Size(52, 31)
         Me.FTSmoking_lbl.TabIndex = 321
         Me.FTSmoking_lbl.Tag = "2|"
         Me.FTSmoking_lbl.Text = "มวน/วัน"
@@ -13176,18 +13092,16 @@ Partial Class wEmployee
         Me.LabelControl41.Appearance.Options.UseTextOptions = True
         Me.LabelControl41.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl41.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl41.Location = New System.Drawing.Point(5, 27)
-        Me.LabelControl41.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl41.Location = New System.Drawing.Point(6, 33)
+        Me.LabelControl41.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl41.Name = "LabelControl41"
-        Me.LabelControl41.Size = New System.Drawing.Size(208, 25)
+        Me.LabelControl41.Size = New System.Drawing.Size(243, 31)
         Me.LabelControl41.TabIndex = 320
         Me.LabelControl41.Tag = "2|"
         Me.LabelControl41.Text = "เคยสูบบุหรี่บ้างหรือไม่"
         '
         'GroupControl14
         '
-        Me.GroupControl14.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupControl14.Controls.Add(Me.GroupControl19)
         Me.GroupControl14.Controls.Add(Me.FTDopeNote)
         Me.GroupControl14.Controls.Add(Me.FTStateDope)
@@ -13235,26 +13149,23 @@ Partial Class wEmployee
         Me.GroupControl14.Controls.Add(Me.FTStateNoDisease)
         Me.GroupControl14.Controls.Add(Me.FTDiseaseNote_lbl)
         Me.GroupControl14.Controls.Add(Me.LabelControl39)
-        Me.GroupControl14.Location = New System.Drawing.Point(17, 25)
-        Me.GroupControl14.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl14.Location = New System.Drawing.Point(0, 0)
+        Me.GroupControl14.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl14.Name = "GroupControl14"
-        Me.GroupControl14.Size = New System.Drawing.Size(21118, 22135)
+        Me.GroupControl14.Size = New System.Drawing.Size(52428, 52428)
         Me.GroupControl14.TabIndex = 1
         Me.GroupControl14.Text = "ประวัติการเจ็บป่วย"
         '
         'GroupControl19
         '
-        Me.GroupControl19.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupControl19.Controls.Add(Me.ogc)
         Me.GroupControl19.Controls.Add(Me.LabelControl77)
         Me.GroupControl19.Controls.Add(Me.GroupControl25)
-        Me.GroupControl19.Location = New System.Drawing.Point(537, 27)
-        Me.GroupControl19.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl19.Location = New System.Drawing.Point(626, 33)
+        Me.GroupControl19.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl19.Name = "GroupControl19"
         Me.GroupControl19.ShowCaption = False
-        Me.GroupControl19.Size = New System.Drawing.Size(20489, 21144)
+        Me.GroupControl19.Size = New System.Drawing.Size(55877, 49151)
         Me.GroupControl19.TabIndex = 3
         '
         'ogc
@@ -13262,12 +13173,12 @@ Partial Class wEmployee
         Me.ogc.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogc.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogc.Location = New System.Drawing.Point(4, 87)
+        Me.ogc.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.ogc.Location = New System.Drawing.Point(5, 107)
         Me.ogc.MainView = Me.ogv
-        Me.ogc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogc.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogc.Name = "ogc"
-        Me.ogc.Size = New System.Drawing.Size(18336, 18853)
+        Me.ogc.Size = New System.Drawing.Size(53364, 29977)
         Me.ogc.TabIndex = 431
         Me.ogc.TabStop = False
         Me.ogc.Tag = "2|"
@@ -13276,7 +13187,6 @@ Partial Class wEmployee
         'ogv
         '
         Me.ogv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn4, Me.FTSeqStricken, Me.cFTStricken, Me.cFTYear})
-        Me.ogv.DetailHeight = 284
         Me.ogv.GridControl = Me.ogc
         Me.ogv.Name = "ogv"
         Me.ogv.OptionsCustomization.AllowGroup = False
@@ -13290,9 +13200,7 @@ Partial Class wEmployee
         '
         Me.GridColumn4.Caption = "FNSeqNo"
         Me.GridColumn4.FieldName = "FNSeqNo"
-        Me.GridColumn4.MinWidth = 17
         Me.GridColumn4.Name = "GridColumn4"
-        Me.GridColumn4.Width = 64
         '
         'FTSeqStricken
         '
@@ -13302,7 +13210,6 @@ Partial Class wEmployee
         Me.FTSeqStricken.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTSeqStricken.Caption = "ลำดับ"
         Me.FTSeqStricken.FieldName = "FTSeqStricken"
-        Me.FTSeqStricken.MinWidth = 17
         Me.FTSeqStricken.Name = "FTSeqStricken"
         Me.FTSeqStricken.OptionsColumn.AllowEdit = False
         Me.FTSeqStricken.OptionsColumn.AllowMove = False
@@ -13310,7 +13217,7 @@ Partial Class wEmployee
         Me.FTSeqStricken.OptionsColumn.ReadOnly = True
         Me.FTSeqStricken.Visible = True
         Me.FTSeqStricken.VisibleIndex = 0
-        Me.FTSeqStricken.Width = 72
+        Me.FTSeqStricken.Width = 84
         '
         'cFTStricken
         '
@@ -13318,7 +13225,6 @@ Partial Class wEmployee
         Me.cFTStricken.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.cFTStricken.Caption = "โรคหรือการบาดเจ็บ"
         Me.cFTStricken.FieldName = "FTStricken"
-        Me.cFTStricken.MinWidth = 17
         Me.cFTStricken.Name = "cFTStricken"
         Me.cFTStricken.OptionsColumn.AllowEdit = False
         Me.cFTStricken.OptionsColumn.AllowMove = False
@@ -13326,7 +13232,7 @@ Partial Class wEmployee
         Me.cFTStricken.OptionsColumn.ReadOnly = True
         Me.cFTStricken.Visible = True
         Me.cFTStricken.VisibleIndex = 1
-        Me.cFTStricken.Width = 419
+        Me.cFTStricken.Width = 489
         '
         'cFTYear
         '
@@ -13336,7 +13242,6 @@ Partial Class wEmployee
         Me.cFTYear.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.cFTYear.Caption = "เมื่อปี พ.ศ."
         Me.cFTYear.FieldName = "FTYear"
-        Me.cFTYear.MinWidth = 17
         Me.cFTYear.Name = "cFTYear"
         Me.cFTYear.OptionsColumn.AllowEdit = False
         Me.cFTYear.OptionsColumn.AllowMove = False
@@ -13344,17 +13249,17 @@ Partial Class wEmployee
         Me.cFTYear.OptionsColumn.ReadOnly = True
         Me.cFTYear.Visible = True
         Me.cFTYear.VisibleIndex = 2
-        Me.cFTYear.Width = 128
+        Me.cFTYear.Width = 149
         '
         'LabelControl77
         '
         Me.LabelControl77.Appearance.Options.UseTextOptions = True
         Me.LabelControl77.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl77.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl77.Location = New System.Drawing.Point(5, 0)
-        Me.LabelControl77.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl77.Location = New System.Drawing.Point(10, 4)
+        Me.LabelControl77.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl77.Name = "LabelControl77"
-        Me.LabelControl77.Size = New System.Drawing.Size(208, 25)
+        Me.LabelControl77.Size = New System.Drawing.Size(243, 31)
         Me.LabelControl77.TabIndex = 430
         Me.LabelControl77.Tag = "2|"
         Me.LabelControl77.Text = "เคยป่วยเป็นโรคหรือมีการบาดเจ็บ"
@@ -13371,19 +13276,19 @@ Partial Class wEmployee
         Me.GroupControl25.Controls.Add(Me.FTYear_lbl)
         Me.GroupControl25.Controls.Add(Me.FTStricken_lbl)
         Me.GroupControl25.Controls.Add(Me.CalcEdit1)
-        Me.GroupControl25.Location = New System.Drawing.Point(5, 28)
-        Me.GroupControl25.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl25.Location = New System.Drawing.Point(6, 34)
+        Me.GroupControl25.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.GroupControl25.Name = "GroupControl25"
         Me.GroupControl25.ShowCaption = False
-        Me.GroupControl25.Size = New System.Drawing.Size(20474, 57)
+        Me.GroupControl25.Size = New System.Drawing.Size(55859, 70)
         Me.GroupControl25.TabIndex = 429
         '
         'ocmremovestricken
         '
-        Me.ocmremovestricken.Location = New System.Drawing.Point(598, 19)
-        Me.ocmremovestricken.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmremovestricken.Location = New System.Drawing.Point(698, 23)
+        Me.ocmremovestricken.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmremovestricken.Name = "ocmremovestricken"
-        Me.ocmremovestricken.Size = New System.Drawing.Size(58, 27)
+        Me.ocmremovestricken.Size = New System.Drawing.Size(68, 33)
         Me.ocmremovestricken.TabIndex = 430
         Me.ocmremovestricken.TabStop = False
         Me.ocmremovestricken.Tag = "2|"
@@ -13392,8 +13297,8 @@ Partial Class wEmployee
         'FTSeqStricken1
         '
         Me.FTSeqStricken1.EnterMoveNextControl = True
-        Me.FTSeqStricken1.Location = New System.Drawing.Point(532, 2)
-        Me.FTSeqStricken1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSeqStricken1.Location = New System.Drawing.Point(621, 2)
+        Me.FTSeqStricken1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTSeqStricken1.Name = "FTSeqStricken1"
         Me.FTSeqStricken1.Properties.Appearance.Options.UseTextOptions = True
         Me.FTSeqStricken1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -13405,31 +13310,31 @@ Partial Class wEmployee
         Me.FTSeqStricken1.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTSeqStricken1.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSeqStricken1.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTSeqStricken1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions80, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject317, SerializableAppearanceObject318, SerializableAppearanceObject319, SerializableAppearanceObject320, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSeqStricken1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions79, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject313, SerializableAppearanceObject314, SerializableAppearanceObject315, SerializableAppearanceObject316, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTSeqStricken1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FTSeqStricken1.Properties.Precision = 2
-        Me.FTSeqStricken1.Size = New System.Drawing.Size(40, 20)
+        Me.FTSeqStricken1.Size = New System.Drawing.Size(47, 23)
         Me.FTSeqStricken1.TabIndex = 429
         Me.FTSeqStricken1.Tag = "2|"
         Me.FTSeqStricken1.Visible = False
         '
         'FTStricken
         '
-        Me.FTStricken.Location = New System.Drawing.Point(117, 20)
-        Me.FTStricken.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStricken.Location = New System.Drawing.Point(136, 25)
+        Me.FTStricken.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStricken.Name = "FTStricken"
         Me.FTStricken.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTStricken.Properties.Appearance.Options.UseBackColor = True
-        Me.FTStricken.Size = New System.Drawing.Size(232, 20)
+        Me.FTStricken.Size = New System.Drawing.Size(271, 23)
         Me.FTStricken.TabIndex = 428
         Me.FTStricken.Tag = ""
         '
         'ocmaddstricken
         '
-        Me.ocmaddstricken.Location = New System.Drawing.Point(526, 19)
-        Me.ocmaddstricken.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmaddstricken.Location = New System.Drawing.Point(614, 23)
+        Me.ocmaddstricken.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmaddstricken.Name = "ocmaddstricken"
-        Me.ocmaddstricken.Size = New System.Drawing.Size(66, 27)
+        Me.ocmaddstricken.Size = New System.Drawing.Size(77, 33)
         Me.ocmaddstricken.TabIndex = 414
         Me.ocmaddstricken.TabStop = False
         Me.ocmaddstricken.Tag = "2|"
@@ -13439,11 +13344,11 @@ Partial Class wEmployee
         '
         Me.FTYear.EditValue = Nothing
         Me.FTYear.EnterMoveNextControl = True
-        Me.FTYear.Location = New System.Drawing.Point(433, 22)
-        Me.FTYear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTYear.Location = New System.Drawing.Point(505, 27)
+        Me.FTYear.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTYear.Name = "FTYear"
         Me.FTYear.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTYear.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions81, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject321, SerializableAppearanceObject322, SerializableAppearanceObject323, SerializableAppearanceObject324, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTYear.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions80, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject317, SerializableAppearanceObject318, SerializableAppearanceObject319, SerializableAppearanceObject320, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTYear.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTYear.Properties.DisplayFormat.FormatString = "yyyy"
         Me.FTYear.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -13451,7 +13356,7 @@ Partial Class wEmployee
         Me.FTYear.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTYear.Properties.Mask.EditMask = "yyyy"
         Me.FTYear.Properties.NullDate = ""
-        Me.FTYear.Size = New System.Drawing.Size(87, 20)
+        Me.FTYear.Size = New System.Drawing.Size(101, 23)
         Me.FTYear.TabIndex = 404
         Me.FTYear.Tag = "2|"
         '
@@ -13462,10 +13367,10 @@ Partial Class wEmployee
         Me.FTYear_lbl.Appearance.Options.UseTextOptions = True
         Me.FTYear_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTYear_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTYear_lbl.Location = New System.Drawing.Point(355, 19)
-        Me.FTYear_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTYear_lbl.Location = New System.Drawing.Point(414, 23)
+        Me.FTYear_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTYear_lbl.Name = "FTYear_lbl"
-        Me.FTYear_lbl.Size = New System.Drawing.Size(72, 21)
+        Me.FTYear_lbl.Size = New System.Drawing.Size(84, 26)
         Me.FTYear_lbl.TabIndex = 403
         Me.FTYear_lbl.Tag = "2|"
         Me.FTYear_lbl.Text = "เมื่อปี พ.ศ. :"
@@ -13477,10 +13382,10 @@ Partial Class wEmployee
         Me.FTStricken_lbl.Appearance.Options.UseTextOptions = True
         Me.FTStricken_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTStricken_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTStricken_lbl.Location = New System.Drawing.Point(11, 19)
-        Me.FTStricken_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStricken_lbl.Location = New System.Drawing.Point(13, 23)
+        Me.FTStricken_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStricken_lbl.Name = "FTStricken_lbl"
-        Me.FTStricken_lbl.Size = New System.Drawing.Size(101, 21)
+        Me.FTStricken_lbl.Size = New System.Drawing.Size(118, 26)
         Me.FTStricken_lbl.TabIndex = 401
         Me.FTStricken_lbl.Tag = "2|"
         Me.FTStricken_lbl.Text = "โรคหรือการบาดเจ็บ :"
@@ -13488,8 +13393,8 @@ Partial Class wEmployee
         'CalcEdit1
         '
         Me.CalcEdit1.EnterMoveNextControl = True
-        Me.CalcEdit1.Location = New System.Drawing.Point(840, 55)
-        Me.CalcEdit1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.CalcEdit1.Location = New System.Drawing.Point(980, 68)
+        Me.CalcEdit1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.CalcEdit1.Name = "CalcEdit1"
         Me.CalcEdit1.Properties.Appearance.Options.UseTextOptions = True
         Me.CalcEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -13501,48 +13406,48 @@ Partial Class wEmployee
         Me.CalcEdit1.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.CalcEdit1.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.CalcEdit1.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.CalcEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions82, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject325, SerializableAppearanceObject326, SerializableAppearanceObject327, SerializableAppearanceObject328, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.CalcEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions81, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject321, SerializableAppearanceObject322, SerializableAppearanceObject323, SerializableAppearanceObject324, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.CalcEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CalcEdit1.Properties.Precision = 2
-        Me.CalcEdit1.Size = New System.Drawing.Size(40, 20)
+        Me.CalcEdit1.Size = New System.Drawing.Size(47, 23)
         Me.CalcEdit1.TabIndex = 400
         Me.CalcEdit1.Tag = "2|"
         Me.CalcEdit1.Visible = False
         '
         'FTDopeNote
         '
-        Me.FTDopeNote.Location = New System.Drawing.Point(167, 467)
-        Me.FTDopeNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDopeNote.Location = New System.Drawing.Point(195, 575)
+        Me.FTDopeNote.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDopeNote.Name = "FTDopeNote"
         Me.FTDopeNote.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTDopeNote.Properties.Appearance.Options.UseBackColor = True
-        Me.FTDopeNote.Size = New System.Drawing.Size(287, 20)
+        Me.FTDopeNote.Size = New System.Drawing.Size(335, 23)
         Me.FTDopeNote.TabIndex = 427
         Me.FTDopeNote.Tag = ""
         '
         'FTStateDope
         '
         Me.FTStateDope.EditValue = "0"
-        Me.FTStateDope.Location = New System.Drawing.Point(82, 467)
-        Me.FTStateDope.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateDope.Location = New System.Drawing.Point(96, 575)
+        Me.FTStateDope.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateDope.Name = "FTStateDope"
         Me.FTStateDope.Properties.Caption = "เคย"
         Me.FTStateDope.Properties.ValueChecked = "1"
         Me.FTStateDope.Properties.ValueUnchecked = "0"
-        Me.FTStateDope.Size = New System.Drawing.Size(43, 20)
+        Me.FTStateDope.Size = New System.Drawing.Size(50, 21)
         Me.FTStateDope.TabIndex = 426
         Me.FTStateDope.Tag = "2|"
         '
         'FTStateNoDope
         '
         Me.FTStateNoDope.EditValue = "0"
-        Me.FTStateNoDope.Location = New System.Drawing.Point(19, 467)
-        Me.FTStateNoDope.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateNoDope.Location = New System.Drawing.Point(22, 575)
+        Me.FTStateNoDope.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateNoDope.Name = "FTStateNoDope"
         Me.FTStateNoDope.Properties.Caption = "ไม่เคย"
         Me.FTStateNoDope.Properties.ValueChecked = "1"
         Me.FTStateNoDope.Properties.ValueUnchecked = "0"
-        Me.FTStateNoDope.Size = New System.Drawing.Size(57, 20)
+        Me.FTStateNoDope.Size = New System.Drawing.Size(66, 21)
         Me.FTStateNoDope.TabIndex = 425
         Me.FTStateNoDope.Tag = "2|"
         '
@@ -13551,10 +13456,10 @@ Partial Class wEmployee
         Me.FTDopeNote_lbl.Appearance.Options.UseTextOptions = True
         Me.FTDopeNote_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTDopeNote_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTDopeNote_lbl.Location = New System.Drawing.Point(131, 464)
-        Me.FTDopeNote_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDopeNote_lbl.Location = New System.Drawing.Point(153, 571)
+        Me.FTDopeNote_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDopeNote_lbl.Name = "FTDopeNote_lbl"
-        Me.FTDopeNote_lbl.Size = New System.Drawing.Size(30, 25)
+        Me.FTDopeNote_lbl.Size = New System.Drawing.Size(35, 31)
         Me.FTDopeNote_lbl.TabIndex = 424
         Me.FTDopeNote_lbl.Tag = "2|"
         Me.FTDopeNote_lbl.Text = "ระบุ :"
@@ -13564,48 +13469,48 @@ Partial Class wEmployee
         Me.LabelControl68.Appearance.Options.UseTextOptions = True
         Me.LabelControl68.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl68.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl68.Location = New System.Drawing.Point(5, 439)
-        Me.LabelControl68.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl68.Location = New System.Drawing.Point(6, 540)
+        Me.LabelControl68.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl68.Name = "LabelControl68"
-        Me.LabelControl68.Size = New System.Drawing.Size(272, 25)
+        Me.LabelControl68.Size = New System.Drawing.Size(317, 31)
         Me.LabelControl68.TabIndex = 423
         Me.LabelControl68.Tag = "2|"
         Me.LabelControl68.Text = "เคยเสพยาเสพติดหรือสารเสพติดใด ๆ บ้างหรือไม่"
         '
         'FTHobbyNote
         '
-        Me.FTHobbyNote.Location = New System.Drawing.Point(167, 410)
-        Me.FTHobbyNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTHobbyNote.Location = New System.Drawing.Point(195, 505)
+        Me.FTHobbyNote.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTHobbyNote.Name = "FTHobbyNote"
         Me.FTHobbyNote.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTHobbyNote.Properties.Appearance.Options.UseBackColor = True
-        Me.FTHobbyNote.Size = New System.Drawing.Size(287, 20)
+        Me.FTHobbyNote.Size = New System.Drawing.Size(335, 23)
         Me.FTHobbyNote.TabIndex = 422
         Me.FTHobbyNote.Tag = ""
         '
         'FTStateHobby
         '
         Me.FTStateHobby.EditValue = "0"
-        Me.FTStateHobby.Location = New System.Drawing.Point(82, 410)
-        Me.FTStateHobby.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateHobby.Location = New System.Drawing.Point(96, 505)
+        Me.FTStateHobby.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateHobby.Name = "FTStateHobby"
         Me.FTStateHobby.Properties.Caption = "มี"
         Me.FTStateHobby.Properties.ValueChecked = "1"
         Me.FTStateHobby.Properties.ValueUnchecked = "0"
-        Me.FTStateHobby.Size = New System.Drawing.Size(33, 20)
+        Me.FTStateHobby.Size = New System.Drawing.Size(38, 21)
         Me.FTStateHobby.TabIndex = 421
         Me.FTStateHobby.Tag = "2|"
         '
         'FTStateNoHobby
         '
         Me.FTStateNoHobby.EditValue = "0"
-        Me.FTStateNoHobby.Location = New System.Drawing.Point(19, 410)
-        Me.FTStateNoHobby.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateNoHobby.Location = New System.Drawing.Point(22, 505)
+        Me.FTStateNoHobby.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateNoHobby.Name = "FTStateNoHobby"
         Me.FTStateNoHobby.Properties.Caption = "ไม่มี"
         Me.FTStateNoHobby.Properties.ValueChecked = "1"
         Me.FTStateNoHobby.Properties.ValueUnchecked = "0"
-        Me.FTStateNoHobby.Size = New System.Drawing.Size(48, 20)
+        Me.FTStateNoHobby.Size = New System.Drawing.Size(56, 21)
         Me.FTStateNoHobby.TabIndex = 420
         Me.FTStateNoHobby.Tag = "2|"
         '
@@ -13614,10 +13519,10 @@ Partial Class wEmployee
         Me.FTHobbyNote_lbl.Appearance.Options.UseTextOptions = True
         Me.FTHobbyNote_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTHobbyNote_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTHobbyNote_lbl.Location = New System.Drawing.Point(131, 407)
-        Me.FTHobbyNote_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTHobbyNote_lbl.Location = New System.Drawing.Point(153, 501)
+        Me.FTHobbyNote_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTHobbyNote_lbl.Name = "FTHobbyNote_lbl"
-        Me.FTHobbyNote_lbl.Size = New System.Drawing.Size(30, 25)
+        Me.FTHobbyNote_lbl.Size = New System.Drawing.Size(35, 31)
         Me.FTHobbyNote_lbl.TabIndex = 419
         Me.FTHobbyNote_lbl.Tag = "2|"
         Me.FTHobbyNote_lbl.Text = "ระบุ :"
@@ -13627,48 +13532,48 @@ Partial Class wEmployee
         Me.LabelControl66.Appearance.Options.UseTextOptions = True
         Me.LabelControl66.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl66.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl66.Location = New System.Drawing.Point(5, 382)
-        Me.LabelControl66.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl66.Location = New System.Drawing.Point(6, 470)
+        Me.LabelControl66.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl66.Name = "LabelControl66"
-        Me.LabelControl66.Size = New System.Drawing.Size(208, 25)
+        Me.LabelControl66.Size = New System.Drawing.Size(243, 31)
         Me.LabelControl66.TabIndex = 418
         Me.LabelControl66.Tag = "2|"
         Me.LabelControl66.Text = "มีประวัติการแพ้ยาหรือไม่"
         '
         'FTDrugDiseaseNote
         '
-        Me.FTDrugDiseaseNote.Location = New System.Drawing.Point(167, 357)
-        Me.FTDrugDiseaseNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDrugDiseaseNote.Location = New System.Drawing.Point(195, 439)
+        Me.FTDrugDiseaseNote.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDrugDiseaseNote.Name = "FTDrugDiseaseNote"
         Me.FTDrugDiseaseNote.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTDrugDiseaseNote.Properties.Appearance.Options.UseBackColor = True
-        Me.FTDrugDiseaseNote.Size = New System.Drawing.Size(287, 20)
+        Me.FTDrugDiseaseNote.Size = New System.Drawing.Size(335, 23)
         Me.FTDrugDiseaseNote.TabIndex = 417
         Me.FTDrugDiseaseNote.Tag = ""
         '
         'FTStateDrugDisease
         '
         Me.FTStateDrugDisease.EditValue = "0"
-        Me.FTStateDrugDisease.Location = New System.Drawing.Point(82, 357)
-        Me.FTStateDrugDisease.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateDrugDisease.Location = New System.Drawing.Point(96, 439)
+        Me.FTStateDrugDisease.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateDrugDisease.Name = "FTStateDrugDisease"
         Me.FTStateDrugDisease.Properties.Caption = "มี"
         Me.FTStateDrugDisease.Properties.ValueChecked = "1"
         Me.FTStateDrugDisease.Properties.ValueUnchecked = "0"
-        Me.FTStateDrugDisease.Size = New System.Drawing.Size(33, 20)
+        Me.FTStateDrugDisease.Size = New System.Drawing.Size(38, 21)
         Me.FTStateDrugDisease.TabIndex = 416
         Me.FTStateDrugDisease.Tag = "2|"
         '
         'FTStateNoDrugDisease
         '
         Me.FTStateNoDrugDisease.EditValue = "0"
-        Me.FTStateNoDrugDisease.Location = New System.Drawing.Point(19, 357)
-        Me.FTStateNoDrugDisease.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateNoDrugDisease.Location = New System.Drawing.Point(22, 439)
+        Me.FTStateNoDrugDisease.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateNoDrugDisease.Name = "FTStateNoDrugDisease"
         Me.FTStateNoDrugDisease.Properties.Caption = "ไม่มี"
         Me.FTStateNoDrugDisease.Properties.ValueChecked = "1"
         Me.FTStateNoDrugDisease.Properties.ValueUnchecked = "0"
-        Me.FTStateNoDrugDisease.Size = New System.Drawing.Size(48, 20)
+        Me.FTStateNoDrugDisease.Size = New System.Drawing.Size(56, 21)
         Me.FTStateNoDrugDisease.TabIndex = 415
         Me.FTStateNoDrugDisease.Tag = "2|"
         '
@@ -13677,10 +13582,10 @@ Partial Class wEmployee
         Me.FTDrugDiseaseNote_lbl.Appearance.Options.UseTextOptions = True
         Me.FTDrugDiseaseNote_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTDrugDiseaseNote_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTDrugDiseaseNote_lbl.Location = New System.Drawing.Point(131, 354)
-        Me.FTDrugDiseaseNote_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDrugDiseaseNote_lbl.Location = New System.Drawing.Point(153, 436)
+        Me.FTDrugDiseaseNote_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDrugDiseaseNote_lbl.Name = "FTDrugDiseaseNote_lbl"
-        Me.FTDrugDiseaseNote_lbl.Size = New System.Drawing.Size(30, 25)
+        Me.FTDrugDiseaseNote_lbl.Size = New System.Drawing.Size(35, 31)
         Me.FTDrugDiseaseNote_lbl.TabIndex = 414
         Me.FTDrugDiseaseNote_lbl.Tag = "2|"
         Me.FTDrugDiseaseNote_lbl.Text = "ระบุ :"
@@ -13690,22 +13595,22 @@ Partial Class wEmployee
         Me.LabelControl64.Appearance.Options.UseTextOptions = True
         Me.LabelControl64.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl64.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl64.Location = New System.Drawing.Point(5, 329)
-        Me.LabelControl64.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl64.Location = New System.Drawing.Point(6, 405)
+        Me.LabelControl64.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl64.Name = "LabelControl64"
-        Me.LabelControl64.Size = New System.Drawing.Size(292, 25)
+        Me.LabelControl64.Size = New System.Drawing.Size(341, 31)
         Me.LabelControl64.TabIndex = 413
         Me.LabelControl64.Tag = "2|"
         Me.LabelControl64.Text = "ปัจจุบันมียาที่จำเป็นต้องรับประทานเป็นประจำบ้างหรือไม่"
         '
         'FTDiseaseS
         '
-        Me.FTDiseaseS.Location = New System.Drawing.Point(244, 300)
-        Me.FTDiseaseS.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDiseaseS.Location = New System.Drawing.Point(285, 369)
+        Me.FTDiseaseS.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDiseaseS.Name = "FTDiseaseS"
         Me.FTDiseaseS.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTDiseaseS.Properties.Appearance.Options.UseBackColor = True
-        Me.FTDiseaseS.Size = New System.Drawing.Size(210, 20)
+        Me.FTDiseaseS.Size = New System.Drawing.Size(245, 23)
         Me.FTDiseaseS.TabIndex = 412
         Me.FTDiseaseS.Tag = ""
         '
@@ -13714,10 +13619,10 @@ Partial Class wEmployee
         Me.FTDiseaseS_lbl.Appearance.Options.UseTextOptions = True
         Me.FTDiseaseS_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTDiseaseS_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTDiseaseS_lbl.Location = New System.Drawing.Point(219, 297)
-        Me.FTDiseaseS_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDiseaseS_lbl.Location = New System.Drawing.Point(255, 366)
+        Me.FTDiseaseS_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDiseaseS_lbl.Name = "FTDiseaseS_lbl"
-        Me.FTDiseaseS_lbl.Size = New System.Drawing.Size(19, 25)
+        Me.FTDiseaseS_lbl.Size = New System.Drawing.Size(22, 31)
         Me.FTDiseaseS_lbl.TabIndex = 411
         Me.FTDiseaseS_lbl.Tag = "2|"
         Me.FTDiseaseS_lbl.Text = "โรค"
@@ -13727,33 +13632,33 @@ Partial Class wEmployee
         Me.FTRelationS_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRelationS_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRelationS_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRelationS_lbl.Location = New System.Drawing.Point(44, 297)
-        Me.FTRelationS_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRelationS_lbl.Location = New System.Drawing.Point(51, 366)
+        Me.FTRelationS_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRelationS_lbl.Name = "FTRelationS_lbl"
-        Me.FTRelationS_lbl.Size = New System.Drawing.Size(71, 25)
+        Me.FTRelationS_lbl.Size = New System.Drawing.Size(83, 31)
         Me.FTRelationS_lbl.TabIndex = 410
         Me.FTRelationS_lbl.Tag = "2|"
         Me.FTRelationS_lbl.Text = "3.ความสัมพันธ์"
         '
         'FTRelationS
         '
-        Me.FTRelationS.Location = New System.Drawing.Point(121, 299)
-        Me.FTRelationS.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRelationS.Location = New System.Drawing.Point(141, 368)
+        Me.FTRelationS.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRelationS.Name = "FTRelationS"
         Me.FTRelationS.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTRelationS.Properties.Appearance.Options.UseBackColor = True
-        Me.FTRelationS.Size = New System.Drawing.Size(92, 20)
+        Me.FTRelationS.Size = New System.Drawing.Size(107, 23)
         Me.FTRelationS.TabIndex = 409
         Me.FTRelationS.Tag = ""
         '
         'FTDiseaseM
         '
-        Me.FTDiseaseM.Location = New System.Drawing.Point(244, 272)
-        Me.FTDiseaseM.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDiseaseM.Location = New System.Drawing.Point(285, 335)
+        Me.FTDiseaseM.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDiseaseM.Name = "FTDiseaseM"
         Me.FTDiseaseM.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTDiseaseM.Properties.Appearance.Options.UseBackColor = True
-        Me.FTDiseaseM.Size = New System.Drawing.Size(210, 20)
+        Me.FTDiseaseM.Size = New System.Drawing.Size(245, 23)
         Me.FTDiseaseM.TabIndex = 408
         Me.FTDiseaseM.Tag = ""
         '
@@ -13762,10 +13667,10 @@ Partial Class wEmployee
         Me.FTDiseaseM_lbl.Appearance.Options.UseTextOptions = True
         Me.FTDiseaseM_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTDiseaseM_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTDiseaseM_lbl.Location = New System.Drawing.Point(219, 269)
-        Me.FTDiseaseM_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDiseaseM_lbl.Location = New System.Drawing.Point(255, 331)
+        Me.FTDiseaseM_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDiseaseM_lbl.Name = "FTDiseaseM_lbl"
-        Me.FTDiseaseM_lbl.Size = New System.Drawing.Size(19, 25)
+        Me.FTDiseaseM_lbl.Size = New System.Drawing.Size(22, 31)
         Me.FTDiseaseM_lbl.TabIndex = 407
         Me.FTDiseaseM_lbl.Tag = "2|"
         Me.FTDiseaseM_lbl.Text = "โรค"
@@ -13775,33 +13680,33 @@ Partial Class wEmployee
         Me.FTRelationM_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRelationM_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRelationM_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRelationM_lbl.Location = New System.Drawing.Point(44, 269)
-        Me.FTRelationM_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRelationM_lbl.Location = New System.Drawing.Point(51, 331)
+        Me.FTRelationM_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRelationM_lbl.Name = "FTRelationM_lbl"
-        Me.FTRelationM_lbl.Size = New System.Drawing.Size(71, 25)
+        Me.FTRelationM_lbl.Size = New System.Drawing.Size(83, 31)
         Me.FTRelationM_lbl.TabIndex = 406
         Me.FTRelationM_lbl.Tag = "2|"
         Me.FTRelationM_lbl.Text = "2.ความสัมพันธ์"
         '
         'FTRelationM
         '
-        Me.FTRelationM.Location = New System.Drawing.Point(121, 271)
-        Me.FTRelationM.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRelationM.Location = New System.Drawing.Point(141, 334)
+        Me.FTRelationM.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRelationM.Name = "FTRelationM"
         Me.FTRelationM.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTRelationM.Properties.Appearance.Options.UseBackColor = True
-        Me.FTRelationM.Size = New System.Drawing.Size(92, 20)
+        Me.FTRelationM.Size = New System.Drawing.Size(107, 23)
         Me.FTRelationM.TabIndex = 405
         Me.FTRelationM.Tag = ""
         '
         'FTDiseaseD
         '
-        Me.FTDiseaseD.Location = New System.Drawing.Point(244, 244)
-        Me.FTDiseaseD.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDiseaseD.Location = New System.Drawing.Point(285, 300)
+        Me.FTDiseaseD.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDiseaseD.Name = "FTDiseaseD"
         Me.FTDiseaseD.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTDiseaseD.Properties.Appearance.Options.UseBackColor = True
-        Me.FTDiseaseD.Size = New System.Drawing.Size(210, 20)
+        Me.FTDiseaseD.Size = New System.Drawing.Size(245, 23)
         Me.FTDiseaseD.TabIndex = 404
         Me.FTDiseaseD.Tag = ""
         '
@@ -13810,10 +13715,10 @@ Partial Class wEmployee
         Me.FTDiseaseD_lbl.Appearance.Options.UseTextOptions = True
         Me.FTDiseaseD_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTDiseaseD_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTDiseaseD_lbl.Location = New System.Drawing.Point(219, 241)
-        Me.FTDiseaseD_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDiseaseD_lbl.Location = New System.Drawing.Point(255, 297)
+        Me.FTDiseaseD_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDiseaseD_lbl.Name = "FTDiseaseD_lbl"
-        Me.FTDiseaseD_lbl.Size = New System.Drawing.Size(19, 25)
+        Me.FTDiseaseD_lbl.Size = New System.Drawing.Size(22, 31)
         Me.FTDiseaseD_lbl.TabIndex = 403
         Me.FTDiseaseD_lbl.Tag = "2|"
         Me.FTDiseaseD_lbl.Text = "โรค"
@@ -13823,48 +13728,48 @@ Partial Class wEmployee
         Me.FTRelationD_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRelationD_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRelationD_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRelationD_lbl.Location = New System.Drawing.Point(44, 241)
-        Me.FTRelationD_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRelationD_lbl.Location = New System.Drawing.Point(51, 297)
+        Me.FTRelationD_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRelationD_lbl.Name = "FTRelationD_lbl"
-        Me.FTRelationD_lbl.Size = New System.Drawing.Size(71, 25)
+        Me.FTRelationD_lbl.Size = New System.Drawing.Size(83, 31)
         Me.FTRelationD_lbl.TabIndex = 402
         Me.FTRelationD_lbl.Tag = "2|"
         Me.FTRelationD_lbl.Text = "1.ความสัมพันธ์"
         '
         'FTRelationD
         '
-        Me.FTRelationD.Location = New System.Drawing.Point(121, 243)
-        Me.FTRelationD.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTRelationD.Location = New System.Drawing.Point(141, 299)
+        Me.FTRelationD.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTRelationD.Name = "FTRelationD"
         Me.FTRelationD.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTRelationD.Properties.Appearance.Options.UseBackColor = True
-        Me.FTRelationD.Size = New System.Drawing.Size(92, 20)
+        Me.FTRelationD.Size = New System.Drawing.Size(107, 23)
         Me.FTRelationD.TabIndex = 401
         Me.FTRelationD.Tag = ""
         '
         'FTStateSirFamily
         '
         Me.FTStateSirFamily.EditValue = "0"
-        Me.FTStateSirFamily.Location = New System.Drawing.Point(82, 213)
-        Me.FTStateSirFamily.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateSirFamily.Location = New System.Drawing.Point(96, 262)
+        Me.FTStateSirFamily.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateSirFamily.Name = "FTStateSirFamily"
         Me.FTStateSirFamily.Properties.Caption = "มี"
         Me.FTStateSirFamily.Properties.ValueChecked = "1"
         Me.FTStateSirFamily.Properties.ValueUnchecked = "0"
-        Me.FTStateSirFamily.Size = New System.Drawing.Size(43, 20)
+        Me.FTStateSirFamily.Size = New System.Drawing.Size(50, 21)
         Me.FTStateSirFamily.TabIndex = 400
         Me.FTStateSirFamily.Tag = "2|"
         '
         'FTStateNoSirFamily
         '
         Me.FTStateNoSirFamily.EditValue = "0"
-        Me.FTStateNoSirFamily.Location = New System.Drawing.Point(19, 213)
-        Me.FTStateNoSirFamily.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateNoSirFamily.Location = New System.Drawing.Point(22, 262)
+        Me.FTStateNoSirFamily.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateNoSirFamily.Name = "FTStateNoSirFamily"
         Me.FTStateNoSirFamily.Properties.Caption = "ไม่มี"
         Me.FTStateNoSirFamily.Properties.ValueChecked = "1"
         Me.FTStateNoSirFamily.Properties.ValueUnchecked = "0"
-        Me.FTStateNoSirFamily.Size = New System.Drawing.Size(57, 20)
+        Me.FTStateNoSirFamily.Size = New System.Drawing.Size(66, 21)
         Me.FTStateNoSirFamily.TabIndex = 399
         Me.FTStateNoSirFamily.Tag = "2|"
         '
@@ -13873,10 +13778,10 @@ Partial Class wEmployee
         Me.LabelControl53.Appearance.Options.UseTextOptions = True
         Me.LabelControl53.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl53.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl53.Location = New System.Drawing.Point(131, 210)
-        Me.LabelControl53.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl53.Location = New System.Drawing.Point(153, 258)
+        Me.LabelControl53.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl53.Name = "LabelControl53"
-        Me.LabelControl53.Size = New System.Drawing.Size(119, 25)
+        Me.LabelControl53.Size = New System.Drawing.Size(139, 31)
         Me.LabelControl53.TabIndex = 398
         Me.LabelControl53.Tag = "2|"
         Me.LabelControl53.Text = "ระบุความสัมพันธ์และโรค"
@@ -13886,10 +13791,10 @@ Partial Class wEmployee
         Me.LabelControl54.Appearance.Options.UseTextOptions = True
         Me.LabelControl54.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl54.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl54.Location = New System.Drawing.Point(5, 185)
-        Me.LabelControl54.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl54.Location = New System.Drawing.Point(6, 228)
+        Me.LabelControl54.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl54.Name = "LabelControl54"
-        Me.LabelControl54.Size = New System.Drawing.Size(555, 25)
+        Me.LabelControl54.Size = New System.Drawing.Size(647, 31)
         Me.LabelControl54.TabIndex = 397
         Me.LabelControl54.Tag = "2|"
         Me.LabelControl54.Text = "ประวัติการเจ็บป่วยของสมาชิกกในครอบครัว (เช้น มะเร็ง โลหิตจาง วัณโรค เบาหวาน หอบหื" &
@@ -13897,38 +13802,38 @@ Partial Class wEmployee
         '
         'FTImmunityNote
         '
-        Me.FTImmunityNote.Location = New System.Drawing.Point(167, 164)
-        Me.FTImmunityNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTImmunityNote.Location = New System.Drawing.Point(195, 202)
+        Me.FTImmunityNote.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTImmunityNote.Name = "FTImmunityNote"
         Me.FTImmunityNote.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTImmunityNote.Properties.Appearance.Options.UseBackColor = True
-        Me.FTImmunityNote.Size = New System.Drawing.Size(287, 20)
+        Me.FTImmunityNote.Size = New System.Drawing.Size(335, 23)
         Me.FTImmunityNote.TabIndex = 396
         Me.FTImmunityNote.Tag = ""
         '
         'FTStateImmunity
         '
         Me.FTStateImmunity.EditValue = "0"
-        Me.FTStateImmunity.Location = New System.Drawing.Point(82, 164)
-        Me.FTStateImmunity.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateImmunity.Location = New System.Drawing.Point(96, 202)
+        Me.FTStateImmunity.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateImmunity.Name = "FTStateImmunity"
         Me.FTStateImmunity.Properties.Caption = "เคย"
         Me.FTStateImmunity.Properties.ValueChecked = "1"
         Me.FTStateImmunity.Properties.ValueUnchecked = "0"
-        Me.FTStateImmunity.Size = New System.Drawing.Size(43, 20)
+        Me.FTStateImmunity.Size = New System.Drawing.Size(50, 21)
         Me.FTStateImmunity.TabIndex = 395
         Me.FTStateImmunity.Tag = "2|"
         '
         'FTStateNoImmunity
         '
         Me.FTStateNoImmunity.EditValue = "0"
-        Me.FTStateNoImmunity.Location = New System.Drawing.Point(19, 164)
-        Me.FTStateNoImmunity.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateNoImmunity.Location = New System.Drawing.Point(22, 202)
+        Me.FTStateNoImmunity.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateNoImmunity.Name = "FTStateNoImmunity"
         Me.FTStateNoImmunity.Properties.Caption = "ไม่เคย"
         Me.FTStateNoImmunity.Properties.ValueChecked = "1"
         Me.FTStateNoImmunity.Properties.ValueUnchecked = "0"
-        Me.FTStateNoImmunity.Size = New System.Drawing.Size(57, 20)
+        Me.FTStateNoImmunity.Size = New System.Drawing.Size(66, 21)
         Me.FTStateNoImmunity.TabIndex = 394
         Me.FTStateNoImmunity.Tag = "2|"
         '
@@ -13937,10 +13842,10 @@ Partial Class wEmployee
         Me.FTImmunityNote_lbl.Appearance.Options.UseTextOptions = True
         Me.FTImmunityNote_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTImmunityNote_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTImmunityNote_lbl.Location = New System.Drawing.Point(131, 161)
-        Me.FTImmunityNote_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTImmunityNote_lbl.Location = New System.Drawing.Point(153, 198)
+        Me.FTImmunityNote_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTImmunityNote_lbl.Name = "FTImmunityNote_lbl"
-        Me.FTImmunityNote_lbl.Size = New System.Drawing.Size(30, 25)
+        Me.FTImmunityNote_lbl.Size = New System.Drawing.Size(35, 31)
         Me.FTImmunityNote_lbl.TabIndex = 393
         Me.FTImmunityNote_lbl.Tag = "2|"
         Me.FTImmunityNote_lbl.Text = "ระบุ :"
@@ -13950,48 +13855,48 @@ Partial Class wEmployee
         Me.LabelControl52.Appearance.Options.UseTextOptions = True
         Me.LabelControl52.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl52.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl52.Location = New System.Drawing.Point(5, 136)
-        Me.LabelControl52.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl52.Location = New System.Drawing.Point(6, 167)
+        Me.LabelControl52.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl52.Name = "LabelControl52"
-        Me.LabelControl52.Size = New System.Drawing.Size(423, 25)
+        Me.LabelControl52.Size = New System.Drawing.Size(493, 31)
         Me.LabelControl52.TabIndex = 392
         Me.LabelControl52.Tag = "2|"
         Me.LabelControl52.Text = "เคยได้รับภูมิคุ้มกันโรคกรณีเกิดโรคระบาด หรือ เพื่อป้องกันโรคติดต่อหรือไม่"
         '
         'FTSurgeryNote
         '
-        Me.FTSurgeryNote.Location = New System.Drawing.Point(167, 111)
-        Me.FTSurgeryNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSurgeryNote.Location = New System.Drawing.Point(195, 137)
+        Me.FTSurgeryNote.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTSurgeryNote.Name = "FTSurgeryNote"
         Me.FTSurgeryNote.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTSurgeryNote.Properties.Appearance.Options.UseBackColor = True
-        Me.FTSurgeryNote.Size = New System.Drawing.Size(287, 20)
+        Me.FTSurgeryNote.Size = New System.Drawing.Size(335, 23)
         Me.FTSurgeryNote.TabIndex = 391
         Me.FTSurgeryNote.Tag = ""
         '
         'FTStateSurgery
         '
         Me.FTStateSurgery.EditValue = "0"
-        Me.FTStateSurgery.Location = New System.Drawing.Point(82, 111)
-        Me.FTStateSurgery.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateSurgery.Location = New System.Drawing.Point(96, 137)
+        Me.FTStateSurgery.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateSurgery.Name = "FTStateSurgery"
         Me.FTStateSurgery.Properties.Caption = "เคย"
         Me.FTStateSurgery.Properties.ValueChecked = "1"
         Me.FTStateSurgery.Properties.ValueUnchecked = "0"
-        Me.FTStateSurgery.Size = New System.Drawing.Size(43, 20)
+        Me.FTStateSurgery.Size = New System.Drawing.Size(50, 21)
         Me.FTStateSurgery.TabIndex = 390
         Me.FTStateSurgery.Tag = "2|"
         '
         'FTStateNoSurgery
         '
         Me.FTStateNoSurgery.EditValue = "0"
-        Me.FTStateNoSurgery.Location = New System.Drawing.Point(19, 111)
-        Me.FTStateNoSurgery.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateNoSurgery.Location = New System.Drawing.Point(22, 137)
+        Me.FTStateNoSurgery.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateNoSurgery.Name = "FTStateNoSurgery"
         Me.FTStateNoSurgery.Properties.Caption = "ไม่เคย"
         Me.FTStateNoSurgery.Properties.ValueChecked = "1"
         Me.FTStateNoSurgery.Properties.ValueUnchecked = "0"
-        Me.FTStateNoSurgery.Size = New System.Drawing.Size(57, 20)
+        Me.FTStateNoSurgery.Size = New System.Drawing.Size(66, 21)
         Me.FTStateNoSurgery.TabIndex = 389
         Me.FTStateNoSurgery.Tag = "2|"
         '
@@ -14000,10 +13905,10 @@ Partial Class wEmployee
         Me.FTSurgeryNote_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSurgeryNote_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSurgeryNote_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSurgeryNote_lbl.Location = New System.Drawing.Point(131, 108)
-        Me.FTSurgeryNote_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTSurgeryNote_lbl.Location = New System.Drawing.Point(153, 133)
+        Me.FTSurgeryNote_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTSurgeryNote_lbl.Name = "FTSurgeryNote_lbl"
-        Me.FTSurgeryNote_lbl.Size = New System.Drawing.Size(30, 25)
+        Me.FTSurgeryNote_lbl.Size = New System.Drawing.Size(35, 31)
         Me.FTSurgeryNote_lbl.TabIndex = 388
         Me.FTSurgeryNote_lbl.Tag = "2|"
         Me.FTSurgeryNote_lbl.Text = "ระบุ :"
@@ -14013,48 +13918,48 @@ Partial Class wEmployee
         Me.LabelControl48.Appearance.Options.UseTextOptions = True
         Me.LabelControl48.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl48.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl48.Location = New System.Drawing.Point(5, 83)
-        Me.LabelControl48.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl48.Location = New System.Drawing.Point(6, 102)
+        Me.LabelControl48.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl48.Name = "LabelControl48"
-        Me.LabelControl48.Size = New System.Drawing.Size(208, 25)
+        Me.LabelControl48.Size = New System.Drawing.Size(243, 31)
         Me.LabelControl48.TabIndex = 387
         Me.LabelControl48.Tag = "2|"
         Me.LabelControl48.Text = "เคยได้รับการผ่าตัดหรือไม่"
         '
         'FTDiseaseNote
         '
-        Me.FTDiseaseNote.Location = New System.Drawing.Point(167, 55)
-        Me.FTDiseaseNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDiseaseNote.Location = New System.Drawing.Point(195, 68)
+        Me.FTDiseaseNote.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDiseaseNote.Name = "FTDiseaseNote"
         Me.FTDiseaseNote.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTDiseaseNote.Properties.Appearance.Options.UseBackColor = True
-        Me.FTDiseaseNote.Size = New System.Drawing.Size(287, 20)
+        Me.FTDiseaseNote.Size = New System.Drawing.Size(335, 23)
         Me.FTDiseaseNote.TabIndex = 386
         Me.FTDiseaseNote.Tag = ""
         '
         'FTStateDisease
         '
         Me.FTStateDisease.EditValue = "0"
-        Me.FTStateDisease.Location = New System.Drawing.Point(82, 55)
-        Me.FTStateDisease.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateDisease.Location = New System.Drawing.Point(96, 68)
+        Me.FTStateDisease.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateDisease.Name = "FTStateDisease"
         Me.FTStateDisease.Properties.Caption = "มี"
         Me.FTStateDisease.Properties.ValueChecked = "1"
         Me.FTStateDisease.Properties.ValueUnchecked = "0"
-        Me.FTStateDisease.Size = New System.Drawing.Size(33, 20)
+        Me.FTStateDisease.Size = New System.Drawing.Size(38, 21)
         Me.FTStateDisease.TabIndex = 385
         Me.FTStateDisease.Tag = "2|"
         '
         'FTStateNoDisease
         '
         Me.FTStateNoDisease.EditValue = "0"
-        Me.FTStateNoDisease.Location = New System.Drawing.Point(19, 55)
-        Me.FTStateNoDisease.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStateNoDisease.Location = New System.Drawing.Point(22, 68)
+        Me.FTStateNoDisease.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStateNoDisease.Name = "FTStateNoDisease"
         Me.FTStateNoDisease.Properties.Caption = "ไม่มี"
         Me.FTStateNoDisease.Properties.ValueChecked = "1"
         Me.FTStateNoDisease.Properties.ValueUnchecked = "0"
-        Me.FTStateNoDisease.Size = New System.Drawing.Size(48, 20)
+        Me.FTStateNoDisease.Size = New System.Drawing.Size(56, 21)
         Me.FTStateNoDisease.TabIndex = 384
         Me.FTStateNoDisease.Tag = "2|"
         '
@@ -14063,10 +13968,10 @@ Partial Class wEmployee
         Me.FTDiseaseNote_lbl.Appearance.Options.UseTextOptions = True
         Me.FTDiseaseNote_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTDiseaseNote_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTDiseaseNote_lbl.Location = New System.Drawing.Point(131, 52)
-        Me.FTDiseaseNote_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDiseaseNote_lbl.Location = New System.Drawing.Point(153, 64)
+        Me.FTDiseaseNote_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTDiseaseNote_lbl.Name = "FTDiseaseNote_lbl"
-        Me.FTDiseaseNote_lbl.Size = New System.Drawing.Size(30, 25)
+        Me.FTDiseaseNote_lbl.Size = New System.Drawing.Size(35, 31)
         Me.FTDiseaseNote_lbl.TabIndex = 321
         Me.FTDiseaseNote_lbl.Tag = "2|"
         Me.FTDiseaseNote_lbl.Text = "ระบุ :"
@@ -14076,22 +13981,150 @@ Partial Class wEmployee
         Me.LabelControl39.Appearance.Options.UseTextOptions = True
         Me.LabelControl39.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl39.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl39.Location = New System.Drawing.Point(5, 27)
-        Me.LabelControl39.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl39.Location = New System.Drawing.Point(6, 33)
+        Me.LabelControl39.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.LabelControl39.Name = "LabelControl39"
-        Me.LabelControl39.Size = New System.Drawing.Size(208, 25)
+        Me.LabelControl39.Size = New System.Drawing.Size(243, 31)
         Me.LabelControl39.TabIndex = 320
         Me.LabelControl39.Tag = "2|"
         Me.LabelControl39.Text = "มีโรคประจำตัวหรือโรคเรื้อรังหรือไม่"
         '
         'XtraTabPage1
         '
-        Me.XtraTabPage1.Controls.Add(Me.ogbPass)
         Me.XtraTabPage1.Controls.Add(Me.ogcdetail)
+        Me.XtraTabPage1.Controls.Add(Me.ogbPass)
         Me.XtraTabPage1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage1.Name = "XtraTabPage1"
-        Me.XtraTabPage1.Size = New System.Drawing.Size(1405, 709)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(1639, 872)
         Me.XtraTabPage1.Text = "XtraTabPage1"
+        '
+        'ogcdetail
+        '
+        Me.ogcdetail.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcdetail.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcdetail.Location = New System.Drawing.Point(0, 154)
+        Me.ogcdetail.MainView = Me.ogvdetail
+        Me.ogcdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcdetail.Name = "ogcdetail"
+        Me.ogcdetail.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit3, Me.RepositoryItemMemoEdit3, Me.RepositoryItemMemoEdit4})
+        Me.ogcdetail.Size = New System.Drawing.Size(1639, 718)
+        Me.ogcdetail.TabIndex = 2
+        Me.ogcdetail.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvdetail})
+        '
+        'ogvdetail
+        '
+        Me.ogvdetail.Appearance.EvenRow.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.ogvdetail.Appearance.EvenRow.Options.UseBackColor = True
+        Me.ogvdetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNPassportSeq1, Me.FTPassPortNo1, Me.FTPassportNote, Me.FBFileImage, Me.oColFTImagePack, Me.FDDateofIssue1, Me.FDDateofExpiry1})
+        Me.ogvdetail.GridControl = Me.ogcdetail
+        Me.ogvdetail.Name = "ogvdetail"
+        Me.ogvdetail.OptionsView.EnableAppearanceEvenRow = True
+        Me.ogvdetail.OptionsView.ShowGroupPanel = False
+        Me.ogvdetail.RowHeight = 60
+        '
+        'FNPassportSeq1
+        '
+        Me.FNPassportSeq1.AppearanceCell.Options.UseTextOptions = True
+        Me.FNPassportSeq1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FNPassportSeq1.AppearanceHeader.Options.UseTextOptions = True
+        Me.FNPassportSeq1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FNPassportSeq1.Caption = "FNPassportSeq"
+        Me.FNPassportSeq1.FieldName = "FNPassportSeq"
+        Me.FNPassportSeq1.Name = "FNPassportSeq1"
+        Me.FNPassportSeq1.OptionsColumn.AllowEdit = False
+        Me.FNPassportSeq1.OptionsColumn.AllowMove = False
+        Me.FNPassportSeq1.Visible = True
+        Me.FNPassportSeq1.VisibleIndex = 0
+        Me.FNPassportSeq1.Width = 103
+        '
+        'FTPassPortNo1
+        '
+        Me.FTPassPortNo1.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTPassPortNo1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTPassPortNo1.Caption = "FTPassPortNo"
+        Me.FTPassPortNo1.ColumnEdit = Me.RepositoryItemMemoEdit3
+        Me.FTPassPortNo1.FieldName = "FTPassPortNo"
+        Me.FTPassPortNo1.Name = "FTPassPortNo1"
+        Me.FTPassPortNo1.OptionsColumn.AllowEdit = False
+        Me.FTPassPortNo1.Visible = True
+        Me.FTPassPortNo1.VisibleIndex = 1
+        Me.FTPassPortNo1.Width = 314
+        '
+        'RepositoryItemMemoEdit3
+        '
+        Me.RepositoryItemMemoEdit3.Name = "RepositoryItemMemoEdit3"
+        '
+        'FTPassportNote
+        '
+        Me.FTPassportNote.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTPassportNote.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTPassportNote.Caption = "FTPassportNote"
+        Me.FTPassportNote.ColumnEdit = Me.RepositoryItemMemoEdit4
+        Me.FTPassportNote.FieldName = "FTPassportNote"
+        Me.FTPassportNote.Name = "FTPassportNote"
+        Me.FTPassportNote.OptionsColumn.AllowEdit = False
+        Me.FTPassportNote.OptionsColumn.AllowMove = False
+        Me.FTPassportNote.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTPassportNote.Visible = True
+        Me.FTPassportNote.VisibleIndex = 4
+        Me.FTPassportNote.Width = 304
+        '
+        'RepositoryItemMemoEdit4
+        '
+        Me.RepositoryItemMemoEdit4.Name = "RepositoryItemMemoEdit4"
+        '
+        'FBFileImage
+        '
+        Me.FBFileImage.Caption = "FBFileImage"
+        Me.FBFileImage.ColumnEdit = Me.RepositoryItemPictureEdit3
+        Me.FBFileImage.FieldName = "FBFileImage"
+        Me.FBFileImage.Name = "FBFileImage"
+        Me.FBFileImage.OptionsColumn.AllowMove = False
+        Me.FBFileImage.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FBFileImage.OptionsColumn.FixedWidth = True
+        Me.FBFileImage.Visible = True
+        Me.FBFileImage.VisibleIndex = 5
+        Me.FBFileImage.Width = 139
+        '
+        'RepositoryItemPictureEdit3
+        '
+        Me.RepositoryItemPictureEdit3.CustomHeight = 100
+        Me.RepositoryItemPictureEdit3.Name = "RepositoryItemPictureEdit3"
+        Me.RepositoryItemPictureEdit3.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        '
+        'oColFTImagePack
+        '
+        Me.oColFTImagePack.Caption = "GridColumn1"
+        Me.oColFTImagePack.FieldName = "FTImage"
+        Me.oColFTImagePack.Name = "oColFTImagePack"
+        '
+        'FDDateofIssue1
+        '
+        Me.FDDateofIssue1.Caption = "FDDateofIssue"
+        Me.FDDateofIssue1.DisplayFormat.FormatString = "d"
+        Me.FDDateofIssue1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.FDDateofIssue1.FieldName = "FDDateofIssue1"
+        Me.FDDateofIssue1.GroupFormat.FormatString = "d"
+        Me.FDDateofIssue1.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.FDDateofIssue1.Name = "FDDateofIssue1"
+        Me.FDDateofIssue1.OptionsColumn.AllowEdit = False
+        Me.FDDateofIssue1.Visible = True
+        Me.FDDateofIssue1.VisibleIndex = 2
+        Me.FDDateofIssue1.Width = 250
+        '
+        'FDDateofExpiry1
+        '
+        Me.FDDateofExpiry1.Caption = "FDDateofExpiry"
+        Me.FDDateofExpiry1.DisplayFormat.FormatString = "d"
+        Me.FDDateofExpiry1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.FDDateofExpiry1.FieldName = "FDDateofExpiry"
+        Me.FDDateofExpiry1.GroupFormat.FormatString = "d"
+        Me.FDDateofExpiry1.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.FDDateofExpiry1.Name = "FDDateofExpiry1"
+        Me.FDDateofExpiry1.OptionsColumn.AllowEdit = False
+        Me.FDDateofExpiry1.Visible = True
+        Me.FDDateofExpiry1.VisibleIndex = 3
+        Me.FDDateofExpiry1.Width = 237
         '
         'ogbPass
         '
@@ -14106,17 +14139,17 @@ Partial Class wEmployee
         Me.ogbPass.Controls.Add(Me.FDDateofIssue2_lbl)
         Me.ogbPass.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbPass.Location = New System.Drawing.Point(0, 0)
-        Me.ogbPass.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbPass.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbPass.Name = "ogbPass"
         Me.ogbPass.ShowCaption = False
-        Me.ogbPass.Size = New System.Drawing.Size(1405, 160)
+        Me.ogbPass.Size = New System.Drawing.Size(1639, 154)
         Me.ogbPass.TabIndex = 309
         '
         'FNPassportSeq
         '
         Me.FNPassportSeq.EnterMoveNextControl = True
-        Me.FNPassportSeq.Location = New System.Drawing.Point(608, 20)
-        Me.FNPassportSeq.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNPassportSeq.Location = New System.Drawing.Point(709, 25)
+        Me.FNPassportSeq.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNPassportSeq.Name = "FNPassportSeq"
         Me.FNPassportSeq.Properties.Appearance.Options.UseTextOptions = True
         Me.FNPassportSeq.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -14128,20 +14161,20 @@ Partial Class wEmployee
         Me.FNPassportSeq.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPassportSeq.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPassportSeq.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPassportSeq.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions83, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject329, SerializableAppearanceObject330, SerializableAppearanceObject331, SerializableAppearanceObject332, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPassportSeq.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions64, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject325, SerializableAppearanceObject326, SerializableAppearanceObject327, SerializableAppearanceObject328, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPassportSeq.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPassportSeq.Properties.Precision = 2
-        Me.FNPassportSeq.Size = New System.Drawing.Size(40, 20)
+        Me.FNPassportSeq.Size = New System.Drawing.Size(47, 23)
         Me.FNPassportSeq.TabIndex = 401
         Me.FNPassportSeq.Tag = "2|"
         Me.FNPassportSeq.Visible = False
         '
         'FTPassPortNo
         '
-        Me.FTPassPortNo.Location = New System.Drawing.Point(124, 6)
-        Me.FTPassPortNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTPassPortNo.Location = New System.Drawing.Point(145, 7)
+        Me.FTPassPortNo.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTPassPortNo.Name = "FTPassPortNo"
-        Me.FTPassPortNo.Size = New System.Drawing.Size(414, 20)
+        Me.FTPassPortNo.Size = New System.Drawing.Size(483, 23)
         Me.FTPassPortNo.TabIndex = 388
         Me.FTPassPortNo.Tag = "2|"
         '
@@ -14152,10 +14185,10 @@ Partial Class wEmployee
         Me.FTPassPortNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTPassPortNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTPassPortNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTPassPortNo_lbl.Location = New System.Drawing.Point(-1, 6)
-        Me.FTPassPortNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTPassPortNo_lbl.Location = New System.Drawing.Point(-1, 7)
+        Me.FTPassPortNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTPassPortNo_lbl.Name = "FTPassPortNo_lbl"
-        Me.FTPassPortNo_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTPassPortNo_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTPassPortNo_lbl.TabIndex = 389
         Me.FTPassPortNo_lbl.Tag = "2|"
         Me.FTPassPortNo_lbl.Text = "FTPassPortNo :"
@@ -14166,11 +14199,11 @@ Partial Class wEmployee
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTPassportNote1.EditValue = ""
-        Me.FTPassportNote1.Location = New System.Drawing.Point(126, 53)
-        Me.FTPassportNote1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTPassportNote1.Location = New System.Drawing.Point(145, 63)
+        Me.FTPassportNote1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTPassportNote1.Name = "FTPassportNote1"
         Me.FTPassportNote1.Properties.MaxLength = 500
-        Me.FTPassportNote1.Size = New System.Drawing.Size(1203, 70)
+        Me.FTPassportNote1.Size = New System.Drawing.Size(916, 94)
         Me.FTPassportNote1.TabIndex = 380
         Me.FTPassportNote1.Tag = "2|"
         '
@@ -14179,10 +14212,10 @@ Partial Class wEmployee
         Me.FTPassportNote_lbl.Appearance.Options.UseTextOptions = True
         Me.FTPassportNote_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTPassportNote_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTPassportNote_lbl.Location = New System.Drawing.Point(15, 47)
-        Me.FTPassportNote_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTPassportNote_lbl.Location = New System.Drawing.Point(17, 58)
+        Me.FTPassportNote_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTPassportNote_lbl.Name = "FTPassportNote_lbl"
-        Me.FTPassportNote_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FTPassportNote_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FTPassportNote_lbl.TabIndex = 381
         Me.FTPassportNote_lbl.Tag = "2|"
         Me.FTPassportNote_lbl.Text = "หมายเหตุ :"
@@ -14191,8 +14224,8 @@ Partial Class wEmployee
         '
         Me.FDDateofExpiry2.EditValue = Nothing
         Me.FDDateofExpiry2.EnterMoveNextControl = True
-        Me.FDDateofExpiry2.Location = New System.Drawing.Point(359, 28)
-        Me.FDDateofExpiry2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofExpiry2.Location = New System.Drawing.Point(419, 34)
+        Me.FDDateofExpiry2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofExpiry2.Name = "FDDateofExpiry2"
         Me.FDDateofExpiry2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateofExpiry2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -14203,7 +14236,7 @@ Partial Class wEmployee
         Me.FDDateofExpiry2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateofExpiry2.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateofExpiry2.Properties.NullDate = ""
-        Me.FDDateofExpiry2.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateofExpiry2.Size = New System.Drawing.Size(136, 23)
         Me.FDDateofExpiry2.TabIndex = 325
         Me.FDDateofExpiry2.Tag = "2|"
         '
@@ -14214,10 +14247,10 @@ Partial Class wEmployee
         Me.FDDateofExpiry2_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateofExpiry2_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateofExpiry2_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateofExpiry2_lbl.Location = New System.Drawing.Point(243, 23)
-        Me.FDDateofExpiry2_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofExpiry2_lbl.Location = New System.Drawing.Point(283, 28)
+        Me.FDDateofExpiry2_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofExpiry2_lbl.Name = "FDDateofExpiry2_lbl"
-        Me.FDDateofExpiry2_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateofExpiry2_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateofExpiry2_lbl.TabIndex = 327
         Me.FDDateofExpiry2_lbl.Tag = "2|"
         Me.FDDateofExpiry2_lbl.Text = "FDDateofExpiry :"
@@ -14226,8 +14259,8 @@ Partial Class wEmployee
         '
         Me.FDDateofIssue2.EditValue = Nothing
         Me.FDDateofIssue2.EnterMoveNextControl = True
-        Me.FDDateofIssue2.Location = New System.Drawing.Point(124, 28)
-        Me.FDDateofIssue2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofIssue2.Location = New System.Drawing.Point(145, 34)
+        Me.FDDateofIssue2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofIssue2.Name = "FDDateofIssue2"
         Me.FDDateofIssue2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateofIssue2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -14238,7 +14271,7 @@ Partial Class wEmployee
         Me.FDDateofIssue2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateofIssue2.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateofIssue2.Properties.NullDate = ""
-        Me.FDDateofIssue2.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateofIssue2.Size = New System.Drawing.Size(136, 23)
         Me.FDDateofIssue2.TabIndex = 324
         Me.FDDateofIssue2.Tag = "2|"
         '
@@ -14249,151 +14282,13 @@ Partial Class wEmployee
         Me.FDDateofIssue2_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateofIssue2_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateofIssue2_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateofIssue2_lbl.Location = New System.Drawing.Point(14, 28)
-        Me.FDDateofIssue2_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofIssue2_lbl.Location = New System.Drawing.Point(16, 34)
+        Me.FDDateofIssue2_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofIssue2_lbl.Name = "FDDateofIssue2_lbl"
-        Me.FDDateofIssue2_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateofIssue2_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateofIssue2_lbl.TabIndex = 326
         Me.FDDateofIssue2_lbl.Tag = "2|"
         Me.FDDateofIssue2_lbl.Text = "FDDateofIssue :"
-        '
-        'ogcdetail
-        '
-        Me.ogcdetail.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogcdetail.Location = New System.Drawing.Point(52, 1534)
-        Me.ogcdetail.MainView = Me.ogvdetail
-        Me.ogcdetail.Name = "ogcdetail"
-        Me.ogcdetail.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit3, Me.RepositoryItemMemoEdit3, Me.RepositoryItemMemoEdit4})
-        Me.ogcdetail.Size = New System.Drawing.Size(7198, 4412)
-        Me.ogcdetail.TabIndex = 2
-        Me.ogcdetail.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvdetail})
-        '
-        'ogvdetail
-        '
-        Me.ogvdetail.Appearance.EvenRow.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ogvdetail.Appearance.EvenRow.Options.UseBackColor = True
-        Me.ogvdetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNPassportSeq1, Me.FTPassPortNo1, Me.FTPassportNote, Me.FBFileImage, Me.oColFTImagePack, Me.FDDateofIssue1, Me.FDDateofExpiry1})
-        Me.ogvdetail.DetailHeight = 284
-        Me.ogvdetail.GridControl = Me.ogcdetail
-        Me.ogvdetail.Name = "ogvdetail"
-        Me.ogvdetail.OptionsView.EnableAppearanceEvenRow = True
-        Me.ogvdetail.OptionsView.ShowGroupPanel = False
-        Me.ogvdetail.RowHeight = 49
-        '
-        'FNPassportSeq1
-        '
-        Me.FNPassportSeq1.AppearanceCell.Options.UseTextOptions = True
-        Me.FNPassportSeq1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FNPassportSeq1.AppearanceHeader.Options.UseTextOptions = True
-        Me.FNPassportSeq1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FNPassportSeq1.Caption = "FNPassportSeq"
-        Me.FNPassportSeq1.FieldName = "FNPassportSeq"
-        Me.FNPassportSeq1.MinWidth = 17
-        Me.FNPassportSeq1.Name = "FNPassportSeq1"
-        Me.FNPassportSeq1.OptionsColumn.AllowEdit = False
-        Me.FNPassportSeq1.OptionsColumn.AllowMove = False
-        Me.FNPassportSeq1.Visible = True
-        Me.FNPassportSeq1.VisibleIndex = 0
-        Me.FNPassportSeq1.Width = 88
-        '
-        'FTPassPortNo1
-        '
-        Me.FTPassPortNo1.AppearanceHeader.Options.UseTextOptions = True
-        Me.FTPassPortNo1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTPassPortNo1.Caption = "FTPassPortNo"
-        Me.FTPassPortNo1.ColumnEdit = Me.RepositoryItemMemoEdit3
-        Me.FTPassPortNo1.FieldName = "FTPassPortNo"
-        Me.FTPassPortNo1.MinWidth = 17
-        Me.FTPassPortNo1.Name = "FTPassPortNo1"
-        Me.FTPassPortNo1.OptionsColumn.AllowEdit = False
-        Me.FTPassPortNo1.Visible = True
-        Me.FTPassPortNo1.VisibleIndex = 1
-        Me.FTPassPortNo1.Width = 269
-        '
-        'RepositoryItemMemoEdit3
-        '
-        Me.RepositoryItemMemoEdit3.Name = "RepositoryItemMemoEdit3"
-        '
-        'FTPassportNote
-        '
-        Me.FTPassportNote.AppearanceHeader.Options.UseTextOptions = True
-        Me.FTPassportNote.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTPassportNote.Caption = "FTPassportNote"
-        Me.FTPassportNote.ColumnEdit = Me.RepositoryItemMemoEdit4
-        Me.FTPassportNote.FieldName = "FTPassportNote"
-        Me.FTPassportNote.MinWidth = 17
-        Me.FTPassportNote.Name = "FTPassportNote"
-        Me.FTPassportNote.OptionsColumn.AllowEdit = False
-        Me.FTPassportNote.OptionsColumn.AllowMove = False
-        Me.FTPassportNote.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTPassportNote.Visible = True
-        Me.FTPassportNote.VisibleIndex = 4
-        Me.FTPassportNote.Width = 261
-        '
-        'RepositoryItemMemoEdit4
-        '
-        Me.RepositoryItemMemoEdit4.Name = "RepositoryItemMemoEdit4"
-        '
-        'FBFileImage
-        '
-        Me.FBFileImage.Caption = "FBFileImage"
-        Me.FBFileImage.ColumnEdit = Me.RepositoryItemPictureEdit3
-        Me.FBFileImage.FieldName = "FBFileImage"
-        Me.FBFileImage.MinWidth = 17
-        Me.FBFileImage.Name = "FBFileImage"
-        Me.FBFileImage.OptionsColumn.AllowMove = False
-        Me.FBFileImage.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FBFileImage.OptionsColumn.FixedWidth = True
-        Me.FBFileImage.Visible = True
-        Me.FBFileImage.VisibleIndex = 5
-        Me.FBFileImage.Width = 119
-        '
-        'RepositoryItemPictureEdit3
-        '
-        Me.RepositoryItemPictureEdit3.AllowScrollOnMouseWheel = DevExpress.Utils.DefaultBoolean.[True]
-        Me.RepositoryItemPictureEdit3.CustomHeight = 100
-        Me.RepositoryItemPictureEdit3.Name = "RepositoryItemPictureEdit3"
-        Me.RepositoryItemPictureEdit3.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        '
-        'oColFTImagePack
-        '
-        Me.oColFTImagePack.Caption = "GridColumn1"
-        Me.oColFTImagePack.FieldName = "FTImage"
-        Me.oColFTImagePack.MinWidth = 17
-        Me.oColFTImagePack.Name = "oColFTImagePack"
-        Me.oColFTImagePack.Width = 64
-        '
-        'FDDateofIssue1
-        '
-        Me.FDDateofIssue1.Caption = "FDDateofIssue"
-        Me.FDDateofIssue1.DisplayFormat.FormatString = "d"
-        Me.FDDateofIssue1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FDDateofIssue1.FieldName = "FDDateofIssue1"
-        Me.FDDateofIssue1.GroupFormat.FormatString = "d"
-        Me.FDDateofIssue1.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FDDateofIssue1.MinWidth = 17
-        Me.FDDateofIssue1.Name = "FDDateofIssue1"
-        Me.FDDateofIssue1.OptionsColumn.AllowEdit = False
-        Me.FDDateofIssue1.Visible = True
-        Me.FDDateofIssue1.VisibleIndex = 2
-        Me.FDDateofIssue1.Width = 214
-        '
-        'FDDateofExpiry1
-        '
-        Me.FDDateofExpiry1.Caption = "FDDateofExpiry"
-        Me.FDDateofExpiry1.DisplayFormat.FormatString = "d"
-        Me.FDDateofExpiry1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FDDateofExpiry1.FieldName = "FDDateofExpiry"
-        Me.FDDateofExpiry1.GroupFormat.FormatString = "d"
-        Me.FDDateofExpiry1.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FDDateofExpiry1.MinWidth = 17
-        Me.FDDateofExpiry1.Name = "FDDateofExpiry1"
-        Me.FDDateofExpiry1.OptionsColumn.AllowEdit = False
-        Me.FDDateofExpiry1.Visible = True
-        Me.FDDateofExpiry1.VisibleIndex = 3
-        Me.FDDateofExpiry1.Width = 203
         '
         'XtraTabPage2
         '
@@ -14401,19 +14296,19 @@ Partial Class wEmployee
         Me.XtraTabPage2.Controls.Add(Me.ogbVisa)
         Me.XtraTabPage2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(1405, 709)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(1639, 872)
         Me.XtraTabPage2.Text = "XtraTabPage2"
         '
         'ogcvisa
         '
-        Me.ogcvisa.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogcvisa.Location = New System.Drawing.Point(81, 1415)
+        Me.ogcvisa.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcvisa.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcvisa.Location = New System.Drawing.Point(0, 140)
         Me.ogcvisa.MainView = Me.ogvvisa
+        Me.ogcvisa.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcvisa.Name = "ogcvisa"
         Me.ogcvisa.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit1, Me.RepositoryItemMemoEdit1, Me.RepositoryItemMemoEdit2})
-        Me.ogcvisa.Size = New System.Drawing.Size(6948, 1833)
+        Me.ogcvisa.Size = New System.Drawing.Size(1639, 732)
         Me.ogcvisa.TabIndex = 311
         Me.ogcvisa.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvvisa})
         '
@@ -14422,12 +14317,11 @@ Partial Class wEmployee
         Me.ogvvisa.Appearance.EvenRow.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ogvvisa.Appearance.EvenRow.Options.UseBackColor = True
         Me.ogvvisa.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNVisaSeq, Me.FTVisaNo, Me.FTVisatNote, Me.FBFileImage1, Me.GridColumn8, Me.FDDateofIssueV, Me.FDDateofExpiryV})
-        Me.ogvvisa.DetailHeight = 284
         Me.ogvvisa.GridControl = Me.ogcvisa
         Me.ogvvisa.Name = "ogvvisa"
         Me.ogvvisa.OptionsView.EnableAppearanceEvenRow = True
         Me.ogvvisa.OptionsView.ShowGroupPanel = False
-        Me.ogvvisa.RowHeight = 49
+        Me.ogvvisa.RowHeight = 60
         '
         'FNVisaSeq
         '
@@ -14437,13 +14331,12 @@ Partial Class wEmployee
         Me.FNVisaSeq.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNVisaSeq.Caption = "FNVisaSeq"
         Me.FNVisaSeq.FieldName = "FNVisaSeq"
-        Me.FNVisaSeq.MinWidth = 17
         Me.FNVisaSeq.Name = "FNVisaSeq"
         Me.FNVisaSeq.OptionsColumn.AllowEdit = False
         Me.FNVisaSeq.OptionsColumn.AllowMove = False
         Me.FNVisaSeq.Visible = True
         Me.FNVisaSeq.VisibleIndex = 0
-        Me.FNVisaSeq.Width = 88
+        Me.FNVisaSeq.Width = 103
         '
         'FTVisaNo
         '
@@ -14452,12 +14345,11 @@ Partial Class wEmployee
         Me.FTVisaNo.Caption = "FTVisaNo"
         Me.FTVisaNo.ColumnEdit = Me.RepositoryItemMemoEdit1
         Me.FTVisaNo.FieldName = "FTVisaNo"
-        Me.FTVisaNo.MinWidth = 17
         Me.FTVisaNo.Name = "FTVisaNo"
         Me.FTVisaNo.OptionsColumn.AllowEdit = False
         Me.FTVisaNo.Visible = True
         Me.FTVisaNo.VisibleIndex = 1
-        Me.FTVisaNo.Width = 269
+        Me.FTVisaNo.Width = 314
         '
         'RepositoryItemMemoEdit1
         '
@@ -14470,14 +14362,13 @@ Partial Class wEmployee
         Me.FTVisatNote.Caption = "FTVisatNote"
         Me.FTVisatNote.ColumnEdit = Me.RepositoryItemMemoEdit2
         Me.FTVisatNote.FieldName = "FTVisatNote"
-        Me.FTVisatNote.MinWidth = 17
         Me.FTVisatNote.Name = "FTVisatNote"
         Me.FTVisatNote.OptionsColumn.AllowEdit = False
         Me.FTVisatNote.OptionsColumn.AllowMove = False
         Me.FTVisatNote.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTVisatNote.Visible = True
         Me.FTVisatNote.VisibleIndex = 4
-        Me.FTVisatNote.Width = 261
+        Me.FTVisatNote.Width = 304
         '
         'RepositoryItemMemoEdit2
         '
@@ -14488,14 +14379,13 @@ Partial Class wEmployee
         Me.FBFileImage1.Caption = "FBFileImage"
         Me.FBFileImage1.ColumnEdit = Me.RepositoryItemPictureEdit1
         Me.FBFileImage1.FieldName = "FBFileImage"
-        Me.FBFileImage1.MinWidth = 17
         Me.FBFileImage1.Name = "FBFileImage1"
         Me.FBFileImage1.OptionsColumn.AllowMove = False
         Me.FBFileImage1.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FBFileImage1.OptionsColumn.FixedWidth = True
         Me.FBFileImage1.Visible = True
         Me.FBFileImage1.VisibleIndex = 5
-        Me.FBFileImage1.Width = 119
+        Me.FBFileImage1.Width = 139
         '
         'RepositoryItemPictureEdit1
         '
@@ -14507,9 +14397,7 @@ Partial Class wEmployee
         '
         Me.GridColumn8.Caption = "GridColumn1"
         Me.GridColumn8.FieldName = "FTImage"
-        Me.GridColumn8.MinWidth = 17
         Me.GridColumn8.Name = "GridColumn8"
-        Me.GridColumn8.Width = 64
         '
         'FDDateofIssueV
         '
@@ -14519,12 +14407,11 @@ Partial Class wEmployee
         Me.FDDateofIssueV.FieldName = "FDDateofIssue"
         Me.FDDateofIssueV.GroupFormat.FormatString = "d"
         Me.FDDateofIssueV.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FDDateofIssueV.MinWidth = 17
         Me.FDDateofIssueV.Name = "FDDateofIssueV"
         Me.FDDateofIssueV.OptionsColumn.AllowEdit = False
         Me.FDDateofIssueV.Visible = True
         Me.FDDateofIssueV.VisibleIndex = 2
-        Me.FDDateofIssueV.Width = 214
+        Me.FDDateofIssueV.Width = 250
         '
         'FDDateofExpiryV
         '
@@ -14534,12 +14421,11 @@ Partial Class wEmployee
         Me.FDDateofExpiryV.FieldName = "FDDateofExpiry"
         Me.FDDateofExpiryV.GroupFormat.FormatString = "d"
         Me.FDDateofExpiryV.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FDDateofExpiryV.MinWidth = 17
         Me.FDDateofExpiryV.Name = "FDDateofExpiryV"
         Me.FDDateofExpiryV.OptionsColumn.AllowEdit = False
         Me.FDDateofExpiryV.Visible = True
         Me.FDDateofExpiryV.VisibleIndex = 3
-        Me.FDDateofExpiryV.Width = 203
+        Me.FDDateofExpiryV.Width = 237
         '
         'ogbVisa
         '
@@ -14554,17 +14440,17 @@ Partial Class wEmployee
         Me.ogbVisa.Controls.Add(Me.FDDateofIssueV_lbl)
         Me.ogbVisa.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbVisa.Location = New System.Drawing.Point(0, 0)
-        Me.ogbVisa.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbVisa.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbVisa.Name = "ogbVisa"
         Me.ogbVisa.ShowCaption = False
-        Me.ogbVisa.Size = New System.Drawing.Size(1405, 181)
+        Me.ogbVisa.Size = New System.Drawing.Size(1639, 140)
         Me.ogbVisa.TabIndex = 310
         '
         'FNVisaSeq1
         '
         Me.FNVisaSeq1.EnterMoveNextControl = True
-        Me.FNVisaSeq1.Location = New System.Drawing.Point(608, 20)
-        Me.FNVisaSeq1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNVisaSeq1.Location = New System.Drawing.Point(709, 25)
+        Me.FNVisaSeq1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNVisaSeq1.Name = "FNVisaSeq1"
         Me.FNVisaSeq1.Properties.Appearance.Options.UseTextOptions = True
         Me.FNVisaSeq1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -14576,20 +14462,20 @@ Partial Class wEmployee
         Me.FNVisaSeq1.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNVisaSeq1.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNVisaSeq1.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNVisaSeq1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions84, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject333, SerializableAppearanceObject334, SerializableAppearanceObject335, SerializableAppearanceObject336, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNVisaSeq1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions65, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject329, SerializableAppearanceObject330, SerializableAppearanceObject331, SerializableAppearanceObject332, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNVisaSeq1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNVisaSeq1.Properties.Precision = 2
-        Me.FNVisaSeq1.Size = New System.Drawing.Size(40, 20)
+        Me.FNVisaSeq1.Size = New System.Drawing.Size(47, 23)
         Me.FNVisaSeq1.TabIndex = 401
         Me.FNVisaSeq1.Tag = "2|"
         Me.FNVisaSeq1.Visible = False
         '
         'FTVisaNo1
         '
-        Me.FTVisaNo1.Location = New System.Drawing.Point(124, 6)
-        Me.FTVisaNo1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTVisaNo1.Location = New System.Drawing.Point(145, 7)
+        Me.FTVisaNo1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTVisaNo1.Name = "FTVisaNo1"
-        Me.FTVisaNo1.Size = New System.Drawing.Size(414, 20)
+        Me.FTVisaNo1.Size = New System.Drawing.Size(483, 23)
         Me.FTVisaNo1.TabIndex = 388
         Me.FTVisaNo1.Tag = "2|"
         '
@@ -14600,10 +14486,10 @@ Partial Class wEmployee
         Me.FTVisaNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTVisaNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTVisaNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTVisaNo_lbl.Location = New System.Drawing.Point(-1, 6)
-        Me.FTVisaNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTVisaNo_lbl.Location = New System.Drawing.Point(-1, 7)
+        Me.FTVisaNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTVisaNo_lbl.Name = "FTVisaNo_lbl"
-        Me.FTVisaNo_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTVisaNo_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTVisaNo_lbl.TabIndex = 389
         Me.FTVisaNo_lbl.Tag = "2|"
         Me.FTVisaNo_lbl.Text = "FTVisaNo :"
@@ -14614,11 +14500,11 @@ Partial Class wEmployee
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTVisatNoteV.EditValue = ""
-        Me.FTVisatNoteV.Location = New System.Drawing.Point(127, 54)
-        Me.FTVisatNoteV.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTVisatNoteV.Location = New System.Drawing.Point(145, 63)
+        Me.FTVisatNoteV.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTVisatNoteV.Name = "FTVisatNoteV"
         Me.FTVisatNoteV.Properties.MaxLength = 500
-        Me.FTVisatNoteV.Size = New System.Drawing.Size(1556, 123)
+        Me.FTVisatNoteV.Size = New System.Drawing.Size(939, 69)
         Me.FTVisatNoteV.TabIndex = 380
         Me.FTVisatNoteV.Tag = "2|"
         '
@@ -14627,10 +14513,10 @@ Partial Class wEmployee
         Me.FTVisatNote_lbl.Appearance.Options.UseTextOptions = True
         Me.FTVisatNote_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTVisatNote_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTVisatNote_lbl.Location = New System.Drawing.Point(15, 47)
-        Me.FTVisatNote_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTVisatNote_lbl.Location = New System.Drawing.Point(17, 58)
+        Me.FTVisatNote_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTVisatNote_lbl.Name = "FTVisatNote_lbl"
-        Me.FTVisatNote_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FTVisatNote_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FTVisatNote_lbl.TabIndex = 381
         Me.FTVisatNote_lbl.Tag = "2|"
         Me.FTVisatNote_lbl.Text = "หมายเหตุ :"
@@ -14639,8 +14525,8 @@ Partial Class wEmployee
         '
         Me.FDDateofExpiryV1.EditValue = Nothing
         Me.FDDateofExpiryV1.EnterMoveNextControl = True
-        Me.FDDateofExpiryV1.Location = New System.Drawing.Point(359, 28)
-        Me.FDDateofExpiryV1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofExpiryV1.Location = New System.Drawing.Point(419, 34)
+        Me.FDDateofExpiryV1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofExpiryV1.Name = "FDDateofExpiryV1"
         Me.FDDateofExpiryV1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateofExpiryV1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -14651,7 +14537,7 @@ Partial Class wEmployee
         Me.FDDateofExpiryV1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateofExpiryV1.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateofExpiryV1.Properties.NullDate = ""
-        Me.FDDateofExpiryV1.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateofExpiryV1.Size = New System.Drawing.Size(136, 23)
         Me.FDDateofExpiryV1.TabIndex = 325
         Me.FDDateofExpiryV1.Tag = "2|"
         '
@@ -14662,10 +14548,10 @@ Partial Class wEmployee
         Me.FDDateofExpiryV_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateofExpiryV_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateofExpiryV_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateofExpiryV_lbl.Location = New System.Drawing.Point(243, 23)
-        Me.FDDateofExpiryV_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofExpiryV_lbl.Location = New System.Drawing.Point(283, 28)
+        Me.FDDateofExpiryV_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofExpiryV_lbl.Name = "FDDateofExpiryV_lbl"
-        Me.FDDateofExpiryV_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateofExpiryV_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateofExpiryV_lbl.TabIndex = 327
         Me.FDDateofExpiryV_lbl.Tag = "2|"
         Me.FDDateofExpiryV_lbl.Text = "FDDateofExpiry :"
@@ -14674,8 +14560,8 @@ Partial Class wEmployee
         '
         Me.FDDateofIssueV1.EditValue = Nothing
         Me.FDDateofIssueV1.EnterMoveNextControl = True
-        Me.FDDateofIssueV1.Location = New System.Drawing.Point(124, 28)
-        Me.FDDateofIssueV1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofIssueV1.Location = New System.Drawing.Point(145, 34)
+        Me.FDDateofIssueV1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofIssueV1.Name = "FDDateofIssueV1"
         Me.FDDateofIssueV1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateofIssueV1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -14686,7 +14572,7 @@ Partial Class wEmployee
         Me.FDDateofIssueV1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateofIssueV1.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateofIssueV1.Properties.NullDate = ""
-        Me.FDDateofIssueV1.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateofIssueV1.Size = New System.Drawing.Size(136, 23)
         Me.FDDateofIssueV1.TabIndex = 324
         Me.FDDateofIssueV1.Tag = "2|"
         '
@@ -14697,10 +14583,10 @@ Partial Class wEmployee
         Me.FDDateofIssueV_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateofIssueV_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateofIssueV_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateofIssueV_lbl.Location = New System.Drawing.Point(14, 28)
-        Me.FDDateofIssueV_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofIssueV_lbl.Location = New System.Drawing.Point(16, 34)
+        Me.FDDateofIssueV_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofIssueV_lbl.Name = "FDDateofIssueV_lbl"
-        Me.FDDateofIssueV_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateofIssueV_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateofIssueV_lbl.TabIndex = 326
         Me.FDDateofIssueV_lbl.Tag = "2|"
         Me.FDDateofIssueV_lbl.Text = "FDDateofIssue :"
@@ -14711,19 +14597,19 @@ Partial Class wEmployee
         Me.XtraTabPage3.Controls.Add(Me.ogbWordper)
         Me.XtraTabPage3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage3.Name = "XtraTabPage3"
-        Me.XtraTabPage3.Size = New System.Drawing.Size(1405, 709)
+        Me.XtraTabPage3.Size = New System.Drawing.Size(1639, 872)
         Me.XtraTabPage3.Text = "XtraTabPage3"
         '
         'ogcWork
         '
-        Me.ogcWork.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogcWork.Location = New System.Drawing.Point(81, 1415)
+        Me.ogcWork.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcWork.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcWork.Location = New System.Drawing.Point(0, 143)
         Me.ogcWork.MainView = Me.ogvWork
+        Me.ogcWork.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcWork.Name = "ogcWork"
         Me.ogcWork.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit2, Me.RepositoryItemMemoEdit5, Me.RepositoryItemMemoEdit6})
-        Me.ogcWork.Size = New System.Drawing.Size(6955, 1934)
+        Me.ogcWork.Size = New System.Drawing.Size(1639, 729)
         Me.ogcWork.TabIndex = 312
         Me.ogcWork.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvWork})
         '
@@ -14732,12 +14618,11 @@ Partial Class wEmployee
         Me.ogvWork.Appearance.EvenRow.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ogvWork.Appearance.EvenRow.Options.UseBackColor = True
         Me.ogvWork.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNWorkpermitSeq, Me.FTWorkpermitNo1, Me.FTWorkpermitNote, Me.FBFileImageW, Me.GridColumn9, Me.FDDateofIssueW, Me.FDDateofExpiryW})
-        Me.ogvWork.DetailHeight = 284
         Me.ogvWork.GridControl = Me.ogcWork
         Me.ogvWork.Name = "ogvWork"
         Me.ogvWork.OptionsView.EnableAppearanceEvenRow = True
         Me.ogvWork.OptionsView.ShowGroupPanel = False
-        Me.ogvWork.RowHeight = 49
+        Me.ogvWork.RowHeight = 60
         '
         'FNWorkpermitSeq
         '
@@ -14747,13 +14632,12 @@ Partial Class wEmployee
         Me.FNWorkpermitSeq.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNWorkpermitSeq.Caption = "FNWorkpermitSeq"
         Me.FNWorkpermitSeq.FieldName = "FNWorkpermitSeq"
-        Me.FNWorkpermitSeq.MinWidth = 17
         Me.FNWorkpermitSeq.Name = "FNWorkpermitSeq"
         Me.FNWorkpermitSeq.OptionsColumn.AllowEdit = False
         Me.FNWorkpermitSeq.OptionsColumn.AllowMove = False
         Me.FNWorkpermitSeq.Visible = True
         Me.FNWorkpermitSeq.VisibleIndex = 0
-        Me.FNWorkpermitSeq.Width = 88
+        Me.FNWorkpermitSeq.Width = 103
         '
         'FTWorkpermitNo1
         '
@@ -14762,12 +14646,11 @@ Partial Class wEmployee
         Me.FTWorkpermitNo1.Caption = "FTWorkpermitNo"
         Me.FTWorkpermitNo1.ColumnEdit = Me.RepositoryItemMemoEdit5
         Me.FTWorkpermitNo1.FieldName = "FTWorkpermitNo"
-        Me.FTWorkpermitNo1.MinWidth = 17
         Me.FTWorkpermitNo1.Name = "FTWorkpermitNo1"
         Me.FTWorkpermitNo1.OptionsColumn.AllowEdit = False
         Me.FTWorkpermitNo1.Visible = True
         Me.FTWorkpermitNo1.VisibleIndex = 1
-        Me.FTWorkpermitNo1.Width = 269
+        Me.FTWorkpermitNo1.Width = 314
         '
         'RepositoryItemMemoEdit5
         '
@@ -14780,14 +14663,13 @@ Partial Class wEmployee
         Me.FTWorkpermitNote.Caption = "FTWorkpermitNote"
         Me.FTWorkpermitNote.ColumnEdit = Me.RepositoryItemMemoEdit6
         Me.FTWorkpermitNote.FieldName = "FTWorkpermitNote"
-        Me.FTWorkpermitNote.MinWidth = 17
         Me.FTWorkpermitNote.Name = "FTWorkpermitNote"
         Me.FTWorkpermitNote.OptionsColumn.AllowEdit = False
         Me.FTWorkpermitNote.OptionsColumn.AllowMove = False
         Me.FTWorkpermitNote.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTWorkpermitNote.Visible = True
         Me.FTWorkpermitNote.VisibleIndex = 4
-        Me.FTWorkpermitNote.Width = 261
+        Me.FTWorkpermitNote.Width = 304
         '
         'RepositoryItemMemoEdit6
         '
@@ -14798,14 +14680,13 @@ Partial Class wEmployee
         Me.FBFileImageW.Caption = "FBFileImage"
         Me.FBFileImageW.ColumnEdit = Me.RepositoryItemPictureEdit2
         Me.FBFileImageW.FieldName = "FBFileImage"
-        Me.FBFileImageW.MinWidth = 17
         Me.FBFileImageW.Name = "FBFileImageW"
         Me.FBFileImageW.OptionsColumn.AllowMove = False
         Me.FBFileImageW.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FBFileImageW.OptionsColumn.FixedWidth = True
         Me.FBFileImageW.Visible = True
         Me.FBFileImageW.VisibleIndex = 5
-        Me.FBFileImageW.Width = 119
+        Me.FBFileImageW.Width = 139
         '
         'RepositoryItemPictureEdit2
         '
@@ -14817,9 +14698,7 @@ Partial Class wEmployee
         '
         Me.GridColumn9.Caption = "GridColumn1"
         Me.GridColumn9.FieldName = "FTImage"
-        Me.GridColumn9.MinWidth = 17
         Me.GridColumn9.Name = "GridColumn9"
-        Me.GridColumn9.Width = 64
         '
         'FDDateofIssueW
         '
@@ -14829,12 +14708,11 @@ Partial Class wEmployee
         Me.FDDateofIssueW.FieldName = "FDDateofIssue"
         Me.FDDateofIssueW.GroupFormat.FormatString = "d"
         Me.FDDateofIssueW.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FDDateofIssueW.MinWidth = 17
         Me.FDDateofIssueW.Name = "FDDateofIssueW"
         Me.FDDateofIssueW.OptionsColumn.AllowEdit = False
         Me.FDDateofIssueW.Visible = True
         Me.FDDateofIssueW.VisibleIndex = 2
-        Me.FDDateofIssueW.Width = 214
+        Me.FDDateofIssueW.Width = 250
         '
         'FDDateofExpiryW
         '
@@ -14844,12 +14722,11 @@ Partial Class wEmployee
         Me.FDDateofExpiryW.FieldName = "FDDateofExpiry"
         Me.FDDateofExpiryW.GroupFormat.FormatString = "d"
         Me.FDDateofExpiryW.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FDDateofExpiryW.MinWidth = 17
         Me.FDDateofExpiryW.Name = "FDDateofExpiryW"
         Me.FDDateofExpiryW.OptionsColumn.AllowEdit = False
         Me.FDDateofExpiryW.Visible = True
         Me.FDDateofExpiryW.VisibleIndex = 3
-        Me.FDDateofExpiryW.Width = 203
+        Me.FDDateofExpiryW.Width = 237
         '
         'ogbWordper
         '
@@ -14864,17 +14741,17 @@ Partial Class wEmployee
         Me.ogbWordper.Controls.Add(Me.FDDateofIssueW_lbl)
         Me.ogbWordper.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbWordper.Location = New System.Drawing.Point(0, 0)
-        Me.ogbWordper.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbWordper.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbWordper.Name = "ogbWordper"
         Me.ogbWordper.ShowCaption = False
-        Me.ogbWordper.Size = New System.Drawing.Size(1405, 161)
+        Me.ogbWordper.Size = New System.Drawing.Size(1639, 143)
         Me.ogbWordper.TabIndex = 311
         '
         'FNWorkpermitSeqW
         '
         Me.FNWorkpermitSeqW.EnterMoveNextControl = True
-        Me.FNWorkpermitSeqW.Location = New System.Drawing.Point(608, 20)
-        Me.FNWorkpermitSeqW.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNWorkpermitSeqW.Location = New System.Drawing.Point(709, 25)
+        Me.FNWorkpermitSeqW.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNWorkpermitSeqW.Name = "FNWorkpermitSeqW"
         Me.FNWorkpermitSeqW.Properties.Appearance.Options.UseTextOptions = True
         Me.FNWorkpermitSeqW.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -14886,20 +14763,20 @@ Partial Class wEmployee
         Me.FNWorkpermitSeqW.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNWorkpermitSeqW.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNWorkpermitSeqW.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNWorkpermitSeqW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions85, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject337, SerializableAppearanceObject338, SerializableAppearanceObject339, SerializableAppearanceObject340, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNWorkpermitSeqW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions66, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject333, SerializableAppearanceObject334, SerializableAppearanceObject335, SerializableAppearanceObject336, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNWorkpermitSeqW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNWorkpermitSeqW.Properties.Precision = 2
-        Me.FNWorkpermitSeqW.Size = New System.Drawing.Size(40, 20)
+        Me.FNWorkpermitSeqW.Size = New System.Drawing.Size(47, 23)
         Me.FNWorkpermitSeqW.TabIndex = 401
         Me.FNWorkpermitSeqW.Tag = "2|"
         Me.FNWorkpermitSeqW.Visible = False
         '
         'FTWorkpermitNoW
         '
-        Me.FTWorkpermitNoW.Location = New System.Drawing.Point(124, 6)
-        Me.FTWorkpermitNoW.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTWorkpermitNoW.Location = New System.Drawing.Point(145, 7)
+        Me.FTWorkpermitNoW.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTWorkpermitNoW.Name = "FTWorkpermitNoW"
-        Me.FTWorkpermitNoW.Size = New System.Drawing.Size(414, 20)
+        Me.FTWorkpermitNoW.Size = New System.Drawing.Size(483, 23)
         Me.FTWorkpermitNoW.TabIndex = 388
         Me.FTWorkpermitNoW.Tag = "2|"
         '
@@ -14910,10 +14787,10 @@ Partial Class wEmployee
         Me.FTWorkpermitNoW_lbl.Appearance.Options.UseTextOptions = True
         Me.FTWorkpermitNoW_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTWorkpermitNoW_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTWorkpermitNoW_lbl.Location = New System.Drawing.Point(-1, 6)
-        Me.FTWorkpermitNoW_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTWorkpermitNoW_lbl.Location = New System.Drawing.Point(-1, 7)
+        Me.FTWorkpermitNoW_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTWorkpermitNoW_lbl.Name = "FTWorkpermitNoW_lbl"
-        Me.FTWorkpermitNoW_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTWorkpermitNoW_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTWorkpermitNoW_lbl.TabIndex = 389
         Me.FTWorkpermitNoW_lbl.Tag = "2|"
         Me.FTWorkpermitNoW_lbl.Text = "FTWorkpermitNo :"
@@ -14924,11 +14801,11 @@ Partial Class wEmployee
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTWorkpermitNoteW.EditValue = ""
-        Me.FTWorkpermitNoteW.Location = New System.Drawing.Point(124, 51)
-        Me.FTWorkpermitNoteW.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTWorkpermitNoteW.Location = New System.Drawing.Point(145, 63)
+        Me.FTWorkpermitNoteW.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTWorkpermitNoteW.Name = "FTWorkpermitNoteW"
         Me.FTWorkpermitNoteW.Properties.MaxLength = 500
-        Me.FTWorkpermitNoteW.Size = New System.Drawing.Size(1531, 88)
+        Me.FTWorkpermitNoteW.Size = New System.Drawing.Size(943, 71)
         Me.FTWorkpermitNoteW.TabIndex = 380
         Me.FTWorkpermitNoteW.Tag = "2|"
         '
@@ -14937,10 +14814,10 @@ Partial Class wEmployee
         Me.FTWorkpermitNote_lbl.Appearance.Options.UseTextOptions = True
         Me.FTWorkpermitNote_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTWorkpermitNote_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTWorkpermitNote_lbl.Location = New System.Drawing.Point(15, 47)
-        Me.FTWorkpermitNote_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTWorkpermitNote_lbl.Location = New System.Drawing.Point(17, 58)
+        Me.FTWorkpermitNote_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTWorkpermitNote_lbl.Name = "FTWorkpermitNote_lbl"
-        Me.FTWorkpermitNote_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FTWorkpermitNote_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FTWorkpermitNote_lbl.TabIndex = 381
         Me.FTWorkpermitNote_lbl.Tag = "2|"
         Me.FTWorkpermitNote_lbl.Text = "หมายเหตุ :"
@@ -14949,8 +14826,8 @@ Partial Class wEmployee
         '
         Me.FDDateofExpiryW1.EditValue = Nothing
         Me.FDDateofExpiryW1.EnterMoveNextControl = True
-        Me.FDDateofExpiryW1.Location = New System.Drawing.Point(359, 28)
-        Me.FDDateofExpiryW1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofExpiryW1.Location = New System.Drawing.Point(419, 34)
+        Me.FDDateofExpiryW1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofExpiryW1.Name = "FDDateofExpiryW1"
         Me.FDDateofExpiryW1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateofExpiryW1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -14961,7 +14838,7 @@ Partial Class wEmployee
         Me.FDDateofExpiryW1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateofExpiryW1.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateofExpiryW1.Properties.NullDate = ""
-        Me.FDDateofExpiryW1.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateofExpiryW1.Size = New System.Drawing.Size(136, 23)
         Me.FDDateofExpiryW1.TabIndex = 325
         Me.FDDateofExpiryW1.Tag = "2|"
         '
@@ -14972,10 +14849,10 @@ Partial Class wEmployee
         Me.FDDateofExpiryW_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateofExpiryW_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateofExpiryW_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateofExpiryW_lbl.Location = New System.Drawing.Point(243, 23)
-        Me.FDDateofExpiryW_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofExpiryW_lbl.Location = New System.Drawing.Point(283, 28)
+        Me.FDDateofExpiryW_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofExpiryW_lbl.Name = "FDDateofExpiryW_lbl"
-        Me.FDDateofExpiryW_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateofExpiryW_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateofExpiryW_lbl.TabIndex = 327
         Me.FDDateofExpiryW_lbl.Tag = "2|"
         Me.FDDateofExpiryW_lbl.Text = "FDDateofExpiry :"
@@ -14984,8 +14861,8 @@ Partial Class wEmployee
         '
         Me.FDDateofIssueW1.EditValue = Nothing
         Me.FDDateofIssueW1.EnterMoveNextControl = True
-        Me.FDDateofIssueW1.Location = New System.Drawing.Point(124, 28)
-        Me.FDDateofIssueW1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofIssueW1.Location = New System.Drawing.Point(145, 34)
+        Me.FDDateofIssueW1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofIssueW1.Name = "FDDateofIssueW1"
         Me.FDDateofIssueW1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateofIssueW1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -14996,7 +14873,7 @@ Partial Class wEmployee
         Me.FDDateofIssueW1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateofIssueW1.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateofIssueW1.Properties.NullDate = ""
-        Me.FDDateofIssueW1.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateofIssueW1.Size = New System.Drawing.Size(136, 23)
         Me.FDDateofIssueW1.TabIndex = 324
         Me.FDDateofIssueW1.Tag = "2|"
         '
@@ -15007,10 +14884,10 @@ Partial Class wEmployee
         Me.FDDateofIssueW_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateofIssueW_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateofIssueW_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateofIssueW_lbl.Location = New System.Drawing.Point(14, 28)
-        Me.FDDateofIssueW_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofIssueW_lbl.Location = New System.Drawing.Point(16, 34)
+        Me.FDDateofIssueW_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofIssueW_lbl.Name = "FDDateofIssueW_lbl"
-        Me.FDDateofIssueW_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateofIssueW_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateofIssueW_lbl.TabIndex = 326
         Me.FDDateofIssueW_lbl.Tag = "2|"
         Me.FDDateofIssueW_lbl.Text = "FDDateofIssue :"
@@ -15021,19 +14898,19 @@ Partial Class wEmployee
         Me.XtraTabPage4.Controls.Add(Me.ogbMOU)
         Me.XtraTabPage4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage4.Name = "XtraTabPage4"
-        Me.XtraTabPage4.Size = New System.Drawing.Size(1405, 709)
+        Me.XtraTabPage4.Size = New System.Drawing.Size(1639, 872)
         Me.XtraTabPage4.Text = "XtraTabPage4"
         '
         'ogcMOU
         '
-        Me.ogcMOU.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogcMOU.Location = New System.Drawing.Point(21, 1198)
+        Me.ogcMOU.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcMOU.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcMOU.Location = New System.Drawing.Point(0, 148)
         Me.ogcMOU.MainView = Me.ogvMOU
+        Me.ogcMOU.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcMOU.Name = "ogcMOU"
         Me.ogcMOU.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit4, Me.RepositoryItemMemoEdit7, Me.RepositoryItemMemoEdit8})
-        Me.ogcMOU.Size = New System.Drawing.Size(7012, 2093)
+        Me.ogcMOU.Size = New System.Drawing.Size(1639, 724)
         Me.ogcMOU.TabIndex = 313
         Me.ogcMOU.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvMOU})
         '
@@ -15042,12 +14919,11 @@ Partial Class wEmployee
         Me.ogvMOU.Appearance.EvenRow.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ogvMOU.Appearance.EvenRow.Options.UseBackColor = True
         Me.ogvMOU.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNMOUSeq, Me.FTMOUNo, Me.FTMOUNote, Me.FBFileImageM, Me.GridColumn10, Me.FDDateofIssueM, Me.FDDateofExpiryM})
-        Me.ogvMOU.DetailHeight = 284
         Me.ogvMOU.GridControl = Me.ogcMOU
         Me.ogvMOU.Name = "ogvMOU"
         Me.ogvMOU.OptionsView.EnableAppearanceEvenRow = True
         Me.ogvMOU.OptionsView.ShowGroupPanel = False
-        Me.ogvMOU.RowHeight = 49
+        Me.ogvMOU.RowHeight = 60
         '
         'FNMOUSeq
         '
@@ -15057,13 +14933,12 @@ Partial Class wEmployee
         Me.FNMOUSeq.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNMOUSeq.Caption = "FNMOUSeq"
         Me.FNMOUSeq.FieldName = "FNMOUSeq"
-        Me.FNMOUSeq.MinWidth = 17
         Me.FNMOUSeq.Name = "FNMOUSeq"
         Me.FNMOUSeq.OptionsColumn.AllowEdit = False
         Me.FNMOUSeq.OptionsColumn.AllowMove = False
         Me.FNMOUSeq.Visible = True
         Me.FNMOUSeq.VisibleIndex = 0
-        Me.FNMOUSeq.Width = 88
+        Me.FNMOUSeq.Width = 103
         '
         'FTMOUNo
         '
@@ -15072,12 +14947,11 @@ Partial Class wEmployee
         Me.FTMOUNo.Caption = "FTMOUNo"
         Me.FTMOUNo.ColumnEdit = Me.RepositoryItemMemoEdit7
         Me.FTMOUNo.FieldName = "FTMOUNo"
-        Me.FTMOUNo.MinWidth = 17
         Me.FTMOUNo.Name = "FTMOUNo"
         Me.FTMOUNo.OptionsColumn.AllowEdit = False
         Me.FTMOUNo.Visible = True
         Me.FTMOUNo.VisibleIndex = 1
-        Me.FTMOUNo.Width = 269
+        Me.FTMOUNo.Width = 314
         '
         'RepositoryItemMemoEdit7
         '
@@ -15090,14 +14964,13 @@ Partial Class wEmployee
         Me.FTMOUNote.Caption = "FTMOUNote"
         Me.FTMOUNote.ColumnEdit = Me.RepositoryItemMemoEdit8
         Me.FTMOUNote.FieldName = "FTMOUNote"
-        Me.FTMOUNote.MinWidth = 17
         Me.FTMOUNote.Name = "FTMOUNote"
         Me.FTMOUNote.OptionsColumn.AllowEdit = False
         Me.FTMOUNote.OptionsColumn.AllowMove = False
         Me.FTMOUNote.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTMOUNote.Visible = True
         Me.FTMOUNote.VisibleIndex = 4
-        Me.FTMOUNote.Width = 261
+        Me.FTMOUNote.Width = 304
         '
         'RepositoryItemMemoEdit8
         '
@@ -15108,14 +14981,13 @@ Partial Class wEmployee
         Me.FBFileImageM.Caption = "FBFileImage"
         Me.FBFileImageM.ColumnEdit = Me.RepositoryItemPictureEdit4
         Me.FBFileImageM.FieldName = "FBFileImage"
-        Me.FBFileImageM.MinWidth = 17
         Me.FBFileImageM.Name = "FBFileImageM"
         Me.FBFileImageM.OptionsColumn.AllowMove = False
         Me.FBFileImageM.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FBFileImageM.OptionsColumn.FixedWidth = True
         Me.FBFileImageM.Visible = True
         Me.FBFileImageM.VisibleIndex = 5
-        Me.FBFileImageM.Width = 119
+        Me.FBFileImageM.Width = 139
         '
         'RepositoryItemPictureEdit4
         '
@@ -15127,9 +14999,7 @@ Partial Class wEmployee
         '
         Me.GridColumn10.Caption = "GridColumn1"
         Me.GridColumn10.FieldName = "FTImage"
-        Me.GridColumn10.MinWidth = 17
         Me.GridColumn10.Name = "GridColumn10"
-        Me.GridColumn10.Width = 64
         '
         'FDDateofIssueM
         '
@@ -15139,12 +15009,11 @@ Partial Class wEmployee
         Me.FDDateofIssueM.FieldName = "FDDateofIssue"
         Me.FDDateofIssueM.GroupFormat.FormatString = "d"
         Me.FDDateofIssueM.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FDDateofIssueM.MinWidth = 17
         Me.FDDateofIssueM.Name = "FDDateofIssueM"
         Me.FDDateofIssueM.OptionsColumn.AllowEdit = False
         Me.FDDateofIssueM.Visible = True
         Me.FDDateofIssueM.VisibleIndex = 2
-        Me.FDDateofIssueM.Width = 214
+        Me.FDDateofIssueM.Width = 250
         '
         'FDDateofExpiryM
         '
@@ -15154,12 +15023,11 @@ Partial Class wEmployee
         Me.FDDateofExpiryM.FieldName = "FDDateofExpiry"
         Me.FDDateofExpiryM.GroupFormat.FormatString = "d"
         Me.FDDateofExpiryM.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FDDateofExpiryM.MinWidth = 17
         Me.FDDateofExpiryM.Name = "FDDateofExpiryM"
         Me.FDDateofExpiryM.OptionsColumn.AllowEdit = False
         Me.FDDateofExpiryM.Visible = True
         Me.FDDateofExpiryM.VisibleIndex = 3
-        Me.FDDateofExpiryM.Width = 203
+        Me.FDDateofExpiryM.Width = 237
         '
         'ogbMOU
         '
@@ -15174,17 +15042,17 @@ Partial Class wEmployee
         Me.ogbMOU.Controls.Add(Me.FDDateofIssueM_lbl)
         Me.ogbMOU.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbMOU.Location = New System.Drawing.Point(0, 0)
-        Me.ogbMOU.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbMOU.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbMOU.Name = "ogbMOU"
         Me.ogbMOU.ShowCaption = False
-        Me.ogbMOU.Size = New System.Drawing.Size(1405, 161)
+        Me.ogbMOU.Size = New System.Drawing.Size(1639, 148)
         Me.ogbMOU.TabIndex = 312
         '
         'FNMOUSeqM
         '
         Me.FNMOUSeqM.EnterMoveNextControl = True
-        Me.FNMOUSeqM.Location = New System.Drawing.Point(608, 20)
-        Me.FNMOUSeqM.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMOUSeqM.Location = New System.Drawing.Point(709, 25)
+        Me.FNMOUSeqM.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNMOUSeqM.Name = "FNMOUSeqM"
         Me.FNMOUSeqM.Properties.Appearance.Options.UseTextOptions = True
         Me.FNMOUSeqM.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -15196,20 +15064,20 @@ Partial Class wEmployee
         Me.FNMOUSeqM.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNMOUSeqM.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNMOUSeqM.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNMOUSeqM.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions86, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject341, SerializableAppearanceObject342, SerializableAppearanceObject343, SerializableAppearanceObject344, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNMOUSeqM.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions67, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject337, SerializableAppearanceObject338, SerializableAppearanceObject339, SerializableAppearanceObject340, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNMOUSeqM.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNMOUSeqM.Properties.Precision = 2
-        Me.FNMOUSeqM.Size = New System.Drawing.Size(40, 20)
+        Me.FNMOUSeqM.Size = New System.Drawing.Size(47, 23)
         Me.FNMOUSeqM.TabIndex = 401
         Me.FNMOUSeqM.Tag = "2|"
         Me.FNMOUSeqM.Visible = False
         '
         'FTMOUNoM1
         '
-        Me.FTMOUNoM1.Location = New System.Drawing.Point(124, 6)
-        Me.FTMOUNoM1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMOUNoM1.Location = New System.Drawing.Point(145, 7)
+        Me.FTMOUNoM1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMOUNoM1.Name = "FTMOUNoM1"
-        Me.FTMOUNoM1.Size = New System.Drawing.Size(414, 20)
+        Me.FTMOUNoM1.Size = New System.Drawing.Size(483, 23)
         Me.FTMOUNoM1.TabIndex = 388
         Me.FTMOUNoM1.Tag = "2|"
         '
@@ -15220,10 +15088,10 @@ Partial Class wEmployee
         Me.FTMOUNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMOUNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMOUNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMOUNo_lbl.Location = New System.Drawing.Point(-1, 6)
-        Me.FTMOUNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMOUNo_lbl.Location = New System.Drawing.Point(-1, 7)
+        Me.FTMOUNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMOUNo_lbl.Name = "FTMOUNo_lbl"
-        Me.FTMOUNo_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTMOUNo_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTMOUNo_lbl.TabIndex = 389
         Me.FTMOUNo_lbl.Tag = "2|"
         Me.FTMOUNo_lbl.Text = "FTMOUNo :"
@@ -15234,11 +15102,11 @@ Partial Class wEmployee
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTMOUNoteM.EditValue = ""
-        Me.FTMOUNoteM.Location = New System.Drawing.Point(127, 51)
-        Me.FTMOUNoteM.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMOUNoteM.Location = New System.Drawing.Point(145, 63)
+        Me.FTMOUNoteM.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMOUNoteM.Name = "FTMOUNoteM"
         Me.FTMOUNoteM.Properties.MaxLength = 500
-        Me.FTMOUNoteM.Size = New System.Drawing.Size(1511, 104)
+        Me.FTMOUNoteM.Size = New System.Drawing.Size(941, 76)
         Me.FTMOUNoteM.TabIndex = 380
         Me.FTMOUNoteM.Tag = "2|"
         '
@@ -15247,10 +15115,10 @@ Partial Class wEmployee
         Me.FTMOUNote_lbl.Appearance.Options.UseTextOptions = True
         Me.FTMOUNote_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTMOUNote_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTMOUNote_lbl.Location = New System.Drawing.Point(15, 47)
-        Me.FTMOUNote_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTMOUNote_lbl.Location = New System.Drawing.Point(17, 58)
+        Me.FTMOUNote_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTMOUNote_lbl.Name = "FTMOUNote_lbl"
-        Me.FTMOUNote_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FTMOUNote_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FTMOUNote_lbl.TabIndex = 381
         Me.FTMOUNote_lbl.Tag = "2|"
         Me.FTMOUNote_lbl.Text = "หมายเหตุ :"
@@ -15259,8 +15127,8 @@ Partial Class wEmployee
         '
         Me.FDDateofExpiryM1.EditValue = Nothing
         Me.FDDateofExpiryM1.EnterMoveNextControl = True
-        Me.FDDateofExpiryM1.Location = New System.Drawing.Point(359, 28)
-        Me.FDDateofExpiryM1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofExpiryM1.Location = New System.Drawing.Point(419, 34)
+        Me.FDDateofExpiryM1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofExpiryM1.Name = "FDDateofExpiryM1"
         Me.FDDateofExpiryM1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateofExpiryM1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -15271,7 +15139,7 @@ Partial Class wEmployee
         Me.FDDateofExpiryM1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateofExpiryM1.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateofExpiryM1.Properties.NullDate = ""
-        Me.FDDateofExpiryM1.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateofExpiryM1.Size = New System.Drawing.Size(136, 23)
         Me.FDDateofExpiryM1.TabIndex = 325
         Me.FDDateofExpiryM1.Tag = "2|"
         '
@@ -15282,10 +15150,10 @@ Partial Class wEmployee
         Me.FDDateofExpiryM_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateofExpiryM_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateofExpiryM_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateofExpiryM_lbl.Location = New System.Drawing.Point(243, 23)
-        Me.FDDateofExpiryM_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofExpiryM_lbl.Location = New System.Drawing.Point(283, 28)
+        Me.FDDateofExpiryM_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofExpiryM_lbl.Name = "FDDateofExpiryM_lbl"
-        Me.FDDateofExpiryM_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateofExpiryM_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateofExpiryM_lbl.TabIndex = 327
         Me.FDDateofExpiryM_lbl.Tag = "2|"
         Me.FDDateofExpiryM_lbl.Text = "FDDateofExpiry :"
@@ -15294,8 +15162,8 @@ Partial Class wEmployee
         '
         Me.FDDateofIssueM1.EditValue = Nothing
         Me.FDDateofIssueM1.EnterMoveNextControl = True
-        Me.FDDateofIssueM1.Location = New System.Drawing.Point(124, 28)
-        Me.FDDateofIssueM1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofIssueM1.Location = New System.Drawing.Point(145, 34)
+        Me.FDDateofIssueM1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofIssueM1.Name = "FDDateofIssueM1"
         Me.FDDateofIssueM1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateofIssueM1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -15306,7 +15174,7 @@ Partial Class wEmployee
         Me.FDDateofIssueM1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateofIssueM1.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateofIssueM1.Properties.NullDate = ""
-        Me.FDDateofIssueM1.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateofIssueM1.Size = New System.Drawing.Size(136, 23)
         Me.FDDateofIssueM1.TabIndex = 324
         Me.FDDateofIssueM1.Tag = "2|"
         '
@@ -15317,10 +15185,10 @@ Partial Class wEmployee
         Me.FDDateofIssueM_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateofIssueM_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateofIssueM_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateofIssueM_lbl.Location = New System.Drawing.Point(14, 28)
-        Me.FDDateofIssueM_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofIssueM_lbl.Location = New System.Drawing.Point(16, 34)
+        Me.FDDateofIssueM_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofIssueM_lbl.Name = "FDDateofIssueM_lbl"
-        Me.FDDateofIssueM_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateofIssueM_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateofIssueM_lbl.TabIndex = 326
         Me.FDDateofIssueM_lbl.Tag = "2|"
         Me.FDDateofIssueM_lbl.Text = "FDDateofIssue :"
@@ -15331,19 +15199,19 @@ Partial Class wEmployee
         Me.XtraTabPage5.Controls.Add(Me.ogbOther)
         Me.XtraTabPage5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage5.Name = "XtraTabPage5"
-        Me.XtraTabPage5.Size = New System.Drawing.Size(1405, 709)
+        Me.XtraTabPage5.Size = New System.Drawing.Size(1639, 872)
         Me.XtraTabPage5.Text = "XtraTabPage5"
         '
         'ogcOther
         '
-        Me.ogcOther.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogcOther.Location = New System.Drawing.Point(27, 1474)
+        Me.ogcOther.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcOther.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcOther.Location = New System.Drawing.Point(0, 185)
         Me.ogcOther.MainView = Me.ogvOther
+        Me.ogcOther.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcOther.Name = "ogcOther"
         Me.ogcOther.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit5, Me.RepositoryItemMemoEdit9, Me.RepositoryItemMemoEdit10})
-        Me.ogcOther.Size = New System.Drawing.Size(7156, 4530)
+        Me.ogcOther.Size = New System.Drawing.Size(1639, 687)
         Me.ogcOther.TabIndex = 313
         Me.ogcOther.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvOther})
         '
@@ -15352,12 +15220,11 @@ Partial Class wEmployee
         Me.ogvOther.Appearance.EvenRow.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ogvOther.Appearance.EvenRow.Options.UseBackColor = True
         Me.ogvOther.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNFileOtherSeq, Me.FTFileOtherNo, Me.FTFileOtherNote, Me.FBFileImageO, Me.GridColumn17, Me.FDDateofIssueO, Me.FDDateofExpiryO})
-        Me.ogvOther.DetailHeight = 284
         Me.ogvOther.GridControl = Me.ogcOther
         Me.ogvOther.Name = "ogvOther"
         Me.ogvOther.OptionsView.EnableAppearanceEvenRow = True
         Me.ogvOther.OptionsView.ShowGroupPanel = False
-        Me.ogvOther.RowHeight = 49
+        Me.ogvOther.RowHeight = 60
         '
         'FNFileOtherSeq
         '
@@ -15367,13 +15234,12 @@ Partial Class wEmployee
         Me.FNFileOtherSeq.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNFileOtherSeq.Caption = "FNFileOtherSeq"
         Me.FNFileOtherSeq.FieldName = "FNFileOtherSeq"
-        Me.FNFileOtherSeq.MinWidth = 17
         Me.FNFileOtherSeq.Name = "FNFileOtherSeq"
         Me.FNFileOtherSeq.OptionsColumn.AllowEdit = False
         Me.FNFileOtherSeq.OptionsColumn.AllowMove = False
         Me.FNFileOtherSeq.Visible = True
         Me.FNFileOtherSeq.VisibleIndex = 0
-        Me.FNFileOtherSeq.Width = 88
+        Me.FNFileOtherSeq.Width = 103
         '
         'FTFileOtherNo
         '
@@ -15382,12 +15248,11 @@ Partial Class wEmployee
         Me.FTFileOtherNo.Caption = "FTFileOtherNo"
         Me.FTFileOtherNo.ColumnEdit = Me.RepositoryItemMemoEdit9
         Me.FTFileOtherNo.FieldName = "FTFileOtherNo"
-        Me.FTFileOtherNo.MinWidth = 17
         Me.FTFileOtherNo.Name = "FTFileOtherNo"
         Me.FTFileOtherNo.OptionsColumn.AllowEdit = False
         Me.FTFileOtherNo.Visible = True
         Me.FTFileOtherNo.VisibleIndex = 1
-        Me.FTFileOtherNo.Width = 269
+        Me.FTFileOtherNo.Width = 314
         '
         'RepositoryItemMemoEdit9
         '
@@ -15400,14 +15265,13 @@ Partial Class wEmployee
         Me.FTFileOtherNote.Caption = "FTFileOtherNote"
         Me.FTFileOtherNote.ColumnEdit = Me.RepositoryItemMemoEdit10
         Me.FTFileOtherNote.FieldName = "FTFileOtherNote"
-        Me.FTFileOtherNote.MinWidth = 17
         Me.FTFileOtherNote.Name = "FTFileOtherNote"
         Me.FTFileOtherNote.OptionsColumn.AllowEdit = False
         Me.FTFileOtherNote.OptionsColumn.AllowMove = False
         Me.FTFileOtherNote.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTFileOtherNote.Visible = True
         Me.FTFileOtherNote.VisibleIndex = 4
-        Me.FTFileOtherNote.Width = 261
+        Me.FTFileOtherNote.Width = 304
         '
         'RepositoryItemMemoEdit10
         '
@@ -15418,14 +15282,13 @@ Partial Class wEmployee
         Me.FBFileImageO.Caption = "FBFileImage"
         Me.FBFileImageO.ColumnEdit = Me.RepositoryItemPictureEdit5
         Me.FBFileImageO.FieldName = "FBFileImage"
-        Me.FBFileImageO.MinWidth = 17
         Me.FBFileImageO.Name = "FBFileImageO"
         Me.FBFileImageO.OptionsColumn.AllowMove = False
         Me.FBFileImageO.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FBFileImageO.OptionsColumn.FixedWidth = True
         Me.FBFileImageO.Visible = True
         Me.FBFileImageO.VisibleIndex = 5
-        Me.FBFileImageO.Width = 119
+        Me.FBFileImageO.Width = 139
         '
         'RepositoryItemPictureEdit5
         '
@@ -15437,9 +15300,7 @@ Partial Class wEmployee
         '
         Me.GridColumn17.Caption = "GridColumn1"
         Me.GridColumn17.FieldName = "FTImage"
-        Me.GridColumn17.MinWidth = 17
         Me.GridColumn17.Name = "GridColumn17"
-        Me.GridColumn17.Width = 64
         '
         'FDDateofIssueO
         '
@@ -15449,12 +15310,11 @@ Partial Class wEmployee
         Me.FDDateofIssueO.FieldName = "FDDateofIssue"
         Me.FDDateofIssueO.GroupFormat.FormatString = "d"
         Me.FDDateofIssueO.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FDDateofIssueO.MinWidth = 17
         Me.FDDateofIssueO.Name = "FDDateofIssueO"
         Me.FDDateofIssueO.OptionsColumn.AllowEdit = False
         Me.FDDateofIssueO.Visible = True
         Me.FDDateofIssueO.VisibleIndex = 2
-        Me.FDDateofIssueO.Width = 214
+        Me.FDDateofIssueO.Width = 250
         '
         'FDDateofExpiryO
         '
@@ -15464,12 +15324,11 @@ Partial Class wEmployee
         Me.FDDateofExpiryO.FieldName = "FDDateofExpiry"
         Me.FDDateofExpiryO.GroupFormat.FormatString = "d"
         Me.FDDateofExpiryO.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.FDDateofExpiryO.MinWidth = 17
         Me.FDDateofExpiryO.Name = "FDDateofExpiryO"
         Me.FDDateofExpiryO.OptionsColumn.AllowEdit = False
         Me.FDDateofExpiryO.Visible = True
         Me.FDDateofExpiryO.VisibleIndex = 3
-        Me.FDDateofExpiryO.Width = 203
+        Me.FDDateofExpiryO.Width = 237
         '
         'ogbOther
         '
@@ -15484,17 +15343,17 @@ Partial Class wEmployee
         Me.ogbOther.Controls.Add(Me.FDDateofIssueO_lbl)
         Me.ogbOther.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbOther.Location = New System.Drawing.Point(0, 0)
-        Me.ogbOther.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbOther.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbOther.Name = "ogbOther"
         Me.ogbOther.ShowCaption = False
-        Me.ogbOther.Size = New System.Drawing.Size(1405, 150)
+        Me.ogbOther.Size = New System.Drawing.Size(1639, 185)
         Me.ogbOther.TabIndex = 312
         '
         'FNFileOtherSeqO
         '
         Me.FNFileOtherSeqO.EnterMoveNextControl = True
-        Me.FNFileOtherSeqO.Location = New System.Drawing.Point(608, 20)
-        Me.FNFileOtherSeqO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNFileOtherSeqO.Location = New System.Drawing.Point(709, 25)
+        Me.FNFileOtherSeqO.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNFileOtherSeqO.Name = "FNFileOtherSeqO"
         Me.FNFileOtherSeqO.Properties.Appearance.Options.UseTextOptions = True
         Me.FNFileOtherSeqO.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -15506,20 +15365,20 @@ Partial Class wEmployee
         Me.FNFileOtherSeqO.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNFileOtherSeqO.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNFileOtherSeqO.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNFileOtherSeqO.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions87, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject345, SerializableAppearanceObject346, SerializableAppearanceObject347, SerializableAppearanceObject348, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNFileOtherSeqO.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions82, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject341, SerializableAppearanceObject342, SerializableAppearanceObject343, SerializableAppearanceObject344, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNFileOtherSeqO.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNFileOtherSeqO.Properties.Precision = 2
-        Me.FNFileOtherSeqO.Size = New System.Drawing.Size(40, 20)
+        Me.FNFileOtherSeqO.Size = New System.Drawing.Size(47, 23)
         Me.FNFileOtherSeqO.TabIndex = 401
         Me.FNFileOtherSeqO.Tag = "2|"
         Me.FNFileOtherSeqO.Visible = False
         '
         'FTFileOtherNoO
         '
-        Me.FTFileOtherNoO.Location = New System.Drawing.Point(124, 6)
-        Me.FTFileOtherNoO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFileOtherNoO.Location = New System.Drawing.Point(145, 7)
+        Me.FTFileOtherNoO.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFileOtherNoO.Name = "FTFileOtherNoO"
-        Me.FTFileOtherNoO.Size = New System.Drawing.Size(414, 20)
+        Me.FTFileOtherNoO.Size = New System.Drawing.Size(483, 23)
         Me.FTFileOtherNoO.TabIndex = 388
         Me.FTFileOtherNoO.Tag = "2|"
         '
@@ -15530,10 +15389,10 @@ Partial Class wEmployee
         Me.FTFileOtherNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTFileOtherNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTFileOtherNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTFileOtherNo_lbl.Location = New System.Drawing.Point(-1, 6)
-        Me.FTFileOtherNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFileOtherNo_lbl.Location = New System.Drawing.Point(-1, 7)
+        Me.FTFileOtherNo_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFileOtherNo_lbl.Name = "FTFileOtherNo_lbl"
-        Me.FTFileOtherNo_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTFileOtherNo_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTFileOtherNo_lbl.TabIndex = 389
         Me.FTFileOtherNo_lbl.Tag = "2|"
         Me.FTFileOtherNo_lbl.Text = "FTFileOtherNo :"
@@ -15544,11 +15403,11 @@ Partial Class wEmployee
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTFileOtherNoteO.EditValue = ""
-        Me.FTFileOtherNoteO.Location = New System.Drawing.Point(127, 54)
-        Me.FTFileOtherNoteO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFileOtherNoteO.Location = New System.Drawing.Point(145, 63)
+        Me.FTFileOtherNoteO.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFileOtherNoteO.Name = "FTFileOtherNoteO"
         Me.FTFileOtherNoteO.Properties.MaxLength = 500
-        Me.FTFileOtherNoteO.Size = New System.Drawing.Size(1534, 90)
+        Me.FTFileOtherNoteO.Size = New System.Drawing.Size(1457, 98)
         Me.FTFileOtherNoteO.TabIndex = 380
         Me.FTFileOtherNoteO.Tag = "2|"
         '
@@ -15557,10 +15416,10 @@ Partial Class wEmployee
         Me.FTFileOtherNote_lbl.Appearance.Options.UseTextOptions = True
         Me.FTFileOtherNote_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTFileOtherNote_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTFileOtherNote_lbl.Location = New System.Drawing.Point(15, 47)
-        Me.FTFileOtherNote_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTFileOtherNote_lbl.Location = New System.Drawing.Point(17, 58)
+        Me.FTFileOtherNote_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTFileOtherNote_lbl.Name = "FTFileOtherNote_lbl"
-        Me.FTFileOtherNote_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FTFileOtherNote_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FTFileOtherNote_lbl.TabIndex = 381
         Me.FTFileOtherNote_lbl.Tag = "2|"
         Me.FTFileOtherNote_lbl.Text = "หมายเหตุ :"
@@ -15569,8 +15428,8 @@ Partial Class wEmployee
         '
         Me.FDDateofExpiryO1.EditValue = Nothing
         Me.FDDateofExpiryO1.EnterMoveNextControl = True
-        Me.FDDateofExpiryO1.Location = New System.Drawing.Point(359, 28)
-        Me.FDDateofExpiryO1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofExpiryO1.Location = New System.Drawing.Point(419, 34)
+        Me.FDDateofExpiryO1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofExpiryO1.Name = "FDDateofExpiryO1"
         Me.FDDateofExpiryO1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateofExpiryO1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -15581,7 +15440,7 @@ Partial Class wEmployee
         Me.FDDateofExpiryO1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateofExpiryO1.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateofExpiryO1.Properties.NullDate = ""
-        Me.FDDateofExpiryO1.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateofExpiryO1.Size = New System.Drawing.Size(136, 23)
         Me.FDDateofExpiryO1.TabIndex = 325
         Me.FDDateofExpiryO1.Tag = "2|"
         '
@@ -15592,10 +15451,10 @@ Partial Class wEmployee
         Me.FDDateofExpiryO_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateofExpiryO_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateofExpiryO_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateofExpiryO_lbl.Location = New System.Drawing.Point(243, 23)
-        Me.FDDateofExpiryO_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofExpiryO_lbl.Location = New System.Drawing.Point(283, 28)
+        Me.FDDateofExpiryO_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofExpiryO_lbl.Name = "FDDateofExpiryO_lbl"
-        Me.FDDateofExpiryO_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateofExpiryO_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateofExpiryO_lbl.TabIndex = 327
         Me.FDDateofExpiryO_lbl.Tag = "2|"
         Me.FDDateofExpiryO_lbl.Text = "FDDateofExpiry :"
@@ -15604,8 +15463,8 @@ Partial Class wEmployee
         '
         Me.FDDateofIssueO1.EditValue = Nothing
         Me.FDDateofIssueO1.EnterMoveNextControl = True
-        Me.FDDateofIssueO1.Location = New System.Drawing.Point(124, 28)
-        Me.FDDateofIssueO1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofIssueO1.Location = New System.Drawing.Point(145, 34)
+        Me.FDDateofIssueO1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofIssueO1.Name = "FDDateofIssueO1"
         Me.FDDateofIssueO1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDDateofIssueO1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -15616,7 +15475,7 @@ Partial Class wEmployee
         Me.FDDateofIssueO1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateofIssueO1.Properties.Mask.EditMask = "dd/MM/yyyy"
         Me.FDDateofIssueO1.Properties.NullDate = ""
-        Me.FDDateofIssueO1.Size = New System.Drawing.Size(117, 20)
+        Me.FDDateofIssueO1.Size = New System.Drawing.Size(136, 23)
         Me.FDDateofIssueO1.TabIndex = 324
         Me.FDDateofIssueO1.Tag = "2|"
         '
@@ -15627,10 +15486,10 @@ Partial Class wEmployee
         Me.FDDateofIssueO_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateofIssueO_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateofIssueO_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateofIssueO_lbl.Location = New System.Drawing.Point(14, 28)
-        Me.FDDateofIssueO_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDDateofIssueO_lbl.Location = New System.Drawing.Point(16, 34)
+        Me.FDDateofIssueO_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FDDateofIssueO_lbl.Name = "FDDateofIssueO_lbl"
-        Me.FDDateofIssueO_lbl.Size = New System.Drawing.Size(110, 25)
+        Me.FDDateofIssueO_lbl.Size = New System.Drawing.Size(128, 31)
         Me.FDDateofIssueO_lbl.TabIndex = 326
         Me.FDDateofIssueO_lbl.Tag = "2|"
         Me.FDDateofIssueO_lbl.Text = "FDDateofIssue :"
@@ -15678,19 +15537,19 @@ Partial Class wEmployee
         Me.ogbmainprocbutton.Controls.Add(Me.ocmremoveEmpexp)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmaddEmpexp)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmremoveEmpresign)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(263, 24)
-        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(307, 30)
+        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(1110, 89)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(1295, 110)
         Me.ogbmainprocbutton.TabIndex = 385
         Me.ogbmainprocbutton.Tag = "2|"
         '
         'ocmclearOther
         '
-        Me.ocmclearOther.Location = New System.Drawing.Point(705, 28)
-        Me.ocmclearOther.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclearOther.Location = New System.Drawing.Point(822, 34)
+        Me.ocmclearOther.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmclearOther.Name = "ocmclearOther"
-        Me.ocmclearOther.Size = New System.Drawing.Size(111, 27)
+        Me.ocmclearOther.Size = New System.Drawing.Size(129, 33)
         Me.ocmclearOther.TabIndex = 417
         Me.ocmclearOther.TabStop = False
         Me.ocmclearOther.Tag = "2|"
@@ -15698,10 +15557,10 @@ Partial Class wEmployee
         '
         'ocmclearMOU
         '
-        Me.ocmclearMOU.Location = New System.Drawing.Point(705, 0)
-        Me.ocmclearMOU.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclearMOU.Location = New System.Drawing.Point(822, 0)
+        Me.ocmclearMOU.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmclearMOU.Name = "ocmclearMOU"
-        Me.ocmclearMOU.Size = New System.Drawing.Size(111, 27)
+        Me.ocmclearMOU.Size = New System.Drawing.Size(129, 33)
         Me.ocmclearMOU.TabIndex = 416
         Me.ocmclearMOU.TabStop = False
         Me.ocmclearMOU.Tag = "2|"
@@ -15709,10 +15568,10 @@ Partial Class wEmployee
         '
         'ocmremoveEmpOther
         '
-        Me.ocmremoveEmpOther.Location = New System.Drawing.Point(598, 26)
-        Me.ocmremoveEmpOther.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmremoveEmpOther.Location = New System.Drawing.Point(698, 32)
+        Me.ocmremoveEmpOther.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmremoveEmpOther.Name = "ocmremoveEmpOther"
-        Me.ocmremoveEmpOther.Size = New System.Drawing.Size(111, 27)
+        Me.ocmremoveEmpOther.Size = New System.Drawing.Size(129, 33)
         Me.ocmremoveEmpOther.TabIndex = 415
         Me.ocmremoveEmpOther.TabStop = False
         Me.ocmremoveEmpOther.Tag = "2|"
@@ -15720,10 +15579,10 @@ Partial Class wEmployee
         '
         'ocmremoveEmpMOU
         '
-        Me.ocmremoveEmpMOU.Location = New System.Drawing.Point(598, 0)
-        Me.ocmremoveEmpMOU.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmremoveEmpMOU.Location = New System.Drawing.Point(698, 0)
+        Me.ocmremoveEmpMOU.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmremoveEmpMOU.Name = "ocmremoveEmpMOU"
-        Me.ocmremoveEmpMOU.Size = New System.Drawing.Size(111, 27)
+        Me.ocmremoveEmpMOU.Size = New System.Drawing.Size(129, 33)
         Me.ocmremoveEmpMOU.TabIndex = 414
         Me.ocmremoveEmpMOU.TabStop = False
         Me.ocmremoveEmpMOU.Tag = "2|"
@@ -15731,10 +15590,10 @@ Partial Class wEmployee
         '
         'ocmaddEmpOther
         '
-        Me.ocmaddEmpOther.Location = New System.Drawing.Point(492, 21)
-        Me.ocmaddEmpOther.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmaddEmpOther.Location = New System.Drawing.Point(574, 26)
+        Me.ocmaddEmpOther.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmaddEmpOther.Name = "ocmaddEmpOther"
-        Me.ocmaddEmpOther.Size = New System.Drawing.Size(111, 27)
+        Me.ocmaddEmpOther.Size = New System.Drawing.Size(129, 33)
         Me.ocmaddEmpOther.TabIndex = 413
         Me.ocmaddEmpOther.TabStop = False
         Me.ocmaddEmpOther.Tag = "2|"
@@ -15742,10 +15601,10 @@ Partial Class wEmployee
         '
         'ocmaddEmpMOU
         '
-        Me.ocmaddEmpMOU.Location = New System.Drawing.Point(492, 0)
-        Me.ocmaddEmpMOU.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmaddEmpMOU.Location = New System.Drawing.Point(574, 0)
+        Me.ocmaddEmpMOU.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmaddEmpMOU.Name = "ocmaddEmpMOU"
-        Me.ocmaddEmpMOU.Size = New System.Drawing.Size(111, 27)
+        Me.ocmaddEmpMOU.Size = New System.Drawing.Size(129, 33)
         Me.ocmaddEmpMOU.TabIndex = 412
         Me.ocmaddEmpMOU.TabStop = False
         Me.ocmaddEmpMOU.Tag = "2|"
@@ -15753,10 +15612,10 @@ Partial Class wEmployee
         '
         'ocmclearWork
         '
-        Me.ocmclearWork.Location = New System.Drawing.Point(931, 114)
-        Me.ocmclearWork.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclearWork.Location = New System.Drawing.Point(1086, 140)
+        Me.ocmclearWork.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmclearWork.Name = "ocmclearWork"
-        Me.ocmclearWork.Size = New System.Drawing.Size(111, 27)
+        Me.ocmclearWork.Size = New System.Drawing.Size(129, 33)
         Me.ocmclearWork.TabIndex = 411
         Me.ocmclearWork.TabStop = False
         Me.ocmclearWork.Tag = "2|"
@@ -15764,10 +15623,10 @@ Partial Class wEmployee
         '
         'ocmremoveEmpWork
         '
-        Me.ocmremoveEmpWork.Location = New System.Drawing.Point(929, 84)
-        Me.ocmremoveEmpWork.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmremoveEmpWork.Location = New System.Drawing.Point(1084, 103)
+        Me.ocmremoveEmpWork.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmremoveEmpWork.Name = "ocmremoveEmpWork"
-        Me.ocmremoveEmpWork.Size = New System.Drawing.Size(111, 27)
+        Me.ocmremoveEmpWork.Size = New System.Drawing.Size(129, 33)
         Me.ocmremoveEmpWork.TabIndex = 410
         Me.ocmremoveEmpWork.TabStop = False
         Me.ocmremoveEmpWork.Tag = "2|"
@@ -15775,10 +15634,10 @@ Partial Class wEmployee
         '
         'ocmaddEmpWork
         '
-        Me.ocmaddEmpWork.Location = New System.Drawing.Point(929, 53)
-        Me.ocmaddEmpWork.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmaddEmpWork.Location = New System.Drawing.Point(1084, 65)
+        Me.ocmaddEmpWork.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmaddEmpWork.Name = "ocmaddEmpWork"
-        Me.ocmaddEmpWork.Size = New System.Drawing.Size(111, 27)
+        Me.ocmaddEmpWork.Size = New System.Drawing.Size(129, 33)
         Me.ocmaddEmpWork.TabIndex = 409
         Me.ocmaddEmpWork.TabStop = False
         Me.ocmaddEmpWork.Tag = "2|"
@@ -15786,10 +15645,10 @@ Partial Class wEmployee
         '
         'ocmclearVisa
         '
-        Me.ocmclearVisa.Location = New System.Drawing.Point(825, 115)
-        Me.ocmclearVisa.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclearVisa.Location = New System.Drawing.Point(962, 142)
+        Me.ocmclearVisa.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmclearVisa.Name = "ocmclearVisa"
-        Me.ocmclearVisa.Size = New System.Drawing.Size(111, 27)
+        Me.ocmclearVisa.Size = New System.Drawing.Size(129, 33)
         Me.ocmclearVisa.TabIndex = 408
         Me.ocmclearVisa.TabStop = False
         Me.ocmclearVisa.Tag = "2|"
@@ -15797,10 +15656,10 @@ Partial Class wEmployee
         '
         'ocmremoveEmpVisa
         '
-        Me.ocmremoveEmpVisa.Location = New System.Drawing.Point(824, 85)
-        Me.ocmremoveEmpVisa.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmremoveEmpVisa.Location = New System.Drawing.Point(961, 105)
+        Me.ocmremoveEmpVisa.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmremoveEmpVisa.Name = "ocmremoveEmpVisa"
-        Me.ocmremoveEmpVisa.Size = New System.Drawing.Size(111, 27)
+        Me.ocmremoveEmpVisa.Size = New System.Drawing.Size(129, 33)
         Me.ocmremoveEmpVisa.TabIndex = 407
         Me.ocmremoveEmpVisa.TabStop = False
         Me.ocmremoveEmpVisa.Tag = "2|"
@@ -15808,10 +15667,10 @@ Partial Class wEmployee
         '
         'ocmaddEmpVisa
         '
-        Me.ocmaddEmpVisa.Location = New System.Drawing.Point(824, 54)
-        Me.ocmaddEmpVisa.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmaddEmpVisa.Location = New System.Drawing.Point(961, 66)
+        Me.ocmaddEmpVisa.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmaddEmpVisa.Name = "ocmaddEmpVisa"
-        Me.ocmaddEmpVisa.Size = New System.Drawing.Size(111, 27)
+        Me.ocmaddEmpVisa.Size = New System.Drawing.Size(129, 33)
         Me.ocmaddEmpVisa.TabIndex = 406
         Me.ocmaddEmpVisa.TabStop = False
         Me.ocmaddEmpVisa.Tag = "2|"
@@ -15819,10 +15678,10 @@ Partial Class wEmployee
         '
         'ocmclearPass
         '
-        Me.ocmclearPass.Location = New System.Drawing.Point(368, 114)
-        Me.ocmclearPass.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclearPass.Location = New System.Drawing.Point(429, 140)
+        Me.ocmclearPass.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmclearPass.Name = "ocmclearPass"
-        Me.ocmclearPass.Size = New System.Drawing.Size(111, 27)
+        Me.ocmclearPass.Size = New System.Drawing.Size(129, 33)
         Me.ocmclearPass.TabIndex = 405
         Me.ocmclearPass.TabStop = False
         Me.ocmclearPass.Tag = "2|"
@@ -15830,10 +15689,10 @@ Partial Class wEmployee
         '
         'ocmremoveEmpPass
         '
-        Me.ocmremoveEmpPass.Location = New System.Drawing.Point(366, 84)
-        Me.ocmremoveEmpPass.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmremoveEmpPass.Location = New System.Drawing.Point(427, 103)
+        Me.ocmremoveEmpPass.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmremoveEmpPass.Name = "ocmremoveEmpPass"
-        Me.ocmremoveEmpPass.Size = New System.Drawing.Size(111, 27)
+        Me.ocmremoveEmpPass.Size = New System.Drawing.Size(129, 33)
         Me.ocmremoveEmpPass.TabIndex = 404
         Me.ocmremoveEmpPass.TabStop = False
         Me.ocmremoveEmpPass.Tag = "2|"
@@ -15841,10 +15700,10 @@ Partial Class wEmployee
         '
         'ocmaddEmpPass
         '
-        Me.ocmaddEmpPass.Location = New System.Drawing.Point(366, 53)
-        Me.ocmaddEmpPass.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmaddEmpPass.Location = New System.Drawing.Point(427, 65)
+        Me.ocmaddEmpPass.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmaddEmpPass.Name = "ocmaddEmpPass"
-        Me.ocmaddEmpPass.Size = New System.Drawing.Size(111, 27)
+        Me.ocmaddEmpPass.Size = New System.Drawing.Size(129, 33)
         Me.ocmaddEmpPass.TabIndex = 403
         Me.ocmaddEmpPass.TabStop = False
         Me.ocmaddEmpPass.Tag = "2|"
@@ -15852,10 +15711,10 @@ Partial Class wEmployee
         '
         'ocmclearEmpexp
         '
-        Me.ocmclearEmpexp.Location = New System.Drawing.Point(707, 119)
-        Me.ocmclearEmpexp.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclearEmpexp.Location = New System.Drawing.Point(825, 146)
+        Me.ocmclearEmpexp.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmclearEmpexp.Name = "ocmclearEmpexp"
-        Me.ocmclearEmpexp.Size = New System.Drawing.Size(111, 27)
+        Me.ocmclearEmpexp.Size = New System.Drawing.Size(129, 33)
         Me.ocmclearEmpexp.TabIndex = 401
         Me.ocmclearEmpexp.TabStop = False
         Me.ocmclearEmpexp.Tag = "2|"
@@ -15863,10 +15722,10 @@ Partial Class wEmployee
         '
         'ocmclearEmpchild
         '
-        Me.ocmclearEmpchild.Location = New System.Drawing.Point(261, 122)
-        Me.ocmclearEmpchild.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclearEmpchild.Location = New System.Drawing.Point(304, 150)
+        Me.ocmclearEmpchild.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmclearEmpchild.Name = "ocmclearEmpchild"
-        Me.ocmclearEmpchild.Size = New System.Drawing.Size(111, 27)
+        Me.ocmclearEmpchild.Size = New System.Drawing.Size(129, 33)
         Me.ocmclearEmpchild.TabIndex = 363
         Me.ocmclearEmpchild.TabStop = False
         Me.ocmclearEmpchild.Tag = "2|"
@@ -15874,10 +15733,10 @@ Partial Class wEmployee
         '
         'ocmclearEmpfam
         '
-        Me.ocmclearEmpfam.Location = New System.Drawing.Point(708, 86)
-        Me.ocmclearEmpfam.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclearEmpfam.Location = New System.Drawing.Point(826, 106)
+        Me.ocmclearEmpfam.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmclearEmpfam.Name = "ocmclearEmpfam"
-        Me.ocmclearEmpfam.Size = New System.Drawing.Size(111, 27)
+        Me.ocmclearEmpfam.Size = New System.Drawing.Size(129, 33)
         Me.ocmclearEmpfam.TabIndex = 359
         Me.ocmclearEmpfam.TabStop = False
         Me.ocmclearEmpfam.Tag = "2|"
@@ -15885,10 +15744,10 @@ Partial Class wEmployee
         '
         'ocmclearEmppuns
         '
-        Me.ocmclearEmppuns.Location = New System.Drawing.Point(264, 89)
-        Me.ocmclearEmppuns.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclearEmppuns.Location = New System.Drawing.Point(308, 110)
+        Me.ocmclearEmppuns.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmclearEmppuns.Name = "ocmclearEmppuns"
-        Me.ocmclearEmppuns.Size = New System.Drawing.Size(111, 27)
+        Me.ocmclearEmppuns.Size = New System.Drawing.Size(129, 33)
         Me.ocmclearEmppuns.TabIndex = 389
         Me.ocmclearEmppuns.TabStop = False
         Me.ocmclearEmppuns.Tag = "2|"
@@ -15896,10 +15755,10 @@ Partial Class wEmployee
         '
         'ocmclearEmpresign
         '
-        Me.ocmclearEmpresign.Location = New System.Drawing.Point(707, 54)
-        Me.ocmclearEmpresign.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclearEmpresign.Location = New System.Drawing.Point(825, 66)
+        Me.ocmclearEmpresign.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmclearEmpresign.Name = "ocmclearEmpresign"
-        Me.ocmclearEmpresign.Size = New System.Drawing.Size(111, 27)
+        Me.ocmclearEmpresign.Size = New System.Drawing.Size(129, 33)
         Me.ocmclearEmpresign.TabIndex = 392
         Me.ocmclearEmpresign.TabStop = False
         Me.ocmclearEmpresign.Tag = "2|"
@@ -15907,10 +15766,10 @@ Partial Class wEmployee
         '
         'ocmclearEmpeduc
         '
-        Me.ocmclearEmpeduc.Location = New System.Drawing.Point(264, 54)
-        Me.ocmclearEmpeduc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclearEmpeduc.Location = New System.Drawing.Point(308, 66)
+        Me.ocmclearEmpeduc.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmclearEmpeduc.Name = "ocmclearEmpeduc"
-        Me.ocmclearEmpeduc.Size = New System.Drawing.Size(111, 27)
+        Me.ocmclearEmpeduc.Size = New System.Drawing.Size(129, 33)
         Me.ocmclearEmpeduc.TabIndex = 325
         Me.ocmclearEmpeduc.TabStop = False
         Me.ocmclearEmpeduc.Tag = "2|"
@@ -15918,10 +15777,10 @@ Partial Class wEmployee
         '
         'ocmpreview
         '
-        Me.ocmpreview.Location = New System.Drawing.Point(381, 16)
-        Me.ocmpreview.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmpreview.Location = New System.Drawing.Point(444, 20)
+        Me.ocmpreview.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmpreview.Name = "ocmpreview"
-        Me.ocmpreview.Size = New System.Drawing.Size(111, 31)
+        Me.ocmpreview.Size = New System.Drawing.Size(129, 38)
         Me.ocmpreview.TabIndex = 97
         Me.ocmpreview.TabStop = False
         Me.ocmpreview.Tag = "2|"
@@ -15930,10 +15789,10 @@ Partial Class wEmployee
         '
         'ocmaddEmpfam
         '
-        Me.ocmaddEmpfam.Location = New System.Drawing.Point(471, 86)
-        Me.ocmaddEmpfam.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmaddEmpfam.Location = New System.Drawing.Point(549, 106)
+        Me.ocmaddEmpfam.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmaddEmpfam.Name = "ocmaddEmpfam"
-        Me.ocmaddEmpfam.Size = New System.Drawing.Size(111, 27)
+        Me.ocmaddEmpfam.Size = New System.Drawing.Size(129, 33)
         Me.ocmaddEmpfam.TabIndex = 323
         Me.ocmaddEmpfam.TabStop = False
         Me.ocmaddEmpfam.Tag = "2|"
@@ -15941,10 +15800,10 @@ Partial Class wEmployee
         '
         'ocmremoveEmpeduc
         '
-        Me.ocmremoveEmpeduc.Location = New System.Drawing.Point(146, 54)
-        Me.ocmremoveEmpeduc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmremoveEmpeduc.Location = New System.Drawing.Point(170, 66)
+        Me.ocmremoveEmpeduc.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmremoveEmpeduc.Name = "ocmremoveEmpeduc"
-        Me.ocmremoveEmpeduc.Size = New System.Drawing.Size(111, 27)
+        Me.ocmremoveEmpeduc.Size = New System.Drawing.Size(129, 33)
         Me.ocmremoveEmpeduc.TabIndex = 322
         Me.ocmremoveEmpeduc.TabStop = False
         Me.ocmremoveEmpeduc.Tag = "2|"
@@ -15952,10 +15811,10 @@ Partial Class wEmployee
         '
         'ocmAddEmpChild
         '
-        Me.ocmAddEmpChild.Location = New System.Drawing.Point(26, 122)
-        Me.ocmAddEmpChild.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmAddEmpChild.Location = New System.Drawing.Point(30, 150)
+        Me.ocmAddEmpChild.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmAddEmpChild.Name = "ocmAddEmpChild"
-        Me.ocmAddEmpChild.Size = New System.Drawing.Size(111, 27)
+        Me.ocmAddEmpChild.Size = New System.Drawing.Size(129, 33)
         Me.ocmAddEmpChild.TabIndex = 323
         Me.ocmAddEmpChild.TabStop = False
         Me.ocmAddEmpChild.Tag = "2|"
@@ -15963,10 +15822,10 @@ Partial Class wEmployee
         '
         'ocmremoveEmpfam
         '
-        Me.ocmremoveEmpfam.Location = New System.Drawing.Point(589, 86)
-        Me.ocmremoveEmpfam.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmremoveEmpfam.Location = New System.Drawing.Point(687, 106)
+        Me.ocmremoveEmpfam.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmremoveEmpfam.Name = "ocmremoveEmpfam"
-        Me.ocmremoveEmpfam.Size = New System.Drawing.Size(111, 27)
+        Me.ocmremoveEmpfam.Size = New System.Drawing.Size(129, 33)
         Me.ocmremoveEmpfam.TabIndex = 322
         Me.ocmremoveEmpfam.TabStop = False
         Me.ocmremoveEmpfam.Tag = "2|"
@@ -15974,10 +15833,10 @@ Partial Class wEmployee
         '
         'ocmremoveEmpchild
         '
-        Me.ocmremoveEmpchild.Location = New System.Drawing.Point(143, 122)
-        Me.ocmremoveEmpchild.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmremoveEmpchild.Location = New System.Drawing.Point(167, 150)
+        Me.ocmremoveEmpchild.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmremoveEmpchild.Name = "ocmremoveEmpchild"
-        Me.ocmremoveEmpchild.Size = New System.Drawing.Size(111, 27)
+        Me.ocmremoveEmpchild.Size = New System.Drawing.Size(129, 33)
         Me.ocmremoveEmpchild.TabIndex = 322
         Me.ocmremoveEmpchild.TabStop = False
         Me.ocmremoveEmpchild.Tag = "2|"
@@ -15985,10 +15844,10 @@ Partial Class wEmployee
         '
         'ocmaddEmpeduc
         '
-        Me.ocmaddEmpeduc.Location = New System.Drawing.Point(27, 54)
-        Me.ocmaddEmpeduc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmaddEmpeduc.Location = New System.Drawing.Point(31, 66)
+        Me.ocmaddEmpeduc.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmaddEmpeduc.Name = "ocmaddEmpeduc"
-        Me.ocmaddEmpeduc.Size = New System.Drawing.Size(111, 27)
+        Me.ocmaddEmpeduc.Size = New System.Drawing.Size(129, 33)
         Me.ocmaddEmpeduc.TabIndex = 323
         Me.ocmaddEmpeduc.TabStop = False
         Me.ocmaddEmpeduc.Tag = "2|"
@@ -15997,10 +15856,10 @@ Partial Class wEmployee
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(978, 14)
-        Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmexit.Location = New System.Drawing.Point(1141, 17)
+        Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmexit.Name = "ocmexit"
-        Me.ocmexit.Size = New System.Drawing.Size(111, 31)
+        Me.ocmexit.Size = New System.Drawing.Size(129, 38)
         Me.ocmexit.TabIndex = 96
         Me.ocmexit.TabStop = False
         Me.ocmexit.Tag = "2|"
@@ -16008,10 +15867,10 @@ Partial Class wEmployee
         '
         'ocmclear
         '
-        Me.ocmclear.Location = New System.Drawing.Point(262, 16)
-        Me.ocmclear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclear.Location = New System.Drawing.Point(306, 20)
+        Me.ocmclear.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmclear.Name = "ocmclear"
-        Me.ocmclear.Size = New System.Drawing.Size(111, 31)
+        Me.ocmclear.Size = New System.Drawing.Size(129, 38)
         Me.ocmclear.TabIndex = 95
         Me.ocmclear.TabStop = False
         Me.ocmclear.Tag = "2|"
@@ -16019,10 +15878,10 @@ Partial Class wEmployee
         '
         'ocmdelete
         '
-        Me.ocmdelete.Location = New System.Drawing.Point(145, 16)
-        Me.ocmdelete.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmdelete.Location = New System.Drawing.Point(169, 20)
+        Me.ocmdelete.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmdelete.Name = "ocmdelete"
-        Me.ocmdelete.Size = New System.Drawing.Size(111, 31)
+        Me.ocmdelete.Size = New System.Drawing.Size(129, 38)
         Me.ocmdelete.TabIndex = 94
         Me.ocmdelete.TabStop = False
         Me.ocmdelete.Tag = "2|"
@@ -16030,10 +15889,10 @@ Partial Class wEmployee
         '
         'ocmremoveEmppuns
         '
-        Me.ocmremoveEmppuns.Location = New System.Drawing.Point(145, 89)
-        Me.ocmremoveEmppuns.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmremoveEmppuns.Location = New System.Drawing.Point(169, 110)
+        Me.ocmremoveEmppuns.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmremoveEmppuns.Name = "ocmremoveEmppuns"
-        Me.ocmremoveEmppuns.Size = New System.Drawing.Size(111, 27)
+        Me.ocmremoveEmppuns.Size = New System.Drawing.Size(129, 33)
         Me.ocmremoveEmppuns.TabIndex = 322
         Me.ocmremoveEmppuns.TabStop = False
         Me.ocmremoveEmppuns.Tag = "2|"
@@ -16041,10 +15900,10 @@ Partial Class wEmployee
         '
         'ocmaddEmppuns
         '
-        Me.ocmaddEmppuns.Location = New System.Drawing.Point(26, 89)
-        Me.ocmaddEmppuns.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmaddEmppuns.Location = New System.Drawing.Point(30, 110)
+        Me.ocmaddEmppuns.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmaddEmppuns.Name = "ocmaddEmppuns"
-        Me.ocmaddEmppuns.Size = New System.Drawing.Size(111, 27)
+        Me.ocmaddEmppuns.Size = New System.Drawing.Size(129, 33)
         Me.ocmaddEmppuns.TabIndex = 323
         Me.ocmaddEmppuns.TabStop = False
         Me.ocmaddEmppuns.Tag = "2|"
@@ -16052,10 +15911,10 @@ Partial Class wEmployee
         '
         'ocmsave
         '
-        Me.ocmsave.Location = New System.Drawing.Point(27, 16)
-        Me.ocmsave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmsave.Location = New System.Drawing.Point(31, 20)
+        Me.ocmsave.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmsave.Name = "ocmsave"
-        Me.ocmsave.Size = New System.Drawing.Size(111, 31)
+        Me.ocmsave.Size = New System.Drawing.Size(129, 38)
         Me.ocmsave.TabIndex = 93
         Me.ocmsave.TabStop = False
         Me.ocmsave.Tag = "2|"
@@ -16063,10 +15922,10 @@ Partial Class wEmployee
         '
         'ocmaddEmpresign
         '
-        Me.ocmaddEmpresign.Location = New System.Drawing.Point(476, 52)
-        Me.ocmaddEmpresign.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmaddEmpresign.Location = New System.Drawing.Point(555, 64)
+        Me.ocmaddEmpresign.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmaddEmpresign.Name = "ocmaddEmpresign"
-        Me.ocmaddEmpresign.Size = New System.Drawing.Size(111, 27)
+        Me.ocmaddEmpresign.Size = New System.Drawing.Size(129, 33)
         Me.ocmaddEmpresign.TabIndex = 323
         Me.ocmaddEmpresign.TabStop = False
         Me.ocmaddEmpresign.Tag = "2|"
@@ -16074,10 +15933,10 @@ Partial Class wEmployee
         '
         'ocmremoveEmpexp
         '
-        Me.ocmremoveEmpexp.Location = New System.Drawing.Point(589, 119)
-        Me.ocmremoveEmpexp.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmremoveEmpexp.Location = New System.Drawing.Point(687, 146)
+        Me.ocmremoveEmpexp.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmremoveEmpexp.Name = "ocmremoveEmpexp"
-        Me.ocmremoveEmpexp.Size = New System.Drawing.Size(111, 27)
+        Me.ocmremoveEmpexp.Size = New System.Drawing.Size(129, 33)
         Me.ocmremoveEmpexp.TabIndex = 322
         Me.ocmremoveEmpexp.TabStop = False
         Me.ocmremoveEmpexp.Tag = "2|"
@@ -16085,10 +15944,10 @@ Partial Class wEmployee
         '
         'ocmaddEmpexp
         '
-        Me.ocmaddEmpexp.Location = New System.Drawing.Point(471, 119)
-        Me.ocmaddEmpexp.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmaddEmpexp.Location = New System.Drawing.Point(549, 146)
+        Me.ocmaddEmpexp.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmaddEmpexp.Name = "ocmaddEmpexp"
-        Me.ocmaddEmpexp.Size = New System.Drawing.Size(111, 27)
+        Me.ocmaddEmpexp.Size = New System.Drawing.Size(129, 33)
         Me.ocmaddEmpexp.TabIndex = 323
         Me.ocmaddEmpexp.TabStop = False
         Me.ocmaddEmpexp.Tag = "2|"
@@ -16096,10 +15955,10 @@ Partial Class wEmployee
         '
         'ocmremoveEmpresign
         '
-        Me.ocmremoveEmpresign.Location = New System.Drawing.Point(589, 52)
-        Me.ocmremoveEmpresign.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmremoveEmpresign.Location = New System.Drawing.Point(687, 64)
+        Me.ocmremoveEmpresign.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ocmremoveEmpresign.Name = "ocmremoveEmpresign"
-        Me.ocmremoveEmpresign.Size = New System.Drawing.Size(111, 27)
+        Me.ocmremoveEmpresign.Size = New System.Drawing.Size(129, 33)
         Me.ocmremoveEmpresign.TabIndex = 322
         Me.ocmremoveEmpresign.TabStop = False
         Me.ocmremoveEmpresign.Tag = "2|"
@@ -16107,11 +15966,11 @@ Partial Class wEmployee
         '
         'FNHSysEmpID
         '
-        Me.FNHSysEmpID.Location = New System.Drawing.Point(255, 43)
-        Me.FNHSysEmpID.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpID.Location = New System.Drawing.Point(297, 53)
+        Me.FNHSysEmpID.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysEmpID.Name = "FNHSysEmpID"
-        Me.FNHSysEmpID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions88, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject349, SerializableAppearanceObject350, SerializableAppearanceObject351, SerializableAppearanceObject352, "", "78", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, False, EditorButtonImageOptions89, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject353, SerializableAppearanceObject354, SerializableAppearanceObject355, SerializableAppearanceObject356, "", "emp", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FNHSysEmpID.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysEmpID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions83, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject345, SerializableAppearanceObject346, SerializableAppearanceObject347, SerializableAppearanceObject348, "", "78", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, False, EditorButtonImageOptions91, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject377, SerializableAppearanceObject378, SerializableAppearanceObject379, SerializableAppearanceObject380, "", "emp", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysEmpID.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysEmpID.TabIndex = 2
         Me.FNHSysEmpID.Tag = "2|"
         '
@@ -16120,27 +15979,27 @@ Partial Class wEmployee
         Me.FNHSysEmpID_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysEmpID_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysEmpID_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysEmpID_lbl.Location = New System.Drawing.Point(125, 41)
-        Me.FNHSysEmpID_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpID_lbl.Location = New System.Drawing.Point(146, 50)
+        Me.FNHSysEmpID_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysEmpID_lbl.Name = "FNHSysEmpID_lbl"
-        Me.FNHSysEmpID_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysEmpID_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNHSysEmpID_lbl.TabIndex = 271
         Me.FNHSysEmpID_lbl.Tag = "2|"
         Me.FNHSysEmpID_lbl.Text = "Employee Code :"
         '
         'FNHSysCmpId
         '
-        Me.FNHSysCmpId.Location = New System.Drawing.Point(255, 21)
-        Me.FNHSysCmpId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpId.Location = New System.Drawing.Point(297, 26)
+        Me.FNHSysCmpId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysCmpId.Name = "FNHSysCmpId"
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions90, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject357, SerializableAppearanceObject358, SerializableAppearanceObject359, SerializableAppearanceObject360, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions84, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject349, SerializableAppearanceObject350, SerializableAppearanceObject351, SerializableAppearanceObject352, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(155, 20)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(181, 23)
         Me.FNHSysCmpId.TabIndex = 0
         Me.FNHSysCmpId.Tag = ""
         '
@@ -16149,23 +16008,23 @@ Partial Class wEmployee
         Me.FNHSysCmpId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCmpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCmpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCmpId_lbl.Location = New System.Drawing.Point(127, 20)
-        Me.FNHSysCmpId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpId_lbl.Location = New System.Drawing.Point(148, 25)
+        Me.FNHSysCmpId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysCmpId_lbl.Name = "FNHSysCmpId_lbl"
-        Me.FNHSysCmpId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysCmpId_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNHSysCmpId_lbl.TabIndex = 273
         Me.FNHSysCmpId_lbl.Tag = "2|"
         Me.FNHSysCmpId_lbl.Text = "Company :"
         '
         'FNHSysCmpId_None
         '
-        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(412, 21)
-        Me.FNHSysCmpId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(481, 26)
+        Me.FNHSysCmpId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysCmpId_None.Name = "FNHSysCmpId_None"
         Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCmpId_None.Properties.ReadOnly = True
-        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(287, 20)
+        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(335, 23)
         Me.FNHSysCmpId_None.TabIndex = 274
         Me.FNHSysCmpId_None.Tag = ""
         '
@@ -16174,20 +16033,20 @@ Partial Class wEmployee
         Me.FTEmpNameTH_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEmpNameTH_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEmpNameTH_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEmpNameTH_lbl.Location = New System.Drawing.Point(125, 63)
-        Me.FTEmpNameTH_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpNameTH_lbl.Location = New System.Drawing.Point(146, 78)
+        Me.FTEmpNameTH_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpNameTH_lbl.Name = "FTEmpNameTH_lbl"
-        Me.FTEmpNameTH_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTEmpNameTH_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTEmpNameTH_lbl.TabIndex = 275
         Me.FTEmpNameTH_lbl.Tag = "2|"
         Me.FTEmpNameTH_lbl.Text = "Name TH :"
         '
         'FTEmpNameTH
         '
-        Me.FTEmpNameTH.Location = New System.Drawing.Point(255, 65)
-        Me.FTEmpNameTH.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpNameTH.Location = New System.Drawing.Point(297, 80)
+        Me.FTEmpNameTH.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpNameTH.Name = "FTEmpNameTH"
-        Me.FTEmpNameTH.Size = New System.Drawing.Size(155, 20)
+        Me.FTEmpNameTH.Size = New System.Drawing.Size(181, 23)
         Me.FTEmpNameTH.TabIndex = 5
         Me.FTEmpNameTH.Tag = "2|"
         '
@@ -16195,13 +16054,13 @@ Partial Class wEmployee
         '
         Me.FNHSysPreNameId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysPreNameId_None.Location = New System.Drawing.Point(975, 43)
-        Me.FNHSysPreNameId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPreNameId_None.Location = New System.Drawing.Point(1137, 53)
+        Me.FNHSysPreNameId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysPreNameId_None.Name = "FNHSysPreNameId_None"
         Me.FNHSysPreNameId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysPreNameId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysPreNameId_None.Properties.ReadOnly = True
-        Me.FNHSysPreNameId_None.Size = New System.Drawing.Size(560, 20)
+        Me.FNHSysPreNameId_None.Size = New System.Drawing.Size(653, 23)
         Me.FNHSysPreNameId_None.TabIndex = 279
         Me.FNHSysPreNameId_None.Tag = "2|"
         '
@@ -16210,22 +16069,22 @@ Partial Class wEmployee
         Me.FNHSysPreNameId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysPreNameId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysPreNameId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysPreNameId_lbl.Location = New System.Drawing.Point(716, 40)
-        Me.FNHSysPreNameId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPreNameId_lbl.Location = New System.Drawing.Point(835, 49)
+        Me.FNHSysPreNameId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysPreNameId_lbl.Name = "FNHSysPreNameId_lbl"
-        Me.FNHSysPreNameId_lbl.Size = New System.Drawing.Size(107, 25)
+        Me.FNHSysPreNameId_lbl.Size = New System.Drawing.Size(125, 31)
         Me.FNHSysPreNameId_lbl.TabIndex = 278
         Me.FNHSysPreNameId_lbl.Tag = "2|"
         Me.FNHSysPreNameId_lbl.Text = "Prename :"
         '
         'FNHSysPreNameId
         '
-        Me.FNHSysPreNameId.Location = New System.Drawing.Point(829, 43)
-        Me.FNHSysPreNameId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysPreNameId.Location = New System.Drawing.Point(967, 53)
+        Me.FNHSysPreNameId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysPreNameId.Name = "FNHSysPreNameId"
-        Me.FNHSysPreNameId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions91, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject361, SerializableAppearanceObject362, SerializableAppearanceObject363, SerializableAppearanceObject364, "", "51", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysPreNameId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions85, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject353, SerializableAppearanceObject354, SerializableAppearanceObject355, SerializableAppearanceObject356, "", "51", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysPreNameId.Properties.Tag = "51"
-        Me.FNHSysPreNameId.Size = New System.Drawing.Size(140, 20)
+        Me.FNHSysPreNameId.Size = New System.Drawing.Size(163, 23)
         Me.FNHSysPreNameId.TabIndex = 4
         Me.FNHSysPreNameId.Tag = "2|"
         '
@@ -16234,20 +16093,20 @@ Partial Class wEmployee
         Me.FTEmpSurnameTH_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEmpSurnameTH_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEmpSurnameTH_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEmpSurnameTH_lbl.Location = New System.Drawing.Point(416, 63)
-        Me.FTEmpSurnameTH_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpSurnameTH_lbl.Location = New System.Drawing.Point(485, 78)
+        Me.FTEmpSurnameTH_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpSurnameTH_lbl.Name = "FTEmpSurnameTH_lbl"
-        Me.FTEmpSurnameTH_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTEmpSurnameTH_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTEmpSurnameTH_lbl.TabIndex = 280
         Me.FTEmpSurnameTH_lbl.Tag = "2|"
         Me.FTEmpSurnameTH_lbl.Text = "Surname TH :"
         '
         'FTEmpSurnameTH
         '
-        Me.FTEmpSurnameTH.Location = New System.Drawing.Point(544, 64)
-        Me.FTEmpSurnameTH.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpSurnameTH.Location = New System.Drawing.Point(635, 79)
+        Me.FTEmpSurnameTH.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpSurnameTH.Name = "FTEmpSurnameTH"
-        Me.FTEmpSurnameTH.Size = New System.Drawing.Size(156, 20)
+        Me.FTEmpSurnameTH.Size = New System.Drawing.Size(182, 23)
         Me.FTEmpSurnameTH.TabIndex = 6
         Me.FTEmpSurnameTH.Tag = "2|"
         '
@@ -16256,29 +16115,29 @@ Partial Class wEmployee
         Me.FTEmpNicknameTH_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEmpNicknameTH_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEmpNicknameTH_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEmpNicknameTH_lbl.Location = New System.Drawing.Point(706, 64)
-        Me.FTEmpNicknameTH_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpNicknameTH_lbl.Location = New System.Drawing.Point(824, 79)
+        Me.FTEmpNicknameTH_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpNicknameTH_lbl.Name = "FTEmpNicknameTH_lbl"
-        Me.FTEmpNicknameTH_lbl.Size = New System.Drawing.Size(170, 18)
+        Me.FTEmpNicknameTH_lbl.Size = New System.Drawing.Size(198, 22)
         Me.FTEmpNicknameTH_lbl.TabIndex = 282
         Me.FTEmpNicknameTH_lbl.Tag = "2|"
         Me.FTEmpNicknameTH_lbl.Text = "NickName TH:"
         '
         'FTEmpNicknameTH
         '
-        Me.FTEmpNicknameTH.Location = New System.Drawing.Point(879, 65)
-        Me.FTEmpNicknameTH.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpNicknameTH.Location = New System.Drawing.Point(1025, 80)
+        Me.FTEmpNicknameTH.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpNicknameTH.Name = "FTEmpNicknameTH"
-        Me.FTEmpNicknameTH.Size = New System.Drawing.Size(90, 20)
+        Me.FTEmpNicknameTH.Size = New System.Drawing.Size(105, 23)
         Me.FTEmpNicknameTH.TabIndex = 7
         Me.FTEmpNicknameTH.Tag = "2|"
         '
         'FTEmpNicknameEN
         '
-        Me.FTEmpNicknameEN.Location = New System.Drawing.Point(879, 87)
-        Me.FTEmpNicknameEN.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpNicknameEN.Location = New System.Drawing.Point(1025, 107)
+        Me.FTEmpNicknameEN.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpNicknameEN.Name = "FTEmpNicknameEN"
-        Me.FTEmpNicknameEN.Size = New System.Drawing.Size(90, 20)
+        Me.FTEmpNicknameEN.Size = New System.Drawing.Size(105, 23)
         Me.FTEmpNicknameEN.TabIndex = 10
         Me.FTEmpNicknameEN.Tag = "2|"
         '
@@ -16287,20 +16146,20 @@ Partial Class wEmployee
         Me.FTEmpNicknameEN_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEmpNicknameEN_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEmpNicknameEN_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEmpNicknameEN_lbl.Location = New System.Drawing.Point(702, 86)
-        Me.FTEmpNicknameEN_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpNicknameEN_lbl.Location = New System.Drawing.Point(819, 106)
+        Me.FTEmpNicknameEN_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpNicknameEN_lbl.Name = "FTEmpNicknameEN_lbl"
-        Me.FTEmpNicknameEN_lbl.Size = New System.Drawing.Size(174, 21)
+        Me.FTEmpNicknameEN_lbl.Size = New System.Drawing.Size(203, 26)
         Me.FTEmpNicknameEN_lbl.TabIndex = 288
         Me.FTEmpNicknameEN_lbl.Tag = "2|"
         Me.FTEmpNicknameEN_lbl.Text = "NickName EN:"
         '
         'FTEmpSurnameEN
         '
-        Me.FTEmpSurnameEN.Location = New System.Drawing.Point(544, 86)
-        Me.FTEmpSurnameEN.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpSurnameEN.Location = New System.Drawing.Point(635, 106)
+        Me.FTEmpSurnameEN.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpSurnameEN.Name = "FTEmpSurnameEN"
-        Me.FTEmpSurnameEN.Size = New System.Drawing.Size(155, 20)
+        Me.FTEmpSurnameEN.Size = New System.Drawing.Size(181, 23)
         Me.FTEmpSurnameEN.TabIndex = 9
         Me.FTEmpSurnameEN.Tag = "2|"
         '
@@ -16309,20 +16168,20 @@ Partial Class wEmployee
         Me.FTEmpSurnameEN_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEmpSurnameEN_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEmpSurnameEN_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEmpSurnameEN_lbl.Location = New System.Drawing.Point(416, 86)
-        Me.FTEmpSurnameEN_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpSurnameEN_lbl.Location = New System.Drawing.Point(485, 106)
+        Me.FTEmpSurnameEN_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpSurnameEN_lbl.Name = "FTEmpSurnameEN_lbl"
-        Me.FTEmpSurnameEN_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTEmpSurnameEN_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTEmpSurnameEN_lbl.TabIndex = 286
         Me.FTEmpSurnameEN_lbl.Tag = "2|"
         Me.FTEmpSurnameEN_lbl.Text = "Surname EN :"
         '
         'FTEmpNameEN
         '
-        Me.FTEmpNameEN.Location = New System.Drawing.Point(255, 87)
-        Me.FTEmpNameEN.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpNameEN.Location = New System.Drawing.Point(297, 107)
+        Me.FTEmpNameEN.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpNameEN.Name = "FTEmpNameEN"
-        Me.FTEmpNameEN.Size = New System.Drawing.Size(155, 20)
+        Me.FTEmpNameEN.Size = New System.Drawing.Size(181, 23)
         Me.FTEmpNameEN.TabIndex = 8
         Me.FTEmpNameEN.Tag = "2|"
         '
@@ -16331,10 +16190,10 @@ Partial Class wEmployee
         Me.FTEmpNameEN_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEmpNameEN_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEmpNameEN_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEmpNameEN_lbl.Location = New System.Drawing.Point(127, 85)
-        Me.FTEmpNameEN_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpNameEN_lbl.Location = New System.Drawing.Point(148, 105)
+        Me.FTEmpNameEN_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpNameEN_lbl.Name = "FTEmpNameEN_lbl"
-        Me.FTEmpNameEN_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FTEmpNameEN_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FTEmpNameEN_lbl.TabIndex = 284
         Me.FTEmpNameEN_lbl.Tag = "2|"
         Me.FTEmpNameEN_lbl.Text = "Name EN :"
@@ -16343,8 +16202,8 @@ Partial Class wEmployee
         '
         Me.FNEmpSex.EditValue = ""
         Me.FNEmpSex.EnterMoveNextControl = True
-        Me.FNEmpSex.Location = New System.Drawing.Point(544, 43)
-        Me.FNEmpSex.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNEmpSex.Location = New System.Drawing.Point(635, 53)
+        Me.FNEmpSex.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNEmpSex.Name = "FNEmpSex"
         Me.FNEmpSex.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNEmpSex.Properties.Appearance.Options.UseBackColor = True
@@ -16363,7 +16222,7 @@ Partial Class wEmployee
         Me.FNEmpSex.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNEmpSex.Properties.Tag = "FNEmpSex"
         Me.FNEmpSex.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNEmpSex.Size = New System.Drawing.Size(106, 20)
+        Me.FNEmpSex.Size = New System.Drawing.Size(124, 23)
         Me.FNEmpSex.TabIndex = 3
         Me.FNEmpSex.Tag = "2|"
         '
@@ -16372,10 +16231,10 @@ Partial Class wEmployee
         Me.FNEmpSex_lbl.Appearance.Options.UseTextOptions = True
         Me.FNEmpSex_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNEmpSex_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNEmpSex_lbl.Location = New System.Drawing.Point(416, 42)
-        Me.FNEmpSex_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNEmpSex_lbl.Location = New System.Drawing.Point(485, 52)
+        Me.FNEmpSex_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNEmpSex_lbl.Name = "FNEmpSex_lbl"
-        Me.FNEmpSex_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNEmpSex_lbl.Size = New System.Drawing.Size(146, 26)
         Me.FNEmpSex_lbl.TabIndex = 291
         Me.FNEmpSex_lbl.Tag = "2|"
         Me.FNEmpSex_lbl.Text = "Sex :"
@@ -16383,24 +16242,24 @@ Partial Class wEmployee
         'FTEmpPicName
         '
         Me.FTEmpPicName.Cursor = System.Windows.Forms.Cursors.Default
-        Me.FTEmpPicName.Location = New System.Drawing.Point(9, 5)
-        Me.FTEmpPicName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpPicName.Location = New System.Drawing.Point(10, 6)
+        Me.FTEmpPicName.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpPicName.Name = "FTEmpPicName"
         Me.FTEmpPicName.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
         Me.FTEmpPicName.Properties.Tag = ""
-        Me.FTEmpPicName.Size = New System.Drawing.Size(113, 126)
+        Me.FTEmpPicName.Size = New System.Drawing.Size(132, 155)
         Me.FTEmpPicName.TabIndex = 292
         Me.FTEmpPicName.Tag = "2|"
         '
         'FNHSysEmpTypeId_None
         '
-        Me.FNHSysEmpTypeId_None.Location = New System.Drawing.Point(975, 21)
-        Me.FNHSysEmpTypeId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpTypeId_None.Location = New System.Drawing.Point(1137, 26)
+        Me.FNHSysEmpTypeId_None.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysEmpTypeId_None.Name = "FNHSysEmpTypeId_None"
         Me.FNHSysEmpTypeId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpTypeId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpTypeId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(124, 20)
+        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(145, 23)
         Me.FNHSysEmpTypeId_None.TabIndex = 295
         Me.FNHSysEmpTypeId_None.Tag = "2|"
         '
@@ -16409,22 +16268,22 @@ Partial Class wEmployee
         Me.FNHSysEmpTypeId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysEmpTypeId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysEmpTypeId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysEmpTypeId_lbl.Location = New System.Drawing.Point(710, 20)
-        Me.FNHSysEmpTypeId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpTypeId_lbl.Location = New System.Drawing.Point(828, 25)
+        Me.FNHSysEmpTypeId_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysEmpTypeId_lbl.Name = "FNHSysEmpTypeId_lbl"
-        Me.FNHSysEmpTypeId_lbl.Size = New System.Drawing.Size(113, 21)
+        Me.FNHSysEmpTypeId_lbl.Size = New System.Drawing.Size(132, 26)
         Me.FNHSysEmpTypeId_lbl.TabIndex = 294
         Me.FNHSysEmpTypeId_lbl.Tag = "2|"
         Me.FNHSysEmpTypeId_lbl.Text = "Employee TYpe :"
         '
         'FNHSysEmpTypeId
         '
-        Me.FNHSysEmpTypeId.Location = New System.Drawing.Point(829, 21)
-        Me.FNHSysEmpTypeId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpTypeId.Location = New System.Drawing.Point(967, 26)
+        Me.FNHSysEmpTypeId.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysEmpTypeId.Name = "FNHSysEmpTypeId"
-        Me.FNHSysEmpTypeId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions92, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject365, SerializableAppearanceObject366, SerializableAppearanceObject367, SerializableAppearanceObject368, "", "968", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysEmpTypeId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions86, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject357, SerializableAppearanceObject358, SerializableAppearanceObject359, SerializableAppearanceObject360, "", "968", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpTypeId.Properties.Tag = "42"
-        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(140, 20)
+        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(163, 23)
         Me.FNHSysEmpTypeId.TabIndex = 11
         Me.FNHSysEmpTypeId.Tag = "2|"
         '
@@ -16433,10 +16292,10 @@ Partial Class wEmployee
         Me.FNUseBarcode_lbl.Appearance.Options.UseTextOptions = True
         Me.FNUseBarcode_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNUseBarcode_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNUseBarcode_lbl.Location = New System.Drawing.Point(447, 106)
-        Me.FNUseBarcode_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNUseBarcode_lbl.Location = New System.Drawing.Point(521, 130)
+        Me.FNUseBarcode_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNUseBarcode_lbl.Name = "FNUseBarcode_lbl"
-        Me.FNUseBarcode_lbl.Size = New System.Drawing.Size(94, 25)
+        Me.FNUseBarcode_lbl.Size = New System.Drawing.Size(110, 31)
         Me.FNUseBarcode_lbl.TabIndex = 302
         Me.FNUseBarcode_lbl.Tag = "2|"
         Me.FNUseBarcode_lbl.Text = "Barcode :"
@@ -16445,8 +16304,8 @@ Partial Class wEmployee
         '
         Me.FNUseBarcode.EditValue = ""
         Me.FNUseBarcode.EnterMoveNextControl = True
-        Me.FNUseBarcode.Location = New System.Drawing.Point(544, 108)
-        Me.FNUseBarcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNUseBarcode.Location = New System.Drawing.Point(635, 133)
+        Me.FNUseBarcode.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNUseBarcode.Name = "FNUseBarcode"
         Me.FNUseBarcode.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNUseBarcode.Properties.Appearance.Options.UseBackColor = True
@@ -16465,25 +16324,25 @@ Partial Class wEmployee
         Me.FNUseBarcode.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNUseBarcode.Properties.Tag = "FNUseBarcode"
         Me.FNUseBarcode.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNUseBarcode.Size = New System.Drawing.Size(155, 20)
+        Me.FNUseBarcode.Size = New System.Drawing.Size(181, 23)
         Me.FNUseBarcode.TabIndex = 12
         Me.FNUseBarcode.Tag = "2|"
         '
         'FTEmpBarcode
         '
-        Me.FTEmpBarcode.Location = New System.Drawing.Point(829, 109)
-        Me.FTEmpBarcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpBarcode.Location = New System.Drawing.Point(967, 134)
+        Me.FTEmpBarcode.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpBarcode.Name = "FTEmpBarcode"
-        Me.FTEmpBarcode.Size = New System.Drawing.Size(191, 20)
+        Me.FTEmpBarcode.Size = New System.Drawing.Size(223, 23)
         Me.FTEmpBarcode.TabIndex = 13
         Me.FTEmpBarcode.Tag = "2|"
         '
         'FTEmpCodeRefer
         '
-        Me.FTEmpCodeRefer.Location = New System.Drawing.Point(255, 109)
-        Me.FTEmpCodeRefer.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpCodeRefer.Location = New System.Drawing.Point(297, 134)
+        Me.FTEmpCodeRefer.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpCodeRefer.Name = "FTEmpCodeRefer"
-        Me.FTEmpCodeRefer.Size = New System.Drawing.Size(155, 20)
+        Me.FTEmpCodeRefer.Size = New System.Drawing.Size(181, 23)
         Me.FTEmpCodeRefer.TabIndex = 1
         Me.FTEmpCodeRefer.Tag = "2|"
         '
@@ -16492,23 +16351,23 @@ Partial Class wEmployee
         Me.FTEmpCodeRefer_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEmpCodeRefer_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEmpCodeRefer_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEmpCodeRefer_lbl.Location = New System.Drawing.Point(158, 106)
-        Me.FTEmpCodeRefer_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTEmpCodeRefer_lbl.Location = New System.Drawing.Point(184, 130)
+        Me.FTEmpCodeRefer_lbl.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTEmpCodeRefer_lbl.Name = "FTEmpCodeRefer_lbl"
-        Me.FTEmpCodeRefer_lbl.Size = New System.Drawing.Size(94, 25)
+        Me.FTEmpCodeRefer_lbl.Size = New System.Drawing.Size(110, 31)
         Me.FTEmpCodeRefer_lbl.TabIndex = 305
         Me.FTEmpCodeRefer_lbl.Tag = "2|"
         Me.FTEmpCodeRefer_lbl.Text = "Ref :"
         '
         'FTStaCalMonthEnd
         '
-        Me.FTStaCalMonthEnd.Location = New System.Drawing.Point(1001, 71)
-        Me.FTStaCalMonthEnd.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTStaCalMonthEnd.Location = New System.Drawing.Point(1168, 87)
+        Me.FTStaCalMonthEnd.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FTStaCalMonthEnd.Name = "FTStaCalMonthEnd"
         Me.FTStaCalMonthEnd.Properties.Caption = "ไม่คำนวณค่าแรง"
         Me.FTStaCalMonthEnd.Properties.ValueChecked = "1"
         Me.FTStaCalMonthEnd.Properties.ValueUnchecked = "0"
-        Me.FTStaCalMonthEnd.Size = New System.Drawing.Size(166, 20)
+        Me.FTStaCalMonthEnd.Size = New System.Drawing.Size(194, 21)
         Me.FTStaCalMonthEnd.TabIndex = 384
         Me.FTStaCalMonthEnd.Tag = "2|"
         Me.FTStaCalMonthEnd.Visible = False
@@ -16517,22 +16376,22 @@ Partial Class wEmployee
         '
         Me.FNHSysEmpTypeId_Group.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysEmpTypeId_Group.Location = New System.Drawing.Point(1103, 21)
-        Me.FNHSysEmpTypeId_Group.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpTypeId_Group.Location = New System.Drawing.Point(1287, 26)
+        Me.FNHSysEmpTypeId_Group.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.FNHSysEmpTypeId_Group.Name = "FNHSysEmpTypeId_Group"
         Me.FNHSysEmpTypeId_Group.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpTypeId_Group.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpTypeId_Group.Properties.ReadOnly = True
-        Me.FNHSysEmpTypeId_Group.Size = New System.Drawing.Size(309, 20)
+        Me.FNHSysEmpTypeId_Group.Size = New System.Drawing.Size(360, 23)
         Me.FNHSysEmpTypeId_Group.TabIndex = 386
         Me.FNHSysEmpTypeId_Group.Tag = "2|"
         '
         'wEmployee
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(1408, 736)
+        Me.ClientSize = New System.Drawing.Size(1643, 943)
         Me.Controls.Add(Me.FNHSysEmpTypeId_Group)
         Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.otab)
@@ -16568,7 +16427,7 @@ Partial Class wEmployee
         Me.Controls.Add(Me.FNHSysCmpId)
         Me.Controls.Add(Me.FNHSysEmpID_lbl)
         Me.Controls.Add(Me.FNHSysEmpID)
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.Name = "wEmployee"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "a"
@@ -16786,6 +16645,7 @@ Partial Class wEmployee
         Me.GroupControl33.ResumeLayout(False)
         CType(Me.ogrpUnion, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogrpUnion.ResumeLayout(False)
+        CType(Me.FNUnion.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FDEndDateUnion.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FDEndDateUnion.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FDStartDateUnion.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit
@@ -16977,6 +16837,7 @@ Partial Class wEmployee
         Me.ogbex.ResumeLayout(False)
         CType(Me.FTProtectiveEquipment.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FTHealthRiskFactors.Properties, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.FTResignCause.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FNExperienceSeq.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FTContractName.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FTEndSalary.Properties, System.ComponentModel.ISupportInitialize).EndInit
@@ -16984,7 +16845,6 @@ Partial Class wEmployee
         CType(Me.FTPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FTBusinessType.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FTCmpName.Properties, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.FTResignCause.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FDEndDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FDEndDate.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FDStartDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit
@@ -17123,6 +16983,11 @@ Partial Class wEmployee
         CType(Me.FTStateDisease.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FTStateNoDisease.Properties, System.ComponentModel.ISupportInitialize).EndInit
         Me.XtraTabPage1.ResumeLayout(False)
+        CType(Me.ogcdetail, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ogvdetail, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemMemoEdit3, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemMemoEdit4, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.RepositoryItemPictureEdit3, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ogbPass, System.ComponentModel.ISupportInitialize).EndInit
         Me.ogbPass.ResumeLayout(False)
         CType(Me.FNPassportSeq.Properties, System.ComponentModel.ISupportInitialize).EndInit
@@ -17132,11 +16997,6 @@ Partial Class wEmployee
         CType(Me.FDDateofExpiry2.Properties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FDDateofIssue2.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.FDDateofIssue2.Properties, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ogcdetail, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.ogvdetail, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemMemoEdit3, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemMemoEdit4, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RepositoryItemPictureEdit3, System.ComponentModel.ISupportInitialize).EndInit
         Me.XtraTabPage2.ResumeLayout(False)
         CType(Me.ogcvisa, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.ogvvisa, System.ComponentModel.ISupportInitialize).EndInit
@@ -18239,4 +18099,6 @@ Partial Class wEmployee
     Friend WithEvents GroupControl34 As DevExpress.XtraEditors.GroupControl
     Friend WithEvents GroupControl35 As DevExpress.XtraEditors.GroupControl
     Friend WithEvents GroupControl36 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents FNUnion_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents FNUnion As DevExpress.XtraEditors.ComboBoxEdit
 End Class

@@ -19,7 +19,6 @@ Partial Class wEmployeeListing
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -128,6 +127,8 @@ Partial Class wEmployeeListing
         Me.FTPreNameName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTEmpName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTEmpNameEN = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTEmpNicknameTH = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTEmpNicknameEN = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSexName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTEmpStatusName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTEmpTypeName = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -149,6 +150,7 @@ Partial Class wEmployeeListing
         Me.CFTEmpBarcode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTNationalityName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTEmpIdNo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FDDateIdNoEnd = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTTaxNo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSocialNo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FDBirthDate = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -187,6 +189,12 @@ Partial Class wEmployeeListing
         Me.FTStateEnablon = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepEnablon = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.FNEnablonType = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTWorkforceType = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTStateUnionMember = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ReposFTStateUnionMember = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
+        Me.FDRegisterDateUnion = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTUnion = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTFormatType = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryFTSelect = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.RepositoryFTApproveState = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
@@ -194,7 +202,7 @@ Partial Class wEmployeeListing
         Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmload = New DevExpress.XtraEditors.SimpleButton()
-        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
+        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager()
         Me.ogbheader.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
         CType(Me.FNEmpStatusReport.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -227,6 +235,7 @@ Partial Class wEmployeeListing
         CType(Me.ogc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogv, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepEnablon, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ReposFTStateUnionMember, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryFTSelect, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryFTApproveState, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -812,7 +821,7 @@ Partial Class wEmployeeListing
         Me.ogbemployee.Location = New System.Drawing.Point(0, 272)
         Me.ogbemployee.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbemployee.Name = "ogbemployee"
-        Me.ogbemployee.Size = New System.Drawing.Size(1345, 449)
+        Me.ogbemployee.Size = New System.Drawing.Size(1345, 476)
         Me.ogbemployee.TabIndex = 5
         Me.ogbemployee.Text = "Employee"
         '
@@ -826,8 +835,8 @@ Partial Class wEmployeeListing
         Me.ogc.MainView = Me.ogv
         Me.ogc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Name = "ogc"
-        Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSelect, Me.RepositoryFTApproveState, Me.RepEnablon})
-        Me.ogc.Size = New System.Drawing.Size(1338, 412)
+        Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSelect, Me.RepositoryFTApproveState, Me.RepEnablon, Me.ReposFTStateUnionMember})
+        Me.ogc.Size = New System.Drawing.Size(1338, 439)
         Me.ogc.TabIndex = 3
         Me.ogc.TabStop = False
         Me.ogc.Tag = "2|"
@@ -835,7 +844,7 @@ Partial Class wEmployeeListing
         '
         'ogv
         '
-        Me.ogv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFNHSysEmpID, Me.FTEmpCode, Me.FTPreNameName, Me.FTEmpName, Me.FTEmpNameEN, Me.FTSexName, Me.FTEmpStatusName, Me.FTEmpTypeName, Me.FTDeptName, Me.FTDivisonName, Me.FTSectName, Me.FTUnitSectName, Me.FTPositName, Me.FTEmpTypeCode, Me.FTDeptCode, Me.FTDivisonCode, Me.FTSectCode, Me.FTUnitSectCode, Me.FTPositCode, Me.FNJobLevelName, Me.FNJobRoleName, Me.FNEmpStatus, Me.FTEmpCodeRefer, Me.CFTEmpBarcode, Me.FTNationalityName, Me.FTEmpIdNo, Me.FTTaxNo, Me.FTSocialNo, Me.FDBirthDate, Me.FTEmpAge, Me.FDDateStart, Me.FDDateProbation, Me.FDDateTransfer, Me.FDDateEnd, Me.FTWorkAge, Me.CFTStateCalSocial, Me.FTEmpProvince, Me.CFTEmpProvinceCurrent, Me.FTCLevelName_Org, Me.FTDivisonName_Org, Me.FTDeptName_Org, Me.FTSectName_Org, Me.FTUnitSectName_Org, Me.FTPositName_Org, Me.FTMobile, Me.FTAddrTel1, Me.FTEmpTypeGroup, Me.FTAccNo, Me.FTAccountGroupCode, Me.FTAccountGroupName, Me.FTAccountGroupCode_Org, Me.FTAccountGroupName_Org, Me.FTAddrNo1, Me.FTAddrMoo1, Me.FTAddrHome1, Me.FTAddrSoi1, Me.FTAddrRoad1, Me.FTAddrTumbol1, Me.FTAddrAmphur1, Me.FTAddrProvince1, Me.FTAddrPostCode1, Me.FTStateEnablon, Me.FNEnablonType})
+        Me.ogv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFNHSysEmpID, Me.FTEmpCode, Me.FTPreNameName, Me.FTEmpName, Me.FTEmpNameEN, Me.FTEmpNicknameTH, Me.FTEmpNicknameEN, Me.FTSexName, Me.FTEmpStatusName, Me.FTEmpTypeName, Me.FTDeptName, Me.FTDivisonName, Me.FTSectName, Me.FTUnitSectName, Me.FTPositName, Me.FTEmpTypeCode, Me.FTDeptCode, Me.FTDivisonCode, Me.FTSectCode, Me.FTUnitSectCode, Me.FTPositCode, Me.FNJobLevelName, Me.FNJobRoleName, Me.FNEmpStatus, Me.FTEmpCodeRefer, Me.CFTEmpBarcode, Me.FTNationalityName, Me.FTEmpIdNo, Me.FDDateIdNoEnd, Me.FTTaxNo, Me.FTSocialNo, Me.FDBirthDate, Me.FTEmpAge, Me.FDDateStart, Me.FDDateProbation, Me.FDDateTransfer, Me.FDDateEnd, Me.FTWorkAge, Me.CFTStateCalSocial, Me.FTEmpProvince, Me.CFTEmpProvinceCurrent, Me.FTCLevelName_Org, Me.FTDivisonName_Org, Me.FTDeptName_Org, Me.FTSectName_Org, Me.FTUnitSectName_Org, Me.FTPositName_Org, Me.FTMobile, Me.FTAddrTel1, Me.FTEmpTypeGroup, Me.FTAccNo, Me.FTAccountGroupCode, Me.FTAccountGroupName, Me.FTAccountGroupCode_Org, Me.FTAccountGroupName_Org, Me.FTAddrNo1, Me.FTAddrMoo1, Me.FTAddrHome1, Me.FTAddrSoi1, Me.FTAddrRoad1, Me.FTAddrTumbol1, Me.FTAddrAmphur1, Me.FTAddrProvince1, Me.FTAddrPostCode1, Me.FTStateEnablon, Me.FNEnablonType, Me.FTWorkforceType, Me.FTStateUnionMember, Me.FDRegisterDateUnion, Me.FTUnion, Me.FTFormatType})
         Me.ogv.GridControl = Me.ogc
         Me.ogv.GroupSummary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.None, "", Nothing, "")})
         Me.ogv.Name = "ogv"
@@ -921,6 +930,34 @@ Partial Class wEmployeeListing
         Me.FTEmpNameEN.VisibleIndex = 3
         Me.FTEmpNameEN.Width = 171
         '
+        'FTEmpNicknameTH
+        '
+        Me.FTEmpNicknameTH.Caption = "FTEmpNicknameTH"
+        Me.FTEmpNicknameTH.FieldName = "FTEmpNicknameTH"
+        Me.FTEmpNicknameTH.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.FTEmpNicknameTH.MinWidth = 25
+        Me.FTEmpNicknameTH.Name = "FTEmpNicknameTH"
+        Me.FTEmpNicknameTH.OptionsColumn.AllowEdit = False
+        Me.FTEmpNicknameTH.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTEmpNicknameTH.OptionsColumn.ReadOnly = True
+        Me.FTEmpNicknameTH.Visible = True
+        Me.FTEmpNicknameTH.VisibleIndex = 5
+        Me.FTEmpNicknameTH.Width = 94
+        '
+        'FTEmpNicknameEN
+        '
+        Me.FTEmpNicknameEN.Caption = "FTEmpNicknameEN"
+        Me.FTEmpNicknameEN.FieldName = "FTEmpNicknameEN"
+        Me.FTEmpNicknameEN.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.FTEmpNicknameEN.MinWidth = 25
+        Me.FTEmpNicknameEN.Name = "FTEmpNicknameEN"
+        Me.FTEmpNicknameEN.OptionsColumn.AllowEdit = False
+        Me.FTEmpNicknameEN.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTEmpNicknameEN.OptionsColumn.ReadOnly = True
+        Me.FTEmpNicknameEN.Visible = True
+        Me.FTEmpNicknameEN.VisibleIndex = 6
+        Me.FTEmpNicknameEN.Width = 94
+        '
         'FTSexName
         '
         Me.FTSexName.Caption = "Sex"
@@ -947,7 +984,7 @@ Partial Class wEmployeeListing
         Me.FTEmpStatusName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTEmpStatusName.OptionsColumn.ReadOnly = True
         Me.FTEmpStatusName.Visible = True
-        Me.FTEmpStatusName.VisibleIndex = 5
+        Me.FTEmpStatusName.VisibleIndex = 7
         Me.FTEmpStatusName.Width = 90
         '
         'FTEmpTypeName
@@ -962,7 +999,7 @@ Partial Class wEmployeeListing
         Me.FTEmpTypeName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTEmpTypeName.OptionsColumn.ReadOnly = True
         Me.FTEmpTypeName.Visible = True
-        Me.FTEmpTypeName.VisibleIndex = 8
+        Me.FTEmpTypeName.VisibleIndex = 10
         Me.FTEmpTypeName.Width = 160
         '
         'FTDeptName
@@ -977,7 +1014,7 @@ Partial Class wEmployeeListing
         Me.FTDeptName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTDeptName.OptionsColumn.ReadOnly = True
         Me.FTDeptName.Visible = True
-        Me.FTDeptName.VisibleIndex = 10
+        Me.FTDeptName.VisibleIndex = 12
         Me.FTDeptName.Width = 190
         '
         'FTDivisonName
@@ -992,7 +1029,7 @@ Partial Class wEmployeeListing
         Me.FTDivisonName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTDivisonName.OptionsColumn.ReadOnly = True
         Me.FTDivisonName.Visible = True
-        Me.FTDivisonName.VisibleIndex = 12
+        Me.FTDivisonName.VisibleIndex = 14
         Me.FTDivisonName.Width = 163
         '
         'FTSectName
@@ -1007,7 +1044,7 @@ Partial Class wEmployeeListing
         Me.FTSectName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTSectName.OptionsColumn.ReadOnly = True
         Me.FTSectName.Visible = True
-        Me.FTSectName.VisibleIndex = 14
+        Me.FTSectName.VisibleIndex = 16
         Me.FTSectName.Width = 166
         '
         'FTUnitSectName
@@ -1022,7 +1059,7 @@ Partial Class wEmployeeListing
         Me.FTUnitSectName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTUnitSectName.OptionsColumn.ReadOnly = True
         Me.FTUnitSectName.Visible = True
-        Me.FTUnitSectName.VisibleIndex = 16
+        Me.FTUnitSectName.VisibleIndex = 18
         Me.FTUnitSectName.Width = 157
         '
         'FTPositName
@@ -1037,7 +1074,7 @@ Partial Class wEmployeeListing
         Me.FTPositName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTPositName.OptionsColumn.ReadOnly = True
         Me.FTPositName.Visible = True
-        Me.FTPositName.VisibleIndex = 22
+        Me.FTPositName.VisibleIndex = 24
         Me.FTPositName.Width = 178
         '
         'FTEmpTypeCode
@@ -1052,7 +1089,7 @@ Partial Class wEmployeeListing
         Me.FTEmpTypeCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.FTEmpTypeCode.Visible = True
-        Me.FTEmpTypeCode.VisibleIndex = 7
+        Me.FTEmpTypeCode.VisibleIndex = 9
         Me.FTEmpTypeCode.Width = 80
         '
         'FTDeptCode
@@ -1067,7 +1104,7 @@ Partial Class wEmployeeListing
         Me.FTDeptCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTDeptCode.OptionsColumn.ReadOnly = True
         Me.FTDeptCode.Visible = True
-        Me.FTDeptCode.VisibleIndex = 9
+        Me.FTDeptCode.VisibleIndex = 11
         '
         'FTDivisonCode
         '
@@ -1081,7 +1118,7 @@ Partial Class wEmployeeListing
         Me.FTDivisonCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.FTDivisonCode.Visible = True
-        Me.FTDivisonCode.VisibleIndex = 11
+        Me.FTDivisonCode.VisibleIndex = 13
         Me.FTDivisonCode.Width = 84
         '
         'FTSectCode
@@ -1096,7 +1133,7 @@ Partial Class wEmployeeListing
         Me.FTSectCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTSectCode.OptionsColumn.ReadOnly = True
         Me.FTSectCode.Visible = True
-        Me.FTSectCode.VisibleIndex = 13
+        Me.FTSectCode.VisibleIndex = 15
         '
         'FTUnitSectCode
         '
@@ -1110,7 +1147,7 @@ Partial Class wEmployeeListing
         Me.FTUnitSectCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.FTUnitSectCode.Visible = True
-        Me.FTUnitSectCode.VisibleIndex = 15
+        Me.FTUnitSectCode.VisibleIndex = 17
         '
         'FTPositCode
         '
@@ -1124,7 +1161,7 @@ Partial Class wEmployeeListing
         Me.FTPositCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTPositCode.OptionsColumn.ReadOnly = True
         Me.FTPositCode.Visible = True
-        Me.FTPositCode.VisibleIndex = 19
+        Me.FTPositCode.VisibleIndex = 21
         Me.FTPositCode.Width = 82
         '
         'FNJobLevelName
@@ -1135,7 +1172,7 @@ Partial Class wEmployeeListing
         Me.FNJobLevelName.OptionsColumn.AllowEdit = False
         Me.FNJobLevelName.OptionsColumn.ReadOnly = True
         Me.FNJobLevelName.Visible = True
-        Me.FNJobLevelName.VisibleIndex = 20
+        Me.FNJobLevelName.VisibleIndex = 22
         '
         'FNJobRoleName
         '
@@ -1145,7 +1182,7 @@ Partial Class wEmployeeListing
         Me.FNJobRoleName.OptionsColumn.AllowEdit = False
         Me.FNJobRoleName.OptionsColumn.ReadOnly = True
         Me.FNJobRoleName.Visible = True
-        Me.FNJobRoleName.VisibleIndex = 21
+        Me.FNJobRoleName.VisibleIndex = 23
         '
         'FNEmpStatus
         '
@@ -1165,7 +1202,7 @@ Partial Class wEmployeeListing
         Me.FTEmpCodeRefer.OptionsColumn.AllowEdit = False
         Me.FTEmpCodeRefer.OptionsColumn.ReadOnly = True
         Me.FTEmpCodeRefer.Visible = True
-        Me.FTEmpCodeRefer.VisibleIndex = 23
+        Me.FTEmpCodeRefer.VisibleIndex = 26
         Me.FTEmpCodeRefer.Width = 100
         '
         'CFTEmpBarcode
@@ -1176,7 +1213,7 @@ Partial Class wEmployeeListing
         Me.CFTEmpBarcode.OptionsColumn.AllowEdit = False
         Me.CFTEmpBarcode.OptionsColumn.ReadOnly = True
         Me.CFTEmpBarcode.Visible = True
-        Me.CFTEmpBarcode.VisibleIndex = 25
+        Me.CFTEmpBarcode.VisibleIndex = 28
         '
         'FTNationalityName
         '
@@ -1186,7 +1223,7 @@ Partial Class wEmployeeListing
         Me.FTNationalityName.OptionsColumn.AllowEdit = False
         Me.FTNationalityName.OptionsColumn.ReadOnly = True
         Me.FTNationalityName.Visible = True
-        Me.FTNationalityName.VisibleIndex = 24
+        Me.FTNationalityName.VisibleIndex = 27
         Me.FTNationalityName.Width = 120
         '
         'FTEmpIdNo
@@ -1196,7 +1233,20 @@ Partial Class wEmployeeListing
         Me.FTEmpIdNo.OptionsColumn.AllowEdit = False
         Me.FTEmpIdNo.OptionsColumn.ReadOnly = True
         Me.FTEmpIdNo.Visible = True
-        Me.FTEmpIdNo.VisibleIndex = 26
+        Me.FTEmpIdNo.VisibleIndex = 29
+        '
+        'FDDateIdNoEnd
+        '
+        Me.FDDateIdNoEnd.Caption = "FDDateIdNoEnd"
+        Me.FDDateIdNoEnd.FieldName = "FDDateIdNoEnd"
+        Me.FDDateIdNoEnd.MinWidth = 25
+        Me.FDDateIdNoEnd.Name = "FDDateIdNoEnd"
+        Me.FDDateIdNoEnd.OptionsColumn.AllowEdit = False
+        Me.FDDateIdNoEnd.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FDDateIdNoEnd.OptionsColumn.ReadOnly = True
+        Me.FDDateIdNoEnd.Visible = True
+        Me.FDDateIdNoEnd.VisibleIndex = 30
+        Me.FDDateIdNoEnd.Width = 94
         '
         'FTTaxNo
         '
@@ -1207,7 +1257,7 @@ Partial Class wEmployeeListing
         Me.FTTaxNo.OptionsColumn.AllowEdit = False
         Me.FTTaxNo.OptionsColumn.ReadOnly = True
         Me.FTTaxNo.Visible = True
-        Me.FTTaxNo.VisibleIndex = 27
+        Me.FTTaxNo.VisibleIndex = 31
         Me.FTTaxNo.Width = 94
         '
         'FTSocialNo
@@ -1219,7 +1269,7 @@ Partial Class wEmployeeListing
         Me.FTSocialNo.OptionsColumn.AllowEdit = False
         Me.FTSocialNo.OptionsColumn.ReadOnly = True
         Me.FTSocialNo.Visible = True
-        Me.FTSocialNo.VisibleIndex = 28
+        Me.FTSocialNo.VisibleIndex = 32
         Me.FTSocialNo.Width = 94
         '
         'FDBirthDate
@@ -1230,7 +1280,7 @@ Partial Class wEmployeeListing
         Me.FDBirthDate.OptionsColumn.AllowEdit = False
         Me.FDBirthDate.OptionsColumn.ReadOnly = True
         Me.FDBirthDate.Visible = True
-        Me.FDBirthDate.VisibleIndex = 30
+        Me.FDBirthDate.VisibleIndex = 34
         '
         'FTEmpAge
         '
@@ -1242,7 +1292,7 @@ Partial Class wEmployeeListing
         Me.FTEmpAge.OptionsColumn.AllowEdit = False
         Me.FTEmpAge.OptionsColumn.ReadOnly = True
         Me.FTEmpAge.Visible = True
-        Me.FTEmpAge.VisibleIndex = 31
+        Me.FTEmpAge.VisibleIndex = 35
         '
         'FDDateStart
         '
@@ -1252,7 +1302,7 @@ Partial Class wEmployeeListing
         Me.FDDateStart.OptionsColumn.AllowEdit = False
         Me.FDDateStart.OptionsColumn.ReadOnly = True
         Me.FDDateStart.Visible = True
-        Me.FDDateStart.VisibleIndex = 32
+        Me.FDDateStart.VisibleIndex = 36
         '
         'FDDateProbation
         '
@@ -1263,7 +1313,7 @@ Partial Class wEmployeeListing
         Me.FDDateProbation.OptionsColumn.AllowEdit = False
         Me.FDDateProbation.OptionsColumn.ReadOnly = True
         Me.FDDateProbation.Visible = True
-        Me.FDDateProbation.VisibleIndex = 33
+        Me.FDDateProbation.VisibleIndex = 37
         Me.FDDateProbation.Width = 94
         '
         'FDDateTransfer
@@ -1275,7 +1325,7 @@ Partial Class wEmployeeListing
         Me.FDDateTransfer.OptionsColumn.AllowEdit = False
         Me.FDDateTransfer.OptionsColumn.ReadOnly = True
         Me.FDDateTransfer.Visible = True
-        Me.FDDateTransfer.VisibleIndex = 34
+        Me.FDDateTransfer.VisibleIndex = 38
         Me.FDDateTransfer.Width = 94
         '
         'FDDateEnd
@@ -1286,7 +1336,7 @@ Partial Class wEmployeeListing
         Me.FDDateEnd.OptionsColumn.AllowEdit = False
         Me.FDDateEnd.OptionsColumn.ReadOnly = True
         Me.FDDateEnd.Visible = True
-        Me.FDDateEnd.VisibleIndex = 35
+        Me.FDDateEnd.VisibleIndex = 39
         '
         'FTWorkAge
         '
@@ -1298,7 +1348,7 @@ Partial Class wEmployeeListing
         Me.FTWorkAge.OptionsColumn.AllowEdit = False
         Me.FTWorkAge.OptionsColumn.ReadOnly = True
         Me.FTWorkAge.Visible = True
-        Me.FTWorkAge.VisibleIndex = 36
+        Me.FTWorkAge.VisibleIndex = 40
         Me.FTWorkAge.Width = 161
         '
         'CFTStateCalSocial
@@ -1309,7 +1359,7 @@ Partial Class wEmployeeListing
         Me.CFTStateCalSocial.OptionsColumn.AllowEdit = False
         Me.CFTStateCalSocial.OptionsColumn.ReadOnly = True
         Me.CFTStateCalSocial.Visible = True
-        Me.CFTStateCalSocial.VisibleIndex = 37
+        Me.CFTStateCalSocial.VisibleIndex = 41
         '
         'FTEmpProvince
         '
@@ -1319,7 +1369,7 @@ Partial Class wEmployeeListing
         Me.FTEmpProvince.OptionsColumn.AllowEdit = False
         Me.FTEmpProvince.OptionsColumn.ReadOnly = True
         Me.FTEmpProvince.Visible = True
-        Me.FTEmpProvince.VisibleIndex = 38
+        Me.FTEmpProvince.VisibleIndex = 42
         '
         'CFTEmpProvinceCurrent
         '
@@ -1329,7 +1379,7 @@ Partial Class wEmployeeListing
         Me.CFTEmpProvinceCurrent.OptionsColumn.AllowEdit = False
         Me.CFTEmpProvinceCurrent.OptionsColumn.ReadOnly = True
         Me.CFTEmpProvinceCurrent.Visible = True
-        Me.CFTEmpProvinceCurrent.VisibleIndex = 39
+        Me.CFTEmpProvinceCurrent.VisibleIndex = 43
         '
         'FTCLevelName_Org
         '
@@ -1339,7 +1389,7 @@ Partial Class wEmployeeListing
         Me.FTCLevelName_Org.OptionsColumn.AllowEdit = False
         Me.FTCLevelName_Org.OptionsColumn.ReadOnly = True
         Me.FTCLevelName_Org.Visible = True
-        Me.FTCLevelName_Org.VisibleIndex = 40
+        Me.FTCLevelName_Org.VisibleIndex = 44
         '
         'FTDivisonName_Org
         '
@@ -1349,7 +1399,7 @@ Partial Class wEmployeeListing
         Me.FTDivisonName_Org.OptionsColumn.AllowEdit = False
         Me.FTDivisonName_Org.OptionsColumn.ReadOnly = True
         Me.FTDivisonName_Org.Visible = True
-        Me.FTDivisonName_Org.VisibleIndex = 41
+        Me.FTDivisonName_Org.VisibleIndex = 45
         '
         'FTDeptName_Org
         '
@@ -1359,7 +1409,7 @@ Partial Class wEmployeeListing
         Me.FTDeptName_Org.OptionsColumn.AllowEdit = False
         Me.FTDeptName_Org.OptionsColumn.ReadOnly = True
         Me.FTDeptName_Org.Visible = True
-        Me.FTDeptName_Org.VisibleIndex = 42
+        Me.FTDeptName_Org.VisibleIndex = 46
         '
         'FTSectName_Org
         '
@@ -1369,7 +1419,7 @@ Partial Class wEmployeeListing
         Me.FTSectName_Org.OptionsColumn.AllowEdit = False
         Me.FTSectName_Org.OptionsColumn.ReadOnly = True
         Me.FTSectName_Org.Visible = True
-        Me.FTSectName_Org.VisibleIndex = 43
+        Me.FTSectName_Org.VisibleIndex = 47
         '
         'FTUnitSectName_Org
         '
@@ -1379,7 +1429,7 @@ Partial Class wEmployeeListing
         Me.FTUnitSectName_Org.OptionsColumn.AllowEdit = False
         Me.FTUnitSectName_Org.OptionsColumn.ReadOnly = True
         Me.FTUnitSectName_Org.Visible = True
-        Me.FTUnitSectName_Org.VisibleIndex = 44
+        Me.FTUnitSectName_Org.VisibleIndex = 48
         '
         'FTPositName_Org
         '
@@ -1389,7 +1439,7 @@ Partial Class wEmployeeListing
         Me.FTPositName_Org.OptionsColumn.AllowEdit = False
         Me.FTPositName_Org.OptionsColumn.ReadOnly = True
         Me.FTPositName_Org.Visible = True
-        Me.FTPositName_Org.VisibleIndex = 47
+        Me.FTPositName_Org.VisibleIndex = 51
         '
         'FTMobile
         '
@@ -1399,7 +1449,7 @@ Partial Class wEmployeeListing
         Me.FTMobile.OptionsColumn.AllowEdit = False
         Me.FTMobile.OptionsColumn.ReadOnly = True
         Me.FTMobile.Visible = True
-        Me.FTMobile.VisibleIndex = 48
+        Me.FTMobile.VisibleIndex = 52
         '
         'FTAddrTel1
         '
@@ -1409,7 +1459,7 @@ Partial Class wEmployeeListing
         Me.FTAddrTel1.OptionsColumn.AllowEdit = False
         Me.FTAddrTel1.OptionsColumn.ReadOnly = True
         Me.FTAddrTel1.Visible = True
-        Me.FTAddrTel1.VisibleIndex = 49
+        Me.FTAddrTel1.VisibleIndex = 53
         '
         'FTEmpTypeGroup
         '
@@ -1419,7 +1469,7 @@ Partial Class wEmployeeListing
         Me.FTEmpTypeGroup.OptionsColumn.AllowEdit = False
         Me.FTEmpTypeGroup.OptionsColumn.ReadOnly = True
         Me.FTEmpTypeGroup.Visible = True
-        Me.FTEmpTypeGroup.VisibleIndex = 6
+        Me.FTEmpTypeGroup.VisibleIndex = 8
         '
         'FTAccNo
         '
@@ -1430,7 +1480,7 @@ Partial Class wEmployeeListing
         Me.FTAccNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTAccNo.OptionsColumn.ReadOnly = True
         Me.FTAccNo.Visible = True
-        Me.FTAccNo.VisibleIndex = 29
+        Me.FTAccNo.VisibleIndex = 33
         '
         'FTAccountGroupCode
         '
@@ -1441,7 +1491,7 @@ Partial Class wEmployeeListing
         Me.FTAccountGroupCode.OptionsColumn.AllowEdit = False
         Me.FTAccountGroupCode.OptionsColumn.ReadOnly = True
         Me.FTAccountGroupCode.Visible = True
-        Me.FTAccountGroupCode.VisibleIndex = 17
+        Me.FTAccountGroupCode.VisibleIndex = 19
         Me.FTAccountGroupCode.Width = 94
         '
         'FTAccountGroupName
@@ -1453,7 +1503,7 @@ Partial Class wEmployeeListing
         Me.FTAccountGroupName.OptionsColumn.AllowEdit = False
         Me.FTAccountGroupName.OptionsColumn.ReadOnly = True
         Me.FTAccountGroupName.Visible = True
-        Me.FTAccountGroupName.VisibleIndex = 18
+        Me.FTAccountGroupName.VisibleIndex = 20
         Me.FTAccountGroupName.Width = 94
         '
         'FTAccountGroupCode_Org
@@ -1465,7 +1515,7 @@ Partial Class wEmployeeListing
         Me.FTAccountGroupCode_Org.OptionsColumn.AllowEdit = False
         Me.FTAccountGroupCode_Org.OptionsColumn.ReadOnly = True
         Me.FTAccountGroupCode_Org.Visible = True
-        Me.FTAccountGroupCode_Org.VisibleIndex = 45
+        Me.FTAccountGroupCode_Org.VisibleIndex = 49
         Me.FTAccountGroupCode_Org.Width = 94
         '
         'FTAccountGroupName_Org
@@ -1477,7 +1527,7 @@ Partial Class wEmployeeListing
         Me.FTAccountGroupName_Org.OptionsColumn.AllowEdit = False
         Me.FTAccountGroupName_Org.OptionsColumn.ReadOnly = True
         Me.FTAccountGroupName_Org.Visible = True
-        Me.FTAccountGroupName_Org.VisibleIndex = 46
+        Me.FTAccountGroupName_Org.VisibleIndex = 50
         Me.FTAccountGroupName_Org.Width = 94
         '
         'FTAddrNo1
@@ -1490,7 +1540,7 @@ Partial Class wEmployeeListing
         Me.FTAddrNo1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTAddrNo1.OptionsColumn.ReadOnly = True
         Me.FTAddrNo1.Visible = True
-        Me.FTAddrNo1.VisibleIndex = 50
+        Me.FTAddrNo1.VisibleIndex = 54
         Me.FTAddrNo1.Width = 94
         '
         'FTAddrMoo1
@@ -1503,7 +1553,7 @@ Partial Class wEmployeeListing
         Me.FTAddrMoo1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTAddrMoo1.OptionsColumn.ReadOnly = True
         Me.FTAddrMoo1.Visible = True
-        Me.FTAddrMoo1.VisibleIndex = 51
+        Me.FTAddrMoo1.VisibleIndex = 55
         Me.FTAddrMoo1.Width = 94
         '
         'FTAddrHome1
@@ -1516,7 +1566,7 @@ Partial Class wEmployeeListing
         Me.FTAddrHome1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTAddrHome1.OptionsColumn.ReadOnly = True
         Me.FTAddrHome1.Visible = True
-        Me.FTAddrHome1.VisibleIndex = 52
+        Me.FTAddrHome1.VisibleIndex = 56
         Me.FTAddrHome1.Width = 94
         '
         'FTAddrSoi1
@@ -1529,7 +1579,7 @@ Partial Class wEmployeeListing
         Me.FTAddrSoi1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTAddrSoi1.OptionsColumn.ReadOnly = True
         Me.FTAddrSoi1.Visible = True
-        Me.FTAddrSoi1.VisibleIndex = 53
+        Me.FTAddrSoi1.VisibleIndex = 57
         Me.FTAddrSoi1.Width = 94
         '
         'FTAddrRoad1
@@ -1542,7 +1592,7 @@ Partial Class wEmployeeListing
         Me.FTAddrRoad1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTAddrRoad1.OptionsColumn.ReadOnly = True
         Me.FTAddrRoad1.Visible = True
-        Me.FTAddrRoad1.VisibleIndex = 54
+        Me.FTAddrRoad1.VisibleIndex = 58
         Me.FTAddrRoad1.Width = 94
         '
         'FTAddrTumbol1
@@ -1555,7 +1605,7 @@ Partial Class wEmployeeListing
         Me.FTAddrTumbol1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTAddrTumbol1.OptionsColumn.ReadOnly = True
         Me.FTAddrTumbol1.Visible = True
-        Me.FTAddrTumbol1.VisibleIndex = 55
+        Me.FTAddrTumbol1.VisibleIndex = 59
         Me.FTAddrTumbol1.Width = 94
         '
         'FTAddrAmphur1
@@ -1568,7 +1618,7 @@ Partial Class wEmployeeListing
         Me.FTAddrAmphur1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTAddrAmphur1.OptionsColumn.ReadOnly = True
         Me.FTAddrAmphur1.Visible = True
-        Me.FTAddrAmphur1.VisibleIndex = 56
+        Me.FTAddrAmphur1.VisibleIndex = 60
         Me.FTAddrAmphur1.Width = 94
         '
         'FTAddrProvince1
@@ -1581,7 +1631,7 @@ Partial Class wEmployeeListing
         Me.FTAddrProvince1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTAddrProvince1.OptionsColumn.ReadOnly = True
         Me.FTAddrProvince1.Visible = True
-        Me.FTAddrProvince1.VisibleIndex = 57
+        Me.FTAddrProvince1.VisibleIndex = 61
         Me.FTAddrProvince1.Width = 94
         '
         'FTAddrPostCode1
@@ -1594,7 +1644,7 @@ Partial Class wEmployeeListing
         Me.FTAddrPostCode1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTAddrPostCode1.OptionsColumn.ReadOnly = True
         Me.FTAddrPostCode1.Visible = True
-        Me.FTAddrPostCode1.VisibleIndex = 58
+        Me.FTAddrPostCode1.VisibleIndex = 62
         Me.FTAddrPostCode1.Width = 94
         '
         'FTStateEnablon
@@ -1609,7 +1659,7 @@ Partial Class wEmployeeListing
         Me.FTStateEnablon.OptionsColumn.AllowMove = False
         Me.FTStateEnablon.OptionsColumn.ReadOnly = True
         Me.FTStateEnablon.Visible = True
-        Me.FTStateEnablon.VisibleIndex = 59
+        Me.FTStateEnablon.VisibleIndex = 63
         Me.FTStateEnablon.Width = 94
         '
         'RepEnablon
@@ -1630,8 +1680,82 @@ Partial Class wEmployeeListing
         Me.FNEnablonType.OptionsColumn.AllowMove = False
         Me.FNEnablonType.OptionsColumn.ReadOnly = True
         Me.FNEnablonType.Visible = True
-        Me.FNEnablonType.VisibleIndex = 60
+        Me.FNEnablonType.VisibleIndex = 64
         Me.FNEnablonType.Width = 94
+        '
+        'FTWorkforceType
+        '
+        Me.FTWorkforceType.Caption = "FTWorkforceType"
+        Me.FTWorkforceType.FieldName = "FTWorkforceType"
+        Me.FTWorkforceType.MinWidth = 25
+        Me.FTWorkforceType.Name = "FTWorkforceType"
+        Me.FTWorkforceType.OptionsColumn.AllowEdit = False
+        Me.FTWorkforceType.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
+        Me.FTWorkforceType.OptionsColumn.AllowMove = False
+        Me.FTWorkforceType.OptionsColumn.ReadOnly = True
+        Me.FTWorkforceType.Visible = True
+        Me.FTWorkforceType.VisibleIndex = 65
+        Me.FTWorkforceType.Width = 94
+        '
+        'FTStateUnionMember
+        '
+        Me.FTStateUnionMember.Caption = "FTStateUnionMember"
+        Me.FTStateUnionMember.ColumnEdit = Me.ReposFTStateUnionMember
+        Me.FTStateUnionMember.FieldName = "FTStateUnionMember"
+        Me.FTStateUnionMember.MinWidth = 25
+        Me.FTStateUnionMember.Name = "FTStateUnionMember"
+        Me.FTStateUnionMember.OptionsColumn.AllowEdit = False
+        Me.FTStateUnionMember.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTStateUnionMember.OptionsColumn.ReadOnly = True
+        Me.FTStateUnionMember.Visible = True
+        Me.FTStateUnionMember.VisibleIndex = 66
+        Me.FTStateUnionMember.Width = 94
+        '
+        'ReposFTStateUnionMember
+        '
+        Me.ReposFTStateUnionMember.AutoHeight = False
+        Me.ReposFTStateUnionMember.Name = "ReposFTStateUnionMember"
+        Me.ReposFTStateUnionMember.ValueChecked = "1"
+        Me.ReposFTStateUnionMember.ValueUnchecked = "0"
+        '
+        'FDRegisterDateUnion
+        '
+        Me.FDRegisterDateUnion.Caption = "FDRegisterDateUnion"
+        Me.FDRegisterDateUnion.FieldName = "FDRegisterDateUnion"
+        Me.FDRegisterDateUnion.MinWidth = 25
+        Me.FDRegisterDateUnion.Name = "FDRegisterDateUnion"
+        Me.FDRegisterDateUnion.OptionsColumn.AllowEdit = False
+        Me.FDRegisterDateUnion.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FDRegisterDateUnion.OptionsColumn.ReadOnly = True
+        Me.FDRegisterDateUnion.Visible = True
+        Me.FDRegisterDateUnion.VisibleIndex = 67
+        Me.FDRegisterDateUnion.Width = 94
+        '
+        'FTUnion
+        '
+        Me.FTUnion.Caption = "FTUnion"
+        Me.FTUnion.FieldName = "FTUnion"
+        Me.FTUnion.MinWidth = 25
+        Me.FTUnion.Name = "FTUnion"
+        Me.FTUnion.OptionsColumn.AllowEdit = False
+        Me.FTUnion.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTUnion.OptionsColumn.ReadOnly = True
+        Me.FTUnion.Visible = True
+        Me.FTUnion.VisibleIndex = 68
+        Me.FTUnion.Width = 94
+        '
+        'FTFormatType
+        '
+        Me.FTFormatType.Caption = "FTFormatType"
+        Me.FTFormatType.FieldName = "FTFormatType"
+        Me.FTFormatType.MinWidth = 25
+        Me.FTFormatType.Name = "FTFormatType"
+        Me.FTFormatType.OptionsColumn.AllowEdit = False
+        Me.FTFormatType.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTFormatType.OptionsColumn.ReadOnly = True
+        Me.FTFormatType.Visible = True
+        Me.FTFormatType.VisibleIndex = 25
+        Me.FTFormatType.Width = 94
         '
         'RepositoryFTSelect
         '
@@ -1714,7 +1838,7 @@ Partial Class wEmployeeListing
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1345, 721)
+        Me.ClientSize = New System.Drawing.Size(1345, 748)
         Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.ogbemployee)
         Me.Controls.Add(Me.ogbheader)
@@ -1753,6 +1877,7 @@ Partial Class wEmployeeListing
         CType(Me.ogc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogv, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepEnablon, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ReposFTStateUnionMember, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryFTSelect, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryFTApproveState, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1876,4 +2001,13 @@ Partial Class wEmployeeListing
     Friend WithEvents FNEnablonType As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTStateEnablon As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepEnablon As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents FTWorkforceType As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTStateUnionMember As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ReposFTStateUnionMember As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents FDRegisterDateUnion As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTUnion As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTEmpNicknameTH As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTEmpNicknameEN As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTFormatType As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FDDateIdNoEnd As DevExpress.XtraGrid.Columns.GridColumn
 End Class

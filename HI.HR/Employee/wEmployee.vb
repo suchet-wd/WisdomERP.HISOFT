@@ -1211,6 +1211,14 @@ Public Class wEmployee
                 End If
             Next
 
+
+
+
+            HI.Conn.SQLConn.Tran.Commit()
+            HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+            HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+
+
             For Each Obj As Object In Me.Controls.Find(_FormHeader(0).MainKey, True)
                 Select Case HI.ENM.Control.GeTypeControl(Obj)
                     Case ENM.Control.ControlType.ButtonEdit
@@ -1227,9 +1235,6 @@ Public Class wEmployee
             Call SaveWorkImage()
             Call SaveOtherImage()
 
-            HI.Conn.SQLConn.Tran.Commit()
-            HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
-            HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
             Return True
         Catch ex As Exception
             HI.Conn.SQLConn.Tran.Rollback()
@@ -7814,6 +7819,22 @@ Public Class wEmployee
     End Sub
 
     Private Sub GroupControl32_Paint(sender As Object, e As PaintEventArgs) Handles GroupControl32.Paint
+
+    End Sub
+
+    Private Sub XtraTabPage1_Paint(sender As Object, e As PaintEventArgs) Handles XtraTabPage1.Paint
+
+    End Sub
+
+    Private Sub GroupControl27_Paint(sender As Object, e As PaintEventArgs) Handles GroupControl27.Paint
+
+    End Sub
+
+    Private Sub GroupControl14_Paint(sender As Object, e As PaintEventArgs) Handles GroupControl14.Paint
+
+    End Sub
+
+    Private Sub ogbstatus_Paint(sender As Object, e As PaintEventArgs) Handles ogbstatus.Paint
 
     End Sub
 

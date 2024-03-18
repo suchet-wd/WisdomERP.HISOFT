@@ -219,7 +219,7 @@ Partial Class wPayrollListing_24Term
         Me.ogbheader.DockVertical = DevExpress.Utils.DefaultBoolean.[False]
         Me.ogbheader.ID = New System.Guid("77b9346d-8d15-4323-af1e-af82afa9902a")
         Me.ogbheader.ImageOptions.Image = CType(resources.GetObject("ogbheader.ImageOptions.Image"), System.Drawing.Image)
-        Me.ogbheader.Location = New System.Drawing.Point(0, 0)
+        Me.ogbheader.Location = New System.Drawing.Point(0, 44)
         Me.ogbheader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbheader.Name = "ogbheader"
         Me.ogbheader.Options.AllowDockBottom = False
@@ -277,10 +277,10 @@ Partial Class wPayrollListing_24Term
         Me.DockPanel1_Container.Controls.Add(Me.LabelControl2)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysDeptId)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysUnitSectIdTo)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(2, 29)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(2, 31)
         Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1173, 218)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1173, 216)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FTPayYearTermTo_lbl
@@ -829,7 +829,7 @@ Partial Class wPayrollListing_24Term
         Me.ogbemployee.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbemployee.Name = "ogbemployee"
         Me.ogbemployee.ShowCaption = False
-        Me.ogbemployee.Size = New System.Drawing.Size(1177, 659)
+        Me.ogbemployee.Size = New System.Drawing.Size(1177, 758)
         Me.ogbemployee.TabIndex = 388
         Me.ogbemployee.Text = "Employee"
         '
@@ -900,7 +900,7 @@ Partial Class wPayrollListing_24Term
         Me.ogc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Name = "ogc"
         Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSelect, Me.RepositoryFTApproveState})
-        Me.ogc.Size = New System.Drawing.Size(1170, 648)
+        Me.ogc.Size = New System.Drawing.Size(1170, 747)
         Me.ogc.TabIndex = 3
         Me.ogc.TabStop = False
         Me.ogc.Tag = "2|"
@@ -1114,7 +1114,7 @@ Partial Class wPayrollListing_24Term
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1177, 703)
+        Me.ClientSize = New System.Drawing.Size(1177, 802)
         Me.Controls.Add(Me.ogbemployee)
         Me.Controls.Add(Me.hideContainerTop)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)

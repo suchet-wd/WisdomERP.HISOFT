@@ -405,7 +405,7 @@ Partial Class wCalculatePayroll_LA
         Me.ogcemptypeGroup.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcemptypeGroup.Name = "ogcemptypeGroup"
         Me.ogcemptypeGroup.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.ReposCheckEmpTypeGroup, Me.RepositoryFTApproveState, Me.ReposFTStateDaily, Me.RepQuantity, Me.Repo_emptype_FTSelect})
-        Me.ogcemptypeGroup.Size = New System.Drawing.Size(1340, 371)
+        Me.ogcemptypeGroup.Size = New System.Drawing.Size(1348, 376)
         Me.ogcemptypeGroup.TabIndex = 5
         Me.ogcemptypeGroup.TabStop = False
         Me.ogcemptypeGroup.Tag = "2|"
@@ -625,7 +625,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCmpId_None.Properties.ReadOnly = True
-        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(1044, 23)
+        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(1044, 22)
         Me.FNHSysCmpId_None.TabIndex = 450
         Me.FNHSysCmpId_None.TabStop = False
         Me.FNHSysCmpId_None.Tag = ""
@@ -657,7 +657,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysCmpId.TabIndex = 0
         Me.FNHSysCmpId.TabStop = False
         Me.FNHSysCmpId.Tag = ""
@@ -672,7 +672,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysEmpIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysEmpIdTo_None.Size = New System.Drawing.Size(616, 23)
+        Me.FNHSysEmpIdTo_None.Size = New System.Drawing.Size(616, 22)
         Me.FNHSysEmpIdTo_None.TabIndex = 416
         Me.FNHSysEmpIdTo_None.TabStop = False
         Me.FNHSysEmpIdTo_None.Tag = "2|"
@@ -685,7 +685,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysEmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpId_None.Size = New System.Drawing.Size(163, 23)
+        Me.FNHSysEmpId_None.Size = New System.Drawing.Size(163, 22)
         Me.FNHSysEmpId_None.TabIndex = 413
         Me.FNHSysEmpId_None.TabStop = False
         Me.FNHSysEmpId_None.Tag = "2|"
@@ -726,7 +726,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysDeptIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysDeptIdTo_None.Size = New System.Drawing.Size(617, 23)
+        Me.FNHSysDeptIdTo_None.Size = New System.Drawing.Size(617, 22)
         Me.FNHSysDeptIdTo_None.TabIndex = 401
         Me.FNHSysDeptIdTo_None.TabStop = False
         Me.FNHSysDeptIdTo_None.Tag = "2|"
@@ -751,7 +751,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysEmpId.Name = "FNHSysEmpId"
         Me.FNHSysEmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "58", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpId.Properties.Tag = "57"
-        Me.FNHSysEmpId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysEmpId.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysEmpId.TabIndex = 9
         Me.FNHSysEmpId.Tag = "2|"
         '
@@ -762,7 +762,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysEmpIdTo.Name = "FNHSysEmpIdTo"
         Me.FNHSysEmpIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "63", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpIdTo.Properties.Tag = "57"
-        Me.FNHSysEmpIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysEmpIdTo.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysEmpIdTo.TabIndex = 10
         Me.FNHSysEmpIdTo.Tag = "2|"
         '
@@ -773,7 +773,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysSectIdTo.Name = "FNHSysSectIdTo"
         Me.FNHSysSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "61", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectIdTo.Properties.Tag = "55"
-        Me.FNHSysSectIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysSectIdTo.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysSectIdTo.TabIndex = 6
         Me.FNHSysSectIdTo.Tag = "2|"
         '
@@ -785,7 +785,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysDeptId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptId_None.Properties.ReadOnly = True
-        Me.FNHSysDeptId_None.Size = New System.Drawing.Size(163, 23)
+        Me.FNHSysDeptId_None.Size = New System.Drawing.Size(163, 22)
         Me.FNHSysDeptId_None.TabIndex = 392
         Me.FNHSysDeptId_None.TabStop = False
         Me.FNHSysDeptId_None.Tag = "2|"
@@ -797,7 +797,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysDeptIdTo.Name = "FNHSysDeptIdTo"
         Me.FNHSysDeptIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "59", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptIdTo.Properties.Tag = "23"
-        Me.FNHSysDeptIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysDeptIdTo.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysDeptIdTo.TabIndex = 4
         Me.FNHSysDeptIdTo.Tag = "2|"
         '
@@ -808,7 +808,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysDeptId.Name = "FNHSysDeptId"
         Me.FNHSysDeptId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "23", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptId.Properties.Tag = "23"
-        Me.FNHSysDeptId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysDeptId.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysDeptId.TabIndex = 3
         Me.FNHSysDeptId.Tag = "2|"
         '
@@ -819,7 +819,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysUnitSectIdTo.Name = "FNHSysUnitSectIdTo"
         Me.FNHSysUnitSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "62", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectIdTo.Properties.Tag = "57"
-        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysUnitSectIdTo.TabIndex = 8
         Me.FNHSysUnitSectIdTo.Tag = "2|"
         '
@@ -857,7 +857,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysDivisonId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonId_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonId_None.Size = New System.Drawing.Size(163, 23)
+        Me.FNHSysDivisonId_None.Size = New System.Drawing.Size(163, 22)
         Me.FNHSysDivisonId_None.TabIndex = 394
         Me.FNHSysDivisonId_None.TabStop = False
         Me.FNHSysDivisonId_None.Tag = "2|"
@@ -872,7 +872,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysSectIdTo_None.Size = New System.Drawing.Size(617, 23)
+        Me.FNHSysSectIdTo_None.Size = New System.Drawing.Size(617, 22)
         Me.FNHSysSectIdTo_None.TabIndex = 407
         Me.FNHSysSectIdTo_None.TabStop = False
         Me.FNHSysSectIdTo_None.Tag = "2|"
@@ -885,7 +885,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysUnitSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(163, 23)
+        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(163, 22)
         Me.FNHSysUnitSectId_None.TabIndex = 398
         Me.FNHSysUnitSectId_None.TabStop = False
         Me.FNHSysUnitSectId_None.Tag = "2|"
@@ -900,7 +900,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysDivisonIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonIdTo_None.Size = New System.Drawing.Size(617, 23)
+        Me.FNHSysDivisonIdTo_None.Size = New System.Drawing.Size(617, 22)
         Me.FNHSysDivisonIdTo_None.TabIndex = 404
         Me.FNHSysDivisonIdTo_None.TabStop = False
         Me.FNHSysDivisonIdTo_None.Tag = "2|"
@@ -938,7 +938,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysDivisonId.Name = "FNHSysDivisonId"
         Me.FNHSysDivisonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "46", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonId.Properties.Tag = "46"
-        Me.FNHSysDivisonId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysDivisonId.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysDivisonId.TabIndex = 1
         Me.FNHSysDivisonId.Tag = "2|"
         '
@@ -949,7 +949,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysDivisonIdTo.Name = "FNHSysDivisonIdTo"
         Me.FNHSysDivisonIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "60", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonIdTo.Properties.Tag = "46"
-        Me.FNHSysDivisonIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysDivisonIdTo.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysDivisonIdTo.TabIndex = 2
         Me.FNHSysDivisonIdTo.Tag = "2|"
         '
@@ -960,7 +960,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
         Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "57", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.Tag = "57"
-        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysUnitSectId.TabIndex = 7
         Me.FNHSysUnitSectId.Tag = "2|"
         '
@@ -974,7 +974,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(617, 23)
+        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(617, 22)
         Me.FNHSysUnitSectIdTo_None.TabIndex = 410
         Me.FNHSysUnitSectIdTo_None.TabStop = False
         Me.FNHSysUnitSectIdTo_None.Tag = "2|"
@@ -1013,7 +1013,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectId_None.Properties.ReadOnly = True
-        Me.FNHSysSectId_None.Size = New System.Drawing.Size(163, 23)
+        Me.FNHSysSectId_None.Size = New System.Drawing.Size(163, 22)
         Me.FNHSysSectId_None.TabIndex = 396
         Me.FNHSysSectId_None.TabStop = False
         Me.FNHSysSectId_None.Tag = "2|"
@@ -1038,7 +1038,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysSectId.Name = "FNHSysSectId"
         Me.FNHSysSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "55", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectId.Properties.Tag = "55"
-        Me.FNHSysSectId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysSectId.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysSectId.TabIndex = 5
         Me.FNHSysSectId.Tag = "2|"
         '
@@ -1082,7 +1082,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNEmpTypeGroup.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNEmpTypeGroup.Properties.Tag = "FNEmpTypeGroup"
         Me.FNEmpTypeGroup.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNEmpTypeGroup.Size = New System.Drawing.Size(131, 23)
+        Me.FNEmpTypeGroup.Size = New System.Drawing.Size(131, 22)
         Me.FNEmpTypeGroup.TabIndex = 452
         Me.FNEmpTypeGroup.Tag = "2|"
         Me.FNEmpTypeGroup.Visible = False
@@ -1112,7 +1112,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNCalindusin.Properties.ReadOnly = True
         Me.FNCalindusin.Properties.Tag = "FNCalindusin"
         Me.FNCalindusin.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNCalindusin.Size = New System.Drawing.Size(24, 23)
+        Me.FNCalindusin.Size = New System.Drawing.Size(24, 22)
         Me.FNCalindusin.TabIndex = 429
         Me.FNCalindusin.Tag = "2|"
         Me.FNCalindusin.Visible = False
@@ -1141,7 +1141,7 @@ Partial Class wCalculatePayroll_LA
         Me.FTMonth.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTMonth.Properties.Appearance.Options.UseBackColor = True
         Me.FTMonth.Properties.ReadOnly = True
-        Me.FTMonth.Size = New System.Drawing.Size(132, 23)
+        Me.FTMonth.Size = New System.Drawing.Size(132, 22)
         Me.FTMonth.TabIndex = 4
         Me.FTMonth.TabStop = False
         Me.FTMonth.Tag = "2|"
@@ -1181,7 +1181,7 @@ Partial Class wCalculatePayroll_LA
         Me.FDPayDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDPayDate.Properties.NullDate = ""
         Me.FDPayDate.Properties.ReadOnly = True
-        Me.FDPayDate.Size = New System.Drawing.Size(132, 23)
+        Me.FDPayDate.Size = New System.Drawing.Size(132, 22)
         Me.FDPayDate.TabIndex = 7
         Me.FDPayDate.TabStop = False
         Me.FDPayDate.Tag = "2|"
@@ -1227,7 +1227,7 @@ Partial Class wCalculatePayroll_LA
         Me.FTPayYear.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTPayYear.Properties.Appearance.Options.UseBackColor = True
         Me.FTPayYear.Properties.ReadOnly = True
-        Me.FTPayYear.Size = New System.Drawing.Size(132, 23)
+        Me.FTPayYear.Size = New System.Drawing.Size(132, 22)
         Me.FTPayYear.TabIndex = 3
         Me.FTPayYear.TabStop = False
         Me.FTPayYear.Tag = "2|"
@@ -1241,7 +1241,7 @@ Partial Class wCalculatePayroll_LA
         Me.FTPayTerm.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTPayTerm.Properties.Appearance.Options.UseBackColor = True
         Me.FTPayTerm.Properties.ReadOnly = True
-        Me.FTPayTerm.Size = New System.Drawing.Size(132, 23)
+        Me.FTPayTerm.Size = New System.Drawing.Size(132, 22)
         Me.FTPayTerm.TabIndex = 2
         Me.FTPayTerm.TabStop = False
         Me.FTPayTerm.Tag = "2|"
@@ -1254,7 +1254,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysEmpTypeId.Name = "FNHSysEmpTypeId"
         Me.FNHSysEmpTypeId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "968", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpTypeId.Properties.Tag = ""
-        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysEmpTypeId.TabIndex = 0
         Me.FNHSysEmpTypeId.Tag = "2|"
         Me.FNHSysEmpTypeId.Visible = False
@@ -1283,7 +1283,7 @@ Partial Class wCalculatePayroll_LA
         Me.FNHSysEmpTypeId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpTypeId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpTypeId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(177, 23)
+        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(177, 22)
         Me.FNHSysEmpTypeId_None.TabIndex = 419
         Me.FNHSysEmpTypeId_None.TabStop = False
         Me.FNHSysEmpTypeId_None.Tag = "2|"
@@ -1323,7 +1323,7 @@ Partial Class wCalculatePayroll_LA
         Me.FTEndDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndDate.Properties.NullDate = ""
         Me.FTEndDate.Properties.ReadOnly = True
-        Me.FTEndDate.Size = New System.Drawing.Size(132, 23)
+        Me.FTEndDate.Size = New System.Drawing.Size(132, 22)
         Me.FTEndDate.TabIndex = 6
         Me.FTEndDate.TabStop = False
         Me.FTEndDate.Tag = "2|"
@@ -1363,7 +1363,7 @@ Partial Class wCalculatePayroll_LA
         Me.FTStartDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartDate.Properties.NullDate = ""
         Me.FTStartDate.Properties.ReadOnly = True
-        Me.FTStartDate.Size = New System.Drawing.Size(132, 23)
+        Me.FTStartDate.Size = New System.Drawing.Size(132, 22)
         Me.FTStartDate.TabIndex = 5
         Me.FTStartDate.TabStop = False
         Me.FTStartDate.Tag = "2|"
@@ -1387,16 +1387,16 @@ Partial Class wCalculatePayroll_LA
         Me.ochkselectall.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ochkselectall.Name = "ochkselectall"
         Me.ochkselectall.Properties.Caption = "Select All"
-        Me.ochkselectall.Size = New System.Drawing.Size(222, 20)
+        Me.ochkselectall.Size = New System.Drawing.Size(222, 24)
         Me.ochkselectall.TabIndex = 309
         '
         'XtraTabControl1
         '
         Me.XtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.XtraTabControl1.Location = New System.Drawing.Point(2, 27)
+        Me.XtraTabControl1.Location = New System.Drawing.Point(2, 28)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.XtraTabPage1
-        Me.XtraTabControl1.Size = New System.Drawing.Size(1354, 411)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(1354, 410)
         Me.XtraTabControl1.TabIndex = 0
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage1, Me.XtraTabPage2})
         '
@@ -1404,7 +1404,7 @@ Partial Class wCalculatePayroll_LA
         '
         Me.XtraTabPage1.Controls.Add(Me.PanelControl1)
         Me.XtraTabPage1.Name = "XtraTabPage1"
-        Me.XtraTabPage1.Size = New System.Drawing.Size(1344, 375)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(1352, 380)
         Me.XtraTabPage1.Text = "Employee Group"
         '
         'PanelControl1
@@ -1413,14 +1413,14 @@ Partial Class wCalculatePayroll_LA
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelControl1.Location = New System.Drawing.Point(0, 0)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(1344, 375)
+        Me.PanelControl1.Size = New System.Drawing.Size(1352, 380)
         Me.PanelControl1.TabIndex = 0
         '
         'XtraTabPage2
         '
         Me.XtraTabPage2.Controls.Add(Me.PanelControl2)
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(1344, 375)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(1352, 381)
         Me.XtraTabPage2.Text = "Employee Type"
         '
         'PanelControl2
@@ -1429,7 +1429,7 @@ Partial Class wCalculatePayroll_LA
         Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelControl2.Location = New System.Drawing.Point(0, 0)
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(1344, 375)
+        Me.PanelControl2.Size = New System.Drawing.Size(1352, 381)
         Me.PanelControl2.TabIndex = 0
         '
         'ogcemptype
@@ -1441,7 +1441,7 @@ Partial Class wCalculatePayroll_LA
         Me.ogcemptype.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcemptype.Name = "ogcemptype"
         Me.ogcemptype.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemCheckEdit2, Me.RepositoryItemCheckEdit3, Me.RepositoryItemCalcEdit1, Me.RepositoryItemCheckEdit4, Me.RepositoryItemCalcEdit2, Me.Repo_ogvemptype_FTSelect})
-        Me.ogcemptype.Size = New System.Drawing.Size(1340, 371)
+        Me.ogcemptype.Size = New System.Drawing.Size(1348, 377)
         Me.ogcemptype.TabIndex = 6
         Me.ogcemptype.TabStop = False
         Me.ogcemptype.Tag = "2|"

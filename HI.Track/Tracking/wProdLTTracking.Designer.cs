@@ -29,6 +29,11 @@ namespace HI.Track
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -44,11 +49,6 @@ namespace HI.Track
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ogcCriteria = new DevExpress.XtraEditors.GroupControl();
             this.FNHSysSeasonIdTo_lbl = new DevExpress.XtraEditors.LabelControl();
             this.FNHSysSeasonId_lbl = new DevExpress.XtraEditors.LabelControl();
@@ -189,7 +189,7 @@ namespace HI.Track
             this.FNHSysSeasonIdTo.Location = new System.Drawing.Point(413, 25);
             this.FNHSysSeasonIdTo.Name = "FNHSysSeasonIdTo";
             this.FNHSysSeasonIdTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "391", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", "391", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.FNHSysSeasonIdTo.Size = new System.Drawing.Size(175, 20);
             this.FNHSysSeasonIdTo.TabIndex = 2;
             this.FNHSysSeasonIdTo.Tag = "2|";
@@ -199,7 +199,7 @@ namespace HI.Track
             this.FNHSysSeasonId.Location = new System.Drawing.Point(119, 25);
             this.FNHSysSeasonId.Name = "FNHSysSeasonId";
             this.FNHSysSeasonId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", "390", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "390", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.FNHSysSeasonId.Size = new System.Drawing.Size(175, 20);
             this.FNHSysSeasonId.TabIndex = 1;
             this.FNHSysSeasonId.Tag = "2|";
@@ -209,7 +209,7 @@ namespace HI.Track
             this.FNHSysStyleIdTo.Location = new System.Drawing.Point(413, 47);
             this.FNHSysStyleIdTo.Name = "FNHSysStyleIdTo";
             this.FNHSysStyleIdTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", "393", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", "393", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.FNHSysStyleIdTo.Size = new System.Drawing.Size(175, 20);
             this.FNHSysStyleIdTo.TabIndex = 4;
             this.FNHSysStyleIdTo.Tag = "2|";
@@ -219,7 +219,7 @@ namespace HI.Track
             this.FNHSysStyleId.Location = new System.Drawing.Point(119, 47);
             this.FNHSysStyleId.Name = "FNHSysStyleId";
             this.FNHSysStyleId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", "392", null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", "392", null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.FNHSysStyleId.Size = new System.Drawing.Size(175, 20);
             this.FNHSysStyleId.TabIndex = 3;
             this.FNHSysStyleId.Tag = "2|";
@@ -336,6 +336,7 @@ namespace HI.Track
             this.ogvDetail.Name = "ogvDetail";
             this.ogvDetail.OptionsView.ColumnAutoWidth = false;
             this.ogvDetail.OptionsView.ShowGroupPanel = false;
+            this.ogvDetail.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.ogvDetail_RowStyle);
             // 
             // FTSeason
             // 
@@ -774,6 +775,7 @@ namespace HI.Track
             this.Seqnum.Caption = "Seqnum";
             this.Seqnum.FieldName = "Seqnum";
             this.Seqnum.Name = "Seqnum";
+            this.Seqnum.OptionsColumn.AllowEdit = false;
             // 
             // wProdLTTracking
             // 

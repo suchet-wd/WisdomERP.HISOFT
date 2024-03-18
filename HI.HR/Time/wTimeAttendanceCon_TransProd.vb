@@ -526,8 +526,10 @@ Public Class wTimeAttendanceCon_TransProd
 
         '_Qry &= vbCrLf & " ORDER BY  T.FTDateTrans,M.FTEmpCode  "
 
+
         _Qry = "exec   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.sp_get_TransTime_Prod "
-        _Qry &= vbCrLf & "  @CmpCode=" & Val(HI.ST.SysInfo.CmpID) & "  ,@Date ='" & HI.UL.ULDate.ConvertEnDB(FDStartDate.Text) & "' , @DateE  ='" & HI.UL.ULDate.ConvertEnDB(FDEndDate.Text) & "' "
+        _Qry &= vbCrLf & "  @CmpCode=" & Val(HI.ST.SysInfo.CmpID) & " ,@Date ='" & HI.UL.ULDate.ConvertEnDB(FDStartDate.Text) & "' , @DateE  ='" & HI.UL.ULDate.ConvertEnDB(FDEndDate.Text) & "', @LangLocal ='" & HI.ST.Lang.Language.ToString & "'"
+
         If Me.FNHSysEmpTypeId.Text <> "" Then
             _Qry &= vbCrLf & "  , @FTEmpTypeCode='" & HI.UL.ULF.rpQuoted(Me.FNHSysEmpTypeId.Text) & "' "
         End If
@@ -576,6 +578,8 @@ Public Class wTimeAttendanceCon_TransProd
         If Me.FNHSysUnitSectIdTo.Text <> "" Then
             _Qry &= vbCrLf & " ,@UnitSectCodeE ='" & HI.UL.ULF.rpQuoted(Me.FNHSysUnitSectIdTo.Text) & "' "
         End If
+
+
         _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
 
         Me.ogdtime.DataSource = _dt

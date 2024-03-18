@@ -458,9 +458,9 @@ Public Class wPayrollListing_24Term
 
     Private Sub ocmload_Click(sender As System.Object, e As System.EventArgs) Handles ocmload.Click
 
-        If Me.FNHSysEmpTypeId.Text <> "" Then
+        'If Me.FNHSysEmpTypeId.Text <> "" Then
 
-            If Me.FTPayYearTermFrom.Text <> "" And Me.FTPayYearTermTo.Text <> "" Then
+        If Me.FTPayYearTermFrom.Text <> "" And Me.FTPayYearTermTo.Text <> "" Then
 
                 Dim _From As Integer = Val(FTPayYearTermFrom.Text.Replace("/", ""))
                 Dim _To As Integer = Val(FTPayYearTermTo.Text.Replace("/", ""))
@@ -488,9 +488,9 @@ Public Class wPayrollListing_24Term
                 FTPayYearTermFrom.SelectAll()
 
             End If
-        Else
-            HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, FNHSysEmpTypeId_lbl.Text)
-        End If
+        'Else
+        '    HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, FNHSysEmpTypeId_lbl.Text)
+        'End If
 
 
     End Sub

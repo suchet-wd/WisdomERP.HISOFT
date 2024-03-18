@@ -4840,7 +4840,6 @@ Public NotInheritable Class Calculate
         Return True
     End Function
 
-
     Public Shared Function CalculateWeekEnd(ByVal _User As String, ByVal _EmpCode As String,
           ByVal _EmpType As String, ByVal _StartDate As String, ByVal _EndDate As String, ByVal _PayYear As String,
           ByVal _PayTerm As String, ByVal _PayDate As String, ByVal _CalIns As String, ByVal _EmpCalType As String,
@@ -4997,17 +4996,18 @@ Public NotInheritable Class Calculate
         End If
         '----------------------------------   Variable  ------------------------------------
 
-        If _PayTerm = "01" Then
+        ''Best  ยกเลิกคำนวน งวด  25   มาจ่ายรวมกับในงวด  1 ของปีใหม่่   edit  20230106
+        'If _PayTerm = "01" Then
 
-            _Qry = "SELECT TOP 1  FNNetpay"
-            _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll AS A WITH(NOLOCK)"
-            _Qry &= vbCrLf & "  WHERE  (FTPayTerm = '25') "
-            _Qry &= vbCrLf & " AND (FTPayYear = '" & (Integer.Parse(Val(_PayYear)) - 1).ToString("0000") & "')"
-            _Qry &= vbCrLf & "  AND (FNHSysEmpID =" & Val(_EmpCode) & ")"
+        '    _Qry = "SELECT TOP 1  FNNetpay"
+        '    _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll AS A WITH(NOLOCK)"
+        '    _Qry &= vbCrLf & "  WHERE  (FTPayTerm = '25') "
+        '    _Qry &= vbCrLf & " AND (FTPayYear = '" & (Integer.Parse(Val(_PayYear)) - 1).ToString("0000") & "')"
+        '    _Qry &= vbCrLf & "  AND (FNHSysEmpID =" & Val(_EmpCode) & ")"
 
-            _FNPayterm25Amt = Double.Parse(Format(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")), "0.00"))
+        '    _FNPayterm25Amt = Double.Parse(Format(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")), "0.00"))
 
-        End If
+        'End If
 
 
         With _EmpTaxYear
@@ -5316,106 +5316,264 @@ Public NotInheritable Class Calculate
                     Dim _DateEndYaer As String = _PayYear & "/12/31"
 
 
-                    _Qry = " SELECT CASE WHEN RiGHT(FTCurrenDate,5) >=FTLeaveReset THEN LEFT(FTCurrenDate,4) ELSE  LEFT(FTBefore,4)  END +'/' + FTLeaveReset"
-                    _Qry &= vbCrLf & "  FROM"
-                    _Qry &= vbCrLf & " ("
-                    _Qry &= vbCrLf & " SELECT  TOP 1 Convert(varchar(10),GetDate(),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
-                    _Qry &= vbCrLf & " FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigLeave  AS L WITH (NOLOCK)  INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH(NOLOCK )"
-                    _Qry &= vbCrLf & "  ON  L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
-                    _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID='" & HI.UL.ULF.rpQuoted(_EmpCode) & "' "
-                    _Qry &= vbCrLf & " ) As T"
 
-                    _DateReset = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
 
-                    If _PayTerm = "24" Or _PayTerm = "25" Then
-                        _DateReset = (Val(_PayYear) + 1).ToString("0000") & Microsoft.VisualBasic.Right(_DateReset, 6)
-                    End If
+                    If Val(HI.ST.SysInfo.CmpID) = 2015760002 Then
 
-                    _DateSetEmpReset = HI.UL.ULDate.AddDay(_DateReset, -1)
+                        '' VT
 
-                    Dim VacationLeaveType As String = ""
-                    _Qry = " SELECT TOP 1 FTCfgData"
-                    _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS Z WITH(NOLOCK) "
-                    _Qry &= vbCrLf & " WHERE  (FTCfgName = N'VacationLeaveType')"
 
-                    VacationLeaveType = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "0")
-                    _Qry = ""
-                    If _FDDateStart < _DateReset And _DateReset <> "" Then
-                        ''_FTRetVacation = เหตุผลในการออกจากงานที่จ่ายคืนพักร้อน
+                        _Qry = " SELECT CASE WHEN RiGHT(FTCurrenDate,5) >=FTLeaveReset THEN LEFT(FTCurrenDate,4) ELSE  LEFT(FTBefore,4)  END +'/' + FTLeaveReset"
+                        _Qry &= vbCrLf & "  FROM"
+                        _Qry &= vbCrLf & " ("
+                        _Qry &= vbCrLf & " SELECT  TOP 1 Convert(varchar(10),GetDate(),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
+                        _Qry &= vbCrLf & " FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigLeave  AS L WITH (NOLOCK)  INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH(NOLOCK )"
+                        _Qry &= vbCrLf & "  ON  L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
+                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID='" & HI.UL.ULF.rpQuoted(_EmpCode) & "' "
+                        _Qry &= vbCrLf & " ) As T"
 
-                        If (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate And _FTRetVacation = "1") Then
-                            '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
-                            '_Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                            '_Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+                        _DateReset = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
 
-                            Dim _FNYear As Integer = 0
-                            Dim _FNMonth As Integer = 0
-                            Dim _FNDay As Integer = 0
+                        If _PayTerm = "24" Or _PayTerm = "25" Then
+                            _DateReset = (Val(_PayYear)).ToString("0000") & Microsoft.VisualBasic.Right(_DateReset, 6)
+                            _DateSetEmpReset = HI.UL.ULDate.AddDay((Val(_PayYear + 1)).ToString("0000") & Microsoft.VisualBasic.Right(_DateReset, 6), -1)
 
-                            If HI.UL.ULDate.CheckDate(_TmpFDDateEnd) <> "" Then
-                                _Qry = "Exec " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.SP_Datediff '" & HI.UL.ULDate.ConvertEnDB(_FDDateStart) & "',N'" & HI.UL.ULDate.ConvertEnDB(_TmpFDDateEnd) & "'"
-                            Else
-                                _Qry = "Exec " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.SP_Datediff '" & HI.UL.ULDate.ConvertEnDB(_FDDateStart) & "',N''"
-                            End If
+                        Else
+                            _DateSetEmpReset = HI.UL.ULDate.AddDay(_PayYear, -1)
+                        End If
 
-                            Dim _Row As DataRow = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR).Rows(0)
-                            _FNYear = Integer.Parse(Val(_Row("FNYear")))
-                            _FNMonth = Integer.Parse(Val(_Row("FNMonth")))
-                            _FNDay = Integer.Parse(Val(_Row("FNDay")))
 
-                            _FNYear = IIf(_FNYear < 0, 0, _FNYear)
-                            _FNMonth = IIf(_FNMonth < 0, 0, _FNMonth)
-                            _FNDay = IIf(_FNDay < 0, 0, _FNDay)
 
-                            If _FNYear >= 1 Then
-                                If VacationLeaveType = "1" Then
-                                    _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_TmpFDDateEnd) & "'))),111),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
+                        Dim VacationLeaveType As String = ""
+                        _Qry = " SELECT TOP 1 FTCfgData"
+                        _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS Z WITH(NOLOCK) "
+                        _Qry &= vbCrLf & " WHERE  (FTCfgName = N'VacationLeaveType')"
+
+                        VacationLeaveType = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "0")
+                        _Qry = ""
+                        If _FDDateStart < _DateReset And _DateReset <> "" Then
+
+
+
+                            If (_ReturnVacation > 0) Then
+
+
+                                If (_ReturnVacation > 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate And _FTRetVacation = "0") Then
+                                    _Qry = "  "
+
+                                ElseIf VacationLeaveType = "1" Then
+                                    '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
+                                    '_Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                    '_Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                                    _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
                                     _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
                                     _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
                                 Else
 
                                     _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
                                     _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
                                     _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
 
+
                                 End If
-                            End If
+
+                                ''_FTRetVacation = เหตุผลในการออกจากงานที่จ่ายคืนพักร้อน
 
 
+                            ElseIf (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate And _FTRetVacation = "1") Then
+                                '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                                '_Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                '_Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
 
+                                Dim _FNYear As Integer = 0
+                                Dim _FNMonth As Integer = 0
+                                Dim _FNDay As Integer = 0
 
-                        ElseIf (_ReturnVacation > 0) Then
+                                If HI.UL.ULDate.CheckDate(_TmpFDDateEnd) <> "" Then
+                                    _Qry = "Exec " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.SP_Datediff '" & HI.UL.ULDate.ConvertEnDB(_FDDateStart) & "',N'" & HI.UL.ULDate.ConvertEnDB(_TmpFDDateEnd) & "'"
+                                Else
+                                    _Qry = "Exec " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.SP_Datediff '" & HI.UL.ULDate.ConvertEnDB(_FDDateStart) & "',N''"
+                                End If
 
+                                Dim _Row As DataRow = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR).Rows(0)
+                                _FNYear = Integer.Parse(Val(_Row("FNYear")))
+                                _FNMonth = Integer.Parse(Val(_Row("FNMonth")))
+                                _FNDay = Integer.Parse(Val(_Row("FNDay")))
 
-                            If VacationLeaveType = "1" Then
-                                _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
-                                _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                                _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+                                _FNYear = IIf(_FNYear < 0, 0, _FNYear)
+                                _FNMonth = IIf(_FNMonth < 0, 0, _FNMonth)
+                                _FNDay = IIf(_FNDay < 0, 0, _FNDay)
+
+                                If _FNYear >= 1 Then
+                                    If VacationLeaveType = "1" Then
+                                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_TmpFDDateEnd) & "'))),111),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
+                                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+                                    Else
+
+                                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                                    End If
+                                End If
                             Else
 
-                                _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
-                                _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                                _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+                                If (_TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+                                    If _PayTerm = "24" Or _PayTerm = "25" Then
 
-                            End If
+                                    Else
+                                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),Convert(varchar(10),DateAdd(day,-1,'" & (_DateReset) & "')),111),'" & (_EndDate) & "') AS FNEmpVacation"
+                                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
 
+                                        _Leave = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                                    End If
 
-                        Else
+                                End If
+                                If _PayTerm = "24" Then
+                                    If VacationLeaveType = "1" Then
+                                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
+                                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+                                    Else
 
-                            If (_TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
-                                If _PayTerm = "24" Or _PayTerm = "25" Then
+                                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
 
-                                Else
-                                    _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),Convert(varchar(10),DateAdd(day,-1,'" & (_DateReset) & "')),111),'" & (_EndDate) & "') AS FNEmpVacation"
-                                    _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                                    _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
-
-                                    _Leave = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                                    End If
                                 End If
 
+
                             End If
-                            If _PayTerm = "24" Then
-                                If VacationLeaveType = "1" Then
+
+                            _Leave = _Leave + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+
+
+
+                            If _Leave > 0 And _DateReset <> "" Then
+
+                                If (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+
+                                    _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                                    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                                    _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                                    _Qry &= vbCrLf & "	   AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                                    _Qry &= vbCrLf & " 	   AND  FTDateTrans >= '" & (_DateReset) & "'"
+
+                                Else
+
+                                    _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                                    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                                    _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                                    _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                                    _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & (_DateReset) & "'"
+                                    _Qry &= vbCrLf & " 	AND  FTDateTrans <= '" & (_DateSetEmpReset) & "'"
+
+
+                                    '' _Qry &= vbCrLf & " 	AND  FTDateTrans >=Convert(varchar(10),DateAdd(year,-1,Convert(Datetime,'" & (_DateReset) & "')),111)"
+
+                                End If
+
+                                _SumLeaveVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+
+                                If (_ReturnVacation > 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+
+                                    _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                                    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                                    _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                                    _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                                    _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & (_DateReset) & "'"
+
+                                    _SumLeaveVacation = _SumLeaveVacation + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+
+                                End If
+
+                                If _ReturnVacation <= 0 Then
+
+                                    _Qry = " SELECT   TOP 1 FCCfgRetValue"
+                                    _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigReturnVacationSet WITH(NOLOCK) "
+                                    _Qry &= vbCrLf & "  WHERE      (FNCalType =" & Val(_EmpType) & ")"
+
+                                    _ReturnVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+
+                                End If
+
+                                _FNSlaryPerDayRetVa = HI.Conn.SQLConn.GetField("Select Top 1 FNSalary From THRTPayRoll WITH(NOLOCK) where  FNHSysEmpID = " & Val(_EmpCode) & " and  FTPayYear +'/'+FTPayTerm  <'" & _PayYear & "/" & _PayTerm & "'  Order by FTPayYear +'/'+FTPayTerm DESC ", Conn.DB.DataBaseName.DB_HR, "0")
+
+                                If _FNSlaryPerDayRetVa = 0 Then
+                                    _FNSlaryPerDayRetVa = HI.Conn.SQLConn.GetField("Select Top 1 FNSalary From THRMEmployee WITH(NOLOCK) where  FNHSysEmpID = " & Val(_EmpCode), Conn.DB.DataBaseName.DB_HR, "0")
+                                End If
+
+
+                                If _FTEmpState = "2" Or _FTEmpState = "3" Then
+                                    _FNSlaryPerDay = CDbl(Format(_FCSalary / 30, "0.00"))
+                                    _FNSlaryPerDayRetVa = CDbl(Format(_FNSlaryPerDayRetVa / 30, "0.00"))
+                                Else
+                                    _FNSlaryPerDay = _FCSalary
+
+                                End If
+
+                                If _Leave > (_SumLeaveVacation / 480) Then
+
+                                    FNVacationRetMin = (_Leave * 480) - _SumLeaveVacation
+
+                                    If FNVacationRetMin <= 0 Then
+                                        FNVacationRetMin = 0
+                                    End If
+
+                                    FNVacationRetAmt = 0
+
+                                    _AmtReturnVacation = CDbl(Format((((_Leave * 480) - (_SumLeaveVacation)) * (_ReturnVacation * (_FNSlaryPerDayRetVa / 480))), "0.00"))
+
+                                    FNVacationRetAmt = _AmtReturnVacation
+
+                                End If
+
+
+                            End If
+                        End If
+
+
+                    Else
+                        _Qry = " SELECT CASE WHEN RiGHT(FTCurrenDate,5) >=FTLeaveReset THEN LEFT(FTCurrenDate,4) ELSE  LEFT(FTBefore,4)  END +'/' + FTLeaveReset"
+                        _Qry &= vbCrLf & "  FROM"
+                        _Qry &= vbCrLf & " ("
+                        _Qry &= vbCrLf & " SELECT  TOP 1 Convert(varchar(10),GetDate(),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
+                        _Qry &= vbCrLf & " FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigLeave  AS L WITH (NOLOCK)  INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH(NOLOCK )"
+                        _Qry &= vbCrLf & "  ON  L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
+                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID='" & HI.UL.ULF.rpQuoted(_EmpCode) & "' "
+                        _Qry &= vbCrLf & " ) As T"
+
+                        _DateReset = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+
+                        If _PayTerm = "24" Or _PayTerm = "25" Then
+                            _DateReset = (Val(_PayYear) + 1).ToString("0000") & Microsoft.VisualBasic.Right(_DateReset, 6)
+                        End If
+
+                        _DateSetEmpReset = HI.UL.ULDate.AddDay(_DateReset, -1)
+
+                        Dim VacationLeaveType As String = ""
+                        _Qry = " SELECT TOP 1 FTCfgData"
+                        _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS Z WITH(NOLOCK) "
+                        _Qry &= vbCrLf & " WHERE  (FTCfgName = N'VacationLeaveType')"
+
+                        VacationLeaveType = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "0")
+                        _Qry = ""
+                        If _FDDateStart < _DateReset And _DateReset <> "" Then
+
+
+
+                            If (_ReturnVacation > 0) Then
+
+
+                                If (_ReturnVacation > 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate And _FTRetVacation = "0") Then
+                                    _Qry = "  "
+
+                                ElseIf VacationLeaveType = "1" Then
                                     _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
                                     _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
                                     _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
@@ -5425,95 +5583,173 @@ Public NotInheritable Class Calculate
                                     _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
                                     _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
 
-                                End If
-                            End If
 
-
-                        End If
-
-                        _Leave = _Leave + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
-
-
-
-                        If _Leave > 0 And _DateReset <> "" Then
-
-                            If (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
-
-                                _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
-                                _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
-                                _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
-                                _Qry &= vbCrLf & "	   AND FNHSysEmpID =" & Val(_EmpCode) & " "
-                                _Qry &= vbCrLf & " 	   AND  FTDateTrans >= '" & (_DateReset) & "'"
-
-                            Else
-
-                                _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
-                                _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
-                                _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
-                                _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
-                                _Qry &= vbCrLf & " 	AND  FTDateTrans < '" & (_DateReset) & "'"
-                                _Qry &= vbCrLf & " 	AND  FTDateTrans >=Convert(varchar(10),DateAdd(year,-1,Convert(Datetime,'" & (_DateReset) & "')),111)"
-
-                            End If
-
-                            _SumLeaveVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
-
-                            If (_ReturnVacation > 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
-
-                                _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
-                                _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
-                                _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
-                                _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
-                                _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & (_DateReset) & "'"
-
-                                _SumLeaveVacation = _SumLeaveVacation + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
-
-                            End If
-
-                            If _ReturnVacation <= 0 Then
-
-                                _Qry = " SELECT   TOP 1 FCCfgRetValue"
-                                _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigReturnVacationSet WITH(NOLOCK) "
-                                _Qry &= vbCrLf & "  WHERE      (FNCalType =" & Val(_EmpType) & ")"
-
-                                _ReturnVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
-
-                            End If
-
-                            _FNSlaryPerDayRetVa = HI.Conn.SQLConn.GetField("Select Top 1 FNSalary From THRTPayRoll WITH(NOLOCK) where  FNHSysEmpID = " & Val(_EmpCode) & " and  FTPayYear +'/'+FTPayTerm  <'" & _PayYear & "/" & _PayTerm & "'  Order by FTPayYear +'/'+FTPayTerm DESC ", Conn.DB.DataBaseName.DB_HR, "0")
-
-                            If _FNSlaryPerDayRetVa = 0 Then
-                                _FNSlaryPerDayRetVa = HI.Conn.SQLConn.GetField("Select Top 1 FNSalary From THRMEmployee WITH(NOLOCK) where  FNHSysEmpID = " & Val(_EmpCode), Conn.DB.DataBaseName.DB_HR, "0")
-                            End If
-
-
-                            If _FTEmpState = "2" Or _FTEmpState = "3" Then
-                                _FNSlaryPerDay = CDbl(Format(_FCSalary / 30, "0.00"))
-                                _FNSlaryPerDayRetVa = CDbl(Format(_FNSlaryPerDayRetVa / 30, "0.00"))
-                            Else
-                                _FNSlaryPerDay = _FCSalary
-
-                            End If
-
-                            If _Leave > (_SumLeaveVacation / 480) Then
-
-                                FNVacationRetMin = (_Leave * 480) - _SumLeaveVacation
-
-                                If FNVacationRetMin <= 0 Then
-                                    FNVacationRetMin = 0
                                 End If
 
-                                FNVacationRetAmt = 0
+                                ''_FTRetVacation = เหตุผลในการออกจากงานที่จ่ายคืนพักร้อน
 
-                                _AmtReturnVacation = CDbl(Format((((_Leave * 480) - (_SumLeaveVacation)) * (_ReturnVacation * (_FNSlaryPerDayRetVa / 480))), "0.00"))
 
-                                FNVacationRetAmt = _AmtReturnVacation
+                            ElseIf (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate And _FTRetVacation = "1") Then
+                                '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                                '_Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                '_Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                                Dim _FNYear As Integer = 0
+                                Dim _FNMonth As Integer = 0
+                                Dim _FNDay As Integer = 0
+
+                                If HI.UL.ULDate.CheckDate(_TmpFDDateEnd) <> "" Then
+                                    _Qry = "Exec " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.SP_Datediff '" & HI.UL.ULDate.ConvertEnDB(_FDDateStart) & "',N'" & HI.UL.ULDate.ConvertEnDB(_TmpFDDateEnd) & "'"
+                                Else
+                                    _Qry = "Exec " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.SP_Datediff '" & HI.UL.ULDate.ConvertEnDB(_FDDateStart) & "',N''"
+                                End If
+
+                                Dim _Row As DataRow = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR).Rows(0)
+                                _FNYear = Integer.Parse(Val(_Row("FNYear")))
+                                _FNMonth = Integer.Parse(Val(_Row("FNMonth")))
+                                _FNDay = Integer.Parse(Val(_Row("FNDay")))
+
+                                _FNYear = IIf(_FNYear < 0, 0, _FNYear)
+                                _FNMonth = IIf(_FNMonth < 0, 0, _FNMonth)
+                                _FNDay = IIf(_FNDay < 0, 0, _FNDay)
+
+                                If _FNYear >= 1 Then
+                                    If VacationLeaveType = "1" Then
+                                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_TmpFDDateEnd) & "'))),111),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
+                                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+                                    Else
+
+                                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                                    End If
+                                End If
+                            Else
+
+                                If (_TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+                                    If _PayTerm = "24" Or _PayTerm = "25" Then
+
+                                    Else
+                                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),Convert(varchar(10),DateAdd(day,-1,'" & (_DateReset) & "')),111),'" & (_EndDate) & "') AS FNEmpVacation"
+                                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                                        _Leave = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                                    End If
+
+                                End If
+                                If _PayTerm = "24" Then
+                                    If VacationLeaveType = "1" Then
+                                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
+                                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+                                    Else
+
+                                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                                    End If
+                                End If
+
 
                             End If
 
+                            _Leave = _Leave + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
 
+
+
+                            If _Leave > 0 And _DateReset <> "" Then
+
+                                If (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+
+                                    _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                                    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                                    _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                                    _Qry &= vbCrLf & "	   AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                                    _Qry &= vbCrLf & " 	   AND  FTDateTrans >= '" & (_DateReset) & "'"
+
+                                Else
+
+                                    _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                                    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                                    _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                                    _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                                    _Qry &= vbCrLf & " 	AND  FTDateTrans < '" & (_DateReset) & "'"
+                                    _Qry &= vbCrLf & " 	AND  FTDateTrans >=Convert(varchar(10),DateAdd(year,-1,Convert(Datetime,'" & (_DateReset) & "')),111)"
+
+                                End If
+
+                                _SumLeaveVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+
+                                If (_ReturnVacation > 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+
+                                    _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                                    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                                    _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                                    _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                                    _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & (_DateReset) & "'"
+
+                                    _SumLeaveVacation = _SumLeaveVacation + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+
+                                End If
+
+                                If _ReturnVacation <= 0 Then
+
+                                    _Qry = " SELECT   TOP 1 FCCfgRetValue"
+                                    _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigReturnVacationSet WITH(NOLOCK) "
+                                    _Qry &= vbCrLf & "  WHERE      (FNCalType =" & Val(_EmpType) & ")"
+
+                                    _ReturnVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+
+                                End If
+
+                                _FNSlaryPerDayRetVa = HI.Conn.SQLConn.GetField("Select Top 1 FNSalary From THRTPayRoll WITH(NOLOCK) where  FNHSysEmpID = " & Val(_EmpCode) & " and  FTPayYear +'/'+FTPayTerm  <'" & _PayYear & "/" & _PayTerm & "'  Order by FTPayYear +'/'+FTPayTerm DESC ", Conn.DB.DataBaseName.DB_HR, "0")
+
+                                If _FNSlaryPerDayRetVa = 0 Then
+                                    _FNSlaryPerDayRetVa = HI.Conn.SQLConn.GetField("Select Top 1 FNSalary From THRMEmployee WITH(NOLOCK) where  FNHSysEmpID = " & Val(_EmpCode), Conn.DB.DataBaseName.DB_HR, "0")
+                                End If
+
+
+                                If _FTEmpState = "2" Or _FTEmpState = "3" Then
+                                    _FNSlaryPerDay = CDbl(Format(_FCSalary / 30, "0.00"))
+                                    _FNSlaryPerDayRetVa = CDbl(Format(_FNSlaryPerDayRetVa / 30, "0.00"))
+                                Else
+                                    _FNSlaryPerDay = _FCSalary
+
+                                End If
+
+                                If _Leave > (_SumLeaveVacation / 480) Then
+
+                                    FNVacationRetMin = (_Leave * 480) - _SumLeaveVacation
+
+                                    If FNVacationRetMin <= 0 Then
+                                        FNVacationRetMin = 0
+                                    End If
+
+                                    FNVacationRetAmt = 0
+
+                                    _AmtReturnVacation = CDbl(Format((((_Leave * 480) - (_SumLeaveVacation)) * (_ReturnVacation * (_FNSlaryPerDayRetVa / 480))), "0.00"))
+
+                                    FNVacationRetAmt = _AmtReturnVacation
+
+                                End If
+
+
+                            End If
                         End If
+
+
                     End If
+
+
+
+
+
+
+
 
 
                 End If
@@ -7359,10 +7595,11 @@ Public NotInheritable Class Calculate
                     Dim _TotalTax As Double = GETnTax(_Total, _TaxOther, _TaxOtherAmt)
 
                     _EmpTaxYear.FTTotalTax = (_TotalTax + _TaxOtherAmt) 'ภาษีที่ต้องจ่าย
-
+                    '' _TotalTax = CDbl(Format(_EmpTaxYear.FTTotalTax, "0.00"))
+                    '_TotalTax = CDbl(Format(_EmpTaxYear.FTTotalTax - _EmpDisTax.BeforeTax, "0.00"))
                     _TotalTax = CDbl(Format(_TotalTax - _EmpDisTax.BeforeTax, "0.00"))
 
-                    If _TotalTax > 0 Then
+                    If _TotalTax > 0 Or _TaxOtherAmt > 0 Then
                         _TaxAmt = CDbl(Format((_TotalTax / ((_TotalInstalment - _Instalment) + 1)), "0.00"))
                         _TaxAmt = _TaxAmt + _TaxOtherAmt
                     Else
@@ -7872,8 +8109,6 @@ Public NotInheritable Class Calculate
 
     End Function
 
-
-
     Private Shared Function MoneyRetVacationPerDay(ByVal _PayYear As String, ByVal _PayTerm As String, ByVal _StartDate As String, ByVal _EndDate As String, _EmpSysId As Integer)
         Dim _Cmd As String = ""
 
@@ -8150,17 +8385,17 @@ Public NotInheritable Class Calculate
         End If
         '----------------------------------   Variable  ------------------------------------
 
-        If _PayTerm = "01" Then
+        'If _PayTerm = "01" Then
 
-            _Qry = "SELECT TOP 1  FNNetpay"
-            _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll AS A WITH(NOLOCK)"
-            _Qry &= vbCrLf & "  WHERE  (FTPayTerm = '25') "
-            _Qry &= vbCrLf & " AND (FTPayYear = '" & (Integer.Parse(Val(_PayYear)) - 1).ToString("0000") & "')"
-            _Qry &= vbCrLf & "  AND (FNHSysEmpID =" & Val(_EmpCode) & ")"
+        '    _Qry = "SELECT TOP 1  FNNetpay"
+        '    _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll AS A WITH(NOLOCK)"
+        '    _Qry &= vbCrLf & "  WHERE  (FTPayTerm = '25') "
+        '    _Qry &= vbCrLf & " AND (FTPayYear = '" & (Integer.Parse(Val(_PayYear)) - 1).ToString("0000") & "')"
+        '    _Qry &= vbCrLf & "  AND (FNHSysEmpID =" & Val(_EmpCode) & ")"
 
-            _FNPayterm25Amt = Double.Parse(Format(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")), "0.00"))
+        '    _FNPayterm25Amt = Double.Parse(Format(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")), "0.00"))
 
-        End If
+        'End If
 
 
         With _EmpTaxYear
@@ -8352,6 +8587,19 @@ Public NotInheritable Class Calculate
 
                     _FNIncentiveAmt = CDbl(Format(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")), "0.00"))
 
+
+                    _Qry = "SELECT SUM (CASE WHEN ISNULL(FNAmtFixedIncentive,0) >0 THEN  "
+                    _Qry &= vbCrLf & " ( CASE WHEN ( CASE WHEN ISNULL(FNNetProAmt,0) > ( case when  ISNULL(FNNetAmt, 0) > (M.FNSalary + D.FNAmtOT) then (M.FNSalary + D.FNAmtOT) else ISNULL(FNNetAmt, 0) end )  THEN  (ISNULL(FNNetProAmt,0) - ( case when  ISNULL(FNNetAmt, 0) > (M.FNSalary + D.FNAmtOT) then (M.FNSalary + D.FNAmtOT) else ISNULL(FNNetAmt, 0) end ) )  ELSE 0 END) < ISNULL(FNAmtFixedIncentive,0)  THEN ISNULL(FNAmtFixedIncentive,0)  ELSE  ( CASE WHEN ISNULL(FNNetProAmt,0) > ISNULL(FNNetAmt,0) THEN  (ISNULL(FNNetProAmt,0) - ( case when  ISNULL(FNNetAmt, 0) > (M.FNSalary + D.FNAmtOT) then (M.FNSalary + D.FNAmtOT) else ISNULL(FNNetAmt, 0) end ))  ELSE 0 END)  END ) "
+                    _Qry &= vbCrLf & " ELSE ( CASE WHEN ISNULL(FNNetProAmt,0) > ISNULL(FNNetAmt,0) THEN  (ISNULL(FNNetProAmt,0) - ( case when  ISNULL(FNNetAmt, 0) > (M.FNSalary + D.FNAmtOT) then (M.FNSalary + D.FNAmtOT) else ISNULL(FNNetAmt, 0) end ))  ELSE FNProNormal END) END   ) AS FNIncentiveAmt "
+                    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily AS D WITH(NOLOCK) "
+                    _Qry &= vbCrLf & "  LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) ON D.FNHSysEmpID = M.FNHSysEmpID "
+                    _Qry &= vbCrLf & " WHERE  (D.FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    _Qry &= vbCrLf & " 	AND D.FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    _Qry &= vbCrLf & " 	AND D.FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+
+
+                    _FNIncentiveAmt = CDbl(Format(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")), "0.00"))
+
                 Case 2
 
                     '---------ประกันเป็นเป็นงวด-------------------------------------------
@@ -8482,9 +8730,14 @@ Public NotInheritable Class Calculate
 
                     If _PayTerm = "24" Or _PayTerm = "25" Then
                         _DateReset = (Val(_PayYear) + 1).ToString("0000") & Microsoft.VisualBasic.Right(_DateReset, 6)
+
+                        _DateSetEmpReset = HI.UL.ULDate.AddDay(_DateReset, -1)
+                        _DateReset = (Val(_PayYear)).ToString("0000") & Microsoft.VisualBasic.Right(_DateReset, 6)
+                    Else
+                        _DateSetEmpReset = HI.UL.ULDate.AddDay(_DateReset, -1)
                     End If
 
-                    _DateSetEmpReset = HI.UL.ULDate.AddDay(_DateReset, -1)
+
 
                     Dim VacationLeaveType As String = ""
                     _Qry = " SELECT TOP 1 FTCfgData"
@@ -8493,53 +8746,81 @@ Public NotInheritable Class Calculate
 
                     VacationLeaveType = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "0")
                     _Qry = ""
-                    If _FDDateStart < _DateReset And _DateReset <> "" Then
-                        ''_FTRetVacation = เหตุผลในการออกจากงานที่จ่ายคืนพักร้อน
+                    '' If _FDDateStart < _DateReset And _DateReset <> "" Then
+                    ''_FTRetVacation = เหตุผลในการออกจากงานที่จ่ายคืนพักร้อน
 
-                        If (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate And _FTRetVacation = "1") Then
-                            '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
-                            '_Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                            '_Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+                    If (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate And _FTRetVacation = "1") Then
+                        '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                        '_Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                        '_Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
 
-                            Dim _FNYear As Integer = 0
-                            Dim _FNMonth As Integer = 0
-                            Dim _FNDay As Integer = 0
+                        Dim _FNYear As Integer = 0
+                        Dim _FNMonth As Integer = 0
+                        Dim _FNDay As Integer = 0
 
-                            If HI.UL.ULDate.CheckDate(_TmpFDDateEnd) <> "" Then
-                                _Qry = "Exec " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.SP_Datediff '" & HI.UL.ULDate.ConvertEnDB(_FDDateStart) & "',N'" & HI.UL.ULDate.ConvertEnDB(_TmpFDDateEnd) & "'"
+                        If HI.UL.ULDate.CheckDate(_TmpFDDateEnd) <> "" Then
+                            _Qry = "Exec " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.SP_Datediff '" & HI.UL.ULDate.ConvertEnDB(_FDDateStart) & "',N'" & HI.UL.ULDate.ConvertEnDB(_TmpFDDateEnd) & "'"
+                        Else
+                            _Qry = "Exec " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.SP_Datediff '" & HI.UL.ULDate.ConvertEnDB(_FDDateStart) & "',N''"
+                        End If
+
+                        Dim _Row As DataRow = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR).Rows(0)
+                        _FNYear = Integer.Parse(Val(_Row("FNYear")))
+                        _FNMonth = Integer.Parse(Val(_Row("FNMonth")))
+                        _FNDay = Integer.Parse(Val(_Row("FNDay")))
+
+                        _FNYear = IIf(_FNYear < 0, 0, _FNYear)
+                        _FNMonth = IIf(_FNMonth < 0, 0, _FNMonth)
+                        _FNDay = IIf(_FNDay < 0, 0, _FNDay)
+
+                        If _FNYear >= 1 Then
+                            If VacationLeaveType = "1" Then
+                                _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_TmpFDDateEnd) & "'))),111),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
+                                _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
                             Else
-                                _Qry = "Exec " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.SP_Datediff '" & HI.UL.ULDate.ConvertEnDB(_FDDateStart) & "',N''"
+
+                                _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                                _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                            End If
+                        End If
+
+
+
+
+                    ElseIf (_ReturnVacation > 0) Then
+
+
+                        If VacationLeaveType = "1" Then
+                            _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
+                            _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                            _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+                        Else
+
+                            _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                            _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                            _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                        End If
+
+
+                    Else
+
+                        If (_TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+                            If _PayTerm = "24" Or _PayTerm = "25" Then
+
+                            Else
+                                _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),Convert(varchar(10),DateAdd(day,-1,'" & (_DateReset) & "')),111),'" & (_EndDate) & "') AS FNEmpVacation"
+                                _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                                _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                                _Leave = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
                             End If
 
-                            Dim _Row As DataRow = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR).Rows(0)
-                            _FNYear = Integer.Parse(Val(_Row("FNYear")))
-                            _FNMonth = Integer.Parse(Val(_Row("FNMonth")))
-                            _FNDay = Integer.Parse(Val(_Row("FNDay")))
-
-                            _FNYear = IIf(_FNYear < 0, 0, _FNYear)
-                            _FNMonth = IIf(_FNMonth < 0, 0, _FNMonth)
-                            _FNDay = IIf(_FNDay < 0, 0, _FNDay)
-
-                            If _FNYear >= 1 Then
-                                If VacationLeaveType = "1" Then
-                                    _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_TmpFDDateEnd) & "'))),111),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
-                                    _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                                    _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
-                                Else
-
-                                    _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
-                                    _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                                    _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
-
-                                End If
-                            End If
-
-
-
-
-                        ElseIf (_ReturnVacation > 0) Then
-
-
+                        End If
+                        If _PayTerm = "24" Then
                             If VacationLeaveType = "1" Then
                                 _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
                                 _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
@@ -8551,122 +8832,95 @@ Public NotInheritable Class Calculate
                                 _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
 
                             End If
+                        End If
 
+
+                    End If
+
+                    _Leave = _Leave + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+
+
+
+                    If _Leave > 0 And _DateReset <> "" Then
+
+                        If (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+
+                            _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                            _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                            _Qry &= vbCrLf & "	   AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                            _Qry &= vbCrLf & " 	   AND  FTDateTrans >= '" & (_DateReset) & "'"
 
                         Else
 
-                            If (_TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
-                                If _PayTerm = "24" Or _PayTerm = "25" Then
-
-                                Else
-                                    _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),Convert(varchar(10),DateAdd(day,-1,'" & (_DateReset) & "')),111),'" & (_EndDate) & "') AS FNEmpVacation"
-                                    _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                                    _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
-
-                                    _Leave = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
-                                End If
-
-                            End If
-                            If _PayTerm = "24" Then
-                                If VacationLeaveType = "1" Then
-                                    _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
-                                    _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                                    _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
-                                Else
-
-                                    _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(day,-1,DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "'))),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
-                                    _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                                    _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
-
-                                End If
-                            End If
-
+                            _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                            _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                            _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                            _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & (_DateReset) & "'"
+                            _Qry &= vbCrLf & " 	AND  FTDateTrans <= '" & (_DateSetEmpReset) & "'"
+                            '' _Qry &= vbCrLf & " 	AND  FTDateTrans <=Convert(varchar(10),DateAdd(year,-1,Convert(Datetime,'" & (_DateReset) & "')),111)"
 
                         End If
 
-                        _Leave = _Leave + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                        _SumLeaveVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
 
+                        If (_ReturnVacation > 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
 
+                            _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                            _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                            _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                            _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & (_DateReset) & "'"
 
-                        If _Leave > 0 And _DateReset <> "" Then
-
-                            If (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
-
-                                _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
-                                _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
-                                _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
-                                _Qry &= vbCrLf & "	   AND FNHSysEmpID =" & Val(_EmpCode) & " "
-                                _Qry &= vbCrLf & " 	   AND  FTDateTrans >= '" & (_DateReset) & "'"
-
-                            Else
-
-                                _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
-                                _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
-                                _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
-                                _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
-                                _Qry &= vbCrLf & " 	AND  FTDateTrans < '" & (_DateReset) & "'"
-                                _Qry &= vbCrLf & " 	AND  FTDateTrans >=Convert(varchar(10),DateAdd(year,-1,Convert(Datetime,'" & (_DateReset) & "')),111)"
-
-                            End If
-
-                            _SumLeaveVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
-
-                            If (_ReturnVacation > 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
-
-                                _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
-                                _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
-                                _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
-                                _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
-                                _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & (_DateReset) & "'"
-
-                                _SumLeaveVacation = _SumLeaveVacation + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
-
-                            End If
-
-                            If _ReturnVacation <= 0 Then
-
-                                _Qry = " SELECT   TOP 1 FCCfgRetValue"
-                                _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigReturnVacationSet WITH(NOLOCK) "
-                                _Qry &= vbCrLf & "  WHERE      (FNCalType =" & Val(_EmpType) & ")"
-
-                                _ReturnVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
-
-                            End If
-
-                            _FNSlaryPerDayRetVa = HI.Conn.SQLConn.GetField("Select Top 1 FNSalary From THRTPayRoll WITH(NOLOCK) where  FNHSysEmpID = " & Val(_EmpCode) & " and  FTPayYear +'/'+FTPayTerm  <'" & _PayYear & "/" & _PayTerm & "'  Order by FTPayYear +'/'+FTPayTerm DESC ", Conn.DB.DataBaseName.DB_HR, "0")
-
-                            If _FNSlaryPerDayRetVa = 0 Then
-                                _FNSlaryPerDayRetVa = HI.Conn.SQLConn.GetField("Select Top 1 FNSalary From THRMEmployee WITH(NOLOCK) where  FNHSysEmpID = " & Val(_EmpCode), Conn.DB.DataBaseName.DB_HR, "0")
-                            End If
-
-
-                            If _FTEmpState = "2" Or _FTEmpState = "3" Then
-                                _FNSlaryPerDay = CDbl(Format(_FCSalary / 30, "0.00"))
-                                _FNSlaryPerDayRetVa = CDbl(Format(_FNSlaryPerDayRetVa / 30, "0.00"))
-                            Else
-                                _FNSlaryPerDay = _FCSalary
-
-                            End If
-
-                            If _Leave > (_SumLeaveVacation / 480) Then
-
-                                FNVacationRetMin = (_Leave * 480) - _SumLeaveVacation
-
-                                If FNVacationRetMin <= 0 Then
-                                    FNVacationRetMin = 0
-                                End If
-
-                                FNVacationRetAmt = 0
-
-                                _AmtReturnVacation = CDbl(Format((((_Leave * 480) - (_SumLeaveVacation)) * (_ReturnVacation * (_FNSlaryPerDayRetVa / 480))), "0.00"))
-
-                                FNVacationRetAmt = _AmtReturnVacation
-
-                            End If
-
+                            _SumLeaveVacation = _SumLeaveVacation + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
 
                         End If
+
+                        If _ReturnVacation <= 0 Then
+
+                            _Qry = " SELECT   TOP 1 FCCfgRetValue"
+                            _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigReturnVacationSet WITH(NOLOCK) "
+                            _Qry &= vbCrLf & "  WHERE      (FNCalType =" & Val(_EmpType) & ")"
+
+                            _ReturnVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+
+                        End If
+
+                        _FNSlaryPerDayRetVa = HI.Conn.SQLConn.GetField("Select Top 1 FNSalary From THRTPayRoll WITH(NOLOCK) where  FNHSysEmpID = " & Val(_EmpCode) & " and  FTPayYear +'/'+FTPayTerm  <'" & _PayYear & "/" & _PayTerm & "'  Order by FTPayYear +'/'+FTPayTerm DESC ", Conn.DB.DataBaseName.DB_HR, "0")
+
+                        If _FNSlaryPerDayRetVa = 0 Then
+                            _FNSlaryPerDayRetVa = HI.Conn.SQLConn.GetField("Select Top 1 FNSalary From THRMEmployee WITH(NOLOCK) where  FNHSysEmpID = " & Val(_EmpCode), Conn.DB.DataBaseName.DB_HR, "0")
+                        End If
+
+
+                        If _FTEmpState = "2" Or _FTEmpState = "3" Then
+                            _FNSlaryPerDay = CDbl(Format(_FCSalary / 30, "0.00"))
+                            _FNSlaryPerDayRetVa = CDbl(Format(_FNSlaryPerDayRetVa / 30, "0.00"))
+                        Else
+                            _FNSlaryPerDay = _FCSalary
+
+                        End If
+
+                        If _Leave > (_SumLeaveVacation / 480) Then
+
+                            FNVacationRetMin = (_Leave * 480) - _SumLeaveVacation
+
+                            If FNVacationRetMin <= 0 Then
+                                FNVacationRetMin = 0
+                            End If
+
+                            FNVacationRetAmt = 0
+
+                            _AmtReturnVacation = CDbl(Format((((_Leave * 480) - (_SumLeaveVacation)) * (_ReturnVacation * (_FNSlaryPerDayRetVa / 480))), "0.00"))
+
+                            FNVacationRetAmt = _AmtReturnVacation
+
+                        End If
+
+
                     End If
+                    '' End If
 
 
                 End If
@@ -11190,7 +11444,7 @@ Public NotInheritable Class Calculate
         Dim _GAmtPlus As Double = 0
         Dim FTHldType As Integer = 0
         Dim _AmtRetire As Double = 0
-        Dim _WorkAge As Integer = 0 : Dim _WorkAgeDay As Integer = 0 : Dim _WorkAgeSeniority As Integer = 0 : Dim _WorkingDayN As Integer = 0
+        Dim _WorkAge As Integer = 0 : Dim _WorkAgeDay As Integer = 0 : Dim _WorkAgeSeniority As Integer = 0 : Dim _WorkingDayN As Integer = 0 : Dim _WorkingDayN_Seniority As Integer = 0
         Dim _WorkAgeParturition As Integer = 0
         Dim _AmtReturnVacation As Double = 0
         Dim _FNIncentiveAmt As Double = 0
@@ -11252,6 +11506,8 @@ Public NotInheritable Class Calculate
         Dim FNUnionAmt As Double = 0
         Dim FNUnionRate As Double = 0
 
+        Dim _FNUnion As Integer = 0
+
 
         Try
             FNSocialEmployeeRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eSocialInsurance).FNEmployeeRate
@@ -11284,8 +11540,6 @@ Public NotInheritable Class Calculate
         Dim FNUnemploymentInsuranceEmployerOrg As Double = 0.0
         Dim FNUnionInsuranceEmployeeOrg As Double = 0.0
         Dim FNUnionInsuranceEmployerOrg As Double = 0.0
-
-
 
 
         _DTEmpWorkDay.Columns.Add("FNSalary", GetType(Double))
@@ -11472,10 +11726,18 @@ Public NotInheritable Class Calculate
         _Qry &= vbCrLf & " ,ISNULL(ET.FNSalaryDivide,0) AS FNSalaryDivide , isnull( M.FTStateWorkpermit ,'0') as FTStateWorkpermit"
         _Qry &= vbCrLf & ",ISNULL(ET.FTStatePayHoliday,'') AS FTStatePayHoliday "
         _Qry &= vbCrLf & ", dbo.FN_Get_Emp_WorkAge(M.FdDateStart,'" & _EndDate & "') AS FNEmpWorkAgeNew"
-        _Qry &= vbCrLf & ", dbo.FN_Get_Emp_WorkAge_MonthSeniority(M.FdDateStart,M.FdDateEnd,'" & _EndDate & "') AS FNEmpWorkAgeMonthSeniority     "
-        _Qry &= vbCrLf & ", dbo.FN_Get_Emp_WorkAge_Salary_CD_NEW(M.FdDateStart,M.FdDateEnd,'" & _EndDate & "') AS FNEmpWorkAgeNewCD ,  dbo.[FN_Get_Emp_WorkAge_Day](M.FDDateStart,M.FDDateEnd) as FNEmpWorkAgeNewDay"
+        _Qry &= vbCrLf & ", dbo.FN_Get_Emp_WorkAge_MonthSeniority(M.FdDateStart,M.FdDateEnd,'" & _EndDate & "') AS FNEmpWorkAgeMonthSalary  "
+        _Qry &= vbCrLf & ", dbo.FN_Get_Emp_WorkAge_Salary_CD_NEW(M.FdDateStart,M.FdDateEnd,'" & _EndDate & "') AS FNEmpWorkAgeNewCD "
+        _Qry &= vbCrLf & " ,  dbo.[FN_Get_Emp_WorkAge_Day](M.FDDateStart,M.FDDateEnd) as FNEmpWorkAgeNewDay"
         _Qry &= vbCrLf & " ,  dbo.[FN_Get_Emp_WorkAge_Day_CD](M.FDDateStart,M.FDDateEnd,M.FNHSysEmpID,'" & _EndDate & "') as FNEmpWorkAgeNewDay_CD "
         _Qry &= vbCrLf & " , isnull(M.FTStateUnionMember,'') as FTStateUnionMember  , isnull(M.FDStartDateUnion,'') as FDStartDateUnion , isnull(M.FDEndDateUnion,'') as FDEndDateUnion"
+        _Qry &= vbCrLf & " , isnull(M.FNUnion,0) as FNUnion  "
+
+        _Qry &= vbCrLf & "  "
+        _Qry &= vbCrLf & ", dbo.FN_Get_Emp_WorkAge_MonthSeniority(M.FDDateProbation,M.FdDateEnd,'" & _EndDate & "') AS FNEmpWorkAgeMonthSeniority     "
+        _Qry &= vbCrLf & ", dbo.FN_Get_Emp_WorkAge_After_Probation(M.FDDateProbation,M.FdDateEnd,'" & _EndDate & "') AS FNEmpWorkAgeNewCDSeniority "
+        _Qry &= vbCrLf & "  "
+
         _Qry &= vbCrLf & "  FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) INNER JOIN"
         _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType AS ET WITH (NOLOCK) ON M.FNHSysEmpTypeId = ET.FNHSysEmpTypeId"
         _Qry &= vbCrLf & "	WHERE     (M.FNHSysEmpID =" & Val(_EmpCode) & " ) "
@@ -11485,6 +11747,9 @@ Public NotInheritable Class Calculate
         For Each R As DataRow In _Dtemp.Rows
 
             _DtFin.Rows.Clear()
+
+            _FNUnion = Integer.Parse("0" & R!FNUnion.ToString)
+
             _FNEmpStatus = Integer.Parse("0" & R!FTStatus.ToString)
             _AmtAddCalOT = 0
             _EmpSex = Val("0" & R!FNEmpSex.ToString)
@@ -11554,16 +11819,20 @@ Public NotInheritable Class Calculate
 
             '---------อายุงาน เดือน ไม่ปัดขึ้น เพื่อคิด ค่ารางวัลอายุงาน 
             _WorkAgeSeniority = Val(R!FNEmpWorkAgeMonthSeniority.ToString)
+            _WorkingDayN_Seniority = Val(R!FNEmpWorkAgeNewCDSeniority.ToString)
+
+
 
             '---------วันทำงาน 
             _WorkingDayN = Val("0" & R!FNEmpWorkAgeNewDay_CD.ToString)
-
-            '----------- Calculate Seniority Bonus For KKN---------------
             _FNWorkAgeSalary = 0
+            Dim _FNWorkAgeSalary_Month As Integer
+            '----------- Calculate Seniority Bonus For KKN---------------
+            _FNWorkAgeSalary_Month = Val(R!FNEmpWorkAgeMonthSalary.ToString)
             'If _FTEmpState <> "2" And _FTEmpState <> "3" Then
             If Val(_PayTerm) Mod 2 <> 0 Then
                 If (_EndDate >= Left(_StartDate, 8) & "07" And _EndDate <= Left(_StartDate, 8) & "24") Then
-                    For Each ZRow In _tmpWorkAge.Select(" FNWorkAgeStart<= " & _WorkAgeSeniority & " AND  FNWorkAgeEnd>=" & _WorkAgeSeniority & " ")
+                    For Each ZRow In _tmpWorkAge.Select(" FNWorkAgeStart<= " & _FNWorkAgeSalary_Month & " AND  FNWorkAgeEnd>=" & _FNWorkAgeSalary_Month & " ")
                         _FNWorkAgeSalary = Val(ZRow!FNWorkAgeAmt.ToString)
                         Exit For
                     Next
@@ -11679,12 +11948,23 @@ Public NotInheritable Class Calculate
             _EmpDisTaxChildAmt = 0
 
             If (_EmpSex = 1) Then 'Employee Male Not Cal ChildCare
-                For Each _Drow As DataRow In _dttemp.Select("FTStateNotDisTax = '0'")
+
+                For Each _Drow As DataRow In _dttemp.Rows
 
                     '--------  Add Child Care For KKN--------------
                     If Val(_Drow!FNChildAge.ToString) >= _FNChildCareStartAge And Val(_Drow!FNChildAge.ToString) < _FNChildCareEndAge Then
                         _FNTotalChildCare = _FNTotalChildCare + 1
                     End If
+
+                Next
+
+
+                For Each _Drow As DataRow In _dttemp.Select("FTStateNotDisTax = '0'")
+
+                    ''--------  Add Child Care For KKN--------------
+                    'If Val(_Drow!FNChildAge.ToString) >= _FNChildCareStartAge And Val(_Drow!FNChildAge.ToString) < _FNChildCareEndAge Then
+                    '    _FNTotalChildCare = _FNTotalChildCare + 1
+                    'End If
                     '--------  Add Child Care For KKN--------------
 
                     If _Drow!FTStudySta.ToString = "1" Then
@@ -11845,7 +12125,7 @@ Public NotInheritable Class Calculate
 
                     ElseIf _PayTerm = "01" Then
                         ''  MsgBox("b")
-                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'2021/01/01','2021/12/31') AS FNEmpVacation"
+                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'2022/01/01','2022/12/31') AS FNEmpVacation"
                         '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "')),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
                         _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
                         _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
@@ -11907,13 +12187,13 @@ Public NotInheritable Class Calculate
                             _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
                             _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
                             '' _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & (_DateReset) & "'"
-                            _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & ("2022/01/01") & "'"
+                            _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & ("2023/01/01") & "'"
 
                             _SumLeaveVacation = _SumLeaveVacation + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
                             ''         MsgBox(_SumLeaveVacation)
                         Else
                             ''        MsgBox("g")
-                            _Qry = " "
+                            '_Qry = " "
                             '_Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
                             '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
                             '_Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
@@ -14197,7 +14477,7 @@ Public NotInheritable Class Calculate
 
                 '  _FTAddCalculateTax = _FTAddCalculateTax + _ShiftAmt + _ShiftOTAmt
                 _FCAdd = _FCAdd + _ShiftAmt + _ShiftOTAmt
-
+                '  MsgBox(FNParturitionLeave)
                 If _FTEmpState = "2" Or _FTEmpState = "3" Then
                     'If _FCPayVacationBaht > (_FNSlaryPerDay * (FNVacationRetMin / 480)) Then
                     '    _FCPayVacationBaht = _FCPayVacationBaht - (_FNSlaryPerDay * (FNVacationRetMin / 480))
@@ -14343,6 +14623,19 @@ Public NotInheritable Class Calculate
                     _DiffTotalNetPay = 0
                 End If
 
+                Dim _FNParturitionLeaveUS1 As Double = 0
+                Dim _FNParturitionLeaveUS2 As Double = 0
+                Dim _FNParturitionLeaveUS3 As Double = 0
+
+                If (FNParturitionLeave > 0) Then
+                    _FNParturitionLeaveUS1 = Double.Parse(Format(FNParturitionLeave / 3.0, "0.00"))
+                    _FNParturitionLeaveUS2 = Double.Parse(Format(FNParturitionLeave / 3.0, "0.00"))
+                    _FNParturitionLeaveUS3 = Double.Parse(Format(FNParturitionLeave / 3.0, "0.00"))
+                    '' _FNParturitionLeaveUS3 ''' = FNParturitionLeave - (_FNParturitionLeaveUS1 + _FNParturitionLeaveUS2)
+
+                End If
+
+
 
                 _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
                 _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
@@ -14379,7 +14672,13 @@ Public NotInheritable Class Calculate
                 _Qry &= vbCrLf & ", FNAttandanceAmt, FNHealtCareAmt, "
                 _Qry &= vbCrLf & " FNTransportAmt, FNChildCareAmt, FNOTMealAmt, FNSocialBase, FNWorkAgeSalary, FNOTMealAmtUS, FNExchangeRate, FNSickLeaveBaht, FNSickLeaveMin, FNBusinessLeaveBaht, FNBusinessLeaveMin,"
                 _Qry &= vbCrLf & "FNSpecialLeaveBaht, FNSpecialLeaveMin, FNParturitionLeaveBaht, FNParturitionLeaveMin, FNVacationRetMin, FNVacationRetAmt,FNExchangeRateTHB"
-                _Qry &= vbCrLf & ",FNWorkDay,FTStateCalSocial,FTStateCalTax,FNTotalIncomeDiff,FNNetpayDiff,FNSocialExchangeRate,FNTaxExchangeRate , FNServicefee ,FNFinTransFee,FNSocialInsuranceEmployee , FNSocialInsuranceEmployer, FNUnionInsuranceEmployee  )"
+                _Qry &= vbCrLf & ",FNWorkDay,FTStateCalSocial,FTStateCalTax,FNTotalIncomeDiff,FNNetpayDiff,FNSocialExchangeRate,FNTaxExchangeRate , FNServicefee ,FNFinTransFee,FNSocialInsuranceEmployee , FNSocialInsuranceEmployer, FNUnionInsuranceEmployee   "
+                _Qry &= vbCrLf & ", FNUnion "
+                _Qry &= vbCrLf & ", FNParturitionLeaveUS1 "
+                _Qry &= vbCrLf & ", FNParturitionLeaveUS2"
+                _Qry &= vbCrLf & ", FNParturitionLeaveUS3"
+                _Qry &= vbCrLf & ")"
+
                 _Qry &= vbCrLf & " 	SELECT '" & HI.UL.ULF.rpQuoted(_User) & "',CONVERT(varchar(10),GetDate(),111),CONVERT(varchar(8),GetDate(),114)"
                 _Qry &= vbCrLf & " 	,'" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ""
                 _Qry &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "','" & HI.UL.ULF.rpQuoted(_FTEmpIdNo1) & "','" & HI.UL.ULF.rpQuoted(_FTSocialNo) & "','" & _EmpType & "','" & HI.UL.ULDate.ConvertEnDB(_PayDate) & "'"
@@ -14486,7 +14785,11 @@ Public NotInheritable Class Calculate
                 _Qry &= vbCrLf & "," & FNSocialInsuranceEmployee
                 _Qry &= vbCrLf & "," & FNSocialInsuranceEmployer
                 _Qry &= vbCrLf & "," & FNUnionAmt
+                _Qry &= vbCrLf & "," & _FNUnion
 
+                _Qry &= vbCrLf & "," & _FNParturitionLeaveUS1
+                _Qry &= vbCrLf & "," & _FNParturitionLeaveUS2
+                _Qry &= vbCrLf & "," & _FNParturitionLeaveUS3
 
 
                 '  , FNVacationRetMin, FNVacationRetAmt
@@ -14496,7 +14799,7 @@ Public NotInheritable Class Calculate
 
 
                 ' Start คิดค่า seniority ind
-                If ((_WorkingDayN >= 21) Or _WorkAgeSeniority >= 1) And (_FDDateEnd >= _EndDate Or _FDDateEnd = "") Then  'จ่ายค่า seniority ind สำหรับพนักงานอายุงาน 1 เดือนขึ้นไป (กรณีเข้างานเดือนเดียวกันกับงวดการจ่าย 21 วันขึ้นไปให้คิดเป็นเดือน) และสถานะต้องเป็นพนักงาน
+                If ((_WorkingDayN_Seniority >= 21) Or _WorkAgeSeniority >= 1) And (_FDDateEnd >= _EndDate Or _FDDateEnd = "") Then  'จ่ายค่า seniority ind สำหรับพนักงานอายุงาน 1 เดือนขึ้นไป (กรณีเข้างานเดือนเดียวกันกับงวดการจ่าย 21 วันขึ้นไปให้คิดเป็นเดือน) และสถานะต้องเป็นพนักงาน
                     ''If (_FDDateEnd >= _EndDate Or _FDDateEnd = "") Then
                     Dim _SeniorityIndOld As Double = 0
                     'For Each R2 As DataRow In _dtAddOtherAmt.Select(" FTFinCode='044'")
@@ -14639,8 +14942,6 @@ Public NotInheritable Class Calculate
                         End If
                         _EmpTaxYear.FTTotalTaxPay = _TaxAmt + _FCAccumulateTax
                         _TotalCalTax = (_TotalCalTax / 2)
-
-
 
 
                     Else
@@ -14965,139 +15266,8 @@ Public NotInheritable Class Calculate
                 Next
 
 
-                _Qry = " SELECT   top 1    SUM((isnull(P.FNTotalIncome,0) - (  isnull(F44.FCTotalFinAmt,0) +  isnull(F45.FCTotalFinAmt,0) +  isnull(F46.FCTotalFinAmt,0)+  isnull(F47.FCTotalFinAmt,0) +  isnull(F19.FCTotalFinAmt,0)) ) )   AS FNTotalIncome "
-                '' _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTax,0) *  ISNULL(P.FNTaxExchangeRate,1)) AS FNTax"
-                _Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK)"
-                _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '044') F44 "
-                _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '045') F45 "
-                _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '046') F46 "
-                _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '047') F47 "
-                _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '019') F19 "
-                _Qry &= vbCrLf & " , (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
-                _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
-                _Qry &= vbCrLf & "AND ISNULL(P.FNTotalIncome,0) > 0 "
-                _Qry &= vbCrLf & "AND P.FTEmpIdNo ='" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' "
-                ''_Qry &= vbCrLf & " AND PD.FTPayTerm <  '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
-                _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
-                _Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
-                _Qry &= vbCrLf & " AND PD.FNMonth IN (   "
-                _Qry &= vbCrLf & "  Select FNMonth"
-                _Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
-                _Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
-                _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
-                _Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
-                _Qry &= vbCrLf & "  )  "
+                '' payroll  fin
 
-
-                Dim _FNTotalIncomeSum As Double = 0
-
-
-
-
-
-                Dim _DtTotal As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
-                If _DtTotal.Rows.Count > 0 Then
-                    _FNTotalIncomeSum = Val(_DtTotal.Rows(0)!FNTotalIncome.ToString)
-                End If
-                _DtTotal.Dispose()
-
-
-                If (_FNTotalIncomeSum) >= 2 Then
-
-                    _FNTotalIncomeSum = _FNTotalIncomeSum * SocialExchangeRate
-
-                    Dim _FNTotalIncomePension As Double = 0
-                    Dim _FNTotalIncomePensionDefault As Double = 0
-
-                    _Qry = " SELECT  FNHSysPensionRankID "
-                    _Qry &= vbCrLf & " ,[FNSeq],[FNTotalRecalFrom],[FNTotalRecalTo] "
-                    _Qry &= vbCrLf & " ,[FNCalPensionType],[FNTotalRecalDefault] "
-                    _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].[dbo].[THRMCfgSocailKMPensionRank]  "
-                    _Qry &= vbCrLf & ""
-
-                    Dim _DtPensionRank As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
-
-                    For Each Rp As DataRow In _DtPensionRank.Select("FNTotalRecalFrom<=" & _FNTotalIncomeSum & " AND  FNTotalRecalTo>=" & _FNTotalIncomeSum & "")
-                        If (Rp!FNCalPensionType.ToString = "0") Then
-                            _FNTotalIncomePension = Val(Rp!FNTotalRecalDefault.ToString)
-                        Else
-                            _FNTotalIncomePension = Val(_FNTotalIncomeSum)
-                        End If
-
-
-                    Next
-
-                    Dim _FNPensionEmp As Double = 0
-                    Dim _FNPensionCmp As Double = 0
-
-                    '_FNPensionEmp = _FNTotalIncomePension * 0.02   
-                    '_FNPensionCmp = _FNTotalIncomePension * 0.02
-
-                    _FNPensionEmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
-                    _FNPensionCmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
-
-
-
-                    _FNNetpay = Format((_FNNetpay - _FNPensionEmp), "0.00")
-
-                    If _FNNetpay < 0 Then
-                        _FNNetpay = 0
-                    End If
-
-
-                    'FNNetIncome
-                    _Qry = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
-                    _Qry &= vbCrLf & "set FNTotalRecalPensionScheme=" & Val(_FNTotalIncomeSum)
-                    _Qry &= vbCrLf & ", FNPensionSchemeRateEmp=" & Val(2)
-                    _Qry &= vbCrLf & " ,FNPensionSchemeRateCmp=" & Val(2)
-                    _Qry &= vbCrLf & " ,FNPensionScheme=" & Val(_FNPensionEmp)
-                    _Qry &= vbCrLf & " , FNPensionSchemeCmp=" & Val(_FNPensionCmp)
-
-                    _Qry &= vbCrLf & " ,FNNetpay=" & _FNNetpay
-
-                    _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
-                    _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
-                    _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
-                    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
-
-                End If
-
-
-                'If _ShiftAmt > 0 Then
-                '    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
-                '    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '001'," & _ShiftValue.ToString & "," & _ShiftAmt.ToString & ""
-
-                '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
-                'End If
-
-                'If _ShiftOTAmt > 0 Then
-                '    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
-                '    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '007'," & _ShiftOTValue.ToString & "," & _ShiftOTAmt.ToString & ""
-
-                '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
-                'End If
-
-                'If _FNEmpDiligent > 0 Then
-                '    If _FNDeligentPeriod = 0 Then
-                '        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
-                '        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '008'," & _FNEmpDiligent.ToString & "," & _FNEmpDiligent.ToString & ""
-
-                '        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
-                '    Else
-                '        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
-                '        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '009'," & _FNEmpDiligent.ToString & "," & _FNEmpDiligent.ToString & ""
-
-                '        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
-                '    End If
-                'End If
-
-                'If _AmtReturnVacation > 0 Then
-                '    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode, FCFinAmt,FCTotalFinAmt)"
-                '    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '023'," & _ShiftValue.ToString & "," & _AmtReturnVacation.ToString & ""
-
-                '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
-                'End If
-                ''----------- เงินคืนพักร้อน-------------------------------
 
                 If _ShiftAmt > 0 Then
 
@@ -15257,6 +15427,449 @@ Public NotInheritable Class Calculate
                     End If
 
                 End If
+
+
+
+
+
+
+
+
+                '' for calculate sso pension ประกันสังคมเกษียณ
+
+                Dim _FNTotalIncomeSum As Double = 0
+
+
+                '' check resgin   and  check  period 2 of month     _StartDate    _EndDate   _FDDateEnd
+
+                Dim pension_FNParturitionLeaveUS1 As Double = 0
+                Dim pension_FNParturitionLeaveUS2 As Double = 0
+                Dim pension_FNParturitionLeaveUS3 As Double = 0
+
+
+                ''งวดที่ 1 
+                ''  IfVal(_PayTerm) Mod 2 = 1 And (_FDDateEnd >= _StartDate And _FDDateEnd <= _EndDate And _FDDateEnd <> "") Or FNParturitionLeave > 0 Then
+                If Val(_PayTerm) Mod 2 = 1 And ((_FDDateEnd <> "") Or FNParturitionLeave > 0) Then
+                    _Qry = " SELECT   top 1    SUM((isnull(P.FNTotalIncome,0) - (  isnull(F44.FCTotalFinAmt,0) +  isnull(F45.FCTotalFinAmt,0) +  isnull(F46.FCTotalFinAmt,0)+  isnull(F47.FCTotalFinAmt,0) +  isnull(F19.FCTotalFinAmt,0)) ) )   AS FNTotalIncome "
+
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNParturitionLeaveUS1,0) ) AS FNParturitionLeaveUS1 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNParturitionLeaveUS2,0) ) AS FNParturitionLeaveUS2 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNParturitionLeaveUS3,0) ) AS FNParturitionLeaveUS3 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNPensionSchemeAdvance2,0) ) AS FNPensionSchemeAdvance2 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNPensionSchemeAdvance3,0) ) AS FNPensionSchemeAdvance3 "
+
+
+                    '' _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTax,0) *  ISNULL(P.FNTaxExchangeRate,1)) AS FNTax"
+                    _Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK)"
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '044') F44 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '045') F45 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '046') F46 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '047') F47 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '019') F19 "
+                    _Qry &= vbCrLf & " , (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                    _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "AND ISNULL(P.FNTotalIncome,0) > 0 "
+                    _Qry &= vbCrLf & "AND P.FTEmpIdNo ='" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' "
+                    ''_Qry &= vbCrLf & " AND PD.FTPayTerm <  '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                    _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+                    _Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                    _Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                    _Qry &= vbCrLf & "  Select FNMonth"
+                    _Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                    _Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                    _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                    _Qry &= vbCrLf & "  )  "
+
+                    Dim _DtTotal As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    If _DtTotal.Rows.Count > 0 Then
+                        _FNTotalIncomeSum = Val(_DtTotal.Rows(0)!FNTotalIncome.ToString)
+                        pension_FNParturitionLeaveUS1 = Val(_DtTotal.Rows(0)!FNParturitionLeaveUS1.ToString)
+                        pension_FNParturitionLeaveUS2 = Val(_DtTotal.Rows(0)!FNParturitionLeaveUS2.ToString)
+                        pension_FNParturitionLeaveUS3 = Val(_DtTotal.Rows(0)!FNParturitionLeaveUS3.ToString)
+
+
+                    End If
+                    _DtTotal.Dispose()
+
+
+                    Dim _FNTotalIncomeSum2 As Double = 0
+                    Dim _FNTotalIncomeSum3 As Double = 0
+
+                    If (_FNTotalIncomeSum) >= 2 Then
+
+
+
+                        _FNTotalIncomeSum = (_FNTotalIncomeSum - (pension_FNParturitionLeaveUS2 + pension_FNParturitionLeaveUS3)) * SocialExchangeRate
+
+                        _FNTotalIncomeSum2 = (pension_FNParturitionLeaveUS2) * SocialExchangeRate
+                        _FNTotalIncomeSum3 = (pension_FNParturitionLeaveUS3) * SocialExchangeRate
+
+                        Dim _FNTotalIncomePension As Double = 0
+                        Dim _FNTotalIncomePensionDefault As Double = 0
+
+                        _Qry = " SELECT  FNHSysPensionRankID "
+                        _Qry &= vbCrLf & " ,[FNSeq],[FNTotalRecalFrom],[FNTotalRecalTo] "
+                        _Qry &= vbCrLf & " ,[FNCalPensionType],[FNTotalRecalDefault] "
+                        _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].[dbo].[THRMCfgSocailKMPensionRank]  "
+                        _Qry &= vbCrLf & ""
+
+                        Dim _DtPensionRank As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                        For Each Rp As DataRow In _DtPensionRank.Select("FNTotalRecalFrom<=" & _FNTotalIncomeSum & " AND  FNTotalRecalTo>=" & _FNTotalIncomeSum & "")
+                            If (Rp!FNCalPensionType.ToString = "0") Then
+                                _FNTotalIncomePension = Val(Rp!FNTotalRecalDefault.ToString)
+                            Else
+                                _FNTotalIncomePension = Val(_FNTotalIncomeSum)
+                            End If
+
+                        Next
+
+
+
+
+                        Dim _FNPensionEmp As Double = 0
+                        Dim _FNPensionCmp As Double = 0
+
+                        '_FNPensionEmp = _FNTotalIncomePension * 0.02   
+                        '_FNPensionCmp = _FNTotalIncomePension * 0.02
+
+                        _FNPensionEmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
+                        _FNPensionCmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
+
+
+                        Dim _FNPension2 As Double = 0
+
+                        Dim _FNPension3 As Double = 0
+
+                        If _FNTotalIncomeSum2 > 0 And _FNTotalIncomeSum3 > 0 Then
+                            _FNPension2 = (Format(((_FNTotalIncomeSum2 * 0.02) / SocialExchangeRate), "0.00"))
+                            _FNPension3 = (Format(((_FNTotalIncomeSum3 * 0.02) / SocialExchangeRate), "0.00"))
+                        End If
+
+
+
+
+
+                        _FNNetpay = Format((_FNNetpay - (_FNPensionEmp + _FNPension2 + _FNPension3)), "0.00")
+
+
+
+
+                        If _FNNetpay < 0 Then
+                            _FNNetpay = 0
+                        End If
+
+                        'FNNetIncome
+                        _Qry = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+                        _Qry &= vbCrLf & "set FNTotalRecalPensionScheme=" & Val(_FNTotalIncomeSum)
+                        _Qry &= vbCrLf & ", FNPensionSchemeRateEmp=" & Val(2)
+                        _Qry &= vbCrLf & " ,FNPensionSchemeRateCmp=" & Val(2)
+                        _Qry &= vbCrLf & " ,FNPensionScheme=" & Val(_FNPensionEmp)
+                        _Qry &= vbCrLf & " , FNPensionSchemeCmp=" & Val(_FNPensionCmp)
+
+                        _Qry &= vbCrLf & " , FNPensionSchemeAdvance2=" & Val(_FNPension2)
+                        _Qry &= vbCrLf & " , FNPensionSchemeAdvance3=" & Val(_FNPension3)
+
+                        _Qry &= vbCrLf & " ,FNNetpay=" & _FNNetpay
+
+                        _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+                        _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                        _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                    End If
+
+
+                    '' งวดที่สองของเดือน
+                ElseIf Val(_PayTerm) Mod 2 = 0 Then
+
+
+
+
+                    ''check  คนที่ลาคลอดงวด1 
+
+
+
+                    _Qry = " SELECT   top 1    SUM((isnull(P.FNTotalIncome,0) - (  isnull(F44.FCTotalFinAmt,0) +  isnull(F45.FCTotalFinAmt,0) +  isnull(F46.FCTotalFinAmt,0)+  isnull(F47.FCTotalFinAmt,0) +  isnull(F19.FCTotalFinAmt,0)) ) )   AS FNTotalIncome "
+                    '' _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTax,0) *  ISNULL(P.FNTaxExchangeRate,1)) AS FNTax"
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNParturitionLeaveUS1,0) ) AS FNParturitionLeaveUS1 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNParturitionLeaveUS2,0) ) AS FNParturitionLeaveUS2 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNParturitionLeaveUS3,0) ) AS FNParturitionLeaveUS3 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNPensionSchemeAdvance2,0) ) AS FNPensionSchemeAdvance2 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNPensionSchemeAdvance3,0) ) AS FNPensionSchemeAdvance3 "
+
+
+
+                    _Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK)"
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '044') F44 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '045') F45 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '046') F46 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '047') F47 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '019') F19 "
+                    _Qry &= vbCrLf & " , (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                    _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "AND ISNULL(P.FNTotalIncome,0) > 0 "
+                    _Qry &= vbCrLf & "AND P.FTEmpIdNo ='" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' "
+                    ''_Qry &= vbCrLf & " AND PD.FTPayTerm <  '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                    _Qry &= vbCrLf & " AND P.FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & " AND P.FTPayTerm='" & HI.UL.ULF.rpQuoted(Val(_PayTerm) - 1) & "' "
+
+                    Dim _DtTotal1 As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    If _DtTotal1.Rows.Count > 0 Then
+                        _FNTotalIncomeSum = Val(_DtTotal1.Rows(0)!FNTotalIncome.ToString)
+
+                        pension_FNParturitionLeaveUS1 = Val(_DtTotal1.Rows(0)!FNParturitionLeaveUS1.ToString)
+                        pension_FNParturitionLeaveUS2 = Val(_DtTotal1.Rows(0)!FNParturitionLeaveUS2.ToString)
+                        pension_FNParturitionLeaveUS3 = Val(_DtTotal1.Rows(0)!FNParturitionLeaveUS3.ToString)
+
+                    End If
+
+                    Dim FNParturitionLeave_PeriodOne As String = ""
+
+                    If pension_FNParturitionLeaveUS1 > 0 Then
+                        FNParturitionLeave_PeriodOne = "y"
+                    End If
+
+
+
+                    _Qry = " SELECT   top 1    SUM((isnull(P.FNTotalIncome,0) - (  isnull(F44.FCTotalFinAmt,0) +  isnull(F45.FCTotalFinAmt,0) +  isnull(F46.FCTotalFinAmt,0)+  isnull(F47.FCTotalFinAmt,0) +  isnull(F19.FCTotalFinAmt,0)) ) )   AS FNTotalIncome "
+                    '' _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTax,0) *  ISNULL(P.FNTaxExchangeRate,1)) AS FNTax"
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNParturitionLeaveUS1,0) ) AS FNParturitionLeaveUS1 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNParturitionLeaveUS2,0) ) AS FNParturitionLeaveUS2 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNParturitionLeaveUS3,0) ) AS FNParturitionLeaveUS3 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNPensionSchemeAdvance2,0) ) AS FNPensionSchemeAdvance2 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNPensionSchemeAdvance3,0) ) AS FNPensionSchemeAdvance3 "
+
+
+
+                    _Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK)"
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '044') F44 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '045') F45 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '046') F46 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '047') F47 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '019') F19 "
+                    _Qry &= vbCrLf & " , (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                    _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "AND ISNULL(P.FNTotalIncome,0) > 0 "
+                    _Qry &= vbCrLf & "AND P.FTEmpIdNo ='" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' "
+                    ''_Qry &= vbCrLf & " AND PD.FTPayTerm <  '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                    _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+                    _Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                    _Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                    _Qry &= vbCrLf & "  Select FNMonth"
+                    _Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                    _Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                    _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                    _Qry &= vbCrLf & "  )  "
+
+
+                    Dim _DtTotal As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    If _DtTotal.Rows.Count > 0 Then
+                        _FNTotalIncomeSum = Val(_DtTotal.Rows(0)!FNTotalIncome.ToString)
+
+                        pension_FNParturitionLeaveUS1 = Val(_DtTotal.Rows(0)!FNParturitionLeaveUS1.ToString)
+                        pension_FNParturitionLeaveUS2 = Val(_DtTotal.Rows(0)!FNParturitionLeaveUS2.ToString)
+                        pension_FNParturitionLeaveUS3 = Val(_DtTotal.Rows(0)!FNParturitionLeaveUS3.ToString)
+
+                    End If
+                    _DtTotal.Dispose()
+
+
+                    'If (_FNTotalIncomeSum) >= 2 Then
+
+                    '    _FNTotalIncomeSum = _FNTotalIncomeSum * SocialExchangeRate
+
+                    '    Dim _FNTotalIncomePension As Double = 0
+                    '    Dim _FNTotalIncomePensionDefault As Double = 0
+
+                    '    _Qry = " SELECT  FNHSysPensionRankID "
+                    '    _Qry &= vbCrLf & " ,[FNSeq],[FNTotalRecalFrom],[FNTotalRecalTo] "
+                    '    _Qry &= vbCrLf & " ,[FNCalPensionType],[FNTotalRecalDefault] "
+                    '    _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].[dbo].[THRMCfgSocailKMPensionRank]  "
+                    '    _Qry &= vbCrLf & ""
+
+                    '    Dim _DtPensionRank As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                    '    For Each Rp As DataRow In _DtPensionRank.Select("FNTotalRecalFrom<=" & _FNTotalIncomeSum & " AND  FNTotalRecalTo>=" & _FNTotalIncomeSum & "")
+                    '        If (Rp!FNCalPensionType.ToString = "0") Then
+                    '            _FNTotalIncomePension = Val(Rp!FNTotalRecalDefault.ToString)
+                    '        Else
+                    '            _FNTotalIncomePension = Val(_FNTotalIncomeSum)
+                    '        End If
+
+
+                    '    Next
+
+                    '    Dim _FNPensionEmp As Double = 0
+                    '    Dim _FNPensionCmp As Double = 0
+
+                    '    '_FNPensionEmp = _FNTotalIncomePension * 0.02   
+                    '    '_FNPensionCmp = _FNTotalIncomePension * 0.02
+
+                    '    _FNPensionEmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
+                    '    _FNPensionCmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
+
+
+
+                    '    _FNNetpay = Format((_FNNetpay - _FNPensionEmp), "0.00")
+
+                    '    If _FNNetpay < 0 Then
+                    '        _FNNetpay = 0
+                    '    End If
+
+
+                    '    'FNNetIncome
+                    '    _Qry = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+                    '    _Qry &= vbCrLf & "set FNTotalRecalPensionScheme=" & Val(_FNTotalIncomeSum)
+                    '    _Qry &= vbCrLf & ", FNPensionSchemeRateEmp=" & Val(2)
+                    '    _Qry &= vbCrLf & " ,FNPensionSchemeRateCmp=" & Val(2)
+                    '    _Qry &= vbCrLf & " ,FNPensionScheme=" & Val(_FNPensionEmp)
+                    '    _Qry &= vbCrLf & " , FNPensionSchemeCmp=" & Val(_FNPensionCmp)
+
+                    '    _Qry &= vbCrLf & " ,FNNetpay=" & _FNNetpay
+
+                    '    _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+                    '    _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                    '    _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                    '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                    Dim _FNTotalIncomeSum2 As Double = 0
+                    Dim _FNTotalIncomeSum3 As Double = 0
+
+                    If (_FNTotalIncomeSum) >= 2 And FNParturitionLeave_PeriodOne = "" Then
+
+
+
+                        _FNTotalIncomeSum = (_FNTotalIncomeSum - (pension_FNParturitionLeaveUS2 + pension_FNParturitionLeaveUS3)) * SocialExchangeRate
+
+                        _FNTotalIncomeSum2 = (pension_FNParturitionLeaveUS2) * SocialExchangeRate
+                        _FNTotalIncomeSum3 = (pension_FNParturitionLeaveUS3) * SocialExchangeRate
+
+                        Dim _FNTotalIncomePension As Double = 0
+                        Dim _FNTotalIncomePensionDefault As Double = 0
+
+                        _Qry = " SELECT  FNHSysPensionRankID "
+                        _Qry &= vbCrLf & " ,[FNSeq],[FNTotalRecalFrom],[FNTotalRecalTo] "
+                        _Qry &= vbCrLf & " ,[FNCalPensionType],[FNTotalRecalDefault] "
+                        _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].[dbo].[THRMCfgSocailKMPensionRank]  "
+                        _Qry &= vbCrLf & ""
+
+                        Dim _DtPensionRank As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                        For Each Rp As DataRow In _DtPensionRank.Select("FNTotalRecalFrom<=" & _FNTotalIncomeSum & " AND  FNTotalRecalTo>=" & _FNTotalIncomeSum & "")
+                            If (Rp!FNCalPensionType.ToString = "0") Then
+                                _FNTotalIncomePension = Val(Rp!FNTotalRecalDefault.ToString)
+                            Else
+                                _FNTotalIncomePension = Val(_FNTotalIncomeSum)
+                            End If
+
+                        Next
+
+
+
+
+                        Dim _FNPensionEmp As Double = 0
+                        Dim _FNPensionCmp As Double = 0
+
+                        '_FNPensionEmp = _FNTotalIncomePension * 0.02   
+                        '_FNPensionCmp = _FNTotalIncomePension * 0.02
+
+                        _FNPensionEmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
+                        _FNPensionCmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
+
+
+                        Dim _FNPension2 As Double = 0
+
+                        Dim _FNPension3 As Double = 0
+
+                        If _FNTotalIncomeSum2 > 0 And _FNTotalIncomeSum3 > 0 Then
+                            _FNPension2 = (Format(((_FNTotalIncomeSum2 * 0.02) / SocialExchangeRate), "0.00"))
+                            _FNPension3 = (Format(((_FNTotalIncomeSum3 * 0.02) / SocialExchangeRate), "0.00"))
+                        End If
+
+
+
+
+
+                        _FNNetpay = Format((_FNNetpay - (_FNPensionEmp + _FNPension2 + _FNPension3)), "0.00")
+
+
+
+
+                        If _FNNetpay < 0 Then
+                            _FNNetpay = 0
+                        End If
+
+                        'FNNetIncome
+                        _Qry = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+                        _Qry &= vbCrLf & "set FNTotalRecalPensionScheme=" & Val(_FNTotalIncomeSum)
+                        _Qry &= vbCrLf & ", FNPensionSchemeRateEmp=" & Val(2)
+                        _Qry &= vbCrLf & " ,FNPensionSchemeRateCmp=" & Val(2)
+                        _Qry &= vbCrLf & " ,FNPensionScheme=" & Val(_FNPensionEmp)
+                        _Qry &= vbCrLf & " , FNPensionSchemeCmp=" & Val(_FNPensionCmp)
+
+                        _Qry &= vbCrLf & " , FNPensionSchemeAdvance2=" & Val(_FNPension2)
+                        _Qry &= vbCrLf & " , FNPensionSchemeAdvance3=" & Val(_FNPension3)
+
+                        _Qry &= vbCrLf & " ,FNNetpay=" & _FNNetpay
+
+                        _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+                        _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                        _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+
+                    End If
+
+
+
+
+
+                End If
+
+
+
+
+
+                'If _ShiftAmt > 0 Then
+                '    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                '    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '001'," & _ShiftValue.ToString & "," & _ShiftAmt.ToString & ""
+
+                '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                'End If
+
+                'If _ShiftOTAmt > 0 Then
+                '    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                '    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '007'," & _ShiftOTValue.ToString & "," & _ShiftOTAmt.ToString & ""
+
+                '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                'End If
+
+                'If _FNEmpDiligent > 0 Then
+                '    If _FNDeligentPeriod = 0 Then
+                '        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                '        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '008'," & _FNEmpDiligent.ToString & "," & _FNEmpDiligent.ToString & ""
+
+                '        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                '    Else
+                '        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                '        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '009'," & _FNEmpDiligent.ToString & "," & _FNEmpDiligent.ToString & ""
+
+                '        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                '    End If
+                'End If
+
+                'If _AmtReturnVacation > 0 Then
+                '    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                '    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '023'," & _ShiftValue.ToString & "," & _AmtReturnVacation.ToString & ""
+
+                '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                'End If
+                ''----------- เงินคืนพักร้อน-------------------------------
+
+
 
                 'If _AmtReturnVacation > 0 Then
 
@@ -19636,6 +20249,8 @@ Public NotInheritable Class Calculate
         Dim FNUnionAmt As Double = 0
         Dim FNUnionRate As Double = 0
 
+        Dim _FNUnion As Integer = 0
+
         Dim FTAddAvg24Period As String = "0"
 
 
@@ -19878,15 +20493,21 @@ Public NotInheritable Class Calculate
         _Qry &= vbCrLf & ", dbo.FN_Get_Emp_WorkAge_Salary_CD_NEW(M.FdDateStart,M.FdDateEnd,'" & _EndDate & "') AS FNEmpWorkAgeNewCD ,  dbo.[FN_Get_Emp_WorkAge_Day](M.FDDateStart,M.FDDateEnd) as FNEmpWorkAgeNewDay"
         _Qry &= vbCrLf & " ,  dbo.[FN_Get_Emp_WorkAge_Day_CD](M.FDDateStart,M.FDDateEnd,M.FNHSysEmpID,'" & _EndDate & "') as FNEmpWorkAgeNewDay_CD "
         _Qry &= vbCrLf & " , isnull(M.FTStateUnionMember,'') as FTStateUnionMember  , isnull(M.FDStartDateUnion,'') as FDStartDateUnion , isnull(M.FDEndDateUnion,'') as FDEndDateUnion"
+        _Qry &= vbCrLf & " , isnull(M.FNUnion,0) as FNUnion "
         _Qry &= vbCrLf & "  FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) INNER JOIN"
         _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType AS ET WITH (NOLOCK) ON M.FNHSysEmpTypeId = ET.FNHSysEmpTypeId"
         _Qry &= vbCrLf & "	WHERE     (M.FNHSysEmpID =" & Val(_EmpCode) & " ) "
 
         _Dtemp = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
 
+
+        Dim _FDDateProbation As String = ""
+
         For Each R As DataRow In _Dtemp.Rows
 
             _DtFin.Rows.Clear()
+            _FDDateProbation = R!FDDateProbation.ToString
+            _FNUnion = Integer.Parse("0" & R!FNUnion.ToString)
             _FNEmpStatus = Integer.Parse("0" & R!FTStatus.ToString)
             _AmtAddCalOT = 0
             _EmpSex = Val("0" & R!FNEmpSex.ToString)
@@ -20241,6 +20862,16 @@ Public NotInheritable Class Calculate
                         _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
                         _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
 
+
+                    ElseIf _PayTerm = "01" Then
+                        ''  MsgBox("b")
+                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'2022/01/01','2022/12/31') AS FNEmpVacation"
+                        '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "')),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+
+
                     Else
                         _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'" & (_DateReset) & "','" & (_EndDate) & "') AS FNEmpVacation"
                         '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "')),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
@@ -20250,18 +20881,20 @@ Public NotInheritable Class Calculate
 
 
                     _Leave = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
-
+                    _Qry = "  "
                     If (_ReturnVacation > 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
                         '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
                         '_Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
                         '_Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+                        If _PayTerm <> "01" Then
+                            _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'" & ("") & "','" & (_EndDate) & "') AS FNEmpVacation"
+                            _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                            _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
 
-                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'" & ("") & "','" & (_EndDate) & "') AS FNEmpVacation"
-                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
 
+                            _Leave = _Leave + (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                        End If
 
-                        _Leave = _Leave + (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
 
 
                     End If
@@ -20289,7 +20922,7 @@ Public NotInheritable Class Calculate
 
                         _SumLeaveVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
 
-                        If (_ReturnVacation > 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+                        If (_ReturnVacation > 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) And _PayTerm <> "01" Then
                             _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
                             _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
                             _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
@@ -20297,6 +20930,17 @@ Public NotInheritable Class Calculate
                             _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & (_DateReset) & "'"
 
                             _SumLeaveVacation = _SumLeaveVacation + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+
+                        Else
+                            ''        MsgBox("g")
+                            '_Qry = " "
+                            '_Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                            '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                            '_Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                            '_Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                            '_Qry &= vbCrLf & " 	AND  FTDateTrans >= '2023/01/01'"
+                            '_Qry &= vbCrLf & " 	AND  FTDateTrans <= '2023/12/31'"
+                            '_SumLeaveVacation = _SumLeaveVacation + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
 
                         End If
 
@@ -21237,7 +21881,7 @@ Public NotInheritable Class Calculate
 
                     _TmpLeavePay = 0
                     _FNLeavePay = 0 : _FNLeaveVacation = 0 : FNPayLeaveSpecialBahtMin = 0
-                    _FNLeaveNotPay = 0
+                    _FNLeaveNotPay = 0 : FNParturitionLeaveMin = 0
                     _LeaveCode = ""
                     For Each sR As DataRow In _dtLeave.Select("FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' ")
                         _LeaveCode = sR!LFTLeaveCode.ToString
@@ -21314,7 +21958,9 @@ Public NotInheritable Class Calculate
                                 _GFNLeaveSpecial = _GFNLeaveSpecial + FNPayLeaveSpecialBahtMin
 
                             Case "97"
-                                FNParturitionLeaveMin = Val(sR!FNTotalPayMinute.ToString)
+                                ''best  แก้ไข วันลาคลอด  202211 17
+                                ''FNParturitionLeaveMin = Val(sR!FNTotalPayMinute.ToString)
+                                FNParturitionLeaveMin = Val(sR!FNTotalMinute.ToString)
                                 GFNParturitionLeaveMin = GFNParturitionLeaveMin + FNParturitionLeaveMin
 
                                 ' _GFNLeaveOther = _GFNLeaveOther + Val(sR!FNTotalMinute.ToString)
@@ -21409,7 +22055,7 @@ Public NotInheritable Class Calculate
                     _Day = 1
 
                     If _DTEmpWorkDay.Select("FNSalary=" & _FNSlaryPerDay & "").Length > 0 Then
-                        For Each Rx As DataRow In _DTEmpWorkDay.Select("FNSalary=" & _FNSlaryPerDay & "")
+                        For Each Rx As DataRow In _DTEmpWorkDay.Select("FNSalary=" & _FNSlaryPerDay & " and FNShiftNo=" & _StateShift)
                             Rx!FNTotalDay = Val(Rx!FNTotalDay) + _Day
                             Rx!FNDay = Val(Rx!FNDay) + _FNTimeMin
                             Rx!FNOT1 = Val(Rx!FNOT1) + _FNOT1Min
@@ -21464,7 +22110,7 @@ Public NotInheritable Class Calculate
                 Dim _FNEmpBahtShiftDiff As Double = 0
 
                 Dim FullPreroid As String = ""
-                If (_FDDateEnd = "" Or _FTSatrtCalculateDate < _FDDateEnd) And _FDDateStart <= _StartDate Then ''_FTEndCalculateDate
+                If (_FDDateEnd = "" Or _EndDate < _FDDateEnd) And _FDDateStart <= _StartDate Then ''_FTEndCalculateDate
                     FullPreroid = "Y"
                 End If
 
@@ -21496,7 +22142,7 @@ Public NotInheritable Class Calculate
 
                     Else
 
-                        If _FNDay < 5760 And Rx!FNParturition > 1 Then ''หักเงินเดือนปกติของวันที่ลาคลอด
+                        If _FNDay > 0 And _FNDay < 5760 And Rx!FNParturition > 1 Then ''หักเงินเดือนปกติของวันที่ลาคลอด
                             _FNEmpBaht = _FNEmpBaht + (CDbl(Format(_FNSlaryPerMonth / 2, "0.000")) - CDbl(Format(CDbl(Rx!FNSlaryNormal) * (Rx!FNParturition / 480), "0.00000")))
                         ElseIf FullPreroid = "Y" And _FNDay > 0 Then
                             _FNEmpBaht = _FNEmpBaht + CDbl(Format(_FNSlaryPerMonth / 2, "0.000"))
@@ -22517,6 +23163,10 @@ Public NotInheritable Class Calculate
                         ''ค่าแรงเแพราะวันทำงานจริง
                     Else
                         If FTStaDeductAbsent = 0 Then
+
+                            If FullPreroid = "" Then
+                                _LaNotpaid = 0
+                            End If
                             '_FNEmpBaht = _FNEmpBaht - (_LaNotpaid + _LateCutAmt + _LateCutAmtAbsent + _nBahtAbsent)
                             _FNEmpBaht = _FNEmpBaht - (_LaNotpaid + _LateCutAmt + _LateCutAmtAbsent + _nBahtAbsent)
                         Else
@@ -22589,7 +23239,7 @@ Public NotInheritable Class Calculate
 
                     Else
                         _TotalCalSso = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + 0 + (0 + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateSocial + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS) - (_FCOtherDeduct + _FCDeduct + _FCDeductSourceVacationBaht), "0.000"))
-                        _TotalCalTax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + 0 + (0 + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeaveReCalTax) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNWorkAgeSalary) - (_FCOtherDeduct + _FCDeduct + _FCDeductSourceVacationBaht), "0.000"))
+                        _TotalCalTax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + 0 + (0 + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeaveReCalTax) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNWorkAgeSalary) - (_FCOtherDeduct + _FCDeduct + 0), "0.000"))
 
                     End If
 
@@ -22757,6 +23407,18 @@ Public NotInheritable Class Calculate
                     _DiffTotalNetPay = 0
                 End If
 
+                Dim _FNParturitionLeaveUS1 As Double = 0
+                Dim _FNParturitionLeaveUS2 As Double = 0
+                Dim _FNParturitionLeaveUS3 As Double = 0
+
+                If (FNParturitionLeave > 0) Then
+                    _FNParturitionLeaveUS1 = Double.Parse(Format(FNParturitionLeave / 3.0, "0.00"))
+                    _FNParturitionLeaveUS2 = Double.Parse(Format(FNParturitionLeave / 3.0, "0.00"))
+                    _FNParturitionLeaveUS3 = Double.Parse(Format(FNParturitionLeave / 3.0, "0.00"))
+                    '' _FNParturitionLeaveUS3 ''' = FNParturitionLeave - (_FNParturitionLeaveUS1 + _FNParturitionLeaveUS2)
+
+                End If
+
 
                 _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
                 _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
@@ -22793,7 +23455,15 @@ Public NotInheritable Class Calculate
                 _Qry &= vbCrLf & ", FNAttandanceAmt, FNHealtCareAmt, "
                 _Qry &= vbCrLf & " FNTransportAmt, FNChildCareAmt, FNOTMealAmt, FNSocialBase, FNWorkAgeSalary, FNOTMealAmtUS, FNExchangeRate, FNSickLeaveBaht, FNSickLeaveMin, FNBusinessLeaveBaht, FNBusinessLeaveMin,"
                 _Qry &= vbCrLf & "FNSpecialLeaveBaht, FNSpecialLeaveMin, FNParturitionLeaveBaht, FNParturitionLeaveMin, FNVacationRetMin, FNVacationRetAmt,FNExchangeRateTHB"
-                _Qry &= vbCrLf & ",FNWorkDay,FTStateCalSocial,FTStateCalTax,FNTotalIncomeDiff,FNNetpayDiff,FNSocialExchangeRate,FNTaxExchangeRate , FNServicefee ,FNFinTransFee,FNSocialInsuranceEmployee , FNSocialInsuranceEmployer, FNUnionInsuranceEmployee  )"
+                _Qry &= vbCrLf & ",FNWorkDay,FTStateCalSocial,FTStateCalTax,FNTotalIncomeDiff,FNNetpayDiff,FNSocialExchangeRate,FNTaxExchangeRate , FNServicefee ,FNFinTransFee,FNSocialInsuranceEmployee , FNSocialInsuranceEmployer, FNUnionInsuranceEmployee "
+
+
+                _Qry &= vbCrLf & " ,FNUnion "
+                _Qry &= vbCrLf & ", FNParturitionLeaveUS1 "
+                _Qry &= vbCrLf & ", FNParturitionLeaveUS2"
+                _Qry &= vbCrLf & ", FNParturitionLeaveUS3"
+                _Qry &= vbCrLf & ")"
+
                 _Qry &= vbCrLf & " 	SELECT '" & HI.UL.ULF.rpQuoted(_User) & "',CONVERT(varchar(10),GetDate(),111),CONVERT(varchar(8),GetDate(),114)"
                 _Qry &= vbCrLf & " 	,'" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ""
                 _Qry &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "','" & HI.UL.ULF.rpQuoted(_FTEmpIdNo1) & "','" & HI.UL.ULF.rpQuoted(_FTSocialNo) & "','" & _EmpType & "','" & HI.UL.ULDate.ConvertEnDB(_PayDate) & "'"
@@ -22900,9 +23570,11 @@ Public NotInheritable Class Calculate
                 _Qry &= vbCrLf & "," & FNSocialInsuranceEmployee
                 _Qry &= vbCrLf & "," & FNSocialInsuranceEmployer
                 _Qry &= vbCrLf & "," & FNUnionAmt
+                _Qry &= vbCrLf & "," & _FNUnion
 
-
-
+                _Qry &= vbCrLf & "," & _FNParturitionLeaveUS1
+                _Qry &= vbCrLf & "," & _FNParturitionLeaveUS2
+                _Qry &= vbCrLf & "," & _FNParturitionLeaveUS3
                 '  , FNVacationRetMin, FNVacationRetAmt
                 '_FNNetpayOrg
                 HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
@@ -22943,7 +23615,16 @@ Public NotInheritable Class Calculate
                             Exit For
                         Next
                     End If
-                    _FCAdd += +_SeniorityAmt
+
+                    If _FDDateProbation >= _EndDate Then
+                        _SeniorityAmt = 0
+                    Else
+
+                        _FCAdd += +_SeniorityAmt
+                    End If
+
+
+
                 End If
                 'End คิดค่า seniority ind
 
@@ -23125,6 +23806,9 @@ Public NotInheritable Class Calculate
                         _Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK) "
                         _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '044') F4"
                         _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '046') F"
+
+                        ''_Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '048') F48"
+
                         _Qry &= vbCrLf & " , (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD  "
                         _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
                         _Qry &= vbCrLf & "AND ISNULL(P.FNTotalRecalSSO,0) > 0 "
@@ -23276,6 +23960,7 @@ Public NotInheritable Class Calculate
                 'FNNetIncome
                 _Qry = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
                 _Qry &= vbCrLf & "set FNNetIncome=" & _Net
+                _Qry &= vbCrLf & ", FNTotalIncome=" & _Net
                 _Qry &= vbCrLf & " ,FNNetpay=" & _FNNetpay
                 _Qry &= vbCrLf & " ,FNSocial=" & _FCSocial
                 _Qry &= vbCrLf & " , FNTax=" & _TaxAmt
@@ -23386,144 +24071,6 @@ Public NotInheritable Class Calculate
                     End If
 
                 Next
-
-                _Qry = " SELECT   top 1    SUM((isnull(P.FNTotalIncome,0) - (  isnull(F44.FCTotalFinAmt,0) +  isnull(F45.FCTotalFinAmt,0) +  isnull(F46.FCTotalFinAmt,0)+  isnull(F47.FCTotalFinAmt,0) +  isnull(F19.FCTotalFinAmt,0)) ) )   AS FNTotalIncome "
-                '' _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTax,0) *  ISNULL(P.FNTaxExchangeRate,1)) AS FNTax"
-                _Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK)"
-                _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '044') F44 "
-                _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '045') F45 "
-                _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '046') F46 "
-                _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '047') F47 "
-                _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '019') F19 "
-                _Qry &= vbCrLf & " , (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
-                _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
-                _Qry &= vbCrLf & "AND ISNULL(P.FNTotalIncome,0) > 0 "
-                _Qry &= vbCrLf & "AND P.FTEmpIdNo ='" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' "
-                ''_Qry &= vbCrLf & " AND PD.FTPayTerm <  '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
-                _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
-                _Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
-                _Qry &= vbCrLf & " AND PD.FNMonth IN (   "
-                _Qry &= vbCrLf & "  Select FNMonth"
-                _Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
-                _Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
-                _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
-                _Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
-                _Qry &= vbCrLf & "  )  "
-
-
-                Dim _FNTotalIncomeSum As Double = 0
-
-
-                Dim _DtTotal As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
-                If _DtTotal.Rows.Count > 0 Then
-                    _FNTotalIncomeSum = Val(_DtTotal.Rows(0)!FNTotalIncome.ToString)
-                End If
-                _DtTotal.Dispose()
-
-
-                If (_FNTotalIncomeSum) >= 2 Then
-
-                    _FNTotalIncomeSum = (Format(((_FNTotalIncomeSum) * SocialExchangeRate), "0.000"))
-
-                    Dim _FNTotalIncomePension As Double = 0
-                    Dim _FNTotalIncomePensionDefault As Double = 0
-
-                    _Qry = " SELECT  FNHSysPensionRankID "
-                    _Qry &= vbCrLf & " ,[FNSeq],[FNTotalRecalFrom],[FNTotalRecalTo] "
-                    _Qry &= vbCrLf & " ,[FNCalPensionType],[FNTotalRecalDefault] "
-                    _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].[dbo].[THRMCfgSocailKMPensionRank]  "
-                    _Qry &= vbCrLf & ""
-
-                    Dim _DtPensionRank As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
-
-                    For Each Rp As DataRow In _DtPensionRank.Select("FNTotalRecalFrom<=" & _FNTotalIncomeSum & " AND  FNTotalRecalTo>=" & _FNTotalIncomeSum & "")
-                        If (Rp!FNCalPensionType.ToString = "0") Then
-                            _FNTotalIncomePension = Val(Rp!FNTotalRecalDefault.ToString)
-                        Else
-                            _FNTotalIncomePension = Val(_FNTotalIncomeSum)
-                        End If
-
-
-                    Next
-
-                    Dim _FNPensionEmp As Double = 0
-                    Dim _FNPensionCmp As Double = 0
-
-                    '_FNPensionEmp = _FNTotalIncomePension * 0.02
-                    '_FNPensionCmp = _FNTotalIncomePension * 0.02
-
-                    '_FNNetpay = Format((_FNNetpay - (Format(((_FNPensionEmp) / SocialExchangeRate), "0.000"))), "0.00")
-
-                    '_FNPensionEmp = _FNTotalIncomePension * 0.02   
-                    '_FNPensionCmp = _FNTotalIncomePension * 0.02
-
-                    _FNPensionEmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
-                    _FNPensionCmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
-
-
-
-                    _FNNetpay = Format((_FNNetpay - _FNPensionEmp), "0.00")
-
-                    If _FNNetpay < 0 Then
-                        _FNNetpay = 0
-                    End If
-                    'FNNetIncome
-                    _Qry = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
-                    _Qry &= vbCrLf & "set FNTotalRecalPensionScheme=" & Val(_FNTotalIncomeSum)
-                    _Qry &= vbCrLf & ", FNPensionSchemeRateEmp=" & Val(2)
-                    _Qry &= vbCrLf & " ,FNPensionSchemeRateCmp=" & Val(2)
-                    _Qry &= vbCrLf & " ,FNPensionScheme=" & Val(_FNPensionEmp)
-                    _Qry &= vbCrLf & " , FNPensionSchemeCmp=" & Val(_FNPensionCmp)
-
-                    _Qry &= vbCrLf & " ,FNNetpay=" & _FNNetpay
-
-                    _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
-                    _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
-                    _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
-                    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
-
-                End If
-
-
-
-
-
-
-                'If _ShiftAmt > 0 Then
-                '    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
-                '    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '001'," & _ShiftValue.ToString & "," & _ShiftAmt.ToString & ""
-
-                '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
-                'End If
-
-                'If _ShiftOTAmt > 0 Then
-                '    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
-                '    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '007'," & _ShiftOTValue.ToString & "," & _ShiftOTAmt.ToString & ""
-
-                '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
-                'End If
-
-                'If _FNEmpDiligent > 0 Then
-                '    If _FNDeligentPeriod = 0 Then
-                '        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
-                '        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '008'," & _FNEmpDiligent.ToString & "," & _FNEmpDiligent.ToString & ""
-
-                '        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
-                '    Else
-                '        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
-                '        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '009'," & _FNEmpDiligent.ToString & "," & _FNEmpDiligent.ToString & ""
-
-                '        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
-                '    End If
-                'End If
-
-                'If _AmtReturnVacation > 0 Then
-                '    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode, FCFinAmt,FCTotalFinAmt)"
-                '    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '023'," & _ShiftValue.ToString & "," & _AmtReturnVacation.ToString & ""
-
-                '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
-                'End If
-                ''----------- เงินคืนพักร้อน-------------------------------
 
                 If _ShiftAmt > 0 Then
 
@@ -23681,6 +24228,406 @@ Public NotInheritable Class Calculate
 
                 End If
 
+
+                '_Qry = " SELECT   top 1    SUM((isnull(P.FNTotalIncome,0) - (  isnull(F44.FCTotalFinAmt,0) +  isnull(F45.FCTotalFinAmt,0) +  isnull(F46.FCTotalFinAmt,0)+  isnull(F47.FCTotalFinAmt,0) +  isnull(F19.FCTotalFinAmt,0)) ) )   AS FNTotalIncome "
+                ''' _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTax,0) *  ISNULL(P.FNTaxExchangeRate,1)) AS FNTax"
+                '_Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK)"
+                '_Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '044') F44 "
+                '_Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '045') F45 "
+                '_Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '046') F46 "
+                '_Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '047') F47 "
+                '_Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '019') F19 "
+                '_Qry &= vbCrLf & " , (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                '_Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                '_Qry &= vbCrLf & "AND ISNULL(P.FNTotalIncome,0) > 0 "
+                '_Qry &= vbCrLf & "AND P.FTEmpIdNo ='" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' "
+                '''_Qry &= vbCrLf & " AND PD.FTPayTerm <  '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                '_Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+                '_Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                '_Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                '_Qry &= vbCrLf & "  Select FNMonth"
+                '_Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                '_Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                '_Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                '_Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                '_Qry &= vbCrLf & "  )  "
+
+
+                Dim _FNTotalIncomeSum As Double = 0
+
+
+                '' check resgin   and  check  period 2 of month     _StartDate    _EndDate   _FDDateEnd
+
+                Dim pension_FNParturitionLeaveUS1 As Double = 0
+                Dim pension_FNParturitionLeaveUS2 As Double = 0
+                Dim pension_FNParturitionLeaveUS3 As Double = 0
+
+                ''   MsgBox(FNParturitionLeave)
+                ''งวดที่ 1 
+                ''  IfVal(_PayTerm) Mod 2 = 1 And (_FDDateEnd >= _StartDate And _FDDateEnd <= _EndDate And _FDDateEnd <> "") Or FNParturitionLeave > 0 Then
+                If Val(_PayTerm) Mod 2 = 1 And ((_FDDateEnd <> "") Or FNParturitionLeave > 0) Then
+
+
+                    _Qry = " SELECT   top 1    SUM((isnull(P.FNTotalIncome,0) - (  isnull(F44.FCTotalFinAmt,0) +  isnull(F45.FCTotalFinAmt,0) +  isnull(F46.FCTotalFinAmt,0)+  isnull(F47.FCTotalFinAmt,0) +  isnull(F19.FCTotalFinAmt,0)) ) )   AS FNTotalIncome "
+
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNParturitionLeaveUS1,0) ) AS FNParturitionLeaveUS1 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNParturitionLeaveUS2,0) ) AS FNParturitionLeaveUS2 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNParturitionLeaveUS3,0) ) AS FNParturitionLeaveUS3 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNPensionSchemeAdvance2,0) ) AS FNPensionSchemeAdvance2 "
+                    _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNPensionSchemeAdvance3,0) ) AS FNPensionSchemeAdvance3 "
+
+
+                    '' _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTax,0) *  ISNULL(P.FNTaxExchangeRate,1)) AS FNTax"
+                    _Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK)"
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '044') F44 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '045') F45 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '046') F46 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '047') F47 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '019') F19 "
+                    _Qry &= vbCrLf & " , (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                    _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "AND ISNULL(P.FNTotalIncome,0) > 0 "
+                    _Qry &= vbCrLf & "AND P.FTEmpIdNo ='" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' "
+                    ''_Qry &= vbCrLf & " AND PD.FTPayTerm <  '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                    _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+                    _Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                    _Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                    _Qry &= vbCrLf & "  Select FNMonth"
+                    _Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                    _Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                    _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                    _Qry &= vbCrLf & "  )  "
+
+                    Dim _DtTotal As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    If _DtTotal.Rows.Count > 0 Then
+                        _FNTotalIncomeSum = Val(_DtTotal.Rows(0)!FNTotalIncome.ToString)
+                        pension_FNParturitionLeaveUS1 = Val(_DtTotal.Rows(0)!FNParturitionLeaveUS1.ToString)
+                        pension_FNParturitionLeaveUS2 = Val(_DtTotal.Rows(0)!FNParturitionLeaveUS2.ToString)
+                        pension_FNParturitionLeaveUS3 = Val(_DtTotal.Rows(0)!FNParturitionLeaveUS3.ToString)
+
+
+                    End If
+                    _DtTotal.Dispose()
+
+
+                    Dim _FNTotalIncomeSum2 As Double = 0
+                    Dim _FNTotalIncomeSum3 As Double = 0
+
+                    If (_FNTotalIncomeSum) >= 2 Then
+
+
+
+                        _FNTotalIncomeSum = (_FNTotalIncomeSum - (pension_FNParturitionLeaveUS2 + pension_FNParturitionLeaveUS3)) * SocialExchangeRate
+
+                        _FNTotalIncomeSum2 = (pension_FNParturitionLeaveUS2) * SocialExchangeRate
+                        _FNTotalIncomeSum3 = (pension_FNParturitionLeaveUS3) * SocialExchangeRate
+
+                        Dim _FNTotalIncomePension As Double = 0
+                        Dim _FNTotalIncomePensionDefault As Double = 0
+
+                        _Qry = " SELECT  FNHSysPensionRankID "
+                        _Qry &= vbCrLf & " ,[FNSeq],[FNTotalRecalFrom],[FNTotalRecalTo] "
+                        _Qry &= vbCrLf & " ,[FNCalPensionType],[FNTotalRecalDefault] "
+                        _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].[dbo].[THRMCfgSocailKMPensionRank]  "
+                        _Qry &= vbCrLf & ""
+
+                        Dim _DtPensionRank As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                        For Each Rp As DataRow In _DtPensionRank.Select("FNTotalRecalFrom<=" & _FNTotalIncomeSum & " AND  FNTotalRecalTo>=" & _FNTotalIncomeSum & "")
+                            If (Rp!FNCalPensionType.ToString = "0") Then
+                                _FNTotalIncomePension = Val(Rp!FNTotalRecalDefault.ToString)
+                            Else
+                                _FNTotalIncomePension = Val(_FNTotalIncomeSum)
+                            End If
+
+                        Next
+                        '' MsgBox(_FNTotalIncomePension)
+
+
+
+                        Dim _FNPensionEmp As Double = 0
+                        Dim _FNPensionCmp As Double = 0
+
+                        '_FNPensionEmp = _FNTotalIncomePension * 0.02   
+                        '_FNPensionCmp = _FNTotalIncomePension * 0.02
+
+                        _FNPensionEmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
+                        _FNPensionCmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
+
+
+                        Dim _FNPension2 As Double = 0
+
+                        Dim _FNPension3 As Double = 0
+
+                        If _FNTotalIncomeSum2 > 0 And _FNTotalIncomeSum3 > 0 Then
+                            _FNPension2 = (Format(((_FNTotalIncomeSum2 * 0.02) / SocialExchangeRate), "0.00"))
+                            _FNPension3 = (Format(((_FNTotalIncomeSum3 * 0.02) / SocialExchangeRate), "0.00"))
+                        End If
+
+
+
+
+
+                        _FNNetpay = Format((_FNNetpay - (_FNPensionEmp + _FNPension2 + _FNPension3)), "0.00")
+
+
+
+
+                        If _FNNetpay < 0 Then
+                            _FNNetpay = 0
+                        End If
+                        ''    MsgBox(_FNNetpay)
+                        'FNNetIncome
+                        _Qry = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+                        _Qry &= vbCrLf & "set FNTotalRecalPensionScheme=" & Val(_FNTotalIncomeSum)
+                        _Qry &= vbCrLf & ", FNPensionSchemeRateEmp=" & Val(2)
+                        _Qry &= vbCrLf & " ,FNPensionSchemeRateCmp=" & Val(2)
+                        _Qry &= vbCrLf & " ,FNPensionScheme=" & Val(_FNPensionEmp)
+                        _Qry &= vbCrLf & " , FNPensionSchemeCmp=" & Val(_FNPensionCmp)
+
+                        _Qry &= vbCrLf & " , FNPensionSchemeAdvance2=" & Val(_FNPension2)
+                        _Qry &= vbCrLf & " , FNPensionSchemeAdvance3=" & Val(_FNPension3)
+
+                        _Qry &= vbCrLf & " ,FNNetpay=" & _FNNetpay
+
+                        _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+                        _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                        _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                        ''   MsgBox(_Qry)
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                    End If
+
+
+                    '' งวดที่สองของเดือน
+                ElseIf Val(_PayTerm) Mod 2 = 0 Then
+
+                    _Qry = " SELECT   top 1    SUM((isnull(P.FNTotalIncome,0) - (  isnull(F44.FCTotalFinAmt,0) +  isnull(F45.FCTotalFinAmt,0) +  isnull(F46.FCTotalFinAmt,0)+  isnull(F47.FCTotalFinAmt,0) +  isnull(F19.FCTotalFinAmt,0)) ) )   AS FNTotalIncome "
+                    '' _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTax,0) *  ISNULL(P.FNTaxExchangeRate,1)) AS FNTax"
+                    _Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK)"
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '044') F44 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '045') F45 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '046') F46 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '047') F47 "
+                    _Qry &= vbCrLf & " OUTER APPLY (SELECT FCTotalFinAmt FROM THRTPayRollFin WHERE FTPayYear=P.FTPayYear AND FTPayTerm=P.FTPayTerm AND FNHSysEmpID=P.FNHSysEmpID AND FTFinCode = '019') F19 "
+                    _Qry &= vbCrLf & " , (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                    _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "AND ISNULL(P.FNTotalIncome,0) > 0 "
+                    _Qry &= vbCrLf & "AND P.FTEmpIdNo ='" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' "
+                    ''_Qry &= vbCrLf & " AND PD.FTPayTerm <  '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                    _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+                    _Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                    _Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                    _Qry &= vbCrLf & "  Select FNMonth"
+                    _Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                    _Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                    _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                    _Qry &= vbCrLf & "  )  "
+
+
+                    Dim _DtTotal As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    If _DtTotal.Rows.Count > 0 Then
+                        _FNTotalIncomeSum = Val(_DtTotal.Rows(0)!FNTotalIncome.ToString)
+                    End If
+                    _DtTotal.Dispose()
+
+
+                    If (_FNTotalIncomeSum) >= 2 Then
+
+                        _FNTotalIncomeSum = _FNTotalIncomeSum * SocialExchangeRate
+
+                        Dim _FNTotalIncomePension As Double = 0
+                        Dim _FNTotalIncomePensionDefault As Double = 0
+
+                        _Qry = " SELECT  FNHSysPensionRankID "
+                        _Qry &= vbCrLf & " ,[FNSeq],[FNTotalRecalFrom],[FNTotalRecalTo] "
+                        _Qry &= vbCrLf & " ,[FNCalPensionType],[FNTotalRecalDefault] "
+                        _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].[dbo].[THRMCfgSocailKMPensionRank]  "
+                        _Qry &= vbCrLf & ""
+
+                        Dim _DtPensionRank As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                        For Each Rp As DataRow In _DtPensionRank.Select("FNTotalRecalFrom<=" & _FNTotalIncomeSum & " AND  FNTotalRecalTo>=" & _FNTotalIncomeSum & "")
+                            If (Rp!FNCalPensionType.ToString = "0") Then
+                                _FNTotalIncomePension = Val(Rp!FNTotalRecalDefault.ToString)
+                            Else
+                                _FNTotalIncomePension = Val(_FNTotalIncomeSum)
+                            End If
+
+
+                        Next
+
+                        Dim _FNPensionEmp As Double = 0
+                        Dim _FNPensionCmp As Double = 0
+
+                        '_FNPensionEmp = _FNTotalIncomePension * 0.02   
+                        '_FNPensionCmp = _FNTotalIncomePension * 0.02
+
+                        _FNPensionEmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
+                        _FNPensionCmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
+
+
+
+                        _FNNetpay = Format((_FNNetpay - _FNPensionEmp), "0.00")
+
+                        If _FNNetpay < 0 Then
+                            _FNNetpay = 0
+                        End If
+
+
+                        'FNNetIncome
+                        _Qry = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+                        _Qry &= vbCrLf & "set FNTotalRecalPensionScheme=" & Val(_FNTotalIncomeSum)
+                        _Qry &= vbCrLf & ", FNPensionSchemeRateEmp=" & Val(2)
+                        _Qry &= vbCrLf & " ,FNPensionSchemeRateCmp=" & Val(2)
+                        _Qry &= vbCrLf & " ,FNPensionScheme=" & Val(_FNPensionEmp)
+                        _Qry &= vbCrLf & " , FNPensionSchemeCmp=" & Val(_FNPensionCmp)
+
+                        _Qry &= vbCrLf & " ,FNNetpay=" & _FNNetpay
+
+                        _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+                        _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                        _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                    End If
+
+
+
+
+
+                End If
+
+
+
+
+
+
+                'Dim _FNTotalIncomeSum As Double = 0
+
+
+                'Dim _DtTotal As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                'If _DtTotal.Rows.Count > 0 Then
+                '    _FNTotalIncomeSum = Val(_DtTotal.Rows(0)!FNTotalIncome.ToString)
+                'End If
+                '_DtTotal.Dispose()
+
+                ''' check resgin   and  check  period 2 of month     _StartDate    _EndDate   _FDDateEnd
+                '''  
+
+
+
+                '''   If Val(_PayTerm) Mod 2 = 0 Or (_FDDateEnd >= _StartDate And _FDDateEnd <= _EndDate And _FDDateEnd <> "") Then      ''งวดสิ้นเดือน   กับ คนลาออก
+                'If Val(_PayTerm) Mod 2 = 0 Then
+                '    If (_FNTotalIncomeSum) >= 2 Then
+
+                '        _FNTotalIncomeSum = (Format(((_FNTotalIncomeSum) * SocialExchangeRate), "0.000"))
+
+                '        Dim _FNTotalIncomePension As Double = 0
+                '        Dim _FNTotalIncomePensionDefault As Double = 0
+
+                '        _Qry = " SELECT  FNHSysPensionRankID "
+                '        _Qry &= vbCrLf & " ,[FNSeq],[FNTotalRecalFrom],[FNTotalRecalTo] "
+                '        _Qry &= vbCrLf & " ,[FNCalPensionType],[FNTotalRecalDefault] "
+                '        _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].[dbo].[THRMCfgSocailKMPensionRank]  "
+                '        _Qry &= vbCrLf & ""
+
+                '        Dim _DtPensionRank As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                '        For Each Rp As DataRow In _DtPensionRank.Select("FNTotalRecalFrom<=" & _FNTotalIncomeSum & " AND  FNTotalRecalTo>=" & _FNTotalIncomeSum & "")
+                '            If (Rp!FNCalPensionType.ToString = "0") Then
+                '                _FNTotalIncomePension = Val(Rp!FNTotalRecalDefault.ToString)
+                '            Else
+                '                _FNTotalIncomePension = Val(_FNTotalIncomeSum)
+                '            End If
+
+
+                '        Next
+
+                '        Dim _FNPensionEmp As Double = 0
+                '        Dim _FNPensionCmp As Double = 0
+
+                '        '_FNPensionEmp = _FNTotalIncomePension * 0.02
+                '        '_FNPensionCmp = _FNTotalIncomePension * 0.02
+
+                '        '_FNNetpay = Format((_FNNetpay - (Format(((_FNPensionEmp) / SocialExchangeRate), "0.000"))), "0.00")
+
+                '        '_FNPensionEmp = _FNTotalIncomePension * 0.02   
+                '        '_FNPensionCmp = _FNTotalIncomePension * 0.02
+
+                '        _FNPensionEmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
+                '        _FNPensionCmp = (Format(((_FNTotalIncomePension * 0.02) / SocialExchangeRate), "0.00"))
+
+
+
+                '        _FNNetpay = Format((_FNNetpay - _FNPensionEmp), "0.00")
+
+                '        If _FNNetpay < 0 Then
+                '            _FNNetpay = 0
+                '        End If
+                '        'FNNetIncome
+                '        _Qry = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+                '        _Qry &= vbCrLf & "set FNTotalRecalPensionScheme=" & Val(_FNTotalIncomeSum)
+                '        _Qry &= vbCrLf & ", FNPensionSchemeRateEmp=" & Val(2)
+                '        _Qry &= vbCrLf & " ,FNPensionSchemeRateCmp=" & Val(2)
+                '        _Qry &= vbCrLf & " ,FNPensionScheme=" & Val(_FNPensionEmp)
+                '        _Qry &= vbCrLf & " , FNPensionSchemeCmp=" & Val(_FNPensionCmp)
+
+                '        _Qry &= vbCrLf & " ,FNNetpay=" & _FNNetpay
+
+                '        _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+                '        _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                '        _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                '        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                '    End If
+
+
+                'End If
+
+
+
+
+                'If _ShiftAmt > 0 Then
+                '    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                '    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '001'," & _ShiftValue.ToString & "," & _ShiftAmt.ToString & ""
+
+                '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                'End If
+
+                'If _ShiftOTAmt > 0 Then
+                '    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                '    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '007'," & _ShiftOTValue.ToString & "," & _ShiftOTAmt.ToString & ""
+
+                '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                'End If
+
+                'If _FNEmpDiligent > 0 Then
+                '    If _FNDeligentPeriod = 0 Then
+                '        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                '        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '008'," & _FNEmpDiligent.ToString & "," & _FNEmpDiligent.ToString & ""
+
+                '        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                '    Else
+                '        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                '        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '009'," & _FNEmpDiligent.ToString & "," & _FNEmpDiligent.ToString & ""
+
+                '        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                '    End If
+                'End If
+
+                'If _AmtReturnVacation > 0 Then
+                '    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                '    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '023'," & _ShiftValue.ToString & "," & _AmtReturnVacation.ToString & ""
+
+                '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                'End If
+                ''----------- เงินคืนพักร้อน-------------------------------
+
+
+
                 'If _AmtReturnVacation > 0 Then
 
                 '    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
@@ -23812,7 +24759,6 @@ Public NotInheritable Class Calculate
         Return True
 
     End Function
-
 
     Public Shared Function CalculateWeekEnd_CVN(ByVal _User As String, ByVal _EmpCode As String,
           ByVal _EmpType As String, ByVal _StartDate As String, ByVal _EndDate As String, ByVal _PayYear As String,
@@ -28068,7 +29014,6 @@ Public NotInheritable Class Calculate
 
 
 
-
         Dim _DTEmpPayLeaveSick As New DataTable
         _DTEmpPayLeaveSick.Columns.Add("FNSalary", GetType(Double))
         _DTEmpPayLeaveSick.Columns.Add("FNDay", GetType(Double))
@@ -28100,7 +29045,7 @@ Public NotInheritable Class Calculate
         '------------------ รวมวันลาป่วย---------------------------------
 
         _Qry = "   SELECT        (SUM(FNTotalPayMinute) / 480) AS FNTotalPayMinute  "
-        _Qry &= vbCrLf & "      AS TotalLeavePay"
+        _Qry &= vbCrLf & "     "
         _Qry &= vbCrLf & "    FROM THRTTransLeave "
         _Qry &= vbCrLf & "  WHERE        (FTLeaveType = '0')"
         _Qry &= vbCrLf & "  AND (FTDateTrans >= N'" & (_DateReset) & "') "
@@ -29876,6 +30821,13 @@ Public NotInheritable Class Calculate
                     FullPreroid = "Y"
                 End If
 
+
+                Dim _FNDaySickPay As Integer = 0
+                For Each RxS As DataRow In _DTEmpPayLeaveSick.Rows
+                    _FNDaySickPay = _FNDaySickPay + Val(RxS!FNDay)
+                Next
+
+
                 Dim _FNDay As Integer = 0
 
                 For Each Rx As DataRow In _DTEmpWorkDay.Rows
@@ -29910,9 +30862,12 @@ Public NotInheritable Class Calculate
 
                     Else
 
-                        If _FNDay < 5760 And Rx!FNParturition > 1 Then ''หักเงินเดือนปกติของวันที่ลาคลอด
+                        If _FNDay > 0 And _FNDay < 5760 And Rx!FNParturition > 1 Then ''หักเงินเดือนปกติของวันที่ลาคลอด
                             ''_FNEmpBaht = _FNEmpBaht + (CDbl(Format(_FNSlaryPerMonth / 2, "0.000")) - CDbl(Format(CDbl(Rx!FNSlaryNormal) * (Rx!FNParturition / 480), "0.00000")))
                             _FNEmpBaht = _FNEmpBaht + CDbl(Format(CDbl(Rx!FNSlaryNormal) * (_FNDay / 480), "0.00000"))
+
+                        ElseIf FullPreroid = "Y" And _FNDay = 0 And _FNDaySickPay > 0 Then '' เต็มงวด  ไม่มีเวลาทำงาน  มีลาป่วยจ่าย
+                            _FNEmpBaht = _FNEmpBaht + CDbl(Format(CDbl(Rx!FNSlaryNormal) * (_FNDaySickPay / 480), "0.00000"))
                         ElseIf FullPreroid = "Y" Then
                             _FNEmpBaht = _FNEmpBaht + CDbl(Format(_FNSlaryPerMonth / 2, "0.000"))
                         ElseIf (_FDDateEnd <> "" And _FDDateEnd <= _FTEndCalculateDate) Or _FDDateStart > _StartDate Then ''ลาออกระหว่างงวด ''เริ่มงานระหว่างงวด
@@ -30639,10 +31594,27 @@ Public NotInheritable Class Calculate
 
 
                 ''เงินเบี้ยขยัน
-                Dim _TotalDeligent_La As Double = 0
 
-                _TotalDeligent_La = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * (CDbl(Format((_FCSalary) / 26, "0.0000000")) * 0.1)
-                _FCAdd = _FCAdd + _TotalDeligent_La
+                Dim _FNDeligent_La_rate As Double = 0
+
+                _Qry = "SELECT TOP 1 FTCfgData FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig WHERE FTCfgName='CfgDeligent_La_rate_M'"
+                _FNDeligent_La_rate = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "0"))
+
+                'MsgBox("_GFNTimeMin_Real_After_Probation" & _GFNTimeMin_Real_After_Probation)
+                'MsgBox("_GFNLeaveVacation" & _GFNLeaveVacation)
+                'MsgBox("_FCSalary" & _FCSalary)
+                'MsgBox("_FNDeligent_La_rate" & _FNDeligent_La_rate)
+                Dim _TotalDeligent_La As Double = 0
+                If _FNDeligent_La_rate > 0 Then
+                    _TotalDeligent_La = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * (CDbl(Format((_FCSalary) / 26, "0.0000000")) * _FNDeligent_La_rate)
+                    _FCAdd = _FCAdd + _TotalDeligent_La
+                End If
+                'MsgBox(CDbl(Format((_FCSalary) / 26, "0.0000000")))
+                'MsgBox("_TotalDeligent_La" & _TotalDeligent_La)
+                'Dim _TotalDeligent_La As Double = 0
+
+                '_TotalDeligent_La = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * (CDbl(Format((_FCSalary) / 26, "0.0000000")) * 0.1)
+                '_FCAdd = _FCAdd + _TotalDeligent_La
                 '_FTAddCalculateTax = _FTAddCalculateTax + _TotalDeligent_La
                 '_FTAddCalculateSocial = _FTAddCalculateSocial + _TotalDeligent_La
 
@@ -30830,7 +31802,25 @@ Public NotInheritable Class Calculate
                 '  _FTAddCalculateTax = _FTAddCalculateTax + _ShiftAmt + _ShiftOTAmt
 
                 _HBaht = 0
+                'If _FNDay > 0 Then
+                '    _FNEmpBaht = _FNEmpBaht - (_FCDeductSourceVacationBaht + _Lapaid + FNPayLeaveBusinessBaht + FNPayLeaveSickBaht)
+                'Else ''กรณีไม่มาทำงาน แต่มีลาป่วย
+                '    _FNEmpBaht = _FNEmpBaht - (_FCDeductSourceVacationBaht + _Lapaid + FNPayLeaveBusinessBaht)  ''FNPayLeaveSickBaht จะมีค่าเงิน
+                'End If
+
                 _FNEmpBaht = _FNEmpBaht - (_FCDeductSourceVacationBaht + _Lapaid + FNPayLeaveBusinessBaht + FNPayLeaveSickBaht)
+
+                If _FNEmpBaht < 0 Then
+                    _FNEmpBaht = 0
+                End If
+
+
+
+
+
+
+
+
                 _FCAdd = _FCAdd + _ShiftAmt + _ShiftOTAmt
 
                 If _FTEmpState = "2" Or _FTEmpState = "3" Then
@@ -30933,6 +31923,8 @@ Public NotInheritable Class Calculate
 
 
 
+                Dim _tmpTotalincome_for_tax As Double = 0
+
                 _tmpTotalincome = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FCOtherAdd + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS + _BonusAmt) - (_FCOtherDeduct + _FCDeduct + 0), "0.000"))
 
                 _tmpTotalNetPay = (_tmpTotalincome - (FTContributedAmt))
@@ -30942,6 +31934,10 @@ Public NotInheritable Class Calculate
 
 
                 _Net = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FCOtherAdd + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS + _BonusAmt) - (_FCOtherDeduct + _FCDeduct + 0), "0.00"))
+
+                '' best edit _tmpTotalincome_for_tax with out sick leave 
+                _tmpTotalincome_for_tax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FCOtherAdd + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS + _BonusAmt) - (_FCOtherDeduct + _FCDeduct + 0), "0.00"))
+
                 _FCBaht = _FNEmpBaht + _nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4
 
 
@@ -30966,6 +31962,17 @@ Public NotInheritable Class Calculate
                 Dim _nBahtOt2Before As Double = 0
                 Dim _nBahtOt3Before As Double = 0
                 Dim _nBahtOt4Before As Double = 0
+
+                Dim _FNTotalIncome_before As Double = 0
+
+                Dim _SocialBeforeAmtCmp As Double = 0
+
+
+                Dim _FNSickLeaveBaht_before As Double = 0
+
+                Dim _FNFinNotCalTax As Double = 0
+
+
                 ''_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4
 
                 '_Qry &= vbCrLf & " , FCBaht, FCOt1_Baht"
@@ -30974,6 +31981,9 @@ Public NotInheritable Class Calculate
 
                 _Qry = " SELECT  TOP 1 SUM(ISNULL(P.FNTotalRecalSSO,0)) AS FCSocial"
                 _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSocial,0)) AS FCSocialAmt"
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSocialCmp,0)) AS FCSocialAmtCmp"
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTotalIncome,0)) AS FNTotalIncome "
 
                 _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTotalRecalTax,0)) AS FCTotalRecalTax"
                 _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTax,0)) AS FCTaxAmt"
@@ -30984,10 +31994,12 @@ Public NotInheritable Class Calculate
                 _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt3_Baht,0)) AS FCOt3_BahtAmt"
                 _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt4_Baht,0)) AS FCOt4_BahtAmt"
 
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSickLeaveBaht,0)) AS FNSickLeaveBaht"
+
 
                 _Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK), (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
                 _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
-                _Qry &= vbCrLf & "AND ISNULL(P.FNTotalRecalSSO,0) > 0 "
+                _Qry &= vbCrLf & "AND ISNULL(P.FNTotalIncome,0) > 0 "
                 _Qry &= vbCrLf & "AND P.FNHSysEmpID =" & Integer.Parse(Val(_EmpCode)) & " "
                 _Qry &= vbCrLf & " AND PD.FTPayTerm < '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
                 _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
@@ -31005,6 +32017,14 @@ Public NotInheritable Class Calculate
                     _SocialBefore = Val(_DtSso.Rows(0)!FCSocial.ToString)
                     _SocialBeforeAmt = Val(_DtSso.Rows(0)!FCSocialAmt.ToString)
 
+                    _SocialBeforeAmtCmp = Val(_DtSso.Rows(0)!FCSocialAmtCmp.ToString)
+
+
+                    _FNTotalIncome_before = Val(_DtSso.Rows(0)!FNTotalIncome.ToString)
+                    '' MsgBox("_FNTotalIncome_before" & _FNTotalIncome_before.ToString)
+
+                    _FNSickLeaveBaht_before = Val(_DtSso.Rows(0)!FNSickLeaveBaht.ToString)
+
                     _FCTotalRecalTaxBefore = Val(_DtSso.Rows(0)!FCTotalRecalTax.ToString)
                     _FCTaxAmtBefore = Val(_DtSso.Rows(0)!FCTaxAmt.ToString)
 
@@ -31017,6 +32037,32 @@ Public NotInheritable Class Calculate
 
 
                 End If
+
+
+
+                _Qry = " SELECT SUM(P.FCTotalFinAmt) as FCTotalFinAmt   "
+                _Qry &= vbCrLf & "FROM THRTPayRollFin P WITH (NOLOCK), (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+
+
+                _Qry &= vbCrLf & " AND P.FTFinCode in (SELECT  FTFinCode FROM [dbo].[THRMFinanceSet] WHERE   FTStaActive = 1 and FTStaTax=0 and FNHSysCmpId = " & Val(HI.ST.SysInfo.CmpID) & ")"
+
+                _Qry &= vbCrLf & "AND P.FNHSysEmpID =" & Integer.Parse(Val(_EmpCode)) & " "
+                _Qry &= vbCrLf & " AND PD.FTPayTerm < '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+
+                _Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                _Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                _Qry &= vbCrLf & "  Select FNMonth"
+                _Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                _Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                _Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                _Qry &= vbCrLf & "  )  "
+
+                _FNFinNotCalTax = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, 0)
+
+
 
                 If _FTCalSocialSta <> "1" Then ' 1 ไม่่คิดประกันสังคม
 
@@ -31035,7 +32081,7 @@ Public NotInheritable Class Calculate
                         _FCSocial = IIf(_SocialBeforeAmt > _FCSocial, 0, _FCSocial - _SocialBeforeAmt)
 
                         _FCSocialCmp = CDbl(Format(CDbl(Format((((_CalSo) * _SocialRateCmp) / 100.0), "0.00")), "0"))
-                        _FCSocialCmp = IIf(_SocialBeforeAmt > _FCSocialCmp, 0, _FCSocialCmp - _SocialBeforeAmt)
+                        _FCSocialCmp = IIf(_SocialBeforeAmt > _FCSocialCmp, 0, _FCSocialCmp - _SocialBeforeAmtCmp)
                     Else
                         _FCSocial = CDbl(Format(CDbl(Format((((_CalSo) * _SocialRate) / 100.0), "0.00")), "0"))
                         _FCSocialCmp = CDbl(Format(CDbl(Format((((_CalSo) * _SocialRateCmp) / 100.0), "0.00")), "0"))
@@ -31047,11 +32093,24 @@ Public NotInheritable Class Calculate
 
                 Dim _TotalCalTax_Sum As Double
 
-                _TotalCalTax_Sum = Format(((_Net + _SocialBefore) - (_FCSocial + _SocialBeforeAmt)), "0")
+                '_TotalCalTax_Sum = Format(((_Net + _SocialBefore) - (_FCSocial + _SocialBeforeAmt)), "0")
+
+                '_TotalCalTax = Format((_Net - (_FCSocial)), "0")
+
+                '' best edit 20230610  totalincome for cal tax  with out sick leave 
 
 
-                _TotalCalTax = Format((_Net - (_FCSocial)), "0")
+                'MsgBox("_tmpTotalincome_for_tax" & _tmpTotalincome_for_tax.ToString)
+                'MsgBox("_SocialBefore" & _SocialBefore.ToString)
+                'MsgBox("_FCSocial" & _FCSocial.ToString)
+                'MsgBox("_SocialBeforeAmt" & _SocialBeforeAmt.ToString)
+                'MsgBox("_FNSickLeaveBaht_before" & _FNSickLeaveBaht_before.ToString)
 
+
+                ''_TotalCalTax_Sum = Format(((_tmpTotalincome_for_tax + _FNTotalIncome_before) - (_FCSocial + _SocialBeforeAmt + _FNSickLeaveBaht_before)), "0")
+                _TotalCalTax_Sum = Format(((_tmpTotalincome_for_tax + _FNTotalIncome_before) - (_FCSocial + _SocialBeforeAmt + _FNFinNotCalTax)), "0")
+
+                _TotalCalTax = Format((_tmpTotalincome_for_tax - (_FCSocial)), "0")
 
 
 
@@ -31080,25 +32139,42 @@ Public NotInheritable Class Calculate
                     ''สิ้นเดือน
                     If Val(_PayTerm) Mod 2 = 0 Then
 
+                        'MsgBox("_TotalCalTax_Sum" & _TotalCalTax_Sum.ToString)
+                        'MsgBox("_FCTotalRecalTaxBefore" & _FCTotalRecalTaxBefore.ToString)
+
+
+
 
                         If (_TotalCalTax_Sum > 2000000) Then
                             _Total = _TotalCalTax_Sum   ''เงินรวมทั้งเดือน หักประกันสังคมแล้ว
+                            _Total = Math.Round(Val(_Total), 0)
+                            _TotalCalTax = _TotalCalTax_Sum - _FCTotalRecalTaxBefore
                         Else
+
+
+                            _TotalCalTax = _TotalCalTax - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4)
+
                             _Total = _TotalCalTax_Sum - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _nBahtOt1Before + _nBahtOt15Before + _nBahtOt2Before + _nBahtOt3Before + _nBahtOt4Before)
+
+                            _Total = Math.Round(Val(_Total), 0)
+
                         End If
+
+
+                        'MsgBox("_Total" & _Total.ToString)
+                        'MsgBox("_TotalCalTax" & _TotalCalTax.ToString)
 
                     Else
                         If (_TotalCalTax_Sum > 2000000) Then
                             _Total = _TotalCalTax
+                            _Total = Math.Round(Val(_Total), 0)
                         Else
                             _Total = _TotalCalTax - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4)
+                            _Total = Math.Round(Val(_Total), 0)
+                            _TotalCalTax = _TotalCalTax - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4)
+
                         End If
                     End If
-
-
-
-
-
 
 
 
@@ -31134,6 +32210,7 @@ Public NotInheritable Class Calculate
                     _TaxAmt = 0
 
                 End If
+
 
 
 
@@ -31985,6 +33062,7 @@ Public NotInheritable Class Calculate
 
     End Function
 
+
     Public Shared Function CalculateWeekEnd_LA_Daily(ByVal _User As String, ByVal _EmpCode As String,
         ByVal _EmpType As String, ByVal _StartDate As String, ByVal _EndDate As String, ByVal _PayYear As String,
         ByVal _PayTerm As String, ByVal _PayDate As String, ByVal _CalIns As String, ByVal _EmpCalType As String,
@@ -32035,9 +33113,11 @@ Public NotInheritable Class Calculate
         Dim _FTBonusEndCalculateSocial As String, _FCOtherDeduct As Double, _FTBonusEndCalculateTax As String
         Dim _FCShelter As Double, _FTShelterCalculateSocial As String, _FTShelterCalculateTax As String
         Dim _FCShareFactory As Double, _FTShareFactoryCalculateSocial As String
-        Dim FNPayLeaveBusinessBaht, FNPayLeaveSickBaht, FNPayLeaveSpecialBaht, FNParturitionLeave As Double, FNParturitionLeaveReCalTax As Double
-        Dim FNPayLeaveBusinessBahtMin, FNPayLeaveSickBahtMin, FNPayLeaveSpecialBahtMin, FNParturitionLeaveMin As Double
-        Dim GFNPayLeaveBusinessBahtMin, GFNPayLeaveSickBahtMin, GFNPayLeaveSpecialBahtMin, GFNParturitionLeaveMin As Integer
+        Dim FNPayLeaveBusinessBaht, FNPayLeaveSickBaht, FNPayLeaveSpecialBaht, FNParturitionLeave As Double, FNParturitionLeaveReCalTax, FNPayLeaveAccidentBaht As Double
+        Dim FNPayLeaveBusinessBahtMin, FNPayLeaveSickBahtMin, FNPayLeaveSpecialBahtMin, FNParturitionLeaveMin, FNPayLeaveAccidentBahtMin As Double
+        Dim GFNPayLeaveBusinessBahtMin, GFNPayLeaveSickBahtMin, GFNPayLeaveSpecialBahtMin, GFNParturitionLeaveMin, GFNPayLeaveAccidentBahtMin As Integer
+
+
         Dim _FTShift As String
         Dim _FNTime, _FNNotRegis As Double
         Dim _FNOT1 As Double, _FNOT1_5 As Double, _FNOT2 As Double, _FNOT3, _FNOT4 As Double
@@ -32241,7 +33321,7 @@ Public NotInheritable Class Calculate
         _DTEmpWorkDay.Columns.Add("FNShiftNo", GetType(Double))
         _DTEmpWorkDay.Columns.Add("FNSlaryOTPerMin", GetType(Double))
         _DTEmpWorkDay.Columns.Add("FNSlaryNormal", GetType(Double))
-
+        _DTEmpWorkDay.Columns.Add("FNLeaveAccident", GetType(Double))
 
 
 
@@ -32378,9 +33458,9 @@ Public NotInheritable Class Calculate
         CountTerm = 0
         _TotalInstalment = 0 : _Instalment = 0
 
-        FNPayLeaveBusinessBahtMin = 0 : FNPayLeaveSickBahtMin = 0 : FNPayLeaveSpecialBahtMin = 0 : FNParturitionLeaveMin = 0
-        GFNPayLeaveBusinessBahtMin = 0 : GFNPayLeaveSickBahtMin = 0 : GFNPayLeaveSpecialBahtMin = 0 : GFNParturitionLeaveMin = 0
-        FNPayLeaveBusinessBaht = 0 : FNPayLeaveSickBaht = 0 : FNPayLeaveSpecialBaht = 0 : FNParturitionLeave = 0
+        FNPayLeaveBusinessBahtMin = 0 : FNPayLeaveSickBahtMin = 0 : FNPayLeaveSpecialBahtMin = 0 : FNParturitionLeaveMin = 0 : FNPayLeaveAccidentBahtMin = 0
+        GFNPayLeaveBusinessBahtMin = 0 : GFNPayLeaveSickBahtMin = 0 : GFNPayLeaveSpecialBahtMin = 0 : GFNParturitionLeaveMin = 0 : GFNPayLeaveAccidentBahtMin = 0
+        FNPayLeaveBusinessBaht = 0 : FNPayLeaveSickBaht = 0 : FNPayLeaveSpecialBaht = 0 : FNParturitionLeave = 0 : FNPayLeaveAccidentBaht = 0
 
         _Qry = "SELECT  CONVERT(varchar(10),GETDATE(),111)"
         _ActualDate = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
@@ -33873,7 +34953,9 @@ Public NotInheritable Class Calculate
 
                                 End If
 
-
+                            Case "16" ''Accident on work
+                                FNPayLeaveAccidentBahtMin = Val(sR!FNTotalPayMinute.ToString)
+                                GFNPayLeaveAccidentBahtMin = GFNPayLeaveAccidentBahtMin + FNPayLeaveAccidentBahtMin
                             Case "999"
                                 FNPayLeaveSpecialBahtMin = Val(sR!FNTotalPayMinute.ToString)
                                 _GFNLeaveSpecial = _GFNLeaveSpecial + FNPayLeaveSpecialBahtMin
@@ -33981,13 +35063,16 @@ Public NotInheritable Class Calculate
                             Rx!FNShiftNo = _StateShift
                             Rx!FNSlaryOTPerMin = _FNSlaryOTPerMin
                             Rx!FNSlaryNormal = _FNSlaryPerDayNormal
+
+                            Rx!FNLeaveAccident = Val(Rx!FNLeaveAccident) + FNPayLeaveAccidentBahtMin
+
                             Exit For
                         Next
                     Else
                         _DTEmpWorkDay.Rows.Add(_FNSlaryPerDay, _FNTimeMin, _FNOT1Min, _FNOT1_5Min,
                                                _FNOT2Min, _FNOT3Min, _FNOT4Min, (_oHoliday),
                                                _FNLateNormalCut, _FNAbsent, _LateCutAbsent, _FNLeavePay,
-                                               _FNLeaveNotPay, FNPayLeaveBusinessBahtMin, FNPayLeaveSpecialBahtMin, FNParturitionLeaveMin, _FNLeaveVacation, _StateShift, _FNSlaryOTPerMin, _FNSlaryPerDayNormal)
+                                               _FNLeaveNotPay, FNPayLeaveBusinessBahtMin, FNPayLeaveSpecialBahtMin, FNParturitionLeaveMin, _FNLeaveVacation, _StateShift, _FNSlaryOTPerMin, _FNSlaryPerDayNormal, FNPayLeaveAccidentBahtMin)
                     End If
 
                     _FTSatrtCalculateDate = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddDay(_FTSatrtCalculateDate, 1))
@@ -34007,7 +35092,7 @@ Public NotInheritable Class Calculate
                 _HBaht = 0
                 _LaNotpaid = 0
                 _Lapaid = 0
-                FNPayLeaveBusinessBaht = 0 : FNPayLeaveSickBaht = 0 : FNPayLeaveSpecialBaht = 0 : FNParturitionLeave = 0
+                FNPayLeaveBusinessBaht = 0 : FNPayLeaveSickBaht = 0 : FNPayLeaveSpecialBaht = 0 : FNParturitionLeave = 0 : FNPayLeaveAccidentBaht = 0
                 _FCPayVacationBaht = 0
                 _FNSlaryOTPerMin = 0
                 Dim _TotalxDay As Integer = 0
@@ -34102,6 +35187,9 @@ Public NotInheritable Class Calculate
                     _Lapaid = _Lapaid + CDbl(Format(Val(Rx!FNLeavePay) * _SalaryPayLeaveMin, "0.000"))
                     FNPayLeaveBusinessBaht = FNPayLeaveBusinessBaht + CDbl(Format(Val(Rx!FNBusiness) * _FNSlaryPerMin, "0.000"))
 
+                    FNPayLeaveAccidentBaht = FNPayLeaveAccidentBaht + CDbl(Format(Val(Rx!FNLeaveAccident) * _FNSlaryPerMin, "0.000"))
+
+
                     ' FNParturitionLeave = FNParturitionLeave + CDbl(Format(Val(Rx!FNParturition) * _FNSlaryPerMin, "0.000"))
 
                     ''Dim _MoneyRetVacationPerDay = MoneyRetVacationPerDay_KM(_PayYear, _PayTerm, _StartDate, _EndDate, Val(_EmpCode), Val(_EmpType), 0, _FCSalary, CountDayPerMonth, _WorkAgeDay)
@@ -34147,8 +35235,8 @@ Public NotInheritable Class Calculate
 
                 If _FTEmpState = "2" Or _FTEmpState = "3" Or (_FDDateEnd <= _EndDate And _FDDateEnd <> "") Then
 
-                    FNPayLeaveBusinessBahtMin = 0 : FNPayLeaveSickBahtMin = 0 : FNPayLeaveSpecialBahtMin = 0 : FNParturitionLeaveMin = 0
-                    GFNPayLeaveBusinessBahtMin = 0 : GFNPayLeaveSickBahtMin = 0 : GFNParturitionLeaveMin = 0
+                    FNPayLeaveBusinessBahtMin = 0 : FNPayLeaveSickBahtMin = 0 : FNPayLeaveSpecialBahtMin = 0 : FNParturitionLeaveMin = 0 : FNPayLeaveAccidentBahtMin = 0
+                    GFNPayLeaveBusinessBahtMin = 0 : GFNPayLeaveSickBahtMin = 0 : GFNParturitionLeaveMin = 0 : GFNPayLeaveAccidentBahtMin = 0
                     FNPayLeaveBusinessBaht = 0 : FNPayLeaveSpecialBaht = 0 : FNParturitionLeave = 0
                     'FNPayLeaveSickBaht = 0 : ไม่มี เคสคำนวณ ในกรณีลาออก ใช้จากคำนวณปกติ
 
@@ -34737,10 +35825,22 @@ Public NotInheritable Class Calculate
 
 
                 ''เงินเบี้ยขยัน
-                Dim _TotalDeligent_La As Double = 0
+                Dim _FNDeligent_La_rate As Double = 0
 
-                _TotalDeligent_La = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * (_FCSalary * 0.1)
-                _FCAdd = _FCAdd + _TotalDeligent_La
+                _Qry = "SELECT TOP 1 FTCfgData FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig WHERE FTCfgName='CfgDeligent_La_rate'"
+                _FNDeligent_La_rate = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "0"))
+
+                Dim _TotalDeligent_La As Double = 0
+                '''If _FNDeligent_La_rate > 0 Then
+                '''    _TotalDeligent_La = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * (_FCSalary * _FNDeligent_La_rate)
+                '''    _FCAdd = _FCAdd + _TotalDeligent_La
+                '''End If
+
+                If _FNDeligent_La_rate > 0 Then
+                    _TotalDeligent_La = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * (8000)
+                    _FCAdd = _FCAdd + _TotalDeligent_La
+                End If
+
                 '_FTAddCalculateTax = _FTAddCalculateTax + _TotalDeligent_La
                 '_FTAddCalculateSocial = _FTAddCalculateSocial + _TotalDeligent_La
 
@@ -34902,15 +36002,4754 @@ Public NotInheritable Class Calculate
                 '  _FTAddCalculateTax = _FTAddCalculateTax + _ShiftAmt + _ShiftOTAmt
                 _FCAdd = _FCAdd + _ShiftAmt + _ShiftOTAmt
 
+                'If _FTEmpState = "2" Or _FTEmpState = "3" Then
+
+
+                '    _TotalCalSso = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateSocial + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+                '    _TotalCalTax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeaveReCalTax) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNWorkAgeSalary) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+
+                'Else
+                '    _TotalCalSso = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateSocial + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+                '    _TotalCalTax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeaveReCalTax) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNWorkAgeSalary) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+
+
+
+                'End If
+
                 If _FTEmpState = "2" Or _FTEmpState = "3" Then
 
 
-                    _TotalCalSso = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateSocial + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS) - (_FCOtherDeduct + _FCDeduct), "0.000"))
-                    _TotalCalTax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeaveReCalTax) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNWorkAgeSalary) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+                    _TotalCalSso = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveAccidentBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateSocial + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+                    _TotalCalTax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveAccidentBaht + FNPayLeaveSpecialBaht + FNParturitionLeaveReCalTax) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNWorkAgeSalary) - (_FCOtherDeduct + _FCDeduct), "0.000"))
 
                 Else
-                    _TotalCalSso = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateSocial + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS) - (_FCOtherDeduct + _FCDeduct), "0.000"))
-                    _TotalCalTax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeaveReCalTax) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNWorkAgeSalary) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+                    _TotalCalSso = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveAccidentBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateSocial + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+                    _TotalCalTax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveAccidentBaht + FNPayLeaveSpecialBaht + FNParturitionLeaveReCalTax) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNWorkAgeSalary) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+
+
+
+                End If
+
+                '-----------------หักเงินเข้า กองทุนสำรองเลี้ยงชีพ-------------------------------
+                If _ContributedFundBeginPay Then
+                    Dim _EMpWorkAge As Integer = Val(R!FNEmpWorkAge.ToString)
+
+                    For Each sR As DataRow In _THRMContributedFund.Select(" FNAgeBegin <= " & _EMpWorkAge & " AND FNAgeEnd >=" & _EMpWorkAge & " ")
+
+                        FTTotalCalContributedAmt = _TotalCalSso
+
+                        FTContributedAmt = CDbl(Format(((FTTotalCalContributedAmt * Val(sR!FNEmpAmtPer.ToString)) / 100.0), "0"))
+                        FTCmpContributedAmt = CDbl(Format(((FTTotalCalContributedAmt * Val(sR!FNCmpAmtPer.ToString)) / 100.0), "0"))
+
+                        Exit For
+
+                    Next
+
+                End If
+                '-----------------หักเงินเข้า กองทุนสำรองเลี้ยงชีพ----------------------------
+                '-----------------หักเงินเข้า กองทุนทดแทน---------------------------------
+                FTTotalCalWorkmen = _TotalCalSso
+
+                If _FTMaxCalWorkmen > 0 Then
+
+                    _SocialPayMax = CDbl(Format(((_FTMaxCalWorkmen * _FTMaxWorkmenRate) / 100.0), "0"))
+
+                    If (_TotalCalSso + _FTTotalCalWorkmenBefore) > _FTMaxCalWorkmen Then
+                        FTTotalCalWorkmen = _FTMaxCalWorkmen
+                    ElseIf FTTotalCalWorkmen > 0 Then
+                        FTTotalCalWorkmen = FTTotalCalWorkmen
+                    Else
+                        FTTotalCalWorkmen = 0
+                    End If
+
+                    If _FTTotalCalWorkmenBefore > 0 Then
+                        FTWorkmenAmt = CDbl(Format((((_CalSo + _FTTotalCalWorkmenBefore) * _FTMaxWorkmenRate) / 100.0), "0"))
+                        FTWorkmenAmt = FTWorkmenAmt - _FTWorkmenAmtBefore
+                    Else
+                        FTWorkmenAmt = CDbl(Format(((FTTotalCalWorkmen * _FTMaxWorkmenRate) / 100.0), "0"))
+                    End If
+                End If
+
+                '-----------------หักเงินเข้า กองทุนทดแทน-------------------------------
+
+
+
+                _FNEmpDiligent = 0
+                _FTStateInDustin = ""
+                _FNDeligentPeriod = 0
+
+                If _CalIns <> "" Then
+                    Dim _StateCalIns As Boolean = False
+                    '_Qry = "SELECT TOP 1 FNPayDeligent FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMDiligentConfigHD WHERE FTDeligentCode='" & HI.UL.ULF.rpQuoted(_CalIns) & "' "
+                    'If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "") = "1" Then
+                    '    If Val(_PayTerm) Mod 2 = 1 Then
+
+                    '        _FTSatrtCalculateDateIns = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddMonth(Left(_EndDate, 8) & "01", -1))  'วันแรกของเดือน
+                    '        _FTEndCalculateDateIns = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddMonth(HI.UL.ULDate.AddDay(HI.UL.ULDate.AddMonth(Left(_EndDate, 8) & "01", 1), -1), -1)) 'วันแของเดือน
+                    '        _StateCalIns = True
+                    '    End If
+                    'Else
+
+                    '    _StateCalIns = True
+                    'End If
+
+                    'If _StateCalIns Then
+                    '    _Qry = " SELECT   ISNULL(PayIndus,0) As PayIndus , ISNULL(StateIndus,'') AS StateIndus,ISnuLL(FNDeligentPeriod,0) AS FNDeligentPeriod"
+                    '    _Qry &= vbCrLf & "	FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.FN_CALCULATE_INDUST(" & Val(_EmpCode) & ",'" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDateIns) & "','" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDateIns) & "','" & HI.UL.ULF.rpQuoted(_CalIns) & "')"
+
+                    '    Dim _DtIns As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    '    If _DtIns.Rows.Count > 0 Then
+                    '        _FNEmpDiligent = Val(_DtIns.Rows(0)!PayIndus.ToString)
+                    '        _FTStateInDustin = _DtIns.Rows(0)!StateIndus.ToString
+                    '        _FNDeligentPeriod = Val(_DtIns.Rows(0)!FNDeligentPeriod.ToString)
+                    '    End If
+
+                    'End If
+                End If
+
+
+
+                Dim _tmpTotalincome As Double = 0
+                Dim _DiffTotalincome As Double = 0
+                Dim _tmpTotalNetPay As Double = 0
+                Dim _DiffTotalNetPay As Double = 0
+                Dim _FNServicefee, _FNFinTransFee As Double
+
+                Dim _tmpTotalincome_for_tax As Double = 0
+
+                _tmpTotalincome = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveAccidentBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FCOtherAdd + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS + _BonusAmt) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+
+                ''With out sick leave
+                _tmpTotalincome_for_tax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveAccidentBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS + _BonusAmt) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+
+
+                _tmpTotalNetPay = (_tmpTotalincome - (FTContributedAmt))
+
+                _TotalCalSso = CDbl(Format(_tmpTotalincome, "0"))
+
+
+
+                _Net = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveAccidentBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FCOtherAdd + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS + _BonusAmt) - (_FCOtherDeduct + _FCDeduct), "0.00"))
+                _FCBaht = _FNEmpBaht + _nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4
+
+
+
+                '--------- คิดประกันสังคม-----------
+                _SocialPayMax = HCfg.HMaxSocialBaht
+                _CalSo = 0
+                _FCSocial = 0
+                _FCSocialCmp = 0
+                _TotalCalSso = (_TotalCalSso)
+                _FNSocialBase = 0
+
+                Dim _FCTotalRecalTaxBefore As Double = 0
+                Dim _FCTaxAmtBefore As Double = 0
+                Dim _TotalCalTaxAll As Double = 0
+
+                Dim _FCOt1_Baht_Amt As Double = 0
+                Dim _FCOt15_Baht_Amt As Double = 0
+                Dim _FCOt2_Baht_Amt As Double = 0
+                Dim _FCOt3_Baht_Amt As Double = 0
+                Dim _FCOt4_Baht_Amt As Double = 0
+
+                Dim _FNTotalIncome_before As Double = 0
+
+                Dim _SocialBeforeAmtCmp As Double = 0
+
+                Dim _FNSickLeaveBaht_before As Double = 0
+
+                Dim _FNFinNotCalTax As Double = 0
+
+
+                _Qry = " SELECT  TOP 1 SUM(ISNULL(P.FNTotalRecalSSO,0)) AS FCSocial "
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTotalIncome,0)) AS FNTotalIncome "
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSocial,0)) AS FCSocialAmt "
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSocialCmp,0)) AS FCSocialAmtCmp "
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTotalRecalTax,0)) AS FCTotalRecalTax "
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTax,0)) AS FCTaxAmt "
+
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt1_Baht,0)) AS FCOt1_Baht "
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt15_Baht,0)) AS FCOt15_Baht "
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt2_Baht,0)) AS FCOt2_Baht "
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt3_Baht,0)) AS FCOt3_Baht "
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt4_Baht,0)) AS FCOt4_Baht "
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSickLeaveBaht,0)) AS FNSickLeaveBaht"
+
+
+                _Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK), (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                _Qry &= vbCrLf & "AND ISNULL(P.FNTotalIncome,0) > 0 "
+                _Qry &= vbCrLf & "AND P.FNHSysEmpID =" & Integer.Parse(Val(_EmpCode)) & " "
+                _Qry &= vbCrLf & " AND PD.FTPayTerm < '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+
+                _Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                _Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                _Qry &= vbCrLf & "  Select FNMonth"
+                _Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                _Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                _Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                _Qry &= vbCrLf & "  )  "
+
+
+
+                Dim _DtSso As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                If _DtSso.Rows.Count > 0 Then
+                    _SocialBefore = Val(_DtSso.Rows(0)!FCSocial.ToString)
+                    _SocialBeforeAmt = Val(_DtSso.Rows(0)!FCSocialAmt.ToString)
+                    _SocialBeforeAmtCmp = Val(_DtSso.Rows(0)!FCSocialAmtCmp.ToString)
+
+                    _FNTotalIncome_before = Val(_DtSso.Rows(0)!FNTotalIncome.ToString)
+
+                    _FCTotalRecalTaxBefore = Val(_DtSso.Rows(0)!FCTotalRecalTax.ToString)
+                    _FCTaxAmtBefore = Val(_DtSso.Rows(0)!FCTaxAmt.ToString)
+
+                    _FNSickLeaveBaht_before = Val(_DtSso.Rows(0)!FNSickLeaveBaht.ToString)
+
+
+                    _FCOt1_Baht_Amt = Val(_DtSso.Rows(0)!FCOt1_Baht.ToString)
+                    _FCOt15_Baht_Amt = Val(_DtSso.Rows(0)!FCOt15_Baht.ToString)
+                    _FCOt2_Baht_Amt = Val(_DtSso.Rows(0)!FCOt2_Baht.ToString)
+                    _FCOt3_Baht_Amt = Val(_DtSso.Rows(0)!FCOt3_Baht.ToString)
+                    _FCOt4_Baht_Amt = Val(_DtSso.Rows(0)!FCOt4_Baht.ToString)
+
+                End If
+
+
+
+                If _FTCalSocialSta <> "1" Then ' 1 ไม่่คิดประกันสังคม
+
+                    If (_TotalCalSso + _SocialBefore) >= _SocialMaxIncome Then
+                        _CalSo = _SocialMaxIncome
+                    ElseIf (_TotalCalSso + _SocialBefore) < _SocialMaxIncome And (_TotalCalSso + _SocialBefore) >= _SocialMinIncome Then
+                        _CalSo = (_TotalCalSso + _SocialBefore)
+                    ElseIf _TotalCalSso > 0 Then
+                        _CalSo = _SocialMinIncome
+                    Else
+                        _CalSo = 0
+                    End If
+
+                    If _SocialBefore > 0 Then
+                        _FCSocial = CDbl(Format(CDbl(Format((((_CalSo) * _SocialRate) / 100.0), "0.00")), "0"))
+                        _FCSocial = IIf(_SocialBeforeAmt > _FCSocial, 0, _FCSocial - _SocialBeforeAmt)
+
+                        _FCSocialCmp = CDbl(Format(CDbl(Format((((_CalSo) * _SocialRateCmp) / 100.0), "0.00")), "0"))
+                        _FCSocialCmp = IIf(_SocialBeforeAmt > _FCSocialCmp, 0, _FCSocialCmp - _SocialBeforeAmtCmp)
+
+                    Else
+                        _FCSocial = CDbl(Format(CDbl(Format((((_CalSo) * _SocialRate) / 100.0), "0.00")), "0"))
+                        _FCSocialCmp = CDbl(Format(CDbl(Format((((_CalSo) * _SocialRateCmp) / 100.0), "0.00")), "0"))
+                    End If
+
+                Else
+                    _TotalCalSso = 0
+                End If
+
+
+                _Qry = " SELECT SUM(P.FCTotalFinAmt) as FCTotalFinAmt   "
+                _Qry &= vbCrLf & "FROM THRTPayRollFin P WITH (NOLOCK), (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+
+
+                _Qry &= vbCrLf & " AND P.FTFinCode in (SELECT  FTFinCode FROM [dbo].[THRMFinanceSet] WHERE   FTStaActive = 1 and FTStaTax=0 and FNHSysCmpId = " & Val(HI.ST.SysInfo.CmpID) & ")"
+
+                _Qry &= vbCrLf & "AND P.FNHSysEmpID =" & Integer.Parse(Val(_EmpCode)) & " "
+                _Qry &= vbCrLf & " AND PD.FTPayTerm < '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+
+                _Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                _Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                _Qry &= vbCrLf & "  Select FNMonth"
+                _Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                _Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                _Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                _Qry &= vbCrLf & "  )  "
+
+
+                _FNFinNotCalTax = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, 0)
+
+
+
+                'MsgBox("_TotalCalTax" & _TotalCalTax.ToString())
+                'MsgBox("_tmpTotalincome_for_tax" & _tmpTotalincome_for_tax.ToString())
+                'MsgBox("_FCSocial" & _FCSocial.ToString())
+
+                '' edit 20230610  best   _tmpTotalincome_for_tax    with out sick leave 
+                _TotalCalTax = Format((_tmpTotalincome_for_tax - (_FCSocial)), "0")
+                'MsgBox("zz_tmpTotalincome_for_tax" & _tmpTotalincome_for_tax.ToString())
+
+                'MsgBox("_FNTotalIncome_before" & _FNTotalIncome_before.ToString())
+                'MsgBox("_FCSocial" & _FCSocial.ToString())
+                'MsgBox("_SocialBeforeAmt" & _SocialBeforeAmt.ToString())
+                'MsgBox("_FNSickLeaveBaht_before" & _FNSickLeaveBaht_before.ToString())
+
+
+                Dim _TotalCalTax_Sum As Double
+
+                '' _TotalCalTax_Sum = Format(((_tmpTotalincome_for_tax + _FNTotalIncome_before) - (_FCSocial + _SocialBeforeAmt + _FNSickLeaveBaht_before)), "0")
+                _TotalCalTax_Sum = Format(((_tmpTotalincome_for_tax + _FNTotalIncome_before) - (_FCSocial + _SocialBeforeAmt + _FNFinNotCalTax)), "0")
+
+                'MsgBox("_TotalCalTax_Sum" & _TotalCalTax_Sum.ToString())
+
+                If _FTCalTaxSta <> "1" Then
+
+                    'With _EmpDisTax
+                    '    .FTSosial = _FCAccumulateSocial + _FCSocial + (_FCSocial * (_TotalInstalment - _Instalment))
+
+                    '    If .FTSosial > (((_SocialMaxIncome * _SocialRate) / 100.0) * 12) Then
+                    '        .FTSosial = CDbl(Format((((_SocialMaxIncome * _SocialRate) / 100.0) * 12), "0.00"))
+                    '    End If
+
+                    '    .BaseSlary = (_TotalCalTax * (_TotalInstalment - _Instalment)) + _TotalCalTax
+                    '    .OtherSlary = _FTOtherAddCalculateTax + _FTAddCalculateTax + _FNEmpDiligent + _nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4
+                    '    .Cfg_ContributedDeducToTheFund = .Cfg_ContributedDeducToTheFund + FTContributedAmt + (FTContributedAmt * (_TotalInstalment - _Instalment))
+
+                    'End With
+
+                    '_TotalCalTax = _TotalCalTax + _EmpDisTax.OtherSlary
+                    Dim _TaxOther As Double = _EmpDisTax.OtherSlary
+                    Dim _TaxOtherAmt As Double = 0
+                    Dim _Total As Double = 0
+
+                    ''GETnRecalDiscTax(_EmpDisTax, _EmpTaxYear)
+
+                    ''สิ้นเดือน
+                    If Val(_PayTerm) Mod 2 = 0 Then
+
+
+                        If (_TotalCalTax_Sum > 2000000) Then
+                            _Total = _TotalCalTax_Sum   ''เงินรวมทั้งเดือน หักประกันสังคมแล้ว
+                            'MsgBox("1_Total" & _Total.ToString())
+
+                            _Total = Math.Round(Val(_Total), 0)
+                            _TotalCalTax = _TotalCalTax_Sum - _FCTotalRecalTaxBefore
+
+
+
+                            'MsgBox("_TotalCalTax" & _TotalCalTax.ToString())
+                        Else
+
+                            ''ของทั้งเดือน สำหรับคิด  tax
+                            _Total = _TotalCalTax_Sum - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCOt1_Baht_Amt + _FCOt15_Baht_Amt + _FCOt2_Baht_Amt + _FCOt3_Baht_Amt + _FCOt4_Baht_Amt)
+                            ''    MsgBox("2_Total" & _Total.ToString())
+
+
+
+                            ''ของ เฉพราะ งวด 2
+                            ''_TotalCalTax = _TotalCalTax - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4)
+
+                            _Total = Math.Round(Val(_Total), 0)
+                            _TotalCalTax = _Total - _FCTotalRecalTaxBefore
+                            ''    MsgBox("2_TotalCalTax" & _TotalCalTax.ToString())
+                        End If
+
+                    Else
+                        If (_TotalCalTax_Sum > 2000000) Then
+                            _Total = _TotalCalTax
+
+                            _Total = Math.Round(Val(_Total), 0)
+                        Else
+
+                            _Total = _TotalCalTax - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4)
+                            _Total = Math.Round(Val(_Total), 0)
+
+                            _TotalCalTax = _TotalCalTax - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4)
+
+                        End If
+                    End If
+
+
+                    '_EmpTaxYear.FTSocial = _EmpDisTax.FTSosial
+
+                    '_EmpTaxYear.FTTotalCalTax = _Total
+
+                    'MsgBox("_Total" & _Total.ToString())
+
+                    'MsgBox("Best" & (_Total - _FCTotalRecalTaxBefore).ToString)
+                    Dim _TotalTax As Double = GETnTax(_Total, _TaxOther, _TaxOtherAmt)
+
+                    _EmpTaxYear.FTTotalTax = (_TotalTax + _TaxOtherAmt) 'ภาษีที่ต้องจ่าย
+
+                    'MsgBox("_FCTaxAmtBefore" & _FCTaxAmtBefore.ToString())
+
+                    _TotalTax = CDbl(Format(_TotalTax - _FCTaxAmtBefore, "0"))
+
+                    'MsgBox("_TotalTax" & _TotalTax.ToString())
+
+                    If _TotalTax > 0 Then
+                        _TaxAmt = CDbl(Format((_TotalTax), "0.00"))
+
+                        'MsgBox("_TaxAmt" & _TaxAmt.ToString())
+                        'MsgBox("_TaxOtherAmt" & _TaxOtherAmt.ToString())
+
+                        _TaxAmt = _TaxAmt + _TaxOtherAmt
+
+                    Else
+                        _TaxAmt = 0
+                    End If
+
+                    _EmpTaxYear.FTTotalTaxPay = _FCAccumulateTax + _TaxAmt
+
+                Else
+
+                    _TotalCalTax = 0
+                    _TaxAmt = 0
+
+                End If
+
+
+
+
+                _FNNetpay = Format((_tmpTotalincome - (_FCSocial + FTContributedAmt + _TaxAmt + 0)), "0.00")
+                _FNNetpayOrg = _FNNetpay
+
+                '_DiffTotalincome = _Net - _tmpTotalincome
+                '_DiffTotalNetPay = _FNNetpay - _tmpTotalNetPay
+
+                If _tmpTotalincome <= 0 Then
+                    _FNServicefee = 0
+                    _FNFinTransFee = 0
+                    _tmpTotalincome = 0
+                    _tmpTotalNetPay = 0
+                    _Net = 0
+                    _FCBaht = 0
+                    _FNNetpay = 0
+                    _FNNetpayOrg = 0
+                    _DiffTotalincome = 0
+                    _DiffTotalNetPay = 0
+                End If
+
+                _FNNetpay = CDbl(Format((_FNNetpay), "0"))
+
+
+                If _FNNetpay > 0 Then
+
+
+
+                    Dim a As Integer = 0
+
+                    a = _FNNetpay.ToString.Length
+
+                    Dim amt1 As Integer = 0
+                    Dim amt2 As Integer = 0
+                    Dim amtAdd As Integer = 0
+                    If a > 3 Then
+
+                        amt2 = Right(_FNNetpay, 3)
+
+                        If (amt2 > 500) Then
+
+                            amtAdd = 1000
+                        Else
+                            amtAdd = 500
+                        End If
+
+                        _FNNetpay = (_FNNetpay + amtAdd) - amt2
+                    Else
+                        amt2 = _FNNetpay
+
+                        If (amt2 > 500) Then
+
+                            amtAdd = 1000
+                        Else
+                            amtAdd = 500
+                        End If
+
+                        _FNNetpay = amtAdd
+
+                    End If
+                End If
+
+
+                _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+                _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+                _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+                _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+                _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                _Qry = "	INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll (FTInsUser, FTInsDate, FTInsTime,"
+                _Qry &= vbCrLf & "   FTPayYear, FTPayTerm, FNHSysEmpID, FTEmpIdNo,FTEmpIdNo1,FTSocialNo,"
+                _Qry &= vbCrLf & "   FNHSysEmpTypeId, FTPayDate"
+                _Qry &= vbCrLf & ",FNHSysDeptId, FNHSysDivisonId, FNHSysSectId, FNHSysUnitSectId, FNHSysPositId,  FNHSysPayRollPayId"
+                _Qry &= vbCrLf & " , FNHSysBankId, FNHSysBankBranchId, FTAccNo, FNHoliday"
+                _Qry &= vbCrLf & "   ,FNSalary, FNWorkingHour"
+                _Qry &= vbCrLf & "   ,FNOt1, FNOt15, FNOt2, FNOt3,FNOt4"
+                _Qry &= vbCrLf & ", FNTotalLeavePay, FNTotalLeaveNotPay, FNTotalLeave"
+                _Qry &= vbCrLf & ",FNTotalWKNMin,  FNOt1Min, FNOt15Min, FNOt2Min"
+                _Qry &= vbCrLf & ", FNOt3Min, FNOt4Min, FNTotalLateMin, FNLateCutMin, FNLateCutAbsentMin"
+                _Qry &= vbCrLf & ",  FNAbsentMin, FNTotalWKMin, FNTotalLeavePayMin, FNTotalLeaveNotPayMin, FNTotalLeaveMin"
+                _Qry &= vbCrLf & " , FCBaht, FCOt1_Baht"
+                _Qry &= vbCrLf & ",FCOt15_Baht, FCOt2_Baht, FCOt3_Baht,FCOt4_Baht,FCNetBaht"
+                _Qry &= vbCrLf & ", FNDiligentBaht, FNPayLeaveVacationBaht, FNPayLeaveOtherBaht "
+                _Qry &= vbCrLf & ", FNLateCutAmt, FNLateCutAbsentAmt,FNAbsentAmt, FNTotalRecalSSO, FNTotalRecalTAX"
+                _Qry &= vbCrLf & ", FNTotalAdd,FNTotalAddOther, FNTotalExpense, FNTotalExpenseOther, FNTotalIncome "
+                _Qry &= vbCrLf & ",FNSocial, FNTax, FHolidayBaht, FNNetpay, FNAccumulateIncomeYear"
+                _Qry &= vbCrLf & ", FNAccumulateSocialYear, FNAccumulateTax, FTStateInDustin"
+                _Qry &= vbCrLf & ",FNTotalCalContributedAmt,FNContributedAmt,FNCmpContributedAmt,FNTotalCalWorkmen,FNWorkmenAmt ,FNAmtRetire"
+                _Qry &= vbCrLf & ",FNPayLeaveSSo,FNWorkingDay,FNAdjBeforeCal,FNIncentiveAmt,FNNetpayOrg"
+                _Qry &= vbCrLf & ", FNAttandanceAmt, FNHealtCareAmt, "
+                _Qry &= vbCrLf & " FNTransportAmt, FNChildCareAmt, FNOTMealAmt, FNSocialBase, FNWorkAgeSalary, FNOTMealAmtUS, FNExchangeRate, FNSickLeaveBaht, FNSickLeaveMin, FNBusinessLeaveBaht, FNBusinessLeaveMin,"
+                _Qry &= vbCrLf & "FNSpecialLeaveBaht, FNSpecialLeaveMin, FNParturitionLeaveBaht, FNParturitionLeaveMin, FNVacationRetMin, FNVacationRetAmt,FNExchangeRateTHB"
+                _Qry &= vbCrLf & ",FNWorkDay,FTStateCalSocial,FTStateCalTax,FNTotalIncomeDiff,FNNetpayDiff,FNSocialExchangeRate,FNTaxExchangeRate , FNServicefee ,FNFinTransFee,FNSocialInsuranceEmployee , FNSocialInsuranceEmployer, FNUnionInsuranceEmployee , FNTotalWKN_Real_Min , FNSocialRateEmp,FNSocialRateCmp, FNSocialCmp )"
+                _Qry &= vbCrLf & " 	SELECT '" & HI.UL.ULF.rpQuoted(_User) & "',CONVERT(varchar(10),GetDate(),111),CONVERT(varchar(8),GetDate(),114)"
+                _Qry &= vbCrLf & " 	,'" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ""
+                _Qry &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "','" & HI.UL.ULF.rpQuoted(_FTEmpIdNo1) & "','" & HI.UL.ULF.rpQuoted(_FTSocialNo) & "','" & _EmpType & "','" & HI.UL.ULDate.ConvertEnDB(_PayDate) & "'"
+                _Qry &= vbCrLf & " 	," & Val(_FTDeptCode) & ""
+                _Qry &= vbCrLf & " 	," & Val(_FTDivCode) & " "
+                _Qry &= vbCrLf & " 	," & Val(_FTSectCode) & " "
+                _Qry &= vbCrLf & " 	," & Val(_FTUnitCode) & " "
+                _Qry &= vbCrLf & " 	," & Val(_FTPos) & " "
+                _Qry &= vbCrLf & " 	," & Val(_FTPaymentCode) & " "
+                _Qry &= vbCrLf & " 	," & Val(_FTBankCode) & " "
+                _Qry &= vbCrLf & " 	," & Val(_FTBranchCode) & " "
+                _Qry &= vbCrLf & " 	,N'" & HI.UL.ULF.rpQuoted(_FTAccNo) & "'," & _TotalHoliDay & ""
+                _Qry &= vbCrLf & " 	," & _FCSalary & ""
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2), " & _GFNTimeMin & " / 60) + Convert(numeric(18,2),(( " & _GFNTimeMin & " %60) /100.00)) "
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2), " & _GFNOT1Min & " / 60) + Convert(numeric(18,2),(( " & _GFNOT1Min & "  %60) /100.00))"
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2), " & _GFNOT1_5Min & " / 60) + Convert(numeric(18,2),(( " & _GFNOT1_5Min & "  %60) /100.00))"
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2), " & _GFNOT2Min & " / 60) + Convert(numeric(18,2),(( " & _GFNOT2Min & " %60) /100.00))"
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2)," & _GFNOT3Min & " / 60) + Convert(numeric(18,2),(( " & _GFNOT3Min & " %60) /100.00))"
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2),  " & _GFNOT4Min & " / 60) + Convert(numeric(18,2),(( " & _GFNOT4Min & " %60) /100.00))"
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2),  " & _GtotalleavePay & " / 60) + Convert(numeric(18,2),(( " & _GtotalleavePay & " %60) /100.00))"
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2),  " & _GtotalleaveNotPay & " / 60) + Convert(numeric(18,2),(( " & _GtotalleaveNotPay & " %60) /100.00))"
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2),  " & _Gtotalleave & " / 60) + Convert(numeric(18,2),(( " & _Gtotalleave & " %60) /100.00))"
+                _Qry &= vbCrLf & " 	, " & _GFNTimeMin
+                _Qry &= vbCrLf & " 	, " & _GFNOT1Min
+                _Qry &= vbCrLf & " 	, " & _GFNOT1_5Min
+                _Qry &= vbCrLf & ", " & _GFNOT2Min
+                _Qry &= vbCrLf & "," & _GFNOT3Min
+                _Qry &= vbCrLf & ",  " & _GFNOT4Min
+                _Qry &= vbCrLf & ",  " & _GFNLateNormalMin
+                _Qry &= vbCrLf & ",  " & _GFNLateNormalCut
+                _Qry &= vbCrLf & ",  " & _GFNCutAbsent
+                _Qry &= vbCrLf & ",  " & _GFNAbsent & "," & (_GFNTimeMin + _GFNOT1Min + _GFNOT1_5Min + _GFNOT2Min + _GFNOT3Min + _GFNOT4Min)
+                _Qry &= vbCrLf & ",  " & _GtotalleavePay
+                _Qry &= vbCrLf & ", " & _GtotalleaveNotPay
+                _Qry &= vbCrLf & ", " & _Gtotalleave
+                _Qry &= vbCrLf & ", " & _FNEmpBaht & " "
+                _Qry &= vbCrLf & ", " & _nBahtOt1 & " "
+                _Qry &= vbCrLf & "," & _nBahtOt15 & " "
+                _Qry &= vbCrLf & "," & _nBahtOt2 & " "
+                _Qry &= vbCrLf & "," & _nBahtOt3 & " "
+                _Qry &= vbCrLf & "," & _nBahtOt4 & " "
+                _Qry &= vbCrLf & "," & (_FNEmpBaht + _nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FNIncentiveAmt + _BonusAmt) & " "
+                _Qry &= vbCrLf & "," & _FNEmpDiligent & " "
+                _Qry &= vbCrLf & "," & _FCPayVacationBaht & " "
+                _Qry &= vbCrLf & "," & _Lapaid & " "
+                _Qry &= vbCrLf & "," & _LateCutAmt & " "
+                _Qry &= vbCrLf & "," & _LateCutAmtAbsent & " "
+                _Qry &= vbCrLf & "," & _nBahtAbsent & " "
+                _Qry &= vbCrLf & "," & _TotalCalSso & " "  '1252332.349
+                _Qry &= vbCrLf & "," & _TotalCalTax & " "
+                _Qry &= vbCrLf & "," & _FCAdd & " "
+                _Qry &= vbCrLf & "," & _FCOtherAdd & " "
+                _Qry &= vbCrLf & "," & _FCDeduct & " "
+                _Qry &= vbCrLf & "," & _FCOtherDeduct & " "
+                _Qry &= vbCrLf & "," & _tmpTotalincome & " "
+                _Qry &= vbCrLf & "," & _FCSocial & " "
+                _Qry &= vbCrLf & "," & _TaxAmt & " "
+                _Qry &= vbCrLf & "," & _HBaht & " "
+                _Qry &= vbCrLf & "," & (_FNNetpay) & ""
+                _Qry &= vbCrLf & "," & (_Net + _FCAccumulateIncome) & ""
+                _Qry &= vbCrLf & "," & (_FCSocial + _FCAccumulateSocial) & ""
+                _Qry &= vbCrLf & "," & (_TaxAmt + _FCAccumulateTax) & ""
+                _Qry &= vbCrLf & ",'" & _FTStateInDustin & "' "
+                _Qry &= vbCrLf & "," & (FTTotalCalContributedAmt) & ""
+                _Qry &= vbCrLf & "," & (FTContributedAmt) & ""
+                _Qry &= vbCrLf & "," & (FTCmpContributedAmt) & ""
+                _Qry &= vbCrLf & "," & (FTTotalCalWorkmen) & ""
+                _Qry &= vbCrLf & "," & (FTWorkmenAmt) & ""
+                _Qry &= vbCrLf & "," & _AmtRetire & ""
+                _Qry &= vbCrLf & "," & _GtotalleavePayCalSsoAmt & ""
+                _Qry &= vbCrLf & "," & _WorkingDay & " "
+                _Qry &= vbCrLf & "," & _WageAdjAdd & ""
+                _Qry &= vbCrLf & "," & _FNIncentiveAmt & ""
+                _Qry &= vbCrLf & "," & _FNNetpayOrg & ""
+                _Qry &= vbCrLf & "," & _FNNetAttandanceAmt & ""
+                _Qry &= vbCrLf & "," & _FNHealtCareAmt & ""
+                _Qry &= vbCrLf & "," & _FNTransportAmt & ""
+                _Qry &= vbCrLf & "," & _FNNetChildCareAmt & ""
+                _Qry &= vbCrLf & "," & _FNNetOTMealAmt & ""
+                _Qry &= vbCrLf & "," & _FNSocialBase & ""
+                _Qry &= vbCrLf & "," & _FNWorkAgeSalary & ""
+                _Qry &= vbCrLf & "," & _FNNetOTMealAmtUS & ""
+                _Qry &= vbCrLf & "," & _FNExchangeRate & ""
+                _Qry &= vbCrLf & "," & FNPayLeaveSickBaht & ""
+                _Qry &= vbCrLf & "," & GFNPayLeaveSickBahtMin & ""
+                _Qry &= vbCrLf & "," & FNPayLeaveBusinessBaht & ""
+                _Qry &= vbCrLf & "," & GFNPayLeaveBusinessBahtMin & ""
+                _Qry &= vbCrLf & "," & FNPayLeaveSpecialBaht & ""
+                _Qry &= vbCrLf & "," & GFNPayLeaveSpecialBahtMin & ""
+                _Qry &= vbCrLf & "," & FNParturitionLeave & ""
+                _Qry &= vbCrLf & "," & GFNParturitionLeaveMin & ""
+                _Qry &= vbCrLf & "," & FNVacationRetMin & ""
+                _Qry &= vbCrLf & "," & FNVacationRetAmt & ""
+                _Qry &= vbCrLf & "," & _FNExchangeRateTHB & ""
+                _Qry &= vbCrLf & "," & FNWorkDayInWeek & ""
+                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTCalSocialSta) & "'"
+                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTCalTaxSta) & "'"
+                _Qry &= vbCrLf & "," & _DiffTotalincome & ""
+                _Qry &= vbCrLf & "," & _DiffTotalNetPay & ""
+                _Qry &= vbCrLf & "," & SocialExchangeRate & ""
+                _Qry &= vbCrLf & "," & TaxExchangeRate & ""
+                _Qry &= vbCrLf & "," & _FNServicefee
+                _Qry &= vbCrLf & "," & _FNFinTransFee
+                _Qry &= vbCrLf & "," & FNSocialInsuranceEmployee
+                _Qry &= vbCrLf & "," & FNSocialInsuranceEmployer
+                _Qry &= vbCrLf & "," & FNUnionAmt
+                _Qry &= vbCrLf & "," & _GFNTimeMin_Real_After_Probation + _GFNLeaveVacation
+                _Qry &= vbCrLf & "," & _SocialRate & " "
+                _Qry &= vbCrLf & "," & _SocialRateCmp & " "
+                _Qry &= vbCrLf & "," & _FCSocialCmp & " "
+
+
+                '  , FNVacationRetMin, FNVacationRetAmt
+                '_FNNetpayOrg
+                HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+
+                ''best202207  ปรับคนลาออก ใส่คืนพักร้อนมือ  ต้องอัพเดท 
+                'Dim retVacationAmt_Terminate As Double = 0
+
+
+                'For Each _R As DataRow In _dt.Select("FCFinAmt<>0 and FTFincode = '019'")
+                '    '' _AllFincode = _R!FTFincode.ToString
+
+
+                '    retVacationAmt_Terminate = Val(_R!FCFinAmt.ToString)
+
+                'Next
+
+
+                'If retVacationAmt_Terminate > 0 Then
+                '    _Qry = " update  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll SET  "
+                '    _Qry &= vbCrLf & " FNVacationRetAmt =" & Val(retVacationAmt_Terminate)
+                '    _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+                '    _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                '    _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                'End If
+
+
+
+                If _FTCalTaxSta <> "1" And _FTEmpIdNo <> "" Then
+                    '-----------------------------ภาษี -----------------------------------------------------
+                    _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTaxYear "
+                    _Qry &= vbCrLf & "  WHERE FTYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & "  AND  FTEmpIdNo='" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' AND FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " "
+                    _Qry &= vbCrLf & "  INSERT INTO THRTTaxYear (FNHSysCmpId,FTYear, FTEmpIdNo, FNAmt, FNExpenses, FNNetAmt, "
+                    _Qry &= vbCrLf & "  FNModEmp, FNModMate, FNChildNotLern, FNChildLern, FNChildNotLernAmt, FNChildLernAmt, FNInsurance, FNProvidentfund, FNInterest, FNSocial, FNDonation, "
+                    _Qry &= vbCrLf & "  FNProvidentfundOver, FNGPF, FNSavingsFund, FNCommutation, FNUnitRMF, FNModFather, FNModMother, FNModFatherMate, FNModMotherMate, FNUnitLTF, "
+                    _Qry &= vbCrLf & "  FNDonationLern, FNParentsHealthInsurance, FNSupportSport, FNAcquisitionOfProperty, FNPension, FNTravel, FNTotalCalTax, FNTotalTax,FNTotalTaxPay )"
+                    _Qry &= vbCrLf & "  SELECT " & HI.ST.SysInfo.CmpID & ",'" & _PayYear & "','" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' "
+
+                    With _EmpTaxYear
+
+                        _Qry &= vbCrLf & "," & .FTAmt & " "
+                        _Qry &= vbCrLf & "," & .FTExpenses & ""
+                        _Qry &= vbCrLf & "," & .FTNetAmt & ""
+                        _Qry &= vbCrLf & "," & .FTModEmp & ""
+                        _Qry &= vbCrLf & "," & .FTModMate & ""
+                        _Qry &= vbCrLf & "," & .FNChildNotLern & ""
+                        _Qry &= vbCrLf & "," & .FNChildLern & " "
+                        _Qry &= vbCrLf & "," & .FTChildNotLern & ""
+                        _Qry &= vbCrLf & "," & .FTChildLern & ""
+                        _Qry &= vbCrLf & "," & .FTInsurance & ""
+                        _Qry &= vbCrLf & "," & .FTProvidentfund & ""
+                        _Qry &= vbCrLf & "," & .FTInterest & ""
+                        _Qry &= vbCrLf & "," & .FTSocial & ""
+                        _Qry &= vbCrLf & "," & .FTDonation & ""
+                        _Qry &= vbCrLf & "," & .FTProvidentfundOver & ""
+                        _Qry &= vbCrLf & "," & .FTGPF & ""
+                        _Qry &= vbCrLf & "," & .FTSavingsFund & ""
+                        _Qry &= vbCrLf & "," & .FTCommutation & ""
+                        _Qry &= vbCrLf & "," & .FTUnitRMF & ""
+                        _Qry &= vbCrLf & "," & .FTModFather & ""
+                        _Qry &= vbCrLf & "," & .FTModMother & ""
+                        _Qry &= vbCrLf & "," & .FTModFatherMate & ""
+                        _Qry &= vbCrLf & "," & .FTModMotherMate & ""
+                        _Qry &= vbCrLf & "," & .FTUnitLTF & ""
+                        _Qry &= vbCrLf & "," & .FTDonationLern & ""
+                        _Qry &= vbCrLf & "," & .FTParentsHealthInsurance & ""
+                        _Qry &= vbCrLf & "," & .FTSupportSport & ""
+                        _Qry &= vbCrLf & "," & .FTAcquisitionOfProperty & ""
+                        _Qry &= vbCrLf & "," & .FTPension & ""
+                        _Qry &= vbCrLf & "," & .FTTravel & ""
+                        _Qry &= vbCrLf & "," & .FTTotalCalTax & ""
+                        _Qry &= vbCrLf & "," & .FTTotalTax & ""
+                        _Qry &= vbCrLf & "," & .FTTotalTaxPay & ""
+
+                    End With
+
+                    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                    '----------------------------- ภาษี -----------------------------------------------------
+                End If
+
+                '-----------------------------รายได้อื่นๆ -----------------------------------------------------
+
+                _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+                _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                Dim _AllFincode As String = ""
+
+                For Each _R As DataRow In _DtFin.Rows
+                    _AllFincode = _R!FTFincode.ToString
+
+                    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode,FCFin, FCFinAmt,FCFinAmtOther,FCTotalFinAmt)"
+                    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "',FNHSysEmpID,  FTFinCode, FTFinAmt," & _R!FCTotalFinAmt.ToString & ",0," & _R!FCTotalFinAmt.ToString & ""
+                    _Qry &= vbCrLf & " FROM  THRMEmployeeFin "
+                    _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND  FTFinCode = ('" & _AllFincode & "') "
+
+                    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                Next
+
+                For Each _R As DataRow In _dt.Select("FCFinAmt<>0")
+                    _AllFincode = _R!FTFincode.ToString
+
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_R!FCFinAmt.ToString) & " "
+                    _Qry &= vbCrLf & " ,FCFinAmtOther=" & _R!FCFinAmt.ToString & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='" & _AllFincode & "' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode,FCFin, FCFinAmt,FCFinAmtOther,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ",'" & _AllFincode & "',0, 0," & _R!FCFinAmt.ToString & "," & _R!FCFinAmt.ToString & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                    End If
+
+                Next
+
+
+
+                ''----------- เงินคืนพักร้อน-------------------------------
+
+                ''เงินน้ำมัน
+
+                If _TotalFuel > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalFuel.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='056' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '056'," & _TotalFuel & "," & _TotalFuel & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+
+                ''เงินเพิ่มอื่นๆ
+
+                If _TotalMoneyMeal > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalMoneyMeal.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='053' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '053'," & _TotalMoneyMeal & "," & _TotalMoneyMeal & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _FNWorkAgeSalary > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_FNWorkAgeSalary.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='054' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '054'," & _FNWorkAgeSalary & "," & _FNWorkAgeSalary & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _TotalDeligent_La > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalDeligent_La.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='059' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '059'," & _TotalDeligent_La & "," & _TotalDeligent_La & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+
+                If _ShiftAmt > 0 Then
+
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_ShiftAmt.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='001' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '001'," & _ShiftValue.ToString & "," & _ShiftAmt.ToString & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+
+                End If
+
+                If _ShiftOTAmt > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_ShiftOTAmt.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='007' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '007'," & _ShiftOTValue.ToString & "," & _ShiftOTAmt.ToString & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _SeniorityAmt > 0 Then
+
+                    Dim _xFinCode As String = "046"
+                    If (_FTStateWorkpermit = "1") Then
+                        _xFinCode = "047"
+                    End If
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_SeniorityAmt.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='" & _xFinCode & "' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '" & _xFinCode & "'," & _SeniorityAmt.ToString & "," & _SeniorityAmt.ToString & ""
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+
+                End If
+
+                If _BonusAmt > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_BonusAmt.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='008' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '008'," & _BonusAmt.ToString & "," & _BonusAmt.ToString & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _FNIncentiveAmt > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_FNIncentiveAmt.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='011' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '011'," & _FNIncentiveAmt.ToString & "," & _FNIncentiveAmt.ToString & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+
+                If _TotalMoneySkill > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalMoneySkill.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='043' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '043'," & Val(_TotalMoneySkill.ToString) & "," & Val(_TotalMoneySkill.ToString) & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _TotalMoneySkill_Sew > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalMoneySkill_Sew.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='057' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '057'," & Val(_TotalMoneySkill_Sew.ToString) & "," & Val(_TotalMoneySkill_Sew.ToString) & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _TotalMoneyHeaderCapton > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalMoneyHeaderCapton.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='061' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '061'," & Val(_TotalMoneyHeaderCapton.ToString) & "," & Val(_TotalMoneyHeaderCapton.ToString) & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _TotalMoneySupport_Sew > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalMoneySupport_Sew.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='062' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '062'," & Val(_TotalMoneySupport_Sew.ToString) & "," & Val(_TotalMoneySupport_Sew.ToString) & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _TotalMoneySeviceMachine > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalMoneySeviceMachine.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='063' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '063'," & Val(_TotalMoneySeviceMachine.ToString) & "," & Val(_TotalMoneySeviceMachine.ToString) & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _TotalMoneySkill_QA > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalMoneySkill_QA.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='064' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '064'," & Val(_TotalMoneySkill_QA.ToString) & "," & Val(_TotalMoneySkill_QA.ToString) & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+
+
+                If FNUnionAmt > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(FNUnionAmt.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='108' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '108'," & Val(FNUnionAmt.ToString) & "," & Val(FNUnionAmt.ToString) & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+
+                If _FNEmpDiligent > 0 Then
+
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_FNEmpDiligent.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    If _FNDeligentPeriod = 0 Then
+                        _Qry &= vbCrLf & " AND FTFinCode='008' "
+                    Else
+                        _Qry &= vbCrLf & " AND FTFinCode='009' "
+
+                    End If
+
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        If _FNDeligentPeriod = 0 Then
+                            _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                            _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '008'," & _FNEmpDiligent.ToString & "," & _FNEmpDiligent.ToString & ""
+
+                            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                        Else
+
+                            _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                            _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '009'," & _FNEmpDiligent.ToString & "," & _FNEmpDiligent.ToString & ""
+
+                            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                        End If
+                    End If
+
+                End If
+
+                'If _AmtReturnVacation > 0 Then
+
+                '    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                '    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_AmtReturnVacation.ToString) & " "
+                '    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                '    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                '    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                '    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                '    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                '    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                '    _Qry &= vbCrLf & " AND FTFinCode='023' "
+
+                '    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                '        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                '        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '023'," & _ShiftValue.ToString & "," & _AmtReturnVacation.ToString & ""
+
+                '        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                '    End If
+
+                'End If
+                ''----------- เงินคืนพักร้อน-------------------------------
+
+                _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollLeave "
+                _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+                _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollLeave (FTPayYear, FTPayTerm, FNHSysEmpID, FTLeaveType, FNTotalHour, FNTotalMinute, FNTotalPayHour, FNTotalPayMinute, FNTotalNotPayHour,FNTotalNotPayMinute)"
+                _Qry &= vbCrLf & "  SELECT      '" & _PayYear & "','" & _PayTerm & "',FNHSysEmpID,  FTLeaveType,Convert(numeric(18,2), Sum(FNTotalMinute) / 60) + Convert(numeric(18,2),((Sum(FNTotalMinute) %60) /100.00)) , "
+                _Qry &= vbCrLf & "  Sum(FNTotalMinute), Convert(numeric(18,2), Sum(FNTotalPayMinute) / 60) + Convert(numeric(18,2),((Sum(FNTotalPayMinute) %60) /100.00)), Sum(FNTotalPayMinute),  Convert(numeric(18,2),Sum(FNTotalNotPayMinute) / 60) + Convert(numeric(18,2),((Sum(FNTotalNotPayMinute) %60) /100.00)), SUM(FNTotalNotPayMinute)"
+                _Qry &= vbCrLf & "  FROM THRTTransLeave "
+                _Qry &= vbCrLf & " WHERE        (FNHSysEmpID = '" & Val(_EmpCode) & "') "
+                _Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_StartDate) & "' "
+                _Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_EndDate) & "' "
+                _Qry &= vbCrLf & "  GROUP BY   FNHSysEmpID, FTLeaveType"
+
+                HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+            End If
+
+
+            _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollCalculate "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+            _Qry &= vbCrLf & "  	INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollCalculate (FTInsUser, FTInsDate, FTInsTime,"
+            _Qry &= vbCrLf & "   FTPayYear, FTPayTerm, FNHSysEmpID, FTEmpIdNo,"
+            _Qry &= vbCrLf & "   FNHSysEmpTypeId, FTPayDate"
+            _Qry &= vbCrLf & ",FNHSysDeptId, FNHSysDivisonId, FNHSysSectId, FNHSysUnitSectId, FNHSysPositId, FNHSysPayRollPayId"
+            _Qry &= vbCrLf & " , FNHSysBankId, FNHSysBankBranchId, FTAccNo, FNHoliday"
+            _Qry &= vbCrLf & "   ,FNSalary, FNWorkingHour"
+            _Qry &= vbCrLf & "   ,FNOt1, FNOt15, FNOt2, FNOt3,FNOt4"
+            _Qry &= vbCrLf & ", FNTotalLeavePay, FNTotalLeaveNotPay, FNTotalLeave"
+            _Qry &= vbCrLf & ",FNTotalWKNMin, FNOt1Min, FNOt15Min, FNOt2Min"
+            _Qry &= vbCrLf & ", FNOt3Min, FNOt4Min, FNTotalLateMin, FNLateCutMin, FNLateCutAbsentMin"
+            _Qry &= vbCrLf & ",  FNAbsentMin, FNTotalWKMin, FNTotalLeavePayMin, FNTotalLeaveNotPayMin, FNTotalLeaveMin"
+            _Qry &= vbCrLf & " , FCBaht, FCOt1_Baht"
+            _Qry &= vbCrLf & ",FCOt15_Baht, FCOt2_Baht, FCOt3_Baht,FCOt4_Baht,FCNetBaht"
+            _Qry &= vbCrLf & ", FNDiligentBaht, FNPayLeaveVacationBaht, FNPayLeaveOtherBaht "
+            _Qry &= vbCrLf & ", FNLateCutAmt, FNLateCutAbsentAmt,FNAbsentAmt, FNTotalRecalSSO, FNTotalRecalTAX"
+            _Qry &= vbCrLf & ", FNTotalAdd,FNTotalAddOther, FNTotalExpense, FNTotalExpenseOther, FNTotalIncome "
+            _Qry &= vbCrLf & ",FNSocial, FNTax, FHolidayBaht, FNNetpay, FNAccumulateIncomeYear"
+            _Qry &= vbCrLf & ", FNAccumulateSocialYear, FNAccumulateTax, FTStateInDustin"
+            _Qry &= vbCrLf & ",FNTotalCalContributedAmt,FNContributedAmt,FNCmpContributedAmt,FNTotalCalWorkmen,FNWorkmenAmt ,FNAmtRetire"
+            _Qry &= vbCrLf & ",FNPayLeaveSSo,FNWorkingDay,FNAdjBeforeCal,FNIncentiveAmt,FNNetpayOrg"
+            _Qry &= vbCrLf & ", FNAttandanceAmt, FNHealtCareAmt, "
+            _Qry &= vbCrLf & " FNTransportAmt, FNChildCareAmt, FNOTMealAmt, FNSocialBase, FNWorkAgeSalary, FNOTMealAmtUS, FNExchangeRate, FNSickLeaveBaht, FNSickLeaveMin, FNBusinessLeaveBaht, FNBusinessLeaveMin,"
+            _Qry &= vbCrLf & " FNSpecialLeaveBaht, FNSpecialLeaveMin, FNParturitionLeaveBaht, FNParturitionLeaveMin , FNVacationRetMin, FNVacationRetAmt,FNExchangeRateTHB"
+            _Qry &= vbCrLf & ",FNWorkDay,FTStateCalSocial,FTStateCalTax,FNTotalIncomeDiff,FNNetpayDiff,FNSocialExchangeRate,FNTaxExchangeRate)"
+            _Qry &= vbCrLf & " SELECT TOP 1  FTInsUser, FTInsDate, FTInsTime,"
+            _Qry &= vbCrLf & "   FTPayYear, FTPayTerm, FNHSysEmpID, FTEmpIdNo,"
+            _Qry &= vbCrLf & "   FNHSysEmpTypeId, FTPayDate"
+            _Qry &= vbCrLf & ",FNHSysDeptId, FNHSysDivisonId, FNHSysSectId, FNHSysUnitSectId, FNHSysPositId, FNHSysPayRollPayId"
+            _Qry &= vbCrLf & " , FNHSysBankId, FNHSysBankBranchId, FTAccNo, FNHoliday"
+            _Qry &= vbCrLf & "   ,FNSalary, FNWorkingHour"
+            _Qry &= vbCrLf & "   ,FNOt1, FNOt15, FNOt2, FNOt3,FNOt4"
+            _Qry &= vbCrLf & ", FNTotalLeavePay, FNTotalLeaveNotPay, FNTotalLeave"
+            _Qry &= vbCrLf & ",FNTotalWKNMin, FNOt1Min, FNOt15Min, FNOt2Min"
+            _Qry &= vbCrLf & ", FNOt3Min, FNOt4Min, FNTotalLateMin, FNLateCutMin, FNLateCutAbsentMin"
+            _Qry &= vbCrLf & ",  FNAbsentMin, FNTotalWKMin, FNTotalLeavePayMin, FNTotalLeaveNotPayMin, FNTotalLeaveMin"
+            _Qry &= vbCrLf & " , FCBaht, FCOt1_Baht"
+            _Qry &= vbCrLf & ",FCOt15_Baht, FCOt2_Baht, FCOt3_Baht,FCOt4_Baht,FCNetBaht"
+            _Qry &= vbCrLf & ", FNDiligentBaht, FNPayLeaveVacationBaht, FNPayLeaveOtherBaht "
+            _Qry &= vbCrLf & ", FNLateCutAmt, FNLateCutAbsentAmt,FNAbsentAmt, FNTotalRecalSSO, FNTotalRecalTAX"
+            _Qry &= vbCrLf & ", FNTotalAdd,FNTotalAddOther, FNTotalExpense, FNTotalExpenseOther, FNTotalIncome "
+            _Qry &= vbCrLf & ",FNSocial, FNTax, FHolidayBaht, FNNetpay, FNAccumulateIncomeYear"
+            _Qry &= vbCrLf & ", FNAccumulateSocialYear, FNAccumulateTax, FTStateInDustin"
+            _Qry &= vbCrLf & ",FNTotalCalContributedAmt,FNContributedAmt,FNCmpContributedAmt,FNTotalCalWorkmen,FNWorkmenAmt ,FNAmtRetire"
+            _Qry &= vbCrLf & ",FNPayLeaveSSo,FNWorkingDay,FNAdjBeforeCal,FNIncentiveAmt,FNNetpayOrg"
+            _Qry &= vbCrLf & ", FNAttandanceAmt, FNHealtCareAmt, "
+            _Qry &= vbCrLf & "FNTransportAmt, FNChildCareAmt, FNOTMealAmt, FNSocialBase, FNWorkAgeSalary, FNOTMealAmtUS, FNExchangeRate, FNSickLeaveBaht, FNSickLeaveMin, FNBusinessLeaveBaht, FNBusinessLeaveMin,"
+            _Qry &= vbCrLf & "FNSpecialLeaveBaht, FNSpecialLeaveMin, FNParturitionLeaveBaht, FNParturitionLeaveMin , FNVacationRetMin, FNVacationRetAmt,FNExchangeRateTHB"
+            _Qry &= vbCrLf & ",FNWorkDay,FTStateCalSocial,FTStateCalTax,FNTotalIncomeDiff,FNNetpayDiff,FNSocialExchangeRate,FNTaxExchangeRate"
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+
+            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+            _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFinCalculate "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+            _Qry &= vbCrLf & " INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFinCalculate (FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode,FCFin, FCFinAmt,FCFinAmtOther,FCTotalFinAmt)"
+            _Qry &= vbCrLf & " SELECT FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode,FCFin, FCFinAmt,FCFinAmtOther,FCTotalFinAmt "
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+
+            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+            _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTManageCalculate "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+            _Qry &= vbCrLf & " INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTManageCalculate ( FTPayYear, FTPayTerm, FNHSysEmpID, FTFinCode, FCFinAmt, FNDay)"
+            _Qry &= vbCrLf & " SELECT  FTPayYear, FTPayTerm, FNHSysEmpID, FTFinCode, FCFinAmt, FNDay "
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTManage "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+
+            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+        Next
+
+        Return True
+
+    End Function
+
+#Region "Cals Payroll week Laos 2"
+
+
+    Public Shared Function CalculateWeekEnd_LA2(ByVal _User As String, ByVal _EmpCode As String,
+        ByVal _EmpType As String, ByVal _StartDate As String, ByVal _EndDate As String, ByVal _PayYear As String,
+        ByVal _PayTerm As String, ByVal _PayDate As String, ByVal _CalIns As String, ByVal _EmpCalType As String,
+        Optional ByVal _StateCalRetire As Boolean = False, Optional ByVal _ReturnVacation As Double = 0,
+        Optional FTStaDeductAbsent As Integer = 0, Optional FTStaCalPayRoll As Integer = 0, Optional FNStateSalaryType As Integer = 0,
+        Optional _FNExchangeRate As Double = 0, Optional _FNExchangeRateTHB As Double = 0, Optional FNWorkDayInWeek As Integer = 13,
+        Optional FNWorkDayInMonth As Integer = 26, Optional FNWorkDayInWeekBF As Integer = 0, Optional SocialExchangeRate As Double = 0, Optional TaxExchangeRate As Double = 0, Optional _FNCalType As Integer = 0) As Boolean
+
+        Dim result As Boolean = False
+
+
+        If _FNCalType = "2" Or _FNCalType = "3" Then
+
+            If _EmpType = "2012610375" Then
+                result = CalculateWeekEnd_LA2_Monthly_THAI(_User, _EmpCode,
+                    _EmpType, _StartDate, _EndDate, _PayYear,
+                    _PayTerm, _PayDate, _CalIns, _EmpCalType,
+                    _StateCalRetire, _ReturnVacation,
+                    FTStaDeductAbsent, FTStaCalPayRoll, 0,
+                    _FNExchangeRate, _FNExchangeRateTHB, FNWorkDayInWeek,
+                    FNWorkDayInMonth, FNWorkDayInWeekBF, SocialExchangeRate, TaxExchangeRate)
+
+            Else
+                result = CalculateWeekEnd_LA2_Monthly(_User, _EmpCode,
+                    _EmpType, _StartDate, _EndDate, _PayYear,
+                    _PayTerm, _PayDate, _CalIns, _EmpCalType,
+                    _StateCalRetire, _ReturnVacation,
+                    FTStaDeductAbsent, FTStaCalPayRoll, 0,
+                    _FNExchangeRate, _FNExchangeRateTHB, FNWorkDayInWeek,
+                    FNWorkDayInMonth, FNWorkDayInWeekBF, SocialExchangeRate, TaxExchangeRate)
+            End If
+
+
+
+
+        Else
+            result = CalculateWeekEnd_LA2_Daily(_User, _EmpCode,
+                    _EmpType, _StartDate, _EndDate, _PayYear,
+                    _PayTerm, _PayDate, _CalIns, _EmpCalType,
+                    _StateCalRetire, _ReturnVacation,
+                    FTStaDeductAbsent, FTStaCalPayRoll, 1,
+                    _FNExchangeRate, _FNExchangeRateTHB, FNWorkDayInWeek,
+                    FNWorkDayInMonth, FNWorkDayInWeekBF, SocialExchangeRate, TaxExchangeRate)
+        End If
+
+        Return result
+    End Function
+
+
+
+    Public Shared Function CalculateWeekEnd_LA2_Monthly_THAI(ByVal _User As String, ByVal _EmpCode As String,
+        ByVal _EmpType As String, ByVal _StartDate As String, ByVal _EndDate As String, ByVal _PayYear As String,
+        ByVal _PayTerm As String, ByVal _PayDate As String, ByVal _CalIns As String, ByVal _EmpCalType As String,
+        Optional ByVal _StateCalRetire As Boolean = False, Optional ByVal _ReturnVacation As Double = 0,
+        Optional FTStaDeductAbsent As Integer = 0, Optional FTStaCalPayRoll As Integer = 0, Optional FNStateSalaryType As Integer = 0,
+        Optional _FNExchangeRate As Double = 0, Optional _FNExchangeRateTHB As Double = 0, Optional FNWorkDayInWeek As Integer = 13,
+        Optional FNWorkDayInMonth As Integer = 26, Optional FNWorkDayInWeekBF As Integer = 0, Optional SocialExchangeRate As Double = 0, Optional TaxExchangeRate As Double = 0) As Boolean
+
+        '----------------------------------   Variable  ------------------------------------
+        Thread.CurrentThread.CurrentCulture = New CultureInfo("en-US", True)
+        Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
+        Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortTimePattern = "HH:mm:ss"
+
+        Dim CountDayPerMonth As Integer = FNWorkDayInMonth
+        Dim _Qry As String
+        Dim _SalaryDevide As Integer = 0
+        Dim FNVacationRetMin, FNVacationRetAmt, FNVacationPerDayLapaid As Double
+
+
+
+        Dim _DtFin As New DataTable
+        _DtFin.Columns.Add("FTFinCode", GetType(String))
+        _DtFin.Columns.Add("FCTotalFinAmt", GetType(String))
+        Dim _SeniorityAmt As Double = 0
+        Dim _Err As Integer, _Complete As Integer, _ActualDate As String
+        Dim _FCSalary As Double, _FDDateStart As String
+        Dim _FDDateEnd As String
+        Dim _FTPaymentCode As String, _FTBankCode As String, _FNChildNotLearn As Double
+        Dim _FTCalSocialSta As String, _FTCalTaxSta As String
+        Dim _FTDeptCode As String, _FTSectCode As String, _FTUnitCode As String
+        Dim _FTDivCode As String, _FTPos As String
+
+
+        Dim _FTEmpIdNo As String, _FTEmpIdNo1 As String, _FTSocialNo As String, _FTBranchCode As String, _FTAccNo As String, _FCLifeFeeMoney As Double
+        Dim _FTShift As String
+
+
+
+
+        Dim _DateStartOfMonth As String = HI.UL.ULDate.ConvertEnDB(Left(_EndDate, 8) & "01")  'วันแรกของเดือน
+        Dim _DateEndOfMonth As String = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddDay(HI.UL.ULDate.AddMonth(Left(_EndDate, 8) & "01", 1), -1)) 'วันแของเดือน
+
+        Dim _tmpSocailRateKM As DataTable
+        Dim _tmpWelfareKM As DataTable
+        Dim _tmpWorkAge As DataTable
+        Dim _TmpFDDateEnd As String = ""
+        Dim _TmpFDDateEndP As String = ""  ' เพิ่มเงือนไข วันที่ลาออก มีผล วันที่ 2 - 16  จ่ายค่า health & transsport
+        Dim _DTEmpWorkDay As New DataTable
+
+        Dim _FCOt1_Baht, _FNTotalIncome, _FNTotalRecalSSO, _FNSocial, _FNSocialCmp, _FNTotalRecalTAX, _FNTax, _FNNetpay As Double
+        Dim _Dtemp As DataTable
+
+        Dim _SocialRate, _SocialRateCmp As Double
+
+
+        _Qry = " SELECT  M.FNHSysEmpID , E.FTEmpCode "
+        _Qry &= vbCrLf & " , M.FNSalary, FCOt1_Baht, FNTotalIncome  "
+        _Qry &= vbCrLf & " , FNTotalRecalSSO, FNSocial, FNSocialCmp "
+        _Qry &= vbCrLf & " , FNTotalRecalTAX, FNTax, FNTax5, FNTax10, FNTax15 , FNTax20, FNTax25 "
+        _Qry &= vbCrLf & "  , FNNetpay   , M.FNHSysCmpId   , FTStateActive "
+        _Qry &= vbCrLf & "  ,FNHSysDeptId, FNHSysDivisonId, FNHSysSectId, FNHSysUnitSectId, FNHSysPositId,  FNHSysPayRollPayId  "
+        _Qry &= vbCrLf & "  , E.FNHSysBankId, E.FNHSysBankBranchId, E.FTAccNo, E.FTSocialNo, E.FTTaxNo , E.FTEmpIdNo "
+        _Qry &= vbCrLf & " FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMPayroll_Monthly M  "
+        _Qry &= vbCrLf & " LEFT JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee E ON E.FNHSysEmpID = M.FNHSysEmpID AND  E.FNHSysCmpId = M.FNHSysCmpId "
+        _Qry &= vbCrLf & " WHERE FTStateActive ='1' "
+        _Qry &= vbCrLf & " AND M.FNHSysEmpID =" & Val(_EmpCode) & " "
+        _Qry &= vbCrLf & " AND M.FNHSysCmpId = " & Val(HI.ST.SysInfo.CmpID) & " "
+
+
+        _Dtemp = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+        Dim _n As Integer = 0
+
+
+        For Each R As DataRow In _Dtemp.Rows
+
+            _n = 1
+
+            _FCSalary = R!FNSalary.ToString
+            _FCOt1_Baht = R!FCOt1_Baht.ToString
+            _FNTotalIncome = R!FNTotalIncome.ToString
+            _FNTotalRecalSSO = R!FNTotalRecalSSO.ToString
+            _FNSocial = R!FNSocial.ToString
+            _FNSocialCmp = R!FNSocialCmp.ToString
+            _FNTotalRecalTAX = R!FNTotalRecalTAX.ToString
+            _FNTax = R!FNTax.ToString
+            _FNNetpay = R!FNNetpay.ToString
+
+            _FTPaymentCode = R!FNHSysPayRollPayId.ToString
+            _FTBankCode = R!FNHSysBankId.ToString
+            _FTBranchCode = R!FNHSysBankBranchId.ToString
+
+            _FTDeptCode = R!FNHSysDeptId.ToString : _FTDivCode = R!FNHSysDivisonId.ToString
+            _FTSectCode = R!FNHSysSectId.ToString
+            _FTUnitCode = R!FNHSysUnitSectId.ToString : _FTPos = R!FNHSysPositId.ToString
+
+            _FTEmpIdNo = R!FTTaxNo.ToString 'R!FTEmpIdNo.ToString
+            _FTEmpIdNo1 = R!FTEmpIdNo.ToString
+            _FTSocialNo = R!FTSocialNo.ToString
+
+            _FTAccNo = R!FTAccNo.ToString
+
+        Next
+
+
+
+        _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+        _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+        _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+        _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+        _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+        _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+        _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+        _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+        If _n > 0 Then
+
+
+
+
+            _Qry = "	INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll (FTInsUser, FTInsDate, FTInsTime,"
+            _Qry &= vbCrLf & "   FTPayYear, FTPayTerm, FNHSysEmpID, FTEmpIdNo,FTEmpIdNo1,FTSocialNo,"
+            _Qry &= vbCrLf & "   FNHSysEmpTypeId, FTPayDate"
+            _Qry &= vbCrLf & ",FNHSysDeptId, FNHSysDivisonId, FNHSysSectId, FNHSysUnitSectId, FNHSysPositId,  FNHSysPayRollPayId"
+            _Qry &= vbCrLf & " , FNHSysBankId, FNHSysBankBranchId, FTAccNo "
+            _Qry &= vbCrLf & "   ,FNSalary"
+            ''    _Qry &= vbCrLf & "   ,FNOt1, FNOt15, FNOt2, FNOt3,FNOt4"
+
+            _Qry &= vbCrLf & " , FCOt1_Baht"
+            ''_Qry &= vbCrLf & ",FCOt15_Baht, FCOt2_Baht, FCOt3_Baht,FCOt4_Baht,FCNetBaht"
+            _Qry &= vbCrLf & ", FNTotalRecalSSO, FNTotalRecalTAX"
+            _Qry &= vbCrLf & " , FNTotalIncome "
+            _Qry &= vbCrLf & ",FNSocial, FNTax, FNNetpay "
+            _Qry &= vbCrLf & " , FNSocialRateEmp,FNSocialRateCmp,FNSocialCmp )"
+            _Qry &= vbCrLf & " 	SELECT '" & HI.UL.ULF.rpQuoted(_User) & "',CONVERT(varchar(10),GetDate(),111),CONVERT(varchar(8),GetDate(),114)"
+            _Qry &= vbCrLf & " 	,'" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ""
+            _Qry &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "','" & HI.UL.ULF.rpQuoted(_FTEmpIdNo1) & "','" & HI.UL.ULF.rpQuoted(_FTSocialNo) & "','" & _EmpType & "','" & HI.UL.ULDate.ConvertEnDB(_PayDate) & "'"
+            _Qry &= vbCrLf & " 	," & Val(_FTDeptCode) & ""
+            _Qry &= vbCrLf & " 	," & Val(_FTDivCode) & " "
+            _Qry &= vbCrLf & " 	," & Val(_FTSectCode) & " "
+            _Qry &= vbCrLf & " 	," & Val(_FTUnitCode) & " "
+            _Qry &= vbCrLf & " 	," & Val(_FTPos) & " "
+
+            _Qry &= vbCrLf & " 	," & Val(_FTPaymentCode) & " "
+            _Qry &= vbCrLf & " 	," & Val(_FTBankCode) & " "
+            _Qry &= vbCrLf & " 	," & Val(_FTBranchCode) & " "
+
+            _Qry &= vbCrLf & " 	,N'" & HI.UL.ULF.rpQuoted(_FTAccNo) & "' "
+
+
+            _Qry &= vbCrLf & " 	," & Val(_FCSalary) & ""
+            _Qry &= vbCrLf & ", " & Val(_FCOt1_Baht) & " "
+
+            _Qry &= vbCrLf & "," & Val(_FNTotalRecalSSO) & " "
+            _Qry &= vbCrLf & "," & Val(_FNTotalRecalTAX) & " "
+
+            _Qry &= vbCrLf & "," & Val(_FNTotalIncome) & " "
+            _Qry &= vbCrLf & "," & Val(_FNSocial) & " "
+            _Qry &= vbCrLf & "," & Val(_FNTax) & " "
+            _Qry &= vbCrLf & "," & Val(_FNNetpay) & ""
+
+            _Qry &= vbCrLf & "," & Val(_SocialRate) & " "
+            _Qry &= vbCrLf & "," & Val(_SocialRateCmp) & " "
+            _Qry &= vbCrLf & "," & Val(_FNSocialCmp) & " "
+
+
+            '  , FNVacationRetMin, FNVacationRetAmt
+            '_FNNetpayOrg
+            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+
+
+
+            'If _FTCalTaxSta <> "1" And _FTEmpIdNo <> "" Then
+            '    '-----------------------------ภาษี -----------------------------------------------------
+            '    _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTaxYear "
+            '    _Qry &= vbCrLf & "  WHERE FTYear='" & _PayYear & "' "
+            '    _Qry &= vbCrLf & "  AND  FTEmpIdNo='" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' AND FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " "
+            '    _Qry &= vbCrLf & "  INSERT INTO THRTTaxYear (FNHSysCmpId,FTYear, FTEmpIdNo, FNAmt, FNExpenses, FNNetAmt, "
+            '    _Qry &= vbCrLf & "  FNModEmp, FNModMate, FNChildNotLern, FNChildLern, FNChildNotLernAmt, FNChildLernAmt, FNInsurance, FNProvidentfund, FNInterest, FNSocial, FNDonation, "
+            '    _Qry &= vbCrLf & "  FNProvidentfundOver, FNGPF, FNSavingsFund, FNCommutation, FNUnitRMF, FNModFather, FNModMother, FNModFatherMate, FNModMotherMate, FNUnitLTF, "
+            '    _Qry &= vbCrLf & "  FNDonationLern, FNParentsHealthInsurance, FNSupportSport, FNAcquisitionOfProperty, FNPension, FNTravel, FNTotalCalTax, FNTotalTax,FNTotalTaxPay )"
+            '    _Qry &= vbCrLf & "  SELECT " & HI.ST.SysInfo.CmpID & ",'" & _PayYear & "','" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' "
+
+            '    With _EmpTaxYear
+
+            '        _Qry &= vbCrLf & "," & .FTAmt & " "
+            '        _Qry &= vbCrLf & "," & .FTExpenses & ""
+            '        _Qry &= vbCrLf & "," & .FTNetAmt & ""
+            '        _Qry &= vbCrLf & "," & .FTModEmp & ""
+            '        _Qry &= vbCrLf & "," & .FTModMate & ""
+            '        _Qry &= vbCrLf & "," & .FNChildNotLern & ""
+            '        _Qry &= vbCrLf & "," & .FNChildLern & " "
+            '        _Qry &= vbCrLf & "," & .FTChildNotLern & ""
+            '        _Qry &= vbCrLf & "," & .FTChildLern & ""
+            '        _Qry &= vbCrLf & "," & .FTInsurance & ""
+            '        _Qry &= vbCrLf & "," & .FTProvidentfund & ""
+            '        _Qry &= vbCrLf & "," & .FTInterest & ""
+            '        _Qry &= vbCrLf & "," & .FTSocial & ""
+            '        _Qry &= vbCrLf & "," & .FTDonation & ""
+            '        _Qry &= vbCrLf & "," & .FTProvidentfundOver & ""
+            '        _Qry &= vbCrLf & "," & .FTGPF & ""
+            '        _Qry &= vbCrLf & "," & .FTSavingsFund & ""
+            '        _Qry &= vbCrLf & "," & .FTCommutation & ""
+            '        _Qry &= vbCrLf & "," & .FTUnitRMF & ""
+            '        _Qry &= vbCrLf & "," & .FTModFather & ""
+            '        _Qry &= vbCrLf & "," & .FTModMother & ""
+            '        _Qry &= vbCrLf & "," & .FTModFatherMate & ""
+            '        _Qry &= vbCrLf & "," & .FTModMotherMate & ""
+            '        _Qry &= vbCrLf & "," & .FTUnitLTF & ""
+            '        _Qry &= vbCrLf & "," & .FTDonationLern & ""
+            '        _Qry &= vbCrLf & "," & .FTParentsHealthInsurance & ""
+            '        _Qry &= vbCrLf & "," & .FTSupportSport & ""
+            '        _Qry &= vbCrLf & "," & .FTAcquisitionOfProperty & ""
+            '        _Qry &= vbCrLf & "," & .FTPension & ""
+            '        _Qry &= vbCrLf & "," & .FTTravel & ""
+            '        _Qry &= vbCrLf & "," & .FTTotalCalTax & ""
+            '        _Qry &= vbCrLf & "," & .FTTotalTax & ""
+            '        _Qry &= vbCrLf & "," & .FTTotalTaxPay & ""
+
+            '    End With
+
+            '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+            '    '----------------------------- ภาษี -----------------------------------------------------
+            'End If
+
+            '-----------------------------รายได้อื่นๆ -----------------------------------------------------
+
+            _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+            _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+            'Dim _AllFincode As String = ""
+
+            'For Each _R As DataRow In _DtFin.Rows
+            '    _AllFincode = _R!FTFincode.ToString
+
+            '    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode,FCFin, FCFinAmt,FCFinAmtOther,FCTotalFinAmt)"
+            '    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "',FNHSysEmpID,  FTFinCode, FTFinAmt," & _R!FCTotalFinAmt.ToString & ",0," & _R!FCTotalFinAmt.ToString & ""
+            '    _Qry &= vbCrLf & " FROM  THRMEmployeeFin "
+            '    _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+            '    _Qry &= vbCrLf & " AND  FTFinCode = ('" & _AllFincode & "') "
+
+            '    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+            'Next
+
+            'For Each _R As DataRow In _dt.Select("FCFinAmt<>0")
+            '    _AllFincode = _R!FTFincode.ToString
+
+            '    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+            '    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_R!FCFinAmt.ToString) & " "
+            '    _Qry &= vbCrLf & " ,FCFinAmtOther=" & _R!FCFinAmt.ToString & " "
+            '    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            '    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+            '    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+            '    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+            '    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+            '    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+            '    _Qry &= vbCrLf & " AND FTFinCode='" & _AllFincode & "' "
+
+            '    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+
+            '        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode,FCFin, FCFinAmt,FCFinAmtOther,FCTotalFinAmt)"
+            '        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ",'" & _AllFincode & "',0, 0," & _R!FCFinAmt.ToString & "," & _R!FCFinAmt.ToString & ""
+
+            '        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+            '    End If
+
+            'Next
+
+
+
+
+            _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollCalculate "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+            _Qry &= vbCrLf & "  	INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollCalculate (FTInsUser, FTInsDate, FTInsTime,"
+            _Qry &= vbCrLf & "   FTPayYear, FTPayTerm, FNHSysEmpID, FTEmpIdNo,"
+            _Qry &= vbCrLf & "   FNHSysEmpTypeId, FTPayDate"
+            _Qry &= vbCrLf & ",FNHSysDeptId, FNHSysDivisonId, FNHSysSectId, FNHSysUnitSectId, FNHSysPositId, FNHSysPayRollPayId"
+            _Qry &= vbCrLf & " , FNHSysBankId, FNHSysBankBranchId, FTAccNo, FNHoliday"
+            _Qry &= vbCrLf & "   ,FNSalary, FNWorkingHour"
+            _Qry &= vbCrLf & "   ,FNOt1, FNOt15, FNOt2, FNOt3,FNOt4"
+            _Qry &= vbCrLf & ", FNTotalLeavePay, FNTotalLeaveNotPay, FNTotalLeave"
+            _Qry &= vbCrLf & ",FNTotalWKNMin, FNOt1Min, FNOt15Min, FNOt2Min"
+            _Qry &= vbCrLf & ", FNOt3Min, FNOt4Min, FNTotalLateMin, FNLateCutMin, FNLateCutAbsentMin"
+            _Qry &= vbCrLf & ",  FNAbsentMin, FNTotalWKMin, FNTotalLeavePayMin, FNTotalLeaveNotPayMin, FNTotalLeaveMin"
+            _Qry &= vbCrLf & " , FCBaht, FCOt1_Baht"
+            _Qry &= vbCrLf & ",FCOt15_Baht, FCOt2_Baht, FCOt3_Baht,FCOt4_Baht,FCNetBaht"
+            _Qry &= vbCrLf & ", FNDiligentBaht, FNPayLeaveVacationBaht, FNPayLeaveOtherBaht "
+            _Qry &= vbCrLf & ", FNLateCutAmt, FNLateCutAbsentAmt,FNAbsentAmt, FNTotalRecalSSO, FNTotalRecalTAX"
+            _Qry &= vbCrLf & ", FNTotalAdd,FNTotalAddOther, FNTotalExpense, FNTotalExpenseOther, FNTotalIncome "
+            _Qry &= vbCrLf & ",FNSocial, FNTax, FHolidayBaht, FNNetpay, FNAccumulateIncomeYear"
+            _Qry &= vbCrLf & ", FNAccumulateSocialYear, FNAccumulateTax, FTStateInDustin"
+            _Qry &= vbCrLf & ",FNTotalCalContributedAmt,FNContributedAmt,FNCmpContributedAmt,FNTotalCalWorkmen,FNWorkmenAmt ,FNAmtRetire"
+            _Qry &= vbCrLf & ",FNPayLeaveSSo,FNWorkingDay,FNAdjBeforeCal,FNIncentiveAmt,FNNetpayOrg"
+            _Qry &= vbCrLf & ", FNAttandanceAmt, FNHealtCareAmt, "
+            _Qry &= vbCrLf & " FNTransportAmt, FNChildCareAmt, FNOTMealAmt, FNSocialBase, FNWorkAgeSalary, FNOTMealAmtUS, FNExchangeRate, FNSickLeaveBaht, FNSickLeaveMin, FNBusinessLeaveBaht, FNBusinessLeaveMin,"
+            _Qry &= vbCrLf & " FNSpecialLeaveBaht, FNSpecialLeaveMin, FNParturitionLeaveBaht, FNParturitionLeaveMin , FNVacationRetMin, FNVacationRetAmt,FNExchangeRateTHB"
+            _Qry &= vbCrLf & ",FNWorkDay,FTStateCalSocial,FTStateCalTax,FNTotalIncomeDiff,FNNetpayDiff,FNSocialExchangeRate,FNTaxExchangeRate)"
+            _Qry &= vbCrLf & " SELECT TOP 1  FTInsUser, FTInsDate, FTInsTime,"
+            _Qry &= vbCrLf & "   FTPayYear, FTPayTerm, FNHSysEmpID, FTEmpIdNo,"
+            _Qry &= vbCrLf & "   FNHSysEmpTypeId, FTPayDate"
+            _Qry &= vbCrLf & ",FNHSysDeptId, FNHSysDivisonId, FNHSysSectId, FNHSysUnitSectId, FNHSysPositId, FNHSysPayRollPayId"
+            _Qry &= vbCrLf & " , FNHSysBankId, FNHSysBankBranchId, FTAccNo, FNHoliday"
+            _Qry &= vbCrLf & "   ,FNSalary, FNWorkingHour"
+            _Qry &= vbCrLf & "   ,FNOt1, FNOt15, FNOt2, FNOt3,FNOt4"
+            _Qry &= vbCrLf & ", FNTotalLeavePay, FNTotalLeaveNotPay, FNTotalLeave"
+            _Qry &= vbCrLf & ",FNTotalWKNMin, FNOt1Min, FNOt15Min, FNOt2Min"
+            _Qry &= vbCrLf & ", FNOt3Min, FNOt4Min, FNTotalLateMin, FNLateCutMin, FNLateCutAbsentMin"
+            _Qry &= vbCrLf & ",  FNAbsentMin, FNTotalWKMin, FNTotalLeavePayMin, FNTotalLeaveNotPayMin, FNTotalLeaveMin"
+            _Qry &= vbCrLf & " , FCBaht, FCOt1_Baht"
+            _Qry &= vbCrLf & ",FCOt15_Baht, FCOt2_Baht, FCOt3_Baht,FCOt4_Baht,FCNetBaht"
+            _Qry &= vbCrLf & ", FNDiligentBaht, FNPayLeaveVacationBaht, FNPayLeaveOtherBaht "
+            _Qry &= vbCrLf & ", FNLateCutAmt, FNLateCutAbsentAmt,FNAbsentAmt, FNTotalRecalSSO, FNTotalRecalTAX"
+            _Qry &= vbCrLf & ", FNTotalAdd,FNTotalAddOther, FNTotalExpense, FNTotalExpenseOther, FNTotalIncome "
+            _Qry &= vbCrLf & ",FNSocial, FNTax, FHolidayBaht, FNNetpay, FNAccumulateIncomeYear"
+            _Qry &= vbCrLf & ", FNAccumulateSocialYear, FNAccumulateTax, FTStateInDustin"
+            _Qry &= vbCrLf & ",FNTotalCalContributedAmt,FNContributedAmt,FNCmpContributedAmt,FNTotalCalWorkmen,FNWorkmenAmt ,FNAmtRetire"
+            _Qry &= vbCrLf & ",FNPayLeaveSSo,FNWorkingDay,FNAdjBeforeCal,FNIncentiveAmt,FNNetpayOrg"
+            _Qry &= vbCrLf & ", FNAttandanceAmt, FNHealtCareAmt, "
+            _Qry &= vbCrLf & "FNTransportAmt, FNChildCareAmt, FNOTMealAmt, FNSocialBase, FNWorkAgeSalary, FNOTMealAmtUS, FNExchangeRate, FNSickLeaveBaht, FNSickLeaveMin, FNBusinessLeaveBaht, FNBusinessLeaveMin,"
+            _Qry &= vbCrLf & "FNSpecialLeaveBaht, FNSpecialLeaveMin, FNParturitionLeaveBaht, FNParturitionLeaveMin , FNVacationRetMin, FNVacationRetAmt,FNExchangeRateTHB"
+            _Qry &= vbCrLf & ",FNWorkDay,FTStateCalSocial,FTStateCalTax,FNTotalIncomeDiff,FNNetpayDiff,FNSocialExchangeRate,FNTaxExchangeRate"
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+
+            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+            _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFinCalculate "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+            _Qry &= vbCrLf & " INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFinCalculate (FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode,FCFin, FCFinAmt,FCFinAmtOther,FCTotalFinAmt)"
+            _Qry &= vbCrLf & " SELECT FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode,FCFin, FCFinAmt,FCFinAmtOther,FCTotalFinAmt "
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+
+            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+            _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTManageCalculate "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+            _Qry &= vbCrLf & " INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTManageCalculate ( FTPayYear, FTPayTerm, FNHSysEmpID, FTFinCode, FCFinAmt, FNDay)"
+            _Qry &= vbCrLf & " SELECT  FTPayYear, FTPayTerm, FNHSysEmpID, FTFinCode, FCFinAmt, FNDay "
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTManage "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+
+            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+
+
+            Return True
+        Else
+            Return False
+
+        End If
+
+
+
+
+    End Function
+
+    Public Shared Function CalculateWeekEnd_LA2_Monthly(ByVal _User As String, ByVal _EmpCode As String,
+        ByVal _EmpType As String, ByVal _StartDate As String, ByVal _EndDate As String, ByVal _PayYear As String,
+        ByVal _PayTerm As String, ByVal _PayDate As String, ByVal _CalIns As String, ByVal _EmpCalType As String,
+        Optional ByVal _StateCalRetire As Boolean = False, Optional ByVal _ReturnVacation As Double = 0,
+        Optional FTStaDeductAbsent As Integer = 0, Optional FTStaCalPayRoll As Integer = 0, Optional FNStateSalaryType As Integer = 0,
+        Optional _FNExchangeRate As Double = 0, Optional _FNExchangeRateTHB As Double = 0, Optional FNWorkDayInWeek As Integer = 13,
+        Optional FNWorkDayInMonth As Integer = 26, Optional FNWorkDayInWeekBF As Integer = 0, Optional SocialExchangeRate As Double = 0, Optional TaxExchangeRate As Double = 0) As Boolean
+
+        '----------------------------------   Variable  ------------------------------------
+        Thread.CurrentThread.CurrentCulture = New CultureInfo("en-US", True)
+        Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
+        Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortTimePattern = "HH:mm:ss"
+
+        Dim CountDayPerMonth As Integer = FNWorkDayInMonth
+        Dim _Qry As String
+        Dim _dt As DataTable
+        Dim _dttemp As DataTable
+        Dim _dttran As DataTable
+        Dim _SalaryDevide As Integer = 0
+        Dim FNVacationRetMin, FNVacationRetAmt, FNVacationPerDayLapaid As Double
+
+
+        Dim _SsoBefore As Double = 0
+        Dim _SsoBeforeAmt As Double = 0
+
+        Dim _InsuranceEmpyeeBefore As Double = 0
+        Dim _InsuranceEmpyerBefore As Double = 0
+
+        Dim _DtFin As New DataTable
+        _DtFin.Columns.Add("FTFinCode", GetType(String))
+        _DtFin.Columns.Add("FCTotalFinAmt", GetType(String))
+        Dim _SeniorityAmt As Double = 0
+        Dim _Err As Integer, _Complete As Integer, _ActualDate As String
+        Dim _FCSalary As Double, _FDDateStart As String
+        Dim _FDDateEnd As String
+        Dim _FTPaymentCode As String, _FTBankCode As String, _FNChildNotLearn As Double
+        Dim _FCReduceDonate As Double, _FCLifeInsurance As Double
+        Dim _FCLoanHouse As Double
+        Dim _FCShare As Double, _FCReduceFather As Double, _FCReduceMother As Double
+        Dim _FCReSpouseFather As Double, _FCReSpouseMother As Double, _FCReduceEducationSupport As Double, _FTMarryIncome As String
+        Dim _FTCalSocialSta As String, _FTCalTaxSta As String
+        Dim _FTDeptCode As String, _FTSectCode As String, _FTUnitCode As String
+        Dim _FTEmpIdNo As String, _FTEmpIdNo1 As String, _FTSocialNo As String, _FTBranchCode As String, _FTAccNo As String, _FCLifeFeeMoney As Double
+        Dim _FCOtherAdd As Double, _FTOtherAddCalculateSocial As String, _FTOtherAddCalculateTax As String
+        Dim _FCOtherAddOt As Double, _FTOtherAddOtCalculateSocial As String, _FTOtherAddOtCalculateTax As String, _FCBFShiftMoney As Double
+        Dim _FTShiftMoneyCalculateSocial As String, _FTShiftMoneyCalculateTax As String, _FCDiligent As Double
+        Dim _FTDiligentCalculateSocial As String, _FTDiligentCalculateTax As String, _FCBonusEndYear As Double
+        Dim _FTBonusEndCalculateSocial As String, _FCOtherDeduct As Double, _FTBonusEndCalculateTax As String
+        Dim _FCShelter As Double, _FTShelterCalculateSocial As String, _FTShelterCalculateTax As String
+        Dim _FCShareFactory As Double, _FTShareFactoryCalculateSocial As String
+        Dim FNPayLeaveBusinessBaht, FNPayLeaveSickBaht, FNPayLeaveSpecialBaht, FNParturitionLeave As Double, FNParturitionLeaveReCalTax As Double
+        Dim FNPayLeaveBusinessBahtMin, FNPayLeaveSickBahtMin, FNPayLeaveSpecialBahtMin, FNParturitionLeaveMin As Double
+        Dim GFNPayLeaveBusinessBahtMin, GFNPayLeaveSickBahtMin, GFNPayLeaveSpecialBahtMin, GFNParturitionLeaveMin As Integer
+        Dim _FTShift As String
+        Dim _FNTime, _FNNotRegis As Double
+        Dim _FNOT1 As Double, _FNOT1_5 As Double, _FNOT2 As Double, _FNOT3, _FNOT4 As Double
+        Dim _FNLeaveVacation As Double, _FNLateNormalMin As Double
+        Dim _FNLateNormalCut As Double, _FNLateOtMin As Double, _FNLateOtCut As Double
+        Dim _FNLateMorning As Double, _FNLateAfternoon As Double, _FNAbsent As Double
+        Dim _FNLeavePay, _FNLeaveNotPay As Double, _FNTimeMin, _FNOT1Min As Double
+        Dim _FNOT1_5Min As Double, _FNOT2Min As Double, _FNOT3Min As Double, _FNOT4Min As Double, _FNLateMMin As Double
+        Dim _FNLateAfMin As Double, _FNRetireMMin As Double, _FNRetireAfMin As Double
+        Dim _FNRetireNormalCut As Double, _FNRetireOtMin As Double, _FNRetireOtCut As Double
+        Dim _GFNTime, _GFNNotRegis As Double
+        Dim _GFNOT1 As Double, _GFNOT1_5 As Double, _GFNOT2 As Double, _GFNOT3 As Double, _GFNOT4 As Double
+        Dim _GFNLeaveSick As Double, _GFNLeaveBusiness As Double
+        Dim _GFNLeaveVacation As Double, _GFNLeavePregnant As Double, _GFNLeaveOrdain As Double, _GFNLeaveSpecial As Double
+        Dim _GFNLeaveMarry As Double, _GFNLeaveOther As Double, _GFNLateNormalMin As Double
+        Dim _GFNLateNormalMinNotHoliday As Double = 0
+        Dim _GFNLateNormalCut As Double, _GFNLateOtMin As Double, _GFNLateOtCut As Double
+        Dim _GFNLateMorning As Double, _GFNLateAfternoon As Double, _GFNAbsent, _GFNCutAbsent As Double
+        Dim _GFNLeavePay As Double, _GFNTimeMin, _GFNOT1Min, _GFNTimeMin_Real_After_Probation As Double
+        Dim _GFNOT1_5Min As Double, _GFNOT2Min As Double, _GFNOT3Min As Double, _GFNOT4Min As Double, _GFNLateMMin As Double
+        Dim _GFNLateAfMin As Double, _GFNRetireMMin As Double, _GFNRetireAfMin As Double
+        Dim _GFNRetireNormalCut As Double, _GFNRetireOtMin As Double, _GFNRetireOtCut As Double
+        Dim _dtot As DataTable
+        Dim _RateOT1, _RateOT15, _RateOT2, _RateOT3, _RateOT4 As Double
+        Dim _FCAccumulateIncome As Double, _FCAccumulateSocial As Double, _FCAccumulateTax As Double
+        Dim _FTSatrtCalculateDate As String, _FTEndCalculateDate As String, _FNEmpDiligent As Double, _FTStateInDustin As String, _FNDeligentPeriod As Integer
+        Dim _FTSatrtCalculateDateIns As String, _FTEndCalculateDateIns As String
+        Dim _FNEmpBaht, _nBahtOt1 As Double, _nBahtOt15 As Double, _nBahtOt2 As Double, _nBahtOt3 As Double, _nBahtOt4 As Double, _nBahtAbsent As Double, _nEstimateIncome As Double
+        Dim _SocialRate As Double, _SocialRateCmp As Double : Dim _StateSocialOnlyCmppay As Boolean
+        Dim _WorkDay As Integer, _TotalWorkDay As Integer, _Holiday As String
+        Dim _TotalHoliDay As Integer
+        Dim _FNSlaryPerMonth As Double, _FNSlaryPerDay As Double, _FNSlaryPerHour As Double, _FNSlaryPerMin, _FNSlaryOTPerMin As Double, _FNSlaryOTPerHour As Double, _FTEmpState As String
+
+        Dim _Lapaid, _LaNotpaid As Double, _FCPayVacationBaht As Double, _FCDeductSourceVacationBaht As Double, _Net As Double, _CalSo As Double, _HBaht As Double, _FCSocial As Double, _FCSocialCmp As Double
+        Dim _FCTax As Integer, _FCBaht As Double, _ActualNextDate As String
+        Dim _SocialMinIncome As Integer, _SocialMaxIncome As Double
+        Dim _FTSlary, _FTDivCode, _FTPos As String
+        Dim _MSlary As Double, _LateCutAbsent As Double, _LateCutAmt, _LateCutAmtAbsent As Double
+        Dim _Dtemp As DataTable
+        Dim _SocialBefore, _SocialBeforeAmt, _SocialPayMax As Double
+        Dim _FCAdd, _FTAddCalculateSocial, _FTAddCalculateTax, _FCDeduct, _TotalCalSso, _TotalCalTax, _TaxAmt As Double
+        Dim _Gtotalleave, _GtotalleavePay, _GtotalleaveNotPay, _GtotalleavePayCalSso, _GtotalleavePayCalSsoAmt As Double
+        Dim _dtLeave As DataTable
+        Dim _LeaveCode As String = ""
+        Dim _dtAddOtherAmt As DataTable
+        Dim _dtAddOtherAmtshift As DataTable
+        Dim FCModFather, FCModMother, FCModMateFather, FCModMateMother As Double
+        Dim FCPremium, FCInterest, FCUnitRMF, FCUnitLTF, FCDeductDonate, FCDisabledDependents, FCDeductDonateStudy As Double
+        Dim FCHealthInsurFatherMotherMate, FTHealthInsurIDFather, FTHealthInsurIDMother As Double
+        Dim FTHealthInsurIDFatherMate, FTHealthInsurIDMotherMate As Double
+        Dim FTTotalCalContributedAmt, FTContributedAmt, FTCmpContributedAmt, FTTotalCalContributedAcc As Double
+        Dim FTTotalCalWorkmen, FTWorkmenAmt, _FTMaxCalWorkmen, _FTMaxWorkmenRate, FTTotalCalWorkmenAcc As Double
+        Dim _FTWorkmenAmtBefore, _FTTotalCalWorkmenBefore As Double
+        Dim _ShiftAmt As Double = 0
+        Dim _ShiftOTAmt As Double = 0
+        Dim _ShiftValue As Double = 0
+        Dim _ShiftOTValue As Double = 0
+        Dim _WorkingDay As Double = 0
+        Dim _THRMContributedFund As DataTable
+        Dim _EmpDisTax As New HCfg.EmployeeDiscountTax
+        Dim _EmpTaxYear As New HCfg.EmpTaxYear
+        '   HI.HRCAL.Calculate.LoadDiscountTax()
+
+        Dim _FNSlaryPerDayShiftNinght As Double, _FNSlaryPerDayNormal As Double
+
+        Dim _EmpDisTaxChildAmt As Double = 0
+        Dim _FNNetpayOrg As Double = 0.0
+        Dim _FNNetpay As Double = 0.0
+        Dim _AmtAddCalOT, _GAmtAddCalOT As Double
+        Dim CountTerm As Integer = 0
+        Dim _SPDateType, _TotalInstalment, _Instalment As Integer
+        Dim _ContributedFundBeginPay As Boolean = False
+        Dim _DTHoliday As DataTable
+        Dim _ShiftAdv As Double = 0
+        Dim _AmtPlus As Double = 0
+        Dim _GAmtPlus As Double = 0
+        Dim FTHldType As Integer = 0
+        Dim _AmtRetire As Double = 0
+        Dim _WorkAge As Integer = 0 : Dim _WorkAgeDay As Integer = 0 : Dim _WorkAgeSeniority As Integer = 0 : Dim _WorkingDayN As Integer = 0
+        Dim _WorkAgeParturition As Integer = 0
+        Dim _AmtReturnVacation As Double = 0
+        Dim _FNIncentiveAmt As Double = 0
+        Dim _FTInsurType As Integer = 0
+        Dim _DayAdjAdd As Double = 0
+        Dim _WageAdjAdd As Double = 0
+        Dim _DateStartOfMonth As String = HI.UL.ULDate.ConvertEnDB(Left(_EndDate, 8) & "01")  'วันแรกของเดือน
+        Dim _DateEndOfMonth As String = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddDay(HI.UL.ULDate.AddMonth(Left(_EndDate, 8) & "01", 1), -1)) 'วันแของเดือน
+        Dim _FTStatePayHoliday As String = ""
+        Dim _FTEmployeeCode As String = ""
+        Dim _FNAttandanceAmt As Double = 0
+        Dim _FNHealtCareAmt As Double = 0
+        Dim _FNTransportAmt As Double = 0
+        Dim _FNChildCareAmt As Double = 0
+        Dim _FNChildCareStartAge As Double = 0
+        Dim _FNChildCareEndAge As Double = 0
+        Dim _FNOTMealAmt As Double = 0
+        Dim _FNSocialBase As Double = 0
+        Dim _FNWorkAgeSalary As Double = 0
+        Dim _FNOTMealAmtUS As Double = 0
+        Dim _FNSickLeave As Double = 0
+        Dim _LeaveSickPay As Integer = 0
+        Dim _FNTotalChildCare As Integer = 0
+        Dim _FNNetAttandanceAmt As Double = 0
+        Dim _FNNetChildCareAmt As Double = 0
+        Dim _FNNetOTMealAmt As Double = 0
+        Dim _FNNetSocialBase As Double = 0
+        Dim _FNNetOTMealAmtUS As Double = 0
+        Dim _FNEmpWorkAge As Integer = 0
+        Dim _tmpSocailRateKM As DataTable
+        Dim _tmpWelfareKM As DataTable
+        Dim _tmpWorkAge As DataTable
+        Dim _TmpFDDateEnd As String = ""
+        Dim _TmpFDDateEndP As String = ""  ' เพิ่มเงือนไข วันที่ลาออก มีผล วันที่ 2 - 16  จ่ายค่า health & transsport
+        Dim _DTEmpWorkDay As New DataTable
+        Dim _TmpLeavePay As Integer = 0
+        Dim _EmpSex As Integer = 0
+        Dim _RatePay As Double = 1
+        Dim _SalaryPayOTKM As Double = 0
+        Dim _SalaryPayLeave As Double = 0
+        Dim _SalaryPayLeaveMin As Double = 0
+        Dim _FNEmpStatus As Integer = 0
+        Dim _FTStateWorkpermit As String = ""
+        Dim _FTStateMedicalCertificate As String = ""
+        Dim _BonusAmt As Double = 0
+
+        Calculate.LoadInsuranceVNRate()
+        Dim FNSocialEmployeeRate As Double = 0
+        Dim FNSocialEmployerRate As Double = 0
+        Dim FNHealthEmployeeRate As Double = 0
+        Dim FNHealthEmployerRate As Double = 0
+        Dim FNUnemploymentEmployeeRate As Double = 0
+        Dim FNUnemploymentEmployerRate As Double = 0
+        Dim FNUnionEmployeeRate As Double = 0
+        Dim FNUnionEmployerRate As Double = 0
+        Dim FNStateUnionMember As String = ""
+        Dim FDStartDateUnion As String = ""
+        Dim FDEndDateUnion As String = ""
+        Dim FNUnionAmt As Double = 0
+        Dim FNUnionRate As Double = 0
+
+        Dim _FDDateProbation As String = ""
+
+        Dim _FNMoneyMeal As Integer = 0
+
+        _Qry = "SELECT TOP 1 FTCfgData FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig WHERE FTCfgName='CfgMeal_LA'"
+        _FNMoneyMeal = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "0"))
+
+        Try
+            FNSocialEmployeeRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eSocialInsurance).FNEmployeeRate
+            FNSocialEmployerRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eSocialInsurance).FNEmployerRate
+            FNHealthEmployeeRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eHealthInsurance).FNEmployeeRate
+            FNHealthEmployerRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eHealthInsurance).FNEmployerRate
+            FNUnemploymentEmployeeRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eUnemploymentInsurance).FNEmployeeRate
+            FNUnemploymentEmployerRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eUnemploymentInsurance).FNEmployerRate
+            FNUnionEmployeeRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eUnionInsurance).FNEmployeeRate
+            FNUnionEmployerRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eUnionInsurance).FNEmployerRate
+        Catch ex As Exception
+            'MG.ShowMsg.mInfo("Invalid Config Value...", 1503310001, "", "")
+        End Try
+
+
+        Dim FNSocialInsuranceEmployee As Double = 0.0
+        Dim FNSocialInsuranceEmployer As Double = 0.0
+        Dim FNHealthInsuranceEmployee As Double = 0.0
+        Dim FNHealthInsuranceEmployer As Double = 0.0
+        Dim FNUnemploymentInsuranceEmployee As Double = 0.0
+        Dim FNUnemploymentInsuranceEmployer As Double = 0.0
+        Dim FNUnionInsuranceEmployee As Double = 0.0
+        Dim FNUnionInsuranceEmployer As Double = 0.0
+
+        Dim FNSocialInsuranceEmployeeOrg As Double = 0.0
+        Dim FNSocialInsuranceEmployerOrg As Double = 0.0
+        Dim FNHealthInsuranceEmployeeOrg As Double = 0.0
+        Dim FNHealthInsuranceEmployerOrg As Double = 0.0
+        Dim FNUnemploymentInsuranceEmployeeOrg As Double = 0.0
+        Dim FNUnemploymentInsuranceEmployerOrg As Double = 0.0
+        Dim FNUnionInsuranceEmployeeOrg As Double = 0.0
+        Dim FNUnionInsuranceEmployerOrg As Double = 0.0
+
+
+
+
+        _DTEmpWorkDay.Columns.Add("FNSalary", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNDay", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNOT1", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNOT15", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNOT2", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNOT3", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNOT4", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNHoloday", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNLate", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNAbsent", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNLateCutAmtAbsent", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNLeavePay", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNLeaveNotPay", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNBusiness", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNSpecial", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNParturition", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNVacation", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNShiftNo", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNSlaryOTPerMin", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNSlaryNormal", GetType(Double))
+
+
+
+        Dim _DTEmpPayLeaveSick As New DataTable
+        _DTEmpPayLeaveSick.Columns.Add("FNSalary", GetType(Double))
+        _DTEmpPayLeaveSick.Columns.Add("FNDay", GetType(Double))
+        _DTEmpPayLeaveSick.Columns.Add("FNPayPer", GetType(Double))
+
+        _Qry = "Select TOP 1 FNCalType FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType WHERE FNHSysEmpTypeId=" & Val(_EmpType) & "  "
+        Dim _TmpCalType As Integer = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MASTER, "0"))
+
+        If FTStaCalPayRoll = 0 Then
+            _DateStartOfMonth = _StartDate  'วันแรกของเดือน
+            _DateEndOfMonth = _EndDate 'วันแของเดือน
+        Else
+            _DateStartOfMonth = HI.UL.ULDate.ConvertEnDB(Left(_EndDate, 8) & "01")  'วันแรกของเดือน
+            _DateEndOfMonth = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddDay(HI.UL.ULDate.AddMonth(Left(_EndDate, 8) & "01", 1), -1)) 'วันแของเดือน
+        End If
+        '----------------------------------   Variable  ------------------------------------
+
+        Dim _DateReset As String
+        _Qry = " Select Case When RiGHT(FTCurrenDate, 5) >= FTLeaveReset Then LEFT(FTCurrenDate, 4) Else  LEFT(FTBefore,4)  End +'/' + FTLeaveReset"
+        _Qry &= vbCrLf & "  FROM"
+        _Qry &= vbCrLf & " ("
+        _Qry &= vbCrLf & " SELECT  TOP 1 Convert(varchar(10),GetDate(),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
+        _Qry &= vbCrLf & " FROM            THRMConfigLeave  AS L WITH (NOLOCK)  INNER JOIN THRMEmployee AS M WITH(NOLOCK )"
+        _Qry &= vbCrLf & "  ON  L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
+        _Qry &= vbCrLf & "  WHERE   M.FNHSysEmpID=" & Val(_EmpCode) & " "
+        _Qry &= vbCrLf & " ) As T"
+
+        _DateReset = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+        '------------------ รวมวันลาป่วย---------------------------------
+
+        _Qry = "   SELECT        (SUM(FNTotalPayMinute) / 480) AS FNTotalPayMinute  "
+        _Qry &= vbCrLf & "     "
+        _Qry &= vbCrLf & "    FROM THRTTransLeave "
+        _Qry &= vbCrLf & "  WHERE        (FTLeaveType = '0')"
+        _Qry &= vbCrLf & "  AND (FTDateTrans >= N'" & (_DateReset) & "') "
+        _Qry &= vbCrLf & "  AND (FTDateTrans < N'" & HI.UL.ULDate.ConvertEnDB(_StartDate) & "') "
+        _Qry &= vbCrLf & "  AND (FNHSysEmpID =" & Val(_EmpCode) & ")"
+
+        _LeaveSickPay = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+
+        '------------------ รวมวันลาป่วย---------------------------------
+
+        With _EmpTaxYear
+            .FTAmt = 0 'เงินได้ก่อนหักค่าใช้จ่าย
+            .FTExpenses = 0 'ค่าใช้จ่ายส่วนตัว
+            .FTNetAmt = 0 'เงินได้หลังหักค่าใช้จ่าย
+            .FTModEmp = 0 'ลดหย่อนส่วนตัว
+            .FTModMate = 0 'ลดหย่อนคู่สมรส
+            .FNChildNotLern = 0 'จำนวนบุตรไม่ศึกษา
+            .FNChildLern = 0 'จำนวนบุตรศึกษา
+            .FTChildNotLern = 0 'ลดหย่อนบุตรไม่ศึกษา
+            .FTChildLern = 0 'ลดหย่อนบุตรศึกษา
+            .FTInsurance = 0 'ลดหย่อนเบี้ยประกัน
+            .FTProvidentfund = 0 'กองทุนเลียงชีพส่วนที่ไม่เกิน 10000
+            .FTInterest = 0 'ดอกเบี้ยเงินกู้
+            .FTSocial = 0 'ประกันสังคม
+            .FTDonation = 0 'เงินบริจาค
+            .FTProvidentfundOver = 0 'กองทุนเลียงชีพส่วนที่เกิน 10000
+            .FTGPF = 0 'เงิน กบข.
+            .FTSavingsFund = 0 'เงินกองทุนสงเคราะห์
+            .FTCommutation = 0 'เงินชดเชยตามกฎหมายแรงงาน
+            .FTUnitRMF = 0 'ค่าซื้อหน่วยลงทุน RTF
+            .FTModFather = 0 'ลดหย่อนบิดา
+            .FTModMother = 0 'ลดหย่อนมารดา
+            .FTModFatherMate = 0 'ลดหย่อนบิดาคู่สมรส
+            .FTModMotherMate = 0 'ลดหย่อนมารดาคู่สมรส
+            .FTUnitLTF = 0 'ค่าซื้อหน่วยลงทุน LTF
+            .FTDonationLern = 0 'เงินบริจาคเพื่อสนับสนุนการศึกษา
+            .FTParentsHealthInsurance = 0 'เบี้ยประกันสุขภาพบิดามารดา
+            .FTSupportSport = 0 'เงินสนับสนุนการกีฬา
+            .FTAcquisitionOfProperty = 0 'ค่าซื้ออาคาร
+            .FTPension = 0 'บำนาญ
+            .FTTravel = 0 'ท่องเที่ยวในประเทศ
+            .FTTotalCalTax = 0 'เงินได้สุทธิ
+            .FTTotalTax = 0 'ภาษีที่ต้องจ่าย
+        End With
+        '------------------ GetConfig WeekEnd ----------------------------------
+
+        ' get discount tax
+
+        With _EmpDisTax
+            .Cfg_ModChildAllowanceAgeStart = HCfg._DiscountTax.Cfg_ModChildAllowanceAgeStart
+            .Cfg_ModChildAllowanceAgeEnd = HCfg._DiscountTax.Cfg_ModChildAllowanceAgeEnd
+            .Cfg_ModChildAllowanceRateNotStudied = HCfg._DiscountTax.Cfg_ModChildAllowanceRateNotStudied
+            .Cfg_ModChildAllowanceRateStudy = HCfg._DiscountTax.Cfg_ModChildAllowanceRateStudy
+        End With
+        '------------------ GetConfig หักกองทุนสำรองเลี้ยงชีพ ----------------------------------
+        _Qry = "SELECT FNSeqNo, FNAgeBegin, FNAgeEnd, FNEmpPay As FNEmpAmtPer,  FNCmpPay AS FNCmpAmtPer"
+        _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMContributions WITH(NOLOCK) "
+        _Qry &= vbCrLf & "  WHERE  FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID) & " "
+        _THRMContributedFund = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+        '------------------ GetConfig หักกองทุนสำรองเลี้ยงชีพ ----------------------------------
+
+        '------------------ GetConfig Holiday ----------------------------------
+        _DTHoliday = LoadSysHoliday
+        '------------------ GetConfig Holiday ----------------------------------
+
+        _tmpSocailRateKM = LoadSocailRateKM
+        '_tmpWelfareKM = LoadWelfareKM(Integer.Parse(Val(_EmpType)))
+        _tmpWorkAge = GetWorkAgeRate(Val(HI.ST.SysInfo.CmpID))
+
+        'For Each ZRow In _tmpWelfareKM.Rows
+
+        '    _FNAttandanceAmt = Val(ZRow!FNAttandanceAmt.ToString)
+        '    _FNHealtCareAmt = Val(ZRow!FNHealtCareAmt.ToString)
+        '    _FNTransportAmt = Val(ZRow!FNTransportAmt.ToString)
+        '    _FNChildCareAmt = Val(ZRow!FNChildCareAmt.ToString)
+        '    _FNChildCareStartAge = Val(ZRow!FNChildCareStartAge.ToString)
+        '    _FNChildCareEndAge = Val(ZRow!FNChildCareEndAge.ToString)
+        '    _FNOTMealAmt = Val(ZRow!FNOTMealAmt.ToString)
+
+        '    Exit For
+        'Next
+
+        'FNAttandanceAmt, FNHealtCareAmt, FNTransportAmt, FNChildCareAmt, FNChildCareStartAge, FNChildCareEndAge, FNOTMealAmt
+        FNVacationRetMin = 0 : FNVacationRetAmt = 0
+        _FTSatrtCalculateDate = _StartDate
+        _FTEndCalculateDate = _EndDate
+        _FTSatrtCalculateDateIns = _StartDate
+        _FTEndCalculateDateIns = _EndDate
+        _FNEmpDiligent = 0 : _TotalWorkDay = 0 : _WorkDay = 0 : _TotalHoliDay = 0
+        _FTStateInDustin = "" : _FNSlaryPerMonth = 0
+        _FNSlaryPerDay = 0 : _FNSlaryPerHour = 0 : _FNSlaryPerMin = 0
+        _FTEmpState = "" : _FNEmpBaht = 0 : _nBahtOt1 = 0
+        _nBahtOt15 = 0 : _nBahtOt2 = 0 : _nBahtOt3 = 0
+        _nBahtAbsent = 0 : _nEstimateIncome = 0 : _Lapaid = 0 : _LaNotpaid = 0 : _Net = 0
+        _FCPayVacationBaht = 0 : _FCDeductSourceVacationBaht = 0 : _CalSo = 0 : _HBaht = 0 : _FCSocial = 0 : _FCSocialCmp = 0
+        _FCTax = 0 : _FCBaht = 0 : _SocialRate = 0 : _SocialRateCmp = 0
+        _SocialMinIncome = 0 : _SocialMaxIncome = 0
+        _Complete = 0 : _Err = 0 : _FCSalary = -99
+        CountTerm = 0
+        _TotalInstalment = 0 : _Instalment = 0
+
+        FNPayLeaveBusinessBahtMin = 0 : FNPayLeaveSickBahtMin = 0 : FNPayLeaveSpecialBahtMin = 0 : FNParturitionLeaveMin = 0
+        GFNPayLeaveBusinessBahtMin = 0 : GFNPayLeaveSickBahtMin = 0 : GFNPayLeaveSpecialBahtMin = 0 : GFNParturitionLeaveMin = 0
+        FNPayLeaveBusinessBaht = 0 : FNPayLeaveSickBaht = 0 : FNPayLeaveSpecialBaht = 0 : FNParturitionLeave = 0
+
+        _Qry = "SELECT  CONVERT(varchar(10),GETDATE(),111)"
+        _ActualDate = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+
+        _Qry = "SELECT  CONVERT(varchar(10),DateAdd(day,1,GETDATE()),111) "
+        _ActualNextDate = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+
+        _Qry = "   SELECT  TOP 1  M.FNHSysCmpId As FTCmpCode, M.FNHSysEmpID AS FTEmpCode,M.FTEmpCode AS FTEmployeeCode, M.FDDateStart, M.FDDateEnd, M.FDDateProbation, M.FTProbationSta, Isnull( M.FNEmpStatus,0) AS FTStatus, M.FNHSysEmpTypeId AS FTTypeEmp"
+        _Qry &= vbCrLf & " ,M.FNHSysDeptId AS FTDeptCode , M.FNEmpSex "
+        _Qry &= vbCrLf & "  ,M.FNHSysDivisonId AS FTDivCode, M.FNHSysSectId AS FTSectCode,  M.FNHSysUnitSectId AS FTUnitSecCode"
+        _Qry &= vbCrLf & " , M.FNHSysPositId AS FTPositCode,'' as FTJobGrade,'' AS FTCostCNCode,M.FNLateCutSta AS FTLateCutSta"
+        _Qry &= vbCrLf & "  , M.FNPaidOTSta AS FTPaidOTSta, M.FTEmpIdNo, M.FTSocialNo, M.FTTaxNo, M.FNCalSocialSta AS FTCalSocialSta, M.FNCalTaxSta AS FTCalTaxSta, M.FNHSysPayRollPayId AS FTPayCode"
+        _Qry &= vbCrLf & " , M.FTAccNo, M.FNHSysBankId AS FTBnkCode, M.FNHSysBankBranchId AS FTBnkBchCode,M.FNSalary AS FTSalary, "
+        _Qry &= vbCrLf & "  M.FCIncomeBefore, M.FCTaxBefore, M.FCSocialBefore, M.FCDisabledDependents, M.FCHealthInsurFatherMotherMate, M.FTHealthInsurIDFather,"
+        _Qry &= vbCrLf & "   ET.FNCalType AS FTCalType, ET.FNInsurType AS FTInsurType,M.FNMaritalStatus AS FTMaritalCode,M.FDFundBegin, M.FDFundEnd,"
+        _Qry &= vbCrLf & " M.FCModFather, M.FCModMother, M.FCModMateFather, M.FCModMateMother, "
+        _Qry &= vbCrLf & " M.FCPremium, M.FCInterest, M.FCUnitRMF, M.FCUnitLTF, M.FCDeductDonate, M.FCDisabledDependents,M.FCDeductDonateStudy, "
+        _Qry &= vbCrLf & "  M.FCHealthInsurFatherMotherMate, M.FTHealthInsurIDFather,M.FTHealthInsurIDMother,"
+        _Qry &= vbCrLf & " M.FTHealthInsurIDFatherMate, M.FTHealthInsurIDMotherMate,M.FTMateIncome,M.FCExceptAgeOver,M.FCExceptAgeOverMate,M.FCDeductDividend "
+        _Qry &= vbCrLf & ", CASE WHEN ISDATE(M.FdDateStart) = 1 AND ISDATE(M.FDRetire) = 1 THEN  Datediff(month,M.FdDateStart,M.FDRetire) ELSE 0 END AS FNWorkAge"
+        _Qry &= vbCrLf & ", CASE WHEN ISDATE(M.FdDateStart) = 1 AND ISDATE(M.FDRetire) = 1 THEN  Datediff(month,M.FdDateStart,M.FDRetire) ELSE Datediff(month,M.FdDateStart,DateAdd(day,1,CONVERT(Datetime,'" & HI.UL.ULDate.ConvertEnDB(_EndDate) & "'))) END AS FNEmpWorkAge"
+        _Qry &= vbCrLf & " ,ISNULL(ET.FNSalaryDivide,0) AS FNSalaryDivide , isnull( M.FTStateWorkpermit ,'0') as FTStateWorkpermit"
+        _Qry &= vbCrLf & ",ISNULL(ET.FTStatePayHoliday,'') AS FTStatePayHoliday "
+        _Qry &= vbCrLf & ", dbo.FN_Get_Emp_WorkAge(M.FdDateStart,'" & _EndDate & "') AS FNEmpWorkAgeNew"
+        _Qry &= vbCrLf & ", dbo.FN_Get_Emp_WorkAge_MonthSeniority(M.FdDateStart,M.FdDateEnd,'" & _EndDate & "') AS FNEmpWorkAgeMonthSeniority     "
+        _Qry &= vbCrLf & ", dbo.FN_Get_Emp_WorkAge_Salary_CD_NEW(M.FdDateStart,M.FdDateEnd,'" & _EndDate & "') AS FNEmpWorkAgeNewCD ,  dbo.[FN_Get_Emp_WorkAge_Day](M.FDDateStart,M.FDDateEnd) as FNEmpWorkAgeNewDay"
+        _Qry &= vbCrLf & " ,  dbo.[FN_Get_Emp_WorkAge_Day_CD](M.FDDateStart,M.FDDateEnd,M.FNHSysEmpID,'" & _EndDate & "') as FNEmpWorkAgeNewDay_CD "
+        _Qry &= vbCrLf & " , isnull(M.FTStateUnionMember,'') as FTStateUnionMember  , isnull(M.FDStartDateUnion,'') as FDStartDateUnion , isnull(M.FDEndDateUnion,'') as FDEndDateUnion"
+        _Qry &= vbCrLf & "  FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) INNER JOIN"
+        _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType AS ET WITH (NOLOCK) ON M.FNHSysEmpTypeId = ET.FNHSysEmpTypeId"
+        _Qry &= vbCrLf & "	WHERE     (M.FNHSysEmpID =" & Val(_EmpCode) & " ) "
+
+        _Dtemp = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+        For Each R As DataRow In _Dtemp.Rows
+
+            _DtFin.Rows.Clear()
+            _FNEmpStatus = Integer.Parse("0" & R!FTStatus.ToString)
+            _AmtAddCalOT = 0
+            _EmpSex = Val("0" & R!FNEmpSex.ToString)
+            _FTStateWorkpermit = R!FTStateWorkpermit.ToString
+
+            _FDDateProbation = R!FDDateProbation.ToString
+
+            FNStateUnionMember = R!FTStateUnionMember.ToString : FDStartDateUnion = R!FDStartDateUnion.ToString : FDEndDateUnion = R!FDEndDateUnion.ToString
+
+            _SalaryDevide = Val(R!FNSalaryDivide.ToString)
+            _FTStatePayHoliday = R!FTStatePayHoliday.ToString
+            _FNEmpWorkAge = Integer.Parse(Val(R!FNEmpWorkAge.ToString))
+            _FTInsurType = Val(R!FTInsurType.ToString)
+
+            If _SalaryDevide <= 0 Then
+                _SalaryDevide = 1
+            End If
+
+            _FTSlary = R!FTSalary.ToString : _FDDateStart = R!FDDateStart.ToString : _FDDateEnd = R!FDDateEnd.ToString
+            _FTPaymentCode = R!FTPayCode.ToString : _FTBankCode = R!FTBnkCode.ToString
+            _FTCalSocialSta = R!FTCalSocialSta.ToString : _FTCalTaxSta = R!FTCalTaxSta.ToString
+
+            _FTDeptCode = R!FTDeptCode.ToString : _FTDivCode = R!FTDivCode.ToString
+            _FTSectCode = R!FTSectCode.ToString
+            _FTUnitCode = R!FTUnitSecCode.ToString : _FTPos = R!FTPositCode.ToString
+
+            _FTEmpState = R!FTCalType.ToString
+
+            _FTEmpIdNo = R!FTTaxNo.ToString 'R!FTEmpIdNo.ToString
+            _FTEmpIdNo1 = R!FTEmpIdNo.ToString
+            _FTSocialNo = R!FTSocialNo.ToString
+
+
+
+            _FTBranchCode = R!FTBnkBchCode.ToString
+            _FTAccNo = R!FTAccNo.ToString
+            '---------------------------------------- ลดหย่อน------------------------------------
+            _FNChildNotLearn = 0 : _FCReduceDonate = 0 : _FCLifeInsurance = 0 : _FCLoanHouse = 0 : _FCReduceEducationSupport = 0
+            _FCShare = 0 : _FCReduceFather = 0 : _FCReduceMother = 0 : _FCReSpouseFather = 0 : _FCReSpouseMother = 0 : _FTMarryIncome = 0
+            _FCLifeFeeMoney = 0
+
+            FCModFather = 0 : FCModMother = 0 : FCModMateFather = 0 : FCModMateMother = 0
+            FCPremium = 0 : FCInterest = 0 : FCUnitRMF = 0 : FCUnitLTF = 0 : FCDeductDonate = 0 : FCDisabledDependents = 0 : FCDeductDonateStudy = 0
+            FCHealthInsurFatherMotherMate = 0 : FTHealthInsurIDFather = 0 : FTHealthInsurIDMother = 0
+            FTHealthInsurIDFatherMate = 0 : FTHealthInsurIDMotherMate = 0
+
+            FTTotalCalContributedAmt = 0 : FTContributedAmt = 0 : FTCmpContributedAmt = 0
+            FTTotalCalWorkmen = 0 : FTWorkmenAmt = 0 : _FTMaxCalWorkmen = 0 : _FTMaxWorkmenRate = 0 : FTTotalCalWorkmenAcc = 0
+            _FNIncentiveAmt = 0
+
+            _TmpFDDateEnd = _FDDateEnd
+            _TmpFDDateEndP = _FDDateEnd
+
+            If _TmpFDDateEnd <> "" Then
+
+                _Qry = "SELECT  CONVERT(varchar(10),DateAdd(day,-1,Convert(Datetime,'" & _TmpFDDateEnd & "')),111)"
+                _TmpFDDateEnd = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+
+                _Qry = "SELECT  CONVERT(varchar(10),DateAdd(day,1,Convert(Datetime,'" & _EndDate & "')),111)"
+                _TmpFDDateEndP = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+
+            End If
+
+            '--------- อายุงาน  เดือน
+            _WorkAge = Val(R!FNEmpWorkAgeNewCD.ToString)
+
+            '---------อายุงาน วัน
+            _WorkAgeDay = Val(R!FNEmpWorkAgeNewDay.ToString)
+
+            '---------อายุงาน เดือน ไม่ปัดขึ้น เพื่อคิด ค่ารางวัลอายุงาน 
+            _WorkAgeSeniority = Val(R!FNEmpWorkAgeMonthSeniority.ToString)
+
+            '---------วันทำงาน 
+            _WorkingDayN = Val("0" & R!FNEmpWorkAgeNewDay_CD.ToString)
+
+            '----------- Calculate Seniority Bonus For KKN---------------
+            _FNWorkAgeSalary = 0
+            'If _FTEmpState <> "2" And _FTEmpState <> "3" Then
+            ''If-- Val(_PayTerm) Mod 2 <> 0 Then
+
+
+            'If (_StartDate <= Left(_StartDate, 8) & "24" And _EndDate >= Left(_StartDate, 8) & "24") Then
+            '    For Each ZRow In _tmpWorkAge.Select(" FNWorkAgeStart<= " & _WorkAge & " AND  FNWorkAgeEnd>=" & _WorkAge & " ")
+            '        _FNWorkAgeSalary = Val(ZRow!FNWorkAgeAmt.ToString)
+            '        Exit For
+            '    Next
+            'End If
+            ''End If
+
+            'End If
+
+            '----------- Calculate Seniority Bonus For KKN---------------
+
+            If _FTEmpState = "2" Then
+                _TotalInstalment = 12
+            Else
+                _TotalInstalment = 24
+            End If
+
+            _ContributedFundBeginPay = False
+            If R!FDFundBegin.ToString <> "" Then
+                If R!FDFundBegin.ToString < _FTEndCalculateDate Then
+
+                    If R!FDFundEnd.ToString <> "" Then
+                        If R!FDFundEnd.ToString > _FTEndCalculateDate Then
+                            _ContributedFundBeginPay = True
+                        End If
+                    Else
+                        _ContributedFundBeginPay = True
+                    End If
+
+                End If
+            End If
+
+            _Instalment = Val(_PayTerm)
+            _FNIncentiveAmt = 0
+
+            '-------------คำนวณ Incentive-------------------------------------------
+            Select Case _FTInsurType
+                Case 1
+
+                    '---------ประกันเป็นวัน
+                    '_Qry = "SELECT SUM ( CASE WHEN ISNULL(FNNetProAmt,0) > ISNULL(FNNetAmt,0) THEN  (ISNULL(FNNetProAmt,0) - ISNULL(FNNetAmt,0))  ELSE 0 END  ) AS FNIncentiveAmt "
+                    '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily WITH(NOLOCK) "
+                    '_Qry &= vbCrLf & " WHERE  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+
+
+                    _Qry = " SELECT  SUM(case when (ISNULL(FNProNormal,0)-  ISNULL(FNAmtNormal,0))>0 THEN ISNULL(FNProNormal,0)-  ISNULL(FNAmtNormal,0) ELSE  0  END  "
+                    _Qry &= vbCrLf & " + case when (ISNULL(FNProOT,0)-  ISNULL(FNAmtOT,0))>0 THEN ISNULL(FNProOT,0)-  ISNULL(FNAmtOT,0) ELSE  0 END "
+                    _Qry &= vbCrLf & " )AS FNIncentiveAmt "
+                    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily WITH(NOLOCK) "
+                    _Qry &= vbCrLf & " WHERE  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    _Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    _Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+
+
+                    '_Qry = "SELECT SUM (  ISNULL(FNNetAmt,0)   ) AS FNIncentiveAmt "
+                    '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily WITH(NOLOCK) "
+                    '_Qry &= vbCrLf & " WHERE  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+                    _FNIncentiveAmt = CDbl(Format(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")), "0.00"))
+
+                    '_Qry = "SELECT sum(Isnull(FNAmt,0)) as FNAmt  "
+                    '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily_Bonus WITH(NOLOCK) "
+                    '_Qry &= vbCrLf & " WHERE  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+
+
+                    '_FNIncentiveAmt = _FNIncentiveAmt + CDbl(Format(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")), "0.00"))
+
+                Case 2
+                    '---------ประกันเป็นเป็นงวด-------------------------------------------
+
+                    _Qry = "SELECT  ( CASE WHEN ISNULL(FNNetProAmt,0) > ISNULL(FNNetAmt,0) THEN  (ISNULL(FNNetProAmt,0) - ISNULL(FNNetAmt,0))  ELSE 0 END  ) AS FNIncentiveAmt "
+                    _Qry &= vbCrLf & " FROM ( SELECT SUM(ISNULL(FNNetAmt,0) ) AS FNNetAmt , SUM(ISNULL(FNNetProAmt,0) ) AS FNNetProAmt"
+                    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily WITH(NOLOCK) "
+                    _Qry &= vbCrLf & " WHERE  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    _Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    _Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+                    _Qry &= vbCrLf & " ) AS M"
+
+                    '_Qry = "SELECT   SUM (  ISNULL(FNNetAmt,0)   ) AS FNIncentiveAmt "
+                    '_Qry &= vbCrLf & " FROM ( Select SUM(ISNULL(FNNetAmt,0) ) As FNNetAmt , SUM(ISNULL(FNNetProAmt,0) ) As FNNetProAmt"
+                    '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily With(NOLOCK) "
+                    '_Qry &= vbCrLf & " WHERE  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    '_Qry &= vbCrLf & " 	And FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+                    '_Qry &= vbCrLf & " ) AS M"
+                    _FNIncentiveAmt = CDbl(Format(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")), "0.00"))
+                    '_Qry = "SELECT sum(Isnull(FNAmt,0)) as FNAmt  "
+                    '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily_Bonus WITH(NOLOCK) "
+                    '_Qry &= vbCrLf & " WHERE  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+
+                    '_FNIncentiveAmt = _FNIncentiveAmt + CDbl(Format(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")), "0.00"))
+
+                Case Else
+            End Select
+            '-------------------------------------
+
+            '---------------------------------------- ลดหย่อน------------------------------------
+            _Qry = " SELECT      FNHSysEmpID, FTChildSex, FTStudySta  ,isnull( FTStateNotDisTax ,'0') AS FTStateNotDisTax "
+            '_Qry &= vbCrLf & ", dbo.FN_Get_ChildEmp_Age(FDChildBirthDate,'') AS FNChildAge"
+            _Qry &= vbCrLf & ",dbo.FN_Get_Emp_WorkAge(FDChildBirthDate,'" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "') AS FNChildAge"
+            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeChild WITH(NOLOCK) "
+            _Qry &= vbCrLf & " WHERE   (FNHSysEmpID = " & Val(_EmpCode) & ")"
+            _dttemp = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+
+
+            Dim _ChildNotStudy As Integer = 0
+            Dim _ChildStudy As Integer = 0
+            _FNTotalChildCare = 0
+            _EmpDisTaxChildAmt = 0
+
+            If (_EmpSex = 1) Then 'Employee Male Not Cal ChildCare
+                For Each _Drow As DataRow In _dttemp.Select("FTStateNotDisTax = '0'")
+
+                    '--------  Add Child Care For KKN--------------
+                    If Val(_Drow!FNChildAge.ToString) >= _FNChildCareStartAge And Val(_Drow!FNChildAge.ToString) < _FNChildCareEndAge Then
+                        _FNTotalChildCare = _FNTotalChildCare + 1
+                    End If
+                    '--------  Add Child Care For KKN--------------
+
+                    If _Drow!FTStudySta.ToString = "1" Then
+                        _ChildStudy = _ChildStudy + 1
+                    Else
+                        _ChildNotStudy = _ChildNotStudy + 1
+                    End If
+
+
+                    '--------  Add Amt Child Distax For KKN--------------
+                    If _Drow!FTStudySta.ToString = "0" Then
+                        If _Drow!FTStudySta.ToString = "1" Then
+                            If Val(_Drow!FNChildAge.ToString) >= (_EmpDisTax.Cfg_ModChildAllowanceAgeStart * 12) And Val(_Drow!FNChildAge.ToString) < (_EmpDisTax.Cfg_ModChildAllowanceAgeEnd * 12) Then
+                                _EmpDisTaxChildAmt = _EmpDisTaxChildAmt + _EmpDisTax.Cfg_ModChildAllowanceRateStudy
+                            End If
+                        Else
+
+                            If Val(_Drow!FNChildAge.ToString) >= (_EmpDisTax.Cfg_ModChildAllowanceAgeStart * 12) And Val(_Drow!FNChildAge.ToString) < (_EmpDisTax.Cfg_ModChildAllowanceAgeEnd * 12) Then
+                                _EmpDisTaxChildAmt = _EmpDisTaxChildAmt + _EmpDisTax.Cfg_ModChildAllowanceRateNotStudied
+                            End If
+                        End If
+
+                    End If
+
+                    ' อายุมากกว่า แต่ศึกษาอยู่ ลดหย่อนได้
+
+                    '--------  Add Amt Child Distax For KKN--------------
+
+
+
+                Next
+
+                _FNNetChildCareAmt = Format(_FNTotalChildCare * _FNChildCareAmt, "0.00")
+
+            Else
+                For Each _Drow As DataRow In _dttemp.Select("FTStateNotDisTax = '0'")
+                    If _Drow!FTStudySta.ToString = "1" Then
+                        If Val(_Drow!FNChildAge.ToString) >= (_EmpDisTax.Cfg_ModChildAllowanceAgeStart * 12) And Val(_Drow!FNChildAge.ToString) < (_EmpDisTax.Cfg_ModChildAllowanceAgeEnd * 12) Then
+                            _EmpDisTaxChildAmt = _EmpDisTaxChildAmt + _EmpDisTax.Cfg_ModChildAllowanceRateStudy
+                        End If
+                    Else
+
+                        If Val(_Drow!FNChildAge.ToString) >= (_EmpDisTax.Cfg_ModChildAllowanceAgeStart * 12) And Val(_Drow!FNChildAge.ToString) < (_EmpDisTax.Cfg_ModChildAllowanceAgeEnd * 12) Then
+                            _EmpDisTaxChildAmt = _EmpDisTaxChildAmt + _EmpDisTax.Cfg_ModChildAllowanceRateNotStudied
+                        End If
+                    End If
+
+                    If _Drow!FTStudySta.ToString = "1" Then
+                        _ChildStudy = _ChildStudy + 1
+                    Else
+                        _ChildNotStudy = _ChildNotStudy + 1
+                    End If
+
+                Next
+            End If
+
+
+
+            _FCAccumulateIncome = 0 : _FCAccumulateSocial = 0 : _FCAccumulateTax = 0
+            FTTotalCalContributedAcc = 0 : FTTotalCalWorkmenAcc = 0
+
+            '----------- Get Summary ------------------
+            LoadIncomeTax(_FTEmpIdNo, _PayYear, _PayTerm, _FCAccumulateIncome, _FCAccumulateTax, _FCAccumulateSocial, CountTerm, FTTotalCalContributedAcc, FTTotalCalWorkmenAcc, Integer.Parse(Val(_EmpCode)))
+            '----------- Get Summary ------------------
+
+            With _EmpDisTax
+
+                .BaseSlary = 0
+                .OtherSlary = 0
+                .BeforeIncom = 0 ' _FCAccumulateIncome
+                .BeforeTax = _FCAccumulateTax
+                .FTMateIncome = (R!FTMateIncome.ToString = "0")
+                ' ----------------------------------------- Clear Discount Tax Value -------------------------
+                .Cfg_ModChildAllowanceRateNotStudied = _ChildNotStudy 'บุตรไม่ศึกษา อัตราลดหย่อนบุตร บุตร (ไม่ศึกษา) คนละ
+                .Cfg_ModChildAllowanceRateStudy = _ChildStudy 'บุตรจำนวนบุตรที่ลดหย่อนได้ 
+                '-------------ลดหย่อนบุตร-----------------
+
+                '--- หักเงินสมทบเข้ากองทุนเลี้ยงชีพ
+                .Cfg_ContributedDeducToTheFund = FTTotalCalContributedAcc 'ลูกจ้าง
+                '---เปอร์เซนต์ หักเงินสมทบเข้ากองทุนเลี้ยงชีพ
+
+                .Cfg_ModDeductibleDonations = CDbl(Val(R!FCDeductDonate.ToString)) ' ' % ลดหย่อนเงินบริจาค
+                .Cfg_ModDeductDonateStudy = CDbl(Val(R!FCDeductDonateStudy.ToString))
+                .Cfg_ModFatherReduction = CDbl(Val(R!FCModFather.ToString)) '  'ลดหย่อนบิดา
+                .Cfg_ModInsurancePremiums = CDbl(Val(R!FCPremium.ToString)) '  'ค่าเบี้ยประกันชีวิตส่วนบุคคล
+                .Cfg_ModLendingforHousing = CDbl(Val(R!FCInterest.ToString)) ' 'ดอกเบี้ยเงินกู้เพื่อที่อยู่อาศัย
+
+                .Cfg_ModLTFChk = CDbl(Val(R!FCUnitLTF.ToString)) 'หักค่าซื้อหน่วยลงทุนในกองทุนรวมหุ้นระยะยาว (LTF) ไม่เกิน
+                .Cfg_ModMateFatherReduction = CDbl(Val(R!FCModMateFather.ToString)) ' 'ลดหย่อนบิดา คู่สมรส
+                .Cfg_ModMateMotherReduction = CDbl(Val(R!FCModMateMother.ToString)) '  'ลดหย่อนมารดา คู่สมรส
+                .Cfg_ModMotherReduction = CDbl(Val(R!FCModMother.ToString)) ' 'ลดหย่อนมารดา
+
+                .Cfg_ModPersonalExpenChk = 0 ' ค่าใช้จ่ายส่วนบุคคล ลดหย่อนไม่เกิน
+
+                .Cfg_ModRateReductionsByMarital = (IIf(R!FTMaritalCode.ToString = "1", 1, 0)) 'อัตราลดหย่อน ตาม สถานภาพ คู่สมรส 
+                .Cfg_ModRateReductionsBySingle = (IIf(R!FTMaritalCode.ToString <> "1", 1, 0)) 'อัตราลดหย่อน ตาม สถานภาพ โสด 
+
+                .Cfg_ModRMFChk = CDbl(Val(R!FCUnitRMF.ToString)) '  ' หักค่าซื้อหน่วยลงทุนในกองทุนรวมเพื่อการเลี้ยงชีพ (RMF) ไม่เกิน 
+                .FCDisabledDependents = CDbl(Val(R!FCDisabledDependents.ToString)) '  'ค่าอุปการะเลี้ยงดูคนพิการหรือทุพพลภาพ
+                .FCHealthInsurFatherMotherMate = CDbl(Val(R!FCHealthInsurFatherMotherMate.ToString)) '   'เบี้ยประกันสุขภาพบิดามารดาของผู้มีเงินได้และคู่สมสร
+
+                .FCExceptAgeOver = CDbl(Val(R!FCExceptAgeOver.ToString)) ' ' 'รายการเงินได้ที่ได้รับยกเว้น ของผู้มีเงินได้ตั้งแต่ 65 ปีขึ้นไป 
+                .FCExceptAgeOverMate = CDbl(Val(R!FCExceptAgeOverMate.ToString)) ' 'รายการเงินได้ที่ได้รับยกเว้น ของคู่สมรสอายุตั้งแต่ 65 ปีขึ้นไป
+                '----------------------------------------------------
+            End With
+            '---------------------------------------- ลดหย่อน------------------------------------
+
+            _FCOtherAdd = 0 : _FTOtherAddCalculateSocial = "0" : _FTOtherAddCalculateTax = "0" : _FCOtherAddOt = 0
+            _FTOtherAddOtCalculateSocial = "0" : _FTOtherAddOtCalculateTax = "0" : _FCBFShiftMoney = 0 : _FTShiftMoneyCalculateSocial = "0"
+            _FTShiftMoneyCalculateTax = "0" : _FCDiligent = 0 : _FTDiligentCalculateSocial = "0" : _FTDiligentCalculateTax = "0"
+            _FCBonusEndYear = 0 : _FTBonusEndCalculateSocial = "0" : _FTBonusEndCalculateTax = "0" : _FCShelter = 0
+            _FTShelterCalculateSocial = "0" : _FTShelterCalculateTax = "0" : _FCShareFactory = 0 : _FTShareFactoryCalculateSocial = "0"
+            _FNNetpayOrg = 0.0
+            _FNNetpay = 0.0
+            _FCSalary = -99
+            _FTSlary = (_FTSlary)
+
+            If IsNumeric(_FTSlary) Then
+                _MSlary = _FTSlary
+                _FCSalary = CDbl(_FTSlary)
+
+
+                '------------------ คำนวณคืนพักร้อน ----------------------------
+
+                If (_ReturnVacation > 0) Or (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+
+                    Dim _Month As Integer = 0
+                    Dim _Leave As Double = 0
+                    Dim _SumLeaveVacation As Double = 0
+                    Dim _ResetDate As String = ""
+
+                    Dim _DateReset2 As String
+
+
+
+                    _Qry = " SELECT CASE WHEN RiGHT(FTCurrenDate,5) >=FTLeaveReset THEN LEFT(FTCurrenDate,4) ELSE  LEFT(FTBefore,4)  END +'/' + FTLeaveReset"
+                    _Qry &= vbCrLf & "  FROM"
+                    _Qry &= vbCrLf & " ("
+                    '_Qry &= vbCrLf & " SELECT  TOP 1 Convert(varchar(10),GetDate(),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
+                    _Qry &= vbCrLf & " SELECT  TOP 1 Convert(varchar(10),convert(date, '" & (_EndDate) & "'),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
+                    _Qry &= vbCrLf & " FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigLeave  AS L WITH (NOLOCK)  INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH(NOLOCK )"
+                    _Qry &= vbCrLf & "  ON  L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
+                    _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID='" & HI.UL.ULF.rpQuoted(_EmpCode) & "' "
+                    _Qry &= vbCrLf & " ) As T"
+
+                    _DateReset = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+
+                    If (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+                        '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                        '_Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                        '_Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                        ''  MsgBox("a")
+
+                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'" & ("") & "','" & (_EndDate) & "') AS FNEmpVacation"
+                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                    ElseIf _PayTerm = "01" Then
+                        ''  MsgBox("b")
+                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'2021/01/01','2021/12/31') AS FNEmpVacation"
+                        '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "')),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                    Else
+                        ''  MsgBox("c")
+                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'" & (_DateReset) & "','" & (_EndDate) & "') AS FNEmpVacation"
+                        '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "')),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+                    End If
+
+
+                    _Leave = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                    '' MsgBox(_Leave)
+                    If (_ReturnVacation > 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+                        '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
+                        '_Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                        '_Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+                        ''    MsgBox("d")
+                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'2022/01/01','" & (_EndDate) & "') AS FNEmpVacation"
+                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+
+                        _Leave = _Leave + (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                        ''     MsgBox(_Leave)
+
+                    End If
+
+                    If _Leave > 0 And _DateReset <> "" Then
+
+                        _Qry = ""
+                        If (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+                            _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                            _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98' OR ISNULL(FTStateDeductVacation,'') ='1' )"
+                            _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                            _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & (_DateReset) & "'"
+
+                            ''      MsgBox("e")
+                            'Else
+                            '    _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                            '    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                            '    _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                            '    _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                            '    '_Qry &= vbCrLf & " 	AND  FTDateTrans < '" & (_DateReset) & "'"
+                            '    _Qry &= vbCrLf & " 	AND  FTDateTrans < Convert(varchar(10),DateAdd(year,1,Convert(Datetime,'" & (_DateReset) & "')),111)"
+                            '    '_Qry &= vbCrLf & " 	AND  FTDateTrans >=Convert(varchar(10),DateAdd(year,-1,Convert(Datetime,'" & (_DateReset) & "')),111)"
+                            '    _Qry &= vbCrLf & " 	AND  FTDateTrans >='" & (_DateReset) & "'"
+                        End If
+
+                        _SumLeaveVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                        ''    MsgBox(_SumLeaveVacation)
+                        If (_ReturnVacation > 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+                            ''       MsgBox("f")
+                            _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                            _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                            _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                            '' _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & (_DateReset) & "'"
+                            _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & ("2022/01/01") & "'"
+
+                            _SumLeaveVacation = _SumLeaveVacation + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                            ''         MsgBox(_SumLeaveVacation)
+                        Else
+                            ''        MsgBox("g")
+                            _Qry = " "
+                            '_Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                            '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                            '_Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                            '_Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                            '_Qry &= vbCrLf & " 	AND  FTDateTrans >= '2022/01/01'"
+                            '_Qry &= vbCrLf & " 	AND  FTDateTrans <= '2022/12/31'"
+                            '_SumLeaveVacation = _SumLeaveVacation + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                            '''      MsgBox(_SumLeaveVacation)
+                        End If
+
+
+
+                        If _ReturnVacation <= 0 Then
+                            _Qry = " SELECT   TOP 1 FCCfgRetValue"
+                            _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigReturnVacationSet WITH(NOLOCK) "
+                            _Qry &= vbCrLf & "  WHERE      (FNCalType =" & Val(_EmpType) & ")"
+
+                            _ReturnVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                        End If
+
+                        'อัตราค่าแรงบันทึก ต่อเดือน หรือ ต่อวัน ฯลฯ
+                        Select Case FNStateSalaryType
+                            Case 0 'ต่อเดือน
+
+                                _FNSlaryPerDay = CDbl(Format((_FCSalary) / CountDayPerMonth, "0.0000000"))
+                            Case 1 'ต่อวัน
+
+                                _FNSlaryPerDay = CDbl(Format((_FCSalary), "0.00"))
+                        End Select
+                        'อัตราค่าแรงบันทึก ต่อเดือน หรือ ต่อวัน ฯลฯ
+                        Dim _FNSlaryPerDayRetVa As Double = 0
+                        _FNSlaryPerDayRetVa = HI.Conn.SQLConn.GetField("Select Top 1 FNSalary From THRTPayRoll WITH(NOLOCK) where  FNHSysEmpID = " & Val(_EmpCode) & " and  FTPayYear +'/'+FTPayTerm  <'" & _PayYear & "/" & _PayTerm & "'  Order by FTPayYear +'/'+FTPayTerm DESC ", Conn.DB.DataBaseName.DB_HR, "0")
+
+
+                        If (_Leave * 480) > _SumLeaveVacation Then
+
+                            '' Dim _MoneyRetVacationPerDay = MoneyRetVacationPerDay_KM(_PayYear, _PayTerm, _StartDate, _EndDate, Val(_EmpCode), Val(_EmpType), _Leave, _FCSalary, CountDayPerMonth, _WorkAgeDay)
+
+                            Dim _MoneyRetVacationPerDay = _FNSlaryPerDay
+
+                            Dim _ReteReturnVacPerDay As Double = 0
+                            If _FNEmpStatus = "2" Or _FDDateEnd <= _EndDate Then
+                                If _WorkAge <= 0 Then
+                                    Dim _ReVacationDay As Double = 0
+                                    Dim _ReVacationPiad As Double = 0
+
+                                    '  _ReVacationDay = Double.Parse(Format(((_Leave / 26) * _WorkAgeDay), "0.000"))
+                                    '  _ReVacationDay = Double.Parse((_Leave / 26) * _WorkAgeDay)
+                                    '   _Leave = _ReVacationDay
+                                    _ReVacationDay = _Leave
+                                End If
+                                _ReteReturnVacPerDay = _MoneyRetVacationPerDay
+                            Else
+                                _ReteReturnVacPerDay = _MoneyRetVacationPerDay  ' CDbl(Format((_FNSlaryPerDayRetVa) / CountDayPerMonth, "0.0000000"))
+                                FNVacationPerDayLapaid = _MoneyRetVacationPerDay
+                            End If
+                            FNVacationRetMin = (_Leave * 480) - _SumLeaveVacation
+                            If FNVacationRetMin <= 0 Then
+                                FNVacationRetMin = 0
+                            End If
+
+                            FNVacationRetAmt = 0
+                            'Dim _RetVaclationBal As Double = CDbl(Format(((_Leave * 480) - (_SumLeaveVacation)), "0.000"))
+
+                            _AmtReturnVacation = CDbl(Format((CDbl(Format(((_Leave * 480) - (_SumLeaveVacation)), "0.000")) * (_ReturnVacation * (_ReteReturnVacPerDay / 480))), "0.000"))
+                            FNVacationRetMin = CDbl(Format(((_Leave * 480) - (_SumLeaveVacation)), "0.000"))
+                            FNVacationRetAmt = _AmtReturnVacation
+
+                        End If
+
+                    End If
+                End If
+                '------------------ คำนวณคืนพักร้อน ----------------------------
+
+                ''------------------ คำนวณคืนพักร้อน ----------------------------
+
+                ''------------------ คำนวณคืนพักร้อน ----------------------------
+
+                _SocialMinIncome = HCfg.HSocialRate.SocialIncomeMin
+                _SocialMaxIncome = HCfg.HSocialRate.SocialIncomeMax
+                _SocialRate = HCfg.HSocialRate.CalSocialRate
+                _SocialRateCmp = HCfg.HSocialRate.CalSocialRateCmp
+                _StateSocialOnlyCmppay = HCfg.HSocialRate.StateSocialOnlyCmppay
+
+                _RateOT1 = 0 : _RateOT15 = 0 : _RateOT2 = 0 : _RateOT3 = 0 : _RateOT4 = 0
+                _AmtPlus = 0
+
+                _Qry = " SELECT FTCfgOTCode,FCCfgOTValue,ISNULL(FCCfgOTAmtPlus,0) AS FCCfgOTAmtPlus  "
+                _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigOTSet WITH (NOLOCK) "
+                _Qry &= vbCrLf & "  WHERE  (FNCalType  = " & Val(_EmpType) & ")"
+                _dtot = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                For Each R3 As DataRow In _dtot.Rows
+                    Select Case R3!FTCfgOTCode.ToString.ToUpper
+                        Case "01"
+                            _RateOT1 = Val(R3!FCCfgOTValue.ToString)
+                        Case "02"
+                            _RateOT15 = Val(R3!FCCfgOTValue.ToString)
+                        Case "03"
+                            _RateOT2 = Val(R3!FCCfgOTValue.ToString)
+                        Case "04"
+                            _RateOT3 = Val(R3!FCCfgOTValue.ToString)
+                            _AmtPlus = Val(R3!FCCfgOTAmtPlus.ToString)
+                        Case "05"
+                            _RateOT4 = Val(R3!FCCfgOTValue.ToString)
+                    End Select
+
+                Next
+
+                '---------รายได้รายหัก อื่นๆ-------------------------
+                '_Qry = " SELECT   FN.FTStaTax, FN.FTStaSocial,  (ISNULL(BF.FTFinAmt,0)) As FCFinAmt   , FM.FTFinType"
+                '_Qry &= vbCrLf & ",FN.FTCalType, FN.FTPayType, FN.FTStaCalOT, FN.FTStaLate, FN.FTStaAbsent, FN.FTStaLeave"
+                '_Qry &= vbCrLf & ", FN.FTStaVacation, FN.FTStaRetire, FN.FTStaHoliday, FN.FNOTTimeM,"
+                '_Qry &= vbCrLf & "  FN.FTOTTime,FN.FTFinCode "
+                '_Qry &= vbCrLf & "  ,FN.FTStaCheckLate, FN.FTLateMin,"
+                '_Qry &= vbCrLf & " FN.FTStaCheckLeave, FN.FTLeaveMin, FN.FTStaCheckWorkTime, FN.FTCheckWorkTimeMin, FN.FTStaMaternityleaveNotpay"
+
+                '_Qry &= vbCrLf & "   , ISNULL(FN.FTStaLateM,0) FTStaLateM ,  ISNULL(FN.FTStaLateA,0) FTStaLateA "
+
+                '_Qry &= vbCrLf & " FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeFin AS BF WITH (NOLOCK) INNER JOIN"
+                '_Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinanceSet AS FN WITH (NOLOCK) ON BF.FTFinCode = FN.FTFinCode  INNER JOIN"
+                '_Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinance AS FM WITH (NOLOCK) ON FN.FTFinCode = FM.FTFinCode"
+                '_Qry &= vbCrLf & " WHERE    (BF.FNHSysEmpID = " & Val(_EmpCode) & ")   AND  FN.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID)
+                '_Qry &= vbCrLf & "  AND (FM.FTFinType = '1' OR FM.FTFinType = '2')"
+
+
+
+
+                'If _EmpCalType = "0" Then
+                '    If Val(_PayTerm) Mod 2 = 0 Then
+                '        _Qry &= vbCrLf & "  AND FTPayType <> '' "
+                '    Else
+                '        _Qry &= vbCrLf & "  AND FTPayType <> '1' "
+                '    End If
+                'End If
+                '---------รายได้รายหัก อื่นๆ-------------------------
+                _Qry = " SELECT   FN.FTStaTax, FN.FTStaSocial,  (ISNULL(BF.FTFinAmt,0)) As FCFinAmt   , FM.FTFinType"
+                _Qry &= vbCrLf & ",FN.FTCalType, FN.FTPayType, FN.FTStaCalOT, FN.FTStaLate, FN.FTStaAbsent, FN.FTStaLeave"
+                _Qry &= vbCrLf & ", FN.FTStaVacation, FN.FTStaRetire, FN.FTStaHoliday, FN.FNOTTimeM,"
+                _Qry &= vbCrLf & "  FN.FTOTTime,FN.FTFinCode "
+                _Qry &= vbCrLf & "  ,FN.FTStaCheckLate, FN.FTLateMin,"
+                _Qry &= vbCrLf & " FN.FTStaCheckLeave, FN.FTLeaveMin, FN.FTStaCheckWorkTime, FN.FTCheckWorkTimeMin, FN.FTStaMaternityleaveNotpay,"
+                _Qry &= vbCrLf & " FN.FTStaLatePerDay,FN.FTStaAbsentPerDay,FN.FTStaLeavePerDay,FN.FTStaVacationPerDay,FN.FTStaMaternityleaveNotpayPerDay"
+                _Qry &= vbCrLf & " FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeFin AS BF WITH (NOLOCK) INNER JOIN"
+                _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinanceSet AS FN WITH (NOLOCK) ON BF.FTFinCode = FN.FTFinCode  INNER JOIN"
+                _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinance AS FM WITH (NOLOCK) ON FN.FTFinCode = FM.FTFinCode"
+                _Qry &= vbCrLf & " WHERE    (BF.FNHSysEmpID = " & Val(_EmpCode) & ") AND  FN.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID)
+                _Qry &= vbCrLf & "  AND (FM.FTFinType = '1' OR FM.FTFinType = '2')"
+
+                If _EmpCalType = "0" Then
+                    If Val(_PayTerm) Mod 2 = 0 Then
+                        _Qry &= vbCrLf & "  AND FTPayType <> '' "
+                    Else
+                        _Qry &= vbCrLf & "  AND FTPayType <> '1' "
+                    End If
+                End If
+                _Qry &= vbCrLf & "UNION  "
+                _Qry &= vbCrLf & " SELECT   FN.FTStaTax, FN.FTStaSocial,  0 As FCFinAmt   , FM.FTFinType"
+                _Qry &= vbCrLf & ",FN.FTCalType, FN.FTPayType, FN.FTStaCalOT, FN.FTStaLate, FN.FTStaAbsent, FN.FTStaLeave"
+                _Qry &= vbCrLf & ", FN.FTStaVacation, FN.FTStaRetire, FN.FTStaHoliday, FN.FNOTTimeM,"
+                _Qry &= vbCrLf & "  FN.FTOTTime,FN.FTFinCode "
+                _Qry &= vbCrLf & "  ,FN.FTStaCheckLate, FN.FTLateMin,"
+                _Qry &= vbCrLf & " FN.FTStaCheckLeave, FN.FTLeaveMin, FN.FTStaCheckWorkTime, FN.FTCheckWorkTimeMin, FN.FTStaMaternityleaveNotpay,"
+                _Qry &= vbCrLf & " FN.FTStaLatePerDay,FN.FTStaAbsentPerDay,FN.FTStaLeavePerDay,FN.FTStaVacationPerDay,FN.FTStaMaternityleaveNotpayPerDay"
+
+                _Qry &= vbCrLf & " FROM        [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinanceSet AS FN WITH (NOLOCK)   INNER JOIN"
+                _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinance AS FM WITH (NOLOCK) ON FN.FTFinCode = FM.FTFinCode"
+                _Qry &= vbCrLf & " WHERE    (FM.FTFinType = '1' OR FM.FTFinType = '2')   and FN.FTFinCode ='008'  AND  FN.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID)
+
+                If _EmpCalType = "0" Then
+                    If Val(_PayTerm) Mod 2 = 0 Then
+                        _Qry &= vbCrLf & "  AND FTPayType <> '' "
+                    Else
+                        _Qry &= vbCrLf & "  AND FTPayType <> '1' "
+                    End If
+                End If
+                _Qry &= vbCrLf & " and FN.FTFinCode  not in (  Select FTFinCode From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeFin  WITH (NOLOCK)  "
+                _Qry &= vbCrLf & " WHERE    (FNHSysEmpID = " & Val(_EmpCode) & ") )"
+
+                ' _Qry &= vbCrLf & "  AND FTPayType <> '" & IIf(_EmpCalType = "0" Or (Val(_PayTerm) Mod 2 = 0), "", "1") & "' "
+
+
+
+                _dtAddOtherAmt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+
+
+
+                _Qry = " SELECT     FTFinCode, FTType, FTCalType, FTPayType, FTStaTax, "
+                _Qry &= vbCrLf & "   FTStaSocial, FTStaCalOT, FTStaLate, FTStaAbsent, FTStaLeave, FTStaVacation, FTStaRetire, FTStaHoliday, FNOTTimeM, FTOTTime, FTStaCheckLate, FTLateMin,"
+                _Qry &= vbCrLf & "    FTStaCheckLeave, FTLeaveMin, FTStaCheckWorkTime, FTCheckWorkTimeMin, FTStaMaternityleaveNotpay, FTStaActive"
+                _Qry &= vbCrLf & "    FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinanceSet"
+                _Qry &= vbCrLf & "  WHERE        (FTFinCode = N'001') OR  (FTFinCode = N'007')  AND  FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID)
+                _dtAddOtherAmtshift = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                _GAmtAddCalOT = 0
+                For Each R2 As DataRow In _dtAddOtherAmt.Select("FTCalType<>'0' AND FTFinType='1' AND FTStaCalOT='1' AND FTPayType='0' ")
+                    _GAmtAddCalOT = _GAmtAddCalOT + Val(R2!FCFinAmt.ToString)
+                Next
+
+                _FCOtherAdd = 0 : _FTOtherAddCalculateSocial = 0 : _FTOtherAddCalculateTax = 0 : _FCOtherDeduct = 0
+
+                '---------------- Adjust Before Calculate------------------------------------
+                _Qry = " SELECT        FN.FTStaTax, FN.FTStaSocial, (ISNULL(BF.FCFinAmt,0))  AS FCFinAmt, FM.FTFinType,ISNULL(BF.FNDay,-1) As FNDay,BF.FTFinCode "
+                _Qry &= vbCrLf & " FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTManage AS BF WITH (NOLOCK) INNER JOIN"
+                _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinanceSet AS FN WITH (NOLOCK) ON BF.FTFinCode = FN.FTFinCode INNER JOIN"
+                _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinance AS FM WITH (NOLOCK) ON FN.FTFinCode = FM.FTFinCode"
+                _Qry &= vbCrLf & " WHERE        (BF.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "')"
+                _Qry &= vbCrLf & "  AND (BF.FTPayTerm = '" & HI.UL.ULF.rpQuoted(_PayTerm) & "') "
+                _Qry &= vbCrLf & " AND (BF.FNHSysEmpID = " & Val(_EmpCode) & ")"
+                _Qry &= vbCrLf & "  AND (FM.FTFinType = '1' OR FM.FTFinType = '2') AND  FN.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID)
+
+                If _AmtReturnVacation > 0 Then
+                    _Qry &= vbCrLf & " UNION ALL "
+                    _Qry &= vbCrLf & " SELECT   FN.FTStaTax, FN.FTStaSocial, " & _AmtReturnVacation & "  AS FCFinAmt, FM.FTFinType,-1 As FNDay,FM.FTFinCode "
+                    _Qry &= vbCrLf & " FROM     [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinanceSet AS FN WITH (NOLOCK)  INNER JOIN"
+                    _Qry &= vbCrLf & "          [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinance AS FM WITH (NOLOCK) ON FN.FTFinCode = FM.FTFinCode"
+                    _Qry &= vbCrLf & " WHERE (FM.FTFinCode='019') AND   FN.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID)
+                End If
+
+                _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                For Each R2 As DataRow In _dt.Select("FNDay<=0")
+                    Select Case R2!FTFinType.ToString
+                        Case "1"
+                            _FCOtherAdd = _FCOtherAdd + Val((R2!FCFinAmt.ToString))
+
+                            If R2!FTStaTax.ToString = "1" Then _FTOtherAddCalculateTax = _FTOtherAddCalculateTax + Val((R2!FCFinAmt.ToString))
+                            If R2!FTStaSocial.ToString = "1" Then _FTOtherAddCalculateSocial = _FTOtherAddCalculateSocial + Val((R2!FCFinAmt.ToString))
+
+                        Case "2"
+
+                            If R2!FTStaTax.ToString = "1" Then _FTOtherAddCalculateTax = _FTOtherAddCalculateTax - Val((R2!FCFinAmt.ToString))
+                            If R2!FTStaSocial.ToString = "1" Then _FTOtherAddCalculateSocial = _FTOtherAddCalculateSocial - Val((R2!FCFinAmt.ToString))
+
+
+                            _FCOtherDeduct = _FCOtherDeduct + Val((R2!FCFinAmt.ToString))
+                    End Select
+                Next
+
+                _DayAdjAdd = 0
+                _WageAdjAdd = 0
+
+                For Each R2 As DataRow In _dt.Select("FNDay> 0")
+
+                    _DayAdjAdd = _DayAdjAdd + Val((R2!FNDay.ToString))
+                    _WageAdjAdd = _WageAdjAdd + Val((R2!FCFinAmt.ToString))
+
+                Next
+
+                _Qry = "  SELECT   FTLeaveType AS LFTLeaveCode,Case WHEN FTLeaveType='98' Then 1 Else CASE WHEN FTLeaveType='97' THEN 2 ELSE 0 END  END AS LeaveType"
+                _Qry &= vbCrLf & " ,     SUM(CASE WHEN ISNULL(FNTotalMinute,0) >= 480 THEN 480   ELSE  ISNULL(FNTotalMinute,0)   END) AS FNTotalMinute"
+                _Qry &= vbCrLf & " , SUM( CASE WHEN ISNULL(FNTotalPayMinute,0) >= 480 THEN 480   ELSE ISNULL(FNTotalPayMinute,0)   END ) AS FNTotalPayMinute"
+                _Qry &= vbCrLf & " , SUM( CASE WHEN ISNULL(FNTotalNotPayMinute,0) >= 480 THEN 480 ELSE ISNULL(FNTotalNotPayMinute,0)   END ) AS FNTotalNotPayMinute"
+                _Qry &= vbCrLf & " , FTDateTrans"
+                _Qry &= vbCrLf & " ,ISNULL(FTStaCalSSO,'N') AS FTStaCalSSO,Max(ISNULL(FTStateMedicalCertificate,'')) AS FTStateMedicalCertificate "
+                _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                _Qry &= vbCrLf & "    WHERE (FNHSysEmpID =" & Val(_EmpCode) & " )"
+
+                If _FTEmpState = "2" Or _FTEmpState = "3" Then
+                    _Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_DateStartOfMonth) & "' "
+                    _Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_DateEndOfMonth) & "' "
+                Else
+                    _Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    _Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+                End If
+
+                _Qry &= vbCrLf & " GROUP BY FTDateTrans,Case WHEN FTLeaveType='98' Then 1 Else 0 END,ISNULL(FTStaCalSSO,'N'),FTLeaveType"
+
+                _dtLeave = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                _Qry = " 	SELECT  ISNULL(T.FNHSysShiftID,0) AS FTShift	,Isnull(SH.FNRatePaid,1) AS FNRatePaid , Isnull(SH.FNStateShift,0) AS FNStateShift  "
+                _Qry &= vbCrLf & " ,(ISNULL(T.FNTimeMin,0) + ISNULL(T.FNSpecialTimeMin,0) + ISNULL(T.FNLateNormalMin,0) )- (ISNULL(T.FNLateNormalCut,0) + ISNULL(T.FNAbsentCut,0) )     AS FNTime"
+                _Qry &= vbCrLf & " 	, ISNULL(T.FNNotRegis,0) As FNNotRegis 	, ISNULL(FNOT1,0) AS FNOT1"
+                _Qry &= vbCrLf & " 	, ISNULL(T.FNOT1_5,0) AS FNOT1_5"
+                _Qry &= vbCrLf & " 	, ISNULL(T.FNOT2,0 ) AS FNOT2  , ISNULL(T.FNOT3,0) AS FNOT3, ISNULL(T.FNOT4,0) AS FNOT4"
+                _Qry &= vbCrLf & " 	, ISNULL(T.FNLateNormalMin,0) AS FNLateNormalMin, ISNULL(T.FNLateNormalCut,0 )   AS FNLateNormalCut"
+                _Qry &= vbCrLf & " , ISNULL(T.FNLateOtMin,0) As FNLateOtMin,ISNULL(T.FNLateOtCut,0) As FNLateOtCut"
+                _Qry &= vbCrLf & " , ISNULL(T.FNLateMMin,0) As FNLateMorning"
+                _Qry &= vbCrLf & " 	, ISNULL(T.FNLateAfMin,0) AS FNLateAfternoon,Isnull(T.FNAbsentCut,0) AS FNAbsentCut "
+                _Qry &= vbCrLf & " 	, (CASE WHEN ISNULL(T.FNAbsentSP,0) = ISNULL(T.FNAbsent,0) THEN 0 ELSE  ISNULL(T.FNAbsent,0)  END ) AS FNAbsent_Cut "
+                _Qry &= vbCrLf & " 	, ISNULL(T.FNCutAbsent,0) AS FNAbsent "
+                _Qry &= vbCrLf & " ,(ISNULL(T.FNTimeMin,0) + ISNULL(T.FNSpecialTimeMin,0) + ISNULL(T.FNLateNormalMin,0) )- (ISNULL(T.FNLateNormalCut,0) + ISNULL(T.FNAbsentCut,0) )   AS FNTimeMin"
+                _Qry &= vbCrLf & " ,(ISNULL(T.FNTimeMin,0) + ISNULL(T.FNSpecialTimeMin,0)) As FNTimeMinOrg"
+                _Qry &= vbCrLf & " , ISNULL(T.FNOT1Min,0) As FNOT1Min  "
+                _Qry &= vbCrLf & " , ISNULL(T.FNOT1_5Min,0) As FNOT1_5Min "
+                _Qry &= vbCrLf & " ,ISNULL(T.FNOT2Min,0) As FNOT2Min "
+                _Qry &= vbCrLf & " , ISNULL(T.FNOT3Min,0) As FNOT3Min, ISNULL(FNOT4Min,0) As FNOT4Min "
+                _Qry &= vbCrLf & " ,ISNULL(T.FNLateMMin,0) AS FNLateMMin "
+                _Qry &= vbCrLf & " , ISNULL(T.FNLateAfMin,0) AS FNLateAfMin"
+                _Qry &= vbCrLf & " , ISNULL(T.FNRetireMMin,0) AS FNRetireMMin "
+                _Qry &= vbCrLf & " ,ISNULL(T.FNRetireAfMin,0 )  as FNRetireAfMin"
+                _Qry &= vbCrLf & " , ISNULL(T.FNRetireNormalCut,0) As FNRetireNormalCut "
+                _Qry &= vbCrLf & " , ISNULL(T.FNRetireOtMin,0) AS FNRetireOtMin"
+                _Qry &= vbCrLf & " ,ISNULL(T.FNRetireOtCut,0) AS FNRetireOtCut,FTDateTrans"
+                _Qry &= vbCrLf & " ,ISNULL(T.FTIn1,'') AS FTIn1"
+                _Qry &= vbCrLf & " ,ISNULL(T.FTOut1,'') AS FTOut1"
+                _Qry &= vbCrLf & " ,ISNULL(T.FTIn2,'') AS FTIn2"
+                _Qry &= vbCrLf & " ,ISNULL(T.FTOut2,'') AS FTOut2"
+                _Qry &= vbCrLf & " ,ISNULL(T.FTIn3,'') AS FTIn3"
+                _Qry &= vbCrLf & " ,ISNULL(T.FTOut3,'') AS FTOut3"
+                _Qry &= vbCrLf & " ,P.FTOverClock,T.FTWeekDay"
+                _Qry &= vbCrLf & " ,CASE WHEN T.FTWeekDay=1 AND  ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTSunday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTSunday,'0') ='1'  ) THEN '1'  "
+                _Qry &= vbCrLf & "  WHEN T.FTWeekDay=2 AND   ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTMonday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTMonday,'0') ='1'  ) THEN '1'  "
+                _Qry &= vbCrLf & "  WHEN T.FTWeekDay=3 AND   ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTTuesday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTTuesday,'0') ='1'  )  THEN '1'  "
+                _Qry &= vbCrLf & "  WHEN T.FTWeekDay=4 AND   ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTWednesday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTWednesday,'0') ='1'  )  THEN '1'  "
+                _Qry &= vbCrLf & "  WHEN T.FTWeekDay=5 AND   ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTThursday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTThursday,'0') ='1'  )  THEN '1'  "
+                _Qry &= vbCrLf & "  WHEN T.FTWeekDay=6 AND   ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTFriday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTFriday,'0') ='1'  )  THEN '1'  "
+                _Qry &= vbCrLf & "  WHEN T.FTWeekDay=7 AND  ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTSaturday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTSaturday,'0') ='1'  )  THEN '1'  "
+                _Qry &= vbCrLf & "  ELSE '0' END AS FTWeekly,ISNULL(FTStateAccept,'') AS FTStateAccept "
+                _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTrans AS T WITH(NOLOCK) LEFT OUTER JOIN   THRMTimeShift AS P WITH(NOLOCK) ON T.FNHSysShiftID =P.FNHSysShiftID  "
+                _Qry &= vbCrLf & "   INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK)  ON  T.FNHSysEmpID =  M.FNHSysEmpID"
+                _Qry &= vbCrLf & "  LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeWeekly AS EHL WITH (NOLOCK) ON T.FNHSysEmpID=EHL.FNHSysEmpID"
+                _Qry &= vbCrLf & "  LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmpTypeWeeklySpecial AS ETHL WITH (NOLOCK) ON T.FTDateTrans = ETHL.FDHolidayDate AND M.FNHSysEmpTypeId=ETHL.FNHSysEmpTypeId"
+                _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift AS SH WITH (NOLOCK) ON T.FNHSysShiftID = SH.FNHSysShiftID"
+
+                _Qry &= vbCrLf & "  WHERE (T.FNHSysEmpID =" & Val(_EmpCode) & " )"
+                _Qry &= vbCrLf & " 	AND T.FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                _Qry &= vbCrLf & " 	AND T.FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "'  "
+
+                If _FDDateEnd <> "" Then
+                    _Qry &= vbCrLf & " 	AND T.FTDateTrans < '" & HI.UL.ULDate.ConvertEnDB(_FDDateEnd) & "'  "
+                End If
+                If _FTEmpState <> "2" And _FTEmpState <> "3" Then ' คำนวณค่าแรงพนักงานรายเดือน
+                    _Qry &= vbCrLf & " 	AND T.FTStateAccept = '1'  "
+                End If
+
+                _dttran = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                '---------------Get Trans Daily--------------------------------------
+                _GFNTime = 0 : _GFNNotRegis = 0 : _GFNOT1 = 0 : _GFNOT1_5 = 0
+                _GFNOT2 = 0 : _GFNOT3 = 0 : _GFNOT4 = 0 : _GFNLeaveSick = 0 : _GFNLeaveBusiness = 0
+                _GFNLeaveVacation = 0 : _GFNLeavePregnant = 0 : _GFNLeaveOrdain = 0 : _GFNLeaveMarry = 0 : _GFNLeaveSpecial = 0
+                _GFNLeaveOther = 0 : _GFNLateNormalMin = 0 : _GFNLateNormalCut = 0 : _GFNLateOtMin = 0
+                _GFNLateOtCut = 0 : _GFNLateMorning = 0 : _GFNLateAfternoon = 0
+                _GFNAbsent = 0 : _GFNCutAbsent = 0 : _GFNLeavePay = 0 : _GFNTimeMin = 0 : _GFNOT1Min = 0 : _GFNOT1_5Min = 0 : _GFNTimeMin_Real_After_Probation = 0
+                _GFNOT2Min = 0 : _GFNOT3Min = 0 : _GFNLateMMin = 0 : _GFNLateAfMin = 0 : _GFNRetireMMin = 0
+                _GFNRetireAfMin = 0 : _GFNRetireNormalCut = 0 : _GFNRetireOtMin = 0 : _GFNRetireOtCut = 0
+                _LateCutAbsent = 0 : _LateCutAmt = 0 : _LateCutAmtAbsent = 0
+                _Gtotalleave = 0 : _GtotalleavePay = 0 : _GtotalleaveNotPay = 0 : _GtotalleavePayCalSso = 0 : _GtotalleavePayCalSsoAmt = 0
+                _TotalHoliDay = 0
+                _GFNLateNormalMinNotHoliday = 0
+
+                '------------------- เริ่มการคำนวณรายวัน
+                Dim _oHoliday As Integer = 0
+
+                _TotalWorkDay = 0
+                _ShiftAmt = 0
+                _ShiftValue = 0
+                _ShiftOTValue = 0
+                _ShiftOTAmt = 0
+                _FCAdd = 0 : _FTAddCalculateSocial = 0 : _FTAddCalculateTax = 0 : _FCDeduct = 0
+                _GAmtPlus = 0
+
+                Dim _RateShipftPerDay As Double = 0
+                Dim _StateShift As Integer = 0
+                If _FDDateStart > _FTSatrtCalculateDate Then _FTSatrtCalculateDate = _FDDateStart
+
+                Dim _fnMonthWorkAge As Integer = 0
+
+                Dim temp As Date
+                Dim temp1 As Integer
+                Dim i As Integer
+                Dim day1 As Integer
+                Dim day2 As Integer
+
+                Dim Day As Integer
+                Dim Month As Integer
+
+
+
+
+
+
+
+                Do While _FTSatrtCalculateDate <= _FTEndCalculateDate And (_FDDateEnd = "" Or _FTSatrtCalculateDate < _FDDateEnd)
+
+                    ''  _fnMonthWorkAge = DateDiff("m", _FDDateStart, HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate))
+
+
+
+                    temp1 = DateDiff("m", HI.UL.ULDate.ConvertEnDB(_FDDateStart), HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate))
+
+                    day1 = DatePart("d", HI.UL.ULDate.ConvertEnDB(_FDDateStart))
+                    day2 = DatePart("d", HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate))
+                    If day1 > day2 Then
+                        temp = DateAdd("m", (temp1 - 1), HI.UL.ULDate.ConvertEnDB(_FDDateStart))
+                        Month = (temp1 - 1)
+                    Else
+                        temp = DateAdd("m", (temp1), HI.UL.ULDate.ConvertEnDB(_FDDateStart))
+                        Month = (temp1)
+                    End If
+
+                    For i = 1 To 31
+                        If temp = HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) Then Exit For
+                        temp = DateAdd("d", 1, temp)
+                    Next i
+
+                    Day = (i - 1)
+
+                    For Each ZRow In _tmpWorkAge.Select(" FNWorkAgeStart<= " & Month & " AND  FNWorkAgeEnd>=" & Month & " ")
+                        _FNWorkAgeSalary = _FNWorkAgeSalary + Val(ZRow!FNWorkAgeAmt.ToString)
+
+                    Next
+
+                    'For Each ZRow In _tmpWorkAge.Select(" FNWorkAgeStart<= " & Month() & " AND  FNWorkAgeEnd>=" & Month() & " ")
+                    '    _FNWorkAgeSalary = _FNWorkAgeSalary + Val(ZRow!FNWorkAgeAmt.ToString)
+
+                    'Next
+
+
+                    'If (_EndDate >= Left(_StartDate, 8) & "07" And _EndDate <= Left(_StartDate, 8) & "24") Then
+                    'For Each ZRow In _tmpWorkAge.Select(" FNWorkAgeStart<= " & _fnMonthWorkAge & " AND  FNWorkAgeEnd>=" & _fnMonthWorkAge & " ")
+                    '        _FNWorkAgeSalary = _FNWorkAgeSalary + Val(ZRow!FNWorkAgeAmt.ToString)
+
+
+                    'Next
+                    'End If
+
+                    _RateShipftPerDay = 0
+                    _oHoliday = 0
+                    FTHldType = 0
+                    _StateShift = 0
+                    Dim _NewSlary As String
+
+                    _Qry = "  SELECT   TOP 1   FNCurrentSlary  AS AMT"
+                    _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeMasterChangeSlary WITH(NOLOCK) "
+                    _Qry &= vbCrLf & "  WHERE        (FTEffectiveDate > N'" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "') "
+                    _Qry &= vbCrLf & "  AND  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    _Qry &= vbCrLf & "  ORDER BY FTEffectiveDate ASC "
+                    _NewSlary = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+
+                    _FCSalary = _MSlary
+                    If IsNumeric(_NewSlary) Then _FCSalary = CDbl(_NewSlary)
+
+                    _Holiday = ""
+
+                    For Each IR As DataRow In _DTHoliday.Select("   FDHolidayDate  = '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "'")
+                        _Holiday = "H"
+                        FTHldType = Val(IR!FTHldType.ToString)
+                        Exit For
+                    Next
+
+                    _FTShift = ""
+
+                    _FNTime = 0
+                    _FNNotRegis = 0
+                    _FNOT1 = 0 : _FNOT1_5 = 0 : _FNOT2 = 0
+                    _FNOT3 = 0 : _FNOT4 = 0
+                    _FNLateNormalMin = 0 : _FNLateNormalCut = 0
+                    _FNLateOtMin = 0 : _FNLateOtCut = 0
+                    _FNLateMorning = 0 : _FNLateAfternoon = 0
+                    _LateCutAbsent = 0 : _FNAbsent = 0
+                    _FNTimeMin = 0 : _FNOT1Min = 0
+                    _FNOT1_5Min = 0 : _FNOT2Min = 0
+                    _FNOT3Min = 0 : _FNOT4Min = 0
+                    _FNLateMMin = 0 : _FNLateAfMin = 0
+                    _FNRetireMMin = 0 : _FNRetireAfMin = 0
+                    _FNRetireNormalCut = 0 : _FNRetireNormalCut = 0
+                    _FNRetireOtMin = 0 : _FNRetireOtMin = 0
+                    _FNRetireOtCut = 0
+                    _FNLeavePay = 0 : _FNLeaveVacation = 0
+                    _FNLeaveNotPay = 0
+                    _AmtAddCalOT = 0
+                    _GtotalleavePayCalSso = 0
+                    _LeaveCode = ""
+
+
+
+
+
+
+
+
+
+
+                    Dim _InOT As String = "" : Dim _OutOT As String = "" : Dim _Over As String = ""
+                    Dim _R() As DataRow = _dttran.Select("FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "'")
+                    For Each R2 In _R
+
+                        _RatePay = Double.Parse("0" & R2!FNRatePaid.ToString)
+                        _RateShipftPerDay = _RatePay
+                        _StateShift = Integer.Parse("0" & R2!FNStateShift.ToString)
+
+                        _FTShift = R2!FTShift.ToString
+                        _FNTime = IIf(Val(R2!FNTime.ToString) < 0, 0, Val(R2!FNTime.ToString))
+                        _FNTimeMin = IIf(Val(R2!FNTimeMin.ToString) < 0, 0, Val(R2!FNTimeMin.ToString))
+                        _FNNotRegis = Val(R2!FNNotRegis.ToString)
+                        _FNOT1 = Val(R2!FNOT1.ToString) : _FNOT1_5 = Val(R2!FNOT1_5.ToString) : _FNOT2 = Val(R2!FNOT2.ToString)
+                        _FNOT3 = Val(R2!FNOT3.ToString) : _FNOT4 = Val(R2!FNOT3.ToString)
+                        _FNLateNormalMin = Val(R2!FNLateNormalMin.ToString) : _FNLateNormalCut = Val(R2!FNLateNormalCut.ToString)
+                        _FNLateOtMin = Val(R2!FNLateOtMin.ToString) : _FNLateOtCut = Val(R2!FNLateOtCut.ToString)
+                        _FNLateMorning = Val(R2!FNLateMorning.ToString) : _FNLateAfternoon = (Val(R2!FNLateAfternoon.ToString))
+                        _LateCutAbsent = Val(R2!FNAbsentCut.ToString) : _FNAbsent = Val(R2!FNAbsent_Cut.ToString)
+                        _FNOT1Min = Val(R2!FNOT1Min.ToString)
+                        _FNOT1_5Min = Val(R2!FNOT1_5Min.ToString) : _FNOT2Min = Val(R2!FNOT2Min.ToString)
+                        _FNOT3Min = Val(R2!FNOT3Min.ToString) : _FNOT4Min = Val(R2!FNOT4Min.ToString)
+                        _FNLateMMin = Val(R2!FNLateMMin.ToString) : _FNLateAfMin = Val(R2!FNLateAfMin.ToString)
+                        _FNRetireMMin = Val(R2!FNRetireMMin.ToString) : _FNRetireAfMin = Val(R2!FNRetireAfMin.ToString)
+                        _FNRetireNormalCut = Val(R2!FNRetireNormalCut.ToString) : _FNRetireNormalCut = Val(R2!FNRetireNormalCut.ToString)
+                        _FNRetireOtMin = Val(R2!FNRetireOtMin.ToString) : _FNRetireOtMin = Val(R2!FNRetireOtMin.ToString)
+                        _FNRetireOtCut = Val(R2!FNRetireOtCut.ToString)
+                        _InOT = R2!FTIn3.ToString
+                        _OutOT = R2!FTOut3.ToString
+
+                        _Over = R2!FTOverClock.ToString
+
+                        If _FTShift <> "" And (_FNTime + _FNOT1Min + _FNOT1_5Min + _FNOT2Min + _FNOT3Min + _FNOT4Min > 0) Then
+                            _ShiftValue = Val(HI.Conn.SQLConn.GetField("SELECT TOP 1 FCShiftAmt FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift WHERE FNHSysShiftID=" & Val(_FTShift) & " ", Conn.DB.DataBaseName.DB_HR, "0"))
+
+                            _TotalWorkDay = _TotalWorkDay + 1
+
+                            _ShiftOTValue = Val(HI.Conn.SQLConn.GetField("SELECT TOP 1 FCShiftOTAmt FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift WHERE FNHSysShiftID=" & Val(_FTShift) & " ", Conn.DB.DataBaseName.DB_HR, "0"))
+
+                            '----------------- รายได้อื่นๆประจำวัน กรณีมาทำงาน---------------------
+                            If _FTShift <> "" And (_FNTimeMin + _FNOT1_5Min + _FNOT3Min + _FNOT1Min + _FNOT2Min + _FNOT4Min) > 0 Then
+
+                                If _FNOT1Min + _FNOT2Min + _FNOT4Min + _FNOT1_5Min > 0 Then
+                                    '' _FNNetOTMealAmt = _FNNetOTMealAmt + _FNOTMealAmt
+                                End If
+
+                                _SPDateType = 0
+
+                                _Holiday = ""
+
+                                For Each IR As DataRow In _DTHoliday.Select("   FDHolidayDate  = '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "'")
+                                    _Holiday = "H"
+                                    Exit For
+                                Next
+
+                                If _Holiday <> "" Then _SPDateType = 2
+
+                                Dim _StateLeaveOther As Boolean = False
+                                Dim _StateLeavacation As Boolean = False
+                                Dim _StateFTStaMaternityleaveNotpay As Boolean = False
+                                Dim _SumLeave As Integer = 0
+
+                                For Each sR As DataRow In _dtLeave.Select("FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "'")
+                                    _SumLeave = _SumLeave + Val(sR!FNTotalMinute)
+
+                                    If Val(sR!LeaveType) = 1 Then
+                                        _StateLeavacation = True
+                                    Else
+                                        _StateLeaveOther = True
+                                    End If
+
+                                    If Val(sR!LeaveType) = 2 Then
+                                        _StateFTStaMaternityleaveNotpay = True
+                                    End If
+
+                                Next
+
+                                '--------------------------- ค่ากะ -------------------------------------
+                                For Each RFin As DataRow In _dtAddOtherAmtshift.Select("FTFinCode='001' ")
+                                    Dim _StatePass As Boolean = True
+
+                                    If RFin!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= 0)
+                                    If RFin!FTStaCheckLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= Val(RFin!FTLateMin.ToString))
+                                    If RFin!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_FNAbsent <= 0)
+                                    If RFin!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeaveOther)
+                                    If RFin!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeavacation)
+                                    If RFin!FTStaHoliday.ToString = "1" And _StatePass Then _StatePass = Not (_SPDateType = 0)
+                                    If RFin!FTStaCheckWorkTime.ToString = "1" And _StatePass Then
+                                        _StatePass = Not ((_FNTimeMin + _FNOT1_5Min + _FNOT3Min) < Val(RFin!FTCheckWorkTimeMin.ToString))
+                                    End If
+
+                                    If RFin!FTStaCheckLeave.ToString = "1" And _StatePass Then _StatePass = Not ((_SumLeave) < Val(RFin!FTLeaveMin.ToString))
+                                    If RFin!FTStaMaternityleaveNotpay.ToString = "1" And _StatePass Then _StatePass = Not (_StateFTStaMaternityleaveNotpay)
+
+                                    If RFin!FTOTTime.ToString <> "" And _StatePass Then
+                                        Dim _STime As String = (IIf(_Over > _OutOT, _ActualNextDate, _ActualDate)) & " " & _OutOT
+                                        Dim _ETime As String = (IIf(_Over > RFin!FTOTTime.ToString, _ActualNextDate, _ActualDate)) & " " & RFin!FTOTTime.ToString.Replace(".", ":")
+
+                                        If _STime.Length = _ETime.Length Then
+                                            If IsDate(_STime) And IsDate(_ETime) Then
+                                                If CDate(_STime) < CDate(_ETime) Or _InOT = "" Or _OutOT = "" Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+                                        Else
+                                            _StatePass = False
+                                        End If
+
+                                    End If
+
+                                    If RFin!FNOTTimeM.ToString <> "" And _StatePass Then
+                                        If Val(RFin!FNOTTimeM.ToString) > 0 Then
+
+                                            If _FNOT1 + _FNOT2 + _FNOT4 > 0 Then
+                                                If (_FNOT1 + _FNOT2 + _FNOT4) < Val(RFin!FNOTTimeM.ToString) Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+
+                                        End If
+                                    End If
+
+
+                                    If RFin!FTStaVacation.ToString = "1" Then _StatePass = Not (_StateLeavacation)
+
+
+
+                                    If _StatePass Then
+                                        _ShiftAmt = _ShiftAmt + _ShiftValue
+
+                                        If RFin!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + _ShiftValue
+                                        If RFin!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + _ShiftValue
+                                        If RFin!FTStaCalOT.ToString = "1" Then _AmtAddCalOT = _AmtAddCalOT + _ShiftValue
+                                    End If
+                                Next
+                                '--------------------------- ค่ากะ -------------------------------------
+
+
+
+                                ''--------------   incentive Header 
+                                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='011' ")
+
+
+
+
+                                Next
+
+
+                                '****************************** Bonus 
+
+                                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='008' ")
+                                    Dim _StatePass As Boolean = True
+
+                                    If RFin!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= 0)
+                                    ' If RFin!FTStaCheckLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= Val(RFin!FTLateMin.ToString))
+                                    If RFin!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_FNAbsent <= 0)
+                                    If RFin!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeaveOther)
+                                    If RFin!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeavacation)
+                                    If RFin!FTStaHoliday.ToString = "1" And _StatePass Then _StatePass = Not (_SPDateType = 0)
+                                    If RFin!FTStaCheckWorkTime.ToString = "1" And _StatePass Then
+                                        _StatePass = Not ((_FNTimeMin + _FNOT1_5Min + _FNOT3Min) < Val(RFin!FTCheckWorkTimeMin.ToString))
+                                    End If
+
+                                    If RFin!FTStaCheckLeave.ToString = "1" And _StatePass Then _StatePass = Not ((_SumLeave) < Val(RFin!FTLeaveMin.ToString))
+                                    If RFin!FTStaMaternityleaveNotpay.ToString = "1" And _StatePass Then _StatePass = Not (_StateFTStaMaternityleaveNotpay)
+
+                                    If RFin!FTOTTime.ToString <> "" And _StatePass Then
+                                        Dim _STime As String = (IIf(_Over > _OutOT, _ActualNextDate, _ActualDate)) & " " & _OutOT
+                                        Dim _ETime As String = (IIf(_Over > RFin!FTOTTime.ToString, _ActualNextDate, _ActualDate)) & " " & RFin!FTOTTime.ToString.Replace(".", ":")
+
+                                        If _STime.Length = _ETime.Length Then
+                                            If IsDate(_STime) And IsDate(_ETime) Then
+                                                If CDate(_STime) < CDate(_ETime) Or _InOT = "" Or _OutOT = "" Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+                                        Else
+                                            _StatePass = False
+                                        End If
+
+                                    End If
+
+                                    If RFin!FNOTTimeM.ToString <> "" And _StatePass Then
+                                        If Val(RFin!FNOTTimeM.ToString) > 0 Then
+
+                                            If _FNOT1 + _FNOT2 + _FNOT4 > 0 Then
+                                                If (_FNOT1 + _FNOT2 + _FNOT4) < Val(RFin!FNOTTimeM.ToString) Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+
+                                        End If
+                                    End If
+
+
+                                    If RFin!FTStaVacation.ToString = "1" Then _StatePass = Not (_StateLeavacation)
+
+                                    If _StatePass Then
+
+                                        Dim _Amt As Double = 0
+                                        Dim _Cmd As String = ""
+                                        _Cmd = "Select Top 1 isnull(FNAmt,0) AS  FNAmt From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily_Bonus with(nolock)"
+                                        _Cmd &= vbCrLf & "where FNHSysEmpID=" & Integer.Parse(_EmpCode)
+                                        _Cmd &= vbCrLf & "and FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "'"
+                                        _Amt = Double.Parse(HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_HR, "0"))
+                                        _BonusAmt = _BonusAmt + _Amt
+
+                                        If RFin!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + _Amt
+                                        If RFin!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + _Amt
+                                        If RFin!FTStaCalOT.ToString = "1" Then _AmtAddCalOT = _AmtAddCalOT + _Amt
+                                    End If
+                                Next
+
+
+                                '****************************** End Bonus
+
+                                '--------------------------- ค่ากะ OT ----------------------------------
+                                For Each RFin As DataRow In _dtAddOtherAmtshift.Select("FTFinCode='007' ")
+                                    Dim _StatePass As Boolean = True
+
+                                    If _OutOT <> "" Then
+                                        Beep()
+                                    End If
+                                    If RFin!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= 0)
+                                    If RFin!FTStaCheckLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= Val(RFin!FTLateMin.ToString))
+                                    If RFin!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_FNAbsent <= 0)
+                                    If RFin!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeaveOther)
+                                    If RFin!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeavacation)
+                                    If RFin!FTStaHoliday.ToString = "1" And _StatePass Then _StatePass = Not (_SPDateType = 0)
+                                    If RFin!FTStaCheckWorkTime.ToString = "1" And _StatePass Then
+                                        _StatePass = Not ((_FNTimeMin + _FNOT1_5Min + _FNOT3Min) < Val(RFin!FTCheckWorkTimeMin.ToString))
+                                    End If
+
+                                    If RFin!FTStaCheckLeave.ToString = "1" And _StatePass Then _StatePass = Not ((_SumLeave) < Val(RFin!FTLeaveMin.ToString))
+                                    If RFin!FTStaMaternityleaveNotpay.ToString = "1" And _StatePass Then _StatePass = Not (_StateFTStaMaternityleaveNotpay)
+
+                                    If RFin!FTOTTime.ToString <> "" And _StatePass Then
+                                        Dim _STime As String = (IIf(_Over > _OutOT, _ActualNextDate, _ActualDate)) & " " & _OutOT
+                                        Dim _ETime As String = (IIf(_Over > RFin!FTOTTime.ToString, _ActualNextDate, _ActualDate)) & " " & RFin!FTOTTime.ToString.Replace(".", ":")
+
+                                        If _STime.Length = _ETime.Length Then
+                                            If IsDate(_STime) And IsDate(_ETime) Then
+                                                If CDate(_STime) < CDate(_ETime) Or _InOT = "" Or _OutOT = "" Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+                                        Else
+                                            _StatePass = False
+                                        End If
+
+                                    End If
+
+                                    If RFin!FNOTTimeM.ToString <> "" And _StatePass Then
+                                        If Val(RFin!FNOTTimeM.ToString) > 0 Then
+
+                                            If _FNOT1 + _FNOT2 + _FNOT4 > 0 Then
+                                                If (_FNOT1 + _FNOT2 + _FNOT4) < Val(RFin!FNOTTimeM.ToString) Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+
+                                        End If
+                                    End If
+
+                                    If RFin!FTStaVacation.ToString = "1" Then _StatePass = Not (_StateLeavacation)
+
+                                    If _StatePass Then
+
+                                        _ShiftOTAmt = _ShiftOTAmt + _ShiftOTValue
+
+                                        If RFin!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + _ShiftOTValue
+                                        If RFin!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + _ShiftOTValue
+                                        If RFin!FTStaCalOT.ToString = "1" Then _AmtAddCalOT = _AmtAddCalOT + _ShiftOTValue
+
+                                    End If
+
+                                Next
+                                '--------------------------- ค่ากะ OT ----------------------------------
+
+                                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTCalType='0' AND FTFinType='1' AND FTPayType='0' And FTFinCode<>'057' And FTFinCode<>'043' And FTFinCode<>'061'  And FTFinCode<>'062' And FTFinCode<>'063' And FTFinCode<>'064' ")
+                                    Dim _StatePass As Boolean = True
+
+                                    If _OutOT <> "" Then
+                                        Beep()
+                                    End If
+                                    If RFin!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= 0)
+                                    If RFin!FTStaCheckLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= Val(RFin!FTLateMin.ToString))
+                                    If RFin!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_FNAbsent <= 0)
+                                    If RFin!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeaveOther)
+                                    If RFin!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeavacation)
+                                    If RFin!FTStaHoliday.ToString = "1" And _StatePass Then _StatePass = Not (_SPDateType = 0)
+                                    If RFin!FTStaCheckWorkTime.ToString = "1" And _StatePass Then
+                                        _StatePass = Not ((_FNTimeMin + _FNOT1_5Min + _FNOT3Min) < Val(RFin!FTCheckWorkTimeMin.ToString))
+                                    End If
+
+                                    If RFin!FTStaCheckLeave.ToString = "1" And _StatePass Then _StatePass = Not ((_SumLeave) < Val(RFin!FTLeaveMin.ToString))
+                                    If RFin!FTStaMaternityleaveNotpay.ToString = "1" And _StatePass Then _StatePass = Not (_StateFTStaMaternityleaveNotpay)
+
+                                    If RFin!FTOTTime.ToString <> "" And _StatePass Then
+                                        Dim _STime As String = (IIf(_Over > _OutOT, _ActualNextDate, _ActualDate)) & " " & _OutOT
+                                        Dim _ETime As String = (IIf(_Over > RFin!FTOTTime.ToString, _ActualNextDate, _ActualDate)) & " " & RFin!FTOTTime.ToString.Replace(".", ":")
+
+                                        If _STime.Length = _ETime.Length Then
+
+                                            If IsDate(_STime) And IsDate(_ETime) Then
+                                                If CDate(_STime) < CDate(_ETime) Or _InOT = "" Or _OutOT = "" Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+
+                                        Else
+                                            _StatePass = False
+                                        End If
+
+                                    End If
+
+                                    If RFin!FNOTTimeM.ToString <> "" And _StatePass Then
+                                        If Val(RFin!FNOTTimeM.ToString) > 0 Then
+
+                                            If _FNOT1 + _FNOT2 + _FNOT4 > 0 Then
+                                                If (_FNOT1 + _FNOT2 + _FNOT4) < Val(RFin!FNOTTimeM.ToString) Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+
+                                        End If
+                                    End If
+
+                                    If RFin!FTStaVacation.ToString = "1" Then _StatePass = Not (_StateLeavacation)
+
+                                    If _StatePass Then
+                                        _FCAdd = _FCAdd + Val(RFin!FCFinAmt.ToString)
+
+                                        If RFin!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + Val(RFin!FCFinAmt.ToString)
+                                        If RFin!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + Val(RFin!FCFinAmt.ToString)
+                                        If RFin!FTStaCalOT.ToString = "1" Then _AmtAddCalOT = _AmtAddCalOT + Val(RFin!FCFinAmt.ToString)
+
+                                        If _DtFin.Select("FTFinCode='" & RFin!FTFinCode.ToString & "'").Length <= 0 Then
+                                            _DtFin.Rows.Add(RFin!FTFinCode.ToString, Val(RFin!FCFinAmt.ToString))
+                                        Else
+
+                                            For Each xRow As DataRow In _DtFin.Select("FTFinCode='" & RFin!FTFinCode.ToString & "'")
+                                                xRow!FCTotalFinAmt = Val(xRow!FCTotalFinAmt) + Val(RFin!FCFinAmt.ToString)
+                                            Next
+
+                                        End If
+                                    End If
+                                Next
+                            End If
+                            '----------------- รายได้อื่นๆประจำวัน กรณีมาทำงาน---------------------
+
+                        End If
+
+                    Next
+
+
+                    'อัตราค่าแรงบันทึก ต่อเดือน หรือ ต่อวัน ฯลฯ
+                    Select Case FNStateSalaryType
+                        Case 0 'ต่อเดือน
+                            _FNSlaryPerMonth = CDbl(Format((_FCSalary), "0.000"))
+                            _FNSlaryPerDay = CDbl(Format((_FCSalary) / CountDayPerMonth, "0.000"))
+                            ' _SalaryPayLeave = CDbl(Format((_FCSalary) / 26, "0.000")) ' ลาป่วย หารวันทำงานในงวด  meeting 20180227 pMote , pWest , pTuk cd , pAnuwat 
+
+                            _SalaryPayLeave = CDbl(Format((_FCSalary) / CountDayPerMonth, "0.000"))
+                        Case 1 'ต่อวัน
+                            _FNSlaryPerMonth = CDbl(Format((_FCSalary * CountDayPerMonth), "0.000"))
+                            _FNSlaryPerDay = CDbl(Format((_FCSalary), "0.000"))
+                            _SalaryPayLeave = _FNSlaryPerDay
+                    End Select
+                    'เพิ่มค่าแรง กัมพูชา 20161206
+                    '  _SalaryPayLeave = _FNSlaryPerDay
+                    _FNSlaryPerMonth = _FNSlaryPerMonth
+                    _FNSlaryPerDay = _FNSlaryPerDay
+                    _SalaryPayOTKM = _FNSlaryPerDay
+
+
+                    'อัตราค่าแรงบันทึก ต่อเดือน หรือ ต่อวัน ฯลฯ
+
+                    If _RateShipftPerDay > 1 Then
+                        _FNSlaryPerDay = _FNSlaryPerDay * _RateShipftPerDay
+                    End If
+
+                    If _StateShift = 1 Then
+                        _Qry = " SELECT FTCfgOTCode,Isnull(FCCfgOTNightValue,0) as  FCCfgOTValue,ISNULL(FCCfgOTAmtPlus,0) AS FCCfgOTAmtPlus   "
+                        _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigOTSet WITH (NOLOCK) "
+                        _Qry &= vbCrLf & "  WHERE  (FNCalType  = " & Val(_EmpType) & ")"
+                        _dtot = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                        For Each R3 As DataRow In _dtot.Rows
+                            Select Case R3!FTCfgOTCode.ToString.ToUpper
+                                Case "01"
+                                    _RateOT1 = Val(R3!FCCfgOTValue.ToString)
+                                Case "02"
+                                    _RateOT15 = Val(R3!FCCfgOTValue.ToString)
+                                Case "03"
+                                    _RateOT2 = Val(R3!FCCfgOTValue.ToString)
+                                Case "04"
+                                    _RateOT3 = Val(R3!FCCfgOTValue.ToString)
+                                    _AmtPlus = Val(R3!FCCfgOTAmtPlus.ToString)
+                                Case "05"
+                                    _RateOT4 = Val(R3!FCCfgOTValue.ToString)
+                            End Select
+
+                        Next
+                    Else
+                        _Qry = " SELECT FTCfgOTCode,FCCfgOTValue,ISNULL(FCCfgOTAmtPlus,0) AS FCCfgOTAmtPlus  "
+                        _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigOTSet WITH (NOLOCK) "
+                        _Qry &= vbCrLf & "  WHERE  (FNCalType  = " & Val(_EmpType) & ")"
+                        _dtot = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                        For Each R3 As DataRow In _dtot.Rows
+                            Select Case R3!FTCfgOTCode.ToString.ToUpper
+                                Case "01"
+                                    _RateOT1 = Val(R3!FCCfgOTValue.ToString)
+                                Case "02"
+                                    _RateOT15 = Val(R3!FCCfgOTValue.ToString)
+                                Case "03"
+                                    _RateOT2 = Val(R3!FCCfgOTValue.ToString)
+                                Case "04"
+                                    _RateOT3 = Val(R3!FCCfgOTValue.ToString)
+                                    _AmtPlus = Val(R3!FCCfgOTAmtPlus.ToString)
+                                Case "05"
+                                    _RateOT4 = Val(R3!FCCfgOTValue.ToString)
+                            End Select
+
+                        Next
+                    End If
+
+
+
+
+                    _FNSlaryPerHour = CDbl(Format(_FNSlaryPerDay / 8, "0.00000"))
+                    _FNSlaryPerMin = CDbl(Format(_FNSlaryPerHour / 60, "0.00000"))
+                    '_SalaryPayLeaveMin = CDbl(Format(CDbl(Format(_SalaryPayLeave / 8, "0.00000")) / 60, "0.00000"))
+                    _SalaryPayLeaveMin = CDbl(_SalaryPayLeave / 8) / 60
+
+                    _FNSlaryOTPerMin = CDbl(Format(CDbl(Format((_SalaryPayOTKM + _AmtAddCalOT + _GAmtAddCalOT) / 8, "0.00000")) / 60, "0.00000"))
+
+                    _FNSlaryOTPerHour = CDbl(Format((_SalaryPayOTKM + _AmtAddCalOT + _GAmtAddCalOT) / 8, "0.00000"))
+
+                    If _FTShift = "" Then
+                        If _Holiday <> "" Then
+                            _oHoliday = 1
+                            _TotalHoliDay = _TotalHoliDay + 1
+                        End If
+                    Else
+
+                        If _Holiday <> "" Then
+                            _oHoliday = 1
+                            _TotalHoliDay = _TotalHoliDay + 1
+                        End If
+
+                        If (_FNTime + _FNOT1Min + _FNOT1_5Min + _FNOT2Min + _FNOT3Min + _FNOT4Min > 0) Then
+                            _WorkDay = _WorkDay + 1
+                        End If
+
+                        If _Holiday = "" Then
+                            _GFNLateNormalMinNotHoliday = _GFNLateNormalMinNotHoliday + _FNLateNormalMin
+                        End If
+
+                        _GFNLateNormalMin = _GFNLateNormalMin + _FNLateNormalMin
+                        _GFNLateNormalCut = _GFNLateNormalCut + _FNLateNormalCut
+                        _GFNLateOtMin = _GFNLateOtMin + _FNLateOtMin
+                        _GFNLateOtCut = _GFNLateOtCut + _FNLateOtCut
+                        _GFNLateMorning = _GFNLateMorning + _FNLateMorning
+                        _GFNLateAfternoon = _GFNLateAfternoon + _FNLateAfternoon
+                        _GFNAbsent = _GFNAbsent + _FNAbsent
+                        _GFNCutAbsent = _GFNCutAbsent + _LateCutAbsent
+                        _GFNTimeMin = _GFNTimeMin + _FNTimeMin
+                        _GFNOT1Min = _GFNOT1Min + _FNOT1Min
+                        _GFNOT1_5Min = _GFNOT1_5Min + _FNOT1_5Min
+                        _GFNOT2Min = _GFNOT2Min + _FNOT2Min
+                        _GFNOT3Min = _GFNOT3Min + _FNOT3Min
+                        _GFNOT4Min = _GFNOT4Min + _FNOT4Min
+                        _GFNLateMMin = _GFNLateMMin + _FNLateMMin
+                        _GFNLateAfMin = _GFNLateAfMin + _FNLateAfMin
+                        _GFNRetireOtMin = _GFNRetireOtMin + _FNRetireOtMin
+                        _GFNRetireOtCut = _GFNRetireOtCut + _FNRetireOtCut
+                        _GFNRetireMMin = _GFNRetireMMin + _FNRetireMMin
+                        _GFNRetireAfMin = _GFNRetireAfMin + _FNRetireAfMin
+                        _GFNRetireNormalCut = _GFNRetireNormalCut + _FNRetireNormalCut
+
+                        If HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) >= HI.UL.ULDate.ConvertEnDB(_FDDateProbation) Then
+                            _GFNTimeMin_Real_After_Probation = _GFNTimeMin_Real_After_Probation + (_FNTimeMin - _FNLateNormalMin)
+                        End If
+
+
+
+                    End If
+
+                    _TmpLeavePay = 0
+                    _FNLeavePay = 0 : _FNLeaveVacation = 0 : FNPayLeaveSpecialBahtMin = 0
+                    _FNLeaveNotPay = 0
+                    _LeaveCode = ""
+                    For Each sR As DataRow In _dtLeave.Select("FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' ")
+                        _LeaveCode = sR!LFTLeaveCode.ToString
+
+                        _TmpLeavePay = Val(sR!FNTotalPayMinute.ToString)
+
+                        Select Case sR!LFTLeaveCode.ToString.ToUpper
+                            Case "97"
+
+                            Case Else
+
+                                _Gtotalleave = _Gtotalleave + Val(sR!FNTotalMinute.ToString)
+                                _GtotalleavePay = _GtotalleavePay + Val(sR!FNTotalPayMinute.ToString)
+                                _GtotalleaveNotPay = _GtotalleaveNotPay + Val(sR!FNTotalNotPayMinute.ToString)
+
+                                If sR!FTStaCalSSO.ToString = "1" Then
+                                    _GtotalleavePayCalSso = Val(sR!FNTotalPayMinute.ToString)
+                                End If
+                        End Select
+
+                        _FNLeaveNotPay = Val(sR!FNTotalNotPayMinute.ToString)
+
+                        Select Case sR!LFTLeaveCode.ToString.ToUpper '""Val(sR!LeaveType)
+                            Case "98"
+                                _FNLeaveVacation = Val(sR!FNTotalPayMinute.ToString)
+                                _GFNLeaveVacation = _GFNLeaveVacation + Val(sR!FNTotalMinute.ToString)
+                            Case "998"
+                                _FNLeaveVacation = Val(sR!FNTotalPayMinute.ToString)
+                                _GFNLeaveVacation = _GFNLeaveVacation + Val(sR!FNTotalMinute.ToString)
+                            Case "1"
+                                FNPayLeaveBusinessBahtMin = Val(sR!FNTotalPayMinute.ToString)
+                                GFNPayLeaveBusinessBahtMin = GFNPayLeaveBusinessBahtMin + FNPayLeaveBusinessBahtMin
+
+                                _GFNLeaveOther = _GFNLeaveOther + Val(sR!FNTotalMinute.ToString)
+                            Case "0"
+
+                                FNPayLeaveSickBahtMin = Val(sR!FNTotalPayMinute.ToString)
+                                GFNPayLeaveSickBahtMin = GFNPayLeaveSickBahtMin + FNPayLeaveSickBahtMin
+                                _GFNLeaveOther = _GFNLeaveOther + Val(sR!FNTotalMinute.ToString)
+
+                                If FNPayLeaveSickBahtMin > 0 Then
+                                    _LeaveSickPay = _LeaveSickPay + 1
+
+                                    Dim _PayPer As Double = 0
+                                    Select Case _LeaveSickPay
+                                        Case Is <= 30
+                                            _PayPer = 100
+                                        Case Is <= 90
+                                            _PayPer = 60
+                                        Case Is <= 180
+                                            _PayPer = 0
+                                    End Select
+
+                                    If _PayPer = 0 Then
+                                        FNPayLeaveSickBahtMin = 0
+                                        GFNPayLeaveSickBahtMin = GFNPayLeaveSickBahtMin - FNPayLeaveSickBahtMin
+                                        _GFNLeaveOther = _GFNLeaveOther - FNPayLeaveSickBahtMin
+                                    End If
+
+                                    If _DTEmpPayLeaveSick.Select("FNSalary=" & _SalaryPayLeave & " AND FNPayPer=" & _PayPer & " ").Length > 0 Then
+                                        For Each Rx As DataRow In _DTEmpPayLeaveSick.Select("FNSalary=" & _SalaryPayLeave & "  AND FNPayPer=" & _PayPer & "  ")
+                                            Rx!FNDay = Val(Rx!FNDay) + FNPayLeaveSickBahtMin
+                                            Exit For
+                                        Next
+                                    Else
+                                        _DTEmpPayLeaveSick.Rows.Add(_SalaryPayLeave, FNPayLeaveSickBahtMin, _PayPer)
+                                    End If
+
+
+                                End If
+
+
+                            Case "999"
+                                FNPayLeaveSpecialBahtMin = Val(sR!FNTotalPayMinute.ToString)
+                                _GFNLeaveSpecial = _GFNLeaveSpecial + FNPayLeaveSpecialBahtMin
+                            Case "97"
+                                FNParturitionLeaveMin = Val(sR!FNTotalPayMinute.ToString)
+                                GFNParturitionLeaveMin = GFNParturitionLeaveMin + FNParturitionLeaveMin
+
+                                ' _GFNLeaveOther = _GFNLeaveOther + Val(sR!FNTotalMinute.ToString)
+                            Case Else
+                                _FNLeavePay = Val(sR!FNTotalPayMinute.ToString)
+                                _GFNLeaveOther = _GFNLeaveOther + Val(sR!FNTotalMinute.ToString)
+                        End Select
+
+                    Next
+
+                    _GFNLeavePay = _GFNLeavePay + _FNLeavePay
+                    _SocialBefore = 0
+                    _SocialBeforeAmt = 0
+
+                    Dim _WageAmtPerDay As Double = 0
+                    Dim _WageOTAmtPerDay As Double = 0
+                    Dim _TimeOTMdr As Integer = 0
+
+                    If _FTEmpState = "2" Or _FTEmpState = "3" Then
+                    Else
+                        _WageAmtPerDay = CDbl(Format((_FNTimeMin) * _FNSlaryPerMin, "0.000"))
+                        _FNEmpBaht = _FNEmpBaht + _WageAmtPerDay
+                    End If
+
+                    _nBahtOt1 = _nBahtOt1 + CDbl(Format((_FNOT1Min) * ((_FNSlaryOTPerMin) * _RateOT1), "0.000"))
+
+
+                    If FTHldType = 1 And _FNOT3Min > 0 Then
+                        _GAmtPlus = _GAmtPlus + _AmtPlus
+                    End If
+
+                    _nBahtOt15 = _nBahtOt15 + CDbl(Format((_FNOT1_5Min) * ((_FNSlaryOTPerMin) * _RateOT15), "0.000"))
+                    _nBahtOt2 = _nBahtOt2 + CDbl(Format((_FNOT2Min) * ((_FNSlaryOTPerMin) * _RateOT2), "0.000"))
+                    _nBahtOt3 = _nBahtOt3 + CDbl(Format((_FNOT3Min) * ((_FNSlaryOTPerMin) * _RateOT3), "0.000"))
+                    _nBahtOt4 = _nBahtOt4 + CDbl(Format((_FNOT4Min) * ((_FNSlaryOTPerMin) * _RateOT4), "0.000"))
+
+                    _nBahtAbsent = _nBahtAbsent + CDbl(Format(_FNAbsent * _FNSlaryPerMin, "0.000"))
+                    _LateCutAmt = _LateCutAmt + CDbl(Format((_FNLateNormalCut) * _FNSlaryPerMin, "0.000"))
+                    _LateCutAmtAbsent = _LateCutAmtAbsent + CDbl(Format((_LateCutAbsent) * _FNSlaryPerMin, "0.000"))
+
+                    _LaNotpaid = _LaNotpaid + CDbl(Format(_FNLeaveNotPay * _FNSlaryPerMin, "0.000"))
+
+                    Dim _TmpFNLapaidAmt As Double = CDbl(Format(_TmpLeavePay * _SalaryPayLeaveMin, "0.000"))
+                    Dim _TmpLapaidAmt As Double = CDbl(Format(_FNLeavePay * _SalaryPayLeaveMin, "0.000"))
+
+                    _Lapaid = _Lapaid + _TmpLapaidAmt
+                    _GtotalleavePayCalSsoAmt = _GtotalleavePayCalSsoAmt + CDbl(Format(_GtotalleavePayCalSso * _SalaryPayLeaveMin, "0.000"))  'เงินลาจ่ายที่นำไปคิดประกันสังคม
+
+                    If _LeaveCode <> "" And _FNLeaveVacation > 0 Then
+
+                        'Dim _MoneyRetVacationPerDay = MoneyRetVacationPerDay_KM(_PayYear, _PayTerm, _StartDate, _EndDate, Val(_EmpCode), Val(_EmpType), 0, _FCSalary, CountDayPerMonth, _WorkAgeDay)
+
+                        '_FCPayVacationBaht = _FCPayVacationBaht + CDbl(Format(_FNLeaveVacation * (_MoneyRetVacationPerDay / 480), "0.000"))
+
+                        _FCPayVacationBaht = _FCPayVacationBaht + CDbl(Format(_FNLeaveVacation * _FNSlaryPerMin, "0.00"))
+                    Else
+                        _FCPayVacationBaht = _FCPayVacationBaht + CDbl(Format(_FNLeaveVacation * _FNSlaryPerMin, "0.000"))
+                    End If
+
+                    If _FTStatePayHoliday <> "1" Then
+                        _oHoliday = 0
+                    Else
+
+                        If (_FNLeaveNotPay <= 0) Then
+                            If _TmpFNLapaidAmt <= 0 Then
+                                _HBaht = _HBaht + CDbl(Format(_oHoliday * _FNSlaryPerDay, "0.000"))
+                            Else
+                                _TotalHoliDay = _TotalHoliDay - _oHoliday
+                                _oHoliday = 0
+                            End If
+                        Else
+
+                            _TotalHoliDay = _TotalHoliDay - _oHoliday
+                            _oHoliday = 0
+                        End If
+
+                    End If
+
+                    _FNSlaryPerDayNormal = CDbl(Format(_FNSlaryPerDay, "0.00000"))
+
+                    If _DTEmpWorkDay.Select("FNSalary=" & _FNSlaryPerDay & "").Length > 0 Then
+                        For Each Rx As DataRow In _DTEmpWorkDay.Select("FNSalary=" & _FNSlaryPerDay & "")
+
+                            Rx!FNDay = Val(Rx!FNDay) + _FNTimeMin
+                            Rx!FNOT1 = Val(Rx!FNOT1) + _FNOT1Min
+                            Rx!FNOT15 = Val(Rx!FNOT15) + _FNOT1_5Min
+                            Rx!FNOT2 = Val(Rx!FNOT2) + _FNOT2Min
+                            Rx!FNOT3 = Val(Rx!FNOT3) + _FNOT3Min
+                            Rx!FNOT4 = Val(Rx!FNOT4) + _FNOT4Min
+                            Rx!FNHoloday = Val(Rx!FNHoloday) + (_oHoliday)
+                            Rx!FNLate = Val(Rx!FNLate) + _FNLateNormalCut
+                            Rx!FNAbsent = Val(Rx!FNAbsent) + _FNAbsent
+                            Rx!FNLateCutAmtAbsent = Val(Rx!FNLateCutAmtAbsent) + _LateCutAbsent
+                            Rx!FNLeavePay = Val(Rx!FNLeavePay) + _FNLeavePay
+                            Rx!FNLeaveNotPay = Val(Rx!FNLeaveNotPay) + (_FNLeaveNotPay)
+                            Rx!FNBusiness = Val(Rx!FNBusiness) + FNPayLeaveBusinessBahtMin
+                            Rx!FNSpecial = Val(Rx!FNSpecial) + FNPayLeaveSpecialBahtMin
+                            Rx!FNParturition = Val(Rx!FNParturition) + FNParturitionLeaveMin
+                            Rx!FNVacation = Val(Rx!FNVacation) + _FNLeaveVacation
+                            Rx!FNShiftNo = _StateShift
+                            Rx!FNSlaryOTPerMin = _FNSlaryOTPerMin
+                            Rx!FNSlaryNormal = _FNSlaryPerDayNormal
+                            Exit For
+                        Next
+                    Else
+                        _DTEmpWorkDay.Rows.Add(_FNSlaryPerDay, _FNTimeMin, _FNOT1Min, _FNOT1_5Min,
+                                               _FNOT2Min, _FNOT3Min, _FNOT4Min, (_oHoliday),
+                                               _FNLateNormalCut, _FNAbsent, _LateCutAbsent, _FNLeavePay,
+                                               _FNLeaveNotPay, FNPayLeaveBusinessBahtMin, FNPayLeaveSpecialBahtMin, FNParturitionLeaveMin, _FNLeaveVacation, _StateShift, _FNSlaryOTPerMin, _FNSlaryPerDayNormal)
+                    End If
+
+                    _FTSatrtCalculateDate = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddDay(_FTSatrtCalculateDate, 1))
+
+                Loop
+
+                _FNEmpBaht = 0
+                _FNEmpBaht = 0
+                _nBahtOt1 = 0
+                _nBahtOt15 = 0
+                _nBahtOt2 = 0
+                _nBahtOt3 = 0
+                _nBahtOt4 = 0
+                _nBahtAbsent = 0
+                _LateCutAmt = 0
+                _LateCutAmtAbsent = 0
+                _HBaht = 0
+                _LaNotpaid = 0
+                _Lapaid = 0
+                FNPayLeaveBusinessBaht = 0 : FNPayLeaveSickBaht = 0 : FNPayLeaveSpecialBaht = 0 : FNParturitionLeave = 0
+                _FCPayVacationBaht = 0
+                _FNSlaryOTPerMin = 0
+                Dim _TotalxDay As Integer = 0
+
+                Dim _FNEmpBahtShiftDiff As Double = 0
+
+                Dim FullPreroid As String = ""
+                If (_FDDateEnd = "" Or _FTSatrtCalculateDate < _FDDateEnd) And _FDDateStart <= _StartDate Then ''_FTEndCalculateDate
+                    FullPreroid = "Y"
+                End If
+
+
+                Dim _FNDaySickPay As Integer = 0
+                For Each RxS As DataRow In _DTEmpPayLeaveSick.Rows
+                    _FNDaySickPay = _FNDaySickPay + Val(RxS!FNDay)
+                Next
+
+
+                Dim _FNDay As Integer = 0
+
+                For Each Rx As DataRow In _DTEmpWorkDay.Rows
+
+                    _FNDay = _FNDay + Val(Rx!FNDay)
+
+                    _FNSlaryPerMin = CDbl(Format(CDbl(Rx!FNSalary) / 480, "0.00000"))
+                    _FNSlaryPerDay = CDbl(Format(CDbl(Rx!FNSalary), "0.00000"))
+                    _FNSlaryOTPerMin = Double.Parse("0" & Rx!FNSlaryOTPerMin)
+
+                    _TotalxDay = 0
+
+                    If _DTEmpWorkDay.Rows.Count > 1 Then
+
+
+                        If Rx!FNShiftNo = 1 And Val(Rx!FNDay) > 0 Then
+                            'หาเงินส่วนต่าง ค่าแรงกะกลางคืน 
+                            _FNEmpBahtShiftDiff = _FNEmpBahtShiftDiff + (CDbl(Format(CDbl(Rx!FNSalary) * (Rx!FNDay / 480), "0.00000")) - CDbl(Format(CDbl(Rx!FNSlaryNormal) * (Rx!FNDay / 480), "0.00000")))
+
+                            'ElseIf Rx!FNDay > 0 And Rx!FNDay < 12 Then
+                            '    _FNEmpBaht = _FNEmpBaht + CDbl(Format(CDbl(Rx!FNSlaryNormal) * (Rx!FNDay / 480), "0.00000"))
+                        ElseIf FullPreroid = "Y" Then
+                            _FNEmpBaht = _FNEmpBaht + CDbl(Format(_FNSlaryPerMonth / 2, "0.000"))
+                        ElseIf _FNDay < 6240 Then
+                            _FNEmpBaht = _FNEmpBaht + CDbl(Format(CDbl(Rx!FNSlaryNormal) * (_FNDay / 480), "0.00000"))
+                        Else
+                            '_FNEmpBaht = _FNEmpBaht + CDbl(Format(CDbl(Rx!FNSalary) * Rx!FNTotalDay, "0.00000"))
+
+                            _FNEmpBaht = _FNEmpBaht + CDbl(Format(_FNSlaryPerMonth / 2, "0.000"))
+                        End If
+
+
+                    Else
+
+                        If _FNDay > 0 And _FNDay < 5760 And Rx!FNParturition > 1 Then ''หักเงินเดือนปกติของวันที่ลาคลอด
+                            ''_FNEmpBaht = _FNEmpBaht + (CDbl(Format(_FNSlaryPerMonth / 2, "0.000")) - CDbl(Format(CDbl(Rx!FNSlaryNormal) * (Rx!FNParturition / 480), "0.00000")))
+                            _FNEmpBaht = _FNEmpBaht + CDbl(Format(CDbl(Rx!FNSlaryNormal) * (_FNDay / 480), "0.00000"))
+
+                        ElseIf FullPreroid = "Y" And _FNDay = 0 And _FNDaySickPay > 0 Then '' เต็มงวด  ไม่มีเวลาทำงาน  มีลาป่วยจ่าย
+                            _FNEmpBaht = _FNEmpBaht + CDbl(Format(CDbl(Rx!FNSlaryNormal) * (_FNDaySickPay / 480), "0.00000"))
+                        ElseIf FullPreroid = "Y" Then
+                            _FNEmpBaht = _FNEmpBaht + CDbl(Format(_FNSlaryPerMonth / 2, "0.000"))
+                        ElseIf (_FDDateEnd <> "" And _FDDateEnd <= _FTEndCalculateDate) Or _FDDateStart > _StartDate Then ''ลาออกระหว่างงวด ''เริ่มงานระหว่างงวด
+                            _FNEmpBaht = _FNEmpBaht + CDbl(Format(CDbl(Rx!FNSlaryNormal) * (_FNDay / 480), "0.00000"))
+                        ElseIf _FNDay < 6240 Then
+                            _FNEmpBaht = _FNEmpBaht + CDbl(Format(CDbl(Rx!FNSlaryNormal) * (_FNDay / 480), "0.00000"))
+                        Else
+                            _FNEmpBaht = _FNEmpBaht + CDbl(Format(_FNSlaryPerMonth / 2, "0.000"))
+
+                        End If
+
+                    End If
+
+
+                    'Try
+                    '    If FNWorkDayInWeekBF > 0 Then
+                    '        'If Val(Rx!FNDay) > ((FNWorkDayInMonth - FNWorkDayInWeekBF) * 480) Then
+                    '        '    _FNEmpBaht = _FNEmpBaht + CDbl(Format(((FNWorkDayInMonth - FNWorkDayInWeekBF) * 480) * _FNSlaryPerMin, "0.000"))
+                    '        'Else
+
+                    '        _TotalxDay = Val(Rx!FNDay) \ 480.0
+                    '        _FNEmpBaht = _FNEmpBaht + CDbl(Format(_TotalxDay * _FNSlaryPerDay, "0.000"))
+                    '        _FNEmpBaht = _FNEmpBaht + CDbl(Format((Val(Rx!FNDay) - (_TotalxDay * 480)) * _FNSlaryPerMin, "0.000"))
+                    '        ' End If
+                    '    Else
+                    '        _TotalxDay = Val(Rx!FNDay) \ 480.0
+                    '        _FNEmpBaht = _FNEmpBaht + CDbl(Format(_TotalxDay * _FNSlaryPerDay, "0.000"))
+                    '        _FNEmpBaht = _FNEmpBaht + CDbl(Format((Val(Rx!FNDay) - (_TotalxDay * 480)) * _FNSlaryPerMin, "0.000"))
+                    '    End If
+                    'Catch ex As Exception
+                    '    _TotalxDay = Val(Rx!FNDay) \ 480.0
+                    '    _FNEmpBaht = _FNEmpBaht + CDbl(Format(_TotalxDay * _FNSlaryPerDay, "0.000"))
+                    '    _FNEmpBaht = _FNEmpBaht + CDbl(Format((Val(Rx!FNDay) - (_TotalxDay * 480)) * _FNSlaryPerMin, "0.000"))
+                    'End Try
+
+
+                    If Double.Parse(Rx!FNShiftNo.ToString) = 1 Then
+                        _Qry = " SELECT FTCfgOTCode,Isnull(FCCfgOTNightValue,0) as  FCCfgOTValue,ISNULL(FCCfgOTAmtPlus,0) AS FCCfgOTAmtPlus   "
+                        _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigOTSet WITH (NOLOCK) "
+                        _Qry &= vbCrLf & "  WHERE  (FNCalType  = " & Val(_EmpType) & ")"
+                        _dtot = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                        For Each R3 As DataRow In _dtot.Rows
+                            Select Case R3!FTCfgOTCode.ToString.ToUpper
+                                Case "01"
+                                    _RateOT1 = Val(R3!FCCfgOTValue.ToString)
+                                Case "02"
+                                    _RateOT15 = Val(R3!FCCfgOTValue.ToString)
+                                Case "03"
+                                    _RateOT2 = Val(R3!FCCfgOTValue.ToString)
+                                Case "04"
+                                    _RateOT3 = Val(R3!FCCfgOTValue.ToString)
+                                    _AmtPlus = Val(R3!FCCfgOTAmtPlus.ToString)
+                                Case "05"
+                                    _RateOT4 = Val(R3!FCCfgOTValue.ToString)
+                            End Select
+
+                        Next
+                    Else
+                        _Qry = " SELECT FTCfgOTCode,FCCfgOTValue,ISNULL(FCCfgOTAmtPlus,0) AS FCCfgOTAmtPlus  "
+                        _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigOTSet WITH (NOLOCK) "
+                        _Qry &= vbCrLf & "  WHERE  (FNCalType  = " & Val(_EmpType) & ")"
+                        _dtot = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                        For Each R3 As DataRow In _dtot.Rows
+                            Select Case R3!FTCfgOTCode.ToString.ToUpper
+                                Case "01"
+                                    _RateOT1 = Val(R3!FCCfgOTValue.ToString)
+                                Case "02"
+                                    _RateOT15 = Val(R3!FCCfgOTValue.ToString)
+                                Case "03"
+                                    _RateOT2 = Val(R3!FCCfgOTValue.ToString)
+                                Case "04"
+                                    _RateOT3 = Val(R3!FCCfgOTValue.ToString)
+                                    _AmtPlus = Val(R3!FCCfgOTAmtPlus.ToString)
+                                Case "05"
+                                    _RateOT4 = Val(R3!FCCfgOTValue.ToString)
+                            End Select
+
+                        Next
+                    End If
+
+
+
+                    _nBahtOt1 = _nBahtOt1 + CDbl(Format(Val(Rx!FNOT1) * ((_FNSlaryOTPerMin) * _RateOT1), "0.000"))
+                    _nBahtOt15 = _nBahtOt15 + CDbl(Format(Val(Rx!FNOT15) * ((_FNSlaryOTPerMin) * _RateOT15), "0.000"))
+                    _nBahtOt2 = _nBahtOt2 + CDbl(Format(Val(Rx!FNOT2) * ((_FNSlaryOTPerMin) * _RateOT2), "0.000"))
+                    _nBahtOt3 = _nBahtOt3 + CDbl(Format(Val(Rx!FNOT3) * ((_FNSlaryOTPerMin) * _RateOT3), "0.000"))
+                    _nBahtOt4 = _nBahtOt4 + CDbl(Format(Val(Rx!FNOT4) * ((_FNSlaryOTPerMin) * _RateOT4), "0.000"))
+                    _nBahtAbsent = _nBahtAbsent + CDbl(Format(Val(Rx!FNAbsent) * _FNSlaryPerMin, "0.000"))
+                    _LateCutAmt = _LateCutAmt + CDbl(Format((Val(Rx!FNLate)) * _FNSlaryPerMin, "0.000"))
+                    _LateCutAmtAbsent = _LateCutAmtAbsent + CDbl(Format((Val(Rx!FNLateCutAmtAbsent)) * _FNSlaryPerMin, "0.000"))
+                    _HBaht = _HBaht + CDbl(Format(Val(Rx!FNHoloday) * CDbl(Rx!FNSalary), "0.000"))
+                    _LaNotpaid = _LaNotpaid + CDbl(Format(Val(Rx!FNLeaveNotPay) * _FNSlaryOTPerMin, "0.000"))
+                    _Lapaid = _Lapaid + CDbl(Format(Val(Rx!FNLeavePay) * _SalaryPayLeaveMin, "0.000"))
+                    FNPayLeaveBusinessBaht = FNPayLeaveBusinessBaht + CDbl(Format(Val(Rx!FNBusiness) * _FNSlaryPerMin, "0.000"))
+
+                    ' FNParturitionLeave = FNParturitionLeave + CDbl(Format(Val(Rx!FNParturition) * _FNSlaryPerMin, "0.000"))
+
+                    '' Dim _MoneyRetVacationPerDay = MoneyRetVacationPerDay_KM(_PayYear, _PayTerm, _StartDate, _EndDate, Val(_EmpCode), Val(_EmpType), 0, _FCSalary, CountDayPerMonth, _WorkAgeDay)
+
+                    Dim _MoneyRetVacationPerDay = _FNSlaryPerDay
+
+
+                    '  MsgBox(_MoneyRetVacationPerDay)
+                    _FCPayVacationBaht = _FCPayVacationBaht + CDbl(Format(Val(Rx!FNVacation) * (_MoneyRetVacationPerDay / 480), "0.000"))
+                    '   MsgBox(Val(Rx!FNVacation))
+                    ' MsgBox(_FCPayVacationBaht)
+                    _FCDeductSourceVacationBaht = _FCDeductSourceVacationBaht + CDbl(Format(Val(Rx!FNVacation) * _MoneyRetVacationPerDay / 480, "0.000"))
+
+                    FNPayLeaveSpecialBaht = FNPayLeaveSpecialBaht + CDbl(Format(Val(Rx!FNSpecial) * (_MoneyRetVacationPerDay / 480), "0.000"))
+                    GFNPayLeaveSpecialBahtMin = Val(Rx!FNSpecial)
+                    FNVacationRetMin = Val(Rx!FNVacation)
+                Next
+
+                FNParturitionLeave = 0
+                GFNParturitionLeaveMin = 0
+                Dim _DeductAttandanceAmt As Double = 0
+                Call CalculateParturition(_PayYear, _PayTerm, _StartDate, _EndDate, Val(_EmpCode), FNParturitionLeave, GFNParturitionLeaveMin, _DeductAttandanceAmt, _WorkAge, _WorkAgeParturition, FNParturitionLeaveReCalTax)
+
+                FNPayLeaveSickBaht = 0
+                For Each Rx As DataRow In _DTEmpPayLeaveSick.Rows
+                    _FNSlaryPerMin = (CDbl(CDbl(Rx!FNSalary) / 480) * CDbl(Rx!FNPayPer)) / 100.0
+                    FNPayLeaveSickBaht = FNPayLeaveSickBaht + CDbl(Format(Val(Rx!FNDay) * _FNSlaryPerMin, "0.000"))
+                Next
+
+                ''_FNNetOTMealAmtUS = Format(_FNNetOTMealAmt / _FNExchangeRate, "0.000")
+
+                If _FDDateEnd <> "" And _FDDateEnd <= _TmpFDDateEndP Then
+                    'ลาออกในงวดแรก อายุงาน มากกว่า 13 วัน  จ่ายค่าเดินทาง & ค่าสุขภาพ เต็มเดือน
+
+                    'If _WorkAge >= 1 Or _WorkingDayN > 13 Then
+                    '    If Val(_PayTerm) Mod 2 = 1 Then
+                    '        _FNTransportAmt = _FNTransportAmt + _FNTransportAmt
+                    '        _FNHealtCareAmt = _FNHealtCareAmt + _FNHealtCareAmt
+                    '    End If
+                    'End If
+                End If
+
+
+                If _FTEmpState = "2" Or _FTEmpState = "3" Or (_FDDateEnd <= _EndDate And _FDDateEnd <> "") Then
+
+                    FNPayLeaveBusinessBahtMin = 0 : FNPayLeaveSickBahtMin = 0 : FNPayLeaveSpecialBahtMin = 0 : FNParturitionLeaveMin = 0
+                    GFNPayLeaveBusinessBahtMin = 0 : GFNPayLeaveSickBahtMin = 0 : GFNParturitionLeaveMin = 0
+                    FNPayLeaveBusinessBaht = 0 : FNPayLeaveSpecialBaht = 0 : FNParturitionLeave = 0
+                    'FNPayLeaveSickBaht = 0 : ไม่มี เคสคำนวณ ในกรณีลาออก ใช้จากคำนวณปกติ
+
+                    If _dttran.Select("FTStateAccept<>'1' AND FTWeekly <>'1' ").Length > 0 Or _dttran.Rows.Count <= 0 Then
+                        Return False
+                    End If
+
+
+                    _Gtotalleave = 0
+                    _GtotalleavePay = 0
+                    _GtotalleaveNotPay = 0
+                    _GFNLeaveOther = 0
+                    _GFNLeavePay = 0
+                    _GtotalleavePayCalSso = 0
+                    _LaNotpaid = 0
+
+                    Dim _NewSlary As String = ""
+
+                    For Each sR As DataRow In _dtLeave.Rows
+
+                        _Gtotalleave = _Gtotalleave + Val(sR!FNTotalMinute.ToString)
+                        _GtotalleavePay = _GtotalleavePay + Val(sR!FNTotalPayMinute.ToString)
+                        _GtotalleaveNotPay = _GtotalleaveNotPay + Val(sR!FNTotalNotPayMinute.ToString)
+
+                        If sR!FTStaCalSSO.ToString = "1" Then
+                            _GtotalleavePayCalSso = Val(sR!FNTotalPayMinute.ToString)
+                        End If
+
+                        _FNLeaveNotPay = Val(sR!FNTotalNotPayMinute.ToString)
+
+                        If Val(sR!LeaveType) = 1 Then
+                            '_FNLeaveVacation = Val(sR!FNTotalPayMinute.ToString)
+                            '_GFNLeaveVacation = _GFNLeaveVacation + Val(sR!FNTotalMinute.ToString)
+                        Else
+                            _GFNLeavePay = _GFNLeavePay + Val(sR!FNTotalPayMinute.ToString)
+                            _GFNLeaveOther = _GFNLeaveOther + Val(sR!FNTotalMinute.ToString)
+                        End If
+
+                    Next
+
+                    _LaNotpaid = CDbl(Format(_GtotalleaveNotPay * _FNSlaryPerMin, "0.000"))
+
+                    If _LaNotpaid > _FNSlaryPerMonth Then
+                        _LaNotpaid = _FNSlaryPerMonth
+                    End If
+
+                    _WorkingDay = Abs(DateDiff(DateInterval.Day, CDate(_DateStartOfMonth), CDate(_DateEndOfMonth))) + 1
+
+
+
+
+                    If _WorkingDay > 30 Then _WorkingDay = 30
+
+                    _WorkingDay = CDbl(Format(((_WorkingDay * 480) - (_Gtotalleave)) / 480, "0.000"))
+                    _WorkingDay = _WorkingDay - (_GFNAbsent / 480)
+                    If _WorkingDay < 0 Then
+                        _WorkingDay = 0
+                    End If
+
+                Else
+                    _WorkingDay = CDbl(Format(_GFNTimeMin / 480, "0.000"))
+                End If
+                _WorkingDay = CDbl(Format(_GFNTimeMin / 480, "0.000"))  '2018/03/02 ยกมา คำนวณคนลาออก ไม่ตรง
+
+                '-----------calculate Other Add For KKN ------------------ 
+                Dim _ChkLeave As Integer = 0
+                For Each sR As DataRow In _dtLeave.Select("LFTLeaveCode='0' OR LFTLeaveCode='1' OR LFTLeaveCode='2' OR LFTLeaveCode='3' ")
+                    _ChkLeave = _ChkLeave + Val(sR!FNTotalMinute.ToString)
+                Next
+                '_DateStartOfMonth = _StartDate  'วันแรกของเดือน
+                '_DateEndOfMonth = _EndDate 'วันแของเดือน
+                _FNNetAttandanceAmt = 0
+                '  If (_FTEmpState = "2" Or (_FTEmpState <> "2" And _StartDate <= Left(_StartDate, 8) & "24" And _EndDate >= Left(_StartDate, 8) & "24")) And _FNAttandanceAmt > 0 Then
+
+                Dim ChkParturitionLeaveMin As Integer = 0
+
+
+
+
+                'If _WorkingDay = 0 Then
+                '    _FNNetAttandanceAmt = 0
+                'End If
+                '-----------calculate Other Add For KKN ------------------
+                _WorkingDay = _WorkingDay + _DayAdjAdd
+
+                _GFNTimeMin = _GFNTimeMin + (_DayAdjAdd * 480)
+                _FNEmpBaht = _FNEmpBaht + _WageAdjAdd
+                _nBahtOt1 = CDbl(Format(_nBahtOt1, "0.000"))
+                _nBahtOt15 = CDbl(Format(_nBahtOt15, "0.000"))
+                _nBahtOt2 = CDbl(Format(_nBahtOt2, "0.000"))
+                _nBahtOt3 = CDbl(Format(_nBahtOt3, "0.000")) + _GAmtPlus  ' ได้เงินพิเศษช่วงเทศกาลเพิ่ม
+                _nBahtOt4 = CDbl(Format(_nBahtOt4, "0.000"))
+
+                Dim _TmpPe As String = ""
+
+                If _FTEmpState = "2" Then
+                Else
+                    _TmpPe = IIf(Val(_PayTerm) - 1 Mod 2 = 1, (Val(_PayTerm) - 1).ToString("00"), "")
+                End If
+
+                '----------------- รายได้อื่นๆประจำวัน กรณีมาทำงาน ประเภทจ่ายเป็นเดือน ของงวดก่อนหน้า ---------------------
+                'If _FTStatePayHoliday <> "1" Then '--------- รายเดือนไม่ได้ค่าจ้างวันหยุด---------------
+                'Else
+                If _dtAddOtherAmt.Select("FTCalType='0' AND FTFinType='1' AND FTPayType='1'  ").Length > 0 Then
+
+
+                    Dim _BFSDate As String = ""
+                    Dim _BFEDate As String = ""
+
+                    _Qry = " SELECT TOP 1  FDCalDateBegin, FDCalDateEnd"
+                    _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                    _Qry &= vbCrLf & " WHERE        (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                    _Qry &= vbCrLf & " AND FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & " AND FTPayTerm < '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                    _Qry &= vbCrLf & " AND FTPayMonth IN (   "
+                    _Qry &= vbCrLf & "  Select FTPayMonth"
+                    _Qry &= vbCrLf & "    FROM THRMCfgPayDT WITH (NOLOCK) "
+                    _Qry &= vbCrLf & "    WHERE        (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                    _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "   AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                    _Qry &= vbCrLf & " )  "
+
+                    _dttemp = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                    For Each Row As DataRow In _dttemp.Rows
+                        _BFSDate = Row!FDCalDateBegin.ToString
+                        _BFEDate = Row!FDCalDateEnd.ToString
+                    Next
+
+                    If _BFSDate <> "" And _BFEDate <> "" Then
+
+                        _Qry = " 	SELECT  ISNULL(T.FNHSysShiftID,0) AS FTShift	, (ISNULL(FNTimeMin,0) + ISNULL(FNSpecialTimeMin,0) +ISNULL(FNLateNormalMin,0) ) - ( ISNULL(FNLateNormalCut,0 ) + ISNULL(FNAbsentCut,0 ))  AS FNTime"
+                        _Qry &= vbCrLf & " 	, ISNULL(T.FNNotRegis,0) As FNNotRegis 	, ISNULL(FNOT1,0) AS FNOT1"
+                        _Qry &= vbCrLf & " 	, ISNULL(FNOT1_5,0) AS FNOT1_5"
+                        _Qry &= vbCrLf & " 	, ISNULL(FNOT2,0 ) AS FNOT2  , ISNULL(FNOT3,0) AS FNOT3, ISNULL(FNOT4,0) AS FNOT4"
+                        _Qry &= vbCrLf & " 	, ISNULL(FNLateNormalMin,0) AS FNLateNormalMin, ISNULL(FNLateNormalCut,0 ) + ISNULL(FNAbsentCut,0 )  AS FNLateNormalCut"
+                        _Qry &= vbCrLf & " , ISNULL(FNLateOtMin,0) As FNLateOtMin,ISNULL(FNLateOtCut,0) As FNLateOtCut"
+                        _Qry &= vbCrLf & " , ISNULL(FNLateMMin,0) As FNLateMorning"
+                        _Qry &= vbCrLf & " 	, ISNULL(FNLateAfMin,0) AS FNLateAfternoon,Isnull(FNAbsentCut,0) AS FNAbsentCut "
+                        _Qry &= vbCrLf & " 	, ISNULL(FNAbsent,0) AS FNAbsent "
+                        _Qry &= vbCrLf & " ,(ISNULL(FNTimeMin,0) + ISNULL(FNSpecialTimeMin,0) +ISNULL(FNLateNormalMin,0) ) - ( ISNULL(FNLateNormalCut,0 ) + ISNULL(FNAbsentCut,0 ))  As FNTimeMin"
+                        _Qry &= vbCrLf & " ,ISNULL(FNTimeMin,0)  + ISNULL(FNSpecialTimeMin,0) As FNTimeMinOrg"
+                        _Qry &= vbCrLf & " , ISNULL(FNOT1Min,0) As FNOT1Min  "
+                        _Qry &= vbCrLf & " , ISNULL(FNOT1_5Min,0) As FNOT1_5Min "
+                        _Qry &= vbCrLf & " ,ISNULL(FNOT2Min,0) As FNOT2Min "
+                        _Qry &= vbCrLf & " , ISNULL(FNOT3Min,0) As FNOT3Min, ISNULL(FNOT4Min,0) As FNOT4Min "
+                        _Qry &= vbCrLf & " ,ISNULL( FNLateMMin,0) AS FNLateMMin "
+                        _Qry &= vbCrLf & " , ISNULL(FNLateAfMin,0) AS FNLateAfMin"
+                        _Qry &= vbCrLf & " , ISNULL(FNRetireMMin,0) AS FNRetireMMin "
+                        _Qry &= vbCrLf & " ,ISNULL(FNRetireAfMin,0 )  as FNRetireAfMin"
+                        _Qry &= vbCrLf & " , ISNULL(FNRetireNormalCut,0) As FNRetireNormalCut "
+                        _Qry &= vbCrLf & " , ISNULL(FNRetireOtMin,0) AS FNRetireOtMin"
+                        _Qry &= vbCrLf & " ,ISNULL(FNRetireOtCut,0) AS FNRetireOtCut,FTDateTrans"
+                        _Qry &= vbCrLf & " ,ISNULL(T.FTIn1,'') AS FTIn1"
+                        _Qry &= vbCrLf & " ,ISNULL(T.FTOut1,'') AS FTOut1"
+                        _Qry &= vbCrLf & " ,ISNULL(T.FTIn2,'') AS FTIn2"
+                        _Qry &= vbCrLf & " ,ISNULL(T.FTOut2,'') AS FTOut2"
+                        _Qry &= vbCrLf & " ,ISNULL(T.FTIn3,'') AS FTIn3"
+                        _Qry &= vbCrLf & " ,ISNULL(T.FTOut3,'') AS FTOut3"
+                        _Qry &= vbCrLf & ",P.FTOverClock,P.FTWeekDay"
+                        _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTrans AS T WITH(NOLOCK) LEFT OUTER JOIN "
+                        _Qry &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift AS P WITH(NOLOCK) ON T.FNHSysShiftID =P.FNHSysShiftID "
+                        _Qry &= vbCrLf & "  WHERE(T.FNHSysEmpID =" & Val(_EmpCode) & " )"
+                        _Qry &= vbCrLf & " 	And T.FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_BFSDate) & "' "
+                        _Qry &= vbCrLf & " 	AND T.FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_BFEDate) & "' "
+
+                        _dttran = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                        Do While _BFSDate <= _BFEDate
+                            _FTShift = ""
+                            Dim _InOT As String = "" : Dim _OutOT As String = "" : Dim _Over As String = ""
+                            Dim _R() As DataRow = _dttran.Select("FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_BFSDate) & "'")
+                            For Each R2 In _R
+
+                                _FTShift = R2!FTShift.ToString
+                                _FNTime = IIf(Val(R2!FNTime.ToString) < 0, 0, Val(R2!FNTime.ToString))
+                                _FNTimeMin = IIf(Val(R2!FNTimeMin.ToString) < 0, 0, Val(R2!FNTimeMin.ToString))
+                                _FNNotRegis = Val(R2!FNNotRegis.ToString)
+                                _FNOT1 = Val(R2!FNOT1.ToString) : _FNOT1_5 = Val(R2!FNOT1_5.ToString) : _FNOT2 = Val(R2!FNOT2.ToString)
+                                _FNOT3 = Val(R2!FNOT3.ToString) : _FNOT4 = Val(R2!FNOT3.ToString)
+                                _FNLateNormalMin = Val(R2!FNLateNormalMin.ToString) : _FNLateNormalCut = Val(R2!FNLateNormalCut.ToString)
+                                _FNLateOtMin = Val(R2!FNLateOtMin.ToString) : _FNLateOtCut = Val(R2!FNLateOtCut.ToString)
+                                _FNLateMorning = Val(R2!FNLateMorning.ToString) : _FNLateAfternoon = (Val(R2!FNLateAfternoon.ToString))
+                                _LateCutAbsent = Val(R2!FNAbsentCut.ToString) : _FNAbsent = Val(R2!FNAbsent.ToString)
+                                _FNOT1Min = Val(R2!FNOT1Min.ToString)
+                                _FNOT1_5Min = Val(R2!FNOT1_5Min.ToString) : _FNOT2Min = Val(R2!FNOT2Min.ToString)
+                                _FNOT3Min = Val(R2!FNOT3Min.ToString) : _FNOT4Min = Val(R2!FNOT4Min.ToString)
+                                _FNLateMMin = Val(R2!FNLateMMin.ToString) : _FNLateAfMin = Val(R2!FNLateAfMin.ToString)
+                                _FNRetireMMin = Val(R2!FNRetireMMin.ToString) : _FNRetireAfMin = Val(R2!FNRetireAfMin.ToString)
+                                _FNRetireNormalCut = Val(R2!FNRetireNormalCut.ToString) : _FNRetireNormalCut = Val(R2!FNRetireNormalCut.ToString)
+                                _FNRetireOtMin = Val(R2!FNRetireOtMin.ToString) : _FNRetireOtMin = Val(R2!FNRetireOtMin.ToString)
+                                _FNRetireOtCut = Val(R2!FNRetireOtCut.ToString)
+
+                                _InOT = R2!FTIn3.ToString
+                                _OutOT = R2!FTOut3.ToString
+
+                                _Over = R2!FTOverClock.ToString
+
+                                If _FTShift <> "" And (_FNTimeMin + _FNOT1_5Min + _FNOT3Min + _FNOT1Min + _FNOT2Min + _FNOT4Min) > 0 Then
+
+                                    '----------------- รายได้อื่นๆประจำวัน กรณีมาทำงาน---------------------
+
+                                    If _FTShift <> "" Then
+
+                                        _SPDateType = 0
+
+                                        _Holiday = ""
+
+                                        _Qry = " SELECt TOP 1  'H' AS FTHoliday "
+                                        _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMHoliday WITH(NOLOCK) "
+                                        _Qry &= vbCrLf & "  WHERE   FDHolidayDate ='" & HI.UL.ULDate.ConvertEnDB(_BFSDate) & "'  AND FTStateActive='1'  "
+                                        _Holiday = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MASTER, "")
+
+                                        If _Holiday <> "" Then _SPDateType = 2
+
+                                        Dim _StateLeaveOther As Boolean = False
+                                        Dim _StateLeavacation As Boolean = False
+
+
+                                        Dim _StateFTStaMaternityleaveNotpay As Boolean = False
+                                        Dim _SumLeave As Integer = 0
+
+                                        For Each sR As DataRow In _dtLeave.Select("FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_BFSDate) & "'")
+                                            _SumLeave = _SumLeave + Val(sR!FNTotalMinute)
+
+                                            If Val(sR!LeaveType) = 1 Then
+                                                _StateLeavacation = True
+                                            Else
+                                                _StateLeaveOther = True
+                                            End If
+
+                                            If Val(sR!LeaveType) = 2 Then
+                                                _StateFTStaMaternityleaveNotpay = True
+                                            End If
+
+                                        Next
+
+                                        For Each RFin As DataRow In _dtAddOtherAmt.Select("FTCalType='0' AND FTFinType='1'  AND FTPayType='1' ")
+                                            Dim _StatePass As Boolean = True
+
+                                            If _OutOT <> "" Then
+                                                Beep()
+                                            End If
+
+                                            If RFin!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= 0)
+                                            If RFin!FTStaCheckLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= Val(RFin!FTLateMin.ToString))
+                                            If RFin!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_FNAbsent <= 0)
+                                            If RFin!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeaveOther)
+                                            If RFin!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeavacation)
+                                            If RFin!FTStaHoliday.ToString = "1" And _StatePass Then _StatePass = Not (_SPDateType = 0)
+                                            If RFin!FTStaCheckWorkTime.ToString = "1" And _StatePass Then
+                                                _StatePass = Not ((_FNTimeMin + _FNOT1_5Min + _FNOT3Min) < Val(RFin!FTCheckWorkTimeMin.ToString))
+                                            End If
+
+                                            If RFin!FTStaCheckLeave.ToString = "1" And _StatePass Then _StatePass = Not ((_SumLeave) < Val(RFin!FTLeaveMin.ToString))
+                                            If RFin!FTStaMaternityleaveNotpay.ToString = "1" And _StatePass Then _StatePass = Not (_StateFTStaMaternityleaveNotpay)
+
+                                            If RFin!FTOTTime.ToString <> "" And _StatePass Then
+                                                Dim _STime As String = (IIf(_Over > _OutOT, _ActualNextDate, _ActualDate)) & " " & _OutOT
+                                                Dim _ETime As String = (IIf(_Over > RFin!FTOTTime.ToString, _ActualNextDate, _ActualDate)) & " " & RFin!FTOTTime.ToString.Replace(".", ":")
+
+                                                If _STime.Length = _ETime.Length Then
+                                                    If IsDate(_STime) And IsDate(_ETime) Then
+                                                        If CDate(_STime) < CDate(_ETime) Or _InOT = "" Or _OutOT = "" Then
+                                                            _StatePass = False
+                                                        End If
+                                                    Else
+                                                        _StatePass = False
+                                                    End If
+                                                Else
+                                                    _StatePass = False
+                                                End If
+
+                                            End If
+
+                                            If _StatePass Then
+                                                _FCAdd = _FCAdd + Val(RFin!FCFinAmt.ToString)
+
+                                                If RFin!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + Val(RFin!FCFinAmt.ToString)
+                                                If RFin!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + Val(RFin!FCFinAmt.ToString)
+
+                                                If _DtFin.Select("FTFinCode='" & RFin!FTFinCode.ToString & "'").Length <= 0 Then
+                                                    _DtFin.Rows.Add(RFin!FTFinCode.ToString, Val(RFin!FCFinAmt.ToString))
+                                                Else
+                                                    For Each xRow As DataRow In _DtFin.Select("FTFinCode='" & RFin!FTFinCode.ToString & "'")
+                                                        xRow!FCTotalFinAmt = Val(xRow!FCTotalFinAmt) + Val(RFin!FCFinAmt.ToString)
+                                                    Next
+                                                End If
+
+                                            End If
+                                        Next
+                                    End If
+                                    '----------------- รายได้อื่นๆประจำวัน กรณีมาทำงาน---------------------
+                                End If
+                            Next
+
+                            _BFSDate = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddDay(_BFSDate, 1))
+
+                        Loop
+                    End If
+                End If
+                ' End If
+                '----------------- รายได้อื่นๆประจำวัน กรณีมาทำงาน---------------------
+
+
+
+                '-------------------------------------------------------------------------------------------
+                If _FTEmpState = "2" And Val(_PayTerm) Mod 2 = 0 Then
+                    For Each R2 As DataRow In _dtAddOtherAmt.Select("FTCalType<>'0' AND FTFinType='1' AND FTPayType='1' and FTFinCode<>'056'")
+                        Dim _StatePass As Boolean = True
+
+                        If R2!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_GFNLateNormalMin <= 0)
+                        If R2!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_GFNAbsent <= 0)
+                        If R2!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveOther <= 0)
+                        If R2!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveVacation <= 0)
+
+                        If _StatePass Then
+
+                            _FCAdd = _FCAdd + Val(R2!FCFinAmt.ToString)
+
+                            If R2!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + Val(R2!FCFinAmt.ToString)
+                            If R2!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + Val(R2!FCFinAmt.ToString)
+
+                            If _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'").Length <= 0 Then
+                                _DtFin.Rows.Add(R2!FTFinCode.ToString, Val(R2!FCFinAmt.ToString))
+                            Else
+                                For Each xRow As DataRow In _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'")
+                                    xRow!FCTotalFinAmt = Val(xRow!FCTotalFinAmt) + Val(R2!FCFinAmt.ToString)
+                                Next
+
+                            End If
+                        End If
+                    Next
+
+                ElseIf _FDDateEnd <> "" And _FDDateEnd < _EndDate Then
+                    For Each R2 As DataRow In _dtAddOtherAmt.Select("FTCalType<>'0' AND FTFinType='1' AND FTPayType='0' and FTFinCode='013' ")
+                        Dim _StatePass As Boolean = True
+
+                        If R2!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_GFNLateNormalMin <= 0)
+                        If R2!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_GFNAbsent <= 0)
+                        If R2!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveOther <= 0)
+                        If R2!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveVacation <= 0)
+
+                        If _StatePass Then
+
+                            _FCAdd = _FCAdd + ((Val(R2!FCFinAmt.ToString) / 13) * _WorkingDay)
+
+                            If R2!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + Val(R2!FCFinAmt.ToString)
+                            If R2!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + Val(R2!FCFinAmt.ToString)
+
+                            If _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'").Length <= 0 Then
+                                _DtFin.Rows.Add(R2!FTFinCode.ToString, ((Val(R2!FCFinAmt.ToString) / 13) * _WorkingDay))
+                            Else
+
+                                For Each xRow As DataRow In _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'")
+                                    xRow!FCTotalFinAmt = Val(xRow!FCTotalFinAmt) + ((Val(R2!FCFinAmt.ToString) / 13) * _WorkingDay)
+                                Next
+
+                            End If
+                        End If
+                    Next
+                ElseIf _FDDateEnd = "" Then
+                    For Each R2 As DataRow In _dtAddOtherAmt.Select("FTCalType<>'0' AND FTFinType='1' AND FTPayType='0' and FTFinCode='013' ")
+                        Dim _StatePass As Boolean = True
+
+                        If R2!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_GFNLateNormalMin <= 0)
+                        If R2!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_GFNAbsent <= 0)
+                        If R2!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveOther <= 0)
+                        If R2!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveVacation <= 0)
+
+                        If _StatePass Then
+
+                            _FCAdd = _FCAdd + Double.Parse(R2!FCFinAmt.ToString)
+
+                            If R2!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + Val(R2!FCFinAmt.ToString)
+                            If R2!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + Val(R2!FCFinAmt.ToString)
+
+                            If _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'").Length <= 0 Then
+                                _DtFin.Rows.Add(R2!FTFinCode.ToString, Double.Parse(R2!FCFinAmt.ToString))
+                            Else
+
+                                For Each xRow As DataRow In _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'")
+                                    xRow!FCTotalFinAmt = Val(xRow!FCTotalFinAmt) + Double.Parse(R2!FCFinAmt.ToString)
+                                Next
+
+                            End If
+                        End If
+                    Next
+                End If
+
+                For Each R2 As DataRow In _dtAddOtherAmt.Select("FTCalType<>'0' AND FTFinType='1' AND FTPayType='0'  and FTFinCode <> '013' and FTFinCode <> '057' ")
+                    Dim _StatePass As Boolean = True
+
+                    If R2!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_GFNLateNormalMin <= 0)
+                    If R2!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_GFNAbsent <= 0)
+                    If R2!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveOther <= 0)
+                    If R2!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveVacation <= 0)
+
+                    If _StatePass Then
+
+                        _FCAdd = _FCAdd + Val(R2!FCFinAmt.ToString)
+
+                        If R2!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + Val(R2!FCFinAmt.ToString)
+                        If R2!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + Val(R2!FCFinAmt.ToString)
+
+                        If _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'").Length <= 0 Then
+                            _DtFin.Rows.Add(R2!FTFinCode.ToString, Val(R2!FCFinAmt.ToString))
+                        Else
+
+                            For Each xRow As DataRow In _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'")
+                                xRow!FCTotalFinAmt = Val(xRow!FCTotalFinAmt) + Val(R2!FCFinAmt.ToString)
+                            Next
+
+                        End If
+                    End If
+                Next
+
+
+
+
+
+                Dim _TotalFuel As Double = 0 ''100000
+
+                Dim _worktime_before As Integer = 0
+
+
+                If _FTEmpState = "2" And Val(_PayTerm) Mod 2 = 0 Then
+                    For Each R2 As DataRow In _dtAddOtherAmt.Select("FTCalType='2' AND FTFinType='1' AND FTPayType='1'  and FTFinCode='056' ")
+                        _TotalFuel = Val(R2!FCFinAmt)
+                    Next
+
+
+                    _Qry = " SELECT  TOP 1 SUM(ISNULL(P.FNTotalWKN_Real_Min,0)) AS FNTotalWKN_Real_Min "
+
+
+
+                    _Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK), (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                    _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "AND ISNULL(P.FNTotalRecalSSO,0) > 0 "
+                    _Qry &= vbCrLf & "AND P.FNHSysEmpID =" & Integer.Parse(Val(_EmpCode)) & " "
+                    _Qry &= vbCrLf & " AND PD.FTPayTerm < '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                    _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+                    _Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                    _Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                    _Qry &= vbCrLf & "  Select FNMonth"
+                    _Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                    _Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                    _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                    _Qry &= vbCrLf & "  )  "
+
+                    _worktime_before = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, 0)
+
+                    _TotalFuel = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation + _worktime_before) / 480) * (_TotalFuel / 26)
+                    _FCAdd = _FCAdd + _TotalFuel
+
+
+                End If
+
+                ''20221004 get responsed header line
+                Dim inc As Integer = 0
+
+                _Qry = "   SELECT COUnT(FNHSysEmpID) as n  "
+                _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHeader   AS M WITH(NOLOCK)"
+                _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & "  AND M.FNHSysCmpID =  " & Val(HI.ST.SysInfo.CmpID)
+                _Qry &= vbCrLf & "  AND   M.FTDateTrans BETWEEN '" & HI.UL.ULDate.ConvertEnDB(_StartDate) & "' AND '" & (_EndDate) & "'"
+
+                inc = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, 0))
+
+                Dim DataIncentiveHeader As DataTable
+
+                Dim _Emp_IncenAmt As Double = 0
+                Dim _Emp_BonusAmt As Double = 0
+
+                If inc > 0 Then
+                    _Qry = "Exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.SP_CALCULATE_INCENTIVE_HEADER " & Val(_EmpCode) & "," & Val(HI.ST.SysInfo.CmpID) & ",'" & HI.UL.ULDate.ConvertEnDB(_StartDate) & "' , '" & (_EndDate) & "'"
+                    DataIncentiveHeader = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+
+                    Dim _BFSDate As String = HI.UL.ULDate.ConvertEnDB(_StartDate)
+                    Dim _BFEDate As String = HI.UL.ULDate.ConvertEnDB(_EndDate)
+
+                    If DataIncentiveHeader.Rows.Count > 0 Then
+
+
+
+                        If _BFSDate <> "" And _BFEDate <> "" Then
+
+                            _Qry = " 	SELECT  ISNULL(T.FNHSysShiftID,0) AS FTShift	, (ISNULL(FNTimeMin,0) + ISNULL(FNSpecialTimeMin,0) +ISNULL(FNLateNormalMin,0) ) - ( ISNULL(FNLateNormalCut,0 ) + ISNULL(FNAbsentCut,0 ))  AS FNTime"
+                            _Qry &= vbCrLf & " 	, ISNULL(T.FNNotRegis,0) As FNNotRegis 	, ISNULL(FNOT1,0) AS FNOT1"
+                            _Qry &= vbCrLf & " 	, ISNULL(FNOT1_5,0) AS FNOT1_5"
+                            _Qry &= vbCrLf & " 	, ISNULL(FNOT2,0 ) AS FNOT2  , ISNULL(FNOT3,0) AS FNOT3, ISNULL(FNOT4,0) AS FNOT4"
+                            _Qry &= vbCrLf & " 	, ISNULL(FNLateNormalMin,0) AS FNLateNormalMin, ISNULL(FNLateNormalCut,0 ) + ISNULL(FNAbsentCut,0 )  AS FNLateNormalCut"
+                            _Qry &= vbCrLf & " , ISNULL(FNLateOtMin,0) As FNLateOtMin,ISNULL(FNLateOtCut,0) As FNLateOtCut"
+                            _Qry &= vbCrLf & " , ISNULL(FNLateMMin,0) As FNLateMorning"
+                            _Qry &= vbCrLf & " 	, ISNULL(FNLateAfMin,0) AS FNLateAfternoon,Isnull(FNAbsentCut,0) AS FNAbsentCut "
+                            _Qry &= vbCrLf & " 	, ISNULL(FNAbsent,0) AS FNAbsent "
+                            _Qry &= vbCrLf & " ,(ISNULL(FNTimeMin,0) + ISNULL(FNSpecialTimeMin,0) +ISNULL(FNLateNormalMin,0) ) - ( ISNULL(FNLateNormalCut,0 ) + ISNULL(FNAbsentCut,0 ))  As FNTimeMin"
+                            _Qry &= vbCrLf & " ,ISNULL(FNTimeMin,0)  + ISNULL(FNSpecialTimeMin,0) As FNTimeMinOrg"
+                            _Qry &= vbCrLf & " , ISNULL(FNOT1Min,0) As FNOT1Min  "
+                            _Qry &= vbCrLf & " , ISNULL(FNOT1_5Min,0) As FNOT1_5Min "
+                            _Qry &= vbCrLf & " ,ISNULL(FNOT2Min,0) As FNOT2Min "
+                            _Qry &= vbCrLf & " , ISNULL(FNOT3Min,0) As FNOT3Min, ISNULL(FNOT4Min,0) As FNOT4Min "
+                            _Qry &= vbCrLf & " ,ISNULL( FNLateMMin,0) AS FNLateMMin "
+                            _Qry &= vbCrLf & " , ISNULL(FNLateAfMin,0) AS FNLateAfMin"
+                            _Qry &= vbCrLf & " , ISNULL(FNRetireMMin,0) AS FNRetireMMin "
+                            _Qry &= vbCrLf & " ,ISNULL(FNRetireAfMin,0 )  as FNRetireAfMin"
+                            _Qry &= vbCrLf & " , ISNULL(FNRetireNormalCut,0) As FNRetireNormalCut "
+                            _Qry &= vbCrLf & " , ISNULL(FNRetireOtMin,0) AS FNRetireOtMin"
+                            _Qry &= vbCrLf & " ,ISNULL(FNRetireOtCut,0) AS FNRetireOtCut,FTDateTrans"
+                            _Qry &= vbCrLf & " ,ISNULL(T.FTIn1,'') AS FTIn1"
+                            _Qry &= vbCrLf & " ,ISNULL(T.FTOut1,'') AS FTOut1"
+                            _Qry &= vbCrLf & " ,ISNULL(T.FTIn2,'') AS FTIn2"
+                            _Qry &= vbCrLf & " ,ISNULL(T.FTOut2,'') AS FTOut2"
+                            _Qry &= vbCrLf & " ,ISNULL(T.FTIn3,'') AS FTIn3"
+                            _Qry &= vbCrLf & " ,ISNULL(T.FTOut3,'') AS FTOut3"
+                            _Qry &= vbCrLf & ",P.FTOverClock"
+                            _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTrans AS T WITH(NOLOCK) LEFT OUTER JOIN "
+                            _Qry &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift AS P WITH(NOLOCK) ON T.FNHSysShiftID =P.FNHSysShiftID "
+                            _Qry &= vbCrLf & "  WHERE(T.FNHSysEmpID =" & Val(_EmpCode) & " )"
+                            _Qry &= vbCrLf & " 	And T.FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_BFSDate) & "' "
+                            _Qry &= vbCrLf & " 	AND T.FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_BFEDate) & "' "
+
+                            _dttran = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                            Do While _BFSDate <= _BFEDate
+                                _FTShift = ""
+                                Dim _InOT As String = "" : Dim _OutOT As String = "" : Dim _Over As String = ""
+                                Dim _R() As DataRow = _dttran.Select("FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_BFSDate) & "'")
+                                For Each R2 In _R
+                                    _FNTimeMin = 0
+                                    _FNOT1Min = 0
+                                    _FNTimeMin = IIf(Val(R2!FNTimeMinOrg.ToString) < 0, 0, Val(R2!FNTimeMinOrg.ToString))
+                                    _FNOT1Min = Val(R2!FNOT1Min.ToString)
+
+                                    For Each RFin As DataRow In DataIncentiveHeader.Select("ftcalDate='" & HI.UL.ULDate.ConvertEnDB(_BFSDate) & "'")
+
+                                        _Emp_IncenAmt = _Emp_IncenAmt + Val(RFin!Emp_IncenAmt_perMin) * (_FNTimeMin + _FNOT1Min)
+                                        _Emp_BonusAmt = _Emp_BonusAmt + Val(RFin!Emp_BonusAmt_perMin) * (_FNTimeMin + _FNOT1Min)
+
+                                    Next
+                                Next
+                                _BFSDate = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddDay(_BFSDate, 1))
+
+                            Loop
+
+
+                        End If
+
+                    End If
+
+                End If
+                _FNIncentiveAmt = _Emp_IncenAmt
+                _BonusAmt = _Emp_BonusAmt
+                '' _FCAdd = _FCAdd + _Emp_IncenAmt
+                ''_FCAdd = _FCAdd + _Emp_BonusAmt
+
+
+
+
+                Dim _TotalMoneyMeal As Double = 0
+                _ShiftValue = 0
+                ''เงินอุดหนุนค่าอาหาร
+                ''For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='053'")
+
+
+                _TotalMoneyMeal = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * _FNMoneyMeal
+                _FCAdd = _FCAdd + _TotalMoneyMeal
+                '_FTAddCalculateTax = _FTAddCalculateTax + _TotalMoneyMeal
+                '_FTAddCalculateSocial = _FTAddCalculateSocial + _TotalMoneyMeal
+                ''  _AmtAddCalOT = _AmtAddCalOT + _ShiftValue
+
+                ''_DtFin.Rows.Add("053", Val(_TotalMoneyMeal))
+
+                ''Next
+
+                ''เงินอายุงาน
+                '_FTAddCalculateTax = _FTAddCalculateTax + _FNWorkAgeSalary
+                '_FTAddCalculateSocial = _FTAddCalculateSocial + _FNWorkAgeSalary
+                ''_FCAdd = _FCAdd + _FNWorkAgeSalary
+                ''_DtFin.Rows.Add("054", Val(_FNWorkAgeSalary))
+
+
+                ''เงินเบี้ยขยัน
+
+                Dim _FNDeligent_La_rate As Double = 0
+
+                _Qry = "SELECT TOP 1 FTCfgData FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig WHERE FTCfgName='CfgDeligent_La_rate_M'"
+                _FNDeligent_La_rate = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "0"))
+
+                'MsgBox("_GFNTimeMin_Real_After_Probation" & _GFNTimeMin_Real_After_Probation)
+                'MsgBox("_GFNLeaveVacation" & _GFNLeaveVacation)
+                'MsgBox("_FCSalary" & _FCSalary)
+                'MsgBox("_FNDeligent_La_rate" & _FNDeligent_La_rate)
+                Dim _TotalDeligent_La As Double = 0
+                If _FNDeligent_La_rate > 0 Then
+                    _TotalDeligent_La = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * (CDbl(Format((_FCSalary) / 26, "0.0000000")) * _FNDeligent_La_rate)
+                    _FCAdd = _FCAdd + _TotalDeligent_La
+                End If
+                'MsgBox(CDbl(Format((_FCSalary) / 26, "0.0000000")))
+                'MsgBox("_TotalDeligent_La" & _TotalDeligent_La)
+                'Dim _TotalDeligent_La As Double = 0
+
+                '_TotalDeligent_La = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * (CDbl(Format((_FCSalary) / 26, "0.0000000")) * 0.1)
+                '_FCAdd = _FCAdd + _TotalDeligent_La
+                '_FTAddCalculateTax = _FTAddCalculateTax + _TotalDeligent_La
+                '_FTAddCalculateSocial = _FTAddCalculateSocial + _TotalDeligent_La
+
+                ''_DtFin.Rows.Add("059", Val(_TotalDeligent_La))
+
+
+                ''เงินทักษะ
+                Dim _TotalMoneySkill As Double = 0
+                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='043'")
+                    _TotalMoneySkill = Val(RFin!FCFinAmt)
+                Next
+                _TotalMoneySkill = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * _TotalMoneySkill
+                _FCAdd = _FCAdd + _TotalMoneySkill
+
+
+                ''เงินทักษะเย็บ
+                Dim _TotalMoneySkill_Sew As Double = 0
+                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='057'")
+                    _TotalMoneySkill_Sew = Val(RFin!FCFinAmt)
+                Next
+                _TotalMoneySkill_Sew = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * _TotalMoneySkill_Sew
+                _FCAdd = _FCAdd + _TotalMoneySkill_Sew
+
+
+
+
+
+                ''16.	ค่าจูงใจตำแหน่ง : เงินหัวหน้าทีมแผนกเย็บ(กัปตัน)   
+                Dim _TotalMoneyHeaderCapton As Double = 0
+                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='061'")
+                    _TotalMoneyHeaderCapton = Val(RFin!FCFinAmt)
+                Next
+                _TotalMoneyHeaderCapton = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * _TotalMoneyHeaderCapton
+                _FCAdd = _FCAdd + _TotalMoneyHeaderCapton
+
+                ''17.	เงินค่าจูงใจ กลุ่มพนักงานสนับสนุนแผนกเย็บ  
+                Dim _TotalMoneySupport_Sew As Double = 0
+                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='062'")
+                    _TotalMoneySupport_Sew = Val(RFin!FCFinAmt)
+                Next
+                _TotalMoneySupport_Sew = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * _TotalMoneySupport_Sew
+                _FCAdd = _FCAdd + _TotalMoneySupport_Sew
+
+
+                ''18.	ค่าจูงใจตำแหน่ง : เงินพนักงานช่างซ่อมจักร 
+                Dim _TotalMoneySeviceMachine As Double = 0
+                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='063'")
+                    _TotalMoneySeviceMachine = Val(RFin!FCFinAmt)
+                Next
+                _TotalMoneySeviceMachine = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * _TotalMoneySeviceMachine
+                _FCAdd = _FCAdd + _TotalMoneySeviceMachine
+
+                ''20.	ค่าจูงใจตำแหน่ง : เงินพนักงาน QA 
+                Dim _TotalMoneySkill_QA As Double = 0
+                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='064'")
+                    _TotalMoneySkill_QA = Val(RFin!FCFinAmt)
+                Next
+                _TotalMoneySkill_QA = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * _TotalMoneySkill_QA
+                _FCAdd = _FCAdd + _TotalMoneySkill_QA
+
+
+
+
+
+
+
+
+                For Each R2 As DataRow In _dtAddOtherAmt.Select(" FTFinType='2'")
+
+                    _FCDeduct = _FCDeduct + Val(R2!FCFinAmt.ToString)
+
+
+                Next
+                '---------รายได้รายหัก อื่นๆ-------------------------
+
+                '------------------- สิ้นสุดการคำนวณรายวัน
+                _FTWorkmenAmtBefore = 0
+                _FTTotalCalWorkmenBefore = 0
+
+                '_Qry = " SELECT  TOP 1 SUM(ISNULL(P.FNTotalRecalSSO,0)) AS FCSocial"
+                '_Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSocial,0)) AS FCSocialAmt"
+                '_Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK), (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                '_Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                '_Qry &= vbCrLf & "AND ISNULL(P.FNTotalRecalSSO,0) > 0 "
+                '_Qry &= vbCrLf & "AND P.FTEmpIdNo ='" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' "
+                '_Qry &= vbCrLf & " AND PD.FTPayTerm < '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                '_Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+                '_Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                '_Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                '_Qry &= vbCrLf & "  Select FNMonth"
+                '_Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                '_Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                '_Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                '_Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                '_Qry &= vbCrLf & "  )  "
+
+                'Dim _DtSso As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                'If _DtSso.Rows.Count > 0 Then
+                '    _SocialBefore = Val(_DtSso.Rows(0)!FCSocial.ToString)
+                '    _SocialBeforeAmt = Val(_DtSso.Rows(0)!FCSocialAmt.ToString)
+                'End If
+
+                'If _FTEmpState = "2" Or _FTEmpState = "3" Then
+
+
+                '    '_FNEmpBaht = CDbl(Format((_FCSalary), "0.000"))
+                '    'If _FTEmpState = "3" Then
+                '    '    _FNEmpBaht = CDbl(Format((_FCSalary) / 2, "0.000"))
+
+                '    'End If
+
+
+                '    If FTStaDeductAbsent = 0 Then
+                '        _FNEmpBaht = _FNEmpBaht - (_LaNotpaid + _LateCutAmt + _LateCutAmtAbsent) '+ _nBahtAbsent
+                '    Else
+                '        _nBahtAbsent = 0
+                '        _FNEmpBaht = _FNEmpBaht - (_LaNotpaid + _LateCutAmt + _LateCutAmtAbsent)
+                '    End If
+
+
+                '    If _FNEmpBaht < 0 Then _FNEmpBaht = 0
+
+
+
+                'End If
+
+                If _FTEmpState = "2" Or _FTEmpState = "3" Then
+
+                    If (_FDDateEnd <> "" And _FDDateEnd <= _FTEndCalculateDate) Or _FDDateStart > _StartDate Then ''ลาออกระหว่างงวด ''เริ่มงานระหว่างงวด 
+                        ''ค่าแรงเแพราะวันทำงานจริง
+                    Else
+                        If FTStaDeductAbsent = 0 Then
+                            '_FNEmpBaht = _FNEmpBaht - (_LaNotpaid + _LateCutAmt + _LateCutAmtAbsent + _nBahtAbsent)
+                            _FNEmpBaht = _FNEmpBaht - (_LaNotpaid + _LateCutAmt + _LateCutAmtAbsent + _nBahtAbsent)
+                        Else
+                            _nBahtAbsent = 0
+                            _FNEmpBaht = _FNEmpBaht - (_LaNotpaid + _LateCutAmt + _LateCutAmtAbsent)
+                        End If
+
+                        If _FNEmpBaht < 0 Then _FNEmpBaht = 0
+                    End If
+
+
+
+
+
+                End If
+
+                _TotalCalTax = 0 : _TaxAmt = 0
+
+                FNUnionAmt = 0
+                'FNUnionRate = HI.Conn.SQLConn.GetField("SELECT Top 1  Isnull(FNUnionAmt,0) AS FNUnionAmt  FROM   " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRMCfgWelfareKM with(nolock) Where FNHSysEmpTypeId =" & Val(_EmpType), Conn.DB.DataBaseName.DB_HR, "0")
+                'If FNUnionRate > 0 Then
+
+                '    Dim _StatePass As Boolean = True
+
+                '    If _FDDateEnd <> "" And _EndDate < _FDDateEnd Then
+                '        _StatePass = False
+                '    End If
+                '    If Not (FNStateUnionMember = "1") Then _StatePass = False
+
+                '    'If _WorkAge <= 0 Then
+                '    '    _StatePass = False
+                '    'Else
+                '    '    If FDStartDateUnion < _StartDate Then
+
+                '    '    End If
+                '    'End If
+
+                '    If Not (Val(_PayTerm) Mod 2 = 0) Then
+                '        _StatePass = False
+                '    End If
+
+                '    If _StatePass Then
+                '        ''  _FCDeduct = _FCDeduct + FNUnionRate
+                '        FNUnionAmt = FNUnionRate
+                '    End If
+
+                'End If
+
+                '_TotalCalSso = Double.Parse(Format(_FNEmpBaht + _HBaht + _FTOtherAddCalculateSocial + _FTAddCalculateSocial + _GtotalleavePayCalSsoAmt, "0.00"))
+                '_TotalCalSso = _TotalCalSso + Double.Parse(Format(_FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS, "0.00"))
+
+
+                '  _FTAddCalculateTax = _FTAddCalculateTax + _ShiftAmt + _ShiftOTAmt
+
+                _HBaht = 0
+                'If _FNDay > 0 Then
+                '    _FNEmpBaht = _FNEmpBaht - (_FCDeductSourceVacationBaht + _Lapaid + FNPayLeaveBusinessBaht + FNPayLeaveSickBaht)
+                'Else ''กรณีไม่มาทำงาน แต่มีลาป่วย
+                '    _FNEmpBaht = _FNEmpBaht - (_FCDeductSourceVacationBaht + _Lapaid + FNPayLeaveBusinessBaht)  ''FNPayLeaveSickBaht จะมีค่าเงิน
+                'End If
+
+                _FNEmpBaht = _FNEmpBaht - (_FCDeductSourceVacationBaht + _Lapaid + FNPayLeaveBusinessBaht + FNPayLeaveSickBaht)
+
+                If _FNEmpBaht < 0 Then
+                    _FNEmpBaht = 0
+                End If
+
+
+
+
+
+
+
+
+                _FCAdd = _FCAdd + _ShiftAmt + _ShiftOTAmt
+
+                If _FTEmpState = "2" Or _FTEmpState = "3" Then
+
+
+                    _TotalCalSso = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateSocial + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS) - (_FCOtherDeduct + _FCDeduct + 0), "0.000"))
+                    _TotalCalTax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeaveReCalTax) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNWorkAgeSalary) - (_FCOtherDeduct + _FCDeduct + 0), "0.000"))
+
+                Else
+                    _TotalCalSso = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateSocial + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS) - (_FCOtherDeduct + _FCDeduct + 0), "0.000"))
+                    _TotalCalTax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeaveReCalTax) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNWorkAgeSalary) - (_FCOtherDeduct + _FCDeduct + 0), "0.000"))
 
 
 
@@ -35002,7 +40841,9 @@ Public NotInheritable Class Calculate
 
 
 
-                _tmpTotalincome = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FCOtherAdd + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS + _BonusAmt) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+                Dim _tmpTotalincome_for_tax As Double = 0
+
+                _tmpTotalincome = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FCOtherAdd + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS + _BonusAmt) - (_FCOtherDeduct + _FCDeduct + 0), "0.000"))
 
                 _tmpTotalNetPay = (_tmpTotalincome - (FTContributedAmt))
 
@@ -35010,7 +40851,11 @@ Public NotInheritable Class Calculate
 
 
 
-                _Net = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FCOtherAdd + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS + _BonusAmt) - (_FCOtherDeduct + _FCDeduct), "0.00"))
+                _Net = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FCOtherAdd + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS + _BonusAmt) - (_FCOtherDeduct + _FCDeduct + 0), "0.00"))
+
+                '' best edit _tmpTotalincome_for_tax with out sick leave 
+                _tmpTotalincome_for_tax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FCOtherAdd + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS + _BonusAmt) - (_FCOtherDeduct + _FCDeduct + 0), "0.00"))
+
                 _FCBaht = _FNEmpBaht + _nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4
 
 
@@ -35025,37 +40870,54 @@ Public NotInheritable Class Calculate
 
 
 
+
+
                 Dim _FCTotalRecalTaxBefore As Double = 0
                 Dim _FCTaxAmtBefore As Double = 0
-                Dim _TotalCalTaxAll As Double = 0
+
+                Dim _nBahtOt1Before As Double = 0
+                Dim _nBahtOt15Before As Double = 0
+                Dim _nBahtOt2Before As Double = 0
+                Dim _nBahtOt3Before As Double = 0
+                Dim _nBahtOt4Before As Double = 0
+
+                Dim _FNTotalIncome_before As Double = 0
+
+                Dim _SocialBeforeAmtCmp As Double = 0
 
 
+                Dim _FNSickLeaveBaht_before As Double = 0
 
-                Dim _FCOt1_Baht_Amt As Double = 0
-                Dim _FCOt15_Baht_Amt As Double = 0
-                Dim _FCOt2_Baht_Amt As Double = 0
-                Dim _FCOt3_Baht_Amt As Double = 0
-                Dim _FCOt4_Baht_Amt As Double = 0
+                Dim _FNFinNotCalTax As Double = 0
 
 
+                ''_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4
 
-                _Qry = " SELECT  TOP 1 SUM(ISNULL(P.FNTotalRecalSSO,0)) AS FCSocial "
-                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSocial,0)) AS FCSocialAmt "
-
-                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTotalRecalTax,0)) AS FCTotalRecalTax "
-                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTax,0)) AS FCTaxAmt "
+                '_Qry &= vbCrLf & " , FCBaht, FCOt1_Baht"
+                '_Qry &= vbCrLf & ",FCOt15_Baht, FCOt2_Baht, FCOt3_Baht,FCOt4_Baht
 
 
-                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt1_Baht,0)) AS FCOt1_Baht "
-                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt15_Baht,0)) AS FCOt15_Baht "
-                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt2_Baht,0)) AS FCOt2_Baht "
-                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt3_Baht,0)) AS FCOt3_Baht "
-                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt4_Baht,0)) AS FCOt4_Baht "
+                _Qry = " SELECT  TOP 1 SUM(ISNULL(P.FNTotalRecalSSO,0)) AS FCSocial"
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSocial,0)) AS FCSocialAmt"
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSocialCmp,0)) AS FCSocialAmtCmp"
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTotalIncome,0)) AS FNTotalIncome "
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTotalRecalTax,0)) AS FCTotalRecalTax"
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTax,0)) AS FCTaxAmt"
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt1_Baht,0)) AS FCOt1_BahtAmt"
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt15_Baht,0)) AS FCOt15_BahtAmt"
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt2_Baht,0)) AS FCOt2_BahtAmt"
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt3_Baht,0)) AS FCOt3_BahtAmt"
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt4_Baht,0)) AS FCOt4_BahtAmt"
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSickLeaveBaht,0)) AS FNSickLeaveBaht"
 
 
                 _Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK), (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
                 _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
-                _Qry &= vbCrLf & "AND ISNULL(P.FNTotalRecalSSO,0) > 0 "
+                _Qry &= vbCrLf & "AND ISNULL(P.FNTotalIncome,0) > 0 "
                 _Qry &= vbCrLf & "AND P.FNHSysEmpID =" & Integer.Parse(Val(_EmpCode)) & " "
                 _Qry &= vbCrLf & " AND PD.FTPayTerm < '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
                 _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
@@ -35073,8 +40935,4205 @@ Public NotInheritable Class Calculate
                     _SocialBefore = Val(_DtSso.Rows(0)!FCSocial.ToString)
                     _SocialBeforeAmt = Val(_DtSso.Rows(0)!FCSocialAmt.ToString)
 
+                    _SocialBeforeAmtCmp = Val(_DtSso.Rows(0)!FCSocialAmtCmp.ToString)
+
+
+                    _FNTotalIncome_before = Val(_DtSso.Rows(0)!FNTotalIncome.ToString)
+                    '' MsgBox("_FNTotalIncome_before" & _FNTotalIncome_before.ToString)
+
+                    _FNSickLeaveBaht_before = Val(_DtSso.Rows(0)!FNSickLeaveBaht.ToString)
+
                     _FCTotalRecalTaxBefore = Val(_DtSso.Rows(0)!FCTotalRecalTax.ToString)
                     _FCTaxAmtBefore = Val(_DtSso.Rows(0)!FCTaxAmt.ToString)
+
+
+                    _nBahtOt1Before = Val(_DtSso.Rows(0)!FCOt1_BahtAmt.ToString)
+                    _nBahtOt15Before = Val(_DtSso.Rows(0)!FCOt15_BahtAmt.ToString)
+                    _nBahtOt2Before = Val(_DtSso.Rows(0)!FCOt2_BahtAmt.ToString)
+                    _nBahtOt3Before = Val(_DtSso.Rows(0)!FCOt3_BahtAmt.ToString)
+                    _nBahtOt4Before = Val(_DtSso.Rows(0)!FCOt4_BahtAmt.ToString)
+
+
+                End If
+
+
+
+                _Qry = " SELECT SUM(P.FCTotalFinAmt) as FCTotalFinAmt   "
+                _Qry &= vbCrLf & "FROM THRTPayRollFin P WITH (NOLOCK), (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+
+
+                _Qry &= vbCrLf & " AND P.FTFinCode in (SELECT  FTFinCode FROM [dbo].[THRMFinanceSet] WHERE   FTStaActive = 1 and FTStaTax=0 and FNHSysCmpId = " & Val(HI.ST.SysInfo.CmpID) & ")"
+
+                _Qry &= vbCrLf & "AND P.FNHSysEmpID =" & Integer.Parse(Val(_EmpCode)) & " "
+                _Qry &= vbCrLf & " AND PD.FTPayTerm < '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+
+                _Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                _Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                _Qry &= vbCrLf & "  Select FNMonth"
+                _Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                _Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                _Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                _Qry &= vbCrLf & "  )  "
+
+                _FNFinNotCalTax = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, 0)
+
+
+
+                If _FTCalSocialSta <> "1" Then ' 1 ไม่่คิดประกันสังคม
+
+                    If (_TotalCalSso + _SocialBefore) >= _SocialMaxIncome Then
+                        _CalSo = _SocialMaxIncome
+                    ElseIf (_TotalCalSso + _SocialBefore) < _SocialMaxIncome And (_TotalCalSso + _SocialBefore) >= _SocialMinIncome Then
+                        _CalSo = (_TotalCalSso + _SocialBefore)
+                    ElseIf _TotalCalSso > 0 Then
+                        _CalSo = _SocialMinIncome
+                    Else
+                        _CalSo = 0
+                    End If
+
+                    If _SocialBefore > 0 Then
+                        _FCSocial = CDbl(Format(CDbl(Format((((_CalSo) * _SocialRate) / 100.0), "0.00")), "0"))
+                        _FCSocial = IIf(_SocialBeforeAmt > _FCSocial, 0, _FCSocial - _SocialBeforeAmt)
+
+                        _FCSocialCmp = CDbl(Format(CDbl(Format((((_CalSo) * _SocialRateCmp) / 100.0), "0.00")), "0"))
+                        _FCSocialCmp = IIf(_SocialBeforeAmt > _FCSocialCmp, 0, _FCSocialCmp - _SocialBeforeAmtCmp)
+                    Else
+                        _FCSocial = CDbl(Format(CDbl(Format((((_CalSo) * _SocialRate) / 100.0), "0.00")), "0"))
+                        _FCSocialCmp = CDbl(Format(CDbl(Format((((_CalSo) * _SocialRateCmp) / 100.0), "0.00")), "0"))
+                    End If
+
+                Else
+                    _TotalCalSso = 0
+                End If
+
+                Dim _TotalCalTax_Sum As Double
+
+                '_TotalCalTax_Sum = Format(((_Net + _SocialBefore) - (_FCSocial + _SocialBeforeAmt)), "0")
+
+                '_TotalCalTax = Format((_Net - (_FCSocial)), "0")
+
+                '' best edit 20230610  totalincome for cal tax  with out sick leave 
+
+
+                'MsgBox("_tmpTotalincome_for_tax" & _tmpTotalincome_for_tax.ToString)
+                'MsgBox("_SocialBefore" & _SocialBefore.ToString)
+                'MsgBox("_FCSocial" & _FCSocial.ToString)
+                'MsgBox("_SocialBeforeAmt" & _SocialBeforeAmt.ToString)
+                'MsgBox("_FNSickLeaveBaht_before" & _FNSickLeaveBaht_before.ToString)
+
+
+                ''_TotalCalTax_Sum = Format(((_tmpTotalincome_for_tax + _FNTotalIncome_before) - (_FCSocial + _SocialBeforeAmt + _FNSickLeaveBaht_before)), "0")
+                _TotalCalTax_Sum = Format(((_tmpTotalincome_for_tax + _FNTotalIncome_before) - (_FCSocial + _SocialBeforeAmt + _FNFinNotCalTax)), "0")
+
+                _TotalCalTax = Format((_tmpTotalincome_for_tax - (_FCSocial)), "0")
+
+
+
+                If _FTCalTaxSta <> "1" Then
+
+                    'With _EmpDisTax
+                    '    .FTSosial = _FCAccumulateSocial + _FCSocial + (_FCSocial * (_TotalInstalment - _Instalment))
+
+                    '    If .FTSosial > (((_SocialMaxIncome * _SocialRate) / 100.0) * 12) Then
+                    '        .FTSosial = CDbl(Format((((_SocialMaxIncome * _SocialRate) / 100.0) * 12), "0.00"))
+                    '    End If
+
+                    '    .BaseSlary = (_TotalCalTax * (_TotalInstalment - _Instalment)) + _TotalCalTax
+                    '    .OtherSlary = _FTOtherAddCalculateTax + _FTAddCalculateTax + _FNEmpDiligent + _nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4
+                    '    .Cfg_ContributedDeducToTheFund = .Cfg_ContributedDeducToTheFund + FTContributedAmt + (FTContributedAmt * (_TotalInstalment - _Instalment))
+
+                    'End With
+
+                    '_TotalCalTax = _TotalCalTax + _EmpDisTax.OtherSlary
+                    Dim _TaxOther As Double = _EmpDisTax.OtherSlary
+                    Dim _TaxOtherAmt As Double = 0
+                    Dim _Total As Double = 0
+                    GETnRecalDiscTax(_EmpDisTax, _EmpTaxYear)
+
+
+                    ''สิ้นเดือน
+                    If Val(_PayTerm) Mod 2 = 0 Then
+
+                        'MsgBox("_TotalCalTax_Sum" & _TotalCalTax_Sum.ToString)
+                        'MsgBox("_FCTotalRecalTaxBefore" & _FCTotalRecalTaxBefore.ToString)
+
+
+
+
+                        'If (_TotalCalTax_Sum > 2000000) Then
+                        _Total = _TotalCalTax_Sum    ''เงินรวมทั้งเดือน หักประกันสังคมแล้ว
+                        _Total = Math.Round(Val(_Total), 0)
+
+                        _TotalCalTax = (_TotalCalTax_Sum) - (_FCTotalRecalTaxBefore + _EmpTaxYear.FTModEmp)
+                        _Total = _TotalCalTax
+                        'Else
+
+
+                        '    _TotalCalTax = _TotalCalTax - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4)
+
+                        '    _Total = _TotalCalTax_Sum - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _nBahtOt1Before + _nBahtOt15Before + _nBahtOt2Before + _nBahtOt3Before + _nBahtOt4Before)
+
+                        '    _Total = Math.Round(Val(_Total), 0)
+
+                        'End If
+
+
+                        'MsgBox("_Total" & _Total.ToString)
+                        'MsgBox("_TotalCalTax" & _TotalCalTax.ToString)
+
+                    Else
+                        'If (_TotalCalTax_Sum > 2000000) Then
+                        _TotalCalTax = (_TotalCalTax_Sum) - (_FCTotalRecalTaxBefore + _EmpTaxYear.FTModEmp)
+
+                        _Total = _TotalCalTax
+                        _Total = Math.Round(Val(_Total), 0)
+
+                        'Else
+                        '    _Total = _TotalCalTax - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4)
+                        '    _Total = Math.Round(Val(_Total), 0)
+                        '    _TotalCalTax = _TotalCalTax - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4)
+
+                        'End If
+                    End If
+
+
+
+
+                    '_EmpTaxYear.FTSocial = _EmpDisTax.FTSosial
+
+                    '_EmpTaxYear.FTTotalCalTax = _Total
+
+
+                    Dim _TotalTax As Double = GETnTax(_Total, _TaxOther, _TaxOtherAmt)
+
+
+
+                    _EmpTaxYear.FTTotalTax = (_TotalTax + _TaxOtherAmt) 'ภาษีที่ต้องจ่าย
+
+                    '_TotalTax = CDbl(Format(_TotalTax - _EmpDisTax.BeforeTax, "0.00"))
+
+                    _TotalTax = CDbl(Format(_TotalTax - _FCTaxAmtBefore, "0"))
+
+
+                    If _TotalTax > 0 Then
+                        _TaxAmt = CDbl(Format((_TotalTax), "0"))
+                        _TaxAmt = _TaxAmt + _TaxOtherAmt
+                    Else
+                        _TaxAmt = 0
+                    End If
+
+                    _EmpTaxYear.FTTotalTaxPay = _FCAccumulateTax + _TaxAmt
+
+                Else
+
+                    _TotalCalTax = 0
+                    _TaxAmt = 0
+
+                End If
+
+
+
+
+                _FNNetpay = Format((_Net - (_FCSocial + FTContributedAmt + _TaxAmt + 0)), "0.00")
+
+
+                _FNNetpayOrg = _FNNetpay
+
+                '_DiffTotalincome = _Net - _tmpTotalincome
+                '_DiffTotalNetPay = _FNNetpay - _tmpTotalNetPay
+
+                If _tmpTotalincome <= 0 Then
+                    _FNServicefee = 0
+                    _FNFinTransFee = 0
+                    _tmpTotalincome = 0
+                    _tmpTotalNetPay = 0
+                    _Net = 0
+                    _FCBaht = 0
+                    _FNNetpay = 0
+                    _FNNetpayOrg = 0
+                    _DiffTotalincome = 0
+                    _DiffTotalNetPay = 0
+                End If
+
+
+                _FNNetpay = CDbl(Format((_FNNetpay), "0"))
+
+
+                If _FNNetpay > 0 Then
+
+
+
+                    Dim a As Integer = 0
+
+                    a = _FNNetpay.ToString.Length
+
+                    Dim amt1 As Integer = 0
+                    Dim amt2 As Integer = 0
+                    Dim amtAdd As Integer = 0
+                    If a > 3 Then
+
+                        amt2 = Right(_FNNetpay, 3)
+
+                        If (amt2 > 500) Then
+
+                            amtAdd = 1000
+                        Else
+                            amtAdd = 500
+                        End If
+
+                        _FNNetpay = (_FNNetpay + amtAdd) - amt2
+                    Else
+                        amt2 = _FNNetpay
+
+                        If (amt2 > 500) Then
+
+                            amtAdd = 1000
+                        Else
+                            amtAdd = 500
+                        End If
+
+                        _FNNetpay = amtAdd
+
+                    End If
+                End If
+
+
+
+                _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+                _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+                _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+                _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+                _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                _Qry = "	INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll (FTInsUser, FTInsDate, FTInsTime,"
+                _Qry &= vbCrLf & "   FTPayYear, FTPayTerm, FNHSysEmpID, FTEmpIdNo,FTEmpIdNo1,FTSocialNo,"
+                _Qry &= vbCrLf & "   FNHSysEmpTypeId, FTPayDate"
+                _Qry &= vbCrLf & ",FNHSysDeptId, FNHSysDivisonId, FNHSysSectId, FNHSysUnitSectId, FNHSysPositId,  FNHSysPayRollPayId"
+                _Qry &= vbCrLf & " , FNHSysBankId, FNHSysBankBranchId, FTAccNo, FNHoliday"
+                _Qry &= vbCrLf & "   ,FNSalary, FNWorkingHour"
+                _Qry &= vbCrLf & "   ,FNOt1, FNOt15, FNOt2, FNOt3,FNOt4"
+                _Qry &= vbCrLf & ", FNTotalLeavePay, FNTotalLeaveNotPay, FNTotalLeave"
+                _Qry &= vbCrLf & ",FNTotalWKNMin,  FNOt1Min, FNOt15Min, FNOt2Min"
+                _Qry &= vbCrLf & ", FNOt3Min, FNOt4Min, FNTotalLateMin, FNLateCutMin, FNLateCutAbsentMin"
+                _Qry &= vbCrLf & ",  FNAbsentMin, FNTotalWKMin, FNTotalLeavePayMin, FNTotalLeaveNotPayMin, FNTotalLeaveMin"
+                _Qry &= vbCrLf & " , FCBaht, FCOt1_Baht"
+                _Qry &= vbCrLf & ",FCOt15_Baht, FCOt2_Baht, FCOt3_Baht,FCOt4_Baht,FCNetBaht"
+                _Qry &= vbCrLf & ", FNDiligentBaht, FNPayLeaveVacationBaht, FNPayLeaveOtherBaht "
+                _Qry &= vbCrLf & ", FNLateCutAmt, FNLateCutAbsentAmt,FNAbsentAmt, FNTotalRecalSSO, FNTotalRecalTAX"
+                _Qry &= vbCrLf & ", FNTotalAdd,FNTotalAddOther, FNTotalExpense, FNTotalExpenseOther, FNTotalIncome "
+                _Qry &= vbCrLf & ",FNSocial, FNTax, FHolidayBaht, FNNetpay, FNAccumulateIncomeYear"
+                _Qry &= vbCrLf & ", FNAccumulateSocialYear, FNAccumulateTax, FTStateInDustin"
+                _Qry &= vbCrLf & ",FNTotalCalContributedAmt,FNContributedAmt,FNCmpContributedAmt,FNTotalCalWorkmen,FNWorkmenAmt ,FNAmtRetire"
+                _Qry &= vbCrLf & ",FNPayLeaveSSo,FNWorkingDay,FNAdjBeforeCal,FNIncentiveAmt,FNNetpayOrg"
+                _Qry &= vbCrLf & ", FNAttandanceAmt, FNHealtCareAmt, "
+                _Qry &= vbCrLf & " FNTransportAmt, FNChildCareAmt, FNOTMealAmt, FNSocialBase, FNWorkAgeSalary, FNOTMealAmtUS, FNExchangeRate, FNSickLeaveBaht, FNSickLeaveMin, FNBusinessLeaveBaht, FNBusinessLeaveMin,"
+                _Qry &= vbCrLf & "FNSpecialLeaveBaht, FNSpecialLeaveMin, FNParturitionLeaveBaht, FNParturitionLeaveMin, FNVacationRetMin, FNVacationRetAmt,FNExchangeRateTHB"
+                _Qry &= vbCrLf & ",FNWorkDay,FTStateCalSocial,FTStateCalTax,FNTotalIncomeDiff,FNNetpayDiff,FNSocialExchangeRate,FNTaxExchangeRate , FNServicefee ,FNFinTransFee,FNSocialInsuranceEmployee , FNSocialInsuranceEmployer, FNUnionInsuranceEmployee , FNTotalWKN_Real_Min , FNSocialRateEmp,FNSocialRateCmp,FNSocialCmp )"
+                _Qry &= vbCrLf & " 	SELECT '" & HI.UL.ULF.rpQuoted(_User) & "',CONVERT(varchar(10),GetDate(),111),CONVERT(varchar(8),GetDate(),114)"
+                _Qry &= vbCrLf & " 	,'" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ""
+                _Qry &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "','" & HI.UL.ULF.rpQuoted(_FTEmpIdNo1) & "','" & HI.UL.ULF.rpQuoted(_FTSocialNo) & "','" & _EmpType & "','" & HI.UL.ULDate.ConvertEnDB(_PayDate) & "'"
+                _Qry &= vbCrLf & " 	," & Val(_FTDeptCode) & ""
+                _Qry &= vbCrLf & " 	," & Val(_FTDivCode) & " "
+                _Qry &= vbCrLf & " 	," & Val(_FTSectCode) & " "
+                _Qry &= vbCrLf & " 	," & Val(_FTUnitCode) & " "
+                _Qry &= vbCrLf & " 	," & Val(_FTPos) & " "
+                _Qry &= vbCrLf & " 	," & Val(_FTPaymentCode) & " "
+                _Qry &= vbCrLf & " 	," & Val(_FTBankCode) & " "
+                _Qry &= vbCrLf & " 	," & Val(_FTBranchCode) & " "
+                _Qry &= vbCrLf & " 	,N'" & HI.UL.ULF.rpQuoted(_FTAccNo) & "'," & _TotalHoliDay & ""
+                _Qry &= vbCrLf & " 	," & _FCSalary & ""
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2), " & _GFNTimeMin & " / 60) + Convert(numeric(18,2),(( " & _GFNTimeMin & " %60) /100.00)) "
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2), " & _GFNOT1Min & " / 60) + Convert(numeric(18,2),(( " & _GFNOT1Min & "  %60) /100.00))"
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2), " & _GFNOT1_5Min & " / 60) + Convert(numeric(18,2),(( " & _GFNOT1_5Min & "  %60) /100.00))"
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2), " & _GFNOT2Min & " / 60) + Convert(numeric(18,2),(( " & _GFNOT2Min & " %60) /100.00))"
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2)," & _GFNOT3Min & " / 60) + Convert(numeric(18,2),(( " & _GFNOT3Min & " %60) /100.00))"
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2),  " & _GFNOT4Min & " / 60) + Convert(numeric(18,2),(( " & _GFNOT4Min & " %60) /100.00))"
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2),  " & _GtotalleavePay & " / 60) + Convert(numeric(18,2),(( " & _GtotalleavePay & " %60) /100.00))"
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2),  " & _GtotalleaveNotPay & " / 60) + Convert(numeric(18,2),(( " & _GtotalleaveNotPay & " %60) /100.00))"
+                _Qry &= vbCrLf & " 	,Convert(numeric(18,2),  " & _Gtotalleave & " / 60) + Convert(numeric(18,2),(( " & _Gtotalleave & " %60) /100.00))"
+                _Qry &= vbCrLf & " 	, " & _GFNTimeMin
+                _Qry &= vbCrLf & " 	, " & _GFNOT1Min
+                _Qry &= vbCrLf & " 	, " & _GFNOT1_5Min
+                _Qry &= vbCrLf & ", " & _GFNOT2Min
+                _Qry &= vbCrLf & "," & _GFNOT3Min
+                _Qry &= vbCrLf & ",  " & _GFNOT4Min
+                _Qry &= vbCrLf & ",  " & _GFNLateNormalMin
+                _Qry &= vbCrLf & ",  " & _GFNLateNormalCut
+                _Qry &= vbCrLf & ",  " & _GFNCutAbsent
+                _Qry &= vbCrLf & ",  " & _GFNAbsent & "," & (_GFNTimeMin + _GFNOT1Min + _GFNOT1_5Min + _GFNOT2Min + _GFNOT3Min + _GFNOT4Min)
+                _Qry &= vbCrLf & ",  " & _GtotalleavePay
+                _Qry &= vbCrLf & ", " & _GtotalleaveNotPay
+                _Qry &= vbCrLf & ", " & _Gtotalleave
+                _Qry &= vbCrLf & ", " & _FNEmpBaht & " "
+                _Qry &= vbCrLf & ", " & _nBahtOt1 & " "
+                _Qry &= vbCrLf & "," & _nBahtOt15 & " "
+                _Qry &= vbCrLf & "," & _nBahtOt2 & " "
+                _Qry &= vbCrLf & "," & _nBahtOt3 & " "
+                _Qry &= vbCrLf & "," & _nBahtOt4 & " "
+                _Qry &= vbCrLf & "," & (_FNEmpBaht + _nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FNIncentiveAmt + _BonusAmt) & " "
+                _Qry &= vbCrLf & "," & _FNEmpDiligent & " "
+                _Qry &= vbCrLf & "," & _FCPayVacationBaht & " "
+                _Qry &= vbCrLf & "," & _Lapaid & " "
+                _Qry &= vbCrLf & "," & _LateCutAmt & " "
+                _Qry &= vbCrLf & "," & _LateCutAmtAbsent & " "
+                _Qry &= vbCrLf & "," & _nBahtAbsent & " "
+                _Qry &= vbCrLf & "," & _TotalCalSso & " "
+                _Qry &= vbCrLf & "," & _TotalCalTax & " "
+                _Qry &= vbCrLf & "," & _FCAdd & " "
+                _Qry &= vbCrLf & "," & _FCOtherAdd & " "
+                _Qry &= vbCrLf & "," & _FCDeduct & " "
+                _Qry &= vbCrLf & "," & _FCOtherDeduct & " "
+                _Qry &= vbCrLf & "," & _tmpTotalincome & " "
+                _Qry &= vbCrLf & "," & _FCSocial & " "
+                _Qry &= vbCrLf & "," & _TaxAmt & " "
+                _Qry &= vbCrLf & "," & _HBaht & " "
+                _Qry &= vbCrLf & "," & (_FNNetpay) & ""
+                _Qry &= vbCrLf & "," & (_Net + _FCAccumulateIncome) & ""
+                _Qry &= vbCrLf & "," & (_FCSocial + _FCAccumulateSocial) & ""
+                _Qry &= vbCrLf & "," & (_TaxAmt + _FCAccumulateTax) & ""
+                _Qry &= vbCrLf & ",'" & _FTStateInDustin & "' "
+                _Qry &= vbCrLf & "," & (FTTotalCalContributedAmt) & ""
+                _Qry &= vbCrLf & "," & (FTContributedAmt) & ""
+                _Qry &= vbCrLf & "," & (FTCmpContributedAmt) & ""
+                _Qry &= vbCrLf & "," & (FTTotalCalWorkmen) & ""
+                _Qry &= vbCrLf & "," & (FTWorkmenAmt) & ""
+                _Qry &= vbCrLf & "," & _AmtRetire & ""
+                _Qry &= vbCrLf & "," & _GtotalleavePayCalSsoAmt & ""
+                _Qry &= vbCrLf & "," & _WorkingDay & " "
+                _Qry &= vbCrLf & "," & _WageAdjAdd & ""
+                _Qry &= vbCrLf & "," & _FNIncentiveAmt & ""
+                _Qry &= vbCrLf & "," & _FNNetpayOrg & ""
+                _Qry &= vbCrLf & "," & _FNNetAttandanceAmt & ""
+                _Qry &= vbCrLf & "," & _FNHealtCareAmt & ""
+                _Qry &= vbCrLf & "," & _FNTransportAmt & ""
+                _Qry &= vbCrLf & "," & _FNNetChildCareAmt & ""
+                _Qry &= vbCrLf & "," & _FNNetOTMealAmt & ""
+                _Qry &= vbCrLf & "," & _FNSocialBase & ""
+                _Qry &= vbCrLf & "," & _FNWorkAgeSalary & ""
+                _Qry &= vbCrLf & "," & _FNNetOTMealAmtUS & ""
+                _Qry &= vbCrLf & "," & _FNExchangeRate & ""
+                _Qry &= vbCrLf & "," & FNPayLeaveSickBaht & ""
+                _Qry &= vbCrLf & "," & GFNPayLeaveSickBahtMin & ""
+                _Qry &= vbCrLf & "," & FNPayLeaveBusinessBaht & ""
+                _Qry &= vbCrLf & "," & GFNPayLeaveBusinessBahtMin & ""
+                _Qry &= vbCrLf & "," & FNPayLeaveSpecialBaht & ""
+                _Qry &= vbCrLf & "," & GFNPayLeaveSpecialBahtMin & ""
+                _Qry &= vbCrLf & "," & FNParturitionLeave & ""
+                _Qry &= vbCrLf & "," & GFNParturitionLeaveMin & ""
+                _Qry &= vbCrLf & "," & FNVacationRetMin & ""
+                _Qry &= vbCrLf & "," & FNVacationRetAmt & ""
+                _Qry &= vbCrLf & "," & _FNExchangeRateTHB & ""
+                _Qry &= vbCrLf & "," & FNWorkDayInWeek & ""
+                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTCalSocialSta) & "'"
+                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTCalTaxSta) & "'"
+                _Qry &= vbCrLf & "," & _DiffTotalincome & ""
+                _Qry &= vbCrLf & "," & _DiffTotalNetPay & ""
+                _Qry &= vbCrLf & "," & SocialExchangeRate & ""
+                _Qry &= vbCrLf & "," & TaxExchangeRate & ""
+                _Qry &= vbCrLf & "," & _FNServicefee
+                _Qry &= vbCrLf & "," & _FNFinTransFee
+                _Qry &= vbCrLf & "," & FNSocialInsuranceEmployee
+                _Qry &= vbCrLf & "," & FNSocialInsuranceEmployer
+                _Qry &= vbCrLf & "," & FNUnionAmt
+                _Qry &= vbCrLf & "," & _GFNTimeMin_Real_After_Probation + _GFNLeaveVacation
+                _Qry &= vbCrLf & "," & _SocialRate & " "
+                _Qry &= vbCrLf & "," & _SocialRateCmp & " "
+                _Qry &= vbCrLf & "," & _FCSocialCmp & " "
+
+
+                '  , FNVacationRetMin, FNVacationRetAmt
+                '_FNNetpayOrg
+                HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+
+
+
+                If _FTCalTaxSta <> "1" And _FTEmpIdNo <> "" Then
+                    '-----------------------------ภาษี -----------------------------------------------------
+                    _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTaxYear "
+                    _Qry &= vbCrLf & "  WHERE FTYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & "  AND  FTEmpIdNo='" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' AND FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " "
+                    _Qry &= vbCrLf & "  INSERT INTO THRTTaxYear (FNHSysCmpId,FTYear, FTEmpIdNo, FNAmt, FNExpenses, FNNetAmt, "
+                    _Qry &= vbCrLf & "  FNModEmp, FNModMate, FNChildNotLern, FNChildLern, FNChildNotLernAmt, FNChildLernAmt, FNInsurance, FNProvidentfund, FNInterest, FNSocial, FNDonation, "
+                    _Qry &= vbCrLf & "  FNProvidentfundOver, FNGPF, FNSavingsFund, FNCommutation, FNUnitRMF, FNModFather, FNModMother, FNModFatherMate, FNModMotherMate, FNUnitLTF, "
+                    _Qry &= vbCrLf & "  FNDonationLern, FNParentsHealthInsurance, FNSupportSport, FNAcquisitionOfProperty, FNPension, FNTravel, FNTotalCalTax, FNTotalTax,FNTotalTaxPay )"
+                    _Qry &= vbCrLf & "  SELECT " & HI.ST.SysInfo.CmpID & ",'" & _PayYear & "','" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' "
+
+                    With _EmpTaxYear
+
+                        _Qry &= vbCrLf & "," & .FTAmt & " "
+                        _Qry &= vbCrLf & "," & .FTExpenses & ""
+                        _Qry &= vbCrLf & "," & .FTNetAmt & ""
+                        _Qry &= vbCrLf & "," & .FTModEmp & ""
+                        _Qry &= vbCrLf & "," & .FTModMate & ""
+                        _Qry &= vbCrLf & "," & .FNChildNotLern & ""
+                        _Qry &= vbCrLf & "," & .FNChildLern & " "
+                        _Qry &= vbCrLf & "," & .FTChildNotLern & ""
+                        _Qry &= vbCrLf & "," & .FTChildLern & ""
+                        _Qry &= vbCrLf & "," & .FTInsurance & ""
+                        _Qry &= vbCrLf & "," & .FTProvidentfund & ""
+                        _Qry &= vbCrLf & "," & .FTInterest & ""
+                        _Qry &= vbCrLf & "," & .FTSocial & ""
+                        _Qry &= vbCrLf & "," & .FTDonation & ""
+                        _Qry &= vbCrLf & "," & .FTProvidentfundOver & ""
+                        _Qry &= vbCrLf & "," & .FTGPF & ""
+                        _Qry &= vbCrLf & "," & .FTSavingsFund & ""
+                        _Qry &= vbCrLf & "," & .FTCommutation & ""
+                        _Qry &= vbCrLf & "," & .FTUnitRMF & ""
+                        _Qry &= vbCrLf & "," & .FTModFather & ""
+                        _Qry &= vbCrLf & "," & .FTModMother & ""
+                        _Qry &= vbCrLf & "," & .FTModFatherMate & ""
+                        _Qry &= vbCrLf & "," & .FTModMotherMate & ""
+                        _Qry &= vbCrLf & "," & .FTUnitLTF & ""
+                        _Qry &= vbCrLf & "," & .FTDonationLern & ""
+                        _Qry &= vbCrLf & "," & .FTParentsHealthInsurance & ""
+                        _Qry &= vbCrLf & "," & .FTSupportSport & ""
+                        _Qry &= vbCrLf & "," & .FTAcquisitionOfProperty & ""
+                        _Qry &= vbCrLf & "," & .FTPension & ""
+                        _Qry &= vbCrLf & "," & .FTTravel & ""
+                        _Qry &= vbCrLf & "," & .FTTotalCalTax & ""
+                        _Qry &= vbCrLf & "," & .FTTotalTax & ""
+                        _Qry &= vbCrLf & "," & .FTTotalTaxPay & ""
+
+                    End With
+
+                    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                    '----------------------------- ภาษี -----------------------------------------------------
+                End If
+
+                '-----------------------------รายได้อื่นๆ -----------------------------------------------------
+
+                _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+                _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                Dim _AllFincode As String = ""
+
+                For Each _R As DataRow In _DtFin.Rows
+                    _AllFincode = _R!FTFincode.ToString
+
+                    _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode,FCFin, FCFinAmt,FCFinAmtOther,FCTotalFinAmt)"
+                    _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "',FNHSysEmpID,  FTFinCode, FTFinAmt," & _R!FCTotalFinAmt.ToString & ",0," & _R!FCTotalFinAmt.ToString & ""
+                    _Qry &= vbCrLf & " FROM  THRMEmployeeFin "
+                    _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND  FTFinCode = ('" & _AllFincode & "') "
+
+                    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                Next
+
+                For Each _R As DataRow In _dt.Select("FCFinAmt<>0")
+                    _AllFincode = _R!FTFincode.ToString
+
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_R!FCFinAmt.ToString) & " "
+                    _Qry &= vbCrLf & " ,FCFinAmtOther=" & _R!FCFinAmt.ToString & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='" & _AllFincode & "' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode,FCFin, FCFinAmt,FCFinAmtOther,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ",'" & _AllFincode & "',0, 0," & _R!FCFinAmt.ToString & "," & _R!FCFinAmt.ToString & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                    End If
+
+                Next
+
+                _FCAdd = _FCAdd + _Emp_IncenAmt
+                _FCAdd = _FCAdd + _Emp_BonusAmt
+
+
+                '''----------- incentive-------------------------------
+
+
+                'If _Emp_IncenAmt > 0 Then
+                '    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                '    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_Emp_IncenAmt.ToString) & " "
+                '    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                '    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                '    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                '    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                '    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                '    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                '    _Qry &= vbCrLf & " AND FTFinCode='011' "
+
+                '    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                '        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                '        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '011'," & _Emp_IncenAmt & "," & _Emp_IncenAmt & ""
+
+                '        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                '    End If
+                'End If
+
+
+                ''----------- incentive--Bonus-----------------------------
+                'If _Emp_BonusAmt > 0 Then
+                '    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                '    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_Emp_BonusAmt.ToString) & " "
+                '    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                '    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                '    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                '    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                '    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                '    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                '    _Qry &= vbCrLf & " AND FTFinCode='008' "
+
+                '    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                '        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                '        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '008'," & _Emp_BonusAmt & "," & _Emp_BonusAmt & ""
+
+                '        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                '    End If
+                'End If
+
+
+                ''----------- เงินคืนพักร้อน-------------------------------
+                ''เงินน้ำมัน
+
+                If _TotalFuel > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalFuel.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='056' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '056'," & _TotalFuel & "," & _TotalFuel & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                ''เงินเพิ่มอื่นๆ
+
+                If _TotalMoneyMeal > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalMoneyMeal.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='053' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '053'," & _TotalMoneyMeal & "," & _TotalMoneyMeal & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _FNWorkAgeSalary > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_FNWorkAgeSalary.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='054' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '054'," & _FNWorkAgeSalary & "," & _FNWorkAgeSalary & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _TotalDeligent_La > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalDeligent_La.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='059' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '059'," & _TotalDeligent_La & "," & _TotalDeligent_La & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+
+                If _ShiftAmt > 0 Then
+
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_ShiftAmt.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='001' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '001'," & _ShiftValue.ToString & "," & _ShiftAmt.ToString & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+
+                End If
+
+                If _ShiftOTAmt > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_ShiftOTAmt.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='007' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '007'," & _ShiftOTValue.ToString & "," & _ShiftOTAmt.ToString & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _SeniorityAmt > 0 Then
+
+                    Dim _xFinCode As String = "046"
+                    If (_FTStateWorkpermit = "1") Then
+                        _xFinCode = "047"
+                    End If
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_SeniorityAmt.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='" & _xFinCode & "' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '" & _xFinCode & "'," & _SeniorityAmt.ToString & "," & _SeniorityAmt.ToString & ""
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+
+                End If
+
+                If _BonusAmt > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_BonusAmt.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='008' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '008'," & _BonusAmt.ToString & "," & _BonusAmt.ToString & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _FNIncentiveAmt > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_FNIncentiveAmt.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='011' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '011'," & _FNIncentiveAmt.ToString & "," & _FNIncentiveAmt.ToString & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+
+                If _TotalMoneySkill > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalMoneySkill.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='043' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '043'," & Val(_TotalMoneySkill.ToString) & "," & Val(_TotalMoneySkill.ToString) & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _TotalMoneySkill_Sew > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalMoneySkill_Sew.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='057' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '057'," & Val(_TotalMoneySkill_Sew.ToString) & "," & Val(_TotalMoneySkill_Sew.ToString) & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _TotalMoneyHeaderCapton > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalMoneyHeaderCapton.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='061' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '061'," & Val(_TotalMoneyHeaderCapton.ToString) & "," & Val(_TotalMoneyHeaderCapton.ToString) & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _TotalMoneySupport_Sew > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalMoneySupport_Sew.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='062' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '062'," & Val(_TotalMoneySupport_Sew.ToString) & "," & Val(_TotalMoneySupport_Sew.ToString) & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _TotalMoneySeviceMachine > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalMoneySeviceMachine.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='063' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '063'," & Val(_TotalMoneySeviceMachine.ToString) & "," & Val(_TotalMoneySeviceMachine.ToString) & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+                If _TotalMoneySkill_QA > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_TotalMoneySkill_QA.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='064' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '064'," & Val(_TotalMoneySkill_QA.ToString) & "," & Val(_TotalMoneySkill_QA.ToString) & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+
+
+                If FNUnionAmt > 0 Then
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(FNUnionAmt.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    _Qry &= vbCrLf & " AND FTFinCode='108' "
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                        _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '108'," & Val(FNUnionAmt.ToString) & "," & Val(FNUnionAmt.ToString) & ""
+
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    End If
+                End If
+
+
+                If _FNEmpDiligent > 0 Then
+
+                    _Qry = " Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+                    _Qry &= vbCrLf & " SET FCTotalFinAmt=FCTotalFinAmt+" & Val(_FNEmpDiligent.ToString) & " "
+                    _Qry &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " WHERE FTPayYear='" & _PayYear & "' "
+                    _Qry &= vbCrLf & " AND FTPayTerm='" & _PayTerm & "' "
+                    _Qry &= vbCrLf & " AND FNHSysEmpID=" & Val(_EmpCode) & " "
+                    If _FNDeligentPeriod = 0 Then
+                        _Qry &= vbCrLf & " AND FTFinCode='008' "
+                    Else
+                        _Qry &= vbCrLf & " AND FTFinCode='009' "
+
+                    End If
+
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR) = False Then
+                        If _FNDeligentPeriod = 0 Then
+                            _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                            _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '008'," & _FNEmpDiligent.ToString & "," & _FNEmpDiligent.ToString & ""
+
+                            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                        Else
+
+                            _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin (FTPayYear, FTPayTerm, FNHSysEmpID,   FTFinCode, FCFinAmt,FCTotalFinAmt)"
+                            _Qry &= vbCrLf & " SELECT  '" & _PayYear & "','" & _PayTerm & "'," & Val(_EmpCode) & ", '009'," & _FNEmpDiligent.ToString & "," & _FNEmpDiligent.ToString & ""
+
+                            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                        End If
+                    End If
+
+                End If
+
+
+                ''----------- เงินคืนพักร้อน-------------------------------
+
+                _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollLeave "
+                _Qry &= vbCrLf & " WHERE   FNHSysEmpID=" & Val(_EmpCode) & " "
+                _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+                _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+                HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                _Qry = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollLeave (FTPayYear, FTPayTerm, FNHSysEmpID, FTLeaveType, FNTotalHour, FNTotalMinute, FNTotalPayHour, FNTotalPayMinute, FNTotalNotPayHour,FNTotalNotPayMinute)"
+                _Qry &= vbCrLf & "  SELECT      '" & _PayYear & "','" & _PayTerm & "',FNHSysEmpID,  FTLeaveType,Convert(numeric(18,2), Sum(FNTotalMinute) / 60) + Convert(numeric(18,2),((Sum(FNTotalMinute) %60) /100.00)) , "
+                _Qry &= vbCrLf & "  Sum(FNTotalMinute), Convert(numeric(18,2), Sum(FNTotalPayMinute) / 60) + Convert(numeric(18,2),((Sum(FNTotalPayMinute) %60) /100.00)), Sum(FNTotalPayMinute),  Convert(numeric(18,2),Sum(FNTotalNotPayMinute) / 60) + Convert(numeric(18,2),((Sum(FNTotalNotPayMinute) %60) /100.00)), SUM(FNTotalNotPayMinute)"
+                _Qry &= vbCrLf & "  FROM THRTTransLeave "
+                _Qry &= vbCrLf & " WHERE        (FNHSysEmpID = '" & Val(_EmpCode) & "') "
+                _Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_StartDate) & "' "
+                _Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_EndDate) & "' "
+                _Qry &= vbCrLf & "  GROUP BY   FNHSysEmpID, FTLeaveType"
+
+                HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+            End If
+
+
+
+
+
+
+
+
+            _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollCalculate "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+            _Qry &= vbCrLf & "  	INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollCalculate (FTInsUser, FTInsDate, FTInsTime,"
+            _Qry &= vbCrLf & "   FTPayYear, FTPayTerm, FNHSysEmpID, FTEmpIdNo,"
+            _Qry &= vbCrLf & "   FNHSysEmpTypeId, FTPayDate"
+            _Qry &= vbCrLf & ",FNHSysDeptId, FNHSysDivisonId, FNHSysSectId, FNHSysUnitSectId, FNHSysPositId, FNHSysPayRollPayId"
+            _Qry &= vbCrLf & " , FNHSysBankId, FNHSysBankBranchId, FTAccNo, FNHoliday"
+            _Qry &= vbCrLf & "   ,FNSalary, FNWorkingHour"
+            _Qry &= vbCrLf & "   ,FNOt1, FNOt15, FNOt2, FNOt3,FNOt4"
+            _Qry &= vbCrLf & ", FNTotalLeavePay, FNTotalLeaveNotPay, FNTotalLeave"
+            _Qry &= vbCrLf & ",FNTotalWKNMin, FNOt1Min, FNOt15Min, FNOt2Min"
+            _Qry &= vbCrLf & ", FNOt3Min, FNOt4Min, FNTotalLateMin, FNLateCutMin, FNLateCutAbsentMin"
+            _Qry &= vbCrLf & ",  FNAbsentMin, FNTotalWKMin, FNTotalLeavePayMin, FNTotalLeaveNotPayMin, FNTotalLeaveMin"
+            _Qry &= vbCrLf & " , FCBaht, FCOt1_Baht"
+            _Qry &= vbCrLf & ",FCOt15_Baht, FCOt2_Baht, FCOt3_Baht,FCOt4_Baht,FCNetBaht"
+            _Qry &= vbCrLf & ", FNDiligentBaht, FNPayLeaveVacationBaht, FNPayLeaveOtherBaht "
+            _Qry &= vbCrLf & ", FNLateCutAmt, FNLateCutAbsentAmt,FNAbsentAmt, FNTotalRecalSSO, FNTotalRecalTAX"
+            _Qry &= vbCrLf & ", FNTotalAdd,FNTotalAddOther, FNTotalExpense, FNTotalExpenseOther, FNTotalIncome "
+            _Qry &= vbCrLf & ",FNSocial, FNTax, FHolidayBaht, FNNetpay, FNAccumulateIncomeYear"
+            _Qry &= vbCrLf & ", FNAccumulateSocialYear, FNAccumulateTax, FTStateInDustin"
+            _Qry &= vbCrLf & ",FNTotalCalContributedAmt,FNContributedAmt,FNCmpContributedAmt,FNTotalCalWorkmen,FNWorkmenAmt ,FNAmtRetire"
+            _Qry &= vbCrLf & ",FNPayLeaveSSo,FNWorkingDay,FNAdjBeforeCal,FNIncentiveAmt,FNNetpayOrg"
+            _Qry &= vbCrLf & ", FNAttandanceAmt, FNHealtCareAmt, "
+            _Qry &= vbCrLf & " FNTransportAmt, FNChildCareAmt, FNOTMealAmt, FNSocialBase, FNWorkAgeSalary, FNOTMealAmtUS, FNExchangeRate, FNSickLeaveBaht, FNSickLeaveMin, FNBusinessLeaveBaht, FNBusinessLeaveMin,"
+            _Qry &= vbCrLf & " FNSpecialLeaveBaht, FNSpecialLeaveMin, FNParturitionLeaveBaht, FNParturitionLeaveMin , FNVacationRetMin, FNVacationRetAmt,FNExchangeRateTHB"
+            _Qry &= vbCrLf & ",FNWorkDay,FTStateCalSocial,FTStateCalTax,FNTotalIncomeDiff,FNNetpayDiff,FNSocialExchangeRate,FNTaxExchangeRate)"
+            _Qry &= vbCrLf & " SELECT TOP 1  FTInsUser, FTInsDate, FTInsTime,"
+            _Qry &= vbCrLf & "   FTPayYear, FTPayTerm, FNHSysEmpID, FTEmpIdNo,"
+            _Qry &= vbCrLf & "   FNHSysEmpTypeId, FTPayDate"
+            _Qry &= vbCrLf & ",FNHSysDeptId, FNHSysDivisonId, FNHSysSectId, FNHSysUnitSectId, FNHSysPositId, FNHSysPayRollPayId"
+            _Qry &= vbCrLf & " , FNHSysBankId, FNHSysBankBranchId, FTAccNo, FNHoliday"
+            _Qry &= vbCrLf & "   ,FNSalary, FNWorkingHour"
+            _Qry &= vbCrLf & "   ,FNOt1, FNOt15, FNOt2, FNOt3,FNOt4"
+            _Qry &= vbCrLf & ", FNTotalLeavePay, FNTotalLeaveNotPay, FNTotalLeave"
+            _Qry &= vbCrLf & ",FNTotalWKNMin, FNOt1Min, FNOt15Min, FNOt2Min"
+            _Qry &= vbCrLf & ", FNOt3Min, FNOt4Min, FNTotalLateMin, FNLateCutMin, FNLateCutAbsentMin"
+            _Qry &= vbCrLf & ",  FNAbsentMin, FNTotalWKMin, FNTotalLeavePayMin, FNTotalLeaveNotPayMin, FNTotalLeaveMin"
+            _Qry &= vbCrLf & " , FCBaht, FCOt1_Baht"
+            _Qry &= vbCrLf & ",FCOt15_Baht, FCOt2_Baht, FCOt3_Baht,FCOt4_Baht,FCNetBaht"
+            _Qry &= vbCrLf & ", FNDiligentBaht, FNPayLeaveVacationBaht, FNPayLeaveOtherBaht "
+            _Qry &= vbCrLf & ", FNLateCutAmt, FNLateCutAbsentAmt,FNAbsentAmt, FNTotalRecalSSO, FNTotalRecalTAX"
+            _Qry &= vbCrLf & ", FNTotalAdd,FNTotalAddOther, FNTotalExpense, FNTotalExpenseOther, FNTotalIncome "
+            _Qry &= vbCrLf & ",FNSocial, FNTax, FHolidayBaht, FNNetpay, FNAccumulateIncomeYear"
+            _Qry &= vbCrLf & ", FNAccumulateSocialYear, FNAccumulateTax, FTStateInDustin"
+            _Qry &= vbCrLf & ",FNTotalCalContributedAmt,FNContributedAmt,FNCmpContributedAmt,FNTotalCalWorkmen,FNWorkmenAmt ,FNAmtRetire"
+            _Qry &= vbCrLf & ",FNPayLeaveSSo,FNWorkingDay,FNAdjBeforeCal,FNIncentiveAmt,FNNetpayOrg"
+            _Qry &= vbCrLf & ", FNAttandanceAmt, FNHealtCareAmt, "
+            _Qry &= vbCrLf & "FNTransportAmt, FNChildCareAmt, FNOTMealAmt, FNSocialBase, FNWorkAgeSalary, FNOTMealAmtUS, FNExchangeRate, FNSickLeaveBaht, FNSickLeaveMin, FNBusinessLeaveBaht, FNBusinessLeaveMin,"
+            _Qry &= vbCrLf & "FNSpecialLeaveBaht, FNSpecialLeaveMin, FNParturitionLeaveBaht, FNParturitionLeaveMin , FNVacationRetMin, FNVacationRetAmt,FNExchangeRateTHB"
+            _Qry &= vbCrLf & ",FNWorkDay,FTStateCalSocial,FTStateCalTax,FNTotalIncomeDiff,FNNetpayDiff,FNSocialExchangeRate,FNTaxExchangeRate"
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+
+            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+            _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFinCalculate "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+            _Qry &= vbCrLf & " INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFinCalculate (FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode,FCFin, FCFinAmt,FCFinAmtOther,FCTotalFinAmt)"
+            _Qry &= vbCrLf & " SELECT FTPayYear, FTPayTerm, FNHSysEmpID,  FTFinCode,FCFin, FCFinAmt,FCFinAmtOther,FCTotalFinAmt "
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+
+            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+            _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTManageCalculate "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+            _Qry &= vbCrLf & " INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTManageCalculate ( FTPayYear, FTPayTerm, FNHSysEmpID, FTFinCode, FCFinAmt, FNDay)"
+            _Qry &= vbCrLf & " SELECT  FTPayYear, FTPayTerm, FNHSysEmpID, FTFinCode, FCFinAmt, FNDay "
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTManage "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(_EmpCode) & " "
+            _Qry &= vbCrLf & " AND FTPayYear='" & _PayYear & "' "
+            _Qry &= vbCrLf & " AND  FTPayTerm='" & _PayTerm & "' "
+
+            HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+        Next
+
+        Return True
+
+    End Function
+
+    Public Shared Function CalculateWeekEnd_LA2_Daily(ByVal _User As String, ByVal _EmpCode As String,
+        ByVal _EmpType As String, ByVal _StartDate As String, ByVal _EndDate As String, ByVal _PayYear As String,
+        ByVal _PayTerm As String, ByVal _PayDate As String, ByVal _CalIns As String, ByVal _EmpCalType As String,
+        Optional ByVal _StateCalRetire As Boolean = False, Optional ByVal _ReturnVacation As Double = 0,
+        Optional FTStaDeductAbsent As Integer = 0, Optional FTStaCalPayRoll As Integer = 0, Optional FNStateSalaryType As Integer = 0,
+        Optional _FNExchangeRate As Double = 0, Optional _FNExchangeRateTHB As Double = 0, Optional FNWorkDayInWeek As Integer = 13,
+        Optional FNWorkDayInMonth As Integer = 26, Optional FNWorkDayInWeekBF As Integer = 0, Optional SocialExchangeRate As Double = 0, Optional TaxExchangeRate As Double = 0) As Boolean
+
+        '----------------------------------   Variable  ------------------------------------
+        Thread.CurrentThread.CurrentCulture = New CultureInfo("en-US", True)
+        Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy"
+        Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortTimePattern = "HH:mm:ss"
+
+        Dim CountDayPerMonth As Integer = FNWorkDayInMonth
+        Dim _Qry As String
+        Dim _dt As DataTable
+        Dim _dttemp As DataTable
+        Dim _dttran As DataTable
+        Dim _SalaryDevide As Integer = 0
+        Dim FNVacationRetMin, FNVacationRetAmt, FNVacationPerDayLapaid As Double
+
+
+        Dim _SsoBefore As Double = 0
+        Dim _SsoBeforeAmt As Double = 0
+
+        Dim _InsuranceEmpyeeBefore As Double = 0
+        Dim _InsuranceEmpyerBefore As Double = 0
+
+        Dim _DtFin As New DataTable
+        _DtFin.Columns.Add("FTFinCode", GetType(String))
+        _DtFin.Columns.Add("FCTotalFinAmt", GetType(String))
+        Dim _SeniorityAmt As Double = 0
+        Dim _Err As Integer, _Complete As Integer, _ActualDate As String
+        Dim _FCSalary As Double, _FDDateStart As String
+        Dim _FDDateEnd As String
+        Dim _FTPaymentCode As String, _FTBankCode As String, _FNChildNotLearn As Double
+        Dim _FCReduceDonate As Double, _FCLifeInsurance As Double
+        Dim _FCLoanHouse As Double
+        Dim _FCShare As Double, _FCReduceFather As Double, _FCReduceMother As Double
+        Dim _FCReSpouseFather As Double, _FCReSpouseMother As Double, _FCReduceEducationSupport As Double, _FTMarryIncome As String
+        Dim _FTCalSocialSta As String, _FTCalTaxSta As String
+        Dim _FTDeptCode As String, _FTSectCode As String, _FTUnitCode As String
+        Dim _FTEmpIdNo As String, _FTEmpIdNo1 As String, _FTSocialNo As String, _FTBranchCode As String, _FTAccNo As String, _FCLifeFeeMoney As Double
+        Dim _FCOtherAdd As Double, _FTOtherAddCalculateSocial As String, _FTOtherAddCalculateTax As String
+        Dim _FCOtherAddOt As Double, _FTOtherAddOtCalculateSocial As String, _FTOtherAddOtCalculateTax As String, _FCBFShiftMoney As Double
+        Dim _FTShiftMoneyCalculateSocial As String, _FTShiftMoneyCalculateTax As String, _FCDiligent As Double
+        Dim _FTDiligentCalculateSocial As String, _FTDiligentCalculateTax As String, _FCBonusEndYear As Double
+        Dim _FTBonusEndCalculateSocial As String, _FCOtherDeduct As Double, _FTBonusEndCalculateTax As String
+        Dim _FCShelter As Double, _FTShelterCalculateSocial As String, _FTShelterCalculateTax As String
+        Dim _FCShareFactory As Double, _FTShareFactoryCalculateSocial As String
+        Dim FNPayLeaveBusinessBaht, FNPayLeaveSickBaht, FNPayLeaveSpecialBaht, FNParturitionLeave As Double, FNParturitionLeaveReCalTax, FNPayLeaveAccidentBaht As Double
+        Dim FNPayLeaveBusinessBahtMin, FNPayLeaveSickBahtMin, FNPayLeaveSpecialBahtMin, FNParturitionLeaveMin, FNPayLeaveAccidentBahtMin As Double
+        Dim GFNPayLeaveBusinessBahtMin, GFNPayLeaveSickBahtMin, GFNPayLeaveSpecialBahtMin, GFNParturitionLeaveMin, GFNPayLeaveAccidentBahtMin As Integer
+
+
+        Dim _FTShift As String
+        Dim _FNTime, _FNNotRegis As Double
+        Dim _FNOT1 As Double, _FNOT1_5 As Double, _FNOT2 As Double, _FNOT3, _FNOT4 As Double
+        Dim _FNLeaveVacation As Double, _FNLateNormalMin As Double
+        Dim _FNLateNormalCut As Double, _FNLateOtMin As Double, _FNLateOtCut As Double
+        Dim _FNLateMorning As Double, _FNLateAfternoon As Double, _FNAbsent As Double
+        Dim _FNLeavePay, _FNLeaveNotPay As Double, _FNTimeMin, _FNOT1Min As Double
+        Dim _FNOT1_5Min As Double, _FNOT2Min As Double, _FNOT3Min As Double, _FNOT4Min As Double, _FNLateMMin As Double
+        Dim _FNLateAfMin As Double, _FNRetireMMin As Double, _FNRetireAfMin As Double
+        Dim _FNRetireNormalCut As Double, _FNRetireOtMin As Double, _FNRetireOtCut As Double
+        Dim _GFNTime, _GFNNotRegis As Double
+        Dim _GFNOT1 As Double, _GFNOT1_5 As Double, _GFNOT2 As Double, _GFNOT3 As Double, _GFNOT4 As Double
+        Dim _GFNLeaveSick As Double, _GFNLeaveBusiness As Double
+        Dim _GFNLeaveVacation As Double, _GFNLeavePregnant As Double, _GFNLeaveOrdain As Double, _GFNLeaveSpecial As Double
+        Dim _GFNLeaveMarry As Double, _GFNLeaveOther As Double, _GFNLateNormalMin As Double
+        Dim _GFNLateNormalMinNotHoliday As Double = 0
+        Dim _GFNLateNormalCut As Double, _GFNLateOtMin As Double, _GFNLateOtCut As Double
+        Dim _GFNLateMorning As Double, _GFNLateAfternoon As Double, _GFNAbsent, _GFNCutAbsent As Double
+        Dim _GFNLeavePay As Double, _GFNTimeMin, _GFNOT1Min, _GFNTimeMin_Real_After_Probation As Double
+        Dim _GFNOT1_5Min As Double, _GFNOT2Min As Double, _GFNOT3Min As Double, _GFNOT4Min As Double, _GFNLateMMin As Double
+        Dim _GFNLateAfMin As Double, _GFNRetireMMin As Double, _GFNRetireAfMin As Double
+        Dim _GFNRetireNormalCut As Double, _GFNRetireOtMin As Double, _GFNRetireOtCut As Double
+        Dim _dtot As DataTable
+        Dim _RateOT1, _RateOT15, _RateOT2, _RateOT3, _RateOT4 As Double
+        Dim _FCAccumulateIncome As Double, _FCAccumulateSocial As Double, _FCAccumulateTax As Double
+        Dim _FTSatrtCalculateDate As String, _FTEndCalculateDate As String, _FNEmpDiligent As Double, _FTStateInDustin As String, _FNDeligentPeriod As Integer
+        Dim _FTSatrtCalculateDateIns As String, _FTEndCalculateDateIns As String
+        Dim _FNEmpBaht, _nBahtOt1 As Double, _nBahtOt15 As Double, _nBahtOt2 As Double, _nBahtOt3 As Double, _nBahtOt4 As Double, _nBahtAbsent As Double, _nEstimateIncome As Double
+        Dim _SocialRate As Double, _SocialRateCmp As Double : Dim _StateSocialOnlyCmppay As Boolean
+        Dim _WorkDay As Integer, _TotalWorkDay As Integer, _Holiday As String
+        Dim _TotalHoliDay As Integer
+        Dim _FNSlaryPerMonth As Double, _FNSlaryPerDay As Double, _FNSlaryPerHour As Double, _FNSlaryPerMin, _FNSlaryOTPerMin As Double, _FNSlaryOTPerHour As Double, _FTEmpState As String
+
+        Dim _Lapaid, _LaNotpaid As Double, _FCPayVacationBaht As Double, _Net As Double, _CalSo As Double, _HBaht As Double, _FCSocial As Double, _FCSocialCmp As Double
+        Dim _FCTax As Integer, _FCBaht As Double, _ActualNextDate As String
+        Dim _SocialMinIncome As Integer, _SocialMaxIncome As Double
+        Dim _FTSlary, _FTDivCode, _FTPos As String
+        Dim _MSlary As Double, _LateCutAbsent As Double, _LateCutAmt, _LateCutAmtAbsent As Double
+        Dim _Dtemp As DataTable
+        Dim _SocialBefore, _SocialBeforeAmt, _SocialPayMax As Double
+        Dim _FCAdd, _FTAddCalculateSocial, _FTAddCalculateTax, _FCDeduct, _TotalCalSso, _TotalCalTax, _TaxAmt As Double
+        Dim _Gtotalleave, _GtotalleavePay, _GtotalleaveNotPay, _GtotalleavePayCalSso, _GtotalleavePayCalSsoAmt As Double
+        Dim _dtLeave As DataTable
+        Dim _LeaveCode As String = ""
+        Dim _dtAddOtherAmt As DataTable
+        Dim _dtAddOtherAmtshift As DataTable
+        Dim FCModFather, FCModMother, FCModMateFather, FCModMateMother As Double
+        Dim FCPremium, FCInterest, FCUnitRMF, FCUnitLTF, FCDeductDonate, FCDisabledDependents, FCDeductDonateStudy As Double
+        Dim FCHealthInsurFatherMotherMate, FTHealthInsurIDFather, FTHealthInsurIDMother As Double
+        Dim FTHealthInsurIDFatherMate, FTHealthInsurIDMotherMate As Double
+        Dim FTTotalCalContributedAmt, FTContributedAmt, FTCmpContributedAmt, FTTotalCalContributedAcc As Double
+        Dim FTTotalCalWorkmen, FTWorkmenAmt, _FTMaxCalWorkmen, _FTMaxWorkmenRate, FTTotalCalWorkmenAcc As Double
+        Dim _FTWorkmenAmtBefore, _FTTotalCalWorkmenBefore As Double
+        Dim _ShiftAmt As Double = 0
+        Dim _ShiftOTAmt As Double = 0
+        Dim _ShiftValue As Double = 0
+        Dim _ShiftOTValue As Double = 0
+        Dim _WorkingDay As Double = 0
+        Dim _THRMContributedFund As DataTable
+        Dim _EmpDisTax As New HCfg.EmployeeDiscountTax
+        Dim _EmpTaxYear As New HCfg.EmpTaxYear
+        Dim _FNSlaryPerDayShiftNinght As Double, _FNSlaryPerDayNormal As Double
+
+
+        '   HI.HRCAL.Calculate.LoadDiscountTax()
+
+        Dim _EmpDisTaxChildAmt As Double = 0
+        Dim _FNNetpayOrg As Double = 0.0
+        Dim _FNNetpay As Double = 0.0
+        Dim _AmtAddCalOT, _GAmtAddCalOT As Double
+        Dim CountTerm As Integer = 0
+        Dim _SPDateType, _TotalInstalment, _Instalment As Integer
+        Dim _ContributedFundBeginPay As Boolean = False
+        Dim _DTHoliday As DataTable
+        Dim _ShiftAdv As Double = 0
+        Dim _AmtPlus As Double = 0
+        Dim _GAmtPlus As Double = 0
+        Dim FTHldType As Integer = 0
+        Dim _AmtRetire As Double = 0
+        Dim _WorkAge As Integer = 0 : Dim _WorkAgeDay As Integer = 0 : Dim _WorkAgeSeniority As Integer = 0 : Dim _WorkingDayN As Integer = 0
+        Dim _WorkAgeParturition As Integer = 0
+        Dim _AmtReturnVacation As Double = 0
+        Dim _FNIncentiveAmt As Double = 0
+        Dim _FTInsurType As Integer = 0
+        Dim _DayAdjAdd As Double = 0
+        Dim _WageAdjAdd As Double = 0
+        Dim _DateStartOfMonth As String = HI.UL.ULDate.ConvertEnDB(Left(_EndDate, 8) & "01")  'วันแรกของเดือน
+        Dim _DateEndOfMonth As String = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddDay(HI.UL.ULDate.AddMonth(Left(_EndDate, 8) & "01", 1), -1)) 'วันแของเดือน
+        Dim _FTStatePayHoliday As String = ""
+        Dim _FTEmployeeCode As String = ""
+        Dim _FNAttandanceAmt As Double = 0
+        Dim _FNHealtCareAmt As Double = 0
+        Dim _FNTransportAmt As Double = 0
+        Dim _FNChildCareAmt As Double = 0
+        Dim _FNChildCareStartAge As Double = 0
+        Dim _FNChildCareEndAge As Double = 0
+        Dim _FNOTMealAmt As Double = 0
+        Dim _FNSocialBase As Double = 0
+        Dim _FNWorkAgeSalary As Double = 0
+        Dim _FNOTMealAmtUS As Double = 0
+        Dim _FNSickLeave As Double = 0
+        Dim _LeaveSickPay As Integer = 0
+        Dim _FNTotalChildCare As Integer = 0
+        Dim _FNNetAttandanceAmt As Double = 0
+        Dim _FNNetChildCareAmt As Double = 0
+        Dim _FNNetOTMealAmt As Double = 0
+        Dim _FNNetSocialBase As Double = 0
+        Dim _FNNetOTMealAmtUS As Double = 0
+        Dim _FNEmpWorkAge As Integer = 0
+        Dim _tmpSocailRateKM As DataTable
+        Dim _tmpWelfareKM As DataTable
+        Dim _tmpWorkAge As DataTable
+        Dim _TmpFDDateEnd As String = ""
+        Dim _TmpFDDateEndP As String = ""  ' เพิ่มเงือนไข วันที่ลาออก มีผล วันที่ 2 - 16  จ่ายค่า health & transsport
+        Dim _DTEmpWorkDay As New DataTable
+        Dim _TmpLeavePay As Integer = 0
+        Dim _EmpSex As Integer = 0
+        Dim _RatePay As Double = 1
+        Dim _SalaryPayOTKM As Double = 0
+        Dim _SalaryPayLeave As Double = 0
+        Dim _SalaryPayLeaveMin As Double = 0
+        Dim _FNEmpStatus As Integer = 0
+        Dim _FTStateWorkpermit As String = ""
+        Dim _FTStateMedicalCertificate As String = ""
+        Dim _BonusAmt As Double = 0
+
+        Calculate.LoadInsuranceVNRate()
+        Dim FNSocialEmployeeRate As Double = 0
+        Dim FNSocialEmployerRate As Double = 0
+        Dim FNHealthEmployeeRate As Double = 0
+        Dim FNHealthEmployerRate As Double = 0
+        Dim FNUnemploymentEmployeeRate As Double = 0
+        Dim FNUnemploymentEmployerRate As Double = 0
+        Dim FNUnionEmployeeRate As Double = 0
+        Dim FNUnionEmployerRate As Double = 0
+        Dim FNStateUnionMember As String = ""
+        Dim FDStartDateUnion As String = ""
+        Dim FDEndDateUnion As String = ""
+        Dim FNUnionAmt As Double = 0
+        Dim FNUnionRate As Double = 0
+
+        Dim _FDDateProbation As String = ""
+
+        Dim _FNMoneyMeal As Integer = 0
+
+        _Qry = "SELECT TOP 1 FTCfgData FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig WHERE FTCfgName='CfgMeal_LA'"
+        _FNMoneyMeal = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "0"))
+
+        Try
+            FNSocialEmployeeRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eSocialInsurance).FNEmployeeRate
+            FNSocialEmployerRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eSocialInsurance).FNEmployerRate
+            FNHealthEmployeeRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eHealthInsurance).FNEmployeeRate
+            FNHealthEmployerRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eHealthInsurance).FNEmployerRate
+            FNUnemploymentEmployeeRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eUnemploymentInsurance).FNEmployeeRate
+            FNUnemploymentEmployerRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eUnemploymentInsurance).FNEmployerRate
+            FNUnionEmployeeRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eUnionInsurance).FNEmployeeRate
+            FNUnionEmployerRate = HCfg.HCfg_InsuranceVNRate(eTypeInsuranceVN.eUnionInsurance).FNEmployerRate
+        Catch ex As Exception
+            'MG.ShowMsg.mInfo("Invalid Config Value...", 1503310001, "", "")
+        End Try
+
+
+        Dim FNSocialInsuranceEmployee As Double = 0.0
+        Dim FNSocialInsuranceEmployer As Double = 0.0
+        Dim FNHealthInsuranceEmployee As Double = 0.0
+        Dim FNHealthInsuranceEmployer As Double = 0.0
+        Dim FNUnemploymentInsuranceEmployee As Double = 0.0
+        Dim FNUnemploymentInsuranceEmployer As Double = 0.0
+        Dim FNUnionInsuranceEmployee As Double = 0.0
+        Dim FNUnionInsuranceEmployer As Double = 0.0
+
+        Dim FNSocialInsuranceEmployeeOrg As Double = 0.0
+        Dim FNSocialInsuranceEmployerOrg As Double = 0.0
+        Dim FNHealthInsuranceEmployeeOrg As Double = 0.0
+        Dim FNHealthInsuranceEmployerOrg As Double = 0.0
+        Dim FNUnemploymentInsuranceEmployeeOrg As Double = 0.0
+        Dim FNUnemploymentInsuranceEmployerOrg As Double = 0.0
+        Dim FNUnionInsuranceEmployeeOrg As Double = 0.0
+        Dim FNUnionInsuranceEmployerOrg As Double = 0.0
+
+
+
+
+        _DTEmpWorkDay.Columns.Add("FNSalary", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNDay", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNOT1", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNOT15", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNOT2", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNOT3", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNOT4", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNHoloday", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNLate", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNAbsent", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNLateCutAmtAbsent", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNLeavePay", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNLeaveNotPay", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNBusiness", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNSpecial", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNParturition", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNVacation", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNShiftNo", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNSlaryOTPerMin", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNSlaryNormal", GetType(Double))
+        _DTEmpWorkDay.Columns.Add("FNLeaveAccident", GetType(Double))
+
+
+
+        Dim _DTEmpPayLeaveSick As New DataTable
+        _DTEmpPayLeaveSick.Columns.Add("FNSalary", GetType(Double))
+        _DTEmpPayLeaveSick.Columns.Add("FNDay", GetType(Double))
+        _DTEmpPayLeaveSick.Columns.Add("FNPayPer", GetType(Double))
+
+        _Qry = "Select TOP 1 FNCalType FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType WHERE FNHSysEmpTypeId=" & Val(_EmpType) & "  "
+        Dim _TmpCalType As Integer = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MASTER, "0"))
+
+        If FTStaCalPayRoll = 0 Then
+            _DateStartOfMonth = _StartDate  'วันแรกของเดือน
+            _DateEndOfMonth = _EndDate 'วันแของเดือน
+        Else
+            _DateStartOfMonth = HI.UL.ULDate.ConvertEnDB(Left(_EndDate, 8) & "01")  'วันแรกของเดือน
+            _DateEndOfMonth = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddDay(HI.UL.ULDate.AddMonth(Left(_EndDate, 8) & "01", 1), -1)) 'วันแของเดือน
+        End If
+        '----------------------------------   Variable  ------------------------------------
+
+        Dim _DateReset As String
+        _Qry = " Select Case When RiGHT(FTCurrenDate, 5) >= FTLeaveReset Then LEFT(FTCurrenDate, 4) Else  LEFT(FTBefore,4)  End +'/' + FTLeaveReset"
+        _Qry &= vbCrLf & "  FROM"
+        _Qry &= vbCrLf & " ("
+        _Qry &= vbCrLf & " SELECT  TOP 1 Convert(varchar(10),GetDate(),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
+        _Qry &= vbCrLf & " FROM            THRMConfigLeave  AS L WITH (NOLOCK)  INNER JOIN THRMEmployee AS M WITH(NOLOCK )"
+        _Qry &= vbCrLf & "  ON  L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
+        _Qry &= vbCrLf & "  WHERE   M.FNHSysEmpID=" & Val(_EmpCode) & " "
+        _Qry &= vbCrLf & " ) As T"
+
+        _DateReset = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+        '------------------ รวมวันลาป่วย---------------------------------
+
+        _Qry = "   SELECT        (SUM(FNTotalPayMinute) / 480) AS FNTotalPayMinute  "
+        _Qry &= vbCrLf & "      AS TotalLeavePay"
+        _Qry &= vbCrLf & "    FROM THRTTransLeave "
+        _Qry &= vbCrLf & "  WHERE        (FTLeaveType = '0')"
+        _Qry &= vbCrLf & "  AND (FTDateTrans >= N'" & (_DateReset) & "') "
+        _Qry &= vbCrLf & "  AND (FTDateTrans < N'" & HI.UL.ULDate.ConvertEnDB(_StartDate) & "') "
+        _Qry &= vbCrLf & "  AND (FNHSysEmpID =" & Val(_EmpCode) & ")"
+
+        _LeaveSickPay = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+
+        '------------------ รวมวันลาป่วย---------------------------------
+
+        With _EmpTaxYear
+            .FTAmt = 0 'เงินได้ก่อนหักค่าใช้จ่าย
+            .FTExpenses = 0 'ค่าใช้จ่ายส่วนตัว
+            .FTNetAmt = 0 'เงินได้หลังหักค่าใช้จ่าย
+            .FTModEmp = 0 'ลดหย่อนส่วนตัว
+            .FTModMate = 0 'ลดหย่อนคู่สมรส
+            .FNChildNotLern = 0 'จำนวนบุตรไม่ศึกษา
+            .FNChildLern = 0 'จำนวนบุตรศึกษา
+            .FTChildNotLern = 0 'ลดหย่อนบุตรไม่ศึกษา
+            .FTChildLern = 0 'ลดหย่อนบุตรศึกษา
+            .FTInsurance = 0 'ลดหย่อนเบี้ยประกัน
+            .FTProvidentfund = 0 'กองทุนเลียงชีพส่วนที่ไม่เกิน 10000
+            .FTInterest = 0 'ดอกเบี้ยเงินกู้
+            .FTSocial = 0 'ประกันสังคม
+            .FTDonation = 0 'เงินบริจาค
+            .FTProvidentfundOver = 0 'กองทุนเลียงชีพส่วนที่เกิน 10000
+            .FTGPF = 0 'เงิน กบข.
+            .FTSavingsFund = 0 'เงินกองทุนสงเคราะห์
+            .FTCommutation = 0 'เงินชดเชยตามกฎหมายแรงงาน
+            .FTUnitRMF = 0 'ค่าซื้อหน่วยลงทุน RTF
+            .FTModFather = 0 'ลดหย่อนบิดา
+            .FTModMother = 0 'ลดหย่อนมารดา
+            .FTModFatherMate = 0 'ลดหย่อนบิดาคู่สมรส
+            .FTModMotherMate = 0 'ลดหย่อนมารดาคู่สมรส
+            .FTUnitLTF = 0 'ค่าซื้อหน่วยลงทุน LTF
+            .FTDonationLern = 0 'เงินบริจาคเพื่อสนับสนุนการศึกษา
+            .FTParentsHealthInsurance = 0 'เบี้ยประกันสุขภาพบิดามารดา
+            .FTSupportSport = 0 'เงินสนับสนุนการกีฬา
+            .FTAcquisitionOfProperty = 0 'ค่าซื้ออาคาร
+            .FTPension = 0 'บำนาญ
+            .FTTravel = 0 'ท่องเที่ยวในประเทศ
+            .FTTotalCalTax = 0 'เงินได้สุทธิ
+            .FTTotalTax = 0 'ภาษีที่ต้องจ่าย
+        End With
+        '------------------ GetConfig WeekEnd ----------------------------------
+
+        ' get discount tax
+
+        With _EmpDisTax
+            .Cfg_ModChildAllowanceAgeStart = HCfg._DiscountTax.Cfg_ModChildAllowanceAgeStart
+            .Cfg_ModChildAllowanceAgeEnd = HCfg._DiscountTax.Cfg_ModChildAllowanceAgeEnd
+            .Cfg_ModChildAllowanceRateNotStudied = HCfg._DiscountTax.Cfg_ModChildAllowanceRateNotStudied
+            .Cfg_ModChildAllowanceRateStudy = HCfg._DiscountTax.Cfg_ModChildAllowanceRateStudy
+        End With
+        '------------------ GetConfig หักกองทุนสำรองเลี้ยงชีพ ----------------------------------
+        _Qry = "SELECT FNSeqNo, FNAgeBegin, FNAgeEnd, FNEmpPay As FNEmpAmtPer,  FNCmpPay AS FNCmpAmtPer"
+        _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMContributions WITH(NOLOCK) "
+        _Qry &= vbCrLf & "  WHERE  FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID) & " "
+        _THRMContributedFund = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+        '------------------ GetConfig หักกองทุนสำรองเลี้ยงชีพ ----------------------------------
+
+        '------------------ GetConfig Holiday ----------------------------------
+        _DTHoliday = LoadSysHoliday
+        '------------------ GetConfig Holiday ----------------------------------
+
+        _tmpSocailRateKM = LoadSocailRateKM
+        '_tmpWelfareKM = LoadWelfareKM(Integer.Parse(Val(_EmpType)))
+        _tmpWorkAge = GetWorkAgeRate(Val(HI.ST.SysInfo.CmpID))
+
+        'For Each ZRow In _tmpWelfareKM.Rows
+
+        '    _FNAttandanceAmt = Val(ZRow!FNAttandanceAmt.ToString)
+        '    _FNHealtCareAmt = Val(ZRow!FNHealtCareAmt.ToString)
+        '    _FNTransportAmt = Val(ZRow!FNTransportAmt.ToString)
+        '    _FNChildCareAmt = Val(ZRow!FNChildCareAmt.ToString)
+        '    _FNChildCareStartAge = Val(ZRow!FNChildCareStartAge.ToString)
+        '    _FNChildCareEndAge = Val(ZRow!FNChildCareEndAge.ToString)
+        '    _FNOTMealAmt = Val(ZRow!FNOTMealAmt.ToString)
+
+        '    Exit For
+        'Next
+
+        'FNAttandanceAmt, FNHealtCareAmt, FNTransportAmt, FNChildCareAmt, FNChildCareStartAge, FNChildCareEndAge, FNOTMealAmt
+        FNVacationRetMin = 0 : FNVacationRetAmt = 0
+        _FTSatrtCalculateDate = _StartDate
+        _FTEndCalculateDate = _EndDate
+        _FTSatrtCalculateDateIns = _StartDate
+        _FTEndCalculateDateIns = _EndDate
+        _FNEmpDiligent = 0 : _TotalWorkDay = 0 : _WorkDay = 0 : _TotalHoliDay = 0
+        _FTStateInDustin = "" : _FNSlaryPerMonth = 0
+        _FNSlaryPerDay = 0 : _FNSlaryPerHour = 0 : _FNSlaryPerMin = 0
+        _FTEmpState = "" : _FNEmpBaht = 0 : _nBahtOt1 = 0
+        _nBahtOt15 = 0 : _nBahtOt2 = 0 : _nBahtOt3 = 0
+        _nBahtAbsent = 0 : _nEstimateIncome = 0 : _Lapaid = 0 : _LaNotpaid = 0 : _Net = 0
+        _FCPayVacationBaht = 0 : _CalSo = 0 : _HBaht = 0 : _FCSocial = 0 : _FCSocialCmp = 0
+        _FCTax = 0 : _FCBaht = 0 : _SocialRate = 0 : _SocialRateCmp = 0
+        _SocialMinIncome = 0 : _SocialMaxIncome = 0
+        _Complete = 0 : _Err = 0 : _FCSalary = -99
+        CountTerm = 0
+        _TotalInstalment = 0 : _Instalment = 0
+
+        FNPayLeaveBusinessBahtMin = 0 : FNPayLeaveSickBahtMin = 0 : FNPayLeaveSpecialBahtMin = 0 : FNParturitionLeaveMin = 0 : FNPayLeaveAccidentBahtMin = 0
+        GFNPayLeaveBusinessBahtMin = 0 : GFNPayLeaveSickBahtMin = 0 : GFNPayLeaveSpecialBahtMin = 0 : GFNParturitionLeaveMin = 0 : GFNPayLeaveAccidentBahtMin = 0
+        FNPayLeaveBusinessBaht = 0 : FNPayLeaveSickBaht = 0 : FNPayLeaveSpecialBaht = 0 : FNParturitionLeave = 0 : FNPayLeaveAccidentBaht = 0
+
+        _Qry = "SELECT  CONVERT(varchar(10),GETDATE(),111)"
+        _ActualDate = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+
+        _Qry = "SELECT  CONVERT(varchar(10),DateAdd(day,1,GETDATE()),111) "
+        _ActualNextDate = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+
+        _Qry = "   SELECT  TOP 1  M.FNHSysCmpId As FTCmpCode, M.FNHSysEmpID AS FTEmpCode,M.FTEmpCode AS FTEmployeeCode, M.FDDateStart, M.FDDateEnd, M.FDDateProbation, M.FTProbationSta, Isnull( M.FNEmpStatus,0) AS FTStatus, M.FNHSysEmpTypeId AS FTTypeEmp"
+        _Qry &= vbCrLf & " ,M.FNHSysDeptId AS FTDeptCode , M.FNEmpSex "
+        _Qry &= vbCrLf & "  ,M.FNHSysDivisonId AS FTDivCode, M.FNHSysSectId AS FTSectCode,  M.FNHSysUnitSectId AS FTUnitSecCode"
+        _Qry &= vbCrLf & " , M.FNHSysPositId AS FTPositCode,'' as FTJobGrade,'' AS FTCostCNCode,M.FNLateCutSta AS FTLateCutSta"
+        _Qry &= vbCrLf & "  , M.FNPaidOTSta AS FTPaidOTSta, M.FTEmpIdNo, M.FTSocialNo, M.FTTaxNo, M.FNCalSocialSta AS FTCalSocialSta, M.FNCalTaxSta AS FTCalTaxSta, M.FNHSysPayRollPayId AS FTPayCode"
+        _Qry &= vbCrLf & " , M.FTAccNo, M.FNHSysBankId AS FTBnkCode, M.FNHSysBankBranchId AS FTBnkBchCode,M.FNSalary AS FTSalary, "
+        _Qry &= vbCrLf & "  M.FCIncomeBefore, M.FCTaxBefore, M.FCSocialBefore, M.FCDisabledDependents, M.FCHealthInsurFatherMotherMate, M.FTHealthInsurIDFather,"
+        _Qry &= vbCrLf & "   ET.FNCalType AS FTCalType, ET.FNInsurType AS FTInsurType,M.FNMaritalStatus AS FTMaritalCode,M.FDFundBegin, M.FDFundEnd,"
+        _Qry &= vbCrLf & " M.FCModFather, M.FCModMother, M.FCModMateFather, M.FCModMateMother, "
+        _Qry &= vbCrLf & " M.FCPremium, M.FCInterest, M.FCUnitRMF, M.FCUnitLTF, M.FCDeductDonate, M.FCDisabledDependents,M.FCDeductDonateStudy, "
+        _Qry &= vbCrLf & "  M.FCHealthInsurFatherMotherMate, M.FTHealthInsurIDFather,M.FTHealthInsurIDMother,"
+        _Qry &= vbCrLf & " M.FTHealthInsurIDFatherMate, M.FTHealthInsurIDMotherMate,M.FTMateIncome,M.FCExceptAgeOver,M.FCExceptAgeOverMate,M.FCDeductDividend "
+        _Qry &= vbCrLf & ", CASE WHEN ISDATE(M.FdDateStart) = 1 AND ISDATE(M.FDRetire) = 1 THEN  Datediff(month,M.FdDateStart,M.FDRetire) ELSE 0 END AS FNWorkAge"
+        _Qry &= vbCrLf & ", CASE WHEN ISDATE(M.FdDateStart) = 1 AND ISDATE(M.FDRetire) = 1 THEN  Datediff(month,M.FdDateStart,M.FDRetire) ELSE Datediff(month,M.FdDateStart,DateAdd(day,1,CONVERT(Datetime,'" & HI.UL.ULDate.ConvertEnDB(_EndDate) & "'))) END AS FNEmpWorkAge"
+        _Qry &= vbCrLf & " ,ISNULL(ET.FNSalaryDivide,0) AS FNSalaryDivide , isnull( M.FTStateWorkpermit ,'0') as FTStateWorkpermit"
+        _Qry &= vbCrLf & ",ISNULL(ET.FTStatePayHoliday,'') AS FTStatePayHoliday "
+        _Qry &= vbCrLf & ", dbo.FN_Get_Emp_WorkAge(M.FdDateStart,'" & _EndDate & "') AS FNEmpWorkAgeNew"
+        _Qry &= vbCrLf & ", dbo.FN_Get_Emp_WorkAge_MonthSeniority(M.FdDateStart,M.FdDateEnd,'" & _EndDate & "') AS FNEmpWorkAgeMonthSeniority     "
+        _Qry &= vbCrLf & ", dbo.FN_Get_Emp_WorkAge_Salary_CD_NEW(M.FdDateStart,M.FdDateEnd,'" & _EndDate & "') AS FNEmpWorkAgeNewCD ,  dbo.[FN_Get_Emp_WorkAge_Day](M.FDDateStart,M.FDDateEnd) as FNEmpWorkAgeNewDay"
+        _Qry &= vbCrLf & " ,  dbo.[FN_Get_Emp_WorkAge_Day_CD](M.FDDateStart,M.FDDateEnd,M.FNHSysEmpID,'" & _EndDate & "') as FNEmpWorkAgeNewDay_CD "
+        _Qry &= vbCrLf & " , isnull(M.FTStateUnionMember,'') as FTStateUnionMember  , isnull(M.FDStartDateUnion,'') as FDStartDateUnion , isnull(M.FDEndDateUnion,'') as FDEndDateUnion"
+        _Qry &= vbCrLf & "  FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) INNER JOIN"
+        _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType AS ET WITH (NOLOCK) ON M.FNHSysEmpTypeId = ET.FNHSysEmpTypeId"
+        _Qry &= vbCrLf & "	WHERE     (M.FNHSysEmpID =" & Val(_EmpCode) & " ) "
+
+        _Dtemp = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+        For Each R As DataRow In _Dtemp.Rows
+
+            _DtFin.Rows.Clear()
+            _FNEmpStatus = Integer.Parse("0" & R!FTStatus.ToString)
+            _AmtAddCalOT = 0
+            _EmpSex = Val("0" & R!FNEmpSex.ToString)
+            _FTStateWorkpermit = R!FTStateWorkpermit.ToString
+
+            _FDDateProbation = R!FDDateProbation.ToString
+
+            FNStateUnionMember = R!FTStateUnionMember.ToString : FDStartDateUnion = R!FDStartDateUnion.ToString : FDEndDateUnion = R!FDEndDateUnion.ToString
+
+            _SalaryDevide = Val(R!FNSalaryDivide.ToString)
+            _FTStatePayHoliday = R!FTStatePayHoliday.ToString
+            _FNEmpWorkAge = Integer.Parse(Val(R!FNEmpWorkAge.ToString))
+            _FTInsurType = Val(R!FTInsurType.ToString)
+
+            If _SalaryDevide <= 0 Then
+                _SalaryDevide = 1
+            End If
+
+            _FTSlary = R!FTSalary.ToString : _FDDateStart = R!FDDateStart.ToString : _FDDateEnd = R!FDDateEnd.ToString
+            _FTPaymentCode = R!FTPayCode.ToString : _FTBankCode = R!FTBnkCode.ToString
+            _FTCalSocialSta = R!FTCalSocialSta.ToString : _FTCalTaxSta = R!FTCalTaxSta.ToString
+
+            _FTDeptCode = R!FTDeptCode.ToString : _FTDivCode = R!FTDivCode.ToString
+            _FTSectCode = R!FTSectCode.ToString
+            _FTUnitCode = R!FTUnitSecCode.ToString : _FTPos = R!FTPositCode.ToString
+
+            _FTEmpState = R!FTCalType.ToString
+
+            _FTEmpIdNo = R!FTTaxNo.ToString 'R!FTEmpIdNo.ToString
+            _FTEmpIdNo1 = R!FTEmpIdNo.ToString
+            _FTSocialNo = R!FTSocialNo.ToString
+
+
+
+            _FTBranchCode = R!FTBnkBchCode.ToString
+            _FTAccNo = R!FTAccNo.ToString
+            '---------------------------------------- ลดหย่อน------------------------------------
+            _FNChildNotLearn = 0 : _FCReduceDonate = 0 : _FCLifeInsurance = 0 : _FCLoanHouse = 0 : _FCReduceEducationSupport = 0
+            _FCShare = 0 : _FCReduceFather = 0 : _FCReduceMother = 0 : _FCReSpouseFather = 0 : _FCReSpouseMother = 0 : _FTMarryIncome = 0
+            _FCLifeFeeMoney = 0
+
+            FCModFather = 0 : FCModMother = 0 : FCModMateFather = 0 : FCModMateMother = 0
+            FCPremium = 0 : FCInterest = 0 : FCUnitRMF = 0 : FCUnitLTF = 0 : FCDeductDonate = 0 : FCDisabledDependents = 0 : FCDeductDonateStudy = 0
+            FCHealthInsurFatherMotherMate = 0 : FTHealthInsurIDFather = 0 : FTHealthInsurIDMother = 0
+            FTHealthInsurIDFatherMate = 0 : FTHealthInsurIDMotherMate = 0
+
+            FTTotalCalContributedAmt = 0 : FTContributedAmt = 0 : FTCmpContributedAmt = 0
+            FTTotalCalWorkmen = 0 : FTWorkmenAmt = 0 : _FTMaxCalWorkmen = 0 : _FTMaxWorkmenRate = 0 : FTTotalCalWorkmenAcc = 0
+            _FNIncentiveAmt = 0
+
+            _TmpFDDateEnd = _FDDateEnd
+            _TmpFDDateEndP = _FDDateEnd
+
+            If _TmpFDDateEnd <> "" Then
+
+                _Qry = "SELECT  CONVERT(varchar(10),DateAdd(day,-1,Convert(Datetime,'" & _TmpFDDateEnd & "')),111)"
+                _TmpFDDateEnd = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+
+                _Qry = "SELECT  CONVERT(varchar(10),DateAdd(day,1,Convert(Datetime,'" & _EndDate & "')),111)"
+                _TmpFDDateEndP = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+
+            End If
+
+            '--------- อายุงาน  เดือน
+            _WorkAge = Val(R!FNEmpWorkAgeNewCD.ToString)
+
+            '---------อายุงาน วัน
+            _WorkAgeDay = Val(R!FNEmpWorkAgeNewDay.ToString)
+
+            '---------อายุงาน เดือน ไม่ปัดขึ้น เพื่อคิด ค่ารางวัลอายุงาน 
+            _WorkAgeSeniority = Val(R!FNEmpWorkAgeMonthSeniority.ToString)
+
+            '---------วันทำงาน 
+            _WorkingDayN = Val("0" & R!FNEmpWorkAgeNewDay_CD.ToString)
+
+            '----------- Calculate Seniority Bonus For KKN---------------
+            _FNWorkAgeSalary = 0
+            'If _FTEmpState <> "2" And _FTEmpState <> "3" Then
+            ''If-- Val(_PayTerm) Mod 2 <> 0 Then
+
+
+            'If (_StartDate <= Left(_StartDate, 8) & "24" And _EndDate >= Left(_StartDate, 8) & "24") Then
+            '    For Each ZRow In _tmpWorkAge.Select(" FNWorkAgeStart<= " & _WorkAge & " AND  FNWorkAgeEnd>=" & _WorkAge & " ")
+            '        _FNWorkAgeSalary = Val(ZRow!FNWorkAgeAmt.ToString)
+            '        Exit For
+            '    Next
+            'End If
+            ''End If
+
+            'End If
+
+            '----------- Calculate Seniority Bonus For KKN---------------
+
+            If _FTEmpState = "2" Then
+                _TotalInstalment = 12
+            Else
+                _TotalInstalment = 24
+            End If
+
+            _ContributedFundBeginPay = False
+            If R!FDFundBegin.ToString <> "" Then
+                If R!FDFundBegin.ToString < _FTEndCalculateDate Then
+
+                    If R!FDFundEnd.ToString <> "" Then
+                        If R!FDFundEnd.ToString > _FTEndCalculateDate Then
+                            _ContributedFundBeginPay = True
+                        End If
+                    Else
+                        _ContributedFundBeginPay = True
+                    End If
+
+                End If
+            End If
+
+            _Instalment = Val(_PayTerm)
+            _FNIncentiveAmt = 0
+
+            '-------------คำนวณ Incentive-------------------------------------------
+            Select Case _FTInsurType
+                Case 1
+
+                    '---------ประกันเป็นวัน
+                    '_Qry = "SELECT SUM ( CASE WHEN ISNULL(FNNetProAmt,0) > ISNULL(FNNetAmt,0) THEN  (ISNULL(FNNetProAmt,0) - ISNULL(FNNetAmt,0))  ELSE 0 END  ) AS FNIncentiveAmt "
+                    '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily WITH(NOLOCK) "
+                    '_Qry &= vbCrLf & " WHERE  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+
+
+
+                    _Qry = " SELECT  SUM(case when (ISNULL(FNProNormal,0)-  ISNULL(FNAmtNormal,0))>0 THEN ISNULL(FNProNormal,0)-  ISNULL(FNAmtNormal,0) ELSE  0  END  "
+                    _Qry &= vbCrLf & " + case when (ISNULL(FNProOT,0)-  ISNULL(FNAmtOT,0))>0 THEN ISNULL(FNProOT,0)-  ISNULL(FNAmtOT,0) ELSE  0 END "
+                    _Qry &= vbCrLf & " )AS FNIncentiveAmt "
+                    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily WITH(NOLOCK) "
+                    _Qry &= vbCrLf & " WHERE  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    _Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    _Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+
+                    '_Qry = "SELECT SUM (  ISNULL(FNNetAmt,0)   ) AS FNIncentiveAmt "
+                    '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily WITH(NOLOCK) "
+                    '_Qry &= vbCrLf & " WHERE  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+                    _FNIncentiveAmt = CDbl(Format(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")), "0.00"))
+
+                    '_Qry = "SELECT sum(Isnull(FNAmt,0)) as FNAmt  "
+                    '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily_Bonus WITH(NOLOCK) "
+                    '_Qry &= vbCrLf & " WHERE  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+
+
+                    '_FNIncentiveAmt = _FNIncentiveAmt + CDbl(Format(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")), "0.00"))
+
+                Case 2
+                    '---------ประกันเป็นเป็นงวด-------------------------------------------
+
+                    _Qry = "SELECT  ( CASE WHEN ISNULL(FNNetProAmt,0) > ISNULL(FNNetAmt,0) THEN  (ISNULL(FNNetProAmt,0) - ISNULL(FNNetAmt,0))  ELSE 0 END  ) AS FNIncentiveAmt "
+                    _Qry &= vbCrLf & " FROM ( SELECT SUM(ISNULL(FNNetAmt,0) ) AS FNNetAmt , SUM(ISNULL(FNNetProAmt,0) ) AS FNNetProAmt"
+                    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily WITH(NOLOCK) "
+                    _Qry &= vbCrLf & " WHERE  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    _Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    _Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+                    _Qry &= vbCrLf & " ) AS M"
+
+                    '_Qry = "SELECT   SUM (  ISNULL(FNNetAmt,0)   ) AS FNIncentiveAmt "
+                    '_Qry &= vbCrLf & " FROM ( Select SUM(ISNULL(FNNetAmt,0) ) As FNNetAmt , SUM(ISNULL(FNNetProAmt,0) ) As FNNetProAmt"
+                    '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily With(NOLOCK) "
+                    '_Qry &= vbCrLf & " WHERE  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    '_Qry &= vbCrLf & " 	And FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+                    '_Qry &= vbCrLf & " ) AS M"
+                    _FNIncentiveAmt = CDbl(Format(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")), "0.00"))
+                    '_Qry = "SELECT sum(Isnull(FNAmt,0)) as FNAmt  "
+                    '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily_Bonus WITH(NOLOCK) "
+                    '_Qry &= vbCrLf & " WHERE  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    '_Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+
+                    '_FNIncentiveAmt = _FNIncentiveAmt + CDbl(Format(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")), "0.00"))
+
+                Case Else
+            End Select
+            '-------------------------------------
+
+            '---------------------------------------- ลดหย่อน------------------------------------
+            _Qry = " SELECT      FNHSysEmpID, FTChildSex, FTStudySta  ,isnull( FTStateNotDisTax ,'0') AS FTStateNotDisTax "
+            '_Qry &= vbCrLf & ", dbo.FN_Get_ChildEmp_Age(FDChildBirthDate,'') AS FNChildAge"
+            _Qry &= vbCrLf & ",dbo.FN_Get_Emp_WorkAge(FDChildBirthDate,'" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "') AS FNChildAge"
+            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeChild WITH(NOLOCK) "
+            _Qry &= vbCrLf & " WHERE   (FNHSysEmpID = " & Val(_EmpCode) & ")"
+            _dttemp = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+
+
+            Dim _ChildNotStudy As Integer = 0
+            Dim _ChildStudy As Integer = 0
+            _FNTotalChildCare = 0
+            _EmpDisTaxChildAmt = 0
+
+            If (_EmpSex = 1) Then 'Employee Male Not Cal ChildCare
+                For Each _Drow As DataRow In _dttemp.Select("FTStateNotDisTax = '0'")
+
+                    '--------  Add Child Care For KKN--------------
+                    If Val(_Drow!FNChildAge.ToString) >= _FNChildCareStartAge And Val(_Drow!FNChildAge.ToString) < _FNChildCareEndAge Then
+                        _FNTotalChildCare = _FNTotalChildCare + 1
+                    End If
+                    '--------  Add Child Care For KKN--------------
+
+                    If _Drow!FTStudySta.ToString = "1" Then
+                        _ChildStudy = _ChildStudy + 1
+                    Else
+                        _ChildNotStudy = _ChildNotStudy + 1
+                    End If
+
+
+                    '--------  Add Amt Child Distax For KKN--------------
+                    If _Drow!FTStudySta.ToString = "0" Then
+                        If _Drow!FTStudySta.ToString = "1" Then
+                            If Val(_Drow!FNChildAge.ToString) >= (_EmpDisTax.Cfg_ModChildAllowanceAgeStart * 12) And Val(_Drow!FNChildAge.ToString) < (_EmpDisTax.Cfg_ModChildAllowanceAgeEnd * 12) Then
+                                _EmpDisTaxChildAmt = _EmpDisTaxChildAmt + _EmpDisTax.Cfg_ModChildAllowanceRateStudy
+                            End If
+                        Else
+
+                            If Val(_Drow!FNChildAge.ToString) >= (_EmpDisTax.Cfg_ModChildAllowanceAgeStart * 12) And Val(_Drow!FNChildAge.ToString) < (_EmpDisTax.Cfg_ModChildAllowanceAgeEnd * 12) Then
+                                _EmpDisTaxChildAmt = _EmpDisTaxChildAmt + _EmpDisTax.Cfg_ModChildAllowanceRateNotStudied
+                            End If
+                        End If
+
+                    End If
+
+                    ' อายุมากกว่า แต่ศึกษาอยู่ ลดหย่อนได้
+
+                    '--------  Add Amt Child Distax For KKN--------------
+
+
+
+                Next
+
+                _FNNetChildCareAmt = Format(_FNTotalChildCare * _FNChildCareAmt, "0.00")
+
+            Else
+                For Each _Drow As DataRow In _dttemp.Select("FTStateNotDisTax = '0'")
+                    If _Drow!FTStudySta.ToString = "1" Then
+                        If Val(_Drow!FNChildAge.ToString) >= (_EmpDisTax.Cfg_ModChildAllowanceAgeStart * 12) And Val(_Drow!FNChildAge.ToString) < (_EmpDisTax.Cfg_ModChildAllowanceAgeEnd * 12) Then
+                            _EmpDisTaxChildAmt = _EmpDisTaxChildAmt + _EmpDisTax.Cfg_ModChildAllowanceRateStudy
+                        End If
+                    Else
+
+                        If Val(_Drow!FNChildAge.ToString) >= (_EmpDisTax.Cfg_ModChildAllowanceAgeStart * 12) And Val(_Drow!FNChildAge.ToString) < (_EmpDisTax.Cfg_ModChildAllowanceAgeEnd * 12) Then
+                            _EmpDisTaxChildAmt = _EmpDisTaxChildAmt + _EmpDisTax.Cfg_ModChildAllowanceRateNotStudied
+                        End If
+                    End If
+
+                    If _Drow!FTStudySta.ToString = "1" Then
+                        _ChildStudy = _ChildStudy + 1
+                    Else
+                        _ChildNotStudy = _ChildNotStudy + 1
+                    End If
+
+                Next
+            End If
+
+
+
+            _FCAccumulateIncome = 0 : _FCAccumulateSocial = 0 : _FCAccumulateTax = 0
+            FTTotalCalContributedAcc = 0 : FTTotalCalWorkmenAcc = 0
+
+            '----------- Get Summary ------------------
+            LoadIncomeTax(_FTEmpIdNo, _PayYear, _PayTerm, _FCAccumulateIncome, _FCAccumulateTax, _FCAccumulateSocial, CountTerm, FTTotalCalContributedAcc, FTTotalCalWorkmenAcc, Integer.Parse(Val(_EmpCode)))
+            '----------- Get Summary ------------------
+
+            With _EmpDisTax
+
+                .BaseSlary = 0
+                .OtherSlary = 0
+                .BeforeIncom = 0 ' _FCAccumulateIncome
+                .BeforeTax = _FCAccumulateTax
+                .FTMateIncome = (R!FTMateIncome.ToString = "0")
+                ' ----------------------------------------- Clear Discount Tax Value -------------------------
+                .Cfg_ModChildAllowanceRateNotStudied = _ChildNotStudy 'บุตรไม่ศึกษา อัตราลดหย่อนบุตร บุตร (ไม่ศึกษา) คนละ
+                .Cfg_ModChildAllowanceRateStudy = _ChildStudy 'บุตรจำนวนบุตรที่ลดหย่อนได้ 
+                '-------------ลดหย่อนบุตร-----------------
+
+                '--- หักเงินสมทบเข้ากองทุนเลี้ยงชีพ
+                .Cfg_ContributedDeducToTheFund = FTTotalCalContributedAcc 'ลูกจ้าง
+                '---เปอร์เซนต์ หักเงินสมทบเข้ากองทุนเลี้ยงชีพ
+
+                .Cfg_ModDeductibleDonations = CDbl(Val(R!FCDeductDonate.ToString)) ' ' % ลดหย่อนเงินบริจาค
+                .Cfg_ModDeductDonateStudy = CDbl(Val(R!FCDeductDonateStudy.ToString))
+                .Cfg_ModFatherReduction = CDbl(Val(R!FCModFather.ToString)) '  'ลดหย่อนบิดา
+                .Cfg_ModInsurancePremiums = CDbl(Val(R!FCPremium.ToString)) '  'ค่าเบี้ยประกันชีวิตส่วนบุคคล
+                .Cfg_ModLendingforHousing = CDbl(Val(R!FCInterest.ToString)) ' 'ดอกเบี้ยเงินกู้เพื่อที่อยู่อาศัย
+
+                .Cfg_ModLTFChk = CDbl(Val(R!FCUnitLTF.ToString)) 'หักค่าซื้อหน่วยลงทุนในกองทุนรวมหุ้นระยะยาว (LTF) ไม่เกิน
+                .Cfg_ModMateFatherReduction = CDbl(Val(R!FCModMateFather.ToString)) ' 'ลดหย่อนบิดา คู่สมรส
+                .Cfg_ModMateMotherReduction = CDbl(Val(R!FCModMateMother.ToString)) '  'ลดหย่อนมารดา คู่สมรส
+                .Cfg_ModMotherReduction = CDbl(Val(R!FCModMother.ToString)) ' 'ลดหย่อนมารดา
+
+                .Cfg_ModPersonalExpenChk = 0 ' ค่าใช้จ่ายส่วนบุคคล ลดหย่อนไม่เกิน
+
+                .Cfg_ModRateReductionsByMarital = (IIf(R!FTMaritalCode.ToString = "1", 1, 0)) 'อัตราลดหย่อน ตาม สถานภาพ คู่สมรส 
+                .Cfg_ModRateReductionsBySingle = (IIf(R!FTMaritalCode.ToString <> "1", 1, 0)) 'อัตราลดหย่อน ตาม สถานภาพ โสด 
+
+                .Cfg_ModRMFChk = CDbl(Val(R!FCUnitRMF.ToString)) '  ' หักค่าซื้อหน่วยลงทุนในกองทุนรวมเพื่อการเลี้ยงชีพ (RMF) ไม่เกิน 
+                .FCDisabledDependents = CDbl(Val(R!FCDisabledDependents.ToString)) '  'ค่าอุปการะเลี้ยงดูคนพิการหรือทุพพลภาพ
+                .FCHealthInsurFatherMotherMate = CDbl(Val(R!FCHealthInsurFatherMotherMate.ToString)) '   'เบี้ยประกันสุขภาพบิดามารดาของผู้มีเงินได้และคู่สมสร
+
+                .FCExceptAgeOver = CDbl(Val(R!FCExceptAgeOver.ToString)) ' ' 'รายการเงินได้ที่ได้รับยกเว้น ของผู้มีเงินได้ตั้งแต่ 65 ปีขึ้นไป 
+                .FCExceptAgeOverMate = CDbl(Val(R!FCExceptAgeOverMate.ToString)) ' 'รายการเงินได้ที่ได้รับยกเว้น ของคู่สมรสอายุตั้งแต่ 65 ปีขึ้นไป
+                '----------------------------------------------------
+            End With
+            '---------------------------------------- ลดหย่อน------------------------------------
+
+            _FCOtherAdd = 0 : _FTOtherAddCalculateSocial = "0" : _FTOtherAddCalculateTax = "0" : _FCOtherAddOt = 0
+            _FTOtherAddOtCalculateSocial = "0" : _FTOtherAddOtCalculateTax = "0" : _FCBFShiftMoney = 0 : _FTShiftMoneyCalculateSocial = "0"
+            _FTShiftMoneyCalculateTax = "0" : _FCDiligent = 0 : _FTDiligentCalculateSocial = "0" : _FTDiligentCalculateTax = "0"
+            _FCBonusEndYear = 0 : _FTBonusEndCalculateSocial = "0" : _FTBonusEndCalculateTax = "0" : _FCShelter = 0
+            _FTShelterCalculateSocial = "0" : _FTShelterCalculateTax = "0" : _FCShareFactory = 0 : _FTShareFactoryCalculateSocial = "0"
+            _FNNetpayOrg = 0.0
+            _FNNetpay = 0.0
+            _FCSalary = -99
+            _FTSlary = (_FTSlary)
+
+            If IsNumeric(_FTSlary) Then
+                _MSlary = _FTSlary
+                _FCSalary = CDbl(_FTSlary)
+
+
+                '------------------ คำนวณคืนพักร้อน ----------------------------
+
+                If (_ReturnVacation > 0) Or (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+
+                    Dim _Month As Integer = 0
+                    Dim _Leave As Double = 0
+                    Dim _SumLeaveVacation As Double = 0
+                    Dim _ResetDate As String = ""
+
+                    Dim _DateReset2 As String
+
+
+
+                    _Qry = " SELECT CASE WHEN RiGHT(FTCurrenDate,5) >=FTLeaveReset THEN LEFT(FTCurrenDate,4) ELSE  LEFT(FTBefore,4)  END +'/' + FTLeaveReset"
+                    _Qry &= vbCrLf & "  FROM"
+                    _Qry &= vbCrLf & " ("
+                    '_Qry &= vbCrLf & " SELECT  TOP 1 Convert(varchar(10),GetDate(),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
+                    _Qry &= vbCrLf & " SELECT  TOP 1 Convert(varchar(10),convert(date, '" & (_EndDate) & "'),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
+                    _Qry &= vbCrLf & " FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigLeave  AS L WITH (NOLOCK)  INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH(NOLOCK )"
+                    _Qry &= vbCrLf & "  ON  L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
+                    _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID='" & HI.UL.ULF.rpQuoted(_EmpCode) & "' "
+                    _Qry &= vbCrLf & " ) As T"
+
+                    _DateReset = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+
+                    If (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+                        '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                        '_Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                        '_Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                        ''  MsgBox("a")
+
+                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'" & ("") & "','" & (_EndDate) & "') AS FNEmpVacation"
+                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                    ElseIf _PayTerm = "01" Then
+                        ''  MsgBox("b")
+                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'2021/01/01','2021/12/31') AS FNEmpVacation"
+                        '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "')),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+                    Else
+                        ''  MsgBox("c")
+                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'" & (_DateReset) & "','" & (_EndDate) & "') AS FNEmpVacation"
+                        '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),Convert(varchar(10),DateAdd(year,0,Convert(Datetime,'" & (_DateReset) & "')),111),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+                    End If
+
+
+                    _Leave = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                    '' MsgBox(_Leave)
+                    If (_ReturnVacation > 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+                        '_Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
+                        '_Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                        '_Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+                        ''    MsgBox("d")
+                        _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Ret_Period_CDNEW(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'2022/01/01','" & (_EndDate) & "') AS FNEmpVacation"
+                        _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & " "
+
+
+                        _Leave = _Leave + (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                        ''     MsgBox(_Leave)
+
+                    End If
+
+                    If _Leave > 0 And _DateReset <> "" Then
+
+                        _Qry = ""
+                        If (_ReturnVacation <= 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+                            _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                            _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98' OR ISNULL(FTStateDeductVacation,'') ='1' )"
+                            _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                            _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & (_DateReset) & "'"
+
+                            ''      MsgBox("e")
+                            'Else
+                            '    _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                            '    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                            '    _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                            '    _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                            '    '_Qry &= vbCrLf & " 	AND  FTDateTrans < '" & (_DateReset) & "'"
+                            '    _Qry &= vbCrLf & " 	AND  FTDateTrans < Convert(varchar(10),DateAdd(year,1,Convert(Datetime,'" & (_DateReset) & "')),111)"
+                            '    '_Qry &= vbCrLf & " 	AND  FTDateTrans >=Convert(varchar(10),DateAdd(year,-1,Convert(Datetime,'" & (_DateReset) & "')),111)"
+                            '    _Qry &= vbCrLf & " 	AND  FTDateTrans >='" & (_DateReset) & "'"
+                        End If
+
+                        _SumLeaveVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                        ''    MsgBox(_SumLeaveVacation)
+                        If (_ReturnVacation > 0 And _TmpFDDateEnd <> "" And _TmpFDDateEnd >= _StartDate And _TmpFDDateEnd <= _EndDate) Then
+                            ''       MsgBox("f")
+                            _Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                            _Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                            _Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                            '' _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & (_DateReset) & "'"
+                            _Qry &= vbCrLf & " 	AND  FTDateTrans >= '" & ("2022/01/01") & "'"
+
+                            _SumLeaveVacation = _SumLeaveVacation + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                            ''         MsgBox(_SumLeaveVacation)
+                        Else
+                            ''        MsgBox("g")
+                            _Qry = " "
+                            '_Qry = "     SELECT       (SUM(FNTotalMinute)) AS FNTotalMinute"
+                            '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                            '_Qry &= vbCrLf & " WHERE        (FTLeaveType = '98'  OR ISNULL(FTStateDeductVacation,'') ='1'  )"
+                            '_Qry &= vbCrLf & "	AND FNHSysEmpID =" & Val(_EmpCode) & " "
+                            '_Qry &= vbCrLf & " 	AND  FTDateTrans >= '2022/01/01'"
+                            '_Qry &= vbCrLf & " 	AND  FTDateTrans <= '2022/12/31'"
+                            '_SumLeaveVacation = _SumLeaveVacation + Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                            '''      MsgBox(_SumLeaveVacation)
+                        End If
+
+
+
+                        If _ReturnVacation <= 0 Then
+                            _Qry = " SELECT   TOP 1 FCCfgRetValue"
+                            _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigReturnVacationSet WITH(NOLOCK) "
+                            _Qry &= vbCrLf & "  WHERE      (FNCalType =" & Val(_EmpType) & ")"
+
+                            _ReturnVacation = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                        End If
+
+                        'อัตราค่าแรงบันทึก ต่อเดือน หรือ ต่อวัน ฯลฯ
+                        Select Case FNStateSalaryType
+                            Case 0 'ต่อเดือน
+
+                                _FNSlaryPerDay = CDbl(Format((_FCSalary) / CountDayPerMonth, "0.0000000"))
+                            Case 1 'ต่อวัน
+
+                                _FNSlaryPerDay = CDbl(Format((_FCSalary), "0.00"))
+                        End Select
+                        'อัตราค่าแรงบันทึก ต่อเดือน หรือ ต่อวัน ฯลฯ
+                        Dim _FNSlaryPerDayRetVa As Double = 0
+                        _FNSlaryPerDayRetVa = HI.Conn.SQLConn.GetField("Select Top 1 FNSalary From THRTPayRoll WITH(NOLOCK) where  FNHSysEmpID = " & Val(_EmpCode) & " and  FTPayYear +'/'+FTPayTerm  <'" & _PayYear & "/" & _PayTerm & "'  Order by FTPayYear +'/'+FTPayTerm DESC ", Conn.DB.DataBaseName.DB_HR, "0")
+
+
+                        If (_Leave * 480) > _SumLeaveVacation Then
+
+                            ''Dim _MoneyRetVacationPerDay = MoneyRetVacationPerDay_KM(_PayYear, _PayTerm, _StartDate, _EndDate, Val(_EmpCode), Val(_EmpType), _Leave, _FCSalary, CountDayPerMonth, _WorkAgeDay)
+
+                            Dim _MoneyRetVacationPerDay = _FNSlaryPerDay
+
+
+                            Dim _ReteReturnVacPerDay As Double = 0
+                            If _FNEmpStatus = "2" Or _FDDateEnd <= _EndDate Then
+                                If _WorkAge <= 0 Then
+                                    Dim _ReVacationDay As Double = 0
+                                    Dim _ReVacationPiad As Double = 0
+
+                                    '  _ReVacationDay = Double.Parse(Format(((_Leave / 26) * _WorkAgeDay), "0.000"))
+                                    '  _ReVacationDay = Double.Parse((_Leave / 26) * _WorkAgeDay)
+                                    '   _Leave = _ReVacationDay
+                                    _ReVacationDay = _Leave
+                                End If
+                                _ReteReturnVacPerDay = _MoneyRetVacationPerDay
+                            Else
+                                _ReteReturnVacPerDay = _MoneyRetVacationPerDay  ' CDbl(Format((_FNSlaryPerDayRetVa) / CountDayPerMonth, "0.0000000"))
+                                FNVacationPerDayLapaid = _MoneyRetVacationPerDay
+                            End If
+                            FNVacationRetMin = (_Leave * 480) - _SumLeaveVacation
+                            If FNVacationRetMin <= 0 Then
+                                FNVacationRetMin = 0
+                            End If
+
+                            FNVacationRetAmt = 0
+                            'Dim _RetVaclationBal As Double = CDbl(Format(((_Leave * 480) - (_SumLeaveVacation)), "0.000"))
+
+                            _AmtReturnVacation = CDbl(Format((CDbl(Format(((_Leave * 480) - (_SumLeaveVacation)), "0.000")) * (_ReturnVacation * (_ReteReturnVacPerDay / 480))), "0.000"))
+                            FNVacationRetMin = CDbl(Format(((_Leave * 480) - (_SumLeaveVacation)), "0.000"))
+                            FNVacationRetAmt = _AmtReturnVacation
+
+                        End If
+
+                    End If
+                End If
+                '------------------ คำนวณคืนพักร้อน ----------------------------
+
+                ''------------------ คำนวณคืนพักร้อน ----------------------------
+
+                ''------------------ คำนวณคืนพักร้อน ----------------------------
+
+                _SocialMinIncome = HCfg.HSocialRate.SocialIncomeMin
+                _SocialMaxIncome = HCfg.HSocialRate.SocialIncomeMax
+                _SocialRate = HCfg.HSocialRate.CalSocialRate
+                _SocialRateCmp = HCfg.HSocialRate.CalSocialRateCmp
+                _StateSocialOnlyCmppay = HCfg.HSocialRate.StateSocialOnlyCmppay
+
+                _RateOT1 = 0 : _RateOT15 = 0 : _RateOT2 = 0 : _RateOT3 = 0 : _RateOT4 = 0
+                _AmtPlus = 0
+
+                _Qry = " SELECT FTCfgOTCode,FCCfgOTValue,ISNULL(FCCfgOTAmtPlus,0) AS FCCfgOTAmtPlus  "
+                _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigOTSet WITH (NOLOCK) "
+                _Qry &= vbCrLf & "  WHERE  (FNCalType  = " & Val(_EmpType) & ")"
+                _dtot = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                For Each R3 As DataRow In _dtot.Rows
+                    Select Case R3!FTCfgOTCode.ToString.ToUpper
+                        Case "01"
+                            _RateOT1 = Val(R3!FCCfgOTValue.ToString)
+                        Case "02"
+                            _RateOT15 = Val(R3!FCCfgOTValue.ToString)
+                        Case "03"
+                            _RateOT2 = Val(R3!FCCfgOTValue.ToString)
+                        Case "04"
+                            _RateOT3 = Val(R3!FCCfgOTValue.ToString)
+                            _AmtPlus = Val(R3!FCCfgOTAmtPlus.ToString)
+                        Case "05"
+                            _RateOT4 = Val(R3!FCCfgOTValue.ToString)
+                    End Select
+
+                Next
+
+                '---------รายได้รายหัก อื่นๆ-------------------------
+                '_Qry = " SELECT   FN.FTStaTax, FN.FTStaSocial,  (ISNULL(BF.FTFinAmt,0)) As FCFinAmt   , FM.FTFinType"
+                '_Qry &= vbCrLf & ",FN.FTCalType, FN.FTPayType, FN.FTStaCalOT, FN.FTStaLate, FN.FTStaAbsent, FN.FTStaLeave"
+                '_Qry &= vbCrLf & ", FN.FTStaVacation, FN.FTStaRetire, FN.FTStaHoliday, FN.FNOTTimeM,"
+                '_Qry &= vbCrLf & "  FN.FTOTTime,FN.FTFinCode "
+                '_Qry &= vbCrLf & "  ,FN.FTStaCheckLate, FN.FTLateMin,"
+                '_Qry &= vbCrLf & " FN.FTStaCheckLeave, FN.FTLeaveMin, FN.FTStaCheckWorkTime, FN.FTCheckWorkTimeMin, FN.FTStaMaternityleaveNotpay"
+
+                '_Qry &= vbCrLf & "   , ISNULL(FN.FTStaLateM,0) FTStaLateM ,  ISNULL(FN.FTStaLateA,0) FTStaLateA "
+
+                '_Qry &= vbCrLf & " FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeFin AS BF WITH (NOLOCK) INNER JOIN"
+                '_Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinanceSet AS FN WITH (NOLOCK) ON BF.FTFinCode = FN.FTFinCode  INNER JOIN"
+                '_Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinance AS FM WITH (NOLOCK) ON FN.FTFinCode = FM.FTFinCode"
+                '_Qry &= vbCrLf & " WHERE    (BF.FNHSysEmpID = " & Val(_EmpCode) & ")   AND  FN.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID)
+                '_Qry &= vbCrLf & "  AND (FM.FTFinType = '1' OR FM.FTFinType = '2')"
+
+
+
+
+                'If _EmpCalType = "0" Then
+                '    If Val(_PayTerm) Mod 2 = 0 Then
+                '        _Qry &= vbCrLf & "  AND FTPayType <> '' "
+                '    Else
+                '        _Qry &= vbCrLf & "  AND FTPayType <> '1' "
+                '    End If
+                'End If
+                '---------รายได้รายหัก อื่นๆ-------------------------
+                _Qry = " SELECT   FN.FTStaTax, FN.FTStaSocial,  (ISNULL(BF.FTFinAmt,0)) As FCFinAmt   , FM.FTFinType"
+                _Qry &= vbCrLf & ",FN.FTCalType, FN.FTPayType, FN.FTStaCalOT, FN.FTStaLate, FN.FTStaAbsent, FN.FTStaLeave"
+                _Qry &= vbCrLf & ", FN.FTStaVacation, FN.FTStaRetire, FN.FTStaHoliday, FN.FNOTTimeM,"
+                _Qry &= vbCrLf & "  FN.FTOTTime,FN.FTFinCode "
+                _Qry &= vbCrLf & "  ,FN.FTStaCheckLate, FN.FTLateMin,"
+                _Qry &= vbCrLf & " FN.FTStaCheckLeave, FN.FTLeaveMin, FN.FTStaCheckWorkTime, FN.FTCheckWorkTimeMin, FN.FTStaMaternityleaveNotpay,"
+                _Qry &= vbCrLf & " FN.FTStaLatePerDay,FN.FTStaAbsentPerDay,FN.FTStaLeavePerDay,FN.FTStaVacationPerDay,FN.FTStaMaternityleaveNotpayPerDay"
+                _Qry &= vbCrLf & " FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeFin AS BF WITH (NOLOCK) INNER JOIN"
+                _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinanceSet AS FN WITH (NOLOCK) ON BF.FTFinCode = FN.FTFinCode  INNER JOIN"
+                _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinance AS FM WITH (NOLOCK) ON FN.FTFinCode = FM.FTFinCode"
+                _Qry &= vbCrLf & " WHERE    (BF.FNHSysEmpID = " & Val(_EmpCode) & ") AND  FN.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID)
+                _Qry &= vbCrLf & "  AND (FM.FTFinType = '1' OR FM.FTFinType = '2')"
+
+                If _EmpCalType = "0" Then
+                    If Val(_PayTerm) Mod 2 = 0 Then
+                        _Qry &= vbCrLf & "  AND FTPayType <> '' "
+                    Else
+                        _Qry &= vbCrLf & "  AND FTPayType <> '1' "
+                    End If
+                End If
+                _Qry &= vbCrLf & "UNION  "
+                _Qry &= vbCrLf & " SELECT   FN.FTStaTax, FN.FTStaSocial,  0 As FCFinAmt   , FM.FTFinType"
+                _Qry &= vbCrLf & ",FN.FTCalType, FN.FTPayType, FN.FTStaCalOT, FN.FTStaLate, FN.FTStaAbsent, FN.FTStaLeave"
+                _Qry &= vbCrLf & ", FN.FTStaVacation, FN.FTStaRetire, FN.FTStaHoliday, FN.FNOTTimeM,"
+                _Qry &= vbCrLf & "  FN.FTOTTime,FN.FTFinCode "
+                _Qry &= vbCrLf & "  ,FN.FTStaCheckLate, FN.FTLateMin,"
+                _Qry &= vbCrLf & " FN.FTStaCheckLeave, FN.FTLeaveMin, FN.FTStaCheckWorkTime, FN.FTCheckWorkTimeMin, FN.FTStaMaternityleaveNotpay,"
+                _Qry &= vbCrLf & " FN.FTStaLatePerDay,FN.FTStaAbsentPerDay,FN.FTStaLeavePerDay,FN.FTStaVacationPerDay,FN.FTStaMaternityleaveNotpayPerDay"
+
+                _Qry &= vbCrLf & " FROM        [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinanceSet AS FN WITH (NOLOCK)   INNER JOIN"
+                _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinance AS FM WITH (NOLOCK) ON FN.FTFinCode = FM.FTFinCode"
+                _Qry &= vbCrLf & " WHERE    (FM.FTFinType = '1' OR FM.FTFinType = '2')   and FN.FTFinCode ='008'  AND  FN.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID)
+
+                If _EmpCalType = "0" Then
+                    If Val(_PayTerm) Mod 2 = 0 Then
+                        _Qry &= vbCrLf & "  AND FTPayType <> '' "
+                    Else
+                        _Qry &= vbCrLf & "  AND FTPayType <> '1' "
+                    End If
+                End If
+                _Qry &= vbCrLf & " and FN.FTFinCode  not in (  Select FTFinCode From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeFin  WITH (NOLOCK)  "
+                _Qry &= vbCrLf & " WHERE    (FNHSysEmpID = " & Val(_EmpCode) & ") )"
+
+                ' _Qry &= vbCrLf & "  AND FTPayType <> '" & IIf(_EmpCalType = "0" Or (Val(_PayTerm) Mod 2 = 0), "", "1") & "' "
+
+
+
+                _dtAddOtherAmt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+
+
+
+                _Qry = " SELECT     FTFinCode, FTType, FTCalType, FTPayType, FTStaTax, "
+                _Qry &= vbCrLf & "   FTStaSocial, FTStaCalOT, FTStaLate, FTStaAbsent, FTStaLeave, FTStaVacation, FTStaRetire, FTStaHoliday, FNOTTimeM, FTOTTime, FTStaCheckLate, FTLateMin,"
+                _Qry &= vbCrLf & "    FTStaCheckLeave, FTLeaveMin, FTStaCheckWorkTime, FTCheckWorkTimeMin, FTStaMaternityleaveNotpay, FTStaActive"
+                _Qry &= vbCrLf & "    FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinanceSet"
+                _Qry &= vbCrLf & "  WHERE        (FTFinCode = N'001') OR  (FTFinCode = N'007')  AND  FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID)
+                _dtAddOtherAmtshift = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                _GAmtAddCalOT = 0
+                For Each R2 As DataRow In _dtAddOtherAmt.Select("FTCalType<>'0' AND FTFinType='1' AND FTStaCalOT='1' AND FTPayType='0' ")
+                    _GAmtAddCalOT = _GAmtAddCalOT + Val(R2!FCFinAmt.ToString)
+                Next
+
+                _FCOtherAdd = 0 : _FTOtherAddCalculateSocial = 0 : _FTOtherAddCalculateTax = 0 : _FCOtherDeduct = 0
+
+                '---------------- Adjust Before Calculate------------------------------------
+                _Qry = " SELECT        FN.FTStaTax, FN.FTStaSocial, (ISNULL(BF.FCFinAmt,0))  AS FCFinAmt, FM.FTFinType,ISNULL(BF.FNDay,-1) As FNDay,BF.FTFinCode "
+                _Qry &= vbCrLf & " FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTManage AS BF WITH (NOLOCK) INNER JOIN"
+                _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinanceSet AS FN WITH (NOLOCK) ON BF.FTFinCode = FN.FTFinCode INNER JOIN"
+                _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinance AS FM WITH (NOLOCK) ON FN.FTFinCode = FM.FTFinCode"
+                _Qry &= vbCrLf & " WHERE        (BF.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "')"
+                _Qry &= vbCrLf & "  AND (BF.FTPayTerm = '" & HI.UL.ULF.rpQuoted(_PayTerm) & "') "
+                _Qry &= vbCrLf & " AND (BF.FNHSysEmpID = " & Val(_EmpCode) & ")"
+                _Qry &= vbCrLf & "  AND (FM.FTFinType = '1' OR FM.FTFinType = '2') AND  FN.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID)
+
+                If _AmtReturnVacation > 0 Then
+                    _Qry &= vbCrLf & " UNION ALL "
+                    _Qry &= vbCrLf & " SELECT   FN.FTStaTax, FN.FTStaSocial, " & _AmtReturnVacation & "  AS FCFinAmt, FM.FTFinType,-1 As FNDay,FM.FTFinCode "
+                    _Qry &= vbCrLf & " FROM     [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinanceSet AS FN WITH (NOLOCK)  INNER JOIN"
+                    _Qry &= vbCrLf & "          [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMFinance AS FM WITH (NOLOCK) ON FN.FTFinCode = FM.FTFinCode"
+                    _Qry &= vbCrLf & " WHERE (FM.FTFinCode='019') AND   FN.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID)
+                End If
+
+                _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                For Each R2 As DataRow In _dt.Select("FNDay<=0")
+                    Select Case R2!FTFinType.ToString
+                        Case "1"
+                            _FCOtherAdd = _FCOtherAdd + Val((R2!FCFinAmt.ToString))
+
+                            If R2!FTStaTax.ToString = "1" Then _FTOtherAddCalculateTax = _FTOtherAddCalculateTax + Val((R2!FCFinAmt.ToString))
+                            If R2!FTStaSocial.ToString = "1" Then _FTOtherAddCalculateSocial = _FTOtherAddCalculateSocial + Val((R2!FCFinAmt.ToString))
+
+                        Case "2"
+
+                            If R2!FTStaTax.ToString = "1" Then _FTOtherAddCalculateTax = _FTOtherAddCalculateTax - Val((R2!FCFinAmt.ToString))
+                            If R2!FTStaSocial.ToString = "1" Then _FTOtherAddCalculateSocial = _FTOtherAddCalculateSocial - Val((R2!FCFinAmt.ToString))
+
+
+                            _FCOtherDeduct = _FCOtherDeduct + Val((R2!FCFinAmt.ToString))
+                    End Select
+                Next
+
+                _DayAdjAdd = 0
+                _WageAdjAdd = 0
+
+                For Each R2 As DataRow In _dt.Select("FNDay> 0")
+
+                    _DayAdjAdd = _DayAdjAdd + Val((R2!FNDay.ToString))
+                    _WageAdjAdd = _WageAdjAdd + Val((R2!FCFinAmt.ToString))
+
+                Next
+
+                _Qry = "  SELECT   FTLeaveType AS LFTLeaveCode,Case WHEN FTLeaveType='98' Then 1 Else CASE WHEN FTLeaveType='97' THEN 2 ELSE 0 END  END AS LeaveType"
+                _Qry &= vbCrLf & " ,     SUM(CASE WHEN ISNULL(FNTotalMinute,0) >= 480 THEN 480   ELSE  ISNULL(FNTotalMinute,0)   END) AS FNTotalMinute"
+                _Qry &= vbCrLf & " , SUM( CASE WHEN ISNULL(FNTotalPayMinute,0) >= 480 THEN 480   ELSE ISNULL(FNTotalPayMinute,0)   END ) AS FNTotalPayMinute"
+                _Qry &= vbCrLf & " , SUM( CASE WHEN ISNULL(FNTotalNotPayMinute,0) >= 480 THEN 480 ELSE ISNULL(FNTotalNotPayMinute,0)   END ) AS FNTotalNotPayMinute"
+                _Qry &= vbCrLf & " , FTDateTrans"
+                _Qry &= vbCrLf & " ,ISNULL(FTStaCalSSO,'N') AS FTStaCalSSO,Max(ISNULL(FTStateMedicalCertificate,'')) AS FTStateMedicalCertificate "
+                _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)"
+                _Qry &= vbCrLf & "    WHERE (FNHSysEmpID =" & Val(_EmpCode) & " )"
+
+                If _FTEmpState = "2" Or _FTEmpState = "3" Then
+                    _Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_DateStartOfMonth) & "' "
+                    _Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_DateEndOfMonth) & "' "
+                Else
+                    _Qry &= vbCrLf & " 	AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                    _Qry &= vbCrLf & " 	AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "' "
+                End If
+
+                _Qry &= vbCrLf & " GROUP BY FTDateTrans,Case WHEN FTLeaveType='98' Then 1 Else 0 END,ISNULL(FTStaCalSSO,'N'),FTLeaveType"
+
+                _dtLeave = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                _Qry = " 	SELECT  ISNULL(T.FNHSysShiftID,0) AS FTShift	,Isnull(SH.FNRatePaid,1) AS FNRatePaid , Isnull(SH.FNStateShift,0) AS FNStateShift  "
+                _Qry &= vbCrLf & " ,(ISNULL(T.FNTimeMin,0) + ISNULL(T.FNSpecialTimeMin,0) + ISNULL(T.FNLateNormalMin,0) )- (ISNULL(T.FNLateNormalCut,0) + ISNULL(T.FNAbsentCut,0) )     AS FNTime"
+                _Qry &= vbCrLf & " 	, ISNULL(T.FNNotRegis,0) As FNNotRegis 	, ISNULL(FNOT1,0) AS FNOT1"
+                _Qry &= vbCrLf & " 	, ISNULL(T.FNOT1_5,0) AS FNOT1_5"
+                _Qry &= vbCrLf & " 	, ISNULL(T.FNOT2,0 ) AS FNOT2  , ISNULL(T.FNOT3,0) AS FNOT3, ISNULL(T.FNOT4,0) AS FNOT4"
+                _Qry &= vbCrLf & " 	, ISNULL(T.FNLateNormalMin,0) AS FNLateNormalMin, ISNULL(T.FNLateNormalCut,0 )   AS FNLateNormalCut"
+                _Qry &= vbCrLf & " , ISNULL(T.FNLateOtMin,0) As FNLateOtMin,ISNULL(T.FNLateOtCut,0) As FNLateOtCut"
+                _Qry &= vbCrLf & " , ISNULL(T.FNLateMMin,0) As FNLateMorning"
+                _Qry &= vbCrLf & " 	, ISNULL(T.FNLateAfMin,0) AS FNLateAfternoon,Isnull(T.FNAbsentCut,0) AS FNAbsentCut "
+                _Qry &= vbCrLf & " 	, (CASE WHEN ISNULL(T.FNAbsentSP,0) = ISNULL(T.FNAbsent,0) THEN 0 ELSE  ISNULL(T.FNAbsent,0)  END ) AS FNAbsent_Cut "
+                _Qry &= vbCrLf & " 	, ISNULL(T.FNCutAbsent,0) AS FNAbsent "
+                _Qry &= vbCrLf & " ,(ISNULL(T.FNTimeMin,0) + ISNULL(T.FNSpecialTimeMin,0) + ISNULL(T.FNLateNormalMin,0) )- (ISNULL(T.FNLateNormalCut,0) + ISNULL(T.FNAbsentCut,0) )   AS FNTimeMin"
+                _Qry &= vbCrLf & " ,(ISNULL(T.FNTimeMin,0) + ISNULL(T.FNSpecialTimeMin,0)) As FNTimeMinOrg"
+                _Qry &= vbCrLf & " , ISNULL(T.FNOT1Min,0) As FNOT1Min  "
+                _Qry &= vbCrLf & " , ISNULL(T.FNOT1_5Min,0) As FNOT1_5Min "
+                _Qry &= vbCrLf & " ,ISNULL(T.FNOT2Min,0) As FNOT2Min "
+                _Qry &= vbCrLf & " , ISNULL(T.FNOT3Min,0) As FNOT3Min, ISNULL(FNOT4Min,0) As FNOT4Min "
+                _Qry &= vbCrLf & " ,ISNULL(T.FNLateMMin,0) AS FNLateMMin "
+                _Qry &= vbCrLf & " , ISNULL(T.FNLateAfMin,0) AS FNLateAfMin"
+                _Qry &= vbCrLf & " , ISNULL(T.FNRetireMMin,0) AS FNRetireMMin "
+                _Qry &= vbCrLf & " ,ISNULL(T.FNRetireAfMin,0 )  as FNRetireAfMin"
+                _Qry &= vbCrLf & " , ISNULL(T.FNRetireNormalCut,0) As FNRetireNormalCut "
+                _Qry &= vbCrLf & " , ISNULL(T.FNRetireOtMin,0) AS FNRetireOtMin"
+                _Qry &= vbCrLf & " ,ISNULL(T.FNRetireOtCut,0) AS FNRetireOtCut,FTDateTrans"
+                _Qry &= vbCrLf & " ,ISNULL(T.FTIn1,'') AS FTIn1"
+                _Qry &= vbCrLf & " ,ISNULL(T.FTOut1,'') AS FTOut1"
+                _Qry &= vbCrLf & " ,ISNULL(T.FTIn2,'') AS FTIn2"
+                _Qry &= vbCrLf & " ,ISNULL(T.FTOut2,'') AS FTOut2"
+                _Qry &= vbCrLf & " ,ISNULL(T.FTIn3,'') AS FTIn3"
+                _Qry &= vbCrLf & " ,ISNULL(T.FTOut3,'') AS FTOut3"
+                _Qry &= vbCrLf & " ,P.FTOverClock,T.FTWeekDay"
+                _Qry &= vbCrLf & " ,CASE WHEN T.FTWeekDay=1 AND  ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTSunday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTSunday,'0') ='1'  ) THEN '1'  "
+                _Qry &= vbCrLf & "  WHEN T.FTWeekDay=2 AND   ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTMonday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTMonday,'0') ='1'  ) THEN '1'  "
+                _Qry &= vbCrLf & "  WHEN T.FTWeekDay=3 AND   ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTTuesday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTTuesday,'0') ='1'  )  THEN '1'  "
+                _Qry &= vbCrLf & "  WHEN T.FTWeekDay=4 AND   ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTWednesday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTWednesday,'0') ='1'  )  THEN '1'  "
+                _Qry &= vbCrLf & "  WHEN T.FTWeekDay=5 AND   ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTThursday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTThursday,'0') ='1'  )  THEN '1'  "
+                _Qry &= vbCrLf & "  WHEN T.FTWeekDay=6 AND   ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTFriday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTFriday,'0') ='1'  )  THEN '1'  "
+                _Qry &= vbCrLf & "  WHEN T.FTWeekDay=7 AND  ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTSaturday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTSaturday,'0') ='1'  )  THEN '1'  "
+                _Qry &= vbCrLf & "  ELSE '0' END AS FTWeekly,ISNULL(FTStateAccept,'') AS FTStateAccept "
+                _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTrans AS T WITH(NOLOCK) LEFT OUTER JOIN   THRMTimeShift AS P WITH(NOLOCK) ON T.FNHSysShiftID =P.FNHSysShiftID  "
+                _Qry &= vbCrLf & "   INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK)  ON  T.FNHSysEmpID =  M.FNHSysEmpID"
+                _Qry &= vbCrLf & "  LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeWeekly AS EHL WITH (NOLOCK) ON T.FNHSysEmpID=EHL.FNHSysEmpID"
+                _Qry &= vbCrLf & "  LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmpTypeWeeklySpecial AS ETHL WITH (NOLOCK) ON T.FTDateTrans = ETHL.FDHolidayDate AND M.FNHSysEmpTypeId=ETHL.FNHSysEmpTypeId"
+                _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift AS SH WITH (NOLOCK) ON T.FNHSysShiftID = SH.FNHSysShiftID"
+
+                _Qry &= vbCrLf & "  WHERE (T.FNHSysEmpID =" & Val(_EmpCode) & " )"
+                _Qry &= vbCrLf & " 	AND T.FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' "
+                _Qry &= vbCrLf & " 	AND T.FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDate) & "'  "
+
+                If _FDDateEnd <> "" Then
+                    _Qry &= vbCrLf & " 	AND T.FTDateTrans < '" & HI.UL.ULDate.ConvertEnDB(_FDDateEnd) & "'  "
+                End If
+                If _FTEmpState <> "2" And _FTEmpState <> "3" Then ' คำนวณค่าแรงพนักงานรายเดือน
+                    _Qry &= vbCrLf & " 	AND T.FTStateAccept = '1'  "
+                End If
+
+                _dttran = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                '---------------Get Trans Daily--------------------------------------
+                _GFNTime = 0 : _GFNNotRegis = 0 : _GFNOT1 = 0 : _GFNOT1_5 = 0
+                _GFNOT2 = 0 : _GFNOT3 = 0 : _GFNOT4 = 0 : _GFNLeaveSick = 0 : _GFNLeaveBusiness = 0
+                _GFNLeaveVacation = 0 : _GFNLeavePregnant = 0 : _GFNLeaveOrdain = 0 : _GFNLeaveMarry = 0 : _GFNLeaveSpecial = 0
+                _GFNLeaveOther = 0 : _GFNLateNormalMin = 0 : _GFNLateNormalCut = 0 : _GFNLateOtMin = 0
+                _GFNLateOtCut = 0 : _GFNLateMorning = 0 : _GFNLateAfternoon = 0
+                _GFNAbsent = 0 : _GFNCutAbsent = 0 : _GFNLeavePay = 0 : _GFNTimeMin = 0 : _GFNOT1Min = 0 : _GFNOT1_5Min = 0 : _GFNTimeMin_Real_After_Probation = 0
+                _GFNOT2Min = 0 : _GFNOT3Min = 0 : _GFNLateMMin = 0 : _GFNLateAfMin = 0 : _GFNRetireMMin = 0
+                _GFNRetireAfMin = 0 : _GFNRetireNormalCut = 0 : _GFNRetireOtMin = 0 : _GFNRetireOtCut = 0
+                _LateCutAbsent = 0 : _LateCutAmt = 0 : _LateCutAmtAbsent = 0
+                _Gtotalleave = 0 : _GtotalleavePay = 0 : _GtotalleaveNotPay = 0 : _GtotalleavePayCalSso = 0 : _GtotalleavePayCalSsoAmt = 0
+                _TotalHoliDay = 0
+                _GFNLateNormalMinNotHoliday = 0
+
+                '------------------- เริ่มการคำนวณรายวัน
+                Dim _oHoliday As Integer = 0
+
+                _TotalWorkDay = 0
+                _ShiftAmt = 0
+                _ShiftValue = 0
+                _ShiftOTValue = 0
+                _ShiftOTAmt = 0
+                _FCAdd = 0 : _FTAddCalculateSocial = 0 : _FTAddCalculateTax = 0 : _FCDeduct = 0
+                _GAmtPlus = 0
+
+                Dim _RateShipftPerDay As Double = 0
+                Dim _StateShift As Integer = 0
+                If _FDDateStart > _FTSatrtCalculateDate Then _FTSatrtCalculateDate = _FDDateStart
+
+                Dim _fnMonthWorkAge As Integer = 0
+
+                Dim temp As Date
+                Dim temp1 As Integer
+                Dim i As Integer
+                Dim day1 As Integer
+                Dim day2 As Integer
+
+                Dim Day As Integer
+                Dim Month As Integer
+
+
+                Do While _FTSatrtCalculateDate <= _FTEndCalculateDate And (_FDDateEnd = "" Or _FTSatrtCalculateDate < _FDDateEnd)
+
+                    '_fnMonthWorkAge = DateDiff("m", _FDDateStart, HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate))
+
+
+
+
+                    temp1 = DateDiff("m", HI.UL.ULDate.ConvertEnDB(_FDDateStart), HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate))
+
+                    day1 = DatePart("d", HI.UL.ULDate.ConvertEnDB(_FDDateStart))
+                    day2 = DatePart("d", HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate))
+                    If day1 > day2 Then
+                        temp = DateAdd("m", (temp1 - 1), HI.UL.ULDate.ConvertEnDB(_FDDateStart))
+                        Month = (temp1 - 1)
+                    Else
+                        temp = DateAdd("m", (temp1), HI.UL.ULDate.ConvertEnDB(_FDDateStart))
+                        Month = (temp1)
+                    End If
+
+                    For i = 1 To 31
+                        If temp = HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) Then Exit For
+                        temp = DateAdd("d", 1, temp)
+                    Next i
+
+                    Day = (i - 1)
+
+
+
+                    'If (_EndDate >= Left(_StartDate, 8) & "07" And _EndDate <= Left(_StartDate, 8) & "24") Then
+                    For Each ZRow In _tmpWorkAge.Select(" FNWorkAgeStart<= " & Month & " AND  FNWorkAgeEnd>=" & Month & " ")
+                        _FNWorkAgeSalary = _FNWorkAgeSalary + Val(ZRow!FNWorkAgeAmt.ToString)
+
+                    Next
+                    'End If
+
+                    _RateShipftPerDay = 0
+                    _oHoliday = 0
+                    FTHldType = 0
+                    _StateShift = 0
+                    Dim _NewSlary As String
+
+                    _Qry = "  SELECT   TOP 1   FNCurrentSlary  AS AMT"
+                    _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeMasterChangeSlary WITH(NOLOCK) "
+                    _Qry &= vbCrLf & "  WHERE        (FTEffectiveDate > N'" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "') "
+                    _Qry &= vbCrLf & "  AND  (FNHSysEmpID = " & Val(_EmpCode) & ")"
+                    _Qry &= vbCrLf & "  ORDER BY FTEffectiveDate ASC "
+                    _NewSlary = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+
+                    _FCSalary = _MSlary
+                    If IsNumeric(_NewSlary) Then _FCSalary = CDbl(_NewSlary)
+
+                    _Holiday = ""
+
+                    For Each IR As DataRow In _DTHoliday.Select("   FDHolidayDate  = '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "'")
+                        _Holiday = "H"
+                        FTHldType = Val(IR!FTHldType.ToString)
+                        Exit For
+                    Next
+
+                    _FTShift = ""
+
+                    _FNTime = 0
+                    _FNNotRegis = 0
+                    _FNOT1 = 0 : _FNOT1_5 = 0 : _FNOT2 = 0
+                    _FNOT3 = 0 : _FNOT4 = 0
+                    _FNLateNormalMin = 0 : _FNLateNormalCut = 0
+                    _FNLateOtMin = 0 : _FNLateOtCut = 0
+                    _FNLateMorning = 0 : _FNLateAfternoon = 0
+                    _LateCutAbsent = 0 : _FNAbsent = 0
+                    _FNTimeMin = 0 : _FNOT1Min = 0
+                    _FNOT1_5Min = 0 : _FNOT2Min = 0
+                    _FNOT3Min = 0 : _FNOT4Min = 0
+                    _FNLateMMin = 0 : _FNLateAfMin = 0
+                    _FNRetireMMin = 0 : _FNRetireAfMin = 0
+                    _FNRetireNormalCut = 0 : _FNRetireNormalCut = 0
+                    _FNRetireOtMin = 0 : _FNRetireOtMin = 0
+                    _FNRetireOtCut = 0
+                    _FNLeavePay = 0 : _FNLeaveVacation = 0
+                    _FNLeaveNotPay = 0
+                    _AmtAddCalOT = 0
+                    _GtotalleavePayCalSso = 0
+                    _LeaveCode = ""
+
+                    Dim _InOT As String = "" : Dim _OutOT As String = "" : Dim _Over As String = ""
+                    Dim _R() As DataRow = _dttran.Select("FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "'")
+                    For Each R2 In _R
+
+                        _RatePay = Double.Parse("0" & R2!FNRatePaid.ToString)
+                        _RateShipftPerDay = _RatePay
+                        _StateShift = Integer.Parse("0" & R2!FNStateShift.ToString)
+
+                        _FTShift = R2!FTShift.ToString
+                        _FNTime = IIf(Val(R2!FNTime.ToString) < 0, 0, Val(R2!FNTime.ToString))
+                        _FNTimeMin = IIf(Val(R2!FNTimeMin.ToString) < 0, 0, Val(R2!FNTimeMin.ToString))
+                        _FNNotRegis = Val(R2!FNNotRegis.ToString)
+                        _FNOT1 = Val(R2!FNOT1.ToString) : _FNOT1_5 = Val(R2!FNOT1_5.ToString) : _FNOT2 = Val(R2!FNOT2.ToString)
+                        _FNOT3 = Val(R2!FNOT3.ToString) : _FNOT4 = Val(R2!FNOT3.ToString)
+                        _FNLateNormalMin = Val(R2!FNLateNormalMin.ToString) : _FNLateNormalCut = Val(R2!FNLateNormalCut.ToString)
+                        _FNLateOtMin = Val(R2!FNLateOtMin.ToString) : _FNLateOtCut = Val(R2!FNLateOtCut.ToString)
+                        _FNLateMorning = Val(R2!FNLateMorning.ToString) : _FNLateAfternoon = (Val(R2!FNLateAfternoon.ToString))
+                        _LateCutAbsent = Val(R2!FNAbsentCut.ToString) : _FNAbsent = Val(R2!FNAbsent_Cut.ToString)
+                        _FNOT1Min = Val(R2!FNOT1Min.ToString)
+                        _FNOT1_5Min = Val(R2!FNOT1_5Min.ToString) : _FNOT2Min = Val(R2!FNOT2Min.ToString)
+                        _FNOT3Min = Val(R2!FNOT3Min.ToString) : _FNOT4Min = Val(R2!FNOT4Min.ToString)
+                        _FNLateMMin = Val(R2!FNLateMMin.ToString) : _FNLateAfMin = Val(R2!FNLateAfMin.ToString)
+                        _FNRetireMMin = Val(R2!FNRetireMMin.ToString) : _FNRetireAfMin = Val(R2!FNRetireAfMin.ToString)
+                        _FNRetireNormalCut = Val(R2!FNRetireNormalCut.ToString) : _FNRetireNormalCut = Val(R2!FNRetireNormalCut.ToString)
+                        _FNRetireOtMin = Val(R2!FNRetireOtMin.ToString) : _FNRetireOtMin = Val(R2!FNRetireOtMin.ToString)
+                        _FNRetireOtCut = Val(R2!FNRetireOtCut.ToString)
+                        _InOT = R2!FTIn3.ToString
+                        _OutOT = R2!FTOut3.ToString
+
+                        _Over = R2!FTOverClock.ToString
+
+                        If _FTShift <> "" And (_FNTime + _FNOT1Min + _FNOT1_5Min + _FNOT2Min + _FNOT3Min + _FNOT4Min > 0) Then
+                            _ShiftValue = Val(HI.Conn.SQLConn.GetField("SELECT TOP 1 FCShiftAmt FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift WHERE FNHSysShiftID=" & Val(_FTShift) & " ", Conn.DB.DataBaseName.DB_HR, "0"))
+
+                            _TotalWorkDay = _TotalWorkDay + 1
+
+                            _ShiftOTValue = Val(HI.Conn.SQLConn.GetField("SELECT TOP 1 FCShiftOTAmt FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift WHERE FNHSysShiftID=" & Val(_FTShift) & " ", Conn.DB.DataBaseName.DB_HR, "0"))
+
+                            '----------------- รายได้อื่นๆประจำวัน กรณีมาทำงาน---------------------
+                            If _FTShift <> "" And (_FNTimeMin + _FNOT1_5Min + _FNOT3Min + _FNOT1Min + _FNOT2Min + _FNOT4Min) > 0 Then
+
+                                If _FNOT1Min + _FNOT2Min + _FNOT4Min + _FNOT1_5Min > 0 Then
+                                    '' _FNNetOTMealAmt = _FNNetOTMealAmt + _FNOTMealAmt
+                                End If
+
+                                _SPDateType = 0
+
+                                _Holiday = ""
+
+                                For Each IR As DataRow In _DTHoliday.Select("   FDHolidayDate  = '" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "'")
+                                    _Holiday = "H"
+                                    Exit For
+                                Next
+
+                                If _Holiday <> "" Then _SPDateType = 2
+
+                                Dim _StateLeaveOther As Boolean = False
+                                Dim _StateLeavacation As Boolean = False
+                                Dim _StateFTStaMaternityleaveNotpay As Boolean = False
+                                Dim _SumLeave As Integer = 0
+
+                                For Each sR As DataRow In _dtLeave.Select("FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "'")
+                                    _SumLeave = _SumLeave + Val(sR!FNTotalMinute)
+
+                                    If Val(sR!LeaveType) = 1 Then
+                                        _StateLeavacation = True
+                                    Else
+                                        _StateLeaveOther = True
+                                    End If
+
+                                    If Val(sR!LeaveType) = 2 Then
+                                        _StateFTStaMaternityleaveNotpay = True
+                                    End If
+
+                                Next
+
+                                '--------------------------- ค่ากะ -------------------------------------
+                                For Each RFin As DataRow In _dtAddOtherAmtshift.Select("FTFinCode='001' ")
+                                    Dim _StatePass As Boolean = True
+
+                                    If RFin!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= 0)
+                                    If RFin!FTStaCheckLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= Val(RFin!FTLateMin.ToString))
+                                    If RFin!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_FNAbsent <= 0)
+                                    If RFin!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeaveOther)
+                                    If RFin!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeavacation)
+                                    If RFin!FTStaHoliday.ToString = "1" And _StatePass Then _StatePass = Not (_SPDateType = 0)
+                                    If RFin!FTStaCheckWorkTime.ToString = "1" And _StatePass Then
+                                        _StatePass = Not ((_FNTimeMin + _FNOT1_5Min + _FNOT3Min) < Val(RFin!FTCheckWorkTimeMin.ToString))
+                                    End If
+
+                                    If RFin!FTStaCheckLeave.ToString = "1" And _StatePass Then _StatePass = Not ((_SumLeave) < Val(RFin!FTLeaveMin.ToString))
+                                    If RFin!FTStaMaternityleaveNotpay.ToString = "1" And _StatePass Then _StatePass = Not (_StateFTStaMaternityleaveNotpay)
+
+                                    If RFin!FTOTTime.ToString <> "" And _StatePass Then
+                                        Dim _STime As String = (IIf(_Over > _OutOT, _ActualNextDate, _ActualDate)) & " " & _OutOT
+                                        Dim _ETime As String = (IIf(_Over > RFin!FTOTTime.ToString, _ActualNextDate, _ActualDate)) & " " & RFin!FTOTTime.ToString.Replace(".", ":")
+
+                                        If _STime.Length = _ETime.Length Then
+                                            If IsDate(_STime) And IsDate(_ETime) Then
+                                                If CDate(_STime) < CDate(_ETime) Or _InOT = "" Or _OutOT = "" Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+                                        Else
+                                            _StatePass = False
+                                        End If
+
+                                    End If
+
+                                    If RFin!FNOTTimeM.ToString <> "" And _StatePass Then
+                                        If Val(RFin!FNOTTimeM.ToString) > 0 Then
+
+                                            If _FNOT1 + _FNOT2 + _FNOT4 > 0 Then
+                                                If (_FNOT1 + _FNOT2 + _FNOT4) < Val(RFin!FNOTTimeM.ToString) Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+
+                                        End If
+                                    End If
+
+
+                                    If RFin!FTStaVacation.ToString = "1" Then _StatePass = Not (_StateLeavacation)
+
+
+
+                                    If _StatePass Then
+                                        _ShiftAmt = _ShiftAmt + _ShiftValue
+
+                                        If RFin!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + _ShiftValue
+                                        If RFin!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + _ShiftValue
+                                        If RFin!FTStaCalOT.ToString = "1" Then _AmtAddCalOT = _AmtAddCalOT + _ShiftValue
+                                    End If
+                                Next
+                                '--------------------------- ค่ากะ -------------------------------------
+
+                                '****************************** Bonus 
+
+                                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='008' ")
+                                    Dim _StatePass As Boolean = True
+
+                                    If RFin!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= 0)
+                                    ' If RFin!FTStaCheckLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= Val(RFin!FTLateMin.ToString))
+                                    If RFin!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_FNAbsent <= 0)
+                                    If RFin!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeaveOther)
+                                    If RFin!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeavacation)
+                                    If RFin!FTStaHoliday.ToString = "1" And _StatePass Then _StatePass = Not (_SPDateType = 0)
+                                    If RFin!FTStaCheckWorkTime.ToString = "1" And _StatePass Then
+                                        _StatePass = Not ((_FNTimeMin + _FNOT1_5Min + _FNOT3Min) < Val(RFin!FTCheckWorkTimeMin.ToString))
+                                    End If
+
+                                    If RFin!FTStaCheckLeave.ToString = "1" And _StatePass Then _StatePass = Not ((_SumLeave) < Val(RFin!FTLeaveMin.ToString))
+                                    If RFin!FTStaMaternityleaveNotpay.ToString = "1" And _StatePass Then _StatePass = Not (_StateFTStaMaternityleaveNotpay)
+
+                                    If RFin!FTOTTime.ToString <> "" And _StatePass Then
+                                        Dim _STime As String = (IIf(_Over > _OutOT, _ActualNextDate, _ActualDate)) & " " & _OutOT
+                                        Dim _ETime As String = (IIf(_Over > RFin!FTOTTime.ToString, _ActualNextDate, _ActualDate)) & " " & RFin!FTOTTime.ToString.Replace(".", ":")
+
+                                        If _STime.Length = _ETime.Length Then
+                                            If IsDate(_STime) And IsDate(_ETime) Then
+                                                If CDate(_STime) < CDate(_ETime) Or _InOT = "" Or _OutOT = "" Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+                                        Else
+                                            _StatePass = False
+                                        End If
+
+                                    End If
+
+                                    If RFin!FNOTTimeM.ToString <> "" And _StatePass Then
+                                        If Val(RFin!FNOTTimeM.ToString) > 0 Then
+
+                                            If _FNOT1 + _FNOT2 + _FNOT4 > 0 Then
+                                                If (_FNOT1 + _FNOT2 + _FNOT4) < Val(RFin!FNOTTimeM.ToString) Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+
+                                        End If
+                                    End If
+
+
+                                    If RFin!FTStaVacation.ToString = "1" Then _StatePass = Not (_StateLeavacation)
+
+                                    If _StatePass Then
+
+                                        Dim _Amt As Double = 0
+                                        Dim _Cmd As String = ""
+                                        _Cmd = "Select Top 1 isnull(FNAmt,0) AS  FNAmt From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTWageDaily_Bonus with(nolock)"
+                                        _Cmd &= vbCrLf & "where FNHSysEmpID=" & Integer.Parse(_EmpCode)
+                                        _Cmd &= vbCrLf & "and FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "'"
+                                        _Amt = Double.Parse(HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_HR, "0"))
+                                        _BonusAmt = _BonusAmt + _Amt
+
+                                        If RFin!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + _Amt
+                                        If RFin!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + _Amt
+                                        If RFin!FTStaCalOT.ToString = "1" Then _AmtAddCalOT = _AmtAddCalOT + _Amt
+                                    End If
+                                Next
+
+
+                                '****************************** End Bonus
+
+                                '--------------------------- ค่ากะ OT ----------------------------------
+                                For Each RFin As DataRow In _dtAddOtherAmtshift.Select("FTFinCode='007' ")
+                                    Dim _StatePass As Boolean = True
+
+                                    If _OutOT <> "" Then
+                                        Beep()
+                                    End If
+                                    If RFin!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= 0)
+                                    If RFin!FTStaCheckLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= Val(RFin!FTLateMin.ToString))
+                                    If RFin!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_FNAbsent <= 0)
+                                    If RFin!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeaveOther)
+                                    If RFin!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeavacation)
+                                    If RFin!FTStaHoliday.ToString = "1" And _StatePass Then _StatePass = Not (_SPDateType = 0)
+                                    If RFin!FTStaCheckWorkTime.ToString = "1" And _StatePass Then
+                                        _StatePass = Not ((_FNTimeMin + _FNOT1_5Min + _FNOT3Min) < Val(RFin!FTCheckWorkTimeMin.ToString))
+                                    End If
+
+                                    If RFin!FTStaCheckLeave.ToString = "1" And _StatePass Then _StatePass = Not ((_SumLeave) < Val(RFin!FTLeaveMin.ToString))
+                                    If RFin!FTStaMaternityleaveNotpay.ToString = "1" And _StatePass Then _StatePass = Not (_StateFTStaMaternityleaveNotpay)
+
+                                    If RFin!FTOTTime.ToString <> "" And _StatePass Then
+                                        Dim _STime As String = (IIf(_Over > _OutOT, _ActualNextDate, _ActualDate)) & " " & _OutOT
+                                        Dim _ETime As String = (IIf(_Over > RFin!FTOTTime.ToString, _ActualNextDate, _ActualDate)) & " " & RFin!FTOTTime.ToString.Replace(".", ":")
+
+                                        If _STime.Length = _ETime.Length Then
+                                            If IsDate(_STime) And IsDate(_ETime) Then
+                                                If CDate(_STime) < CDate(_ETime) Or _InOT = "" Or _OutOT = "" Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+                                        Else
+                                            _StatePass = False
+                                        End If
+
+                                    End If
+
+                                    If RFin!FNOTTimeM.ToString <> "" And _StatePass Then
+                                        If Val(RFin!FNOTTimeM.ToString) > 0 Then
+
+                                            If _FNOT1 + _FNOT2 + _FNOT4 > 0 Then
+                                                If (_FNOT1 + _FNOT2 + _FNOT4) < Val(RFin!FNOTTimeM.ToString) Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+
+                                        End If
+                                    End If
+
+                                    If RFin!FTStaVacation.ToString = "1" Then _StatePass = Not (_StateLeavacation)
+
+                                    If _StatePass Then
+
+                                        _ShiftOTAmt = _ShiftOTAmt + _ShiftOTValue
+
+                                        If RFin!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + _ShiftOTValue
+                                        If RFin!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + _ShiftOTValue
+                                        If RFin!FTStaCalOT.ToString = "1" Then _AmtAddCalOT = _AmtAddCalOT + _ShiftOTValue
+
+                                    End If
+
+                                Next
+                                '--------------------------- ค่ากะ OT ----------------------------------
+
+                                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTCalType='0' AND FTFinType='1' AND FTPayType='0' And FTFinCode<>'057' And FTFinCode<>'043' And FTFinCode<>'061'  And FTFinCode<>'062' And FTFinCode<>'063' And FTFinCode<>'064' ")
+                                    Dim _StatePass As Boolean = True
+
+                                    If _OutOT <> "" Then
+                                        Beep()
+                                    End If
+                                    If RFin!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= 0)
+                                    If RFin!FTStaCheckLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= Val(RFin!FTLateMin.ToString))
+                                    If RFin!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_FNAbsent <= 0)
+                                    If RFin!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeaveOther)
+                                    If RFin!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeavacation)
+                                    If RFin!FTStaHoliday.ToString = "1" And _StatePass Then _StatePass = Not (_SPDateType = 0)
+                                    If RFin!FTStaCheckWorkTime.ToString = "1" And _StatePass Then
+                                        _StatePass = Not ((_FNTimeMin + _FNOT1_5Min + _FNOT3Min) < Val(RFin!FTCheckWorkTimeMin.ToString))
+                                    End If
+
+                                    If RFin!FTStaCheckLeave.ToString = "1" And _StatePass Then _StatePass = Not ((_SumLeave) < Val(RFin!FTLeaveMin.ToString))
+                                    If RFin!FTStaMaternityleaveNotpay.ToString = "1" And _StatePass Then _StatePass = Not (_StateFTStaMaternityleaveNotpay)
+
+                                    If RFin!FTOTTime.ToString <> "" And _StatePass Then
+                                        Dim _STime As String = (IIf(_Over > _OutOT, _ActualNextDate, _ActualDate)) & " " & _OutOT
+                                        Dim _ETime As String = (IIf(_Over > RFin!FTOTTime.ToString, _ActualNextDate, _ActualDate)) & " " & RFin!FTOTTime.ToString.Replace(".", ":")
+
+                                        If _STime.Length = _ETime.Length Then
+
+                                            If IsDate(_STime) And IsDate(_ETime) Then
+                                                If CDate(_STime) < CDate(_ETime) Or _InOT = "" Or _OutOT = "" Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+
+                                        Else
+                                            _StatePass = False
+                                        End If
+
+                                    End If
+
+                                    If RFin!FNOTTimeM.ToString <> "" And _StatePass Then
+                                        If Val(RFin!FNOTTimeM.ToString) > 0 Then
+
+                                            If _FNOT1 + _FNOT2 + _FNOT4 > 0 Then
+                                                If (_FNOT1 + _FNOT2 + _FNOT4) < Val(RFin!FNOTTimeM.ToString) Then
+                                                    _StatePass = False
+                                                End If
+                                            Else
+                                                _StatePass = False
+                                            End If
+
+                                        End If
+                                    End If
+
+                                    If RFin!FTStaVacation.ToString = "1" Then _StatePass = Not (_StateLeavacation)
+
+                                    If _StatePass Then
+                                        _FCAdd = _FCAdd + Val(RFin!FCFinAmt.ToString)
+
+                                        If RFin!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + Val(RFin!FCFinAmt.ToString)
+                                        If RFin!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + Val(RFin!FCFinAmt.ToString)
+                                        If RFin!FTStaCalOT.ToString = "1" Then _AmtAddCalOT = _AmtAddCalOT + Val(RFin!FCFinAmt.ToString)
+
+                                        If _DtFin.Select("FTFinCode='" & RFin!FTFinCode.ToString & "'").Length <= 0 Then
+                                            _DtFin.Rows.Add(RFin!FTFinCode.ToString, Val(RFin!FCFinAmt.ToString))
+                                        Else
+
+                                            For Each xRow As DataRow In _DtFin.Select("FTFinCode='" & RFin!FTFinCode.ToString & "'")
+                                                xRow!FCTotalFinAmt = Val(xRow!FCTotalFinAmt) + Val(RFin!FCFinAmt.ToString)
+                                            Next
+
+                                        End If
+                                    End If
+                                Next
+                            End If
+                            '----------------- รายได้อื่นๆประจำวัน กรณีมาทำงาน---------------------
+
+                        End If
+
+                    Next
+
+
+                    'อัตราค่าแรงบันทึก ต่อเดือน หรือ ต่อวัน ฯลฯ
+                    Select Case FNStateSalaryType
+                        Case 0 'ต่อเดือน
+                            _FNSlaryPerMonth = CDbl(Format((_FCSalary), "0.000"))
+                            _FNSlaryPerDay = CDbl(Format((_FCSalary) / CountDayPerMonth, "0.000"))
+                            ' _SalaryPayLeave = CDbl(Format((_FCSalary) / 26, "0.000")) ' ลาป่วย หารวันทำงานในงวด  meeting 20180227 pMote , pWest , pTuk cd , pAnuwat 
+
+                            _SalaryPayLeave = CDbl(Format((_FCSalary) / CountDayPerMonth, "0.000"))
+                        Case 1 'ต่อวัน
+                            _FNSlaryPerMonth = CDbl(Format((_FCSalary * CountDayPerMonth), "0.000"))
+                            _FNSlaryPerDay = CDbl(Format((_FCSalary), "0.000"))
+                            _SalaryPayLeave = _FNSlaryPerDay
+                    End Select
+                    'เพิ่มค่าแรง กัมพูชา 20161206
+                    '  _SalaryPayLeave = _FNSlaryPerDay
+                    _FNSlaryPerMonth = _FNSlaryPerMonth
+                    _FNSlaryPerDay = _FNSlaryPerDay
+                    _SalaryPayOTKM = _FNSlaryPerDay
+
+
+                    'อัตราค่าแรงบันทึก ต่อเดือน หรือ ต่อวัน ฯลฯ
+
+                    If _RateShipftPerDay > 1 Then
+                        _FNSlaryPerDay = _FNSlaryPerDay * _RateShipftPerDay
+                    End If
+
+                    If _StateShift = 1 Then
+                        _Qry = " SELECT FTCfgOTCode,Isnull(FCCfgOTNightValue,0) as  FCCfgOTValue,ISNULL(FCCfgOTAmtPlus,0) AS FCCfgOTAmtPlus   "
+                        _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigOTSet WITH (NOLOCK) "
+                        _Qry &= vbCrLf & "  WHERE  (FNCalType  = " & Val(_EmpType) & ")"
+                        _dtot = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                        For Each R3 As DataRow In _dtot.Rows
+                            Select Case R3!FTCfgOTCode.ToString.ToUpper
+                                Case "01"
+                                    _RateOT1 = Val(R3!FCCfgOTValue.ToString)
+                                Case "02"
+                                    _RateOT15 = Val(R3!FCCfgOTValue.ToString)
+                                Case "03"
+                                    _RateOT2 = Val(R3!FCCfgOTValue.ToString)
+                                Case "04"
+                                    _RateOT3 = Val(R3!FCCfgOTValue.ToString)
+                                    _AmtPlus = Val(R3!FCCfgOTAmtPlus.ToString)
+                                Case "05"
+                                    _RateOT4 = Val(R3!FCCfgOTValue.ToString)
+                            End Select
+
+                        Next
+                    Else
+                        _Qry = " SELECT FTCfgOTCode,FCCfgOTValue,ISNULL(FCCfgOTAmtPlus,0) AS FCCfgOTAmtPlus  "
+                        _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigOTSet WITH (NOLOCK) "
+                        _Qry &= vbCrLf & "  WHERE  (FNCalType  = " & Val(_EmpType) & ")"
+                        _dtot = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                        For Each R3 As DataRow In _dtot.Rows
+                            Select Case R3!FTCfgOTCode.ToString.ToUpper
+                                Case "01"
+                                    _RateOT1 = Val(R3!FCCfgOTValue.ToString)
+                                Case "02"
+                                    _RateOT15 = Val(R3!FCCfgOTValue.ToString)
+                                Case "03"
+                                    _RateOT2 = Val(R3!FCCfgOTValue.ToString)
+                                Case "04"
+                                    _RateOT3 = Val(R3!FCCfgOTValue.ToString)
+                                    _AmtPlus = Val(R3!FCCfgOTAmtPlus.ToString)
+                                Case "05"
+                                    _RateOT4 = Val(R3!FCCfgOTValue.ToString)
+                            End Select
+
+                        Next
+                    End If
+
+
+
+
+                    _FNSlaryPerHour = CDbl(Format(_FNSlaryPerDay / 8, "0.00000"))
+                    _FNSlaryPerMin = CDbl(Format(_FNSlaryPerHour / 60, "0.00000"))
+                    '_SalaryPayLeaveMin = CDbl(Format(CDbl(Format(_SalaryPayLeave / 8, "0.00000")) / 60, "0.00000"))
+                    _SalaryPayLeaveMin = CDbl(_SalaryPayLeave / 8) / 60
+
+                    _FNSlaryOTPerMin = CDbl(Format(CDbl(Format((_SalaryPayOTKM + _AmtAddCalOT + _GAmtAddCalOT) / 8, "0.00000")) / 60, "0.00000"))
+
+                    _FNSlaryOTPerHour = CDbl(Format((_SalaryPayOTKM + _AmtAddCalOT + _GAmtAddCalOT) / 8, "0.00000"))
+
+                    If _FTShift = "" Then
+                        If _Holiday <> "" Then
+                            _oHoliday = 1
+                            _TotalHoliDay = _TotalHoliDay + 1
+                        End If
+                    Else
+
+                        If _Holiday <> "" Then
+                            _oHoliday = 1
+                            _TotalHoliDay = _TotalHoliDay + 1
+                        End If
+
+                        If (_FNTime + _FNOT1Min + _FNOT1_5Min + _FNOT2Min + _FNOT3Min + _FNOT4Min > 0) Then
+                            _WorkDay = _WorkDay + 1
+                        End If
+
+                        If _Holiday = "" Then
+                            _GFNLateNormalMinNotHoliday = _GFNLateNormalMinNotHoliday + _FNLateNormalMin
+                        End If
+
+                        _GFNLateNormalMin = _GFNLateNormalMin + _FNLateNormalMin
+                        _GFNLateNormalCut = _GFNLateNormalCut + _FNLateNormalCut
+                        _GFNLateOtMin = _GFNLateOtMin + _FNLateOtMin
+                        _GFNLateOtCut = _GFNLateOtCut + _FNLateOtCut
+                        _GFNLateMorning = _GFNLateMorning + _FNLateMorning
+                        _GFNLateAfternoon = _GFNLateAfternoon + _FNLateAfternoon
+                        _GFNAbsent = _GFNAbsent + _FNAbsent
+                        _GFNCutAbsent = _GFNCutAbsent + _LateCutAbsent
+                        _GFNTimeMin = _GFNTimeMin + _FNTimeMin
+                        _GFNOT1Min = _GFNOT1Min + _FNOT1Min
+                        _GFNOT1_5Min = _GFNOT1_5Min + _FNOT1_5Min
+                        _GFNOT2Min = _GFNOT2Min + _FNOT2Min
+                        _GFNOT3Min = _GFNOT3Min + _FNOT3Min
+                        _GFNOT4Min = _GFNOT4Min + _FNOT4Min
+                        _GFNLateMMin = _GFNLateMMin + _FNLateMMin
+                        _GFNLateAfMin = _GFNLateAfMin + _FNLateAfMin
+                        _GFNRetireOtMin = _GFNRetireOtMin + _FNRetireOtMin
+                        _GFNRetireOtCut = _GFNRetireOtCut + _FNRetireOtCut
+                        _GFNRetireMMin = _GFNRetireMMin + _FNRetireMMin
+                        _GFNRetireAfMin = _GFNRetireAfMin + _FNRetireAfMin
+                        _GFNRetireNormalCut = _GFNRetireNormalCut + _FNRetireNormalCut
+
+                        If HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) >= HI.UL.ULDate.ConvertEnDB(_FDDateProbation) Then
+                            _GFNTimeMin_Real_After_Probation = _GFNTimeMin_Real_After_Probation + (_FNTimeMin - _FNLateNormalMin)
+                        End If
+
+
+
+                    End If
+
+                    _TmpLeavePay = 0
+                    _FNLeavePay = 0 : _FNLeaveVacation = 0 : FNPayLeaveSpecialBahtMin = 0
+                    _FNLeaveNotPay = 0
+                    _LeaveCode = ""
+                    For Each sR As DataRow In _dtLeave.Select("FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDate) & "' ")
+                        _LeaveCode = sR!LFTLeaveCode.ToString
+
+                        _TmpLeavePay = Val(sR!FNTotalPayMinute.ToString)
+
+                        Select Case sR!LFTLeaveCode.ToString.ToUpper
+                            Case "97"
+
+                            Case Else
+
+                                _Gtotalleave = _Gtotalleave + Val(sR!FNTotalMinute.ToString)
+                                _GtotalleavePay = _GtotalleavePay + Val(sR!FNTotalPayMinute.ToString)
+                                _GtotalleaveNotPay = _GtotalleaveNotPay + Val(sR!FNTotalNotPayMinute.ToString)
+
+                                If sR!FTStaCalSSO.ToString = "1" Then
+                                    _GtotalleavePayCalSso = Val(sR!FNTotalPayMinute.ToString)
+                                End If
+                        End Select
+
+                        _FNLeaveNotPay = Val(sR!FNTotalNotPayMinute.ToString)
+
+                        Select Case sR!LFTLeaveCode.ToString.ToUpper '""Val(sR!LeaveType)
+                            Case "98"
+                                _FNLeaveVacation = Val(sR!FNTotalPayMinute.ToString)
+                                _GFNLeaveVacation = _GFNLeaveVacation + Val(sR!FNTotalMinute.ToString)
+                            Case "998"
+                                _FNLeaveVacation = Val(sR!FNTotalPayMinute.ToString)
+                                _GFNLeaveVacation = _GFNLeaveVacation + Val(sR!FNTotalMinute.ToString)
+                            Case "1"
+                                FNPayLeaveBusinessBahtMin = Val(sR!FNTotalPayMinute.ToString)
+                                GFNPayLeaveBusinessBahtMin = GFNPayLeaveBusinessBahtMin + FNPayLeaveBusinessBahtMin
+
+                                _GFNLeaveOther = _GFNLeaveOther + Val(sR!FNTotalMinute.ToString)
+                            Case "0"
+
+                                FNPayLeaveSickBahtMin = Val(sR!FNTotalPayMinute.ToString)
+                                GFNPayLeaveSickBahtMin = GFNPayLeaveSickBahtMin + FNPayLeaveSickBahtMin
+                                _GFNLeaveOther = _GFNLeaveOther + Val(sR!FNTotalMinute.ToString)
+
+                                If FNPayLeaveSickBahtMin > 0 Then
+                                    _LeaveSickPay = _LeaveSickPay + 1
+
+                                    Dim _PayPer As Double = 0
+                                    Select Case _LeaveSickPay
+                                        Case Is <= 30
+                                            _PayPer = 100
+                                        Case Is <= 90
+                                            _PayPer = 60
+                                        Case Is <= 180
+                                            _PayPer = 0
+                                    End Select
+
+                                    If _PayPer = 0 Then
+                                        FNPayLeaveSickBahtMin = 0
+                                        GFNPayLeaveSickBahtMin = GFNPayLeaveSickBahtMin - FNPayLeaveSickBahtMin
+                                        _GFNLeaveOther = _GFNLeaveOther - FNPayLeaveSickBahtMin
+                                    End If
+
+                                    If _DTEmpPayLeaveSick.Select("FNSalary=" & _SalaryPayLeave & " AND FNPayPer=" & _PayPer & " ").Length > 0 Then
+                                        For Each Rx As DataRow In _DTEmpPayLeaveSick.Select("FNSalary=" & _SalaryPayLeave & "  AND FNPayPer=" & _PayPer & "  ")
+                                            Rx!FNDay = Val(Rx!FNDay) + FNPayLeaveSickBahtMin
+                                            Exit For
+                                        Next
+                                    Else
+                                        _DTEmpPayLeaveSick.Rows.Add(_SalaryPayLeave, FNPayLeaveSickBahtMin, _PayPer)
+                                    End If
+
+
+                                End If
+
+                            Case "16" ''Accident on work
+                                FNPayLeaveAccidentBahtMin = Val(sR!FNTotalPayMinute.ToString)
+                                GFNPayLeaveAccidentBahtMin = GFNPayLeaveAccidentBahtMin + FNPayLeaveAccidentBahtMin
+                            Case "999"
+                                FNPayLeaveSpecialBahtMin = Val(sR!FNTotalPayMinute.ToString)
+                                _GFNLeaveSpecial = _GFNLeaveSpecial + FNPayLeaveSpecialBahtMin
+                            Case "97"
+                                FNParturitionLeaveMin = Val(sR!FNTotalPayMinute.ToString)
+                                GFNParturitionLeaveMin = GFNParturitionLeaveMin + FNParturitionLeaveMin
+
+                                ' _GFNLeaveOther = _GFNLeaveOther + Val(sR!FNTotalMinute.ToString)
+                            Case Else
+                                _FNLeavePay = Val(sR!FNTotalPayMinute.ToString)
+                                _GFNLeaveOther = _GFNLeaveOther + Val(sR!FNTotalMinute.ToString)
+                        End Select
+
+                    Next
+
+                    _GFNLeavePay = _GFNLeavePay + _FNLeavePay
+                    _SocialBefore = 0
+                    _SocialBeforeAmt = 0
+
+                    Dim _WageAmtPerDay As Double = 0
+                    Dim _WageOTAmtPerDay As Double = 0
+                    Dim _TimeOTMdr As Integer = 0
+
+                    If _FTEmpState = "2" Or _FTEmpState = "3" Then
+                    Else
+                        _WageAmtPerDay = CDbl(Format((_FNTimeMin) * _FNSlaryPerMin, "0.000"))
+                        _FNEmpBaht = _FNEmpBaht + _WageAmtPerDay
+                    End If
+
+                    _nBahtOt1 = _nBahtOt1 + CDbl(Format((_FNOT1Min) * ((_FNSlaryOTPerMin) * _RateOT1), "0.000"))
+
+
+                    If FTHldType = 1 And _FNOT3Min > 0 Then
+                        _GAmtPlus = _GAmtPlus + _AmtPlus
+                    End If
+
+                    _nBahtOt15 = _nBahtOt15 + CDbl(Format((_FNOT1_5Min) * ((_FNSlaryOTPerMin) * _RateOT15), "0.000"))
+                    _nBahtOt2 = _nBahtOt2 + CDbl(Format((_FNOT2Min) * ((_FNSlaryOTPerMin) * _RateOT2), "0.000"))
+                    _nBahtOt3 = _nBahtOt3 + CDbl(Format((_FNOT3Min) * ((_FNSlaryOTPerMin) * _RateOT3), "0.000"))
+                    _nBahtOt4 = _nBahtOt4 + CDbl(Format((_FNOT4Min) * ((_FNSlaryOTPerMin) * _RateOT4), "0.000"))
+
+                    _nBahtAbsent = _nBahtAbsent + CDbl(Format(_FNAbsent * _FNSlaryPerMin, "0.000"))
+                    _LateCutAmt = _LateCutAmt + CDbl(Format((_FNLateNormalCut) * _FNSlaryPerMin, "0.000"))
+                    _LateCutAmtAbsent = _LateCutAmtAbsent + CDbl(Format((_LateCutAbsent) * _FNSlaryPerMin, "0.000"))
+
+                    _LaNotpaid = _LaNotpaid + CDbl(Format(_FNLeaveNotPay * _FNSlaryPerMin, "0.000"))
+
+                    Dim _TmpFNLapaidAmt As Double = CDbl(Format(_TmpLeavePay * _SalaryPayLeaveMin, "0.000"))
+                    Dim _TmpLapaidAmt As Double = CDbl(Format(_FNLeavePay * _SalaryPayLeaveMin, "0.000"))
+
+                    _Lapaid = _Lapaid + _TmpLapaidAmt
+                    _GtotalleavePayCalSsoAmt = _GtotalleavePayCalSsoAmt + CDbl(Format(_GtotalleavePayCalSso * _SalaryPayLeaveMin, "0.000"))  'เงินลาจ่ายที่นำไปคิดประกันสังคม
+
+                    If _LeaveCode <> "" And _FNLeaveVacation > 0 Then
+
+                        'Dim _MoneyRetVacationPerDay = MoneyRetVacationPerDay_KM(_PayYear, _PayTerm, _StartDate, _EndDate, Val(_EmpCode), Val(_EmpType), 0, _FCSalary, CountDayPerMonth, _WorkAgeDay)
+
+                        '_FCPayVacationBaht = _FCPayVacationBaht + CDbl(Format(_FNLeaveVacation * (_MoneyRetVacationPerDay / 480), "0.000"))
+
+                        _FCPayVacationBaht = _FCPayVacationBaht + CDbl(Format(_FNLeaveVacation * _FNSlaryPerMin, "0.00"))
+                    Else
+                        _FCPayVacationBaht = _FCPayVacationBaht + CDbl(Format(_FNLeaveVacation * _FNSlaryPerMin, "0.000"))
+                    End If
+
+                    If _FTStatePayHoliday <> "1" Then
+                        _oHoliday = 0
+                    Else
+
+                        If (_FNLeaveNotPay <= 0) Then
+                            If _TmpFNLapaidAmt <= 0 Then
+                                _HBaht = _HBaht + CDbl(Format(_oHoliday * _FNSlaryPerDay, "0.000"))
+                            Else
+                                _TotalHoliDay = _TotalHoliDay - _oHoliday
+                                _oHoliday = 0
+                            End If
+                        Else
+
+                            _TotalHoliDay = _TotalHoliDay - _oHoliday
+                            _oHoliday = 0
+                        End If
+
+                    End If
+                    _FNSlaryPerDayNormal = CDbl(Format(_FNSlaryPerDay, "0.00000"))
+
+
+                    If _DTEmpWorkDay.Select("FNSalary=" & _FNSlaryPerDay & "").Length > 0 Then
+                        For Each Rx As DataRow In _DTEmpWorkDay.Select("FNSalary=" & _FNSlaryPerDay & "")
+
+                            Rx!FNDay = Val(Rx!FNDay) + _FNTimeMin
+                            Rx!FNOT1 = Val(Rx!FNOT1) + _FNOT1Min
+                            Rx!FNOT15 = Val(Rx!FNOT15) + _FNOT1_5Min
+                            Rx!FNOT2 = Val(Rx!FNOT2) + _FNOT2Min
+                            Rx!FNOT3 = Val(Rx!FNOT3) + _FNOT3Min
+                            Rx!FNOT4 = Val(Rx!FNOT4) + _FNOT4Min
+                            Rx!FNHoloday = Val(Rx!FNHoloday) + (_oHoliday)
+                            Rx!FNLate = Val(Rx!FNLate) + _FNLateNormalCut
+                            Rx!FNAbsent = Val(Rx!FNAbsent) + _FNAbsent
+                            Rx!FNLateCutAmtAbsent = Val(Rx!FNLateCutAmtAbsent) + _LateCutAbsent
+                            Rx!FNLeavePay = Val(Rx!FNLeavePay) + _FNLeavePay
+                            Rx!FNLeaveNotPay = Val(Rx!FNLeaveNotPay) + (_FNLeaveNotPay)
+                            Rx!FNBusiness = Val(Rx!FNBusiness) + FNPayLeaveBusinessBahtMin
+                            Rx!FNSpecial = Val(Rx!FNSpecial) + FNPayLeaveSpecialBahtMin
+                            Rx!FNParturition = Val(Rx!FNParturition) + FNParturitionLeaveMin
+                            Rx!FNVacation = Val(Rx!FNVacation) + _FNLeaveVacation
+                            Rx!FNShiftNo = _StateShift
+                            Rx!FNSlaryOTPerMin = _FNSlaryOTPerMin
+                            Rx!FNSlaryNormal = _FNSlaryPerDayNormal
+
+                            Rx!FNLeaveAccident = Val(Rx!FNLeaveAccident) + FNPayLeaveAccidentBahtMin
+
+                            Exit For
+                        Next
+                    Else
+                        _DTEmpWorkDay.Rows.Add(_FNSlaryPerDay, _FNTimeMin, _FNOT1Min, _FNOT1_5Min,
+                                               _FNOT2Min, _FNOT3Min, _FNOT4Min, (_oHoliday),
+                                               _FNLateNormalCut, _FNAbsent, _LateCutAbsent, _FNLeavePay,
+                                               _FNLeaveNotPay, FNPayLeaveBusinessBahtMin, FNPayLeaveSpecialBahtMin, FNParturitionLeaveMin, _FNLeaveVacation, _StateShift, _FNSlaryOTPerMin, _FNSlaryPerDayNormal, FNPayLeaveAccidentBahtMin)
+                    End If
+
+                    _FTSatrtCalculateDate = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddDay(_FTSatrtCalculateDate, 1))
+
+                Loop
+
+                _FNEmpBaht = 0
+                _FNEmpBaht = 0
+                _nBahtOt1 = 0
+                _nBahtOt15 = 0
+                _nBahtOt2 = 0
+                _nBahtOt3 = 0
+                _nBahtOt4 = 0
+                _nBahtAbsent = 0
+                _LateCutAmt = 0
+                _LateCutAmtAbsent = 0
+                _HBaht = 0
+                _LaNotpaid = 0
+                _Lapaid = 0
+                FNPayLeaveBusinessBaht = 0 : FNPayLeaveSickBaht = 0 : FNPayLeaveSpecialBaht = 0 : FNParturitionLeave = 0 : FNPayLeaveAccidentBaht = 0
+                _FCPayVacationBaht = 0
+                _FNSlaryOTPerMin = 0
+                Dim _TotalxDay As Integer = 0
+                For Each Rx As DataRow In _DTEmpWorkDay.Rows
+
+                    _FNSlaryPerMin = CDbl(Format(CDbl(Rx!FNSalary) / 480, "0.00000"))
+                    _FNSlaryPerDay = CDbl(Format(CDbl(Rx!FNSalary), "0.00000"))
+                    _FNSlaryOTPerMin = Double.Parse("0" & Rx!FNSlaryOTPerMin)
+
+                    _TotalxDay = 0
+
+
+
+                    Try
+                        If FNWorkDayInWeekBF > 0 Then
+                            'If Val(Rx!FNDay) > ((FNWorkDayInMonth - FNWorkDayInWeekBF) * 480) Then
+                            '    _FNEmpBaht = _FNEmpBaht + CDbl(Format(((FNWorkDayInMonth - FNWorkDayInWeekBF) * 480) * _FNSlaryPerMin, "0.000"))
+                            'Else
+
+                            _TotalxDay = Val(Rx!FNDay) \ 480.0
+                            _FNEmpBaht = _FNEmpBaht + CDbl(Format(_TotalxDay * _FNSlaryPerDay, "0.000"))
+                            _FNEmpBaht = _FNEmpBaht + CDbl(Format((Val(Rx!FNDay) - (_TotalxDay * 480)) * _FNSlaryPerMin, "0.000"))
+                            ' End If
+                        Else
+                            _TotalxDay = Val(Rx!FNDay) \ 480.0
+                            _FNEmpBaht = _FNEmpBaht + CDbl(Format(_TotalxDay * _FNSlaryPerDay, "0.000"))
+                            _FNEmpBaht = _FNEmpBaht + CDbl(Format((Val(Rx!FNDay) - (_TotalxDay * 480)) * _FNSlaryPerMin, "0.000"))
+                        End If
+                    Catch ex As Exception
+                        _TotalxDay = Val(Rx!FNDay) \ 480.0
+                        _FNEmpBaht = _FNEmpBaht + CDbl(Format(_TotalxDay * _FNSlaryPerDay, "0.000"))
+                        _FNEmpBaht = _FNEmpBaht + CDbl(Format((Val(Rx!FNDay) - (_TotalxDay * 480)) * _FNSlaryPerMin, "0.000"))
+                    End Try
+
+
+                    If Double.Parse(Rx!FNShiftNo.ToString) = 1 Then
+                        _Qry = " SELECT FTCfgOTCode,Isnull(FCCfgOTNightValue,0) as  FCCfgOTValue,ISNULL(FCCfgOTAmtPlus,0) AS FCCfgOTAmtPlus   "
+                        _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigOTSet WITH (NOLOCK) "
+                        _Qry &= vbCrLf & "  WHERE  (FNCalType  = " & Val(_EmpType) & ")"
+                        _dtot = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                        For Each R3 As DataRow In _dtot.Rows
+                            Select Case R3!FTCfgOTCode.ToString.ToUpper
+                                Case "01"
+                                    _RateOT1 = Val(R3!FCCfgOTValue.ToString)
+                                Case "02"
+                                    _RateOT15 = Val(R3!FCCfgOTValue.ToString)
+                                Case "03"
+                                    _RateOT2 = Val(R3!FCCfgOTValue.ToString)
+                                Case "04"
+                                    _RateOT3 = Val(R3!FCCfgOTValue.ToString)
+                                    _AmtPlus = Val(R3!FCCfgOTAmtPlus.ToString)
+                                Case "05"
+                                    _RateOT4 = Val(R3!FCCfgOTValue.ToString)
+                            End Select
+
+                        Next
+                    Else
+                        _Qry = " SELECT FTCfgOTCode,FCCfgOTValue,ISNULL(FCCfgOTAmtPlus,0) AS FCCfgOTAmtPlus  "
+                        _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigOTSet WITH (NOLOCK) "
+                        _Qry &= vbCrLf & "  WHERE  (FNCalType  = " & Val(_EmpType) & ")"
+                        _dtot = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                        For Each R3 As DataRow In _dtot.Rows
+                            Select Case R3!FTCfgOTCode.ToString.ToUpper
+                                Case "01"
+                                    _RateOT1 = Val(R3!FCCfgOTValue.ToString)
+                                Case "02"
+                                    _RateOT15 = Val(R3!FCCfgOTValue.ToString)
+                                Case "03"
+                                    _RateOT2 = Val(R3!FCCfgOTValue.ToString)
+                                Case "04"
+                                    _RateOT3 = Val(R3!FCCfgOTValue.ToString)
+                                    _AmtPlus = Val(R3!FCCfgOTAmtPlus.ToString)
+                                Case "05"
+                                    _RateOT4 = Val(R3!FCCfgOTValue.ToString)
+                            End Select
+
+                        Next
+                    End If
+
+
+
+                    _nBahtOt1 = _nBahtOt1 + CDbl(Format(Val(Rx!FNOT1) * ((_FNSlaryOTPerMin) * _RateOT1), "0.000"))
+                    _nBahtOt15 = _nBahtOt15 + CDbl(Format(Val(Rx!FNOT15) * ((_FNSlaryOTPerMin) * _RateOT15), "0.000"))
+                    _nBahtOt2 = _nBahtOt2 + CDbl(Format(Val(Rx!FNOT2) * ((_FNSlaryOTPerMin) * _RateOT2), "0.000"))
+                    _nBahtOt3 = _nBahtOt3 + CDbl(Format(Val(Rx!FNOT3) * ((_FNSlaryOTPerMin) * _RateOT3), "0.000"))
+                    _nBahtOt4 = _nBahtOt4 + CDbl(Format(Val(Rx!FNOT4) * ((_FNSlaryOTPerMin) * _RateOT4), "0.000"))
+                    _nBahtAbsent = _nBahtAbsent + CDbl(Format(Val(Rx!FNAbsent) * _FNSlaryPerMin, "0.000"))
+                    _LateCutAmt = _LateCutAmt + CDbl(Format((Val(Rx!FNLate)) * _FNSlaryPerMin, "0.000"))
+                    _LateCutAmtAbsent = _LateCutAmtAbsent + CDbl(Format((Val(Rx!FNLateCutAmtAbsent)) * _FNSlaryPerMin, "0.000"))
+                    _HBaht = _HBaht + CDbl(Format(Val(Rx!FNHoloday) * CDbl(Rx!FNSalary), "0.000"))
+                    _LaNotpaid = _LaNotpaid + CDbl(Format(Val(Rx!FNLeaveNotPay) * _FNSlaryOTPerMin, "0.000"))
+                    _Lapaid = _Lapaid + CDbl(Format(Val(Rx!FNLeavePay) * _SalaryPayLeaveMin, "0.000"))
+                    FNPayLeaveBusinessBaht = FNPayLeaveBusinessBaht + CDbl(Format(Val(Rx!FNBusiness) * _FNSlaryPerMin, "0.000"))
+
+                    FNPayLeaveAccidentBaht = FNPayLeaveAccidentBaht + CDbl(Format(Val(Rx!FNLeaveAccident) * _FNSlaryPerMin, "0.000"))
+
+
+                    ' FNParturitionLeave = FNParturitionLeave + CDbl(Format(Val(Rx!FNParturition) * _FNSlaryPerMin, "0.000"))
+
+                    ''Dim _MoneyRetVacationPerDay = MoneyRetVacationPerDay_KM(_PayYear, _PayTerm, _StartDate, _EndDate, Val(_EmpCode), Val(_EmpType), 0, _FCSalary, CountDayPerMonth, _WorkAgeDay)
+
+
+                    Dim _MoneyRetVacationPerDay = _FNSlaryPerDay
+
+
+                    '  MsgBox(_MoneyRetVacationPerDay)
+                    _FCPayVacationBaht = _FCPayVacationBaht + CDbl(Format(Val(Rx!FNVacation) * (_MoneyRetVacationPerDay / 480), "0.000"))
+                    '   MsgBox(Val(Rx!FNVacation))
+                    ' MsgBox(_FCPayVacationBaht)
+
+                    '' FNPayLeaveSpecialBaht = FNPayLeaveSpecialBaht + CDbl(Format(Val(Rx!FNSpecial) * (_MoneyRetVacationPerDay / 480), "0.000"))
+                    GFNPayLeaveSpecialBahtMin = Val(Rx!FNSpecial)
+                    FNVacationRetMin = Val(Rx!FNVacation)
+                Next
+
+                FNParturitionLeave = 0
+                GFNParturitionLeaveMin = 0
+                Dim _DeductAttandanceAmt As Double = 0
+                Call CalculateParturition(_PayYear, _PayTerm, _StartDate, _EndDate, Val(_EmpCode), FNParturitionLeave, GFNParturitionLeaveMin, _DeductAttandanceAmt, _WorkAge, _WorkAgeParturition, FNParturitionLeaveReCalTax)
+
+                FNPayLeaveSickBaht = 0
+                For Each Rx As DataRow In _DTEmpPayLeaveSick.Rows
+                    _FNSlaryPerMin = (CDbl(CDbl(Rx!FNSalary) / 480) * CDbl(Rx!FNPayPer)) / 100.0
+                    FNPayLeaveSickBaht = FNPayLeaveSickBaht + CDbl(Format(Val(Rx!FNDay) * _FNSlaryPerMin, "0.000"))
+                Next
+
+                ''_FNNetOTMealAmtUS = Format(_FNNetOTMealAmt / _FNExchangeRate, "0.000")
+
+                If _FDDateEnd <> "" And _FDDateEnd <= _TmpFDDateEndP Then
+                    'ลาออกในงวดแรก อายุงาน มากกว่า 13 วัน  จ่ายค่าเดินทาง & ค่าสุขภาพ เต็มเดือน
+
+                    'If _WorkAge >= 1 Or _WorkingDayN > 13 Then
+                    '    If Val(_PayTerm) Mod 2 = 1 Then
+                    '        _FNTransportAmt = _FNTransportAmt + _FNTransportAmt
+                    '        _FNHealtCareAmt = _FNHealtCareAmt + _FNHealtCareAmt
+                    '    End If
+                    'End If
+                End If
+
+
+                If _FTEmpState = "2" Or _FTEmpState = "3" Or (_FDDateEnd <= _EndDate And _FDDateEnd <> "") Then
+
+                    FNPayLeaveBusinessBahtMin = 0 : FNPayLeaveSickBahtMin = 0 : FNPayLeaveSpecialBahtMin = 0 : FNParturitionLeaveMin = 0 : FNPayLeaveAccidentBahtMin = 0
+                    GFNPayLeaveBusinessBahtMin = 0 : GFNPayLeaveSickBahtMin = 0 : GFNParturitionLeaveMin = 0 : GFNPayLeaveAccidentBahtMin = 0
+                    FNPayLeaveBusinessBaht = 0 : FNPayLeaveSpecialBaht = 0 : FNParturitionLeave = 0
+                    'FNPayLeaveSickBaht = 0 : ไม่มี เคสคำนวณ ในกรณีลาออก ใช้จากคำนวณปกติ
+
+                    If _dttran.Select("FTStateAccept<>'1' AND FTWeekly <>'1' ").Length > 0 Or _dttran.Rows.Count <= 0 Then
+                        Return False
+                    End If
+
+
+                    _Gtotalleave = 0
+                    _GtotalleavePay = 0
+                    _GtotalleaveNotPay = 0
+                    _GFNLeaveOther = 0
+                    _GFNLeavePay = 0
+                    _GtotalleavePayCalSso = 0
+                    _LaNotpaid = 0
+
+                    Dim _NewSlary As String = ""
+
+                    For Each sR As DataRow In _dtLeave.Rows
+
+                        _Gtotalleave = _Gtotalleave + Val(sR!FNTotalMinute.ToString)
+                        _GtotalleavePay = _GtotalleavePay + Val(sR!FNTotalPayMinute.ToString)
+                        _GtotalleaveNotPay = _GtotalleaveNotPay + Val(sR!FNTotalNotPayMinute.ToString)
+
+                        If sR!FTStaCalSSO.ToString = "1" Then
+                            _GtotalleavePayCalSso = Val(sR!FNTotalPayMinute.ToString)
+                        End If
+
+                        _FNLeaveNotPay = Val(sR!FNTotalNotPayMinute.ToString)
+
+                        If Val(sR!LeaveType) = 1 Then
+                            _FNLeaveVacation = Val(sR!FNTotalPayMinute.ToString)
+                            _GFNLeaveVacation = _GFNLeaveVacation + Val(sR!FNTotalMinute.ToString)
+                        Else
+                            _GFNLeavePay = _GFNLeavePay + Val(sR!FNTotalPayMinute.ToString)
+                            _GFNLeaveOther = _GFNLeaveOther + Val(sR!FNTotalMinute.ToString)
+                        End If
+
+                    Next
+
+                    _LaNotpaid = CDbl(Format(_GtotalleaveNotPay * _FNSlaryPerMin, "0.000"))
+
+                    If _LaNotpaid > _FNSlaryPerMonth Then
+                        _LaNotpaid = _FNSlaryPerMonth
+                    End If
+
+                    _WorkingDay = Abs(DateDiff(DateInterval.Day, CDate(_DateStartOfMonth), CDate(_DateEndOfMonth))) + 1
+
+
+
+
+                    If _WorkingDay > 30 Then _WorkingDay = 30
+
+                    _WorkingDay = CDbl(Format(((_WorkingDay * 480) - (_Gtotalleave)) / 480, "0.000"))
+                    _WorkingDay = _WorkingDay - (_GFNAbsent / 480)
+                    If _WorkingDay < 0 Then
+                        _WorkingDay = 0
+                    End If
+
+                Else
+                    _WorkingDay = CDbl(Format(_GFNTimeMin / 480, "0.000"))
+                End If
+                _WorkingDay = CDbl(Format(_GFNTimeMin / 480, "0.000"))  '2018/03/02 ยกมา คำนวณคนลาออก ไม่ตรง
+
+                '-----------calculate Other Add For KKN ------------------ 
+                Dim _ChkLeave As Integer = 0
+                For Each sR As DataRow In _dtLeave.Select("LFTLeaveCode='0' OR LFTLeaveCode='1' OR LFTLeaveCode='2' OR LFTLeaveCode='3' ")
+                    _ChkLeave = _ChkLeave + Val(sR!FNTotalMinute.ToString)
+                Next
+                '_DateStartOfMonth = _StartDate  'วันแรกของเดือน
+                '_DateEndOfMonth = _EndDate 'วันแของเดือน
+                _FNNetAttandanceAmt = 0
+                '  If (_FTEmpState = "2" Or (_FTEmpState <> "2" And _StartDate <= Left(_StartDate, 8) & "24" And _EndDate >= Left(_StartDate, 8) & "24")) And _FNAttandanceAmt > 0 Then
+
+                Dim ChkParturitionLeaveMin As Integer = 0
+
+
+
+
+                'If _WorkingDay = 0 Then
+                '    _FNNetAttandanceAmt = 0
+                'End If
+                '-----------calculate Other Add For KKN ------------------
+                _WorkingDay = _WorkingDay + _DayAdjAdd
+
+                _GFNTimeMin = _GFNTimeMin + (_DayAdjAdd * 480)
+                _FNEmpBaht = _FNEmpBaht + _WageAdjAdd
+                _nBahtOt1 = CDbl(Format(_nBahtOt1, "0.000"))
+                _nBahtOt15 = CDbl(Format(_nBahtOt15, "0.000"))
+                _nBahtOt2 = CDbl(Format(_nBahtOt2, "0.000"))
+                _nBahtOt3 = CDbl(Format(_nBahtOt3, "0.000")) + _GAmtPlus  ' ได้เงินพิเศษช่วงเทศกาลเพิ่ม
+                _nBahtOt4 = CDbl(Format(_nBahtOt4, "0.000"))
+
+                Dim _TmpPe As String = ""
+
+                If _FTEmpState = "2" Then
+                Else
+                    _TmpPe = IIf(Val(_PayTerm) - 1 Mod 2 = 1, (Val(_PayTerm) - 1).ToString("00"), "")
+                End If
+
+                '----------------- รายได้อื่นๆประจำวัน กรณีมาทำงาน ประเภทจ่ายเป็นเดือน ของงวดก่อนหน้า ---------------------
+                'If _FTStatePayHoliday <> "1" Then '--------- รายเดือนไม่ได้ค่าจ้างวันหยุด---------------
+                'Else
+                If _dtAddOtherAmt.Select("FTCalType='0' AND FTFinType='1' AND FTPayType='1'  ").Length > 0 Then
+
+
+                    Dim _BFSDate As String = ""
+                    Dim _BFEDate As String = ""
+
+                    _Qry = " SELECT TOP 1  FDCalDateBegin, FDCalDateEnd"
+                    _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                    _Qry &= vbCrLf & " WHERE        (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                    _Qry &= vbCrLf & " AND FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & " AND FTPayTerm < '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                    _Qry &= vbCrLf & " AND FTPayMonth IN (   "
+                    _Qry &= vbCrLf & "  Select FTPayMonth"
+                    _Qry &= vbCrLf & "    FROM THRMCfgPayDT WITH (NOLOCK) "
+                    _Qry &= vbCrLf & "    WHERE        (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                    _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "   AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                    _Qry &= vbCrLf & " )  "
+
+                    _dttemp = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                    For Each Row As DataRow In _dttemp.Rows
+                        _BFSDate = Row!FDCalDateBegin.ToString
+                        _BFEDate = Row!FDCalDateEnd.ToString
+                    Next
+
+                    If _BFSDate <> "" And _BFEDate <> "" Then
+
+                        _Qry = " 	SELECT  ISNULL(T.FNHSysShiftID,0) AS FTShift	, (ISNULL(FNTimeMin,0) + ISNULL(FNSpecialTimeMin,0) +ISNULL(FNLateNormalMin,0) ) - ( ISNULL(FNLateNormalCut,0 ) + ISNULL(FNAbsentCut,0 ))  AS FNTime"
+                        _Qry &= vbCrLf & " 	, ISNULL(T.FNNotRegis,0) As FNNotRegis 	, ISNULL(FNOT1,0) AS FNOT1"
+                        _Qry &= vbCrLf & " 	, ISNULL(FNOT1_5,0) AS FNOT1_5"
+                        _Qry &= vbCrLf & " 	, ISNULL(FNOT2,0 ) AS FNOT2  , ISNULL(FNOT3,0) AS FNOT3, ISNULL(FNOT4,0) AS FNOT4"
+                        _Qry &= vbCrLf & " 	, ISNULL(FNLateNormalMin,0) AS FNLateNormalMin, ISNULL(FNLateNormalCut,0 ) + ISNULL(FNAbsentCut,0 )  AS FNLateNormalCut"
+                        _Qry &= vbCrLf & " , ISNULL(FNLateOtMin,0) As FNLateOtMin,ISNULL(FNLateOtCut,0) As FNLateOtCut"
+                        _Qry &= vbCrLf & " , ISNULL(FNLateMMin,0) As FNLateMorning"
+                        _Qry &= vbCrLf & " 	, ISNULL(FNLateAfMin,0) AS FNLateAfternoon,Isnull(FNAbsentCut,0) AS FNAbsentCut "
+                        _Qry &= vbCrLf & " 	, ISNULL(FNAbsent,0) AS FNAbsent "
+                        _Qry &= vbCrLf & " ,(ISNULL(FNTimeMin,0) + ISNULL(FNSpecialTimeMin,0) +ISNULL(FNLateNormalMin,0) ) - ( ISNULL(FNLateNormalCut,0 ) + ISNULL(FNAbsentCut,0 ))  As FNTimeMin"
+                        _Qry &= vbCrLf & " ,ISNULL(FNTimeMin,0)  + ISNULL(FNSpecialTimeMin,0) As FNTimeMinOrg"
+                        _Qry &= vbCrLf & " , ISNULL(FNOT1Min,0) As FNOT1Min  "
+                        _Qry &= vbCrLf & " , ISNULL(FNOT1_5Min,0) As FNOT1_5Min "
+                        _Qry &= vbCrLf & " ,ISNULL(FNOT2Min,0) As FNOT2Min "
+                        _Qry &= vbCrLf & " , ISNULL(FNOT3Min,0) As FNOT3Min, ISNULL(FNOT4Min,0) As FNOT4Min "
+                        _Qry &= vbCrLf & " ,ISNULL( FNLateMMin,0) AS FNLateMMin "
+                        _Qry &= vbCrLf & " , ISNULL(FNLateAfMin,0) AS FNLateAfMin"
+                        _Qry &= vbCrLf & " , ISNULL(FNRetireMMin,0) AS FNRetireMMin "
+                        _Qry &= vbCrLf & " ,ISNULL(FNRetireAfMin,0 )  as FNRetireAfMin"
+                        _Qry &= vbCrLf & " , ISNULL(FNRetireNormalCut,0) As FNRetireNormalCut "
+                        _Qry &= vbCrLf & " , ISNULL(FNRetireOtMin,0) AS FNRetireOtMin"
+                        _Qry &= vbCrLf & " ,ISNULL(FNRetireOtCut,0) AS FNRetireOtCut,FTDateTrans"
+                        _Qry &= vbCrLf & " ,ISNULL(T.FTIn1,'') AS FTIn1"
+                        _Qry &= vbCrLf & " ,ISNULL(T.FTOut1,'') AS FTOut1"
+                        _Qry &= vbCrLf & " ,ISNULL(T.FTIn2,'') AS FTIn2"
+                        _Qry &= vbCrLf & " ,ISNULL(T.FTOut2,'') AS FTOut2"
+                        _Qry &= vbCrLf & " ,ISNULL(T.FTIn3,'') AS FTIn3"
+                        _Qry &= vbCrLf & " ,ISNULL(T.FTOut3,'') AS FTOut3"
+                        _Qry &= vbCrLf & ",P.FTOverClock,P.FTWeekDay"
+                        _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTrans AS T WITH(NOLOCK) LEFT OUTER JOIN "
+                        _Qry &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift AS P WITH(NOLOCK) ON T.FNHSysShiftID =P.FNHSysShiftID "
+                        _Qry &= vbCrLf & "  WHERE(T.FNHSysEmpID =" & Val(_EmpCode) & " )"
+                        _Qry &= vbCrLf & " 	And T.FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_BFSDate) & "' "
+                        _Qry &= vbCrLf & " 	AND T.FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_BFEDate) & "' "
+
+                        _dttran = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                        Do While _BFSDate <= _BFEDate
+                            _FTShift = ""
+                            Dim _InOT As String = "" : Dim _OutOT As String = "" : Dim _Over As String = ""
+                            Dim _R() As DataRow = _dttran.Select("FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_BFSDate) & "'")
+                            For Each R2 In _R
+
+                                _FTShift = R2!FTShift.ToString
+                                _FNTime = IIf(Val(R2!FNTime.ToString) < 0, 0, Val(R2!FNTime.ToString))
+                                _FNTimeMin = IIf(Val(R2!FNTimeMin.ToString) < 0, 0, Val(R2!FNTimeMin.ToString))
+                                _FNNotRegis = Val(R2!FNNotRegis.ToString)
+                                _FNOT1 = Val(R2!FNOT1.ToString) : _FNOT1_5 = Val(R2!FNOT1_5.ToString) : _FNOT2 = Val(R2!FNOT2.ToString)
+                                _FNOT3 = Val(R2!FNOT3.ToString) : _FNOT4 = Val(R2!FNOT3.ToString)
+                                _FNLateNormalMin = Val(R2!FNLateNormalMin.ToString) : _FNLateNormalCut = Val(R2!FNLateNormalCut.ToString)
+                                _FNLateOtMin = Val(R2!FNLateOtMin.ToString) : _FNLateOtCut = Val(R2!FNLateOtCut.ToString)
+                                _FNLateMorning = Val(R2!FNLateMorning.ToString) : _FNLateAfternoon = (Val(R2!FNLateAfternoon.ToString))
+                                _LateCutAbsent = Val(R2!FNAbsentCut.ToString) : _FNAbsent = Val(R2!FNAbsent.ToString)
+                                _FNOT1Min = Val(R2!FNOT1Min.ToString)
+                                _FNOT1_5Min = Val(R2!FNOT1_5Min.ToString) : _FNOT2Min = Val(R2!FNOT2Min.ToString)
+                                _FNOT3Min = Val(R2!FNOT3Min.ToString) : _FNOT4Min = Val(R2!FNOT4Min.ToString)
+                                _FNLateMMin = Val(R2!FNLateMMin.ToString) : _FNLateAfMin = Val(R2!FNLateAfMin.ToString)
+                                _FNRetireMMin = Val(R2!FNRetireMMin.ToString) : _FNRetireAfMin = Val(R2!FNRetireAfMin.ToString)
+                                _FNRetireNormalCut = Val(R2!FNRetireNormalCut.ToString) : _FNRetireNormalCut = Val(R2!FNRetireNormalCut.ToString)
+                                _FNRetireOtMin = Val(R2!FNRetireOtMin.ToString) : _FNRetireOtMin = Val(R2!FNRetireOtMin.ToString)
+                                _FNRetireOtCut = Val(R2!FNRetireOtCut.ToString)
+
+                                _InOT = R2!FTIn3.ToString
+                                _OutOT = R2!FTOut3.ToString
+
+                                _Over = R2!FTOverClock.ToString
+
+                                If _FTShift <> "" And (_FNTimeMin + _FNOT1_5Min + _FNOT3Min + _FNOT1Min + _FNOT2Min + _FNOT4Min) > 0 Then
+
+                                    '----------------- รายได้อื่นๆประจำวัน กรณีมาทำงาน---------------------
+
+                                    If _FTShift <> "" Then
+
+                                        _SPDateType = 0
+
+                                        _Holiday = ""
+
+                                        _Qry = " SELECt TOP 1  'H' AS FTHoliday "
+                                        _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMHoliday WITH(NOLOCK) "
+                                        _Qry &= vbCrLf & "  WHERE   FDHolidayDate ='" & HI.UL.ULDate.ConvertEnDB(_BFSDate) & "'  AND FTStateActive='1'  "
+                                        _Holiday = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MASTER, "")
+
+                                        If _Holiday <> "" Then _SPDateType = 2
+
+                                        Dim _StateLeaveOther As Boolean = False
+                                        Dim _StateLeavacation As Boolean = False
+
+
+                                        Dim _StateFTStaMaternityleaveNotpay As Boolean = False
+                                        Dim _SumLeave As Integer = 0
+
+                                        For Each sR As DataRow In _dtLeave.Select("FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_BFSDate) & "'")
+                                            _SumLeave = _SumLeave + Val(sR!FNTotalMinute)
+
+                                            If Val(sR!LeaveType) = 1 Then
+                                                _StateLeavacation = True
+                                            Else
+                                                _StateLeaveOther = True
+                                            End If
+
+                                            If Val(sR!LeaveType) = 2 Then
+                                                _StateFTStaMaternityleaveNotpay = True
+                                            End If
+
+                                        Next
+
+                                        For Each RFin As DataRow In _dtAddOtherAmt.Select("FTCalType='0' AND FTFinType='1'  AND FTPayType='1' ")
+                                            Dim _StatePass As Boolean = True
+
+                                            If _OutOT <> "" Then
+                                                Beep()
+                                            End If
+
+                                            If RFin!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= 0)
+                                            If RFin!FTStaCheckLate.ToString = "1" And _StatePass Then _StatePass = (_FNLateNormalMin <= Val(RFin!FTLateMin.ToString))
+                                            If RFin!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_FNAbsent <= 0)
+                                            If RFin!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeaveOther)
+                                            If RFin!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = Not (_StateLeavacation)
+                                            If RFin!FTStaHoliday.ToString = "1" And _StatePass Then _StatePass = Not (_SPDateType = 0)
+                                            If RFin!FTStaCheckWorkTime.ToString = "1" And _StatePass Then
+                                                _StatePass = Not ((_FNTimeMin + _FNOT1_5Min + _FNOT3Min) < Val(RFin!FTCheckWorkTimeMin.ToString))
+                                            End If
+
+                                            If RFin!FTStaCheckLeave.ToString = "1" And _StatePass Then _StatePass = Not ((_SumLeave) < Val(RFin!FTLeaveMin.ToString))
+                                            If RFin!FTStaMaternityleaveNotpay.ToString = "1" And _StatePass Then _StatePass = Not (_StateFTStaMaternityleaveNotpay)
+
+                                            If RFin!FTOTTime.ToString <> "" And _StatePass Then
+                                                Dim _STime As String = (IIf(_Over > _OutOT, _ActualNextDate, _ActualDate)) & " " & _OutOT
+                                                Dim _ETime As String = (IIf(_Over > RFin!FTOTTime.ToString, _ActualNextDate, _ActualDate)) & " " & RFin!FTOTTime.ToString.Replace(".", ":")
+
+                                                If _STime.Length = _ETime.Length Then
+                                                    If IsDate(_STime) And IsDate(_ETime) Then
+                                                        If CDate(_STime) < CDate(_ETime) Or _InOT = "" Or _OutOT = "" Then
+                                                            _StatePass = False
+                                                        End If
+                                                    Else
+                                                        _StatePass = False
+                                                    End If
+                                                Else
+                                                    _StatePass = False
+                                                End If
+
+                                            End If
+
+                                            If _StatePass Then
+                                                _FCAdd = _FCAdd + Val(RFin!FCFinAmt.ToString)
+
+                                                If RFin!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + Val(RFin!FCFinAmt.ToString)
+                                                If RFin!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + Val(RFin!FCFinAmt.ToString)
+
+                                                If _DtFin.Select("FTFinCode='" & RFin!FTFinCode.ToString & "'").Length <= 0 Then
+                                                    _DtFin.Rows.Add(RFin!FTFinCode.ToString, Val(RFin!FCFinAmt.ToString))
+                                                Else
+                                                    For Each xRow As DataRow In _DtFin.Select("FTFinCode='" & RFin!FTFinCode.ToString & "'")
+                                                        xRow!FCTotalFinAmt = Val(xRow!FCTotalFinAmt) + Val(RFin!FCFinAmt.ToString)
+                                                    Next
+                                                End If
+
+                                            End If
+                                        Next
+                                    End If
+                                    '----------------- รายได้อื่นๆประจำวัน กรณีมาทำงาน---------------------
+                                End If
+                            Next
+
+                            _BFSDate = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddDay(_BFSDate, 1))
+
+                        Loop
+                    End If
+                End If
+                ' End If
+                '----------------- รายได้อื่นๆประจำวัน กรณีมาทำงาน---------------------
+
+
+
+                '-------------------------------------------------------------------------------------------
+                If _FTEmpState = "0" And Val(_PayTerm) Mod 2 = 0 Then
+                    For Each R2 As DataRow In _dtAddOtherAmt.Select("FTCalType<>'0' AND FTFinType='1' AND FTPayType='1'  and FTFinCode<>'056' ")
+                        Dim _StatePass As Boolean = True
+
+                        If R2!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_GFNLateNormalMin <= 0)
+                        If R2!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_GFNAbsent <= 0)
+                        If R2!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveOther <= 0)
+                        If R2!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveVacation <= 0)
+
+                        If _StatePass Then
+
+                            _FCAdd = _FCAdd + Val(R2!FCFinAmt.ToString)
+
+                            If R2!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + Val(R2!FCFinAmt.ToString)
+                            If R2!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + Val(R2!FCFinAmt.ToString)
+
+                            If _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'").Length <= 0 Then
+                                _DtFin.Rows.Add(R2!FTFinCode.ToString, Val(R2!FCFinAmt.ToString))
+                            Else
+                                For Each xRow As DataRow In _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'")
+                                    xRow!FCTotalFinAmt = Val(xRow!FCTotalFinAmt) + Val(R2!FCFinAmt.ToString)
+                                Next
+
+                            End If
+                        End If
+                    Next
+
+                ElseIf _FDDateEnd <> "" And _FDDateEnd < _EndDate Then
+                    For Each R2 As DataRow In _dtAddOtherAmt.Select("FTCalType<>'0' AND FTFinType='1' AND FTPayType='0' and FTFinCode='013' ")
+                        Dim _StatePass As Boolean = True
+
+                        If R2!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_GFNLateNormalMin <= 0)
+                        If R2!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_GFNAbsent <= 0)
+                        If R2!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveOther <= 0)
+                        If R2!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveVacation <= 0)
+
+                        If _StatePass Then
+
+                            _FCAdd = _FCAdd + ((Val(R2!FCFinAmt.ToString) / 13) * _WorkingDay)
+
+                            If R2!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + Val(R2!FCFinAmt.ToString)
+                            If R2!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + Val(R2!FCFinAmt.ToString)
+
+                            If _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'").Length <= 0 Then
+                                _DtFin.Rows.Add(R2!FTFinCode.ToString, ((Val(R2!FCFinAmt.ToString) / 13) * _WorkingDay))
+                            Else
+
+                                For Each xRow As DataRow In _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'")
+                                    xRow!FCTotalFinAmt = Val(xRow!FCTotalFinAmt) + ((Val(R2!FCFinAmt.ToString) / 13) * _WorkingDay)
+                                Next
+
+                            End If
+                        End If
+                    Next
+                ElseIf _FDDateEnd = "" Then
+                    For Each R2 As DataRow In _dtAddOtherAmt.Select("FTCalType<>'0' AND FTFinType='1' AND FTPayType='0' and FTFinCode='013' ")
+                        Dim _StatePass As Boolean = True
+
+                        If R2!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_GFNLateNormalMin <= 0)
+                        If R2!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_GFNAbsent <= 0)
+                        If R2!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveOther <= 0)
+                        If R2!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveVacation <= 0)
+
+                        If _StatePass Then
+
+                            _FCAdd = _FCAdd + Double.Parse(R2!FCFinAmt.ToString)
+
+                            If R2!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + Val(R2!FCFinAmt.ToString)
+                            If R2!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + Val(R2!FCFinAmt.ToString)
+
+                            If _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'").Length <= 0 Then
+                                _DtFin.Rows.Add(R2!FTFinCode.ToString, Double.Parse(R2!FCFinAmt.ToString))
+                            Else
+
+                                For Each xRow As DataRow In _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'")
+                                    xRow!FCTotalFinAmt = Val(xRow!FCTotalFinAmt) + Double.Parse(R2!FCFinAmt.ToString)
+                                Next
+
+                            End If
+                        End If
+                    Next
+                End If
+
+                For Each R2 As DataRow In _dtAddOtherAmt.Select("FTCalType<>'0' AND FTFinType='1' AND FTPayType='0'  and FTFinCode <> '013' and FTFinCode <> '057' ")
+                    Dim _StatePass As Boolean = True
+
+                    If R2!FTStaLate.ToString = "1" And _StatePass Then _StatePass = (_GFNLateNormalMin <= 0)
+                    If R2!FTStaAbsent.ToString = "1" And _StatePass Then _StatePass = (_GFNAbsent <= 0)
+                    If R2!FTStaLeave.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveOther <= 0)
+                    If R2!FTStaVacation.ToString = "1" And _StatePass Then _StatePass = (_GFNLeaveVacation <= 0)
+
+                    If _StatePass Then
+
+                        _FCAdd = _FCAdd + Val(R2!FCFinAmt.ToString)
+
+                        If R2!FTStaTax.ToString = "1" Then _FTAddCalculateTax = _FTAddCalculateTax + Val(R2!FCFinAmt.ToString)
+                        If R2!FTStaSocial.ToString = "1" Then _FTAddCalculateSocial = _FTAddCalculateSocial + Val(R2!FCFinAmt.ToString)
+
+                        If _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'").Length <= 0 Then
+                            _DtFin.Rows.Add(R2!FTFinCode.ToString, Val(R2!FCFinAmt.ToString))
+                        Else
+
+                            For Each xRow As DataRow In _DtFin.Select("FTFinCode='" & R2!FTFinCode.ToString & "'")
+                                xRow!FCTotalFinAmt = Val(xRow!FCTotalFinAmt) + Val(R2!FCFinAmt.ToString)
+                            Next
+
+                        End If
+                    End If
+                Next
+
+                Dim _TotalFuel As Double = 0 ''100000
+
+                Dim _worktime_before As Integer = 0
+
+
+                If _FTEmpState = "0" And Val(_PayTerm) Mod 2 = 0 Then
+                    For Each R2 As DataRow In _dtAddOtherAmt.Select("FTCalType='2' AND FTFinType='1' AND FTPayType='1'  and FTFinCode='056' ")
+                        _TotalFuel = Val(R2!FCFinAmt)
+                    Next
+
+
+                    _Qry = " SELECT  TOP 1 SUM(ISNULL(P.FNTotalWKN_Real_Min,0)) AS FNTotalWKN_Real_Min "
+
+
+
+                    _Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK), (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                    _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "AND ISNULL(P.FNTotalRecalSSO,0) > 0 "
+                    _Qry &= vbCrLf & "AND P.FNHSysEmpID =" & Integer.Parse(Val(_EmpCode)) & " "
+                    _Qry &= vbCrLf & " AND PD.FTPayTerm < '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                    _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+                    _Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                    _Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                    _Qry &= vbCrLf & "  Select FNMonth"
+                    _Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                    _Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                    _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                    _Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                    _Qry &= vbCrLf & "  )  "
+
+                    _worktime_before = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, 0)
+
+                    _TotalFuel = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation + _worktime_before) / 480) * (_TotalFuel / 26)
+                    _FCAdd = _FCAdd + _TotalFuel
+
+
+                End If
+
+
+
+                ''20221004 get responsed header line
+
+                'If _FNIncentiveAmt = 0 Then
+
+
+
+                Dim inc As Integer = 0
+
+                _Qry = "   SELECT COUnT(FNHSysEmpID) as n  "
+                _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHeader   AS M WITH(NOLOCK)"
+                _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(_EmpCode) & "  AND M.FNHSysCmpID =  " & Val(HI.ST.SysInfo.CmpID)
+                _Qry &= vbCrLf & "  AND   M.FTDateTrans BETWEEN '" & HI.UL.ULDate.ConvertEnDB(_StartDate) & "' AND '" & (_EndDate) & "'"
+
+                inc = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, 0))
+
+                Dim DataIncentiveHeader As DataTable
+
+                Dim _Emp_IncenAmt As Double = 0
+                Dim _Emp_BonusAmt As Double = 0
+
+                If inc > 0 Then
+                    _Qry = "Exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.SP_CALCULATE_INCENTIVE_HEADER " & Val(_EmpCode) & "," & Val(HI.ST.SysInfo.CmpID) & ",'" & HI.UL.ULDate.ConvertEnDB(_StartDate) & "' , '" & (_EndDate) & "'"
+                    DataIncentiveHeader = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+
+                    Dim _BFSDate As String = HI.UL.ULDate.ConvertEnDB(_StartDate)
+                    Dim _BFEDate As String = HI.UL.ULDate.ConvertEnDB(_EndDate)
+
+                    If DataIncentiveHeader.Rows.Count > 0 Then
+
+
+
+                        If _BFSDate <> "" And _BFEDate <> "" Then
+
+                            _Qry = " 	SELECT  ISNULL(T.FNHSysShiftID,0) AS FTShift	, (ISNULL(FNTimeMin,0) + ISNULL(FNSpecialTimeMin,0) +ISNULL(FNLateNormalMin,0) ) - ( ISNULL(FNLateNormalCut,0 ) + ISNULL(FNAbsentCut,0 ))  AS FNTime"
+                            _Qry &= vbCrLf & " 	, ISNULL(T.FNNotRegis,0) As FNNotRegis 	, ISNULL(FNOT1,0) AS FNOT1"
+                            _Qry &= vbCrLf & " 	, ISNULL(FNOT1_5,0) AS FNOT1_5"
+                            _Qry &= vbCrLf & " 	, ISNULL(FNOT2,0 ) AS FNOT2  , ISNULL(FNOT3,0) AS FNOT3, ISNULL(FNOT4,0) AS FNOT4"
+                            _Qry &= vbCrLf & " 	, ISNULL(FNLateNormalMin,0) AS FNLateNormalMin, ISNULL(FNLateNormalCut,0 ) + ISNULL(FNAbsentCut,0 )  AS FNLateNormalCut"
+                            _Qry &= vbCrLf & " , ISNULL(FNLateOtMin,0) As FNLateOtMin,ISNULL(FNLateOtCut,0) As FNLateOtCut"
+                            _Qry &= vbCrLf & " , ISNULL(FNLateMMin,0) As FNLateMorning"
+                            _Qry &= vbCrLf & " 	, ISNULL(FNLateAfMin,0) AS FNLateAfternoon,Isnull(FNAbsentCut,0) AS FNAbsentCut "
+                            _Qry &= vbCrLf & " 	, ISNULL(FNAbsent,0) AS FNAbsent "
+                            _Qry &= vbCrLf & " ,(ISNULL(FNTimeMin,0) + ISNULL(FNSpecialTimeMin,0) +ISNULL(FNLateNormalMin,0) ) - ( ISNULL(FNLateNormalCut,0 ) + ISNULL(FNAbsentCut,0 ))  As FNTimeMin"
+                            _Qry &= vbCrLf & " ,ISNULL(FNTimeMin,0)  + ISNULL(FNSpecialTimeMin,0) As FNTimeMinOrg"
+                            _Qry &= vbCrLf & " , ISNULL(FNOT1Min,0) As FNOT1Min  "
+                            _Qry &= vbCrLf & " , ISNULL(FNOT1_5Min,0) As FNOT1_5Min "
+                            _Qry &= vbCrLf & " ,ISNULL(FNOT2Min,0) As FNOT2Min "
+                            _Qry &= vbCrLf & " , ISNULL(FNOT3Min,0) As FNOT3Min, ISNULL(FNOT4Min,0) As FNOT4Min "
+                            _Qry &= vbCrLf & " ,ISNULL( FNLateMMin,0) AS FNLateMMin "
+                            _Qry &= vbCrLf & " , ISNULL(FNLateAfMin,0) AS FNLateAfMin"
+                            _Qry &= vbCrLf & " , ISNULL(FNRetireMMin,0) AS FNRetireMMin "
+                            _Qry &= vbCrLf & " ,ISNULL(FNRetireAfMin,0 )  as FNRetireAfMin"
+                            _Qry &= vbCrLf & " , ISNULL(FNRetireNormalCut,0) As FNRetireNormalCut "
+                            _Qry &= vbCrLf & " , ISNULL(FNRetireOtMin,0) AS FNRetireOtMin"
+                            _Qry &= vbCrLf & " ,ISNULL(FNRetireOtCut,0) AS FNRetireOtCut,FTDateTrans"
+                            _Qry &= vbCrLf & " ,ISNULL(T.FTIn1,'') AS FTIn1"
+                            _Qry &= vbCrLf & " ,ISNULL(T.FTOut1,'') AS FTOut1"
+                            _Qry &= vbCrLf & " ,ISNULL(T.FTIn2,'') AS FTIn2"
+                            _Qry &= vbCrLf & " ,ISNULL(T.FTOut2,'') AS FTOut2"
+                            _Qry &= vbCrLf & " ,ISNULL(T.FTIn3,'') AS FTIn3"
+                            _Qry &= vbCrLf & " ,ISNULL(T.FTOut3,'') AS FTOut3"
+                            _Qry &= vbCrLf & ",P.FTOverClock"
+                            _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTrans AS T WITH(NOLOCK) LEFT OUTER JOIN "
+                            _Qry &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift AS P WITH(NOLOCK) ON T.FNHSysShiftID =P.FNHSysShiftID "
+                            _Qry &= vbCrLf & "  WHERE(T.FNHSysEmpID =" & Val(_EmpCode) & " )"
+                            _Qry &= vbCrLf & " 	And T.FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(_BFSDate) & "' "
+                            _Qry &= vbCrLf & " 	AND T.FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(_BFEDate) & "' "
+
+                            _dttran = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                            Do While _BFSDate <= _BFEDate
+                                _FTShift = ""
+                                Dim _InOT As String = "" : Dim _OutOT As String = "" : Dim _Over As String = ""
+                                Dim _R() As DataRow = _dttran.Select("FTDateTrans='" & HI.UL.ULDate.ConvertEnDB(_BFSDate) & "'")
+                                For Each R2 In _R
+                                    _FNTimeMin = 0
+                                    _FNOT1Min = 0
+                                    _FNTimeMin = IIf(Val(R2!FNTimeMinOrg.ToString) < 0, 0, Val(R2!FNTimeMinOrg.ToString))
+                                    _FNOT1Min = Val(R2!FNOT1Min.ToString)
+
+                                    For Each RFin As DataRow In DataIncentiveHeader.Select("ftcalDate='" & HI.UL.ULDate.ConvertEnDB(_BFSDate) & "'")
+
+                                        _Emp_IncenAmt = _Emp_IncenAmt + Val(RFin!Emp_IncenAmt_perMin) * (_FNTimeMin + _FNOT1Min)
+                                        _Emp_BonusAmt = _Emp_BonusAmt + Val(RFin!Emp_BonusAmt_perMin) * (_FNTimeMin + _FNOT1Min)
+
+                                    Next
+                                Next
+                                _BFSDate = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddDay(_BFSDate, 1))
+
+                            Loop
+
+
+                        End If
+
+                    End If
+
+                End If
+
+                _FNIncentiveAmt = _Emp_IncenAmt + _FNIncentiveAmt
+                _BonusAmt = _Emp_BonusAmt + _BonusAmt
+
+                'End If
+
+
+
+
+                Dim _TotalMoneyMeal As Double = 0
+                _ShiftValue = 0
+                ''เงินอุดหนุนค่าอาหาร
+                ''For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='053'")
+
+
+                _TotalMoneyMeal = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * _FNMoneyMeal
+                _FCAdd = _FCAdd + _TotalMoneyMeal
+                '_FTAddCalculateTax = _FTAddCalculateTax + _TotalMoneyMeal
+                '_FTAddCalculateSocial = _FTAddCalculateSocial + _TotalMoneyMeal
+                ''  _AmtAddCalOT = _AmtAddCalOT + _ShiftValue
+
+                ''_DtFin.Rows.Add("053", Val(_TotalMoneyMeal))
+
+                ''Next
+
+                ''เงินอายุงาน
+                '_FTAddCalculateTax = _FTAddCalculateTax + _FNWorkAgeSalary
+                '_FTAddCalculateSocial = _FTAddCalculateSocial + _FNWorkAgeSalary
+                ''_FCAdd = _FCAdd + _FNWorkAgeSalary
+                ''_DtFin.Rows.Add("054", Val(_FNWorkAgeSalary))
+
+
+                ''เงินเบี้ยขยัน
+                Dim _FNDeligent_La_rate As Double = 0
+
+                _Qry = "SELECT TOP 1 FTCfgData FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig WHERE FTCfgName='CfgDeligent_La_rate'"
+                _FNDeligent_La_rate = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "0"))
+
+                Dim _TotalDeligent_La As Double = 0
+                '''If _FNDeligent_La_rate > 0 Then
+                '''    _TotalDeligent_La = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * (_FCSalary * _FNDeligent_La_rate)
+                '''    _FCAdd = _FCAdd + _TotalDeligent_La
+                '''End If
+
+                If _FNDeligent_La_rate > 0 Then
+                    _TotalDeligent_La = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * (8000)
+                    _FCAdd = _FCAdd + _TotalDeligent_La
+                End If
+
+                '_FTAddCalculateTax = _FTAddCalculateTax + _TotalDeligent_La
+                '_FTAddCalculateSocial = _FTAddCalculateSocial + _TotalDeligent_La
+
+                ''_DtFin.Rows.Add("059", Val(_TotalDeligent_La))
+
+
+                ''เงินทักษะ
+                Dim _TotalMoneySkill As Double = 0
+                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='043'")
+                    _TotalMoneySkill = Val(RFin!FCFinAmt)
+                Next
+                _TotalMoneySkill = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * _TotalMoneySkill
+                _FCAdd = _FCAdd + _TotalMoneySkill
+
+
+                ''เงินทักษะเย็บ
+                Dim _TotalMoneySkill_Sew As Double = 0
+                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='057'")
+                    _TotalMoneySkill_Sew = Val(RFin!FCFinAmt)
+                Next
+                _TotalMoneySkill_Sew = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * _TotalMoneySkill_Sew
+                _FCAdd = _FCAdd + _TotalMoneySkill_Sew
+
+
+
+
+
+                ''16.	ค่าจูงใจตำแหน่ง : เงินหัวหน้าทีมแผนกเย็บ(กัปตัน)   
+                Dim _TotalMoneyHeaderCapton As Double = 0
+                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='061'")
+                    _TotalMoneyHeaderCapton = Val(RFin!FCFinAmt)
+                Next
+                _TotalMoneyHeaderCapton = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * _TotalMoneyHeaderCapton
+                _FCAdd = _FCAdd + _TotalMoneyHeaderCapton
+
+                ''17.	เงินค่าจูงใจ กลุ่มพนักงานสนับสนุนแผนกเย็บ  
+                Dim _TotalMoneySupport_Sew As Double = 0
+                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='062'")
+                    _TotalMoneySupport_Sew = Val(RFin!FCFinAmt)
+                Next
+                _TotalMoneySupport_Sew = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * _TotalMoneySupport_Sew
+                _FCAdd = _FCAdd + _TotalMoneySupport_Sew
+
+
+                ''18.	ค่าจูงใจตำแหน่ง : เงินพนักงานช่างซ่อมจักร 
+                Dim _TotalMoneySeviceMachine As Double = 0
+                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='063'")
+                    _TotalMoneySeviceMachine = Val(RFin!FCFinAmt)
+                Next
+                _TotalMoneySeviceMachine = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * _TotalMoneySeviceMachine
+                _FCAdd = _FCAdd + _TotalMoneySeviceMachine
+
+                ''20.	ค่าจูงใจตำแหน่ง : เงินพนักงาน QA 
+                Dim _TotalMoneySkill_QA As Double = 0
+                For Each RFin As DataRow In _dtAddOtherAmt.Select("FTFinCode='064'")
+                    _TotalMoneySkill_QA = Val(RFin!FCFinAmt)
+                Next
+                _TotalMoneySkill_QA = ((_GFNTimeMin_Real_After_Probation + _GFNLeaveVacation) / 480) * _TotalMoneySkill_QA
+                _FCAdd = _FCAdd + _TotalMoneySkill_QA
+
+
+
+
+                For Each R2 As DataRow In _dtAddOtherAmt.Select(" FTFinType='2'")
+
+                    _FCDeduct = _FCDeduct + Val(R2!FCFinAmt.ToString)
+
+
+                Next
+                '---------รายได้รายหัก อื่นๆ-------------------------
+
+                '------------------- สิ้นสุดการคำนวณรายวัน
+                _FTWorkmenAmtBefore = 0
+                _FTTotalCalWorkmenBefore = 0
+
+                '_Qry = " SELECT  TOP 1 SUM(ISNULL(P.FNTotalRecalSSO,0)) AS FCSocial"
+                '_Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSocial,0)) AS FCSocialAmt"
+                '_Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK), (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                '_Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                '_Qry &= vbCrLf & "AND ISNULL(P.FNTotalRecalSSO,0) > 0 "
+                '_Qry &= vbCrLf & "AND P.FTEmpIdNo ='" & HI.UL.ULF.rpQuoted(_FTEmpIdNo) & "' "
+                '_Qry &= vbCrLf & " AND PD.FTPayTerm < '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                '_Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+                '_Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                '_Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                '_Qry &= vbCrLf & "  Select FNMonth"
+                '_Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                '_Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                '_Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                '_Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                '_Qry &= vbCrLf & "  )  "
+
+                'Dim _DtSso As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                'If _DtSso.Rows.Count > 0 Then
+                '    _SocialBefore = Val(_DtSso.Rows(0)!FCSocial.ToString)
+                '    _SocialBeforeAmt = Val(_DtSso.Rows(0)!FCSocialAmt.ToString)
+                'End If
+
+                If _FTEmpState = "2" Or _FTEmpState = "3" Then
+
+
+                    '_FNEmpBaht = CDbl(Format((_FCSalary), "0.000"))
+                    'If _FTEmpState = "3" Then
+                    '    _FNEmpBaht = CDbl(Format((_FCSalary) / 2, "0.000"))
+
+                    'End If
+
+
+                    If FTStaDeductAbsent = 0 Then
+                        _FNEmpBaht = _FNEmpBaht - (_LaNotpaid + _LateCutAmt + _LateCutAmtAbsent) '+ _nBahtAbsent
+                    Else
+                        _nBahtAbsent = 0
+                        _FNEmpBaht = _FNEmpBaht - (_LaNotpaid + _LateCutAmt + _LateCutAmtAbsent)
+                    End If
+
+
+                    If _FNEmpBaht < 0 Then _FNEmpBaht = 0
+
+
+
+                End If
+
+                _TotalCalTax = 0 : _TaxAmt = 0
+
+                FNUnionAmt = 0
+                'FNUnionRate = HI.Conn.SQLConn.GetField("SELECT Top 1  Isnull(FNUnionAmt,0) AS FNUnionAmt  FROM   " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRMCfgWelfareKM with(nolock) Where FNHSysEmpTypeId =" & Val(_EmpType), Conn.DB.DataBaseName.DB_HR, "0")
+                'If FNUnionRate > 0 Then
+
+                '    Dim _StatePass As Boolean = True
+
+                '    If _FDDateEnd <> "" And _EndDate < _FDDateEnd Then
+                '        _StatePass = False
+                '    End If
+                '    If Not (FNStateUnionMember = "1") Then _StatePass = False
+
+                '    'If _WorkAge <= 0 Then
+                '    '    _StatePass = False
+                '    'Else
+                '    '    If FDStartDateUnion < _StartDate Then
+
+                '    '    End If
+                '    'End If
+
+                '    If Not (Val(_PayTerm) Mod 2 = 0) Then
+                '        _StatePass = False
+                '    End If
+
+                '    If _StatePass Then
+                '        ''  _FCDeduct = _FCDeduct + FNUnionRate
+                '        FNUnionAmt = FNUnionRate
+                '    End If
+
+                'End If
+
+                '_TotalCalSso = Double.Parse(Format(_FNEmpBaht + _HBaht + _FTOtherAddCalculateSocial + _FTAddCalculateSocial + _GtotalleavePayCalSsoAmt, "0.00"))
+                '_TotalCalSso = _TotalCalSso + Double.Parse(Format(_FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS, "0.00"))
+
+
+                '  _FTAddCalculateTax = _FTAddCalculateTax + _ShiftAmt + _ShiftOTAmt
+                _FCAdd = _FCAdd + _ShiftAmt + _ShiftOTAmt
+
+                'If _FTEmpState = "2" Or _FTEmpState = "3" Then
+
+
+                '    _TotalCalSso = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateSocial + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+                '    _TotalCalTax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeaveReCalTax) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNWorkAgeSalary) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+
+                'Else
+                '    _TotalCalSso = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateSocial + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+                '    _TotalCalTax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveSpecialBaht + FNParturitionLeaveReCalTax) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNWorkAgeSalary) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+
+
+
+                'End If
+
+                If _FTEmpState = "2" Or _FTEmpState = "3" Then
+
+
+                    _TotalCalSso = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveAccidentBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateSocial + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+                    _TotalCalTax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveAccidentBaht + FNPayLeaveSpecialBaht + FNParturitionLeaveReCalTax) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNWorkAgeSalary) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+
+                Else
+                    _TotalCalSso = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveAccidentBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateSocial + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+                    _TotalCalTax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveAccidentBaht + FNPayLeaveSpecialBaht + FNParturitionLeaveReCalTax) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNWorkAgeSalary) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+
+
+
+                End If
+
+                '-----------------หักเงินเข้า กองทุนสำรองเลี้ยงชีพ-------------------------------
+                If _ContributedFundBeginPay Then
+                    Dim _EMpWorkAge As Integer = Val(R!FNEmpWorkAge.ToString)
+
+                    For Each sR As DataRow In _THRMContributedFund.Select(" FNAgeBegin <= " & _EMpWorkAge & " AND FNAgeEnd >=" & _EMpWorkAge & " ")
+
+                        FTTotalCalContributedAmt = _TotalCalSso
+
+                        FTContributedAmt = CDbl(Format(((FTTotalCalContributedAmt * Val(sR!FNEmpAmtPer.ToString)) / 100.0), "0"))
+                        FTCmpContributedAmt = CDbl(Format(((FTTotalCalContributedAmt * Val(sR!FNCmpAmtPer.ToString)) / 100.0), "0"))
+
+                        Exit For
+
+                    Next
+
+                End If
+                '-----------------หักเงินเข้า กองทุนสำรองเลี้ยงชีพ----------------------------
+                '-----------------หักเงินเข้า กองทุนทดแทน---------------------------------
+                FTTotalCalWorkmen = _TotalCalSso
+
+                If _FTMaxCalWorkmen > 0 Then
+
+                    _SocialPayMax = CDbl(Format(((_FTMaxCalWorkmen * _FTMaxWorkmenRate) / 100.0), "0"))
+
+                    If (_TotalCalSso + _FTTotalCalWorkmenBefore) > _FTMaxCalWorkmen Then
+                        FTTotalCalWorkmen = _FTMaxCalWorkmen
+                    ElseIf FTTotalCalWorkmen > 0 Then
+                        FTTotalCalWorkmen = FTTotalCalWorkmen
+                    Else
+                        FTTotalCalWorkmen = 0
+                    End If
+
+                    If _FTTotalCalWorkmenBefore > 0 Then
+                        FTWorkmenAmt = CDbl(Format((((_CalSo + _FTTotalCalWorkmenBefore) * _FTMaxWorkmenRate) / 100.0), "0"))
+                        FTWorkmenAmt = FTWorkmenAmt - _FTWorkmenAmtBefore
+                    Else
+                        FTWorkmenAmt = CDbl(Format(((FTTotalCalWorkmen * _FTMaxWorkmenRate) / 100.0), "0"))
+                    End If
+                End If
+
+                '-----------------หักเงินเข้า กองทุนทดแทน-------------------------------
+
+
+
+                _FNEmpDiligent = 0
+                _FTStateInDustin = ""
+                _FNDeligentPeriod = 0
+
+                If _CalIns <> "" Then
+                    Dim _StateCalIns As Boolean = False
+                    '_Qry = "SELECT TOP 1 FNPayDeligent FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMDiligentConfigHD WHERE FTDeligentCode='" & HI.UL.ULF.rpQuoted(_CalIns) & "' "
+                    'If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "") = "1" Then
+                    '    If Val(_PayTerm) Mod 2 = 1 Then
+
+                    '        _FTSatrtCalculateDateIns = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddMonth(Left(_EndDate, 8) & "01", -1))  'วันแรกของเดือน
+                    '        _FTEndCalculateDateIns = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddMonth(HI.UL.ULDate.AddDay(HI.UL.ULDate.AddMonth(Left(_EndDate, 8) & "01", 1), -1), -1)) 'วันแของเดือน
+                    '        _StateCalIns = True
+                    '    End If
+                    'Else
+
+                    '    _StateCalIns = True
+                    'End If
+
+                    'If _StateCalIns Then
+                    '    _Qry = " SELECT   ISNULL(PayIndus,0) As PayIndus , ISNULL(StateIndus,'') AS StateIndus,ISnuLL(FNDeligentPeriod,0) AS FNDeligentPeriod"
+                    '    _Qry &= vbCrLf & "	FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.FN_CALCULATE_INDUST(" & Val(_EmpCode) & ",'" & HI.UL.ULDate.ConvertEnDB(_FTSatrtCalculateDateIns) & "','" & HI.UL.ULDate.ConvertEnDB(_FTEndCalculateDateIns) & "','" & HI.UL.ULF.rpQuoted(_CalIns) & "')"
+
+                    '    Dim _DtIns As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                    '    If _DtIns.Rows.Count > 0 Then
+                    '        _FNEmpDiligent = Val(_DtIns.Rows(0)!PayIndus.ToString)
+                    '        _FTStateInDustin = _DtIns.Rows(0)!StateIndus.ToString
+                    '        _FNDeligentPeriod = Val(_DtIns.Rows(0)!FNDeligentPeriod.ToString)
+                    '    End If
+
+                    'End If
+                End If
+
+
+
+                Dim _tmpTotalincome As Double = 0
+                Dim _DiffTotalincome As Double = 0
+                Dim _tmpTotalNetPay As Double = 0
+                Dim _DiffTotalNetPay As Double = 0
+                Dim _FNServicefee, _FNFinTransFee As Double
+
+                Dim _tmpTotalincome_for_tax As Double = 0
+
+                _tmpTotalincome = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveAccidentBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FCOtherAdd + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS + _BonusAmt) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+
+                ''With out sick leave
+                _tmpTotalincome_for_tax = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveAccidentBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FTOtherAddCalculateTax + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS + _BonusAmt) - (_FCOtherDeduct + _FCDeduct), "0.000"))
+
+
+                _tmpTotalNetPay = (_tmpTotalincome - (FTContributedAmt))
+
+                _TotalCalSso = CDbl(Format(_tmpTotalincome, "0"))
+
+
+
+                _Net = Double.Parse(Format((_FNEmpBaht + _HBaht + _nBahtOt1 + _FNEmpDiligent + _Lapaid + (FNPayLeaveBusinessBaht + FNPayLeaveSickBaht + FNPayLeaveAccidentBaht + FNPayLeaveSpecialBaht + FNParturitionLeave) + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCPayVacationBaht + _FCOtherAdd + _FCAdd + _FNIncentiveAmt + _FNNetAttandanceAmt + _FNHealtCareAmt + _FNTransportAmt + _FNNetChildCareAmt + _FNWorkAgeSalary + _FNNetOTMealAmtUS + _BonusAmt) - (_FCOtherDeduct + _FCDeduct), "0.00"))
+                _FCBaht = _FNEmpBaht + _nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4
+
+
+
+                '--------- คิดประกันสังคม-----------
+                _SocialPayMax = HCfg.HMaxSocialBaht
+                _CalSo = 0
+                _FCSocial = 0
+                _FCSocialCmp = 0
+                _TotalCalSso = (_TotalCalSso)
+                _FNSocialBase = 0
+
+                Dim _FCTotalRecalTaxBefore As Double = 0
+                Dim _FCTaxAmtBefore As Double = 0
+                Dim _TotalCalTaxAll As Double = 0
+
+                Dim _FCOt1_Baht_Amt As Double = 0
+                Dim _FCOt15_Baht_Amt As Double = 0
+                Dim _FCOt2_Baht_Amt As Double = 0
+                Dim _FCOt3_Baht_Amt As Double = 0
+                Dim _FCOt4_Baht_Amt As Double = 0
+
+                Dim _FNTotalIncome_before As Double = 0
+
+                Dim _SocialBeforeAmtCmp As Double = 0
+
+                Dim _FNSickLeaveBaht_before As Double = 0
+
+                Dim _FNFinNotCalTax As Double = 0
+
+
+                _Qry = " SELECT  TOP 1 SUM(ISNULL(P.FNTotalRecalSSO,0)) AS FCSocial "
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTotalIncome,0)) AS FNTotalIncome "
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSocial,0)) AS FCSocialAmt "
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSocialCmp,0)) AS FCSocialAmtCmp "
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTotalRecalTax,0)) AS FCTotalRecalTax "
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNTax,0)) AS FCTaxAmt "
+
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt1_Baht,0)) AS FCOt1_Baht "
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt15_Baht,0)) AS FCOt15_Baht "
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt2_Baht,0)) AS FCOt2_Baht "
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt3_Baht,0)) AS FCOt3_Baht "
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FCOt4_Baht,0)) AS FCOt4_Baht "
+
+                _Qry &= vbCrLf & " ,SUM(ISNULL(P.FNSickLeaveBaht,0)) AS FNSickLeaveBaht"
+
+
+                _Qry &= vbCrLf & "FROM dbo.THRTPayRoll AS P WITH (NOLOCK), (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                _Qry &= vbCrLf & "AND ISNULL(P.FNTotalIncome,0) > 0 "
+                _Qry &= vbCrLf & "AND P.FNHSysEmpID =" & Integer.Parse(Val(_EmpCode)) & " "
+                _Qry &= vbCrLf & " AND PD.FTPayTerm < '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+
+                _Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                _Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                _Qry &= vbCrLf & "  Select FNMonth"
+                _Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                _Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                _Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                _Qry &= vbCrLf & "  )  "
+
+
+
+                Dim _DtSso As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                If _DtSso.Rows.Count > 0 Then
+                    _SocialBefore = Val(_DtSso.Rows(0)!FCSocial.ToString)
+                    _SocialBeforeAmt = Val(_DtSso.Rows(0)!FCSocialAmt.ToString)
+                    _SocialBeforeAmtCmp = Val(_DtSso.Rows(0)!FCSocialAmtCmp.ToString)
+
+                    _FNTotalIncome_before = Val(_DtSso.Rows(0)!FNTotalIncome.ToString)
+
+                    _FCTotalRecalTaxBefore = Val(_DtSso.Rows(0)!FCTotalRecalTax.ToString)
+                    _FCTaxAmtBefore = Val(_DtSso.Rows(0)!FCTaxAmt.ToString)
+
+                    _FNSickLeaveBaht_before = Val(_DtSso.Rows(0)!FNSickLeaveBaht.ToString)
+
 
                     _FCOt1_Baht_Amt = Val(_DtSso.Rows(0)!FCOt1_Baht.ToString)
                     _FCOt15_Baht_Amt = Val(_DtSso.Rows(0)!FCOt15_Baht.ToString)
@@ -35103,7 +45162,7 @@ Public NotInheritable Class Calculate
                         _FCSocial = IIf(_SocialBeforeAmt > _FCSocial, 0, _FCSocial - _SocialBeforeAmt)
 
                         _FCSocialCmp = CDbl(Format(CDbl(Format((((_CalSo) * _SocialRateCmp) / 100.0), "0.00")), "0"))
-                        _FCSocialCmp = IIf(_SocialBeforeAmt > _FCSocialCmp, 0, _FCSocialCmp - _SocialBeforeAmt)
+                        _FCSocialCmp = IIf(_SocialBeforeAmt > _FCSocialCmp, 0, _FCSocialCmp - _SocialBeforeAmtCmp)
 
                     Else
                         _FCSocial = CDbl(Format(CDbl(Format((((_CalSo) * _SocialRate) / 100.0), "0.00")), "0"))
@@ -35114,15 +45173,52 @@ Public NotInheritable Class Calculate
                     _TotalCalSso = 0
                 End If
 
-                _TotalCalTax = Format((_tmpTotalincome - (_FCSocial)), "0")
 
-                ''  _TotalCalTaxAll = Format(((_tmpTotalincome + _FCTotalRecalTaxBefore) - (_FCSocial + _SocialBeforeAmt)), "0.00")
+                _Qry = " SELECT SUM(P.FCTotalFinAmt) as FCTotalFinAmt   "
+                _Qry &= vbCrLf & "FROM THRTPayRollFin P WITH (NOLOCK), (SELECT FTPayYear ,FTPayTerm,FNMonth FROM THRMCfgPayDT  WITH (NOLOCK) WHERE  (FNHSysEmpTypeId =" & Val(_EmpType) & ") ) AS   PD "
+                _Qry &= vbCrLf & "WHERE P.FTPayYear = '" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+
+
+                _Qry &= vbCrLf & " AND P.FTFinCode in (SELECT  FTFinCode FROM [dbo].[THRMFinanceSet] WHERE   FTStaActive = 1 and FTStaTax=0 and FNHSysCmpId = " & Val(HI.ST.SysInfo.CmpID) & ")"
+
+                _Qry &= vbCrLf & "AND P.FNHSysEmpID =" & Integer.Parse(Val(_EmpCode)) & " "
+                _Qry &= vbCrLf & " AND PD.FTPayTerm < '" & HI.UL.ULF.rpQuoted(_PayTerm) & "'"
+                _Qry &= vbCrLf & " AND P.FTPayYear=PD.FTPayYear"
+
+                _Qry &= vbCrLf & " AND P.FTPayTerm=PD.FTPayTerm"
+                _Qry &= vbCrLf & " AND PD.FNMonth IN (   "
+                _Qry &= vbCrLf & "  Select FNMonth"
+                _Qry &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT WITH (NOLOCK) "
+                _Qry &= vbCrLf & "    WHERE     (FNHSysEmpTypeId =" & Val(_EmpType) & ")"
+                _Qry &= vbCrLf & "  AND  FTPayYear ='" & HI.UL.ULF.rpQuoted(_PayYear) & "'"
+                _Qry &= vbCrLf & "  AND FTPayTerm ='" & HI.UL.ULF.rpQuoted(_PayTerm) & "' "
+                _Qry &= vbCrLf & "  )  "
+
+
+                _FNFinNotCalTax = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, 0)
+
+
+
+                'MsgBox("_TotalCalTax" & _TotalCalTax.ToString())
+                'MsgBox("_tmpTotalincome_for_tax" & _tmpTotalincome_for_tax.ToString())
+                'MsgBox("_FCSocial" & _FCSocial.ToString())
+
+                '' edit 20230610  best   _tmpTotalincome_for_tax    with out sick leave 
+                _TotalCalTax = Format((_tmpTotalincome_for_tax - (_FCSocial + _EmpTaxYear.FTModEmp)), "0")
+                'MsgBox("zz_tmpTotalincome_for_tax" & _tmpTotalincome_for_tax.ToString())
+
+                'MsgBox("_FNTotalIncome_before" & _FNTotalIncome_before.ToString())
+                'MsgBox("_FCSocial" & _FCSocial.ToString())
+                'MsgBox("_SocialBeforeAmt" & _SocialBeforeAmt.ToString())
+                'MsgBox("_FNSickLeaveBaht_before" & _FNSickLeaveBaht_before.ToString())
 
 
                 Dim _TotalCalTax_Sum As Double
 
-                _TotalCalTax_Sum = Format(((_tmpTotalincome + _SocialBefore) - (_FCSocial + _SocialBeforeAmt)), "0")
+                '' _TotalCalTax_Sum = Format(((_tmpTotalincome_for_tax + _FNTotalIncome_before) - (_FCSocial + _SocialBeforeAmt + _FNSickLeaveBaht_before)), "0")
+                _TotalCalTax_Sum = Format(((_tmpTotalincome_for_tax + _FNTotalIncome_before) - (_FCSocial + _SocialBeforeAmt + _FNFinNotCalTax)), "0")
 
+                'MsgBox("_TotalCalTax_Sum" & _TotalCalTax_Sum.ToString())
 
                 If _FTCalTaxSta <> "1" Then
 
@@ -35144,44 +45240,79 @@ Public NotInheritable Class Calculate
                     Dim _TaxOtherAmt As Double = 0
                     Dim _Total As Double = 0
 
-                    ''GETnRecalDiscTax(_EmpDisTax, _EmpTaxYear)
+                    GETnRecalDiscTax(_EmpDisTax, _EmpTaxYear)
 
                     ''สิ้นเดือน
                     If Val(_PayTerm) Mod 2 = 0 Then
 
 
-                        If (_TotalCalTax_Sum > 2000000) Then
-                            _Total = _TotalCalTax_Sum   ''เงินรวมทั้งเดือน หักประกันสังคมแล้ว
-                        Else
-                            _Total = _TotalCalTax_Sum - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCOt1_Baht_Amt + _FCOt15_Baht_Amt + _FCOt2_Baht_Amt + _FCOt3_Baht_Amt + _FCOt4_Baht_Amt)
-                        End If
+                        'If (_TotalCalTax_Sum > 2000000) Then
+                        _Total = _TotalCalTax_Sum   ''เงินรวมทั้งเดือน หักประกันสังคมแล้ว
+                        'MsgBox("1_Total" & _Total.ToString())
+
+                        _Total = Math.Round(Val(_Total), 0)
+                        _TotalCalTax = _TotalCalTax_Sum - _FCTotalRecalTaxBefore
+
+
+
+                        '    'MsgBox("_TotalCalTax" & _TotalCalTax.ToString())
+                        'Else
+
+                        '    ''ของทั้งเดือน สำหรับคิด  tax
+                        '    _Total = _TotalCalTax_Sum - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4 + _FCOt1_Baht_Amt + _FCOt15_Baht_Amt + _FCOt2_Baht_Amt + _FCOt3_Baht_Amt + _FCOt4_Baht_Amt)
+                        '    ''    MsgBox("2_Total" & _Total.ToString())
+
+
+
+                        '    ''ของ เฉพราะ งวด 2
+                        '    ''_TotalCalTax = _TotalCalTax - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4)
+
+                        '    _Total = Math.Round(Val(_Total), 0)
+                        '    _TotalCalTax = _Total - _FCTotalRecalTaxBefore
+                        '    ''    MsgBox("2_TotalCalTax" & _TotalCalTax.ToString())
+                        'End If
 
                     Else
-                        If (_TotalCalTax_Sum > 2000000) Then
-                            _Total = _TotalCalTax
-                        Else
-                            _Total = _TotalCalTax - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4)
-                        End If
+                        'If (_TotalCalTax_Sum > 2000000) Then
+                        _Total = _TotalCalTax
+
+                        _Total = Math.Round(Val(_Total), 0)
+                        'Else
+
+                        '    _Total = _TotalCalTax - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4)
+                        '    _Total = Math.Round(Val(_Total), 0)
+
+                        '    _TotalCalTax = _TotalCalTax - (_nBahtOt1 + _nBahtOt15 + _nBahtOt2 + _nBahtOt3 + _nBahtOt4)
+
+                        'End If
                     End If
-
-
-
 
 
                     '_EmpTaxYear.FTSocial = _EmpDisTax.FTSosial
 
                     '_EmpTaxYear.FTTotalCalTax = _Total
 
+                    'MsgBox("_Total" & _Total.ToString())
 
+                    'MsgBox("Best" & (_Total - _FCTotalRecalTaxBefore).ToString)
                     Dim _TotalTax As Double = GETnTax(_Total, _TaxOther, _TaxOtherAmt)
 
                     _EmpTaxYear.FTTotalTax = (_TotalTax + _TaxOtherAmt) 'ภาษีที่ต้องจ่าย
 
+                    'MsgBox("_FCTaxAmtBefore" & _FCTaxAmtBefore.ToString())
+
                     _TotalTax = CDbl(Format(_TotalTax - _FCTaxAmtBefore, "0"))
+
+                    'MsgBox("_TotalTax" & _TotalTax.ToString())
 
                     If _TotalTax > 0 Then
                         _TaxAmt = CDbl(Format((_TotalTax), "0.00"))
+
+                        'MsgBox("_TaxAmt" & _TaxAmt.ToString())
+                        'MsgBox("_TaxOtherAmt" & _TaxOtherAmt.ToString())
+
                         _TaxAmt = _TaxAmt + _TaxOtherAmt
+
                     Else
                         _TaxAmt = 0
                     End If
@@ -36034,6 +46165,8 @@ Public NotInheritable Class Calculate
     End Function
 
 
+#End Region
+
     Private Shared Sub CalculateParturition(ByVal _PayYear As String, ByVal _PayTerm As String, ByVal _StartDate As String, ByVal _EndDate As String, _EmpSysId As Integer, ByRef _FNParturitionLeave As Double, ByRef _FNParturitionLeaveMin As Double, ByRef _DeductAttandanceAmt As Double, Optional ByVal _WorkAge As Integer = 0, Optional ByRef _WorkAgeParturition As Integer = 0, Optional ByRef _FNParturitionLeaveReCalTax As Double = 0)
         Dim _Cmd As String = ""
 
@@ -36574,7 +46707,7 @@ Public NotInheritable Class Calculate
 
 
 
-        _Cmd &= vbCrLf & "  SELECT top 12   ( convert(numeric(18,2) ,  X.FNTotalIncome )  - ( convert(numeric(18,2) ,  ISNULL(X.FNVacationRetAmt,0) )  ) - (ISNULL(F4.FCTotalFinAmt044,0) + ISNULL(F5.FCTotalFinAmt045,0) + ISNULL(F6.FCTotalFinAmt046,0) + ISNULL(F7.FCTotalFinAmt047,0)+ ISNULL(FNVacationRetAmt,0) ))    As FNTotalIncome  , X.FNAttandanceAmt, X.FNSalary  "
+        _Cmd &= vbCrLf & "  SELECT top 12   ( convert(numeric(18,2) ,  X.FNTotalIncome )  - ( convert(numeric(18,2) ,  ISNULL(X.FNVacationRetAmt,0) )  ) - (ISNULL(F4.FCTotalFinAmt044,0) + ISNULL(F5.FCTotalFinAmt045,0) + ISNULL(F6.FCTotalFinAmt046,0) + ISNULL(F7.FCTotalFinAmt047,0) ))    As FNTotalIncome  , X.FNAttandanceAmt, X.FNSalary  "
         _Cmd &= vbCrLf & " , count( * ) over (partition by   X.FTPayYear   ,d.FNMonth ) As FNMonthCount  , FNParturitionLeaveMin ,FNWorkingHour , FNParturitionLeaveBaht"
         _Cmd &= vbCrLf & " ,((ISNULL(FNHoliday,0) * 480)  + (ISNULL(FNTotalWKNMin,0)) + (ISNULL(FNTotalLeavePayMin,0))) as FNTimePayMin "
         _Cmd &= vbCrLf & ",X.FTPayYear  , FNMonth , D.FDCalDateBegin, D.FDCalDateEnd "

@@ -842,7 +842,7 @@ Public Class wHRReportExportBank
             _Cmd &= vbCrLf & " , E.FTAccNo, E.FTEmpIdNo, convert(numeric(18,0) ,  R.FNNetpay ) as FNNetpay, R.FTPayYear, R.FTPayTerm, R.FNHSysBankId,"
             _Cmd &= vbCrLf & "      R.FNHSysBankBranchId, R.FNHSysEmpTypeId, R.FNHSysDeptId, R.FNHSysDivisonId, R.FNHSysSectId, R.FNHSysUnitSectId ,DT.FNMonth AS FTMonth --Right(LEFT(DT.FDCalDateBegin,7),2) AS FTMonth"
             _Cmd &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll AS R LEFT OUTER JOIN"
-            _Cmd &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT AS DT ON R.FTPayTerm = DT.FTPayTerm AND R.FTPayYear = DT.FTPayYear LEFT OUTER JOIN"
+            _Cmd &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT AS DT ON R.FTPayTerm = DT.FTPayTerm AND R.FTPayYear = DT.FTPayYear and R.FNHSysEmpTypeId=DT.FNHSysEmpTypeId LEFT OUTER JOIN"
             _Cmd &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS E ON R.FNHSysEmpID = E.FNHSysEmpID LEFT OUTER JOIN"
             _Cmd &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.V_MEmpType AS T ON R.FNHSysEmpTypeId = T.FNHSysEmpTypeId LEFT OUTER JOIN"
             _Cmd &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.V_MDepartment AS D ON R.FNHSysDeptId = D.FNHSysDeptId LEFT OUTER JOIN"

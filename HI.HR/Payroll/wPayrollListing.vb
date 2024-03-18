@@ -49,7 +49,7 @@ Public Class wPayrollListing
     Private Sub InitGrid()
         '------Start Add Summary Grid-------------
         Dim sFieldCount As String = "FTEmpCode"
-        Dim sFieldSum As String = "FCBaht|FCOt1_Baht|FCOt15_Baht|FCOt2_Baht|FCOt3_Baht|FCOt4_Baht|FNIncentiveAmt|FCNetBaht|FNPayLeaveVacationBaht|FNPayLeaveOtherBaht|FNTotalAdd|FNTotalAddOther|FNTotalExpense|FNTotalExpenseOther|FNTotalIncome|FNTotalRecalSSO|FNSocial|FNTax|FHolidayBaht|FNNetpay|FNTotalRecalTAX|008|009|014|016|017|032|043|050|112|113"
+        Dim sFieldSum As String = "FCBaht|FCOt1_Baht|FCOt15_Baht|FCOt2_Baht|FCOt3_Baht|FCOt4_Baht|FNIncentiveAmt|FCNetBaht|FNPayLeaveVacationBaht|FNPayLeaveOtherBaht|FNTotalAdd|FNTotalAddOther|FNTotalExpense|FNTotalExpenseOther|FNTotalIncome|FNTotalRecalSSO|FNSocial|FNTax|FHolidayBaht|FNNetpay|FNTotalRecalTAX|008|009|014|016|023|017|032|043|050|112|113"
 
         Dim sFieldGrpCount As String = "FTEmpCode"
         Dim sFieldGrpSum As String = "FCBaht|FNTotalIncome|FNTotalRecalSSO|FNSocial|FNTax|FNNetpay|FNTotalRecalTAX"
@@ -359,7 +359,7 @@ Public Class wPayrollListing
         '_Qry &= vbCrLf & "  +':'+  Right('00' + Convert(varchar(30),Convert(numeric(18,0),Floor((P.FNTotalWKNMin % 480.00) / 60.00))),2)"
         '_Qry &= vbCrLf & "  +':'+  Right('00' + Convert(varchar(30),Convert(numeric(18,0),((P.FNTotalWKNMin % 480.00) % 60.00))),2))  AS FNWorkingDay"
 
-        _Qry &= vbCrLf & "  , ISNULL([001],0) [001], ISNULL([009],0) [009],ISNULL([012],0)[012], ISNULL([016],0)[016],ISNULL([032],0)[032],ISNULL([033],0)[033],ISNULL([034],0)[034],ISNULL([035],0)[035],ISNULL([036],0)[036],ISNULL([043],0)[043],ISNULL([106],0)[106],ISNULL([108],0)[108],ISNULL([109],0)[109],ISNULL([110],0)[110] ,ISNULL([111],0)[111], ISNULL([112],0)[112], ISNULL([113],0)[113]"
+        _Qry &= vbCrLf & "  , ISNULL([001],0) [001], ISNULL([009],0) [009],ISNULL([012],0)[012], ISNULL([016],0)[016], ISNULL([023],0)[023],ISNULL([032],0)[032],ISNULL([033],0)[033],ISNULL([034],0)[034],ISNULL([035],0)[035],ISNULL([036],0)[036],ISNULL([043],0)[043],ISNULL([106],0)[106],ISNULL([108],0)[108],ISNULL([109],0)[109],ISNULL([110],0)[110] ,ISNULL([111],0)[111], ISNULL([112],0)[112], ISNULL([113],0)[113]"
 
 
         _Qry &= vbCrLf & " , ISNULL([002],0) [002] "
@@ -401,7 +401,7 @@ Public Class wPayrollListing
 
         _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMAccountGroup AS ACG WITH(NOLOCK) ON OrgUnitSect.FNHSysAccountGroupId = ACG.FNHSysAccountGroupId "
 
-        _Qry &= vbCrLf & "  LEFT JOIN ( SELECT FTPayYear, FTPayTerm,FNHSysEmpID,[001], [009],[012], [016],[032],[033],[034],[035],[036], [043],[106],[108],[109],[110],[111],[112],[113] ,[002],[017],[008],[014] ,[050],[011]   "
+        _Qry &= vbCrLf & "  LEFT JOIN ( SELECT FTPayYear, FTPayTerm,FNHSysEmpID,[001], [009],[012], [016], [023],[032],[033],[034],[035],[036], [043],[106],[108],[109],[110],[111],[112],[113] ,[002],[017],[008],[014] ,[050],[011]   "
         _Qry &= vbCrLf & " FROM "
         _Qry &= vbCrLf & " ( "
         _Qry &= vbCrLf & "			SELECT  FTPayYear, FTPayTerm,FNHSysEmpID,FTFinCode,  FCTotalFinAmt "
@@ -412,7 +412,7 @@ Public Class wPayrollListing
         _Qry &= vbCrLf & " ) D "
         _Qry &= vbCrLf & " PIVOT "
         _Qry &= vbCrLf & " ( MAX(FCTotalFinAmt) "
-        _Qry &= vbCrLf & " For FTFinCode   in ([001], [009],[012], [016],[032],[033],[034],[035],[036],[043],[106],[108],[109],[110],[111],[112],[113],[002],[017],[008],[014] ,[050],[011]  ) "
+        _Qry &= vbCrLf & " For FTFinCode   in ([001], [009],[012], [016], [023],[032],[033],[034],[035],[036],[043],[106],[108],[109],[110],[111],[112],[113],[002],[017],[008],[014] ,[050],[011]  ) "
         _Qry &= vbCrLf & " ) piv) AS V_Fin ON V_Fin.FNHSysEmpID=M.FNHSysEmpID AND V_Fin.FTPayYear=P.FTPayYear AND V_Fin.FTPayTerm=P.FTPayTerm "
 
 

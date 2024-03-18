@@ -209,17 +209,18 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         'ogc
         '
         Me.ogc.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Location = New System.Drawing.Point(0, 0)
         Me.ogc.MainView = Me.ogv
+        Me.ogc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Name = "ogc"
-        Me.ogc.Size = New System.Drawing.Size(1005, 516)
+        Me.ogc.Size = New System.Drawing.Size(1172, 679)
         Me.ogc.TabIndex = 0
         Me.ogc.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogv})
         '
         'ogv
         '
         Me.ogv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFNHSysEmpID, Me.FTEmpCode, Me.FTEmpName, Me.FTEmpTypeCode, Me.FTEmpTypeName, Me.FTDeptCode, Me.FTDeptName, Me.FTDivisonCode, Me.FTDivisonName, Me.FTSectCode, Me.FTSectName, Me.FTUnitSectCode, Me.FTUnitSectName, Me.FTPositCode, Me.FTPositName, Me.FDDateStart, Me.FDDateEnd, Me.FNSalary, Me.FNEmpVacation, Me.FNEmpVacationUsed, Me.FNEmpVacationBal, Me.FNEmpVacationRetAmt})
-        Me.ogv.DetailHeight = 284
         Me.ogv.GridControl = Me.ogc
         Me.ogv.Name = "ogv"
         Me.ogv.OptionsCustomization.AllowQuickHideColumns = False
@@ -235,13 +236,11 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.ColFNHSysEmpID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFNHSysEmpID.Caption = "FNHSysEmpID"
         Me.ColFNHSysEmpID.FieldName = "FNHSysEmpID"
-        Me.ColFNHSysEmpID.MinWidth = 17
         Me.ColFNHSysEmpID.Name = "ColFNHSysEmpID"
         Me.ColFNHSysEmpID.OptionsColumn.AllowEdit = False
         Me.ColFNHSysEmpID.OptionsColumn.AllowMove = False
         Me.ColFNHSysEmpID.OptionsColumn.ReadOnly = True
         Me.ColFNHSysEmpID.OptionsColumn.TabStop = False
-        Me.ColFNHSysEmpID.Width = 64
         '
         'FTEmpCode
         '
@@ -250,7 +249,6 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTEmpCode.Caption = "FTEmpCode"
         Me.FTEmpCode.FieldName = "FTEmpCode"
         Me.FTEmpCode.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.FTEmpCode.MinWidth = 17
         Me.FTEmpCode.Name = "FTEmpCode"
         Me.FTEmpCode.OptionsColumn.AllowEdit = False
         Me.FTEmpCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
@@ -259,7 +257,6 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTEmpCode.OptionsColumn.TabStop = False
         Me.FTEmpCode.Visible = True
         Me.FTEmpCode.VisibleIndex = 0
-        Me.FTEmpCode.Width = 64
         '
         'FTEmpName
         '
@@ -268,7 +265,6 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTEmpName.Caption = "FTEmpName"
         Me.FTEmpName.FieldName = "FTEmpName"
         Me.FTEmpName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.FTEmpName.MinWidth = 17
         Me.FTEmpName.Name = "FTEmpName"
         Me.FTEmpName.OptionsColumn.AllowEdit = False
         Me.FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
@@ -276,7 +272,7 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTEmpName.OptionsColumn.TabStop = False
         Me.FTEmpName.Visible = True
         Me.FTEmpName.VisibleIndex = 1
-        Me.FTEmpName.Width = 147
+        Me.FTEmpName.Width = 171
         '
         'FTEmpTypeCode
         '
@@ -284,7 +280,6 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.FTEmpTypeCode.FieldName = "FTEmpTypeCode"
-        Me.FTEmpTypeCode.MinWidth = 17
         Me.FTEmpTypeCode.Name = "FTEmpTypeCode"
         Me.FTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.FTEmpTypeCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
@@ -292,7 +287,7 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.FTEmpTypeCode.Visible = True
         Me.FTEmpTypeCode.VisibleIndex = 2
-        Me.FTEmpTypeCode.Width = 84
+        Me.FTEmpTypeCode.Width = 98
         '
         'FTEmpTypeName
         '
@@ -300,13 +295,12 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTEmpTypeName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTEmpTypeName.Caption = "FTEmpTypeName"
         Me.FTEmpTypeName.FieldName = "FTEmpTypeName"
-        Me.FTEmpTypeName.MinWidth = 17
         Me.FTEmpTypeName.Name = "FTEmpTypeName"
         Me.FTEmpTypeName.OptionsColumn.AllowEdit = False
         Me.FTEmpTypeName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTEmpTypeName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTEmpTypeName.OptionsColumn.ReadOnly = True
-        Me.FTEmpTypeName.Width = 137
+        Me.FTEmpTypeName.Width = 160
         '
         'FTDeptCode
         '
@@ -314,7 +308,6 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTDeptCode.Caption = "FTDeptCode"
         Me.FTDeptCode.FieldName = "FTDeptCode"
-        Me.FTDeptCode.MinWidth = 17
         Me.FTDeptCode.Name = "FTDeptCode"
         Me.FTDeptCode.OptionsColumn.AllowEdit = False
         Me.FTDeptCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
@@ -322,7 +315,6 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTDeptCode.OptionsColumn.ReadOnly = True
         Me.FTDeptCode.Visible = True
         Me.FTDeptCode.VisibleIndex = 3
-        Me.FTDeptCode.Width = 64
         '
         'FTDeptName
         '
@@ -330,13 +322,12 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTDeptName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTDeptName.Caption = "FTDeptName"
         Me.FTDeptName.FieldName = "FTDeptName"
-        Me.FTDeptName.MinWidth = 17
         Me.FTDeptName.Name = "FTDeptName"
         Me.FTDeptName.OptionsColumn.AllowEdit = False
         Me.FTDeptName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTDeptName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTDeptName.OptionsColumn.ReadOnly = True
-        Me.FTDeptName.Width = 163
+        Me.FTDeptName.Width = 190
         '
         'FTDivisonCode
         '
@@ -344,7 +335,6 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTDivisonCode.Caption = "FTDivisonCode"
         Me.FTDivisonCode.FieldName = "FTDivisonCode"
-        Me.FTDivisonCode.MinWidth = 17
         Me.FTDivisonCode.Name = "FTDivisonCode"
         Me.FTDivisonCode.OptionsColumn.AllowEdit = False
         Me.FTDivisonCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
@@ -352,7 +342,7 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.FTDivisonCode.Visible = True
         Me.FTDivisonCode.VisibleIndex = 4
-        Me.FTDivisonCode.Width = 72
+        Me.FTDivisonCode.Width = 84
         '
         'FTDivisonName
         '
@@ -360,13 +350,12 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTDivisonName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTDivisonName.Caption = "FTDivisonName"
         Me.FTDivisonName.FieldName = "FTDivisonName"
-        Me.FTDivisonName.MinWidth = 17
         Me.FTDivisonName.Name = "FTDivisonName"
         Me.FTDivisonName.OptionsColumn.AllowEdit = False
         Me.FTDivisonName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTDivisonName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTDivisonName.OptionsColumn.ReadOnly = True
-        Me.FTDivisonName.Width = 140
+        Me.FTDivisonName.Width = 163
         '
         'FTSectCode
         '
@@ -374,7 +363,6 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTSectCode.Caption = "FTSectCode"
         Me.FTSectCode.FieldName = "FTSectCode"
-        Me.FTSectCode.MinWidth = 17
         Me.FTSectCode.Name = "FTSectCode"
         Me.FTSectCode.OptionsColumn.AllowEdit = False
         Me.FTSectCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
@@ -382,7 +370,6 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTSectCode.OptionsColumn.ReadOnly = True
         Me.FTSectCode.Visible = True
         Me.FTSectCode.VisibleIndex = 5
-        Me.FTSectCode.Width = 64
         '
         'FTSectName
         '
@@ -390,13 +377,12 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTSectName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTSectName.Caption = "FTSectName"
         Me.FTSectName.FieldName = "FTSectName"
-        Me.FTSectName.MinWidth = 17
         Me.FTSectName.Name = "FTSectName"
         Me.FTSectName.OptionsColumn.AllowEdit = False
         Me.FTSectName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTSectName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTSectName.OptionsColumn.ReadOnly = True
-        Me.FTSectName.Width = 142
+        Me.FTSectName.Width = 166
         '
         'FTUnitSectCode
         '
@@ -404,7 +390,6 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTUnitSectCode.Caption = "FTUnitSectCode"
         Me.FTUnitSectCode.FieldName = "FTUnitSectCode"
-        Me.FTUnitSectCode.MinWidth = 17
         Me.FTUnitSectCode.Name = "FTUnitSectCode"
         Me.FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.FTUnitSectCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
@@ -412,7 +397,6 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.FTUnitSectCode.Visible = True
         Me.FTUnitSectCode.VisibleIndex = 6
-        Me.FTUnitSectCode.Width = 64
         '
         'FTUnitSectName
         '
@@ -420,13 +404,12 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTUnitSectName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTUnitSectName.Caption = "FTUnitSectName"
         Me.FTUnitSectName.FieldName = "FTUnitSectName"
-        Me.FTUnitSectName.MinWidth = 17
         Me.FTUnitSectName.Name = "FTUnitSectName"
         Me.FTUnitSectName.OptionsColumn.AllowEdit = False
         Me.FTUnitSectName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTUnitSectName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTUnitSectName.OptionsColumn.ReadOnly = True
-        Me.FTUnitSectName.Width = 135
+        Me.FTUnitSectName.Width = 157
         '
         'FTPositCode
         '
@@ -434,7 +417,6 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTPositCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTPositCode.Caption = "FTPositCode"
         Me.FTPositCode.FieldName = "FTPositCode"
-        Me.FTPositCode.MinWidth = 17
         Me.FTPositCode.Name = "FTPositCode"
         Me.FTPositCode.OptionsColumn.AllowEdit = False
         Me.FTPositCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
@@ -442,7 +424,7 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTPositCode.OptionsColumn.ReadOnly = True
         Me.FTPositCode.Visible = True
         Me.FTPositCode.VisibleIndex = 7
-        Me.FTPositCode.Width = 70
+        Me.FTPositCode.Width = 82
         '
         'FTPositName
         '
@@ -450,7 +432,6 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTPositName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTPositName.Caption = "FTPositName"
         Me.FTPositName.FieldName = "FTPositName"
-        Me.FTPositName.MinWidth = 17
         Me.FTPositName.Name = "FTPositName"
         Me.FTPositName.OptionsColumn.AllowEdit = False
         Me.FTPositName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
@@ -458,31 +439,29 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTPositName.OptionsColumn.ReadOnly = True
         Me.FTPositName.Visible = True
         Me.FTPositName.VisibleIndex = 8
-        Me.FTPositName.Width = 153
+        Me.FTPositName.Width = 178
         '
         'FDDateStart
         '
         Me.FDDateStart.Caption = "วันเริ่มงาน"
         Me.FDDateStart.FieldName = "FDDateStart"
-        Me.FDDateStart.MinWidth = 17
         Me.FDDateStart.Name = "FDDateStart"
         Me.FDDateStart.OptionsColumn.AllowEdit = False
         Me.FDDateStart.OptionsColumn.ReadOnly = True
         Me.FDDateStart.Visible = True
         Me.FDDateStart.VisibleIndex = 9
-        Me.FDDateStart.Width = 91
+        Me.FDDateStart.Width = 106
         '
         'FDDateEnd
         '
         Me.FDDateEnd.Caption = "FDDateEnd"
         Me.FDDateEnd.FieldName = "FDDateEnd"
-        Me.FDDateEnd.MinWidth = 17
         Me.FDDateEnd.Name = "FDDateEnd"
         Me.FDDateEnd.OptionsColumn.AllowEdit = False
         Me.FDDateEnd.OptionsColumn.ReadOnly = True
         Me.FDDateEnd.Visible = True
         Me.FDDateEnd.VisibleIndex = 10
-        Me.FDDateEnd.Width = 81
+        Me.FDDateEnd.Width = 94
         '
         'FNSalary
         '
@@ -490,14 +469,12 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNSalary.DisplayFormat.FormatString = "{0:n2}"
         Me.FNSalary.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNSalary.FieldName = "FNSalary"
-        Me.FNSalary.MinWidth = 17
         Me.FNSalary.Name = "FNSalary"
         Me.FNSalary.OptionsColumn.AllowEdit = False
         Me.FNSalary.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNSalary.OptionsColumn.ReadOnly = True
         Me.FNSalary.Visible = True
         Me.FNSalary.VisibleIndex = 11
-        Me.FNSalary.Width = 64
         '
         'FNEmpVacation
         '
@@ -506,15 +483,13 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNEmpVacation.AppearanceCell.Options.UseTextOptions = True
         Me.FNEmpVacation.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNEmpVacation.Caption = "สิทธิการลาพักร้อน"
-        Me.FNEmpVacation.FieldName = "FNEmpVacationRet"
-        Me.FNEmpVacation.MinWidth = 17
+        Me.FNEmpVacation.FieldName = "FNEmpVacation"
         Me.FNEmpVacation.Name = "FNEmpVacation"
         Me.FNEmpVacation.OptionsColumn.AllowEdit = False
         Me.FNEmpVacation.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNEmpVacation.OptionsColumn.ReadOnly = True
         Me.FNEmpVacation.Visible = True
         Me.FNEmpVacation.VisibleIndex = 12
-        Me.FNEmpVacation.Width = 64
         '
         'FNEmpVacationUsed
         '
@@ -524,14 +499,12 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNEmpVacationUsed.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNEmpVacationUsed.Caption = "ใช้ไป"
         Me.FNEmpVacationUsed.FieldName = "FNEmpVacationUsed"
-        Me.FNEmpVacationUsed.MinWidth = 17
         Me.FNEmpVacationUsed.Name = "FNEmpVacationUsed"
         Me.FNEmpVacationUsed.OptionsColumn.AllowEdit = False
         Me.FNEmpVacationUsed.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNEmpVacationUsed.OptionsColumn.ReadOnly = True
         Me.FNEmpVacationUsed.Visible = True
         Me.FNEmpVacationUsed.VisibleIndex = 13
-        Me.FNEmpVacationUsed.Width = 64
         '
         'FNEmpVacationBal
         '
@@ -540,15 +513,13 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNEmpVacationBal.AppearanceCell.Options.UseTextOptions = True
         Me.FNEmpVacationBal.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNEmpVacationBal.Caption = "สิทธิ์คงเหลือ"
-        Me.FNEmpVacationBal.FieldName = "FNEmpVacationBal"
-        Me.FNEmpVacationBal.MinWidth = 17
+        Me.FNEmpVacationBal.FieldName = "FNEmpVacationBalOld"
         Me.FNEmpVacationBal.Name = "FNEmpVacationBal"
         Me.FNEmpVacationBal.OptionsColumn.AllowEdit = False
         Me.FNEmpVacationBal.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNEmpVacationBal.OptionsColumn.ReadOnly = True
         Me.FNEmpVacationBal.Visible = True
         Me.FNEmpVacationBal.VisibleIndex = 14
-        Me.FNEmpVacationBal.Width = 64
         '
         'FNEmpVacationRetAmt
         '
@@ -560,14 +531,12 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNEmpVacationRetAmt.DisplayFormat.FormatString = "{0:n2}"
         Me.FNEmpVacationRetAmt.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNEmpVacationRetAmt.FieldName = "FNEmpVacationRetAmt"
-        Me.FNEmpVacationRetAmt.MinWidth = 17
         Me.FNEmpVacationRetAmt.Name = "FNEmpVacationRetAmt"
         Me.FNEmpVacationRetAmt.OptionsColumn.AllowEdit = False
         Me.FNEmpVacationRetAmt.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNEmpVacationRetAmt.OptionsColumn.ReadOnly = True
         Me.FNEmpVacationRetAmt.Visible = True
         Me.FNEmpVacationRetAmt.VisibleIndex = 15
-        Me.FNEmpVacationRetAmt.Width = 64
         '
         'DockManager1
         '
@@ -583,7 +552,7 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.hideContainerTop.Location = New System.Drawing.Point(0, 0)
         Me.hideContainerTop.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.hideContainerTop.Name = "hideContainerTop"
-        Me.hideContainerTop.Size = New System.Drawing.Size(1013, 42)
+        Me.hideContainerTop.Size = New System.Drawing.Size(1182, 44)
         '
         'ogbheader
         '
@@ -595,7 +564,8 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.ogbheader.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.ogbheader.ID = New System.Guid("07aa44b9-5e74-47ef-b37d-869730080592")
         Me.ogbheader.ImageOptions.Image = CType(resources.GetObject("ogbheader.ImageOptions.Image"), System.Drawing.Image)
-        Me.ogbheader.Location = New System.Drawing.Point(0, 42)
+        Me.ogbheader.Location = New System.Drawing.Point(0, 44)
+        Me.ogbheader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbheader.Name = "ogbheader"
         Me.ogbheader.Options.AllowDockBottom = False
         Me.ogbheader.Options.AllowDockFill = False
@@ -605,7 +575,7 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.ogbheader.OriginalSize = New System.Drawing.Size(1182, 256)
         Me.ogbheader.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Top
         Me.ogbheader.SavedIndex = 0
-        Me.ogbheader.Size = New System.Drawing.Size(1013, 208)
+        Me.ogbheader.Size = New System.Drawing.Size(1182, 256)
         Me.ogbheader.TabStop = False
         Me.ogbheader.Text = "Criteria"
         Me.ogbheader.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide
@@ -650,9 +620,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.DockPanel1_Container.Controls.Add(Me.LabelControl2)
         Me.DockPanel1_Container.Controls.Add(Me.lb_EmpType)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysCmpId_lbl_ofyear)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(2, 25)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(2, 29)
+        Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1009, 180)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1178, 223)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FTDateStart_lb
@@ -662,9 +633,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTDateStart_lb.Appearance.Options.UseTextOptions = True
         Me.FTDateStart_lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTDateStart_lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTDateStart_lb.Location = New System.Drawing.Point(7, 44)
+        Me.FTDateStart_lb.Location = New System.Drawing.Point(8, 54)
+        Me.FTDateStart_lb.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTDateStart_lb.Name = "FTDateStart_lb"
-        Me.FTDateStart_lb.Size = New System.Drawing.Size(107, 20)
+        Me.FTDateStart_lb.Size = New System.Drawing.Size(125, 25)
         Me.FTDateStart_lb.TabIndex = 504
         Me.FTDateStart_lb.Tag = "2|"
         Me.FTDateStart_lb.Text = "Year :"
@@ -673,7 +645,8 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         '
         Me.FTDateStart.EditValue = Nothing
         Me.FTDateStart.EnterMoveNextControl = True
-        Me.FTDateStart.Location = New System.Drawing.Point(117, 45)
+        Me.FTDateStart.Location = New System.Drawing.Point(136, 55)
+        Me.FTDateStart.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTDateStart.Name = "FTDateStart"
         Me.FTDateStart.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTDateStart.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -685,7 +658,7 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FTDateStart.Properties.Mask.EditMask = "yyyy"
         Me.FTDateStart.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.FTDateStart.Properties.NullDate = ""
-        Me.FTDateStart.Size = New System.Drawing.Size(111, 20)
+        Me.FTDateStart.Size = New System.Drawing.Size(129, 23)
         Me.FTDateStart.TabIndex = 503
         Me.FTDateStart.Tag = "2|"
         '
@@ -693,12 +666,13 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         '
         Me.FNHSysUnitSectIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysUnitSectIdTo_None.Location = New System.Drawing.Point(603, 129)
+        Me.FNHSysUnitSectIdTo_None.Location = New System.Drawing.Point(703, 159)
+        Me.FNHSysUnitSectIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectIdTo_None.Name = "FNHSysUnitSectIdTo_None"
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(378, 20)
+        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(442, 23)
         Me.FNHSysUnitSectIdTo_None.TabIndex = 499
         Me.FNHSysUnitSectIdTo_None.Tag = "2|"
         '
@@ -706,12 +680,13 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         '
         Me.FNHSysEmpIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysEmpIdTo_None.Location = New System.Drawing.Point(603, 150)
+        Me.FNHSysEmpIdTo_None.Location = New System.Drawing.Point(703, 185)
+        Me.FNHSysEmpIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysEmpIdTo_None.Name = "FNHSysEmpIdTo_None"
         Me.FNHSysEmpIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysEmpIdTo_None.Size = New System.Drawing.Size(378, 20)
+        Me.FNHSysEmpIdTo_None.Size = New System.Drawing.Size(442, 23)
         Me.FNHSysEmpIdTo_None.TabIndex = 500
         Me.FNHSysEmpIdTo_None.Tag = "2|"
         '
@@ -719,12 +694,13 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         '
         Me.FNHSysDeptIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysDeptIdTo_None.Location = New System.Drawing.Point(603, 66)
+        Me.FNHSysDeptIdTo_None.Location = New System.Drawing.Point(703, 81)
+        Me.FNHSysDeptIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysDeptIdTo_None.Name = "FNHSysDeptIdTo_None"
         Me.FNHSysDeptIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysDeptIdTo_None.Size = New System.Drawing.Size(378, 20)
+        Me.FNHSysDeptIdTo_None.Size = New System.Drawing.Size(442, 23)
         Me.FNHSysDeptIdTo_None.TabIndex = 496
         Me.FNHSysDeptIdTo_None.Tag = "2|"
         '
@@ -732,12 +708,13 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         '
         Me.FNHSysDivisonIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysDivisonIdTo_None.Location = New System.Drawing.Point(603, 87)
+        Me.FNHSysDivisonIdTo_None.Location = New System.Drawing.Point(703, 107)
+        Me.FNHSysDivisonIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysDivisonIdTo_None.Name = "FNHSysDivisonIdTo_None"
         Me.FNHSysDivisonIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonIdTo_None.Size = New System.Drawing.Size(378, 20)
+        Me.FNHSysDivisonIdTo_None.Size = New System.Drawing.Size(442, 23)
         Me.FNHSysDivisonIdTo_None.TabIndex = 497
         Me.FNHSysDivisonIdTo_None.Tag = "2|"
         '
@@ -745,62 +722,68 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         '
         Me.FNHSysSectIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysSectIdTo_None.Location = New System.Drawing.Point(603, 108)
+        Me.FNHSysSectIdTo_None.Location = New System.Drawing.Point(703, 133)
+        Me.FNHSysSectIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysSectIdTo_None.Name = "FNHSysSectIdTo_None"
         Me.FNHSysSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysSectIdTo_None.Size = New System.Drawing.Size(378, 20)
+        Me.FNHSysSectIdTo_None.Size = New System.Drawing.Size(442, 23)
         Me.FNHSysSectIdTo_None.TabIndex = 498
         Me.FNHSysSectIdTo_None.Tag = "2|"
         '
         'FNHSysDivisonIdTo
         '
-        Me.FNHSysDivisonIdTo.Location = New System.Drawing.Point(489, 87)
+        Me.FNHSysDivisonIdTo.Location = New System.Drawing.Point(570, 107)
+        Me.FNHSysDivisonIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysDivisonIdTo.Name = "FNHSysDivisonIdTo"
         Me.FNHSysDivisonIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "60", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonIdTo.Properties.Tag = "46"
-        Me.FNHSysDivisonIdTo.Size = New System.Drawing.Size(111, 20)
+        Me.FNHSysDivisonIdTo.Size = New System.Drawing.Size(129, 23)
         Me.FNHSysDivisonIdTo.TabIndex = 492
         Me.FNHSysDivisonIdTo.Tag = "2|"
         '
         'FNHSysEmpIdTo
         '
-        Me.FNHSysEmpIdTo.Location = New System.Drawing.Point(489, 150)
+        Me.FNHSysEmpIdTo.Location = New System.Drawing.Point(570, 185)
+        Me.FNHSysEmpIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysEmpIdTo.Name = "FNHSysEmpIdTo"
         Me.FNHSysEmpIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "63", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpIdTo.Properties.Tag = "57"
-        Me.FNHSysEmpIdTo.Size = New System.Drawing.Size(111, 20)
+        Me.FNHSysEmpIdTo.Size = New System.Drawing.Size(129, 23)
         Me.FNHSysEmpIdTo.TabIndex = 495
         Me.FNHSysEmpIdTo.Tag = "2|"
         '
         'FNHSysSectIdTo
         '
-        Me.FNHSysSectIdTo.Location = New System.Drawing.Point(489, 108)
+        Me.FNHSysSectIdTo.Location = New System.Drawing.Point(570, 133)
+        Me.FNHSysSectIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysSectIdTo.Name = "FNHSysSectIdTo"
         Me.FNHSysSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "61", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectIdTo.Properties.Tag = "55"
-        Me.FNHSysSectIdTo.Size = New System.Drawing.Size(111, 20)
+        Me.FNHSysSectIdTo.Size = New System.Drawing.Size(129, 23)
         Me.FNHSysSectIdTo.TabIndex = 493
         Me.FNHSysSectIdTo.Tag = "2|"
         '
         'FNHSysDeptIdTo
         '
-        Me.FNHSysDeptIdTo.Location = New System.Drawing.Point(489, 66)
+        Me.FNHSysDeptIdTo.Location = New System.Drawing.Point(570, 81)
+        Me.FNHSysDeptIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysDeptIdTo.Name = "FNHSysDeptIdTo"
         Me.FNHSysDeptIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "59", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptIdTo.Properties.Tag = "23"
-        Me.FNHSysDeptIdTo.Size = New System.Drawing.Size(111, 20)
+        Me.FNHSysDeptIdTo.Size = New System.Drawing.Size(129, 23)
         Me.FNHSysDeptIdTo.TabIndex = 491
         Me.FNHSysDeptIdTo.Tag = "2|"
         '
         'FNHSysUnitSectIdTo
         '
-        Me.FNHSysUnitSectIdTo.Location = New System.Drawing.Point(489, 129)
+        Me.FNHSysUnitSectIdTo.Location = New System.Drawing.Point(570, 159)
+        Me.FNHSysUnitSectIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectIdTo.Name = "FNHSysUnitSectIdTo"
         Me.FNHSysUnitSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "62", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectIdTo.Properties.Tag = "57"
-        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(111, 20)
+        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(129, 23)
         Me.FNHSysUnitSectIdTo.TabIndex = 494
         Me.FNHSysUnitSectIdTo.Tag = "2|"
         '
@@ -809,9 +792,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNHSysDivisonIdTo_lbl_ofyear.Appearance.Options.UseTextOptions = True
         Me.FNHSysDivisonIdTo_lbl_ofyear.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysDivisonIdTo_lbl_ofyear.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysDivisonIdTo_lbl_ofyear.Location = New System.Drawing.Point(377, 84)
+        Me.FNHSysDivisonIdTo_lbl_ofyear.Location = New System.Drawing.Point(440, 103)
+        Me.FNHSysDivisonIdTo_lbl_ofyear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysDivisonIdTo_lbl_ofyear.Name = "FNHSysDivisonIdTo_lbl_ofyear"
-        Me.FNHSysDivisonIdTo_lbl_ofyear.Size = New System.Drawing.Size(107, 20)
+        Me.FNHSysDivisonIdTo_lbl_ofyear.Size = New System.Drawing.Size(125, 25)
         Me.FNHSysDivisonIdTo_lbl_ofyear.TabIndex = 487
         Me.FNHSysDivisonIdTo_lbl_ofyear.Tag = "2|"
         Me.FNHSysDivisonIdTo_lbl_ofyear.Text = "End Devision :"
@@ -821,9 +805,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNHSysEmpIdTo_lbl_ofyear.Appearance.Options.UseTextOptions = True
         Me.FNHSysEmpIdTo_lbl_ofyear.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysEmpIdTo_lbl_ofyear.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysEmpIdTo_lbl_ofyear.Location = New System.Drawing.Point(377, 150)
+        Me.FNHSysEmpIdTo_lbl_ofyear.Location = New System.Drawing.Point(440, 185)
+        Me.FNHSysEmpIdTo_lbl_ofyear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysEmpIdTo_lbl_ofyear.Name = "FNHSysEmpIdTo_lbl_ofyear"
-        Me.FNHSysEmpIdTo_lbl_ofyear.Size = New System.Drawing.Size(107, 20)
+        Me.FNHSysEmpIdTo_lbl_ofyear.Size = New System.Drawing.Size(125, 25)
         Me.FNHSysEmpIdTo_lbl_ofyear.TabIndex = 490
         Me.FNHSysEmpIdTo_lbl_ofyear.Tag = "2|"
         Me.FNHSysEmpIdTo_lbl_ofyear.Text = "End Employee :"
@@ -833,9 +818,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNHSysUnitSectIdTo_lbl_ofyear.Appearance.Options.UseTextOptions = True
         Me.FNHSysUnitSectIdTo_lbl_ofyear.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysUnitSectIdTo_lbl_ofyear.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysUnitSectIdTo_lbl_ofyear.Location = New System.Drawing.Point(377, 127)
+        Me.FNHSysUnitSectIdTo_lbl_ofyear.Location = New System.Drawing.Point(440, 156)
+        Me.FNHSysUnitSectIdTo_lbl_ofyear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectIdTo_lbl_ofyear.Name = "FNHSysUnitSectIdTo_lbl_ofyear"
-        Me.FNHSysUnitSectIdTo_lbl_ofyear.Size = New System.Drawing.Size(107, 20)
+        Me.FNHSysUnitSectIdTo_lbl_ofyear.Size = New System.Drawing.Size(125, 25)
         Me.FNHSysUnitSectIdTo_lbl_ofyear.TabIndex = 489
         Me.FNHSysUnitSectIdTo_lbl_ofyear.Tag = "2|"
         Me.FNHSysUnitSectIdTo_lbl_ofyear.Text = "End Unit Sect :"
@@ -845,9 +831,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNHSysSectIdTo_lbl_ofyear.Appearance.Options.UseTextOptions = True
         Me.FNHSysSectIdTo_lbl_ofyear.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysSectIdTo_lbl_ofyear.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysSectIdTo_lbl_ofyear.Location = New System.Drawing.Point(377, 106)
+        Me.FNHSysSectIdTo_lbl_ofyear.Location = New System.Drawing.Point(440, 130)
+        Me.FNHSysSectIdTo_lbl_ofyear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysSectIdTo_lbl_ofyear.Name = "FNHSysSectIdTo_lbl_ofyear"
-        Me.FNHSysSectIdTo_lbl_ofyear.Size = New System.Drawing.Size(107, 20)
+        Me.FNHSysSectIdTo_lbl_ofyear.Size = New System.Drawing.Size(125, 25)
         Me.FNHSysSectIdTo_lbl_ofyear.TabIndex = 488
         Me.FNHSysSectIdTo_lbl_ofyear.Tag = "2|"
         Me.FNHSysSectIdTo_lbl_ofyear.Text = "End Sect :"
@@ -857,9 +844,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNHSysDeptIdTo_lbl_ofyear.Appearance.Options.UseTextOptions = True
         Me.FNHSysDeptIdTo_lbl_ofyear.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysDeptIdTo_lbl_ofyear.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysDeptIdTo_lbl_ofyear.Location = New System.Drawing.Point(377, 65)
+        Me.FNHSysDeptIdTo_lbl_ofyear.Location = New System.Drawing.Point(440, 80)
+        Me.FNHSysDeptIdTo_lbl_ofyear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysDeptIdTo_lbl_ofyear.Name = "FNHSysDeptIdTo_lbl_ofyear"
-        Me.FNHSysDeptIdTo_lbl_ofyear.Size = New System.Drawing.Size(107, 20)
+        Me.FNHSysDeptIdTo_lbl_ofyear.Size = New System.Drawing.Size(125, 25)
         Me.FNHSysDeptIdTo_lbl_ofyear.TabIndex = 486
         Me.FNHSysDeptIdTo_lbl_ofyear.Tag = "2|"
         Me.FNHSysDeptIdTo_lbl_ofyear.Text = "End Department :"
@@ -868,23 +856,25 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         '
         Me.FNHSysCmpId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(231, 3)
+        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(269, 4)
+        Me.FNHSysCmpId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCmpId_None.Name = "FNHSysCmpId_None"
         Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCmpId_None.Properties.ReadOnly = True
-        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(750, 20)
+        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(876, 23)
         Me.FNHSysCmpId_None.TabIndex = 485
         Me.FNHSysCmpId_None.Tag = ""
         '
         'FNHSysSectId_None
         '
-        Me.FNHSysSectId_None.Location = New System.Drawing.Point(231, 107)
+        Me.FNHSysSectId_None.Location = New System.Drawing.Point(269, 132)
+        Me.FNHSysSectId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysSectId_None.Name = "FNHSysSectId_None"
         Me.FNHSysSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectId_None.Properties.ReadOnly = True
-        Me.FNHSysSectId_None.Size = New System.Drawing.Size(141, 20)
+        Me.FNHSysSectId_None.Size = New System.Drawing.Size(164, 23)
         Me.FNHSysSectId_None.TabIndex = 481
         Me.FNHSysSectId_None.Tag = "2|"
         '
@@ -892,122 +882,134 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         '
         Me.FNHSysEmpTypeId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysEmpTypeId_None.Location = New System.Drawing.Point(231, 24)
+        Me.FNHSysEmpTypeId_None.Location = New System.Drawing.Point(269, 30)
+        Me.FNHSysEmpTypeId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysEmpTypeId_None.Name = "FNHSysEmpTypeId_None"
         Me.FNHSysEmpTypeId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpTypeId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpTypeId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(551, 20)
+        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(644, 23)
         Me.FNHSysEmpTypeId_None.TabIndex = 484
         Me.FNHSysEmpTypeId_None.Tag = "2|"
         '
         'FNHSysEmpId_None
         '
-        Me.FNHSysEmpId_None.Location = New System.Drawing.Point(231, 150)
+        Me.FNHSysEmpId_None.Location = New System.Drawing.Point(269, 185)
+        Me.FNHSysEmpId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysEmpId_None.Name = "FNHSysEmpId_None"
         Me.FNHSysEmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpId_None.Size = New System.Drawing.Size(141, 20)
+        Me.FNHSysEmpId_None.Size = New System.Drawing.Size(164, 23)
         Me.FNHSysEmpId_None.TabIndex = 483
         Me.FNHSysEmpId_None.Tag = "2|"
         '
         'FNHSysUnitSectId_None
         '
-        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(231, 128)
+        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(269, 158)
+        Me.FNHSysUnitSectId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId_None.Name = "FNHSysUnitSectId_None"
         Me.FNHSysUnitSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(141, 20)
+        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(164, 23)
         Me.FNHSysUnitSectId_None.TabIndex = 482
         Me.FNHSysUnitSectId_None.Tag = "2|"
         '
         'FNHSysDivisonId_None
         '
-        Me.FNHSysDivisonId_None.Location = New System.Drawing.Point(231, 87)
+        Me.FNHSysDivisonId_None.Location = New System.Drawing.Point(269, 107)
+        Me.FNHSysDivisonId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysDivisonId_None.Name = "FNHSysDivisonId_None"
         Me.FNHSysDivisonId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonId_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonId_None.Size = New System.Drawing.Size(141, 20)
+        Me.FNHSysDivisonId_None.Size = New System.Drawing.Size(164, 23)
         Me.FNHSysDivisonId_None.TabIndex = 480
         Me.FNHSysDivisonId_None.Tag = "2|"
         '
         'FNHSysDeptId_None
         '
-        Me.FNHSysDeptId_None.Location = New System.Drawing.Point(231, 65)
+        Me.FNHSysDeptId_None.Location = New System.Drawing.Point(269, 80)
+        Me.FNHSysDeptId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysDeptId_None.Name = "FNHSysDeptId_None"
         Me.FNHSysDeptId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptId_None.Properties.ReadOnly = True
-        Me.FNHSysDeptId_None.Size = New System.Drawing.Size(141, 20)
+        Me.FNHSysDeptId_None.Size = New System.Drawing.Size(164, 23)
         Me.FNHSysDeptId_None.TabIndex = 479
         Me.FNHSysDeptId_None.Tag = "2|"
         '
         'FNHSysSectId
         '
-        Me.FNHSysSectId.Location = New System.Drawing.Point(117, 107)
+        Me.FNHSysSectId.Location = New System.Drawing.Point(136, 132)
+        Me.FNHSysSectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysSectId.Name = "FNHSysSectId"
         Me.FNHSysSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "55", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectId.Properties.Tag = "55"
-        Me.FNHSysSectId.Size = New System.Drawing.Size(111, 20)
+        Me.FNHSysSectId.Size = New System.Drawing.Size(129, 23)
         Me.FNHSysSectId.TabIndex = 476
         Me.FNHSysSectId.Tag = "2|"
         '
         'FNHSysEmpTypeId
         '
-        Me.FNHSysEmpTypeId.Location = New System.Drawing.Point(117, 24)
+        Me.FNHSysEmpTypeId.Location = New System.Drawing.Point(136, 30)
+        Me.FNHSysEmpTypeId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysEmpTypeId.Name = "FNHSysEmpTypeId"
         Me.FNHSysEmpTypeId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "42", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpTypeId.Properties.Tag = ""
-        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(111, 20)
+        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(129, 23)
         Me.FNHSysEmpTypeId.TabIndex = 473
         Me.FNHSysEmpTypeId.Tag = "2|"
         '
         'FNHSysUnitSectId
         '
-        Me.FNHSysUnitSectId.Location = New System.Drawing.Point(117, 128)
+        Me.FNHSysUnitSectId.Location = New System.Drawing.Point(136, 158)
+        Me.FNHSysUnitSectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
         Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "57", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.Tag = "57"
-        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(111, 20)
+        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(129, 23)
         Me.FNHSysUnitSectId.TabIndex = 477
         Me.FNHSysUnitSectId.Tag = "2|"
         '
         'FNHSysDivisonId
         '
-        Me.FNHSysDivisonId.Location = New System.Drawing.Point(117, 87)
+        Me.FNHSysDivisonId.Location = New System.Drawing.Point(136, 107)
+        Me.FNHSysDivisonId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysDivisonId.Name = "FNHSysDivisonId"
         Me.FNHSysDivisonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "46", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonId.Properties.Tag = "46"
-        Me.FNHSysDivisonId.Size = New System.Drawing.Size(111, 20)
+        Me.FNHSysDivisonId.Size = New System.Drawing.Size(129, 23)
         Me.FNHSysDivisonId.TabIndex = 475
         Me.FNHSysDivisonId.Tag = "2|"
         '
         'FNHSysEmpId
         '
-        Me.FNHSysEmpId.Location = New System.Drawing.Point(117, 150)
+        Me.FNHSysEmpId.Location = New System.Drawing.Point(136, 185)
+        Me.FNHSysEmpId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysEmpId.Name = "FNHSysEmpId"
         Me.FNHSysEmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "58", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpId.Properties.Tag = "57"
-        Me.FNHSysEmpId.Size = New System.Drawing.Size(111, 20)
+        Me.FNHSysEmpId.Size = New System.Drawing.Size(129, 23)
         Me.FNHSysEmpId.TabIndex = 478
         Me.FNHSysEmpId.Tag = "2|"
         '
         'FNHSysDeptId
         '
-        Me.FNHSysDeptId.Location = New System.Drawing.Point(117, 66)
+        Me.FNHSysDeptId.Location = New System.Drawing.Point(136, 81)
+        Me.FNHSysDeptId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysDeptId.Name = "FNHSysDeptId"
         Me.FNHSysDeptId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "23", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptId.Properties.Tag = "23"
-        Me.FNHSysDeptId.Size = New System.Drawing.Size(111, 20)
+        Me.FNHSysDeptId.Size = New System.Drawing.Size(129, 23)
         Me.FNHSysDeptId.TabIndex = 474
         Me.FNHSysDeptId.Tag = "2|"
         '
         'FNHSysCmpId
         '
-        Me.FNHSysCmpId.Location = New System.Drawing.Point(117, 3)
+        Me.FNHSysCmpId.Location = New System.Drawing.Point(136, 4)
+        Me.FNHSysCmpId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCmpId.Name = "FNHSysCmpId"
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
@@ -1016,7 +1018,7 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(113, 20)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(132, 23)
         Me.FNHSysCmpId.TabIndex = 472
         Me.FNHSysCmpId.Tag = ""
         '
@@ -1027,9 +1029,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNHSysSectId_lbl_ofyear.Appearance.Options.UseTextOptions = True
         Me.FNHSysSectId_lbl_ofyear.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysSectId_lbl_ofyear.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysSectId_lbl_ofyear.Location = New System.Drawing.Point(7, 105)
+        Me.FNHSysSectId_lbl_ofyear.Location = New System.Drawing.Point(8, 129)
+        Me.FNHSysSectId_lbl_ofyear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysSectId_lbl_ofyear.Name = "FNHSysSectId_lbl_ofyear"
-        Me.FNHSysSectId_lbl_ofyear.Size = New System.Drawing.Size(107, 20)
+        Me.FNHSysSectId_lbl_ofyear.Size = New System.Drawing.Size(125, 25)
         Me.FNHSysSectId_lbl_ofyear.TabIndex = 469
         Me.FNHSysSectId_lbl_ofyear.Tag = "2|"
         Me.FNHSysSectId_lbl_ofyear.Text = "Start Sect :"
@@ -1041,9 +1044,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNHSysDivisonId_lbl_ofyear.Appearance.Options.UseTextOptions = True
         Me.FNHSysDivisonId_lbl_ofyear.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysDivisonId_lbl_ofyear.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysDivisonId_lbl_ofyear.Location = New System.Drawing.Point(7, 84)
+        Me.FNHSysDivisonId_lbl_ofyear.Location = New System.Drawing.Point(8, 103)
+        Me.FNHSysDivisonId_lbl_ofyear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysDivisonId_lbl_ofyear.Name = "FNHSysDivisonId_lbl_ofyear"
-        Me.FNHSysDivisonId_lbl_ofyear.Size = New System.Drawing.Size(107, 20)
+        Me.FNHSysDivisonId_lbl_ofyear.Size = New System.Drawing.Size(125, 25)
         Me.FNHSysDivisonId_lbl_ofyear.TabIndex = 468
         Me.FNHSysDivisonId_lbl_ofyear.Tag = "2|"
         Me.FNHSysDivisonId_lbl_ofyear.Text = "Start Devision :"
@@ -1055,9 +1059,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNHSysEmpId_lbl_ofyear.Appearance.Options.UseTextOptions = True
         Me.FNHSysEmpId_lbl_ofyear.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysEmpId_lbl_ofyear.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysEmpId_lbl_ofyear.Location = New System.Drawing.Point(7, 149)
+        Me.FNHSysEmpId_lbl_ofyear.Location = New System.Drawing.Point(8, 183)
+        Me.FNHSysEmpId_lbl_ofyear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysEmpId_lbl_ofyear.Name = "FNHSysEmpId_lbl_ofyear"
-        Me.FNHSysEmpId_lbl_ofyear.Size = New System.Drawing.Size(107, 20)
+        Me.FNHSysEmpId_lbl_ofyear.Size = New System.Drawing.Size(125, 25)
         Me.FNHSysEmpId_lbl_ofyear.TabIndex = 471
         Me.FNHSysEmpId_lbl_ofyear.Tag = "2|"
         Me.FNHSysEmpId_lbl_ofyear.Text = "Start Employee :"
@@ -1069,9 +1074,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNHSysUnitSectId_lbl_ofyear.Appearance.Options.UseTextOptions = True
         Me.FNHSysUnitSectId_lbl_ofyear.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysUnitSectId_lbl_ofyear.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysUnitSectId_lbl_ofyear.Location = New System.Drawing.Point(7, 126)
+        Me.FNHSysUnitSectId_lbl_ofyear.Location = New System.Drawing.Point(8, 155)
+        Me.FNHSysUnitSectId_lbl_ofyear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId_lbl_ofyear.Name = "FNHSysUnitSectId_lbl_ofyear"
-        Me.FNHSysUnitSectId_lbl_ofyear.Size = New System.Drawing.Size(107, 20)
+        Me.FNHSysUnitSectId_lbl_ofyear.Size = New System.Drawing.Size(125, 25)
         Me.FNHSysUnitSectId_lbl_ofyear.TabIndex = 470
         Me.FNHSysUnitSectId_lbl_ofyear.Tag = "2|"
         Me.FNHSysUnitSectId_lbl_ofyear.Text = "Start Unit Sect :"
@@ -1083,9 +1089,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.LabelControl2.Appearance.Options.UseTextOptions = True
         Me.LabelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl2.Location = New System.Drawing.Point(7, 65)
+        Me.LabelControl2.Location = New System.Drawing.Point(8, 80)
+        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(107, 20)
+        Me.LabelControl2.Size = New System.Drawing.Size(125, 25)
         Me.LabelControl2.TabIndex = 467
         Me.LabelControl2.Tag = "2|"
         Me.LabelControl2.Text = "Start Department :"
@@ -1097,9 +1104,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.lb_EmpType.Appearance.Options.UseTextOptions = True
         Me.lb_EmpType.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.lb_EmpType.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.lb_EmpType.Location = New System.Drawing.Point(6, 25)
+        Me.lb_EmpType.Location = New System.Drawing.Point(7, 31)
+        Me.lb_EmpType.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lb_EmpType.Name = "lb_EmpType"
-        Me.lb_EmpType.Size = New System.Drawing.Size(107, 17)
+        Me.lb_EmpType.Size = New System.Drawing.Size(125, 21)
         Me.lb_EmpType.TabIndex = 466
         Me.lb_EmpType.Tag = "2|"
         Me.lb_EmpType.Text = "Employee Type :"
@@ -1111,9 +1119,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.FNHSysCmpId_lbl_ofyear.Appearance.Options.UseTextOptions = True
         Me.FNHSysCmpId_lbl_ofyear.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCmpId_lbl_ofyear.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCmpId_lbl_ofyear.Location = New System.Drawing.Point(6, 1)
+        Me.FNHSysCmpId_lbl_ofyear.Location = New System.Drawing.Point(7, 1)
+        Me.FNHSysCmpId_lbl_ofyear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCmpId_lbl_ofyear.Name = "FNHSysCmpId_lbl_ofyear"
-        Me.FNHSysCmpId_lbl_ofyear.Size = New System.Drawing.Size(107, 17)
+        Me.FNHSysCmpId_lbl_ofyear.Size = New System.Drawing.Size(125, 21)
         Me.FNHSysCmpId_lbl_ofyear.TabIndex = 465
         Me.FNHSysCmpId_lbl_ofyear.Tag = "2|"
         Me.FNHSysCmpId_lbl_ofyear.Text = "Company :"
@@ -1187,26 +1196,29 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(38, 48)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(46, 116)
+        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(837, 47)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(1906, 114)
         Me.ogbmainprocbutton.TabIndex = 388
         Me.ogbmainprocbutton.Tag = "2|"
         '
         'ocmsavelayout
         '
-        Me.ocmsavelayout.Location = New System.Drawing.Point(323, 12)
+        Me.ocmsavelayout.Location = New System.Drawing.Point(377, 15)
+        Me.ocmsavelayout.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmsavelayout.Name = "ocmsavelayout"
-        Me.ocmsavelayout.Size = New System.Drawing.Size(117, 23)
+        Me.ocmsavelayout.Size = New System.Drawing.Size(136, 28)
         Me.ocmsavelayout.TabIndex = 333
         Me.ocmsavelayout.Text = "savelayoutgrid"
         '
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(724, 11)
+        Me.ocmexit.Location = New System.Drawing.Point(1775, 14)
+        Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmexit.Name = "ocmexit"
-        Me.ocmexit.Size = New System.Drawing.Size(95, 25)
+        Me.ocmexit.Size = New System.Drawing.Size(111, 31)
         Me.ocmexit.TabIndex = 96
         Me.ocmexit.TabStop = False
         Me.ocmexit.Tag = "2|"
@@ -1214,9 +1226,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         '
         'ocmclear
         '
-        Me.ocmclear.Location = New System.Drawing.Point(211, 11)
+        Me.ocmclear.Location = New System.Drawing.Point(246, 14)
+        Me.ocmclear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmclear.Name = "ocmclear"
-        Me.ocmclear.Size = New System.Drawing.Size(95, 25)
+        Me.ocmclear.Size = New System.Drawing.Size(111, 31)
         Me.ocmclear.TabIndex = 95
         Me.ocmclear.TabStop = False
         Me.ocmclear.Tag = "2|"
@@ -1224,9 +1237,10 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         '
         'ocmload
         '
-        Me.ocmload.Location = New System.Drawing.Point(5, 13)
+        Me.ocmload.Location = New System.Drawing.Point(6, 16)
+        Me.ocmload.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmload.Name = "ocmload"
-        Me.ocmload.Size = New System.Drawing.Size(87, 23)
+        Me.ocmload.Size = New System.Drawing.Size(101, 28)
         Me.ocmload.TabIndex = 329
         Me.ocmload.Text = "Load Data"
         '
@@ -1271,18 +1285,18 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.DateEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.DateEdit1.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.DateEdit1.Properties.NullDate = ""
-        Me.DateEdit1.Size = New System.Drawing.Size(112, 20)
+        Me.DateEdit1.Size = New System.Drawing.Size(112, 23)
         Me.DateEdit1.TabIndex = 503
         Me.DateEdit1.Tag = "2|"
         '
         'otbmain
         '
         Me.otbmain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.otbmain.Location = New System.Drawing.Point(0, 42)
+        Me.otbmain.Location = New System.Drawing.Point(0, 44)
         Me.otbmain.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otbmain.Name = "otbmain"
         Me.otbmain.SelectedTabPage = Me.otppayback
-        Me.otbmain.Size = New System.Drawing.Size(1013, 546)
+        Me.otbmain.Size = New System.Drawing.Size(1182, 716)
         Me.otbmain.TabIndex = 390
         Me.otbmain.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otppayback})
         '
@@ -1292,16 +1306,17 @@ Partial Class wEmployeeLeaveVacationPayBack_KM
         Me.otppayback.Controls.Add(Me.ogc)
         Me.otppayback.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otppayback.Name = "otppayback"
-        Me.otppayback.Size = New System.Drawing.Size(1005, 516)
+        Me.otppayback.Size = New System.Drawing.Size(1172, 679)
         Me.otppayback.Text = "สรุปการจ่ายคืนพักร้อน"
         '
         'wEmployeeLeaveVacationPayBack_KM
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1013, 588)
+        Me.ClientSize = New System.Drawing.Size(1182, 760)
         Me.Controls.Add(Me.otbmain)
         Me.Controls.Add(Me.hideContainerTop)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "wEmployeeLeaveVacationPayBack_KM"
         Me.Text = "Employee Leave Vacation Pay Back"
         CType(Me.ogc, System.ComponentModel.ISupportInitialize).EndInit()

@@ -190,9 +190,17 @@
 
         tDate = HI.Conn.SQLConn.GetField(_Qry, HI.Conn.DB.DataBaseName.DB_MERCHAN)
 
+        Dim tDate_first As String = ""
+        Dim tDate_End As String = ""
+        Dim t_Month_next As String = ""
 
+        tDate_first = tDate.Substring(0, 8) + "01"
 
+        t_Month_next = Val(tDate.Substring(5, 2)) + 1
+        t_Month_next = "000" & t_Month_next
+        t_Month_next = (t_Month_next).Substring(t_Month_next.Length - 2, 2)
 
+        tDate_End = tDate_first.Substring(0, 5) + t_Month_next + "/01"
 
 
         _Qry = "Select  M.FNHSysEmpID,M.FTEmpCode,M.FNHSysCmpId ,US.FNHSysUnitSectId,L.FNListIndex,'' AS FTNote"
@@ -206,7 +214,7 @@
 
         _Qry &= vbCrLf & ",ISNULL(US.FTUnitSectCode,'') AS FTUnitSectCode "
         _Qry &= vbCrLf & ", Replace(Convert(varchar(30),T.FNTime),'.',':') AS FNTime"
-        _Qry &= vbCrLf & ",CASE WHEN ISDATE(T.FTDateTrans) =1 THEN CONVERT(varchar(10),Convert(datetime,T.FTDateTrans),103) ELSE '' END AS FTDateTrans"
+        _Qry &= vbCrLf & ",CASE WHEN ISDATE(M.FDDateStart) =1 THEN CONVERT(varchar(10),Convert(datetime,M.FDDateStart),103) ELSE '' END AS FTDateTrans"
         _Qry &= vbCrLf & "From  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTrans AS T WITH (NOLOCK) LEFT OUTER Join"
         _Qry &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) ON T.FNHSysEmpID =  M.FNHSysEmpID"
         _Qry &= vbCrLf & "INNER Join    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMPrename AS PR WITH (NOLOCK) ON M.FNHSysPreNameId = PR.FNHSysPreNameId LEFT OUTER JOIN"
@@ -214,7 +222,9 @@
         _Qry &= vbCrLf & " (SELECT L.FTNameTH,L.FTNameEN,L.FNListIndex FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L WHERE L.FTListName='FNEmpSex') AS L ON M.FNEmpSex=L.FNListIndex"
         _Qry &= vbCrLf & " WHERE   (M.FTEmpCode <> '') AND M.FTStateEnablon='1'"
         _Qry &= vbCrLf & "   AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & "  "
-        _Qry &= vbCrLf & "And T.FTDateTrans >='" & tDate & "' AND T.FTDateTrans <='" & tDate & "' "
+        _Qry &= vbCrLf & " And T.FTDateTrans >='" & tDate & "' AND T.FTDateTrans <='" & tDate & "' "
+        _Qry &= vbCrLf & " AND (ISNULL(M.FDDateEnd,'') ='' OR (ISNULL(M.FDDateEnd,'') >'" & tDate_first & "' AND ISNULL(M.FDDateEnd,'') <'" & tDate_End & "'  ))"
+
 
         With Me.ogcTime
             .DataSource = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
@@ -294,6 +304,15 @@
         Dim tDate As String = ""
 
 
+        Dim t_Month As String = ""
+
+        ''  tDate_first = tDate.Substring(0, 8) + "01"
+
+        t_Month = HI.UL.ULDate.ConvertEnDB(FDDate.Text).Substring(5, 2)
+        t_Month = "000" & t_Month
+        t_Month = (t_Month).Substring(t_Month.Length - 2, 2)
+
+
         _Qry = "Select  M.FNHSysEmpID,M.FTEmpCode,M.FNHSysCmpId ,US.FNHSysUnitSectId,L.FNListIndex,'' AS FTNote"
         If HI.ST.Lang.Language = HI.ST.SysInfo.LanguageLocal Then
             _Qry &= vbCrLf & "  , PR.FTPreNameNameTH + ' ' +  M.FTEmpNameTH + '  ' +  M.FTEmpSurnameTH AS FTEmpName"
@@ -315,13 +334,14 @@
         _Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [HITECH_SYSTEM].dbo.HSysListData AS L Where L.FTListName ='FNLeaveType')AS L ON D.FTLeaveType=L.FNListIndex  where D.FTStartDate < D.FTInsDate)AS LD ON M.FNHSysEmpID=LD.FNHSysEmpID "
         _Qry &= vbCrLf & " WHERE   (M.FTEmpCode <> '')  AND M.FTStateEnablon='1'"
         _Qry &= vbCrLf & "   AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & "  "
-        _Qry &= vbCrLf & "And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "' AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "' AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "/" & t_Month & "%'"
 
         With Me.ogcmanday
             .DataSource = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
             ogvmanday.ExpandAllGroups()
             ogvmanday.RefreshData()
         End With
+
     End Function
 
     Private Sub ocmclear_Click_1(sender As Object, e As EventArgs)
@@ -875,6 +895,17 @@
 
         tDate = HI.Conn.SQLConn.GetField(_Qry, HI.Conn.DB.DataBaseName.DB_MERCHAN)
 
+        Dim tDate_first As String = ""
+        Dim tDate_End As String = ""
+        Dim t_Month_next As String = ""
+
+        tDate_first = tDate.Substring(0, 8) + "01"
+
+        t_Month_next = Val(tDate.Substring(5, 2)) + 1
+        t_Month_next = "000" & t_Month_next
+        t_Month_next = (t_Month_next).Substring(t_Month_next.Length - 2, 2)
+
+        tDate_End = tDate_first.Substring(0, 5) + t_Month_next + "/01"
 
         _Qry = " Select  M.FNHSysCmpId,Month( '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "') AS FTMonthsum,"
         _Qry &= vbCrLf & "(Select count(T.FTDateTrans)As counttime"
@@ -882,19 +913,26 @@
         _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) ON T.FNHSysEmpID =  M.FNHSysEmpID LEFT OUTER Join"
         _Qry &= vbCrLf & " (Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNEmpSex') AS L ON M.FNEmpSex=L.FNListIndex"
         _Qry &= vbCrLf & "  WHERE  M.FNEmpSex='0' AND M.FTStateEnablon='1' And T.FTDateTrans ='" & tDate & "'  AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & "   "
+        _Qry &= vbCrLf & " AND (ISNULL(M.FDDateEnd,'') ='' OR (ISNULL(M.FDDateEnd,'') >'" & tDate_first & "' AND ISNULL(M.FDDateEnd,'') <'" & tDate_End & "'  ))"
         _Qry &= vbCrLf & ")AS FTMalesum,"
         _Qry &= vbCrLf & "(Select count(T.FTDateTrans)as counttime"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTrans AS T WITH (NOLOCK) LEFT OUTER Join"
         _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) ON T.FNHSysEmpID =  M.FNHSysEmpID LEFT OUTER Join"
         _Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNEmpSex') AS L ON M.FNEmpSex=L.FNListIndex"
         _Qry &= vbCrLf & "  WHERE  M.FNEmpSex='1' AND M.FTStateEnablon='1' And T.FTDateTrans ='" & tDate & "'    AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & "   "
+        _Qry &= vbCrLf & " AND (ISNULL(M.FDDateEnd,'') ='' OR (ISNULL(M.FDDateEnd,'') >'" & tDate_first & "' AND ISNULL(M.FDDateEnd,'') <'" & tDate_End & "'  ))"
         _Qry &= vbCrLf & " )AS FTFeMalesum,"
         _Qry &= vbCrLf & " (Select count(T.FTDateTrans)as counttime"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTrans AS T WITH (NOLOCK) LEFT OUTER Join"
         _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) ON T.FNHSysEmpID =  M.FNHSysEmpID "
         _Qry &= vbCrLf & " Where T.FTDateTrans = '" & tDate & "'  AND M.FTStateEnablon='1'   AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & "   "
+        _Qry &= vbCrLf & " AND (ISNULL(M.FDDateEnd,'') ='' OR (ISNULL(M.FDDateEnd,'') >'" & tDate_first & "' AND ISNULL(M.FDDateEnd,'') <'" & tDate_End & "'  ))"
         _Qry &= vbCrLf & ")AS FTToTalWork,"
-        _Qry &= vbCrLf & "  (SELECT  ((DATEDiff(d, '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "', '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "')+1) -  (DATEDiff(ww, '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "', '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "')) -  COUNT( H.FDHolidayDate)) AS Male"
+
+        ''_Qry &= vbCrLf & " (Select  DateDiff(d, '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "', '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "')+1 - DATEDIFF(wk,'" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "', '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "')  -COUNT( H.FDHolidayDate) AS  Male "
+        ''     Best 20231013
+        _Qry &= vbCrLf & " (Select  DateDiff(d, '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "', '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "')+1 - DATEDIFF(wk,CAST('" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AS datetime)-1, '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "')  -COUNT( H.FDHolidayDate) AS  Male "
+
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMHoliday AS H"
         _Qry &= vbCrLf & "Where H.FDHolidayDate between '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "'   AND  H.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & "  )AS FTDaysum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp AS M WITH (NOLOCK)   "
@@ -950,13 +988,20 @@
             For Each R As DataRow In dt.Select("FNHSysCmpId>0 ", "FNHSysCmpId")
 
                 _month = Month(FDDate.Text)
-                tyear = Year(Date.Today)
+
+
+                ''tyear = Year(Date.Today)
+                tyear = Year(FDDate.Text)
                 tmonth = Month(Date.Today)
+
+
+
                 tday = Microsoft.VisualBasic.DateAndTime.Day(Date.Today)
                 _Seq += +1
                 _SystemKey = (_Seq & "" & _CmpH & "" & tyear & "" & _month)
 
-                _kep = HI.Conn.SQLConn.GetField("SELECT TOP 1 S.FNHSysSumWorkId  FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRTEmployeeHRMSumWork AS S WHERE S.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " AND S.FTMonthsum='" & _month & "' ", Conn.DB.DataBaseName.DB_SYSTEM, "")
+                '' _kep = HI.Conn.SQLConn.GetField("SELECT TOP 1 S.FNHSysSumWorkId  FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRTEmployeeHRMSumWork AS S WHERE S.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " AND S.FTMonthsum='" & _month & "' , Conn.DB.DataBaseName.DB_SYSTEM, "")
+                _kep = HI.Conn.SQLConn.GetField("SELECT TOP 1 S.FNHSysSumWorkId  FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRTEmployeeHRMSumWork AS S WHERE S.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " AND S.FTMonthsum='" & _month & "' and S.FTYear = " & Val(FNYear.Text), Conn.DB.DataBaseName.DB_SYSTEM, "")
 
 
                 _Str = " UPDATE [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork"
@@ -970,15 +1015,17 @@
                 _Str &= vbCrLf & "   WHERE  FNHSysCmpId=" & HI.ST.SysInfo.CmpID & ""
                 _Str &= vbCrLf & " AND FTMonthsum=" & Val(R!FTMonthsum.ToString) & ""
                 _Str &= vbCrLf & " AND  FNHSysSumWorkId='" & _kep & "'"
+                _Str &= vbCrLf & " AND FTYear = " & Val(FNYear.Text)
+
 
 
                 If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
 
-                    _Str = " INSERT INTO [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork"
+                    _Str=" INSERT INTO [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork"
                     _Str &= vbCrLf & " ("
                     _Str &= vbCrLf & " FTInsUser, FDInsDate, FTInsTime"
                     _Str &= vbCrLf & ", FNHSysSumWorkId, FNHSysCmpId, FTMonthsum, FTToTalWork, FTMalesum, FTFeMalesum, FTDaysum"
-                    _Str &= vbCrLf & " )"
+                    _Str &= vbCrLf & " , FTYear)"
                     _Str &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                     _Str &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB & ""
                     _Str &= vbCrLf & " ," & HI.UL.ULDate.FormatTimeDB & ""
@@ -989,6 +1036,7 @@
                     _Str &= vbCrLf & " ," & Val(R!FTMalesum.ToString) & ""
                     _Str &= vbCrLf & " ," & Val(R!FTFeMalesum.ToString) & ""
                     _Str &= vbCrLf & " ," & Val(R!FTDaysum.ToString) & ""
+                    _Str &= vbCrLf & " , " & Val(FNYear.Text)
 
 
 
@@ -1094,7 +1142,8 @@
             For Each R As DataRow In dt.Select("FNHSysCmpId>0 ", "FNHSysCmpId")
 
                 _month = Month(FDDate.Text)
-                tyear = Year(Date.Today)
+                tyear = Year(FDDate.Text)
+                '' tyear = Year(Date.Today)
                 tmonth = Month(Date.Today)
                 tday = Microsoft.VisualBasic.DateAndTime.Day(Date.Today)
                 _Seq += +1
@@ -1104,7 +1153,8 @@
 
 
 
-                _kep = HI.Conn.SQLConn.GetField("SELECT TOP 1 S.FNHSysSumNewId  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumNew AS S WHERE S.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " AND S.FTMonthsum='" & _month & "' ", Conn.DB.DataBaseName.DB_SYSTEM, "")
+                ''_kep = HI.Conn.SQLConn.GetField("SELECT TOP 1 S.FNHSysSumNewId  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumNew AS S WHERE S.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " AND S.FTMonthsum='" & _month & "' ", Conn.DB.DataBaseName.DB_SYSTEM, "")
+                _kep = HI.Conn.SQLConn.GetField("SELECT TOP 1 S.FNHSysSumNewId  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumNew AS S WHERE S.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " AND S.FTMonthsum='" & _month & "' AND S.FTYear=" & Val(FNYear.Text), Conn.DB.DataBaseName.DB_SYSTEM, "")
 
 
 
@@ -1118,6 +1168,7 @@
                 _Str &= vbCrLf & "   WHERE  FNHSysCmpId=" & HI.ST.SysInfo.CmpID & ""
                 _Str &= vbCrLf & " AND FTMonthsum=" & Val(R!FTMonthsum.ToString) & ""
                 _Str &= vbCrLf & " AND  FNHSysSumNewId='" & _kep & "'"
+                _Str &= vbCrLf & " AND FTYear=" & Val(FNYear.Text) & ""
 
 
                 If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
@@ -1126,7 +1177,7 @@
                     _Str &= vbCrLf & " ("
                     _Str &= vbCrLf & " FTInsUser, FDInsDate, FTInsTime"
                     _Str &= vbCrLf & ",FNHSysSumNewId, FNHSysCmpId, FTMonthsum, FTToTalWork, FTMalesum, FTFeMalesum"
-                    _Str &= vbCrLf & " )"
+                    _Str &= vbCrLf & " ,FTYear)"
                     _Str &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                     _Str &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB & ""
                     _Str &= vbCrLf & " ," & HI.UL.ULDate.FormatTimeDB & ""
@@ -1136,7 +1187,7 @@
                     _Str &= vbCrLf & " ," & Val(R!FTToTalWork.ToString) & ""
                     _Str &= vbCrLf & " ," & Val(R!FTMalesum.ToString) & ""
                     _Str &= vbCrLf & " ," & Val(R!FTFeMalesum.ToString) & ""
-
+                    _Str &= vbCrLf & " ," & Val(FNYear.Text) & ""
 
 
 
@@ -1244,7 +1295,8 @@
             For Each R As DataRow In dt.Select("FNHSysCmpId>0 ", "FNHSysCmpId")
 
                 _month = Month(FDDate.Text)
-                tyear = Year(Date.Today)
+                tyear = Year(FDDate.Text)
+                ''tyear = Year(Date.Today)
                 tmonth = Month(Date.Today)
                 tday = Microsoft.VisualBasic.DateAndTime.Day(Date.Today)
                 _Seq += +1
@@ -1252,7 +1304,8 @@
 
 
 
-                _kep = HI.Conn.SQLConn.GetField("SELECT TOP 1 S.FNHSysSumReasonId  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumReason AS S WHERE S.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " AND S.FTMonthsum='" & _month & "' ", Conn.DB.DataBaseName.DB_SYSTEM, "")
+                '' _kep = HI.Conn.SQLConn.GetField("SELECT TOP 1 S.FNHSysSumReasonId  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumReason AS S WHERE S.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " AND S.FTMonthsum='" & _month & "' ", Conn.DB.DataBaseName.DB_SYSTEM, "")
+                _kep = HI.Conn.SQLConn.GetField("SELECT TOP 1 S.FNHSysSumReasonId  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumReason AS S WHERE S.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " AND S.FTMonthsum='" & _month & "' AND S.FTYear = " & Val(FNYear.Text), Conn.DB.DataBaseName.DB_SYSTEM, "")
 
 
 
@@ -1266,6 +1319,8 @@
                 _Str &= vbCrLf & "   WHERE  FNHSysCmpId=" & HI.ST.SysInfo.CmpID & ""
                 _Str &= vbCrLf & " AND FTMonthsum=" & Val(R!FTMonthsum.ToString) & ""
                 _Str &= vbCrLf & " AND  FNHSysSumReasonId='" & _kep & "'"
+                _Str &= vbCrLf & " AND FTYear = " & Val(FNYear.Text)
+
 
 
                 If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
@@ -1274,7 +1329,7 @@
                     _Str &= vbCrLf & " ("
                     _Str &= vbCrLf & " FTInsUser, FDInsDate, FTInsTime"
                     _Str &= vbCrLf & ", FNHSysSumReasonId, FNHSysCmpId, FTMonthsum, FTToTalWork, FTMalesum, FTFeMalesum"
-                    _Str &= vbCrLf & " )"
+                    _Str &= vbCrLf & " , FTYear)"
                     _Str &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                     _Str &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB & ""
                     _Str &= vbCrLf & " ," & HI.UL.ULDate.FormatTimeDB & ""
@@ -1284,6 +1339,7 @@
                     _Str &= vbCrLf & " ," & Val(R!FTToTalWork.ToString) & ""
                     _Str &= vbCrLf & " ," & Val(R!FTMalesum.ToString) & ""
                     _Str &= vbCrLf & " ," & Val(R!FTFeMalesum.ToString) & ""
+                    _Str &= vbCrLf & " , " & Val(FNYear.Text)
 
 
 
@@ -1330,28 +1386,51 @@
         _Qry &= vbCrLf & " Where L.FNListIndex ='5')AS FNTypeLeave,"
         _Qry &= vbCrLf & "  (SELECT L.FNListIndex"
         _Qry &= vbCrLf & "from(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNTypeLeave')AS L"
-        _Qry &= vbCrLf & " Where L.FNListIndex ='5')AS FNListIndex,"
-        _Qry &= vbCrLf & "(Select sum(LD.FNLeaveTotalTimeMin )/480 AS manday"
+        _Qry &= vbCrLf & " Where L.FNListIndex ='5')AS FNListIndex"
+        _Qry &= vbCrLf & "  ,C.FTMalesum,C.FTFeMalesum,C.FTToTalWork"
+        '_Qry &= vbCrLf & "(Select sum(LD.FNLeaveTotalTimeMin )/480 AS manday"
+        '_Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) LEFT OUTER Join"
+        '_Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNEmpSex') AS L ON M.FNEmpSex=L.FNListIndex LEFT OUTER JOIN"
+        '_Qry &= vbCrLf & "( Select D.FNHSysEmpID, D.FTInsDate, D.FTStartDate, L.FTNameTH, L.FTNameEN, D.FNLeaveTotalTimeMin, D.FNLeaveTotalTime"
+        '_Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily AS D LEFT Join"
+        '_Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNLeaveType')AS L ON D.FTLeaveType=L.FNListIndex  where D.FTStartDate < D.FTInsDate)AS LD ON M.FNHSysEmpID=LD.FNHSysEmpID "
+        '_Qry &= vbCrLf & "WHERE    M.FNEmpSex='0'    AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & " AND M.FTStateEnablon='1'  And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "' AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "%')AS FTMalesum,"
+        '_Qry &= vbCrLf & "(Select sum(LD.FNLeaveTotalTimeMin )/480 AS manday"
+        '_Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) LEFT OUTER Join"
+        '_Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNEmpSex') AS L ON M.FNEmpSex=L.FNListIndex LEFT OUTER JOIN"
+        '_Qry &= vbCrLf & "( Select D.FNHSysEmpID, D.FTInsDate, D.FTStartDate, L.FTNameTH, L.FTNameEN, D.FNLeaveTotalTimeMin, D.FNLeaveTotalTime"
+        '_Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily AS D LEFT Join"
+        '_Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNLeaveType')AS L ON D.FTLeaveType=L.FNListIndex  where D.FTStartDate < D.FTInsDate)AS LD ON M.FNHSysEmpID=LD.FNHSysEmpID "
+        '_Qry &= vbCrLf & "WHERE    M.FNEmpSex='1'    AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & " AND M.FTStateEnablon='1'  And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "'AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "%')AS FTFeMalesum,"
+        '_Qry &= vbCrLf & "(Select sum(LD.FNLeaveTotalTimeMin )/480 AS manday"
+        '_Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) LEFT OUTER Join"
+        '_Qry &= vbCrLf & " ( Select D.FNHSysEmpID, D.FTInsDate, D.FTStartDate, L.FTNameTH, L.FTNameEN, D.FNLeaveTotalTimeMin, D.FNLeaveTotalTime"
+        '_Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily AS D LEFT Join"
+        '_Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNLeaveType')AS L ON D.FTLeaveType=L.FNListIndex  where D.FTStartDate < D.FTInsDate)AS LD ON M.FNHSysEmpID=LD.FNHSysEmpID "
+        '_Qry &= vbCrLf & "WHERE     M.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & " AND M.FTStateEnablon='1' And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "'AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "%')AS FTToTalWork"
+
+        _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp AS M WITH (NOLOCK)  LEFT OUTER JOIN "
+
+        _Qry &= vbCrLf & "(SELECT A.FTMalesum,A.FTFeMalesum,(A.FTMalesum+A.FTFeMalesum) AS FTToTalWork,A.FNHSysCmpId"
+        _Qry &= vbCrLf & "from(Select  M.FNHSysCmpId,"
+        _Qry &= vbCrLf & "(Select ROUND(sum(LD.FNLeaveTotalTimeMin )/480.00,0) AS manday"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) LEFT OUTER Join"
         _Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNEmpSex') AS L ON M.FNEmpSex=L.FNListIndex LEFT OUTER JOIN"
         _Qry &= vbCrLf & "( Select D.FNHSysEmpID, D.FTInsDate, D.FTStartDate, L.FTNameTH, L.FTNameEN, D.FNLeaveTotalTimeMin, D.FNLeaveTotalTime"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily AS D LEFT Join"
         _Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNLeaveType')AS L ON D.FTLeaveType=L.FNListIndex  where D.FTStartDate < D.FTInsDate)AS LD ON M.FNHSysEmpID=LD.FNHSysEmpID "
         _Qry &= vbCrLf & "WHERE    M.FNEmpSex='0'    AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & " AND M.FTStateEnablon='1'  And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "' AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "%')AS FTMalesum,"
-        _Qry &= vbCrLf & "(Select sum(LD.FNLeaveTotalTimeMin )/480 AS manday"
+        _Qry &= vbCrLf & "(Select ROUND(sum(LD.FNLeaveTotalTimeMin )/480.00,0) AS manday"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) LEFT OUTER Join"
         _Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNEmpSex') AS L ON M.FNEmpSex=L.FNListIndex LEFT OUTER JOIN"
         _Qry &= vbCrLf & "( Select D.FNHSysEmpID, D.FTInsDate, D.FTStartDate, L.FTNameTH, L.FTNameEN, D.FNLeaveTotalTimeMin, D.FNLeaveTotalTime"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily AS D LEFT Join"
         _Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNLeaveType')AS L ON D.FTLeaveType=L.FNListIndex  where D.FTStartDate < D.FTInsDate)AS LD ON M.FNHSysEmpID=LD.FNHSysEmpID "
-        _Qry &= vbCrLf & "WHERE    M.FNEmpSex='1'    AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & " AND M.FTStateEnablon='1'  And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "'AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "%')AS FTFeMalesum,"
-        _Qry &= vbCrLf & "(Select sum(LD.FNLeaveTotalTimeMin )/480 AS manday"
-        _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) LEFT OUTER Join"
-        _Qry &= vbCrLf & " ( Select D.FNHSysEmpID, D.FTInsDate, D.FTStartDate, L.FTNameTH, L.FTNameEN, D.FNLeaveTotalTimeMin, D.FNLeaveTotalTime"
-        _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily AS D LEFT Join"
-        _Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNLeaveType')AS L ON D.FTLeaveType=L.FNListIndex  where D.FTStartDate < D.FTInsDate)AS LD ON M.FNHSysEmpID=LD.FNHSysEmpID "
-        _Qry &= vbCrLf & "WHERE     M.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & " AND M.FTStateEnablon='1' And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "'AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "%')AS FTToTalWork"
-        _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp AS M WITH (NOLOCK)  "
+        _Qry &= vbCrLf & "WHERE    M.FNEmpSex='1'    AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & " AND M.FTStateEnablon='1'  And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "'AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "%')AS FTFeMalesum"
+        _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp AS M WITH (NOLOCK))AS A) AS C ON M.FNHSysCmpId=C.FNHSysCmpId  "
+
+
+
         _Qry &= vbCrLf & " Where  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & " "
 
         _Qry &= vbCrLf & "  UNION"
@@ -1367,28 +1446,34 @@
         _Qry &= vbCrLf & "  (SELECT L.FNListIndex"
         _Qry &= vbCrLf & "from(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNTypeLeave')AS L"
         _Qry &= vbCrLf & " Where L.FNListIndex ='6')AS FNListIndex,"
-        _Qry &= vbCrLf & "(Select COUNT(LD.FNLeaveTotalTimeMin ) As unplan"
+        '_Qry &= vbCrLf & "(Select COUNT(LD.FNLeaveTotalTimeMin ) As unplan"
+
+        _Qry &= vbCrLf & " (Select  COUNT(A.FTEmpName) As unplan FROM(Select Distinct  M.FTEmpNameTH + '  ' +  M.FTEmpSurnameTH AS FTEmpName"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) LEFT OUTER Join"
         _Qry &= vbCrLf & " (Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNEmpSex') AS L ON M.FNEmpSex=L.FNListIndex LEFT OUTER JOIN"
         _Qry &= vbCrLf & " ( Select D.FNHSysEmpID, D.FTInsDate, D.FTStartDate, L.FTNameTH, L.FTNameEN, D.FNLeaveTotalTimeMin, D.FNLeaveTotalTime"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily AS D LEFT Join"
         _Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNLeaveType')AS L ON D.FTLeaveType=L.FNListIndex  where D.FTStartDate < D.FTInsDate)AS LD ON M.FNHSysEmpID=LD.FNHSysEmpID"
-        _Qry &= vbCrLf & "WHERE    M.FNEmpSex='0'    AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & " AND M.FTStateEnablon='1'  And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "'AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "%')AS FTMalesum,"
-        _Qry &= vbCrLf & " (Select  COUNT(LD.FNLeaveTotalTimeMin ) AS unplan"
+        _Qry &= vbCrLf & "WHERE    M.FNEmpSex='0'    AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & " AND M.FTStateEnablon='1'  And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "'AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "%')AS A )AS FTMalesum,"
+        ' _Qry &= vbCrLf & " (Select  COUNT(LD.FNLeaveTotalTimeMin ) AS unplan"
+        _Qry &= vbCrLf & " (Select  COUNT(A.FTEmpName) As unplan FROM(Select Distinct  M.FTEmpNameTH + '  ' +  M.FTEmpSurnameTH AS FTEmpName"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) LEFT OUTER Join"
         _Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNEmpSex') AS L ON M.FNEmpSex=L.FNListIndex LEFT OUTER JOIN"
         _Qry &= vbCrLf & " ( Select D.FNHSysEmpID, D.FTInsDate, D.FTStartDate, L.FTNameTH, L.FTNameEN, D.FNLeaveTotalTimeMin, D.FNLeaveTotalTime"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily AS D LEFT Join"
         _Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNLeaveType')AS L ON D.FTLeaveType=L.FNListIndex  where D.FTStartDate < D.FTInsDate)AS LD ON M.FNHSysEmpID=LD.FNHSysEmpID"
-        _Qry &= vbCrLf & "WHERE    M.FNEmpSex='1'    AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & " AND M.FTStateEnablon='1'  And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "'AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "%')AS FTFeMalesum,"
-        _Qry &= vbCrLf & "(Select  COUNT(LD.FNLeaveTotalTimeMin ) As unplan"
+        _Qry &= vbCrLf & "WHERE    M.FNEmpSex='1'    AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & " AND M.FTStateEnablon='1'  And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "'AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "%')AS A)AS FTFeMalesum,"
+        '  _Qry &= vbCrLf & "(Select  COUNT(LD.FNLeaveTotalTimeMin ) As unplan"
+        _Qry &= vbCrLf & " (Select  COUNT(A.FTEmpName) As unplan FROM(Select Distinct  M.FTEmpNameTH + '  ' +  M.FTEmpSurnameTH AS FTEmpName"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) LEFT OUTER Join"
         _Qry &= vbCrLf & "   ( Select D.FNHSysEmpID, D.FTInsDate, D.FTStartDate, L.FTNameTH, L.FTNameEN, D.FNLeaveTotalTimeMin, D.FNLeaveTotalTime"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily AS D LEFT Join"
         _Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNLeaveType')AS L ON D.FTLeaveType=L.FNListIndex  where D.FTStartDate < D.FTInsDate)AS LD ON M.FNHSysEmpID=LD.FNHSysEmpID "
-        _Qry &= vbCrLf & "WHERE     M.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & " AND M.FTStateEnablon='1' And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "'AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "%')AS FTToTalWork"
+        _Qry &= vbCrLf & "WHERE     M.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & " AND M.FTStateEnablon='1' And LD.FTInsDate  BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateEnd.Text) & "'AND LD.FNLeaveTotalTimeMin >='240' AND LD.FTStartDate like '%" & Me.FNYear.Text & "%')AS A)AS FTToTalWork"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp AS M WITH (NOLOCK)   "
         _Qry &= vbCrLf & " Where  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & "    "
+
+
 
 
         With Me.ogcsumleave
@@ -1442,10 +1527,8 @@
             Dim _Seq As Integer = 0
 
 
-
-
             Dim _S As String
-            _S = "Delete From  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave WHERE  FNHSysCmpId = " & HI.ST.SysInfo.CmpID & " And FTMonthsum =" & _month & ""
+            _S = "Delete From  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave WHERE  FNHSysCmpId = " & HI.ST.SysInfo.CmpID & " And FTMonthsum =" & _month & " AND FTYear =" & Val(FNYear.Text)
 
             If HI.Conn.SQLConn.ExecuteNonQuery(_S, HI.Conn.DB.DataBaseName.DB_HR) = True Then
             End If
@@ -1455,7 +1538,9 @@
 
                 type = Val(R!FNListIndex.ToString)
                 '_month = Month(FDDate.Text)
-                tyear = Year(Date.Today)
+                ' tyear = Year(Date.Today)
+                tyear = Year(FDDate.Text)
+
                 tmonth = Month(Date.Today)
                 tday = Microsoft.VisualBasic.DateAndTime.Day(Date.Today)
                 _Seq += +1
@@ -1517,20 +1602,21 @@
                 '   If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
 
                 _Str = " INSERT INTO [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave"
-                    _Str &= vbCrLf & " ("
-                    _Str &= vbCrLf & " FTInsUser, FDInsDate, FTInsTime"
-                    _Str &= vbCrLf & ", FNHSysSumLeaveId, FNHSysCmpId, FTMonthsum, FTToTalWork, FTMalesum, FTFeMalesum, FNTypeLeave"
-                    _Str &= vbCrLf & " )"
-                    _Str &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-                    _Str &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB & ""
-                    _Str &= vbCrLf & " ," & HI.UL.ULDate.FormatTimeDB & ""
-                    _Str &= vbCrLf & " ," & Val(_SystemKey) & ""
-                    _Str &= vbCrLf & " ," & HI.ST.SysInfo.CmpID & ""
-                    _Str &= vbCrLf & " ," & Val(R!FTMonthsum.ToString) & ""
-                    _Str &= vbCrLf & " ," & Val(R!FTToTalWork.ToString) & ""
-                    _Str &= vbCrLf & " ," & Val(R!FTMalesum.ToString) & ""
-                    _Str &= vbCrLf & " ," & Val(R!FTFeMalesum.ToString) & ""
+                _Str &= vbCrLf & " ("
+                _Str &= vbCrLf & " FTInsUser, FDInsDate, FTInsTime"
+                _Str &= vbCrLf & ", FNHSysSumLeaveId, FNHSysCmpId, FTMonthsum, FTToTalWork, FTMalesum, FTFeMalesum, FNTypeLeave"
+                _Str &= vbCrLf & " , FTYear)"
+                _Str &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                _Str &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB & ""
+                _Str &= vbCrLf & " ," & HI.UL.ULDate.FormatTimeDB & ""
+                _Str &= vbCrLf & " ," & Val(_SystemKey) & ""
+                _Str &= vbCrLf & " ," & HI.ST.SysInfo.CmpID & ""
+                _Str &= vbCrLf & " ," & Val(R!FTMonthsum.ToString) & ""
+                _Str &= vbCrLf & " ," & Val(R!FTToTalWork.ToString) & ""
+                _Str &= vbCrLf & " ," & Val(R!FTMalesum.ToString) & ""
+                _Str &= vbCrLf & " ," & Val(R!FTFeMalesum.ToString) & ""
                 _Str &= vbCrLf & " ," & Val(R!FNListIndex.ToString) & ""
+                _Str &= vbCrLf & " ," & Val(FNYear.Text) & ""
                 HI.Conn.SQLConn.ExecuteNonQuery(_Str, Conn.DB.DataBaseName.DB_HR)
 
                 'If HI.Conn.SQLConn.ExecuteNonQuery(_Str, HI.Conn.DB.DataBaseName.DB_HR) = True Then
@@ -1544,6 +1630,7 @@
                 ' End If
 
             Next
+
 
             'HI.Conn.SQLConn.Tran.Commit()
             'HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
@@ -1593,7 +1680,7 @@
         End If
         _Qry &= vbCrLf & ",SW.FTMonthsum,SW.FTMalesum,SW.FTFeMalesum,SW.FTToTalWork"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork AS SW"
-        _Qry &= vbCrLf & "  Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & " AND SW.FTMonthsum='" & _DateMounth & "'  "
+        _Qry &= vbCrLf & "  Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & " AND SW.FTMonthsum='" & _DateMounth & "' AND SW.FTYear= " & Val(FNYear.Text)
 
         _Qry &= vbCrLf & " UNION ALL"
 
@@ -1604,7 +1691,7 @@
         End If
         _Qry &= vbCrLf & ",SW.FTMonthsum,SW.FTDaysum AS FTMalesum,SW.FTDaysum AS FTFeMalesum,SW.FTDaysum AS FTToTalWork"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork AS SW"
-        _Qry &= vbCrLf & " Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  AND SW.FTMonthsum='" & _DateMounth & "'  "
+        _Qry &= vbCrLf & " Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  AND SW.FTMonthsum='" & _DateMounth & "'  AND SW.FTYear= " & Val(FNYear.Text)
 
         _Qry &= vbCrLf & "UNION ALL"
 
@@ -1615,7 +1702,7 @@
         End If
         _Qry &= vbCrLf & ",SN.FTMonthsum,SN.FTMalesum,SN.FTFeMalesum,SN.FTToTalWork"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumNew AS SN"
-        _Qry &= vbCrLf & "Where SN.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  AND SN.FTMonthsum='" & _DateMounth & "'   "
+        _Qry &= vbCrLf & "Where SN.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  AND SN.FTMonthsum='" & _DateMounth & "'   AND SN.FTYear= " & Val(FNYear.Text)
 
         _Qry &= vbCrLf & "UNION ALL"
 
@@ -1627,7 +1714,7 @@
         End If
         _Qry &= vbCrLf & ",SR.FTMonthsum,SR.FTMalesum,SR.FTFeMalesum,SR.FTToTalWork"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumReason AS SR"
-        _Qry &= vbCrLf & "Where SR.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "   AND SR.FTMonthsum='" & _DateMounth & "'  "
+        _Qry &= vbCrLf & "Where SR.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "   AND SR.FTMonthsum='" & _DateMounth & "'  AND SR.FTYear= " & Val(FNYear.Text)
 
 
         _Qry &= vbCrLf & "UNION ALL"
@@ -1640,7 +1727,7 @@
         _Qry &= vbCrLf & ",SL.FTMonthsum,SL.FTMalesum,SL.FTFeMalesum,SL.FTToTalWork"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS SL  LEFT OUTER Join"
         _Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNTypeLeave')AS L ON SL.FNTypeLeave=L.FNListIndex"
-        _Qry &= vbCrLf & "where SL.FNHSysCmpId= " & HI.ST.SysInfo.CmpID & "   And SL.FNTypeLeave ='5'   AND SL.FTMonthsum='" & _DateMounth & "'"
+        _Qry &= vbCrLf & "where SL.FNHSysCmpId= " & HI.ST.SysInfo.CmpID & "   And SL.FNTypeLeave ='5'   AND SL.FTMonthsum='" & _DateMounth & "' AND SL.FTYear= " & Val(FNYear.Text)
 
         _Qry &= vbCrLf & "UNION ALL"
 
@@ -1652,7 +1739,7 @@
         _Qry &= vbCrLf & ",SL.FTMonthsum,SL.FTMalesum,SL.FTFeMalesum,SL.FTToTalWork"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS SL  LEFT OUTER Join"
         _Qry &= vbCrLf & "(Select L.FTNameTH, L.FTNameEN, L.FNListIndex From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS L Where L.FTListName ='FNTypeLeave')AS L ON SL.FNTypeLeave=L.FNListIndex"
-        _Qry &= vbCrLf & "where SL.FNHSysCmpId= " & HI.ST.SysInfo.CmpID & "   And SL.FNTypeLeave ='6'   AND SL.FTMonthsum='" & _DateMounth & "'"
+        _Qry &= vbCrLf & "where SL.FNHSysCmpId= " & HI.ST.SysInfo.CmpID & "   And SL.FNTypeLeave ='6'   AND SL.FTMonthsum='" & _DateMounth & "' AND SL.FTYear= " & Val(FNYear.Text)
 
         _Qry &= vbCrLf & "UNION ALL"
 
@@ -1665,8 +1752,8 @@
         _Qry &= vbCrLf & ", (MA.FTFeMalesum * 100)/(SW.FTFeMalesum*SW.FTDaysum )AS FTFeMalesum"
         _Qry &= vbCrLf & ", (MA.FTToTalWork * 100)/(SW.FTToTalWork*SW.FTDaysum )AS FTToTalWork"
         _Qry &= vbCrLf & "from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork AS SW LEFT OUTER JOIN"
-        _Qry &= vbCrLf & "(select A.FTMalesum ,A.FTFeMalesum,A.FTToTalWork,A.FNHSysCmpId,A.FTMonthsum from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where  A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " And A.FTMonthsum='" & _DateMounth & "' AND A.FNTypeLeave='5')AS MA ON SW.FNHSysCmpId=MA.FNHSysCmpId AND SW.FTMonthsum=MA.FTMonthsum"
-        _Qry &= vbCrLf & "where SW.FNHSysCmpId= " & HI.ST.SysInfo.CmpID & "   AND SW.FTMonthsum='" & _DateMounth & "'  "
+        _Qry &= vbCrLf & "(select A.FTMalesum ,A.FTFeMalesum,A.FTToTalWork,A.FNHSysCmpId,A.FTMonthsum from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where  A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " And A.FTMonthsum='" & _DateMounth & "' AND A.FNTypeLeave='5' AND A.FTYear= " & Val(FNYear.Text) & ")AS MA ON SW.FNHSysCmpId=MA.FNHSysCmpId AND SW.FTMonthsum=MA.FTMonthsum"
+        _Qry &= vbCrLf & "where SW.FNHSysCmpId= " & HI.ST.SysInfo.CmpID & "   AND SW.FTMonthsum='" & _DateMounth & "'  AND SW.FTYear= " & Val(FNYear.Text)
 
         _Qry &= vbCrLf & "UNION ALL"
 
@@ -1680,8 +1767,8 @@
         _Qry &= vbCrLf & ", (A.FTFeMalesum * 100)/SW.FTFeMalesum AS FTFeMalesum"
         _Qry &= vbCrLf & ",(A.FTToTalWork * 100)/SW.FTToTalWork AS FTToTalWork"
         _Qry &= vbCrLf & "from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork AS SW LEFT OUTER JOIN"
-        _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumReason AS A ON  SW.FNHSysCmpId=A.FNHSysCmpId AND SW.FTMonthsum=A.FTMonthsum"
-        _Qry &= vbCrLf & "where SW.FNHSysCmpId= " & HI.ST.SysInfo.CmpID & "    AND SW.FTMonthsum='" & _DateMounth & "' "
+        _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumReason AS A ON  SW.FNHSysCmpId=A.FNHSysCmpId AND SW.FTMonthsum=A.FTMonthsum   AND SW.FTYear=A.FTYear "
+        _Qry &= vbCrLf & "where SW.FNHSysCmpId= " & HI.ST.SysInfo.CmpID & "    AND SW.FTMonthsum='" & _DateMounth & "' AND SW.FTYear= " & Val(FNYear.Text)
 
         _Qry &= vbCrLf & "UNION ALL"
 
@@ -1693,9 +1780,9 @@
         _Qry &= vbCrLf & ",SW.FTMonthsum, SW.FTMalesum/MA.FTMalesum AS FTMalesum"
         _Qry &= vbCrLf & ", SW.FTFeMalesum/MA.FTFeMalesum AS FTFeMalesum"
         _Qry &= vbCrLf & ", SW.FTToTalWork/MA.FTToTalWork AS FTToTalWork"
-        _Qry &= vbCrLf & "from (select A.FTMalesum ,A.FTFeMalesum,A.FTToTalWork,A.FNHSysCmpId,A.FTMonthsum from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " And A.FTMonthsum='" & _DateMounth & "'  AND A.FNTypeLeave='5')AS SW LEFT OUTER JOIN"
-        _Qry &= vbCrLf & "(select A.FTMalesum ,A.FTFeMalesum,A.FTToTalWork,A.FNHSysCmpId,A.FTMonthsum from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where  A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " And A.FTMonthsum='" & _DateMounth & "'  AND A.FNTypeLeave='6')AS MA ON SW.FNHSysCmpId=MA.FNHSysCmpId AND SW.FTMonthsum=MA.FTMonthsum"
-        _Qry &= vbCrLf & "where SW.FNHSysCmpId= " & HI.ST.SysInfo.CmpID & "     AND SW.FTMonthsum='" & _DateMounth & "'"
+        _Qry &= vbCrLf & "from (select A.FTMalesum ,A.FTFeMalesum,A.FTToTalWork,A.FNHSysCmpId,A.FTMonthsum, A.FTYear from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " And A.FTMonthsum='" & _DateMounth & "'  AND A.FNTypeLeave='5' AND A.FTYear= " & Val(FNYear.Text) & ")AS SW LEFT OUTER JOIN"
+        _Qry &= vbCrLf & "(select A.FTMalesum ,A.FTFeMalesum,A.FTToTalWork,A.FNHSysCmpId,A.FTMonthsum from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where  A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " And A.FTMonthsum='" & _DateMounth & "'  AND A.FNTypeLeave='6' AND A.FTYear= " & Val(FNYear.Text) & ")AS MA ON SW.FNHSysCmpId=MA.FNHSysCmpId AND SW.FTMonthsum=MA.FTMonthsum"
+        _Qry &= vbCrLf & "where SW.FNHSysCmpId= " & HI.ST.SysInfo.CmpID & "     AND SW.FTMonthsum='" & _DateMounth & "' AND SW.FTYear= " & Val(FNYear.Text)
 
 
         With Me.ogcsummary
@@ -2108,7 +2195,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & " Select  SW.FTMonthsum,CAST (SW.FTDaysum As INT)As FTDaysum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork As SW "
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "   AVG(FTDaysum)"
@@ -2128,7 +2215,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & "      Select  SW.FTMonthsum,SW.FTMalesum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork AS SW "
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "AVG(FTMalesum)"
@@ -2148,7 +2235,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & " Select  SW.FTMonthsum,SW.FTMalesum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumNew AS SW"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "  AVG(FTMalesum)"
@@ -2167,7 +2254,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & "   Select  SW.FTMonthsum,SW.FTMalesum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumReason AS SW"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "  AVG(FTMalesum)"
@@ -2186,7 +2273,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & " Select  SW.FTMonthsum,SW.FTMalesum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave  AS SW"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  And SW.FNTypeLeave ='5' And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  And SW.FNTypeLeave ='5' And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "  AVG(FTMalesum)"
@@ -2205,7 +2292,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & "   Select  SW.FTMonthsum,SW.FTMalesum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave  AS SW"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  And SW.FNTypeLeave ='6' And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  And SW.FNTypeLeave ='6' And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "  AVG(FTMalesum)"
@@ -2226,7 +2313,7 @@
         _Qry &= vbCrLf & ", (MA.FTMalesum * 100)/(SW.FTMalesum*SW.FTDaysum )AS FTMalesum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork AS SW LEFT OUTER Join"
         _Qry &= vbCrLf & "(Select A.FTMalesum, A.FTFeMalesum, A.FTToTalWork, A.FNHSysCmpId, A.FTMonthsum From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A Where A.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & " And A.FNTypeLeave ='5')AS MA ON SW.FNHSysCmpId=MA.FNHSysCmpId AND SW.FTMonthsum=MA.FTMonthsum"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "      AVG(FTMalesum)"
@@ -2246,7 +2333,7 @@
         _Qry &= vbCrLf & ", (A.FTMalesum * 100)/SW.FTMalesum AS FTMalesum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork AS SW LEFT OUTER Join"
         _Qry &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumReason AS A ON  SW.FNHSysCmpId=A.FNHSysCmpId And SW.FTMonthsum=A.FTMonthsum"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") As SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & " AVG(FTMalesum)"
@@ -2265,9 +2352,9 @@
         _Qry &= vbCrLf & "  From("
         _Qry &= vbCrLf & "  SELECT SW.FTMonthsum"
         _Qry &= vbCrLf & ",   SW.FTMalesum/MA.FTMalesum AS FTMalesum"
-        _Qry &= vbCrLf & "from(select A.FTMalesum , A.FTFeMalesum, A.FTToTalWork, A.FNHSysCmpId, A.FTMonthsum, A.FDInsDate from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & "  And A.FNTypeLeave='5')AS SW LEFT OUTER JOIN"
+        _Qry &= vbCrLf & "from(select A.FTMalesum , A.FTFeMalesum, A.FTToTalWork, A.FNHSysCmpId, A.FTMonthsum, A.FDInsDate,A.FTYear from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & "  And A.FNTypeLeave='5')AS SW LEFT OUTER JOIN"
         _Qry &= vbCrLf & "(select A.FTMalesum ,A.FTFeMalesum,A.FTToTalWork,A.FNHSysCmpId,A.FTMonthsum from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where  A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & "  And A.FNTypeLeave='6')AS MA ON SW.FNHSysCmpId=MA.FNHSysCmpId AND SW.FTMonthsum=MA.FTMonthsum"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") As SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & " AVG(FTMalesum)"
@@ -2288,7 +2375,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & "      Select  SW.FTMonthsum,SW.FTFeMalesum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork AS SW "
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "AVG(FTFeMalesum)"
@@ -2309,7 +2396,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & " Select  SW.FTMonthsum,SW.FTFeMalesum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumNew AS SW"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "  AVG(FTFeMalesum)"
@@ -2328,7 +2415,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & "   Select  SW.FTMonthsum,SW.FTFeMalesum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumReason AS SW"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "  AVG(FTFeMalesum)"
@@ -2347,7 +2434,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & " Select  SW.FTMonthsum,SW.FTFeMalesum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave  AS SW"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  And SW.FNTypeLeave ='5' And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  And SW.FNTypeLeave ='5' And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "  AVG(FTFeMalesum)"
@@ -2366,7 +2453,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & "   Select  SW.FTMonthsum,SW.FTFeMalesum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave  AS SW"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  And SW.FNTypeLeave ='6' And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  And SW.FNTypeLeave ='6' And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "  AVG(FTFeMalesum)"
@@ -2387,7 +2474,7 @@
         _Qry &= vbCrLf & ", (MA.FTFeMalesum * 100)/(SW.FTFeMalesum*SW.FTDaysum )AS FTFeMalesum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork AS SW LEFT OUTER Join"
         _Qry &= vbCrLf & "(Select A.FTMalesum, A.FTFeMalesum, A.FTToTalWork, A.FNHSysCmpId, A.FTMonthsum From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A Where A.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & " And A.FNTypeLeave ='5')AS MA ON SW.FNHSysCmpId=MA.FNHSysCmpId AND SW.FTMonthsum=MA.FTMonthsum"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "      AVG(FTFeMalesum)"
@@ -2407,7 +2494,7 @@
         _Qry &= vbCrLf & ", (A.FTFeMalesum * 100)/SW.FTFeMalesum AS FTFeMalesum"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork AS SW LEFT OUTER Join"
         _Qry &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumReason AS A ON  SW.FNHSysCmpId=A.FNHSysCmpId And SW.FTMonthsum=A.FTMonthsum"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") As SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & " AVG(FTFeMalesum)"
@@ -2426,9 +2513,9 @@
         _Qry &= vbCrLf & "  From("
         _Qry &= vbCrLf & "  SELECT SW.FTMonthsum"
         _Qry &= vbCrLf & ",  SW.FTFeMalesum/MA.FTFeMalesum AS FTFeMalesum"
-        _Qry &= vbCrLf & "from(select A.FTMalesum , A.FTFeMalesum, A.FTToTalWork, A.FNHSysCmpId, A.FTMonthsum, A.FDInsDate from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & "  And A.FNTypeLeave='5')AS SW LEFT OUTER JOIN"
+        _Qry &= vbCrLf & "from(select A.FTMalesum , A.FTFeMalesum, A.FTToTalWork, A.FNHSysCmpId, A.FTMonthsum, A.FDInsDate, A.FTYear from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & "  And A.FNTypeLeave='5')AS SW LEFT OUTER JOIN"
         _Qry &= vbCrLf & "(select A.FTMalesum ,A.FTFeMalesum,A.FTToTalWork,A.FNHSysCmpId,A.FTMonthsum from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where  A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & "  And A.FNTypeLeave='6')AS MA ON SW.FNHSysCmpId=MA.FNHSysCmpId AND SW.FTMonthsum=MA.FTMonthsum"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") As SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & " AVG(FTFeMalesum)"
@@ -2450,7 +2537,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & "      Select  SW.FTMonthsum,SW.FTToTalWork"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork AS SW "
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "AVG(FTToTalWork)"
@@ -2487,7 +2574,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & " Select  SW.FTMonthsum,SW.FTToTalWork"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumNew AS SW"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "  AVG(FTToTalWork)"
@@ -2506,7 +2593,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & "   Select  SW.FTMonthsum,SW.FTToTalWork"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumReason AS SW"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "  AVG(FTToTalWork)"
@@ -2525,7 +2612,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & " Select  SW.FTMonthsum,SW.FTToTalWork"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave  AS SW"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  And SW.FNTypeLeave ='5' And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  And SW.FNTypeLeave ='5' And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "  AVG(FTToTalWork)"
@@ -2544,7 +2631,7 @@
         _Qry &= vbCrLf & "  FROM("
         _Qry &= vbCrLf & "   Select  SW.FTMonthsum,SW.FTToTalWork"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave  AS SW"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  And SW.FNTypeLeave ='6' And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & "  And SW.FNTypeLeave ='6' And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "  AVG(FTToTalWork)"
@@ -2565,7 +2652,7 @@
         _Qry &= vbCrLf & ", (MA.FTToTalWork * 100)/(SW.FTToTalWork*SW.FTDaysum )AS FTToTalWork"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork AS SW LEFT OUTER Join"
         _Qry &= vbCrLf & "(Select A.FTMalesum, A.FTFeMalesum, A.FTToTalWork, A.FNHSysCmpId, A.FTMonthsum From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A Where A.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & " And A.FNTypeLeave ='5')AS MA ON SW.FNHSysCmpId=MA.FNHSysCmpId AND SW.FTMonthsum=MA.FTMonthsum"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") AS SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & "      AVG(FTToTalWork)"
@@ -2585,7 +2672,7 @@
         _Qry &= vbCrLf & ", (A.FTToTalWork * 100)/SW.FTToTalWork AS FTToTalWork"
         _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumWork AS SW LEFT OUTER Join"
         _Qry &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumReason AS A ON  SW.FNHSysCmpId=A.FNHSysCmpId And SW.FTMonthsum=A.FTMonthsum"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") As SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & " AVG(FTToTalWork)"
@@ -2604,9 +2691,9 @@
         _Qry &= vbCrLf & "  From("
         _Qry &= vbCrLf & "  SELECT SW.FTMonthsum"
         _Qry &= vbCrLf & ",   SW.FTToTalWork/MA.FTToTalWork AS FTToTalWork"
-        _Qry &= vbCrLf & "from(select A.FTMalesum , A.FTFeMalesum, A.FTToTalWork, A.FNHSysCmpId, A.FTMonthsum, A.FDInsDate from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & "  And A.FNTypeLeave='5')AS SW LEFT OUTER JOIN"
+        _Qry &= vbCrLf & "from(select A.FTMalesum , A.FTFeMalesum, A.FTToTalWork, A.FNHSysCmpId, A.FTMonthsum, A.FDInsDate ,A.FTYear from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & "  And A.FNTypeLeave='5')AS SW LEFT OUTER JOIN"
         _Qry &= vbCrLf & "(select A.FTMalesum ,A.FTFeMalesum,A.FTToTalWork,A.FNHSysCmpId,A.FTMonthsum from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTEmployeeHRMSumLeave AS A where  A.FNHSysCmpId=" & HI.ST.SysInfo.CmpID & "  And A.FNTypeLeave='6')AS MA ON SW.FNHSysCmpId=MA.FNHSysCmpId AND SW.FTMonthsum=MA.FTMonthsum"
-        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FDInsDate Like '%" & Me.FNYear.Text & "%'"
+        _Qry &= vbCrLf & "Where SW.FNHSysCmpId =  " & HI.ST.SysInfo.CmpID & " And SW.FTYear Like '%" & Me.FNYear.Text & "%'"
         _Qry &= vbCrLf & ") As SourceTable "
         _Qry &= vbCrLf & " PIVOT(  "
         _Qry &= vbCrLf & " AVG(FTToTalWork)"

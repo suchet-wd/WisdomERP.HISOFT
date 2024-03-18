@@ -19,6 +19,7 @@ Partial Class wEmployeeLoan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.ReposFCCheckNotPay = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.RepoFNReason = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
@@ -26,7 +27,7 @@ Partial Class wEmployeeLoan
         Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmLoad_Import = New DevExpress.XtraEditors.SimpleButton()
-        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager()
+        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.ogbemployee = New DevExpress.XtraEditors.GroupControl()
@@ -256,7 +257,7 @@ Partial Class wEmployeeLoan
         Me.ogbemployee.Location = New System.Drawing.Point(0, 0)
         Me.ogbemployee.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbemployee.Name = "ogbemployee"
-        Me.ogbemployee.Size = New System.Drawing.Size(1554, 730)
+        Me.ogbemployee.Size = New System.Drawing.Size(1554, 1332)
         Me.ogbemployee.TabIndex = 5
         '
         'XtraTabControl1
@@ -267,7 +268,7 @@ Partial Class wEmployeeLoan
         Me.XtraTabControl1.Location = New System.Drawing.Point(2, 94)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.XtraTabPage1
-        Me.XtraTabControl1.Size = New System.Drawing.Size(1550, 634)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(1550, 1236)
         Me.XtraTabControl1.TabIndex = 4
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage1, Me.XtraTabPage2, Me.XtraTabPage3})
         '
@@ -275,7 +276,7 @@ Partial Class wEmployeeLoan
         '
         Me.XtraTabPage1.Controls.Add(Me.GroupControl2)
         Me.XtraTabPage1.Name = "XtraTabPage1"
-        Me.XtraTabPage1.Size = New System.Drawing.Size(1540, 598)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(1540, 1200)
         Me.XtraTabPage1.Text = "Import"
         '
         'GroupControl2
@@ -286,7 +287,7 @@ Partial Class wEmployeeLoan
         Me.GroupControl2.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl2.Name = "GroupControl2"
         Me.GroupControl2.ShowCaption = False
-        Me.GroupControl2.Size = New System.Drawing.Size(1540, 598)
+        Me.GroupControl2.Size = New System.Drawing.Size(1540, 1200)
         Me.GroupControl2.TabIndex = 433
         Me.GroupControl2.Text = "GroupControl2"
         '
@@ -294,11 +295,11 @@ Partial Class wEmployeeLoan
         '
         Me.ogc.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogc.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogc.Location = New System.Drawing.Point(2, 87)
+        Me.ogc.Location = New System.Drawing.Point(2, 108)
         Me.ogc.MainView = Me.ogv
         Me.ogc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Name = "ogc"
-        Me.ogc.Size = New System.Drawing.Size(1536, 509)
+        Me.ogc.Size = New System.Drawing.Size(1536, 1090)
         Me.ogc.TabIndex = 388
         Me.ogc.TabStop = False
         Me.ogc.Tag = "2|"
@@ -760,7 +761,7 @@ Partial Class wEmployeeLoan
         Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl2.Location = New System.Drawing.Point(2, 2)
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(1536, 85)
+        Me.PanelControl2.Size = New System.Drawing.Size(1536, 106)
         Me.PanelControl2.TabIndex = 433
         '
         'ocmcheck
@@ -776,7 +777,7 @@ Partial Class wEmployeeLoan
         '
         Me.XtraTabPage2.Controls.Add(Me.GroupControl1)
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(1548, 595)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(1540, 1200)
         Me.XtraTabPage2.Text = "Export"
         '
         'GroupControl1
@@ -787,7 +788,7 @@ Partial Class wEmployeeLoan
         Me.GroupControl1.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl1.Name = "GroupControl1"
         Me.GroupControl1.ShowCaption = False
-        Me.GroupControl1.Size = New System.Drawing.Size(1548, 595)
+        Me.GroupControl1.Size = New System.Drawing.Size(1540, 1200)
         Me.GroupControl1.TabIndex = 439
         Me.GroupControl1.Text = "GroupControl1"
         '
@@ -799,7 +800,7 @@ Partial Class wEmployeeLoan
         Me.ogc_export.MainView = Me.ogv_export
         Me.ogc_export.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc_export.Name = "ogc_export"
-        Me.ogc_export.Size = New System.Drawing.Size(1544, 507)
+        Me.ogc_export.Size = New System.Drawing.Size(1536, 1112)
         Me.ogc_export.TabIndex = 435
         Me.ogc_export.TabStop = False
         Me.ogc_export.Tag = "3|"
@@ -1259,7 +1260,7 @@ Partial Class wEmployeeLoan
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl1.Location = New System.Drawing.Point(2, 2)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(1544, 84)
+        Me.PanelControl1.Size = New System.Drawing.Size(1536, 84)
         Me.PanelControl1.TabIndex = 439
         '
         'ocmExportCSV
@@ -1293,7 +1294,7 @@ Partial Class wEmployeeLoan
         '
         Me.XtraTabPage3.Controls.Add(Me.GroupControl3)
         Me.XtraTabPage3.Name = "XtraTabPage3"
-        Me.XtraTabPage3.Size = New System.Drawing.Size(1548, 595)
+        Me.XtraTabPage3.Size = New System.Drawing.Size(1540, 1200)
         Me.XtraTabPage3.Text = "XtraTabPage3"
         '
         'GroupControl3
@@ -1304,7 +1305,7 @@ Partial Class wEmployeeLoan
         Me.GroupControl3.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl3.Name = "GroupControl3"
         Me.GroupControl3.ShowCaption = False
-        Me.GroupControl3.Size = New System.Drawing.Size(1548, 595)
+        Me.GroupControl3.Size = New System.Drawing.Size(1540, 1200)
         Me.GroupControl3.TabIndex = 442
         Me.GroupControl3.Text = "GroupControl3"
         '
@@ -1317,7 +1318,7 @@ Partial Class wEmployeeLoan
         Me.ogbdetail.Location = New System.Drawing.Point(9, 104)
         Me.ogbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbdetail.Name = "ogbdetail"
-        Me.ogbdetail.Size = New System.Drawing.Size(1918, 750)
+        Me.ogbdetail.Size = New System.Drawing.Size(1910, 1355)
         Me.ogbdetail.TabIndex = 441
         Me.ogbdetail.Text = "Data Export Info"
         '
@@ -1330,7 +1331,7 @@ Partial Class wEmployeeLoan
         Me.opshet.Options.Behavior.Column.Resize = DevExpress.XtraSpreadsheet.DocumentCapability.Enabled
         Me.opshet.Options.Culture = New System.Globalization.CultureInfo("th-TH")
         Me.opshet.ReadOnly = True
-        Me.opshet.Size = New System.Drawing.Size(1914, 721)
+        Me.opshet.Size = New System.Drawing.Size(1906, 1326)
         Me.opshet.TabIndex = 1
         '
         'PanelControl3
@@ -1340,7 +1341,7 @@ Partial Class wEmployeeLoan
         Me.PanelControl3.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl3.Location = New System.Drawing.Point(2, 2)
         Me.PanelControl3.Name = "PanelControl3"
-        Me.PanelControl3.Size = New System.Drawing.Size(1544, 149)
+        Me.PanelControl3.Size = New System.Drawing.Size(1536, 149)
         Me.PanelControl3.TabIndex = 440
         '
         'SimpleButton1
@@ -1448,7 +1449,7 @@ Partial Class wEmployeeLoan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1554, 730)
+        Me.ClientSize = New System.Drawing.Size(1554, 1332)
         Me.Controls.Add(Me.ogbemployee)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "wEmployeeLoan"

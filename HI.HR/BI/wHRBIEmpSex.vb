@@ -244,11 +244,20 @@ Public Class wHRBIEmpSex
                 _Qry &= vbCrLf & " AND   U.FTUnitSectCode<='" & HI.UL.ULF.rpQuoted(Me.FNHSysUnitSectIdTo.Text) & "' "
             End If
 
+            'Select Case FNEmpStatusReport.SelectedIndex
+            '    Case 0
+            '    Case Else
+            '        _Qry &= vbCrLf & " AND   E.FNEmpStatus=" & Val(FNEmpStatusReport.SelectedIndex - 1) & " "
+            'End Select
+
             Select Case FNEmpStatusReport.SelectedIndex
                 Case 0
+                Case 4
+                    _Qry &= vbCrLf & " AND   E.FNEmpStatus IN (0,1) "
                 Case Else
                     _Qry &= vbCrLf & " AND   E.FNEmpStatus=" & Val(FNEmpStatusReport.SelectedIndex - 1) & " "
             End Select
+
             _Qry &= vbCrLf & ")AS A"
 
             Clipboard.SetText(_Qry)
@@ -286,9 +295,10 @@ Public Class wHRBIEmpSex
             _Qry &= vbCrLf & "  WHERE        (E.FTEmpCode <> '')"
             Select Case FNEmpStatusReport.SelectedIndex
                 Case 0
+                Case 4
+                    _Qry &= vbCrLf & " AND   E.FNEmpStatus IN (0,1) "
                 Case Else
-                    _Qry &= vbCrLf & " AND FNEmpStatus=" & Val(FNEmpStatusReport.SelectedIndex - 1) & " "
-
+                    _Qry &= vbCrLf & " AND   E.FNEmpStatus=" & Val(FNEmpStatusReport.SelectedIndex - 1) & " "
             End Select
             If Me.FNHSysEmpTypeId.Text <> "" Then
                 _Qry &= vbCrLf & " AND ET.FTEmpTypeCode='" & HI.UL.ULF.rpQuoted(Me.FNHSysEmpTypeId.Text) & "' "
@@ -401,8 +411,16 @@ Public Class wHRBIEmpSex
             If Me.FNHSysUnitSectIdTo.Text <> "" Then
                 _Qry &= vbCrLf & " AND   U.FTUnitSectCode<='" & HI.UL.ULF.rpQuoted(Me.FNHSysUnitSectIdTo.Text) & "' "
             End If
+            'Select Case FNEmpStatusReport.SelectedIndex
+            '    Case 0
+            '    Case Else
+            '        _Qry &= vbCrLf & " AND   E.FNEmpStatus=" & Val(FNEmpStatusReport.SelectedIndex - 1) & " "
+            'End Select
+
             Select Case FNEmpStatusReport.SelectedIndex
                 Case 0
+                Case 4
+                    _Qry &= vbCrLf & " AND   E.FNEmpStatus IN (0,1) "
                 Case Else
                     _Qry &= vbCrLf & " AND   E.FNEmpStatus=" & Val(FNEmpStatusReport.SelectedIndex - 1) & " "
             End Select
@@ -492,11 +510,19 @@ Public Class wHRBIEmpSex
             If Me.FNHSysUnitSectIdTo.Text <> "" Then
                 _Qry &= vbCrLf & " AND   U.FTUnitSectCode<='" & HI.UL.ULF.rpQuoted(Me.FNHSysUnitSectIdTo.Text) & "' "
             End If
+            'Select Case FNEmpStatusReport.SelectedIndex
+            '    Case 0
+            '    Case Else
+            '        _Qry &= vbCrLf & " AND   E.FNEmpStatus=" & Val(FNEmpStatusReport.SelectedIndex - 1) & " "
+            'End Select
             Select Case FNEmpStatusReport.SelectedIndex
                 Case 0
+                Case 4
+                    _Qry &= vbCrLf & " AND   E.FNEmpStatus IN (0,1) "
                 Case Else
                     _Qry &= vbCrLf & " AND   E.FNEmpStatus=" & Val(FNEmpStatusReport.SelectedIndex - 1) & " "
             End Select
+
             _Qry &= vbCrLf & ")AS A"
 
 
@@ -531,9 +557,10 @@ Public Class wHRBIEmpSex
             _Qry &= vbCrLf & "  WHERE        (E.FTEmpCode <> '')"
             Select Case FNEmpStatusReport.SelectedIndex
                 Case 0
+                Case 4
+                    _Qry &= vbCrLf & " AND   E.FNEmpStatus IN (0,1) "
                 Case Else
-                    _Qry &= vbCrLf & " AND FNEmpStatus=" & Val(FNEmpStatusReport.SelectedIndex - 1) & " "
-
+                    _Qry &= vbCrLf & " AND   E.FNEmpStatus=" & Val(FNEmpStatusReport.SelectedIndex - 1) & " "
             End Select
             If Me.FNHSysEmpTypeId.Text <> "" Then
                 _Qry &= vbCrLf & " AND FTEmpTypeCode='" & HI.UL.ULF.rpQuoted(Me.FNHSysEmpTypeId.Text) & "' "
@@ -641,11 +668,20 @@ Public Class wHRBIEmpSex
             If Me.FNHSysUnitSectIdTo.Text <> "" Then
                 _Qry &= vbCrLf & " AND   U.FTUnitSectCode<='" & HI.UL.ULF.rpQuoted(Me.FNHSysUnitSectIdTo.Text) & "' "
             End If
+            'Select Case FNEmpStatusReport.SelectedIndex
+            '    Case 0
+            '    Case Else
+            '        _Qry &= vbCrLf & " AND   E.FNEmpStatus=" & Val(FNEmpStatusReport.SelectedIndex - 1) & " "
+            'End Select
+
             Select Case FNEmpStatusReport.SelectedIndex
                 Case 0
+                Case 4
+                    _Qry &= vbCrLf & " AND   E.FNEmpStatus IN (0,1) "
                 Case Else
                     _Qry &= vbCrLf & " AND   E.FNEmpStatus=" & Val(FNEmpStatusReport.SelectedIndex - 1) & " "
             End Select
+
             _Qry &= vbCrLf & ")AS A"
 
 

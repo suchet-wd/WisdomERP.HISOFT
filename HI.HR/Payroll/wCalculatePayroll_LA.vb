@@ -547,9 +547,300 @@ Public Class wCalculatePayroll_LA
 
     End Sub
 
+
+    Private Sub CalculateLA2()
+
+        Dim dtGroup_EmpType As DataTable
+
+        Dim dtemptype As DataTable
+        Dim _Dt As DataTable
+        Dim _Qry As String = ""
+        Dim _QryDel As String = ""
+        Dim _StateVacationRet As Integer
+        Dim _FTStaDeductAbsent As Integer = 0
+        Dim _FTStaCalPayRoll As Integer = 0
+        Dim _FNStateSalaryType As Integer = 0
+
+        Dim _FNHSysEmpTypeId As Integer = 0
+        Dim _dttmpemp As New DataTable
+
+        _dttmpemp.Columns.Add("FTEmpCode", GetType(String))
+        _dttmpemp.Columns.Add("FTEmpName", GetType(String))
+
+
+        Dim _FNEmpTypeGroupID As Integer = 0
+        Dim _FTPayYear As String = ""
+        Dim _FTPayTerm As String = ""
+        Dim _FTStartDate As String = ""
+        Dim _FTEndDate As String = ""
+
+        Dim _FDPayDate As String = ""
+
+
+        Dim _Rec As Integer = 0
+        Dim _RecError As Integer = 0
+        Dim _TotalRec As Integer = 0
+
+        Dim _FNHSysEmpTypeId_M_thai As Integer = 0
+
+
+        If Not (Me.ogcemptype.DataSource Is Nothing) Then
+            With CType(Me.ogcemptype.DataSource, DataTable)
+                .AcceptChanges()
+
+                If .Select("FTSelect='1'").Length > 0 Then
+                    For Each RT As DataRow In .Select("FTSelect='1'")
+
+
+                        _FNHSysEmpTypeId = Val(RT!FNHSysEmpTypeId.ToString)
+                        _FNEmpTypeGroupID = Val(RT!FNEmpTypeGroupID.ToString)
+                        _FTPayYear = RT!FTPayYear.ToString
+                        _FTPayTerm = RT!FTPayTerm.ToString
+
+                        _FTStartDate = RT!FDCalDateBegin.ToString
+                        _FTEndDate = RT!FDCalDateEnd.ToString
+                        _FDPayDate = RT!FDPayDate.ToString
+
+                        _Qry = " SELECT FTEmpTypeCode,FTEmpTypeNameEN AS FTDescription,FNHSysEmpTypeId  "
+                        _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType ET WITH ( NOLOCK ) "
+                        _Qry &= vbCrLf & " WHERE  FTStateActive ='1'  AND FNHSysCmpId=" & HI.ST.SysInfo.CmpID & " "
+
+                        If Val(_FNEmpTypeGroupID) <> 0 Then
+                            _Qry &= vbCrLf & " AND  FNEmpTypeGroup =" & Val(_FNEmpTypeGroupID) & " "
+                        End If
+
+
+                        If Val(_FNHSysEmpTypeId) <> 0 Then
+                            _Qry &= vbCrLf & " AND ET.FNHSysEmpTypeId=" & Val(_FNHSysEmpTypeId)
+                        End If
+
+                        dtGroup_EmpType = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+                        Dim _Spls As New HI.TL.SplashScreen("Prepre Data For Calculate.. Please Wait ")
+
+
+
+                        For Each dr In dtGroup_EmpType.Rows
+                            _FNHSysEmpTypeId = Val(dr!FNHSysEmpTypeId)
+
+
+
+                            If Integer.Parse(_FTPayYear) >= 2014 Then
+                                _Qry = " SELECT   TOP 1 FCCfgRetValue"
+                                _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigReturnVacationSet WITH(NOLOCK) "
+                                _Qry &= vbCrLf & "  WHERE      (FNCalType =" & Val(_FNHSysEmpTypeId) & ")"
+                                _Qry &= vbCrLf & "  AND (FTCfgRetTerm = '" & HI.UL.ULF.rpQuoted(_FTPayTerm) & "')"
+                                _StateVacationRet = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+                            Else
+                                _StateVacationRet = 0
+                            End If
+
+                            Dim _FNWorkDayInWeekBF As Integer = 0
+                            Dim _FNWorkDayInWeek As Integer = 15
+                            Dim _FNWorkDayInMonth As Integer = 30
+                            Dim _dtWKDay As DataTable
+
+                            _Qry = " SELECT SUM(ISNULL(A.FNWorkDay,0)) AS FNMonthWorkDay"
+                            _Qry &= vbCrLf & " ,B.FNWorkDay AS FNWeekWorkDay"
+                            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT AS A WITH(NOLOCK)"
+                            _Qry &= vbCrLf & "  INNER Join"
+                            _Qry &= vbCrLf & " (SELECT FTPayTerm, FTPayYear,FNMonth, FNHSysEmpTypeId, ISNULL(FNWorkDay,0) AS FNWorkDay"
+                            _Qry &= vbCrLf & " FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT AS X WITH(NOLOCK)"
+                            _Qry &= vbCrLf & " WHERE  (FTPayTerm = '" & HI.UL.ULF.rpQuoted(_FTPayTerm) & "') "
+                            _Qry &= vbCrLf & " AND (FTPayYear = '" & HI.UL.ULF.rpQuoted(_FTPayYear) & "') "
+                            _Qry &= vbCrLf & " AND (FNHSysEmpTypeId =" & Val(_FNHSysEmpTypeId) & ")) AS B"
+                            _Qry &= vbCrLf & " ON A.FTPayYear = B.FTPayYear"
+                            _Qry &= vbCrLf & "  AND A.FNHSysEmpTypeId = B.FNHSysEmpTypeId "
+                            _Qry &= vbCrLf & " AND A.FNMonth = B.FNMonth"
+                            _Qry &= vbCrLf & " GROUP BY B.FNWorkDay"
+                            _dtWKDay = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                            For Each R As DataRow In _dtWKDay.Rows
+
+                                If Val(R!FNMonthWorkDay.ToString) > 0 Then
+                                    _FNWorkDayInMonth = Val(R!FNMonthWorkDay.ToString)
+
+                                    If _FNWorkDayInMonth > 30 Then _FNWorkDayInMonth = 30
+
+                                End If
+
+                                If Val(R!FNWeekWorkDay.ToString) > 0 Then
+                                    _FNWorkDayInWeek = Val(R!FNWeekWorkDay.ToString)
+                                End If
+
+                                Exit For
+                            Next
+
+                            _Qry = " SELECT SUM(ISNULL(A.FNWorkDay,0)) AS FNWeekWorkDay"
+                            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT AS A WITH(NOLOCK)"
+                            _Qry &= vbCrLf & "  INNER Join"
+                            _Qry &= vbCrLf & " (SELECT FTPayTerm, FTPayYear,FNMonth, FNHSysEmpTypeId, ISNULL(FNWorkDay,0) AS FNWorkDay"
+                            _Qry &= vbCrLf & " FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMCfgPayDT AS X WITH(NOLOCK)"
+                            _Qry &= vbCrLf & " WHERE  (FTPayTerm = '" & HI.UL.ULF.rpQuoted(_FTPayTerm) & "') "
+                            _Qry &= vbCrLf & " AND (FTPayYear = '" & HI.UL.ULF.rpQuoted(_FTPayYear) & "') "
+                            _Qry &= vbCrLf & " AND (FNHSysEmpTypeId =" & Val(_FNHSysEmpTypeId) & ")) AS B"
+                            _Qry &= vbCrLf & " ON A.FTPayYear = B.FTPayYear"
+                            _Qry &= vbCrLf & "  AND A.FNHSysEmpTypeId = B.FNHSysEmpTypeId "
+                            _Qry &= vbCrLf & " AND A.FNMonth = B.FNMonth"
+                            _Qry &= vbCrLf & " WHERE  (A.FTPayTerm < '" & HI.UL.ULF.rpQuoted(_FTPayTerm) & "') "
+                            _Qry &= vbCrLf & " GROUP BY B.FNWorkDay"
+                            _dtWKDay = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                            For Each R As DataRow In _dtWKDay.Rows
+
+                                If Val(R!FNWeekWorkDay.ToString) > 0 Then
+                                    _FNWorkDayInWeekBF = Val(R!FNWeekWorkDay.ToString)
+                                End If
+
+                                Exit For
+                            Next
+                            _dtWKDay.Dispose()
+
+                            _Qry = "SELECT TOP 1 FNCalType,FTStaDeductAbsent,FTStaCalPayRoll,FNStateSalaryType FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType  WITH(NOLOCK) WHERE FNHSysEmpTypeId=" & Integer.Parse(Val(_FNHSysEmpTypeId)) & "  "
+                            dtemptype = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
+
+                            Dim _TmpCalType As Integer = 0
+
+                            Dim SDate As String = HI.UL.ULDate.ConvertEnDB(_FTStartDate)
+                            Dim EDate As String = HI.UL.ULDate.ConvertEnDB(_FTEndDate)
+
+                            For Each R As DataRow In dtemptype.Rows
+                                _TmpCalType = Integer.Parse(Val(R!FNCalType.ToString))
+                                _FTStaDeductAbsent = Integer.Parse(Val(R!FTStaDeductAbsent.ToString))
+                                _FTStaCalPayRoll = Integer.Parse(Val(R!FTStaCalPayRoll.ToString))
+                                _FNStateSalaryType = Integer.Parse(Val(R!FNStateSalaryType.ToString))
+                                Exit For
+                            Next
+                            dtemptype.Dispose()
+                            If _TmpCalType = 2 Or _TmpCalType = 3 Then
+
+                                If _FTStaCalPayRoll = 1 Then
+                                    SDate = HI.UL.ULDate.ConvertEnDB(Microsoft.VisualBasic.Left(EDate, 8) & "01")  'วันแรกของเดือน
+                                    EDate = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddDay(HI.UL.ULDate.AddMonth(Microsoft.VisualBasic.Left(EDate, 8) & "01", 1), -1)) 'วันแของเดือน
+                                End If
+
+                            End If
+
+                            _Qry = Me.GenQuery(SDate, EDate, _FNHSysEmpTypeId, True)
+
+                            _QryDel = "DELETE  P FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRoll AS P , (" & _Qry & ") As M"
+                            _QryDel &= vbCrLf & " WHERE P.FNHSysEmpID = M.FNHSysEmpID"
+                            _QryDel &= vbCrLf & " AND P.FTPayYear = '" & _FTPayYear & "'"
+                            _QryDel &= vbCrLf & " AND P.FTPayTerm = '" & _FTPayTerm & "'"
+                            HI.Conn.SQLConn.ExecuteNonQuery(_QryDel, Conn.DB.DataBaseName.DB_HR)
+
+                            _QryDel = "DELETE  PF FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollCalculate AS PF , (" & _Qry & ") As M"
+                            _QryDel &= vbCrLf & " WHERE PF.FNHSysEmpID = M.FNHSysEmpID"
+                            _QryDel &= vbCrLf & " AND PF.FTPayYear = '" & _FTPayYear & "'"
+                            _QryDel &= vbCrLf & " AND PF.FTPayTerm = '" & _FTPayTerm & "'"
+                            HI.Conn.SQLConn.ExecuteNonQuery(_QryDel, Conn.DB.DataBaseName.DB_HR)
+
+                            _QryDel = "  DELETE PF FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFin As PF, (" & _Qry & ")  As M"
+                            _QryDel &= vbCrLf & " WHERE PF.FNHSysEmpID = M.FNHSysEmpID"
+                            _QryDel &= vbCrLf & " AND PF.FTPayYear = '" & _FTPayYear & "'"
+                            _QryDel &= vbCrLf & " AND PF.FTPayTerm = '" & _FTPayTerm & "'"
+                            HI.Conn.SQLConn.ExecuteNonQuery(_QryDel, Conn.DB.DataBaseName.DB_HR)
+
+                            _QryDel = "  DELETE PFM FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollFinCalculate As PFM, (" & _Qry & ")  As M"
+                            _QryDel &= vbCrLf & " WHERE PFM.FNHSysEmpID = M.FNHSysEmpID"
+                            _QryDel &= vbCrLf & " AND PFM.FTPayYear = '" & _FTPayYear & "'"
+                            _QryDel &= vbCrLf & " AND PFM.FTPayTerm = '" & _FTPayTerm & "'"
+                            HI.Conn.SQLConn.ExecuteNonQuery(_QryDel, Conn.DB.DataBaseName.DB_HR)
+
+                            _QryDel = "  DELETE PML  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTPayRollLeave AS PML, (" & _Qry & ") AS M"
+                            _QryDel &= vbCrLf & " WHERE PML.FNHSysEmpID = M.FNHSysEmpID"
+                            _QryDel &= vbCrLf & " AND PML.FTPayYear = '" & _FTPayYear & "'"
+                            _QryDel &= vbCrLf & " AND PML.FTPayTerm = '" & _FTPayTerm & "'"
+                            HI.Conn.SQLConn.ExecuteNonQuery(_QryDel, Conn.DB.DataBaseName.DB_HR)
+
+                            _QryDel = "  DELETE PMC  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTManageCalculate AS PMC, (" & _Qry & ") AS M"
+                            _QryDel &= vbCrLf & " WHERE PMC.FNHSysEmpID = M.FNHSysEmpID"
+                            _QryDel &= vbCrLf & " AND PMC.FTPayYear = '" & _FTPayYear & "'"
+                            _QryDel &= vbCrLf & " AND PMC.FTPayTerm = '" & _FTPayTerm & "'"
+                            HI.Conn.SQLConn.ExecuteNonQuery(_QryDel, Conn.DB.DataBaseName.DB_HR)
+
+
+                            _Qry = Me.GenQuery(SDate, EDate, _FNHSysEmpTypeId)
+                            _Qry &= vbCrLf & " ORDER BY  M.FTEmpCode  "
+
+                            _Dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+
+                            _TotalRec += _Dt.Rows.Count
+                            HI.HRCAL.Calculate.LoadSocialRate()
+                            HI.HRCAL.Calculate.LoadTaxRate()
+                            HI.HRCAL.Calculate.LoadDiscountTax()
+
+
+                            For Each R As DataRow In _Dt.Rows
+
+
+                                If R!FNHSysEmpTypeId.ToString = "2012610375" Then
+                                    _FNHSysEmpTypeId_M_thai = _FNHSysEmpTypeId_M_thai + 1
+                                End If
+
+
+                                _Rec = _Rec + 1
+                                _Spls.UpdateInformation("Calculating... Employee Code " & R!FTEmpCode.ToString & "    " & R!FTEmpName.ToString & "  Record  " & _Rec.ToString & " Of " & _TotalRec.ToString & "  (" & Format((_Rec * 100.0) / _TotalRec, "0.00") & " % ) ")
+
+
+                                If HI.HRCAL.Calculate.CalculateWeekEnd_LA2(HI.ST.UserInfo.UserName, R!FNHSysEmpID.ToString _
+                                        , R!FNHSysEmpTypeId.ToString, HI.UL.ULDate.ConvertEnDB(_FTStartDate), HI.UL.ULDate.ConvertEnDB(_FTEndDate) _
+                                        , _FTPayYear, _FTPayTerm, _FDPayDate, R!FTDeligentCode.ToString, _TmpCalType.ToString _
+                                        , False, _StateVacationRet, _FTStaDeductAbsent, _FTStaCalPayRoll, _FNStateSalaryType, 0,
+                                        0, _FNWorkDayInWeek, _FNWorkDayInMonth, _FNWorkDayInWeekBF, 0, 0, R!FNCalType.ToString) = False Then
+
+
+                                    _dttmpemp.Rows.Add(R!FTEmpCode.ToString, R!FTEmpName.ToString)
+
+                                    _RecError = _RecError + 1
+
+                                End If
+
+                            Next
+
+                        Next
+
+                        _Spls.Close()
+
+                    Next
+                End If
+            End With
+            HI.MG.ShowMsg.mInvalidData("", 1105030002, Me.Text, (_Rec - _RecError).ToString & " Records  ")
+        End If
+
+        If _dttmpemp.Rows.Count > 0 Then
+
+            If _FNHSysEmpTypeId_M_thai > 0 Then
+            Else
+
+                HI.MG.ShowMsg.mInvalidData("พบข้อมูล วันทำงานงวด ยังไม่มีการ Accept ไม่สามารถทำการคำนวณได้ !!!", 1175030002, Me.Text)
+            End If
+
+
+            With _ListNotCal
+                .ogclist.DataSource = _dttmpemp.Copy
+                .ShowDialog()
+            End With
+
+        End If
+
+        _dttmpemp.Dispose()
+
+
+
+
+    End Sub
+
+
     Private Sub ocmcalculate_Click(sender As System.Object, e As System.EventArgs) Handles ocmcalculate.Click
 
-        Call Calculate()
+        If (HI.ST.SysInfo.CmpID = 2015760004) Then
+            Call CalculateLA2()
+
+        Else
+            Call Calculate()
+        End If
+
 
         'If HI.UL.ULDate.CheckDate(Me.FTStartDate.Text) <> "" And HI.UL.ULDate.CheckDate(Me.FTEndDate.Text) <> "" Then
 

@@ -19,7 +19,6 @@ Partial Class wTimeAttendanceCon_TransProd
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wTimeAttendanceCon_TransProd))
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -190,10 +189,14 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FNHSysShiftIDOrg = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTEmpTypeCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTDeptCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTDeptDesc = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTDivisonCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSectCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSectName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTUnitSectCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTUnitSectName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTPositCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTPositName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTShiftCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepFTShiftCode = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
         Me.FTCheckIn1 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -274,7 +277,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.RepFTScanAOut = New DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit()
         Me.RepFTScanAOTIn = New DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit()
         Me.RepFTScanAOTOut = New DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit()
-        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
+        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager()
         Me.hideContainerTop = New DevExpress.XtraBars.Docking.AutoHideContainer()
         Me.ogbheader.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
@@ -340,7 +343,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.ogbheader.DockVertical = DevExpress.Utils.DefaultBoolean.[False]
         Me.ogbheader.ID = New System.Guid("77b9346d-8d15-4323-af1e-af82afa9902a")
         Me.ogbheader.ImageOptions.Image = CType(resources.GetObject("ogbheader.ImageOptions.Image"), System.Drawing.Image)
-        Me.ogbheader.Location = New System.Drawing.Point(0, 0)
+        Me.ogbheader.Location = New System.Drawing.Point(0, 42)
         Me.ogbheader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbheader.Name = "ogbheader"
         Me.ogbheader.Options.AllowDockBottom = False
@@ -351,7 +354,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.ogbheader.OriginalSize = New System.Drawing.Size(187, 187)
         Me.ogbheader.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Top
         Me.ogbheader.SavedIndex = 0
-        Me.ogbheader.Size = New System.Drawing.Size(1353, 230)
+        Me.ogbheader.Size = New System.Drawing.Size(1353, 187)
         Me.ogbheader.TabStop = False
         Me.ogbheader.Text = "Criteria"
         Me.ogbheader.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide
@@ -401,7 +404,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 32)
         Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1345, 192)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1345, 149)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FDEndDate
@@ -1105,7 +1108,7 @@ Partial Class wTimeAttendanceCon_TransProd
         '
         'ogvtime
         '
-        Me.ogvtime.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTDateTrans, Me.ColFTEmpCode, Me.ColFTEmpName, Me.FNHSysShiftID, Me.FNHSysShiftIDOrg, Me.FTEmpTypeCode, Me.FTDeptCode, Me.FTDivisonCode, Me.FTSectCode, Me.FTUnitSectCode, Me.FTPositCode, Me.FTShiftCode, Me.FTCheckIn1, Me.FTCheckOut1, Me.FTCheckIn2, Me.FTCheckOut2, Me.FTCheckOTAIn1, Me.FTCheckOTAOut1, Me.FTCheckOTAIn2, Me.FTCheckOTAOut2, Me.FTOTIn2, Me.FTOTOut2, Me.FTOTIn, Me.FTOTOut, Me.FTIn1, Me.FTOut1, Me.FTIn2, Me.FTOut2, Me.FTIn3, Me.FTOut3, Me.FTIn4, Me.FTOut4, Me.FTScanOtMIn, Me.FTScanOtMOut, Me.ColFTScanMIn, Me.ColFTScanMOut, Me.ColFTScanAIn, Me.ColFTScanAOut, Me.ColFTScanAOTIn, Me.ColFTScanAOTOut, Me.ColFTScanAOTIn2, Me.ColFTScanAOTOut2, Me.FNTime, Me.FNOTRequest, Me.FNOT1, Me.FNOT1_5, Me.FNOT2, Me.FNOT3, Me.FNOT4, Me.FNLateNormalMin, Me.FNLateNormalCut, Me.FNAbsentCut, Me.FNAbsent, Me.FNCutAbsent, Me.ColFNHSysEmpID, Me.ColFNHSysTranStaId, Me.ColFTTranStaCode, Me.ColFNHSysTranStaId_None, Me.ColFTOverClock, Me.FTStateError, Me.FTLeave, Me.FDHolidayDate, Me.FTWeekly, Me.FTLeaveCode, Me.FNEmpWork, Me.FTShiftCodeOrg, Me.SPD, Me.FTScanMInM, Me.FTScanMOutM, Me.FTScanAInM, Me.FTScanAOutM, Me.FTScanAOTInM, Me.FTScanAOTOutM, Me.FDDateEnd, Me.FNUseBarcode, Me.FTScanOTMInM, Me.FTScanOTMOutM, Me.CFTCheckOTMIn, Me.CFTCheckOTMOut, Me.CFTDateTrans})
+        Me.ogvtime.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTDateTrans, Me.ColFTEmpCode, Me.ColFTEmpName, Me.FNHSysShiftID, Me.FNHSysShiftIDOrg, Me.FTEmpTypeCode, Me.FTDeptCode, Me.FTDeptDesc, Me.FTDivisonCode, Me.FTSectCode, Me.FTSectName, Me.FTUnitSectCode, Me.FTUnitSectName, Me.FTPositCode, Me.FTPositName, Me.FTShiftCode, Me.FTCheckIn1, Me.FTCheckOut1, Me.FTCheckIn2, Me.FTCheckOut2, Me.FTCheckOTAIn1, Me.FTCheckOTAOut1, Me.FTCheckOTAIn2, Me.FTCheckOTAOut2, Me.FTOTIn2, Me.FTOTOut2, Me.FTOTIn, Me.FTOTOut, Me.FTIn1, Me.FTOut1, Me.FTIn2, Me.FTOut2, Me.FTIn3, Me.FTOut3, Me.FTIn4, Me.FTOut4, Me.FTScanOtMIn, Me.FTScanOtMOut, Me.ColFTScanMIn, Me.ColFTScanMOut, Me.ColFTScanAIn, Me.ColFTScanAOut, Me.ColFTScanAOTIn, Me.ColFTScanAOTOut, Me.ColFTScanAOTIn2, Me.ColFTScanAOTOut2, Me.FNTime, Me.FNOTRequest, Me.FNOT1, Me.FNOT1_5, Me.FNOT2, Me.FNOT3, Me.FNOT4, Me.FNLateNormalMin, Me.FNLateNormalCut, Me.FNAbsentCut, Me.FNAbsent, Me.FNCutAbsent, Me.ColFNHSysEmpID, Me.ColFNHSysTranStaId, Me.ColFTTranStaCode, Me.ColFNHSysTranStaId_None, Me.ColFTOverClock, Me.FTStateError, Me.FTLeave, Me.FDHolidayDate, Me.FTWeekly, Me.FTLeaveCode, Me.FNEmpWork, Me.FTShiftCodeOrg, Me.SPD, Me.FTScanMInM, Me.FTScanMOutM, Me.FTScanAInM, Me.FTScanAOutM, Me.FTScanAOTInM, Me.FTScanAOTOutM, Me.FDDateEnd, Me.FNUseBarcode, Me.FTScanOTMInM, Me.FTScanOTMOutM, Me.CFTCheckOTMIn, Me.CFTCheckOTMOut, Me.CFTDateTrans})
         Me.ogvtime.DetailHeight = 431
         Me.ogvtime.GridControl = Me.ogdtime
         Me.ogvtime.Name = "ogvtime"
@@ -1222,6 +1225,19 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FTDeptCode.VisibleIndex = 5
         Me.FTDeptCode.Width = 87
         '
+        'FTDeptDesc
+        '
+        Me.FTDeptDesc.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTDeptDesc.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTDeptDesc.Caption = "FTDeptDesc"
+        Me.FTDeptDesc.FieldName = "FTDeptDesc"
+        Me.FTDeptDesc.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.FTDeptDesc.MinWidth = 23
+        Me.FTDeptDesc.Name = "FTDeptDesc"
+        Me.FTDeptDesc.OptionsColumn.AllowEdit = False
+        Me.FTDeptDesc.Visible = True
+        Me.FTDeptDesc.VisibleIndex = 6
+        '
         'FTDivisonCode
         '
         Me.FTDivisonCode.AppearanceHeader.Options.UseTextOptions = True
@@ -1247,8 +1263,22 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FTSectCode.Name = "FTSectCode"
         Me.FTSectCode.OptionsColumn.AllowEdit = False
         Me.FTSectCode.Visible = True
-        Me.FTSectCode.VisibleIndex = 6
+        Me.FTSectCode.VisibleIndex = 7
         Me.FTSectCode.Width = 87
+        '
+        'FTSectName
+        '
+        Me.FTSectName.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTSectName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTSectName.Caption = "FTSectName"
+        Me.FTSectName.FieldName = "FTSectName"
+        Me.FTSectName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.FTSectName.MinWidth = 23
+        Me.FTSectName.Name = "FTSectName"
+        Me.FTSectName.OptionsColumn.AllowEdit = False
+        Me.FTSectName.Visible = True
+        Me.FTSectName.VisibleIndex = 8
+        Me.FTSectName.Width = 87
         '
         'FTUnitSectCode
         '
@@ -1262,8 +1292,22 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.FTUnitSectCode.Visible = True
-        Me.FTUnitSectCode.VisibleIndex = 7
+        Me.FTUnitSectCode.VisibleIndex = 9
         Me.FTUnitSectCode.Width = 89
+        '
+        'FTUnitSectName
+        '
+        Me.FTUnitSectName.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTUnitSectName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTUnitSectName.Caption = "FTUnitSectName"
+        Me.FTUnitSectName.FieldName = "FTUnitSectName"
+        Me.FTUnitSectName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.FTUnitSectName.MinWidth = 23
+        Me.FTUnitSectName.Name = "FTUnitSectName"
+        Me.FTUnitSectName.OptionsColumn.AllowEdit = False
+        Me.FTUnitSectName.Visible = True
+        Me.FTUnitSectName.VisibleIndex = 10
+        Me.FTUnitSectName.Width = 87
         '
         'FTPositCode
         '
@@ -1275,8 +1319,22 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FTPositCode.OptionsColumn.AllowEdit = False
         Me.FTPositCode.OptionsColumn.ReadOnly = True
         Me.FTPositCode.Visible = True
-        Me.FTPositCode.VisibleIndex = 8
+        Me.FTPositCode.VisibleIndex = 11
         Me.FTPositCode.Width = 87
+        '
+        'FTPositName
+        '
+        Me.FTPositName.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTPositName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTPositName.Caption = "FTPositName"
+        Me.FTPositName.FieldName = "FTPositName"
+        Me.FTPositName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.FTPositName.MinWidth = 23
+        Me.FTPositName.Name = "FTPositName"
+        Me.FTPositName.OptionsColumn.AllowEdit = False
+        Me.FTPositName.Visible = True
+        Me.FTPositName.VisibleIndex = 12
+        Me.FTPositName.Width = 87
         '
         'FTShiftCode
         '
@@ -1293,7 +1351,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FTShiftCode.Name = "FTShiftCode"
         Me.FTShiftCode.OptionsColumn.AllowEdit = False
         Me.FTShiftCode.Visible = True
-        Me.FTShiftCode.VisibleIndex = 9
+        Me.FTShiftCode.VisibleIndex = 13
         '
         'RepFTShiftCode
         '
@@ -1492,7 +1550,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FTIn1.OptionsColumn.AllowMove = False
         Me.FTIn1.OptionsColumn.ReadOnly = True
         Me.FTIn1.Visible = True
-        Me.FTIn1.VisibleIndex = 10
+        Me.FTIn1.VisibleIndex = 14
         Me.FTIn1.Width = 121
         '
         'FTOut1
@@ -1608,7 +1666,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FTScanOtMIn.Name = "FTScanOtMIn"
         Me.FTScanOtMIn.OptionsColumn.AllowEdit = False
         Me.FTScanOtMIn.Visible = True
-        Me.FTScanOtMIn.VisibleIndex = 11
+        Me.FTScanOtMIn.VisibleIndex = 15
         Me.FTScanOtMIn.Width = 47
         '
         'RepTimeEdit
@@ -1639,7 +1697,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FTScanOtMOut.Name = "FTScanOtMOut"
         Me.FTScanOtMOut.OptionsColumn.AllowEdit = False
         Me.FTScanOtMOut.Visible = True
-        Me.FTScanOtMOut.VisibleIndex = 12
+        Me.FTScanOtMOut.VisibleIndex = 16
         Me.FTScanOtMOut.Width = 47
         '
         'ColFTScanMIn
@@ -1659,7 +1717,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.ColFTScanMIn.OptionsColumn.AllowMove = False
         Me.ColFTScanMIn.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTScanMIn.Visible = True
-        Me.ColFTScanMIn.VisibleIndex = 13
+        Me.ColFTScanMIn.VisibleIndex = 17
         Me.ColFTScanMIn.Width = 47
         '
         'ColFTScanMOut
@@ -1679,7 +1737,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.ColFTScanMOut.OptionsColumn.AllowMove = False
         Me.ColFTScanMOut.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTScanMOut.Visible = True
-        Me.ColFTScanMOut.VisibleIndex = 14
+        Me.ColFTScanMOut.VisibleIndex = 18
         Me.ColFTScanMOut.Width = 47
         '
         'ColFTScanAIn
@@ -1699,7 +1757,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.ColFTScanAIn.OptionsColumn.AllowMove = False
         Me.ColFTScanAIn.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTScanAIn.Visible = True
-        Me.ColFTScanAIn.VisibleIndex = 15
+        Me.ColFTScanAIn.VisibleIndex = 19
         Me.ColFTScanAIn.Width = 47
         '
         'ColFTScanAOut
@@ -1719,7 +1777,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.ColFTScanAOut.OptionsColumn.AllowMove = False
         Me.ColFTScanAOut.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTScanAOut.Visible = True
-        Me.ColFTScanAOut.VisibleIndex = 16
+        Me.ColFTScanAOut.VisibleIndex = 20
         Me.ColFTScanAOut.Width = 47
         '
         'ColFTScanAOTIn
@@ -1739,7 +1797,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.ColFTScanAOTIn.OptionsColumn.AllowMove = False
         Me.ColFTScanAOTIn.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTScanAOTIn.Visible = True
-        Me.ColFTScanAOTIn.VisibleIndex = 17
+        Me.ColFTScanAOTIn.VisibleIndex = 21
         Me.ColFTScanAOTIn.Width = 47
         '
         'ColFTScanAOTOut
@@ -1759,7 +1817,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.ColFTScanAOTOut.OptionsColumn.AllowMove = False
         Me.ColFTScanAOTOut.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTScanAOTOut.Visible = True
-        Me.ColFTScanAOTOut.VisibleIndex = 18
+        Me.ColFTScanAOTOut.VisibleIndex = 22
         Me.ColFTScanAOTOut.Width = 47
         '
         'ColFTScanAOTIn2
@@ -1838,7 +1896,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FNTime.OptionsColumn.AllowMove = False
         Me.FNTime.OptionsColumn.ReadOnly = True
         Me.FNTime.Visible = True
-        Me.FNTime.VisibleIndex = 19
+        Me.FNTime.VisibleIndex = 23
         Me.FNTime.Width = 56
         '
         'FNOTRequest
@@ -1854,7 +1912,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FNOTRequest.OptionsColumn.AllowEdit = False
         Me.FNOTRequest.OptionsColumn.ReadOnly = True
         Me.FNOTRequest.Visible = True
-        Me.FNOTRequest.VisibleIndex = 20
+        Me.FNOTRequest.VisibleIndex = 24
         Me.FNOTRequest.Width = 78
         '
         'FNOT1
@@ -1871,7 +1929,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FNOT1.OptionsColumn.AllowMove = False
         Me.FNOT1.OptionsColumn.ReadOnly = True
         Me.FNOT1.Visible = True
-        Me.FNOT1.VisibleIndex = 21
+        Me.FNOT1.VisibleIndex = 25
         Me.FNOT1.Width = 52
         '
         'FNOT1_5
@@ -1888,7 +1946,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FNOT1_5.OptionsColumn.AllowMove = False
         Me.FNOT1_5.OptionsColumn.ReadOnly = True
         Me.FNOT1_5.Visible = True
-        Me.FNOT1_5.VisibleIndex = 22
+        Me.FNOT1_5.VisibleIndex = 26
         Me.FNOT1_5.Width = 47
         '
         'FNOT2
@@ -1905,7 +1963,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FNOT2.OptionsColumn.AllowMove = False
         Me.FNOT2.OptionsColumn.ReadOnly = True
         Me.FNOT2.Visible = True
-        Me.FNOT2.VisibleIndex = 23
+        Me.FNOT2.VisibleIndex = 27
         Me.FNOT2.Width = 47
         '
         'FNOT3
@@ -1922,7 +1980,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FNOT3.OptionsColumn.AllowMove = False
         Me.FNOT3.OptionsColumn.ReadOnly = True
         Me.FNOT3.Visible = True
-        Me.FNOT3.VisibleIndex = 24
+        Me.FNOT3.VisibleIndex = 28
         Me.FNOT3.Width = 47
         '
         'FNOT4
@@ -1939,7 +1997,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FNOT4.OptionsColumn.AllowMove = False
         Me.FNOT4.OptionsColumn.ReadOnly = True
         Me.FNOT4.Visible = True
-        Me.FNOT4.VisibleIndex = 25
+        Me.FNOT4.VisibleIndex = 29
         Me.FNOT4.Width = 47
         '
         'FNLateNormalMin
@@ -1956,7 +2014,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FNLateNormalMin.OptionsColumn.AllowMove = False
         Me.FNLateNormalMin.OptionsColumn.ReadOnly = True
         Me.FNLateNormalMin.Visible = True
-        Me.FNLateNormalMin.VisibleIndex = 26
+        Me.FNLateNormalMin.VisibleIndex = 30
         Me.FNLateNormalMin.Width = 70
         '
         'FNLateNormalCut
@@ -1973,7 +2031,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FNLateNormalCut.OptionsColumn.AllowMove = False
         Me.FNLateNormalCut.OptionsColumn.ReadOnly = True
         Me.FNLateNormalCut.Visible = True
-        Me.FNLateNormalCut.VisibleIndex = 27
+        Me.FNLateNormalCut.VisibleIndex = 31
         Me.FNLateNormalCut.Width = 70
         '
         'FNAbsentCut
@@ -1990,7 +2048,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FNAbsentCut.OptionsColumn.AllowMove = False
         Me.FNAbsentCut.OptionsColumn.ReadOnly = True
         Me.FNAbsentCut.Visible = True
-        Me.FNAbsentCut.VisibleIndex = 28
+        Me.FNAbsentCut.VisibleIndex = 32
         Me.FNAbsentCut.Width = 70
         '
         'FNAbsent
@@ -2007,7 +2065,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FNAbsent.OptionsColumn.AllowMove = False
         Me.FNAbsent.OptionsColumn.ReadOnly = True
         Me.FNAbsent.Visible = True
-        Me.FNAbsent.VisibleIndex = 29
+        Me.FNAbsent.VisibleIndex = 33
         Me.FNAbsent.Width = 70
         '
         'FNCutAbsent
@@ -2024,7 +2082,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FNCutAbsent.OptionsColumn.AllowMove = False
         Me.FNCutAbsent.OptionsColumn.ReadOnly = True
         Me.FNCutAbsent.Visible = True
-        Me.FNCutAbsent.VisibleIndex = 30
+        Me.FNCutAbsent.VisibleIndex = 34
         Me.FNCutAbsent.Width = 70
         '
         'ColFNHSysEmpID
@@ -2060,7 +2118,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.ColFTTranStaCode.OptionsColumn.AllowMove = False
         Me.ColFTTranStaCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTTranStaCode.Visible = True
-        Me.ColFTTranStaCode.VisibleIndex = 31
+        Me.ColFTTranStaCode.VisibleIndex = 35
         Me.ColFTTranStaCode.Width = 117
         '
         'RepFTTranStaCode
@@ -2112,7 +2170,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FTLeave.OptionsColumn.AllowEdit = False
         Me.FTLeave.OptionsColumn.ReadOnly = True
         Me.FTLeave.Visible = True
-        Me.FTLeave.VisibleIndex = 32
+        Me.FTLeave.VisibleIndex = 36
         Me.FTLeave.Width = 175
         '
         'FDHolidayDate
@@ -2236,7 +2294,7 @@ Partial Class wTimeAttendanceCon_TransProd
         Me.FDDateEnd.OptionsColumn.AllowEdit = False
         Me.FDDateEnd.OptionsColumn.ReadOnly = True
         Me.FDDateEnd.Visible = True
-        Me.FDDateEnd.VisibleIndex = 33
+        Me.FDDateEnd.VisibleIndex = 37
         Me.FDDateEnd.Width = 87
         '
         'FNUseBarcode
@@ -2605,4 +2663,8 @@ Partial Class wTimeAttendanceCon_TransProd
     Friend WithEvents FTPositCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ocmloadlate As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ocmloadwaitleave As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents FTDeptDesc As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSectName As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTUnitSectName As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTPositName As DevExpress.XtraGrid.Columns.GridColumn
 End Class

@@ -19,6 +19,7 @@ Partial Class wCalculateIncentive_LA
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -315,7 +316,7 @@ Partial Class wCalculateIncentive_LA
         Me.ogbreqtime = New DevExpress.XtraEditors.GroupControl()
         Me.FTEndDate = New DevExpress.XtraEditors.DateEdit()
         Me.FTEndDate_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager()
+        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.ogbheader = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
         Me.FNHSysEmpIdTo_None = New DevExpress.XtraEditors.TextEdit()
@@ -569,7 +570,7 @@ Partial Class wCalculateIncentive_LA
         Me.ogbemployee.Location = New System.Drawing.Point(2, 73)
         Me.ogbemployee.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbemployee.Name = "ogbemployee"
-        Me.ogbemployee.Size = New System.Drawing.Size(1388, 723)
+        Me.ogbemployee.Size = New System.Drawing.Size(1388, 885)
         Me.ogbemployee.TabIndex = 4
         Me.ogbemployee.Text = "Employee"
         '
@@ -660,7 +661,7 @@ Partial Class wCalculateIncentive_LA
         Me.otxtabctrl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otxtabctrl.Name = "otxtabctrl"
         Me.otxtabctrl.SelectedTabPage = Me.otpcaltype0
-        Me.otxtabctrl.Size = New System.Drawing.Size(1384, 694)
+        Me.otxtabctrl.Size = New System.Drawing.Size(1384, 856)
         Me.otxtabctrl.TabIndex = 100001
         Me.otxtabctrl.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpcaltype0, Me.otpcaltype1, Me.otpcaltype2, Me.otpcaltype3})
         '
@@ -670,7 +671,7 @@ Partial Class wCalculateIncentive_LA
         Me.otpcaltype0.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpcaltype0.Name = "otpcaltype0"
         Me.otpcaltype0.PageVisible = False
-        Me.otpcaltype0.Size = New System.Drawing.Size(1374, 657)
+        Me.otpcaltype0.Size = New System.Drawing.Size(1374, 819)
         Me.otpcaltype0.Text = "คำนวณพนักงานเย็บ"
         '
         'ogc
@@ -682,7 +683,7 @@ Partial Class wCalculateIncentive_LA
         Me.ogc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Name = "ogc"
         Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSelect, Me.RepositoryFTApproveState, Me.ReposFTStateDaily, Me.RepQuantity})
-        Me.ogc.Size = New System.Drawing.Size(1374, 657)
+        Me.ogc.Size = New System.Drawing.Size(1718, 1024)
         Me.ogc.TabIndex = 4
         Me.ogc.TabStop = False
         Me.ogc.Tag = "2|"
@@ -1572,7 +1573,7 @@ Partial Class wCalculateIncentive_LA
         Me.otpcaltype1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpcaltype1.Name = "otpcaltype1"
         Me.otpcaltype1.PageVisible = False
-        Me.otpcaltype1.Size = New System.Drawing.Size(1374, 657)
+        Me.otpcaltype1.Size = New System.Drawing.Size(1382, 815)
         Me.otpcaltype1.Text = "คำนวณพนักงานตัด"
         '
         'ogc1
@@ -1584,7 +1585,7 @@ Partial Class wCalculateIncentive_LA
         Me.ogc1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc1.Name = "ogc1"
         Me.ogc1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2, Me.RepositoryItemCheckEdit3, Me.RepositoryItemCheckEdit24, Me.RepositoryItemCalcEdit8})
-        Me.ogc1.Size = New System.Drawing.Size(1374, 657)
+        Me.ogc1.Size = New System.Drawing.Size(1728, 1019)
         Me.ogc1.TabIndex = 5
         Me.ogc1.TabStop = False
         Me.ogc1.Tag = "2|"
@@ -2472,7 +2473,7 @@ Partial Class wCalculateIncentive_LA
         Me.otpcaltype2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpcaltype2.Name = "otpcaltype2"
         Me.otpcaltype2.PageVisible = False
-        Me.otpcaltype2.Size = New System.Drawing.Size(1374, 657)
+        Me.otpcaltype2.Size = New System.Drawing.Size(1382, 815)
         Me.otpcaltype2.Text = "คำนวณพนักงานแพ็ค"
         '
         'ogc2
@@ -2484,7 +2485,7 @@ Partial Class wCalculateIncentive_LA
         Me.ogc2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc2.Name = "ogc2"
         Me.ogc2.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit4, Me.RepositoryItemCheckEdit5, Me.RepositoryItemCheckEdit6, Me.RepositoryItemCalcEdit2})
-        Me.ogc2.Size = New System.Drawing.Size(1374, 657)
+        Me.ogc2.Size = New System.Drawing.Size(1728, 1019)
         Me.ogc2.TabIndex = 6
         Me.ogc2.TabStop = False
         Me.ogc2.Tag = "2|"
@@ -3398,7 +3399,7 @@ Partial Class wCalculateIncentive_LA
         Me.otpcaltype3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpcaltype3.Name = "otpcaltype3"
         Me.otpcaltype3.PageVisible = False
-        Me.otpcaltype3.Size = New System.Drawing.Size(1374, 657)
+        Me.otpcaltype3.Size = New System.Drawing.Size(1382, 815)
         Me.otpcaltype3.Text = "คำนวณพนักงานรีด"
         '
         'ogc3
@@ -3409,7 +3410,7 @@ Partial Class wCalculateIncentive_LA
         Me.ogc3.MainView = Me.ogv3
         Me.ogc3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc3.Name = "ogc3"
-        Me.ogc3.Size = New System.Drawing.Size(1374, 657)
+        Me.ogc3.Size = New System.Drawing.Size(1728, 1019)
         Me.ogc3.TabIndex = 7
         Me.ogc3.TabStop = False
         Me.ogc3.Tag = "2|"
@@ -4524,7 +4525,7 @@ Partial Class wCalculateIncentive_LA
         Me.ogbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbdetail.Name = "ogbdetail"
         Me.ogbdetail.ShowCaption = False
-        Me.ogbdetail.Size = New System.Drawing.Size(1392, 798)
+        Me.ogbdetail.Size = New System.Drawing.Size(1392, 960)
         Me.ogbdetail.TabIndex = 100001
         Me.ogbdetail.Text = "GroupControl1"
         '
@@ -4532,7 +4533,7 @@ Partial Class wCalculateIncentive_LA
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1392, 944)
+        Me.ClientSize = New System.Drawing.Size(1392, 1106)
         Me.Controls.Add(Me.ogbdetail)
         Me.Controls.Add(Me.ogbheader)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle

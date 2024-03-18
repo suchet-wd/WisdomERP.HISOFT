@@ -1565,10 +1565,10 @@ Partial Class wEmployeeOwnerLeave
         Me.ogbemployee.AppearanceCaption.Options.UseTextOptions = True
         Me.ogbemployee.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ogbemployee.Controls.Add(Me.otab)
-        Me.ogbemployee.Location = New System.Drawing.Point(2, 334)
+        Me.ogbemployee.Location = New System.Drawing.Point(3, 338)
         Me.ogbemployee.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbemployee.Name = "ogbemployee"
-        Me.ogbemployee.Size = New System.Drawing.Size(1162, 853)
+        Me.ogbemployee.Size = New System.Drawing.Size(1162, 349)
         Me.ogbemployee.TabIndex = 5
         Me.ogbemployee.Text = "Leave Detail"
         '
@@ -1579,7 +1579,7 @@ Partial Class wEmployeeOwnerLeave
         Me.otab.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otab.Name = "otab"
         Me.otab.SelectedTabPage = Me.otabpage1
-        Me.otab.Size = New System.Drawing.Size(1158, 824)
+        Me.otab.Size = New System.Drawing.Size(1158, 320)
         Me.otab.TabIndex = 101
         Me.otab.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otabpage1, Me.otabpage2})
         '
@@ -1588,7 +1588,7 @@ Partial Class wEmployeeOwnerLeave
         Me.otabpage1.Controls.Add(Me.ogc)
         Me.otabpage1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otabpage1.Name = "otabpage1"
-        Me.otabpage1.Size = New System.Drawing.Size(1148, 788)
+        Me.otabpage1.Size = New System.Drawing.Size(1148, 284)
         Me.otabpage1.Text = "leave"
         '
         'ogc
@@ -1600,7 +1600,7 @@ Partial Class wEmployeeOwnerLeave
         Me.ogc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Name = "ogc"
         Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSelect, Me.RepositoryFTApproveState, Me.RepColFTLeavePay, Me.RepColFTHoliday, Me.RepFTStaCalSSO, Me.RepFTApproveState, Me.RepFTLeavePay, Me.RepositoryItemFTMngApproveState, Me.RepositoryFTSendApproveState, Me.RepositoryItemCheckEditFTDirApproveState})
-        Me.ogc.Size = New System.Drawing.Size(1148, 788)
+        Me.ogc.Size = New System.Drawing.Size(1148, 284)
         Me.ogc.TabIndex = 4
         Me.ogc.TabStop = False
         Me.ogc.Tag = "2|"
@@ -1626,8 +1626,6 @@ Partial Class wEmployeeOwnerLeave
         Me.ColFTStartDate.AppearanceHeader.Options.UseTextOptions = True
         Me.ColFTStartDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFTStartDate.Caption = "FTStartDate"
-        Me.ColFTStartDate.DisplayFormat.FormatString = "dd/MM/yyyy"
-        Me.ColFTStartDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.ColFTStartDate.FieldName = "FTStartDate"
         Me.ColFTStartDate.MinWidth = 23
         Me.ColFTStartDate.Name = "ColFTStartDate"
@@ -1645,8 +1643,6 @@ Partial Class wEmployeeOwnerLeave
         Me.ColFTEndDate.AppearanceHeader.Options.UseTextOptions = True
         Me.ColFTEndDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFTEndDate.Caption = "FTEndDate"
-        Me.ColFTEndDate.DisplayFormat.FormatString = "dd/MM/yyyy"
-        Me.ColFTEndDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.ColFTEndDate.FieldName = "FTEndDate"
         Me.ColFTEndDate.MinWidth = 23
         Me.ColFTEndDate.Name = "ColFTEndDate"
@@ -2136,7 +2132,7 @@ Partial Class wEmployeeOwnerLeave
         Me.otabpage2.Controls.Add(Me.oGrpdetail)
         Me.otabpage2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otabpage2.Name = "otabpage2"
-        Me.otabpage2.Size = New System.Drawing.Size(1156, 785)
+        Me.otabpage2.Size = New System.Drawing.Size(1148, 284)
         Me.otabpage2.Text = "file"
         '
         'oGrpdetail
@@ -2146,7 +2142,7 @@ Partial Class wEmployeeOwnerLeave
         Me.oGrpdetail.Location = New System.Drawing.Point(0, 0)
         Me.oGrpdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.oGrpdetail.Name = "oGrpdetail"
-        Me.oGrpdetail.Size = New System.Drawing.Size(1156, 785)
+        Me.oGrpdetail.Size = New System.Drawing.Size(1148, 284)
         Me.oGrpdetail.TabIndex = 6
         '
         'FTLeavePic
@@ -2164,14 +2160,14 @@ Partial Class wEmployeeOwnerLeave
         Me.FTLeavePic.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTLeavePic.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
         Me.FTLeavePic.Properties.ZoomingOperationMode = DevExpress.XtraEditors.Repository.ZoomingOperationMode.MouseWheel
-        Me.FTLeavePic.Size = New System.Drawing.Size(1152, 756)
+        Me.FTLeavePic.Size = New System.Drawing.Size(1144, 255)
         Me.FTLeavePic.TabIndex = 1
         '
         'wEmployeeOwnerLeave
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1167, 1116)
+        Me.ClientSize = New System.Drawing.Size(1167, 680)
         Me.Controls.Add(Me.ogbemployee)
         Me.Controls.Add(Me.ogbheader)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -2336,7 +2332,6 @@ Partial Class wEmployeeOwnerLeave
     Friend WithEvents otab As DevExpress.XtraTab.XtraTabControl
     Friend WithEvents otabpage2 As DevExpress.XtraTab.XtraTabPage
     Friend WithEvents oGrpdetail As DevExpress.XtraEditors.GroupControl
-    Friend WithEvents otabpage1 As DevExpress.XtraTab.XtraTabPage
     Friend WithEvents ocmReadDocumentfile As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents FTLeavePic As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents ogc As DevExpress.XtraGrid.GridControl
@@ -2383,4 +2378,5 @@ Partial Class wEmployeeOwnerLeave
     Friend WithEvents FTDirApproveBy As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FDDirApproveDate As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTDirApproveTime As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents otabpage1 As DevExpress.XtraTab.XtraTabPage
 End Class

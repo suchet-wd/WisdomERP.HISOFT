@@ -576,6 +576,37 @@ Public Class wCalculateIncentive_LA
 
         dtcheckTime.Dispose()
 
+        If Val(FNHSysShiftID) = 0 Then
+            _Qry = "  Select  Top 1 A.FNHSysShiftID,S.FTIn1, S.FTOut1, FTIn2, S.FTOut2 "
+            _Qry &= vbCrLf & "  From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS A With(NOLOCK)  "
+            _Qry &= vbCrLf & " INNER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTMoveTeamMoveType AS MV With(NOLOCK)  ON A.FNHSysEmpID = MV.FNHSysEmpID"
+            _Qry &= vbCrLf & " INNER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift AS S With(NOLOCK)  ON A.FNHSysShiftID = S.FNHSysShiftID"
+            _Qry &= vbCrLf & " Where (MV.FNHSysUnitSectIdTo = " & _UnitSectID & ") "
+            _Qry &= vbCrLf & "  And (A.FNEmpStatus = 0) "
+            _Qry &= vbCrLf & "  AND (MV.FDDate ='" & HI.UL.ULDate.ConvertEnDB(_CalDate) & "') "
+            _Qry &= vbCrLf & "  Order By FDDateEnd "
+
+            ' FNHSysShiftID = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+            dtcheckTime = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+            For Each Rtx As DataRow In dtcheckTime.Rows
+                FNHSysShiftID = Val(Rtx!FNHSysShiftID.ToString)
+                TimeCheckIn1 = Rtx!FTIn1.ToString
+                TimeCheckOut1 = Rtx!FTOut1.ToString
+                TimeCheckIn2 = Rtx!FTIn2.ToString
+                TimeCheckOut2 = Rtx!FTOut2.ToString
+
+                Exit For
+            Next
+
+            dtcheckTime.Dispose()
+
+
+        End If
+
+
+
+
         _Qry = "Select FTShiftPeriodTimeCode AS FTPeriadOfTimeCode, FTStartTime, FTEndTime,ROW_NUMBER() Over (Order By CASE WHEN ISNULL(FNSeq,0) = 0 THEN FTStartTime ELSE RIGHT('0000' +  Convert(nvarchar(10),FNSeq),4) END) AS FNHour"
         _Qry &= vbCrLf & " FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMShiftPeriodTime As A With(NOLOCK)"
         _Qry &= vbCrLf & " WHERE  FNHSysShiftID =" & FNHSysShiftID & " AND (FTStateActive = '1') AND ISNULL(FTStateBreak,'')<>'1'"
@@ -595,6 +626,8 @@ Public Class wCalculateIncentive_LA
         _Qry = "EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.SP_GET_EMPTIME_CAL_INCENTIVE_PROD_EFF " & _UnitSectID & ",'" & HI.UL.ULDate.ConvertEnDB(_CalDate) & "'," & _TFNHSysEmpID & ""
         _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
 
+        Dim _dt_DailySpecial As DataTable
+        Dim _MorningTimeSpecial As String = "" ''วันทำบุญ
         For Each R As DataRow In _dt.Rows
 
             _FNHSysEmpID = Integer.Parse(Val(R!FNHSysEmpID.ToString))
@@ -603,11 +636,18 @@ Public Class wCalculateIncentive_LA
                 Beep()
             End If
 
-            _Qry = " Select  TOP 1 FTTimeOut  "
+            _Qry = " Select  TOP 1 FTTimeMIn,FTTimeOut  "
             _Qry &= vbCrLf & " From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTDailySpecial  AS X WITH(NOLOCK)"
             _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & _FNHSysEmpID & ""
             _Qry &= vbCrLf & " AND FTDate='" & HI.UL.ULDate.ConvertEnDB(_CalDate) & "'"
-            _LeaveHomeSpecial = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+            _dt_DailySpecial = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+            For Each R_d As DataRow In _dt_DailySpecial.Rows
+                _MorningTimeSpecial = R_d!FTTimeMIn.ToString
+                _LeaveHomeSpecial = R_d!FTTimeOut.ToString
+            Next
+
+
+
 
 
             _FTIn1 = R!FTIn1.ToString
@@ -710,6 +750,8 @@ Public Class wCalculateIncentive_LA
 
                 End If
 
+
+
                 If _LeaveHomeSpecial <> "" Then
                     If _EndTime > _LeaveHomeSpecial Then
                         _LeaveStartTime = _LeaveHomeSpecial
@@ -729,6 +771,16 @@ Public Class wCalculateIncentive_LA
                 End If
 
 
+                ''วันทำบุญ
+                If _MorningTimeSpecial <> "" Then
+                    If _StartTime < _MorningTimeSpecial Then
+                        ''_LeaveStartTime = _MorningTimeSpecial
+                        _LeaveEndTime = _MorningTimeSpecial
+                    End If
+
+                End If
+
+
                 If _dtmove.Select("FNHSysEmpID=" & _FNHSysEmpID & " And FTStartTime<='" & _StartTime & "' AND FTEndTime>='" & _EndTime & "'").Length <= 0 Then
 
                     Select Case _FNHour
@@ -738,6 +790,12 @@ Public Class wCalculateIncentive_LA
                                 X = "99999"
                             End If
                             If _FTState = "1" Then
+
+                                If _FNHour = "1" And _MorningTimeSpecial <> "" Then
+                                    _StartTime = _MorningTimeSpecial
+                                    _EndTime = _MorningTimeSpecial
+                                End If
+
 
                                 Select Case True
                                     Case (_FTIn1 <= _StartTime And _FTOut1 >= _EndTime) And (_FTStartTime <= _StartTime And _FTEndTime >= _EndTime)
@@ -1507,7 +1565,8 @@ Public Class wCalculateIncentive_LA
 
                         Case 9, 10, 11, 12, 13
 
-                            If _FNHSysEmpID = 2111930785 Then
+                            If _FNHSysEmpID = 213952158 Then
+
                                 Dim X As String
                                 X = "99999"
                             End If
@@ -1652,8 +1711,9 @@ Public Class wCalculateIncentive_LA
 
 
                                                             '  _FNWorkMinuteHR = 60
-
-                                                            _FNWorkMinuteHR = DateDiff(DateInterval.Minute, CDate(_CalDate & " " & _StartTime), CDate(_CalDate & " " & _EndTime))
+                                                            '' Best edit 20240123
+                                                            _FNWorkMinuteHR = DateDiff(DateInterval.Minute, CDate(_CalDate & " " & _StartTime), CDate(_CalDate & " " & _FTOut3))
+                                                            '' _FNWorkMinuteHR = DateDiff(DateInterval.Minute, CDate(_CalDate & " " & _StartTime), CDate(_CalDate & " " & _EndTime))
                                                         End If
 
                                                     Else
@@ -1898,8 +1958,8 @@ Public Class wCalculateIncentive_LA
                                                             _FNWorkMinute = DateDiff(DateInterval.Minute, CDate(_CalDate & " " & _StartTime), CDate(_CalDate & " " & _FTOut3))
                                                             ' _FNWorkMinuteHR = 60
 
-
-                                                            _FNWorkMinuteHR = DateDiff(DateInterval.Minute, CDate(_CalDate & " " & _StartTime), CDate(_CalDate & " " & _EndTime))
+                                                            '' _FNWorkMinuteHR = DateDiff(DateInterval.Minute, CDate(_CalDate & " " & _StartTime), CDate(_CalDate & " " & _EndTime))
+                                                            _FNWorkMinuteHR = DateDiff(DateInterval.Minute, CDate(_CalDate & " " & _StartTime), CDate(_CalDate & " " & _FTOut3))
 
                                                         End If
 
@@ -9063,7 +9123,11 @@ Public Class wCalculateIncentive_LA
                         ''_FNAmtEffTopUp = ((_FNAmtEffTopUpMax / _Emptime_Max) * ((Integer.Parse(Val(Rt!FNWorkingMin.ToString))) + Integer.Parse(Val(Rt!FNWorkingOTMin.ToString))))
 
                         If Integer.Parse(Val(Rt!FNRetireNormalCut.ToString)) > 0 Then
-                            _FNAmtEffTopUp = ((_FNAmtEffTopUpMax / _Emptime_Max) * ((Integer.Parse(Val(Rt!FNWorkingMin.ToString)) + 60) + Integer.Parse(Val(Rt!FNWorkingOTMin.ToString))))
+                            If ((Integer.Parse(Val(Rt!FNWorkingMin.ToString)) + 60) + Integer.Parse(Val(Rt!FNWorkingOTMin.ToString))) >= _Emptime_Max Then
+                                _FNAmtEffTopUp = (_FNAmtEffTopUpMax)
+                            Else
+                                _FNAmtEffTopUp = ((_FNAmtEffTopUpMax / _Emptime_Max) * ((Integer.Parse(Val(Rt!FNWorkingMin.ToString)) + 60) + Integer.Parse(Val(Rt!FNWorkingOTMin.ToString))))
+                            End If
                         Else
                             _FNAmtEffTopUp = ((_FNAmtEffTopUpMax / _Emptime_Max) * ((Integer.Parse(Val(Rt!FNWorkingMin.ToString))) + Integer.Parse(Val(Rt!FNWorkingOTMin.ToString))))
                         End If
@@ -11288,9 +11352,9 @@ SkiptonextLevel:
 
 
 
-                _LineNetAmt = (_LineIncentiveAmt + _FNQAValue)
+                _LineNetAmt = (_LineIncentiveAmt + _LineIncentiveAmtOT + _FNQAValue)
 
-                    _Qry = " INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTIncentive_Single ("
+                _Qry = " INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTIncentive_Single ("
                     _Qry &= vbCrLf & "  FTInsUser, FDInsDate, FTInsTime,  FTCalDate, FNHSysUnitSectId, FNHour01Qty, FNHour02Qty"
                 _Qry &= vbCrLf & " , FNHour03Qty, FNHour04Qty, FNHour05Qty, FNHour06Qty, FNHour07Qty, "
                 _Qry &= vbCrLf & "   FNHour08Qty, FNHour09Qty, FNHour10Qty, FNHour11Qty, FNHour12Qty, FNHour13Qty"
@@ -11364,22 +11428,22 @@ SkiptonextLevel:
                 _Qry &= vbCrLf & " ," & _LineNetAmt & ""
                 _Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FTIncentiveTypeIdx.ToString)) & ""
                 _Qry &= vbCrLf & " ," & _IncentiveQty & ""
-                _Qry &= vbCrLf & " ," & _LineIncentiveAmt & ""
-                    '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour01QtySystem.ToString)) & ""
-                    '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour02QtySystem.ToString)) & ""
-                    '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour03QtySystem.ToString)) & ""
-                    '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour04QtySystem.ToString)) & ""
-                    '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour05QtySystem.ToString)) & ""
-                    '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour06QtySystem.ToString)) & ""
-                    '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour07QtySystem.ToString)) & ""
-                    '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour08QtySystem.ToString)) & ""
-                    '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour09QtySystem.ToString)) & ""
-                    '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour10QtySystem.ToString)) & ""
-                    '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour11QtySystem.ToString)) & ""
-                    '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour12QtySystem.ToString)) & ""
-                    '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour13QtySystem.ToString)) & ""
-                    '    _Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNTotalQtySystem.ToString)) & ""
-                    _Qry &= vbCrLf & " ," & Integer.Parse(Val(R!H01.ToString)) & ""
+                _Qry &= vbCrLf & " ," & _LineIncentiveAmt + _LineIncentiveAmtOT & ""
+                '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour01QtySystem.ToString)) & ""
+                '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour02QtySystem.ToString)) & ""
+                '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour03QtySystem.ToString)) & ""
+                '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour04QtySystem.ToString)) & ""
+                '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour05QtySystem.ToString)) & ""
+                '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour06QtySystem.ToString)) & ""
+                '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour07QtySystem.ToString)) & ""
+                '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour08QtySystem.ToString)) & ""
+                '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour09QtySystem.ToString)) & ""
+                '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour10QtySystem.ToString)) & ""
+                '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour11QtySystem.ToString)) & ""
+                '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour12QtySystem.ToString)) & ""
+                '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour13QtySystem.ToString)) & ""
+                '    _Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNTotalQtySystem.ToString)) & ""
+                _Qry &= vbCrLf & " ," & Integer.Parse(Val(R!H01.ToString)) & ""
                     _Qry &= vbCrLf & " ," & Integer.Parse(Val(R!H02.ToString)) & ""
                     _Qry &= vbCrLf & " ," & Integer.Parse(Val(R!H03.ToString)) & ""
                     _Qry &= vbCrLf & " ," & Integer.Parse(Val(R!H04.ToString)) & ""
@@ -11404,7 +11468,7 @@ SkiptonextLevel:
 
                 _DeductAmt = 0
 
-                If _LineIncentiveAmt + _PackAmt > 0 Then
+                If _LineIncentiveAmt + _LineIncentiveAmtOT + _PackAmt > 0 Then
 
                     _EmpCountCalincentive = _CountEmp
 
@@ -11629,13 +11693,13 @@ SkiptonextLevel:
 
                         _TotalEmpAmt = _TotalEmpAmt + _EmpIncentiveAmt
 
-                            _FNAmtOT = 0
-                            If Val(Rt!FNWorkingOTMin.ToString) > 0 Then
-                                _FNAmtOT = Double.Parse(Format(((_Salary / 480) * 0.5) * Integer.Parse(Val(Rt!FNWorkingOTMin.ToString)), "0.00"))
-                            End If
+                        _FNAmtOT = 0
+                        If Val(Rt!FNWorkingOTMin.ToString) > 0 Then
+                            _FNAmtOT = Double.Parse(Format(((_Salary / 480) * 0.5) * Integer.Parse(Val(Rt!FNWorkingOTMin.ToString)), "0.00"))
+                        End If
 
 
-                            _FNAmtNormal = Double.Parse(Format(((_Salary / 480)) * Integer.Parse(Val(Rt!FNWorkingMin.ToString)), "0.00"))
+                        _FNAmtNormal = Double.Parse(Format(((_Salary / 480)) * Integer.Parse(Val(Rt!FNWorkingMin.ToString)), "0.00"))
 
                         '' _FNNetAmt = _EmpIncentiveAmt + _FNAmtOT
                         _FNNetAmt = _EmpIncentiveAmt + _EmpIncentiveAmtOT
@@ -13718,7 +13782,7 @@ SkiptonextLevel:
                 _Qry &= vbCrLf & " ," & _LineNetAmt & ""
                 _Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FTIncentiveTypeIdx.ToString)) & ""
                 _Qry &= vbCrLf & " ," & _IncentiveQty & ""
-                _Qry &= vbCrLf & " ," & _LineIncentiveAmt & ""
+                _Qry &= vbCrLf & " ," & _LineIncentiveAmt + _LineIncentiveAmtOT & ""
 
                 '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour01QtySystem.ToString)) & ""
                 '_Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour02QtySystem.ToString)) & ""
@@ -13760,7 +13824,7 @@ SkiptonextLevel:
 
                 _DeductAmt = 0
 
-                If _LineIncentiveAmt + _PackAmt > 0 Then
+                If _LineIncentiveAmt + _LineIncentiveAmtOT + _PackAmt > 0 Then
 
                     _EmpCountCalincentive = _CountEmp
 
@@ -15412,6 +15476,9 @@ SkiptonextLevel:
                 _IncentiveQty = 0
                 _CountEmpIncentive = 0
 
+                Dim _Output As Double = 0
+                _Output = _SumSam * _ScanQty
+
                 _Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..SP_GET_SCANOUTLINE_CALCULATE_INCENTIVE_SEW_ONLY " & Integer.Parse(Val(R!FNHSysUnitSectId.ToString)) & ",'" & _CalDate & "'"
                 _dtsewstyle = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
 
@@ -15423,6 +15490,8 @@ SkiptonextLevel:
                     _LineAmt = _LineAmt + Val(Rxt!FNNetAmt.ToString)
 
                     _ScanQty = _ScanQty + Integer.Parse(Val(Rxt!FNScanQuantity.ToString))
+
+                    _Output = _Output + (Double.Parse(Val(Rxt!FNSam.ToString)) * Integer.Parse(Val(Rxt!FNScanQuantity.ToString)))
 
                     _Qry = " INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTIncentive_Style ("
                     _Qry &= vbCrLf & "  FTInsUser, FDInsDate, FTInsTime, FTCalDate, FNHSysUnitSectId"
@@ -15474,6 +15543,8 @@ SkiptonextLevel:
                 Dim _LineIncentiveAmtOT As Double = 0
                 ''  _LineIncentiveAmtOT = _ScanQtyOT * 
 
+                Dim _FNHSysStyleId As Integer = 0
+
 
                 _Qry = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.SP_GET_SCANOUTLINE_EDIT_SCANQUANTITY_LA " & Integer.Parse(Val(R!FNHSysUnitSectId.ToString)) & ",'" & _CalDate & "','" & _CalDate & "','TH'"
                 _dtsewstyle = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
@@ -15482,6 +15553,8 @@ SkiptonextLevel:
                 Dim _QtyOTMo As Integer = 0
                 For Each Rmd As DataRow In _dtsewstyle.Rows
 
+
+                    _FNHSysStyleId = Integer.Parse(Val(Rmd!FNHSysStyleId.ToString))
                     _MaxOT = 0
                     _CalDate = HI.UL.ULDate.ConvertEnDB(Rmd!FDScanDateOrg.ToString)
 
@@ -16332,25 +16405,20 @@ SkiptonextLevel:
                     Dim _data As DataTable
                     Dim _dataEff As DataTable
 
-                    _Qry = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.sp_getEffByline " & "'" & _CalDate & "','" & _CalDate & "', " & Integer.Parse(Val(R!FNHSysUnitSectId.ToString)) & "," & Val("" & Me.FNHSysCmpId.Properties.Tag.ToString) & ",0"
-                    _data = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
+                    '_Qry = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.sp_getEffByline " & "'" & _CalDate & "','" & _CalDate & "', " & Integer.Parse(Val(R!FNHSysUnitSectId.ToString)) & "," & Val("" & Me.FNHSysCmpId.Properties.Tag.ToString) & ",0"
+                    '_data = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
 
-                    For Each Ro As DataRow In _data.Rows
-                        _Eff = Val(Ro!EffPerLine.ToString)
-                        Exit For
-                    Next
+                    'For Each Ro As DataRow In _data.Rows
+                    '    _Eff = Val(Ro!EffPerLine.ToString)
+                    '    Exit For
+                    'Next
 
 
-                    _Qry = "SELECT FNHSysEffLVId, FNHSysIncenFormulaId, FNLVSeq, FNStartEff, FNEndEff, FNPriceMultiple, FNTopUp  "
-                    _Qry &= vbCrLf & "FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TPRODMIncentiveFormulaLevel "
-                    _Qry &= vbCrLf & "WHERE  (FNHSysIncenFormulaId = 220590002)"
 
-                    _dataEff = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
 
-                    For Each RE As DataRow In _dataEff.Select(" FNStartEff<= " & _Eff & " AND  FNEndEff>=" & _Eff & " ")
-                        _Bonus = Val(RE!FNTopUp.ToString)
 
-                    Next
+
+
 
 
                     Dim _EmpTime As Integer = 0
@@ -16374,6 +16442,8 @@ SkiptonextLevel:
                     'FTStateTimeMax
                     _Emptime_Max = 0
 
+                    Dim _inputMin As Double = 0
+
                     For Each Rt As DataRow In _dtemptime.Select("FTStateCal<>'1'  AND FNTotalWorkingMin>0 ", "FNTotalWorkingMin")
 
                         _Emptime_Cal = 0
@@ -16385,12 +16455,50 @@ SkiptonextLevel:
                         If _Emptime_Cal >= _Emptime_Max Then
                             _Emptime_Max = _Emptime_Cal
                         End If
-
+                        _inputMin = _inputMin + Val(Rt!FNWorkingMin.ToString) + Val(Rt!FNWorkingOTMin.ToString)
                     Next
 
+
+                    'MsgBox("in" & _inputMin.ToString())
+                    'MsgBox("out" & _Output.ToString())
+                    _Eff = Double.Parse(Format(((_Output)) / (_inputMin) * 100, "0.00"))
+
+
+                    _Qry = "SELECT  FNHSysStyleId, FTOrderNo, FTSubOrderNo, FNSeq,  FNEff_From as 'FNStartEff', FNEff_To as 'FNEndEff', FNAmt as 'FNTopUp' "
+                    _Qry &= vbCrLf & "FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TPRODMIncentiveFormulaLevelNewStyle  "
+                    _Qry &= vbCrLf & "WHERE  FNHSysStyleId = " & Val(_FNHSysStyleId) & " and FDDateFrom <='" & _CalDate & "'  AND  FDDateTo >='" & _CalDate & "'   "
+
+                    _dataEff = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
+                    ''  _FNHSysStyleId
+
+                    If _dataEff.Rows.Count = 0 Then
+
+                        ''load main bonus eff
+
+                        _Qry = "SELECT FNHSysEffLVId, FNHSysIncenFormulaId, FNLVSeq, FNStartEff, FNEndEff, FNPriceMultiple, FNTopUp  "
+                        _Qry &= vbCrLf & "FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TPRODMIncentiveFormulaLevel "
+                        _Qry &= vbCrLf & "WHERE  (FNHSysIncenFormulaId = 220590002)"
+
+                        _dataEff = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
+                    End If
+
+                    For Each RE As DataRow In _dataEff.Select(" FNStartEff<= " & _Eff & " AND  FNEndEff>=" & _Eff & " ")
+                        _Bonus = Val(RE!FNTopUp.ToString)
+
+                    Next
+                    _FNAmtEffTopUpMax = _Bonus
+
+
                     For Each Rt As DataRow In _dtemptime.Select("FTStateCal<>'1'  AND FNTotalWorkingMin>0 ", "FNTotalWorkingMin")
+
+                        'If Integer.Parse(Val(Rt!FNHSysEmpID.ToString)) = 213952465 Then
+                        '    MsgBox("a")
+                        'End If
+
                         _TotalEmpCal = _TotalEmpCal + 1
                         _Emptime_Cal = 0
+                        _EmpIncentiveAmtOT = 0
+                        _EmpIncentiveAmtOT_normal = 0
                         _Salary = Double.Parse(Val(Rt!FNSalary.ToString))
                         _SalaryPerH = Double.Parse(Format(_Salary / 8, "0.000"))
                         _SalaryPerOT = Double.Parse(Format(_SalaryPerH * 1.5, "0.0000"))
@@ -16425,7 +16533,13 @@ SkiptonextLevel:
                         _FNNetAmt = _EmpIncentiveAmt + _EmpIncentiveAmtOT
 
                         If Integer.Parse(Val(Rt!FNRetireNormalCut.ToString)) > 0 Then
-                            _FNAmtEffTopUp = ((_FNAmtEffTopUpMax / _Emptime_Max) * ((Integer.Parse(Val(Rt!FNWorkingMin.ToString)) + 60) + Integer.Parse(Val(Rt!FNWorkingOTMin.ToString))))
+                            If ((Integer.Parse(Val(Rt!FNWorkingMin.ToString)) + 60) + Integer.Parse(Val(Rt!FNWorkingOTMin.ToString))) >= _Emptime_Max Then
+                                _FNAmtEffTopUp = (_FNAmtEffTopUpMax)
+                            Else
+                                _FNAmtEffTopUp = ((_FNAmtEffTopUpMax / _Emptime_Max) * ((Integer.Parse(Val(Rt!FNWorkingMin.ToString)) + 60) + Integer.Parse(Val(Rt!FNWorkingOTMin.ToString))))
+                            End If
+
+
                         Else
                             _FNAmtEffTopUp = ((_FNAmtEffTopUpMax / _Emptime_Max) * ((Integer.Parse(Val(Rt!FNWorkingMin.ToString))) + Integer.Parse(Val(Rt!FNWorkingOTMin.ToString))))
                         End If
@@ -17811,6 +17925,10 @@ SkiptonextLevel:
                 _IncentiveQty = 0
                 _CountEmpIncentive = 0
 
+                Dim _Output As Double = 0
+                _Output = _SumSam * _ScanQty
+
+
                 _Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..SP_GET_SCANOUTLINE_CALCULATE_INCENTIVE_SEMI_ONLY " & Integer.Parse(Val(R!FNHSysUnitSectId.ToString)) & ",'" & _CalDate & "'"
                 _dtsewstyle = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
 
@@ -17822,6 +17940,9 @@ SkiptonextLevel:
                     _LineAmt = _LineAmt + Val(Rxt!FNNetAmt.ToString)
 
                     _ScanQty = _ScanQty + Integer.Parse(Val(Rxt!FNScanQuantity.ToString))
+
+                    _Output = _Output + (Double.Parse(Val(Rxt!FNSam.ToString)) * Integer.Parse(Val(Rxt!FNScanQuantity.ToString)))
+
 
                     _Qry = " INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTIncentive_Style ("
                     _Qry &= vbCrLf & "  FTInsUser, FDInsDate, FTInsTime, FTCalDate, FNHSysUnitSectId"
@@ -17874,7 +17995,7 @@ SkiptonextLevel:
                 ''  _LineIncentiveAmtOT = _ScanQtyOT * 
 
 
-                _Qry = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.SP_GET_SCANOUTLINE_EDIT_SCANQUANTITY_LA " & Integer.Parse(Val(R!FNHSysUnitSectId.ToString)) & ",'" & _CalDate & "','" & _CalDate & "','TH'"
+                _Qry = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.SP_GET_SCANOUTLINE_EDIT_SCANQUANTITY_LA_SEMI " & Integer.Parse(Val(R!FNHSysUnitSectId.ToString)) & ",'" & _CalDate & "','" & _CalDate & "','TH'"
                 _dtsewstyle = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
 
                 Dim _MaxOT As Integer = 0
@@ -18546,7 +18667,7 @@ SkiptonextLevel:
 
 
 
-                _LineNetAmt = (_LineIncentiveAmt + _FNQAValue)
+                _LineNetAmt = (_LineIncentiveAmt + _LineIncentiveAmtOT + _FNQAValue)
 
                 _Qry = " INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTIncentive ("
                 _Qry &= vbCrLf & "  FTInsUser, FDInsDate, FTInsTime,  FTCalDate, FNHSysUnitSectId, FNHour01Qty, FNHour02Qty"
@@ -18606,7 +18727,7 @@ SkiptonextLevel:
                 _Qry &= vbCrLf & " ," & _LineNetAmt & ""
                 _Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FTIncentiveTypeIdx.ToString)) & ""
                 _Qry &= vbCrLf & " ," & _IncentiveQty & ""
-                _Qry &= vbCrLf & " ," & _LineIncentiveAmt & ""
+                _Qry &= vbCrLf & " ," & _LineIncentiveAmt + _LineIncentiveAmtOT & ""
                 _Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour01QtySystem.ToString)) & ""
                 _Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour02QtySystem.ToString)) & ""
                 _Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNHour03QtySystem.ToString)) & ""
@@ -18629,7 +18750,7 @@ SkiptonextLevel:
 
                 _DeductAmt = 0
 
-                If _LineIncentiveAmt + _PackAmt > 0 Then
+                If _LineIncentiveAmt + _LineIncentiveAmtOT + _PackAmt > 0 Then
 
                     _EmpCountCalincentive = _CountEmp
 
@@ -18731,13 +18852,33 @@ SkiptonextLevel:
                     Dim _data As DataTable
                     Dim _dataEff As DataTable
 
-                    _Qry = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.sp_getEffByline " & "'" & _CalDate & "','" & _CalDate & "', " & Integer.Parse(Val(R!FNHSysUnitSectId.ToString)) & "," & Val("" & Me.FNHSysCmpId.Properties.Tag.ToString) & ",0"
-                    _data = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
+                    '_Qry = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.sp_getEffByline " & "'" & _CalDate & "','" & _CalDate & "', " & Integer.Parse(Val(R!FNHSysUnitSectId.ToString)) & "," & Val("" & Me.FNHSysCmpId.Properties.Tag.ToString) & ",0"
+                    '_data = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
 
-                    For Each Ro As DataRow In _data.Rows
-                        _Eff = Val(Ro!EffPerLine.ToString)
-                        Exit For
+                    'For Each Ro As DataRow In _data.Rows
+                    '    _Eff = Val(Ro!EffPerLine.ToString)
+                    '    Exit For
+                    'Next
+
+                    Dim _Emptime_Cal As Double = 0
+                    Dim _inputMin As Double = 0
+
+                    For Each Rt As DataRow In _dtemptime.Select("FTStateCal<>'1'  AND FNTotalWorkingMin>0 ", "FNTotalWorkingMin")
+
+                        _Emptime_Cal = 0
+                        _Emptime_Cal = Val(Rt!FNWorkingMin.ToString)
+                        If Val(Rt!FNWorkingOTMin.ToString) > 0 Then
+                            _Emptime_Cal = _Emptime_Cal + Val(Rt!FNWorkingOTMin.ToString)
+                        End If
+
+                        If _Emptime_Cal >= _Emptime_Max Then
+                            _Emptime_Max = _Emptime_Cal
+                        End If
+                        _inputMin = _inputMin + Val(Rt!FNWorkingMin.ToString) + Val(Rt!FNWorkingOTMin.ToString)
                     Next
+
+
+                    _Eff = Double.Parse(Format(((_Output)) / (_inputMin) * 100, "0.00"))
 
 
                     _Qry = "SELECT FNHSysEffLVId, FNHSysIncenFormulaId, FNLVSeq, FNStartEff, FNEndEff, FNPriceMultiple, FNTopUp  "
@@ -18765,7 +18906,6 @@ SkiptonextLevel:
 
                     _FNAmtEffTopUpMax = _Bonus
 
-                    Dim _Emptime_Cal As Double = 0
 
                     ''ค่าแรงตามเวลาทำงานจริง
                     'Dim _FNAmtNormal As Double = 0
@@ -22234,6 +22374,159 @@ SkiptonextLevel:
 
     End Sub
 
+    Private Sub LoadDataInfo_Semi()
+
+        Me.ogc.DataSource = Nothing
+        ochkselectall.Checked = False
+
+        Dim _Dt As DataTable = Nothing
+        Dim _DtShow As DataTable
+        Dim _Qry As String = ""
+        Dim _SDate As String = HI.UL.ULDate.ConvertEnDB(FTStartDate.Text)
+        Dim _EDate As String = HI.UL.ULDate.ConvertEnDB(FTEndDate.Text)
+
+        Dim dt As New DataTable
+        Dim dtline As New DataTable
+        Dim _Spls As New HI.TL.SplashScreen("Loading Data... Please Wait... ")
+
+        Dim _TotalLine As Integer = 0
+        Dim _PLine As Integer = 0
+        Dim _DisplayLang As String = "TH"
+
+        If HI.ST.Lang.Language <> ST.Lang.eLang.TH Then
+            _DisplayLang = "EN"
+        End If
+
+        _Qry = "SELECT FNHSysUnitSectId, FTUnitSectCode"
+        _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect AS X WITH(NOLOCK)"
+        _Qry &= vbCrLf & "  WHERE  (FTStateSew = '1') AND (FTStateActive = '1') AND  (ISNULL(FTStateSampleRoom,'0') <> '1') "
+
+        If FNHSysUnitSectId.Text <> "" Then
+            _Qry &= vbCrLf & "  AND FTUnitSectCode >='" & HI.UL.ULF.rpQuoted(FNHSysUnitSectId.Text) & "'"
+        End If
+
+        If FNHSysUnitSectIdTo.Text <> "" Then
+            _Qry &= vbCrLf & "  AND FTUnitSectCode <='" & HI.UL.ULF.rpQuoted(FNHSysUnitSectIdTo.Text) & "'"
+        End If
+
+        If FNHSysCmpId.Text <> "" Then
+            _Qry &= vbCrLf & "  AND FNHSysCmpId =" & Val("" & Me.FNHSysCmpId.Properties.Tag.ToString)
+        End If
+
+        _Qry &= vbCrLf & "  ORDER BY FTUnitSectCode"
+        dtline = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
+        _TotalLine = dtline.Rows.Count
+
+        For Each Rx As DataRow In dtline.Rows
+
+            _PLine = _PLine + 1
+
+            _SDate = HI.UL.ULDate.ConvertEnDB(FTStartDate.Text)
+            _EDate = HI.UL.ULDate.ConvertEnDB(FTEndDate.Text)
+
+            _Spls.UpdateInformation("Loading Data of Line " & Rx!FTUnitSectCode.ToString & "  ( " & _PLine.ToString & " of  " & _TotalLine.ToString & " )")
+
+            Do While _SDate <= _EDate
+
+                _Qry = "Exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.SP_GET_SCANOUTLINE_INCENTIVE_LA_SEMI " & Val(Rx!FNHSysUnitSectId.ToString) & ",'" & _SDate & "','" & _SDate & "' "
+                dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
+                If _Dt Is Nothing Then
+                    _Dt = dt.Copy
+                Else
+                    _Dt.Merge(dt.Copy)
+                End If
+
+                _SDate = HI.UL.ULDate.ConvertEnDB(HI.UL.ULDate.AddDay(_SDate, 1))
+
+            Loop
+
+        Next
+
+        _Spls.Close()
+
+        dtline.Dispose()
+        dt.Dispose()
+
+        Try
+            _DtShow = _Dt.Select("FTUnitSectCode<>''", "FDScanDateOrg,FTUnitSectCode").CopyToDataTable
+        Catch ex As Exception
+            _DtShow = Nothing
+        End Try
+
+        Dim _CalDate As String = ""
+        Dim _dtemptime As DataTable
+        Dim _MaxOT As Integer = 0
+        Dim _QtyOTMo As Integer = 0
+        For Each R As DataRow In _DtShow.Rows
+
+            _MaxOT = 0
+            _CalDate = HI.UL.ULDate.ConvertEnDB(R!FDScanDateOrg.ToString)
+            _dtemptime = GetEmpTime(Integer.Parse(Val(R!FNHSysUnitSectId.ToString)), R!FDScanDateOrg.ToString, 0).Copy()
+            For Each Rx As DataRow In _dtemptime.Select("FNWorkingOTMin>0", "FNWorkingOTMin DESC ")
+                _MaxOT = +Integer.Parse(Val(Rx!FNWorkingOTMin.ToString))
+                Exit For
+            Next
+
+            Select Case True
+                Case (_MaxOT = 0)
+
+                    ' _QtyOTMo = Integer.Parse(Val(R!H09.ToString)) + Integer.Parse(Val(R!H10.ToString)) + Integer.Parse(Val(R!H11.ToString)) + Integer.Parse(Val(R!H12.ToString)) + Integer.Parse(Val(R!H13.ToString))
+
+                    R!H09 = 0
+                    R!H10 = 0
+                    R!H11 = 0
+                    R!H12 = 0
+                    R!H13 = 0
+                   ' R!H08 = Integer.Parse(Val(R!H08.ToString)) + _QtyOTMo
+
+                Case _MaxOT > 0 And _MaxOT <= 60
+                    ' _QtyOTMo = Integer.Parse(Val(R!H10.ToString)) + Integer.Parse(Val(R!H11.ToString)) + Integer.Parse(Val(R!H12.ToString)) + Integer.Parse(Val(R!H13.ToString))
+
+                    R!H10 = 0
+                    R!H11 = 0
+                    R!H12 = 0
+                    R!H13 = 0
+                  '  R!H09 = Integer.Parse(Val(R!H09.ToString)) + _QtyOTMo
+
+                Case _MaxOT > 60 And _MaxOT <= 120
+                    ' _QtyOTMo = Integer.Parse(Val(R!H11.ToString)) + Integer.Parse(Val(R!H12.ToString)) + Integer.Parse(Val(R!H13.ToString))
+
+                    R!H11 = 0
+                    R!H12 = 0
+                    R!H13 = 0
+                  '  R!H10 = Integer.Parse(Val(R!H10.ToString)) + _QtyOTMo
+
+                Case _MaxOT > 120 And _MaxOT <= 180
+
+                    ' _QtyOTMo = Integer.Parse(Val(R!H12.ToString)) + Integer.Parse(Val(R!H13.ToString))
+
+                    R!H12 = 0
+                    R!H13 = 0
+                  '  R!H11 = Integer.Parse(Val(R!H11.ToString)) + _QtyOTMo
+
+                Case _MaxOT > 180 And _MaxOT <= 240
+
+                    ' _QtyOTMo = Integer.Parse(Val(R!H13.ToString))
+                    R!H13 = 0
+                   ' R!H12 = Integer.Parse(Val(R!H12.ToString)) + _QtyOTMo
+
+                Case _MaxOT > 240
+
+            End Select
+
+        Next
+
+        For Each R As DataRow In _DtShow.Rows
+            R!Total = Val(R!H01) + Val(R!H02) + Val(R!H03) + Val(R!H04) + Val(R!H05) + Val(R!H06) + Val(R!H07) + Val(R!H08) + Val(R!H09) + Val(R!H10) + Val(R!H11) + Val(R!H12) + Val(R!H13)
+        Next
+
+        Me.ogc.DataSource = _DtShow.Copy
+        Me.ogv.ExpandAllGroups()
+        _DtShow.Dispose()
+        _Dt.Dispose()
+
+    End Sub
 
 
     Private Sub LoadDataCutAuto()
@@ -22482,8 +22775,10 @@ SkiptonextLevel:
 
     Private Sub ocmload_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmload.Click
         If HI.UL.ULDate.CheckDate(FTStartDate.Text) <> "" Then
-
+            '' MsgBox(Me.FNCalculateIncentiveType_LA.SelectedIndex.ToString())
             Select Case Me.FNCalculateIncentiveType_LA.SelectedIndex
+
+
                 Case 0
 
                     Call LoadDataInfo()
@@ -22496,7 +22791,8 @@ SkiptonextLevel:
                     Call LoadDataIronInfo()
 
                 Case 4
-                    Call LoadDataInfo()
+                    ''MsgBox("semi")
+                    Call LoadDataInfo_Semi()
                     'Case 4
                     '    Call LoadDataHeat()
                     'Case 5
@@ -22966,7 +23262,34 @@ SkiptonextLevel:
 
                     End With
                 End If
+            Case FNCalculateIncentiveType_LA.SelectedIndex = 4
+                'SemiPart 
+                If Not (Me.ogc.DataSource Is Nothing) Then
+                    Dim _FM As String = ""
+                    With CType(Me.ogc.DataSource, DataTable)
+                        .AcceptChanges()
+                        If .Select("FTSelect='1'").Length > 0 Then
+                            For Each R As DataRow In .Select("FTSelect='1'")
 
+
+                                _FM = "{THRTIncentive.FNHSysUnitSectId}=" & Val(R!FNHSysUnitSectId.ToString) & " AND {THRTIncentive.FTCalDate}='" & HI.UL.ULDate.ConvertEnDB(R!FDScanDateOrg.ToString) & "'"
+
+                                With New HI.RP.Report
+
+                                    .FormTitle = Me.Text
+                                    .ReportFolderName = "Human Report\"
+
+                                    .ReportName = "HRIncentiveSEMIPART.rpt"
+
+                                    .Formular = _FM
+                                    .Preview()
+                                End With
+                            Next
+
+                        End If
+
+                    End With
+                End If
 
                 'Case FNCalculateIncentiveType.SelectedIndex = 8
                 '    Dim _dt As DataTable

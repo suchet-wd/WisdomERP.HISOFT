@@ -300,8 +300,10 @@ Public Class wTimeAttendanceCon_Owner
 
         If HI.ST.Lang.Language = HI.ST.SysInfo.LanguageLocal Then
             _Qry &= vbCrLf & " , PR.FTPreNameNameTH + ' ' +  M.FTEmpNameTH + '  ' +  M.FTEmpSurnameTH AS FTEmpName"
+            _Qry &= " , D.FTDeptDescTH AS FTDeptDesc, S.FTSectNameTH AS FTSectName, US.FTUnitSectNameTH AS FTUnitSectName, P.FTPositNameTH AS FTPositName"
         Else
             _Qry &= vbCrLf & " , PR.FTPreNameNameEN + ' ' + M.FTEmpNameEN + '  ' +  M.FTEmpSurnameEN AS FTEmpName"
+            _Qry &= " , D.FTDeptDescEN AS FTDeptDesc, S.FTSectNameEN AS FTSectName, US.FTUnitSectNameEN AS FTUnitSectName, P.FTPositNameEN AS FTPositName"
         End If
 
         _Qry &= vbCrLf & " ,CASE WHEN  ISDATE(T.FTDateTrans) = 1 THEN Convert(varchar(10),Convert(Datetime,T.FTDateTrans),103) ELSE '' END As FTDateTrans"
@@ -373,7 +375,7 @@ Public Class wTimeAttendanceCon_Owner
         _Qry &= vbCrLf & "  WHEN T.FTWeekDay=5 AND   ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTThursday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTThursday,'0') ='1'  )  THEN '1'  "
         _Qry &= vbCrLf & "  WHEN T.FTWeekDay=6 AND   ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTFriday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTFriday,'0') ='1'  )  THEN '1'  "
         _Qry &= vbCrLf & "  WHEN T.FTWeekDay=7 AND  ((EHL.FNHSysEmpID  IS NULL  AND ( ISNULL(SH.FTSaturday,'0') ='1' OR ISNULL(ETHL.FDHolidayDate,'') <>'' ))  OR ISNULL(EHL.FTSaturday,'0') ='1'  )  THEN '1'  "
-        _Qry &= vbCrLf & " ELSE '0' END AS FTWeekly "
+        _Qry &= vbCrLf & "  ELSE '0' END AS FTWeekly "
 
         _Qry &= vbCrLf & " ,ISNULL((SELECT TOP 1 FTLeaveType FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK)  WHERE FNHSysEmpID=T.FNHSysEmpID AND FTDateTrans=T.FTDateTrans   ),'') AS FTLeaveCode "
 
@@ -387,8 +389,8 @@ Public Class wTimeAttendanceCon_Owner
         _Qry &= vbCrLf & ", ISNULL(FTScanAOTInM,'') AS FTScanAOTInM"
         _Qry &= vbCrLf & ", ISNULL(FTScanAOTOutM,'') AS FTScanAOTOutM"
         _Qry &= vbCrLf & ", CASE WHEN  ISDATE(ISNULL(M.FDDateEnd,'')) = 1 THEN Convert(varchar(10),Convert(Datetime,ISNULL(M.FDDateEnd,'')),103) ELSE '' END  AS FDDateEnd"
-        _Qry &= vbCrLf & ",M.FNUseBarcode"
-        _Qry &= vbCrLf & ",M.FTEmpCodeRefer"
+        _Qry &= vbCrLf & ", M.FNUseBarcode"
+        _Qry &= vbCrLf & ", M.FTEmpCodeRefer"
         _Qry &= vbCrLf & "  FROM            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTrans AS T WITH (NOLOCK) LEFT OUTER JOIN"
         _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift AS SH WITH (NOLOCK) ON T.FNHSysShiftID = SH.FNHSysShiftID LEFT OUTER JOIN"
         _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTDailyOTRequest AS OT WITH (NOLOCK) ON T.FNHSysEmpID = OT.FNHSysEmpID AND T.FTDateTrans = OT.FTDateRequest"
@@ -434,12 +436,12 @@ Public Class wTimeAttendanceCon_Owner
 
             'new edit by joker 201/06/06 09:48
             _Qry &= vbCrLf & " AND CASE WHEN  T.FNScanCtrl = 0 THEN CASE WHEN (FTScanMIn='' OR (FTScanAOut='' AND FTScanAOTOut ='')) AND ISNULL(FNTotalLeaveMin,0)<480  AND M.FNUseBarcode<>2  THEN '1' Else '0' END"
-            _Qry &= vbCrLf & "   WHEN  T.FNScanCtrl = 1 THEN CASE WHEN ((FTScanMIn='' OR FTScanAOut='') OR (OT.FTOtIn  <>'' AND ((FTScanAOTIn='' AND FTScanAOTOut <>'') OR (FTScanAOTOut='' AND FTScanAOTIn<>''))) ) AND ISNULL(FNTotalLeaveMin,0)<480  AND M.FNUseBarcode<>2   THEN '1' Else '0' END"
-            _Qry &= vbCrLf & "        ELSE  CASE  WHEN ((FTScanMIn='' OR FTScanMOut='' OR FTScanAIn ='' OR FTScanAOut='')  OR (OT.FTOtIn  <>'' AND ((FTScanAOTIn='' AND FTScanAOTOut <>'') OR (FTScanAOTOut='' AND FTScanAOTIn<>'')))) "
-            _Qry &= vbCrLf & "And     ISNULL(FNTotalLeaveMin,0)<480     And M.FNUseBarcode<>2    THEN   "
-            _Qry &= vbCrLf & "  Case when  ((isnull(SPD.FTTimeOut,'') <= FTScanMOut  ) OR FTScanMIn='' OR FTScanMOut='' OR FTScanAOut = '' OR FTScanAIN = '') and isnull(FNTotalLeaveMin,0)=0 then '1' "
-            _Qry &= vbCrLf & "     when  ((isnull(SPD.FTTimeOut,'') <= FTScanAOut  ) OR FTScanMIn<>'' OR FTScanMOut<>'' OR FTScanAOut <> '' OR FTScanAIN <>'') and isnull(FNTotalLeaveMin,0)>0 then '0' "
-            _Qry &= vbCrLf & "else   '1' end  else '0' END END='1' "
+            _Qry &= vbCrLf & " WHEN  T.FNScanCtrl = 1 THEN CASE WHEN ((FTScanMIn='' OR FTScanAOut='') OR (OT.FTOtIn  <>'' AND ((FTScanAOTIn='' AND FTScanAOTOut <>'') OR (FTScanAOTOut='' AND FTScanAOTIn<>''))) ) AND ISNULL(FNTotalLeaveMin,0)<480  AND M.FNUseBarcode<>2   THEN '1' Else '0' END"
+            _Qry &= vbCrLf & " ELSE  CASE  WHEN ((FTScanMIn='' OR FTScanMOut='' OR FTScanAIn ='' OR FTScanAOut='')  OR (OT.FTOtIn  <>'' AND ((FTScanAOTIn='' AND FTScanAOTOut <>'') OR (FTScanAOTOut='' AND FTScanAOTIn<>'')))) "
+            _Qry &= vbCrLf & " And  ISNULL(FNTotalLeaveMin,0)<480     And M.FNUseBarcode<>2    THEN   "
+            _Qry &= vbCrLf & " Case when  ((isnull(SPD.FTTimeOut,'') <= FTScanMOut  ) OR FTScanMIn='' OR FTScanMOut='' OR FTScanAOut = '' OR FTScanAIN = '') and isnull(FNTotalLeaveMin,0)=0 then '1' "
+            _Qry &= vbCrLf & " when  ((isnull(SPD.FTTimeOut,'') <= FTScanAOut  ) OR FTScanMIn<>'' OR FTScanMOut<>'' OR FTScanAOut <> '' OR FTScanAIN <>'') and isnull(FNTotalLeaveMin,0)>0 then '0' "
+            _Qry &= vbCrLf & " else   '1' end  else '0' END END='1' "
             'end new edit
 
         End If

@@ -57,6 +57,9 @@
 
         _Qry = _Qry & " FROM ( SELECT       M.FNHSysEmpID, M.FTEmpCode"
 
+
+        _Qry = _Qry & "    , M.FTEmpNicknameTH , M.FTEmpNicknameEN "
+
         If HI.ST.Lang.Language = HI.ST.SysInfo.LanguageLocal Then
             _Qry &= vbCrLf & "  ,P.FTPreNameNameTH AS FTPreNameName"
             '_Qry &= vbCrLf & "  ,P.FTPreNameNameTH + ' ' + M.FTEmpNameTH + '  ' + M.FTEmpSurnameTH AS FTEmpName"
@@ -72,6 +75,9 @@
             _Qry &= vbCrLf & "  ,MNT.FTNationalityNameTH  AS FTNationalityName "
             _Qry &= vbCrLf & "  ,MSX.FTNameTH  AS FTSexName "
             _Qry &= vbCrLf & "  ,MSXTT.FTNameTH  AS FTStateCalSocial "
+
+            _Qry &= vbCrLf & " ,'' AS FTWorkforceType"
+            '' _Qry &= vbCrLf & " ,POS.FTNameTH AS FTWorkforceType"
 
             _Qry &= vbCrLf & "  ,CLev_Org.FTCLevelNameTH AS FTCLevelName_Org "
             _Qry &= vbCrLf & "  ,Dept_Org.FTDeptDescTH  AS FTDeptName_Org "
@@ -89,6 +95,8 @@
 
             _Qry &= vbCrLf & " ,ACG.FTAccountGroupCode, ACG.FTAccountGroupNameTH AS [FTAccountGroupName] "
             _Qry &= vbCrLf & " ,ACG_Org.FTAccountGroupCode  [FTAccountGroupCode_Org], ACG_Org.FTAccountGroupNameTH AS [FTAccountGroupName_Org] "
+
+            _Qry &= vbCrLf & "   ,FormatType.FTNameTH AS FTFormatType "
         Else
             _Qry &= vbCrLf & "  ,P.FTPreNameNameEN AS FTPreNameName"
             '_Qry &= vbCrLf & "  ,P.FTPreNameNameEN + ' ' + M.FTEmpNameEN + '  ' + M.FTEmpSurnameEN AS FTEmpName"
@@ -105,6 +113,9 @@
             _Qry &= vbCrLf & "  ,MSX.FTNameEN  AS FTSexName "
             _Qry &= vbCrLf & "  ,MSXTT.FTNameEN  AS FTStateCalSocial "
 
+            _Qry &= vbCrLf & " ,'' AS FTWorkforceType"
+            '' _Qry &= vbCrLf & " ,POS.FTNameEN AS FTWorkforceType"
+
             _Qry &= vbCrLf & "  ,CLev_Org.FTCLevelNameEN AS FTCLevelName_Org "
             _Qry &= vbCrLf & "  ,Dept_Org.FTDeptDescEN  AS FTDeptName_Org "
             _Qry &= vbCrLf & "  ,DI_Org.FTDivisonNameEN  AS FTDivisonName_Org "
@@ -120,7 +131,11 @@
             _Qry &= vbCrLf & " ,ACG.FTAccountGroupCode, ACG.FTAccountGroupNameEN AS [FTAccountGroupName] "
             _Qry &= vbCrLf & " ,ACG_Org.FTAccountGroupCode  [FTAccountGroupCode_Org], ACG_Org.FTAccountGroupNameEN AS [FTAccountGroupName_Org] "
 
+            _Qry &= vbCrLf & "   ,FormatType.FTNameEN AS FTFormatType "
+
         End If
+
+
 
         _Qry &= vbCrLf & " , ISNULL(ET.FTEmpTypeCode,'') AS FTEmpTypeCode "
         _Qry &= vbCrLf & " , ISNULL(Dept.FTDeptCode,'') AS FTDeptCode, ISNULL(DI.FTDivisonCode,'') AS FTDivisonCode"
@@ -150,6 +165,16 @@
             _Qry &= vbCrLf & ",ISNULL(FNEnablonType.FNEnablonTypeNameEN,'-') AS FNEnablonType"
         End If
 
+        _Qry &= vbCrLf & ",ISNULL(FTStateUnionMember,'0') AS FTStateUnionMember"
+        _Qry &= vbCrLf & ",CASE WHEN ISDATE(M.FDRegisterDateUnion) =1 THEN CONVERT(varchar(10),Convert(datetime,M.FDRegisterDateUnion),103) ELSE '' END AS FDRegisterDateUnion"
+        If ST.Lang.Language = ST.Lang.eLang.TH Then
+            _Qry &= vbCrLf & ", UNI.FTNameTH AS FTUnion  "
+        Else
+            _Qry &= vbCrLf & ", UNI.FTNameEN AS FTUnion  "
+        End If
+
+        _Qry &= vbCrLf & ",CASE WHEN ISDATE(M.FDDateIdNoEnd) =1 THEN CONVERT(varchar(10),Convert(datetime,M.FDDateIdNoEnd),103) ELSE '' END AS FDDateIdNoEnd"
+
         _Qry &= vbCrLf & "  FROM            [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) INNER JOIN"
         _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMPrename AS P WITH (NOLOCK) ON M.FNHSysPreNameId = P.FNHSysPreNameId INNER JOIN"
         _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType AS ET WITH (NOLOCK) ON M.FNHSysEmpTypeId = ET.FNHSysEmpTypeId LEFT OUTER JOIN"
@@ -167,9 +192,12 @@
         _Qry &= vbCrLf & "  OUTER APPLY ( SELECT FNListIndex AS 'FNJobLevelIndex', FTNameTH AS 'FNJobLevelNameTH', FTNameEN 'FNJobLevelNameEN' FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData "
         _Qry &= vbCrLf & "  WHERE FTListName  ='FNJobLevel' AND G.FNJobLevel=FNListIndex)   FNJobLevel"
         _Qry &= vbCrLf & "  OUTER APPLY ( SELECT FNListIndex AS 'FNJobRoleIndex', FTNameTH AS 'FNJobRoleNameTH', FTNameEN 'FNJobRoleNameEN' FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData "
-        _Qry &= vbCrLf & " WHERE FTListName  ='FNJobRole' AND G.FNJobRole=FNListIndex)   FNJobRole     LEFT OUTER JOIN "
+        _Qry &= vbCrLf & " WHERE FTListName  ='FNJobRole' AND G.FNJobRole=FNListIndex)   FNJobRole    "
 
 
+
+
+        _Qry &= vbCrLf & "   LEFT OUTER JOIN  "
         _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMDepartment AS Dept_Org WITH (Nolock) ON M.FNHSysDeptIdOrg = Dept_Org.FNHSysDeptId LEFT OUTER JOIN"
         _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMDivision AS DI_Org WITH (NOLOCK) ON M.FNHSysDivisonIdOrg = DI_Org.FNHSysDivisonId LEFT OUTER JOIN"
         _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSect AS ST_Org WITH (NOLOCK) ON M.FNHSysSectIdOrg = ST_Org.FNHSysSectId LEFT OUTER JOIN"
@@ -190,6 +218,13 @@
         _Qry &= vbCrLf & " WHERE  (FTListName = N'FNEmpSex')"
         _Qry &= vbCrLf & " ) AS MSX ON  M.FNEmpSex=MSX.FNListIndex "
 
+
+        '_Qry &= vbCrLf & " LEFT OUTER JOIN ("
+        '_Qry &= vbCrLf & "    SELECT FNListIndex, FTNameTH, FTNameEN"
+        '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS X WITH(NOLOCK)"
+        '_Qry &= vbCrLf & " WHERE  (FTListName = N'FNWorkForceType')"
+        '_Qry &= vbCrLf & " )AS POS ON  OrgPosit.FNWorkForceType=POS.FNListIndex  "
+
         _Qry &= vbCrLf & " LEFT OUTER JOIN ("
         _Qry &= vbCrLf & "    SELECT FNListIndex, FTNameTH, FTNameEN"
         _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS X WITH(NOLOCK)"
@@ -198,23 +233,11 @@
 
 
         _Qry &= vbCrLf & " OUTER APPLY (SELECT TOP 1 * FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].[dbo].[HSysListData] WHERE FTListName='FNEmpTypeGroup' AND ET.FNEmpTypeGroup=FNListIndex ) L "
-        'If HI.ST.SysInfo.Admin = False Then
 
-        '    _Qry &= vbCrLf & " INNER  JOIN (SELECT FNHSysEmpTypeId,FNHSysSectId  "
-        '    _Qry &= vbCrLf & " FROM    [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) + "].dbo.tmpPermissionTCNMSect  WITH (NOLOCK)  "
-        '    _Qry &= vbCrLf & " WHERE (FTUserName = '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "' ) AND (FTMnuName = '" + HI.UL.ULF.rpQuoted(HI.ST.SysInfo.MenuName) + "' )) AS perSec "
-        '    _Qry &= vbCrLf & " ON perSec.FNHSysEmpTypeId=M.FNHSysEmpTypeId AND perSec.FNHSysSectId=M.FNHSysSectId "
-
-        '    _Qry &= vbCrLf & " INNER JOIN (SELECT FNHSysEmpTypeId,FNHSysUnitSectId "
-        '    _Qry &= vbCrLf & "  FROM   [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) + "].dbo.tmpPermissionTCNMUnitSect  WITH (NOLOCK) "
-        '    _Qry &= vbCrLf & "  WHERE (FTUserName = '" + HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) + "' ) AND (FTMnuName = '" + HI.UL.ULF.rpQuoted(HI.ST.SysInfo.MenuName) + "')) AS perUSec "
-        '    _Qry &= vbCrLf & " ON perUSec.FNHSysEmpTypeId=M.FNHSysEmpTypeId AND perUSec.FNHSysUnitSectId=M.FNHSysUnitSectId "
+        _Qry &= vbCrLf & " OUTER APPLY (SELECT TOP 1 * FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].[dbo].[HSysListData] WHERE FTListName='FNUnion' AND M.FNUnion=FNListIndex ) UNI "
 
 
-        'End If
-
-        ''  Dim _Qry2 As String = ""
-
+        _Qry &= vbCrLf & " OUTER APPLY (SELECT TOP 1 * FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].[dbo].[HSysListData] WHERE FTListName='FNEmployeeFormatType' AND OrgPosit.FNEmployeeFormatType=FNListIndex ) FormatType "
 
         _Qry &= vbCrLf & "  WHERE        (M.FTEmpCode <> '')"
         _Qry &= vbCrLf & "   AND  M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & "  "
@@ -289,6 +312,8 @@
 
     End Sub
 #End Region
+
+
 
 #Region "Initial Grid"
     Private Sub InitGrid()

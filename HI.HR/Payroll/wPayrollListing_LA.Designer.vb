@@ -176,8 +176,10 @@ Partial Class wPayrollListing_LA
         Me.FCOt3_Baht = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FCOt4_Baht = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FCNetBaht = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNSickLeaveBaht = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNPayLeaveVacationBaht = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNPayLeaveOtherBaht = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNParturitionLeaveBaht = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FHolidayBaht = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNIncentiveAmt = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.F008 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -200,6 +202,8 @@ Partial Class wPayrollListing_LA
         Me.F062 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.F063 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.F064 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.F080 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.F081 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNTotalAdd = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNTotalAddOther = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNTotalExpense = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -230,6 +234,8 @@ Partial Class wPayrollListing_LA
         Me.FTUseHRAccept = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTDateHRAccept = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTTimeHRAccept = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.F084 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.F086 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryFTSelect = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.RepositoryFTApproveState = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -306,8 +312,8 @@ Partial Class wPayrollListing_LA
         Me.ogbheader.Options.FloatOnDblClick = False
         Me.ogbheader.Options.ShowCloseButton = False
         Me.ogbheader.Options.ShowMaximizeButton = False
-        Me.ogbheader.OriginalSize = New System.Drawing.Size(238, 238)
-        Me.ogbheader.Size = New System.Drawing.Size(1177, 238)
+        Me.ogbheader.OriginalSize = New System.Drawing.Size(1177, 235)
+        Me.ogbheader.Size = New System.Drawing.Size(1177, 235)
         Me.ogbheader.TabStop = False
         Me.ogbheader.Text = "Criteria"
         '
@@ -355,10 +361,10 @@ Partial Class wPayrollListing_LA
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysDeptId)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysUnitSectIdTo)
         Me.DockPanel1_Container.Controls.Add(Me.FTPayYear)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(2, 29)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 32)
         Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1173, 205)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1169, 197)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FDCalDateEnd
@@ -369,7 +375,7 @@ Partial Class wPayrollListing_LA
         Me.FDCalDateEnd.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FDCalDateEnd.Properties.Appearance.Options.UseBackColor = True
         Me.FDCalDateEnd.Properties.ReadOnly = True
-        Me.FDCalDateEnd.Size = New System.Drawing.Size(97, 23)
+        Me.FDCalDateEnd.Size = New System.Drawing.Size(97, 22)
         Me.FDCalDateEnd.TabIndex = 399
         Me.FDCalDateEnd.Tag = "2|"
         Me.FDCalDateEnd.Visible = False
@@ -397,7 +403,7 @@ Partial Class wPayrollListing_LA
         Me.FDCalDateBegin.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FDCalDateBegin.Properties.Appearance.Options.UseBackColor = True
         Me.FDCalDateBegin.Properties.ReadOnly = True
-        Me.FDCalDateBegin.Size = New System.Drawing.Size(97, 23)
+        Me.FDCalDateBegin.Size = New System.Drawing.Size(97, 22)
         Me.FDCalDateBegin.TabIndex = 398
         Me.FDCalDateBegin.Tag = "2|"
         Me.FDCalDateBegin.Visible = False
@@ -412,7 +418,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCmpId_None.Properties.ReadOnly = True
-        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(1046, 23)
+        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(1042, 22)
         Me.FNHSysCmpId_None.TabIndex = 465
         Me.FNHSysCmpId_None.Tag = ""
         '
@@ -423,7 +429,7 @@ Partial Class wPayrollListing_LA
         Me.FTPayTerm.Name = "FTPayTerm"
         Me.FTPayTerm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "151", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTPayTerm.Properties.Tag = ""
-        Me.FTPayTerm.Size = New System.Drawing.Size(86, 23)
+        Me.FTPayTerm.Size = New System.Drawing.Size(86, 22)
         Me.FTPayTerm.TabIndex = 397
         Me.FTPayTerm.Tag = "2|"
         '
@@ -449,7 +455,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysSectId.Name = "FNHSysSectId"
         Me.FNHSysSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "55", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectId.Properties.Tag = "55"
-        Me.FNHSysSectId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysSectId.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysSectId.TabIndex = 389
         Me.FNHSysSectId.Tag = "2|"
         '
@@ -493,7 +499,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(132, 23)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(132, 22)
         Me.FNHSysCmpId.TabIndex = 463
         Me.FNHSysCmpId.Tag = ""
         '
@@ -505,7 +511,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectId_None.Properties.ReadOnly = True
-        Me.FNHSysSectId_None.Size = New System.Drawing.Size(163, 23)
+        Me.FNHSysSectId_None.Size = New System.Drawing.Size(163, 22)
         Me.FNHSysSectId_None.TabIndex = 396
         Me.FNHSysSectId_None.Tag = "2|"
         '
@@ -516,7 +522,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysEmpTypeId.Name = "FNHSysEmpTypeId"
         Me.FNHSysEmpTypeId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "42", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpTypeId.Properties.Tag = ""
-        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysEmpTypeId.TabIndex = 417
         Me.FNHSysEmpTypeId.Tag = "2|"
         '
@@ -569,7 +575,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysEmpTypeId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpTypeId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpTypeId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(163, 23)
+        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(163, 22)
         Me.FNHSysEmpTypeId_None.TabIndex = 419
         Me.FNHSysEmpTypeId_None.Tag = "2|"
         '
@@ -583,7 +589,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(619, 23)
+        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(615, 22)
         Me.FNHSysUnitSectIdTo_None.TabIndex = 410
         Me.FNHSysUnitSectIdTo_None.Tag = "2|"
         '
@@ -597,7 +603,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysEmpIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysEmpIdTo_None.Size = New System.Drawing.Size(619, 23)
+        Me.FNHSysEmpIdTo_None.Size = New System.Drawing.Size(615, 22)
         Me.FNHSysEmpIdTo_None.TabIndex = 416
         Me.FNHSysEmpIdTo_None.Tag = "2|"
         '
@@ -608,7 +614,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
         Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "57", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.Tag = "57"
-        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysUnitSectId.TabIndex = 390
         Me.FNHSysUnitSectId.Tag = "2|"
         '
@@ -620,7 +626,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysEmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpId_None.Size = New System.Drawing.Size(163, 23)
+        Me.FNHSysEmpId_None.Size = New System.Drawing.Size(163, 22)
         Me.FNHSysEmpId_None.TabIndex = 413
         Me.FNHSysEmpId_None.Tag = "2|"
         '
@@ -631,7 +637,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysDivisonIdTo.Name = "FNHSysDivisonIdTo"
         Me.FNHSysDivisonIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "60", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonIdTo.Properties.Tag = "46"
-        Me.FNHSysDivisonIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysDivisonIdTo.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysDivisonIdTo.TabIndex = 402
         Me.FNHSysDivisonIdTo.Tag = "2|"
         '
@@ -655,7 +661,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysDivisonId.Name = "FNHSysDivisonId"
         Me.FNHSysDivisonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "46", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonId.Properties.Tag = "46"
-        Me.FNHSysDivisonId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysDivisonId.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysDivisonId.TabIndex = 388
         Me.FNHSysDivisonId.Tag = "2|"
         '
@@ -695,7 +701,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysDeptIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysDeptIdTo_None.Size = New System.Drawing.Size(619, 23)
+        Me.FNHSysDeptIdTo_None.Size = New System.Drawing.Size(615, 22)
         Me.FNHSysDeptIdTo_None.TabIndex = 401
         Me.FNHSysDeptIdTo_None.Tag = "2|"
         '
@@ -735,7 +741,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysDivisonIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonIdTo_None.Size = New System.Drawing.Size(619, 23)
+        Me.FNHSysDivisonIdTo_None.Size = New System.Drawing.Size(615, 22)
         Me.FNHSysDivisonIdTo_None.TabIndex = 404
         Me.FNHSysDivisonIdTo_None.Tag = "2|"
         '
@@ -746,7 +752,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysEmpId.Name = "FNHSysEmpId"
         Me.FNHSysEmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "58", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpId.Properties.Tag = "57"
-        Me.FNHSysEmpId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysEmpId.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysEmpId.TabIndex = 411
         Me.FNHSysEmpId.Tag = "2|"
         '
@@ -758,7 +764,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysUnitSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(163, 23)
+        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(163, 22)
         Me.FNHSysUnitSectId_None.TabIndex = 398
         Me.FNHSysUnitSectId_None.Tag = "2|"
         '
@@ -769,7 +775,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysEmpIdTo.Name = "FNHSysEmpIdTo"
         Me.FNHSysEmpIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "63", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpIdTo.Properties.Tag = "57"
-        Me.FNHSysEmpIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysEmpIdTo.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysEmpIdTo.TabIndex = 414
         Me.FNHSysEmpIdTo.Tag = "2|"
         '
@@ -783,7 +789,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysSectIdTo_None.Size = New System.Drawing.Size(619, 23)
+        Me.FNHSysSectIdTo_None.Size = New System.Drawing.Size(615, 22)
         Me.FNHSysSectIdTo_None.TabIndex = 407
         Me.FNHSysSectIdTo_None.Tag = "2|"
         '
@@ -794,7 +800,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysSectIdTo.Name = "FNHSysSectIdTo"
         Me.FNHSysSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "61", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectIdTo.Properties.Tag = "55"
-        Me.FNHSysSectIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysSectIdTo.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysSectIdTo.TabIndex = 405
         Me.FNHSysSectIdTo.Tag = "2|"
         '
@@ -806,7 +812,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysDivisonId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonId_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonId_None.Size = New System.Drawing.Size(163, 23)
+        Me.FNHSysDivisonId_None.Size = New System.Drawing.Size(163, 22)
         Me.FNHSysDivisonId_None.TabIndex = 394
         Me.FNHSysDivisonId_None.Tag = "2|"
         '
@@ -818,7 +824,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysDeptId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptId_None.Properties.ReadOnly = True
-        Me.FNHSysDeptId_None.Size = New System.Drawing.Size(163, 23)
+        Me.FNHSysDeptId_None.Size = New System.Drawing.Size(163, 22)
         Me.FNHSysDeptId_None.TabIndex = 392
         Me.FNHSysDeptId_None.Tag = "2|"
         '
@@ -842,7 +848,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysDeptIdTo.Name = "FNHSysDeptIdTo"
         Me.FNHSysDeptIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "59", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptIdTo.Properties.Tag = "23"
-        Me.FNHSysDeptIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysDeptIdTo.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysDeptIdTo.TabIndex = 399
         Me.FNHSysDeptIdTo.Tag = "2|"
         '
@@ -866,7 +872,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysDeptId.Name = "FNHSysDeptId"
         Me.FNHSysDeptId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "23", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptId.Properties.Tag = "23"
-        Me.FNHSysDeptId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysDeptId.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysDeptId.TabIndex = 387
         Me.FNHSysDeptId.Tag = "2|"
         '
@@ -877,7 +883,7 @@ Partial Class wPayrollListing_LA
         Me.FNHSysUnitSectIdTo.Name = "FNHSysUnitSectIdTo"
         Me.FNHSysUnitSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "62", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectIdTo.Properties.Tag = "57"
-        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysUnitSectIdTo.TabIndex = 408
         Me.FNHSysUnitSectIdTo.Tag = "2|"
         '
@@ -902,7 +908,7 @@ Partial Class wPayrollListing_LA
         Me.FTPayYear.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTPayYear.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTPayYear.Properties.Tag = ""
-        Me.FTPayYear.Size = New System.Drawing.Size(131, 23)
+        Me.FTPayYear.Size = New System.Drawing.Size(131, 22)
         Me.FTPayYear.TabIndex = 401
         Me.FTPayYear.Tag = "2|"
         '
@@ -912,11 +918,11 @@ Partial Class wPayrollListing_LA
         Me.ogbemployee.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ogbemployee.Controls.Add(Me.GroupControl1)
         Me.ogbemployee.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbemployee.Location = New System.Drawing.Point(0, 238)
+        Me.ogbemployee.Location = New System.Drawing.Point(0, 235)
         Me.ogbemployee.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbemployee.Name = "ogbemployee"
         Me.ogbemployee.ShowCaption = False
-        Me.ogbemployee.Size = New System.Drawing.Size(1177, 609)
+        Me.ogbemployee.Size = New System.Drawing.Size(1177, 612)
         Me.ogbemployee.TabIndex = 388
         Me.ogbemployee.Text = "Employee"
         '
@@ -931,7 +937,7 @@ Partial Class wPayrollListing_LA
         Me.GroupControl1.Location = New System.Drawing.Point(2, 2)
         Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(1173, 605)
+        Me.GroupControl1.Size = New System.Drawing.Size(1173, 608)
         Me.GroupControl1.TabIndex = 389
         Me.GroupControl1.Text = "Employee"
         '
@@ -1022,8 +1028,9 @@ Partial Class wPayrollListing_LA
         Me.ochkselectall.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ochkselectall.Name = "ochkselectall"
         Me.ochkselectall.Properties.Caption = "Select All Declare"
-        Me.ochkselectall.Size = New System.Drawing.Size(222, 20)
+        Me.ochkselectall.Size = New System.Drawing.Size(222, 24)
         Me.ochkselectall.TabIndex = 308
+        Me.ochkselectall.Visible = False
         '
         'ogc
         '
@@ -1031,12 +1038,12 @@ Partial Class wPayrollListing_LA
         Me.ogc.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         GridLevelNode1.RelationName = "Level1"
         Me.ogc.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
-        Me.ogc.Location = New System.Drawing.Point(2, 27)
+        Me.ogc.Location = New System.Drawing.Point(2, 28)
         Me.ogc.MainView = Me.ogv
         Me.ogc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Name = "ogc"
         Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSelect, Me.RepositoryFTApproveState, Me.ReposFTStateEmployeeAccept, Me.ReposFTStateHRSent, Me.ReposFTStateHRAccept})
-        Me.ogc.Size = New System.Drawing.Size(1169, 576)
+        Me.ogc.Size = New System.Drawing.Size(1169, 578)
         Me.ogc.TabIndex = 3
         Me.ogc.TabStop = False
         Me.ogc.Tag = "2|"
@@ -1044,7 +1051,7 @@ Partial Class wPayrollListing_LA
         '
         'ogv
         '
-        Me.ogv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFNHSysEmpID, Me.FTEmpCode, Me.FTEmpName, Me.FTEmpStatusName, Me.FTEmpTypeName, Me.FTDeptName, Me.FTDivisonName, Me.FTSectName, Me.FTUnitSectName, Me.FTPositName, Me.FTEmpTypeCode, Me.FTDeptCode, Me.FTDivisonCode, Me.FTSectCode, Me.FTUnitSectCode, Me.FTPositCode, Me.FNEmpStatus, Me.FNSalary, Me.FNWorkingDay, Me.FNWorkingHour, Me.FNOt1, Me.FNOt15, Me.FNOt2, Me.FNOt3, Me.FNOt4, Me.FCBaht, Me.FCOt1_Baht, Me.FCOt15_Baht, Me.FCOt2_Baht, Me.FCOt3_Baht, Me.FCOt4_Baht, Me.FCNetBaht, Me.FNPayLeaveVacationBaht, Me.FNPayLeaveOtherBaht, Me.FHolidayBaht, Me.FNIncentiveAmt, Me.F008, Me.F009, Me.F014, Me.F016, Me.F017, Me.F043, Me.F032, Me.F050, Me.F051, Me.F053, Me.F054, Me.F055, Me.F056, Me.F057, Me.F058, Me.F059, Me.F061, Me.F062, Me.F063, Me.F064, Me.FNTotalAdd, Me.FNTotalAddOther, Me.FNTotalExpense, Me.FNTotalExpenseOther, Me.FNTotalIncome, Me.FNTotalRecalSSO, Me.FNSocial, Me.FNSocialCmp, Me.FNTotalRecalTAX, Me.FNTax, Me.F112, Me.F113, Me.FNNetpay, Me.FTAccountGroupCode, Me.FTAccountGroupName, Me.FTStateHRSent, Me.FTUserHRSent, Me.FTDateHRSent, Me.FTTimeHRSent, Me.FTStateEmployeeAccept, Me.FTUserEmployeeAccept, Me.FTDateEmployeeAccept, Me.FTTimeEmployeeAccept, Me.FTStateHRAccept, Me.FTUseHRAccept, Me.FTDateHRAccept, Me.FTTimeHRAccept})
+        Me.ogv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFNHSysEmpID, Me.FTEmpCode, Me.FTEmpName, Me.FTEmpStatusName, Me.FTEmpTypeName, Me.FTDeptName, Me.FTDivisonName, Me.FTSectName, Me.FTUnitSectName, Me.FTPositName, Me.FTEmpTypeCode, Me.FTDeptCode, Me.FTDivisonCode, Me.FTSectCode, Me.FTUnitSectCode, Me.FTPositCode, Me.FNEmpStatus, Me.FNSalary, Me.FNWorkingDay, Me.FNWorkingHour, Me.FNOt1, Me.FNOt15, Me.FNOt2, Me.FNOt3, Me.FNOt4, Me.FCBaht, Me.FCOt1_Baht, Me.FCOt15_Baht, Me.FCOt2_Baht, Me.FCOt3_Baht, Me.FCOt4_Baht, Me.FCNetBaht, Me.FNSickLeaveBaht, Me.FNPayLeaveVacationBaht, Me.FNPayLeaveOtherBaht, Me.FNParturitionLeaveBaht, Me.FHolidayBaht, Me.FNIncentiveAmt, Me.F008, Me.F009, Me.F014, Me.F016, Me.F017, Me.F043, Me.F032, Me.F050, Me.F051, Me.F053, Me.F054, Me.F055, Me.F056, Me.F057, Me.F058, Me.F059, Me.F061, Me.F062, Me.F063, Me.F064, Me.F080, Me.F081, Me.FNTotalAdd, Me.FNTotalAddOther, Me.FNTotalExpense, Me.FNTotalExpenseOther, Me.FNTotalIncome, Me.FNTotalRecalSSO, Me.FNSocial, Me.FNSocialCmp, Me.FNTotalRecalTAX, Me.FNTax, Me.F112, Me.F113, Me.FNNetpay, Me.FTAccountGroupCode, Me.FTAccountGroupName, Me.FTStateHRSent, Me.FTUserHRSent, Me.FTDateHRSent, Me.FTTimeHRSent, Me.FTStateEmployeeAccept, Me.FTUserEmployeeAccept, Me.FTDateEmployeeAccept, Me.FTTimeEmployeeAccept, Me.FTStateHRAccept, Me.FTUseHRAccept, Me.FTDateHRAccept, Me.FTTimeHRAccept, Me.F084, Me.F086})
         Me.ogv.GridControl = Me.ogc
         Me.ogv.Name = "ogv"
         Me.ogv.OptionsCustomization.AllowQuickHideColumns = False
@@ -1556,6 +1563,21 @@ Partial Class wPayrollListing_LA
         Me.FCNetBaht.VisibleIndex = 22
         Me.FCNetBaht.Width = 98
         '
+        'FNSickLeaveBaht
+        '
+        Me.FNSickLeaveBaht.Caption = "FNSickLeaveBaht"
+        Me.FNSickLeaveBaht.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNSickLeaveBaht.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNSickLeaveBaht.FieldName = "FNSickLeaveBaht"
+        Me.FNSickLeaveBaht.MinWidth = 25
+        Me.FNSickLeaveBaht.Name = "FNSickLeaveBaht"
+        Me.FNSickLeaveBaht.OptionsColumn.AllowEdit = False
+        Me.FNSickLeaveBaht.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FNSickLeaveBaht.OptionsColumn.ReadOnly = True
+        Me.FNSickLeaveBaht.Visible = True
+        Me.FNSickLeaveBaht.VisibleIndex = 23
+        Me.FNSickLeaveBaht.Width = 94
+        '
         'FNPayLeaveVacationBaht
         '
         Me.FNPayLeaveVacationBaht.AppearanceCell.Options.UseTextOptions = True
@@ -1572,7 +1594,7 @@ Partial Class wPayrollListing_LA
         Me.FNPayLeaveVacationBaht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNPayLeaveVacationBaht.OptionsColumn.ReadOnly = True
         Me.FNPayLeaveVacationBaht.Visible = True
-        Me.FNPayLeaveVacationBaht.VisibleIndex = 23
+        Me.FNPayLeaveVacationBaht.VisibleIndex = 24
         '
         'FNPayLeaveOtherBaht
         '
@@ -1590,7 +1612,23 @@ Partial Class wPayrollListing_LA
         Me.FNPayLeaveOtherBaht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNPayLeaveOtherBaht.OptionsColumn.ReadOnly = True
         Me.FNPayLeaveOtherBaht.Visible = True
-        Me.FNPayLeaveOtherBaht.VisibleIndex = 24
+        Me.FNPayLeaveOtherBaht.VisibleIndex = 25
+        '
+        'FNParturitionLeaveBaht
+        '
+        Me.FNParturitionLeaveBaht.Caption = "FNParturitionLeaveBaht"
+        Me.FNParturitionLeaveBaht.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNParturitionLeaveBaht.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNParturitionLeaveBaht.FieldName = "FNParturitionLeaveBaht"
+        Me.FNParturitionLeaveBaht.MinWidth = 25
+        Me.FNParturitionLeaveBaht.Name = "FNParturitionLeaveBaht"
+        Me.FNParturitionLeaveBaht.OptionsColumn.AllowEdit = False
+        Me.FNParturitionLeaveBaht.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FNParturitionLeaveBaht.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FNParturitionLeaveBaht.OptionsColumn.ReadOnly = True
+        Me.FNParturitionLeaveBaht.Visible = True
+        Me.FNParturitionLeaveBaht.VisibleIndex = 26
+        Me.FNParturitionLeaveBaht.Width = 94
         '
         'FHolidayBaht
         '
@@ -1608,7 +1646,7 @@ Partial Class wPayrollListing_LA
         Me.FHolidayBaht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FHolidayBaht.OptionsColumn.ReadOnly = True
         Me.FHolidayBaht.Visible = True
-        Me.FHolidayBaht.VisibleIndex = 25
+        Me.FHolidayBaht.VisibleIndex = 27
         '
         'FNIncentiveAmt
         '
@@ -1625,7 +1663,7 @@ Partial Class wPayrollListing_LA
         Me.FNIncentiveAmt.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNIncentiveAmt.OptionsColumn.ReadOnly = True
         Me.FNIncentiveAmt.Visible = True
-        Me.FNIncentiveAmt.VisibleIndex = 26
+        Me.FNIncentiveAmt.VisibleIndex = 28
         Me.FNIncentiveAmt.Width = 81
         '
         'F008
@@ -1637,7 +1675,7 @@ Partial Class wPayrollListing_LA
         Me.F008.OptionsColumn.AllowEdit = False
         Me.F008.OptionsColumn.ReadOnly = True
         Me.F008.Visible = True
-        Me.F008.VisibleIndex = 27
+        Me.F008.VisibleIndex = 29
         Me.F008.Width = 94
         '
         'F009
@@ -1659,7 +1697,7 @@ Partial Class wPayrollListing_LA
         Me.F014.OptionsColumn.AllowEdit = False
         Me.F014.OptionsColumn.ReadOnly = True
         Me.F014.Visible = True
-        Me.F014.VisibleIndex = 28
+        Me.F014.VisibleIndex = 30
         Me.F014.Width = 94
         '
         'F016
@@ -1691,7 +1729,7 @@ Partial Class wPayrollListing_LA
         Me.F043.OptionsColumn.AllowEdit = False
         Me.F043.OptionsColumn.ReadOnly = True
         Me.F043.Visible = True
-        Me.F043.VisibleIndex = 29
+        Me.F043.VisibleIndex = 31
         Me.F043.Width = 94
         '
         'F032
@@ -1703,7 +1741,7 @@ Partial Class wPayrollListing_LA
         Me.F032.OptionsColumn.AllowEdit = False
         Me.F032.OptionsColumn.ReadOnly = True
         Me.F032.Visible = True
-        Me.F032.VisibleIndex = 30
+        Me.F032.VisibleIndex = 32
         Me.F032.Width = 94
         '
         'F050
@@ -1715,17 +1753,21 @@ Partial Class wPayrollListing_LA
         Me.F050.OptionsColumn.AllowEdit = False
         Me.F050.OptionsColumn.ReadOnly = True
         Me.F050.Visible = True
-        Me.F050.VisibleIndex = 31
+        Me.F050.VisibleIndex = 33
         Me.F050.Width = 94
         '
         'F051
         '
         Me.F051.Caption = "051"
+        Me.F051.DisplayFormat.FormatString = "N2"
+        Me.F051.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.F051.FieldName = "051"
         Me.F051.MinWidth = 25
         Me.F051.Name = "F051"
         Me.F051.OptionsColumn.AllowEdit = False
         Me.F051.OptionsColumn.ReadOnly = True
+        Me.F051.Visible = True
+        Me.F051.VisibleIndex = 47
         Me.F051.Width = 94
         '
         'F053
@@ -1738,7 +1780,7 @@ Partial Class wPayrollListing_LA
         Me.F053.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.F053.OptionsColumn.ReadOnly = True
         Me.F053.Visible = True
-        Me.F053.VisibleIndex = 32
+        Me.F053.VisibleIndex = 34
         Me.F053.Width = 94
         '
         'F054
@@ -1751,7 +1793,7 @@ Partial Class wPayrollListing_LA
         Me.F054.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.F054.OptionsColumn.ReadOnly = True
         Me.F054.Visible = True
-        Me.F054.VisibleIndex = 33
+        Me.F054.VisibleIndex = 35
         Me.F054.Width = 94
         '
         'F055
@@ -1764,7 +1806,7 @@ Partial Class wPayrollListing_LA
         Me.F055.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.F055.OptionsColumn.ReadOnly = True
         Me.F055.Visible = True
-        Me.F055.VisibleIndex = 34
+        Me.F055.VisibleIndex = 36
         Me.F055.Width = 94
         '
         'F056
@@ -1777,7 +1819,7 @@ Partial Class wPayrollListing_LA
         Me.F056.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.F056.OptionsColumn.ReadOnly = True
         Me.F056.Visible = True
-        Me.F056.VisibleIndex = 35
+        Me.F056.VisibleIndex = 37
         Me.F056.Width = 94
         '
         'F057
@@ -1790,7 +1832,7 @@ Partial Class wPayrollListing_LA
         Me.F057.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.F057.OptionsColumn.ReadOnly = True
         Me.F057.Visible = True
-        Me.F057.VisibleIndex = 36
+        Me.F057.VisibleIndex = 38
         Me.F057.Width = 94
         '
         'F058
@@ -1803,7 +1845,7 @@ Partial Class wPayrollListing_LA
         Me.F058.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.F058.OptionsColumn.ReadOnly = True
         Me.F058.Visible = True
-        Me.F058.VisibleIndex = 37
+        Me.F058.VisibleIndex = 39
         Me.F058.Width = 94
         '
         'F059
@@ -1816,7 +1858,7 @@ Partial Class wPayrollListing_LA
         Me.F059.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.F059.OptionsColumn.ReadOnly = True
         Me.F059.Visible = True
-        Me.F059.VisibleIndex = 38
+        Me.F059.VisibleIndex = 40
         Me.F059.Width = 94
         '
         'F061
@@ -1829,7 +1871,7 @@ Partial Class wPayrollListing_LA
         Me.F061.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.F061.OptionsColumn.ReadOnly = True
         Me.F061.Visible = True
-        Me.F061.VisibleIndex = 39
+        Me.F061.VisibleIndex = 41
         Me.F061.Width = 94
         '
         'F062
@@ -1842,7 +1884,7 @@ Partial Class wPayrollListing_LA
         Me.F062.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.F062.OptionsColumn.ReadOnly = True
         Me.F062.Visible = True
-        Me.F062.VisibleIndex = 40
+        Me.F062.VisibleIndex = 42
         Me.F062.Width = 94
         '
         'F063
@@ -1855,7 +1897,7 @@ Partial Class wPayrollListing_LA
         Me.F063.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.F063.OptionsColumn.ReadOnly = True
         Me.F063.Visible = True
-        Me.F063.VisibleIndex = 41
+        Me.F063.VisibleIndex = 43
         Me.F063.Width = 94
         '
         'F064
@@ -1868,8 +1910,34 @@ Partial Class wPayrollListing_LA
         Me.F064.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.F064.OptionsColumn.ReadOnly = True
         Me.F064.Visible = True
-        Me.F064.VisibleIndex = 42
+        Me.F064.VisibleIndex = 44
         Me.F064.Width = 94
+        '
+        'F080
+        '
+        Me.F080.Caption = "080"
+        Me.F080.FieldName = "080"
+        Me.F080.MinWidth = 25
+        Me.F080.Name = "F080"
+        Me.F080.OptionsColumn.AllowEdit = False
+        Me.F080.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
+        Me.F080.OptionsColumn.ReadOnly = True
+        Me.F080.Visible = True
+        Me.F080.VisibleIndex = 45
+        Me.F080.Width = 94
+        '
+        'F081
+        '
+        Me.F081.Caption = "081"
+        Me.F081.FieldName = "081"
+        Me.F081.MinWidth = 25
+        Me.F081.Name = "F081"
+        Me.F081.OptionsColumn.AllowEdit = False
+        Me.F081.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
+        Me.F081.OptionsColumn.ReadOnly = True
+        Me.F081.Visible = True
+        Me.F081.VisibleIndex = 46
+        Me.F081.Width = 94
         '
         'FNTotalAdd
         '
@@ -1887,7 +1955,7 @@ Partial Class wPayrollListing_LA
         Me.FNTotalAdd.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNTotalAdd.OptionsColumn.ReadOnly = True
         Me.FNTotalAdd.Visible = True
-        Me.FNTotalAdd.VisibleIndex = 43
+        Me.FNTotalAdd.VisibleIndex = 50
         '
         'FNTotalAddOther
         '
@@ -1905,7 +1973,7 @@ Partial Class wPayrollListing_LA
         Me.FNTotalAddOther.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNTotalAddOther.OptionsColumn.ReadOnly = True
         Me.FNTotalAddOther.Visible = True
-        Me.FNTotalAddOther.VisibleIndex = 44
+        Me.FNTotalAddOther.VisibleIndex = 51
         '
         'FNTotalExpense
         '
@@ -1923,7 +1991,7 @@ Partial Class wPayrollListing_LA
         Me.FNTotalExpense.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNTotalExpense.OptionsColumn.ReadOnly = True
         Me.FNTotalExpense.Visible = True
-        Me.FNTotalExpense.VisibleIndex = 45
+        Me.FNTotalExpense.VisibleIndex = 52
         '
         'FNTotalExpenseOther
         '
@@ -1941,7 +2009,7 @@ Partial Class wPayrollListing_LA
         Me.FNTotalExpenseOther.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNTotalExpenseOther.OptionsColumn.ReadOnly = True
         Me.FNTotalExpenseOther.Visible = True
-        Me.FNTotalExpenseOther.VisibleIndex = 46
+        Me.FNTotalExpenseOther.VisibleIndex = 53
         '
         'FNTotalIncome
         '
@@ -1959,7 +2027,7 @@ Partial Class wPayrollListing_LA
         Me.FNTotalIncome.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNTotalIncome.OptionsColumn.ReadOnly = True
         Me.FNTotalIncome.Visible = True
-        Me.FNTotalIncome.VisibleIndex = 47
+        Me.FNTotalIncome.VisibleIndex = 54
         '
         'FNTotalRecalSSO
         '
@@ -1975,7 +2043,7 @@ Partial Class wPayrollListing_LA
         Me.FNTotalRecalSSO.OptionsColumn.AllowEdit = False
         Me.FNTotalRecalSSO.OptionsColumn.ReadOnly = True
         Me.FNTotalRecalSSO.Visible = True
-        Me.FNTotalRecalSSO.VisibleIndex = 48
+        Me.FNTotalRecalSSO.VisibleIndex = 55
         '
         'FNSocial
         '
@@ -1993,7 +2061,7 @@ Partial Class wPayrollListing_LA
         Me.FNSocial.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNSocial.OptionsColumn.ReadOnly = True
         Me.FNSocial.Visible = True
-        Me.FNSocial.VisibleIndex = 49
+        Me.FNSocial.VisibleIndex = 56
         '
         'FNSocialCmp
         '
@@ -2007,7 +2075,7 @@ Partial Class wPayrollListing_LA
         Me.FNSocialCmp.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNSocialCmp.OptionsColumn.ReadOnly = True
         Me.FNSocialCmp.Visible = True
-        Me.FNSocialCmp.VisibleIndex = 50
+        Me.FNSocialCmp.VisibleIndex = 57
         Me.FNSocialCmp.Width = 94
         '
         'FNTotalRecalTAX
@@ -2020,7 +2088,7 @@ Partial Class wPayrollListing_LA
         Me.FNTotalRecalTAX.OptionsColumn.AllowEdit = False
         Me.FNTotalRecalTAX.OptionsColumn.ReadOnly = True
         Me.FNTotalRecalTAX.Visible = True
-        Me.FNTotalRecalTAX.VisibleIndex = 51
+        Me.FNTotalRecalTAX.VisibleIndex = 58
         '
         'FNTax
         '
@@ -2038,7 +2106,7 @@ Partial Class wPayrollListing_LA
         Me.FNTax.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNTax.OptionsColumn.ReadOnly = True
         Me.FNTax.Visible = True
-        Me.FNTax.VisibleIndex = 52
+        Me.FNTax.VisibleIndex = 59
         '
         'F112
         '
@@ -2076,7 +2144,7 @@ Partial Class wPayrollListing_LA
         Me.FNNetpay.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNNetpay.OptionsColumn.ReadOnly = True
         Me.FNNetpay.Visible = True
-        Me.FNNetpay.VisibleIndex = 53
+        Me.FNNetpay.VisibleIndex = 60
         '
         'FTAccountGroupCode
         '
@@ -2267,6 +2335,32 @@ Partial Class wPayrollListing_LA
         Me.FTTimeHRAccept.OptionsColumn.AllowMove = False
         Me.FTTimeHRAccept.OptionsColumn.ReadOnly = True
         Me.FTTimeHRAccept.Width = 94
+        '
+        'F084
+        '
+        Me.F084.Caption = "084"
+        Me.F084.DisplayFormat.FormatString = "N2"
+        Me.F084.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.F084.FieldName = "084"
+        Me.F084.MinWidth = 25
+        Me.F084.Name = "F084"
+        Me.F084.OptionsColumn.AllowEdit = False
+        Me.F084.Visible = True
+        Me.F084.VisibleIndex = 48
+        Me.F084.Width = 94
+        '
+        'F086
+        '
+        Me.F086.Caption = "086"
+        Me.F086.DisplayFormat.FormatString = "N2"
+        Me.F086.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.F086.FieldName = "086"
+        Me.F086.MinWidth = 25
+        Me.F086.Name = "F086"
+        Me.F086.OptionsColumn.AllowEdit = False
+        Me.F086.Visible = True
+        Me.F086.VisibleIndex = 49
+        Me.F086.Width = 94
         '
         'RepositoryFTSelect
         '
@@ -2487,4 +2581,10 @@ Partial Class wPayrollListing_LA
     Friend WithEvents F063 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents F064 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FNSocialCmp As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNSickLeaveBaht As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNParturitionLeaveBaht As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents F080 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents F081 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents F084 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents F086 As DevExpress.XtraGrid.Columns.GridColumn
 End Class

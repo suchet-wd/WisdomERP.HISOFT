@@ -25,11 +25,11 @@ Partial Class wEmployeeEnablonHRM
         Me.components = New System.ComponentModel.Container()
         Dim FTUnitSectName As DevExpress.XtraGrid.Columns.GridColumn
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wEmployeeEnablonHRM))
-        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.hideContainerTop = New DevExpress.XtraBars.Docking.AutoHideContainer()
         Me.ogbheader = New DevExpress.XtraBars.Docking.DockPanel()
@@ -289,13 +289,13 @@ Partial Class wEmployeeEnablonHRM
         '
         'hideContainerTop
         '
-        Me.hideContainerTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.hideContainerTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
         Me.hideContainerTop.Controls.Add(Me.ogbheader)
         Me.hideContainerTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.hideContainerTop.Location = New System.Drawing.Point(0, 0)
         Me.hideContainerTop.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.hideContainerTop.Name = "hideContainerTop"
-        Me.hideContainerTop.Size = New System.Drawing.Size(1378, 42)
+        Me.hideContainerTop.Size = New System.Drawing.Size(1378, 44)
         '
         'ogbheader
         '
@@ -307,7 +307,7 @@ Partial Class wEmployeeEnablonHRM
         Me.ogbheader.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.ogbheader.ID = New System.Guid("07aa44b9-5e74-47ef-b37d-869730080592")
         Me.ogbheader.ImageOptions.Image = CType(resources.GetObject("ogbheader.ImageOptions.Image"), System.Drawing.Image)
-        Me.ogbheader.Location = New System.Drawing.Point(0, -128)
+        Me.ogbheader.Location = New System.Drawing.Point(0, 44)
         Me.ogbheader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbheader.Name = "ogbheader"
         Me.ogbheader.Options.AllowDockBottom = False
@@ -334,10 +334,10 @@ Partial Class wEmployeeEnablonHRM
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysCmpId_None)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysCmpId)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysCmpId_lbl_ofyear)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 32)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(2, 31)
         Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1370, 90)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1374, 93)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FNYear
@@ -364,7 +364,7 @@ Partial Class wEmployeeEnablonHRM
         Me.FNYear.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNYear.Properties.Tag = "FNPayYear"
         Me.FNYear.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNYear.Size = New System.Drawing.Size(155, 22)
+        Me.FNYear.Size = New System.Drawing.Size(155, 23)
         Me.FNYear.TabIndex = 507
         Me.FNYear.Tag = "2|"
         '
@@ -397,7 +397,7 @@ Partial Class wEmployeeEnablonHRM
         Me.FDDateEnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDateEnd.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.FDDateEnd.Properties.NullDate = ""
-        Me.FDDateEnd.Size = New System.Drawing.Size(131, 22)
+        Me.FDDateEnd.Size = New System.Drawing.Size(131, 23)
         Me.FDDateEnd.TabIndex = 506
         Me.FDDateEnd.Tag = "2|"
         '
@@ -445,7 +445,7 @@ Partial Class wEmployeeEnablonHRM
         Me.FDDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDate.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.FDDate.Properties.NullDate = ""
-        Me.FDDate.Size = New System.Drawing.Size(131, 22)
+        Me.FDDate.Size = New System.Drawing.Size(131, 23)
         Me.FDDate.TabIndex = 503
         Me.FDDate.Tag = "2|"
         '
@@ -459,7 +459,7 @@ Partial Class wEmployeeEnablonHRM
         Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCmpId_None.Properties.ReadOnly = True
-        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(661, 22)
+        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(665, 23)
         Me.FNHSysCmpId_None.TabIndex = 485
         Me.FNHSysCmpId_None.Tag = ""
         '
@@ -472,10 +472,10 @@ Partial Class wEmployeeEnablonHRM
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(132, 22)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(132, 23)
         Me.FNHSysCmpId.TabIndex = 472
         Me.FNHSysCmpId.Tag = ""
         '
@@ -652,7 +652,7 @@ Partial Class wEmployeeEnablonHRM
         Me.DateEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.DateEdit1.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.DateEdit1.Properties.NullDate = ""
-        Me.DateEdit1.Size = New System.Drawing.Size(112, 22)
+        Me.DateEdit1.Size = New System.Drawing.Size(112, 23)
         Me.DateEdit1.TabIndex = 503
         Me.DateEdit1.Tag = "2|"
         '
@@ -680,7 +680,7 @@ Partial Class wEmployeeEnablonHRM
         Me.ogbmainprocbutton.Location = New System.Drawing.Point(719, 82)
         Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(591, 73)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(571, 73)
         Me.ogbmainprocbutton.TabIndex = 393
         Me.ogbmainprocbutton.Tag = "2|"
         '
@@ -721,7 +721,7 @@ Partial Class wEmployeeEnablonHRM
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(392, 13)
+        Me.ocmexit.Location = New System.Drawing.Point(372, 13)
         Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmexit.Name = "ocmexit"
         Me.ocmexit.Size = New System.Drawing.Size(111, 31)
@@ -756,17 +756,17 @@ Partial Class wEmployeeEnablonHRM
         Me.XtraTabPage4.Controls.Add(Me.GroupControl7)
         Me.XtraTabPage4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage4.Name = "XtraTabPage4"
-        Me.XtraTabPage4.Size = New System.Drawing.Size(1376, 836)
+        Me.XtraTabPage4.Size = New System.Drawing.Size(1368, 828)
         Me.XtraTabPage4.Text = "วันที่บันทึกลา"
         '
         'GroupControl6
         '
         Me.GroupControl6.Controls.Add(Me.ogcmanday)
         Me.GroupControl6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupControl6.Location = New System.Drawing.Point(0, 173)
+        Me.GroupControl6.Location = New System.Drawing.Point(0, 105)
         Me.GroupControl6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl6.Name = "GroupControl6"
-        Me.GroupControl6.Size = New System.Drawing.Size(1376, 663)
+        Me.GroupControl6.Size = New System.Drawing.Size(1368, 723)
         Me.GroupControl6.TabIndex = 15
         Me.GroupControl6.Text = "รายละเอียด"
         '
@@ -774,11 +774,11 @@ Partial Class wEmployeeEnablonHRM
         '
         Me.ogcmanday.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcmanday.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcmanday.Location = New System.Drawing.Point(2, 28)
+        Me.ogcmanday.Location = New System.Drawing.Point(2, 27)
         Me.ogcmanday.MainView = Me.ogvmanday
         Me.ogcmanday.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcmanday.Name = "ogcmanday"
-        Me.ogcmanday.Size = New System.Drawing.Size(1372, 633)
+        Me.ogcmanday.Size = New System.Drawing.Size(1364, 694)
         Me.ogcmanday.TabIndex = 3
         Me.ogcmanday.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvmanday, Me.GridView5})
         '
@@ -968,7 +968,7 @@ Partial Class wEmployeeEnablonHRM
         Me.GroupControl7.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl7.Name = "GroupControl7"
-        Me.GroupControl7.Size = New System.Drawing.Size(1376, 173)
+        Me.GroupControl7.Size = New System.Drawing.Size(1368, 105)
         Me.GroupControl7.TabIndex = 14
         Me.GroupControl7.Text = "summerry"
         '
@@ -976,11 +976,11 @@ Partial Class wEmployeeEnablonHRM
         '
         Me.ogcsumleave.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcsumleave.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcsumleave.Location = New System.Drawing.Point(2, 28)
+        Me.ogcsumleave.Location = New System.Drawing.Point(2, 27)
         Me.ogcsumleave.MainView = Me.ogvsumleave
         Me.ogcsumleave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsumleave.Name = "ogcsumleave"
-        Me.ogcsumleave.Size = New System.Drawing.Size(1372, 143)
+        Me.ogcsumleave.Size = New System.Drawing.Size(1364, 76)
         Me.ogcsumleave.TabIndex = 2
         Me.ogcsumleave.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvsumleave})
         '
@@ -1038,6 +1038,8 @@ Partial Class wEmployeeEnablonHRM
         Me.lFTToTalWork.AppearanceHeader.Options.UseTextOptions = True
         Me.lFTToTalWork.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.lFTToTalWork.Caption = "FTToTalWork"
+        Me.lFTToTalWork.DisplayFormat.FormatString = "{0:n2}"
+        Me.lFTToTalWork.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.lFTToTalWork.FieldName = "FTToTalWork"
         Me.lFTToTalWork.Name = "lFTToTalWork"
         Me.lFTToTalWork.OptionsColumn.AllowEdit = False
@@ -1053,6 +1055,8 @@ Partial Class wEmployeeEnablonHRM
         Me.lFTMalesum.AppearanceHeader.Options.UseTextOptions = True
         Me.lFTMalesum.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.lFTMalesum.Caption = "FTMalesum"
+        Me.lFTMalesum.DisplayFormat.FormatString = "{0:n2}"
+        Me.lFTMalesum.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.lFTMalesum.FieldName = "FTMalesum"
         Me.lFTMalesum.Name = "lFTMalesum"
         Me.lFTMalesum.OptionsColumn.AllowEdit = False
@@ -1067,6 +1071,8 @@ Partial Class wEmployeeEnablonHRM
         'lFTFeMalesum
         '
         Me.lFTFeMalesum.Caption = "FTFeMalesum"
+        Me.lFTFeMalesum.DisplayFormat.FormatString = "{0:n2}"
+        Me.lFTFeMalesum.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.lFTFeMalesum.FieldName = "FTFeMalesum"
         Me.lFTFeMalesum.MinWidth = 24
         Me.lFTFeMalesum.Name = "lFTFeMalesum"
@@ -1085,11 +1091,11 @@ Partial Class wEmployeeEnablonHRM
         '
         Me.ogcsumnew.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcsumnew.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcsumnew.Location = New System.Drawing.Point(2, 28)
+        Me.ogcsumnew.Location = New System.Drawing.Point(2, 27)
         Me.ogcsumnew.MainView = Me.ogvsumnew
         Me.ogcsumnew.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsumnew.Name = "ogcsumnew"
-        Me.ogcsumnew.Size = New System.Drawing.Size(1372, 116)
+        Me.ogcsumnew.Size = New System.Drawing.Size(1364, 69)
         Me.ogcsumnew.TabIndex = 2
         Me.ogcsumnew.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvsumnew, Me.GridView8, Me.GridView4})
         '
@@ -1184,17 +1190,17 @@ Partial Class wEmployeeEnablonHRM
         Me.XtraTabPage2.Controls.Add(Me.GroupControl5)
         Me.XtraTabPage2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(1376, 836)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(1368, 828)
         Me.XtraTabPage2.Text = "วันที่ลาออก"
         '
         'GroupControl4
         '
         Me.GroupControl4.Controls.Add(Me.ogcend)
         Me.GroupControl4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupControl4.Location = New System.Drawing.Point(0, 175)
+        Me.GroupControl4.Location = New System.Drawing.Point(0, 99)
         Me.GroupControl4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl4.Name = "GroupControl4"
-        Me.GroupControl4.Size = New System.Drawing.Size(1376, 661)
+        Me.GroupControl4.Size = New System.Drawing.Size(1368, 729)
         Me.GroupControl4.TabIndex = 15
         Me.GroupControl4.Text = "รายละเอียด"
         '
@@ -1202,11 +1208,11 @@ Partial Class wEmployeeEnablonHRM
         '
         Me.ogcend.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcend.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcend.Location = New System.Drawing.Point(2, 28)
+        Me.ogcend.Location = New System.Drawing.Point(2, 27)
         Me.ogcend.MainView = Me.ogvend
         Me.ogcend.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcend.Name = "ogcend"
-        Me.ogcend.Size = New System.Drawing.Size(1372, 631)
+        Me.ogcend.Size = New System.Drawing.Size(1364, 700)
         Me.ogcend.TabIndex = 2
         Me.ogcend.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvend, Me.GridView7})
         '
@@ -1345,7 +1351,7 @@ Partial Class wEmployeeEnablonHRM
         Me.GroupControl5.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl5.Name = "GroupControl5"
-        Me.GroupControl5.Size = New System.Drawing.Size(1376, 175)
+        Me.GroupControl5.Size = New System.Drawing.Size(1368, 99)
         Me.GroupControl5.TabIndex = 14
         Me.GroupControl5.Text = "summerry"
         '
@@ -1353,11 +1359,11 @@ Partial Class wEmployeeEnablonHRM
         '
         Me.ogcsumrea.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcsumrea.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcsumrea.Location = New System.Drawing.Point(2, 28)
+        Me.ogcsumrea.Location = New System.Drawing.Point(2, 27)
         Me.ogcsumrea.MainView = Me.ogvsumrea
         Me.ogcsumrea.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsumrea.Name = "ogcsumrea"
-        Me.ogcsumrea.Size = New System.Drawing.Size(1372, 145)
+        Me.ogcsumrea.Size = New System.Drawing.Size(1364, 70)
         Me.ogcsumrea.TabIndex = 2
         Me.ogcsumrea.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvsumrea, Me.GridView6})
         '
@@ -1452,17 +1458,17 @@ Partial Class wEmployeeEnablonHRM
         Me.XtraTabPage1.Controls.Add(Me.GroupControl3)
         Me.XtraTabPage1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage1.Name = "XtraTabPage1"
-        Me.XtraTabPage1.Size = New System.Drawing.Size(1376, 836)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(1368, 828)
         Me.XtraTabPage1.Text = "วันที่เริ่มงาน(พนงใหม่)"
         '
         'GroupControl2
         '
         Me.GroupControl2.Controls.Add(Me.ogcnew)
         Me.GroupControl2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupControl2.Location = New System.Drawing.Point(0, 146)
+        Me.GroupControl2.Location = New System.Drawing.Point(0, 98)
         Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(1376, 690)
+        Me.GroupControl2.Size = New System.Drawing.Size(1368, 730)
         Me.GroupControl2.TabIndex = 15
         Me.GroupControl2.Text = "รายละเอียด"
         '
@@ -1470,11 +1476,11 @@ Partial Class wEmployeeEnablonHRM
         '
         Me.ogcnew.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcnew.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcnew.Location = New System.Drawing.Point(2, 28)
+        Me.ogcnew.Location = New System.Drawing.Point(2, 27)
         Me.ogcnew.MainView = Me.ogvnew
         Me.ogcnew.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcnew.Name = "ogcnew"
-        Me.ogcnew.Size = New System.Drawing.Size(1372, 660)
+        Me.ogcnew.Size = New System.Drawing.Size(1364, 701)
         Me.ogcnew.TabIndex = 2
         Me.ogcnew.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvnew, Me.GridView9})
         '
@@ -1598,7 +1604,7 @@ Partial Class wEmployeeEnablonHRM
         Me.GroupControl3.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl3.Name = "GroupControl3"
-        Me.GroupControl3.Size = New System.Drawing.Size(1376, 146)
+        Me.GroupControl3.Size = New System.Drawing.Size(1368, 98)
         Me.GroupControl3.TabIndex = 14
         Me.GroupControl3.Text = "summerry"
         '
@@ -1608,7 +1614,7 @@ Partial Class wEmployeeEnablonHRM
         Me.otpsummary.Controls.Add(Me.ogbpoamt)
         Me.otpsummary.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpsummary.Name = "otpsummary"
-        Me.otpsummary.Size = New System.Drawing.Size(1376, 836)
+        Me.otpsummary.Size = New System.Drawing.Size(1368, 828)
         Me.otpsummary.Text = "วันทำงานแรกของเดือน"
         '
         'GroupControl1
@@ -1618,7 +1624,7 @@ Partial Class wEmployeeEnablonHRM
         Me.GroupControl1.Location = New System.Drawing.Point(0, 164)
         Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(1376, 672)
+        Me.GroupControl1.Size = New System.Drawing.Size(1368, 664)
         Me.GroupControl1.TabIndex = 13
         Me.GroupControl1.Text = "รายละเอียด"
         '
@@ -1626,11 +1632,11 @@ Partial Class wEmployeeEnablonHRM
         '
         Me.ogcTime.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcTime.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcTime.Location = New System.Drawing.Point(2, 28)
+        Me.ogcTime.Location = New System.Drawing.Point(2, 27)
         Me.ogcTime.MainView = Me.ogvtime
         Me.ogcTime.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcTime.Name = "ogcTime"
-        Me.ogcTime.Size = New System.Drawing.Size(1372, 642)
+        Me.ogcTime.Size = New System.Drawing.Size(1364, 635)
         Me.ogcTime.TabIndex = 2
         Me.ogcTime.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvtime, Me.GridView11})
         '
@@ -1753,7 +1759,7 @@ Partial Class wEmployeeEnablonHRM
         Me.ogbpoamt.Location = New System.Drawing.Point(0, 0)
         Me.ogbpoamt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbpoamt.Name = "ogbpoamt"
-        Me.ogbpoamt.Size = New System.Drawing.Size(1376, 164)
+        Me.ogbpoamt.Size = New System.Drawing.Size(1368, 164)
         Me.ogbpoamt.TabIndex = 12
         Me.ogbpoamt.Text = "summerry"
         '
@@ -1761,11 +1767,11 @@ Partial Class wEmployeeEnablonHRM
         '
         Me.ogcsumTime.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcsumTime.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcsumTime.Location = New System.Drawing.Point(2, 28)
+        Me.ogcsumTime.Location = New System.Drawing.Point(2, 27)
         Me.ogcsumTime.MainView = Me.ogvSumTime
         Me.ogcsumTime.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsumTime.Name = "ogcsumTime"
-        Me.ogcsumTime.Size = New System.Drawing.Size(1372, 134)
+        Me.ogcsumTime.Size = New System.Drawing.Size(1364, 135)
         Me.ogcsumTime.TabIndex = 2
         Me.ogcsumTime.TabStop = False
         Me.ogcsumTime.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvSumTime, Me.GridView10})
@@ -1874,7 +1880,7 @@ Partial Class wEmployeeEnablonHRM
         '
         Me.สรุปรายปี.Controls.Add(Me.GroupControl9)
         Me.สรุปรายปี.Name = "สรุปรายปี"
-        Me.สรุปรายปี.Size = New System.Drawing.Size(1376, 836)
+        Me.สรุปรายปี.Size = New System.Drawing.Size(1368, 828)
         Me.สรุปรายปี.Text = "สรุปรายปี"
         '
         'GroupControl9
@@ -1886,7 +1892,7 @@ Partial Class wEmployeeEnablonHRM
         Me.GroupControl9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl9.Name = "GroupControl9"
         Me.GroupControl9.ShowCaption = False
-        Me.GroupControl9.Size = New System.Drawing.Size(1376, 836)
+        Me.GroupControl9.Size = New System.Drawing.Size(1368, 828)
         Me.GroupControl9.TabIndex = 14
         Me.GroupControl9.Text = "summerryFemale"
         '
@@ -1898,7 +1904,7 @@ Partial Class wEmployeeEnablonHRM
         Me.GroupControl12.Location = New System.Drawing.Point(2, 2)
         Me.GroupControl12.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl12.Name = "GroupControl12"
-        Me.GroupControl12.Size = New System.Drawing.Size(1372, 832)
+        Me.GroupControl12.Size = New System.Drawing.Size(1364, 824)
         Me.GroupControl12.TabIndex = 16
         Me.GroupControl12.Text = "summerry"
         '
@@ -1906,11 +1912,11 @@ Partial Class wEmployeeEnablonHRM
         '
         Me.ogcsum.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcsum.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcsum.Location = New System.Drawing.Point(2, 28)
+        Me.ogcsum.Location = New System.Drawing.Point(2, 27)
         Me.ogcsum.MainView = Me.ogvsum
         Me.ogcsum.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsum.Name = "ogcsum"
-        Me.ogcsum.Size = New System.Drawing.Size(1368, 802)
+        Me.ogcsum.Size = New System.Drawing.Size(1360, 795)
         Me.ogcsum.TabIndex = 2
         Me.ogcsum.TabStop = False
         Me.ogcsum.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvsum, Me.GridView14})
@@ -2142,7 +2148,7 @@ Partial Class wEmployeeEnablonHRM
         Me.XtraTabPage3.Controls.Add(Me.ogcsummary)
         Me.XtraTabPage3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage3.Name = "XtraTabPage3"
-        Me.XtraTabPage3.Size = New System.Drawing.Size(1376, 836)
+        Me.XtraTabPage3.Size = New System.Drawing.Size(1368, 828)
         Me.XtraTabPage3.Text = "สรุปรายเดือน"
         '
         'ogcsummary
@@ -2153,7 +2159,7 @@ Partial Class wEmployeeEnablonHRM
         Me.ogcsummary.MainView = Me.ogvsummary
         Me.ogcsummary.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsummary.Name = "ogcsummary"
-        Me.ogcsummary.Size = New System.Drawing.Size(1376, 836)
+        Me.ogcsummary.Size = New System.Drawing.Size(1368, 828)
         Me.ogcsummary.TabIndex = 3
         Me.ogcsummary.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvsummary, Me.GridView15})
         '
@@ -2254,11 +2260,11 @@ Partial Class wEmployeeEnablonHRM
         'otbmain
         '
         Me.otbmain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.otbmain.Location = New System.Drawing.Point(0, 42)
+        Me.otbmain.Location = New System.Drawing.Point(0, 44)
         Me.otbmain.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otbmain.Name = "otbmain"
         Me.otbmain.SelectedTabPage = Me.otpsummary
-        Me.otbmain.Size = New System.Drawing.Size(1378, 867)
+        Me.otbmain.Size = New System.Drawing.Size(1378, 865)
         Me.otbmain.TabIndex = 391
         Me.otbmain.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage3, Me.สรุปรายปี, Me.otpsummary, Me.XtraTabPage1, Me.XtraTabPage2, Me.XtraTabPage4})
         '

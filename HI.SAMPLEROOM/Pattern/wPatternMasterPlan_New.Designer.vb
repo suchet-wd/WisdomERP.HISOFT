@@ -146,7 +146,7 @@ Partial Class wPatternMasterPlan_New
         Me.CFTStyleCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTBlock = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTStyleName = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.Job = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSMPOrderNo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSize = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTPatternType = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -155,7 +155,6 @@ Partial Class wPatternMasterPlan_New
         Me.FTLeadTime = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GacDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ReposDate = New DevExpress.XtraEditors.Repository.RepositoryItemDateEdit()
-        Me.ReposDate.MinValue = New Date()
         Me.OGacDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTCmpCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTLeadTime_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -195,6 +194,8 @@ Partial Class wPatternMasterPlan_New
         Me.FTPatternOthersNote = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.AssignTo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ReposAssignTo = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.AssignTo_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTOrderNo = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.ogbStyleHeader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbStyleHeader.SuspendLayout()
         CType(Me.FTUserNameTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -859,7 +860,7 @@ Partial Class wPatternMasterPlan_New
         '
         'ogvPattern
         '
-        Me.ogvPattern.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Category, Me.GroupCust, Me.SubGroupCust, Me.CFTCustCode, Me.CFTCustName, Me.JobDate, Me.CFTSMPOrderBy, Me.FTMerTeamCode, Me.CFTSeasonCode, Me.FTPgmName, Me.FTBuyCode, Me.FTVenderPramCode, Me.FTPriority, Me.CFTStyleCode, Me.FTBlock, Me.CFTStyleName, Me.Job, Me.FTSize, Me.FNQuantity, Me.FTPatternType, Me.FTPtnGrpName, Me.FTLeadTime, Me.GacDate, Me.OGacDate, Me.FTCmpCode, Me.FTLeadTime_Hide, Me.OPTDate, Me.PlanFinishYear, Me.PlanFinishWeek, Me.PlanFinishWY, Me.PTDateFromMer, Me.FTPTNDate, Me.ActFinishDate, Me.ActFinishYear, Me.ActFinishWeek, Me.ActFinishWY, Me.PatternMaker, Me.PatternTeam, Me.InIOTP, Me.ExIOTP, Me.PTStatus, Me.CFTCustomerTeam, Me.CFTGenderCode, Me.FTEmpName, Me.FTPtnNote, Me.FTPtnNote_Hide, Me.FNHSysCmpID, Me.FNHSysCmpID_Hide, Me.FTPatternType_Hide, Me.FTPtnGrpName_Hide, Me.MerRemark, Me.FTStatePatternHard, Me.FTStatePatternEPT, Me.FTStatePatternGrandenest, Me.FTStatePatternGradelogo, Me.FTStatePattern3D, Me.FTStatePatternOptiplan, Me.FTPatternOthersNote, Me.AssignTo})
+        Me.ogvPattern.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Category, Me.GroupCust, Me.SubGroupCust, Me.CFTCustCode, Me.CFTCustName, Me.JobDate, Me.CFTSMPOrderBy, Me.FTMerTeamCode, Me.CFTSeasonCode, Me.FTPgmName, Me.FTBuyCode, Me.FTVenderPramCode, Me.FTPriority, Me.CFTStyleCode, Me.FTBlock, Me.CFTStyleName, Me.FTSMPOrderNo, Me.FTSize, Me.FNQuantity, Me.FTPatternType, Me.FTPtnGrpName, Me.FTLeadTime, Me.GacDate, Me.OGacDate, Me.FTCmpCode, Me.FTLeadTime_Hide, Me.OPTDate, Me.PlanFinishYear, Me.PlanFinishWeek, Me.PlanFinishWY, Me.PTDateFromMer, Me.FTPTNDate, Me.ActFinishDate, Me.ActFinishYear, Me.ActFinishWeek, Me.ActFinishWY, Me.PatternMaker, Me.PatternTeam, Me.InIOTP, Me.ExIOTP, Me.PTStatus, Me.CFTCustomerTeam, Me.CFTGenderCode, Me.FTEmpName, Me.FTPtnNote, Me.FTPtnNote_Hide, Me.FNHSysCmpID, Me.FNHSysCmpID_Hide, Me.FTPatternType_Hide, Me.FTPtnGrpName_Hide, Me.MerRemark, Me.FTStatePatternHard, Me.FTStatePatternEPT, Me.FTStatePatternGrandenest, Me.FTStatePatternGradelogo, Me.FTStatePattern3D, Me.FTStatePatternOptiplan, Me.FTPatternOthersNote, Me.AssignTo, Me.AssignTo_Hide, Me.FTOrderNo})
         Me.ogvPattern.DetailHeight = 284
         Me.ogvPattern.GridControl = Me.ogcPattern
         Me.ogvPattern.Name = "ogvPattern"
@@ -1106,23 +1107,23 @@ Partial Class wPatternMasterPlan_New
         Me.CFTStyleName.VisibleIndex = 13
         Me.CFTStyleName.Width = 275
         '
-        'Job
+        'FTSMPOrderNo
         '
-        Me.Job.AppearanceCell.Options.UseTextOptions = True
-        Me.Job.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.Job.AppearanceHeader.Options.UseTextOptions = True
-        Me.Job.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.Job.Caption = "Job"
-        Me.Job.FieldName = "Job"
-        Me.Job.MinWidth = 17
-        Me.Job.Name = "Job"
-        Me.Job.OptionsColumn.AllowEdit = False
-        Me.Job.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
-        Me.Job.OptionsColumn.AllowMove = False
-        Me.Job.OptionsColumn.ReadOnly = True
-        Me.Job.Visible = True
-        Me.Job.VisibleIndex = 14
-        Me.Job.Width = 80
+        Me.FTSMPOrderNo.AppearanceCell.Options.UseTextOptions = True
+        Me.FTSMPOrderNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTSMPOrderNo.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTSMPOrderNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTSMPOrderNo.Caption = "FTSMPOrderNo"
+        Me.FTSMPOrderNo.FieldName = "FTSMPOrderNo"
+        Me.FTSMPOrderNo.MinWidth = 17
+        Me.FTSMPOrderNo.Name = "FTSMPOrderNo"
+        Me.FTSMPOrderNo.OptionsColumn.AllowEdit = False
+        Me.FTSMPOrderNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
+        Me.FTSMPOrderNo.OptionsColumn.AllowMove = False
+        Me.FTSMPOrderNo.OptionsColumn.ReadOnly = True
+        Me.FTSMPOrderNo.Visible = True
+        Me.FTSMPOrderNo.VisibleIndex = 14
+        Me.FTSMPOrderNo.Width = 80
         '
         'FTSize
         '
@@ -1660,6 +1661,22 @@ Partial Class wPatternMasterPlan_New
         Me.ReposAssignTo.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "1018", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ReposAssignTo.Name = "ReposAssignTo"
         '
+        'AssignTo_Hide
+        '
+        Me.AssignTo_Hide.Caption = "AssignTo_Hide"
+        Me.AssignTo_Hide.FieldName = "AssignTo_Hide"
+        Me.AssignTo_Hide.Name = "AssignTo_Hide"
+        Me.AssignTo_Hide.OptionsColumn.AllowEdit = False
+        '
+        'FTOrderNo
+        '
+        Me.FTOrderNo.Caption = "FTOrderNo"
+        Me.FTOrderNo.FieldName = "FTOrderNo"
+        Me.FTOrderNo.Name = "FTOrderNo"
+        Me.FTOrderNo.OptionsColumn.AllowEdit = False
+        Me.FTOrderNo.Visible = True
+        Me.FTOrderNo.VisibleIndex = 47
+        '
         'wPatternMasterPlan_New
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1719,7 +1736,7 @@ Partial Class wPatternMasterPlan_New
     Friend WithEvents ocmexit As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ocmrefresh As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents GroupControl1 As DevExpress.XtraEditors.GroupControl
-    Friend WithEvents Job As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSMPOrderNo As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents JobDate As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CFTStyleCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CFTSeasonCode As DevExpress.XtraGrid.Columns.GridColumn
@@ -1821,4 +1838,6 @@ Partial Class wPatternMasterPlan_New
     Friend WithEvents AssignTo As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ReposAssignTo As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
     Friend WithEvents ReposYN As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents AssignTo_Hide As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTOrderNo As DevExpress.XtraGrid.Columns.GridColumn
 End Class

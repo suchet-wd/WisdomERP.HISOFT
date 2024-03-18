@@ -27,8 +27,6 @@ Public Class wReportEmployeeMasterCondition
             Me.Height = Me.Height - ogbreportname.Height
         End If
 
-
-
     End Sub
 
     Private Sub ocmexit_Click(sender As System.Object, e As System.EventArgs) Handles ocmexit.Click
@@ -136,7 +134,9 @@ Public Class wReportEmployeeMasterCondition
                             End If
 
                             If ((HI.ST.SysInfo.Admin)) Then
+
                                 .AddParameter("FNStateSalary", "1")
+
                             Else
 
                                 Dim _FNStateSalary As String = "0"
@@ -166,18 +166,22 @@ Public Class wReportEmployeeMasterCondition
                             .ReportFolderName = _LstReport.GetFolderReportValue(FNReportname.SelectedIndex)
                             .Formular = _Formular
                             .ReportName = _ReportName
+
                             .Preview()
+
                         End With
+
                     Else
 
-
-
                         Dim odt As New DataTable
+
                         Dim _Cmd As String = ""
                         _Cmd = "  delete from [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo. TmpCardEmployee " '  where UserLogIn='" & HI.ST.UserInfo.UserName & "'"
                         _Cmd &= vbCrLf & "insert into [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo. TmpCardEmployee"
-                        _Cmd &= vbCrLf & "( FNHSysEmpID ,FTEmpCode, FDDateStart, FTSeqNo, FTEmpNameTH, FTEmpSurnameTH, UserLogIn, FTEmpSurnameEN, FTEmpNameEN, FTDeptDescTH, FTEmpStatus, FTEmpBarcode, FNHSysCmpId, FTEmpPicture, FTEmpPicName)"
-                        _Cmd &= vbCrLf & " select   FNHSysEmpID ,  FTEmpCode, FDDateStart, FTSeqNo, FTEmpNameTH, FTEmpSurnameTH, UserLogIn, FTEmpSurnameEN, FTEmpNameEN, FTDeptDescTH, FNEmpStatus, FTEmpBarcode, FNHSysCmpId, FTEmpPicture, FTEmpPicName "
+                        _Cmd &= vbCrLf & "( FNHSysEmpID ,FTEmpCode, FDDateStart, FTSeqNo, FTEmpNameTH, FTEmpSurnameTH, UserLogIn, FTEmpSurnameEN, FTEmpNameEN, FTDeptDescTH "
+                        _Cmd &= vbCrLf & " , FTEmpStatus, FTEmpBarcode, FNHSysCmpId, FTEmpPicture, FTEmpPicName , FTEmpCodeB, FTPreNameCode, FTPreNameNameTH, FTPreNameNameEN, FTPositCode, FTPositNameTH, FTPositNameEN)"
+                        _Cmd &= vbCrLf & " select   FNHSysEmpID ,  FTEmpCode, FDDateStart, FTSeqNo, FTEmpNameTH, FTEmpSurnameTH, UserLogIn, FTEmpSurnameEN"
+                        _Cmd &= vbCrLf & ", FTEmpNameEN, FTDeptDescTH, FNEmpStatus, FTEmpBarcode, FNHSysCmpId, FTEmpPicture, FTEmpPicName  , FTEmpCodeB, FTPreNameCode, FTPreNameNameTH, FTPreNameNameEN, FTPositCode, FTPositNameTH, FTPositNameEN "
                         _Cmd &= vbCrLf & "  from [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.v_Emp_Card  "
                         _Cmd &= vbCrLf & "  where UserLogIn='" & HI.ST.UserInfo.UserName & "'"
                         _Cmd &= vbCrLf & " and  FTSeqNo <> 99  "
@@ -187,55 +191,48 @@ Public Class wReportEmployeeMasterCondition
 
                         '_Cmd = "  select  *  from [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo. TmpCardEmployee   where FTSeqNo = 1  and  UserLogIn='" & HI.ST.UserInfo.UserName & "'"
                         'odt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_HR, "TmpCardEmployee")
-
-
-
                         'For Each _ReportName As String In _AllReportName.Split(",")
-
-
 
                         Dim filePath As String = Application.StartupPath & "\Reports\" & _LstReport.GetFolderReportValue(FNReportname.SelectedIndex) & "" & _ReportName
                         ' Save a report's layout to the file.  
                         Dim report As New DevExpress.XtraReports.UI.XtraReport
+
                         'report.DataSource
                         '     report.SaveLayout(filePath)
                         ' Restore a report's layout from the specified file.  
                         'report.Da
-
 
                         'Dim objectDataSource As New ObjectDataSource()
                         'objectDataSource.Name = "sqlDataSource1"
                         'objectDataSource.DataSource = odt
                         'objectDataSource.DataMember = "TmpCardEmployee"
 
-
                         report.LoadLayout(filePath)
                         DirectCast(report.DataSource, DevExpress.DataAccess.Sql.SqlDataSource).Connection.ConnectionString = HI.Conn.DB.ConnectionString(Conn.DB.DataBaseName.DB_HR)
+
                         'Dim parameter As New Parameter() With {.Name = "UserLogIn", .Type = GetType(String), .Value = HI.ST.UserInfo.UserName}
                         'report.Parameters.Add(Parameter)
                         ' report.Parameters("UserLogIn").Value = HI.ST.UserInfo.UserName
 
-
-
                         '  report.DataSource = objectDataSource
-
-
                         'Create a report designer.  
                         'Dim dt As New ReportDesignTool(report)
                         Dim dtx As New ReportPrintTool(report)
                         ' Invoke the standard End-User Designer form. 
+
                         dtx.ShowPreview()
 
                         'dt.ShowDesigner()
                         'Next
+
                     End If
 
                 Next
 
-
-
             Else
+
                 For Each _ReportName As String In _AllReportName.Split(",")
+
                     With New HI.RP.Report
 
                         '*****วันที่เริ่มงาน*********
@@ -298,7 +295,9 @@ Public Class wReportEmployeeMasterCondition
                         .ReportName = _ReportName
                         .Preview()
                     End With
+
                 Next
+
             End If
 
             'For Each _ReportName As String In _AllReportName.Split(",")

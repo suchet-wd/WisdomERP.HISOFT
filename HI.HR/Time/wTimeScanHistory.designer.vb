@@ -19,6 +19,7 @@ Partial Class wTimeScanHistory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wTimeScanHistory))
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -80,8 +81,7 @@ Partial Class wTimeScanHistory
         Dim SerializableAppearanceObject46 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject47 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject48 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager()
-        Me.hideContainerTop = New DevExpress.XtraBars.Docking.AutoHideContainer()
+        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.ogbheader = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
         Me.FDEndDate = New DevExpress.XtraEditors.DateEdit()
@@ -131,17 +131,22 @@ Partial Class wTimeScanHistory
         Me.ColFTEmpCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ColFTEmpName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ColFTEmpTypeCode = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.ColFTDeptCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ColFTDivisonCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColFTDeptCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColFTDeptDesc = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ColFTSectCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColFTSectName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ColFTUnitSectCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColFTUnitSectName = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColFTPositCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColFTPositName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
         Me.ocmsavelayout = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmload = New DevExpress.XtraEditors.SimpleButton()
+        Me.BehaviorManager1 = New DevExpress.Utils.Behaviors.BehaviorManager(Me.components)
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.hideContainerTop.SuspendLayout()
         Me.ogbheader.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
         CType(Me.FDEndDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -176,22 +181,14 @@ Partial Class wTimeScanHistory
         CType(Me.ogvtime, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbmainprocbutton.SuspendLayout()
+        CType(Me.BehaviorManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'oDockManager
         '
-        Me.oDockManager.AutoHideContainers.AddRange(New DevExpress.XtraBars.Docking.AutoHideContainer() {Me.hideContainerTop})
         Me.oDockManager.Form = Me
+        Me.oDockManager.RootPanels.AddRange(New DevExpress.XtraBars.Docking.DockPanel() {Me.ogbheader})
         Me.oDockManager.TopZIndexControls.AddRange(New String() {"DevExpress.XtraBars.BarDockControl", "DevExpress.XtraBars.StandaloneBarDockControl", "System.Windows.Forms.StatusBar", "System.Windows.Forms.MenuStrip", "System.Windows.Forms.StatusStrip", "DevExpress.XtraBars.Ribbon.RibbonStatusBar", "DevExpress.XtraBars.Ribbon.RibbonControl", "DevExpress.XtraBars.Navigation.OfficeNavigationBar", "DevExpress.XtraBars.Navigation.TileNavPane", "DevExpress.XtraBars.TabFormControl"})
-        '
-        'hideContainerTop
-        '
-        Me.hideContainerTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.hideContainerTop.Controls.Add(Me.ogbheader)
-        Me.hideContainerTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.hideContainerTop.Location = New System.Drawing.Point(0, 0)
-        Me.hideContainerTop.Name = "hideContainerTop"
-        Me.hideContainerTop.Size = New System.Drawing.Size(1353, 44)
         '
         'ogbheader
         '
@@ -206,19 +203,17 @@ Partial Class wTimeScanHistory
         Me.ogbheader.DockVertical = DevExpress.Utils.DefaultBoolean.[False]
         Me.ogbheader.ID = New System.Guid("6ecc2f03-cca3-42f6-8763-f34b74e0f976")
         Me.ogbheader.ImageOptions.Image = CType(resources.GetObject("ogbheader.ImageOptions.Image"), System.Drawing.Image)
-        Me.ogbheader.Location = New System.Drawing.Point(0, 44)
+        Me.ogbheader.Location = New System.Drawing.Point(0, 0)
+        Me.ogbheader.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogbheader.Name = "ogbheader"
         Me.ogbheader.Options.AllowDockBottom = False
         Me.ogbheader.Options.AllowDockFill = False
         Me.ogbheader.Options.FloatOnDblClick = False
         Me.ogbheader.Options.ShowCloseButton = False
         Me.ogbheader.Options.ShowMaximizeButton = False
-        Me.ogbheader.OriginalSize = New System.Drawing.Size(1353, 256)
-        Me.ogbheader.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Top
-        Me.ogbheader.SavedIndex = 0
-        Me.ogbheader.Size = New System.Drawing.Size(1353, 256)
+        Me.ogbheader.OriginalSize = New System.Drawing.Size(208, 208)
+        Me.ogbheader.Size = New System.Drawing.Size(1233, 208)
         Me.ogbheader.Text = "Criteria"
-        Me.ogbheader.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide
         '
         'DockPanel1_Container
         '
@@ -262,17 +257,17 @@ Partial Class wTimeScanHistory
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysEmpId_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysDeptIdTo_None)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysDivisonId)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(2, 31)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 26)
+        Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1349, 221)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1227, 178)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FDEndDate
         '
         Me.FDEndDate.EditValue = Nothing
         Me.FDEndDate.EnterMoveNextControl = True
-        Me.FDEndDate.Location = New System.Drawing.Point(601, 31)
-        Me.FDEndDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDEndDate.Location = New System.Drawing.Point(515, 25)
         Me.FDEndDate.Name = "FDEndDate"
         Me.FDEndDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDEndDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -280,14 +275,13 @@ Partial Class wTimeScanHistory
         Me.FDEndDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDEndDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDEndDate.Properties.NullDate = ""
-        Me.FDEndDate.Size = New System.Drawing.Size(131, 23)
+        Me.FDEndDate.Size = New System.Drawing.Size(112, 20)
         Me.FDEndDate.TabIndex = 431
         Me.FDEndDate.Tag = "2|"
         '
         'FNHSysCmpId
         '
-        Me.FNHSysCmpId.Location = New System.Drawing.Point(144, 4)
-        Me.FNHSysCmpId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpId.Location = New System.Drawing.Point(123, 3)
         Me.FNHSysCmpId.Name = "FNHSysCmpId"
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
@@ -296,7 +290,7 @@ Partial Class wTimeScanHistory
         Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(132, 23)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(113, 20)
         Me.FNHSysCmpId.TabIndex = 428
         Me.FNHSysCmpId.Tag = ""
         '
@@ -307,45 +301,41 @@ Partial Class wTimeScanHistory
         Me.FDEndDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDEndDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDEndDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDEndDate_lbl.Location = New System.Drawing.Point(476, 31)
-        Me.FDEndDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDEndDate_lbl.Location = New System.Drawing.Point(408, 25)
         Me.FDEndDate_lbl.Name = "FDEndDate_lbl"
-        Me.FDEndDate_lbl.Size = New System.Drawing.Size(122, 23)
+        Me.FDEndDate_lbl.Size = New System.Drawing.Size(105, 19)
         Me.FDEndDate_lbl.TabIndex = 445
         Me.FDEndDate_lbl.Tag = "2|"
         Me.FDEndDate_lbl.Text = "To Date :"
         '
         'FNHSysDeptId
         '
-        Me.FNHSysDeptId.Location = New System.Drawing.Point(144, 84)
-        Me.FNHSysDeptId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptId.Location = New System.Drawing.Point(123, 68)
         Me.FNHSysDeptId.Name = "FNHSysDeptId"
         Me.FNHSysDeptId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "23", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptId.Properties.Tag = "23"
-        Me.FNHSysDeptId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysDeptId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysDeptId.TabIndex = 434
         Me.FNHSysDeptId.Tag = "2|"
         '
         'FNHSysCmpId_None
         '
-        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(278, 4)
-        Me.FNHSysCmpId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(238, 3)
         Me.FNHSysCmpId_None.Name = "FNHSysCmpId_None"
         Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCmpId_None.Properties.ReadOnly = True
-        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(190, 23)
+        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(163, 20)
         Me.FNHSysCmpId_None.TabIndex = 467
         Me.FNHSysCmpId_None.Tag = ""
         '
         'FNHSysUnitSectIdTo
         '
-        Me.FNHSysUnitSectIdTo.Location = New System.Drawing.Point(601, 137)
-        Me.FNHSysUnitSectIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectIdTo.Location = New System.Drawing.Point(515, 111)
         Me.FNHSysUnitSectIdTo.Name = "FNHSysUnitSectIdTo"
         Me.FNHSysUnitSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "62", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectIdTo.Properties.Tag = "57"
-        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysUnitSectIdTo.TabIndex = 439
         Me.FNHSysUnitSectIdTo.Tag = "2|"
         '
@@ -356,33 +346,30 @@ Partial Class wTimeScanHistory
         Me.FNHSysCmpId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCmpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCmpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCmpId_lbl.Location = New System.Drawing.Point(17, 4)
-        Me.FNHSysCmpId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpId_lbl.Location = New System.Drawing.Point(15, 3)
         Me.FNHSysCmpId_lbl.Name = "FNHSysCmpId_lbl"
-        Me.FNHSysCmpId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysCmpId_lbl.Size = New System.Drawing.Size(107, 17)
         Me.FNHSysCmpId_lbl.TabIndex = 466
         Me.FNHSysCmpId_lbl.Tag = "2|"
         Me.FNHSysCmpId_lbl.Text = "Company :"
         '
         'FNHSysDeptIdTo
         '
-        Me.FNHSysDeptIdTo.Location = New System.Drawing.Point(601, 85)
-        Me.FNHSysDeptIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptIdTo.Location = New System.Drawing.Point(515, 69)
         Me.FNHSysDeptIdTo.Name = "FNHSysDeptIdTo"
         Me.FNHSysDeptIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "59", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptIdTo.Properties.Tag = "23"
-        Me.FNHSysDeptIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysDeptIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysDeptIdTo.TabIndex = 435
         Me.FNHSysDeptIdTo.Tag = "2|"
         '
         'FNHSysSectId
         '
-        Me.FNHSysSectId.Location = New System.Drawing.Point(144, 110)
-        Me.FNHSysSectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectId.Location = New System.Drawing.Point(123, 89)
         Me.FNHSysSectId.Name = "FNHSysSectId"
         Me.FNHSysSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "55", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectId.Properties.Tag = "55"
-        Me.FNHSysSectId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysSectId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysSectId.TabIndex = 436
         Me.FNHSysSectId.Tag = "2|"
         '
@@ -393,23 +380,21 @@ Partial Class wTimeScanHistory
         Me.FNHSysDeptId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysDeptId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysDeptId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysDeptId_lbl.Location = New System.Drawing.Point(19, 84)
-        Me.FNHSysDeptId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptId_lbl.Location = New System.Drawing.Point(16, 68)
         Me.FNHSysDeptId_lbl.Name = "FNHSysDeptId_lbl"
-        Me.FNHSysDeptId_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysDeptId_lbl.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysDeptId_lbl.TabIndex = 446
         Me.FNHSysDeptId_lbl.Tag = "2|"
         Me.FNHSysDeptId_lbl.Text = "Start Department :"
         '
         'FNHSysDeptId_None
         '
-        Me.FNHSysDeptId_None.Location = New System.Drawing.Point(277, 84)
-        Me.FNHSysDeptId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptId_None.Location = New System.Drawing.Point(237, 68)
         Me.FNHSysDeptId_None.Name = "FNHSysDeptId_None"
         Me.FNHSysDeptId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptId_None.Properties.ReadOnly = True
-        Me.FNHSysDeptId_None.Size = New System.Drawing.Size(191, 23)
+        Me.FNHSysDeptId_None.Size = New System.Drawing.Size(164, 20)
         Me.FNHSysDeptId_None.TabIndex = 447
         Me.FNHSysDeptId_None.Tag = "2|"
         '
@@ -420,10 +405,9 @@ Partial Class wTimeScanHistory
         Me.FNHSysSectId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysSectId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysSectId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysSectId_lbl.Location = New System.Drawing.Point(18, 110)
-        Me.FNHSysSectId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectId_lbl.Location = New System.Drawing.Point(15, 89)
         Me.FNHSysSectId_lbl.Name = "FNHSysSectId_lbl"
-        Me.FNHSysSectId_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysSectId_lbl.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysSectId_lbl.TabIndex = 450
         Me.FNHSysSectId_lbl.Tag = "2|"
         Me.FNHSysSectId_lbl.Text = "Start Sect :"
@@ -435,10 +419,9 @@ Partial Class wTimeScanHistory
         Me.FNHSysDeptIdTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysDeptIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysDeptIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysDeptIdTo_lbl.Location = New System.Drawing.Point(474, 85)
-        Me.FNHSysDeptIdTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptIdTo_lbl.Location = New System.Drawing.Point(406, 69)
         Me.FNHSysDeptIdTo_lbl.Name = "FNHSysDeptIdTo_lbl"
-        Me.FNHSysDeptIdTo_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysDeptIdTo_lbl.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysDeptIdTo_lbl.TabIndex = 454
         Me.FNHSysDeptIdTo_lbl.Tag = "2|"
         Me.FNHSysDeptIdTo_lbl.Text = "End Department :"
@@ -447,8 +430,7 @@ Partial Class wTimeScanHistory
         '
         Me.FDStartDate.EditValue = Nothing
         Me.FDStartDate.EnterMoveNextControl = True
-        Me.FDStartDate.Location = New System.Drawing.Point(144, 31)
-        Me.FDStartDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDStartDate.Location = New System.Drawing.Point(123, 25)
         Me.FDStartDate.Name = "FDStartDate"
         Me.FDStartDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDStartDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -456,42 +438,39 @@ Partial Class wTimeScanHistory
         Me.FDStartDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDStartDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDStartDate.Properties.NullDate = ""
-        Me.FDStartDate.Size = New System.Drawing.Size(131, 23)
+        Me.FDStartDate.Size = New System.Drawing.Size(112, 20)
         Me.FDStartDate.TabIndex = 430
         Me.FDStartDate.Tag = "2|"
         '
         'FNHSysSectIdTo
         '
-        Me.FNHSysSectIdTo.Location = New System.Drawing.Point(601, 111)
-        Me.FNHSysSectIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectIdTo.Location = New System.Drawing.Point(515, 90)
         Me.FNHSysSectIdTo.Name = "FNHSysSectIdTo"
         Me.FNHSysSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "61", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectIdTo.Properties.Tag = "55"
-        Me.FNHSysSectIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysSectIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysSectIdTo.TabIndex = 437
         Me.FNHSysSectIdTo.Tag = "2|"
         '
         'FNHSysSectId_None
         '
-        Me.FNHSysSectId_None.Location = New System.Drawing.Point(277, 110)
-        Me.FNHSysSectId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectId_None.Location = New System.Drawing.Point(237, 89)
         Me.FNHSysSectId_None.Name = "FNHSysSectId_None"
         Me.FNHSysSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectId_None.Properties.ReadOnly = True
-        Me.FNHSysSectId_None.Size = New System.Drawing.Size(191, 23)
+        Me.FNHSysSectId_None.Size = New System.Drawing.Size(164, 20)
         Me.FNHSysSectId_None.TabIndex = 451
         Me.FNHSysSectId_None.Tag = "2|"
         '
         'FNHSysDivisonId_None
         '
-        Me.FNHSysDivisonId_None.Location = New System.Drawing.Point(277, 58)
-        Me.FNHSysDivisonId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonId_None.Location = New System.Drawing.Point(237, 47)
         Me.FNHSysDivisonId_None.Name = "FNHSysDivisonId_None"
         Me.FNHSysDivisonId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonId_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonId_None.Size = New System.Drawing.Size(191, 23)
+        Me.FNHSysDivisonId_None.Size = New System.Drawing.Size(164, 20)
         Me.FNHSysDivisonId_None.TabIndex = 449
         Me.FNHSysDivisonId_None.Tag = "2|"
         '
@@ -499,13 +478,12 @@ Partial Class wTimeScanHistory
         '
         Me.FNHSysEmpIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysEmpIdTo_None.Location = New System.Drawing.Point(734, 163)
-        Me.FNHSysEmpIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpIdTo_None.Location = New System.Drawing.Point(629, 132)
         Me.FNHSysEmpIdTo_None.Name = "FNHSysEmpIdTo_None"
         Me.FNHSysEmpIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysEmpIdTo_None.Size = New System.Drawing.Size(602, 23)
+        Me.FNHSysEmpIdTo_None.Size = New System.Drawing.Size(587, 20)
         Me.FNHSysEmpIdTo_None.TabIndex = 465
         Me.FNHSysEmpIdTo_None.Tag = "2|"
         '
@@ -513,13 +491,12 @@ Partial Class wTimeScanHistory
         '
         Me.FNHSysEmpTypeId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysEmpTypeId_None.Location = New System.Drawing.Point(734, 4)
-        Me.FNHSysEmpTypeId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpTypeId_None.Location = New System.Drawing.Point(629, 3)
         Me.FNHSysEmpTypeId_None.Name = "FNHSysEmpTypeId_None"
         Me.FNHSysEmpTypeId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpTypeId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpTypeId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(602, 23)
+        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(587, 20)
         Me.FNHSysEmpTypeId_None.TabIndex = 444
         Me.FNHSysEmpTypeId_None.Tag = "2|"
         '
@@ -530,10 +507,9 @@ Partial Class wTimeScanHistory
         Me.FNHSysDivisonIdTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysDivisonIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysDivisonIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysDivisonIdTo_lbl.Location = New System.Drawing.Point(474, 59)
-        Me.FNHSysDivisonIdTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonIdTo_lbl.Location = New System.Drawing.Point(406, 48)
         Me.FNHSysDivisonIdTo_lbl.Name = "FNHSysDivisonIdTo_lbl"
-        Me.FNHSysDivisonIdTo_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysDivisonIdTo_lbl.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysDivisonIdTo_lbl.TabIndex = 456
         Me.FNHSysDivisonIdTo_lbl.Tag = "2|"
         Me.FNHSysDivisonIdTo_lbl.Text = "End Devision :"
@@ -542,13 +518,12 @@ Partial Class wTimeScanHistory
         '
         Me.FNHSysSectIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysSectIdTo_None.Location = New System.Drawing.Point(734, 111)
-        Me.FNHSysSectIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectIdTo_None.Location = New System.Drawing.Point(629, 90)
         Me.FNHSysSectIdTo_None.Name = "FNHSysSectIdTo_None"
         Me.FNHSysSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysSectIdTo_None.Size = New System.Drawing.Size(602, 23)
+        Me.FNHSysSectIdTo_None.Size = New System.Drawing.Size(587, 20)
         Me.FNHSysSectIdTo_None.TabIndex = 459
         Me.FNHSysSectIdTo_None.Tag = "2|"
         '
@@ -559,22 +534,20 @@ Partial Class wTimeScanHistory
         Me.FDStartDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDStartDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDStartDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDStartDate_lbl.Location = New System.Drawing.Point(19, 29)
-        Me.FDStartDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDStartDate_lbl.Location = New System.Drawing.Point(16, 24)
         Me.FDStartDate_lbl.Name = "FDStartDate_lbl"
-        Me.FDStartDate_lbl.Size = New System.Drawing.Size(122, 23)
+        Me.FDStartDate_lbl.Size = New System.Drawing.Size(105, 19)
         Me.FDStartDate_lbl.TabIndex = 442
         Me.FDStartDate_lbl.Tag = "2|"
         Me.FDStartDate_lbl.Text = "Date :"
         '
         'FNHSysEmpIdTo
         '
-        Me.FNHSysEmpIdTo.Location = New System.Drawing.Point(601, 163)
-        Me.FNHSysEmpIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpIdTo.Location = New System.Drawing.Point(515, 132)
         Me.FNHSysEmpIdTo.Name = "FNHSysEmpIdTo"
         Me.FNHSysEmpIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "63", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpIdTo.Properties.Tag = "57"
-        Me.FNHSysEmpIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysEmpIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysEmpIdTo.TabIndex = 441
         Me.FNHSysEmpIdTo.Tag = "2|"
         '
@@ -585,45 +558,41 @@ Partial Class wTimeScanHistory
         Me.FNHSysDivisonId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysDivisonId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysDivisonId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysDivisonId_lbl.Location = New System.Drawing.Point(18, 58)
-        Me.FNHSysDivisonId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonId_lbl.Location = New System.Drawing.Point(15, 47)
         Me.FNHSysDivisonId_lbl.Name = "FNHSysDivisonId_lbl"
-        Me.FNHSysDivisonId_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysDivisonId_lbl.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysDivisonId_lbl.TabIndex = 448
         Me.FNHSysDivisonId_lbl.Tag = "2|"
         Me.FNHSysDivisonId_lbl.Text = "Start Devision :"
         '
         'FNHSysUnitSectId_None
         '
-        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(277, 136)
-        Me.FNHSysUnitSectId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(237, 110)
         Me.FNHSysUnitSectId_None.Name = "FNHSysUnitSectId_None"
         Me.FNHSysUnitSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(191, 23)
+        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(164, 20)
         Me.FNHSysUnitSectId_None.TabIndex = 453
         Me.FNHSysUnitSectId_None.Tag = "2|"
         '
         'FNHSysEmpTypeId
         '
-        Me.FNHSysEmpTypeId.Location = New System.Drawing.Point(601, 4)
-        Me.FNHSysEmpTypeId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpTypeId.Location = New System.Drawing.Point(515, 3)
         Me.FNHSysEmpTypeId.Name = "FNHSysEmpTypeId"
         Me.FNHSysEmpTypeId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "42", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpTypeId.Properties.Tag = ""
-        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysEmpTypeId.TabIndex = 429
         Me.FNHSysEmpTypeId.Tag = "2|"
         '
         'FNHSysEmpId
         '
-        Me.FNHSysEmpId.Location = New System.Drawing.Point(144, 161)
-        Me.FNHSysEmpId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpId.Location = New System.Drawing.Point(123, 131)
         Me.FNHSysEmpId.Name = "FNHSysEmpId"
         Me.FNHSysEmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "58", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpId.Properties.Tag = "57"
-        Me.FNHSysEmpId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysEmpId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysEmpId.TabIndex = 440
         Me.FNHSysEmpId.Tag = "2|"
         '
@@ -631,13 +600,12 @@ Partial Class wTimeScanHistory
         '
         Me.FNHSysUnitSectIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysUnitSectIdTo_None.Location = New System.Drawing.Point(734, 137)
-        Me.FNHSysUnitSectIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectIdTo_None.Location = New System.Drawing.Point(629, 111)
         Me.FNHSysUnitSectIdTo_None.Name = "FNHSysUnitSectIdTo_None"
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(602, 23)
+        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(587, 20)
         Me.FNHSysUnitSectIdTo_None.TabIndex = 461
         Me.FNHSysUnitSectIdTo_None.Tag = "2|"
         '
@@ -645,25 +613,23 @@ Partial Class wTimeScanHistory
         '
         Me.FNHSysDivisonIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysDivisonIdTo_None.Location = New System.Drawing.Point(734, 59)
-        Me.FNHSysDivisonIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonIdTo_None.Location = New System.Drawing.Point(629, 48)
         Me.FNHSysDivisonIdTo_None.Name = "FNHSysDivisonIdTo_None"
         Me.FNHSysDivisonIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonIdTo_None.Size = New System.Drawing.Size(602, 23)
+        Me.FNHSysDivisonIdTo_None.Size = New System.Drawing.Size(587, 20)
         Me.FNHSysDivisonIdTo_None.TabIndex = 457
         Me.FNHSysDivisonIdTo_None.Tag = "2|"
         '
         'FNHSysEmpId_None
         '
-        Me.FNHSysEmpId_None.Location = New System.Drawing.Point(277, 161)
-        Me.FNHSysEmpId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpId_None.Location = New System.Drawing.Point(237, 131)
         Me.FNHSysEmpId_None.Name = "FNHSysEmpId_None"
         Me.FNHSysEmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpId_None.Size = New System.Drawing.Size(191, 23)
+        Me.FNHSysEmpId_None.Size = New System.Drawing.Size(164, 20)
         Me.FNHSysEmpId_None.TabIndex = 463
         Me.FNHSysEmpId_None.Tag = "2|"
         '
@@ -674,22 +640,20 @@ Partial Class wTimeScanHistory
         Me.FNHSysSectIdTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysSectIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysSectIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysSectIdTo_lbl.Location = New System.Drawing.Point(474, 111)
-        Me.FNHSysSectIdTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectIdTo_lbl.Location = New System.Drawing.Point(406, 90)
         Me.FNHSysSectIdTo_lbl.Name = "FNHSysSectIdTo_lbl"
-        Me.FNHSysSectIdTo_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysSectIdTo_lbl.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysSectIdTo_lbl.TabIndex = 458
         Me.FNHSysSectIdTo_lbl.Tag = "2|"
         Me.FNHSysSectIdTo_lbl.Text = "End Sect :"
         '
         'FNHSysUnitSectId
         '
-        Me.FNHSysUnitSectId.Location = New System.Drawing.Point(144, 136)
-        Me.FNHSysUnitSectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectId.Location = New System.Drawing.Point(123, 110)
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
         Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "57", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.Tag = "57"
-        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysUnitSectId.TabIndex = 438
         Me.FNHSysUnitSectId.Tag = "2|"
         '
@@ -700,10 +664,9 @@ Partial Class wTimeScanHistory
         Me.FNHSysUnitSectId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysUnitSectId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysUnitSectId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysUnitSectId_lbl.Location = New System.Drawing.Point(18, 136)
-        Me.FNHSysUnitSectId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectId_lbl.Location = New System.Drawing.Point(15, 110)
         Me.FNHSysUnitSectId_lbl.Name = "FNHSysUnitSectId_lbl"
-        Me.FNHSysUnitSectId_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysUnitSectId_lbl.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysUnitSectId_lbl.TabIndex = 452
         Me.FNHSysUnitSectId_lbl.Tag = "2|"
         Me.FNHSysUnitSectId_lbl.Text = "Start Unit Sect :"
@@ -715,10 +678,9 @@ Partial Class wTimeScanHistory
         Me.FNHSysEmpIdTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysEmpIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysEmpIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysEmpIdTo_lbl.Location = New System.Drawing.Point(474, 163)
-        Me.FNHSysEmpIdTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpIdTo_lbl.Location = New System.Drawing.Point(406, 132)
         Me.FNHSysEmpIdTo_lbl.Name = "FNHSysEmpIdTo_lbl"
-        Me.FNHSysEmpIdTo_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysEmpIdTo_lbl.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysEmpIdTo_lbl.TabIndex = 464
         Me.FNHSysEmpIdTo_lbl.Tag = "2|"
         Me.FNHSysEmpIdTo_lbl.Text = "End Employee :"
@@ -730,22 +692,20 @@ Partial Class wTimeScanHistory
         Me.FNHSysEmpTypeId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysEmpTypeId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysEmpTypeId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysEmpTypeId_lbl.Location = New System.Drawing.Point(476, 4)
-        Me.FNHSysEmpTypeId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpTypeId_lbl.Location = New System.Drawing.Point(408, 3)
         Me.FNHSysEmpTypeId_lbl.Name = "FNHSysEmpTypeId_lbl"
-        Me.FNHSysEmpTypeId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysEmpTypeId_lbl.Size = New System.Drawing.Size(107, 17)
         Me.FNHSysEmpTypeId_lbl.TabIndex = 443
         Me.FNHSysEmpTypeId_lbl.Tag = "2|"
         Me.FNHSysEmpTypeId_lbl.Text = "Employee Type :"
         '
         'FNHSysDivisonIdTo
         '
-        Me.FNHSysDivisonIdTo.Location = New System.Drawing.Point(601, 59)
-        Me.FNHSysDivisonIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonIdTo.Location = New System.Drawing.Point(515, 48)
         Me.FNHSysDivisonIdTo.Name = "FNHSysDivisonIdTo"
         Me.FNHSysDivisonIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "60", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonIdTo.Properties.Tag = "46"
-        Me.FNHSysDivisonIdTo.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysDivisonIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysDivisonIdTo.TabIndex = 433
         Me.FNHSysDivisonIdTo.Tag = "2|"
         '
@@ -756,10 +716,9 @@ Partial Class wTimeScanHistory
         Me.FNHSysUnitSectIdTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysUnitSectIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysUnitSectIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysUnitSectIdTo_lbl.Location = New System.Drawing.Point(474, 137)
-        Me.FNHSysUnitSectIdTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectIdTo_lbl.Location = New System.Drawing.Point(406, 111)
         Me.FNHSysUnitSectIdTo_lbl.Name = "FNHSysUnitSectIdTo_lbl"
-        Me.FNHSysUnitSectIdTo_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysUnitSectIdTo_lbl.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysUnitSectIdTo_lbl.TabIndex = 460
         Me.FNHSysUnitSectIdTo_lbl.Tag = "2|"
         Me.FNHSysUnitSectIdTo_lbl.Text = "End Unit Sect :"
@@ -771,10 +730,9 @@ Partial Class wTimeScanHistory
         Me.FNHSysEmpId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysEmpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysEmpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysEmpId_lbl.Location = New System.Drawing.Point(18, 161)
-        Me.FNHSysEmpId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpId_lbl.Location = New System.Drawing.Point(15, 131)
         Me.FNHSysEmpId_lbl.Name = "FNHSysEmpId_lbl"
-        Me.FNHSysEmpId_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysEmpId_lbl.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysEmpId_lbl.TabIndex = 462
         Me.FNHSysEmpId_lbl.Tag = "2|"
         Me.FNHSysEmpId_lbl.Text = "Start Employee :"
@@ -783,24 +741,22 @@ Partial Class wTimeScanHistory
         '
         Me.FNHSysDeptIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysDeptIdTo_None.Location = New System.Drawing.Point(734, 85)
-        Me.FNHSysDeptIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptIdTo_None.Location = New System.Drawing.Point(629, 69)
         Me.FNHSysDeptIdTo_None.Name = "FNHSysDeptIdTo_None"
         Me.FNHSysDeptIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysDeptIdTo_None.Size = New System.Drawing.Size(602, 23)
+        Me.FNHSysDeptIdTo_None.Size = New System.Drawing.Size(587, 20)
         Me.FNHSysDeptIdTo_None.TabIndex = 455
         Me.FNHSysDeptIdTo_None.Tag = "2|"
         '
         'FNHSysDivisonId
         '
-        Me.FNHSysDivisonId.Location = New System.Drawing.Point(144, 58)
-        Me.FNHSysDivisonId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonId.Location = New System.Drawing.Point(123, 47)
         Me.FNHSysDivisonId.Name = "FNHSysDivisonId"
         Me.FNHSysDivisonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "46", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonId.Properties.Tag = "46"
-        Me.FNHSysDivisonId.Size = New System.Drawing.Size(131, 23)
+        Me.FNHSysDivisonId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysDivisonId.TabIndex = 432
         Me.FNHSysDivisonId.Tag = "2|"
         '
@@ -822,16 +778,19 @@ Partial Class wTimeScanHistory
         'ogdtime
         '
         Me.ogdtime.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdtime.Location = New System.Drawing.Point(0, 44)
+        Me.ogdtime.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ogdtime.Location = New System.Drawing.Point(0, 208)
         Me.ogdtime.MainView = Me.ogvtime
+        Me.ogdtime.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogdtime.Name = "ogdtime"
-        Me.ogdtime.Size = New System.Drawing.Size(1353, 735)
+        Me.ogdtime.Size = New System.Drawing.Size(1233, 425)
         Me.ogdtime.TabIndex = 2
         Me.ogdtime.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvtime})
         '
         'ogvtime
         '
-        Me.ogvtime.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFTDateTrans, Me.ColFTEmpCode, Me.ColFTEmpName, Me.ColFTEmpTypeCode, Me.ColFTDeptCode, Me.ColFTDivisonCode, Me.ColFTSectCode, Me.ColFTUnitSectCode})
+        Me.ogvtime.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFTDateTrans, Me.ColFTEmpCode, Me.ColFTEmpName, Me.ColFTEmpTypeCode, Me.ColFTDivisonCode, Me.ColFTDeptCode, Me.ColFTDeptDesc, Me.ColFTSectCode, Me.ColFTSectName, Me.ColFTUnitSectCode, Me.ColFTUnitSectName, Me.ColFTPositCode, Me.ColFTPositName})
+        Me.ogvtime.DetailHeight = 284
         Me.ogvtime.GridControl = Me.ogdtime
         Me.ogvtime.Name = "ogvtime"
         Me.ogvtime.OptionsCustomization.AllowQuickHideColumns = False
@@ -840,97 +799,162 @@ Partial Class wTimeScanHistory
         '
         Me.ColFTDateTrans.Caption = "FTDateTrans"
         Me.ColFTDateTrans.FieldName = "FTDateTrans"
+        Me.ColFTDateTrans.MinWidth = 17
         Me.ColFTDateTrans.Name = "ColFTDateTrans"
         Me.ColFTDateTrans.OptionsColumn.AllowEdit = False
         Me.ColFTDateTrans.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTDateTrans.OptionsColumn.ReadOnly = True
         Me.ColFTDateTrans.Visible = True
         Me.ColFTDateTrans.VisibleIndex = 0
-        Me.ColFTDateTrans.Width = 90
+        Me.ColFTDateTrans.Width = 83
         '
         'ColFTEmpCode
         '
         Me.ColFTEmpCode.Caption = "FTEmpCode"
         Me.ColFTEmpCode.FieldName = "FTEmpCode"
+        Me.ColFTEmpCode.MinWidth = 17
         Me.ColFTEmpCode.Name = "ColFTEmpCode"
         Me.ColFTEmpCode.OptionsColumn.AllowEdit = False
         Me.ColFTEmpCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTEmpCode.OptionsColumn.ReadOnly = True
         Me.ColFTEmpCode.Visible = True
         Me.ColFTEmpCode.VisibleIndex = 1
-        Me.ColFTEmpCode.Width = 120
+        Me.ColFTEmpCode.Width = 110
         '
         'ColFTEmpName
         '
         Me.ColFTEmpName.Caption = "FTEmpName"
         Me.ColFTEmpName.FieldName = "FTEmpName"
+        Me.ColFTEmpName.MinWidth = 17
         Me.ColFTEmpName.Name = "ColFTEmpName"
         Me.ColFTEmpName.OptionsColumn.AllowEdit = False
         Me.ColFTEmpName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTEmpName.OptionsColumn.ReadOnly = True
         Me.ColFTEmpName.Visible = True
         Me.ColFTEmpName.VisibleIndex = 2
-        Me.ColFTEmpName.Width = 180
+        Me.ColFTEmpName.Width = 160
         '
         'ColFTEmpTypeCode
         '
         Me.ColFTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.ColFTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.ColFTEmpTypeCode.MinWidth = 17
         Me.ColFTEmpTypeCode.Name = "ColFTEmpTypeCode"
         Me.ColFTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.ColFTEmpTypeCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.ColFTEmpTypeCode.Visible = True
         Me.ColFTEmpTypeCode.VisibleIndex = 3
-        Me.ColFTEmpTypeCode.Width = 100
-        '
-        'ColFTDeptCode
-        '
-        Me.ColFTDeptCode.Caption = "FTDeptCode"
-        Me.ColFTDeptCode.FieldName = "FTDeptCode"
-        Me.ColFTDeptCode.Name = "ColFTDeptCode"
-        Me.ColFTDeptCode.OptionsColumn.AllowEdit = False
-        Me.ColFTDeptCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.ColFTDeptCode.OptionsColumn.ReadOnly = True
-        Me.ColFTDeptCode.Visible = True
-        Me.ColFTDeptCode.VisibleIndex = 4
-        Me.ColFTDeptCode.Width = 100
+        Me.ColFTEmpTypeCode.Width = 117
         '
         'ColFTDivisonCode
         '
         Me.ColFTDivisonCode.Caption = "FTDivisonCode"
         Me.ColFTDivisonCode.FieldName = "FTDivisonCode"
+        Me.ColFTDivisonCode.MinWidth = 17
         Me.ColFTDivisonCode.Name = "ColFTDivisonCode"
         Me.ColFTDivisonCode.OptionsColumn.AllowEdit = False
         Me.ColFTDivisonCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTDivisonCode.OptionsColumn.ReadOnly = True
         Me.ColFTDivisonCode.Visible = True
-        Me.ColFTDivisonCode.VisibleIndex = 5
-        Me.ColFTDivisonCode.Width = 100
+        Me.ColFTDivisonCode.VisibleIndex = 4
+        Me.ColFTDivisonCode.Width = 85
+        '
+        'ColFTDeptCode
+        '
+        Me.ColFTDeptCode.Caption = "FTDeptCode"
+        Me.ColFTDeptCode.FieldName = "FTDeptCode"
+        Me.ColFTDeptCode.MinWidth = 17
+        Me.ColFTDeptCode.Name = "ColFTDeptCode"
+        Me.ColFTDeptCode.OptionsColumn.AllowEdit = False
+        Me.ColFTDeptCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.ColFTDeptCode.OptionsColumn.ReadOnly = True
+        Me.ColFTDeptCode.Visible = True
+        Me.ColFTDeptCode.VisibleIndex = 5
+        Me.ColFTDeptCode.Width = 84
+        '
+        'ColFTDeptDesc
+        '
+        Me.ColFTDeptDesc.Caption = "FTDeptDesc"
+        Me.ColFTDeptDesc.FieldName = "FTDeptDesc"
+        Me.ColFTDeptDesc.Name = "ColFTDeptDesc"
+        Me.ColFTDeptDesc.OptionsColumn.AllowEdit = False
+        Me.ColFTDeptDesc.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.ColFTDeptDesc.OptionsColumn.ReadOnly = True
+        Me.ColFTDeptDesc.Visible = True
+        Me.ColFTDeptDesc.VisibleIndex = 6
+        Me.ColFTDeptDesc.Width = 92
         '
         'ColFTSectCode
         '
         Me.ColFTSectCode.Caption = "FTSectCode"
         Me.ColFTSectCode.FieldName = "FTSectCode"
+        Me.ColFTSectCode.MinWidth = 17
         Me.ColFTSectCode.Name = "ColFTSectCode"
         Me.ColFTSectCode.OptionsColumn.AllowEdit = False
         Me.ColFTSectCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTSectCode.OptionsColumn.ReadOnly = True
         Me.ColFTSectCode.Visible = True
-        Me.ColFTSectCode.VisibleIndex = 6
-        Me.ColFTSectCode.Width = 100
+        Me.ColFTSectCode.VisibleIndex = 7
+        Me.ColFTSectCode.Width = 94
+        '
+        'ColFTSectName
+        '
+        Me.ColFTSectName.Caption = "FTSectName"
+        Me.ColFTSectName.FieldName = "FTSectName"
+        Me.ColFTSectName.Name = "ColFTSectName"
+        Me.ColFTSectName.OptionsColumn.AllowEdit = False
+        Me.ColFTSectName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.ColFTSectName.OptionsColumn.ReadOnly = True
+        Me.ColFTSectName.Visible = True
+        Me.ColFTSectName.VisibleIndex = 8
+        Me.ColFTSectName.Width = 85
         '
         'ColFTUnitSectCode
         '
         Me.ColFTUnitSectCode.Caption = "FTUnitSectCode"
         Me.ColFTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.ColFTUnitSectCode.MinWidth = 17
         Me.ColFTUnitSectCode.Name = "ColFTUnitSectCode"
         Me.ColFTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.ColFTUnitSectCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.ColFTUnitSectCode.Visible = True
-        Me.ColFTUnitSectCode.VisibleIndex = 7
-        Me.ColFTUnitSectCode.Width = 100
+        Me.ColFTUnitSectCode.VisibleIndex = 9
+        Me.ColFTUnitSectCode.Width = 93
+        '
+        'ColFTUnitSectName
+        '
+        Me.ColFTUnitSectName.Caption = "FTUnitSectName"
+        Me.ColFTUnitSectName.FieldName = "FTUnitSectName"
+        Me.ColFTUnitSectName.Name = "ColFTUnitSectName"
+        Me.ColFTUnitSectName.OptionsColumn.AllowEdit = False
+        Me.ColFTUnitSectName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.ColFTUnitSectName.OptionsColumn.ReadOnly = True
+        Me.ColFTUnitSectName.Visible = True
+        Me.ColFTUnitSectName.VisibleIndex = 10
+        '
+        'ColFTPositCode
+        '
+        Me.ColFTPositCode.Caption = "lFTPositCode"
+        Me.ColFTPositCode.FieldName = "FTPositCode"
+        Me.ColFTPositCode.Name = "ColFTPositCode"
+        Me.ColFTPositCode.OptionsColumn.AllowEdit = False
+        Me.ColFTPositCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.ColFTPositCode.OptionsColumn.ReadOnly = True
+        Me.ColFTPositCode.Visible = True
+        Me.ColFTPositCode.VisibleIndex = 11
+        '
+        'ColFTPositName
+        '
+        Me.ColFTPositName.Caption = "FTPositName"
+        Me.ColFTPositName.FieldName = "FTPositName"
+        Me.ColFTPositName.Name = "ColFTPositName"
+        Me.ColFTPositName.OptionsColumn.AllowEdit = False
+        Me.ColFTPositName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.ColFTPositName.OptionsColumn.ReadOnly = True
+        Me.ColFTPositName.Visible = True
+        Me.ColFTPositName.VisibleIndex = 12
         '
         'ogbmainprocbutton
         '
@@ -939,29 +963,26 @@ Partial Class wTimeScanHistory
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(14, 334)
-        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(3, 327)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(1325, 110)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(1136, 89)
         Me.ogbmainprocbutton.TabIndex = 387
         Me.ogbmainprocbutton.Tag = "2|"
         '
         'ocmsavelayout
         '
-        Me.ocmsavelayout.Location = New System.Drawing.Point(819, 15)
-        Me.ocmsavelayout.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmsavelayout.Location = New System.Drawing.Point(702, 12)
         Me.ocmsavelayout.Name = "ocmsavelayout"
-        Me.ocmsavelayout.Size = New System.Drawing.Size(136, 28)
+        Me.ocmsavelayout.Size = New System.Drawing.Size(117, 23)
         Me.ocmsavelayout.TabIndex = 331
         Me.ocmsavelayout.Text = "savelayoutgrid"
         '
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(1193, 14)
-        Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmexit.Location = New System.Drawing.Point(1023, 11)
         Me.ocmexit.Name = "ocmexit"
-        Me.ocmexit.Size = New System.Drawing.Size(111, 31)
+        Me.ocmexit.Size = New System.Drawing.Size(95, 25)
         Me.ocmexit.TabIndex = 96
         Me.ocmexit.TabStop = False
         Me.ocmexit.Tag = "2|"
@@ -969,10 +990,9 @@ Partial Class wTimeScanHistory
         '
         'ocmclear
         '
-        Me.ocmclear.Location = New System.Drawing.Point(147, 15)
-        Me.ocmclear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclear.Location = New System.Drawing.Point(126, 12)
         Me.ocmclear.Name = "ocmclear"
-        Me.ocmclear.Size = New System.Drawing.Size(111, 31)
+        Me.ocmclear.Size = New System.Drawing.Size(95, 25)
         Me.ocmclear.TabIndex = 95
         Me.ocmclear.TabStop = False
         Me.ocmclear.Tag = "2|"
@@ -980,25 +1000,24 @@ Partial Class wTimeScanHistory
         '
         'ocmload
         '
-        Me.ocmload.Location = New System.Drawing.Point(5, 17)
-        Me.ocmload.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmload.Location = New System.Drawing.Point(4, 14)
         Me.ocmload.Name = "ocmload"
-        Me.ocmload.Size = New System.Drawing.Size(136, 28)
+        Me.ocmload.Size = New System.Drawing.Size(117, 23)
         Me.ocmload.TabIndex = 329
         Me.ocmload.Text = "Load Data"
         '
         'wTimeScanHistory
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1353, 779)
+        Me.ClientSize = New System.Drawing.Size(1233, 633)
         Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.ogdtime)
-        Me.Controls.Add(Me.hideContainerTop)
+        Me.Controls.Add(Me.ogbheader)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "wTimeScanHistory"
         Me.Text = "wTimeScanHistory"
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.hideContainerTop.ResumeLayout(False)
         Me.ogbheader.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
         CType(Me.FDEndDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1033,6 +1052,7 @@ Partial Class wTimeScanHistory
         CType(Me.ogvtime, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbmainprocbutton.ResumeLayout(False)
+        CType(Me.BehaviorManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1093,9 +1113,14 @@ Partial Class wTimeScanHistory
     Friend WithEvents FNHSysEmpId_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FNHSysDeptIdTo_None As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FNHSysDivisonId As DevExpress.XtraEditors.ButtonEdit
-    Friend WithEvents hideContainerTop As DevExpress.XtraBars.Docking.AutoHideContainer
     Friend WithEvents ColFTDeptCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ColFTDivisonCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ColFTSectCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ColFTUnitSectCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColFTDeptDesc As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColFTSectName As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColFTUnitSectName As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents BehaviorManager1 As DevExpress.Utils.Behaviors.BehaviorManager
+    Friend WithEvents ColFTPositName As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColFTPositCode As DevExpress.XtraGrid.Columns.GridColumn
 End Class

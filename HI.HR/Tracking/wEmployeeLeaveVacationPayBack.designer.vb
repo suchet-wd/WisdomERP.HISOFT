@@ -22,7 +22,6 @@ Partial Class wEmployeeLeaveVacationPayBack
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wEmployeeLeaveVacationPayBack))
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -107,7 +106,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNEmpVacationUsed = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNEmpVacationBal = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNEmpVacationRetAmt = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
+        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager()
         Me.hideContainerTop = New DevExpress.XtraBars.Docking.AutoHideContainer()
         Me.ogbheader = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
@@ -213,7 +212,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.ogc.MainView = Me.ogv
         Me.ogc.Margin = New System.Windows.Forms.Padding(4)
         Me.ogc.Name = "ogc"
-        Me.ogc.Size = New System.Drawing.Size(1180, 642)
+        Me.ogc.Size = New System.Drawing.Size(1172, 1021)
         Me.ogc.TabIndex = 0
         Me.ogc.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogv})
         '
@@ -534,12 +533,12 @@ Partial Class wEmployeeLeaveVacationPayBack
         '
         'hideContainerTop
         '
-        Me.hideContainerTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.hideContainerTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(232, Byte), Integer))
         Me.hideContainerTop.Controls.Add(Me.ogbheader)
         Me.hideContainerTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.hideContainerTop.Location = New System.Drawing.Point(0, 0)
         Me.hideContainerTop.Name = "hideContainerTop"
-        Me.hideContainerTop.Size = New System.Drawing.Size(1182, 42)
+        Me.hideContainerTop.Size = New System.Drawing.Size(1182, 44)
         '
         'ogbheader
         '
@@ -551,7 +550,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.ogbheader.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(53, Byte), Integer))
         Me.ogbheader.ID = New System.Guid("07aa44b9-5e74-47ef-b37d-869730080592")
         Me.ogbheader.ImageOptions.Image = CType(resources.GetObject("ogbheader.ImageOptions.Image"), System.Drawing.Image)
-        Me.ogbheader.Location = New System.Drawing.Point(0, 0)
+        Me.ogbheader.Location = New System.Drawing.Point(0, 44)
         Me.ogbheader.Margin = New System.Windows.Forms.Padding(4)
         Me.ogbheader.Name = "ogbheader"
         Me.ogbheader.Options.AllowDockBottom = False
@@ -607,10 +606,10 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.DockPanel1_Container.Controls.Add(Me.LabelControl2)
         Me.DockPanel1_Container.Controls.Add(Me.lb_EmpType)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysCmpId_lbl_ofyear)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 32)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(2, 29)
         Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(4)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1174, 218)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1178, 223)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FTDateStart_lb
@@ -645,7 +644,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FTDateStart.Properties.Mask.EditMask = "yyyy"
         Me.FTDateStart.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.FTDateStart.Properties.NullDate = ""
-        Me.FTDateStart.Size = New System.Drawing.Size(130, 22)
+        Me.FTDateStart.Size = New System.Drawing.Size(130, 23)
         Me.FTDateStart.TabIndex = 503
         Me.FTDateStart.Tag = "2|"
         '
@@ -659,7 +658,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(438, 22)
+        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(442, 23)
         Me.FNHSysUnitSectIdTo_None.TabIndex = 499
         Me.FNHSysUnitSectIdTo_None.Tag = "2|"
         '
@@ -673,7 +672,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysEmpIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysEmpIdTo_None.Size = New System.Drawing.Size(438, 22)
+        Me.FNHSysEmpIdTo_None.Size = New System.Drawing.Size(442, 23)
         Me.FNHSysEmpIdTo_None.TabIndex = 500
         Me.FNHSysEmpIdTo_None.Tag = "2|"
         '
@@ -687,7 +686,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysDeptIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysDeptIdTo_None.Size = New System.Drawing.Size(438, 22)
+        Me.FNHSysDeptIdTo_None.Size = New System.Drawing.Size(442, 23)
         Me.FNHSysDeptIdTo_None.TabIndex = 496
         Me.FNHSysDeptIdTo_None.Tag = "2|"
         '
@@ -701,7 +700,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysDivisonIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonIdTo_None.Size = New System.Drawing.Size(438, 22)
+        Me.FNHSysDivisonIdTo_None.Size = New System.Drawing.Size(442, 23)
         Me.FNHSysDivisonIdTo_None.TabIndex = 497
         Me.FNHSysDivisonIdTo_None.Tag = "2|"
         '
@@ -715,7 +714,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysSectIdTo_None.Size = New System.Drawing.Size(438, 22)
+        Me.FNHSysSectIdTo_None.Size = New System.Drawing.Size(442, 23)
         Me.FNHSysSectIdTo_None.TabIndex = 498
         Me.FNHSysSectIdTo_None.Tag = "2|"
         '
@@ -726,7 +725,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysDivisonIdTo.Name = "FNHSysDivisonIdTo"
         Me.FNHSysDivisonIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "60", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonIdTo.Properties.Tag = "46"
-        Me.FNHSysDivisonIdTo.Size = New System.Drawing.Size(130, 22)
+        Me.FNHSysDivisonIdTo.Size = New System.Drawing.Size(130, 23)
         Me.FNHSysDivisonIdTo.TabIndex = 492
         Me.FNHSysDivisonIdTo.Tag = "2|"
         '
@@ -737,7 +736,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysEmpIdTo.Name = "FNHSysEmpIdTo"
         Me.FNHSysEmpIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "63", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpIdTo.Properties.Tag = "57"
-        Me.FNHSysEmpIdTo.Size = New System.Drawing.Size(130, 22)
+        Me.FNHSysEmpIdTo.Size = New System.Drawing.Size(130, 23)
         Me.FNHSysEmpIdTo.TabIndex = 495
         Me.FNHSysEmpIdTo.Tag = "2|"
         '
@@ -748,7 +747,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysSectIdTo.Name = "FNHSysSectIdTo"
         Me.FNHSysSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "61", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectIdTo.Properties.Tag = "55"
-        Me.FNHSysSectIdTo.Size = New System.Drawing.Size(130, 22)
+        Me.FNHSysSectIdTo.Size = New System.Drawing.Size(130, 23)
         Me.FNHSysSectIdTo.TabIndex = 493
         Me.FNHSysSectIdTo.Tag = "2|"
         '
@@ -759,7 +758,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysDeptIdTo.Name = "FNHSysDeptIdTo"
         Me.FNHSysDeptIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "59", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptIdTo.Properties.Tag = "23"
-        Me.FNHSysDeptIdTo.Size = New System.Drawing.Size(130, 22)
+        Me.FNHSysDeptIdTo.Size = New System.Drawing.Size(130, 23)
         Me.FNHSysDeptIdTo.TabIndex = 491
         Me.FNHSysDeptIdTo.Tag = "2|"
         '
@@ -770,7 +769,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysUnitSectIdTo.Name = "FNHSysUnitSectIdTo"
         Me.FNHSysUnitSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "62", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectIdTo.Properties.Tag = "57"
-        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(130, 22)
+        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(130, 23)
         Me.FNHSysUnitSectIdTo.TabIndex = 494
         Me.FNHSysUnitSectIdTo.Tag = "2|"
         '
@@ -849,7 +848,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCmpId_None.Properties.ReadOnly = True
-        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(872, 22)
+        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(876, 23)
         Me.FNHSysCmpId_None.TabIndex = 485
         Me.FNHSysCmpId_None.Tag = ""
         '
@@ -861,7 +860,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectId_None.Properties.ReadOnly = True
-        Me.FNHSysSectId_None.Size = New System.Drawing.Size(164, 22)
+        Me.FNHSysSectId_None.Size = New System.Drawing.Size(164, 23)
         Me.FNHSysSectId_None.TabIndex = 481
         Me.FNHSysSectId_None.Tag = "2|"
         '
@@ -875,7 +874,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysEmpTypeId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpTypeId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpTypeId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(639, 22)
+        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(643, 23)
         Me.FNHSysEmpTypeId_None.TabIndex = 484
         Me.FNHSysEmpTypeId_None.Tag = "2|"
         '
@@ -887,7 +886,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysEmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpId_None.Size = New System.Drawing.Size(164, 22)
+        Me.FNHSysEmpId_None.Size = New System.Drawing.Size(164, 23)
         Me.FNHSysEmpId_None.TabIndex = 483
         Me.FNHSysEmpId_None.Tag = "2|"
         '
@@ -899,7 +898,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysUnitSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(164, 22)
+        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(164, 23)
         Me.FNHSysUnitSectId_None.TabIndex = 482
         Me.FNHSysUnitSectId_None.Tag = "2|"
         '
@@ -911,7 +910,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysDivisonId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonId_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonId_None.Size = New System.Drawing.Size(164, 22)
+        Me.FNHSysDivisonId_None.Size = New System.Drawing.Size(164, 23)
         Me.FNHSysDivisonId_None.TabIndex = 480
         Me.FNHSysDivisonId_None.Tag = "2|"
         '
@@ -923,7 +922,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysDeptId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptId_None.Properties.ReadOnly = True
-        Me.FNHSysDeptId_None.Size = New System.Drawing.Size(164, 22)
+        Me.FNHSysDeptId_None.Size = New System.Drawing.Size(164, 23)
         Me.FNHSysDeptId_None.TabIndex = 479
         Me.FNHSysDeptId_None.Tag = "2|"
         '
@@ -934,7 +933,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysSectId.Name = "FNHSysSectId"
         Me.FNHSysSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "55", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectId.Properties.Tag = "55"
-        Me.FNHSysSectId.Size = New System.Drawing.Size(130, 22)
+        Me.FNHSysSectId.Size = New System.Drawing.Size(130, 23)
         Me.FNHSysSectId.TabIndex = 476
         Me.FNHSysSectId.Tag = "2|"
         '
@@ -945,7 +944,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysEmpTypeId.Name = "FNHSysEmpTypeId"
         Me.FNHSysEmpTypeId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "42", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpTypeId.Properties.Tag = ""
-        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(130, 22)
+        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(130, 23)
         Me.FNHSysEmpTypeId.TabIndex = 473
         Me.FNHSysEmpTypeId.Tag = "2|"
         '
@@ -956,7 +955,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
         Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "57", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.Tag = "57"
-        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(130, 22)
+        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(130, 23)
         Me.FNHSysUnitSectId.TabIndex = 477
         Me.FNHSysUnitSectId.Tag = "2|"
         '
@@ -967,7 +966,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysDivisonId.Name = "FNHSysDivisonId"
         Me.FNHSysDivisonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "46", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonId.Properties.Tag = "46"
-        Me.FNHSysDivisonId.Size = New System.Drawing.Size(130, 22)
+        Me.FNHSysDivisonId.Size = New System.Drawing.Size(130, 23)
         Me.FNHSysDivisonId.TabIndex = 475
         Me.FNHSysDivisonId.Tag = "2|"
         '
@@ -978,7 +977,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysEmpId.Name = "FNHSysEmpId"
         Me.FNHSysEmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "58", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpId.Properties.Tag = "57"
-        Me.FNHSysEmpId.Size = New System.Drawing.Size(130, 22)
+        Me.FNHSysEmpId.Size = New System.Drawing.Size(130, 23)
         Me.FNHSysEmpId.TabIndex = 478
         Me.FNHSysEmpId.Tag = "2|"
         '
@@ -989,7 +988,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysDeptId.Name = "FNHSysDeptId"
         Me.FNHSysDeptId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "23", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptId.Properties.Tag = "23"
-        Me.FNHSysDeptId.Size = New System.Drawing.Size(130, 22)
+        Me.FNHSysDeptId.Size = New System.Drawing.Size(130, 23)
         Me.FNHSysDeptId.TabIndex = 474
         Me.FNHSysDeptId.Tag = "2|"
         '
@@ -1005,7 +1004,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(132, 22)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(132, 23)
         Me.FNHSysCmpId.TabIndex = 472
         Me.FNHSysCmpId.Tag = ""
         '
@@ -1183,10 +1182,10 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(52, 59)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(-794, 181)
         Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(977, 58)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(2981, 179)
         Me.ogbmainprocbutton.TabIndex = 388
         Me.ogbmainprocbutton.Tag = "2|"
         '
@@ -1202,7 +1201,7 @@ Partial Class wEmployeeLeaveVacationPayBack
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(845, 14)
+        Me.ocmexit.Location = New System.Drawing.Point(2849, 14)
         Me.ocmexit.Margin = New System.Windows.Forms.Padding(4)
         Me.ocmexit.Name = "ocmexit"
         Me.ocmexit.Size = New System.Drawing.Size(111, 31)
@@ -1272,17 +1271,17 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.DateEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.DateEdit1.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.DateEdit1.Properties.NullDate = ""
-        Me.DateEdit1.Size = New System.Drawing.Size(112, 22)
+        Me.DateEdit1.Size = New System.Drawing.Size(112, 23)
         Me.DateEdit1.TabIndex = 503
         Me.DateEdit1.Tag = "2|"
         '
         'otbmain
         '
         Me.otbmain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.otbmain.Location = New System.Drawing.Point(0, 42)
+        Me.otbmain.Location = New System.Drawing.Point(0, 44)
         Me.otbmain.Name = "otbmain"
         Me.otbmain.SelectedTabPage = Me.otppayback
-        Me.otbmain.Size = New System.Drawing.Size(1182, 673)
+        Me.otbmain.Size = New System.Drawing.Size(1182, 1058)
         Me.otbmain.TabIndex = 390
         Me.otbmain.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otppayback})
         '
@@ -1291,14 +1290,14 @@ Partial Class wEmployeeLeaveVacationPayBack
         Me.otppayback.Controls.Add(Me.ogbmainprocbutton)
         Me.otppayback.Controls.Add(Me.ogc)
         Me.otppayback.Name = "otppayback"
-        Me.otppayback.Size = New System.Drawing.Size(1180, 642)
+        Me.otppayback.Size = New System.Drawing.Size(1172, 1021)
         Me.otppayback.Text = "สรุปการจ่ายคืนพักร้อน"
         '
         'wEmployeeLeaveVacationPayBack
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1182, 715)
+        Me.ClientSize = New System.Drawing.Size(1182, 1102)
         Me.Controls.Add(Me.otbmain)
         Me.Controls.Add(Me.hideContainerTop)
         Me.Margin = New System.Windows.Forms.Padding(4)

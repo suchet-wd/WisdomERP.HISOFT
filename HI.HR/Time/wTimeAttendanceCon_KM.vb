@@ -323,13 +323,14 @@ Public Class wTimeAttendanceCon_KM
 
         If HI.ST.Lang.Language = HI.ST.SysInfo.LanguageLocal Then
             _Qry &= vbCrLf & " , PR.FTPreNameNameTH + ' ' +  M.FTEmpNameTH + '  ' +  M.FTEmpSurnameTH AS FTEmpName"
-
+            _Qry &= " , D.FTDeptDescTH AS FTDeptDesc, S.FTSectNameTH AS FTSectName, US.FTUnitSectNameTH AS FTUnitSectName, P.FTPositNameTH AS FTPositName"
         Else
             _Qry &= vbCrLf & " , PR.FTPreNameNameEN + ' ' + M.FTEmpNameEN + '  ' +  M.FTEmpSurnameEN AS FTEmpName"
+            _Qry &= " , D.FTDeptDescEN AS FTDeptDesc, S.FTSectNameEN AS FTSectName, US.FTUnitSectNameEN AS FTUnitSectName, P.FTPositNameEN AS FTPositName"
         End If
 
-        _Qry &= vbCrLf & " ,CASE WHEN  ISDATE(T.FTDateTrans) = 1 THEN Convert(varchar(10),Convert(Datetime,T.FTDateTrans),103) ELSE '' END As FTDateTrans"
-        _Qry &= vbCrLf & " ,CASE WHEN  ISDATE(T.FTDateTrans) = 1 THEN Convert(Datetime,T.FTDateTrans) ELSE NULL END As FTDateTransShow"
+        _Qry &= vbCrLf & "  ,CASE WHEN  ISDATE(T.FTDateTrans) = 1 THEN Convert(varchar(10),Convert(Datetime,T.FTDateTrans),103) ELSE '' END As FTDateTrans"
+        _Qry &= vbCrLf & "  ,CASE WHEN  ISDATE(T.FTDateTrans) = 1 THEN Convert(Datetime,T.FTDateTrans) ELSE NULL END As FTDateTransShow"
         _Qry &= vbCrLf & "  , T.FNHSysShiftIDOrg, T.FNHSysShiftID, SH.FTShiftCode"
         _Qry &= vbCrLf & "  ,SH.FTShiftCode AS FTShiftCodeOrg"
         _Qry &= vbCrLf & "  , SH.FTIn1 AS FTCheckIn1"
@@ -527,6 +528,7 @@ Public Class wTimeAttendanceCon_KM
         _Qry &= vbCrLf & " ORDER BY  T.FTDateTrans,M.FTEmpCode  "
 
         _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
+
 
         Me.ogdtime.DataSource = _dt
         Me.ogvtime.BestFitColumns()
@@ -743,11 +745,13 @@ Public Class wTimeAttendanceCon_KM
         _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
 
         Me.ogdtime.DataSource = _dt
+
         Me.ogvtime.BestFitColumns()
         ogvtime.ExpandAllGroups()
         _Spls.Close()
 
         _RowDataChange = False
+
     End Sub
 
     Private Sub LoadDataWaitLeave()
@@ -1816,8 +1820,11 @@ Public Class wTimeAttendanceCon_KM
                                     If HI.ST.Lang.Language = HI.ST.SysInfo.LanguageLocal Then
                                         _Qry &= vbCrLf & " , PR.FTPreNameNameTH + ' ' +  M.FTEmpNameTH + '  ' +  M.FTEmpSurnameTH AS FTEmpName"
 
+
                                     Else
                                         _Qry &= vbCrLf & " , PR.FTPreNameNameEN + ' ' + M.FTEmpNameEN + '  ' +  M.FTEmpSurnameEN AS FTEmpName"
+
+
                                     End If
 
                                     _Qry &= vbCrLf & " ,CASE WHEN  ISDATE(T.FTDateTrans) = 1 THEN Convert(varchar(10),Convert(Datetime,T.FTDateTrans),103) ELSE '' END As FTDateTrans"
@@ -1845,8 +1852,10 @@ Public Class wTimeAttendanceCon_KM
 
                                     If HI.ST.Lang.Language = HI.ST.SysInfo.LanguageLocal Then
                                         _Qry &= vbCrLf & ",TM.FTTranStaNameTH AS FTTranStaName"
+
                                     Else
                                         _Qry &= vbCrLf & ",TM.FTTranStaNameEN AS FTTranStaName"
+
                                     End If
 
                                     '_Qry &= vbCrLf & ",CASE WHEN  T.FNScanCtrl = 0 THEN CASE WHEN (FTScanMIn='' OR (FTScanAOut='' AND FTScanAOTOut =''))   THEN '1' Else '0' END"

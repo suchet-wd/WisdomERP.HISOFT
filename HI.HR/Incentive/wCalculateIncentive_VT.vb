@@ -4629,6 +4629,8 @@ Public Class wCalculateIncentive_VT
                 _TotalTime = 0
                 _TotalTimeOT = 0
 
+                Dim _FNWorkingMin = 0
+
                 For Each Rt As DataRow In _dtemptime.Rows
 
 
@@ -4637,6 +4639,8 @@ Public Class wCalculateIncentive_VT
                     _CountEmp = _CountEmp + 1
                     _TotalTime = _TotalTime + Integer.Parse(Val(Rt!FNWorkingMin.ToString))
                     _TotalTimeOT = _TotalTimeOT + Integer.Parse(Val(Rt!FNWorkingOTMin.ToString))
+
+                    _FNWorkingMin = Integer.Parse(Val(Rt!FNWorkingMin.ToString))
 
                     _TotalTimeHR = Integer.Parse(Val(Rt!FNTimeMin.ToString))
                     _TotalTimeOTHR = Integer.Parse(Val(Rt!FNOT1Min.ToString))
@@ -4651,7 +4655,13 @@ Public Class wCalculateIncentive_VT
 
                     '****************************** ไม่หักสาย cp 1   cfm by K Pramote   2021/07/29  
                     If _TotalTimeHR >= 480 Then
-                        _FNAmtNormal = _Salary
+                        If _FNWorkingMin > 0 Then
+                            _FNAmtNormal = _Salary
+                        Else
+
+                        End If
+
+
                     Else
                         _FNAmtNormal = Double.Parse(Format((_Salary / 480) * ((_TotalTimeHR + _Latenomalcp + _FNLeaveTotalPayMinute) - _FNLateNormalCut), "0.00"))
                     End If

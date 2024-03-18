@@ -19,7 +19,6 @@ Partial Class wEffByStyle
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -311,9 +310,11 @@ Partial Class wEffByStyle
         Me.effper_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTEndDate = New DevExpress.XtraEditors.DateEdit()
         Me.FTEndDate_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
+        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager()
         Me.ogbheader = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
+        Me.FNReportGridMergeFormat = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.FNReportGridMergeFormat_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.ogccmp = New DevExpress.XtraGrid.GridControl()
         Me.ogvcmp = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GCmpSelectCmp = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -327,8 +328,6 @@ Partial Class wEffByStyle
         Me.FNHSysStyleId_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysStyleId_None = New DevExpress.XtraEditors.TextEdit()
         Me.ogbdetail = New DevExpress.XtraEditors.GroupControl()
-        Me.FNReportGridMergeFormat = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.FNReportGridMergeFormat_lbl = New DevExpress.XtraEditors.LabelControl()
         CType(Me.FNHSysUnitSectIdTo_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysUnitSectIdTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysUnitSectId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -425,6 +424,7 @@ Partial Class wEffByStyle
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbheader.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
+        CType(Me.FNReportGridMergeFormat.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogccmp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvcmp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit27, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -433,19 +433,19 @@ Partial Class wEffByStyle
         CType(Me.FNHSysStyleId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbdetail, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbdetail.SuspendLayout()
-        CType(Me.FNReportGridMergeFormat.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FNHSysUnitSectIdTo_None
         '
         Me.FNHSysUnitSectIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysUnitSectIdTo_None.Location = New System.Drawing.Point(619, 30)
+        Me.FNHSysUnitSectIdTo_None.Location = New System.Drawing.Point(722, 37)
+        Me.FNHSysUnitSectIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectIdTo_None.Name = "FNHSysUnitSectIdTo_None"
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(0, 20)
+        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(220, 22)
         Me.FNHSysUnitSectIdTo_None.TabIndex = 322
         Me.FNHSysUnitSectIdTo_None.Tag = "2|"
         '
@@ -456,31 +456,34 @@ Partial Class wEffByStyle
         Me.FNHSysUnitSectIdTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysUnitSectIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysUnitSectIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysUnitSectIdTo_lbl.Location = New System.Drawing.Point(396, 30)
+        Me.FNHSysUnitSectIdTo_lbl.Location = New System.Drawing.Point(462, 37)
+        Me.FNHSysUnitSectIdTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectIdTo_lbl.Name = "FNHSysUnitSectIdTo_lbl"
-        Me.FNHSysUnitSectIdTo_lbl.Size = New System.Drawing.Size(107, 20)
+        Me.FNHSysUnitSectIdTo_lbl.Size = New System.Drawing.Size(125, 25)
         Me.FNHSysUnitSectIdTo_lbl.TabIndex = 321
         Me.FNHSysUnitSectIdTo_lbl.Tag = "2|"
         Me.FNHSysUnitSectIdTo_lbl.Text = "End Unit Sect :"
         '
         'FNHSysUnitSectIdTo
         '
-        Me.FNHSysUnitSectIdTo.Location = New System.Drawing.Point(506, 30)
+        Me.FNHSysUnitSectIdTo.Location = New System.Drawing.Point(590, 37)
+        Me.FNHSysUnitSectIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectIdTo.Name = "FNHSysUnitSectIdTo"
         Me.FNHSysUnitSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "255", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectIdTo.Properties.Tag = "57"
-        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(112, 20)
+        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysUnitSectIdTo.TabIndex = 3
         Me.FNHSysUnitSectIdTo.Tag = "2|"
         '
         'FNHSysUnitSectId_None
         '
-        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(227, 28)
+        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(265, 34)
+        Me.FNHSysUnitSectId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId_None.Name = "FNHSysUnitSectId_None"
         Me.FNHSysUnitSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(164, 20)
+        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(191, 22)
         Me.FNHSysUnitSectId_None.TabIndex = 310
         Me.FNHSysUnitSectId_None.Tag = "2|"
         '
@@ -491,20 +494,22 @@ Partial Class wEffByStyle
         Me.FNHSysUnitSectId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysUnitSectId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysUnitSectId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysUnitSectId_lbl.Location = New System.Drawing.Point(16, 28)
+        Me.FNHSysUnitSectId_lbl.Location = New System.Drawing.Point(19, 34)
+        Me.FNHSysUnitSectId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId_lbl.Name = "FNHSysUnitSectId_lbl"
-        Me.FNHSysUnitSectId_lbl.Size = New System.Drawing.Size(94, 20)
+        Me.FNHSysUnitSectId_lbl.Size = New System.Drawing.Size(110, 25)
         Me.FNHSysUnitSectId_lbl.TabIndex = 309
         Me.FNHSysUnitSectId_lbl.Tag = "2|"
         Me.FNHSysUnitSectId_lbl.Text = "Start Unit Sect :"
         '
         'FNHSysUnitSectId
         '
-        Me.FNHSysUnitSectId.Location = New System.Drawing.Point(113, 28)
+        Me.FNHSysUnitSectId.Location = New System.Drawing.Point(132, 34)
+        Me.FNHSysUnitSectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
         Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "248", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.Tag = "57"
-        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(112, 20)
+        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysUnitSectId.TabIndex = 2
         Me.FNHSysUnitSectId.Tag = "2|"
         '
@@ -515,9 +520,10 @@ Partial Class wEffByStyle
         Me.FTStartDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FTStartDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTStartDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTStartDate_lbl.Location = New System.Drawing.Point(7, 53)
+        Me.FTStartDate_lbl.Location = New System.Drawing.Point(8, 65)
+        Me.FTStartDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStartDate_lbl.Name = "FTStartDate_lbl"
-        Me.FTStartDate_lbl.Size = New System.Drawing.Size(105, 19)
+        Me.FTStartDate_lbl.Size = New System.Drawing.Size(122, 23)
         Me.FTStartDate_lbl.TabIndex = 280
         Me.FTStartDate_lbl.Tag = "2|"
         Me.FTStartDate_lbl.Text = "Date :"
@@ -526,7 +532,8 @@ Partial Class wEffByStyle
         '
         Me.FTStartDate.EditValue = Nothing
         Me.FTStartDate.EnterMoveNextControl = True
-        Me.FTStartDate.Location = New System.Drawing.Point(112, 53)
+        Me.FTStartDate.Location = New System.Drawing.Point(131, 65)
+        Me.FTStartDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStartDate.Name = "FTStartDate"
         Me.FTStartDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTStartDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -534,7 +541,7 @@ Partial Class wEffByStyle
         Me.FTStartDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartDate.Properties.NullDate = ""
-        Me.FTStartDate.Size = New System.Drawing.Size(113, 20)
+        Me.FTStartDate.Size = New System.Drawing.Size(132, 22)
         Me.FTStartDate.TabIndex = 4
         Me.FTStartDate.Tag = "2|"
         '
@@ -546,8 +553,9 @@ Partial Class wEffByStyle
         Me.ogbemployee.Controls.Add(Me.otxtabctrl)
         Me.ogbemployee.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbemployee.Location = New System.Drawing.Point(2, 2)
+        Me.ogbemployee.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbemployee.Name = "ogbemployee"
-        Me.ogbemployee.Size = New System.Drawing.Size(1329, 384)
+        Me.ogbemployee.Size = New System.Drawing.Size(1551, 532)
         Me.ogbemployee.TabIndex = 4
         Me.ogbemployee.Text = "Employee"
         '
@@ -558,18 +566,20 @@ Partial Class wEffByStyle
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(26, 160)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(30, 197)
+        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(1115, 47)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(1302, 58)
         Me.ogbmainprocbutton.TabIndex = 100000
         Me.ogbmainprocbutton.Tag = "2|"
         '
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(1002, 11)
+        Me.ocmexit.Location = New System.Drawing.Point(1170, 14)
+        Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmexit.Name = "ocmexit"
-        Me.ocmexit.Size = New System.Drawing.Size(95, 25)
+        Me.ocmexit.Size = New System.Drawing.Size(111, 31)
         Me.ocmexit.TabIndex = 96
         Me.ocmexit.TabStop = False
         Me.ocmexit.Tag = "2|"
@@ -577,9 +587,10 @@ Partial Class wEffByStyle
         '
         'ocmclear
         '
-        Me.ocmclear.Location = New System.Drawing.Point(211, 11)
+        Me.ocmclear.Location = New System.Drawing.Point(246, 14)
+        Me.ocmclear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmclear.Name = "ocmclear"
-        Me.ocmclear.Size = New System.Drawing.Size(95, 25)
+        Me.ocmclear.Size = New System.Drawing.Size(111, 31)
         Me.ocmclear.TabIndex = 95
         Me.ocmclear.TabStop = False
         Me.ocmclear.Tag = "2|"
@@ -587,9 +598,10 @@ Partial Class wEffByStyle
         '
         'ocmload
         '
-        Me.ocmload.Location = New System.Drawing.Point(721, 12)
+        Me.ocmload.Location = New System.Drawing.Point(841, 15)
+        Me.ocmload.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmload.Name = "ocmload"
-        Me.ocmload.Size = New System.Drawing.Size(109, 23)
+        Me.ocmload.Size = New System.Drawing.Size(127, 28)
         Me.ocmload.TabIndex = 329
         Me.ocmload.Text = "Load Data"
         '
@@ -598,11 +610,11 @@ Partial Class wEffByStyle
         Me.otxtabctrl.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.otxtabctrl.Location = New System.Drawing.Point(2, 20)
+        Me.otxtabctrl.Location = New System.Drawing.Point(2, 25)
         Me.otxtabctrl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otxtabctrl.Name = "otxtabctrl"
         Me.otxtabctrl.SelectedTabPage = Me.otpcaltype0
-        Me.otxtabctrl.Size = New System.Drawing.Size(1326, 363)
+        Me.otxtabctrl.Size = New System.Drawing.Size(1548, 506)
         Me.otxtabctrl.TabIndex = 100001
         Me.otxtabctrl.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpcaltype0, Me.otpcaltype1, Me.otpcaltype2, Me.otpcaltype3, Me.otpcaltype4, Me.otpcaltype5, Me.otpcaltype6, Me.otpcaltype7, Me.XtraTabPage1, Me.XtraTabPage2, Me.SumEmpTime})
         '
@@ -611,17 +623,19 @@ Partial Class wEffByStyle
         Me.otpcaltype0.Controls.Add(Me.ogc)
         Me.otpcaltype0.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpcaltype0.Name = "otpcaltype0"
-        Me.otpcaltype0.Size = New System.Drawing.Size(1324, 338)
+        Me.otpcaltype0.Size = New System.Drawing.Size(1546, 475)
         Me.otpcaltype0.Text = "คำนวณพนักงานเย็บ + พับแพ็ค + รีด"
         '
         'ogc
         '
         Me.ogc.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Location = New System.Drawing.Point(0, 0)
         Me.ogc.MainView = Me.ogv
+        Me.ogc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Name = "ogc"
         Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSelect, Me.RepositoryFTApproveState, Me.ReposFTStateDaily, Me.RepQuantity})
-        Me.ogc.Size = New System.Drawing.Size(1324, 338)
+        Me.ogc.Size = New System.Drawing.Size(1546, 475)
         Me.ogc.TabIndex = 4
         Me.ogc.TabStop = False
         Me.ogc.Tag = "2|"
@@ -630,7 +644,6 @@ Partial Class wEffByStyle
         'ogv
         '
         Me.ogv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.cFTCmpCode, Me.FTSelect, Me.ColFNHSysUnitSectId, Me.CFTUnitSectCode, Me.CFDScanDate, Me.FNTotalMin, Me.FTCustCode, Me.FTStyleCode, Me.FTPORef, Me.FTOrderNo, Me.FNSam, Me.FNQuantity, Me.FNEFFPer, Me.EffPerLine, Me.TimeByStyle, Me.cFTSeasonCode, Me.sGridColumn1, Me.sGridColumn12, Me.FNTotalMinSew, Me.TimeByStyleSew, Me.EmpTotal, Me.EmpTotalActual, Me.EmpTotalSw, Me.EmpTotalSwActual, Me.EmpWorkingHour})
-        Me.ogv.DetailHeight = 284
         Me.ogv.GridControl = Me.ogc
         Me.ogv.Name = "ogv"
         Me.ogv.OptionsCustomization.AllowGroup = False
@@ -646,14 +659,14 @@ Partial Class wEffByStyle
         '
         Me.cFTCmpCode.Caption = "Cmp"
         Me.cFTCmpCode.FieldName = "FTCmpCode"
-        Me.cFTCmpCode.MinWidth = 21
+        Me.cFTCmpCode.MinWidth = 24
         Me.cFTCmpCode.Name = "cFTCmpCode"
         Me.cFTCmpCode.OptionsColumn.AllowEdit = False
         Me.cFTCmpCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.cFTCmpCode.OptionsColumn.ReadOnly = True
         Me.cFTCmpCode.Visible = True
         Me.cFTCmpCode.VisibleIndex = 0
-        Me.cFTCmpCode.Width = 121
+        Me.cFTCmpCode.Width = 141
         '
         'FTSelect
         '
@@ -663,7 +676,6 @@ Partial Class wEffByStyle
         Me.FTSelect.ColumnEdit = Me.RepositoryFTSelect
         Me.FTSelect.FieldName = "FTSelect"
         Me.FTSelect.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.FTSelect.MinWidth = 17
         Me.FTSelect.Name = "FTSelect"
         Me.FTSelect.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTSelect.OptionsColumn.AllowMove = False
@@ -672,7 +684,7 @@ Partial Class wEffByStyle
         Me.FTSelect.OptionsColumn.FixedWidth = True
         Me.FTSelect.OptionsColumn.ShowCaption = False
         Me.FTSelect.OptionsColumn.ShowInCustomizationForm = False
-        Me.FTSelect.Width = 35
+        Me.FTSelect.Width = 41
         '
         'RepositoryFTSelect
         '
@@ -689,7 +701,6 @@ Partial Class wEffByStyle
         Me.ColFNHSysUnitSectId.Caption = "FNHSysUnitSectId"
         Me.ColFNHSysUnitSectId.FieldName = "FNHSysUnitSectId"
         Me.ColFNHSysUnitSectId.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.ColFNHSysUnitSectId.MinWidth = 17
         Me.ColFNHSysUnitSectId.Name = "ColFNHSysUnitSectId"
         Me.ColFNHSysUnitSectId.OptionsColumn.AllowEdit = False
         Me.ColFNHSysUnitSectId.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -699,7 +710,6 @@ Partial Class wEffByStyle
         Me.ColFNHSysUnitSectId.OptionsColumn.ReadOnly = True
         Me.ColFNHSysUnitSectId.OptionsColumn.ShowInCustomizationForm = False
         Me.ColFNHSysUnitSectId.OptionsColumn.TabStop = False
-        Me.ColFNHSysUnitSectId.Width = 64
         '
         'CFTUnitSectCode
         '
@@ -707,7 +717,6 @@ Partial Class wEffByStyle
         Me.CFTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CFTUnitSectCode.Caption = "UnitSect Code"
         Me.CFTUnitSectCode.FieldName = "FTUnitSectCode"
-        Me.CFTUnitSectCode.MinWidth = 17
         Me.CFTUnitSectCode.Name = "CFTUnitSectCode"
         Me.CFTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.CFTUnitSectCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -719,7 +728,7 @@ Partial Class wEffByStyle
         Me.CFTUnitSectCode.OptionsColumn.TabStop = False
         Me.CFTUnitSectCode.Visible = True
         Me.CFTUnitSectCode.VisibleIndex = 1
-        Me.CFTUnitSectCode.Width = 103
+        Me.CFTUnitSectCode.Width = 120
         '
         'CFDScanDate
         '
@@ -727,7 +736,6 @@ Partial Class wEffByStyle
         Me.CFDScanDate.DisplayFormat.FormatString = "dd/MM/yyyy"
         Me.CFDScanDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.CFDScanDate.FieldName = "FDDate"
-        Me.CFDScanDate.MinWidth = 17
         Me.CFDScanDate.Name = "CFDScanDate"
         Me.CFDScanDate.OptionsColumn.AllowEdit = False
         Me.CFDScanDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -736,7 +744,6 @@ Partial Class wEffByStyle
         Me.CFDScanDate.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CFDScanDate.OptionsColumn.ReadOnly = True
         Me.CFDScanDate.OptionsColumn.ShowInCustomizationForm = False
-        Me.CFDScanDate.Width = 64
         '
         'FNTotalMin
         '
@@ -744,59 +751,54 @@ Partial Class wEffByStyle
         Me.FNTotalMin.DisplayFormat.FormatString = "{0:N0}"
         Me.FNTotalMin.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNTotalMin.FieldName = "FNTotalMin"
-        Me.FNTotalMin.MinWidth = 17
         Me.FNTotalMin.Name = "FNTotalMin"
         Me.FNTotalMin.OptionsColumn.AllowEdit = False
         Me.FNTotalMin.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNTotalMin.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "FNTotalMin", "{0:N0}")})
         Me.FNTotalMin.Visible = True
         Me.FNTotalMin.VisibleIndex = 5
-        Me.FNTotalMin.Width = 99
+        Me.FNTotalMin.Width = 115
         '
         'FTCustCode
         '
         Me.FTCustCode.Caption = "FTCustCode"
         Me.FTCustCode.FieldName = "FTCustCode"
-        Me.FTCustCode.MinWidth = 17
         Me.FTCustCode.Name = "FTCustCode"
         Me.FTCustCode.OptionsColumn.AllowEdit = False
         Me.FTCustCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTCustCode.Visible = True
         Me.FTCustCode.VisibleIndex = 4
-        Me.FTCustCode.Width = 122
+        Me.FTCustCode.Width = 142
         '
         'FTStyleCode
         '
         Me.FTStyleCode.Caption = "FTStyleCode"
         Me.FTStyleCode.FieldName = "FTStyleCode"
-        Me.FTStyleCode.MinWidth = 17
         Me.FTStyleCode.Name = "FTStyleCode"
         Me.FTStyleCode.OptionsColumn.AllowEdit = False
         Me.FTStyleCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTStyleCode.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "FTStyleCode", "{0}")})
         Me.FTStyleCode.Visible = True
         Me.FTStyleCode.VisibleIndex = 2
-        Me.FTStyleCode.Width = 91
+        Me.FTStyleCode.Width = 106
         '
         'FTPORef
         '
         Me.FTPORef.Caption = "FTPORef"
         Me.FTPORef.FieldName = "FTPOref"
-        Me.FTPORef.MinWidth = 17
         Me.FTPORef.Name = "FTPORef"
         Me.FTPORef.OptionsColumn.AllowEdit = False
         Me.FTPORef.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTPORef.Width = 125
+        Me.FTPORef.Width = 146
         '
         'FTOrderNo
         '
         Me.FTOrderNo.Caption = "FTOrderNo"
         Me.FTOrderNo.FieldName = "FTOrderNo"
-        Me.FTOrderNo.MinWidth = 17
         Me.FTOrderNo.Name = "FTOrderNo"
         Me.FTOrderNo.OptionsColumn.AllowEdit = False
         Me.FTOrderNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTOrderNo.Width = 87
+        Me.FTOrderNo.Width = 101
         '
         'FNSam
         '
@@ -804,13 +806,12 @@ Partial Class wEffByStyle
         Me.FNSam.DisplayFormat.FormatString = "N4"
         Me.FNSam.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNSam.FieldName = "FNSam"
-        Me.FNSam.MinWidth = 17
         Me.FNSam.Name = "FNSam"
         Me.FNSam.OptionsColumn.AllowEdit = False
         Me.FNSam.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNSam.Visible = True
         Me.FNSam.VisibleIndex = 14
-        Me.FNSam.Width = 119
+        Me.FNSam.Width = 139
         '
         'FNQuantity
         '
@@ -818,11 +819,10 @@ Partial Class wEffByStyle
         Me.FNQuantity.DisplayFormat.FormatString = "N4"
         Me.FNQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNQuantity.FieldName = "qty"
-        Me.FNQuantity.MinWidth = 17
         Me.FNQuantity.Name = "FNQuantity"
         Me.FNQuantity.OptionsColumn.AllowEdit = False
         Me.FNQuantity.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FNQuantity.Width = 173
+        Me.FNQuantity.Width = 202
         '
         'FNEFFPer
         '
@@ -830,14 +830,13 @@ Partial Class wEffByStyle
         Me.FNEFFPer.DisplayFormat.FormatString = "N2"
         Me.FNEFFPer.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNEFFPer.FieldName = "FNEFFPer"
-        Me.FNEFFPer.MinWidth = 17
         Me.FNEFFPer.Name = "FNEFFPer"
         Me.FNEFFPer.OptionsColumn.AllowEdit = False
         Me.FNEFFPer.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNEFFPer.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "FNEFFPer", "{0:N2}")})
         Me.FNEFFPer.Visible = True
         Me.FNEFFPer.VisibleIndex = 17
-        Me.FNEFFPer.Width = 131
+        Me.FNEFFPer.Width = 153
         '
         'EffPerLine
         '
@@ -845,14 +844,14 @@ Partial Class wEffByStyle
         Me.EffPerLine.DisplayFormat.FormatString = "{0:N2}"
         Me.EffPerLine.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.EffPerLine.FieldName = "EffPerLine"
-        Me.EffPerLine.MinWidth = 21
+        Me.EffPerLine.MinWidth = 24
         Me.EffPerLine.Name = "EffPerLine"
         Me.EffPerLine.OptionsColumn.AllowEdit = False
         Me.EffPerLine.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.EffPerLine.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "EffPerLine", "{0:N2}")})
         Me.EffPerLine.Visible = True
         Me.EffPerLine.VisibleIndex = 18
-        Me.EffPerLine.Width = 94
+        Me.EffPerLine.Width = 110
         '
         'TimeByStyle
         '
@@ -860,26 +859,26 @@ Partial Class wEffByStyle
         Me.TimeByStyle.DisplayFormat.FormatString = "N0"
         Me.TimeByStyle.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.TimeByStyle.FieldName = "TimeByStyle"
-        Me.TimeByStyle.MinWidth = 21
+        Me.TimeByStyle.MinWidth = 24
         Me.TimeByStyle.Name = "TimeByStyle"
         Me.TimeByStyle.OptionsColumn.AllowEdit = False
         Me.TimeByStyle.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.TimeByStyle.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TimeByStyle", "{0:N0}")})
         Me.TimeByStyle.Visible = True
         Me.TimeByStyle.VisibleIndex = 7
-        Me.TimeByStyle.Width = 117
+        Me.TimeByStyle.Width = 136
         '
         'cFTSeasonCode
         '
         Me.cFTSeasonCode.Caption = "FTSeasonCode"
         Me.cFTSeasonCode.FieldName = "FTSeasonCode"
-        Me.cFTSeasonCode.MinWidth = 21
+        Me.cFTSeasonCode.MinWidth = 24
         Me.cFTSeasonCode.Name = "cFTSeasonCode"
         Me.cFTSeasonCode.OptionsColumn.AllowEdit = False
         Me.cFTSeasonCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTSeasonCode.Visible = True
         Me.cFTSeasonCode.VisibleIndex = 3
-        Me.cFTSeasonCode.Width = 103
+        Me.cFTSeasonCode.Width = 120
         '
         'sGridColumn1
         '
@@ -887,14 +886,14 @@ Partial Class wEffByStyle
         Me.sGridColumn1.DisplayFormat.FormatString = "{0:N0}"
         Me.sGridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.sGridColumn1.FieldName = "FNQuantity"
-        Me.sGridColumn1.MinWidth = 21
+        Me.sGridColumn1.MinWidth = 24
         Me.sGridColumn1.Name = "sGridColumn1"
         Me.sGridColumn1.OptionsColumn.AllowEdit = False
         Me.sGridColumn1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.sGridColumn1.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNQuantity", "{0:N0}")})
         Me.sGridColumn1.Visible = True
         Me.sGridColumn1.VisibleIndex = 15
-        Me.sGridColumn1.Width = 117
+        Me.sGridColumn1.Width = 136
         '
         'sGridColumn12
         '
@@ -902,14 +901,14 @@ Partial Class wEffByStyle
         Me.sGridColumn12.DisplayFormat.FormatString = "{0:N0}"
         Me.sGridColumn12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.sGridColumn12.FieldName = "FNQuantityOT"
-        Me.sGridColumn12.MinWidth = 21
+        Me.sGridColumn12.MinWidth = 24
         Me.sGridColumn12.Name = "sGridColumn12"
         Me.sGridColumn12.OptionsColumn.AllowEdit = False
         Me.sGridColumn12.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.sGridColumn12.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNQuantityOT", "{0:N0}")})
         Me.sGridColumn12.Visible = True
         Me.sGridColumn12.VisibleIndex = 16
-        Me.sGridColumn12.Width = 102
+        Me.sGridColumn12.Width = 119
         '
         'FNTotalMinSew
         '
@@ -917,14 +916,14 @@ Partial Class wEffByStyle
         Me.FNTotalMinSew.DisplayFormat.FormatString = "{0:N0}"
         Me.FNTotalMinSew.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNTotalMinSew.FieldName = "FNTotalMinPack"
-        Me.FNTotalMinSew.MinWidth = 21
+        Me.FNTotalMinSew.MinWidth = 24
         Me.FNTotalMinSew.Name = "FNTotalMinSew"
         Me.FNTotalMinSew.OptionsColumn.AllowEdit = False
         Me.FNTotalMinSew.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNTotalMinSew.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "FNTotalMinPack", "{0:N0}")})
         Me.FNTotalMinSew.Visible = True
         Me.FNTotalMinSew.VisibleIndex = 6
-        Me.FNTotalMinSew.Width = 81
+        Me.FNTotalMinSew.Width = 94
         '
         'TimeByStyleSew
         '
@@ -932,14 +931,14 @@ Partial Class wEffByStyle
         Me.TimeByStyleSew.DisplayFormat.FormatString = "N0"
         Me.TimeByStyleSew.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.TimeByStyleSew.FieldName = "TimeByStylePack"
-        Me.TimeByStyleSew.MinWidth = 21
+        Me.TimeByStyleSew.MinWidth = 24
         Me.TimeByStyleSew.Name = "TimeByStyleSew"
         Me.TimeByStyleSew.OptionsColumn.AllowEdit = False
         Me.TimeByStyleSew.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.TimeByStyleSew.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TimeByStylePack", "{0:N0}")})
         Me.TimeByStyleSew.Visible = True
         Me.TimeByStyleSew.VisibleIndex = 8
-        Me.TimeByStyleSew.Width = 81
+        Me.TimeByStyleSew.Width = 94
         '
         'EmpTotal
         '
@@ -947,14 +946,14 @@ Partial Class wEffByStyle
         Me.EmpTotal.DisplayFormat.FormatString = "{0:N0}"
         Me.EmpTotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.EmpTotal.FieldName = "EmpTotal"
-        Me.EmpTotal.MinWidth = 21
+        Me.EmpTotal.MinWidth = 24
         Me.EmpTotal.Name = "EmpTotal"
         Me.EmpTotal.OptionsColumn.AllowEdit = False
         Me.EmpTotal.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.EmpTotal.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "EmpTotal", "{0:N0}")})
         Me.EmpTotal.Visible = True
         Me.EmpTotal.VisibleIndex = 9
-        Me.EmpTotal.Width = 81
+        Me.EmpTotal.Width = 94
         '
         'EmpTotalActual
         '
@@ -962,14 +961,14 @@ Partial Class wEffByStyle
         Me.EmpTotalActual.DisplayFormat.FormatString = "{0:N2}"
         Me.EmpTotalActual.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.EmpTotalActual.FieldName = "EmpTotalActual"
-        Me.EmpTotalActual.MinWidth = 21
+        Me.EmpTotalActual.MinWidth = 24
         Me.EmpTotalActual.Name = "EmpTotalActual"
         Me.EmpTotalActual.OptionsColumn.AllowEdit = False
         Me.EmpTotalActual.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.EmpTotalActual.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "EmpTotalActual", "{0:N2}")})
         Me.EmpTotalActual.Visible = True
         Me.EmpTotalActual.VisibleIndex = 10
-        Me.EmpTotalActual.Width = 81
+        Me.EmpTotalActual.Width = 94
         '
         'EmpTotalSw
         '
@@ -977,14 +976,14 @@ Partial Class wEffByStyle
         Me.EmpTotalSw.DisplayFormat.FormatString = "{0:N0}"
         Me.EmpTotalSw.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.EmpTotalSw.FieldName = "EmpTotalSw"
-        Me.EmpTotalSw.MinWidth = 21
+        Me.EmpTotalSw.MinWidth = 24
         Me.EmpTotalSw.Name = "EmpTotalSw"
         Me.EmpTotalSw.OptionsColumn.AllowEdit = False
         Me.EmpTotalSw.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.EmpTotalSw.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "EmpTotalSw", "{0:N0}")})
         Me.EmpTotalSw.Visible = True
         Me.EmpTotalSw.VisibleIndex = 11
-        Me.EmpTotalSw.Width = 81
+        Me.EmpTotalSw.Width = 94
         '
         'EmpTotalSwActual
         '
@@ -992,14 +991,14 @@ Partial Class wEffByStyle
         Me.EmpTotalSwActual.DisplayFormat.FormatString = "{0:N2}"
         Me.EmpTotalSwActual.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.EmpTotalSwActual.FieldName = "EmpTotalSwActual"
-        Me.EmpTotalSwActual.MinWidth = 21
+        Me.EmpTotalSwActual.MinWidth = 24
         Me.EmpTotalSwActual.Name = "EmpTotalSwActual"
         Me.EmpTotalSwActual.OptionsColumn.AllowEdit = False
         Me.EmpTotalSwActual.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.EmpTotalSwActual.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "EmpTotalSwActual", "{0:N2}")})
         Me.EmpTotalSwActual.Visible = True
         Me.EmpTotalSwActual.VisibleIndex = 12
-        Me.EmpTotalSwActual.Width = 81
+        Me.EmpTotalSwActual.Width = 94
         '
         'EmpWorkingHour
         '
@@ -1007,14 +1006,14 @@ Partial Class wEffByStyle
         Me.EmpWorkingHour.DisplayFormat.FormatString = "{0:N2}"
         Me.EmpWorkingHour.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.EmpWorkingHour.FieldName = "EmpWorkingHour"
-        Me.EmpWorkingHour.MinWidth = 21
+        Me.EmpWorkingHour.MinWidth = 24
         Me.EmpWorkingHour.Name = "EmpWorkingHour"
         Me.EmpWorkingHour.OptionsColumn.AllowEdit = False
         Me.EmpWorkingHour.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.EmpWorkingHour.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Average, "EmpWorkingHour", "{0:N2}")})
         Me.EmpWorkingHour.Visible = True
         Me.EmpWorkingHour.VisibleIndex = 13
-        Me.EmpWorkingHour.Width = 81
+        Me.EmpWorkingHour.Width = 94
         '
         'RepositoryFTApproveState
         '
@@ -1049,17 +1048,19 @@ Partial Class wEffByStyle
         Me.otpcaltype1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpcaltype1.Name = "otpcaltype1"
         Me.otpcaltype1.PageVisible = False
-        Me.otpcaltype1.Size = New System.Drawing.Size(1324, 338)
+        Me.otpcaltype1.Size = New System.Drawing.Size(1546, 475)
         Me.otpcaltype1.Text = "คำนวณพนักงานตัด BU"
         '
         'ogc1
         '
         Me.ogc1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc1.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc1.Location = New System.Drawing.Point(0, 0)
         Me.ogc1.MainView = Me.ogv1
+        Me.ogc1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc1.Name = "ogc1"
         Me.ogc1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepC1FTSelect, Me.RepositoryItemCheckEdit2, Me.RepositoryItemCheckEdit3, Me.RepFNIncentiveAmt})
-        Me.ogc1.Size = New System.Drawing.Size(1324, 338)
+        Me.ogc1.Size = New System.Drawing.Size(1546, 475)
         Me.ogc1.TabIndex = 5
         Me.ogc1.TabStop = False
         Me.ogc1.Tag = "2|"
@@ -1068,7 +1069,6 @@ Partial Class wEffByStyle
         'ogv1
         '
         Me.ogv1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.C1FTSelect, Me.C1FNHSysUnitSectId, Me.C1FTUnitSectCode, Me.C1FDScanDate, Me.C1FDScanDateOrg, Me.C1FTCalUser, Me.C1FDCalDate, Me.C1FTUnitSectCodeSew, Me.FNIncentiveAmt, Me.C1FDScanDateGrp, Me.FNHSysEmpID, Me.cFNNetAmtNewIncentive, Me.FNNetAmtNewIncentiveBU})
-        Me.ogv1.DetailHeight = 284
         Me.ogv1.GridControl = Me.ogc1
         Me.ogv1.GroupCount = 1
         Me.ogv1.Name = "ogv1"
@@ -1088,7 +1088,6 @@ Partial Class wEffByStyle
         Me.C1FTSelect.Caption = "FTSelect"
         Me.C1FTSelect.ColumnEdit = Me.RepC1FTSelect
         Me.C1FTSelect.FieldName = "FTSelect"
-        Me.C1FTSelect.MinWidth = 17
         Me.C1FTSelect.Name = "C1FTSelect"
         Me.C1FTSelect.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.C1FTSelect.OptionsColumn.AllowMove = False
@@ -1099,7 +1098,7 @@ Partial Class wEffByStyle
         Me.C1FTSelect.OptionsColumn.ShowInCustomizationForm = False
         Me.C1FTSelect.Visible = True
         Me.C1FTSelect.VisibleIndex = 0
-        Me.C1FTSelect.Width = 35
+        Me.C1FTSelect.Width = 41
         '
         'RepC1FTSelect
         '
@@ -1115,7 +1114,6 @@ Partial Class wEffByStyle
         Me.C1FNHSysUnitSectId.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.C1FNHSysUnitSectId.Caption = "FNHSysEmpID"
         Me.C1FNHSysUnitSectId.FieldName = "FNHSysUnitSectId"
-        Me.C1FNHSysUnitSectId.MinWidth = 17
         Me.C1FNHSysUnitSectId.Name = "C1FNHSysUnitSectId"
         Me.C1FNHSysUnitSectId.OptionsColumn.AllowEdit = False
         Me.C1FNHSysUnitSectId.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1125,7 +1123,6 @@ Partial Class wEffByStyle
         Me.C1FNHSysUnitSectId.OptionsColumn.ReadOnly = True
         Me.C1FNHSysUnitSectId.OptionsColumn.ShowInCustomizationForm = False
         Me.C1FNHSysUnitSectId.OptionsColumn.TabStop = False
-        Me.C1FNHSysUnitSectId.Width = 64
         '
         'C1FTUnitSectCode
         '
@@ -1133,7 +1130,6 @@ Partial Class wEffByStyle
         Me.C1FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.C1FTUnitSectCode.Caption = "UnitSect Code"
         Me.C1FTUnitSectCode.FieldName = "FTUnitSectCode"
-        Me.C1FTUnitSectCode.MinWidth = 17
         Me.C1FTUnitSectCode.Name = "C1FTUnitSectCode"
         Me.C1FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.C1FTUnitSectCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -1145,7 +1141,7 @@ Partial Class wEffByStyle
         Me.C1FTUnitSectCode.OptionsColumn.TabStop = False
         Me.C1FTUnitSectCode.Visible = True
         Me.C1FTUnitSectCode.VisibleIndex = 1
-        Me.C1FTUnitSectCode.Width = 90
+        Me.C1FTUnitSectCode.Width = 105
         '
         'C1FDScanDate
         '
@@ -1153,7 +1149,6 @@ Partial Class wEffByStyle
         Me.C1FDScanDate.DisplayFormat.FormatString = "dd/MM/yyyy"
         Me.C1FDScanDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.C1FDScanDate.FieldName = "FDScanDate"
-        Me.C1FDScanDate.MinWidth = 17
         Me.C1FDScanDate.Name = "C1FDScanDate"
         Me.C1FDScanDate.OptionsColumn.AllowEdit = False
         Me.C1FDScanDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -1164,13 +1159,11 @@ Partial Class wEffByStyle
         Me.C1FDScanDate.OptionsColumn.ShowInCustomizationForm = False
         Me.C1FDScanDate.Visible = True
         Me.C1FDScanDate.VisibleIndex = 2
-        Me.C1FDScanDate.Width = 64
         '
         'C1FDScanDateOrg
         '
         Me.C1FDScanDateOrg.Caption = "FDScanDateOrg"
         Me.C1FDScanDateOrg.FieldName = "FDScanDateOrg"
-        Me.C1FDScanDateOrg.MinWidth = 17
         Me.C1FDScanDateOrg.Name = "C1FDScanDateOrg"
         Me.C1FDScanDateOrg.OptionsColumn.AllowEdit = False
         Me.C1FDScanDateOrg.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1179,13 +1172,11 @@ Partial Class wEffByStyle
         Me.C1FDScanDateOrg.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.C1FDScanDateOrg.OptionsColumn.ReadOnly = True
         Me.C1FDScanDateOrg.OptionsColumn.ShowInCustomizationForm = False
-        Me.C1FDScanDateOrg.Width = 64
         '
         'C1FTCalUser
         '
         Me.C1FTCalUser.Caption = "Cal User"
         Me.C1FTCalUser.FieldName = "FTCalUser"
-        Me.C1FTCalUser.MinWidth = 17
         Me.C1FTCalUser.Name = "C1FTCalUser"
         Me.C1FTCalUser.OptionsColumn.AllowEdit = False
         Me.C1FTCalUser.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1194,13 +1185,11 @@ Partial Class wEffByStyle
         Me.C1FTCalUser.OptionsColumn.ReadOnly = True
         Me.C1FTCalUser.Visible = True
         Me.C1FTCalUser.VisibleIndex = 3
-        Me.C1FTCalUser.Width = 64
         '
         'C1FDCalDate
         '
         Me.C1FDCalDate.Caption = "Cal Date"
         Me.C1FDCalDate.FieldName = "FDCalDate"
-        Me.C1FDCalDate.MinWidth = 17
         Me.C1FDCalDate.Name = "C1FDCalDate"
         Me.C1FDCalDate.OptionsColumn.AllowEdit = False
         Me.C1FDCalDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1209,13 +1198,11 @@ Partial Class wEffByStyle
         Me.C1FDCalDate.OptionsColumn.ReadOnly = True
         Me.C1FDCalDate.Visible = True
         Me.C1FDCalDate.VisibleIndex = 4
-        Me.C1FDCalDate.Width = 64
         '
         'C1FTUnitSectCodeSew
         '
         Me.C1FTUnitSectCodeSew.Caption = "UnitSect Code Sew"
         Me.C1FTUnitSectCodeSew.FieldName = "FTUnitSectCodeSew"
-        Me.C1FTUnitSectCodeSew.MinWidth = 17
         Me.C1FTUnitSectCodeSew.Name = "C1FTUnitSectCodeSew"
         Me.C1FTUnitSectCodeSew.OptionsColumn.AllowEdit = False
         Me.C1FTUnitSectCodeSew.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1227,7 +1214,7 @@ Partial Class wEffByStyle
         Me.C1FTUnitSectCodeSew.OptionsColumn.ShowInCustomizationForm = False
         Me.C1FTUnitSectCodeSew.Visible = True
         Me.C1FTUnitSectCodeSew.VisibleIndex = 5
-        Me.C1FTUnitSectCodeSew.Width = 133
+        Me.C1FTUnitSectCodeSew.Width = 155
         '
         'FNIncentiveAmt
         '
@@ -1235,7 +1222,6 @@ Partial Class wEffByStyle
         Me.FNIncentiveAmt.DisplayFormat.FormatString = "{0:n2}"
         Me.FNIncentiveAmt.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNIncentiveAmt.FieldName = "FNIncentiveAmt"
-        Me.FNIncentiveAmt.MinWidth = 17
         Me.FNIncentiveAmt.Name = "FNIncentiveAmt"
         Me.FNIncentiveAmt.OptionsColumn.AllowEdit = False
         Me.FNIncentiveAmt.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1247,13 +1233,12 @@ Partial Class wEffByStyle
         Me.FNIncentiveAmt.OptionsColumn.ShowInCustomizationForm = False
         Me.FNIncentiveAmt.Visible = True
         Me.FNIncentiveAmt.VisibleIndex = 6
-        Me.FNIncentiveAmt.Width = 133
+        Me.FNIncentiveAmt.Width = 155
         '
         'C1FDScanDateGrp
         '
         Me.C1FDScanDateGrp.Caption = "Date"
         Me.C1FDScanDateGrp.FieldName = "FDScanDateGrp"
-        Me.C1FDScanDateGrp.MinWidth = 17
         Me.C1FDScanDateGrp.Name = "C1FDScanDateGrp"
         Me.C1FDScanDateGrp.OptionsColumn.AllowEdit = False
         Me.C1FDScanDateGrp.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1264,16 +1249,13 @@ Partial Class wEffByStyle
         Me.C1FDScanDateGrp.OptionsColumn.ShowInCustomizationForm = False
         Me.C1FDScanDateGrp.Visible = True
         Me.C1FDScanDateGrp.VisibleIndex = 16
-        Me.C1FDScanDateGrp.Width = 64
         '
         'FNHSysEmpID
         '
         Me.FNHSysEmpID.Caption = "FNHSysEmpID"
         Me.FNHSysEmpID.FieldName = "FNHSysEmpID"
-        Me.FNHSysEmpID.MinWidth = 17
         Me.FNHSysEmpID.Name = "FNHSysEmpID"
         Me.FNHSysEmpID.OptionsColumn.AllowEdit = False
-        Me.FNHSysEmpID.Width = 64
         '
         'cFNNetAmtNewIncentive
         '
@@ -1281,12 +1263,11 @@ Partial Class wEffByStyle
         Me.cFNNetAmtNewIncentive.DisplayFormat.FormatString = "N4"
         Me.cFNNetAmtNewIncentive.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.cFNNetAmtNewIncentive.FieldName = "FNNetAmtNewIncentive"
-        Me.cFNNetAmtNewIncentive.MinWidth = 17
         Me.cFNNetAmtNewIncentive.Name = "cFNNetAmtNewIncentive"
         Me.cFNNetAmtNewIncentive.OptionsColumn.AllowEdit = False
         Me.cFNNetAmtNewIncentive.Visible = True
         Me.cFNNetAmtNewIncentive.VisibleIndex = 7
-        Me.cFNNetAmtNewIncentive.Width = 100
+        Me.cFNNetAmtNewIncentive.Width = 117
         '
         'FNNetAmtNewIncentiveBU
         '
@@ -1294,12 +1275,11 @@ Partial Class wEffByStyle
         Me.FNNetAmtNewIncentiveBU.DisplayFormat.FormatString = "{0:n2}"
         Me.FNNetAmtNewIncentiveBU.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNNetAmtNewIncentiveBU.FieldName = "FNNetAmtNewIncentiveBU"
-        Me.FNNetAmtNewIncentiveBU.MinWidth = 17
         Me.FNNetAmtNewIncentiveBU.Name = "FNNetAmtNewIncentiveBU"
         Me.FNNetAmtNewIncentiveBU.OptionsColumn.AllowEdit = False
         Me.FNNetAmtNewIncentiveBU.Visible = True
         Me.FNNetAmtNewIncentiveBU.VisibleIndex = 8
-        Me.FNNetAmtNewIncentiveBU.Width = 139
+        Me.FNNetAmtNewIncentiveBU.Width = 162
         '
         'RepositoryItemCheckEdit2
         '
@@ -1334,17 +1314,19 @@ Partial Class wEffByStyle
         Me.otpcaltype2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpcaltype2.Name = "otpcaltype2"
         Me.otpcaltype2.PageVisible = False
-        Me.otpcaltype2.Size = New System.Drawing.Size(1324, 338)
+        Me.otpcaltype2.Size = New System.Drawing.Size(1546, 475)
         Me.otpcaltype2.Text = "คำนวณพนักงานสต๊อกผ้า"
         '
         'ogc2
         '
         Me.ogc2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc2.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc2.Location = New System.Drawing.Point(0, 0)
         Me.ogc2.MainView = Me.ogv2
+        Me.ogc2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc2.Name = "ogc2"
         Me.ogc2.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit4, Me.RepositoryItemCheckEdit5, Me.RepositoryItemCheckEdit6, Me.RepositoryItemCalcEdit2})
-        Me.ogc2.Size = New System.Drawing.Size(1324, 338)
+        Me.ogc2.Size = New System.Drawing.Size(1546, 475)
         Me.ogc2.TabIndex = 5
         Me.ogc2.TabStop = False
         Me.ogc2.Tag = "2|"
@@ -1353,7 +1335,6 @@ Partial Class wEffByStyle
         'ogv2
         '
         Me.ogv2.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.C3FTSelect, Me.C3FNHSysUnitSectId, Me.C3FTUnitSectCode, Me.C3FDScanDate, Me.GridColumn59, Me.c3FTCalUser, Me.C3FDCalDate, Me.C3FNIncentiveAmt, Me.C3FNTotalBU, Me.C3FNTotalStockFabric, Me.C3FNNetIncentiveAmt, Me.C3FDScanDateGrp})
-        Me.ogv2.DetailHeight = 284
         Me.ogv2.GridControl = Me.ogc2
         Me.ogv2.GroupCount = 1
         Me.ogv2.Name = "ogv2"
@@ -1372,7 +1353,6 @@ Partial Class wEffByStyle
         Me.C3FTSelect.Caption = "FTSelect"
         Me.C3FTSelect.ColumnEdit = Me.RepositoryItemCheckEdit4
         Me.C3FTSelect.FieldName = "FTSelect"
-        Me.C3FTSelect.MinWidth = 17
         Me.C3FTSelect.Name = "C3FTSelect"
         Me.C3FTSelect.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.C3FTSelect.OptionsColumn.AllowMove = False
@@ -1383,7 +1363,7 @@ Partial Class wEffByStyle
         Me.C3FTSelect.OptionsColumn.ShowInCustomizationForm = False
         Me.C3FTSelect.Visible = True
         Me.C3FTSelect.VisibleIndex = 0
-        Me.C3FTSelect.Width = 35
+        Me.C3FTSelect.Width = 41
         '
         'RepositoryItemCheckEdit4
         '
@@ -1399,7 +1379,6 @@ Partial Class wEffByStyle
         Me.C3FNHSysUnitSectId.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.C3FNHSysUnitSectId.Caption = "FNHSysUnitSectId"
         Me.C3FNHSysUnitSectId.FieldName = "FNHSysUnitSectId"
-        Me.C3FNHSysUnitSectId.MinWidth = 17
         Me.C3FNHSysUnitSectId.Name = "C3FNHSysUnitSectId"
         Me.C3FNHSysUnitSectId.OptionsColumn.AllowEdit = False
         Me.C3FNHSysUnitSectId.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1409,7 +1388,6 @@ Partial Class wEffByStyle
         Me.C3FNHSysUnitSectId.OptionsColumn.ReadOnly = True
         Me.C3FNHSysUnitSectId.OptionsColumn.ShowInCustomizationForm = False
         Me.C3FNHSysUnitSectId.OptionsColumn.TabStop = False
-        Me.C3FNHSysUnitSectId.Width = 64
         '
         'C3FTUnitSectCode
         '
@@ -1417,7 +1395,6 @@ Partial Class wEffByStyle
         Me.C3FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.C3FTUnitSectCode.Caption = "UnitSect Code"
         Me.C3FTUnitSectCode.FieldName = "FTUnitSectCode"
-        Me.C3FTUnitSectCode.MinWidth = 17
         Me.C3FTUnitSectCode.Name = "C3FTUnitSectCode"
         Me.C3FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.C3FTUnitSectCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1429,7 +1406,7 @@ Partial Class wEffByStyle
         Me.C3FTUnitSectCode.OptionsColumn.TabStop = False
         Me.C3FTUnitSectCode.Visible = True
         Me.C3FTUnitSectCode.VisibleIndex = 1
-        Me.C3FTUnitSectCode.Width = 90
+        Me.C3FTUnitSectCode.Width = 105
         '
         'C3FDScanDate
         '
@@ -1437,7 +1414,6 @@ Partial Class wEffByStyle
         Me.C3FDScanDate.DisplayFormat.FormatString = "dd/MM/yyyy"
         Me.C3FDScanDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.C3FDScanDate.FieldName = "FDScanDate"
-        Me.C3FDScanDate.MinWidth = 17
         Me.C3FDScanDate.Name = "C3FDScanDate"
         Me.C3FDScanDate.OptionsColumn.AllowEdit = False
         Me.C3FDScanDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1448,13 +1424,11 @@ Partial Class wEffByStyle
         Me.C3FDScanDate.OptionsColumn.ShowInCustomizationForm = False
         Me.C3FDScanDate.Visible = True
         Me.C3FDScanDate.VisibleIndex = 2
-        Me.C3FDScanDate.Width = 64
         '
         'GridColumn59
         '
         Me.GridColumn59.Caption = "FDScanDateOrg"
         Me.GridColumn59.FieldName = "FDScanDateOrg"
-        Me.GridColumn59.MinWidth = 17
         Me.GridColumn59.Name = "GridColumn59"
         Me.GridColumn59.OptionsColumn.AllowEdit = False
         Me.GridColumn59.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1463,13 +1437,11 @@ Partial Class wEffByStyle
         Me.GridColumn59.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn59.OptionsColumn.ReadOnly = True
         Me.GridColumn59.OptionsColumn.ShowInCustomizationForm = False
-        Me.GridColumn59.Width = 64
         '
         'c3FTCalUser
         '
         Me.c3FTCalUser.Caption = "Cal User"
         Me.c3FTCalUser.FieldName = "FTCalUser"
-        Me.c3FTCalUser.MinWidth = 17
         Me.c3FTCalUser.Name = "c3FTCalUser"
         Me.c3FTCalUser.OptionsColumn.AllowEdit = False
         Me.c3FTCalUser.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1479,13 +1451,11 @@ Partial Class wEffByStyle
         Me.c3FTCalUser.OptionsColumn.ReadOnly = True
         Me.c3FTCalUser.Visible = True
         Me.c3FTCalUser.VisibleIndex = 3
-        Me.c3FTCalUser.Width = 64
         '
         'C3FDCalDate
         '
         Me.C3FDCalDate.Caption = "Cal Date"
         Me.C3FDCalDate.FieldName = "FDCalDate"
-        Me.C3FDCalDate.MinWidth = 17
         Me.C3FDCalDate.Name = "C3FDCalDate"
         Me.C3FDCalDate.OptionsColumn.AllowEdit = False
         Me.C3FDCalDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1495,7 +1465,6 @@ Partial Class wEffByStyle
         Me.C3FDCalDate.OptionsColumn.ReadOnly = True
         Me.C3FDCalDate.Visible = True
         Me.C3FDCalDate.VisibleIndex = 4
-        Me.C3FDCalDate.Width = 64
         '
         'C3FNIncentiveAmt
         '
@@ -1503,7 +1472,6 @@ Partial Class wEffByStyle
         Me.C3FNIncentiveAmt.DisplayFormat.FormatString = "{0:n2}"
         Me.C3FNIncentiveAmt.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.C3FNIncentiveAmt.FieldName = "FNIncentiveAmt"
-        Me.C3FNIncentiveAmt.MinWidth = 17
         Me.C3FNIncentiveAmt.Name = "C3FNIncentiveAmt"
         Me.C3FNIncentiveAmt.OptionsColumn.AllowEdit = False
         Me.C3FNIncentiveAmt.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1515,7 +1483,7 @@ Partial Class wEffByStyle
         Me.C3FNIncentiveAmt.OptionsColumn.ShowInCustomizationForm = False
         Me.C3FNIncentiveAmt.Visible = True
         Me.C3FNIncentiveAmt.VisibleIndex = 5
-        Me.C3FNIncentiveAmt.Width = 90
+        Me.C3FNIncentiveAmt.Width = 105
         '
         'C3FNTotalBU
         '
@@ -1523,7 +1491,6 @@ Partial Class wEffByStyle
         Me.C3FNTotalBU.DisplayFormat.FormatString = "{0:n0}"
         Me.C3FNTotalBU.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.C3FNTotalBU.FieldName = "FNTotalBU"
-        Me.C3FNTotalBU.MinWidth = 17
         Me.C3FNTotalBU.Name = "C3FNTotalBU"
         Me.C3FNTotalBU.OptionsColumn.AllowEdit = False
         Me.C3FNTotalBU.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1533,7 +1500,7 @@ Partial Class wEffByStyle
         Me.C3FNTotalBU.OptionsColumn.ReadOnly = True
         Me.C3FNTotalBU.Visible = True
         Me.C3FNTotalBU.VisibleIndex = 6
-        Me.C3FNTotalBU.Width = 104
+        Me.C3FNTotalBU.Width = 121
         '
         'C3FNTotalStockFabric
         '
@@ -1541,7 +1508,6 @@ Partial Class wEffByStyle
         Me.C3FNTotalStockFabric.DisplayFormat.FormatString = "{0:n0}"
         Me.C3FNTotalStockFabric.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.C3FNTotalStockFabric.FieldName = "FNTotalStockFabric"
-        Me.C3FNTotalStockFabric.MinWidth = 17
         Me.C3FNTotalStockFabric.Name = "C3FNTotalStockFabric"
         Me.C3FNTotalStockFabric.OptionsColumn.AllowEdit = False
         Me.C3FNTotalStockFabric.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1549,7 +1515,7 @@ Partial Class wEffByStyle
         Me.C3FNTotalStockFabric.OptionsColumn.AllowShowHide = False
         Me.C3FNTotalStockFabric.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.C3FNTotalStockFabric.OptionsColumn.ReadOnly = True
-        Me.C3FNTotalStockFabric.Width = 101
+        Me.C3FNTotalStockFabric.Width = 118
         '
         'C3FNNetIncentiveAmt
         '
@@ -1557,7 +1523,6 @@ Partial Class wEffByStyle
         Me.C3FNNetIncentiveAmt.DisplayFormat.FormatString = "{0:n2}"
         Me.C3FNNetIncentiveAmt.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.C3FNNetIncentiveAmt.FieldName = "FNNetIncentiveAmt"
-        Me.C3FNNetIncentiveAmt.MinWidth = 17
         Me.C3FNNetIncentiveAmt.Name = "C3FNNetIncentiveAmt"
         Me.C3FNNetIncentiveAmt.OptionsColumn.AllowEdit = False
         Me.C3FNNetIncentiveAmt.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1567,19 +1532,17 @@ Partial Class wEffByStyle
         Me.C3FNNetIncentiveAmt.OptionsColumn.ReadOnly = True
         Me.C3FNNetIncentiveAmt.Visible = True
         Me.C3FNNetIncentiveAmt.VisibleIndex = 7
-        Me.C3FNNetIncentiveAmt.Width = 123
+        Me.C3FNNetIncentiveAmt.Width = 143
         '
         'C3FDScanDateGrp
         '
         Me.C3FDScanDateGrp.Caption = "FDScanDateGrp"
         Me.C3FDScanDateGrp.FieldName = "FDScanDateGrp"
-        Me.C3FDScanDateGrp.MinWidth = 17
         Me.C3FDScanDateGrp.Name = "C3FDScanDateGrp"
         Me.C3FDScanDateGrp.OptionsColumn.AllowEdit = False
         Me.C3FDScanDateGrp.OptionsColumn.ReadOnly = True
         Me.C3FDScanDateGrp.Visible = True
         Me.C3FDScanDateGrp.VisibleIndex = 9
-        Me.C3FDScanDateGrp.Width = 64
         '
         'RepositoryItemCheckEdit5
         '
@@ -1614,17 +1577,19 @@ Partial Class wEffByStyle
         Me.otpcaltype3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpcaltype3.Name = "otpcaltype3"
         Me.otpcaltype3.PageVisible = False
-        Me.otpcaltype3.Size = New System.Drawing.Size(1324, 338)
+        Me.otpcaltype3.Size = New System.Drawing.Size(1546, 475)
         Me.otpcaltype3.Text = "คำนวณพนักงานตัด Auto"
         '
         'ogc3
         '
         Me.ogc3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc3.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc3.Location = New System.Drawing.Point(0, 0)
         Me.ogc3.MainView = Me.ogv3
+        Me.ogc3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc3.Name = "ogc3"
         Me.ogc3.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit7, Me.RepositoryItemCheckEdit8, Me.RepositoryItemCheckEdit9, Me.RepositoryItemCalcEdit3})
-        Me.ogc3.Size = New System.Drawing.Size(1324, 338)
+        Me.ogc3.Size = New System.Drawing.Size(1546, 475)
         Me.ogc3.TabIndex = 6
         Me.ogc3.TabStop = False
         Me.ogc3.Tag = "2|"
@@ -1633,7 +1598,6 @@ Partial Class wEffByStyle
         'ogv3
         '
         Me.ogv3.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn25, Me.GridColumn26, Me.GridColumn27, Me.GridColumn28, Me.GridColumn29, Me.GridColumn30, Me.GridColumn31, Me.GridColumn32, Me.GridColumn33, Me.GridColumn34, Me.GridColumn35, Me.GridColumn36, Me.GridColumn37})
-        Me.ogv3.DetailHeight = 284
         Me.ogv3.GridControl = Me.ogc3
         Me.ogv3.GroupCount = 1
         Me.ogv3.Name = "ogv3"
@@ -1653,7 +1617,6 @@ Partial Class wEffByStyle
         Me.GridColumn25.Caption = "FTSelect"
         Me.GridColumn25.ColumnEdit = Me.RepositoryItemCheckEdit7
         Me.GridColumn25.FieldName = "FTSelect"
-        Me.GridColumn25.MinWidth = 17
         Me.GridColumn25.Name = "GridColumn25"
         Me.GridColumn25.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn25.OptionsColumn.AllowMove = False
@@ -1664,7 +1627,7 @@ Partial Class wEffByStyle
         Me.GridColumn25.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn25.Visible = True
         Me.GridColumn25.VisibleIndex = 0
-        Me.GridColumn25.Width = 35
+        Me.GridColumn25.Width = 41
         '
         'RepositoryItemCheckEdit7
         '
@@ -1680,7 +1643,6 @@ Partial Class wEffByStyle
         Me.GridColumn26.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn26.Caption = "FNHSysEmpID"
         Me.GridColumn26.FieldName = "FNHSysUnitSectId"
-        Me.GridColumn26.MinWidth = 17
         Me.GridColumn26.Name = "GridColumn26"
         Me.GridColumn26.OptionsColumn.AllowEdit = False
         Me.GridColumn26.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -1690,7 +1652,6 @@ Partial Class wEffByStyle
         Me.GridColumn26.OptionsColumn.ReadOnly = True
         Me.GridColumn26.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn26.OptionsColumn.TabStop = False
-        Me.GridColumn26.Width = 64
         '
         'GridColumn27
         '
@@ -1698,7 +1659,6 @@ Partial Class wEffByStyle
         Me.GridColumn27.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn27.Caption = "UnitSect Code"
         Me.GridColumn27.FieldName = "FTUnitSectCode"
-        Me.GridColumn27.MinWidth = 17
         Me.GridColumn27.Name = "GridColumn27"
         Me.GridColumn27.OptionsColumn.AllowEdit = False
         Me.GridColumn27.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -1710,7 +1670,7 @@ Partial Class wEffByStyle
         Me.GridColumn27.OptionsColumn.TabStop = False
         Me.GridColumn27.Visible = True
         Me.GridColumn27.VisibleIndex = 1
-        Me.GridColumn27.Width = 90
+        Me.GridColumn27.Width = 105
         '
         'GridColumn28
         '
@@ -1718,7 +1678,6 @@ Partial Class wEffByStyle
         Me.GridColumn28.DisplayFormat.FormatString = "dd/MM/yyyy"
         Me.GridColumn28.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.GridColumn28.FieldName = "FDScanDate"
-        Me.GridColumn28.MinWidth = 17
         Me.GridColumn28.Name = "GridColumn28"
         Me.GridColumn28.OptionsColumn.AllowEdit = False
         Me.GridColumn28.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -1729,13 +1688,11 @@ Partial Class wEffByStyle
         Me.GridColumn28.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn28.Visible = True
         Me.GridColumn28.VisibleIndex = 2
-        Me.GridColumn28.Width = 64
         '
         'GridColumn29
         '
         Me.GridColumn29.Caption = "FDScanDateOrg"
         Me.GridColumn29.FieldName = "FDScanDateOrg"
-        Me.GridColumn29.MinWidth = 17
         Me.GridColumn29.Name = "GridColumn29"
         Me.GridColumn29.OptionsColumn.AllowEdit = False
         Me.GridColumn29.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -1744,13 +1701,11 @@ Partial Class wEffByStyle
         Me.GridColumn29.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn29.OptionsColumn.ReadOnly = True
         Me.GridColumn29.OptionsColumn.ShowInCustomizationForm = False
-        Me.GridColumn29.Width = 64
         '
         'GridColumn30
         '
         Me.GridColumn30.Caption = "Cal User"
         Me.GridColumn30.FieldName = "FTCalUser"
-        Me.GridColumn30.MinWidth = 17
         Me.GridColumn30.Name = "GridColumn30"
         Me.GridColumn30.OptionsColumn.AllowEdit = False
         Me.GridColumn30.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -1759,13 +1714,11 @@ Partial Class wEffByStyle
         Me.GridColumn30.OptionsColumn.ReadOnly = True
         Me.GridColumn30.Visible = True
         Me.GridColumn30.VisibleIndex = 3
-        Me.GridColumn30.Width = 64
         '
         'GridColumn31
         '
         Me.GridColumn31.Caption = "Cal Date"
         Me.GridColumn31.FieldName = "FDCalDate"
-        Me.GridColumn31.MinWidth = 17
         Me.GridColumn31.Name = "GridColumn31"
         Me.GridColumn31.OptionsColumn.AllowEdit = False
         Me.GridColumn31.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -1774,13 +1727,11 @@ Partial Class wEffByStyle
         Me.GridColumn31.OptionsColumn.ReadOnly = True
         Me.GridColumn31.Visible = True
         Me.GridColumn31.VisibleIndex = 4
-        Me.GridColumn31.Width = 64
         '
         'GridColumn32
         '
         Me.GridColumn32.Caption = "UnitSect Code Sew"
         Me.GridColumn32.FieldName = "FTUnitSectCodeSew"
-        Me.GridColumn32.MinWidth = 17
         Me.GridColumn32.Name = "GridColumn32"
         Me.GridColumn32.OptionsColumn.AllowEdit = False
         Me.GridColumn32.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1792,7 +1743,7 @@ Partial Class wEffByStyle
         Me.GridColumn32.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn32.Visible = True
         Me.GridColumn32.VisibleIndex = 5
-        Me.GridColumn32.Width = 133
+        Me.GridColumn32.Width = 155
         '
         'GridColumn33
         '
@@ -1800,7 +1751,6 @@ Partial Class wEffByStyle
         Me.GridColumn33.DisplayFormat.FormatString = "{0:n2}"
         Me.GridColumn33.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn33.FieldName = "FNIncentiveAmt"
-        Me.GridColumn33.MinWidth = 17
         Me.GridColumn33.Name = "GridColumn33"
         Me.GridColumn33.OptionsColumn.AllowEdit = False
         Me.GridColumn33.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1812,13 +1762,12 @@ Partial Class wEffByStyle
         Me.GridColumn33.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn33.Visible = True
         Me.GridColumn33.VisibleIndex = 6
-        Me.GridColumn33.Width = 133
+        Me.GridColumn33.Width = 155
         '
         'GridColumn34
         '
         Me.GridColumn34.Caption = "Date"
         Me.GridColumn34.FieldName = "FDScanDateGrp"
-        Me.GridColumn34.MinWidth = 17
         Me.GridColumn34.Name = "GridColumn34"
         Me.GridColumn34.OptionsColumn.AllowEdit = False
         Me.GridColumn34.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1827,17 +1776,14 @@ Partial Class wEffByStyle
         Me.GridColumn34.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn34.OptionsColumn.ReadOnly = True
         Me.GridColumn34.OptionsColumn.ShowInCustomizationForm = False
-        Me.GridColumn34.Width = 64
         '
         'GridColumn35
         '
         Me.GridColumn35.Caption = "FNHSysEmpID"
         Me.GridColumn35.FieldName = "FNHSysEmpID"
-        Me.GridColumn35.MinWidth = 17
         Me.GridColumn35.Name = "GridColumn35"
         Me.GridColumn35.OptionsColumn.AllowEdit = False
         Me.GridColumn35.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn35.Width = 64
         '
         'GridColumn36
         '
@@ -1845,13 +1791,12 @@ Partial Class wEffByStyle
         Me.GridColumn36.DisplayFormat.FormatString = "N4"
         Me.GridColumn36.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn36.FieldName = "FNNetAmtNewIncentive"
-        Me.GridColumn36.MinWidth = 17
         Me.GridColumn36.Name = "GridColumn36"
         Me.GridColumn36.OptionsColumn.AllowEdit = False
         Me.GridColumn36.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn36.Visible = True
         Me.GridColumn36.VisibleIndex = 7
-        Me.GridColumn36.Width = 100
+        Me.GridColumn36.Width = 117
         '
         'GridColumn37
         '
@@ -1859,13 +1804,12 @@ Partial Class wEffByStyle
         Me.GridColumn37.DisplayFormat.FormatString = "{0:n2}"
         Me.GridColumn37.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn37.FieldName = "FNNetAmtNewIncentiveBU"
-        Me.GridColumn37.MinWidth = 17
         Me.GridColumn37.Name = "GridColumn37"
         Me.GridColumn37.OptionsColumn.AllowEdit = False
         Me.GridColumn37.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn37.Visible = True
         Me.GridColumn37.VisibleIndex = 8
-        Me.GridColumn37.Width = 139
+        Me.GridColumn37.Width = 162
         '
         'RepositoryItemCheckEdit8
         '
@@ -1900,17 +1844,19 @@ Partial Class wEffByStyle
         Me.otpcaltype4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpcaltype4.Name = "otpcaltype4"
         Me.otpcaltype4.PageVisible = False
-        Me.otpcaltype4.Size = New System.Drawing.Size(1324, 338)
+        Me.otpcaltype4.Size = New System.Drawing.Size(1546, 475)
         Me.otpcaltype4.Text = "คำนวณพนักงาน PADPRINT"
         '
         'ogc4
         '
         Me.ogc4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc4.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc4.Location = New System.Drawing.Point(0, 0)
         Me.ogc4.MainView = Me.ogv4
+        Me.ogc4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc4.Name = "ogc4"
         Me.ogc4.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit10, Me.RepositoryItemCheckEdit11, Me.RepositoryItemCheckEdit12, Me.RepositoryItemCalcEdit4})
-        Me.ogc4.Size = New System.Drawing.Size(1324, 338)
+        Me.ogc4.Size = New System.Drawing.Size(1546, 475)
         Me.ogc4.TabIndex = 6
         Me.ogc4.TabStop = False
         Me.ogc4.Tag = "2|"
@@ -1919,7 +1865,6 @@ Partial Class wEffByStyle
         'ogv4
         '
         Me.ogv4.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn80, Me.GridColumn81, Me.GridColumn82, Me.GridColumn83, Me.GridColumn84, Me.GridColumn85, Me.GridColumn86, Me.GridColumn87, Me.GridColumn88, Me.GridColumn89, Me.GridColumn90, Me.GridColumn91, Me.GridColumn92, Me.GridColumn93, Me.GridColumn94, Me.GridColumn95, Me.GridColumn96, Me.GridColumn109, Me.GridColumn110, Me.GridColumn111, Me.GridColumn112, Me.GridColumn113, Me.GridColumn114, Me.GridColumn115, Me.GridColumn116, Me.GridColumn117, Me.GridColumn118, Me.GridColumn119, Me.GridColumn120})
-        Me.ogv4.DetailHeight = 284
         Me.ogv4.GridControl = Me.ogc4
         Me.ogv4.Name = "ogv4"
         Me.ogv4.OptionsCustomization.AllowGroup = False
@@ -1938,7 +1883,6 @@ Partial Class wEffByStyle
         Me.GridColumn80.ColumnEdit = Me.RepositoryItemCheckEdit10
         Me.GridColumn80.FieldName = "FTSelect"
         Me.GridColumn80.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.GridColumn80.MinWidth = 17
         Me.GridColumn80.Name = "GridColumn80"
         Me.GridColumn80.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn80.OptionsColumn.AllowMove = False
@@ -1949,7 +1893,7 @@ Partial Class wEffByStyle
         Me.GridColumn80.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn80.Visible = True
         Me.GridColumn80.VisibleIndex = 0
-        Me.GridColumn80.Width = 35
+        Me.GridColumn80.Width = 41
         '
         'RepositoryItemCheckEdit10
         '
@@ -1966,7 +1910,6 @@ Partial Class wEffByStyle
         Me.GridColumn81.Caption = "FNHSysUnitSectId"
         Me.GridColumn81.FieldName = "FNHSysUnitSectId"
         Me.GridColumn81.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.GridColumn81.MinWidth = 17
         Me.GridColumn81.Name = "GridColumn81"
         Me.GridColumn81.OptionsColumn.AllowEdit = False
         Me.GridColumn81.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1976,7 +1919,6 @@ Partial Class wEffByStyle
         Me.GridColumn81.OptionsColumn.ReadOnly = True
         Me.GridColumn81.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn81.OptionsColumn.TabStop = False
-        Me.GridColumn81.Width = 64
         '
         'GridColumn82
         '
@@ -1985,7 +1927,6 @@ Partial Class wEffByStyle
         Me.GridColumn82.Caption = "UnitSect Code"
         Me.GridColumn82.FieldName = "FTUnitSectCode"
         Me.GridColumn82.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.GridColumn82.MinWidth = 17
         Me.GridColumn82.Name = "GridColumn82"
         Me.GridColumn82.OptionsColumn.AllowEdit = False
         Me.GridColumn82.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -1997,14 +1938,13 @@ Partial Class wEffByStyle
         Me.GridColumn82.OptionsColumn.TabStop = False
         Me.GridColumn82.Visible = True
         Me.GridColumn82.VisibleIndex = 1
-        Me.GridColumn82.Width = 90
+        Me.GridColumn82.Width = 105
         '
         'GridColumn83
         '
         Me.GridColumn83.Caption = "Incentive Type"
         Me.GridColumn83.FieldName = "FTIncentiveTypeName"
         Me.GridColumn83.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.GridColumn83.MinWidth = 17
         Me.GridColumn83.Name = "GridColumn83"
         Me.GridColumn83.OptionsColumn.AllowEdit = False
         Me.GridColumn83.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -2012,7 +1952,7 @@ Partial Class wEffByStyle
         Me.GridColumn83.OptionsColumn.AllowShowHide = False
         Me.GridColumn83.OptionsColumn.ReadOnly = True
         Me.GridColumn83.OptionsColumn.ShowInCustomizationForm = False
-        Me.GridColumn83.Width = 93
+        Me.GridColumn83.Width = 108
         '
         'GridColumn84
         '
@@ -2021,7 +1961,6 @@ Partial Class wEffByStyle
         Me.GridColumn84.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.GridColumn84.FieldName = "FTDateTrans"
         Me.GridColumn84.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.GridColumn84.MinWidth = 17
         Me.GridColumn84.Name = "GridColumn84"
         Me.GridColumn84.OptionsColumn.AllowEdit = False
         Me.GridColumn84.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -2032,7 +1971,6 @@ Partial Class wEffByStyle
         Me.GridColumn84.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn84.Visible = True
         Me.GridColumn84.VisibleIndex = 2
-        Me.GridColumn84.Width = 64
         '
         'GridColumn85
         '
@@ -2040,13 +1978,12 @@ Partial Class wEffByStyle
         Me.GridColumn85.DisplayFormat.FormatString = "N4"
         Me.GridColumn85.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn85.FieldName = "FNShiftTimemin"
-        Me.GridColumn85.MinWidth = 17
         Me.GridColumn85.Name = "GridColumn85"
         Me.GridColumn85.OptionsColumn.AllowEdit = False
         Me.GridColumn85.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn85.Visible = True
         Me.GridColumn85.VisibleIndex = 3
-        Me.GridColumn85.Width = 72
+        Me.GridColumn85.Width = 84
         '
         'GridColumn86
         '
@@ -2054,13 +1991,12 @@ Partial Class wEffByStyle
         Me.GridColumn86.DisplayFormat.FormatString = "N4"
         Me.GridColumn86.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn86.FieldName = "FNOT1Min"
-        Me.GridColumn86.MinWidth = 17
         Me.GridColumn86.Name = "GridColumn86"
         Me.GridColumn86.OptionsColumn.AllowEdit = False
         Me.GridColumn86.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn86.Visible = True
         Me.GridColumn86.VisibleIndex = 5
-        Me.GridColumn86.Width = 69
+        Me.GridColumn86.Width = 80
         '
         'GridColumn87
         '
@@ -2068,108 +2004,99 @@ Partial Class wEffByStyle
         Me.GridColumn87.DisplayFormat.FormatString = "N0"
         Me.GridColumn87.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn87.FieldName = "EmpCount"
-        Me.GridColumn87.MinWidth = 17
         Me.GridColumn87.Name = "GridColumn87"
         Me.GridColumn87.OptionsColumn.AllowEdit = False
         Me.GridColumn87.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn87.Visible = True
         Me.GridColumn87.VisibleIndex = 4
-        Me.GridColumn87.Width = 64
         '
         'GridColumn88
         '
         Me.GridColumn88.Caption = "EmpCountOT"
         Me.GridColumn88.FieldName = "EmpCountOT"
-        Me.GridColumn88.MinWidth = 17
         Me.GridColumn88.Name = "GridColumn88"
         Me.GridColumn88.OptionsColumn.AllowEdit = False
         Me.GridColumn88.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn88.Visible = True
         Me.GridColumn88.VisibleIndex = 6
-        Me.GridColumn88.Width = 71
+        Me.GridColumn88.Width = 83
         '
         'GridColumn89
         '
         Me.GridColumn89.Caption = "FNTotalMin"
         Me.GridColumn89.FieldName = "FNTotalMin"
-        Me.GridColumn89.MinWidth = 17
         Me.GridColumn89.Name = "GridColumn89"
         Me.GridColumn89.OptionsColumn.AllowEdit = False
         Me.GridColumn89.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn89.Visible = True
         Me.GridColumn89.VisibleIndex = 7
-        Me.GridColumn89.Width = 77
+        Me.GridColumn89.Width = 90
         '
         'GridColumn90
         '
         Me.GridColumn90.Caption = "FTCustCode"
         Me.GridColumn90.FieldName = "FTCustCode"
-        Me.GridColumn90.MinWidth = 17
         Me.GridColumn90.Name = "GridColumn90"
         Me.GridColumn90.OptionsColumn.AllowEdit = False
         Me.GridColumn90.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn90.Visible = True
         Me.GridColumn90.VisibleIndex = 8
-        Me.GridColumn90.Width = 122
+        Me.GridColumn90.Width = 142
         '
         'GridColumn91
         '
         Me.GridColumn91.Caption = "FTStyleCode"
         Me.GridColumn91.FieldName = "FTStyleCode"
-        Me.GridColumn91.MinWidth = 17
         Me.GridColumn91.Name = "GridColumn91"
         Me.GridColumn91.OptionsColumn.AllowEdit = False
         Me.GridColumn91.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn91.Visible = True
         Me.GridColumn91.VisibleIndex = 9
+        Me.GridColumn91.Width = 87
         '
         'GridColumn92
         '
         Me.GridColumn92.Caption = "FTPORef"
         Me.GridColumn92.FieldName = "FTPORef"
-        Me.GridColumn92.MinWidth = 17
         Me.GridColumn92.Name = "GridColumn92"
         Me.GridColumn92.OptionsColumn.AllowEdit = False
         Me.GridColumn92.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn92.Visible = True
         Me.GridColumn92.VisibleIndex = 10
-        Me.GridColumn92.Width = 73
+        Me.GridColumn92.Width = 85
         '
         'GridColumn93
         '
         Me.GridColumn93.Caption = "FTOrderNo"
         Me.GridColumn93.FieldName = "FTOrderNo"
-        Me.GridColumn93.MinWidth = 17
         Me.GridColumn93.Name = "GridColumn93"
         Me.GridColumn93.OptionsColumn.AllowEdit = False
         Me.GridColumn93.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn93.Visible = True
         Me.GridColumn93.VisibleIndex = 11
-        Me.GridColumn93.Width = 87
+        Me.GridColumn93.Width = 101
         '
         'GridColumn94
         '
         Me.GridColumn94.Caption = "FNSam"
         Me.GridColumn94.FieldName = "FNSam"
-        Me.GridColumn94.MinWidth = 17
         Me.GridColumn94.Name = "GridColumn94"
         Me.GridColumn94.OptionsColumn.AllowEdit = False
         Me.GridColumn94.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn94.Visible = True
         Me.GridColumn94.VisibleIndex = 12
-        Me.GridColumn94.Width = 77
+        Me.GridColumn94.Width = 90
         '
         'GridColumn95
         '
         Me.GridColumn95.Caption = "FNSamTarget"
         Me.GridColumn95.FieldName = "FNSamTarget"
-        Me.GridColumn95.MinWidth = 17
         Me.GridColumn95.Name = "GridColumn95"
         Me.GridColumn95.OptionsColumn.AllowEdit = False
         Me.GridColumn95.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn95.Visible = True
         Me.GridColumn95.VisibleIndex = 13
-        Me.GridColumn95.Width = 107
+        Me.GridColumn95.Width = 125
         '
         'GridColumn96
         '
@@ -2177,13 +2104,12 @@ Partial Class wEffByStyle
         Me.GridColumn96.DisplayFormat.FormatString = "N2"
         Me.GridColumn96.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn96.FieldName = "FNQuantity"
-        Me.GridColumn96.MinWidth = 17
         Me.GridColumn96.Name = "GridColumn96"
         Me.GridColumn96.OptionsColumn.AllowEdit = False
         Me.GridColumn96.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn96.Visible = True
         Me.GridColumn96.VisibleIndex = 14
-        Me.GridColumn96.Width = 95
+        Me.GridColumn96.Width = 111
         '
         'GridColumn109
         '
@@ -2191,13 +2117,12 @@ Partial Class wEffByStyle
         Me.GridColumn109.DisplayFormat.FormatString = "N2"
         Me.GridColumn109.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn109.FieldName = "FNQtyTotalPerDay"
-        Me.GridColumn109.MinWidth = 17
         Me.GridColumn109.Name = "GridColumn109"
         Me.GridColumn109.OptionsColumn.AllowEdit = False
         Me.GridColumn109.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn109.Visible = True
         Me.GridColumn109.VisibleIndex = 15
-        Me.GridColumn109.Width = 90
+        Me.GridColumn109.Width = 105
         '
         'GridColumn110
         '
@@ -2205,112 +2130,97 @@ Partial Class wEffByStyle
         Me.GridColumn110.DisplayFormat.FormatString = "N4"
         Me.GridColumn110.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn110.FieldName = "FNEFFPer"
-        Me.GridColumn110.MinWidth = 17
         Me.GridColumn110.Name = "GridColumn110"
         Me.GridColumn110.OptionsColumn.AllowEdit = False
         Me.GridColumn110.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn110.Visible = True
         Me.GridColumn110.VisibleIndex = 16
-        Me.GridColumn110.Width = 105
+        Me.GridColumn110.Width = 122
         '
         'GridColumn111
         '
         Me.GridColumn111.Caption = "FNGapEFF"
         Me.GridColumn111.FieldName = "FNGapEFF"
-        Me.GridColumn111.MinWidth = 17
         Me.GridColumn111.Name = "GridColumn111"
         Me.GridColumn111.OptionsColumn.AllowEdit = False
         Me.GridColumn111.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn111.Visible = True
         Me.GridColumn111.VisibleIndex = 17
-        Me.GridColumn111.Width = 121
+        Me.GridColumn111.Width = 141
         '
         'GridColumn112
         '
         Me.GridColumn112.Caption = "FNEFFOverPer"
         Me.GridColumn112.FieldName = "FNEFFOverPer"
-        Me.GridColumn112.MinWidth = 17
         Me.GridColumn112.Name = "GridColumn112"
         Me.GridColumn112.OptionsColumn.AllowEdit = False
         Me.GridColumn112.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn112.Visible = True
         Me.GridColumn112.VisibleIndex = 18
-        Me.GridColumn112.Width = 88
+        Me.GridColumn112.Width = 103
         '
         'GridColumn113
         '
         Me.GridColumn113.Caption = "FNTotalIncentive"
         Me.GridColumn113.FieldName = "FNTotalIncentive"
-        Me.GridColumn113.MinWidth = 17
         Me.GridColumn113.Name = "GridColumn113"
         Me.GridColumn113.OptionsColumn.AllowEdit = False
         Me.GridColumn113.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn113.Visible = True
         Me.GridColumn113.VisibleIndex = 19
-        Me.GridColumn113.Width = 108
+        Me.GridColumn113.Width = 126
         '
         'GridColumn114
         '
         Me.GridColumn114.Caption = "FNTotalIncentiveOT"
         Me.GridColumn114.FieldName = "FNTotalIncentiveOT"
-        Me.GridColumn114.MinWidth = 17
         Me.GridColumn114.Name = "GridColumn114"
         Me.GridColumn114.OptionsColumn.AllowEdit = False
         Me.GridColumn114.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn114.Visible = True
         Me.GridColumn114.VisibleIndex = 20
+        Me.GridColumn114.Width = 87
         '
         'GridColumn115
         '
         Me.GridColumn115.Caption = "FNNetTatalIncentive"
         Me.GridColumn115.FieldName = "FNNetTatalIncentive"
-        Me.GridColumn115.MinWidth = 17
         Me.GridColumn115.Name = "GridColumn115"
         Me.GridColumn115.OptionsColumn.AllowEdit = False
         Me.GridColumn115.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn115.Visible = True
         Me.GridColumn115.VisibleIndex = 21
-        Me.GridColumn115.Width = 110
+        Me.GridColumn115.Width = 128
         '
         'GridColumn116
         '
         Me.GridColumn116.Caption = "FTSubOrderNo"
         Me.GridColumn116.FieldName = "FTSubOrderNo"
-        Me.GridColumn116.MinWidth = 17
         Me.GridColumn116.Name = "GridColumn116"
-        Me.GridColumn116.Width = 64
         '
         'GridColumn117
         '
         Me.GridColumn117.Caption = "FNHSysStyleId"
         Me.GridColumn117.FieldName = "FNHSysStyleId"
-        Me.GridColumn117.MinWidth = 17
         Me.GridColumn117.Name = "GridColumn117"
-        Me.GridColumn117.Width = 64
         '
         'GridColumn118
         '
         Me.GridColumn118.Caption = "FNMultiple"
         Me.GridColumn118.FieldName = "FNMultiple"
-        Me.GridColumn118.MinWidth = 17
         Me.GridColumn118.Name = "GridColumn118"
-        Me.GridColumn118.Width = 64
         '
         'GridColumn119
         '
         Me.GridColumn119.Caption = "GridColumn1"
         Me.GridColumn119.FieldName = "FNTeamIncentiveAmt"
-        Me.GridColumn119.MinWidth = 17
         Me.GridColumn119.Name = "GridColumn119"
-        Me.GridColumn119.Width = 64
         '
         'GridColumn120
         '
         Me.GridColumn120.Caption = "GridColumn12"
         Me.GridColumn120.FieldName = "FDScanDateOrg"
-        Me.GridColumn120.MinWidth = 17
         Me.GridColumn120.Name = "GridColumn120"
-        Me.GridColumn120.Width = 64
         '
         'RepositoryItemCheckEdit11
         '
@@ -2345,17 +2255,19 @@ Partial Class wEffByStyle
         Me.otpcaltype5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpcaltype5.Name = "otpcaltype5"
         Me.otpcaltype5.PageVisible = False
-        Me.otpcaltype5.Size = New System.Drawing.Size(1324, 338)
+        Me.otpcaltype5.Size = New System.Drawing.Size(1546, 475)
         Me.otpcaltype5.Text = "คำนวณพนักงาน ปัก,พิมพ์"
         '
         'ogc5
         '
         Me.ogc5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc5.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc5.Location = New System.Drawing.Point(0, 0)
         Me.ogc5.MainView = Me.ogv5
+        Me.ogc5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc5.Name = "ogc5"
         Me.ogc5.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit13, Me.RepositoryItemCheckEdit14, Me.RepositoryItemCheckEdit15, Me.RepositoryItemCalcEdit5})
-        Me.ogc5.Size = New System.Drawing.Size(1324, 338)
+        Me.ogc5.Size = New System.Drawing.Size(1546, 475)
         Me.ogc5.TabIndex = 5
         Me.ogc5.TabStop = False
         Me.ogc5.Tag = "2|"
@@ -2364,7 +2276,6 @@ Partial Class wEffByStyle
         'ogv5
         '
         Me.ogv5.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn38, Me.GridColumn39, Me.GridColumn40, Me.GridColumn41, Me.GridColumn42, Me.GridColumn43, Me.GridColumn44, Me.GridColumn45, Me.GridColumn46, Me.GridColumn47, Me.GridColumn48, Me.GridColumn49, Me.GridColumn50, Me.GridColumn51, Me.GridColumn52, Me.GridColumn53, Me.GridColumn54, Me.GridColumn55, Me.GridColumn56, Me.GridColumn57, Me.GridColumn58, Me.GridColumn60, Me.GridColumn61, Me.GridColumn62, Me.GridColumn63, Me.GridColumn64, Me.GridColumn65, Me.GridColumn66, Me.GridColumn67})
-        Me.ogv5.DetailHeight = 284
         Me.ogv5.GridControl = Me.ogc5
         Me.ogv5.Name = "ogv5"
         Me.ogv5.OptionsCustomization.AllowGroup = False
@@ -2383,7 +2294,6 @@ Partial Class wEffByStyle
         Me.GridColumn38.ColumnEdit = Me.RepositoryItemCheckEdit13
         Me.GridColumn38.FieldName = "FTSelect"
         Me.GridColumn38.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.GridColumn38.MinWidth = 17
         Me.GridColumn38.Name = "GridColumn38"
         Me.GridColumn38.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn38.OptionsColumn.AllowMove = False
@@ -2394,7 +2304,7 @@ Partial Class wEffByStyle
         Me.GridColumn38.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn38.Visible = True
         Me.GridColumn38.VisibleIndex = 0
-        Me.GridColumn38.Width = 35
+        Me.GridColumn38.Width = 41
         '
         'RepositoryItemCheckEdit13
         '
@@ -2411,7 +2321,6 @@ Partial Class wEffByStyle
         Me.GridColumn39.Caption = "FNHSysUnitSectId"
         Me.GridColumn39.FieldName = "FNHSysUnitSectId"
         Me.GridColumn39.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.GridColumn39.MinWidth = 17
         Me.GridColumn39.Name = "GridColumn39"
         Me.GridColumn39.OptionsColumn.AllowEdit = False
         Me.GridColumn39.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -2421,7 +2330,6 @@ Partial Class wEffByStyle
         Me.GridColumn39.OptionsColumn.ReadOnly = True
         Me.GridColumn39.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn39.OptionsColumn.TabStop = False
-        Me.GridColumn39.Width = 64
         '
         'GridColumn40
         '
@@ -2430,7 +2338,6 @@ Partial Class wEffByStyle
         Me.GridColumn40.Caption = "UnitSect Code"
         Me.GridColumn40.FieldName = "FTUnitSectCode"
         Me.GridColumn40.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.GridColumn40.MinWidth = 17
         Me.GridColumn40.Name = "GridColumn40"
         Me.GridColumn40.OptionsColumn.AllowEdit = False
         Me.GridColumn40.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -2442,14 +2349,13 @@ Partial Class wEffByStyle
         Me.GridColumn40.OptionsColumn.TabStop = False
         Me.GridColumn40.Visible = True
         Me.GridColumn40.VisibleIndex = 1
-        Me.GridColumn40.Width = 90
+        Me.GridColumn40.Width = 105
         '
         'GridColumn41
         '
         Me.GridColumn41.Caption = "Incentive Type"
         Me.GridColumn41.FieldName = "FTIncentiveTypeName"
         Me.GridColumn41.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.GridColumn41.MinWidth = 17
         Me.GridColumn41.Name = "GridColumn41"
         Me.GridColumn41.OptionsColumn.AllowEdit = False
         Me.GridColumn41.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -2457,7 +2363,7 @@ Partial Class wEffByStyle
         Me.GridColumn41.OptionsColumn.AllowShowHide = False
         Me.GridColumn41.OptionsColumn.ReadOnly = True
         Me.GridColumn41.OptionsColumn.ShowInCustomizationForm = False
-        Me.GridColumn41.Width = 93
+        Me.GridColumn41.Width = 108
         '
         'GridColumn42
         '
@@ -2466,7 +2372,6 @@ Partial Class wEffByStyle
         Me.GridColumn42.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.GridColumn42.FieldName = "FTDateTrans"
         Me.GridColumn42.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.GridColumn42.MinWidth = 17
         Me.GridColumn42.Name = "GridColumn42"
         Me.GridColumn42.OptionsColumn.AllowEdit = False
         Me.GridColumn42.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -2477,7 +2382,6 @@ Partial Class wEffByStyle
         Me.GridColumn42.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn42.Visible = True
         Me.GridColumn42.VisibleIndex = 2
-        Me.GridColumn42.Width = 64
         '
         'GridColumn43
         '
@@ -2485,13 +2389,12 @@ Partial Class wEffByStyle
         Me.GridColumn43.DisplayFormat.FormatString = "N0"
         Me.GridColumn43.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn43.FieldName = "FNShiftTimemin"
-        Me.GridColumn43.MinWidth = 17
         Me.GridColumn43.Name = "GridColumn43"
         Me.GridColumn43.OptionsColumn.AllowEdit = False
         Me.GridColumn43.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn43.Visible = True
         Me.GridColumn43.VisibleIndex = 3
-        Me.GridColumn43.Width = 72
+        Me.GridColumn43.Width = 84
         '
         'GridColumn44
         '
@@ -2499,13 +2402,12 @@ Partial Class wEffByStyle
         Me.GridColumn44.DisplayFormat.FormatString = "N0"
         Me.GridColumn44.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn44.FieldName = "FNOT1Min"
-        Me.GridColumn44.MinWidth = 17
         Me.GridColumn44.Name = "GridColumn44"
         Me.GridColumn44.OptionsColumn.AllowEdit = False
         Me.GridColumn44.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn44.Visible = True
         Me.GridColumn44.VisibleIndex = 5
-        Me.GridColumn44.Width = 69
+        Me.GridColumn44.Width = 80
         '
         'GridColumn45
         '
@@ -2513,13 +2415,11 @@ Partial Class wEffByStyle
         Me.GridColumn45.DisplayFormat.FormatString = "N0"
         Me.GridColumn45.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn45.FieldName = "EmpCount"
-        Me.GridColumn45.MinWidth = 17
         Me.GridColumn45.Name = "GridColumn45"
         Me.GridColumn45.OptionsColumn.AllowEdit = False
         Me.GridColumn45.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn45.Visible = True
         Me.GridColumn45.VisibleIndex = 4
-        Me.GridColumn45.Width = 64
         '
         'GridColumn46
         '
@@ -2527,13 +2427,12 @@ Partial Class wEffByStyle
         Me.GridColumn46.DisplayFormat.FormatString = "N0"
         Me.GridColumn46.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn46.FieldName = "EmpCountOT"
-        Me.GridColumn46.MinWidth = 17
         Me.GridColumn46.Name = "GridColumn46"
         Me.GridColumn46.OptionsColumn.AllowEdit = False
         Me.GridColumn46.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn46.Visible = True
         Me.GridColumn46.VisibleIndex = 6
-        Me.GridColumn46.Width = 71
+        Me.GridColumn46.Width = 83
         '
         'GridColumn47
         '
@@ -2541,60 +2440,56 @@ Partial Class wEffByStyle
         Me.GridColumn47.DisplayFormat.FormatString = "N0"
         Me.GridColumn47.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn47.FieldName = "FNTotalMin"
-        Me.GridColumn47.MinWidth = 17
         Me.GridColumn47.Name = "GridColumn47"
         Me.GridColumn47.OptionsColumn.AllowEdit = False
         Me.GridColumn47.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn47.Visible = True
         Me.GridColumn47.VisibleIndex = 7
-        Me.GridColumn47.Width = 77
+        Me.GridColumn47.Width = 90
         '
         'GridColumn48
         '
         Me.GridColumn48.Caption = "FTCustCode"
         Me.GridColumn48.FieldName = "FTCustCode"
-        Me.GridColumn48.MinWidth = 17
         Me.GridColumn48.Name = "GridColumn48"
         Me.GridColumn48.OptionsColumn.AllowEdit = False
         Me.GridColumn48.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn48.Visible = True
         Me.GridColumn48.VisibleIndex = 8
-        Me.GridColumn48.Width = 122
+        Me.GridColumn48.Width = 142
         '
         'GridColumn49
         '
         Me.GridColumn49.Caption = "FTStyleCode"
         Me.GridColumn49.FieldName = "FTStyleCode"
-        Me.GridColumn49.MinWidth = 17
         Me.GridColumn49.Name = "GridColumn49"
         Me.GridColumn49.OptionsColumn.AllowEdit = False
         Me.GridColumn49.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn49.Visible = True
         Me.GridColumn49.VisibleIndex = 9
+        Me.GridColumn49.Width = 87
         '
         'GridColumn50
         '
         Me.GridColumn50.Caption = "FTPORef"
         Me.GridColumn50.FieldName = "FTPORef"
-        Me.GridColumn50.MinWidth = 17
         Me.GridColumn50.Name = "GridColumn50"
         Me.GridColumn50.OptionsColumn.AllowEdit = False
         Me.GridColumn50.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn50.Visible = True
         Me.GridColumn50.VisibleIndex = 10
-        Me.GridColumn50.Width = 73
+        Me.GridColumn50.Width = 85
         '
         'GridColumn51
         '
         Me.GridColumn51.Caption = "FTOrderNo"
         Me.GridColumn51.FieldName = "FTOrderNo"
-        Me.GridColumn51.MinWidth = 17
         Me.GridColumn51.Name = "GridColumn51"
         Me.GridColumn51.OptionsColumn.AllowEdit = False
         Me.GridColumn51.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn51.Visible = True
         Me.GridColumn51.VisibleIndex = 11
-        Me.GridColumn51.Width = 87
+        Me.GridColumn51.Width = 101
         '
         'GridColumn52
         '
@@ -2602,13 +2497,12 @@ Partial Class wEffByStyle
         Me.GridColumn52.DisplayFormat.FormatString = "N4"
         Me.GridColumn52.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn52.FieldName = "FNSam"
-        Me.GridColumn52.MinWidth = 17
         Me.GridColumn52.Name = "GridColumn52"
         Me.GridColumn52.OptionsColumn.AllowEdit = False
         Me.GridColumn52.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn52.Visible = True
         Me.GridColumn52.VisibleIndex = 12
-        Me.GridColumn52.Width = 77
+        Me.GridColumn52.Width = 90
         '
         'GridColumn53
         '
@@ -2616,13 +2510,12 @@ Partial Class wEffByStyle
         Me.GridColumn53.DisplayFormat.FormatString = "N4"
         Me.GridColumn53.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn53.FieldName = "FNSamTarget"
-        Me.GridColumn53.MinWidth = 17
         Me.GridColumn53.Name = "GridColumn53"
         Me.GridColumn53.OptionsColumn.AllowEdit = False
         Me.GridColumn53.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn53.Visible = True
         Me.GridColumn53.VisibleIndex = 13
-        Me.GridColumn53.Width = 107
+        Me.GridColumn53.Width = 125
         '
         'GridColumn54
         '
@@ -2630,13 +2523,12 @@ Partial Class wEffByStyle
         Me.GridColumn54.DisplayFormat.FormatString = "N0"
         Me.GridColumn54.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn54.FieldName = "FNQuantity"
-        Me.GridColumn54.MinWidth = 17
         Me.GridColumn54.Name = "GridColumn54"
         Me.GridColumn54.OptionsColumn.AllowEdit = False
         Me.GridColumn54.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn54.Visible = True
         Me.GridColumn54.VisibleIndex = 14
-        Me.GridColumn54.Width = 95
+        Me.GridColumn54.Width = 111
         '
         'GridColumn55
         '
@@ -2644,13 +2536,12 @@ Partial Class wEffByStyle
         Me.GridColumn55.DisplayFormat.FormatString = "N4"
         Me.GridColumn55.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn55.FieldName = "FNQtyTotalPerDay"
-        Me.GridColumn55.MinWidth = 17
         Me.GridColumn55.Name = "GridColumn55"
         Me.GridColumn55.OptionsColumn.AllowEdit = False
         Me.GridColumn55.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn55.Visible = True
         Me.GridColumn55.VisibleIndex = 15
-        Me.GridColumn55.Width = 90
+        Me.GridColumn55.Width = 105
         '
         'GridColumn56
         '
@@ -2658,13 +2549,12 @@ Partial Class wEffByStyle
         Me.GridColumn56.DisplayFormat.FormatString = "N4"
         Me.GridColumn56.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn56.FieldName = "FNEFFPer"
-        Me.GridColumn56.MinWidth = 17
         Me.GridColumn56.Name = "GridColumn56"
         Me.GridColumn56.OptionsColumn.AllowEdit = False
         Me.GridColumn56.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn56.Visible = True
         Me.GridColumn56.VisibleIndex = 16
-        Me.GridColumn56.Width = 105
+        Me.GridColumn56.Width = 122
         '
         'GridColumn57
         '
@@ -2672,13 +2562,12 @@ Partial Class wEffByStyle
         Me.GridColumn57.DisplayFormat.FormatString = "N4"
         Me.GridColumn57.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn57.FieldName = "FNGapEFF"
-        Me.GridColumn57.MinWidth = 17
         Me.GridColumn57.Name = "GridColumn57"
         Me.GridColumn57.OptionsColumn.AllowEdit = False
         Me.GridColumn57.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn57.Visible = True
         Me.GridColumn57.VisibleIndex = 17
-        Me.GridColumn57.Width = 121
+        Me.GridColumn57.Width = 141
         '
         'GridColumn58
         '
@@ -2686,13 +2575,12 @@ Partial Class wEffByStyle
         Me.GridColumn58.DisplayFormat.FormatString = "N4"
         Me.GridColumn58.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn58.FieldName = "FNEFFOverPer"
-        Me.GridColumn58.MinWidth = 17
         Me.GridColumn58.Name = "GridColumn58"
         Me.GridColumn58.OptionsColumn.AllowEdit = False
         Me.GridColumn58.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn58.Visible = True
         Me.GridColumn58.VisibleIndex = 18
-        Me.GridColumn58.Width = 88
+        Me.GridColumn58.Width = 103
         '
         'GridColumn60
         '
@@ -2700,13 +2588,12 @@ Partial Class wEffByStyle
         Me.GridColumn60.DisplayFormat.FormatString = "N4"
         Me.GridColumn60.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn60.FieldName = "FNTotalIncentive"
-        Me.GridColumn60.MinWidth = 17
         Me.GridColumn60.Name = "GridColumn60"
         Me.GridColumn60.OptionsColumn.AllowEdit = False
         Me.GridColumn60.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn60.Visible = True
         Me.GridColumn60.VisibleIndex = 19
-        Me.GridColumn60.Width = 108
+        Me.GridColumn60.Width = 126
         '
         'GridColumn61
         '
@@ -2714,12 +2601,12 @@ Partial Class wEffByStyle
         Me.GridColumn61.DisplayFormat.FormatString = "N4"
         Me.GridColumn61.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn61.FieldName = "FNTotalIncentiveOT"
-        Me.GridColumn61.MinWidth = 17
         Me.GridColumn61.Name = "GridColumn61"
         Me.GridColumn61.OptionsColumn.AllowEdit = False
         Me.GridColumn61.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn61.Visible = True
         Me.GridColumn61.VisibleIndex = 20
+        Me.GridColumn61.Width = 87
         '
         'GridColumn62
         '
@@ -2727,53 +2614,42 @@ Partial Class wEffByStyle
         Me.GridColumn62.DisplayFormat.FormatString = "N4"
         Me.GridColumn62.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn62.FieldName = "FNNetTatalIncentive"
-        Me.GridColumn62.MinWidth = 17
         Me.GridColumn62.Name = "GridColumn62"
         Me.GridColumn62.OptionsColumn.AllowEdit = False
         Me.GridColumn62.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn62.Visible = True
         Me.GridColumn62.VisibleIndex = 21
-        Me.GridColumn62.Width = 110
+        Me.GridColumn62.Width = 128
         '
         'GridColumn63
         '
         Me.GridColumn63.Caption = "FTSubOrderNo"
         Me.GridColumn63.FieldName = "FTSubOrderNo"
-        Me.GridColumn63.MinWidth = 17
         Me.GridColumn63.Name = "GridColumn63"
-        Me.GridColumn63.Width = 64
         '
         'GridColumn64
         '
         Me.GridColumn64.Caption = "FNHSysStyleId"
         Me.GridColumn64.FieldName = "FNHSysStyleId"
-        Me.GridColumn64.MinWidth = 17
         Me.GridColumn64.Name = "GridColumn64"
-        Me.GridColumn64.Width = 64
         '
         'GridColumn65
         '
         Me.GridColumn65.Caption = "FNMultiple"
         Me.GridColumn65.FieldName = "FNMultiple"
-        Me.GridColumn65.MinWidth = 17
         Me.GridColumn65.Name = "GridColumn65"
-        Me.GridColumn65.Width = 64
         '
         'GridColumn66
         '
         Me.GridColumn66.Caption = "GridColumn1"
         Me.GridColumn66.FieldName = "FNTeamIncentiveAmt"
-        Me.GridColumn66.MinWidth = 17
         Me.GridColumn66.Name = "GridColumn66"
-        Me.GridColumn66.Width = 64
         '
         'GridColumn67
         '
         Me.GridColumn67.Caption = "GridColumn12"
         Me.GridColumn67.FieldName = "FDScanDateOrg"
-        Me.GridColumn67.MinWidth = 17
         Me.GridColumn67.Name = "GridColumn67"
-        Me.GridColumn67.Width = 64
         '
         'RepositoryItemCheckEdit14
         '
@@ -2808,17 +2684,19 @@ Partial Class wEffByStyle
         Me.otpcaltype6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpcaltype6.Name = "otpcaltype6"
         Me.otpcaltype6.PageVisible = False
-        Me.otpcaltype6.Size = New System.Drawing.Size(1324, 338)
+        Me.otpcaltype6.Size = New System.Drawing.Size(1546, 475)
         Me.otpcaltype6.Text = "LEAD EMBROIDERY"
         '
         'ogc10
         '
         Me.ogc10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc10.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc10.Location = New System.Drawing.Point(0, 0)
         Me.ogc10.MainView = Me.ogv10
+        Me.ogc10.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc10.Name = "ogc10"
         Me.ogc10.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemCheckEdit16, Me.RepositoryItemCheckEdit17, Me.RepositoryItemCalcEdit1})
-        Me.ogc10.Size = New System.Drawing.Size(1324, 338)
+        Me.ogc10.Size = New System.Drawing.Size(1546, 475)
         Me.ogc10.TabIndex = 7
         Me.ogc10.TabStop = False
         Me.ogc10.Tag = "2|"
@@ -2827,7 +2705,6 @@ Partial Class wEffByStyle
         'ogv10
         '
         Me.ogv10.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn97, Me.GridColumn98, Me.GridColumn99, Me.GridColumn100, Me.GridColumn101, Me.GridColumn102, Me.GridColumn103, Me.GridColumn104, Me.GridColumn105, Me.GridColumn106, Me.GridColumn107, Me.GridColumn108})
-        Me.ogv10.DetailHeight = 284
         Me.ogv10.GridControl = Me.ogc10
         Me.ogv10.GroupCount = 1
         Me.ogv10.Name = "ogv10"
@@ -2847,7 +2724,6 @@ Partial Class wEffByStyle
         Me.GridColumn97.Caption = "FTSelect"
         Me.GridColumn97.ColumnEdit = Me.RepositoryItemCheckEdit1
         Me.GridColumn97.FieldName = "FTSelect"
-        Me.GridColumn97.MinWidth = 17
         Me.GridColumn97.Name = "GridColumn97"
         Me.GridColumn97.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn97.OptionsColumn.AllowMove = False
@@ -2858,7 +2734,7 @@ Partial Class wEffByStyle
         Me.GridColumn97.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn97.Visible = True
         Me.GridColumn97.VisibleIndex = 0
-        Me.GridColumn97.Width = 35
+        Me.GridColumn97.Width = 41
         '
         'RepositoryItemCheckEdit1
         '
@@ -2874,7 +2750,6 @@ Partial Class wEffByStyle
         Me.GridColumn98.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn98.Caption = "FNHSysEmpID"
         Me.GridColumn98.FieldName = "FNHSysEmpID"
-        Me.GridColumn98.MinWidth = 17
         Me.GridColumn98.Name = "GridColumn98"
         Me.GridColumn98.OptionsColumn.AllowEdit = False
         Me.GridColumn98.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -2884,7 +2759,6 @@ Partial Class wEffByStyle
         Me.GridColumn98.OptionsColumn.ReadOnly = True
         Me.GridColumn98.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn98.OptionsColumn.TabStop = False
-        Me.GridColumn98.Width = 64
         '
         'GridColumn99
         '
@@ -2892,7 +2766,6 @@ Partial Class wEffByStyle
         Me.GridColumn99.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn99.Caption = "FTEmpCode"
         Me.GridColumn99.FieldName = "FTEmpCode"
-        Me.GridColumn99.MinWidth = 17
         Me.GridColumn99.Name = "GridColumn99"
         Me.GridColumn99.OptionsColumn.AllowEdit = False
         Me.GridColumn99.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -2904,18 +2777,17 @@ Partial Class wEffByStyle
         Me.GridColumn99.OptionsColumn.TabStop = False
         Me.GridColumn99.Visible = True
         Me.GridColumn99.VisibleIndex = 1
-        Me.GridColumn99.Width = 90
+        Me.GridColumn99.Width = 105
         '
         'GridColumn100
         '
         Me.GridColumn100.Caption = "FTEmpName"
         Me.GridColumn100.FieldName = "FTEmpName"
-        Me.GridColumn100.MinWidth = 17
         Me.GridColumn100.Name = "GridColumn100"
         Me.GridColumn100.OptionsColumn.AllowEdit = False
         Me.GridColumn100.Visible = True
         Me.GridColumn100.VisibleIndex = 2
-        Me.GridColumn100.Width = 204
+        Me.GridColumn100.Width = 238
         '
         'GridColumn101
         '
@@ -2923,7 +2795,6 @@ Partial Class wEffByStyle
         Me.GridColumn101.DisplayFormat.FormatString = "dd/MM/yyyy"
         Me.GridColumn101.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.GridColumn101.FieldName = "FDScanDate"
-        Me.GridColumn101.MinWidth = 17
         Me.GridColumn101.Name = "GridColumn101"
         Me.GridColumn101.OptionsColumn.AllowEdit = False
         Me.GridColumn101.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -2934,13 +2805,12 @@ Partial Class wEffByStyle
         Me.GridColumn101.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn101.Visible = True
         Me.GridColumn101.VisibleIndex = 3
-        Me.GridColumn101.Width = 71
+        Me.GridColumn101.Width = 83
         '
         'GridColumn102
         '
         Me.GridColumn102.Caption = "FDScanDateOrg"
         Me.GridColumn102.FieldName = "FDScanDateOrg"
-        Me.GridColumn102.MinWidth = 17
         Me.GridColumn102.Name = "GridColumn102"
         Me.GridColumn102.OptionsColumn.AllowEdit = False
         Me.GridColumn102.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -2949,39 +2819,33 @@ Partial Class wEffByStyle
         Me.GridColumn102.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn102.OptionsColumn.ReadOnly = True
         Me.GridColumn102.OptionsColumn.ShowInCustomizationForm = False
-        Me.GridColumn102.Width = 64
         '
         'GridColumn103
         '
         Me.GridColumn103.Caption = "Cal User"
         Me.GridColumn103.FieldName = "FTCalUser"
-        Me.GridColumn103.MinWidth = 17
         Me.GridColumn103.Name = "GridColumn103"
         Me.GridColumn103.OptionsColumn.AllowEdit = False
         Me.GridColumn103.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn103.OptionsColumn.AllowMove = False
         Me.GridColumn103.OptionsColumn.AllowShowHide = False
         Me.GridColumn103.OptionsColumn.ReadOnly = True
-        Me.GridColumn103.Width = 64
         '
         'GridColumn104
         '
         Me.GridColumn104.Caption = "Cal Date"
         Me.GridColumn104.FieldName = "FDCalDate"
-        Me.GridColumn104.MinWidth = 17
         Me.GridColumn104.Name = "GridColumn104"
         Me.GridColumn104.OptionsColumn.AllowEdit = False
         Me.GridColumn104.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn104.OptionsColumn.AllowMove = False
         Me.GridColumn104.OptionsColumn.AllowShowHide = False
         Me.GridColumn104.OptionsColumn.ReadOnly = True
-        Me.GridColumn104.Width = 64
         '
         'GridColumn105
         '
         Me.GridColumn105.Caption = "UnitSect Code Sew"
         Me.GridColumn105.FieldName = "FTUnitSectCode"
-        Me.GridColumn105.MinWidth = 17
         Me.GridColumn105.Name = "GridColumn105"
         Me.GridColumn105.OptionsColumn.AllowEdit = False
         Me.GridColumn105.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -2993,7 +2857,7 @@ Partial Class wEffByStyle
         Me.GridColumn105.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn105.Visible = True
         Me.GridColumn105.VisibleIndex = 4
-        Me.GridColumn105.Width = 69
+        Me.GridColumn105.Width = 80
         '
         'GridColumn106
         '
@@ -3001,7 +2865,6 @@ Partial Class wEffByStyle
         Me.GridColumn106.DisplayFormat.FormatString = "{0:n2}"
         Me.GridColumn106.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn106.FieldName = "FNTeamIncentiveAmt"
-        Me.GridColumn106.MinWidth = 17
         Me.GridColumn106.Name = "GridColumn106"
         Me.GridColumn106.OptionsColumn.AllowEdit = False
         Me.GridColumn106.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3013,13 +2876,12 @@ Partial Class wEffByStyle
         Me.GridColumn106.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn106.Visible = True
         Me.GridColumn106.VisibleIndex = 5
-        Me.GridColumn106.Width = 133
+        Me.GridColumn106.Width = 155
         '
         'GridColumn107
         '
         Me.GridColumn107.Caption = "Date"
         Me.GridColumn107.FieldName = "FDScanDateOrg"
-        Me.GridColumn107.MinWidth = 17
         Me.GridColumn107.Name = "GridColumn107"
         Me.GridColumn107.OptionsColumn.AllowEdit = False
         Me.GridColumn107.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3030,7 +2892,6 @@ Partial Class wEffByStyle
         Me.GridColumn107.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn107.Visible = True
         Me.GridColumn107.VisibleIndex = 16
-        Me.GridColumn107.Width = 64
         '
         'GridColumn108
         '
@@ -3038,13 +2899,12 @@ Partial Class wEffByStyle
         Me.GridColumn108.DisplayFormat.FormatString = "{0:n2}"
         Me.GridColumn108.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn108.FieldName = "FNNetAmtNewIncentive"
-        Me.GridColumn108.MinWidth = 17
         Me.GridColumn108.Name = "GridColumn108"
         Me.GridColumn108.OptionsColumn.AllowEdit = False
         Me.GridColumn108.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn108.Visible = True
         Me.GridColumn108.VisibleIndex = 6
-        Me.GridColumn108.Width = 130
+        Me.GridColumn108.Width = 152
         '
         'RepositoryItemCheckEdit16
         '
@@ -3079,17 +2939,19 @@ Partial Class wEffByStyle
         Me.otpcaltype7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpcaltype7.Name = "otpcaltype7"
         Me.otpcaltype7.PageVisible = False
-        Me.otpcaltype7.Size = New System.Drawing.Size(1324, 338)
+        Me.otpcaltype7.Size = New System.Drawing.Size(1546, 475)
         Me.otpcaltype7.Text = "LEAD PADPRINT"
         '
         'ogc11
         '
         Me.ogc11.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc11.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc11.Location = New System.Drawing.Point(0, 0)
         Me.ogc11.MainView = Me.ogv11
+        Me.ogc11.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc11.Name = "ogc11"
         Me.ogc11.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit18, Me.RepositoryItemCheckEdit19, Me.RepositoryItemCheckEdit20, Me.RepositoryItemCalcEdit6})
-        Me.ogc11.Size = New System.Drawing.Size(1324, 338)
+        Me.ogc11.Size = New System.Drawing.Size(1546, 475)
         Me.ogc11.TabIndex = 7
         Me.ogc11.TabStop = False
         Me.ogc11.Tag = "2|"
@@ -3098,7 +2960,6 @@ Partial Class wEffByStyle
         'ogv11
         '
         Me.ogv11.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn68, Me.GridColumn69, Me.GridColumn70, Me.GridColumn71, Me.GridColumn72, Me.GridColumn73, Me.GridColumn74, Me.GridColumn75, Me.GridColumn76, Me.GridColumn77, Me.GridColumn78, Me.GridColumn79})
-        Me.ogv11.DetailHeight = 284
         Me.ogv11.GridControl = Me.ogc11
         Me.ogv11.GroupCount = 1
         Me.ogv11.Name = "ogv11"
@@ -3118,7 +2979,6 @@ Partial Class wEffByStyle
         Me.GridColumn68.Caption = "FTSelect"
         Me.GridColumn68.ColumnEdit = Me.RepositoryItemCheckEdit18
         Me.GridColumn68.FieldName = "FTSelect"
-        Me.GridColumn68.MinWidth = 17
         Me.GridColumn68.Name = "GridColumn68"
         Me.GridColumn68.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn68.OptionsColumn.AllowMove = False
@@ -3129,7 +2989,7 @@ Partial Class wEffByStyle
         Me.GridColumn68.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn68.Visible = True
         Me.GridColumn68.VisibleIndex = 0
-        Me.GridColumn68.Width = 35
+        Me.GridColumn68.Width = 41
         '
         'RepositoryItemCheckEdit18
         '
@@ -3145,7 +3005,6 @@ Partial Class wEffByStyle
         Me.GridColumn69.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn69.Caption = "FNHSysEmpID"
         Me.GridColumn69.FieldName = "FNHSysEmpID"
-        Me.GridColumn69.MinWidth = 17
         Me.GridColumn69.Name = "GridColumn69"
         Me.GridColumn69.OptionsColumn.AllowEdit = False
         Me.GridColumn69.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3155,7 +3014,6 @@ Partial Class wEffByStyle
         Me.GridColumn69.OptionsColumn.ReadOnly = True
         Me.GridColumn69.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn69.OptionsColumn.TabStop = False
-        Me.GridColumn69.Width = 64
         '
         'GridColumn70
         '
@@ -3163,7 +3021,6 @@ Partial Class wEffByStyle
         Me.GridColumn70.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn70.Caption = "FTEmpCode"
         Me.GridColumn70.FieldName = "FTEmpCode"
-        Me.GridColumn70.MinWidth = 17
         Me.GridColumn70.Name = "GridColumn70"
         Me.GridColumn70.OptionsColumn.AllowEdit = False
         Me.GridColumn70.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -3175,18 +3032,17 @@ Partial Class wEffByStyle
         Me.GridColumn70.OptionsColumn.TabStop = False
         Me.GridColumn70.Visible = True
         Me.GridColumn70.VisibleIndex = 1
-        Me.GridColumn70.Width = 90
+        Me.GridColumn70.Width = 105
         '
         'GridColumn71
         '
         Me.GridColumn71.Caption = "FTEmpName"
         Me.GridColumn71.FieldName = "FTEmpName"
-        Me.GridColumn71.MinWidth = 17
         Me.GridColumn71.Name = "GridColumn71"
         Me.GridColumn71.OptionsColumn.AllowEdit = False
         Me.GridColumn71.Visible = True
         Me.GridColumn71.VisibleIndex = 2
-        Me.GridColumn71.Width = 204
+        Me.GridColumn71.Width = 238
         '
         'GridColumn72
         '
@@ -3194,7 +3050,6 @@ Partial Class wEffByStyle
         Me.GridColumn72.DisplayFormat.FormatString = "dd/MM/yyyy"
         Me.GridColumn72.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.GridColumn72.FieldName = "FDScanDate"
-        Me.GridColumn72.MinWidth = 17
         Me.GridColumn72.Name = "GridColumn72"
         Me.GridColumn72.OptionsColumn.AllowEdit = False
         Me.GridColumn72.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -3205,13 +3060,12 @@ Partial Class wEffByStyle
         Me.GridColumn72.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn72.Visible = True
         Me.GridColumn72.VisibleIndex = 3
-        Me.GridColumn72.Width = 71
+        Me.GridColumn72.Width = 83
         '
         'GridColumn73
         '
         Me.GridColumn73.Caption = "FDScanDateOrg"
         Me.GridColumn73.FieldName = "FDScanDateOrg"
-        Me.GridColumn73.MinWidth = 17
         Me.GridColumn73.Name = "GridColumn73"
         Me.GridColumn73.OptionsColumn.AllowEdit = False
         Me.GridColumn73.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3220,39 +3074,33 @@ Partial Class wEffByStyle
         Me.GridColumn73.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn73.OptionsColumn.ReadOnly = True
         Me.GridColumn73.OptionsColumn.ShowInCustomizationForm = False
-        Me.GridColumn73.Width = 64
         '
         'GridColumn74
         '
         Me.GridColumn74.Caption = "Cal User"
         Me.GridColumn74.FieldName = "FTCalUser"
-        Me.GridColumn74.MinWidth = 17
         Me.GridColumn74.Name = "GridColumn74"
         Me.GridColumn74.OptionsColumn.AllowEdit = False
         Me.GridColumn74.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn74.OptionsColumn.AllowMove = False
         Me.GridColumn74.OptionsColumn.AllowShowHide = False
         Me.GridColumn74.OptionsColumn.ReadOnly = True
-        Me.GridColumn74.Width = 64
         '
         'GridColumn75
         '
         Me.GridColumn75.Caption = "Cal Date"
         Me.GridColumn75.FieldName = "FDCalDate"
-        Me.GridColumn75.MinWidth = 17
         Me.GridColumn75.Name = "GridColumn75"
         Me.GridColumn75.OptionsColumn.AllowEdit = False
         Me.GridColumn75.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn75.OptionsColumn.AllowMove = False
         Me.GridColumn75.OptionsColumn.AllowShowHide = False
         Me.GridColumn75.OptionsColumn.ReadOnly = True
-        Me.GridColumn75.Width = 64
         '
         'GridColumn76
         '
         Me.GridColumn76.Caption = "UnitSect Code Sew"
         Me.GridColumn76.FieldName = "FTUnitSectCode"
-        Me.GridColumn76.MinWidth = 17
         Me.GridColumn76.Name = "GridColumn76"
         Me.GridColumn76.OptionsColumn.AllowEdit = False
         Me.GridColumn76.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3264,7 +3112,7 @@ Partial Class wEffByStyle
         Me.GridColumn76.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn76.Visible = True
         Me.GridColumn76.VisibleIndex = 4
-        Me.GridColumn76.Width = 69
+        Me.GridColumn76.Width = 80
         '
         'GridColumn77
         '
@@ -3272,7 +3120,6 @@ Partial Class wEffByStyle
         Me.GridColumn77.DisplayFormat.FormatString = "{0:n2}"
         Me.GridColumn77.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn77.FieldName = "FNTeamIncentiveAmt"
-        Me.GridColumn77.MinWidth = 17
         Me.GridColumn77.Name = "GridColumn77"
         Me.GridColumn77.OptionsColumn.AllowEdit = False
         Me.GridColumn77.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3284,13 +3131,12 @@ Partial Class wEffByStyle
         Me.GridColumn77.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn77.Visible = True
         Me.GridColumn77.VisibleIndex = 5
-        Me.GridColumn77.Width = 133
+        Me.GridColumn77.Width = 155
         '
         'GridColumn78
         '
         Me.GridColumn78.Caption = "Date"
         Me.GridColumn78.FieldName = "FDScanDateOrg"
-        Me.GridColumn78.MinWidth = 17
         Me.GridColumn78.Name = "GridColumn78"
         Me.GridColumn78.OptionsColumn.AllowEdit = False
         Me.GridColumn78.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3301,7 +3147,6 @@ Partial Class wEffByStyle
         Me.GridColumn78.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn78.Visible = True
         Me.GridColumn78.VisibleIndex = 16
-        Me.GridColumn78.Width = 64
         '
         'GridColumn79
         '
@@ -3309,13 +3154,12 @@ Partial Class wEffByStyle
         Me.GridColumn79.DisplayFormat.FormatString = "{0:n2}"
         Me.GridColumn79.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn79.FieldName = "FNNetAmtNewIncentive"
-        Me.GridColumn79.MinWidth = 17
         Me.GridColumn79.Name = "GridColumn79"
         Me.GridColumn79.OptionsColumn.AllowEdit = False
         Me.GridColumn79.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn79.Visible = True
         Me.GridColumn79.VisibleIndex = 6
-        Me.GridColumn79.Width = 130
+        Me.GridColumn79.Width = 152
         '
         'RepositoryItemCheckEdit19
         '
@@ -3350,17 +3194,19 @@ Partial Class wEffByStyle
         Me.XtraTabPage1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage1.Name = "XtraTabPage1"
         Me.XtraTabPage1.PageVisible = False
-        Me.XtraTabPage1.Size = New System.Drawing.Size(1324, 338)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(1546, 475)
         Me.XtraTabPage1.Text = "Chief Sewing"
         '
         'ogc8
         '
         Me.ogc8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc8.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc8.Location = New System.Drawing.Point(0, 0)
         Me.ogc8.MainView = Me.ogv8
+        Me.ogc8.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc8.Name = "ogc8"
         Me.ogc8.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit21, Me.RepositoryItemCheckEdit22, Me.RepositoryItemCheckEdit23, Me.RepositoryItemCalcEdit7})
-        Me.ogc8.Size = New System.Drawing.Size(1324, 338)
+        Me.ogc8.Size = New System.Drawing.Size(1546, 475)
         Me.ogc8.TabIndex = 6
         Me.ogc8.TabStop = False
         Me.ogc8.Tag = "2|"
@@ -3369,7 +3215,6 @@ Partial Class wEffByStyle
         'ogv8
         '
         Me.ogv8.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn2, Me.GridColumn3, Me.GridColumn4, Me.FTEmpName, Me.GridColumn5, Me.GridColumn6, Me.GridColumn7, Me.GridColumn8, Me.GridColumn9, Me.GridColumn10, Me.GridColumn11, Me.FNNetAmtNewIncentive})
-        Me.ogv8.DetailHeight = 284
         Me.ogv8.GridControl = Me.ogc8
         Me.ogv8.GroupCount = 1
         Me.ogv8.Name = "ogv8"
@@ -3389,7 +3234,6 @@ Partial Class wEffByStyle
         Me.GridColumn2.Caption = "FTSelect"
         Me.GridColumn2.ColumnEdit = Me.RepositoryItemCheckEdit21
         Me.GridColumn2.FieldName = "FTSelect"
-        Me.GridColumn2.MinWidth = 17
         Me.GridColumn2.Name = "GridColumn2"
         Me.GridColumn2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn2.OptionsColumn.AllowMove = False
@@ -3400,7 +3244,7 @@ Partial Class wEffByStyle
         Me.GridColumn2.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn2.Visible = True
         Me.GridColumn2.VisibleIndex = 0
-        Me.GridColumn2.Width = 35
+        Me.GridColumn2.Width = 41
         '
         'RepositoryItemCheckEdit21
         '
@@ -3416,7 +3260,6 @@ Partial Class wEffByStyle
         Me.GridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn3.Caption = "FNHSysEmpID"
         Me.GridColumn3.FieldName = "FNHSysEmpID"
-        Me.GridColumn3.MinWidth = 17
         Me.GridColumn3.Name = "GridColumn3"
         Me.GridColumn3.OptionsColumn.AllowEdit = False
         Me.GridColumn3.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3426,7 +3269,6 @@ Partial Class wEffByStyle
         Me.GridColumn3.OptionsColumn.ReadOnly = True
         Me.GridColumn3.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn3.OptionsColumn.TabStop = False
-        Me.GridColumn3.Width = 64
         '
         'GridColumn4
         '
@@ -3434,7 +3276,6 @@ Partial Class wEffByStyle
         Me.GridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn4.Caption = "FTEmpCode"
         Me.GridColumn4.FieldName = "FTEmpCode"
-        Me.GridColumn4.MinWidth = 17
         Me.GridColumn4.Name = "GridColumn4"
         Me.GridColumn4.OptionsColumn.AllowEdit = False
         Me.GridColumn4.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -3446,18 +3287,17 @@ Partial Class wEffByStyle
         Me.GridColumn4.OptionsColumn.TabStop = False
         Me.GridColumn4.Visible = True
         Me.GridColumn4.VisibleIndex = 1
-        Me.GridColumn4.Width = 90
+        Me.GridColumn4.Width = 105
         '
         'FTEmpName
         '
         Me.FTEmpName.Caption = "FTEmpName"
         Me.FTEmpName.FieldName = "FTEmpName"
-        Me.FTEmpName.MinWidth = 17
         Me.FTEmpName.Name = "FTEmpName"
         Me.FTEmpName.OptionsColumn.AllowEdit = False
         Me.FTEmpName.Visible = True
         Me.FTEmpName.VisibleIndex = 2
-        Me.FTEmpName.Width = 204
+        Me.FTEmpName.Width = 238
         '
         'GridColumn5
         '
@@ -3465,7 +3305,6 @@ Partial Class wEffByStyle
         Me.GridColumn5.DisplayFormat.FormatString = "dd/MM/yyyy"
         Me.GridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.GridColumn5.FieldName = "FDScanDate"
-        Me.GridColumn5.MinWidth = 17
         Me.GridColumn5.Name = "GridColumn5"
         Me.GridColumn5.OptionsColumn.AllowEdit = False
         Me.GridColumn5.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -3476,13 +3315,12 @@ Partial Class wEffByStyle
         Me.GridColumn5.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn5.Visible = True
         Me.GridColumn5.VisibleIndex = 3
-        Me.GridColumn5.Width = 71
+        Me.GridColumn5.Width = 83
         '
         'GridColumn6
         '
         Me.GridColumn6.Caption = "FDScanDateOrg"
         Me.GridColumn6.FieldName = "FDScanDateOrg"
-        Me.GridColumn6.MinWidth = 17
         Me.GridColumn6.Name = "GridColumn6"
         Me.GridColumn6.OptionsColumn.AllowEdit = False
         Me.GridColumn6.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3491,39 +3329,33 @@ Partial Class wEffByStyle
         Me.GridColumn6.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn6.OptionsColumn.ReadOnly = True
         Me.GridColumn6.OptionsColumn.ShowInCustomizationForm = False
-        Me.GridColumn6.Width = 64
         '
         'GridColumn7
         '
         Me.GridColumn7.Caption = "Cal User"
         Me.GridColumn7.FieldName = "FTCalUser"
-        Me.GridColumn7.MinWidth = 17
         Me.GridColumn7.Name = "GridColumn7"
         Me.GridColumn7.OptionsColumn.AllowEdit = False
         Me.GridColumn7.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn7.OptionsColumn.AllowMove = False
         Me.GridColumn7.OptionsColumn.AllowShowHide = False
         Me.GridColumn7.OptionsColumn.ReadOnly = True
-        Me.GridColumn7.Width = 64
         '
         'GridColumn8
         '
         Me.GridColumn8.Caption = "Cal Date"
         Me.GridColumn8.FieldName = "FDCalDate"
-        Me.GridColumn8.MinWidth = 17
         Me.GridColumn8.Name = "GridColumn8"
         Me.GridColumn8.OptionsColumn.AllowEdit = False
         Me.GridColumn8.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn8.OptionsColumn.AllowMove = False
         Me.GridColumn8.OptionsColumn.AllowShowHide = False
         Me.GridColumn8.OptionsColumn.ReadOnly = True
-        Me.GridColumn8.Width = 64
         '
         'GridColumn9
         '
         Me.GridColumn9.Caption = "UnitSect Code Sew"
         Me.GridColumn9.FieldName = "FTUnitSectCode"
-        Me.GridColumn9.MinWidth = 17
         Me.GridColumn9.Name = "GridColumn9"
         Me.GridColumn9.OptionsColumn.AllowEdit = False
         Me.GridColumn9.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3535,7 +3367,7 @@ Partial Class wEffByStyle
         Me.GridColumn9.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn9.Visible = True
         Me.GridColumn9.VisibleIndex = 4
-        Me.GridColumn9.Width = 69
+        Me.GridColumn9.Width = 80
         '
         'GridColumn10
         '
@@ -3543,7 +3375,6 @@ Partial Class wEffByStyle
         Me.GridColumn10.DisplayFormat.FormatString = "{0:n2}"
         Me.GridColumn10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn10.FieldName = "FNTeamIncentiveAmt"
-        Me.GridColumn10.MinWidth = 17
         Me.GridColumn10.Name = "GridColumn10"
         Me.GridColumn10.OptionsColumn.AllowEdit = False
         Me.GridColumn10.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3555,13 +3386,12 @@ Partial Class wEffByStyle
         Me.GridColumn10.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn10.Visible = True
         Me.GridColumn10.VisibleIndex = 5
-        Me.GridColumn10.Width = 133
+        Me.GridColumn10.Width = 155
         '
         'GridColumn11
         '
         Me.GridColumn11.Caption = "Date"
         Me.GridColumn11.FieldName = "FDScanDateOrg"
-        Me.GridColumn11.MinWidth = 17
         Me.GridColumn11.Name = "GridColumn11"
         Me.GridColumn11.OptionsColumn.AllowEdit = False
         Me.GridColumn11.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3572,7 +3402,6 @@ Partial Class wEffByStyle
         Me.GridColumn11.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn11.Visible = True
         Me.GridColumn11.VisibleIndex = 16
-        Me.GridColumn11.Width = 64
         '
         'FNNetAmtNewIncentive
         '
@@ -3580,13 +3409,12 @@ Partial Class wEffByStyle
         Me.FNNetAmtNewIncentive.DisplayFormat.FormatString = "{0:n2}"
         Me.FNNetAmtNewIncentive.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNNetAmtNewIncentive.FieldName = "FNNetAmtNewIncentive"
-        Me.FNNetAmtNewIncentive.MinWidth = 17
         Me.FNNetAmtNewIncentive.Name = "FNNetAmtNewIncentive"
         Me.FNNetAmtNewIncentive.OptionsColumn.AllowEdit = False
         Me.FNNetAmtNewIncentive.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNNetAmtNewIncentive.Visible = True
         Me.FNNetAmtNewIncentive.VisibleIndex = 6
-        Me.FNNetAmtNewIncentive.Width = 130
+        Me.FNNetAmtNewIncentive.Width = 152
         '
         'RepositoryItemCheckEdit22
         '
@@ -3621,17 +3449,19 @@ Partial Class wEffByStyle
         Me.XtraTabPage2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage2.Name = "XtraTabPage2"
         Me.XtraTabPage2.PageVisible = False
-        Me.XtraTabPage2.Size = New System.Drawing.Size(1324, 338)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(1546, 475)
         Me.XtraTabPage2.Text = "BU"
         '
         'ogc9
         '
         Me.ogc9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc9.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc9.Location = New System.Drawing.Point(0, 0)
         Me.ogc9.MainView = Me.ogv9
+        Me.ogc9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc9.Name = "ogc9"
         Me.ogc9.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit24, Me.RepositoryItemCheckEdit25, Me.RepositoryItemCheckEdit26, Me.RepositoryItemCalcEdit8})
-        Me.ogc9.Size = New System.Drawing.Size(1324, 338)
+        Me.ogc9.Size = New System.Drawing.Size(1546, 475)
         Me.ogc9.TabIndex = 7
         Me.ogc9.TabStop = False
         Me.ogc9.Tag = "2|"
@@ -3640,7 +3470,6 @@ Partial Class wEffByStyle
         'ogv9
         '
         Me.ogv9.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn13, Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17, Me.GridColumn18, Me.GridColumn19, Me.GridColumn20, Me.GridColumn21, Me.GridColumn22, Me.GridColumn23, Me.GridColumn24})
-        Me.ogv9.DetailHeight = 284
         Me.ogv9.GridControl = Me.ogc9
         Me.ogv9.GroupCount = 1
         Me.ogv9.Name = "ogv9"
@@ -3660,7 +3489,6 @@ Partial Class wEffByStyle
         Me.GridColumn13.Caption = "FTSelect"
         Me.GridColumn13.ColumnEdit = Me.RepositoryItemCheckEdit24
         Me.GridColumn13.FieldName = "FTSelect"
-        Me.GridColumn13.MinWidth = 17
         Me.GridColumn13.Name = "GridColumn13"
         Me.GridColumn13.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn13.OptionsColumn.AllowMove = False
@@ -3671,7 +3499,7 @@ Partial Class wEffByStyle
         Me.GridColumn13.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn13.Visible = True
         Me.GridColumn13.VisibleIndex = 0
-        Me.GridColumn13.Width = 35
+        Me.GridColumn13.Width = 41
         '
         'RepositoryItemCheckEdit24
         '
@@ -3687,7 +3515,6 @@ Partial Class wEffByStyle
         Me.GridColumn14.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn14.Caption = "FNHSysEmpID"
         Me.GridColumn14.FieldName = "FNHSysEmpID"
-        Me.GridColumn14.MinWidth = 17
         Me.GridColumn14.Name = "GridColumn14"
         Me.GridColumn14.OptionsColumn.AllowEdit = False
         Me.GridColumn14.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3697,7 +3524,6 @@ Partial Class wEffByStyle
         Me.GridColumn14.OptionsColumn.ReadOnly = True
         Me.GridColumn14.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn14.OptionsColumn.TabStop = False
-        Me.GridColumn14.Width = 64
         '
         'GridColumn15
         '
@@ -3705,7 +3531,6 @@ Partial Class wEffByStyle
         Me.GridColumn15.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn15.Caption = "FTEmpCode"
         Me.GridColumn15.FieldName = "FTEmpCode"
-        Me.GridColumn15.MinWidth = 17
         Me.GridColumn15.Name = "GridColumn15"
         Me.GridColumn15.OptionsColumn.AllowEdit = False
         Me.GridColumn15.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -3717,18 +3542,17 @@ Partial Class wEffByStyle
         Me.GridColumn15.OptionsColumn.TabStop = False
         Me.GridColumn15.Visible = True
         Me.GridColumn15.VisibleIndex = 1
-        Me.GridColumn15.Width = 90
+        Me.GridColumn15.Width = 105
         '
         'GridColumn16
         '
         Me.GridColumn16.Caption = "FTEmpName"
         Me.GridColumn16.FieldName = "FTEmpName"
-        Me.GridColumn16.MinWidth = 17
         Me.GridColumn16.Name = "GridColumn16"
         Me.GridColumn16.OptionsColumn.AllowEdit = False
         Me.GridColumn16.Visible = True
         Me.GridColumn16.VisibleIndex = 2
-        Me.GridColumn16.Width = 204
+        Me.GridColumn16.Width = 238
         '
         'GridColumn17
         '
@@ -3736,7 +3560,6 @@ Partial Class wEffByStyle
         Me.GridColumn17.DisplayFormat.FormatString = "dd/MM/yyyy"
         Me.GridColumn17.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.GridColumn17.FieldName = "FDScanDate"
-        Me.GridColumn17.MinWidth = 17
         Me.GridColumn17.Name = "GridColumn17"
         Me.GridColumn17.OptionsColumn.AllowEdit = False
         Me.GridColumn17.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
@@ -3747,13 +3570,12 @@ Partial Class wEffByStyle
         Me.GridColumn17.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn17.Visible = True
         Me.GridColumn17.VisibleIndex = 3
-        Me.GridColumn17.Width = 71
+        Me.GridColumn17.Width = 83
         '
         'GridColumn18
         '
         Me.GridColumn18.Caption = "FDScanDateOrg"
         Me.GridColumn18.FieldName = "FDScanDateOrg"
-        Me.GridColumn18.MinWidth = 17
         Me.GridColumn18.Name = "GridColumn18"
         Me.GridColumn18.OptionsColumn.AllowEdit = False
         Me.GridColumn18.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3762,39 +3584,33 @@ Partial Class wEffByStyle
         Me.GridColumn18.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn18.OptionsColumn.ReadOnly = True
         Me.GridColumn18.OptionsColumn.ShowInCustomizationForm = False
-        Me.GridColumn18.Width = 64
         '
         'GridColumn19
         '
         Me.GridColumn19.Caption = "Cal User"
         Me.GridColumn19.FieldName = "FTCalUser"
-        Me.GridColumn19.MinWidth = 17
         Me.GridColumn19.Name = "GridColumn19"
         Me.GridColumn19.OptionsColumn.AllowEdit = False
         Me.GridColumn19.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn19.OptionsColumn.AllowMove = False
         Me.GridColumn19.OptionsColumn.AllowShowHide = False
         Me.GridColumn19.OptionsColumn.ReadOnly = True
-        Me.GridColumn19.Width = 64
         '
         'GridColumn20
         '
         Me.GridColumn20.Caption = "Cal Date"
         Me.GridColumn20.FieldName = "FDCalDate"
-        Me.GridColumn20.MinWidth = 17
         Me.GridColumn20.Name = "GridColumn20"
         Me.GridColumn20.OptionsColumn.AllowEdit = False
         Me.GridColumn20.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn20.OptionsColumn.AllowMove = False
         Me.GridColumn20.OptionsColumn.AllowShowHide = False
         Me.GridColumn20.OptionsColumn.ReadOnly = True
-        Me.GridColumn20.Width = 64
         '
         'GridColumn21
         '
         Me.GridColumn21.Caption = "UnitSect Code Cut"
         Me.GridColumn21.FieldName = "FTUnitSectCode"
-        Me.GridColumn21.MinWidth = 17
         Me.GridColumn21.Name = "GridColumn21"
         Me.GridColumn21.OptionsColumn.AllowEdit = False
         Me.GridColumn21.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3806,7 +3622,7 @@ Partial Class wEffByStyle
         Me.GridColumn21.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn21.Visible = True
         Me.GridColumn21.VisibleIndex = 4
-        Me.GridColumn21.Width = 117
+        Me.GridColumn21.Width = 136
         '
         'GridColumn22
         '
@@ -3814,7 +3630,6 @@ Partial Class wEffByStyle
         Me.GridColumn22.DisplayFormat.FormatString = "{0:n2}"
         Me.GridColumn22.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn22.FieldName = "FNTeamIncentiveAmt"
-        Me.GridColumn22.MinWidth = 17
         Me.GridColumn22.Name = "GridColumn22"
         Me.GridColumn22.OptionsColumn.AllowEdit = False
         Me.GridColumn22.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3826,13 +3641,12 @@ Partial Class wEffByStyle
         Me.GridColumn22.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn22.Visible = True
         Me.GridColumn22.VisibleIndex = 5
-        Me.GridColumn22.Width = 133
+        Me.GridColumn22.Width = 155
         '
         'GridColumn23
         '
         Me.GridColumn23.Caption = "Date"
         Me.GridColumn23.FieldName = "FDScanDateOrg"
-        Me.GridColumn23.MinWidth = 17
         Me.GridColumn23.Name = "GridColumn23"
         Me.GridColumn23.OptionsColumn.AllowEdit = False
         Me.GridColumn23.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3843,7 +3657,6 @@ Partial Class wEffByStyle
         Me.GridColumn23.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn23.Visible = True
         Me.GridColumn23.VisibleIndex = 16
-        Me.GridColumn23.Width = 64
         '
         'GridColumn24
         '
@@ -3851,13 +3664,12 @@ Partial Class wEffByStyle
         Me.GridColumn24.DisplayFormat.FormatString = "{0:n2}"
         Me.GridColumn24.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn24.FieldName = "FNNetAmtNewIncentive"
-        Me.GridColumn24.MinWidth = 17
         Me.GridColumn24.Name = "GridColumn24"
         Me.GridColumn24.OptionsColumn.AllowEdit = False
         Me.GridColumn24.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn24.Visible = True
         Me.GridColumn24.VisibleIndex = 6
-        Me.GridColumn24.Width = 130
+        Me.GridColumn24.Width = 152
         '
         'RepositoryItemCheckEdit25
         '
@@ -3891,17 +3703,19 @@ Partial Class wEffByStyle
         Me.SumEmpTime.Controls.Add(Me.ogcEmpTime)
         Me.SumEmpTime.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SumEmpTime.Name = "SumEmpTime"
-        Me.SumEmpTime.Size = New System.Drawing.Size(1324, 338)
+        Me.SumEmpTime.Size = New System.Drawing.Size(1546, 475)
         Me.SumEmpTime.Text = "SumEmpTime"
         '
         'ogcEmpTime
         '
         Me.ogcEmpTime.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcEmpTime.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcEmpTime.Location = New System.Drawing.Point(0, 0)
         Me.ogcEmpTime.MainView = Me.ogvEmpTime
+        Me.ogcEmpTime.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcEmpTime.Name = "ogcEmpTime"
         Me.ogcEmpTime.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit28, Me.RepositoryItemCheckEdit29, Me.RepositoryItemCheckEdit30, Me.RepositoryItemCalcEdit9})
-        Me.ogcEmpTime.Size = New System.Drawing.Size(1324, 338)
+        Me.ogcEmpTime.Size = New System.Drawing.Size(1546, 475)
         Me.ogcEmpTime.TabIndex = 6
         Me.ogcEmpTime.TabStop = False
         Me.ogcEmpTime.Tag = "2|"
@@ -3910,7 +3724,6 @@ Partial Class wEffByStyle
         'ogvEmpTime
         '
         Me.ogvEmpTime.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn12, Me.GridColumn121, Me.GridColumn122, Me.GridColumn127, Me.cEmpTotalActual, Me.cEmpTotalSw, Me.cEmpTotalSwActual, Me.cFNTotalMin, Me.cFNTotalMinPack, Me.cFNMoveInTime, Me.cFNMoveOutTime})
-        Me.ogvEmpTime.DetailHeight = 284
         Me.ogvEmpTime.GridControl = Me.ogcEmpTime
         Me.ogvEmpTime.Name = "ogvEmpTime"
         Me.ogvEmpTime.OptionsCustomization.AllowGroup = False
@@ -3930,7 +3743,6 @@ Partial Class wEffByStyle
         Me.GridColumn12.ColumnEdit = Me.RepositoryItemCheckEdit28
         Me.GridColumn12.FieldName = "FTSelect"
         Me.GridColumn12.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.GridColumn12.MinWidth = 17
         Me.GridColumn12.Name = "GridColumn12"
         Me.GridColumn12.OptionsColumn.AllowEdit = False
         Me.GridColumn12.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3940,7 +3752,7 @@ Partial Class wEffByStyle
         Me.GridColumn12.OptionsColumn.FixedWidth = True
         Me.GridColumn12.OptionsColumn.ShowCaption = False
         Me.GridColumn12.OptionsColumn.ShowInCustomizationForm = False
-        Me.GridColumn12.Width = 35
+        Me.GridColumn12.Width = 41
         '
         'RepositoryItemCheckEdit28
         '
@@ -3957,7 +3769,6 @@ Partial Class wEffByStyle
         Me.GridColumn121.Caption = "FNHSysUnitSectId"
         Me.GridColumn121.FieldName = "FNHSysUnitSectId"
         Me.GridColumn121.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.GridColumn121.MinWidth = 17
         Me.GridColumn121.Name = "GridColumn121"
         Me.GridColumn121.OptionsColumn.AllowEdit = False
         Me.GridColumn121.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3967,7 +3778,6 @@ Partial Class wEffByStyle
         Me.GridColumn121.OptionsColumn.ReadOnly = True
         Me.GridColumn121.OptionsColumn.ShowInCustomizationForm = False
         Me.GridColumn121.OptionsColumn.TabStop = False
-        Me.GridColumn121.Width = 64
         '
         'GridColumn122
         '
@@ -3976,7 +3786,6 @@ Partial Class wEffByStyle
         Me.GridColumn122.Caption = "UnitSect Code"
         Me.GridColumn122.FieldName = "FTUnitSectCode"
         Me.GridColumn122.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.GridColumn122.MinWidth = 17
         Me.GridColumn122.Name = "GridColumn122"
         Me.GridColumn122.OptionsColumn.AllowEdit = False
         Me.GridColumn122.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -3988,7 +3797,7 @@ Partial Class wEffByStyle
         Me.GridColumn122.OptionsColumn.TabStop = False
         Me.GridColumn122.Visible = True
         Me.GridColumn122.VisibleIndex = 0
-        Me.GridColumn122.Width = 90
+        Me.GridColumn122.Width = 105
         '
         'GridColumn127
         '
@@ -3996,14 +3805,13 @@ Partial Class wEffByStyle
         Me.GridColumn127.DisplayFormat.FormatString = "N0"
         Me.GridColumn127.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn127.FieldName = "EmpTotal"
-        Me.GridColumn127.MinWidth = 17
         Me.GridColumn127.Name = "GridColumn127"
         Me.GridColumn127.OptionsColumn.AllowEdit = False
         Me.GridColumn127.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn127.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "EmpTotal", "{0:N0}")})
         Me.GridColumn127.Visible = True
         Me.GridColumn127.VisibleIndex = 1
-        Me.GridColumn127.Width = 72
+        Me.GridColumn127.Width = 84
         '
         'cEmpTotalActual
         '
@@ -4011,14 +3819,13 @@ Partial Class wEffByStyle
         Me.cEmpTotalActual.DisplayFormat.FormatString = "N2"
         Me.cEmpTotalActual.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.cEmpTotalActual.FieldName = "EmpTotalActual"
-        Me.cEmpTotalActual.MinWidth = 17
         Me.cEmpTotalActual.Name = "cEmpTotalActual"
         Me.cEmpTotalActual.OptionsColumn.AllowEdit = False
         Me.cEmpTotalActual.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cEmpTotalActual.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "EmpTotalActual", "{0:N2}")})
         Me.cEmpTotalActual.Visible = True
         Me.cEmpTotalActual.VisibleIndex = 2
-        Me.cEmpTotalActual.Width = 93
+        Me.cEmpTotalActual.Width = 108
         '
         'cEmpTotalSw
         '
@@ -4026,14 +3833,14 @@ Partial Class wEffByStyle
         Me.cEmpTotalSw.DisplayFormat.FormatString = "N0"
         Me.cEmpTotalSw.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.cEmpTotalSw.FieldName = "EmpTotalSw"
-        Me.cEmpTotalSw.MinWidth = 21
+        Me.cEmpTotalSw.MinWidth = 24
         Me.cEmpTotalSw.Name = "cEmpTotalSw"
         Me.cEmpTotalSw.OptionsColumn.AllowEdit = False
         Me.cEmpTotalSw.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cEmpTotalSw.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "EmpTotalSw", "{0:N0}")})
         Me.cEmpTotalSw.Visible = True
         Me.cEmpTotalSw.VisibleIndex = 5
-        Me.cEmpTotalSw.Width = 81
+        Me.cEmpTotalSw.Width = 94
         '
         'cEmpTotalSwActual
         '
@@ -4041,14 +3848,14 @@ Partial Class wEffByStyle
         Me.cEmpTotalSwActual.DisplayFormat.FormatString = "N2"
         Me.cEmpTotalSwActual.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.cEmpTotalSwActual.FieldName = "EmpTotalSwActual"
-        Me.cEmpTotalSwActual.MinWidth = 21
+        Me.cEmpTotalSwActual.MinWidth = 24
         Me.cEmpTotalSwActual.Name = "cEmpTotalSwActual"
         Me.cEmpTotalSwActual.OptionsColumn.AllowEdit = False
         Me.cEmpTotalSwActual.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cEmpTotalSwActual.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "EmpTotalSwActual", "{0:N2}")})
         Me.cEmpTotalSwActual.Visible = True
         Me.cEmpTotalSwActual.VisibleIndex = 6
-        Me.cEmpTotalSwActual.Width = 81
+        Me.cEmpTotalSwActual.Width = 94
         '
         'cFNTotalMin
         '
@@ -4056,14 +3863,14 @@ Partial Class wEffByStyle
         Me.cFNTotalMin.DisplayFormat.FormatString = "N0"
         Me.cFNTotalMin.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.cFNTotalMin.FieldName = "FNTotalMin"
-        Me.cFNTotalMin.MinWidth = 21
+        Me.cFNTotalMin.MinWidth = 24
         Me.cFNTotalMin.Name = "cFNTotalMin"
         Me.cFNTotalMin.OptionsColumn.AllowEdit = False
         Me.cFNTotalMin.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFNTotalMin.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNTotalMin", "{0:N0}")})
         Me.cFNTotalMin.Visible = True
         Me.cFNTotalMin.VisibleIndex = 3
-        Me.cFNTotalMin.Width = 146
+        Me.cFNTotalMin.Width = 170
         '
         'cFNTotalMinPack
         '
@@ -4071,14 +3878,14 @@ Partial Class wEffByStyle
         Me.cFNTotalMinPack.DisplayFormat.FormatString = "N0"
         Me.cFNTotalMinPack.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.cFNTotalMinPack.FieldName = "FNTotalMinPack"
-        Me.cFNTotalMinPack.MinWidth = 21
+        Me.cFNTotalMinPack.MinWidth = 24
         Me.cFNTotalMinPack.Name = "cFNTotalMinPack"
         Me.cFNTotalMinPack.OptionsColumn.AllowEdit = False
         Me.cFNTotalMinPack.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFNTotalMinPack.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNTotalMinPack", "{0:N0}")})
         Me.cFNTotalMinPack.Visible = True
         Me.cFNTotalMinPack.VisibleIndex = 4
-        Me.cFNTotalMinPack.Width = 119
+        Me.cFNTotalMinPack.Width = 139
         '
         'cFNMoveInTime
         '
@@ -4086,14 +3893,14 @@ Partial Class wEffByStyle
         Me.cFNMoveInTime.DisplayFormat.FormatString = "N0"
         Me.cFNMoveInTime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.cFNMoveInTime.FieldName = "FNMoveInTime"
-        Me.cFNMoveInTime.MinWidth = 21
+        Me.cFNMoveInTime.MinWidth = 24
         Me.cFNMoveInTime.Name = "cFNMoveInTime"
         Me.cFNMoveInTime.OptionsColumn.AllowEdit = False
         Me.cFNMoveInTime.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFNMoveInTime.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNMoveInTime", "{0:N0}")})
         Me.cFNMoveInTime.Visible = True
         Me.cFNMoveInTime.VisibleIndex = 7
-        Me.cFNMoveInTime.Width = 92
+        Me.cFNMoveInTime.Width = 107
         '
         'cFNMoveOutTime
         '
@@ -4101,14 +3908,14 @@ Partial Class wEffByStyle
         Me.cFNMoveOutTime.DisplayFormat.FormatString = "N0"
         Me.cFNMoveOutTime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.cFNMoveOutTime.FieldName = "FNMoveOutTime"
-        Me.cFNMoveOutTime.MinWidth = 21
+        Me.cFNMoveOutTime.MinWidth = 24
         Me.cFNMoveOutTime.Name = "cFNMoveOutTime"
         Me.cFNMoveOutTime.OptionsColumn.AllowEdit = False
         Me.cFNMoveOutTime.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFNMoveOutTime.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNMoveOutTime", "{0:N0}")})
         Me.cFNMoveOutTime.Visible = True
         Me.cFNMoveOutTime.VisibleIndex = 8
-        Me.cFNMoveOutTime.Width = 98
+        Me.cFNMoveOutTime.Width = 114
         '
         'RepositoryItemCheckEdit29
         '
@@ -4141,9 +3948,10 @@ Partial Class wEffByStyle
         '
         Me.ogbeffper.Controls.Add(Me.effper_lbl)
         Me.ogbeffper.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ogbeffper.Location = New System.Drawing.Point(1045, 0)
+        Me.ogbeffper.Location = New System.Drawing.Point(1218, 0)
+        Me.ogbeffper.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbeffper.Name = "ogbeffper"
-        Me.ogbeffper.Size = New System.Drawing.Size(282, 225)
+        Me.ogbeffper.Size = New System.Drawing.Size(329, 217)
         Me.ogbeffper.TabIndex = 5
         Me.ogbeffper.Text = "EffPer (%)"
         '
@@ -4157,9 +3965,10 @@ Partial Class wEffByStyle
         Me.effper_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.effper_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.effper_lbl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.effper_lbl.Location = New System.Drawing.Point(2, 23)
+        Me.effper_lbl.Location = New System.Drawing.Point(2, 28)
+        Me.effper_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.effper_lbl.Name = "effper_lbl"
-        Me.effper_lbl.Size = New System.Drawing.Size(278, 200)
+        Me.effper_lbl.Size = New System.Drawing.Size(325, 187)
         Me.effper_lbl.TabIndex = 282
         Me.effper_lbl.Tag = "2|"
         Me.effper_lbl.Text = "999.00"
@@ -4168,7 +3977,8 @@ Partial Class wEffByStyle
         '
         Me.FTEndDate.EditValue = Nothing
         Me.FTEndDate.EnterMoveNextControl = True
-        Me.FTEndDate.Location = New System.Drawing.Point(506, 53)
+        Me.FTEndDate.Location = New System.Drawing.Point(590, 65)
+        Me.FTEndDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTEndDate.Name = "FTEndDate"
         Me.FTEndDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTEndDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -4176,7 +3986,7 @@ Partial Class wEffByStyle
         Me.FTEndDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndDate.Properties.NullDate = ""
-        Me.FTEndDate.Size = New System.Drawing.Size(113, 20)
+        Me.FTEndDate.Size = New System.Drawing.Size(132, 22)
         Me.FTEndDate.TabIndex = 5
         Me.FTEndDate.Tag = "2|"
         '
@@ -4187,9 +3997,10 @@ Partial Class wEffByStyle
         Me.FTEndDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEndDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEndDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEndDate_lbl.Location = New System.Drawing.Point(400, 53)
+        Me.FTEndDate_lbl.Location = New System.Drawing.Point(467, 65)
+        Me.FTEndDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTEndDate_lbl.Name = "FTEndDate_lbl"
-        Me.FTEndDate_lbl.Size = New System.Drawing.Size(105, 19)
+        Me.FTEndDate_lbl.Size = New System.Drawing.Size(122, 23)
         Me.FTEndDate_lbl.TabIndex = 282
         Me.FTEndDate_lbl.Tag = "2|"
         Me.FTEndDate_lbl.Text = "Date :"
@@ -4214,6 +4025,7 @@ Partial Class wEffByStyle
         Me.ogbheader.ID = New System.Guid("77b9346d-8d15-4323-af1e-af82afa9902a")
         Me.ogbheader.ImageOptions.Image = CType(resources.GetObject("ogbheader.ImageOptions.Image"), System.Drawing.Image)
         Me.ogbheader.Location = New System.Drawing.Point(0, 0)
+        Me.ogbheader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbheader.Name = "ogbheader"
         Me.ogbheader.Options.AllowDockBottom = False
         Me.ogbheader.Options.AllowDockFill = False
@@ -4221,7 +4033,7 @@ Partial Class wEffByStyle
         Me.ogbheader.Options.ShowCloseButton = False
         Me.ogbheader.Options.ShowMaximizeButton = False
         Me.ogbheader.OriginalSize = New System.Drawing.Size(1555, 255)
-        Me.ogbheader.Size = New System.Drawing.Size(1333, 255)
+        Me.ogbheader.Size = New System.Drawing.Size(1555, 255)
         Me.ogbheader.TabStop = False
         Me.ogbheader.Text = "Criteria"
         '
@@ -4244,167 +4056,18 @@ Partial Class wEffByStyle
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysUnitSectIdTo_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysUnitSectId)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysUnitSectIdTo_None)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 26)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 32)
+        Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1327, 225)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1547, 217)
         Me.DockPanel1_Container.TabIndex = 0
-        '
-        'ogccmp
-        '
-        Me.ogccmp.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ogccmp.Location = New System.Drawing.Point(712, 0)
-        Me.ogccmp.MainView = Me.ogvcmp
-        Me.ogccmp.Name = "ogccmp"
-        Me.ogccmp.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit27, Me.ReposFNCompensationFoundByYearOption})
-        Me.ogccmp.Size = New System.Drawing.Size(333, 225)
-        Me.ogccmp.TabIndex = 100003
-        Me.ogccmp.TabStop = False
-        Me.ogccmp.Tag = "3|"
-        Me.ogccmp.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvcmp})
-        '
-        'ogvcmp
-        '
-        Me.ogvcmp.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GCmpSelectCmp, Me.GridColumn1, Me.FTCmpCode, Me.FTCmpName, Me.FTIPServer})
-        Me.ogvcmp.GridControl = Me.ogccmp
-        Me.ogvcmp.Name = "ogvcmp"
-        Me.ogvcmp.OptionsCustomization.AllowGroup = False
-        Me.ogvcmp.OptionsCustomization.AllowQuickHideColumns = False
-        Me.ogvcmp.OptionsView.ColumnAutoWidth = False
-        Me.ogvcmp.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
-        Me.ogvcmp.OptionsView.ShowGroupPanel = False
-        Me.ogvcmp.Tag = "3|"
-        '
-        'GCmpSelectCmp
-        '
-        Me.GCmpSelectCmp.AppearanceHeader.Options.UseTextOptions = True
-        Me.GCmpSelectCmp.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GCmpSelectCmp.Caption = " "
-        Me.GCmpSelectCmp.ColumnEdit = Me.RepositoryItemCheckEdit27
-        Me.GCmpSelectCmp.FieldName = "FTSelect"
-        Me.GCmpSelectCmp.Name = "GCmpSelectCmp"
-        Me.GCmpSelectCmp.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GCmpSelectCmp.OptionsColumn.AllowMove = False
-        Me.GCmpSelectCmp.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GCmpSelectCmp.OptionsColumn.ShowCaption = False
-        Me.GCmpSelectCmp.Visible = True
-        Me.GCmpSelectCmp.VisibleIndex = 0
-        Me.GCmpSelectCmp.Width = 22
-        '
-        'RepositoryItemCheckEdit27
-        '
-        Me.RepositoryItemCheckEdit27.AutoHeight = False
-        Me.RepositoryItemCheckEdit27.Caption = "Check"
-        Me.RepositoryItemCheckEdit27.Name = "RepositoryItemCheckEdit27"
-        Me.RepositoryItemCheckEdit27.ValueChecked = "1"
-        Me.RepositoryItemCheckEdit27.ValueUnchecked = "0"
-        '
-        'GridColumn1
-        '
-        Me.GridColumn1.Caption = "FNHSysCmpId"
-        Me.GridColumn1.FieldName = "FNHSysCmpId"
-        Me.GridColumn1.Name = "GridColumn1"
-        Me.GridColumn1.OptionsColumn.AllowEdit = False
-        Me.GridColumn1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn1.OptionsColumn.AllowMove = False
-        Me.GridColumn1.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        '
-        'FTCmpCode
-        '
-        Me.FTCmpCode.AppearanceHeader.Options.UseTextOptions = True
-        Me.FTCmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTCmpCode.Caption = "FTCmpCode"
-        Me.FTCmpCode.FieldName = "FTCmpCode"
-        Me.FTCmpCode.Name = "FTCmpCode"
-        Me.FTCmpCode.OptionsColumn.AllowEdit = False
-        Me.FTCmpCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTCmpCode.OptionsColumn.AllowMove = False
-        Me.FTCmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTCmpCode.Visible = True
-        Me.FTCmpCode.VisibleIndex = 1
-        Me.FTCmpCode.Width = 65
-        '
-        'FTCmpName
-        '
-        Me.FTCmpName.AppearanceHeader.Options.UseTextOptions = True
-        Me.FTCmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTCmpName.Caption = "FTCmpName"
-        Me.FTCmpName.FieldName = "FTCmpName"
-        Me.FTCmpName.Name = "FTCmpName"
-        Me.FTCmpName.OptionsColumn.AllowEdit = False
-        Me.FTCmpName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTCmpName.OptionsColumn.AllowMove = False
-        Me.FTCmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTCmpName.Visible = True
-        Me.FTCmpName.VisibleIndex = 2
-        Me.FTCmpName.Width = 365
-        '
-        'FTIPServer
-        '
-        Me.FTIPServer.Caption = "FTIPServer"
-        Me.FTIPServer.FieldName = "FTIPServer"
-        Me.FTIPServer.Name = "FTIPServer"
-        '
-        'ReposFNCompensationFoundByYearOption
-        '
-        Me.ReposFNCompensationFoundByYearOption.AutoHeight = False
-        Me.ReposFNCompensationFoundByYearOption.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.ReposFNCompensationFoundByYearOption.Name = "ReposFNCompensationFoundByYearOption"
-        Me.ReposFNCompensationFoundByYearOption.Tag = "FNCompensationFoundByYearOption"
-        Me.ReposFNCompensationFoundByYearOption.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        '
-        'FNHSysStyleId
-        '
-        Me.FNHSysStyleId.Location = New System.Drawing.Point(113, 6)
-        Me.FNHSysStyleId.Name = "FNHSysStyleId"
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FNHSysStyleId.Properties.Tag = "57"
-        Me.FNHSysStyleId.Size = New System.Drawing.Size(113, 20)
-        Me.FNHSysStyleId.TabIndex = 0
-        Me.FNHSysStyleId.Tag = "2|"
-        '
-        'FNHSysStyleId_lbl
-        '
-        Me.FNHSysStyleId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysStyleId_lbl.Appearance.Options.UseForeColor = True
-        Me.FNHSysStyleId_lbl.Appearance.Options.UseTextOptions = True
-        Me.FNHSysStyleId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FNHSysStyleId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysStyleId_lbl.Location = New System.Drawing.Point(3, 6)
-        Me.FNHSysStyleId_lbl.Name = "FNHSysStyleId_lbl"
-        Me.FNHSysStyleId_lbl.Size = New System.Drawing.Size(107, 17)
-        Me.FNHSysStyleId_lbl.TabIndex = 100004
-        Me.FNHSysStyleId_lbl.Tag = "2|"
-        Me.FNHSysStyleId_lbl.Text = "FNHSysStyleId:"
-        '
-        'FNHSysStyleId_None
-        '
-        Me.FNHSysStyleId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysStyleId_None.Location = New System.Drawing.Point(228, 6)
-        Me.FNHSysStyleId_None.Name = "FNHSysStyleId_None"
-        Me.FNHSysStyleId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysStyleId_None.Properties.Appearance.Options.UseBackColor = True
-        Me.FNHSysStyleId_None.Properties.ReadOnly = True
-        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(257, 20)
-        Me.FNHSysStyleId_None.TabIndex = 100005
-        Me.FNHSysStyleId_None.Tag = "2|"
-        '
-        'ogbdetail
-        '
-        Me.ogbdetail.Controls.Add(Me.ogbemployee)
-        Me.ogbdetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbdetail.Location = New System.Drawing.Point(0, 255)
-        Me.ogbdetail.Name = "ogbdetail"
-        Me.ogbdetail.ShowCaption = False
-        Me.ogbdetail.Size = New System.Drawing.Size(1333, 388)
-        Me.ogbdetail.TabIndex = 100001
-        Me.ogbdetail.Text = "GroupControl1"
         '
         'FNReportGridMergeFormat
         '
         Me.FNReportGridMergeFormat.EditValue = ""
         Me.FNReportGridMergeFormat.EnterMoveNextControl = True
-        Me.FNReportGridMergeFormat.Location = New System.Drawing.Point(113, 79)
+        Me.FNReportGridMergeFormat.Location = New System.Drawing.Point(132, 97)
+        Me.FNReportGridMergeFormat.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNReportGridMergeFormat.Name = "FNReportGridMergeFormat"
         Me.FNReportGridMergeFormat.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNReportGridMergeFormat.Properties.Appearance.Options.UseBackColor = True
@@ -4423,7 +4086,7 @@ Partial Class wEffByStyle
         Me.FNReportGridMergeFormat.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNReportGridMergeFormat.Properties.Tag = "FNReportGridMergeFormat"
         Me.FNReportGridMergeFormat.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNReportGridMergeFormat.Size = New System.Drawing.Size(404, 20)
+        Me.FNReportGridMergeFormat.Size = New System.Drawing.Size(471, 22)
         Me.FNReportGridMergeFormat.TabIndex = 100003
         Me.FNReportGridMergeFormat.Tag = "2|"
         '
@@ -4434,21 +4097,188 @@ Partial Class wEffByStyle
         Me.FNReportGridMergeFormat_lbl.Appearance.Options.UseTextOptions = True
         Me.FNReportGridMergeFormat_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNReportGridMergeFormat_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNReportGridMergeFormat_lbl.Location = New System.Drawing.Point(16, 79)
+        Me.FNReportGridMergeFormat_lbl.Location = New System.Drawing.Point(19, 97)
+        Me.FNReportGridMergeFormat_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNReportGridMergeFormat_lbl.Name = "FNReportGridMergeFormat_lbl"
-        Me.FNReportGridMergeFormat_lbl.Size = New System.Drawing.Size(93, 19)
+        Me.FNReportGridMergeFormat_lbl.Size = New System.Drawing.Size(108, 23)
         Me.FNReportGridMergeFormat_lbl.TabIndex = 100004
         Me.FNReportGridMergeFormat_lbl.Tag = "2|"
         Me.FNReportGridMergeFormat_lbl.Text = "Gird Merge :"
         '
+        'ogccmp
+        '
+        Me.ogccmp.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ogccmp.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogccmp.Location = New System.Drawing.Point(830, 0)
+        Me.ogccmp.MainView = Me.ogvcmp
+        Me.ogccmp.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogccmp.Name = "ogccmp"
+        Me.ogccmp.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit27, Me.ReposFNCompensationFoundByYearOption})
+        Me.ogccmp.Size = New System.Drawing.Size(388, 217)
+        Me.ogccmp.TabIndex = 100003
+        Me.ogccmp.TabStop = False
+        Me.ogccmp.Tag = "3|"
+        Me.ogccmp.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvcmp})
+        '
+        'ogvcmp
+        '
+        Me.ogvcmp.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GCmpSelectCmp, Me.GridColumn1, Me.FTCmpCode, Me.FTCmpName, Me.FTIPServer})
+        Me.ogvcmp.DetailHeight = 431
+        Me.ogvcmp.GridControl = Me.ogccmp
+        Me.ogvcmp.Name = "ogvcmp"
+        Me.ogvcmp.OptionsCustomization.AllowGroup = False
+        Me.ogvcmp.OptionsCustomization.AllowQuickHideColumns = False
+        Me.ogvcmp.OptionsView.ColumnAutoWidth = False
+        Me.ogvcmp.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
+        Me.ogvcmp.OptionsView.ShowGroupPanel = False
+        Me.ogvcmp.Tag = "3|"
+        '
+        'GCmpSelectCmp
+        '
+        Me.GCmpSelectCmp.AppearanceHeader.Options.UseTextOptions = True
+        Me.GCmpSelectCmp.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GCmpSelectCmp.Caption = " "
+        Me.GCmpSelectCmp.ColumnEdit = Me.RepositoryItemCheckEdit27
+        Me.GCmpSelectCmp.FieldName = "FTSelect"
+        Me.GCmpSelectCmp.MinWidth = 23
+        Me.GCmpSelectCmp.Name = "GCmpSelectCmp"
+        Me.GCmpSelectCmp.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GCmpSelectCmp.OptionsColumn.AllowMove = False
+        Me.GCmpSelectCmp.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GCmpSelectCmp.OptionsColumn.ShowCaption = False
+        Me.GCmpSelectCmp.Visible = True
+        Me.GCmpSelectCmp.VisibleIndex = 0
+        Me.GCmpSelectCmp.Width = 26
+        '
+        'RepositoryItemCheckEdit27
+        '
+        Me.RepositoryItemCheckEdit27.AutoHeight = False
+        Me.RepositoryItemCheckEdit27.Caption = "Check"
+        Me.RepositoryItemCheckEdit27.Name = "RepositoryItemCheckEdit27"
+        Me.RepositoryItemCheckEdit27.ValueChecked = "1"
+        Me.RepositoryItemCheckEdit27.ValueUnchecked = "0"
+        '
+        'GridColumn1
+        '
+        Me.GridColumn1.Caption = "FNHSysCmpId"
+        Me.GridColumn1.FieldName = "FNHSysCmpId"
+        Me.GridColumn1.MinWidth = 23
+        Me.GridColumn1.Name = "GridColumn1"
+        Me.GridColumn1.OptionsColumn.AllowEdit = False
+        Me.GridColumn1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridColumn1.OptionsColumn.AllowMove = False
+        Me.GridColumn1.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridColumn1.Width = 87
+        '
+        'FTCmpCode
+        '
+        Me.FTCmpCode.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTCmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTCmpCode.Caption = "FTCmpCode"
+        Me.FTCmpCode.FieldName = "FTCmpCode"
+        Me.FTCmpCode.MinWidth = 23
+        Me.FTCmpCode.Name = "FTCmpCode"
+        Me.FTCmpCode.OptionsColumn.AllowEdit = False
+        Me.FTCmpCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTCmpCode.OptionsColumn.AllowMove = False
+        Me.FTCmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTCmpCode.Visible = True
+        Me.FTCmpCode.VisibleIndex = 1
+        Me.FTCmpCode.Width = 76
+        '
+        'FTCmpName
+        '
+        Me.FTCmpName.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTCmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTCmpName.Caption = "FTCmpName"
+        Me.FTCmpName.FieldName = "FTCmpName"
+        Me.FTCmpName.MinWidth = 23
+        Me.FTCmpName.Name = "FTCmpName"
+        Me.FTCmpName.OptionsColumn.AllowEdit = False
+        Me.FTCmpName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTCmpName.OptionsColumn.AllowMove = False
+        Me.FTCmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTCmpName.Visible = True
+        Me.FTCmpName.VisibleIndex = 2
+        Me.FTCmpName.Width = 426
+        '
+        'FTIPServer
+        '
+        Me.FTIPServer.Caption = "FTIPServer"
+        Me.FTIPServer.FieldName = "FTIPServer"
+        Me.FTIPServer.MinWidth = 23
+        Me.FTIPServer.Name = "FTIPServer"
+        Me.FTIPServer.Width = 87
+        '
+        'ReposFNCompensationFoundByYearOption
+        '
+        Me.ReposFNCompensationFoundByYearOption.AutoHeight = False
+        Me.ReposFNCompensationFoundByYearOption.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.ReposFNCompensationFoundByYearOption.Name = "ReposFNCompensationFoundByYearOption"
+        Me.ReposFNCompensationFoundByYearOption.Tag = "FNCompensationFoundByYearOption"
+        Me.ReposFNCompensationFoundByYearOption.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        '
+        'FNHSysStyleId
+        '
+        Me.FNHSysStyleId.Location = New System.Drawing.Point(132, 7)
+        Me.FNHSysStyleId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysStyleId.Name = "FNHSysStyleId"
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleId.Properties.Tag = "57"
+        Me.FNHSysStyleId.Size = New System.Drawing.Size(132, 22)
+        Me.FNHSysStyleId.TabIndex = 0
+        Me.FNHSysStyleId.Tag = "2|"
+        '
+        'FNHSysStyleId_lbl
+        '
+        Me.FNHSysStyleId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysStyleId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysStyleId_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNHSysStyleId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNHSysStyleId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNHSysStyleId_lbl.Location = New System.Drawing.Point(3, 7)
+        Me.FNHSysStyleId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysStyleId_lbl.Name = "FNHSysStyleId_lbl"
+        Me.FNHSysStyleId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysStyleId_lbl.TabIndex = 100004
+        Me.FNHSysStyleId_lbl.Tag = "2|"
+        Me.FNHSysStyleId_lbl.Text = "FNHSysStyleId:"
+        '
+        'FNHSysStyleId_None
+        '
+        Me.FNHSysStyleId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FNHSysStyleId_None.Location = New System.Drawing.Point(266, 7)
+        Me.FNHSysStyleId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysStyleId_None.Name = "FNHSysStyleId_None"
+        Me.FNHSysStyleId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysStyleId_None.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysStyleId_None.Properties.ReadOnly = True
+        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(520, 22)
+        Me.FNHSysStyleId_None.TabIndex = 100005
+        Me.FNHSysStyleId_None.Tag = "2|"
+        '
+        'ogbdetail
+        '
+        Me.ogbdetail.Controls.Add(Me.ogbemployee)
+        Me.ogbdetail.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogbdetail.Location = New System.Drawing.Point(0, 255)
+        Me.ogbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbdetail.Name = "ogbdetail"
+        Me.ogbdetail.ShowCaption = False
+        Me.ogbdetail.Size = New System.Drawing.Size(1555, 536)
+        Me.ogbdetail.TabIndex = 100001
+        Me.ogbdetail.Text = "GroupControl1"
+        '
         'wEffByStyle
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1333, 643)
+        Me.ClientSize = New System.Drawing.Size(1555, 791)
         Me.Controls.Add(Me.ogbdetail)
         Me.Controls.Add(Me.ogbheader)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "wEffByStyle"
         Me.Text = "wEffByStyle"
         CType(Me.FNHSysUnitSectIdTo_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -4547,6 +4377,7 @@ Partial Class wEffByStyle
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbheader.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
+        CType(Me.FNReportGridMergeFormat.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogccmp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogvcmp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit27, System.ComponentModel.ISupportInitialize).EndInit()
@@ -4555,7 +4386,6 @@ Partial Class wEffByStyle
         CType(Me.FNHSysStyleId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbdetail, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbdetail.ResumeLayout(False)
-        CType(Me.FNReportGridMergeFormat.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

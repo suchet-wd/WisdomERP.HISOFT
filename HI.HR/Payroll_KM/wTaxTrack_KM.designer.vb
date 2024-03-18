@@ -191,9 +191,10 @@ Partial Class wTaxTrack_KM
         Me.FNSeniorityAmt45 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNSeniorityAmt46 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNSeniorityAmt47 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNTripAllowance = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNAllowanceNewYear = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryFTSelect = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.RepositoryFTApproveState = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
-        Me.FNTripAllowance = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.hideContainerTop.SuspendLayout()
         Me.ogbheader.SuspendLayout()
@@ -265,7 +266,7 @@ Partial Class wTaxTrack_KM
         Me.ogbheader.DockVertical = DevExpress.Utils.DefaultBoolean.[False]
         Me.ogbheader.ID = New System.Guid("77b9346d-8d15-4323-af1e-af82afa9902a")
         Me.ogbheader.ImageOptions.Image = CType(resources.GetObject("ogbheader.ImageOptions.Image"), System.Drawing.Image)
-        Me.ogbheader.Location = New System.Drawing.Point(0, 44)
+        Me.ogbheader.Location = New System.Drawing.Point(0, 0)
         Me.ogbheader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbheader.Name = "ogbheader"
         Me.ogbheader.Options.AllowDockBottom = False
@@ -937,7 +938,7 @@ Partial Class wTaxTrack_KM
         Me.ogbemployee.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbemployee.Name = "ogbemployee"
         Me.ogbemployee.ShowCaption = False
-        Me.ogbemployee.Size = New System.Drawing.Size(1757, 798)
+        Me.ogbemployee.Size = New System.Drawing.Size(1757, 789)
         Me.ogbemployee.TabIndex = 388
         Me.ogbemployee.Text = "Employee"
         '
@@ -1016,7 +1017,7 @@ Partial Class wTaxTrack_KM
         Me.ogc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Name = "ogc"
         Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSelect, Me.RepositoryFTApproveState})
-        Me.ogc.Size = New System.Drawing.Size(1750, 787)
+        Me.ogc.Size = New System.Drawing.Size(1750, 778)
         Me.ogc.TabIndex = 3
         Me.ogc.TabStop = False
         Me.ogc.Tag = "2|"
@@ -1024,7 +1025,7 @@ Partial Class wTaxTrack_KM
         '
         'ogv
         '
-        Me.ogv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNRowNo, Me.FTEmpName, Me.FTEmpCodeRefer, Me.FTSocialNo, Me.FTEmpIdNo, Me.FTEmpSurnameTH, Me.FTEmpNameTH, Me.FTEmpSurnameEN, Me.FTEmpNameEN, Me.FDBirthDate, Me.FNEmpSex, Me.FTNationalityName, Me.FDDateStart, Me.FTEmpTypeGroup, Me.FTEmpTypeCode, Me.FTUnitSectName, Me.FTPositName, Me.FNEmpStatus, Me.FNSalaryReal, Me.FNNetpay, Me.FNSocialBase, Me.FNSocial, Me.FNTotalRecalSSO, Me.FNTotalIncome, Me.FNTotalIncomeReil, Me.FNAssumedWageRiel, Me.FNAllowance, Me.FNTaxAmtUs, Me.FNTaxAmtRiel, Me.FNCompany_Contribution_Riel, Me.TotalAll, Me.FTEmpCode, Me.FNTransportAmt, Me.FNChildCareAmt, Me.FNHealtCareAmt, Me.FNOTMealAmtUS, Me.FNTaxExchangeRate, Me.FNChildNo, Me.FNTotalRecalTAXUS, Me.FNTotalRecalTAX, Me.FNMaritalDisTaxAmt, Me.FNBaseSalary, Me.FCTaxReil, Me.Signature, Me.FNSeniorityAmt44, Me.FNSeniorityAmt45, Me.FNSeniorityAmt46, Me.FNSeniorityAmt47, Me.FNTripAllowance})
+        Me.ogv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNRowNo, Me.FTEmpName, Me.FTEmpCodeRefer, Me.FTSocialNo, Me.FTEmpIdNo, Me.FTEmpSurnameTH, Me.FTEmpNameTH, Me.FTEmpSurnameEN, Me.FTEmpNameEN, Me.FDBirthDate, Me.FNEmpSex, Me.FTNationalityName, Me.FDDateStart, Me.FTEmpTypeGroup, Me.FTEmpTypeCode, Me.FTUnitSectName, Me.FTPositName, Me.FNEmpStatus, Me.FNSalaryReal, Me.FNNetpay, Me.FNSocialBase, Me.FNSocial, Me.FNTotalRecalSSO, Me.FNTotalIncome, Me.FNTotalIncomeReil, Me.FNAssumedWageRiel, Me.FNAllowance, Me.FNTaxAmtUs, Me.FNTaxAmtRiel, Me.FNCompany_Contribution_Riel, Me.TotalAll, Me.FTEmpCode, Me.FNTransportAmt, Me.FNChildCareAmt, Me.FNHealtCareAmt, Me.FNOTMealAmtUS, Me.FNTaxExchangeRate, Me.FNChildNo, Me.FNTripAllowance, Me.FNAllowanceNewYear, Me.FNTotalRecalTAXUS, Me.FNTotalRecalTAX, Me.FNMaritalDisTaxAmt, Me.FNBaseSalary, Me.FCTaxReil, Me.Signature, Me.FNSeniorityAmt44, Me.FNSeniorityAmt45, Me.FNSeniorityAmt46, Me.FNSeniorityAmt47})
         Me.ogv.GridControl = Me.ogc
         Me.ogv.Name = "ogv"
         Me.ogv.OptionsCustomization.AllowQuickHideColumns = False
@@ -1382,7 +1383,7 @@ Partial Class wTaxTrack_KM
         Me.FNAllowance.OptionsColumn.ReadOnly = True
         Me.FNAllowance.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNAllowance", "{0:N2}")})
         Me.FNAllowance.Visible = True
-        Me.FNAllowance.VisibleIndex = 34
+        Me.FNAllowance.VisibleIndex = 35
         Me.FNAllowance.Width = 133
         '
         'FNTaxAmtUs
@@ -1396,7 +1397,7 @@ Partial Class wTaxTrack_KM
         Me.FNTaxAmtUs.OptionsColumn.ReadOnly = True
         Me.FNTaxAmtUs.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNTaxAmtUS", "{0:N2}")})
         Me.FNTaxAmtUs.Visible = True
-        Me.FNTaxAmtUs.VisibleIndex = 33
+        Me.FNTaxAmtUs.VisibleIndex = 34
         Me.FNTaxAmtUs.Width = 120
         '
         'FNTaxAmtRiel
@@ -1410,7 +1411,7 @@ Partial Class wTaxTrack_KM
         Me.FNTaxAmtRiel.OptionsColumn.ReadOnly = True
         Me.FNTaxAmtRiel.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNTaxAmtRiel", "{0:N2}")})
         Me.FNTaxAmtRiel.Visible = True
-        Me.FNTaxAmtRiel.VisibleIndex = 32
+        Me.FNTaxAmtRiel.VisibleIndex = 33
         Me.FNTaxAmtRiel.Width = 125
         '
         'FNCompany_Contribution_Riel
@@ -1470,7 +1471,7 @@ Partial Class wTaxTrack_KM
         Me.FNChildCareAmt.Name = "FNChildCareAmt"
         Me.FNChildCareAmt.OptionsColumn.AllowEdit = False
         Me.FNChildCareAmt.Visible = True
-        Me.FNChildCareAmt.VisibleIndex = 24
+        Me.FNChildCareAmt.VisibleIndex = 25
         Me.FNChildCareAmt.Width = 125
         '
         'FNHealtCareAmt
@@ -1504,7 +1505,7 @@ Partial Class wTaxTrack_KM
         Me.FNTaxExchangeRate.Name = "FNTaxExchangeRate"
         Me.FNTaxExchangeRate.OptionsColumn.AllowEdit = False
         Me.FNTaxExchangeRate.Visible = True
-        Me.FNTaxExchangeRate.VisibleIndex = 30
+        Me.FNTaxExchangeRate.VisibleIndex = 31
         Me.FNTaxExchangeRate.Width = 106
         '
         'FNChildNo
@@ -1516,7 +1517,7 @@ Partial Class wTaxTrack_KM
         Me.FNChildNo.Name = "FNChildNo"
         Me.FNChildNo.OptionsColumn.AllowEdit = False
         Me.FNChildNo.Visible = True
-        Me.FNChildNo.VisibleIndex = 27
+        Me.FNChildNo.VisibleIndex = 28
         Me.FNChildNo.Width = 88
         '
         'FNTotalRecalTAXUS
@@ -1528,7 +1529,7 @@ Partial Class wTaxTrack_KM
         Me.FNTotalRecalTAXUS.Name = "FNTotalRecalTAXUS"
         Me.FNTotalRecalTAXUS.OptionsColumn.AllowEdit = False
         Me.FNTotalRecalTAXUS.Visible = True
-        Me.FNTotalRecalTAXUS.VisibleIndex = 25
+        Me.FNTotalRecalTAXUS.VisibleIndex = 26
         Me.FNTotalRecalTAXUS.Width = 117
         '
         'FNTotalRecalTAX
@@ -1540,7 +1541,7 @@ Partial Class wTaxTrack_KM
         Me.FNTotalRecalTAX.Name = "FNTotalRecalTAX"
         Me.FNTotalRecalTAX.OptionsColumn.AllowEdit = False
         Me.FNTotalRecalTAX.Visible = True
-        Me.FNTotalRecalTAX.VisibleIndex = 26
+        Me.FNTotalRecalTAX.VisibleIndex = 27
         Me.FNTotalRecalTAX.Width = 105
         '
         'FNMaritalDisTaxAmt
@@ -1553,7 +1554,7 @@ Partial Class wTaxTrack_KM
         Me.FNMaritalDisTaxAmt.OptionsColumn.AllowEdit = False
         Me.FNMaritalDisTaxAmt.OptionsFilter.AllowAutoFilter = False
         Me.FNMaritalDisTaxAmt.Visible = True
-        Me.FNMaritalDisTaxAmt.VisibleIndex = 28
+        Me.FNMaritalDisTaxAmt.VisibleIndex = 29
         Me.FNMaritalDisTaxAmt.Width = 121
         '
         'FNBaseSalary
@@ -1565,7 +1566,7 @@ Partial Class wTaxTrack_KM
         Me.FNBaseSalary.Name = "FNBaseSalary"
         Me.FNBaseSalary.OptionsColumn.AllowEdit = False
         Me.FNBaseSalary.Visible = True
-        Me.FNBaseSalary.VisibleIndex = 29
+        Me.FNBaseSalary.VisibleIndex = 30
         Me.FNBaseSalary.Width = 151
         '
         'FCTaxReil
@@ -1577,7 +1578,7 @@ Partial Class wTaxTrack_KM
         Me.FCTaxReil.Name = "FCTaxReil"
         Me.FCTaxReil.OptionsColumn.AllowEdit = False
         Me.FCTaxReil.Visible = True
-        Me.FCTaxReil.VisibleIndex = 31
+        Me.FCTaxReil.VisibleIndex = 32
         Me.FCTaxReil.Width = 97
         '
         'Signature
@@ -1587,7 +1588,7 @@ Partial Class wTaxTrack_KM
         Me.Signature.Name = "Signature"
         Me.Signature.OptionsColumn.AllowEdit = False
         Me.Signature.Visible = True
-        Me.Signature.VisibleIndex = 35
+        Me.Signature.VisibleIndex = 36
         Me.Signature.Width = 156
         '
         'FNSeniorityAmt44
@@ -1642,6 +1643,36 @@ Partial Class wTaxTrack_KM
         Me.FNSeniorityAmt47.VisibleIndex = 17
         Me.FNSeniorityAmt47.Width = 122
         '
+        'FNTripAllowance
+        '
+        Me.FNTripAllowance.Caption = "FNTripAllowance"
+        Me.FNTripAllowance.DisplayFormat.FormatString = "N2"
+        Me.FNTripAllowance.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTripAllowance.FieldName = "FNTripAllowance"
+        Me.FNTripAllowance.MinWidth = 25
+        Me.FNTripAllowance.Name = "FNTripAllowance"
+        Me.FNTripAllowance.OptionsColumn.AllowEdit = False
+        Me.FNTripAllowance.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FNTripAllowance.OptionsColumn.ReadOnly = True
+        Me.FNTripAllowance.Visible = True
+        Me.FNTripAllowance.VisibleIndex = 18
+        Me.FNTripAllowance.Width = 94
+        '
+        'FNAllowanceNewYear
+        '
+        Me.FNAllowanceNewYear.Caption = "FNAllowanceNewYear"
+        Me.FNAllowanceNewYear.DisplayFormat.FormatString = "N2"
+        Me.FNAllowanceNewYear.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNAllowanceNewYear.FieldName = "FNAllowanceNewYear"
+        Me.FNAllowanceNewYear.MinWidth = 25
+        Me.FNAllowanceNewYear.Name = "FNAllowanceNewYear"
+        Me.FNAllowanceNewYear.OptionsColumn.AllowEdit = False
+        Me.FNAllowanceNewYear.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FNAllowanceNewYear.OptionsColumn.ReadOnly = True
+        Me.FNAllowanceNewYear.Visible = True
+        Me.FNAllowanceNewYear.VisibleIndex = 24
+        Me.FNAllowanceNewYear.Width = 94
+        '
         'RepositoryFTSelect
         '
         Me.RepositoryFTSelect.AutoHeight = False
@@ -1658,26 +1689,11 @@ Partial Class wTaxTrack_KM
         Me.RepositoryFTApproveState.ValueChecked = "1"
         Me.RepositoryFTApproveState.ValueUnchecked = "0"
         '
-        'FNTripAllowance
-        '
-        Me.FNTripAllowance.Caption = "FNTripAllowance"
-        Me.FNTripAllowance.DisplayFormat.FormatString = "N2"
-        Me.FNTripAllowance.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.FNTripAllowance.FieldName = "FNTripAllowance"
-        Me.FNTripAllowance.MinWidth = 25
-        Me.FNTripAllowance.Name = "FNTripAllowance"
-        Me.FNTripAllowance.OptionsColumn.AllowEdit = False
-        Me.FNTripAllowance.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FNTripAllowance.OptionsColumn.ReadOnly = True
-        Me.FNTripAllowance.Visible = True
-        Me.FNTripAllowance.VisibleIndex = 18
-        Me.FNTripAllowance.Width = 94
-        '
         'wTaxTrack_KM
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1757, 842)
+        Me.ClientSize = New System.Drawing.Size(1757, 833)
         Me.Controls.Add(Me.ogbemployee)
         Me.Controls.Add(Me.hideContainerTop)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -1835,4 +1851,5 @@ Partial Class wTaxTrack_KM
     Friend WithEvents FTEmpTypeGroup As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTEmpTypeCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FNTripAllowance As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNAllowanceNewYear As DevExpress.XtraGrid.Columns.GridColumn
 End Class

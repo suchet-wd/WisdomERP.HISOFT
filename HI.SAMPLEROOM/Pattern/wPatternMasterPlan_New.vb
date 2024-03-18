@@ -7,6 +7,7 @@ Public Class wPatternMasterPlan_New
     Private _FocusedRowHendle As Integer = 0
     Private _PatternChanged As List(Of PatternChanged) = New List(Of PatternChanged)
 
+
     Sub New()
 
         InitializeComponent()
@@ -25,6 +26,12 @@ Public Class wPatternMasterPlan_New
             AddHandler .Click, AddressOf ItemString_GotFocus
             AddHandler .Leave, AddressOf ItemString_Leave
         End With
+
+        With ReposAssignTo
+            AddHandler .Click, AddressOf ItemString_GotFocus
+            AddHandler .Leave, AddressOf ItemString_Leave
+        End With
+
 
         InitGrid()
 
@@ -56,19 +63,6 @@ Public Class wPatternMasterPlan_New
 
         '------End Add Summary Grid-------------
     End Sub
-#End Region
-
-
-#Region "Custom summaries"
-
-#End Region
-
-#Region "Property"
-
-#End Region
-
-#Region "Procedure"
-
 #End Region
 
 #Region "General"
@@ -209,45 +203,59 @@ Public Class wPatternMasterPlan_New
                 Dim _PatternType As String = ""
                 Dim _FTPtnNote As String = ""
                 Dim _FTPtnDate As String = ""
+                Dim _AssignTo As String = ""
+                'Dim _AssignToDate As String = ""
+                'Dim _AssignToTime As String = ""
+
                 Dim NewData As String = ""
 
                 If FieldName = "FTPatternType" Then
                     _PatternType = CType(sender, DevExpress.XtraEditors.ButtonEdit).Text
                     _FTPtnNote = .GetRowCellValue(.FocusedRowHandle, "FTPtnNote").ToString()
-                    If (ReposDate.ToString <> Nothing) Then
-                        If (ReposDate.ToString <> "01-01-0001") Then
-                            _FTPtnDate = ReposDate.ToString
-                        End If
+                    If (CheckDateBlank(.GetRowCellValue(.FocusedRowHandle, "FTPTNDate").ToString())) Then
+                        _FTPtnDate = Nothing
                     Else
                         _FTPtnDate = .GetRowCellValue(.FocusedRowHandle, "FTPTNDate").ToString()
                     End If
-
+                    _AssignTo = .GetRowCellValue(.FocusedRowHandle, "AssignTo").ToString()
                     NewData = _PatternType
                 End If
 
                 If FieldName = "FTPtnNote" Then
                     _PatternType = ReposPatternType.ToString()
                     _FTPtnNote = CType(sender, DevExpress.XtraEditors.TextEdit).Text
-                    If (ReposDate.ToString <> Nothing) Then
-                        If (ReposDate.ToString <> "01-01-0001") Then
-                            _FTPtnDate = ReposDate.ToString
-                        End If
+                    If (CheckDateBlank(.GetRowCellValue(.FocusedRowHandle, "FTPTNDate").ToString())) Then
+                        _FTPtnDate = Nothing
                     Else
                         _FTPtnDate = .GetRowCellValue(.FocusedRowHandle, "FTPTNDate").ToString()
                     End If
+                    _AssignTo = .GetRowCellValue(.FocusedRowHandle, "AssignTo").ToString()
                     NewData = _FTPtnNote
                 End If
 
                 If FieldName = "FTPTNDate" Then
-                    _PatternType = ReposPatternType.ToString()
-                    _FTPtnNote = ReposFTPtnNote.ToString()
                     _FTPtnDate = (HI.UL.ULDate.ConvertEnDB(CType(sender, DevExpress.XtraEditors.DateEdit).DateTime))
-
-                    If (_FTPtnDate = "01-01-0001" Or _FTPtnDate = "12:00:00 AM" Or _FTPtnDate = "0001/01/01" Or
-                        _FTPtnDate = "" Or _FTPtnDate = Nothing) Then
+                    If (CheckDateBlank(_FTPtnDate)) Then
                         Exit Sub
                     End If
+                    _PatternType = ReposPatternType.ToString()
+                    _FTPtnNote = ReposFTPtnNote.ToString()
+                    _AssignTo = .GetRowCellValue(.FocusedRowHandle, "AssignTo").ToString()
+
                     NewData = _FTPtnDate
+                End If
+
+
+                If FieldName = "AssignTo" Then
+                    _PatternType = ReposPatternType.ToString() '.GetRowCellValue(.FocusedRowHandle, "PatternType").ToString()
+                    _FTPtnNote = ReposFTPtnNote.ToString() '.GetRowCellValue(.FocusedRowHandle, "FTPtnNote").ToString()
+                    If (CheckDateBlank(.GetRowCellValue(.FocusedRowHandle, "FTPTNDate").ToString())) Then
+                        _FTPtnDate = Nothing
+                    Else
+                        _FTPtnDate = .GetRowCellValue(.FocusedRowHandle, "FTPTNDate").ToString()
+                    End If
+                    _AssignTo = CType(sender, DevExpress.XtraEditors.ButtonEdit).Text
+                    NewData = _AssignTo
                 End If
 
 
@@ -260,18 +268,20 @@ Public Class wPatternMasterPlan_New
                         Next
                     End If
 
+                    ' -------------- Prepare Data --------------
+
                     Dim _p As PatternChanged = New PatternChanged
                     _p.Job = .GetRowCellValue(.FocusedRowHandle, "Job").ToString()
                     _p.PTTypeId = .GetRowCellValue(.FocusedRowHandle, "FTPatternType_Hide").ToString()
                     _p.GrpTypeId = .GetRowCellValue(.FocusedRowHandle, "FTPtnGrpName_Hide").ToString()
                     _p.Leadtime = .GetRowCellValue(.FocusedRowHandle, "FTLeadTime").ToString()
-                    If (_FTPtnDate = "01-01-0001" Or _FTPtnDate = "12:00:00 AM" Or _FTPtnDate = "0001/01/01" Or
-                        _FTPtnDate = "" Or _FTPtnDate = Nothing) Then
-                        _p.PTDate = _FTPtnDate
-                    Else
+                    If (CheckDateBlank(_FTPtnDate)) Then
                         _p.PTDate = Nothing
+                    Else
+                        _p.PTDate = _FTPtnDate
                     End If
                     _p.FTPtnNote = _FTPtnNote
+                    _p.AssignTo = .GetRowCellValue(.FocusedRowHandle, "AssignTo").ToString()
 
                     _PatternChanged.Add(_p)
 
@@ -328,8 +338,6 @@ Public Class wPatternMasterPlan_New
 
     End Sub
 
-
-
     Private Sub ocmsave_Click(sender As Object, e As EventArgs) Handles ocmsave.Click
         Dim _Spls As New HI.TL.SplashScreen("Loading...   Please Wait   ")
 
@@ -364,8 +372,13 @@ Public Class wPatternMasterPlan_New
         cmdstring &= vbCrLf & "   , FTUpdUser = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
         cmdstring &= vbCrLf & "   , FDUpdDate = " & HI.UL.ULDate.FormatDateDB & ""
         cmdstring &= vbCrLf & "   , FTUpdTime = " & HI.UL.ULDate.FormatTimeDB & " "
-        If (p.PTDate.ToString() <> "01-01-0001" Or p.PTDate.ToString() <> "12:00:00 AM" Or p.PTDate.ToString() <> "" Or p.PTDate.ToString() <> "0001/01/01") Then
-            cmdstring &= vbCrLf & "   , FTPTNDate = '" & HI.UL.ULDate.ConvertEnDB(p.PTDate) & "'"
+        'cmdstring &= vbCrLf & "   , AssignTo = '" & p.AssignTo & "'"
+        'cmdstring &= vbCrLf & "   , AssignToDate = " & HI.UL.ULDate.FormatDateDB & ""
+        'cmdstring &= vbCrLf & "   , AssignToTime = " & HI.UL.ULDate.FormatTimeDB & " "
+        If (p.PTDate <> Nothing) Then
+            If (Not CheckDateBlank(p.PTDate.ToString())) Then
+                cmdstring &= vbCrLf & "   , FTPTNDate = '" & HI.UL.ULDate.ConvertEnDB(p.PTDate) & "'"
+            End If
         End If
         cmdstring &= vbCrLf & "   , FTPtnNote = '" & p.FTPtnNote & "' "
         cmdstring &= vbCrLf & "   WHERE FTOrderNo = '" & p.Job & "' "
@@ -375,24 +388,37 @@ Public Class wPatternMasterPlan_New
         cmdstring &= vbCrLf
         cmdstring &= vbCrLf & " BEGIN"
         cmdstring &= vbCrLf & "   INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TPTNOrder  "
-        If (p.PTDate.ToString() <> "01-01-0001" Or p.PTDate.ToString() <> "12:00:00 AM" Or p.PTDate.ToString() <> "" Or p.PTDate.ToString() <> "0001/01/01") Then
-            cmdstring &= vbCrLf & "   (FTOrderNo, TPTNOrderBy, FNHSysPTNTypeId, FNHSysPTNGrpTypeId, FTPtnNote, FTPTNDate, FTInsUser, FDInsDate, FTInsTime) "
-        Else
+        If (p.PTDate = Nothing) Then
             cmdstring &= vbCrLf & "   (FTOrderNo, TPTNOrderBy, FNHSysPTNTypeId, FNHSysPTNGrpTypeId, FTPtnNote, FTInsUser, FDInsDate, FTInsTime) "
+            'cmdstring &= vbCrLf & "   (FTOrderNo, TPTNOrderBy, FNHSysPTNTypeId, FNHSysPTNGrpTypeId, FTPtnNote, FTInsUser, FDInsDate, FTInsTime, AssignTo, AssignToDate, AssignToTime) "
+        Else
+            If (CheckDateBlank(p.PTDate.ToString())) Then
+                cmdstring &= vbCrLf & "   (FTOrderNo, TPTNOrderBy, FNHSysPTNTypeId, FNHSysPTNGrpTypeId, FTPtnNote, FTInsUser, FDInsDate, FTInsTime) "
+                'cmdstring &= vbCrLf & "   (FTOrderNo, TPTNOrderBy, FNHSysPTNTypeId, FNHSysPTNGrpTypeId, FTPtnNote, FTInsUser, FDInsDate, FTInsTime, AssignTo, AssignToDate, AssignToTime) "
+            Else
+                cmdstring &= vbCrLf & "   (FTOrderNo, TPTNOrderBy, FNHSysPTNTypeId, FNHSysPTNGrpTypeId, FTPtnNote, FTPTNDate, FTInsUser, FDInsDate, FTInsTime) "
+                'cmdstring &= vbCrLf & "   (FTOrderNo, TPTNOrderBy, FNHSysPTNTypeId, FNHSysPTNGrpTypeId, FTPtnNote, FTPTNDate, FTInsUser, FDInsDate, FTInsTime, AssignTo, AssignToDate, AssignToTime) "
+            End If
         End If
-
-        cmdstring &= vbCrLf & "   VALUES "
-        cmdstring &= vbCrLf & "   ( '" & p.Job & "'"
+        cmdstring &= vbCrLf & "   VALUES ("
+        cmdstring &= vbCrLf & "     '" & p.Job & "'"
         cmdstring &= vbCrLf & "   , '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
         cmdstring &= vbCrLf & "   , '" & p.PTTypeId & "'"
         cmdstring &= vbCrLf & "   , '" & p.GrpTypeId & "'"
         cmdstring &= vbCrLf & "   , '" & p.FTPtnNote & "'"
-        If (p.PTDate.ToString() <> "01-01-0001" Or p.PTDate.ToString() <> "12:00:00 AM" Or p.PTDate.ToString() <> "" Or p.PTDate.ToString() <> "0001/01/01") Then
-            cmdstring &= vbCrLf & "   , '" & HI.UL.ULDate.ConvertEnDB(p.PTDate) & "'"
+        If (p.PTDate <> Nothing) Then
+            If (Not CheckDateBlank(p.PTDate.ToString())) Then
+                cmdstring &= vbCrLf & "   , '" & HI.UL.ULDate.ConvertEnDB(p.PTDate) & "'"
+            End If
         End If
+
         cmdstring &= vbCrLf & "   , '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
         cmdstring &= vbCrLf & "   , " & HI.UL.ULDate.FormatDateDB
-        cmdstring &= vbCrLf & "   , " & HI.UL.ULDate.FormatTimeDB & " )"
+        cmdstring &= vbCrLf & "   , " & HI.UL.ULDate.FormatTimeDB & " "
+        'cmdstring &= vbCrLf & "   , '" & p.AssignTo & "'"
+        'cmdstring &= vbCrLf & "   , " & HI.UL.ULDate.FormatDateDB
+        'cmdstring &= vbCrLf & "   , " & HI.UL.ULDate.FormatTimeDB & " "
+        cmdstring &= vbCrLf & "   )"
         cmdstring &= vbCrLf & " END"
         cmdstring &= vbCrLf
         cmdstring &= vbCrLf & "END"
@@ -401,8 +427,6 @@ Public Class wPatternMasterPlan_New
 
         End If
     End Function
-
-
 
     Private Sub ogvPattern_RowStyle(sender As Object, e As RowStyleEventArgs) Handles ogvPattern.RowStyle
         Try
@@ -425,8 +449,47 @@ Public Class wPatternMasterPlan_New
         HI.TL.HandlerControl.ClearControl(Me)
     End Sub
 
-End Class
+    Private Function CheckDateBlank(s As String) As Boolean
+        If (s = "01-01-0001" Or s = "12:00:00 AM" Or s = "0001/01/01" Or s = "" Or s = Nothing) Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 
+#Region "Property"
+    Private _CallMenuName As String = ""
+    Public Property CallMenuName As String
+        Get
+            Return _CallMenuName
+        End Get
+        Set(value As String)
+            _CallMenuName = value
+        End Set
+    End Property
+
+    Private _CallMethodName As String = ""
+    Public Property CallMethodName As String
+        Get
+            Return _CallMethodName
+        End Get
+        Set(value As String)
+            _CallMethodName = value
+        End Set
+    End Property
+
+    Private _CallMethodParm As String = ""
+    Public Property CallMethodParm As String
+        Get
+            Return _CallMethodParm
+        End Get
+        Set(value As String)
+            _CallMethodParm = value
+        End Set
+    End Property
+#End Region
+
+End Class
 
 
 Public Class PatternChanged
@@ -436,18 +499,24 @@ Public Class PatternChanged
     Public Property Leadtime As String
     Public Property PTDate As String
     Public Property FTPtnNote As String
-
+    Public Property AssignTo As String
+    Public Property AssignToDate As String
+    Public Property AssignToTime As String
 
     Public Sub New()
 
     End Sub
 
-    Public Sub New(ByVal Job As String, ByVal PTTypeId As String, ByVal GrpTypeId As String, ByVal Leadtime As String, ByVal PTDate As String, ByVal Note As String)
+    Public Sub New(ByVal Job As String, ByVal PTTypeId As String, ByVal GrpTypeId As String, ByVal Leadtime As String,
+                   ByVal PTDate As String, ByVal FTPtnNote As String, ByVal AssignTo As String, ByVal AssignToDate As String, ByVal AssignToTime As String)
         Job = Job
         PTTypeId = PTTypeId
         GrpTypeId = GrpTypeId
         Leadtime = Leadtime
         PTDate = PTDate
         FTPtnNote = FTPtnNote
+        AssignTo = AssignTo
+        AssignToDate = AssignToDate
+        AssignToTime = AssignToTime
     End Sub
 End Class

@@ -159,6 +159,10 @@ Partial Class wPayrollListing_KM
         Me.FTUnitSectCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTPositCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNEmpStatus = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FDDateStart = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FDBirthDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTEmpIdNo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSocialNo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNSalary = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNWorkingDay = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNWorkingHour = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -189,6 +193,8 @@ Partial Class wPayrollListing_KM
         Me.CFNWorkAgeSalary = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFNOTMealAmtUS = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFNAllowance = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNAllowance_NewYear = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNAllowance_Trip = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNTotalIncome = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNTotalRecalSSO = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNSocial = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -196,6 +202,7 @@ Partial Class wPayrollListing_KM
         Me.FNTax = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNNetpayDiff = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNNetpay = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTUnion = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTUnionDuesAmt = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNSeniorityAmt44 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNSeniorityAmt45 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -206,11 +213,18 @@ Partial Class wPayrollListing_KM
         Me.FNReturnTax = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNParturitionLeaveBaht = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNVacationRetAmt = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryFTSelect = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
-        Me.RepositoryFTApproveState = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.FNTotalRecalPensionScheme = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNPensionScheme = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNPensionSchemeCmp = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNParturitionLeaveUS1 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNParturitionLeaveUS2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNParturitionLeaveUS3 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNPensionSchemeAdvance2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNPensionSchemeAdvance3 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryFTSelect = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
+        Me.RepositoryFTApproveState = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
+        Me.FNSpecialSkill = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNWorkShift = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.hideContainerTop.SuspendLayout()
         Me.ogbheader.SuspendLayout()
@@ -983,7 +997,7 @@ Partial Class wPayrollListing_KM
         '
         'ogv
         '
-        Me.ogv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFNHSysEmpID, Me.FTEmpCode, Me.FTEmpName, Me.FTEmpTypeGroup, Me.FTEmpStatusName, Me.FTEmpTypeName, Me.FTDeptName, Me.FTDivisonName, Me.FTSectName, Me.FTUnitSectName, Me.FTPositName, Me.FTEmpTypeCode, Me.FTDeptCode, Me.FTDivisonCode, Me.FTSectCode, Me.FTUnitSectCode, Me.FTPositCode, Me.FNEmpStatus, Me.FNSalary, Me.FNWorkingDay, Me.FNWorkingHour, Me.FNOt1, Me.FNOt15, Me.FNOt2, Me.FNOt3, Me.FNOt4, Me.FCBaht, Me.FCOt1_Baht, Me.FCOt15_Baht, Me.FCOt2_Baht, Me.FCOt3_Baht, Me.FCOt4_Baht, Me.FNIncentiveAmt, Me.FCNetBaht, Me.FNPayLeaveVacationBaht, Me.FNPayLeaveOtherBaht, Me.FHolidayBaht, Me.FNTotalAdd, Me.FNTotalAddOther, Me.FNTotalExpense, Me.FNTotalExpenseOther, Me.CFNAttandanceAmt, Me.CFNHealtCareAmt, Me.CFNTransportAmt, Me.CFNChildCareAmt, Me.CFNWorkAgeSalary, Me.CFNOTMealAmtUS, Me.CFNAllowance, Me.FNTotalIncome, Me.FNTotalRecalSSO, Me.FNSocial, Me.FNTotalRecalTAX, Me.FNTax, Me.FNNetpayDiff, Me.FNNetpay, Me.FTUnionDuesAmt, Me.FNSeniorityAmt44, Me.FNSeniorityAmt45, Me.FNSeniorityAmt46, Me.FNSeniorityAmt47, Me.FNBonus, Me.FNAllowance, Me.FNReturnTax, Me.FNParturitionLeaveBaht, Me.FNVacationRetAmt, Me.FNTotalRecalPensionScheme, Me.FNPensionScheme, Me.FNPensionSchemeCmp})
+        Me.ogv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFNHSysEmpID, Me.FTEmpCode, Me.FTEmpName, Me.FTEmpTypeGroup, Me.FTEmpStatusName, Me.FTEmpTypeName, Me.FTDeptName, Me.FTDivisonName, Me.FTSectName, Me.FTUnitSectName, Me.FTPositName, Me.FTEmpTypeCode, Me.FTDeptCode, Me.FTDivisonCode, Me.FTSectCode, Me.FTUnitSectCode, Me.FTPositCode, Me.FNEmpStatus, Me.FDDateStart, Me.FDBirthDate, Me.FTEmpIdNo, Me.FTSocialNo, Me.FNSalary, Me.FNWorkingDay, Me.FNWorkingHour, Me.FNOt1, Me.FNOt15, Me.FNOt2, Me.FNOt3, Me.FNOt4, Me.FCBaht, Me.FCOt1_Baht, Me.FCOt15_Baht, Me.FCOt2_Baht, Me.FCOt3_Baht, Me.FCOt4_Baht, Me.FNIncentiveAmt, Me.FCNetBaht, Me.FNPayLeaveVacationBaht, Me.FNPayLeaveOtherBaht, Me.FHolidayBaht, Me.FNTotalAdd, Me.FNWorkShift, Me.FNSpecialSkill, Me.FNTotalAddOther, Me.FNTotalExpense, Me.FNTotalExpenseOther, Me.CFNAttandanceAmt, Me.CFNHealtCareAmt, Me.CFNTransportAmt, Me.CFNChildCareAmt, Me.CFNWorkAgeSalary, Me.CFNOTMealAmtUS, Me.CFNAllowance, Me.FNAllowance_NewYear, Me.FNAllowance_Trip, Me.FNTotalIncome, Me.FNTotalRecalSSO, Me.FNSocial, Me.FNTotalRecalTAX, Me.FNTax, Me.FNNetpayDiff, Me.FNNetpay, Me.FTUnion, Me.FTUnionDuesAmt, Me.FNSeniorityAmt44, Me.FNSeniorityAmt45, Me.FNSeniorityAmt46, Me.FNSeniorityAmt47, Me.FNBonus, Me.FNAllowance, Me.FNReturnTax, Me.FNParturitionLeaveBaht, Me.FNVacationRetAmt, Me.FNTotalRecalPensionScheme, Me.FNPensionScheme, Me.FNPensionSchemeCmp, Me.FNParturitionLeaveUS1, Me.FNParturitionLeaveUS2, Me.FNParturitionLeaveUS3, Me.FNPensionSchemeAdvance2, Me.FNPensionSchemeAdvance3})
         Me.ogv.GridControl = Me.ogc
         Me.ogv.Name = "ogv"
         Me.ogv.OptionsCustomization.AllowQuickHideColumns = False
@@ -1246,6 +1260,62 @@ Partial Class wPayrollListing_KM
         Me.FNEmpStatus.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNEmpStatus.OptionsColumn.ReadOnly = True
         '
+        'FDDateStart
+        '
+        Me.FDDateStart.Caption = "FDDateStart"
+        Me.FDDateStart.FieldName = "FDDateStart"
+        Me.FDDateStart.MinWidth = 25
+        Me.FDDateStart.Name = "FDDateStart"
+        Me.FDDateStart.OptionsColumn.AllowEdit = False
+        Me.FDDateStart.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FDDateStart.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FDDateStart.OptionsColumn.ReadOnly = True
+        Me.FDDateStart.Visible = True
+        Me.FDDateStart.VisibleIndex = 9
+        Me.FDDateStart.Width = 94
+        '
+        'FDBirthDate
+        '
+        Me.FDBirthDate.Caption = "FDBirthDate"
+        Me.FDBirthDate.FieldName = "FDBirthDate"
+        Me.FDBirthDate.MinWidth = 25
+        Me.FDBirthDate.Name = "FDBirthDate"
+        Me.FDBirthDate.OptionsColumn.AllowEdit = False
+        Me.FDBirthDate.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FDBirthDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FDBirthDate.OptionsColumn.ReadOnly = True
+        Me.FDBirthDate.Visible = True
+        Me.FDBirthDate.VisibleIndex = 10
+        Me.FDBirthDate.Width = 94
+        '
+        'FTEmpIdNo
+        '
+        Me.FTEmpIdNo.Caption = "FTEmpIdNo"
+        Me.FTEmpIdNo.FieldName = "FTEmpIdNo"
+        Me.FTEmpIdNo.MinWidth = 25
+        Me.FTEmpIdNo.Name = "FTEmpIdNo"
+        Me.FTEmpIdNo.OptionsColumn.AllowEdit = False
+        Me.FTEmpIdNo.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTEmpIdNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTEmpIdNo.OptionsColumn.ReadOnly = True
+        Me.FTEmpIdNo.Visible = True
+        Me.FTEmpIdNo.VisibleIndex = 11
+        Me.FTEmpIdNo.Width = 94
+        '
+        'FTSocialNo
+        '
+        Me.FTSocialNo.Caption = "FTSocialNo"
+        Me.FTSocialNo.FieldName = "FTSocialNo"
+        Me.FTSocialNo.MinWidth = 25
+        Me.FTSocialNo.Name = "FTSocialNo"
+        Me.FTSocialNo.OptionsColumn.AllowEdit = False
+        Me.FTSocialNo.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTSocialNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTSocialNo.OptionsColumn.ReadOnly = True
+        Me.FTSocialNo.Visible = True
+        Me.FTSocialNo.VisibleIndex = 12
+        Me.FTSocialNo.Width = 94
+        '
         'FNSalary
         '
         Me.FNSalary.AppearanceCell.Options.UseTextOptions = True
@@ -1262,7 +1332,7 @@ Partial Class wPayrollListing_KM
         Me.FNSalary.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNSalary.OptionsColumn.ReadOnly = True
         Me.FNSalary.Visible = True
-        Me.FNSalary.VisibleIndex = 9
+        Me.FNSalary.VisibleIndex = 13
         '
         'FNWorkingDay
         '
@@ -1277,7 +1347,7 @@ Partial Class wPayrollListing_KM
         Me.FNWorkingDay.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNWorkingDay.OptionsColumn.ReadOnly = True
         Me.FNWorkingDay.Visible = True
-        Me.FNWorkingDay.VisibleIndex = 10
+        Me.FNWorkingDay.VisibleIndex = 14
         '
         'FNWorkingHour
         '
@@ -1311,7 +1381,7 @@ Partial Class wPayrollListing_KM
         Me.FNOt1.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNOt1.OptionsColumn.ReadOnly = True
         Me.FNOt1.Visible = True
-        Me.FNOt1.VisibleIndex = 11
+        Me.FNOt1.VisibleIndex = 15
         '
         'FNOt15
         '
@@ -1329,7 +1399,7 @@ Partial Class wPayrollListing_KM
         Me.FNOt15.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNOt15.OptionsColumn.ReadOnly = True
         Me.FNOt15.Visible = True
-        Me.FNOt15.VisibleIndex = 12
+        Me.FNOt15.VisibleIndex = 16
         '
         'FNOt2
         '
@@ -1347,7 +1417,7 @@ Partial Class wPayrollListing_KM
         Me.FNOt2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNOt2.OptionsColumn.ReadOnly = True
         Me.FNOt2.Visible = True
-        Me.FNOt2.VisibleIndex = 13
+        Me.FNOt2.VisibleIndex = 17
         '
         'FNOt3
         '
@@ -1365,7 +1435,7 @@ Partial Class wPayrollListing_KM
         Me.FNOt3.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNOt3.OptionsColumn.ReadOnly = True
         Me.FNOt3.Visible = True
-        Me.FNOt3.VisibleIndex = 14
+        Me.FNOt3.VisibleIndex = 18
         '
         'FNOt4
         '
@@ -1383,7 +1453,7 @@ Partial Class wPayrollListing_KM
         Me.FNOt4.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNOt4.OptionsColumn.ReadOnly = True
         Me.FNOt4.Visible = True
-        Me.FNOt4.VisibleIndex = 15
+        Me.FNOt4.VisibleIndex = 19
         '
         'FCBaht
         '
@@ -1401,7 +1471,7 @@ Partial Class wPayrollListing_KM
         Me.FCBaht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FCBaht.OptionsColumn.ReadOnly = True
         Me.FCBaht.Visible = True
-        Me.FCBaht.VisibleIndex = 16
+        Me.FCBaht.VisibleIndex = 20
         '
         'FCOt1_Baht
         '
@@ -1419,7 +1489,7 @@ Partial Class wPayrollListing_KM
         Me.FCOt1_Baht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FCOt1_Baht.OptionsColumn.ReadOnly = True
         Me.FCOt1_Baht.Visible = True
-        Me.FCOt1_Baht.VisibleIndex = 17
+        Me.FCOt1_Baht.VisibleIndex = 21
         '
         'FCOt15_Baht
         '
@@ -1437,7 +1507,7 @@ Partial Class wPayrollListing_KM
         Me.FCOt15_Baht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FCOt15_Baht.OptionsColumn.ReadOnly = True
         Me.FCOt15_Baht.Visible = True
-        Me.FCOt15_Baht.VisibleIndex = 18
+        Me.FCOt15_Baht.VisibleIndex = 22
         '
         'FCOt2_Baht
         '
@@ -1455,7 +1525,7 @@ Partial Class wPayrollListing_KM
         Me.FCOt2_Baht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FCOt2_Baht.OptionsColumn.ReadOnly = True
         Me.FCOt2_Baht.Visible = True
-        Me.FCOt2_Baht.VisibleIndex = 19
+        Me.FCOt2_Baht.VisibleIndex = 23
         '
         'FCOt3_Baht
         '
@@ -1473,7 +1543,7 @@ Partial Class wPayrollListing_KM
         Me.FCOt3_Baht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FCOt3_Baht.OptionsColumn.ReadOnly = True
         Me.FCOt3_Baht.Visible = True
-        Me.FCOt3_Baht.VisibleIndex = 20
+        Me.FCOt3_Baht.VisibleIndex = 24
         '
         'FCOt4_Baht
         '
@@ -1491,7 +1561,7 @@ Partial Class wPayrollListing_KM
         Me.FCOt4_Baht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FCOt4_Baht.OptionsColumn.ReadOnly = True
         Me.FCOt4_Baht.Visible = True
-        Me.FCOt4_Baht.VisibleIndex = 21
+        Me.FCOt4_Baht.VisibleIndex = 25
         '
         'FNIncentiveAmt
         '
@@ -1508,7 +1578,7 @@ Partial Class wPayrollListing_KM
         Me.FNIncentiveAmt.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNIncentiveAmt.OptionsColumn.ReadOnly = True
         Me.FNIncentiveAmt.Visible = True
-        Me.FNIncentiveAmt.VisibleIndex = 22
+        Me.FNIncentiveAmt.VisibleIndex = 26
         Me.FNIncentiveAmt.Width = 81
         '
         'FCNetBaht
@@ -1526,7 +1596,7 @@ Partial Class wPayrollListing_KM
         Me.FCNetBaht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FCNetBaht.OptionsColumn.ReadOnly = True
         Me.FCNetBaht.Visible = True
-        Me.FCNetBaht.VisibleIndex = 23
+        Me.FCNetBaht.VisibleIndex = 27
         Me.FCNetBaht.Width = 98
         '
         'FNPayLeaveVacationBaht
@@ -1545,7 +1615,7 @@ Partial Class wPayrollListing_KM
         Me.FNPayLeaveVacationBaht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNPayLeaveVacationBaht.OptionsColumn.ReadOnly = True
         Me.FNPayLeaveVacationBaht.Visible = True
-        Me.FNPayLeaveVacationBaht.VisibleIndex = 24
+        Me.FNPayLeaveVacationBaht.VisibleIndex = 28
         '
         'FNPayLeaveOtherBaht
         '
@@ -1563,7 +1633,7 @@ Partial Class wPayrollListing_KM
         Me.FNPayLeaveOtherBaht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNPayLeaveOtherBaht.OptionsColumn.ReadOnly = True
         Me.FNPayLeaveOtherBaht.Visible = True
-        Me.FNPayLeaveOtherBaht.VisibleIndex = 25
+        Me.FNPayLeaveOtherBaht.VisibleIndex = 29
         '
         'FHolidayBaht
         '
@@ -1581,7 +1651,7 @@ Partial Class wPayrollListing_KM
         Me.FHolidayBaht.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FHolidayBaht.OptionsColumn.ReadOnly = True
         Me.FHolidayBaht.Visible = True
-        Me.FHolidayBaht.VisibleIndex = 27
+        Me.FHolidayBaht.VisibleIndex = 31
         '
         'FNTotalAdd
         '
@@ -1599,7 +1669,7 @@ Partial Class wPayrollListing_KM
         Me.FNTotalAdd.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNTotalAdd.OptionsColumn.ReadOnly = True
         Me.FNTotalAdd.Visible = True
-        Me.FNTotalAdd.VisibleIndex = 28
+        Me.FNTotalAdd.VisibleIndex = 32
         '
         'FNTotalAddOther
         '
@@ -1617,7 +1687,7 @@ Partial Class wPayrollListing_KM
         Me.FNTotalAddOther.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNTotalAddOther.OptionsColumn.ReadOnly = True
         Me.FNTotalAddOther.Visible = True
-        Me.FNTotalAddOther.VisibleIndex = 29
+        Me.FNTotalAddOther.VisibleIndex = 35
         '
         'FNTotalExpense
         '
@@ -1635,7 +1705,7 @@ Partial Class wPayrollListing_KM
         Me.FNTotalExpense.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNTotalExpense.OptionsColumn.ReadOnly = True
         Me.FNTotalExpense.Visible = True
-        Me.FNTotalExpense.VisibleIndex = 30
+        Me.FNTotalExpense.VisibleIndex = 36
         '
         'FNTotalExpenseOther
         '
@@ -1653,7 +1723,7 @@ Partial Class wPayrollListing_KM
         Me.FNTotalExpenseOther.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNTotalExpenseOther.OptionsColumn.ReadOnly = True
         Me.FNTotalExpenseOther.Visible = True
-        Me.FNTotalExpenseOther.VisibleIndex = 31
+        Me.FNTotalExpenseOther.VisibleIndex = 37
         '
         'CFNAttandanceAmt
         '
@@ -1665,7 +1735,7 @@ Partial Class wPayrollListing_KM
         Me.CFNAttandanceAmt.OptionsColumn.AllowEdit = False
         Me.CFNAttandanceAmt.OptionsColumn.ReadOnly = True
         Me.CFNAttandanceAmt.Visible = True
-        Me.CFNAttandanceAmt.VisibleIndex = 32
+        Me.CFNAttandanceAmt.VisibleIndex = 38
         '
         'CFNHealtCareAmt
         '
@@ -1677,7 +1747,7 @@ Partial Class wPayrollListing_KM
         Me.CFNHealtCareAmt.OptionsColumn.AllowEdit = False
         Me.CFNHealtCareAmt.OptionsColumn.ReadOnly = True
         Me.CFNHealtCareAmt.Visible = True
-        Me.CFNHealtCareAmt.VisibleIndex = 33
+        Me.CFNHealtCareAmt.VisibleIndex = 39
         '
         'CFNTransportAmt
         '
@@ -1689,7 +1759,7 @@ Partial Class wPayrollListing_KM
         Me.CFNTransportAmt.OptionsColumn.AllowEdit = False
         Me.CFNTransportAmt.OptionsColumn.ReadOnly = True
         Me.CFNTransportAmt.Visible = True
-        Me.CFNTransportAmt.VisibleIndex = 34
+        Me.CFNTransportAmt.VisibleIndex = 40
         '
         'CFNChildCareAmt
         '
@@ -1701,7 +1771,7 @@ Partial Class wPayrollListing_KM
         Me.CFNChildCareAmt.OptionsColumn.AllowEdit = False
         Me.CFNChildCareAmt.OptionsColumn.ReadOnly = True
         Me.CFNChildCareAmt.Visible = True
-        Me.CFNChildCareAmt.VisibleIndex = 35
+        Me.CFNChildCareAmt.VisibleIndex = 41
         '
         'CFNWorkAgeSalary
         '
@@ -1713,7 +1783,7 @@ Partial Class wPayrollListing_KM
         Me.CFNWorkAgeSalary.OptionsColumn.AllowEdit = False
         Me.CFNWorkAgeSalary.OptionsColumn.ReadOnly = True
         Me.CFNWorkAgeSalary.Visible = True
-        Me.CFNWorkAgeSalary.VisibleIndex = 36
+        Me.CFNWorkAgeSalary.VisibleIndex = 42
         '
         'CFNOTMealAmtUS
         '
@@ -1725,7 +1795,7 @@ Partial Class wPayrollListing_KM
         Me.CFNOTMealAmtUS.OptionsColumn.AllowEdit = False
         Me.CFNOTMealAmtUS.OptionsColumn.ReadOnly = True
         Me.CFNOTMealAmtUS.Visible = True
-        Me.CFNOTMealAmtUS.VisibleIndex = 37
+        Me.CFNOTMealAmtUS.VisibleIndex = 43
         '
         'CFNAllowance
         '
@@ -1737,8 +1807,34 @@ Partial Class wPayrollListing_KM
         Me.CFNAllowance.OptionsColumn.AllowEdit = False
         Me.CFNAllowance.OptionsColumn.ReadOnly = True
         Me.CFNAllowance.Visible = True
-        Me.CFNAllowance.VisibleIndex = 38
+        Me.CFNAllowance.VisibleIndex = 44
         Me.CFNAllowance.Width = 94
+        '
+        'FNAllowance_NewYear
+        '
+        Me.FNAllowance_NewYear.Caption = "FNAllowance_NewYear"
+        Me.FNAllowance_NewYear.FieldName = "FNAllowance_NewYear"
+        Me.FNAllowance_NewYear.MinWidth = 25
+        Me.FNAllowance_NewYear.Name = "FNAllowance_NewYear"
+        Me.FNAllowance_NewYear.OptionsColumn.AllowEdit = False
+        Me.FNAllowance_NewYear.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FNAllowance_NewYear.OptionsColumn.ReadOnly = True
+        Me.FNAllowance_NewYear.Visible = True
+        Me.FNAllowance_NewYear.VisibleIndex = 45
+        Me.FNAllowance_NewYear.Width = 94
+        '
+        'FNAllowance_Trip
+        '
+        Me.FNAllowance_Trip.Caption = "FNAllowance_Trip"
+        Me.FNAllowance_Trip.FieldName = "FNAllowance_Trip"
+        Me.FNAllowance_Trip.MinWidth = 25
+        Me.FNAllowance_Trip.Name = "FNAllowance_Trip"
+        Me.FNAllowance_Trip.OptionsColumn.AllowEdit = False
+        Me.FNAllowance_Trip.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FNAllowance_Trip.OptionsColumn.ReadOnly = True
+        Me.FNAllowance_Trip.Visible = True
+        Me.FNAllowance_Trip.VisibleIndex = 46
+        Me.FNAllowance_Trip.Width = 94
         '
         'FNTotalIncome
         '
@@ -1756,7 +1852,7 @@ Partial Class wPayrollListing_KM
         Me.FNTotalIncome.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNTotalIncome.OptionsColumn.ReadOnly = True
         Me.FNTotalIncome.Visible = True
-        Me.FNTotalIncome.VisibleIndex = 46
+        Me.FNTotalIncome.VisibleIndex = 53
         '
         'FNTotalRecalSSO
         '
@@ -1772,7 +1868,7 @@ Partial Class wPayrollListing_KM
         Me.FNTotalRecalSSO.OptionsColumn.AllowEdit = False
         Me.FNTotalRecalSSO.OptionsColumn.ReadOnly = True
         Me.FNTotalRecalSSO.Visible = True
-        Me.FNTotalRecalSSO.VisibleIndex = 48
+        Me.FNTotalRecalSSO.VisibleIndex = 56
         '
         'FNSocial
         '
@@ -1790,7 +1886,7 @@ Partial Class wPayrollListing_KM
         Me.FNSocial.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNSocial.OptionsColumn.ReadOnly = True
         Me.FNSocial.Visible = True
-        Me.FNSocial.VisibleIndex = 50
+        Me.FNSocial.VisibleIndex = 58
         '
         'FNTotalRecalTAX
         '
@@ -1804,7 +1900,7 @@ Partial Class wPayrollListing_KM
         Me.FNTotalRecalTAX.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNTotalRecalTAX.OptionsColumn.ReadOnly = True
         Me.FNTotalRecalTAX.Visible = True
-        Me.FNTotalRecalTAX.VisibleIndex = 49
+        Me.FNTotalRecalTAX.VisibleIndex = 57
         Me.FNTotalRecalTAX.Width = 94
         '
         'FNTax
@@ -1823,7 +1919,7 @@ Partial Class wPayrollListing_KM
         Me.FNTax.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNTax.OptionsColumn.ReadOnly = True
         Me.FNTax.Visible = True
-        Me.FNTax.VisibleIndex = 51
+        Me.FNTax.VisibleIndex = 59
         '
         'FNNetpayDiff
         '
@@ -1835,7 +1931,7 @@ Partial Class wPayrollListing_KM
         Me.FNNetpayDiff.OptionsColumn.AllowEdit = False
         Me.FNNetpayDiff.OptionsColumn.ReadOnly = True
         Me.FNNetpayDiff.Visible = True
-        Me.FNNetpayDiff.VisibleIndex = 56
+        Me.FNNetpayDiff.VisibleIndex = 64
         Me.FNNetpayDiff.Width = 100
         '
         'FNNetpay
@@ -1848,8 +1944,21 @@ Partial Class wPayrollListing_KM
         Me.FNNetpay.OptionsColumn.AllowEdit = False
         Me.FNNetpay.OptionsColumn.ReadOnly = True
         Me.FNNetpay.Visible = True
-        Me.FNNetpay.VisibleIndex = 57
+        Me.FNNetpay.VisibleIndex = 65
         Me.FNNetpay.Width = 100
+        '
+        'FTUnion
+        '
+        Me.FTUnion.Caption = "FTUnion"
+        Me.FTUnion.FieldName = "FTUnion"
+        Me.FTUnion.MinWidth = 25
+        Me.FTUnion.Name = "FTUnion"
+        Me.FTUnion.OptionsColumn.AllowEdit = False
+        Me.FTUnion.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTUnion.OptionsColumn.ReadOnly = True
+        Me.FTUnion.Visible = True
+        Me.FTUnion.VisibleIndex = 54
+        Me.FTUnion.Width = 94
         '
         'FTUnionDuesAmt
         '
@@ -1860,7 +1969,7 @@ Partial Class wPayrollListing_KM
         Me.FTUnionDuesAmt.Name = "FTUnionDuesAmt"
         Me.FTUnionDuesAmt.OptionsColumn.AllowEdit = False
         Me.FTUnionDuesAmt.Visible = True
-        Me.FTUnionDuesAmt.VisibleIndex = 47
+        Me.FTUnionDuesAmt.VisibleIndex = 55
         '
         'FNSeniorityAmt44
         '
@@ -1871,7 +1980,7 @@ Partial Class wPayrollListing_KM
         Me.FNSeniorityAmt44.Name = "FNSeniorityAmt44"
         Me.FNSeniorityAmt44.OptionsColumn.AllowEdit = False
         Me.FNSeniorityAmt44.Visible = True
-        Me.FNSeniorityAmt44.VisibleIndex = 39
+        Me.FNSeniorityAmt44.VisibleIndex = 47
         Me.FNSeniorityAmt44.Width = 107
         '
         'FNSeniorityAmt45
@@ -1883,7 +1992,7 @@ Partial Class wPayrollListing_KM
         Me.FNSeniorityAmt45.Name = "FNSeniorityAmt45"
         Me.FNSeniorityAmt45.OptionsColumn.AllowEdit = False
         Me.FNSeniorityAmt45.Visible = True
-        Me.FNSeniorityAmt45.VisibleIndex = 40
+        Me.FNSeniorityAmt45.VisibleIndex = 48
         Me.FNSeniorityAmt45.Width = 92
         '
         'FNSeniorityAmt46
@@ -1895,7 +2004,7 @@ Partial Class wPayrollListing_KM
         Me.FNSeniorityAmt46.Name = "FNSeniorityAmt46"
         Me.FNSeniorityAmt46.OptionsColumn.AllowEdit = False
         Me.FNSeniorityAmt46.Visible = True
-        Me.FNSeniorityAmt46.VisibleIndex = 41
+        Me.FNSeniorityAmt46.VisibleIndex = 49
         Me.FNSeniorityAmt46.Width = 83
         '
         'FNSeniorityAmt47
@@ -1907,7 +2016,7 @@ Partial Class wPayrollListing_KM
         Me.FNSeniorityAmt47.Name = "FNSeniorityAmt47"
         Me.FNSeniorityAmt47.OptionsColumn.AllowEdit = False
         Me.FNSeniorityAmt47.Visible = True
-        Me.FNSeniorityAmt47.VisibleIndex = 42
+        Me.FNSeniorityAmt47.VisibleIndex = 50
         Me.FNSeniorityAmt47.Width = 86
         '
         'FNBonus
@@ -1922,7 +2031,7 @@ Partial Class wPayrollListing_KM
         Me.FNBonus.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNBonus.OptionsColumn.ReadOnly = True
         Me.FNBonus.Visible = True
-        Me.FNBonus.VisibleIndex = 43
+        Me.FNBonus.VisibleIndex = 51
         Me.FNBonus.Width = 94
         '
         'FNAllowance
@@ -1936,8 +2045,6 @@ Partial Class wPayrollListing_KM
         Me.FNAllowance.OptionsColumn.AllowEdit = False
         Me.FNAllowance.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNAllowance.OptionsColumn.ReadOnly = True
-        Me.FNAllowance.Visible = True
-        Me.FNAllowance.VisibleIndex = 44
         Me.FNAllowance.Width = 94
         '
         'FNReturnTax
@@ -1952,7 +2059,7 @@ Partial Class wPayrollListing_KM
         Me.FNReturnTax.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNReturnTax.OptionsColumn.ReadOnly = True
         Me.FNReturnTax.Visible = True
-        Me.FNReturnTax.VisibleIndex = 55
+        Me.FNReturnTax.VisibleIndex = 63
         Me.FNReturnTax.Width = 94
         '
         'FNParturitionLeaveBaht
@@ -1967,7 +2074,7 @@ Partial Class wPayrollListing_KM
         Me.FNParturitionLeaveBaht.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNParturitionLeaveBaht.OptionsColumn.ReadOnly = True
         Me.FNParturitionLeaveBaht.Visible = True
-        Me.FNParturitionLeaveBaht.VisibleIndex = 26
+        Me.FNParturitionLeaveBaht.VisibleIndex = 30
         Me.FNParturitionLeaveBaht.Width = 94
         '
         'FNVacationRetAmt
@@ -1982,8 +2089,122 @@ Partial Class wPayrollListing_KM
         Me.FNVacationRetAmt.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNVacationRetAmt.OptionsColumn.ReadOnly = True
         Me.FNVacationRetAmt.Visible = True
-        Me.FNVacationRetAmt.VisibleIndex = 45
+        Me.FNVacationRetAmt.VisibleIndex = 52
         Me.FNVacationRetAmt.Width = 94
+        '
+        'FNTotalRecalPensionScheme
+        '
+        Me.FNTotalRecalPensionScheme.Caption = "FNTotalRecalPensionScheme"
+        Me.FNTotalRecalPensionScheme.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNTotalRecalPensionScheme.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNTotalRecalPensionScheme.FieldName = "FNTotalRecalPensionScheme"
+        Me.FNTotalRecalPensionScheme.MinWidth = 25
+        Me.FNTotalRecalPensionScheme.Name = "FNTotalRecalPensionScheme"
+        Me.FNTotalRecalPensionScheme.OptionsColumn.AllowEdit = False
+        Me.FNTotalRecalPensionScheme.Visible = True
+        Me.FNTotalRecalPensionScheme.VisibleIndex = 60
+        Me.FNTotalRecalPensionScheme.Width = 94
+        '
+        'FNPensionScheme
+        '
+        Me.FNPensionScheme.Caption = "FNPensionScheme"
+        Me.FNPensionScheme.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNPensionScheme.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNPensionScheme.FieldName = "FNPensionScheme"
+        Me.FNPensionScheme.MinWidth = 25
+        Me.FNPensionScheme.Name = "FNPensionScheme"
+        Me.FNPensionScheme.OptionsColumn.AllowEdit = False
+        Me.FNPensionScheme.Visible = True
+        Me.FNPensionScheme.VisibleIndex = 61
+        Me.FNPensionScheme.Width = 94
+        '
+        'FNPensionSchemeCmp
+        '
+        Me.FNPensionSchemeCmp.Caption = "FNPensionSchemeCmp"
+        Me.FNPensionSchemeCmp.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNPensionSchemeCmp.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNPensionSchemeCmp.FieldName = "FNPensionSchemeCmp"
+        Me.FNPensionSchemeCmp.MinWidth = 25
+        Me.FNPensionSchemeCmp.Name = "FNPensionSchemeCmp"
+        Me.FNPensionSchemeCmp.OptionsColumn.AllowEdit = False
+        Me.FNPensionSchemeCmp.Visible = True
+        Me.FNPensionSchemeCmp.VisibleIndex = 62
+        Me.FNPensionSchemeCmp.Width = 94
+        '
+        'FNParturitionLeaveUS1
+        '
+        Me.FNParturitionLeaveUS1.Caption = "FNParturitionLeaveUS1"
+        Me.FNParturitionLeaveUS1.DisplayFormat.FormatString = "N2"
+        Me.FNParturitionLeaveUS1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNParturitionLeaveUS1.FieldName = "FNParturitionLeaveUS1"
+        Me.FNParturitionLeaveUS1.MinWidth = 25
+        Me.FNParturitionLeaveUS1.Name = "FNParturitionLeaveUS1"
+        Me.FNParturitionLeaveUS1.OptionsColumn.AllowEdit = False
+        Me.FNParturitionLeaveUS1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FNParturitionLeaveUS1.OptionsColumn.ReadOnly = True
+        Me.FNParturitionLeaveUS1.Visible = True
+        Me.FNParturitionLeaveUS1.VisibleIndex = 66
+        Me.FNParturitionLeaveUS1.Width = 94
+        '
+        'FNParturitionLeaveUS2
+        '
+        Me.FNParturitionLeaveUS2.Caption = "FNParturitionLeaveUS2"
+        Me.FNParturitionLeaveUS2.DisplayFormat.FormatString = "N2"
+        Me.FNParturitionLeaveUS2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNParturitionLeaveUS2.FieldName = "FNParturitionLeaveUS2"
+        Me.FNParturitionLeaveUS2.MinWidth = 25
+        Me.FNParturitionLeaveUS2.Name = "FNParturitionLeaveUS2"
+        Me.FNParturitionLeaveUS2.OptionsColumn.AllowEdit = False
+        Me.FNParturitionLeaveUS2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FNParturitionLeaveUS2.OptionsColumn.ReadOnly = True
+        Me.FNParturitionLeaveUS2.Visible = True
+        Me.FNParturitionLeaveUS2.VisibleIndex = 67
+        Me.FNParturitionLeaveUS2.Width = 94
+        '
+        'FNParturitionLeaveUS3
+        '
+        Me.FNParturitionLeaveUS3.Caption = "FNParturitionLeaveUS3"
+        Me.FNParturitionLeaveUS3.DisplayFormat.FormatString = "N2"
+        Me.FNParturitionLeaveUS3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNParturitionLeaveUS3.FieldName = "FNParturitionLeaveUS3"
+        Me.FNParturitionLeaveUS3.MinWidth = 25
+        Me.FNParturitionLeaveUS3.Name = "FNParturitionLeaveUS3"
+        Me.FNParturitionLeaveUS3.OptionsColumn.AllowEdit = False
+        Me.FNParturitionLeaveUS3.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FNParturitionLeaveUS3.OptionsColumn.ReadOnly = True
+        Me.FNParturitionLeaveUS3.Visible = True
+        Me.FNParturitionLeaveUS3.VisibleIndex = 68
+        Me.FNParturitionLeaveUS3.Width = 94
+        '
+        'FNPensionSchemeAdvance2
+        '
+        Me.FNPensionSchemeAdvance2.Caption = "FNPensionSchemeAdvance2"
+        Me.FNPensionSchemeAdvance2.DisplayFormat.FormatString = "N2"
+        Me.FNPensionSchemeAdvance2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNPensionSchemeAdvance2.FieldName = "FNPensionSchemeAdvance2"
+        Me.FNPensionSchemeAdvance2.MinWidth = 25
+        Me.FNPensionSchemeAdvance2.Name = "FNPensionSchemeAdvance2"
+        Me.FNPensionSchemeAdvance2.OptionsColumn.AllowEdit = False
+        Me.FNPensionSchemeAdvance2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FNPensionSchemeAdvance2.OptionsColumn.ReadOnly = True
+        Me.FNPensionSchemeAdvance2.Visible = True
+        Me.FNPensionSchemeAdvance2.VisibleIndex = 69
+        Me.FNPensionSchemeAdvance2.Width = 94
+        '
+        'FNPensionSchemeAdvance3
+        '
+        Me.FNPensionSchemeAdvance3.Caption = "FNPensionSchemeAdvance3"
+        Me.FNPensionSchemeAdvance3.DisplayFormat.FormatString = "N2"
+        Me.FNPensionSchemeAdvance3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNPensionSchemeAdvance3.FieldName = "FNPensionSchemeAdvance3"
+        Me.FNPensionSchemeAdvance3.MinWidth = 25
+        Me.FNPensionSchemeAdvance3.Name = "FNPensionSchemeAdvance3"
+        Me.FNPensionSchemeAdvance3.OptionsColumn.AllowEdit = False
+        Me.FNPensionSchemeAdvance3.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FNPensionSchemeAdvance3.OptionsColumn.ReadOnly = True
+        Me.FNPensionSchemeAdvance3.Visible = True
+        Me.FNPensionSchemeAdvance3.VisibleIndex = 70
+        Me.FNPensionSchemeAdvance3.Width = 94
         '
         'RepositoryFTSelect
         '
@@ -2001,44 +2222,35 @@ Partial Class wPayrollListing_KM
         Me.RepositoryFTApproveState.ValueChecked = "1"
         Me.RepositoryFTApproveState.ValueUnchecked = "0"
         '
-        'FNTotalRecalPensionScheme
+        'FNSpecialSkill
         '
-        Me.FNTotalRecalPensionScheme.Caption = "FNTotalRecalPensionScheme"
-        Me.FNTotalRecalPensionScheme.DisplayFormat.FormatString = "{0:n2}"
-        Me.FNTotalRecalPensionScheme.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.FNTotalRecalPensionScheme.FieldName = "FNTotalRecalPensionScheme"
-        Me.FNTotalRecalPensionScheme.MinWidth = 25
-        Me.FNTotalRecalPensionScheme.Name = "FNTotalRecalPensionScheme"
-        Me.FNTotalRecalPensionScheme.OptionsColumn.AllowEdit = False
-        Me.FNTotalRecalPensionScheme.Visible = True
-        Me.FNTotalRecalPensionScheme.VisibleIndex = 52
-        Me.FNTotalRecalPensionScheme.Width = 94
+        Me.FNSpecialSkill.Caption = "FNSpecialSkill"
+        Me.FNSpecialSkill.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNSpecialSkill.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNSpecialSkill.FieldName = "FNSpecialSkill"
+        Me.FNSpecialSkill.MinWidth = 25
+        Me.FNSpecialSkill.Name = "FNSpecialSkill"
+        Me.FNSpecialSkill.OptionsColumn.AllowEdit = False
+        Me.FNSpecialSkill.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FNSpecialSkill.OptionsColumn.ReadOnly = True
+        Me.FNSpecialSkill.Visible = True
+        Me.FNSpecialSkill.VisibleIndex = 34
+        Me.FNSpecialSkill.Width = 94
         '
-        'FNPensionScheme
+        'FNWorkShift
         '
-        Me.FNPensionScheme.Caption = "FNPensionScheme"
-        Me.FNPensionScheme.DisplayFormat.FormatString = "{0:n2}"
-        Me.FNPensionScheme.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.FNPensionScheme.FieldName = "FNPensionScheme"
-        Me.FNPensionScheme.MinWidth = 25
-        Me.FNPensionScheme.Name = "FNPensionScheme"
-        Me.FNPensionScheme.OptionsColumn.AllowEdit = False
-        Me.FNPensionScheme.Visible = True
-        Me.FNPensionScheme.VisibleIndex = 53
-        Me.FNPensionScheme.Width = 94
-        '
-        'FNPensionSchemeCmp
-        '
-        Me.FNPensionSchemeCmp.Caption = "FNPensionSchemeCmp"
-        Me.FNPensionSchemeCmp.DisplayFormat.FormatString = "{0:n2}"
-        Me.FNPensionSchemeCmp.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.FNPensionSchemeCmp.FieldName = "FNPensionSchemeCmp"
-        Me.FNPensionSchemeCmp.MinWidth = 25
-        Me.FNPensionSchemeCmp.Name = "FNPensionSchemeCmp"
-        Me.FNPensionSchemeCmp.OptionsColumn.AllowEdit = False
-        Me.FNPensionSchemeCmp.Visible = True
-        Me.FNPensionSchemeCmp.VisibleIndex = 54
-        Me.FNPensionSchemeCmp.Width = 94
+        Me.FNWorkShift.Caption = "FNWorkShift"
+        Me.FNWorkShift.DisplayFormat.FormatString = "{0:n2}"
+        Me.FNWorkShift.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNWorkShift.FieldName = "FNWorkShift"
+        Me.FNWorkShift.MinWidth = 25
+        Me.FNWorkShift.Name = "FNWorkShift"
+        Me.FNWorkShift.OptionsColumn.AllowEdit = False
+        Me.FNWorkShift.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FNWorkShift.OptionsColumn.ReadOnly = True
+        Me.FNWorkShift.Visible = True
+        Me.FNWorkShift.VisibleIndex = 33
+        Me.FNWorkShift.Width = 94
         '
         'wPayrollListing_KM
         '
@@ -2217,4 +2429,18 @@ Partial Class wPayrollListing_KM
     Friend WithEvents FNTotalRecalPensionScheme As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FNPensionScheme As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FNPensionSchemeCmp As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTUnion As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNAllowance_NewYear As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNAllowance_Trip As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNParturitionLeaveUS1 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNParturitionLeaveUS2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNParturitionLeaveUS3 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNPensionSchemeAdvance2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNPensionSchemeAdvance3 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FDDateStart As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FDBirthDate As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTEmpIdNo As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSocialNo As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNWorkShift As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNSpecialSkill As DevExpress.XtraGrid.Columns.GridColumn
 End Class

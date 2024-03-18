@@ -101,7 +101,7 @@ Partial Class wHRReportExportBank
         Me.ogbbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbbutton.Name = "ogbbutton"
         Me.ogbbutton.ShowCaption = False
-        Me.ogbbutton.Size = New System.Drawing.Size(723, 52)
+        Me.ogbbutton.Size = New System.Drawing.Size(723, 69)
         Me.ogbbutton.TabIndex = 0
         Me.ogbbutton.Text = "GroupControl1"
         '
@@ -175,7 +175,7 @@ Partial Class wHRReportExportBank
         Me.FNReportname.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNReportname.Properties.Tag = ""
         Me.FNReportname.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNReportname.Size = New System.Drawing.Size(364, 23)
+        Me.FNReportname.Size = New System.Drawing.Size(364, 22)
         Me.FNReportname.TabIndex = 292
         Me.FNReportname.Tag = "2|"
         '
@@ -246,7 +246,7 @@ Partial Class wHRReportExportBank
         Me.Type.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.Type.Properties.Appearance.Options.UseBackColor = True
         Me.Type.Properties.ReadOnly = True
-        Me.Type.Size = New System.Drawing.Size(47, 23)
+        Me.Type.Size = New System.Drawing.Size(47, 22)
         Me.Type.TabIndex = 414
         Me.Type.Tag = "2|"
         '
@@ -260,7 +260,7 @@ Partial Class wHRReportExportBank
         Me.FNHSysBankBranchId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysBankBranchId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysBankBranchId_None.Properties.ReadOnly = True
-        Me.FNHSysBankBranchId_None.Size = New System.Drawing.Size(335, 23)
+        Me.FNHSysBankBranchId_None.Size = New System.Drawing.Size(335, 22)
         Me.FNHSysBankBranchId_None.TabIndex = 413
         Me.FNHSysBankBranchId_None.Tag = "2|"
         '
@@ -271,7 +271,7 @@ Partial Class wHRReportExportBank
         Me.FNHSysBankBranchId.Name = "FNHSysBankBranchId"
         Me.FNHSysBankBranchId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "43", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBankBranchId.Properties.Tag = "1"
-        Me.FNHSysBankBranchId.Size = New System.Drawing.Size(148, 23)
+        Me.FNHSysBankBranchId.Size = New System.Drawing.Size(148, 22)
         Me.FNHSysBankBranchId.TabIndex = 411
         Me.FNHSysBankBranchId.Tag = "2|"
         '
@@ -300,7 +300,7 @@ Partial Class wHRReportExportBank
         Me.FNHSysBankId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysBankId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysBankId_None.Properties.ReadOnly = True
-        Me.FNHSysBankId_None.Size = New System.Drawing.Size(335, 23)
+        Me.FNHSysBankId_None.Size = New System.Drawing.Size(335, 22)
         Me.FNHSysBankId_None.TabIndex = 410
         Me.FNHSysBankId_None.Tag = "2|"
         '
@@ -311,7 +311,7 @@ Partial Class wHRReportExportBank
         Me.FNHSysBankId.Name = "FNHSysBankId"
         Me.FNHSysBankId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "1", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBankId.Properties.Tag = "1"
-        Me.FNHSysBankId.Size = New System.Drawing.Size(148, 23)
+        Me.FNHSysBankId.Size = New System.Drawing.Size(148, 22)
         Me.FNHSysBankId.TabIndex = 408
         Me.FNHSysBankId.Tag = "2|"
         '
@@ -337,7 +337,7 @@ Partial Class wHRReportExportBank
         Me.FNHSysEmpTypeId.Name = "FNHSysEmpTypeId"
         Me.FNHSysEmpTypeId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "42", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpTypeId.Properties.Tag = ""
-        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(47, 23)
+        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(47, 22)
         Me.FNHSysEmpTypeId.TabIndex = 405
         Me.FNHSysEmpTypeId.Tag = "2|"
         Me.FNHSysEmpTypeId.Visible = False
@@ -366,7 +366,7 @@ Partial Class wHRReportExportBank
         Me.FNHSysEmpTypeId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpTypeId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpTypeId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(31, 23)
+        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(31, 22)
         Me.FNHSysEmpTypeId_None.TabIndex = 407
         Me.FNHSysEmpTypeId_None.Tag = "2|"
         '
@@ -417,7 +417,7 @@ Partial Class wHRReportExportBank
         Me.FDPayDate.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FDPayDate.Properties.Appearance.Options.UseBackColor = True
         Me.FDPayDate.Properties.ReadOnly = True
-        Me.FDPayDate.Size = New System.Drawing.Size(148, 23)
+        Me.FDPayDate.Size = New System.Drawing.Size(148, 22)
         Me.FDPayDate.TabIndex = 401
         Me.FDPayDate.Tag = "2|"
         '
@@ -445,7 +445,7 @@ Partial Class wHRReportExportBank
         Me.FTPayYear.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FTPayYear.Properties.Tag = "FNPayYear"
         Me.FTPayYear.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FTPayYear.Size = New System.Drawing.Size(148, 23)
+        Me.FTPayYear.Size = New System.Drawing.Size(148, 22)
         Me.FTPayYear.TabIndex = 400
         Me.FTPayYear.Tag = "2|"
         '
@@ -457,7 +457,7 @@ Partial Class wHRReportExportBank
         Me.FDCalDateEnd.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FDCalDateEnd.Properties.Appearance.Options.UseBackColor = True
         Me.FDCalDateEnd.Properties.ReadOnly = True
-        Me.FDCalDateEnd.Size = New System.Drawing.Size(117, 23)
+        Me.FDCalDateEnd.Size = New System.Drawing.Size(117, 22)
         Me.FDCalDateEnd.TabIndex = 399
         Me.FDCalDateEnd.Tag = "2|"
         '
@@ -469,7 +469,7 @@ Partial Class wHRReportExportBank
         Me.FDCalDateBegin.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FDCalDateBegin.Properties.Appearance.Options.UseBackColor = True
         Me.FDCalDateBegin.Properties.ReadOnly = True
-        Me.FDCalDateBegin.Size = New System.Drawing.Size(148, 23)
+        Me.FDCalDateBegin.Size = New System.Drawing.Size(148, 22)
         Me.FDCalDateBegin.TabIndex = 398
         Me.FDCalDateBegin.Tag = "2|"
         '
@@ -480,7 +480,7 @@ Partial Class wHRReportExportBank
         Me.FTPayTerm.Name = "FTPayTerm"
         Me.FTPayTerm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "229", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTPayTerm.Properties.Tag = "23"
-        Me.FTPayTerm.Size = New System.Drawing.Size(117, 23)
+        Me.FTPayTerm.Size = New System.Drawing.Size(117, 22)
         Me.FTPayTerm.TabIndex = 397
         Me.FTPayTerm.Tag = "2|"
         '
@@ -518,7 +518,7 @@ Partial Class wHRReportExportBank
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(728, 634)
+        Me.ClientSize = New System.Drawing.Size(728, 662)
         Me.Controls.Add(Me.ogbdate)
         Me.Controls.Add(Me.ogbgrpcondition)
         Me.Controls.Add(Me.ogbreportname)

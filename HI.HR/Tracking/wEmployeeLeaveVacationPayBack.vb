@@ -58,8 +58,11 @@
         If VacationLeaveType = "1" Then
             _Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.SP_CALCULATE_EMPLEAVE_RETVACATION_YEAR_TH '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & _FTYear & "','" & _FTYear & "/01/01" & "','" & _FTYear & "/12/31" & "'"
 
+        ElseIf VacationLeaveType = "2" Then
+            _Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.SP_CALCULATE_EMPLEAVE_RETVACATION_YEAR_LAOS '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & _FTYear & "','" & _FTYear & "/01/01" & "','" & _FTYear & "/12/31" & "'"
+
         Else
-            _Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.SP_CALCULATE_EMPLEAVE_RETVACATION_YEAR '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & _FTYear & "','" & _FTYear & "/01/01" & "','" & _FTYear & "/12/31" & "'"
+                _Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.SP_CALCULATE_EMPLEAVE_RETVACATION_YEAR '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & _FTYear & "','" & _FTYear & "/01/01" & "','" & _FTYear & "/12/31" & "'"
 
 
         End If
@@ -109,10 +112,8 @@
         _Qry &= vbCrLf & " +':'+  Right('00' + Convert(varchar(30),Convert(numeric(18,0),((( ((MST.FNEmpVacation* 480) - (CONVERT(numeric(18, 2), MST.FNLeaveVacation  ) ))   )   % 480.00) % 60.00))),2))  AS  FNEmpVacationBal 	"
 
 
-
-
-
-        _Qry &= vbCrLf & ", Convert(numeric(18,2),((MST.FNEmpVacation *480) - (CONVERT(numeric(18, 2), MST.FNLeaveVacation  ) )) * (CASE WHEN ISNULL(ET.FNCalType,0) = 0 THEN (MST.FNSalary /480 ) ELSE (Convert(numeric(18,2),MST.FNSalary/30)/480) END)) AS FNEmpVacationRetAmt"
+        _Qry &= vbCrLf & ", Convert(numeric(18,2),((MST.FNEmpVacation *480) - (CONVERT(numeric(18, 2), MST.FNLeaveVacation  ) )) * (CASE WHEN ISNULL(ET.FNCalType,0) = 0 THEN (MST.FNSalary /480 ) ELSE (Convert(numeric(18,2),MST.FNSalary/26)/480) END)) AS FNEmpVacationRetAmt"
+        ''_Qry &= vbCrLf & ", Convert(numeric(18,2),((MST.FNEmpVacation *480) - (CONVERT(numeric(18, 2), MST.FNLeaveVacation  ) )) * (CASE WHEN ISNULL(ET.FNCalType,0) = 0 THEN (MST.FNSalary /480 ) ELSE (Convert(numeric(18,2),MST.FNSalary/30)/480) END)) AS FNEmpVacationRetAmt"
 
 
         _Qry &= vbCrLf & " FROM "

@@ -21,6 +21,11 @@ Partial Class wTimeAttendanceCon_KM
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wTimeAttendanceCon_KM))
+        Dim EditorButtonImageOptions22 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject85 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject86 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject87 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject88 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -81,51 +86,46 @@ Partial Class wTimeAttendanceCon_KM
         Dim SerializableAppearanceObject46 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject47 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject48 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions13 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject49 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject50 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject51 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject52 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions14 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject53 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject54 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject55 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject56 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions15 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject57 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject58 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject59 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject60 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions16 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject61 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject62 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject63 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject64 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions17 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject65 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject66 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject67 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject68 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions18 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject69 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject70 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject71 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject72 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions19 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject73 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject74 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject75 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject76 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions20 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject77 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject78 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject79 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject80 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions21 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject81 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject82 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject83 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject84 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions23 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject89 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject90 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject91 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject92 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions24 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject93 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject94 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject95 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject96 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions25 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject97 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject98 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject99 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject100 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions26 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject101 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject102 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject103 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject104 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions27 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject105 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject106 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject107 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject108 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions28 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject109 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject110 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject111 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject112 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions29 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject113 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject114 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject115 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject116 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions30 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject117 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject118 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject119 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject120 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbheader = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
         Me.FDEndDate = New DevExpress.XtraEditors.DateEdit()
@@ -190,10 +190,14 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNHSysShiftIDOrg = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTEmpTypeCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTDeptCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTDeptDesc = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTDivisonCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSectCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSectName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTUnitSectCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTUnitSectName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTPositCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTPositName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTShiftCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepFTShiftCode = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
         Me.FTCheckIn1 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -275,7 +279,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.RepFTScanAOTIn = New DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit()
         Me.RepFTScanAOTOut = New DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit()
         Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
-        Me.hideContainerTop = New DevExpress.XtraBars.Docking.AutoHideContainer()
+        Me.BehaviorManager1 = New DevExpress.Utils.Behaviors.BehaviorManager(Me.components)
         Me.ogbheader.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
         CType(Me.FDEndDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -324,7 +328,7 @@ Partial Class wTimeAttendanceCon_KM
         CType(Me.RepFTScanAOTIn, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepFTScanAOTOut, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.hideContainerTop.SuspendLayout()
+        CType(Me.BehaviorManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ogbheader
@@ -348,12 +352,9 @@ Partial Class wTimeAttendanceCon_KM
         Me.ogbheader.Options.ShowCloseButton = False
         Me.ogbheader.Options.ShowMaximizeButton = False
         Me.ogbheader.OriginalSize = New System.Drawing.Size(1353, 236)
-        Me.ogbheader.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Top
-        Me.ogbheader.SavedIndex = 0
-        Me.ogbheader.Size = New System.Drawing.Size(1160, 192)
+        Me.ogbheader.Size = New System.Drawing.Size(1199, 236)
         Me.ogbheader.TabStop = False
         Me.ogbheader.Text = "Criteria"
-        Me.ogbheader.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide
         '
         'DockPanel1_Container
         '
@@ -399,7 +400,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysDeptId)
         Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1154, 162)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1193, 206)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FDEndDate
@@ -461,7 +462,7 @@ Partial Class wTimeAttendanceCon_KM
         '
         Me.FNHSysSectId.Location = New System.Drawing.Point(119, 90)
         Me.FNHSysSectId.Name = "FNHSysSectId"
-        Me.FNHSysSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "55", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions22, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject85, SerializableAppearanceObject86, SerializableAppearanceObject87, SerializableAppearanceObject88, "", "55", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectId.Properties.Tag = "55"
         Me.FNHSysSectId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysSectId.TabIndex = 6
@@ -475,7 +476,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
         Me.FNHSysCmpId.Size = New System.Drawing.Size(113, 20)
@@ -532,7 +533,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNHSysEmpIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysEmpIdTo_None.Size = New System.Drawing.Size(320, 20)
+        Me.FNHSysEmpIdTo_None.Size = New System.Drawing.Size(359, 20)
         Me.FNHSysEmpIdTo_None.TabIndex = 328
         Me.FNHSysEmpIdTo_None.Tag = "2|"
         '
@@ -582,7 +583,7 @@ Partial Class wTimeAttendanceCon_KM
         '
         Me.FNHSysEmpTypeId.Location = New System.Drawing.Point(511, 4)
         Me.FNHSysEmpTypeId.Name = "FNHSysEmpTypeId"
-        Me.FNHSysEmpTypeId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "42", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysEmpTypeId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "42", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpTypeId.Properties.Tag = ""
         Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysEmpTypeId.TabIndex = 0
@@ -597,7 +598,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(320, 20)
+        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(359, 20)
         Me.FNHSysUnitSectIdTo_None.TabIndex = 322
         Me.FNHSysUnitSectIdTo_None.Tag = "2|"
         '
@@ -616,7 +617,7 @@ Partial Class wTimeAttendanceCon_KM
         '
         Me.FNHSysUnitSectId.Location = New System.Drawing.Point(119, 111)
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
-        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "57", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "57", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.Tag = "57"
         Me.FNHSysUnitSectId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysUnitSectId.TabIndex = 8
@@ -640,7 +641,7 @@ Partial Class wTimeAttendanceCon_KM
         '
         Me.FNHSysDivisonIdTo.Location = New System.Drawing.Point(511, 49)
         Me.FNHSysDivisonIdTo.Name = "FNHSysDivisonIdTo"
-        Me.FNHSysDivisonIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "60", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDivisonIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "60", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonIdTo.Properties.Tag = "46"
         Me.FNHSysDivisonIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysDivisonIdTo.TabIndex = 3
@@ -664,7 +665,7 @@ Partial Class wTimeAttendanceCon_KM
         '
         Me.FNHSysDivisonId.Location = New System.Drawing.Point(119, 48)
         Me.FNHSysDivisonId.Name = "FNHSysDivisonId"
-        Me.FNHSysDivisonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "46", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDivisonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "46", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonId.Properties.Tag = "46"
         Me.FNHSysDivisonId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysDivisonId.TabIndex = 297
@@ -679,7 +680,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNHSysDeptIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysDeptIdTo_None.Size = New System.Drawing.Size(320, 20)
+        Me.FNHSysDeptIdTo_None.Size = New System.Drawing.Size(359, 20)
         Me.FNHSysDeptIdTo_None.TabIndex = 313
         Me.FNHSysDeptIdTo_None.Tag = "2|"
         '
@@ -748,7 +749,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNHSysDivisonIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonIdTo_None.Size = New System.Drawing.Size(320, 20)
+        Me.FNHSysDivisonIdTo_None.Size = New System.Drawing.Size(359, 20)
         Me.FNHSysDivisonIdTo_None.TabIndex = 316
         Me.FNHSysDivisonIdTo_None.Tag = "2|"
         '
@@ -756,7 +757,7 @@ Partial Class wTimeAttendanceCon_KM
         '
         Me.FNHSysEmpId.Location = New System.Drawing.Point(119, 132)
         Me.FNHSysEmpId.Name = "FNHSysEmpId"
-        Me.FNHSysEmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "58", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysEmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "58", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpId.Properties.Tag = "57"
         Me.FNHSysEmpId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysEmpId.TabIndex = 10
@@ -777,7 +778,7 @@ Partial Class wTimeAttendanceCon_KM
         '
         Me.FNHSysEmpIdTo.Location = New System.Drawing.Point(511, 133)
         Me.FNHSysEmpIdTo.Name = "FNHSysEmpIdTo"
-        Me.FNHSysEmpIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "63", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysEmpIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "63", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpIdTo.Properties.Tag = "57"
         Me.FNHSysEmpIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysEmpIdTo.TabIndex = 11
@@ -792,7 +793,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNHSysSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysSectIdTo_None.Size = New System.Drawing.Size(320, 20)
+        Me.FNHSysSectIdTo_None.Size = New System.Drawing.Size(359, 20)
         Me.FNHSysSectIdTo_None.TabIndex = 319
         Me.FNHSysSectIdTo_None.Tag = "2|"
         '
@@ -805,7 +806,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNHSysEmpTypeId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpTypeId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpTypeId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(320, 20)
+        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(359, 20)
         Me.FNHSysEmpTypeId_None.TabIndex = 285
         Me.FNHSysEmpTypeId_None.Tag = "2|"
         '
@@ -824,7 +825,7 @@ Partial Class wTimeAttendanceCon_KM
         '
         Me.FNHSysSectIdTo.Location = New System.Drawing.Point(511, 91)
         Me.FNHSysSectIdTo.Name = "FNHSysSectIdTo"
-        Me.FNHSysSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "61", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "61", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectIdTo.Properties.Tag = "55"
         Me.FNHSysSectIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysSectIdTo.TabIndex = 7
@@ -873,7 +874,7 @@ Partial Class wTimeAttendanceCon_KM
         '
         Me.FNHSysDeptIdTo.Location = New System.Drawing.Point(511, 70)
         Me.FNHSysDeptIdTo.Name = "FNHSysDeptIdTo"
-        Me.FNHSysDeptIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "59", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDeptIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "59", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptIdTo.Properties.Tag = "23"
         Me.FNHSysDeptIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysDeptIdTo.TabIndex = 5
@@ -883,7 +884,7 @@ Partial Class wTimeAttendanceCon_KM
         '
         Me.FNHSysUnitSectIdTo.Location = New System.Drawing.Point(511, 112)
         Me.FNHSysUnitSectIdTo.Name = "FNHSysUnitSectIdTo"
-        Me.FNHSysUnitSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "62", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysUnitSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "62", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectIdTo.Properties.Tag = "57"
         Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysUnitSectIdTo.TabIndex = 9
@@ -893,7 +894,7 @@ Partial Class wTimeAttendanceCon_KM
         '
         Me.FNHSysDeptId.Location = New System.Drawing.Point(119, 69)
         Me.FNHSysDeptId.Name = "FNHSysDeptId"
-        Me.FNHSysDeptId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "23", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDeptId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "23", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptId.Properties.Tag = "23"
         Me.FNHSysDeptId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysDeptId.TabIndex = 4
@@ -904,10 +905,10 @@ Partial Class wTimeAttendanceCon_KM
         Me.ogbdetail.Controls.Add(Me.ogbmainprocbutton)
         Me.ogbdetail.Controls.Add(Me.ogdtime)
         Me.ogbdetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbdetail.Location = New System.Drawing.Point(0, 40)
+        Me.ogbdetail.Location = New System.Drawing.Point(0, 236)
         Me.ogbdetail.Name = "ogbdetail"
         Me.ogbdetail.ShowCaption = False
-        Me.ogbdetail.Size = New System.Drawing.Size(1160, 593)
+        Me.ogbdetail.Size = New System.Drawing.Size(1199, 397)
         Me.ogbdetail.TabIndex = 0
         '
         'ogbmainprocbutton
@@ -924,7 +925,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmdelete)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmsavedetail)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(12, 142)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(51, 142)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(1136, 89)
         Me.ogbmainprocbutton.TabIndex = 386
@@ -1040,7 +1041,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.ogdtime.MainView = Me.ogvtime
         Me.ogdtime.Name = "ogdtime"
         Me.ogdtime.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepFTScanMIn, Me.ReplFTScanMOut, Me.RepFTScanAIn, Me.RepFTScanAOut, Me.RepFTScanAOTIn, Me.RepFTScanAOTOut, Me.RepFTScanAOTIn2, Me.RepFTScanAOTOut2, Me.RepFTTranStaCode, Me.RepTimeEdit, Me.RepFTShiftCode})
-        Me.ogdtime.Size = New System.Drawing.Size(1156, 589)
+        Me.ogdtime.Size = New System.Drawing.Size(1195, 393)
         Me.ogdtime.TabIndex = 0
         Me.ogdtime.TabStop = False
         Me.ogdtime.Tag = "2|"
@@ -1048,7 +1049,8 @@ Partial Class wTimeAttendanceCon_KM
         '
         'ogvtime
         '
-        Me.ogvtime.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTDateTrans, Me.ColFTEmpCode, Me.ColFTEmpName, Me.FNHSysShiftID, Me.FNHSysShiftIDOrg, Me.FTEmpTypeCode, Me.FTDeptCode, Me.FTDivisonCode, Me.FTSectCode, Me.FTUnitSectCode, Me.FTPositCode, Me.FTShiftCode, Me.FTCheckIn1, Me.FTCheckOut1, Me.FTCheckIn2, Me.FTCheckOut2, Me.FTCheckOTAIn1, Me.FTCheckOTAOut1, Me.FTCheckOTAIn2, Me.FTCheckOTAOut2, Me.FTOTIn2, Me.FTOTOut2, Me.FTOTIn, Me.FTOTOut, Me.FTIn1, Me.FTOut1, Me.FTIn2, Me.FTOut2, Me.FTIn3, Me.FTOut3, Me.FTIn4, Me.FTOut4, Me.FTScanOtMIn, Me.FTScanOtMOut, Me.ColFTScanMIn, Me.ColFTScanMOut, Me.ColFTScanAIn, Me.ColFTScanAOut, Me.ColFTScanAOTIn, Me.ColFTScanAOTOut, Me.ColFTScanAOTIn2, Me.ColFTScanAOTOut2, Me.FNTime, Me.FNOTRequest, Me.FNOT1, Me.FNOT1_5, Me.FNOT2, Me.FNOT3, Me.FNOT4, Me.FNLateNormalMin, Me.FNLateNormalCut, Me.FNAbsentCut, Me.FNAbsent, Me.FNCutAbsent, Me.ColFNHSysEmpID, Me.ColFNHSysTranStaId, Me.ColFTTranStaCode, Me.ColFNHSysTranStaId_None, Me.ColFTOverClock, Me.FTStateError, Me.FTLeave, Me.FDHolidayDate, Me.FTWeekly, Me.FTLeaveCode, Me.FNEmpWork, Me.FTShiftCodeOrg, Me.SPD, Me.FTScanMInM, Me.FTScanMOutM, Me.FTScanAInM, Me.FTScanAOutM, Me.FTScanAOTInM, Me.FTScanAOTOutM, Me.FDDateEnd, Me.FNUseBarcode, Me.FTScanOTMInM, Me.FTScanOTMOutM, Me.CFTCheckOTMIn, Me.CFTCheckOTMOut, Me.CFTDateTrans})
+        Me.ogvtime.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTDateTrans, Me.ColFTEmpCode, Me.ColFTEmpName, Me.FNHSysShiftID, Me.FNHSysShiftIDOrg, Me.FTEmpTypeCode, Me.FTDeptCode, Me.FTDeptDesc, Me.FTDivisonCode, Me.FTSectCode, Me.FTSectName, Me.FTUnitSectCode, Me.FTUnitSectName, Me.FTPositCode, Me.FTPositName, Me.FTShiftCode, Me.FTCheckIn1, Me.FTCheckOut1, Me.FTCheckIn2, Me.FTCheckOut2, Me.FTCheckOTAIn1, Me.FTCheckOTAOut1, Me.FTCheckOTAIn2, Me.FTCheckOTAOut2, Me.FTOTIn2, Me.FTOTOut2, Me.FTOTIn, Me.FTOTOut, Me.FTIn1, Me.FTOut1, Me.FTIn2, Me.FTOut2, Me.FTIn3, Me.FTOut3, Me.FTIn4, Me.FTOut4, Me.FTScanOtMIn, Me.FTScanOtMOut, Me.ColFTScanMIn, Me.ColFTScanMOut, Me.ColFTScanAIn, Me.ColFTScanAOut, Me.ColFTScanAOTIn, Me.ColFTScanAOTOut, Me.ColFTScanAOTIn2, Me.ColFTScanAOTOut2, Me.FNTime, Me.FNOTRequest, Me.FNOT1, Me.FNOT1_5, Me.FNOT2, Me.FNOT3, Me.FNOT4, Me.FNLateNormalMin, Me.FNLateNormalCut, Me.FNAbsentCut, Me.FNAbsent, Me.FNCutAbsent, Me.ColFNHSysEmpID, Me.ColFNHSysTranStaId, Me.ColFTTranStaCode, Me.ColFNHSysTranStaId_None, Me.ColFTOverClock, Me.FTStateError, Me.FTLeave, Me.FDHolidayDate, Me.FTWeekly, Me.FTLeaveCode, Me.FNEmpWork, Me.FTShiftCodeOrg, Me.SPD, Me.FTScanMInM, Me.FTScanMOutM, Me.FTScanAInM, Me.FTScanAOutM, Me.FTScanAOTInM, Me.FTScanAOTOutM, Me.FDDateEnd, Me.FNUseBarcode, Me.FTScanOTMInM, Me.FTScanOTMOutM, Me.CFTCheckOTMIn, Me.CFTCheckOTMOut, Me.CFTDateTrans})
+        Me.ogvtime.CustomizationFormBounds = New System.Drawing.Rectangle(995, 506, 252, 266)
         Me.ogvtime.GridControl = Me.ogdtime
         Me.ogvtime.Name = "ogvtime"
         Me.ogvtime.OptionsCustomization.AllowQuickHideColumns = False
@@ -1153,6 +1155,18 @@ Partial Class wTimeAttendanceCon_KM
         Me.FTDeptCode.Visible = True
         Me.FTDeptCode.VisibleIndex = 5
         '
+        'FTDeptDesc
+        '
+        Me.FTDeptDesc.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTDeptDesc.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTDeptDesc.Caption = "FTDeptDesc"
+        Me.FTDeptDesc.FieldName = "FTDeptDesc"
+        Me.FTDeptDesc.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.FTDeptDesc.Name = "FTDeptDesc"
+        Me.FTDeptDesc.OptionsColumn.AllowEdit = False
+        Me.FTDeptDesc.Visible = True
+        Me.FTDeptDesc.VisibleIndex = 6
+        '
         'FTDivisonCode
         '
         Me.FTDivisonCode.AppearanceHeader.Options.UseTextOptions = True
@@ -1175,7 +1189,17 @@ Partial Class wTimeAttendanceCon_KM
         Me.FTSectCode.Name = "FTSectCode"
         Me.FTSectCode.OptionsColumn.AllowEdit = False
         Me.FTSectCode.Visible = True
-        Me.FTSectCode.VisibleIndex = 6
+        Me.FTSectCode.VisibleIndex = 7
+        '
+        'FTSectName
+        '
+        Me.FTSectName.Caption = "FTSectName"
+        Me.FTSectName.FieldName = "FTSectName"
+        Me.FTSectName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.FTSectName.Name = "FTSectName"
+        Me.FTSectName.OptionsColumn.AllowEdit = False
+        Me.FTSectName.Visible = True
+        Me.FTSectName.VisibleIndex = 8
         '
         'FTUnitSectCode
         '
@@ -1188,8 +1212,20 @@ Partial Class wTimeAttendanceCon_KM
         Me.FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.FTUnitSectCode.Visible = True
-        Me.FTUnitSectCode.VisibleIndex = 7
+        Me.FTUnitSectCode.VisibleIndex = 9
         Me.FTUnitSectCode.Width = 76
+        '
+        'FTUnitSectName
+        '
+        Me.FTUnitSectName.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTUnitSectName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTUnitSectName.Caption = "FTUnitSectName"
+        Me.FTUnitSectName.FieldName = "FTUnitSectName"
+        Me.FTUnitSectName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.FTUnitSectName.Name = "FTUnitSectName"
+        Me.FTUnitSectName.OptionsColumn.AllowEdit = False
+        Me.FTUnitSectName.Visible = True
+        Me.FTUnitSectName.VisibleIndex = 10
         '
         'FTPositCode
         '
@@ -1200,7 +1236,19 @@ Partial Class wTimeAttendanceCon_KM
         Me.FTPositCode.OptionsColumn.AllowEdit = False
         Me.FTPositCode.OptionsColumn.ReadOnly = True
         Me.FTPositCode.Visible = True
-        Me.FTPositCode.VisibleIndex = 8
+        Me.FTPositCode.VisibleIndex = 11
+        '
+        'FTPositName
+        '
+        Me.FTPositName.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTPositName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTPositName.Caption = "FTPositName"
+        Me.FTPositName.FieldName = "FTPositName"
+        Me.FTPositName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.FTPositName.Name = "FTPositName"
+        Me.FTPositName.OptionsColumn.AllowEdit = False
+        Me.FTPositName.Visible = True
+        Me.FTPositName.VisibleIndex = 12
         '
         'FTShiftCode
         '
@@ -1215,7 +1263,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FTShiftCode.FieldName = "FTShiftCode"
         Me.FTShiftCode.Name = "FTShiftCode"
         Me.FTShiftCode.Visible = True
-        Me.FTShiftCode.VisibleIndex = 9
+        Me.FTShiftCode.VisibleIndex = 13
         Me.FTShiftCode.Width = 64
         '
         'RepFTShiftCode
@@ -1398,7 +1446,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FTIn1.OptionsColumn.AllowMove = False
         Me.FTIn1.OptionsColumn.ReadOnly = True
         Me.FTIn1.Visible = True
-        Me.FTIn1.VisibleIndex = 10
+        Me.FTIn1.VisibleIndex = 14
         Me.FTIn1.Width = 104
         '
         'FTOut1
@@ -1498,13 +1546,13 @@ Partial Class wTimeAttendanceCon_KM
         Me.FTScanOtMIn.FieldName = "FTScanOtMIn"
         Me.FTScanOtMIn.Name = "FTScanOtMIn"
         Me.FTScanOtMIn.Visible = True
-        Me.FTScanOtMIn.VisibleIndex = 11
+        Me.FTScanOtMIn.VisibleIndex = 15
         Me.FTScanOtMIn.Width = 40
         '
         'RepTimeEdit
         '
         Me.RepTimeEdit.AutoHeight = False
-        Me.RepTimeEdit.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepTimeEdit.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepTimeEdit.DisplayFormat.FormatString = "HH:mm"
         Me.RepTimeEdit.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.RepTimeEdit.EditFormat.FormatString = "HH:mm"
@@ -1527,7 +1575,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FTScanOtMOut.FieldName = "FTScanOtMOut"
         Me.FTScanOtMOut.Name = "FTScanOtMOut"
         Me.FTScanOtMOut.Visible = True
-        Me.FTScanOtMOut.VisibleIndex = 12
+        Me.FTScanOtMOut.VisibleIndex = 16
         Me.FTScanOtMOut.Width = 40
         '
         'ColFTScanMIn
@@ -1545,7 +1593,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.ColFTScanMIn.OptionsColumn.AllowMove = False
         Me.ColFTScanMIn.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTScanMIn.Visible = True
-        Me.ColFTScanMIn.VisibleIndex = 13
+        Me.ColFTScanMIn.VisibleIndex = 17
         Me.ColFTScanMIn.Width = 40
         '
         'ColFTScanMOut
@@ -1563,7 +1611,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.ColFTScanMOut.OptionsColumn.AllowMove = False
         Me.ColFTScanMOut.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTScanMOut.Visible = True
-        Me.ColFTScanMOut.VisibleIndex = 14
+        Me.ColFTScanMOut.VisibleIndex = 18
         Me.ColFTScanMOut.Width = 40
         '
         'ColFTScanAIn
@@ -1581,7 +1629,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.ColFTScanAIn.OptionsColumn.AllowMove = False
         Me.ColFTScanAIn.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTScanAIn.Visible = True
-        Me.ColFTScanAIn.VisibleIndex = 15
+        Me.ColFTScanAIn.VisibleIndex = 19
         Me.ColFTScanAIn.Width = 40
         '
         'ColFTScanAOut
@@ -1599,7 +1647,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.ColFTScanAOut.OptionsColumn.AllowMove = False
         Me.ColFTScanAOut.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTScanAOut.Visible = True
-        Me.ColFTScanAOut.VisibleIndex = 16
+        Me.ColFTScanAOut.VisibleIndex = 20
         Me.ColFTScanAOut.Width = 40
         '
         'ColFTScanAOTIn
@@ -1617,7 +1665,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.ColFTScanAOTIn.OptionsColumn.AllowMove = False
         Me.ColFTScanAOTIn.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTScanAOTIn.Visible = True
-        Me.ColFTScanAOTIn.VisibleIndex = 17
+        Me.ColFTScanAOTIn.VisibleIndex = 21
         Me.ColFTScanAOTIn.Width = 40
         '
         'ColFTScanAOTOut
@@ -1635,7 +1683,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.ColFTScanAOTOut.OptionsColumn.AllowMove = False
         Me.ColFTScanAOTOut.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTScanAOTOut.Visible = True
-        Me.ColFTScanAOTOut.VisibleIndex = 18
+        Me.ColFTScanAOTOut.VisibleIndex = 22
         Me.ColFTScanAOTOut.Width = 40
         '
         'ColFTScanAOTIn2
@@ -1657,7 +1705,7 @@ Partial Class wTimeAttendanceCon_KM
         'RepFTScanAOTIn2
         '
         Me.RepFTScanAOTIn2.AutoHeight = False
-        Me.RepFTScanAOTIn2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepFTScanAOTIn2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions23, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject89, SerializableAppearanceObject90, SerializableAppearanceObject91, SerializableAppearanceObject92, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepFTScanAOTIn2.DisplayFormat.FormatString = "HH:mm"
         Me.RepFTScanAOTIn2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.RepFTScanAOTIn2.EditFormat.FormatString = "HH:mm"
@@ -1686,7 +1734,7 @@ Partial Class wTimeAttendanceCon_KM
         'RepFTScanAOTOut2
         '
         Me.RepFTScanAOTOut2.AutoHeight = False
-        Me.RepFTScanAOTOut2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepFTScanAOTOut2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions24, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject93, SerializableAppearanceObject94, SerializableAppearanceObject95, SerializableAppearanceObject96, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepFTScanAOTOut2.DisplayFormat.FormatString = "HH:mm"
         Me.RepFTScanAOTOut2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.RepFTScanAOTOut2.EditFormat.FormatString = "HH:mm"
@@ -1709,7 +1757,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNTime.OptionsColumn.AllowMove = False
         Me.FNTime.OptionsColumn.ReadOnly = True
         Me.FNTime.Visible = True
-        Me.FNTime.VisibleIndex = 19
+        Me.FNTime.VisibleIndex = 23
         Me.FNTime.Width = 48
         '
         'FNOTRequest
@@ -1724,7 +1772,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNOTRequest.OptionsColumn.AllowEdit = False
         Me.FNOTRequest.OptionsColumn.ReadOnly = True
         Me.FNOTRequest.Visible = True
-        Me.FNOTRequest.VisibleIndex = 20
+        Me.FNOTRequest.VisibleIndex = 24
         Me.FNOTRequest.Width = 67
         '
         'FNOT1
@@ -1740,7 +1788,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNOT1.OptionsColumn.AllowMove = False
         Me.FNOT1.OptionsColumn.ReadOnly = True
         Me.FNOT1.Visible = True
-        Me.FNOT1.VisibleIndex = 21
+        Me.FNOT1.VisibleIndex = 25
         Me.FNOT1.Width = 45
         '
         'FNOT1_5
@@ -1756,7 +1804,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNOT1_5.OptionsColumn.AllowMove = False
         Me.FNOT1_5.OptionsColumn.ReadOnly = True
         Me.FNOT1_5.Visible = True
-        Me.FNOT1_5.VisibleIndex = 22
+        Me.FNOT1_5.VisibleIndex = 26
         Me.FNOT1_5.Width = 40
         '
         'FNOT2
@@ -1772,7 +1820,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNOT2.OptionsColumn.AllowMove = False
         Me.FNOT2.OptionsColumn.ReadOnly = True
         Me.FNOT2.Visible = True
-        Me.FNOT2.VisibleIndex = 23
+        Me.FNOT2.VisibleIndex = 27
         Me.FNOT2.Width = 40
         '
         'FNOT3
@@ -1788,7 +1836,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNOT3.OptionsColumn.AllowMove = False
         Me.FNOT3.OptionsColumn.ReadOnly = True
         Me.FNOT3.Visible = True
-        Me.FNOT3.VisibleIndex = 24
+        Me.FNOT3.VisibleIndex = 28
         Me.FNOT3.Width = 40
         '
         'FNOT4
@@ -1804,7 +1852,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNOT4.OptionsColumn.AllowMove = False
         Me.FNOT4.OptionsColumn.ReadOnly = True
         Me.FNOT4.Visible = True
-        Me.FNOT4.VisibleIndex = 25
+        Me.FNOT4.VisibleIndex = 29
         Me.FNOT4.Width = 40
         '
         'FNLateNormalMin
@@ -1820,7 +1868,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNLateNormalMin.OptionsColumn.AllowMove = False
         Me.FNLateNormalMin.OptionsColumn.ReadOnly = True
         Me.FNLateNormalMin.Visible = True
-        Me.FNLateNormalMin.VisibleIndex = 26
+        Me.FNLateNormalMin.VisibleIndex = 30
         Me.FNLateNormalMin.Width = 60
         '
         'FNLateNormalCut
@@ -1836,7 +1884,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNLateNormalCut.OptionsColumn.AllowMove = False
         Me.FNLateNormalCut.OptionsColumn.ReadOnly = True
         Me.FNLateNormalCut.Visible = True
-        Me.FNLateNormalCut.VisibleIndex = 27
+        Me.FNLateNormalCut.VisibleIndex = 31
         Me.FNLateNormalCut.Width = 60
         '
         'FNAbsentCut
@@ -1852,7 +1900,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNAbsentCut.OptionsColumn.AllowMove = False
         Me.FNAbsentCut.OptionsColumn.ReadOnly = True
         Me.FNAbsentCut.Visible = True
-        Me.FNAbsentCut.VisibleIndex = 28
+        Me.FNAbsentCut.VisibleIndex = 32
         Me.FNAbsentCut.Width = 60
         '
         'FNAbsent
@@ -1868,7 +1916,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNAbsent.OptionsColumn.AllowMove = False
         Me.FNAbsent.OptionsColumn.ReadOnly = True
         Me.FNAbsent.Visible = True
-        Me.FNAbsent.VisibleIndex = 29
+        Me.FNAbsent.VisibleIndex = 33
         Me.FNAbsent.Width = 60
         '
         'FNCutAbsent
@@ -1884,7 +1932,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FNCutAbsent.OptionsColumn.AllowMove = False
         Me.FNCutAbsent.OptionsColumn.ReadOnly = True
         Me.FNCutAbsent.Visible = True
-        Me.FNCutAbsent.VisibleIndex = 30
+        Me.FNCutAbsent.VisibleIndex = 34
         Me.FNCutAbsent.Width = 60
         '
         'ColFNHSysEmpID
@@ -1912,7 +1960,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.ColFTTranStaCode.OptionsColumn.AllowMove = False
         Me.ColFTTranStaCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.ColFTTranStaCode.Visible = True
-        Me.ColFTTranStaCode.VisibleIndex = 31
+        Me.ColFTTranStaCode.VisibleIndex = 35
         Me.ColFTTranStaCode.Width = 100
         '
         'RepFTTranStaCode
@@ -1956,7 +2004,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FTLeave.OptionsColumn.AllowEdit = False
         Me.FTLeave.OptionsColumn.ReadOnly = True
         Me.FTLeave.Visible = True
-        Me.FTLeave.VisibleIndex = 32
+        Me.FTLeave.VisibleIndex = 36
         Me.FTLeave.Width = 150
         '
         'FDHolidayDate
@@ -2043,7 +2091,7 @@ Partial Class wTimeAttendanceCon_KM
         Me.FDDateEnd.OptionsColumn.AllowEdit = False
         Me.FDDateEnd.OptionsColumn.ReadOnly = True
         Me.FDDateEnd.Visible = True
-        Me.FDDateEnd.VisibleIndex = 33
+        Me.FDDateEnd.VisibleIndex = 37
         '
         'FNUseBarcode
         '
@@ -2096,7 +2144,7 @@ Partial Class wTimeAttendanceCon_KM
         'RepFTScanMIn
         '
         Me.RepFTScanMIn.AutoHeight = False
-        Me.RepFTScanMIn.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepFTScanMIn.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions25, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject97, SerializableAppearanceObject98, SerializableAppearanceObject99, SerializableAppearanceObject100, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepFTScanMIn.DisplayFormat.FormatString = "HH:mm"
         Me.RepFTScanMIn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.RepFTScanMIn.EditFormat.FormatString = "HH:mm"
@@ -2109,7 +2157,7 @@ Partial Class wTimeAttendanceCon_KM
         'ReplFTScanMOut
         '
         Me.ReplFTScanMOut.AutoHeight = False
-        Me.ReplFTScanMOut.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions17, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject65, SerializableAppearanceObject66, SerializableAppearanceObject67, SerializableAppearanceObject68, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ReplFTScanMOut.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions26, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject101, SerializableAppearanceObject102, SerializableAppearanceObject103, SerializableAppearanceObject104, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ReplFTScanMOut.DisplayFormat.FormatString = "HH:mm"
         Me.ReplFTScanMOut.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.ReplFTScanMOut.EditFormat.FormatString = "HH:mm"
@@ -2122,7 +2170,7 @@ Partial Class wTimeAttendanceCon_KM
         'RepFTScanAIn
         '
         Me.RepFTScanAIn.AutoHeight = False
-        Me.RepFTScanAIn.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions18, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject69, SerializableAppearanceObject70, SerializableAppearanceObject71, SerializableAppearanceObject72, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepFTScanAIn.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions27, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject105, SerializableAppearanceObject106, SerializableAppearanceObject107, SerializableAppearanceObject108, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepFTScanAIn.DisplayFormat.FormatString = "HH:mm"
         Me.RepFTScanAIn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.RepFTScanAIn.EditFormat.FormatString = "HH:mm"
@@ -2135,7 +2183,7 @@ Partial Class wTimeAttendanceCon_KM
         'RepFTScanAOut
         '
         Me.RepFTScanAOut.AutoHeight = False
-        Me.RepFTScanAOut.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions19, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject73, SerializableAppearanceObject74, SerializableAppearanceObject75, SerializableAppearanceObject76, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepFTScanAOut.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions28, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject109, SerializableAppearanceObject110, SerializableAppearanceObject111, SerializableAppearanceObject112, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepFTScanAOut.DisplayFormat.FormatString = "HH:mm"
         Me.RepFTScanAOut.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.RepFTScanAOut.EditFormat.FormatString = "HH:mm"
@@ -2148,7 +2196,7 @@ Partial Class wTimeAttendanceCon_KM
         'RepFTScanAOTIn
         '
         Me.RepFTScanAOTIn.AutoHeight = False
-        Me.RepFTScanAOTIn.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions20, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject77, SerializableAppearanceObject78, SerializableAppearanceObject79, SerializableAppearanceObject80, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepFTScanAOTIn.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions29, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject113, SerializableAppearanceObject114, SerializableAppearanceObject115, SerializableAppearanceObject116, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepFTScanAOTIn.DisplayFormat.FormatString = "HH:mm"
         Me.RepFTScanAOTIn.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.RepFTScanAOTIn.EditFormat.FormatString = "HH:mm"
@@ -2161,7 +2209,7 @@ Partial Class wTimeAttendanceCon_KM
         'RepFTScanAOTOut
         '
         Me.RepFTScanAOTOut.AutoHeight = False
-        Me.RepFTScanAOTOut.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions21, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject81, SerializableAppearanceObject82, SerializableAppearanceObject83, SerializableAppearanceObject84, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepFTScanAOTOut.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions30, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject117, SerializableAppearanceObject118, SerializableAppearanceObject119, SerializableAppearanceObject120, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepFTScanAOTOut.DisplayFormat.FormatString = "HH:mm"
         Me.RepFTScanAOTOut.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.RepFTScanAOTOut.EditFormat.FormatString = "HH:mm"
@@ -2173,26 +2221,17 @@ Partial Class wTimeAttendanceCon_KM
         '
         'oDockManager
         '
-        Me.oDockManager.AutoHideContainers.AddRange(New DevExpress.XtraBars.Docking.AutoHideContainer() {Me.hideContainerTop})
         Me.oDockManager.Form = Me
+        Me.oDockManager.RootPanels.AddRange(New DevExpress.XtraBars.Docking.DockPanel() {Me.ogbheader})
         Me.oDockManager.TopZIndexControls.AddRange(New String() {"DevExpress.XtraBars.BarDockControl", "DevExpress.XtraBars.StandaloneBarDockControl", "System.Windows.Forms.StatusBar", "DevExpress.XtraBars.Ribbon.RibbonStatusBar", "DevExpress.XtraBars.Ribbon.RibbonControl"})
-        '
-        'hideContainerTop
-        '
-        Me.hideContainerTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.hideContainerTop.Controls.Add(Me.ogbheader)
-        Me.hideContainerTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.hideContainerTop.Location = New System.Drawing.Point(0, 0)
-        Me.hideContainerTop.Name = "hideContainerTop"
-        Me.hideContainerTop.Size = New System.Drawing.Size(1160, 40)
         '
         'wTimeAttendanceCon_KM
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1160, 633)
+        Me.ClientSize = New System.Drawing.Size(1199, 633)
         Me.Controls.Add(Me.ogbdetail)
-        Me.Controls.Add(Me.hideContainerTop)
+        Me.Controls.Add(Me.ogbheader)
         Me.Name = "wTimeAttendanceCon_KM"
         Me.Text = "Time Attendance"
         Me.ogbheader.ResumeLayout(False)
@@ -2243,7 +2282,7 @@ Partial Class wTimeAttendanceCon_KM
         CType(Me.RepFTScanAOTIn, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepFTScanAOTOut, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.hideContainerTop.ResumeLayout(False)
+        CType(Me.BehaviorManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2368,7 +2407,6 @@ Partial Class wTimeAttendanceCon_KM
     Friend WithEvents FTSectCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FDEndDate As DevExpress.XtraEditors.DateEdit
     Friend WithEvents FDEndDate_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents hideContainerTop As DevExpress.XtraBars.Docking.AutoHideContainer
     Friend WithEvents RepTimeEdit As DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit
     Friend WithEvents FDHolidayDate As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTWeekly As DevExpress.XtraGrid.Columns.GridColumn
@@ -2397,4 +2435,9 @@ Partial Class wTimeAttendanceCon_KM
     Friend WithEvents FTPositCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ocmloadlate As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ocmloadwaitleave As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents FTDeptDesc As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSectName As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTUnitSectName As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTPositName As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents BehaviorManager1 As DevExpress.Utils.Behaviors.BehaviorManager
 End Class

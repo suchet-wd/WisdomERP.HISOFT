@@ -122,7 +122,10 @@
 
         _Qry &= vbCrLf & ", Convert(numeric(18,2),((MST.FNEmpVacation *480) - (CONVERT(numeric(18, 2), MST.FNLeaveVacation  ) )) * (CASE WHEN ISNULL(ET.FNCalType,0) = 0 THEN (MST.FNSalary /480 ) ELSE (Convert(numeric(18,2),MST.FNSalary/30)/480) END)) AS FNEmpVacationRetAmtOld"
 
-        _Qry &= vbCrLf & ", Convert(numeric(18,2),((MST.FNEmpVacationRet *480) - (CONVERT(numeric(18, 2), MST.FNLeaveVacation  ) )) * (CASE WHEN ISNULL(ET.FNCalType,0) = 0 THEN (Convert(numeric(18,2),MST.FNSalary/26)/480)  ELSE (Convert(numeric(18,2),MST.FNSalary/26)/480) END)) AS FNEmpVacationRetAmt"
+        _Qry &= vbCrLf & ", Convert(numeric(18,2),((MST.FNEmpVacationRet *480) - (CONVERT(numeric(18, 2), MST.FNLeaveVacation  ) )) * (CASE WHEN ISNULL(ET.FNCalType,0) = 0 THEN (Convert(numeric(18,2),MST.FNSalary/26)/480)  ELSE (Convert(numeric(18,2),MST.FNSalary/26)/480) END)) AS FNEmpVacationRetAmtOld"
+
+        _Qry &= vbCrLf & ", Convert(numeric(18,2),((MST.FNEmpVacation *480) - (CONVERT(numeric(18, 2), MST.FNLeaveVacation  ) )) * (CASE WHEN ISNULL(ET.FNCalType,0) = 0 THEN (Convert(numeric(18,2),MST.FNSalary/26)/480)  ELSE (Convert(numeric(18,2),MST.FNSalary/26)/480) END)) AS FNEmpVacationRetAmt "
+
 
         _Qry &= vbCrLf & " FROM "
         _Qry &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M  WITH (NOLOCK)  INNER JOIN"

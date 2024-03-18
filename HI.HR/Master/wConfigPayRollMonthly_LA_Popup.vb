@@ -182,7 +182,19 @@
 ,  FNSalary, FCOt1_Baht, FNTotalIncome
 , FNTotalRecalSSO, FNSocial, FNSocialCmp
 , FNTotalRecalTAX, FNTax
-, FNNetpay , FTStateActive )
+, FNNetpay , FTStateActive , FTSocialNo_TH, FTTaxNo_TH
+
+, FTAddrNo, FTAddrHome, FTAddrMoo, FTAddrSoi, FTAddrRoad, FTAddrTumbol, FTAddrAmphur, FTAddrProvince, FTAddrPostCode, FTAddrTel
+, FTAddrNo1, FTAddrHome1, FTAddrMoo1, FTAddrSoi1, FTAddrRoad1, FTAddrTumbol1, FTAddrAmphur1, FTAddrProvince1, FTAddrPostCode1, FTAddrTel1
+
+, FTEmpNameTH, FTEmpSurnameTH
+
+)
+
+
+
+
+
                         VALUES(" & "N'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' ," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB
                 _Qry &= vbCrLf & "," & Val(FNHSysEmpID.Properties.Tag.ToString)
                 _Qry &= vbCrLf & "," & HI.ST.SysInfo.CmpID
@@ -204,7 +216,41 @@
 
                 _Qry &= vbCrLf & "," & _ChkAtive
 
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTSocialNo_TH.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTTaxNo_TH.Text) & "'"
+
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrNo.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrHome.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrMoo.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrSoi.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrRoad.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrTumbol.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrAmphur.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrProvince.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrPostCode.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrTel.Text) & "'"
+
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrNo1.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrHome1.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrMoo1.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrSoi1.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrRoad1.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrTumbol1.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrAmphur1.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrProvince1.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrPostCode1.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTAddrTel1.Text) & "'"
+
+
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTEmpnameTH.Text) & "'"
+                _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(FTEmpSurnameTH.Text) & "'"
+
+
                 _Qry &= vbCrLf & ")"
+
+
+
+
 
 
                 If (HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR)) Then
@@ -235,8 +281,6 @@
             End If
 
 
-
-
             Try
 
 
@@ -258,6 +302,37 @@
                 _Qry &= vbCrLf & ", FNTax =" & Double.Parse("0" & FNTax.Text)
 
                 _Qry &= vbCrLf & ", FNNetpay =" & Double.Parse("0" & FNNetpay.Text)
+
+                _Qry &= vbCrLf & ", FTSocialNo_TH = '" & HI.UL.ULF.rpQuoted(FTSocialNo_TH.Text) & "'"
+                _Qry &= vbCrLf & ", FTTaxNo_TH ='" & HI.UL.ULF.rpQuoted(FTTaxNo_TH.Text) & "'"
+
+
+                _Qry &= vbCrLf & ", FTAddrNo ='" & HI.UL.ULF.rpQuoted(FTAddrNo.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrHome ='" & HI.UL.ULF.rpQuoted(FTAddrHome.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrMoo ='" & HI.UL.ULF.rpQuoted(FTAddrMoo.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrSoi ='" & HI.UL.ULF.rpQuoted(FTAddrSoi.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrRoad ='" & HI.UL.ULF.rpQuoted(FTAddrRoad.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrTumbol ='" & HI.UL.ULF.rpQuoted(FTAddrTumbol.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrAmphur ='" & HI.UL.ULF.rpQuoted(FTAddrAmphur.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrProvince ='" & HI.UL.ULF.rpQuoted(FTAddrProvince.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrPostCode ='" & HI.UL.ULF.rpQuoted(FTAddrPostCode.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrTel ='" & HI.UL.ULF.rpQuoted(FTAddrTel.Text) & "'"
+
+                _Qry &= vbCrLf & ", FTAddrNo1 ='" & HI.UL.ULF.rpQuoted(FTAddrNo1.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrHome1 ='" & HI.UL.ULF.rpQuoted(FTAddrHome1.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrMoo1 ='" & HI.UL.ULF.rpQuoted(FTAddrMoo1.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrSoi1 ='" & HI.UL.ULF.rpQuoted(FTAddrSoi1.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrRoad1 ='" & HI.UL.ULF.rpQuoted(FTAddrRoad1.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrTumbol1 ='" & HI.UL.ULF.rpQuoted(FTAddrTumbol1.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrAmphur1 ='" & HI.UL.ULF.rpQuoted(FTAddrAmphur1.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrProvince1 ='" & HI.UL.ULF.rpQuoted(FTAddrProvince1.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrPostCode1 ='" & HI.UL.ULF.rpQuoted(FTAddrPostCode1.Text) & "'"
+                _Qry &= vbCrLf & ", FTAddrTel1 ='" & HI.UL.ULF.rpQuoted(FTAddrTel1.Text) & "'"
+
+
+                _Qry &= vbCrLf & ", FTEmpnameTH ='" & HI.UL.ULF.rpQuoted(FTEmpnameTH.Text) & "'"
+                _Qry &= vbCrLf & ", FTEmpSurnameTH ='" & HI.UL.ULF.rpQuoted(FTEmpSurnameTH.Text) & "'"
+
 
                 _Qry &= vbCrLf & " WHERE FNHSysEmpID = " & Val(FNHSysEmpID.Properties.Tag.ToString)
                 _Qry &= vbCrLf & "  AND FNHSysCmpId = " & HI.ST.SysInfo.CmpID

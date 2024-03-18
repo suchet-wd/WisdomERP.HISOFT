@@ -331,9 +331,15 @@ Public Class wTaxTrack_KM
         '  _Qry &= vbCrLf & "  ,sum(R.FNTotalIncome) - (sum(R.FNTransportAmt) + sum(R.FNHealtCareAmt) +sum(R.FNOTMealAmtUS) + sum(R.FNSocial)  + sum(R.FNChildCareAmt) +sum(VP.[044]) ) as  FNTotalRecalTAXUS "
         ' _Qry &= vbCrLf & "  , ((sum(R.FNTotalIncome) - (sum(R.FNTransportAmt) + sum(R.FNHealtCareAmt) +sum(R.FNOTMealAmtUS) + sum(R.FNSocial)  + sum(R.FNChildCareAmt) +sum(VP.[044]) )) *  R.FNTaxExchangeRate  )  as  FNTotalRecalTAX "
 
-        _Qry &= vbCrLf & "  ,  (  ((sum(R.FNTotalIncome) - (sum(R.FNTransportAmt) + sum(R.FNHealtCareAmt) +sum(R.FNOTMealAmtUS) + sum(R.FNSocial)  + sum(R.FNChildCareAmt) )) *  R.FNTaxExchangeRate  ) *  (  Select Top 1 FCTaxRate  From  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigTaxRate  "
-        _Qry &= vbCrLf & "   where FCAmtBegin >=  ((sum(R.FNTotalIncome) - (sum(R.FNTransportAmt) + sum(R.FNHealtCareAmt) +sum(R.FNOTMealAmtUS) + sum(R.FNSocial)  + sum(R.FNChildCareAmt) )) *  R.FNTaxExchangeRate  )  "
-        _Qry &= vbCrLf & " And FCAmtEnd <=  ((sum(R.FNTotalIncome) - (sum(R.FNTransportAmt) + sum(R.FNHealtCareAmt) +sum(R.FNOTMealAmtUS) + sum(R.FNSocial)  + sum(R.FNChildCareAmt) )) *  R.FNTaxExchangeRate  )    ) ) / 100  as  FNTaxcals  "
+
+        _Qry &= vbCrLf & "  ,   (sum(R.FNTotalRecalTAX) *  R.FNTaxExchangeRate  ) *  (  Select Top 1 FCTaxRate  From  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigTaxRate  "
+        _Qry &= vbCrLf & "   where FCAmtBegin >=  (sum(R.FNTotalRecalTAX) *  R.FNTaxExchangeRate  )  "
+        _Qry &= vbCrLf & " And FCAmtEnd <=  (sum(R.FNTotalRecalTAX) *  R.FNTaxExchangeRate   ) / 100)  as  FNTaxcals  "
+
+
+        '_Qry &= vbCrLf & "  ,  (  ((sum(R.FNTotalIncome) - (sum(R.FNTransportAmt) + sum(R.FNHealtCareAmt) +sum(R.FNOTMealAmtUS) + sum(R.FNSocial)  + sum(R.FNChildCareAmt) )) *  R.FNTaxExchangeRate  ) *  (  Select Top 1 FCTaxRate  From  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigTaxRate  "
+        '_Qry &= vbCrLf & "   where FCAmtBegin >=  ((sum(R.FNTotalIncome) - (sum(R.FNTransportAmt) + sum(R.FNHealtCareAmt) +sum(R.FNOTMealAmtUS) + sum(R.FNSocial)  + sum(R.FNChildCareAmt) )) *  R.FNTaxExchangeRate  )  "
+        '_Qry &= vbCrLf & " And FCAmtEnd <=  ((sum(R.FNTotalIncome) - (sum(R.FNTransportAmt) + sum(R.FNHealtCareAmt) +sum(R.FNOTMealAmtUS) + sum(R.FNSocial)  + sum(R.FNChildCareAmt) )) *  R.FNTaxExchangeRate  )    ) ) / 100  as  FNTaxcals  "
 
         _Qry &= vbCrLf & "     ,  SUM(R.FNTax) * R.FNTaxExchangeRate  As FNTaxAmtRiel "
         _Qry &= vbCrLf & "    ,  SUM(R.FNTax)   As FNTaxAmtUS   ,isnull( max(zx.FNChildAge),0)  As FNChildeNo  ,    (  Case When max(FNMaritalStatus) = 1 Then 1 Else 0 End * " & HI.HRCAL.HCfg._DiscountTax.Cfg_ModRateReductionsByMarital & ") As FNMaritalDisTaxAmt "
@@ -349,14 +355,14 @@ Public Class wTaxTrack_KM
 
         End If
 
-        _Qry &= vbCrLf & "  , ((sum(R.FNTotalIncome) - (sum(R.FNTransportAmt) + sum(R.FNHealtCareAmt) +sum(R.FNOTMealAmtUS) + sum(R.FNSocial)  + sum(R.FNChildCareAmt) )) *  R.FNTaxExchangeRate  ) "
+        _Qry &= vbCrLf & "  , (sum(R.FNTotalRecalTAX) *  R.FNTaxExchangeRate  ) "
         _Qry &= vbCrLf & " - ( ( isnull( max(zx.FNChildAge),0)  *  " & HI.HRCAL.HCfg._DiscountTax.Cfg_ModChildAllowanceRateNotStudied & ") +  "
         _Qry &= vbCrLf & "  (      case when max(FNMaritalStatus) = 1 then 1 else 0 end * " & HI.HRCAL.HCfg._DiscountTax.Cfg_ModRateReductionsByMarital & ") )   as  FNBaseSalary "
 
-        _Qry &= vbCrLf & "  , ( sum((R.FNTotalIncome) - ((R.FNTransportAmt) + (R.FNHealtCareAmt) +(R.FNOTMealAmtUS) + (R.FNSocial)  + (R.FNChildCareAmt) )) *  R.FNTaxExchangeRate     "
+        _Qry &= vbCrLf & "  , ( sum(R.FNTotalRecalTAX) *  R.FNTaxExchangeRate     "
         _Qry &= vbCrLf & " - ( ( isnull( max(zx.FNChildAge),0)  *  " & HI.HRCAL.HCfg._DiscountTax.Cfg_ModChildAllowanceRateNotStudied & ") +  "
         _Qry &= vbCrLf & "  (      case when max(FNMaritalStatus) = 1 then 1 else 0 end * " & HI.HRCAL.HCfg._DiscountTax.Cfg_ModRateReductionsByMarital & ") ) )   "
-        _Qry &= vbCrLf & "  * ((Select top 1  FCTaxRate   From [HITECH_HR].dbo.THRMConfigTaxRate With(NOLOCK) WHERE   FCAmtBegin   <= convert(numeric(18,0) , sum(R.FNTotalIncome ) * R.FNTaxExchangeRate )     And   FCAmtEnd >=   convert(numeric(18,0) , sum(R.FNTotalIncome ) * R.FNTaxExchangeRate )  )  / 100 )  as FCTaxReil   "
+        _Qry &= vbCrLf & "  * ((Select top 1  FCTaxRate   From [HITECH_HR].dbo.THRMConfigTaxRate With(NOLOCK) WHERE   FCAmtBegin   <= convert(numeric(18,0) , sum(R.FNTotalRecalTAX ) * R.FNTaxExchangeRate )     And   FCAmtEnd >=   convert(numeric(18,0) , sum(R.FNTotalRecalTAX ) * R.FNTaxExchangeRate )  )  / 100 )  as FCTaxReil   "
 
 
 
@@ -382,6 +388,7 @@ Public Class wTaxTrack_KM
 
 
         _Qry &= vbCrLf & " , sum(VP.[044]) AS FNSeniorityAmt44, sum(VP.[045]) as FNSeniorityAmt45,sum( VP.[046]) as  FNSeniorityAmt46, sum(VP.[047]) as FNSeniorityAmt47"
+        _Qry &= vbCrLf & " , sum(VP.[048]) AS FNAllowanceNewYear "
         _Qry &= vbCrLf & " , sum(VP.[050]) AS FNTripAllowance "
 
         _Qry &= vbCrLf & "  FROM   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee As M With (NOLOCK) LEFT OUTER JOIN"
@@ -650,4 +657,7 @@ Public Class wTaxTrack_KM
         End Try
     End Sub
 
+    Private Sub hideContainerTop_Click(sender As Object, e As EventArgs) Handles hideContainerTop.Click
+
+    End Sub
 End Class

@@ -1782,10 +1782,10 @@ Public Class wEmployeeOwnerLeave
         Dim _Qry As String = ""
         Dim _dt As DataTable
 
-        '_Qry = "SELECT Convert(varchar(10),Convert(datetime,FTStartDate),103) As FTStartDate"
-        '_Qry &= vbCrLf & ", Convert(varchar(10),Convert(datetime,FTEndDate),103) As FTEndDate"
-        _Qry = "SELECT Convert(datetime,A.FTStartDate) As FTStartDate"
-        _Qry &= vbCrLf & ", Convert(datetime,A.FTEndDate) As FTEndDate"
+        _Qry = "SELECT Convert(varchar(10),Convert(datetime,FTStartDate),103) As FTStartDate"
+        _Qry &= vbCrLf & ", Convert(varchar(10),Convert(datetime,FTEndDate),103) As FTEndDate"
+        '_Qry = "SELECT Convert(datetime,A.FTStartDate) As FTStartDate"
+        '_Qry &= vbCrLf & ", Convert(datetime,A.FTEndDate) As FTEndDate"
         _Qry &= vbCrLf & ",CASE WHEN ISNULL(A.FTHoliday,'0') = '1' THEN  '1'  ELSE '0'  END AS  FTHoliday"
         _Qry &= vbCrLf & ",A.FTLeaveType"
         _Qry &= vbCrLf & ", A.FNLeaveTotalDay, B.FTNameTH AS FTLeaveTypeName"
@@ -2060,18 +2060,31 @@ Public Class wEmployeeOwnerLeave
                 FTStateLeavepay.Checked = False
 
             ElseIf ChkPayLeave(leavekey) Then
-                If ((FNHSysEmpTypeId.Text.ToUpper <> "M" Or FNHSysEmpTypeId.Text.ToUpper <> "N" Or FNHSysEmpTypeId.Text.ToUpper <> "O" Or FNHSysEmpTypeId.Text.ToUpper <> "M1" Or FNHSysEmpTypeId.Text.ToUpper <> "M2" Or FNHSysEmpTypeId.Text.ToUpper <> "M3") And leavekey = "2") Then
 
-                    If (FNLeaveDay.SelectedIndex <> 3 And (_LeavePay >= _GLeavePay + (FTNetDay.Value * ocetotaltime.Value))) Then
-                        FTStateLeavepay.Checked = (_LeavePay >= _GLeavePay + (FTNetDay.Value * ocetotaltime.Value))
+                If leavekey = "97" Then  '' ลาคลอด   ถ้าลาหลายวัน  เช็คแล้วถ้ายังเหลือวัน ลาจ่าย
+                    If (_LeavePay >= _GLeavePay) Then
+                        FTStateLeavepay.Checked = (_LeavePay >= _GLeavePay)
                     Else
                         FTStateLeavepay.Checked = False
                         'FTStateLeavepay.Enabled = False
                     End If
                 Else
-                    ' รายเดือน
-                    FTStateLeavepay.Checked = (_LeavePay >= _GLeave) '(_LeavePay >= (_GLeave + (FTNetDay.Value * ocetotaltime.Value)))
+
+                    If ((FNHSysEmpTypeId.Text.ToUpper <> "M" Or FNHSysEmpTypeId.Text.ToUpper <> "N" Or FNHSysEmpTypeId.Text.ToUpper <> "O" Or FNHSysEmpTypeId.Text.ToUpper <> "M1" Or FNHSysEmpTypeId.Text.ToUpper <> "M2" Or FNHSysEmpTypeId.Text.ToUpper <> "M3") And leavekey = "2") Then
+
+                        If (FNLeaveDay.SelectedIndex <> 3 And (_LeavePay >= _GLeavePay + (FTNetDay.Value * ocetotaltime.Value))) Then
+                            FTStateLeavepay.Checked = (_LeavePay >= _GLeavePay + (FTNetDay.Value * ocetotaltime.Value))
+                        Else
+                            FTStateLeavepay.Checked = False
+                            'FTStateLeavepay.Enabled = False
+                        End If
+                    Else
+                        ' รายเดือน
+                        FTStateLeavepay.Checked = (_LeavePay >= _GLeave) '(_LeavePay >= (_GLeave + (FTNetDay.Value * ocetotaltime.Value)))
+                    End If
+
                 End If
+
             Else
                 FTStateLeavepay.Checked = False
             End If

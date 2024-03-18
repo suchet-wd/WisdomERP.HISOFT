@@ -108,12 +108,19 @@ Public Class Social
                                      ,ISNULL(M.FTAddrNo,''),ISNULL(M.FTAddrHome,''),ISNULL(M.FTAddrMoo,''),ISNULL(M.FTAddrSoi,''),ISNULL(M.FTAddrRoad,''),ISNULL(M.FTAddrTumbol,''),ISNULL(M.FTAddrAmphur,''),ISNULL(M.FTAddrProvince,'')
                                      ,M. FTAddrPostCode "
             Case TaxType.ภงด1ก
+                _Qry = "  SELECT FROMTYPE, ComIDNO, COMTaxNo, Tax_BranchNo ,FTEmpIdNo , FTTaxNo "
+                _Qry &= vbCrLf & "   , PP.FTPreNameNameTH AS FTEmpPreCode , FTEmpNameTH, FTEmpSurnameTH "
+                _Qry &= vbCrLf & "    ,(ISNULL(FTAddrNo,'')+ISNULL(FTAddrHome,'')+ISNULL(FTAddrMoo,'')+ISNULL(FTAddrSoi,'')+ISNULL(FTAddrRoad,'')+ISNULL(FTAddrTumbol,'')+ISNULL(FTAddrAmphur,'')+ISNULL(FTAddrProvince,'')) AS EmpAddress "
+                _Qry &= vbCrLf & "   ,FTAddrPostCode"
+                _Qry &= vbCrLf & "  , MonthPay, YearPay, IncomCode, PayDate, TaxRate "
+                _Qry &= vbCrLf & "  , TOTALPAY, SUMTAX, TaxCondition "
+                _Qry &= vbCrLf & "  FROM (  "
+                _Qry &= vbCrLf & " "
 
 
-                _Qry = "  	SELECT    ROW_NUMBER() OVER(ORDER BY P.FTEmpIdNo) AS FROMTYPE, '0000000000000' AS ComIDNO,'" & _ComTaxID & "' AS COMTaxNo, '" & _ComBnkBranchID & "' AS Tax_BranchNo,"
-                _Qry &= vbCrLf & "   P.FTEmpIdNo , '0000000000' AS FTTaxNo, PP.FTPreNameNameTH AS FTEmpPreCode, M.FTEmpNameTH, M.FTEmpSurnameTH,"
-                _Qry &= vbCrLf & "   (ISNULL(M.FTAddrNo,'')+ISNULL(M.FTAddrHome,'')+ISNULL(M.FTAddrMoo,'')+ISNULL(M.FTAddrSoi,'')+ISNULL(M.FTAddrRoad,'')+ISNULL(M.FTAddrTumbol,'')+ISNULL(M.FTAddrAmphur,'')+ISNULL(M.FTAddrProvince,'')) AS EmpAddress,"
-                _Qry &= vbCrLf & "   M. FTAddrPostCode,'" & Format(Val(_Month), "00") & "'  AS MonthPay,'" & FTYearThai & "'  AS YearPay, '1' AS IncomCode, '" & _PayDateforTransfer & "' AS PayDate, '0' AS TaxRate,"
+                _Qry &= vbCrLf & " 	SELECT    ROW_NUMBER() OVER(ORDER BY P.FTEmpIdNo) AS FROMTYPE, '0000000000000' AS ComIDNO,'" & _ComTaxID & "' AS COMTaxNo, '" & _ComBnkBranchID & "' AS Tax_BranchNo,"
+                _Qry &= vbCrLf & "   P.FTEmpIdNo , '0000000000' AS FTTaxNo"
+                _Qry &= vbCrLf & "  ,'" & Format(Val(_Month), "00") & "'  AS MonthPay,'" & FTYearThai & "'  AS YearPay, '1' AS IncomCode, '" & _PayDateforTransfer & "' AS PayDate, '0' AS TaxRate,"
                 _Qry &= vbCrLf & "   SUM(P.FNTotalRecalTAX) AS TOTALPAY"
                 _Qry &= vbCrLf & "   ,SUM(P.FNTax) AS SUMTAX, '1' AS TaxCondition"
 
@@ -121,30 +128,74 @@ Public Class Social
                 _Qry &= vbCrLf & "    LEFT OUTER JOIN THRMCfgPayDT PD ON ((P.FTPayYear=PD.FTPayYear)  "
                 _Qry &= vbCrLf & "    AND (P.FTPayTerm=PD.FTPayTerm)) AND (P.FNHSysEmpTypeId=PD.FNHSysEmpTypeId)) "
                 _Qry &= vbCrLf & "   INNER JOIN THRMEmployee M ON P.FNHSysEmpID=M.FNHSysEmpID) "
-                _Qry &= vbCrLf & "   LEFT OUTER JOIN V_MPrename PP ON M.FNHSysPreNameId=PP.FNHSysPreNameId) "
+                _Qry &= vbCrLf & "   ) "
                 _Qry &= vbCrLf & "  LEFT OUTER JOIN V_MCmp V_MCmp ON M.FNHSysCmpId=V_MCmp.FNHSysCmpId "
 
                 If pay30day_flag = "1" Then
 
-                    _Qry &= vbCrLf & "  LEFT JOIN HITECH_MASTER.dbo.THRMEmpType ET ON M.FNHSysEmpTypeId=ET.FNHSysEmpTypeId "
-                    _Qry &= vbCrLf & "  WHERE    P.FTPayYear='" & _Year & "' "
+                    _Qry &= vbCrLf & "  LEFT JOIN HITECH_MASTER.dbo.THRMEmpType ET ON P.FNHSysEmpTypeId=ET.FNHSysEmpTypeId "
+                    _Qry &= vbCrLf & "  WHERE    P.FTPayYear='" & _Year & "' and P.FNTotalRecalTAX>0 "
                     _Qry &= vbCrLf & " AND M.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID) & " "
                     _Qry &= vbCrLf & " AND (ET.FNHSysCmpId = " & Val(HI.ST.SysInfo.CmpID) & " AND FTEmpTypeCode not in ('M','N','O', 'M1','N1','O1', 'M2','N2', 'M3','N3'))"
 
                 Else
 
-                    _Qry &= vbCrLf & "  WHERE  P.FTPayYear='" & _Year & "' "
+                    _Qry &= vbCrLf & "  WHERE  P.FTPayYear='" & _Year & "'and P.FNTotalRecalTAX>0  "
                     _Qry &= vbCrLf & " AND M.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID) & " "
 
                 End If
 
 
-                _Qry &= vbCrLf & "  GROUP BY PP.FTPreNameNameTH, V_MCmp.FTTaxNo, PD.FNMonth
-                                     , PD.FTPayYear, P.FTEmpIdNo, M.FTEmpNameTH, M.FTEmpSurnameTH
+                _Qry &= vbCrLf & "  GROUP BY  V_MCmp.FTTaxNo
+                                     , PD.FTPayYear, P.FTEmpIdNo
                                      , V_MCmp.FTBchTax
-                                     , M.FTTaxNo, P.FTPayYear
-                                     ,ISNULL(M.FTAddrNo,''),ISNULL(M.FTAddrHome,''),ISNULL(M.FTAddrMoo,''),ISNULL(M.FTAddrSoi,''),ISNULL(M.FTAddrRoad,''),ISNULL(M.FTAddrTumbol,''),ISNULL(M.FTAddrAmphur,''),ISNULL(M.FTAddrProvince,'')
-                                     ,M. FTAddrPostCode "
+                                     , P.FTPayYear "
+                _Qry &= vbCrLf & " "
+                _Qry &= vbCrLf & " ) Dt "
+                _Qry &= vbCrLf & " CROSS APPLY (SELECT TOP 1 FNHSysPreNameId ,FTEmpNameTH, FTEmpSurnameTH  , FTAddrNo, FTAddrHome, FTAddrMoo, FTAddrSoi, FTAddrRoad, FTAddrTumbol, FTAddrAmphur, FTAddrProvince, FTAddrPostCode "
+                _Qry &= vbCrLf & " FROM HITECH_HR.dbo.THRMEmployee WHERE  FTTaxNo = Dt.FTEmpIdNo  AND FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID) & "  ) DE "
+                _Qry &= vbCrLf & " LEFT OUTER JOIN V_MPrename PP ON DE.FNHSysPreNameId=PP.FNHSysPreNameId  "
+                _Qry &= vbCrLf & "  ORDER BY FROMTYPE "
+                _Qry &= vbCrLf & " "
+                _Qry &= vbCrLf & " "
+
+
+
+                '_Qry = "  	SELECT    ROW_NUMBER() OVER(ORDER BY P.FTEmpIdNo) AS FROMTYPE, '0000000000000' AS ComIDNO,'" & _ComTaxID & "' AS COMTaxNo, '" & _ComBnkBranchID & "' AS Tax_BranchNo,"
+                '_Qry &= vbCrLf & "   P.FTEmpIdNo , '0000000000' AS FTTaxNo, PP.FTPreNameNameTH AS FTEmpPreCode, M.FTEmpNameTH, M.FTEmpSurnameTH,"
+                '_Qry &= vbCrLf & "   (ISNULL(M.FTAddrNo,'')+ISNULL(M.FTAddrHome,'')+ISNULL(M.FTAddrMoo,'')+ISNULL(M.FTAddrSoi,'')+ISNULL(M.FTAddrRoad,'')+ISNULL(M.FTAddrTumbol,'')+ISNULL(M.FTAddrAmphur,'')+ISNULL(M.FTAddrProvince,'')) AS EmpAddress,"
+                '_Qry &= vbCrLf & "   M. FTAddrPostCode,'" & Format(Val(_Month), "00") & "'  AS MonthPay,'" & FTYearThai & "'  AS YearPay, '1' AS IncomCode, '" & _PayDateforTransfer & "' AS PayDate, '0' AS TaxRate,"
+                '_Qry &= vbCrLf & "   SUM(P.FNTotalRecalTAX) AS TOTALPAY"
+                '_Qry &= vbCrLf & "   ,SUM(P.FNTax) AS SUMTAX, '1' AS TaxCondition"
+
+                '_Qry &= vbCrLf & "   FROM   (((THRTPayRoll P "
+                '_Qry &= vbCrLf & "    LEFT OUTER JOIN THRMCfgPayDT PD ON ((P.FTPayYear=PD.FTPayYear)  "
+                '_Qry &= vbCrLf & "    AND (P.FTPayTerm=PD.FTPayTerm)) AND (P.FNHSysEmpTypeId=PD.FNHSysEmpTypeId)) "
+                '_Qry &= vbCrLf & "   INNER JOIN THRMEmployee M ON P.FNHSysEmpID=M.FNHSysEmpID) "
+                '_Qry &= vbCrLf & "   LEFT OUTER JOIN V_MPrename PP ON M.FNHSysPreNameId=PP.FNHSysPreNameId) "
+                '_Qry &= vbCrLf & "  LEFT OUTER JOIN V_MCmp V_MCmp ON M.FNHSysCmpId=V_MCmp.FNHSysCmpId "
+
+                'If pay30day_flag = "1" Then
+
+                '    _Qry &= vbCrLf & "  LEFT JOIN HITECH_MASTER.dbo.THRMEmpType ET ON M.FNHSysEmpTypeId=ET.FNHSysEmpTypeId "
+                '    _Qry &= vbCrLf & "  WHERE    P.FTPayYear='" & _Year & "' "
+                '    _Qry &= vbCrLf & " AND M.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID) & " "
+                '    _Qry &= vbCrLf & " AND (ET.FNHSysCmpId = " & Val(HI.ST.SysInfo.CmpID) & " AND FTEmpTypeCode not in ('M','N','O', 'M1','N1','O1', 'M2','N2', 'M3','N3'))"
+
+                'Else
+
+                '    _Qry &= vbCrLf & "  WHERE  P.FTPayYear='" & _Year & "' "
+                '    _Qry &= vbCrLf & " AND M.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID) & " "
+
+                'End If
+
+
+                '_Qry &= vbCrLf & "  GROUP BY PP.FTPreNameNameTH, V_MCmp.FTTaxNo
+                '                     , PD.FTPayYear, P.FTEmpIdNo, M.FTEmpNameTH, M.FTEmpSurnameTH
+                '                     , V_MCmp.FTBchTax
+                '                     , M.FTTaxNo, P.FTPayYear
+                '                     ,ISNULL(M.FTAddrNo,''),ISNULL(M.FTAddrHome,''),ISNULL(M.FTAddrMoo,''),ISNULL(M.FTAddrSoi,''),ISNULL(M.FTAddrRoad,''),ISNULL(M.FTAddrTumbol,''),ISNULL(M.FTAddrAmphur,''),ISNULL(M.FTAddrProvince,'')
+                '                     ,M. FTAddrPostCode "
 
 
             Case TaxType.ภงด91

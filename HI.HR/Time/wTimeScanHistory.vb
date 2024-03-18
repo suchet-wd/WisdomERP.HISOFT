@@ -75,7 +75,7 @@
             With pGridView
                 For nLoopColGridView As Integer = .Columns.Count - 1 To 0 Step -1
                     Select Case .Columns.Item(nLoopColGridView).Name.ToString.ToUpper
-                        Case "ColFTUnitSectCode".ToString.ToUpper
+                        Case "ColFTPositname".ToString.ToUpper
                             '...Do nothing
                             Exit For
                         Case Else
@@ -127,14 +127,17 @@
             If HI.ST.Lang.Language = HI.ST.SysInfo.LanguageLocal Then
 
                 _Qry &= vbCrLf & " , PR.FTPreNameNameTH + ' ' +  M.FTEmpNameTH + '  ' +  M.FTEmpSurnameTH AS FTEmpName"
-
+                _Qry &= " , D.FTDeptDescTH AS FTDeptDesc , S.FTSectNameTH AS FTSectName, US.FTUnitSectNameTH AS FTUnitSectName, P.FTPositNameTH AS FTPositName"
             Else
                 _Qry &= vbCrLf & " , PR.FTPreNameNameEN + ' ' + M.FTEmpNameEN + '  ' +  M.FTEmpSurnameEN AS FTEmpName"
+                _Qry &= " , D.FTDeptDescEN AS FTDeptDesc , S.FTSectNameEN AS FTSectName,  US.FTUnitSectNameEN AS FTUnitSectName, P.FTPositNameEN AS FTPositName"
             End If
 
-            _Qry &= vbCrLf & " ,ISNULL(ET.FTEmpTypeCode,'') AS FTEmpTypeCode ,ISNULL(D.FTDeptCode,'') AS FTDeptCode "
+            _Qry &= vbCrLf & "  ,ISNULL(ET.FTEmpTypeCode,'') AS FTEmpTypeCode ,ISNULL(D.FTDeptCode,'') AS FTDeptCode "
             _Qry &= vbCrLf & "  ,ISNULL(Di.FTDivisonCode,'') AS FTDivisonCode ,ISNULL(S.FTSectCode,'') AS FTSectCode"
             _Qry &= vbCrLf & "  ,ISNULL(US.FTUnitSectCode,'') AS FTUnitSectCode"
+            _Qry &= vbCrLf & "  ,ISNULL(P.FTPositCode, '' ) AS FTPositCode "
+
 
             _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTimecardHistory AS H WITH (NOLOCK)"
             _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH(NOLOCK) ON H.FTEmpBarcode = M.FTEmpBarcode"
@@ -142,8 +145,9 @@
             _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType AS ET WITH (NOLOCK) ON M.FNHSysEmpTypeId = ET.FNHSysEmpTypeId"
             _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSect AS S WITH (NOLOCK) ON M.FNHSysSectId = S.FNHSysSectId"
             _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMDivision AS Di WITH (NOLOCK) ON M.FNHSysDivisonId = Di.FNHSysDivisonId"
+            _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMPosition AS P WITH (NOLOCK) ON M.FNHSysPositId = P.FNHSysPositId "
             _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMDepartment AS D WITH (NOLOCK) ON M.FNHSysDeptId = D.FNHSysDeptId"
-            _Qry &= vbCrLf & "    INNER JOIN   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMPrename AS PR WITH (NOLOCK) ON M.FNHSysPreNameId = PR.FNHSysPreNameId"
+            _Qry &= vbCrLf & "  INNER JOIN   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMPrename AS PR WITH (NOLOCK) ON M.FNHSysPreNameId = PR.FNHSysPreNameId"
 
 
 
@@ -201,20 +205,21 @@
             If Me.FNHSysUnitSectIdTo.Text <> "" Then
                 _Qry &= vbCrLf & " AND   US.FTUnitSectCode<='" & HI.UL.ULF.rpQuoted(Me.FNHSysUnitSectIdTo.Text) & "' "
             End If
-            _Qry &= vbCrLf & "  GROUP BY H.FTEmpBarcode,FTDateTrans,M.FNHSysEmpID,FTEmpCode "
+            _Qry &= vbCrLf & "  GROUP BY H.FTEmpBarcode,FTDateTrans,M.FNHSysEmpID,FTEmpCode,FTPositCode"
 
             If HI.ST.Lang.Language = HI.ST.SysInfo.LanguageLocal Then
-                _Qry &= vbCrLf & " , PR.FTPreNameNameTH + ' ' +  M.FTEmpNameTH + '  ' +  M.FTEmpSurnameTH "
+                _Qry &= vbCrLf & " , PR.FTPreNameNameTH + ' ' +  M.FTEmpNameTH + '  ' +  M.FTEmpSurnameTH"
+                _Qry &= ", D.FTDeptDescTH, S.FTSectNameTH , US.FTUnitSectNameTH , P.FTPositNameTH "
 
             Else
-                _Qry &= vbCrLf & " , PR.FTPreNameNameEN + ' ' + M.FTEmpNameEN + '  ' +  M.FTEmpSurnameEN "
+                _Qry &= vbCrLf & " , PR.FTPreNameNameEN + ' ' + M.FTEmpNameEN + '  ' +  M.FTEmpSurnameEN"
+                _Qry &= ", D.FTDeptDescEN, S.FTSectNameEN , US.FTUnitSectNameEN , P.FTPositNameEN "
             End If
 
             _Qry &= vbCrLf & " ,FTEmpTypeCode ,FTDeptCode ,FTDivisonCode ,FTSectCode ,FTUnitSectCode "
             _Qry &= vbCrLf & "  ORDER BY FTDateTrans,M.FTEmpCode  "
 
             _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
-
 
 
             'Time DataTable
@@ -228,7 +233,7 @@
             _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSect AS S WITH (NOLOCK) ON M.FNHSysSectId = S.FNHSysSectId"
             _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMDivision AS Di WITH (NOLOCK) ON M.FNHSysDivisonId = Di.FNHSysDivisonId"
             _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMDepartment AS D WITH (NOLOCK) ON M.FNHSysDeptId = D.FNHSysDeptId"
-            _Qry &= vbCrLf & "    INNER JOIN   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMPrename AS PR WITH (NOLOCK) ON M.FNHSysPreNameId = PR.FNHSysPreNameId"
+            _Qry &= vbCrLf & "  INNER JOIN   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMPrename AS PR WITH (NOLOCK) ON M.FNHSysPreNameId = PR.FNHSysPreNameId"
 
 
             _Qry &= vbCrLf & "  WHERE  M.FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID) & "  AND FTDateTrans>='" & HI.UL.ULDate.ConvertEnDB(FDStartDate.Text) & "' AND FTDateTrans <='" & HI.UL.ULDate.ConvertEnDB(FDEndDate.Text) & "' "

@@ -9,24 +9,6 @@ Public Class wEmployeeLeave
     Private _LstReport As HI.RP.ListReport
     Private _leavePro As Boolean = False
     Private _leavePerDay As Boolean = False
-    Private _ProcPrepare As Boolean = False
-    Private _Actualdate As String = ""
-    Private _ActualNextDate As String = ""
-    Private _LeavePragNentPayMergeSundayHoloday As String = ""
-    Public _HRProcess As String = ""
-    Public _FTInsUser As String = ""
-    Public _FTInsDate As String = ""
-    Public _FTInsTime As String = ""
-    Private _CallMenuName As String = ""
-    Private _CallMethodName As String = ""
-    Private _CallMethodParm As String = ""
-    Private TotalLeave As Integer
-    Private _picdata As Byte()
-    Private _FBFile As String
-    Private _FilePath As String
-    Private data As Byte()
-    Private _Pdfdata As Byte()
-
     Sub New()
 
         _ProcPrepare = True
@@ -45,9 +27,9 @@ Public Class wEmployeeLeave
         _LstReport = New HI.RP.ListReport(Me.Name.ToString)
         FNReportname.Properties.Items.AddRange(_LstReport.GetList)
 
-        _Qry = "SELECT TOP 1 FTCfgData"
-        _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS Z WITH(NOLOCK) "
-        _Qry &= vbCrLf & "WHERE (FTCfgName = N'LeavePragNentPayMergeSundayHoloday')"
+        _Qry = " SELECT TOP 1 FTCfgData"
+        _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS Z WITH(NOLOCK) "
+        _Qry &= vbCrLf & " WHERE  (FTCfgName = N'LeavePragNentPayMergeSundayHoloday')"
 
         LeavePragNentPayMergeSundayHoloday = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "")
 
@@ -57,33 +39,35 @@ Public Class wEmployeeLeave
         ocmapprove.Visible = (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "") = "1")
         _leavePro = (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "") = "1")
 
-        _Qry = "SELECT TOP 1 FTCfgData"
-        _Qry &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS Z WITH(NOLOCK) "
-        _Qry &= vbCrLf & "WHERE  (FTCfgName = N'CfgleaveProcessPerDay')"
+        _Qry = " SELECT TOP 1 FTCfgData"
+        _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS Z WITH(NOLOCK) "
+        _Qry &= vbCrLf & " WHERE  (FTCfgName = N'CfgleaveProcessPerDay')"
         _leavePerDay = (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "") = "1")
 
-        _Qry = "SELECT TOP 1 FTCfgData"
-        _Qry &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS Z WITH(NOLOCK) "
-        _Qry &= vbCrLf & "WHERE  (FTCfgName = N'CfgleaveSendApp')"
+        _Qry = " SELECT TOP 1 FTCfgData"
+        _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS Z WITH(NOLOCK) "
+        _Qry &= vbCrLf & " WHERE  (FTCfgName = N'CfgleaveSendApp')"
         ocmSendApprove.Visible = (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "") = "1")
 
         _ProcPrepare = False
     End Sub
 
-#Region "Property"
-
+    Private _ProcPrepare As Boolean = False
+    Private _Actualdate As String = ""
     ReadOnly Property Actualdate As String
         Get
             Return _Actualdate
         End Get
     End Property
 
+    Private _ActualNextDate As String = ""
     ReadOnly Property ActualNextDate As String
         Get
             Return _ActualNextDate
         End Get
     End Property
 
+    Private _LeavePragNentPayMergeSundayHoloday As String = ""
     Public Property LeavePragNentPayMergeSundayHoloday As String
         Get
             Return _LeavePragNentPayMergeSundayHoloday
@@ -93,12 +77,14 @@ Public Class wEmployeeLeave
         End Set
     End Property
 
+    Public _HRProcess As String = ""
     ReadOnly Property HRPrcoess As String
         Get
             Return _HRProcess
         End Get
     End Property
 
+    Public _FTInsUser As String = ""
     ReadOnly Property FTInsUser As String
         Get
             Return _FTInsUser
@@ -106,17 +92,26 @@ Public Class wEmployeeLeave
     End Property
 
 
+    Public _FTInsDate As String = ""
     ReadOnly Property FTInsDate As String
         Get
             Return _FTInsDate
         End Get
     End Property
 
+    Public _FTInsTime As String = ""
     ReadOnly Property FTInsTime As String
         Get
             Return _FTInsTime
         End Get
     End Property
+
+
+
+
+#Region "Property"
+
+    Private _CallMenuName As String = ""
     Public Property CallMenuName As String
         Get
             Return _CallMenuName
@@ -126,6 +121,7 @@ Public Class wEmployeeLeave
         End Set
     End Property
 
+    Private _CallMethodName As String = ""
     Public Property CallMethodName As String
         Get
             Return _CallMethodName
@@ -135,6 +131,7 @@ Public Class wEmployeeLeave
         End Set
     End Property
 
+    Private _CallMethodParm As String = ""
     Public Property CallMethodParm As String
         Get
             Return _CallMethodParm
@@ -151,10 +148,10 @@ Public Class wEmployeeLeave
     Private Function GetValCheck(_Idx As String) As Boolean
         Try
             Dim _Cmd As String = ""
-            _Cmd = "SELECT top 1 isnull(FTCallMethodName,'') as  FTCallMethodName "
-            _Cmd &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData WITH(NOLOCK) "
-            _Cmd &= vbCrLf & "WHERE  (FTListName = N'FNLeaveType')"
-            _Cmd &= vbCrLf & "and   (FNListIndex = N'" & _Idx & "')"
+            _Cmd = "SELECT top 1    isnull(FTCallMethodName,'') as  FTCallMethodName "
+            _Cmd &= vbCrLf & "  From   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData WITH(NOLOCK) "
+            _Cmd &= vbCrLf & "    WHERE  (FTListName = N'FNLeaveType')"
+            _Cmd &= vbCrLf & "    and   (FNListIndex = N'" & _Idx & "')"
             Return HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_SYSTEM, "") = "ValcationLeave_Check"
         Catch ex As Exception
             Return False
@@ -187,8 +184,10 @@ Public Class wEmployeeLeave
             '    Call ValcationLeave_Check()
             'End If
 
+
             Call Checkpay(HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex), False)
             'MsgBox("TotalLeave")
+            'MsgBox(TotalLeave)
 
             If TotalLeave < (FTNetDay.Value * ocetotaltime.Value) Then
                 HI.MG.ShowMsg.mProcessError(1004090001, "พบข้อมูลการลาเกินกำหนด !!!", Me.Text, System.Windows.Forms.MessageBoxIcon.Information, "  " & (TotalLeave / 480).ToString & "  Day ")
@@ -209,7 +208,7 @@ Public Class wEmployeeLeave
 
             Dim _Msg As String = ""
             Dim _Qry As String = ""
-            _Qry = "Select TOP  1  'In M: ' + ISNULL(FTScanMIn,'') + char(13) + 'Out M: ' + ISNULL(FTScanMOut,'') + char(13) + 'In A: ' + ISNULL(FTScanAIn,'') + char(13) + 'Out A: ' + ISNULL(FTScanAOut,'')  "
+            _Qry = "Select      TOP  1  'In M: ' + ISNULL(FTScanMIn,'') + char(13) + 'Out M: ' + ISNULL(FTScanMOut,'') + char(13) + 'In A: ' + ISNULL(FTScanAIn,'') + char(13) + 'Out A: ' + ISNULL(FTScanAOut,'')  "
             _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTrans WITH(NOLOCK) "
             _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Integer.Parse(Val(FNHSysEmpId.Properties.Tag.ToString)) & ""
             _Qry &= vbCrLf & " AND FTDateTrans>='" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'  "
@@ -236,6 +235,8 @@ Public Class wEmployeeLeave
                     _Spls.Close()
 
                     HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
+
+
 
                     FTStartDate_EditValueChanged(FTStartDate, New System.EventArgs)
                     Call LoadDataEmployeeLeaveHistory()
@@ -275,11 +276,15 @@ Public Class wEmployeeLeave
         Me.FTEmpPicName.Image = Nothing
         FTStartDate.Text = ""
         FTEndDate.Text = ""
+
+
     End Sub
+
 
     Private Sub ProcessPreview(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmpreview.Click
 
         Dim _AllReportName As String = _LstReport.GetValue(FNReportname.SelectedIndex)
+
 
         If Me.FNHSysEmpId.Text <> "" And Me.FNHSysEmpId.Properties.Tag.ToString <> "" Then
             For Each _ReportName As String In _AllReportName.Split(",")
@@ -328,6 +333,8 @@ Public Class wEmployeeLeave
             FNHSysEmpId.Focus()
         End If
 
+
+
     End Sub
 
     Private Sub ProcessClose(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmexit.Click
@@ -342,73 +349,95 @@ Public Class wEmployeeLeave
         Try
             Dim _StateMngApp As Boolean = False
             Dim _Qry As String
-            'Dim _QryFile As String
+            Dim _QryFile As String
             Dim _PicName As String = ""
             If _HRProcess = "" Then
 
-                _Qry = "SELECT TOP 1  ISNULL(FTStateMngApp,'0') AS FTStateMngApp "
-                _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee WITH(NOLOCK)  "
-                _Qry &= vbCrLf & "INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType On THRMEmployee.FNHSysEmpTypeId = HITECH_MASTER.dbo.THRMEmpType.FNHSysEmpTypeId"
+
+
+                _Qry = "SELECT Top 1  Isnull(FTStateMngApp,'0')  as FTStateMngApp "
+                _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee WITH(NOLOCK)  INNER JOIN"
+                _Qry &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType On THRMEmployee.FNHSysEmpTypeId = HITECH_MASTER.dbo.THRMEmpType.FNHSysEmpTypeId"
                 _Qry &= vbCrLf & "WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
                 _StateMngApp = (HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0") = "1")
 
 
-                _Qry = "SELECT TOP 1 FNHSysEmpID FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily With(NOLOCK)"
+
+                _Qry = "Select TOP 1 FNHSysEmpID FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily With(NOLOCK)"
                 _Qry &= vbCrLf & "WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
                 _Qry &= vbCrLf & "And FTStartDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
                 _Qry &= vbCrLf & "AND FTEndDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
-                _Qry &= vbCrLf & "AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
+                _Qry &= vbCrLf & " AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
 
                 If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "") = "" Then
 
-                    _Qry = "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily "
-                    _Qry &= vbCrLf & "(FTInsUser, FTInsDate, FTInsTime, FNHSysEmpID, FTStartDate, FTEndDate,FTHoliday, FNLeaveTotalDay"
-                    _Qry &= vbCrLf & ", FTLeaveType, FTLeavePay, FTLeaveStartTime, FTLeaveEndTime, FNLeaveTotalTime, FNLeaveTotalTimeMin"
-                    _Qry &= vbCrLf & ", FTLeaveNote, FTStaCalSSO, FTStaLeaveDay, FTStateMedicalCertificate, FTMedicalCertificateName"
-                    _Qry &= vbCrLf & ", FTStateDeductVacation ,FNSpecialLeaveType"
+                    _Qry = " INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily (FTInsUser, FTInsDate, FTInsTime"
+                    _Qry &= vbCrLf & " , FNHSysEmpID, FTStartDate, FTEndDate,FTHoliday, FNLeaveTotalDay"
+                    _Qry &= vbCrLf & " , FTLeaveType,  FTLeavePay"
+                    _Qry &= vbCrLf & " , FTLeaveStartTime, FTLeaveEndTime, FNLeaveTotalTime,FNLeaveTotalTimeMin, FTLeaveNote"
+                    _Qry &= vbCrLf & ",FTStaCalSSO,FTStaLeaveDay,FTStateMedicalCertificate,FTMedicalCertificateName,FTStateDeductVacation ,FNSpecialLeaveType"
 
                     Select Case True
                         Case Not (ocmSendApprove.Visible) And Not (ocmapprove.Visible) And _leavePro = False And Not (_StateMngApp)
                             '***** state appoved originale
-                            _Qry &= vbCrLf & ", FTApproveState, FTApproveDate, FTApproveTime, FTApproveBy"
+                            _Qry &= vbCrLf & " ,FTApproveState"
+                            _Qry &= vbCrLf & " , FTApproveDate"
+                            _Qry &= vbCrLf & " , FTApproveTime"
+                            _Qry &= vbCrLf & " , FTApproveBy"
 
                             '***** send approved
-                            _Qry &= vbCrLf & ", FTSendApproveState, FDSendApproveDate, FTSendApproveTime, FTSendApproveBy"
+                            _Qry &= vbCrLf & " , FTSendApproveState"
+                            _Qry &= vbCrLf & " , FDSendApproveDate"
+                            _Qry &= vbCrLf & " , FTSendApproveTime"
+                            _Qry &= vbCrLf & " , FTSendApproveBy"
 
                             '***** mng approved
-                            _Qry &= vbCrLf & ", FTMngApproveState, FDMngApproveDate, FTMngApproveTime, FTMngApproveBy"
+                            _Qry &= vbCrLf & " , FTMngApproveState"
+                            _Qry &= vbCrLf & " , FDMngApproveDate"
+                            _Qry &= vbCrLf & " , FTMngApproveTime"
+                            _Qry &= vbCrLf & " , FTMngApproveBy"
 
                         Case Not (ocmSendApprove.Visible) And (ocmapprove.Visible) And _StateMngApp
                             '***** send approved
-                            _Qry &= vbCrLf & ", FTSendApproveState, FDSendApproveDate, FTSendApproveTime, FTSendApproveBy"
+                            _Qry &= vbCrLf & " , FTSendApproveState"
+                            _Qry &= vbCrLf & " , FDSendApproveDate"
+                            _Qry &= vbCrLf & " , FTSendApproveTime"
+                            _Qry &= vbCrLf & " , FTSendApproveBy "
 
                         Case Not (ocmSendApprove.Visible) And (ocmapprove.Visible) And Not (_StateMngApp)
 
                             '***** send approved
-                            _Qry &= vbCrLf & ", FTSendApproveState, FDSendApproveDate, FTSendApproveTime, FTSendApproveBy"
+                            _Qry &= vbCrLf & " , FTSendApproveState"
+                            _Qry &= vbCrLf & " , FDSendApproveDate"
+                            _Qry &= vbCrLf & " , FTSendApproveTime"
+                            _Qry &= vbCrLf & " , FTSendApproveBy"
 
                             '***** mng approved
-                            _Qry &= vbCrLf & ", FTMngApproveState, FDMngApproveDate, FTMngApproveTime, FTMngApproveBy"
+                            _Qry &= vbCrLf & " , FTMngApproveState"
+                            _Qry &= vbCrLf & " , FDMngApproveDate"
+                            _Qry &= vbCrLf & " , FTMngApproveTime"
+                            _Qry &= vbCrLf & " , FTMngApproveBy"
+
 
                         Case Else
-                            _Qry &= vbCrLf & ", FTApproveState"
+                            _Qry &= vbCrLf & " ,FTApproveState"
                     End Select
                     _Qry &= vbCrLf & " )"
 
-                    _Qry &= vbCrLf & "VALUES ('" & HI.ST.UserInfo.UserName & "'"
-                    _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB
-                    _Qry &= vbCrLf & ",'" & Val(FNHSysEmpId.Properties.Tag.ToString) & "'"
-                    _Qry &= vbCrLf & ",'" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
-                    _Qry &= vbCrLf & ",'" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
-                    _Qry &= vbCrLf & ",'" & FTStateNotMergeHoliday.EditValue.ToString & "'"
-                    _Qry &= vbCrLf & "," & FTNetDay.Value
-                    _Qry &= vbCrLf & ",'" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
-                    _Qry &= vbCrLf & ",'" & FTStateLeavepay.EditValue.ToString & "'"
-                    _Qry &= vbCrLf & ",'" & Me.FTSTime.Text & "'"
-                    _Qry &= vbCrLf & ",'" & Me.FTETime.Text & "'"
-                    _Qry &= vbCrLf & "," & FNNetTime.Value
-                    _Qry &= vbCrLf & "," & ocetotaltime.Value
-                    _Qry &= vbCrLf & ",N'" & HI.UL.ULF.rpQuoted(Me.FTRemark.Text) & "'"
+                    _Qry &= vbCrLf & " VALUES ('" & HI.ST.UserInfo.UserName & "'"
+                    _Qry &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " ,'" & Val(FNHSysEmpId.Properties.Tag.ToString) & "'"
+                    _Qry &= vbCrLf & " ,'" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
+                    _Qry &= vbCrLf & " ,'" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
+                    _Qry &= vbCrLf & " ,'" & FTStateNotMergeHoliday.EditValue.ToString & "'"
+                    _Qry &= vbCrLf & " ," & FTNetDay.Value
+                    _Qry &= vbCrLf & " ,'" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
+                    _Qry &= vbCrLf & " ,'" & FTStateLeavepay.EditValue.ToString & "'"
+                    _Qry &= vbCrLf & " ,'" & Me.FTSTime.Text & "'"
+                    _Qry &= vbCrLf & " ,'" & Me.FTETime.Text & "'"
+                    _Qry &= vbCrLf & " ," & FNNetTime.Value
+                    _Qry &= vbCrLf & " ," & ocetotaltime.Value
+                    _Qry &= vbCrLf & " ,N'" & HI.UL.ULF.rpQuoted(Me.FTRemark.Text) & "'"
 
                     'If Not (ocmapprove.Visible) And _leavePro = False Then
                     '    _Qry &= vbCrLf & " ,'1'"
@@ -416,11 +445,11 @@ Public Class wEmployeeLeave
                     '    _Qry &= vbCrLf & " ,'0'"
                     'End If
 
-                    _Qry &= vbCrLf & ",'" & FTStateCalSSo.EditValue.ToString & "'"
-                    _Qry &= vbCrLf & ",'" & HI.TL.CboList.GetListValue("" & FNLeaveDay.Properties.Tag.ToString, FNLeaveDay.SelectedIndex) & "'"
-                    _Qry &= vbCrLf & ",'" & FTStateMedicalCertificate.EditValue.ToString & "','" & HI.UL.ULF.rpQuoted(_PicName) & "'"
-                    _Qry &= vbCrLf & ",'" & FTStateDeductVacation.EditValue.ToString & "'"
-                    _Qry &= vbCrLf & ",'" & HI.TL.CboList.GetListValue("" & FNSpecialLeaveType.Properties.Tag.ToString, FNSpecialLeaveType.SelectedIndex) & "'"
+                    _Qry &= vbCrLf & " ,'" & FTStateCalSSo.EditValue.ToString & "'"
+                    _Qry &= vbCrLf & " ,'" & HI.TL.CboList.GetListValue("" & FNLeaveDay.Properties.Tag.ToString, FNLeaveDay.SelectedIndex) & "'"
+                    _Qry &= vbCrLf & " ,'" & FTStateMedicalCertificate.EditValue.ToString & "','" & HI.UL.ULF.rpQuoted(_PicName) & "'"
+                    _Qry &= vbCrLf & " ,'" & FTStateDeductVacation.EditValue.ToString & "'"
+                    _Qry &= vbCrLf & " ,'" & HI.TL.CboList.GetListValue("" & FNSpecialLeaveType.Properties.Tag.ToString, FNSpecialLeaveType.SelectedIndex) & "'"
 
                     Select Case True
                         Case Not (ocmSendApprove.Visible) And Not (ocmapprove.Visible) And _leavePro = False And Not (_StateMngApp)
@@ -437,17 +466,17 @@ Public Class wEmployeeLeave
                             _Qry &= vbCrLf & ",'" & HI.ST.UserInfo.UserName & "'"
 
                             '***** mng approved
-                            _Qry &= vbCrLf & ",'1'"
-                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
-                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
-                            _Qry &= vbCrLf & ",'" & HI.ST.UserInfo.UserName & "'"
+                            _Qry &= vbCrLf & " ,'1'"
+                            _Qry &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB
+                            _Qry &= vbCrLf & " ," & HI.UL.ULDate.FormatTimeDB
+                            _Qry &= vbCrLf & " ,'" & HI.ST.UserInfo.UserName & "'"
 
                         Case Not (ocmSendApprove.Visible) And (ocmapprove.Visible) And _StateMngApp
                             '***** send approved
-                            _Qry &= vbCrLf & ",'1'"
-                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
-                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
-                            _Qry &= vbCrLf & ",'" & HI.ST.UserInfo.UserName & "'"
+                            _Qry &= vbCrLf & " ,'1'"
+                            _Qry &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB
+                            _Qry &= vbCrLf & " ," & HI.UL.ULDate.FormatTimeDB
+                            _Qry &= vbCrLf & " ,'" & HI.ST.UserInfo.UserName & "'"
                         Case Not (ocmSendApprove.Visible) And (ocmapprove.Visible) And Not (_StateMngApp)
                             '***** send approved
                             _Qry &= vbCrLf & ",'1'"
@@ -456,165 +485,172 @@ Public Class wEmployeeLeave
                             _Qry &= vbCrLf & ",'" & HI.ST.UserInfo.UserName & "'"
 
                             '***** mng approved
-                            _Qry &= vbCrLf & ",'1'"
-                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
-                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
-                            _Qry &= vbCrLf & ",'" & HI.ST.UserInfo.UserName & "'"
+                            _Qry &= vbCrLf & " ,'1'"
+                            _Qry &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB
+                            _Qry &= vbCrLf & " ," & HI.UL.ULDate.FormatTimeDB
+                            _Qry &= vbCrLf & " ,'" & HI.ST.UserInfo.UserName & "'"
 
                         Case Else
-                            _Qry &= vbCrLf & ",'0' "
+                            _Qry &= vbCrLf & " ,'0' "
                     End Select
                     _Qry &= vbCrLf & " )"
 
+
+
+
                 Else
+
                     _Qry = " UPDATE [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily SET"
-                    _Qry &= vbCrLf & "FTUpdUser = '" & HI.ST.UserInfo.UserName & "'"
-                    _Qry &= vbCrLf & ", FTUpdDate = " & HI.UL.ULDate.FormatDateDB
-                    _Qry &= vbCrLf & ", FTUpdTime = " & HI.UL.ULDate.FormatTimeDB
-                    _Qry &= vbCrLf & ", FTHoliday = '" & FTStateNotMergeHoliday.EditValue.ToString & "'"
-                    _Qry &= vbCrLf & ", FNLeaveTotalDay = " & FTNetDay.Value
-                    _Qry &= vbCrLf & ", FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
-                    _Qry &= vbCrLf & ", FTLeavePay = '" & FTStateLeavepay.EditValue.ToString & "'"
-                    _Qry &= vbCrLf & ", FTLeaveStartTime = '" & Me.FTSTime.Text & "'"
-                    _Qry &= vbCrLf & ", FTLeaveEndTime = '" & Me.FTETime.Text & "'"
-                    _Qry &= vbCrLf & ", FTLeaveNote = N'" & HI.UL.ULF.rpQuoted(Me.FTRemark.Text) & "'"
-                    _Qry &= vbCrLf & ", FNLeaveTotalTime=" & FNNetTime.Value
-                    _Qry &= vbCrLf & ", FNLeaveTotalTimeMin=" & ocetotaltime.Value
+                    _Qry &= vbCrLf & " FTUpdUser = '" & HI.ST.UserInfo.UserName & "'"
+                    _Qry &= vbCrLf & " ,FTUpdDate = " & HI.UL.ULDate.FormatDateDB
+                    _Qry &= vbCrLf & " ,FTUpdTime = " & HI.UL.ULDate.FormatTimeDB
+                    _Qry &= vbCrLf & " ,FTHoliday = '" & FTStateNotMergeHoliday.EditValue.ToString & "'"
+                    _Qry &= vbCrLf & " ,FNLeaveTotalDay = " & FTNetDay.Value
+                    _Qry &= vbCrLf & " ,FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
+                    _Qry &= vbCrLf & " ,FTLeavePay = '" & FTStateLeavepay.EditValue.ToString & "'"
+                    _Qry &= vbCrLf & " ,FTLeaveStartTime = '" & Me.FTSTime.Text & "'"
+                    _Qry &= vbCrLf & " ,FTLeaveEndTime = '" & Me.FTETime.Text & "'"
+                    _Qry &= vbCrLf & " ,FTLeaveNote = N'" & HI.UL.ULF.rpQuoted(Me.FTRemark.Text) & "'"
+                    _Qry &= vbCrLf & " ,FNLeaveTotalTime=" & FNNetTime.Value
+                    _Qry &= vbCrLf & " ,FNLeaveTotalTimeMin=" & ocetotaltime.Value
 
                     Select Case True
                         Case Not (ocmSendApprove.Visible) And Not (ocmapprove.Visible) And _leavePro = False And Not (_StateMngApp)
                             '***** state appoved originale
-                            _Qry &= vbCrLf & ", FTApproveState = '1' "
-                            _Qry &= vbCrLf & ", FTApproveDate = " & HI.UL.ULDate.FormatDateDB
-                            _Qry &= vbCrLf & ", FTApproveTime = " & HI.UL.ULDate.FormatTimeDB
-                            _Qry &= vbCrLf & ", FTApproveBy = '" & HI.ST.UserInfo.UserName & "'"
+                            _Qry &= vbCrLf & " ,FTApproveState='1' "
+                            _Qry &= vbCrLf & " , FTApproveDate=" & HI.UL.ULDate.FormatDateDB
+                            _Qry &= vbCrLf & " , FTApproveTime=" & HI.UL.ULDate.FormatTimeDB
+                            _Qry &= vbCrLf & " , FTApproveBy = '" & HI.ST.UserInfo.UserName & "'"
 
                             '***** send approved
-                            _Qry &= vbCrLf & ", FTSendApproveState = '1'"
-                            _Qry &= vbCrLf & ", FDSendApproveDate = " & HI.UL.ULDate.FormatDateDB
-                            _Qry &= vbCrLf & ", FTSendApproveTime = " & HI.UL.ULDate.FormatTimeDB
-                            _Qry &= vbCrLf & ", FTSendApproveBy = '" & HI.ST.UserInfo.UserName & "'"
+                            _Qry &= vbCrLf & " , FTSendApproveState = '1'"
+                            _Qry &= vbCrLf & " , FDSendApproveDate=" & HI.UL.ULDate.FormatDateDB
+                            _Qry &= vbCrLf & " , FTSendApproveTime=" & HI.UL.ULDate.FormatTimeDB
+                            _Qry &= vbCrLf & " , FTSendApproveBy = '" & HI.ST.UserInfo.UserName & "'"
 
                             '***** mng approved
-                            _Qry &= vbCrLf & ", FTMngApproveState = '1'"
-                            _Qry &= vbCrLf & ", FDMngApproveDate=" & HI.UL.ULDate.FormatDateDB
-                            _Qry &= vbCrLf & ", FTMngApproveTime=" & HI.UL.ULDate.FormatTimeDB
-                            _Qry &= vbCrLf & ", FTMngApproveBy = '" & HI.ST.UserInfo.UserName & "'"
+                            _Qry &= vbCrLf & " , FTMngApproveState = '1'"
+                            _Qry &= vbCrLf & " , FDMngApproveDate=" & HI.UL.ULDate.FormatDateDB
+                            _Qry &= vbCrLf & " , FTMngApproveTime=" & HI.UL.ULDate.FormatTimeDB
+                            _Qry &= vbCrLf & " , FTMngApproveBy = '" & HI.ST.UserInfo.UserName & "'"
 
-                            _Qry &= vbCrLf & ", FTApproveState = '0'"
-                            _Qry &= vbCrLf & ", FTDirApproveState = '0'"
+                            _Qry &= vbCrLf & " ,FTApproveState='0' "
+                            _Qry &= vbCrLf & " , FTDirApproveState='0'"
 
 
                         Case Not (ocmSendApprove.Visible) And (ocmapprove.Visible) And _StateMngApp
                             '***** send approved
-                            _Qry &= vbCrLf & ", FTSendApproveState = '1'"
-                            _Qry &= vbCrLf & ", FDSendApproveDate = " & HI.UL.ULDate.FormatDateDB
-                            _Qry &= vbCrLf & ", FTSendApproveTime = " & HI.UL.ULDate.FormatTimeDB
-                            _Qry &= vbCrLf & ", FTSendApproveBy = '" & HI.ST.UserInfo.UserName & "'"
-                            _Qry &= vbCrLf & ", FTApproveState='0' "
+                            _Qry &= vbCrLf & " , FTSendApproveState = '1'"
+                            _Qry &= vbCrLf & " , FDSendApproveDate=" & HI.UL.ULDate.FormatDateDB
+                            _Qry &= vbCrLf & " , FTSendApproveTime=" & HI.UL.ULDate.FormatTimeDB
+                            _Qry &= vbCrLf & " , FTSendApproveBy = '" & HI.ST.UserInfo.UserName & "'"
+                            _Qry &= vbCrLf & " ,FTApproveState='0' "
 
-                            _Qry &= vbCrLf & ", FTMngApproveState = '0'"
-                            _Qry &= vbCrLf & ", FDMngApproveDate = NULL"
-                            _Qry &= vbCrLf & ", FTMngApproveTime = NULL"
-                            _Qry &= vbCrLf & ", FTMngApproveBy = NULL"
+                            _Qry &= vbCrLf & " ,FTMngApproveState = '0'"
+                            _Qry &= vbCrLf & ", FDMngApproveDate =NULL"
+                            _Qry &= vbCrLf & ", FTMngApproveTime =NULL"
+                            _Qry &= vbCrLf & ", FTMngApproveBy =NULL"
 
-                            _Qry &= vbCrLf & ", FTDirApproveState = '0'"
-                            _Qry &= vbCrLf & ", FDDirApproveDate = NULL"
-                            _Qry &= vbCrLf & ", FTDirApproveBy = NULL"
-                            _Qry &= vbCrLf & ", FTDirApproveTime = NULL"
+                            _Qry &= vbCrLf & " , FTDirApproveState='0'"
+                            _Qry &= vbCrLf & ", FDDirApproveDate =NULL"
+                            _Qry &= vbCrLf & ", FTDirApproveBy =NULL"
+                            _Qry &= vbCrLf & ", FTDirApproveTime =NULL"
 
                         Case Not (ocmSendApprove.Visible) And (ocmapprove.Visible) And Not (_StateMngApp)
                             '***** send approved
-                            _Qry &= vbCrLf & ", FTSendApproveState = '1'"
-                            _Qry &= vbCrLf & ", FDSendApproveDate = " & HI.UL.ULDate.FormatDateDB
-                            _Qry &= vbCrLf & ", FTSendApproveTime = " & HI.UL.ULDate.FormatTimeDB
-                            _Qry &= vbCrLf & ", FTSendApproveBy = '" & HI.ST.UserInfo.UserName & "'"
+                            _Qry &= vbCrLf & " , FTSendApproveState = '1'"
+                            _Qry &= vbCrLf & " , FDSendApproveDate=" & HI.UL.ULDate.FormatDateDB
+                            _Qry &= vbCrLf & " , FTSendApproveTime=" & HI.UL.ULDate.FormatTimeDB
+                            _Qry &= vbCrLf & " , FTSendApproveBy = '" & HI.ST.UserInfo.UserName & "'"
 
                             '***** mng approved
-                            _Qry &= vbCrLf & ", FTMngApproveState = '1'"
-                            _Qry &= vbCrLf & ", FDMngApproveDate = " & HI.UL.ULDate.FormatDateDB
-                            _Qry &= vbCrLf & ", FTMngApproveTime = " & HI.UL.ULDate.FormatTimeDB
-                            _Qry &= vbCrLf & ", FTMngApproveBy = '" & HI.ST.UserInfo.UserName & "'"
+                            _Qry &= vbCrLf & " , FTMngApproveState = '1'"
+                            _Qry &= vbCrLf & " , FDMngApproveDate=" & HI.UL.ULDate.FormatDateDB
+                            _Qry &= vbCrLf & " , FTMngApproveTime=" & HI.UL.ULDate.FormatTimeDB
+                            _Qry &= vbCrLf & " , FTMngApproveBy = '" & HI.ST.UserInfo.UserName & "'"
+
 
                             '_Qry &= vbCrLf & " ,FTMngApproveState = '0'"
                             '_Qry &= vbCrLf & ", FDMngApproveDate =NULL"
                             '_Qry &= vbCrLf & ", FTMngApproveTime =NULL"
                             '_Qry &= vbCrLf & ", FTMngApproveBy =NULL"
 
-                            _Qry &= vbCrLf & ", FTDirApproveState = '0'"
-                            _Qry &= vbCrLf & ", FDDirApproveDate = NULL"
-                            _Qry &= vbCrLf & ", FTDirApproveBy = NULL"
-                            _Qry &= vbCrLf & ", FTDirApproveTime = NULL"
+                            _Qry &= vbCrLf & " , FTDirApproveState='0'"
+                            _Qry &= vbCrLf & ", FDDirApproveDate =NULL"
+                            _Qry &= vbCrLf & ", FTDirApproveBy =NULL"
+                            _Qry &= vbCrLf & ", FTDirApproveTime =NULL"
 
                         Case Else
-                            _Qry &= vbCrLf & ", FTMngApproveState = '0'"
+                            _Qry &= vbCrLf & " ,FTMngApproveState = '0'"
                             _Qry &= vbCrLf & ", FDMngApproveDate =NULL"
                             _Qry &= vbCrLf & ", FTMngApproveTime =NULL"
                             _Qry &= vbCrLf & ", FTMngApproveBy =NULL"
                     End Select
 
-                    _Qry &= vbCrLf & ", FNSpecialLeaveType = '" & HI.TL.CboList.GetListValue("" & FNSpecialLeaveType.Properties.Tag.ToString, FNSpecialLeaveType.SelectedIndex) & "'"
-                    _Qry &= vbCrLf & ", FTStaCalSSO = '" & FTStateCalSSo.EditValue.ToString & "'"
-                    _Qry &= vbCrLf & ", FTStaLeaveDay = '" & HI.TL.CboList.GetListValue("" & FNLeaveDay.Properties.Tag.ToString, FNLeaveDay.SelectedIndex) & "'"
-                    _Qry &= vbCrLf & ", FTStateMedicalCertificate = '" & FTStateMedicalCertificate.EditValue.ToString & "'"
-                    _Qry &= vbCrLf & ", FTMedicalCertificateName ='" & HI.UL.ULF.rpQuoted(_PicName) & "' "
-                    _Qry &= vbCrLf & ", FTStateDeductVacation = '" & FTStateDeductVacation.EditValue.ToString & "'"
+                    _Qry &= vbCrLf & " ,FNSpecialLeaveType='" & HI.TL.CboList.GetListValue("" & FNSpecialLeaveType.Properties.Tag.ToString, FNSpecialLeaveType.SelectedIndex) & "'"
+                    _Qry &= vbCrLf & " , FTStaCalSSO='" & FTStateCalSSo.EditValue.ToString & "'"
+                    _Qry &= vbCrLf & " , FTStaLeaveDay='" & HI.TL.CboList.GetListValue("" & FNLeaveDay.Properties.Tag.ToString, FNLeaveDay.SelectedIndex) & "'"
+                    _Qry &= vbCrLf & " ,FTStateMedicalCertificate= '" & FTStateMedicalCertificate.EditValue.ToString & "'"
+                    _Qry &= vbCrLf & " ,FTMedicalCertificateName='" & HI.UL.ULF.rpQuoted(_PicName) & "' "
+                    _Qry &= vbCrLf & " , FTStateDeductVacation='" & FTStateDeductVacation.EditValue.ToString & "'"
 
-                    _Qry &= vbCrLf & "WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
-                    _Qry &= vbCrLf & "AND FTStartDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
-                    _Qry &= vbCrLf & "AND FTEndDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
-                    _Qry &= vbCrLf & "AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
+                    _Qry &= vbCrLf & " WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
+                    _Qry &= vbCrLf & " AND FTStartDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
+                    _Qry &= vbCrLf & " AND FTEndDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
+                    _Qry &= vbCrLf & " AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
 
                 End If
                 HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR)
 
                 Call savePDF()
 
-                _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave "
-                _Qry &= vbCrLf & "WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & " "
-                _Qry &= vbCrLf & "AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
-                _Qry &= vbCrLf & "AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
-                _Qry &= vbCrLf & "AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
+                _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave "
+                _Qry &= vbCrLf & " WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & " "
+                _Qry &= vbCrLf & " AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
+                _Qry &= vbCrLf & " AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
+                _Qry &= vbCrLf & " AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
                 HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR)
 
                 If Not (ocmapprove.Visible) And _leavePro = False Then
                     Call ApproveData()
                 End If
+
             Else
-                'Edit Data leave
-                _Qry = "UPDATE [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily SET"
-                _Qry &= vbCrLf & "FTUpdUser = '" & HI.ST.UserInfo.UserName & "'"
-                _Qry &= vbCrLf & ", FTUpdDate = " & HI.UL.ULDate.FormatDateDB
-                _Qry &= vbCrLf & ", FTUpdTime = " & HI.UL.ULDate.FormatTimeDB
-                _Qry &= vbCrLf & ", FTHoliday = '" & FTStateNotMergeHoliday.EditValue.ToString & "'"
-                _Qry &= vbCrLf & ", FNLeaveTotalDay = " & FTNetDay.Value
-                _Qry &= vbCrLf & ", FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
-                _Qry &= vbCrLf & ", FTLeavePay = '" & FTStateLeavepay.EditValue.ToString & "'"
-                _Qry &= vbCrLf & ", FTLeaveStartTime = '" & Me.FTSTime.Text & "'"
-                _Qry &= vbCrLf & ", FTLeaveEndTime = '" & Me.FTETime.Text & "'"
-                _Qry &= vbCrLf & ", FTLeaveNote = N'" & HI.UL.ULF.rpQuoted(Me.FTRemark.Text) & "'"
-                _Qry &= vbCrLf & ", FNLeaveTotalTime=" & FNNetTime.Value
-                _Qry &= vbCrLf & ", FNLeaveTotalTimeMin=" & ocetotaltime.Value
+                '''Edit Data leave
+                '''
+                _Qry = " UPDATE [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily SET"
+                _Qry &= vbCrLf & " FTUpdUser = '" & HI.ST.UserInfo.UserName & "'"
+                _Qry &= vbCrLf & " ,FTUpdDate = " & HI.UL.ULDate.FormatDateDB
+                _Qry &= vbCrLf & " ,FTUpdTime = " & HI.UL.ULDate.FormatTimeDB
+                _Qry &= vbCrLf & " ,FTHoliday = '" & FTStateNotMergeHoliday.EditValue.ToString & "'"
+                _Qry &= vbCrLf & " ,FNLeaveTotalDay = " & FTNetDay.Value
+                _Qry &= vbCrLf & " ,FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
+                _Qry &= vbCrLf & " ,FTLeavePay = '" & FTStateLeavepay.EditValue.ToString & "'"
+                _Qry &= vbCrLf & " ,FTLeaveStartTime = '" & Me.FTSTime.Text & "'"
+                _Qry &= vbCrLf & " ,FTLeaveEndTime = '" & Me.FTETime.Text & "'"
+                _Qry &= vbCrLf & " ,FTLeaveNote = N'" & HI.UL.ULF.rpQuoted(Me.FTRemark.Text) & "'"
+                _Qry &= vbCrLf & " ,FNLeaveTotalTime=" & FNNetTime.Value
+                _Qry &= vbCrLf & " ,FNLeaveTotalTimeMin=" & ocetotaltime.Value
 
-                _Qry &= vbCrLf & ", FNSpecialLeaveType='" & HI.TL.CboList.GetListValue("" & FNSpecialLeaveType.Properties.Tag.ToString, FNSpecialLeaveType.SelectedIndex) & "'"
-                _Qry &= vbCrLf & ", FTStaCalSSO='" & FTStateCalSSo.EditValue.ToString & "'"
-                _Qry &= vbCrLf & ", FTStaLeaveDay='" & HI.TL.CboList.GetListValue("" & FNLeaveDay.Properties.Tag.ToString, FNLeaveDay.SelectedIndex) & "'"
-                _Qry &= vbCrLf & ", FTStateMedicalCertificate= '" & FTStateMedicalCertificate.EditValue.ToString & "'"
-                _Qry &= vbCrLf & ", FTMedicalCertificateName='" & HI.UL.ULF.rpQuoted(_PicName) & "' "
-                _Qry &= vbCrLf & ", FTStateDeductVacation='" & FTStateDeductVacation.EditValue.ToString & "'"
+                _Qry &= vbCrLf & " ,FNSpecialLeaveType='" & HI.TL.CboList.GetListValue("" & FNSpecialLeaveType.Properties.Tag.ToString, FNSpecialLeaveType.SelectedIndex) & "'"
+                _Qry &= vbCrLf & " , FTStaCalSSO='" & FTStateCalSSo.EditValue.ToString & "'"
+                _Qry &= vbCrLf & " , FTStaLeaveDay='" & HI.TL.CboList.GetListValue("" & FNLeaveDay.Properties.Tag.ToString, FNLeaveDay.SelectedIndex) & "'"
+                _Qry &= vbCrLf & " ,FTStateMedicalCertificate= '" & FTStateMedicalCertificate.EditValue.ToString & "'"
+                _Qry &= vbCrLf & " ,FTMedicalCertificateName='" & HI.UL.ULF.rpQuoted(_PicName) & "' "
+                _Qry &= vbCrLf & " , FTStateDeductVacation='" & FTStateDeductVacation.EditValue.ToString & "'"
 
-                _Qry &= vbCrLf & "WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
-                _Qry &= vbCrLf & "AND FTStartDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
-                _Qry &= vbCrLf & "AND FTEndDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
-                _Qry &= vbCrLf & "AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
+                _Qry &= vbCrLf & " WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
+                _Qry &= vbCrLf & " AND FTStartDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
+                _Qry &= vbCrLf & " AND FTEndDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
+                _Qry &= vbCrLf & " AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
 
                 HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR)
 
                 Call savePDF()
             End If
 
-            Return True
 
+            Return True
         Catch ex As Exception
             Return False
         End Try
@@ -660,16 +696,17 @@ Public Class wEmployeeLeave
                 _TmpFNTotalNotPayMonute = _TmpFNTotalMonute
             End If
 
-            _Qry = "SELECT FDHolidayDate  "
-            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmpTypeWeeklySpecial WITH(NOLOCK) "
-            _Qry &= vbCrLf & "WHERE FDHolidayDate>='" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "' "
-            _Qry &= vbCrLf & "AND FDHolidayDate<='" & HI.UL.ULDate.ConvertEnDB(FTEndDate.Text) & "' "
-            _Qry &= vbCrLf & "AND FNHSysEmpTypeId=" & Integer.Parse(Val(FNHSysEmpTypeId.Properties.Tag.ToString)) & " "
+            _Qry = "SELECt   FDHolidayDate  "
+            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmpTypeWeeklySpecial WITH(NOLOCK) "
+            _Qry &= vbCrLf & "  WHERE FDHolidayDate>='" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "' "
+            _Qry &= vbCrLf & "  AND FDHolidayDate<='" & HI.UL.ULDate.ConvertEnDB(FTEndDate.Text) & "' "
+            _Qry &= vbCrLf & "  AND FNHSysEmpTypeId=" & Integer.Parse(Val(FNHSysEmpTypeId.Properties.Tag.ToString)) & " "
 
             _EmpTypeWeekly = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
-            _Qry = "SELECT  Top 1   FTSunday,FTMonday, FTTuesday, FTWednesday, FTThursday, FTFriday, FTSaturday"
-            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeWeekly  As W WITH(NOLOCK) "
-            _Qry &= vbCrLf & "WHERE FNHSysEmpID=" & Val(FNHSysEmpId.Properties.Tag.ToString)
+            _Qry = "   SELECT    Top 1   FTSunday,FTMonday, FTTuesday, FTWednesday, "
+            _Qry &= vbCrLf & "   FTThursday, FTFriday, FTSaturday"
+            _Qry &= vbCrLf & "   FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeWeekly  As W WITH(NOLOCK) "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(FNHSysEmpId.Properties.Tag.ToString) & " "
             _dtWeekend = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
 
             If _dtWeekend.Rows.Count <= 0 Then
@@ -679,7 +716,7 @@ Public Class wEmployeeLeave
             End If
 
 
-            _Qry = "SELECT FDHolidayDate   "
+            _Qry = "SELECt   FDHolidayDate   "
             _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMHoliday WITH(NOLOCK) WHERE FTStateActive='1' AND FNHSysCmpId=" & HI.ST.SysInfo.CmpID
             _dtHoliday = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
 
@@ -689,13 +726,14 @@ Public Class wEmployeeLeave
             Dim _TotalWorkHour As Double
             Dim _DateReset As String = ""
 
-            _Qry = "SELECT CASE WHEN RiGHT(FTCurrenDate,5) >=FTLeaveReset THEN LEFT(FTCurrenDate,4) ELSE  LEFT(FTBefore,4)  END +'/' + FTLeaveReset"
-            _Qry &= vbCrLf & "FROM ("
-            _Qry &= vbCrLf & "   SELECT TOP 1 Convert(varchar(10),GetDate(),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
-            _Qry &= vbCrLf & "   FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigLeave  AS L WITH (NOLOCK)"
-            _Qry &= vbCrLf & "   INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH(NOLOCK ) ON L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
-            _Qry &= vbCrLf & "   WHERE M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
-            _Qry &= vbCrLf & ") As T"
+            _Qry = " SELECT CASE WHEN RiGHT(FTCurrenDate,5) >=FTLeaveReset THEN LEFT(FTCurrenDate,4) ELSE  LEFT(FTBefore,4)  END +'/' + FTLeaveReset"
+            _Qry &= vbCrLf & "  FROM"
+            _Qry &= vbCrLf & " ("
+            _Qry &= vbCrLf & " SELECT  TOP 1 Convert(varchar(10),GetDate(),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
+            _Qry &= vbCrLf & " FROM            THRMConfigLeave  AS L WITH (NOLOCK)  INNER JOIN THRMEmployee AS M WITH(NOLOCK )"
+            _Qry &= vbCrLf & "  ON  L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
+            _Qry &= vbCrLf & "  WHERE   M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+            _Qry &= vbCrLf & " ) As T"
 
             _DateReset = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
 
@@ -703,23 +741,24 @@ Public Class wEmployeeLeave
             If _LeaveCode = 97 Then
 
                 _Qry = "Select Top 1 FNLeavePay "
-                _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigLeave WITH(NOLOCK) "
-                _Qry &= vbCrLf & "WHERE FNHSysEmpTypeId =" & Val(FNHSysEmpTypeId.Properties.Tag.ToString) & " "
-                _Qry &= vbCrLf & "AND FTLeaveCode ='" & _LeaveCode & "' "
+                _Qry &= vbCrLf & "  FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigLeave WITH(NOLOCK) "
+                _Qry &= vbCrLf & " WHERE FNHSysEmpTypeId =" & Val(FNHSysEmpTypeId.Properties.Tag.ToString) & " "
+                _Qry &= vbCrLf & " AND FTLeaveCode ='" & _LeaveCode & "' "
 
                 _LeavePragNentPay = Integer.Parse(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")))
 
-                _Qry = "SELECT COUNT(FTDateTrans) AS FNPayDay"
-                _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK) "
-                _Qry &= vbCrLf & "WHERE (FTLeaveType ='" & _LeaveCode & "')"
-                _Qry &= vbCrLf & "AND (FNHSysEmpID =" & Val(FNHSysEmpId.Properties.Tag.ToString) & " ) "
-                _Qry &= vbCrLf & "AND (FTDateTrans < N'" & _NextProcDate & "')"
-                _Qry &= vbCrLf & "AND ( FTDateTrans >='" & _DateReset & "' )"
-                _Qry &= vbCrLf & "AND (FNTotalPayMinute > 0) "
+                _Qry = "   SELECT        COUNT(FTDateTrans) AS FNPayDay"
+                _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave WITH(NOLOCK) "
+                _Qry &= vbCrLf & " WHERE        (FTLeaveType ='" & _LeaveCode & "')"
+                _Qry &= vbCrLf & " AND (FNHSysEmpID =" & Val(FNHSysEmpId.Properties.Tag.ToString) & " ) "
+                _Qry &= vbCrLf & " AND (FTDateTrans < N'" & _NextProcDate & "')"
+                _Qry &= vbCrLf & " and ( FTDateTrans >='" & _DateReset & "' )"
+                _Qry &= vbCrLf & " AND (FNTotalPayMinute > 0) "
 
                 _LeavePragNentPay = _LeavePragNentPay - Integer.Parse(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0")))
 
             End If
+
 
             Do While _NextProcDate <= _EndProcDate
 
@@ -773,13 +812,13 @@ Public Class wEmployeeLeave
                     ' End If
 
                     If _SkipProcess = False Then
-                        For Each Dr As DataRow In _dtHoliday.Select("FDHolidayDate = '" & HI.UL.ULDate.ConvertEnDB(_NextProcDate) & "' ")
+                        For Each Dr As DataRow In _dtHoliday.Select("   FDHolidayDate  = '" & HI.UL.ULDate.ConvertEnDB(_NextProcDate) & "' ")
                             _SkipProcess = True
                         Next
                     End If
 
                     If _SkipProcess = False Then
-                        For Each Dr As DataRow In _EmpTypeWeekly.Select("FDHolidayDate = '" & HI.UL.ULDate.ConvertEnDB(_NextProcDate) & "' ")
+                        For Each Dr As DataRow In _EmpTypeWeekly.Select("   FDHolidayDate  = '" & HI.UL.ULDate.ConvertEnDB(_NextProcDate) & "' ")
                             _SkipProcess = True
                         Next
                     End If
@@ -798,7 +837,7 @@ Public Class wEmployeeLeave
                             Exit For
                         Next
 
-                        For Each Rday As DataRow In _EmpTypeWeekly.Select("FDHolidayDate = '" & HI.UL.ULDate.ConvertEnDB(_NextProcDate) & "' ")
+                        For Each Rday As DataRow In _EmpTypeWeekly.Select("   FDHolidayDate  = '" & HI.UL.ULDate.ConvertEnDB(_NextProcDate) & "' ")
                             _LeavePragNentNotPay = True
                         Next
 
@@ -809,25 +848,29 @@ Public Class wEmployeeLeave
                 If Not (_SkipProcess) Then
 
                     _Qry = "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave(FTInsUser, FTInsDate, FTInsTime"
-                    _Qry &= vbCrLf & ", FNHSysEmpID, FTDateTrans, FTLeaveType, FNTotalHour, FNTotalMinute, FNTotalPayHour"
-                    _Qry &= vbCrLf & ", FNTotalPayMinute, FNTotalNotPayHour, FNTotalNotPayMinute, FTLeaveStartTime, FTLeaveEndTime"
-                    _Qry &= vbCrLf & ", FTStaCalSSO, FTStaLeaveDay, FNLeaveTotalDay, FTStateMedicalCertificate, FTStateDeductVacation)"
-                    _Qry &= vbCrLf & "SELECT '" & HI.ST.UserInfo.UserName & "'," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB & ""
-                    _Qry &= vbCrLf & "," & Val(FNHSysEmpId.Properties.Tag.ToString) & ",'" & _NextProcDate & "' "
-                    _Qry &= vbCrLf & ",'" & _LeaveCode & "'"
-                    _Qry &= vbCrLf & "," & _TotalHour & ""
-                    _Qry &= vbCrLf & "," & _FNTotalMonute & ""
+                    _Qry &= vbCrLf & " ,FNHSysEmpID,FTDateTrans,FTLeaveType"
+                    _Qry &= vbCrLf & ",FNTotalHour,FNTotalMinute,FNTotalPayHour,FNTotalPayMinute"
+                    _Qry &= vbCrLf & ",FNTotalNotPayHour,FNTotalNotPayMinute,FTLeaveStartTime,FTLeaveEndTime,FTStaCalSSO,FTStaLeaveDay"
+                    _Qry &= vbCrLf & ",FNLeaveTotalDay,FTStateMedicalCertificate,FTStateDeductVacation)"
+                    _Qry &= vbCrLf & "  SELECT '" & HI.ST.UserInfo.UserName & "'," & HI.UL.ULDate.FormatDateDB & "," & HI.UL.ULDate.FormatTimeDB & ""
+                    _Qry &= vbCrLf & " ," & Val(FNHSysEmpId.Properties.Tag.ToString) & ",'" & _NextProcDate & "' "
+                    _Qry &= vbCrLf & " ,'" & _LeaveCode & "'"
+                    _Qry &= vbCrLf & " ," & _TotalHour & ""
+                    _Qry &= vbCrLf & " ," & _FNTotalMonute & ""
 
                     If (_LeaveCode = "97" And (_LeavePragNentPay <= 0 Or _LeavePragNentNotPay)) And FTStateLeavepay.Checked = True Then
-                        _Qry &= vbCrLf & ",0"
-                        _Qry &= vbCrLf & ",0"
-                        _Qry &= vbCrLf & "," & _TotalHour & ""
-                        _Qry &= vbCrLf & "," & _FNTotalMonute & ""
+
+                        _Qry &= vbCrLf & " ,0"
+                        _Qry &= vbCrLf & " ,0"
+                        _Qry &= vbCrLf & " ," & _TotalHour & ""
+                        _Qry &= vbCrLf & " ," & _FNTotalMonute & ""
+
                     Else
-                        _Qry &= vbCrLf & "," & _FNTotalPayHour & ""
-                        _Qry &= vbCrLf & "," & _FNTotalPayMonute & ""
-                        _Qry &= vbCrLf & "," & _FNTotalNotPayHour & ""
-                        _Qry &= vbCrLf & "," & _FNTotalNotPayMonute & ""
+
+                        _Qry &= vbCrLf & " ," & _FNTotalPayHour & ""
+                        _Qry &= vbCrLf & " ," & _FNTotalPayMonute & ""
+                        _Qry &= vbCrLf & " ," & _FNTotalNotPayHour & ""
+                        _Qry &= vbCrLf & " ," & _FNTotalNotPayMonute & ""
 
                     End If
 
@@ -871,18 +914,19 @@ Public Class wEmployeeLeave
         Try
             Dim _Qry As String
 
-            _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily"
-            _Qry &= vbCrLf & "WHERE FNHSysEmpId = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
-            _Qry &= vbCrLf & "AND FTStartDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
-            _Qry &= vbCrLf & "AND FTEndDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
-            _Qry &= vbCrLf & "AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
+
+            _Qry = "DELETE FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily"
+            _Qry &= vbCrLf & " WHERE FNHSysEmpId = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
+            _Qry &= vbCrLf & " AND FTStartDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
+            _Qry &= vbCrLf & " AND FTEndDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
+            _Qry &= vbCrLf & " AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
             HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR)
 
-            _Qry = "DELETE FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave "
-            _Qry &= vbCrLf & "WHERE FNHSysEmpId = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
-            _Qry &= vbCrLf & "AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
-            _Qry &= vbCrLf & "AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
-            _Qry &= vbCrLf & "AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
+            _Qry = " DELETE FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpId = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
+            _Qry &= vbCrLf & " AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
+            _Qry &= vbCrLf & " AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
+            _Qry &= vbCrLf & " AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
             HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR)
 
             Dim _EndProcDate As String = HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text)
@@ -905,6 +949,9 @@ Public Class wEmployeeLeave
     Private Function VerrifyData(Action As String) As Boolean
         Dim _Pass As Boolean = False
 
+
+
+
         If Me.FNHSysEmpId.Text <> "" And FNHSysEmpId.Properties.Tag.ToString <> "" Then
             If FNLeaveType.SelectedIndex > -1 Then
                 If HI.UL.ULDate.CheckDate(FTStartDate.Text) <> "" And HI.UL.ULDate.CheckDate(FTEndDate.Text) <> "" Then
@@ -912,6 +959,7 @@ Public Class wEmployeeLeave
                     Dim _LeaveCode As String = HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex)
 
                     If (HI.UL.ULDate.UDayDiff(DateInterval.Year, FTStartDate.Text, FTEndDate.Text) = 0 And _LeaveCode = "98") Or _LeaveCode <> "98" Then
+
 
                         If Me.FTSTime.Text <> "" And Me.FTETime.Text <> "" Then
                             If Me.FTSTime.Text <> Me.FTETime.Text Then
@@ -990,10 +1038,10 @@ Public Class wEmployeeLeave
         Dim _Qry As String = ""
         Dim _dt As DataTable
 
-        _Qry = "SELECT TOP 1 M.FNHSysEmpID, S.FTIn1, S.FTOut1, S.FTIn2, S.FTOut2, S.FCHour,M.FNHSysShiftID"
-        _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) "
-        _Qry &= vbCrLf & "INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift AS S WITH (NOLOCK) ON M.FNHSysShiftID = S.FNHSysShiftID"
-        _Qry &= vbCrLf & "WHERE M.FNHSysEmpID=" & Val(FNHSysEmpId.Properties.Tag.ToString) & " "
+        _Qry = "  SELECT   TOP 1     M.FNHSysEmpID, S.FTIn1, S.FTOut1, S.FTIn2, S.FTOut2, S.FCHour,M.FNHSysShiftID"
+        _Qry &= vbCrLf & " FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) INNER JOIN"
+        _Qry &= vbCrLf & "     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift AS S WITH (NOLOCK) ON M.FNHSysShiftID = S.FNHSysShiftID"
+        _Qry &= vbCrLf & "   WHERE M.FNHSysEmpID=" & Val(FNHSysEmpId.Properties.Tag.ToString) & " "
 
         _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
 
@@ -1036,11 +1084,12 @@ Public Class wEmployeeLeave
         Dim _Qry As String = ""
         Dim _dt As DataTable
 
-        _Qry = "SELECT M.FNHSysEmpID, S.FTIn1, S.FTOut1, S.FTIn2, S.FTOut2, S.FCHour"
-        _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeMoveShift AS M WITH (NOLOCK) "
-        _Qry &= vbCrLf & "INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift AS S WITH (NOLOCK) ON M.FNHSysShiftID = S.FNHSysShiftID"
-        _Qry &= vbCrLf & "WHERE  M.FNHSysEmpID =" & Val(FNHSysEmpId.Properties.Tag.ToString) & " "
-        _Qry &= vbCrLf & "AND M.FDShiftDate ='" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "' "
+
+        _Qry = "   SELECT        M.FNHSysEmpID, S.FTIn1, S.FTOut1, S.FTIn2, S.FTOut2, S.FCHour"
+        _Qry &= vbCrLf & " FROM     THRMEmployeeMoveShift AS M WITH (NOLOCK) INNER JOIN"
+        _Qry &= vbCrLf & "   THRMTimeShift AS S WITH (NOLOCK) ON M.FNHSysShiftID = S.FNHSysShiftID"
+        _Qry &= vbCrLf & " WHERE  M.FNHSysEmpID =" & Val(FNHSysEmpId.Properties.Tag.ToString) & " "
+        _Qry &= vbCrLf & " AND M.FDShiftDate ='" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "' "
 
         _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
 
@@ -1079,17 +1128,19 @@ Public Class wEmployeeLeave
 #Region "General"
 
 #End Region
-
+    Private TotalLeave As Integer
     Private Sub FNLeaveDay_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FNLeaveDay.SelectedIndexChanged
 
 
         If (_ProcPrepare) Then Exit Sub
         Select Case FNLeaveDay.SelectedIndex
             Case 3
+
                 FTSTime.Properties.ReadOnly = False
                 FTETime.Properties.ReadOnly = False
 
             Case Else
+
                 FTSTime.Properties.ReadOnly = True
                 FTETime.Properties.ReadOnly = True
 
@@ -1120,18 +1171,18 @@ Public Class wEmployeeLeave
         Dim _dt As DataTable
 
         _Qry = "SELECT Convert(varchar(10),Convert(datetime,FTStartDate),103) As FTStartDate"
-        _Qry &= vbCrLf & " , Convert(varchar(10),Convert(datetime,FTEndDate),103) As FTEndDate"
+        _Qry &= vbCrLf & ", Convert(varchar(10),Convert(datetime,FTEndDate),103) As FTEndDate"
         '_Qry = "SELECT Convert(datetime,A.FTStartDate) As FTStartDate"
         '_Qry &= vbCrLf & ", Convert(datetime,A.FTEndDate) As FTEndDate"
 
-        _Qry &= vbCrLf & " , CASE WHEN ISNULL(A.FTHoliday,'0') = '1' THEN  '1'  ELSE '0'  END AS  FTHoliday"
-        _Qry &= vbCrLf & " , A.FTLeaveType"
-        _Qry &= vbCrLf & " , A.FNLeaveTotalDay, B.FTNameTH AS FTLeaveTypeName"
-        _Qry &= vbCrLf & " , CASE WHEN ISNULL(FTLeavePay,'0') = '1' THEN '1' ELSE '0' END AS FTLeavePay"
-        _Qry &= vbCrLf & " , FTLeaveStartTime , FTLeaveEndTime, FNLeaveTotalTime, FTLeaveNote,A.FTLeaveType AS FTLeaveTypeCode"
-        _Qry &= vbCrLf & " , CASE WHEN ISNULL(FTApproveState,'0') = '1' THEN  '1'  ELSE '0'  END AS  FTApproveState"
-        _Qry &= vbCrLf & " , CASE WHEN ISNULL(FTStaCalSSO,'0') = '1' THEN  '1'  ELSE '0'  END AS  FTStaCalSSO"
-        _Qry &= vbCrLf & " , CASE WHEN ISNULL(FTStaLeaveDay,'-1') <='0' THEN '0' ELSE FTStaLeaveDay END As FTStaLeaveDay,ISNULL(A.FTStateDeductVacation,'0') AS FTStateDeductVacation"
+        _Qry &= vbCrLf & ",CASE WHEN ISNULL(A.FTHoliday,'0') = '1' THEN  '1'  ELSE '0'  END AS  FTHoliday"
+        _Qry &= vbCrLf & ",A.FTLeaveType"
+        _Qry &= vbCrLf & ", A.FNLeaveTotalDay, B.FTNameTH AS FTLeaveTypeName"
+        _Qry &= vbCrLf & ", CASE WHEN ISNULL(FTLeavePay,'0') = '1' THEN '1' ELSE '0' END AS FTLeavePay"
+        _Qry &= vbCrLf & ", FTLeaveStartTime , FTLeaveEndTime, FNLeaveTotalTime, FTLeaveNote,A.FTLeaveType AS FTLeaveTypeCode"
+        _Qry &= vbCrLf & ",CASE WHEN ISNULL(FTApproveState,'0') = '1' THEN  '1'  ELSE '0'  END AS  FTApproveState"
+        _Qry &= vbCrLf & ",CASE WHEN ISNULL(FTStaCalSSO,'0') = '1' THEN  '1'  ELSE '0'  END AS  FTStaCalSSO"
+        _Qry &= vbCrLf & "  ,CASE WHEN ISNULL(FTStaLeaveDay,'-1') <='0' THEN '0' ELSE FTStaLeaveDay END As FTStaLeaveDay,ISNULL(A.FTStateDeductVacation,'0') AS FTStateDeductVacation"
 
         _Qry &= vbCrLf & " , ISNULL(A.FTMngApproveState,'0') AS FTMngApproveState "
         _Qry &= vbCrLf & " , ISNULL(A.FTMngApproveBy,'') AS FTMngApproveBy "
@@ -1152,6 +1203,7 @@ Public Class wEmployeeLeave
             _Qry &= vbCrLf & " , ISNULL(C.FTNameEN,'') AS FTStaLeaveDayName "
         End If
 
+
         _Qry &= vbCrLf & " , ISNULL(A.FTDirApproveState,'0') AS FTDirApproveState "
         _Qry &= vbCrLf & " , ISNULL(A.FTDirApproveBy,'') AS FTDirApproveBy "
         _Qry &= vbCrLf & " , Convert(nvarchar(10) ,convert(datetime,A.FDDirApproveDate) , 103) AS FDDirApproveDate "
@@ -1159,14 +1211,12 @@ Public Class wEmployeeLeave
 
         _Qry &= vbCrLf & " , ISNULL(A.FTStateMedicalCertificate,'0') AS FTStateMedicalCertificate "
         _Qry &= vbCrLf & " , ISNULL(A.FTUpdUser,A.FTInsUser) AS FTInsUser "
-        _Qry &= vbCrLf & " , CASE WHEN ISNULL(A.FTUpdUser,'') ='' THEN A.FTInsDate ELSE A.FTUpdDate  END AS FTInsDate "
-        _Qry &= vbCrLf & " , CASE WHEN ISNULL(A.FTUpdUser,'') ='' THEN A.FTInsTime ELSE A.FTUpdTime END  AS FTInsTime "
+        _Qry &= vbCrLf & " ,CASE WHEN ISNULL(A.FTUpdUser,'') ='' THEN A.FTInsDate ELSE A.FTUpdDate  END AS FTInsDate "
+        _Qry &= vbCrLf & " ,CASE WHEN ISNULL(A.FTUpdUser,'') ='' THEN A.FTInsTime ELSE A.FTUpdTime END  AS FTInsTime "
 
-        _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily As A WITH(NOLOCK) Left Outer Join (SELECt * FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS LT WITH(NOLOCK) WHERE FTListName='FNLeaveType' ) As B ON A.FTLeaveType = Convert(varchar(50),B.FNListIndex) "
-        _Qry &= vbCrLf & "Left Outer Join (SELECT * FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS LD WITH(NOLOCK)  WHERE FTListName='FNLeaveDay' ) As C ON A.FTStaLeaveDay = Convert(varchar(50),C.FNListIndex) "
-        _Qry &= vbCrLf & "WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
-
-        _Qry &= vbCrLf & "AND A.FTStartDate BETWEEN '" & FTPayYear.Text & "/01/01' AND '" & FTPayYear.Text & "/12/31'"
+        _Qry &= vbCrLf & "  FROM dbo.THRTLeaveAdvanceDaily As A WITH(NOLOCK) Left Outer Join (SELECt * FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS LT WITH(NOLOCK) WHERE FTListName='FNLeaveType' ) As B ON A.FTLeaveType = Convert(varchar(50),B.FNListIndex) "
+        _Qry &= vbCrLf & "  Left Outer Join (SELECt * FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS LD WITH(NOLOCK)  WHERE FTListName='FNLeaveDay' ) As C ON A.FTStaLeaveDay = Convert(varchar(50),C.FNListIndex) "
+        _Qry &= vbCrLf & "  WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
 
         _Qry &= vbCrLf & "ORDER BY A.FTStartDate DESC"
         'FNLeaveSickType'
@@ -1191,29 +1241,31 @@ Public Class wEmployeeLeave
         Me.FNSpecialLeaveType.Visible = (leavekey = "999")
 
         Dim _CalType As String = ""
-        _Qry = "SELECT ET.FNCalType "
-        _Qry &= vbCrLf & "FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRMEmployee AS M "
-        _Qry &= vbCrLf & "INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType AS ET ON M.FNHSysEmpTypeId = ET.FNHSysEmpTypeId"
+        _Qry = " SELECT  ET.FNCalType "
+        _Qry &= vbCrLf & " FROM            THRMEmployee AS M INNER JOIN"
+        _Qry &= vbCrLf & "    [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType AS ET ON M.FNHSysEmpTypeId = ET.FNHSysEmpTypeId"
         _Qry &= vbCrLf & " WHERE (M.FNHSysEmpID =" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & ") "
 
         _CalType = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
 
         If DateDiff(DateInterval.Year, CDate(Me.Actualdate & "  00:00"), CDate(Me.FTEndDate.Text & "  00:00")) > 0 Then
-            _Qry = "SELECT CASE WHEN RiGHT(FTCurrenDate,5) >=FTLeaveReset THEN LEFT(FTCurrenDate,4) ELSE  LEFT(FTBefore,4)  END +'/' + FTLeaveReset"
-            _Qry &= vbCrLf & "FROM ("
-            _Qry &= vbCrLf & "   SELECT TOP 1 Convert(varchar(10),DateAdd(YEAR,1,GetDate()),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
-            _Qry &= vbCrLf & "   FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRMConfigLeave  AS L WITH (NOLOCK)  "
-            _Qry &= vbCrLf & "   INNER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRMEmployee AS M WITH(NOLOCK ) ON L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
-            _Qry &= vbCrLf & "   WHERE M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
-            _Qry &= vbCrLf & ") As T"
+            _Qry = " SELECT CASE WHEN RiGHT(FTCurrenDate,5) >=FTLeaveReset THEN LEFT(FTCurrenDate,4) ELSE  LEFT(FTBefore,4)  END +'/' + FTLeaveReset"
+            _Qry &= vbCrLf & "  FROM"
+            _Qry &= vbCrLf & " ("
+            _Qry &= vbCrLf & " SELECT  TOP 1 Convert(varchar(10),DateAdd(YEAR,1,GetDate()),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
+            _Qry &= vbCrLf & " FROM            THRMConfigLeave  AS L WITH (NOLOCK)  INNER JOIN THRMEmployee AS M WITH(NOLOCK )"
+            _Qry &= vbCrLf & "  ON  L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
+            _Qry &= vbCrLf & "  WHERE   M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+            _Qry &= vbCrLf & " ) As T"
         Else
-            _Qry = "SELECT CASE WHEN RiGHT(FTCurrenDate,5) >=FTLeaveReset THEN LEFT(FTCurrenDate,4) ELSE  LEFT(FTBefore,4)  END +'/' + FTLeaveReset"
-            _Qry &= vbCrLf & "FROM ("
-            _Qry &= vbCrLf & "  SELECT TOP 1 Convert(varchar(10),GetDate(),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
-            _Qry &= vbCrLf & "  FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRMConfigLeave  AS L WITH (NOLOCK) "
-            _Qry &= vbCrLf & "  INNER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRMEmployee AS M WITH(NOLOCK ) ON  L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
-            _Qry &= vbCrLf & "  WHERE M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
-            _Qry &= vbCrLf & ") As T"
+            _Qry = " SELECT CASE WHEN RiGHT(FTCurrenDate,5) >=FTLeaveReset THEN LEFT(FTCurrenDate,4) ELSE  LEFT(FTBefore,4)  END +'/' + FTLeaveReset"
+            _Qry &= vbCrLf & "  FROM"
+            _Qry &= vbCrLf & " ("
+            _Qry &= vbCrLf & " SELECT  TOP 1 Convert(varchar(10),GetDate(),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
+            _Qry &= vbCrLf & " FROM            THRMConfigLeave  AS L WITH (NOLOCK)  INNER JOIN THRMEmployee AS M WITH(NOLOCK )"
+            _Qry &= vbCrLf & "  ON  L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
+            _Qry &= vbCrLf & "  WHERE   M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+            _Qry &= vbCrLf & " ) As T"
         End If
 
 
@@ -1221,12 +1273,12 @@ Public Class wEmployeeLeave
 
         Dim _FTStateDeductVacation As String = ""
 
-        _Qry = "SELECT TOP 1 L.FTLeaveReset, "
-        _Qry &= vbCrLf & "L.FNLeaveRight, L.FNLeavePay,ISNULL(L.FTStaHoliday,'') AS FTStaHoliday,ISNULL(L.FTStateDeductVacation,'0') AS FTStateDeductVacation "
-        _Qry &= vbCrLf & "FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRMConfigLeave AS L WITH (NOLOCK) "
-        _Qry &= vbCrLf & "INNER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRMEmployee AS M WITH(NOLOCK ) ON  L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
-        _Qry &= vbCrLf & "WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
-        _Qry &= vbCrLf & "AND L.FTLeaveCode='" & HI.UL.ULF.rpQuoted(leavekey) & "'"
+        _Qry = " SELECT TOP 1   L.FTLeaveReset, "
+        _Qry &= vbCrLf & "   L.FNLeaveRight, L.FNLeavePay,ISNULL(L.FTStaHoliday,'') AS FTStaHoliday,ISNULL(L.FTStateDeductVacation,'0') AS FTStateDeductVacation "
+        _Qry &= vbCrLf & " FROM            THRMConfigLeave  AS L WITH (NOLOCK)  INNER JOIN THRMEmployee AS M WITH(NOLOCK )"
+        _Qry &= vbCrLf & "  ON  L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
+        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+        _Qry &= vbCrLf & " AND L.FTLeaveCode='" & HI.UL.ULF.rpQuoted(leavekey) & "'"
         _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
 
         For Each R As DataRow In _dt.Rows
@@ -1269,32 +1321,39 @@ Public Class wEmployeeLeave
             'End If
 
             Dim VacationLeaveType As String = ""
-            _Qry = "SELECT TOP 1 FTCfgData"
-            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS Z WITH(NOLOCK) "
-            _Qry &= vbCrLf & "WHERE (FTCfgName = N'VacationLeaveType')"
+            _Qry = " SELECT TOP 1 FTCfgData"
+            _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS Z WITH(NOLOCK) "
+            _Qry &= vbCrLf & " WHERE  (FTCfgName = N'VacationLeaveType')"
 
             VacationLeaveType = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "0")
 
             If VacationLeaveType = "1" Then
-                _Qry = "SELECT TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')" & ",'" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'" & ") AS FNEmpVacation"
-                _Qry &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                _Qry &= vbCrLf & "WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+                _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')" & ",'" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'" & ") AS FNEmpVacation"
+                _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
             ElseIf VacationLeaveType = "2" Then
-                _Qry = "SELECT TOP 1  dbo.FN_Get_Emp_Vacation_Laos(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
-                _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                _Qry &= vbCrLf & "WHERE M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+                _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Laos(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
 
             Else
-                _Qry = "SELECT TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
-                _Qry &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                _Qry &= vbCrLf & "WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+                _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
             End If
 
+
+
             _Leave = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
+
 
             _LeavePay = _Leave
 
         End If
+
+        'MsgBox("_LeavePay")
+        'MsgBox(_LeavePay)
+
 
         Dim _baseWorkMin As String = "480.00"
         _Qry = " SELECT Convert(numeric(18,2),FCHour*60) AS n FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRMTimeShift WITH(NOLOCK) WHERE FNHSysShiftID='" & HI.UL.ULF.rpQuoted(Me.FNHSysShiftID.Text) & "' "
@@ -1309,12 +1368,12 @@ Public Class wEmployeeLeave
         _GLeave = 0
         _GLeavePay = 0
 
-        _Qry = "SELECT  SUM(FNTotalMinute) AS FNTotalMinute,Sum(FNTotalPayMinute) As FNTotalPayMinute "
-        _Qry &= vbCrLf & "FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRTTransLeave WITH (NOLOCK) "
-        _Qry &= vbCrLf & "WHERE (FNHSysEmpID = " & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & ") "
-        _Qry &= vbCrLf & "AND (FTDateTrans >= N'" & _DateReset & "')"
-        _Qry &= vbCrLf & "AND (FTLeaveType = '" & HI.UL.ULF.rpQuoted(leavekey) & "')"
-        _Qry &= vbCrLf & "AND FTDateTrans <'" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "' "
+        _Qry = "  SELECT        SUM(FNTotalMinute) AS FNTotalMinute,Sum(FNTotalPayMinute) As FNTotalPayMinute "
+        _Qry &= vbCrLf & "   FROM THRTTransLeave WITH (NOLOCK) "
+        _Qry &= vbCrLf & " WHERE (FNHSysEmpID = " & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & ") "
+        _Qry &= vbCrLf & " AND (FTDateTrans >= N'" & _DateReset & "')"
+        _Qry &= vbCrLf & " AND (FTLeaveType = '" & HI.UL.ULF.rpQuoted(leavekey) & "')"
+        _Qry &= vbCrLf & " AND FTDateTrans <'" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "' "
 
         If leavekey = "0" Then
             _Qry &= vbCrLf & " AND (ISNULL(FNLeaveSickType,0) = 1  OR  (ISNULL(FNLeaveSickType,0)=0 AND FNTotalPayMinute >0 ))  "
@@ -1337,19 +1396,25 @@ Public Class wEmployeeLeave
             '_Qry &= vbCrLf & " AND isnull(FTStateDeductVacation,'0') = '1'"
             '* ปรับเรื่องลาพักร้อนเกิน ในกรณีที่ลาแล้วยังไม่ได้ อนุมัติ.... 20190523
 
-            _Qry = "Select SUM(FNLeaveTotalDay * FNLeaveTotalTimeMin) AS FNTotalMinute "
-            _Qry &= vbCrLf & "FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & ".dbo.THRTLeaveAdvanceDaily WITH (NOLOCK)"
-            _Qry &= vbCrLf & "WHERE (FNHSysEmpID = " & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & ") "
-            _Qry &= vbCrLf & "AND (FTStartDate >= N'" & _DateReset & "')"
-            _Qry &= vbCrLf & "AND FTLeaveType='98'"
+            _Qry = "Select   SUM(FNLeaveTotalDay * FNLeaveTotalTimeMin) AS FNTotalMinute "
+            _Qry &= vbCrLf & "   FROM THRTLeaveAdvanceDaily WITH (NOLOCK)"
+            _Qry &= vbCrLf & " WHERE (FNHSysEmpID = " & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & ") "
+            _Qry &= vbCrLf & " AND (FTStartDate >= N'" & _DateReset & "')"
+            _Qry &= vbCrLf & " AND FTLeaveType='98'"
             '_Qry &= vbCrLf & " AND FTDateTrans <'" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "' "
-            _Qry &= vbCrLf & "OR (FTLeaveType <> '98' and  isnull(FTStateDeductVacation,'0' ) = '1'  and   FTStartDate >= N'" & _DateReset & "' and FNHSysEmpID = " & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & ")"
+            _Qry &= vbCrLf & " OR (FTLeaveType <> '98' and  isnull(FTStateDeductVacation,'0' ) = '1'  and   FTStartDate >= N'" & _DateReset & "' and FNHSysEmpID = " & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & ")"
+
 
             _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
             For Each R As DataRow In _dt.Rows
                 Dim totalmin As Double = Double.Parse("0" & R!FNTotalMinute.ToString)
                 _Leave = _Leave - totalmin
             Next
+
+
+            'MsgBox("_Leave")
+            'MsgBox(_Leave)
+
 
         End If
         If leavekey = "2" Then
@@ -1365,6 +1430,7 @@ Public Class wEmployeeLeave
             _Qry &= vbCrLf & " AND (FTEndDate NOT BETWEEN '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "')"
             '_Qry &= vbCrLf & " OR (FTLeaveType <> '98' and  isnull(FTStateDeductVacation,'0' ) = '1'  and   FTStartDate >= N'" & _DateReset & "' and FNHSysEmpID = " & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & ")"
 
+
             _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
             For Each R As DataRow In _dt.Rows
                 Dim totalmin As Double = Double.Parse("0" & R!FNTotalMinute.ToString)
@@ -1374,6 +1440,7 @@ Public Class wEmployeeLeave
         End If
         If (SetCheckPay) Then
             If _Leave < _GLeave Then
+
                 '  HI.MG.ShowMsg.mProcessError(1004090001, "พบข้อมูลการลาเกินกำหนด !!!", Me.Text, System.Windows.Forms.MessageBoxIcon.Information)
             End If
 
@@ -1389,6 +1456,10 @@ Public Class wEmployeeLeave
         Else
             TotalLeave = (_Leave - _GLeave)
         End If
+
+        'MsgBox("TotalLeave")
+        'MsgBox(TotalLeave)
+
 
         If TotalLeave <= 0 Then
             TotalLeave = 0
@@ -1406,10 +1477,11 @@ Public Class wEmployeeLeave
         Catch ex As Exception
         End Try
 
-        'FTStateLeavepay.Enabled = True
+        ''FTStateLeavepay.Enabled = True
         If (SetCheckPay) Then
 
             FTStateLeavepay.Checked = False
+
 
             ''Best202207 เสริมของ   ลาว ลาป่วย ถ้ายังไม่ผ่านโปร ลาไม่จ่าย
             If Not ChkProbationPay() Then
@@ -1440,6 +1512,9 @@ Public Class wEmployeeLeave
                     End If
                 End If
 
+
+
+
             Else
                 FTStateLeavepay.Checked = False
             End If
@@ -1461,30 +1536,32 @@ Public Class wEmployeeLeave
 
             If _HRProcess = "" Then
 
+
+
                 _dt_from = FTStartDate.Text + " " + FTSTime.Text
                 _dt_to = FTEndDate.Text + " " + FTETime.Text
 
-                ' FTStartDate.Text, FTEndDate.Text
+                '' FTStartDate.Text, FTEndDate.Text
 
-                'check user create  create data time fnhsysemp id
+                ''check user create  create data time fnhsysemp id
 
-                _Qry = "SELECT FTInsUser, FTInsDate, FTInsTime, FTUpdUser FNHSysEmpID, FTStartDate, FTEndDate "
-                _Qry &= vbCrLf & ", FTHoliday, FNLeaveTotalDay, FTLeaveType, FTLeavePay, FTLeaveStartTime, FTLeaveEndTime, FNLeaveTotalTime "
-                _Qry &= vbCrLf & ",  FTLeaveNote, FTApproveState, FTApproveDate, FTApproveTime, FTApproveBy, FTPayYear, FTPayTerm "
-                _Qry &= vbCrLf & ", FTStaCalSSO, FTStaLeaveDay, FNLeaveTotalTimeMin "
-                _Qry &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily "
+                _Qry = " SELECT FTInsUser, FTInsDate, FTInsTime, FTUpdUser FNHSysEmpID, FTStartDate, FTEndDate "
+                _Qry &= vbCrLf & " , FTHoliday, FNLeaveTotalDay, FTLeaveType, FTLeavePay, FTLeaveStartTime, FTLeaveEndTime, FNLeaveTotalTime "
+                _Qry &= vbCrLf & " ,  FTLeaveNote, FTApproveState, FTApproveDate, FTApproveTime, FTApproveBy, FTPayYear, FTPayTerm "
+                _Qry &= vbCrLf & " , FTStaCalSSO, FTStaLeaveDay, FNLeaveTotalTimeMin "
+                _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily "
 
-                _Qry &= vbCrLf & "WHERE (FTStartDate >='" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "' AND FTEndDate <='" & HI.UL.ULDate.ConvertEnDB(FTEndDate.Text) & "'  "
-                _Qry &= vbCrLf & "OR FTStartDate >='" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "' AND FTEndDate <='" & HI.UL.ULDate.ConvertEnDB(FTEndDate.Text) & "' ) "
-                _Qry &= vbCrLf & "AND  FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
+                _Qry &= vbCrLf & " WHERE (FTStartDate >='" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "' AND FTEndDate <='" & HI.UL.ULDate.ConvertEnDB(FTEndDate.Text) & "'  "
+                _Qry &= vbCrLf & "  OR FTStartDate >='" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "' AND FTEndDate <='" & HI.UL.ULDate.ConvertEnDB(FTEndDate.Text) & "' ) "
+                _Qry &= vbCrLf & " AND  FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
 
                 If _FTInsUser = "" And _FTInsDate = "" And _FTInsTime = "" Then
 
 
                 Else
-                    _Qry &= vbCrLf & "AND NOT ( FTInsUser='" & _FTInsUser & "' "
-                    _Qry &= vbCrLf & "AND FTInsDate = '" & _FTInsDate & "' "
-                    _Qry &= vbCrLf & "AND FTInsTime = '" & _FTInsTime & "') "
+                    _Qry &= vbCrLf & " AND  NOT ( FTInsUser='" & _FTInsUser & "' "
+                    _Qry &= vbCrLf & "  AND FTInsDate = '" & _FTInsDate & "' "
+                    _Qry &= vbCrLf & "  AND FTInsTime = '" & _FTInsTime & "') "
 
                 End If
 
@@ -1501,9 +1578,14 @@ Public Class wEmployeeLeave
                 Dim _timeIn2 As String = ""
                 Dim _timeOut2 As String = ""
 
+
                 'Select Case FNLeaveDay.SelectedIndex
                 '    Case 0, 1, 2
+
+
                 '    Case Else
+
+
                 'End Select
 
                 Dim _timeLeaveFrom As String = ""
@@ -1511,8 +1593,8 @@ Public Class wEmployeeLeave
 
                 If FTIn1M.Text <> "" And FTOut1M.Text <> "" Then
                     If FTIn1M.Text > FTOut1M.Text Then
-                        'กะกลางคืน
-                        '  _T1 = DateDiff(DateInterval.Minute, CDate(Me.Actualdate & "  " & FTIn1M.Text), CDate(Me.ActualNextDate & "  " & FTOut1M.Text))
+                        ''กะกลางคืน
+                        ''  _T1 = DateDiff(DateInterval.Minute, CDate(Me.Actualdate & "  " & FTIn1M.Text), CDate(Me.ActualNextDate & "  " & FTOut1M.Text))
 
                         If _dt.Rows.Count > 0 Then
 
@@ -1525,7 +1607,7 @@ Public Class wEmployeeLeave
 
                             Else
 
-                                ' check เวลา
+                                '' check เวลา
                                 If _dt.Rows.Count > 0 Then
                                     For Each R As DataRow In _dt.Rows
 
@@ -1551,7 +1633,7 @@ Public Class wEmployeeLeave
                         End If
 
                     Else
-                        'กะกลางวัน
+                        ''กะกลางวัน
                         If _dt.Rows.Count > 0 Then
 
                             If FNLeaveDay.SelectedIndex = 0 Then
@@ -1562,7 +1644,8 @@ Public Class wEmployeeLeave
                                 End If
 
                             Else
-                                'check เวลา
+
+                                '' check เวลา
                                 If _dt.Rows.Count > 0 Then
                                     For Each R As DataRow In _dt.Rows
 
@@ -1586,6 +1669,8 @@ Public Class wEmployeeLeave
 
                         End If
 
+
+
                     End If
                 End If
             Else
@@ -1596,6 +1681,7 @@ Public Class wEmployeeLeave
             Return False
         End Try
 
+
     End Function
 
     Private Function ChkPayLeave(ByVal leavekey As String) As Boolean
@@ -1604,12 +1690,13 @@ Public Class wEmployeeLeave
             If leavekey = "98" Then
                 Return True
             Else
-                _Cmd = "SELECT Top 1  L.FNLeavePay FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigLeave AS L WITH(NOLOCK) "
-                _Cmd &= vbCrLf & "INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS E WITH(NOLOCK) ON L.FNHSysEmpTypeId = E.FNHSysEmpTypeId"
-                _Cmd &= vbCrLf & "WHERE E.FNHSysEmpID = " & Integer.Parse(Me.FNHSysEmpId.Properties.Tag.ToString)
-                _Cmd &= vbCrLf & "AND FTLeaveCode = '" & HI.UL.ULF.rpQuoted(leavekey) & "'"
+                _Cmd = "SELECT Top 1  L.FNLeavePay FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigLeave AS L WITH(NOLOCK) INNER JOIN   "
+                _Cmd &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS E WITH(NOLOCK) ON L.FNHSysEmpTypeId = E.FNHSysEmpTypeId"
+                _Cmd &= vbCrLf & "WHERE E.FNHSysEmpID=" & Integer.Parse(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+                _Cmd &= vbCrLf & " and FTLeaveCode = '" & HI.UL.ULF.rpQuoted(leavekey) & "'"
                 Return Val(HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_HR, "0")) > 0
             End If
+
 
         Catch ex As Exception
             Return False
@@ -1634,12 +1721,13 @@ Public Class wEmployeeLeave
             LeaveVacation = "0"
 
             If HI.UL.ULDate.CheckDate(FTStartDate.Text) <> "" Then
-                _Qry = "Select DATEDIFF(MONTH,CONVERT(Datetime,FDDateStart),CONVERT(Datetime,'" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "'))"
+                _Qry = "  Select  DATEDIFF(MONTH,CONVERT(Datetime,FDDateStart),CONVERT(Datetime,'" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "'))"
             Else
-                _Qry = "Select DATEDIFF(MONTH,CONVERT(Datetime,FDDateStart),GetDate())"
+                _Qry = "  Select  DATEDIFF(MONTH,CONVERT(Datetime,FDDateStart),GetDate())"
             End If
-            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH(NOLOCK)"
-            _Qry &= vbCrLf & "WHERE M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+
+            _Qry &= vbCrLf & " FROM THRMEmployee AS M WITH(NOLOCK)"
+            _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
 
             _Month = Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "-1"))
 
@@ -1657,26 +1745,25 @@ Public Class wEmployeeLeave
                 '    LeaveVacation = Val(R!FNLeaveRight.ToString)
                 'Next
                 Dim VacationLeaveType As String = ""
-                _Qry = "SELECT TOP 1 FTCfgData"
-                _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS Z WITH(NOLOCK) "
-                _Qry &= vbCrLf & "WHERE (FTCfgName = N'VacationLeaveType')"
+                _Qry = " SELECT TOP 1 FTCfgData"
+                _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS Z WITH(NOLOCK) "
+                _Qry &= vbCrLf & " WHERE  (FTCfgName = N'VacationLeaveType')"
 
                 VacationLeaveType = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "0")
-
                 If VacationLeaveType = "1" Then
-                    _Qry = "SELECT TOP 1 dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
-                    _Qry &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                    _Qry &= vbCrLf & "WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+                    _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Th(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,''),'') AS FNEmpVacation"
+                    _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                    _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
 
                 ElseIf VacationLeaveType = "2" Then
-                    _Qry = "SELECT TOP 1  dbo.FN_Get_Emp_Vacation_Laos(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
-                    _Qry &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                    _Qry &= vbCrLf & "WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+                    _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation_Laos(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                    _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                    _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
 
-                Else
-                    _Qry = "SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
-                    _Qry &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-                    _Qry &= vbCrLf & "WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+                    Else
+                    _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_Vacation(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')) AS FNEmpVacation"
+                    _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+                    _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
 
                 End If
 
@@ -1684,18 +1771,19 @@ Public Class wEmployeeLeave
 
             End If
 
-            _Qry = "SELECT CASE WHEN RiGHT(FTCurrenDate,5) >=FTLeaveReset THEN LEFT(FTCurrenDate,4) ELSE  LEFT(FTBefore,4)  END +'/' + FTLeaveReset"
-            _Qry &= vbCrLf & "FROM ("
-            _Qry &= vbCrLf & "   SELECT TOP 1 Convert(varchar(10),GetDate(),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
-            _Qry &= vbCrLf & "   FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMConfigLeave AS L WITH (NOLOCK)"
-            _Qry &= vbCrLf & "   INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH(NOLOCK ) ON L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
-            _Qry &= vbCrLf & "   WHERE M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
-            _Qry &= vbCrLf & ") As T"
+            _Qry = " SELECT CASE WHEN RiGHT(FTCurrenDate,5) >=FTLeaveReset THEN LEFT(FTCurrenDate,4) ELSE  LEFT(FTBefore,4)  END +'/' + FTLeaveReset"
+            _Qry &= vbCrLf & "  FROM"
+            _Qry &= vbCrLf & " ("
+            _Qry &= vbCrLf & " SELECT  TOP 1 Convert(varchar(10),GetDate(),111)  AS FTCurrenDate ,Convert(varchar(10),DateAdd(YEAR,-1,GetDate()),111) AS FTBefore,L.FTLeaveReset"
+            _Qry &= vbCrLf & " FROM            THRMConfigLeave  AS L WITH (NOLOCK)  INNER JOIN THRMEmployee AS M WITH(NOLOCK )"
+            _Qry &= vbCrLf & "  ON  L.FNHSysEmpTypeId=M.FNHSysEmpTypeId"
+            _Qry &= vbCrLf & "  WHERE   M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+            _Qry &= vbCrLf & " ) As T"
 
             _DateReset = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
 
-            _Qry = "SELECT FTLeaveType, SUM(CASE WHEN FTDateTrans < Convert(varchar(10),Getdate(),111) THEN  FNTotalMinute ELSE 0 END ) As FNTotalMinute "
-            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave With (NOLOCK)"
+            _Qry = "  SELECT      FTLeaveType,  SUM(CASE WHEN FTDateTrans < Convert(varchar(10),Getdate(),111) THEN  FNTotalMinute ELSE 0 END ) As FNTotalMinute "
+            _Qry &= vbCrLf & "   FROM THRTTransLeave With (NOLOCK)"
             _Qry &= vbCrLf & " WHERE (FNHSysEmpID = " & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & ") "
             _Qry &= vbCrLf & " And (FTDateTrans >= N'" & _DateReset & "')"
             _Qry &= vbCrLf & " AND (FTDateTrans < N'" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "')"
@@ -1743,12 +1831,12 @@ Public Class wEmployeeLeave
             '_Qry = "  SELECT    SUM(ISNULL(FNLateNormalMin,0)) AS FNLateNormalMin "
             '_Qry &= vbCrLf & " ,Sum(ISNULL(FNAbsent,0)) AS FNAbsent "
 
-            _Qry = "SELECT SUM( CASE WHEN FTDateTrans < Convert(varchar(10),Getdate(),111) THEN  ISNULL(FNLateNormalMin,0) ELSE 0 END ) AS FNLateNormalMin "
-            _Qry &= vbCrLf & ", SUM( CASE WHEN FTDateTrans < Convert(varchar(10),Getdate(),111) THEN  ISNULL(FNAbsent,0) ELSE 0 END ) AS FNAbsent "
-            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTrans WITH (NOLOCK)"
-            _Qry &= vbCrLf & "WHERE (FNHSysEmpID = " & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & ") "
-            _Qry &= vbCrLf & "AND (FTDateTrans >= N'" & _DateReset & "')"
-            _Qry &= vbCrLf & "AND (FTDateTrans < N'" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "')"
+            _Qry = " SELECT    SUM( CASE WHEN FTDateTrans < Convert(varchar(10),Getdate(),111) THEN  ISNULL(FNLateNormalMin,0) ELSE 0 END  ) AS FNLateNormalMin "
+            _Qry &= vbCrLf & " ,Sum(   CASE WHEN FTDateTrans < Convert(varchar(10),Getdate(),111) THEN  ISNULL(FNAbsent,0) ELSE 0 END   ) AS FNAbsent "
+            _Qry &= vbCrLf & "   FROM THRTTrans WITH (NOLOCK)"
+            _Qry &= vbCrLf & " WHERE (FNHSysEmpID = " & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & ") "
+            _Qry &= vbCrLf & " AND (FTDateTrans >= N'" & _DateReset & "')"
+            _Qry &= vbCrLf & " AND (FTDateTrans < N'" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "')"
 
             _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
 
@@ -1785,6 +1873,7 @@ Public Class wEmployeeLeave
                             If (HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) <= "1900/00/00") Then
                                 FTStartDate.DateTime = Nothing
                                 FTStartDate.Text = ""
+
                             Else
                                 FTStartDate.DateTime = HI.UL.ULDate.ConvertEnDB(FTStartDate.Text)
                             End If
@@ -1792,6 +1881,7 @@ Public Class wEmployeeLeave
                         Catch ex As Exception
                             FTStartDate.DateTime = Nothing
                             FTStartDate.Text = ""
+
                         End Try
                     Catch ex As Exception
                     End Try
@@ -1799,6 +1889,7 @@ Public Class wEmployeeLeave
                     If HI.UL.ULDate.ConvertEnDB(FTEndDate.Text) < HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) And FTEndDate.Text <> "" Then
                         Try
                             If (HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) <= "1900/00/00") Then
+
                                 FTEndDate.DateTime = Nothing
                                 FTEndDate.Text = ""
                             Else
@@ -1806,6 +1897,7 @@ Public Class wEmployeeLeave
                             End If
 
                         Catch ex As Exception
+
                             FTEndDate.DateTime = Nothing
                             FTEndDate.Text = ""
                         End Try
@@ -1827,6 +1919,7 @@ Public Class wEmployeeLeave
 
                     If FTStartDate.Text = "" Then
                         Try
+
                             If (HI.UL.ULDate.ConvertEnDB(FTEndDate.Text) <= "1900/00/00") Then
                                 FTStartDate.DateTime = Nothing
                                 FTStartDate.Text = ""
@@ -1841,6 +1934,9 @@ Public Class wEmployeeLeave
                     End If
 
             End Select
+
+
+
 
             Call LoadDataEmployeeMoveShift()
             Call LoadDataEmployeeLeaveHistory()
@@ -1859,6 +1955,8 @@ Public Class wEmployeeLeave
         Dim _T2 As Integer = 0
         Select Case FNLeaveDay.SelectedIndex
             Case 0
+
+
                 If FTIn1M.Text <> "" And FTOut1M.Text <> "" Then
                     If FTIn1M.Text > FTOut1M.Text Then
                         _T1 = DateDiff(DateInterval.Minute, CDate(Me.Actualdate & "  " & FTIn1M.Text), CDate(Me.ActualNextDate & "  " & FTOut1M.Text))
@@ -1876,6 +1974,7 @@ Public Class wEmployeeLeave
                 End If
 
             Case 1
+
                 If FTIn1M.Text <> "" And FTOut1M.Text <> "" Then
                     If FTIn1M.Text > FTOut1M.Text Then
                         _T1 = DateDiff(DateInterval.Minute, CDate(Me.Actualdate & "  " & FTIn1M.Text), CDate(Me.ActualNextDate & "  " & FTOut1M.Text))
@@ -1885,6 +1984,7 @@ Public Class wEmployeeLeave
                 End If
 
             Case 2
+
                 If FTIn2M.Text <> "" And FTOut2M.Text <> "" Then
                     If FTIn2M.Text > FTOut2M.Text Then
                         _T2 = DateDiff(DateInterval.Minute, CDate(Me.Actualdate & "  " & FTIn2M.Text), CDate(Me.ActualNextDate & "  " & FTOut2M.Text))
@@ -1908,7 +2008,7 @@ Public Class wEmployeeLeave
         Else
 
             If FNHSysEmpId.Text <> "" Then
-                Dim _Qry As String = "SELECT TOP 1 FNHSysEmpID  FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee WITH(NOLOCK) WHERE FTEmpCode ='" & HI.UL.ULF.rpQuoted(FNHSysEmpId.Text) & "' "
+                Dim _Qry As String = "SELECT TOP 1 FNHSysEmpID  FROM   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee WITH(NOLOCK) WHERE FTEmpCode ='" & HI.UL.ULF.rpQuoted(FNHSysEmpId.Text) & "' "
                 FNHSysEmpId.Properties.Tag = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
             End If
 
@@ -1942,7 +2042,10 @@ Public Class wEmployeeLeave
         FTStateMedicalCertificate.Enabled = False
         FTStateDeductVacation.Enabled = False
 
+
     End Sub
+
+
 
     Public Sub LoadEmpCodeByEmpIDInfo(ByVal Key As Object)
         Dim _Qry As String = "SELECT TOP 1 FTEmpCode   FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee WITH(NOLOCK) WHERE FNHSysEmpID =" & Val(Key) & " "
@@ -1952,7 +2055,7 @@ Public Class wEmployeeLeave
     Public Sub LoadEmpCodeByEmpIDInfoCustom(ByVal Key As Object)
 
         Dim arr() As String = Key.ToString().Split("|")
-        Dim _Qry As String = "SELECT TOP 1 FTEmpCode FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee WITH(NOLOCK) WHERE FNHSysEmpID =" & Val(arr(0)) & " "
+        Dim _Qry As String = "SELECT TOP 1 FTEmpCode   FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee WITH(NOLOCK) WHERE FNHSysEmpID =" & Val(arr(0)) & " "
         FNHSysEmpId.Text = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
 
         FNLeaveType.SelectedIndex = HI.TL.CboList.GetIndexByValue(FNLeaveType.Properties.Tag.ToString, "" & arr(1).ToString)
@@ -1977,12 +2080,17 @@ Public Class wEmployeeLeave
 
         FTRemark.Text = arr(12).ToString
 
+
+
         _HRProcess = "Y"
     End Sub
 
     Public Sub LoadEmpCodeByEmpIDInfoLeave(ByVal Key As Object, ByVal FTAction As String)
         Dim _Qry As String = "SELECT TOP 1 FTEmpCode   FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee WITH(NOLOCK) WHERE FNHSysEmpID =" & Val(Key) & " "
         FNHSysEmpId.Text = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "")
+
+
+
 
     End Sub
 
@@ -1996,17 +2104,17 @@ Public Class wEmployeeLeave
 
         Dim _dt As DataTable
         Dim _Qry As String = ""
-        _Qry = "SELECT TOP 1  M.FTEmpCode, M.FTEmpCodeRefer, M.FTEmpNameTH, M.FTEmpSurnameTH, M.FTEmpNicknameTH, M.FTEmpNameEN, M.FNHSysEmpTypeId, M.FNHSysDeptId, "
-        _Qry &= vbCrLf & "D.FTDeptCode, Di.FTDivisonCode, M.FNHSysDivisonId, M.FNHSysSectId, S.FTSectCode, ET.FTEmpTypeCode, M.FNHSysUnitSectId, US.FTUnitSectCode,"
-        _Qry &= vbCrLf & "M.FNHSysEmpID, M.FTEmpPicName, M.FNHSysPositId, P.FTPositCode"
-        _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) "
-        _Qry &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMPosition AS P WITH (NOLOCK) ON M.FNHSysPositId = P.FNHSysPositId "
-        _Qry &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect AS US WITH (NOLOCK) ON M.FNHSysUnitSectId = US.FNHSysUnitSectId "
-        _Qry &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType AS ET WITH (NOLOCK) ON M.FNHSysEmpTypeId = ET.FNHSysEmpTypeId "
-        _Qry &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSect AS S WITH (NOLOCK) ON M.FNHSysSectId = S.FNHSysSectId "
-        _Qry &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMDivision AS Di WITH (NOLOCK) ON M.FNHSysDivisonId = Di.FNHSysDivisonId "
-        _Qry &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMDepartment AS D WITH (NOLOCK) ON M.FNHSysDeptId = D.FNHSysDeptId"
-        _Qry &= vbCrLf & "WHERE  M.FNHSysEmpID  =" & Val(FNHSysEmpID) & ""
+        _Qry = " SELECT    TOP 1     M.FTEmpCode, M.FTEmpCodeRefer, M.FTEmpNameTH, M.FTEmpSurnameTH, M.FTEmpNicknameTH, M.FTEmpNameEN, M.FNHSysEmpTypeId, M.FNHSysDeptId, "
+        _Qry &= vbCrLf & "   D.FTDeptCode, Di.FTDivisonCode, M.FNHSysDivisonId, M.FNHSysSectId, S.FTSectCode, ET.FTEmpTypeCode, M.FNHSysUnitSectId, US.FTUnitSectCode,"
+        _Qry &= vbCrLf & "  M.FNHSysEmpID, M.FTEmpPicName, M.FNHSysPositId, P.FTPositCode"
+        _Qry &= vbCrLf & "  FROM             [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) LEFT OUTER JOIN"
+        _Qry &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMPosition AS P WITH (NOLOCK) ON M.FNHSysPositId = P.FNHSysPositId LEFT OUTER JOIN"
+        _Qry &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect AS US WITH (NOLOCK) ON M.FNHSysUnitSectId = US.FNHSysUnitSectId LEFT OUTER JOIN"
+        _Qry &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType AS ET WITH (NOLOCK) ON M.FNHSysEmpTypeId = ET.FNHSysEmpTypeId LEFT OUTER JOIN"
+        _Qry &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSect AS S WITH (NOLOCK) ON M.FNHSysSectId = S.FNHSysSectId LEFT OUTER JOIN"
+        _Qry &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMDivision AS Di WITH (NOLOCK) ON M.FNHSysDivisonId = Di.FNHSysDivisonId LEFT OUTER JOIN"
+        _Qry &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMDepartment AS D WITH (NOLOCK) ON M.FNHSysDeptId = D.FNHSysDeptId"
+        _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID  =" & Val(FNHSysEmpID) & ""
         _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
 
         FTEmpPicName.Image = Nothing
@@ -2035,6 +2143,7 @@ Public Class wEmployeeLeave
             FNHSysPositId.Text = ""
             FNHSysEmpTypeId.Properties.Tag = "0"
         End If
+
 
     End Sub
 
@@ -2111,6 +2220,7 @@ Public Class wEmployeeLeave
                             End If
                         End If
 
+
                         STime = ""
                         ETime = ""
 
@@ -2151,6 +2261,7 @@ Public Class wEmployeeLeave
                                 _T2 = DateDiff(DateInterval.Minute, CDate(Me.Actualdate & "  " & STime), CDate(Me.Actualdate & "  " & ETime))
                             End If
                         End If
+
 
                     Else
 
@@ -2208,6 +2319,9 @@ Public Class wEmployeeLeave
                         End If
                     End If
 
+
+
+
                     'If FTSTime.Text <> "" And FTETime.Text <> "" Then
                     '    If FTSTime.Text > FTETime.Text Then
                     '        _T2 = DateDiff(DateInterval.Minute, CDate(Me.Actualdate & "  " & FTSTime.Text), CDate(Me.ActualNextDate & "  " & FTETime.Text))
@@ -2242,16 +2356,17 @@ Public Class wEmployeeLeave
 
             FNHSysEmpTypeId.Properties.Tag = HI.Conn.SQLConn.GetField("SELECT TOP 1 FNHSysEmpTypeId FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType AS ET WITH(NOLOCK) WHERE FTEmpTypeCode='" & HI.UL.ULF.rpQuoted(FNHSysEmpTypeId.Text) & "'" & "AND FNHSysCmpId=" & HI.ST.SysInfo.CmpID, Conn.DB.DataBaseName.DB_MASTER, "")
 
-            _Qry = "SELECT FDHolidayDate  "
-            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmpTypeWeeklySpecial WITH(NOLOCK) "
-            _Qry &= vbCrLf & "WHERE FDHolidayDate >='" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "' "
-            _Qry &= vbCrLf & "AND FDHolidayDate <='" & HI.UL.ULDate.ConvertEnDB(FTEndDate.Text) & "' "
-            _Qry &= vbCrLf & "AND FNHSysEmpTypeId =" & Integer.Parse(Val(FNHSysEmpTypeId.Properties.Tag.ToString)) & " "
+            _Qry = "SELECt   FDHolidayDate  "
+            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmpTypeWeeklySpecial WITH(NOLOCK) "
+            _Qry &= vbCrLf & "  WHERE FDHolidayDate>='" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "' "
+            _Qry &= vbCrLf & "  AND FDHolidayDate<='" & HI.UL.ULDate.ConvertEnDB(FTEndDate.Text) & "' "
+            _Qry &= vbCrLf & "  AND FNHSysEmpTypeId=" & Integer.Parse(Val(FNHSysEmpTypeId.Properties.Tag.ToString)) & " "
 
             _EmpTypeWeekly = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
-            _Qry = "SELECT Top 1 FTSunday,FTMonday, FTTuesday, FTWednesday, FTThursday, FTFriday, FTSaturday"
-            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeWeekly  As W WITH(NOLOCK) "
-            _Qry &= vbCrLf & "WHERE FNHSysEmpID=" & Val(FNHSysEmpId.Properties.Tag.ToString) & " "
+            _Qry = "   SELECT    Top 1   FTSunday,FTMonday, FTTuesday, FTWednesday, "
+            _Qry &= vbCrLf & "   FTThursday, FTFriday, FTSaturday"
+            _Qry &= vbCrLf & "   FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployeeWeekly  As W WITH(NOLOCK) "
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=" & Val(FNHSysEmpId.Properties.Tag.ToString) & " "
             _dtWeekend = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
 
             If _dtWeekend.Rows.Count <= 0 Then
@@ -2264,10 +2379,10 @@ Public Class wEmployeeLeave
                 _EmpTypeWeekly.Rows.Clear()
             End If
 
-            _Qry = "SELECT FDHolidayDate  "
-            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMHoliday WITH(NOLOCK) "
-            _Qry &= vbCrLf & "WHERE FDHolidayDate>='" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "'"
-            _Qry &= vbCrLf & "AND FDHolidayDate<='" & HI.UL.ULDate.ConvertEnDB(FTEndDate.Text) & "' AND FTStateActive='1' AND FNHSysCmpId=" & HI.ST.SysInfo.CmpID
+            _Qry = "SELECt   FDHolidayDate  "
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMHoliday WITH(NOLOCK) "
+            _Qry &= vbCrLf & "  WHERE FDHolidayDate>='" & HI.UL.ULDate.ConvertEnDB(FTStartDate.Text) & "' "
+            _Qry &= vbCrLf & "  AND FDHolidayDate<='" & HI.UL.ULDate.ConvertEnDB(FTEndDate.Text) & "'  AND FTStateActive='1' AND FNHSysCmpId=" & HI.ST.SysInfo.CmpID
             _dtHoliday = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
 
             Dim _EndProcDate As String = HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text)
@@ -2302,6 +2417,7 @@ Public Class wEmployeeLeave
                                 _SkipProcess = True
                             Next
                         End If
+
 
                     End If
 
@@ -2342,8 +2458,8 @@ Public Class wEmployeeLeave
         Call Checkpay(HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex))
     End Sub
 
-    'Private Sub ogc_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-    'End Sub
+    Private Sub ogc_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    End Sub
 
     Private _ProcClick As Boolean
     Private Sub ogv_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ogv.DoubleClick
@@ -2373,14 +2489,18 @@ Public Class wEmployeeLeave
 
                 Me.FTRemark.Text = "" & .GetRowCellValue(.FocusedRowHandle, "FTLeaveNote").ToString
 
+
                 '_FTInsUser = "" & .GetRowCellValue(.FocusedRowHandle, "FTInsUser").ToString
                 '_FTInsDate = "" & .GetRowCellValue(.FocusedRowHandle, "FTInsDate").ToString
                 '_FTInsTime = "" & .GetRowCellValue(.FocusedRowHandle, "FTInsTime").ToString
+
 
                 Me.FTRemark.Focus()
                 _ProcClick = False
                 Call FTStartDate_EditValueChanged(FTEndDate, New System.EventArgs)
                 Call Load_PDF()
+
+
 
             End With
         Catch ex As Exception
@@ -2478,11 +2598,11 @@ Public Class wEmployeeLeave
 
 
             _Qry = " Select  Top 1  C.FNHSysCmpId"
-            _Qry &= vbCrLf & "  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "]..TSEUserLoginPermission AS P WITH (NOLOCK) "
-            _Qry &= vbCrLf & "  LEFT OUTER Join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSEPermissionCmp AS C WITH (NOLOCK) ON P.FNHSysPermissionID = C.FNHSysPermissionID"
+            _Qry &= vbCrLf & "  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "]..TSEUserLoginPermission AS P WITH (NOLOCK) LEFT OUTER Join"
+            _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "]..TSEPermissionCmp AS C WITH (NOLOCK) ON P.FNHSysPermissionID = C.FNHSysPermissionID"
             _Qry &= vbCrLf & "Where (P.FNHSysPermissionID IN"
             _Qry &= vbCrLf & "           (SELECT FNHSysPermissionID"
-            _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSEPermissionObjectControl WITH (NOLOCK)"
+            _Qry &= vbCrLf & "From [HITECH_SECURITY]..TSEPermissionObjectControl WITH (NOLOCK)"
             _Qry &= vbCrLf & "Where (FTFormName = N'wEmployeeLeave') AND (FTObjName = N'ocmedit'))) AND (P.FTUserName = '" & HI.ST.UserInfo.UserName & "')"
             _Qry &= vbCrLf & "and C.FNHSysCmpId=" & HI.ST.SysInfo.CmpID
             _permiss = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "") <> ""
@@ -2509,8 +2629,8 @@ Public Class wEmployeeLeave
 
 
             _Qry = " Select  Top 1  C.FNHSysCmpId"
-            _Qry &= vbCrLf & "  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSEUserLoginPermission AS P WITH (NOLOCK) "
-            _Qry &= vbCrLf & "  LEFT OUTER Join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSEPermissionCmp AS C WITH (NOLOCK) ON P.FNHSysPermissionID = C.FNHSysPermissionID"
+            _Qry &= vbCrLf & "  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "]..TSEUserLoginPermission AS P WITH (NOLOCK) LEFT OUTER Join"
+            _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "]..TSEPermissionCmp AS C WITH (NOLOCK) ON P.FNHSysPermissionID = C.FNHSysPermissionID"
             _Qry &= vbCrLf & "Where (P.FNHSysPermissionID IN"
             _Qry &= vbCrLf & "           (SELECT FNHSysPermissionID"
             _Qry &= vbCrLf & "From [HITECH_SECURITY]..TSEPermissionObjectControl WITH (NOLOCK)"
@@ -2552,8 +2672,10 @@ Public Class wEmployeeLeave
             _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
             _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
 
+
             Return Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "1"))
             'End If
+
 
         Catch ex As Exception
             Return False
@@ -2562,16 +2684,19 @@ Public Class wEmployeeLeave
 
     Private Function ChkProbationPay() As Boolean
         Try
+
             'If HI.ST.SysInfo.Admin Then
             '    Return True
             'Else
             Dim _Qry As String = ""
-            _Qry = "SELECT  TOP 1  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.FN_Get_Emp_leave_Chk_Probation_Pay(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')" & ",'" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'" & ",'" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'," & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & ") AS ChkPro"
-            _Qry &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
-            _Qry &= vbCrLf & "WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+            _Qry = "   SELECT  TOP 1  dbo.FN_Get_Emp_leave_Chk_Probation_Pay(FNHSysEmpID,FNHSysEmpTypeId,ISNULL(FDDateStart,''),ISNULL(FDDateEnd,''),ISNULL(FDDateProbation,'')" & ",'" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'" & ",'" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'," & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & ") AS ChkPro"
+            _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee  AS M WITH(NOLOCK)"
+            _Qry &= vbCrLf & "  WHERE  M.FNHSysEmpID=" & Val(Me.FNHSysEmpId.Properties.Tag.ToString) & " "
+
 
             Return Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "0"))
             'End If
+
 
         Catch ex As Exception
             Return False
@@ -2594,14 +2719,13 @@ Public Class wEmployeeLeave
                 Dim _oDt As DataTable
 
                 _Qry = " Select  Top 1  C.FNHSysCmpId"
-                _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "]..TSEUserLoginPermission AS P WITH (NOLOCK) "
-                _Qry &= vbCrLf & "LEFT OUTER Join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSEPermissionCmp AS C WITH (NOLOCK) ON P.FNHSysPermissionID = C.FNHSysPermissionID"
-                _Qry &= vbCrLf & "WHERE (P.FNHSysPermissionID IN ("
-                _Qry &= vbCrLf & "   SELECT FNHSysPermissionID"
-                _Qry &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSEPermissionObjectControl WITH (NOLOCK)"
-                _Qry &= vbCrLf & "    WHERE (FTFormName = N'wEmployeeLeave') AND (FTObjName = N'ocmapprove'))"
-                _Qry &= vbCrLf & ") AND (P.FTUserName = '" & HI.ST.UserInfo.UserName & "')"
-                _Qry &= vbCrLf & "AND C.FNHSysCmpId = " & HI.ST.SysInfo.CmpID
+                _Qry &= vbCrLf & "  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "]..TSEUserLoginPermission AS P WITH (NOLOCK) LEFT OUTER Join"
+                _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "]..TSEPermissionCmp AS C WITH (NOLOCK) ON P.FNHSysPermissionID = C.FNHSysPermissionID"
+                _Qry &= vbCrLf & "Where (P.FNHSysPermissionID IN"
+                _Qry &= vbCrLf & "           (SELECT FNHSysPermissionID"
+                _Qry &= vbCrLf & "From [HITECH_SECURITY]..TSEPermissionObjectControl WITH (NOLOCK)"
+                _Qry &= vbCrLf & "Where (FTFormName = N'wEmployeeLeave') AND (FTObjName = N'ocmapprove'))) AND (P.FTUserName = '" & HI.ST.UserInfo.UserName & "')"
+                _Qry &= vbCrLf & "and C.FNHSysCmpId=" & HI.ST.SysInfo.CmpID
                 _Premis = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR).Rows.Count > 0
 
                 _Qry = "SELECT TOP 1  Isnull( D.FTSendApproveState,'0') as FTSendApproveState ,isnull(D.FTMngApproveState,'0') AS FTMngApproveState , Isnull(D.FTApproveState,'0') AS FTApproveState  , Isnull(D.FTUpdUser,D.FTInsUser)  as FTInsUser"
@@ -2611,7 +2735,6 @@ Public Class wEmployeeLeave
                 _Qry &= vbCrLf & "AND D.FTEndDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
                 _Qry &= vbCrLf & "AND D.FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
                 _oDt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
-
                 For Each R As DataRow In _oDt.Rows
                     _SendApp = R!FTSendApproveState.ToString = "1"
                     _MngApp = R!FTMngApproveState.ToString = "1"
@@ -2667,7 +2790,7 @@ Public Class wEmployeeLeave
             _Qry &= vbCrLf & "WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
             _Qry &= vbCrLf & "AND FTStartDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
             _Qry &= vbCrLf & "AND FTEndDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
-            _Qry &= vbCrLf & "AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
+            _Qry &= vbCrLf & " AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
 
             If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_HR, "") = "" Then
                 HI.MG.ShowMsg.mInfo("ไม่พบข้อมูลการลา ไม่สามารถทำการอนุมัติได้ กรุณาทำการตรวจสอบ !!!", 14121807312, Me.Text, , System.Windows.Forms.MessageBoxIcon.Warning)
@@ -2682,21 +2805,21 @@ Public Class wEmployeeLeave
                 If Me.SaveData() Then
 
                     _Qry = "UPDATE [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily "
-                    _Qry &= vbCrLf & "SET FTApproveState='1'"
-                    _Qry &= vbCrLf & ", FTApproveDate=" & HI.UL.ULDate.FormatDateDB & ""
-                    _Qry &= vbCrLf & ", FTApproveTime=" & HI.UL.ULDate.FormatTimeDB & ""
-                    _Qry &= vbCrLf & ", FTApproveBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                    _Qry &= vbCrLf & "WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
-                    _Qry &= vbCrLf & "AND FTStartDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
-                    _Qry &= vbCrLf & "AND FTEndDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
-                    _Qry &= vbCrLf & "AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
+                    _Qry &= vbCrLf & " SET FTApproveState='1'"
+                    _Qry &= vbCrLf & " ,FTApproveDate=" & HI.UL.ULDate.FormatDateDB & ""
+                    _Qry &= vbCrLf & " ,FTApproveTime=" & HI.UL.ULDate.FormatTimeDB & ""
+                    _Qry &= vbCrLf & " ,FTApproveBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                    _Qry &= vbCrLf & " WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
+                    _Qry &= vbCrLf & " AND FTStartDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
+                    _Qry &= vbCrLf & " AND FTEndDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
+                    _Qry &= vbCrLf & " AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
                     HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR)
 
-                    _Qry = "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave "
-                    _Qry &= vbCrLf & "WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & " "
-                    _Qry &= vbCrLf & "AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
-                    _Qry &= vbCrLf & "AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
-                    _Qry &= vbCrLf & "AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
+                    _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTransLeave "
+                    _Qry &= vbCrLf & " WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & " "
+                    _Qry &= vbCrLf & " AND FTDateTrans >= '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
+                    _Qry &= vbCrLf & " AND FTDateTrans <= '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
+                    _Qry &= vbCrLf & " AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
                     HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR)
 
                     If Me.ApproveData Then
@@ -2736,9 +2859,9 @@ Public Class wEmployeeLeave
             _Cmd &= vbCrLf & ", FDSendApproveDate=" & HI.UL.ULDate.FormatDateDB & ""
             _Cmd &= vbCrLf & ", FTSendApproveTime=" & HI.UL.ULDate.FormatTimeDB & ""
             _Cmd &= vbCrLf & ", FTSendApproveBy='" & HI.ST.UserInfo.UserName & "'"
-            _Cmd &= vbCrLf & "WHERE FTStartDate='" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
-            _Cmd &= vbCrLf & "AND FTEndDate='" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
-            _Cmd &= vbCrLf & "AND FNHSysEmpID=" & Integer.Parse("0" & Me.FNHSysEmpId.Properties.Tag)
+            _Cmd &= vbCrLf & " Where  FTStartDate='" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
+            _Cmd &= vbCrLf & "and  FTEndDate='" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
+            _Cmd &= vbCrLf & "and FNHSysEmpID=" & Integer.Parse("0" & Me.FNHSysEmpId.Properties.Tag)
             HI.Conn.SQLConn.ExecuteNonQuery(_Cmd, Conn.DB.DataBaseName.DB_HR)
             Return True
         Catch ex As Exception
@@ -2746,6 +2869,7 @@ Public Class wEmployeeLeave
         End Try
     End Function
     'leave
+
 
     Sub ValcationLeave_Check()
         ' If FNLeaveType.SelectedIndex = (HI.TL.CboList.GetIndexByValue("" & FNLeaveType.Properties.Tag.ToString, "1")) Then
@@ -2760,6 +2884,11 @@ Public Class wEmployeeLeave
         ' End If
     End Sub
     'pdf
+
+
+    Private _FilePath As String
+    Private data As Byte()
+    Private _Pdfdata As Byte()
 
 
     Private Sub PDF_Import()
@@ -2846,18 +2975,16 @@ Public Class wEmployeeLeave
     End Sub
 
     Public Sub Load_PDF()
-
         Call pdf_clear()
 
         Dim _cmd As String = ""
         _cmd = "SELECT FBFileRef,FBFile FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily WITH(NOLOCK)"
-        _cmd &= vbCrLf & "WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & " "
-        _cmd &= vbCrLf & "AND FTStartDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
+        _cmd &= vbCrLf & " WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & " "
+        _cmd &= vbCrLf & "And FTStartDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "'"
         _cmd &= vbCrLf & "AND FTEndDate = '" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'"
-        _cmd &= vbCrLf & "AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
-        _cmd &= vbCrLf & "AND ISNULL(FBFile,'') <>  '' "
+        _cmd &= vbCrLf & " AND FTLeaveType = '" & HI.TL.CboList.GetListValue("" & FNLeaveType.Properties.Tag.ToString, FNLeaveType.SelectedIndex) & "'"
+        _cmd &= vbCrLf & "and  isnull(FBFile,'') <>  '' "
         Dim _oDt As DataTable = HI.Conn.SQLConn.GetDataTable(_cmd, Conn.DB.DataBaseName.DB_HR)
-
         For Each R As DataRow In _oDt.Rows
             Dim FBFile As String = R!FBFile
             Me.oGrpdetail.Controls.Clear()
@@ -2895,11 +3022,12 @@ Public Class wEmployeeLeave
 
             End Select
 
+
+
+
         Next
-
     End Sub
-
-
+    Private _FBFile As String
     Private Sub savePDF()
         If data Is Nothing Then
         Else
@@ -2907,11 +3035,11 @@ Public Class wEmployeeLeave
             HI.Conn.SQLConn._ConnString = HI.Conn.DB.ConnectionString(Conn.DB.DataBaseName.DB_HR)
             HI.Conn.SQLConn.SqlConnectionOpen()
             _Qry = "UPDATE [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTLeaveAdvanceDaily SET"
-            _Qry &= vbCrLf & " FTInsUser = @FTInsUser, FBFileRef = @FBFileRef ,FBFile = @FBFile"
-            _Qry &= vbCrLf & "WHERE FNHSysEmpID=@FNHSysEmpID"
-            _Qry &= vbCrLf & "AND FTStartDate=@FTStartDate"
-            _Qry &= vbCrLf & "AND FTEndDate=@FTEndDate"
-            _Qry &= vbCrLf & "AND FTLeaveType=@FTLeaveType"
+            _Qry &= vbCrLf & " FTInsUser=@FTInsUser, FBFileRef=@FBFileRef ,FBFile=@FBFile"
+            _Qry &= vbCrLf & " WHERE FNHSysEmpID=@FNHSysEmpID"
+            _Qry &= vbCrLf & " AND FTStartDate=@FTStartDate"
+            _Qry &= vbCrLf & " AND FTEndDate=@FTEndDate"
+            _Qry &= vbCrLf & " AND FTLeaveType=@FTLeaveType"
             Dim cmd As New SqlCommand(_Qry, HI.Conn.SQLConn.Cnn)
             cmd.Parameters.AddWithValue("@FTInsUser", HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName))
             Dim p1 As New SqlParameter("@FBFileRef", SqlDbType.VarBinary)
@@ -2966,6 +3094,7 @@ Public Class wEmployeeLeave
         _FilePath = Nothing
     End Sub
 
+
     Private Sub ocmReadDocumentfile_Click(sender As Object, e As EventArgs) Handles ocmReadDocumentfile.Click
         PDF_Import()
     End Sub
@@ -2992,27 +3121,21 @@ Public Class wEmployeeLeave
                 _Pdfdata = data
                 _FBFile = "Picture"
             End If
-
         Catch ex As Exception
         End Try
     End Sub
 
+    Private _picdata As Byte()
+
     Private Sub FTStateMedicalCertificate_CheckedChanged(sender As Object, e As EventArgs) Handles FTStateMedicalCertificate.CheckedChanged
         Try
-
             If FTLeavePic.EditValue = "" Then
                 FTStateMedicalCertificate.Checked = False
             End If
 
+
         Catch ex As Exception
 
         End Try
     End Sub
-
-    Private Sub FTPayYear_EditValueChanged(sender As Object, e As EventArgs) Handles FTPayYear.EditValueChanged
-
-        Call LoadDataEmployeeLeaveHistory()
-
-    End Sub
-
 End Class
