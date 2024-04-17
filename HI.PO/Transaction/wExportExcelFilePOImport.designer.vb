@@ -82,6 +82,7 @@ Partial Class wExportExcelFilePOImport
         Me.cxFTStatePromo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.cxFTSTyleName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTRemark = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.xFTSubPgm = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
         Me.ocmload = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
@@ -93,7 +94,7 @@ Partial Class wExportExcelFilePOImport
         Me.RepFTSelect = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.CFTName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTUserDescriptionEN = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFTSubPgm = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.xFTUnitCode = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.FNHSysCustId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -403,10 +404,10 @@ Partial Class wExportExcelFilePOImport
         'ogcdetail
         '
         Me.ogcdetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogcdetail.Location = New System.Drawing.Point(2, 22)
+        Me.ogcdetail.Location = New System.Drawing.Point(2, 23)
         Me.ogcdetail.MainView = Me.ogvdetail
         Me.ogcdetail.Name = "ogcdetail"
-        Me.ogcdetail.Size = New System.Drawing.Size(1479, 464)
+        Me.ogcdetail.Size = New System.Drawing.Size(1479, 463)
         Me.ogcdetail.TabIndex = 300
         Me.ogcdetail.TabStop = False
         Me.ogcdetail.Tag = "2|"
@@ -414,7 +415,7 @@ Partial Class wExportExcelFilePOImport
         '
         'ogvdetail
         '
-        Me.ogvdetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.CFTStock, Me.CFTBuy, Me.CFTStyleNo, Me.CFTSeasonCode, Me.CFTVENDOR, Me.CFTPurchaseNo, Me.FDPurchaseDate, Me.CFTItem, Me.FTRawMatColorCode, Me.FTRawMatColorName, Me.FTRawMatSizeCode, Me.CFNQuantity, Me.CFTQRS, Me.C, Me.CFTComment, Me.CFTDeli1, Me.CFTQty, Me.CFTInvoice1, Me.CFTDeli2, Me.FTQty2, Me.CFTInvoice2, Me.CFTDeli3, Me.CFTQty3, Me.FTInvoice3, Me.CFTBalance, Me.cxFDShipDateOrginal, Me.cxFTStatePromo, Me.cxFTSTyleName, Me.CFTRemark, Me.xFTSubPgm})
+        Me.ogvdetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.CFTStock, Me.CFTBuy, Me.CFTStyleNo, Me.CFTSeasonCode, Me.CFTVENDOR, Me.CFTPurchaseNo, Me.FDPurchaseDate, Me.CFTItem, Me.FTRawMatColorCode, Me.FTRawMatColorName, Me.FTRawMatSizeCode, Me.xFTUnitCode, Me.CFNQuantity, Me.CFTQRS, Me.C, Me.CFTComment, Me.CFTDeli1, Me.CFTQty, Me.CFTInvoice1, Me.CFTDeli2, Me.FTQty2, Me.CFTInvoice2, Me.CFTDeli3, Me.CFTQty3, Me.FTInvoice3, Me.CFTBalance, Me.cxFDShipDateOrginal, Me.cxFTStatePromo, Me.cxFTSTyleName, Me.CFTRemark, Me.xFTSubPgm})
         Me.ogvdetail.GridControl = Me.ogcdetail
         Me.ogvdetail.Name = "ogvdetail"
         Me.ogvdetail.OptionsCustomization.AllowColumnMoving = False
@@ -555,7 +556,7 @@ Partial Class wExportExcelFilePOImport
         Me.CFNQuantity.OptionsColumn.AllowEdit = False
         Me.CFNQuantity.OptionsColumn.ReadOnly = True
         Me.CFNQuantity.Visible = True
-        Me.CFNQuantity.VisibleIndex = 11
+        Me.CFNQuantity.VisibleIndex = 12
         Me.CFNQuantity.Width = 107
         '
         'CFTQRS
@@ -566,7 +567,7 @@ Partial Class wExportExcelFilePOImport
         Me.CFTQRS.OptionsColumn.AllowEdit = False
         Me.CFTQRS.OptionsColumn.ReadOnly = True
         Me.CFTQRS.Visible = True
-        Me.CFTQRS.VisibleIndex = 12
+        Me.CFTQRS.VisibleIndex = 13
         '
         'C
         '
@@ -576,7 +577,7 @@ Partial Class wExportExcelFilePOImport
         Me.C.OptionsColumn.AllowEdit = False
         Me.C.OptionsColumn.ReadOnly = True
         Me.C.Visible = True
-        Me.C.VisibleIndex = 13
+        Me.C.VisibleIndex = 14
         '
         'CFTComment
         '
@@ -586,7 +587,7 @@ Partial Class wExportExcelFilePOImport
         Me.CFTComment.OptionsColumn.AllowEdit = False
         Me.CFTComment.OptionsColumn.ReadOnly = True
         Me.CFTComment.Visible = True
-        Me.CFTComment.VisibleIndex = 14
+        Me.CFTComment.VisibleIndex = 15
         '
         'CFTDeli1
         '
@@ -596,7 +597,7 @@ Partial Class wExportExcelFilePOImport
         Me.CFTDeli1.OptionsColumn.AllowEdit = False
         Me.CFTDeli1.OptionsColumn.ReadOnly = True
         Me.CFTDeli1.Visible = True
-        Me.CFTDeli1.VisibleIndex = 15
+        Me.CFTDeli1.VisibleIndex = 16
         '
         'CFTQty
         '
@@ -608,7 +609,7 @@ Partial Class wExportExcelFilePOImport
         Me.CFTQty.OptionsColumn.AllowEdit = False
         Me.CFTQty.OptionsColumn.ReadOnly = True
         Me.CFTQty.Visible = True
-        Me.CFTQty.VisibleIndex = 16
+        Me.CFTQty.VisibleIndex = 17
         '
         'CFTInvoice1
         '
@@ -618,7 +619,7 @@ Partial Class wExportExcelFilePOImport
         Me.CFTInvoice1.OptionsColumn.AllowEdit = False
         Me.CFTInvoice1.OptionsColumn.ReadOnly = True
         Me.CFTInvoice1.Visible = True
-        Me.CFTInvoice1.VisibleIndex = 17
+        Me.CFTInvoice1.VisibleIndex = 18
         '
         'CFTDeli2
         '
@@ -628,7 +629,7 @@ Partial Class wExportExcelFilePOImport
         Me.CFTDeli2.OptionsColumn.AllowEdit = False
         Me.CFTDeli2.OptionsColumn.ReadOnly = True
         Me.CFTDeli2.Visible = True
-        Me.CFTDeli2.VisibleIndex = 18
+        Me.CFTDeli2.VisibleIndex = 19
         '
         'FTQty2
         '
@@ -640,7 +641,7 @@ Partial Class wExportExcelFilePOImport
         Me.FTQty2.OptionsColumn.AllowEdit = False
         Me.FTQty2.OptionsColumn.ReadOnly = True
         Me.FTQty2.Visible = True
-        Me.FTQty2.VisibleIndex = 19
+        Me.FTQty2.VisibleIndex = 20
         '
         'CFTInvoice2
         '
@@ -650,7 +651,7 @@ Partial Class wExportExcelFilePOImport
         Me.CFTInvoice2.OptionsColumn.AllowEdit = False
         Me.CFTInvoice2.OptionsColumn.ReadOnly = True
         Me.CFTInvoice2.Visible = True
-        Me.CFTInvoice2.VisibleIndex = 20
+        Me.CFTInvoice2.VisibleIndex = 21
         '
         'CFTDeli3
         '
@@ -660,7 +661,7 @@ Partial Class wExportExcelFilePOImport
         Me.CFTDeli3.OptionsColumn.AllowEdit = False
         Me.CFTDeli3.OptionsColumn.ReadOnly = True
         Me.CFTDeli3.Visible = True
-        Me.CFTDeli3.VisibleIndex = 21
+        Me.CFTDeli3.VisibleIndex = 22
         '
         'CFTQty3
         '
@@ -672,7 +673,7 @@ Partial Class wExportExcelFilePOImport
         Me.CFTQty3.OptionsColumn.AllowEdit = False
         Me.CFTQty3.OptionsColumn.ReadOnly = True
         Me.CFTQty3.Visible = True
-        Me.CFTQty3.VisibleIndex = 22
+        Me.CFTQty3.VisibleIndex = 23
         '
         'FTInvoice3
         '
@@ -682,7 +683,7 @@ Partial Class wExportExcelFilePOImport
         Me.FTInvoice3.OptionsColumn.AllowEdit = False
         Me.FTInvoice3.OptionsColumn.ReadOnly = True
         Me.FTInvoice3.Visible = True
-        Me.FTInvoice3.VisibleIndex = 23
+        Me.FTInvoice3.VisibleIndex = 24
         '
         'CFTBalance
         '
@@ -692,7 +693,7 @@ Partial Class wExportExcelFilePOImport
         Me.CFTBalance.OptionsColumn.AllowEdit = False
         Me.CFTBalance.OptionsColumn.ReadOnly = True
         Me.CFTBalance.Visible = True
-        Me.CFTBalance.VisibleIndex = 24
+        Me.CFTBalance.VisibleIndex = 25
         '
         'cxFDShipDateOrginal
         '
@@ -702,7 +703,7 @@ Partial Class wExportExcelFilePOImport
         Me.cxFDShipDateOrginal.OptionsColumn.AllowEdit = False
         Me.cxFDShipDateOrginal.OptionsColumn.ReadOnly = True
         Me.cxFDShipDateOrginal.Visible = True
-        Me.cxFDShipDateOrginal.VisibleIndex = 25
+        Me.cxFDShipDateOrginal.VisibleIndex = 26
         Me.cxFDShipDateOrginal.Width = 80
         '
         'cxFTStatePromo
@@ -713,7 +714,7 @@ Partial Class wExportExcelFilePOImport
         Me.cxFTStatePromo.OptionsColumn.AllowEdit = False
         Me.cxFTStatePromo.OptionsColumn.ReadOnly = True
         Me.cxFTStatePromo.Visible = True
-        Me.cxFTStatePromo.VisibleIndex = 26
+        Me.cxFTStatePromo.VisibleIndex = 27
         Me.cxFTStatePromo.Width = 100
         '
         'cxFTSTyleName
@@ -724,7 +725,7 @@ Partial Class wExportExcelFilePOImport
         Me.cxFTSTyleName.OptionsColumn.AllowEdit = False
         Me.cxFTSTyleName.OptionsColumn.ReadOnly = True
         Me.cxFTSTyleName.Visible = True
-        Me.cxFTSTyleName.VisibleIndex = 27
+        Me.cxFTSTyleName.VisibleIndex = 28
         Me.cxFTSTyleName.Width = 200
         '
         'CFTRemark
@@ -735,7 +736,18 @@ Partial Class wExportExcelFilePOImport
         Me.CFTRemark.OptionsColumn.AllowEdit = False
         Me.CFTRemark.OptionsColumn.ReadOnly = True
         Me.CFTRemark.Visible = True
-        Me.CFTRemark.VisibleIndex = 28
+        Me.CFTRemark.VisibleIndex = 29
+        '
+        'xFTSubPgm
+        '
+        Me.xFTSubPgm.Caption = "Sub Pgm"
+        Me.xFTSubPgm.FieldName = "FTSubPgm"
+        Me.xFTSubPgm.Name = "xFTSubPgm"
+        Me.xFTSubPgm.OptionsColumn.AllowEdit = False
+        Me.xFTSubPgm.OptionsColumn.ReadOnly = True
+        Me.xFTSubPgm.Visible = True
+        Me.xFTSubPgm.VisibleIndex = 30
+        Me.xFTSubPgm.Width = 150
         '
         'ogbmainprocbutton
         '
@@ -871,16 +883,15 @@ Partial Class wExportExcelFilePOImport
         Me.CFTUserDescriptionEN.VisibleIndex = 2
         Me.CFTUserDescriptionEN.Width = 183
         '
-        'xFTSubPgm
+        'xFTUnitCode
         '
-        Me.xFTSubPgm.Caption = "Sub Pgm"
-        Me.xFTSubPgm.FieldName = "FTSubPgm"
-        Me.xFTSubPgm.Name = "xFTSubPgm"
-        Me.xFTSubPgm.OptionsColumn.AllowEdit = False
-        Me.xFTSubPgm.OptionsColumn.ReadOnly = True
-        Me.xFTSubPgm.Visible = True
-        Me.xFTSubPgm.VisibleIndex = 29
-        Me.xFTSubPgm.Width = 150
+        Me.xFTUnitCode.Caption = "Unit Code"
+        Me.xFTUnitCode.FieldName = "FTUnitCode"
+        Me.xFTUnitCode.Name = "xFTUnitCode"
+        Me.xFTUnitCode.OptionsColumn.AllowEdit = False
+        Me.xFTUnitCode.OptionsColumn.ReadOnly = True
+        Me.xFTUnitCode.Visible = True
+        Me.xFTUnitCode.VisibleIndex = 11
         '
         'wExportExcelFilePOImport
         '
@@ -980,4 +991,5 @@ Partial Class wExportExcelFilePOImport
     Friend WithEvents FNHSysCustId As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FNHSysCustId_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents xFTSubPgm As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents xFTUnitCode As DevExpress.XtraGrid.Columns.GridColumn
 End Class

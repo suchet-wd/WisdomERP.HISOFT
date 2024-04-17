@@ -34,12 +34,12 @@ Partial Class wPurchaseConsolidation
         Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject13 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Dim EditorButtonImageOptions5 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject17 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject18 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -50,7 +50,15 @@ Partial Class wPurchaseConsolidation
         Dim SerializableAppearanceObject22 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject23 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject24 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions7 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject25 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject26 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject27 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject28 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbheader = New DevExpress.XtraEditors.GroupControl()
+        Me.FNHSysMerMatId = New DevExpress.XtraEditors.ButtonEdit()
+        Me.FNHSysMerMatId_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FNHSysMerMatId_None = New DevExpress.XtraEditors.TextEdit()
         Me.FNOrderType_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysSeasonId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysSeasonId_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -70,6 +78,7 @@ Partial Class wPurchaseConsolidation
         Me.CFTCmpCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTStyleCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CCFTOrderNo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ssFTOrderStatusName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSeasonCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTMerDevName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTMerDevTeam = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -110,6 +119,7 @@ Partial Class wPurchaseConsolidation
         Me.CFTSuplCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepFNHSysSuplId = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
         Me.CFTPurchaseNo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.xFNPOPrice = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFNHSysRawMatId = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.repositoryItemTextEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.CFTRawMatColorCode = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -139,6 +149,7 @@ Partial Class wPurchaseConsolidation
         Me.FTSCBy = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSCDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSCTime = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.xFTSubPgm = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.repositoryItemCheckEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.repositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
@@ -159,9 +170,11 @@ Partial Class wPurchaseConsolidation
         Me.RepFTSelect = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.FNListIndex = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CMatterialTypeName = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xFTSubPgm = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.xFNRMDSPrice = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.ogbheader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbheader.SuspendLayout()
+        CType(Me.FNHSysMerMatId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FNHSysMerMatId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysSeasonId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysBuyId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysBuyId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -202,6 +215,9 @@ Partial Class wPurchaseConsolidation
         '
         Me.ogbheader.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbheader.Controls.Add(Me.FNHSysMerMatId)
+        Me.ogbheader.Controls.Add(Me.FNHSysMerMatId_lbl)
+        Me.ogbheader.Controls.Add(Me.FNHSysMerMatId_None)
         Me.ogbheader.Controls.Add(Me.FNOrderType_lbl)
         Me.ogbheader.Controls.Add(Me.FNHSysSeasonId)
         Me.ogbheader.Controls.Add(Me.FNHSysSeasonId_lbl)
@@ -215,9 +231,78 @@ Partial Class wPurchaseConsolidation
         Me.ogbheader.Location = New System.Drawing.Point(2, 2)
         Me.ogbheader.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogbheader.Name = "ogbheader"
-        Me.ogbheader.Size = New System.Drawing.Size(971, 67)
+        Me.ogbheader.Size = New System.Drawing.Size(971, 97)
         Me.ogbheader.TabIndex = 0
         Me.ogbheader.Text = "Criteria Info"
+        '
+        'FNHSysMerMatId
+        '
+        Me.FNHSysMerMatId.EnterMoveNextControl = True
+        Me.FNHSysMerMatId.Location = New System.Drawing.Point(118, 70)
+        Me.FNHSysMerMatId.Name = "FNHSysMerMatId"
+        Me.FNHSysMerMatId.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FNHSysMerMatId.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysMerMatId.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysMerMatId.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysMerMatId.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FNHSysMerMatId.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FNHSysMerMatId.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNHSysMerMatId.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysMerMatId.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNHSysMerMatId.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNHSysMerMatId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysMerMatId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysMerMatId.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNHSysMerMatId.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNHSysMerMatId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "98", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysMerMatId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.FNHSysMerMatId.Properties.MaxLength = 30
+        Me.FNHSysMerMatId.Size = New System.Drawing.Size(181, 20)
+        Me.FNHSysMerMatId.TabIndex = 558
+        Me.FNHSysMerMatId.Tag = "2|"
+        '
+        'FNHSysMerMatId_lbl
+        '
+        Me.FNHSysMerMatId_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNHSysMerMatId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysMerMatId_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNHSysMerMatId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNHSysMerMatId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNHSysMerMatId_lbl.Location = New System.Drawing.Point(31, 70)
+        Me.FNHSysMerMatId_lbl.Name = "FNHSysMerMatId_lbl"
+        Me.FNHSysMerMatId_lbl.Size = New System.Drawing.Size(85, 19)
+        Me.FNHSysMerMatId_lbl.TabIndex = 559
+        Me.FNHSysMerMatId_lbl.Tag = "2|"
+        Me.FNHSysMerMatId_lbl.Text = "Material :"
+        '
+        'FNHSysMerMatId_None
+        '
+        Me.FNHSysMerMatId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FNHSysMerMatId_None.EnterMoveNextControl = True
+        Me.FNHSysMerMatId_None.Location = New System.Drawing.Point(302, 71)
+        Me.FNHSysMerMatId_None.Name = "FNHSysMerMatId_None"
+        Me.FNHSysMerMatId_None.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FNHSysMerMatId_None.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNHSysMerMatId_None.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysMerMatId_None.Properties.Appearance.Options.UseForeColor = True
+        Me.FNHSysMerMatId_None.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysMerMatId_None.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysMerMatId_None.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FNHSysMerMatId_None.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FNHSysMerMatId_None.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNHSysMerMatId_None.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysMerMatId_None.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNHSysMerMatId_None.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNHSysMerMatId_None.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysMerMatId_None.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysMerMatId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNHSysMerMatId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNHSysMerMatId_None.Properties.ReadOnly = True
+        Me.FNHSysMerMatId_None.Size = New System.Drawing.Size(664, 20)
+        Me.FNHSysMerMatId_None.TabIndex = 560
+        Me.FNHSysMerMatId_None.TabStop = False
+        Me.FNHSysMerMatId_None.Tag = "2|"
         '
         'FNOrderType_lbl
         '
@@ -226,7 +311,7 @@ Partial Class wPurchaseConsolidation
         Me.FNOrderType_lbl.Appearance.Options.UseTextOptions = True
         Me.FNOrderType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNOrderType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNOrderType_lbl.Location = New System.Drawing.Point(407, 44)
+        Me.FNOrderType_lbl.Location = New System.Drawing.Point(407, 47)
         Me.FNOrderType_lbl.Name = "FNOrderType_lbl"
         Me.FNOrderType_lbl.Size = New System.Drawing.Size(123, 18)
         Me.FNOrderType_lbl.TabIndex = 557
@@ -235,9 +320,9 @@ Partial Class wPurchaseConsolidation
         '
         'FNHSysSeasonId
         '
-        Me.FNHSysSeasonId.Location = New System.Drawing.Point(118, 43)
+        Me.FNHSysSeasonId.Location = New System.Drawing.Point(118, 46)
         Me.FNHSysSeasonId.Name = "FNHSysSeasonId"
-        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSeasonId.Properties.Tag = ""
         Me.FNHSysSeasonId.Size = New System.Drawing.Size(111, 20)
         Me.FNHSysSeasonId.TabIndex = 555
@@ -250,7 +335,7 @@ Partial Class wPurchaseConsolidation
         Me.FNHSysSeasonId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysSeasonId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysSeasonId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysSeasonId_lbl.Location = New System.Drawing.Point(32, 42)
+        Me.FNHSysSeasonId_lbl.Location = New System.Drawing.Point(32, 45)
         Me.FNHSysSeasonId_lbl.Name = "FNHSysSeasonId_lbl"
         Me.FNHSysSeasonId_lbl.Size = New System.Drawing.Size(86, 19)
         Me.FNHSysSeasonId_lbl.TabIndex = 554
@@ -290,7 +375,7 @@ Partial Class wPurchaseConsolidation
         Me.FNHSysBuyId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysBuyId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysBuyId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysBuyId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysBuyId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBuyId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysBuyId.Properties.Tag = ""
         Me.FNHSysBuyId.Size = New System.Drawing.Size(111, 20)
@@ -331,7 +416,7 @@ Partial Class wPurchaseConsolidation
         Me.FNHSysStyleId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysStyleId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysStyleId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "140", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "140", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.Tag = ""
         Me.FNHSysStyleId.Size = New System.Drawing.Size(123, 20)
         Me.FNHSysStyleId.TabIndex = 546
@@ -340,7 +425,7 @@ Partial Class wPurchaseConsolidation
         'FNOrderType
         '
         Me.FNOrderType.EditValue = ""
-        Me.FNOrderType.Location = New System.Drawing.Point(533, 43)
+        Me.FNOrderType.Location = New System.Drawing.Point(533, 46)
         Me.FNOrderType.Name = "FNOrderType"
         Me.FNOrderType.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNOrderType.Properties.Appearance.Options.UseBackColor = True
@@ -368,10 +453,10 @@ Partial Class wPurchaseConsolidation
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogbconsolidation.Controls.Add(Me.ogcsc)
-        Me.ogbconsolidation.Location = New System.Drawing.Point(2, 126)
+        Me.ogbconsolidation.Location = New System.Drawing.Point(2, 156)
         Me.ogbconsolidation.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogbconsolidation.Name = "ogbconsolidation"
-        Me.ogbconsolidation.Size = New System.Drawing.Size(1230, 449)
+        Me.ogbconsolidation.Size = New System.Drawing.Size(1230, 419)
         Me.ogbconsolidation.TabIndex = 2
         Me.ogbconsolidation.Text = "Purchase Consolidation"
         '
@@ -380,18 +465,18 @@ Partial Class wPurchaseConsolidation
         Me.ogcsc.Dock = System.Windows.Forms.DockStyle.Fill
         GridLevelNode1.RelationName = "Level1"
         Me.ogcsc.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
-        Me.ogcsc.Location = New System.Drawing.Point(2, 22)
+        Me.ogcsc.Location = New System.Drawing.Point(2, 25)
         Me.ogcsc.MainView = Me.ogvsc
         Me.ogcsc.Name = "ogcsc"
         Me.ogcsc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.repositoryItemCheckEdit1, Me.repositoryItemCheckEdit2, Me.repositoryItemTextEdit1, Me.repositoryItemTextEdit2, Me.reposFTStateFree, Me.ReposFTStateSelect, Me.RepPurchaseQty, Me.RepPurchasePrice, Me.RepFNHSysSuplId, Me.RepFNTSysCurId, Me.RepFNHSysUnitId})
-        Me.ogcsc.Size = New System.Drawing.Size(1226, 425)
+        Me.ogcsc.Size = New System.Drawing.Size(1226, 392)
         Me.ogcsc.TabIndex = 1
         Me.ogcsc.Tag = "3|"
         Me.ogcsc.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvsc})
         '
         'ogvsc
         '
-        Me.ogvsc.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.CCFTRawMatCode2, Me.CFTStateSelect, Me.CFTCmpCode, Me.CFTStyleCode, Me.CCFTOrderNo, Me.FTSeasonCode, Me.CFTMerDevName, Me.CFTMerDevTeam, Me.C3FTMerTeamCode, Me.FTStateSC, Me.CCFTItemCode, Me.CCFTRawMatName, Me.CCFTRawMatColorCode, Me.CCFTRawMatColorName, Me.CCFTRawMatSizeCode, Me.CCFTFabricFrontSize, Me.CCFTSubOrderNo, Me.CCFNUsedQuantity, Me.CCFNUsedPlusQuantity, Me.FNRepeatLengthCM, Me.FNTotalRepeat, Me.cxFNHemNotOptiplan, Me.vcFNOptiplanQuantityOrg, Me.CCXFNOptiplanQuantity, Me.CCFTUnitCode, Me.FTReserveNo, Me.Reserve, Me.FNTotalRepeatRsv, Me.Transfer, Me.CFNSCQuantity, Me.CFNSCPlusQuantity, Me.CUnitCodePurchase, Me.CFNTotalPurchaseQuantity, Me.cxFNTotalRepeatPO, Me.CFNPricePurchase, Me.CTotalPrice, Me.CFTCurCode, Me.CFTSuplCode, Me.CFTPurchaseNo, Me.CFNHSysRawMatId, Me.CFTRawMatColorCode, Me.CFTRawMatSizeCode, Me.CFTRawMatCode, Me.CFNHSysSuplId, Me.CCFNTotalPurchaseQuantity, Me.CCFNStateChange, Me.CCFNPrice, Me.CCFNTSysCurId, Me.CCFNUsedQuantitySC, Me.FTStateReservePo, Me.FTStateFree, Me.FTPurchaseNoMin, Me.FTOrderNoMin, Me.FNQuantityMin, Me.CFNQuantityMinRcv, Me.C3FTStateTeamMer, Me.FNHSysUnitId_Hide, Me.FNRowSeq, Me.CFNHSysUnitIdMRP, Me.CFTProdTypeName, Me.FTMRPBy, Me.FTMRPDate, Me.FTMRPTime, Me.FTSCBy, Me.FTSCDate, Me.FTSCTime, Me.xFTSubPgm})
+        Me.ogvsc.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.CCFTRawMatCode2, Me.CFTStateSelect, Me.CFTCmpCode, Me.CFTStyleCode, Me.CCFTOrderNo, Me.ssFTOrderStatusName, Me.FTSeasonCode, Me.CFTMerDevName, Me.CFTMerDevTeam, Me.C3FTMerTeamCode, Me.FTStateSC, Me.CCFTItemCode, Me.CCFTRawMatName, Me.CCFTRawMatColorCode, Me.CCFTRawMatColorName, Me.CCFTRawMatSizeCode, Me.CCFTFabricFrontSize, Me.CCFTSubOrderNo, Me.CCFNUsedQuantity, Me.CCFNUsedPlusQuantity, Me.FNRepeatLengthCM, Me.FNTotalRepeat, Me.cxFNHemNotOptiplan, Me.vcFNOptiplanQuantityOrg, Me.CCXFNOptiplanQuantity, Me.CCFTUnitCode, Me.FTReserveNo, Me.Reserve, Me.FNTotalRepeatRsv, Me.Transfer, Me.CFNSCQuantity, Me.CFNSCPlusQuantity, Me.CUnitCodePurchase, Me.CFNTotalPurchaseQuantity, Me.cxFNTotalRepeatPO, Me.CFNPricePurchase, Me.CTotalPrice, Me.CFTCurCode, Me.CFTSuplCode, Me.CFTPurchaseNo, Me.xFNPOPrice, Me.xFNRMDSPrice, Me.CFNHSysRawMatId, Me.CFTRawMatColorCode, Me.CFTRawMatSizeCode, Me.CFTRawMatCode, Me.CFNHSysSuplId, Me.CCFNTotalPurchaseQuantity, Me.CCFNStateChange, Me.CCFNPrice, Me.CCFNTSysCurId, Me.CCFNUsedQuantitySC, Me.FTStateReservePo, Me.FTStateFree, Me.FTPurchaseNoMin, Me.FTOrderNoMin, Me.FNQuantityMin, Me.CFNQuantityMinRcv, Me.C3FTStateTeamMer, Me.FNHSysUnitId_Hide, Me.FNRowSeq, Me.CFNHSysUnitIdMRP, Me.CFTProdTypeName, Me.FTMRPBy, Me.FTMRPDate, Me.FTMRPTime, Me.FTSCBy, Me.FTSCDate, Me.FTSCTime, Me.xFTSubPgm})
         Me.ogvsc.GridControl = Me.ogcsc
         Me.ogvsc.GroupCount = 1
         Me.ogvsc.GroupSummary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNUsedQuantity", Me.CCFNUsedQuantity, "{0:n4}"), New DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNUsedPlusQuantity", Me.CCFNUsedPlusQuantity, "{0:n4}"), New DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNOptiplanQuantity", Me.CCXFNOptiplanQuantity, "{0:n4}"), New DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNSCQuantity", Me.CFNSCQuantity, "{0:n4}"), New DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNSCPlusQuantity", Me.CFNSCPlusQuantity, "{0:n4}"), New DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNTotalPurchaseQuantity", Me.CFNTotalPurchaseQuantity, "{0:n4}")})
@@ -475,6 +560,17 @@ Partial Class wPurchaseConsolidation
         Me.CCFTOrderNo.VisibleIndex = 3
         Me.CCFTOrderNo.Width = 67
         '
+        'ssFTOrderStatusName
+        '
+        Me.ssFTOrderStatusName.Caption = "Order Status"
+        Me.ssFTOrderStatusName.FieldName = "FTOrderStatusName"
+        Me.ssFTOrderStatusName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.ssFTOrderStatusName.Name = "ssFTOrderStatusName"
+        Me.ssFTOrderStatusName.OptionsColumn.AllowEdit = False
+        Me.ssFTOrderStatusName.OptionsColumn.ReadOnly = True
+        Me.ssFTOrderStatusName.Visible = True
+        Me.ssFTOrderStatusName.VisibleIndex = 4
+        '
         'FTSeasonCode
         '
         Me.FTSeasonCode.Caption = "Season"
@@ -486,7 +582,7 @@ Partial Class wPurchaseConsolidation
         Me.FTSeasonCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTSeasonCode.OptionsColumn.ReadOnly = True
         Me.FTSeasonCode.Visible = True
-        Me.FTSeasonCode.VisibleIndex = 4
+        Me.FTSeasonCode.VisibleIndex = 5
         Me.FTSeasonCode.Width = 80
         '
         'CFTMerDevName
@@ -498,7 +594,7 @@ Partial Class wPurchaseConsolidation
         Me.CFTMerDevName.OptionsColumn.AllowEdit = False
         Me.CFTMerDevName.OptionsColumn.ReadOnly = True
         Me.CFTMerDevName.Visible = True
-        Me.CFTMerDevName.VisibleIndex = 5
+        Me.CFTMerDevName.VisibleIndex = 6
         '
         'CFTMerDevTeam
         '
@@ -509,7 +605,7 @@ Partial Class wPurchaseConsolidation
         Me.CFTMerDevTeam.OptionsColumn.AllowEdit = False
         Me.CFTMerDevTeam.OptionsColumn.ReadOnly = True
         Me.CFTMerDevTeam.Visible = True
-        Me.CFTMerDevTeam.VisibleIndex = 6
+        Me.CFTMerDevTeam.VisibleIndex = 7
         '
         'C3FTMerTeamCode
         '
@@ -522,7 +618,7 @@ Partial Class wPurchaseConsolidation
         Me.C3FTMerTeamCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.C3FTMerTeamCode.OptionsColumn.ReadOnly = True
         Me.C3FTMerTeamCode.Visible = True
-        Me.C3FTMerTeamCode.VisibleIndex = 7
+        Me.C3FTMerTeamCode.VisibleIndex = 8
         '
         'FTStateSC
         '
@@ -539,7 +635,7 @@ Partial Class wPurchaseConsolidation
         Me.FTStateSC.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
         Me.FTStateSC.Tag = "1"
         Me.FTStateSC.Visible = True
-        Me.FTStateSC.VisibleIndex = 8
+        Me.FTStateSC.VisibleIndex = 9
         Me.FTStateSC.Width = 40
         '
         'repositoryItemCheckEdit1
@@ -561,7 +657,7 @@ Partial Class wPurchaseConsolidation
         Me.CCFTItemCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.CCFTItemCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CCFTItemCode.Visible = True
-        Me.CCFTItemCode.VisibleIndex = 9
+        Me.CCFTItemCode.VisibleIndex = 10
         Me.CCFTItemCode.Width = 90
         '
         'CCFTRawMatName
@@ -575,7 +671,7 @@ Partial Class wPurchaseConsolidation
         Me.CCFTRawMatName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CCFTRawMatName.OptionsColumn.FixedWidth = True
         Me.CCFTRawMatName.Visible = True
-        Me.CCFTRawMatName.VisibleIndex = 10
+        Me.CCFTRawMatName.VisibleIndex = 11
         Me.CCFTRawMatName.Width = 210
         '
         'CCFTRawMatColorCode
@@ -588,7 +684,7 @@ Partial Class wPurchaseConsolidation
         Me.CCFTRawMatColorCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CCFTRawMatColorCode.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList
         Me.CCFTRawMatColorCode.Visible = True
-        Me.CCFTRawMatColorCode.VisibleIndex = 11
+        Me.CCFTRawMatColorCode.VisibleIndex = 12
         Me.CCFTRawMatColorCode.Width = 67
         '
         'CCFTRawMatColorName
@@ -601,7 +697,7 @@ Partial Class wPurchaseConsolidation
         Me.CCFTRawMatColorName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CCFTRawMatColorName.OptionsColumn.ReadOnly = True
         Me.CCFTRawMatColorName.Visible = True
-        Me.CCFTRawMatColorName.VisibleIndex = 12
+        Me.CCFTRawMatColorName.VisibleIndex = 13
         Me.CCFTRawMatColorName.Width = 100
         '
         'CCFTRawMatSizeCode
@@ -613,7 +709,7 @@ Partial Class wPurchaseConsolidation
         Me.CCFTRawMatSizeCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.CCFTRawMatSizeCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CCFTRawMatSizeCode.Visible = True
-        Me.CCFTRawMatSizeCode.VisibleIndex = 13
+        Me.CCFTRawMatSizeCode.VisibleIndex = 14
         Me.CCFTRawMatSizeCode.Width = 67
         '
         'CCFTFabricFrontSize
@@ -625,7 +721,7 @@ Partial Class wPurchaseConsolidation
         Me.CCFTFabricFrontSize.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.CCFTFabricFrontSize.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CCFTFabricFrontSize.Visible = True
-        Me.CCFTFabricFrontSize.VisibleIndex = 14
+        Me.CCFTFabricFrontSize.VisibleIndex = 15
         '
         'CCFTSubOrderNo
         '
@@ -650,7 +746,7 @@ Partial Class wPurchaseConsolidation
         Me.CCFNUsedQuantity.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CCFNUsedQuantity.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNUsedQuantity", "{0:n4}"), New DevExpress.XtraGrid.GridColumnSummaryItem()})
         Me.CCFNUsedQuantity.Visible = True
-        Me.CCFNUsedQuantity.VisibleIndex = 15
+        Me.CCFNUsedQuantity.VisibleIndex = 16
         Me.CCFNUsedQuantity.Width = 67
         '
         'CCFNUsedPlusQuantity
@@ -665,7 +761,7 @@ Partial Class wPurchaseConsolidation
         Me.CCFNUsedPlusQuantity.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CCFNUsedPlusQuantity.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNUsedPlusQuantity", "{0:n4}")})
         Me.CCFNUsedPlusQuantity.Visible = True
-        Me.CCFNUsedPlusQuantity.VisibleIndex = 16
+        Me.CCFNUsedPlusQuantity.VisibleIndex = 17
         Me.CCFNUsedPlusQuantity.Width = 67
         '
         'FNRepeatLengthCM
@@ -678,7 +774,7 @@ Partial Class wPurchaseConsolidation
         Me.FNRepeatLengthCM.OptionsColumn.AllowEdit = False
         Me.FNRepeatLengthCM.OptionsColumn.ReadOnly = True
         Me.FNRepeatLengthCM.Visible = True
-        Me.FNRepeatLengthCM.VisibleIndex = 17
+        Me.FNRepeatLengthCM.VisibleIndex = 18
         '
         'FNTotalRepeat
         '
@@ -690,7 +786,7 @@ Partial Class wPurchaseConsolidation
         Me.FNTotalRepeat.OptionsColumn.AllowEdit = False
         Me.FNTotalRepeat.OptionsColumn.ReadOnly = True
         Me.FNTotalRepeat.Visible = True
-        Me.FNTotalRepeat.VisibleIndex = 18
+        Me.FNTotalRepeat.VisibleIndex = 19
         '
         'cxFNHemNotOptiplan
         '
@@ -702,7 +798,7 @@ Partial Class wPurchaseConsolidation
         Me.cxFNHemNotOptiplan.OptionsColumn.AllowEdit = False
         Me.cxFNHemNotOptiplan.OptionsColumn.ReadOnly = True
         Me.cxFNHemNotOptiplan.Visible = True
-        Me.cxFNHemNotOptiplan.VisibleIndex = 19
+        Me.cxFNHemNotOptiplan.VisibleIndex = 20
         '
         'vcFNOptiplanQuantityOrg
         '
@@ -715,7 +811,7 @@ Partial Class wPurchaseConsolidation
         Me.vcFNOptiplanQuantityOrg.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.vcFNOptiplanQuantityOrg.OptionsColumn.ReadOnly = True
         Me.vcFNOptiplanQuantityOrg.Visible = True
-        Me.vcFNOptiplanQuantityOrg.VisibleIndex = 20
+        Me.vcFNOptiplanQuantityOrg.VisibleIndex = 21
         '
         'CCXFNOptiplanQuantity
         '
@@ -731,7 +827,7 @@ Partial Class wPurchaseConsolidation
         Me.CCXFNOptiplanQuantity.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CCXFNOptiplanQuantity.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNOptiplanQuantity", "{0:n4}")})
         Me.CCXFNOptiplanQuantity.Visible = True
-        Me.CCXFNOptiplanQuantity.VisibleIndex = 21
+        Me.CCXFNOptiplanQuantity.VisibleIndex = 22
         Me.CCXFNOptiplanQuantity.Width = 65
         '
         'CCFTUnitCode
@@ -743,7 +839,7 @@ Partial Class wPurchaseConsolidation
         Me.CCFTUnitCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.CCFTUnitCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CCFTUnitCode.Visible = True
-        Me.CCFTUnitCode.VisibleIndex = 22
+        Me.CCFTUnitCode.VisibleIndex = 23
         Me.CCFTUnitCode.Width = 67
         '
         'FTReserveNo
@@ -755,7 +851,7 @@ Partial Class wPurchaseConsolidation
         Me.FTReserveNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTReserveNo.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTReserveNo.Visible = True
-        Me.FTReserveNo.VisibleIndex = 33
+        Me.FTReserveNo.VisibleIndex = 36
         '
         'Reserve
         '
@@ -769,7 +865,7 @@ Partial Class wPurchaseConsolidation
         Me.Reserve.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.Reserve.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNReserveQuantity", "{0:n4}")})
         Me.Reserve.Visible = True
-        Me.Reserve.VisibleIndex = 23
+        Me.Reserve.VisibleIndex = 24
         '
         'FNTotalRepeatRsv
         '
@@ -781,7 +877,7 @@ Partial Class wPurchaseConsolidation
         Me.FNTotalRepeatRsv.OptionsColumn.AllowEdit = False
         Me.FNTotalRepeatRsv.OptionsColumn.ReadOnly = True
         Me.FNTotalRepeatRsv.Visible = True
-        Me.FNTotalRepeatRsv.VisibleIndex = 24
+        Me.FNTotalRepeatRsv.VisibleIndex = 25
         '
         'Transfer
         '
@@ -833,13 +929,13 @@ Partial Class wPurchaseConsolidation
         Me.CUnitCodePurchase.OptionsColumn.AllowShowHide = False
         Me.CUnitCodePurchase.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CUnitCodePurchase.Visible = True
-        Me.CUnitCodePurchase.VisibleIndex = 25
+        Me.CUnitCodePurchase.VisibleIndex = 26
         Me.CUnitCodePurchase.Width = 67
         '
         'RepFNHSysUnitId
         '
         Me.RepFNHSysUnitId.AutoHeight = False
-        Me.RepFNHSysUnitId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "4", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepFNHSysUnitId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "4", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepFNHSysUnitId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.RepFNHSysUnitId.MaxLength = 30
         Me.RepFNHSysUnitId.Name = "RepFNHSysUnitId"
@@ -857,7 +953,7 @@ Partial Class wPurchaseConsolidation
         Me.CFNTotalPurchaseQuantity.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CFNTotalPurchaseQuantity.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNTotalPurchaseQuantity", "{0:n4}")})
         Me.CFNTotalPurchaseQuantity.Visible = True
-        Me.CFNTotalPurchaseQuantity.VisibleIndex = 26
+        Me.CFNTotalPurchaseQuantity.VisibleIndex = 27
         Me.CFNTotalPurchaseQuantity.Width = 67
         '
         'RepPurchaseQty
@@ -881,13 +977,13 @@ Partial Class wPurchaseConsolidation
         Me.cxFNTotalRepeatPO.OptionsColumn.AllowEdit = False
         Me.cxFNTotalRepeatPO.OptionsColumn.ReadOnly = True
         Me.cxFNTotalRepeatPO.Visible = True
-        Me.cxFNTotalRepeatPO.VisibleIndex = 27
+        Me.cxFNTotalRepeatPO.VisibleIndex = 28
         '
         'CFNPricePurchase
         '
         Me.CFNPricePurchase.Caption = "Pur Price"
         Me.CFNPricePurchase.ColumnEdit = Me.RepPurchasePrice
-        Me.CFNPricePurchase.DisplayFormat.FormatString = "{0:n4}"
+        Me.CFNPricePurchase.DisplayFormat.FormatString = "{0:n5}"
         Me.CFNPricePurchase.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNPricePurchase.FieldName = "FNPricePurchase"
         Me.CFNPricePurchase.Name = "CFNPricePurchase"
@@ -895,16 +991,16 @@ Partial Class wPurchaseConsolidation
         Me.CFNPricePurchase.OptionsColumn.AllowShowHide = False
         Me.CFNPricePurchase.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CFNPricePurchase.Visible = True
-        Me.CFNPricePurchase.VisibleIndex = 28
+        Me.CFNPricePurchase.VisibleIndex = 29
         Me.CFNPricePurchase.Width = 67
         '
         'RepPurchasePrice
         '
         Me.RepPurchasePrice.AutoHeight = False
         Me.RepPurchasePrice.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepPurchasePrice.DisplayFormat.FormatString = "{0:n4}"
+        Me.RepPurchasePrice.DisplayFormat.FormatString = "{0:n5}"
         Me.RepPurchasePrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.RepPurchasePrice.EditFormat.FormatString = "{0:n4}"
+        Me.RepPurchasePrice.EditFormat.FormatString = "{0:n5}"
         Me.RepPurchasePrice.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.RepPurchasePrice.Name = "RepPurchasePrice"
         Me.RepPurchasePrice.Precision = 4
@@ -912,7 +1008,7 @@ Partial Class wPurchaseConsolidation
         'CTotalPrice
         '
         Me.CTotalPrice.Caption = "TotalPrice"
-        Me.CTotalPrice.DisplayFormat.FormatString = "N4"
+        Me.CTotalPrice.DisplayFormat.FormatString = "{0:n5}"
         Me.CTotalPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CTotalPrice.FieldName = "TotalPrice"
         Me.CTotalPrice.Name = "CTotalPrice"
@@ -920,7 +1016,7 @@ Partial Class wPurchaseConsolidation
         Me.CTotalPrice.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.CTotalPrice.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CTotalPrice.Visible = True
-        Me.CTotalPrice.VisibleIndex = 29
+        Me.CTotalPrice.VisibleIndex = 30
         '
         'CFTCurCode
         '
@@ -934,13 +1030,13 @@ Partial Class wPurchaseConsolidation
         Me.CFTCurCode.OptionsColumn.AllowShowHide = False
         Me.CFTCurCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CFTCurCode.Visible = True
-        Me.CFTCurCode.VisibleIndex = 30
+        Me.CFTCurCode.VisibleIndex = 31
         Me.CFTCurCode.Width = 67
         '
         'RepFNTSysCurId
         '
         Me.RepFNTSysCurId.AutoHeight = False
-        Me.RepFNTSysCurId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "16", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepFNTSysCurId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "16", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepFNTSysCurId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.RepFNTSysCurId.MaxLength = 30
         Me.RepFNTSysCurId.Name = "RepFNTSysCurId"
@@ -957,13 +1053,13 @@ Partial Class wPurchaseConsolidation
         Me.CFTSuplCode.OptionsColumn.AllowShowHide = False
         Me.CFTSuplCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CFTSuplCode.Visible = True
-        Me.CFTSuplCode.VisibleIndex = 31
+        Me.CFTSuplCode.VisibleIndex = 32
         Me.CFTSuplCode.Width = 67
         '
         'RepFNHSysSuplId
         '
         Me.RepFNHSysSuplId.AutoHeight = False
-        Me.RepFNHSysSuplId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "99", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepFNHSysSuplId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "99", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepFNHSysSuplId.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.RepFNHSysSuplId.MaxLength = 30
         Me.RepFNHSysSuplId.Name = "RepFNHSysSuplId"
@@ -977,8 +1073,23 @@ Partial Class wPurchaseConsolidation
         Me.CFTPurchaseNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.CFTPurchaseNo.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CFTPurchaseNo.Visible = True
-        Me.CFTPurchaseNo.VisibleIndex = 32
+        Me.CFTPurchaseNo.VisibleIndex = 33
         Me.CFTPurchaseNo.Width = 81
+        '
+        'xFNPOPrice
+        '
+        Me.xFNPOPrice.Caption = "PO Price"
+        Me.xFNPOPrice.DisplayFormat.FormatString = "{0:n5}"
+        Me.xFNPOPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.xFNPOPrice.FieldName = "FNPOPrice"
+        Me.xFNPOPrice.MinWidth = 22
+        Me.xFNPOPrice.Name = "xFNPOPrice"
+        Me.xFNPOPrice.OptionsColumn.AllowEdit = False
+        Me.xFNPOPrice.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.xFNPOPrice.OptionsColumn.ReadOnly = True
+        Me.xFNPOPrice.Visible = True
+        Me.xFNPOPrice.VisibleIndex = 34
+        Me.xFNPOPrice.Width = 100
         '
         'CFNHSysRawMatId
         '
@@ -1108,7 +1219,7 @@ Partial Class wPurchaseConsolidation
         Me.FTPurchaseNoMin.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTPurchaseNoMin.OptionsColumn.ReadOnly = True
         Me.FTPurchaseNoMin.Visible = True
-        Me.FTPurchaseNoMin.VisibleIndex = 34
+        Me.FTPurchaseNoMin.VisibleIndex = 37
         '
         'FTOrderNoMin
         '
@@ -1120,7 +1231,7 @@ Partial Class wPurchaseConsolidation
         Me.FTOrderNoMin.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTOrderNoMin.OptionsColumn.ReadOnly = True
         Me.FTOrderNoMin.Visible = True
-        Me.FTOrderNoMin.VisibleIndex = 35
+        Me.FTOrderNoMin.VisibleIndex = 38
         '
         'FNQuantityMin
         '
@@ -1134,7 +1245,7 @@ Partial Class wPurchaseConsolidation
         Me.FNQuantityMin.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNQuantityMin.OptionsColumn.ReadOnly = True
         Me.FNQuantityMin.Visible = True
-        Me.FNQuantityMin.VisibleIndex = 36
+        Me.FNQuantityMin.VisibleIndex = 39
         '
         'CFNQuantityMinRcv
         '
@@ -1148,7 +1259,7 @@ Partial Class wPurchaseConsolidation
         Me.CFNQuantityMinRcv.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CFNQuantityMinRcv.OptionsColumn.ReadOnly = True
         Me.CFNQuantityMinRcv.Visible = True
-        Me.CFNQuantityMinRcv.VisibleIndex = 37
+        Me.CFNQuantityMinRcv.VisibleIndex = 40
         '
         'C3FTStateTeamMer
         '
@@ -1185,7 +1296,7 @@ Partial Class wPurchaseConsolidation
         Me.CFTProdTypeName.OptionsColumn.AllowEdit = False
         Me.CFTProdTypeName.OptionsColumn.ReadOnly = True
         Me.CFTProdTypeName.Visible = True
-        Me.CFTProdTypeName.VisibleIndex = 38
+        Me.CFTProdTypeName.VisibleIndex = 41
         Me.CFTProdTypeName.Width = 150
         '
         'FTMRPBy
@@ -1196,7 +1307,7 @@ Partial Class wPurchaseConsolidation
         Me.FTMRPBy.OptionsColumn.AllowEdit = False
         Me.FTMRPBy.OptionsColumn.ReadOnly = True
         Me.FTMRPBy.Visible = True
-        Me.FTMRPBy.VisibleIndex = 39
+        Me.FTMRPBy.VisibleIndex = 42
         Me.FTMRPBy.Width = 120
         '
         'FTMRPDate
@@ -1207,7 +1318,7 @@ Partial Class wPurchaseConsolidation
         Me.FTMRPDate.OptionsColumn.AllowEdit = False
         Me.FTMRPDate.OptionsColumn.ReadOnly = True
         Me.FTMRPDate.Visible = True
-        Me.FTMRPDate.VisibleIndex = 40
+        Me.FTMRPDate.VisibleIndex = 43
         Me.FTMRPDate.Width = 80
         '
         'FTMRPTime
@@ -1218,7 +1329,7 @@ Partial Class wPurchaseConsolidation
         Me.FTMRPTime.OptionsColumn.AllowEdit = False
         Me.FTMRPTime.OptionsColumn.ReadOnly = True
         Me.FTMRPTime.Visible = True
-        Me.FTMRPTime.VisibleIndex = 41
+        Me.FTMRPTime.VisibleIndex = 44
         Me.FTMRPTime.Width = 80
         '
         'FTSCBy
@@ -1229,7 +1340,7 @@ Partial Class wPurchaseConsolidation
         Me.FTSCBy.OptionsColumn.AllowEdit = False
         Me.FTSCBy.OptionsColumn.ReadOnly = True
         Me.FTSCBy.Visible = True
-        Me.FTSCBy.VisibleIndex = 42
+        Me.FTSCBy.VisibleIndex = 45
         Me.FTSCBy.Width = 120
         '
         'FTSCDate
@@ -1240,7 +1351,7 @@ Partial Class wPurchaseConsolidation
         Me.FTSCDate.OptionsColumn.AllowEdit = False
         Me.FTSCDate.OptionsColumn.ReadOnly = True
         Me.FTSCDate.Visible = True
-        Me.FTSCDate.VisibleIndex = 43
+        Me.FTSCDate.VisibleIndex = 46
         Me.FTSCDate.Width = 80
         '
         'FTSCTime
@@ -1251,8 +1362,19 @@ Partial Class wPurchaseConsolidation
         Me.FTSCTime.OptionsColumn.AllowEdit = False
         Me.FTSCTime.OptionsColumn.ReadOnly = True
         Me.FTSCTime.Visible = True
-        Me.FTSCTime.VisibleIndex = 44
+        Me.FTSCTime.VisibleIndex = 47
         Me.FTSCTime.Width = 80
+        '
+        'xFTSubPgm
+        '
+        Me.xFTSubPgm.Caption = "Sub Pgm"
+        Me.xFTSubPgm.FieldName = "FTSubPgm"
+        Me.xFTSubPgm.Name = "xFTSubPgm"
+        Me.xFTSubPgm.OptionsColumn.AllowEdit = False
+        Me.xFTSubPgm.OptionsColumn.ReadOnly = True
+        Me.xFTSubPgm.Visible = True
+        Me.xFTSubPgm.VisibleIndex = 48
+        Me.xFTSubPgm.Width = 150
         '
         'repositoryItemCheckEdit2
         '
@@ -1346,7 +1468,7 @@ Partial Class wPurchaseConsolidation
         Me.ogboptioneditdata.Controls.Add(Me.FTStateMaterialSizeCode)
         Me.ogboptioneditdata.Controls.Add(Me.FTStateMaterialColorCode)
         Me.ogboptioneditdata.Controls.Add(Me.FTStateMaterialCode)
-        Me.ogboptioneditdata.Location = New System.Drawing.Point(3, 72)
+        Me.ogboptioneditdata.Location = New System.Drawing.Point(3, 103)
         Me.ogboptioneditdata.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogboptioneditdata.Name = "ogboptioneditdata"
         Me.ogboptioneditdata.Size = New System.Drawing.Size(969, 50)
@@ -1361,7 +1483,7 @@ Partial Class wPurchaseConsolidation
         Me.FTStateByCompany.Properties.Caption = "Select By Company"
         Me.FTStateByCompany.Properties.ValueChecked = "1"
         Me.FTStateByCompany.Properties.ValueUnchecked = "0"
-        Me.FTStateByCompany.Size = New System.Drawing.Size(166, 20)
+        Me.FTStateByCompany.Size = New System.Drawing.Size(166, 21)
         Me.FTStateByCompany.TabIndex = 275
         Me.FTStateByCompany.Tag = "2|"
         '
@@ -1373,7 +1495,7 @@ Partial Class wPurchaseConsolidation
         Me.FTStateMaterialSizeCode.Properties.Caption = "Material Size Code"
         Me.FTStateMaterialSizeCode.Properties.ValueChecked = "1"
         Me.FTStateMaterialSizeCode.Properties.ValueUnchecked = "0"
-        Me.FTStateMaterialSizeCode.Size = New System.Drawing.Size(166, 20)
+        Me.FTStateMaterialSizeCode.Size = New System.Drawing.Size(166, 21)
         Me.FTStateMaterialSizeCode.TabIndex = 274
         Me.FTStateMaterialSizeCode.Tag = "2|"
         '
@@ -1385,7 +1507,7 @@ Partial Class wPurchaseConsolidation
         Me.FTStateMaterialColorCode.Properties.Caption = "Material Color Code"
         Me.FTStateMaterialColorCode.Properties.ValueChecked = "1"
         Me.FTStateMaterialColorCode.Properties.ValueUnchecked = "0"
-        Me.FTStateMaterialColorCode.Size = New System.Drawing.Size(166, 20)
+        Me.FTStateMaterialColorCode.Size = New System.Drawing.Size(166, 21)
         Me.FTStateMaterialColorCode.TabIndex = 273
         Me.FTStateMaterialColorCode.Tag = "2|"
         '
@@ -1398,7 +1520,7 @@ Partial Class wPurchaseConsolidation
         Me.FTStateMaterialCode.Properties.ReadOnly = True
         Me.FTStateMaterialCode.Properties.ValueChecked = "1"
         Me.FTStateMaterialCode.Properties.ValueUnchecked = "0"
-        Me.FTStateMaterialCode.Size = New System.Drawing.Size(166, 20)
+        Me.FTStateMaterialCode.Size = New System.Drawing.Size(166, 21)
         Me.FTStateMaterialCode.TabIndex = 272
         Me.FTStateMaterialCode.Tag = "2|"
         '
@@ -1410,7 +1532,7 @@ Partial Class wPurchaseConsolidation
         Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl1.Name = "GroupControl1"
         Me.GroupControl1.ShowCaption = False
-        Me.GroupControl1.Size = New System.Drawing.Size(252, 119)
+        Me.GroupControl1.Size = New System.Drawing.Size(252, 150)
         Me.GroupControl1.TabIndex = 140
         Me.GroupControl1.Text = "Option Edit  Unit ,Price,Currency And Supplier"
         '
@@ -1421,7 +1543,7 @@ Partial Class wPurchaseConsolidation
         Me.ogc.MainView = Me.ogv
         Me.ogc.Name = "ogc"
         Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepFTSelect})
-        Me.ogc.Size = New System.Drawing.Size(248, 115)
+        Me.ogc.Size = New System.Drawing.Size(248, 146)
         Me.ogc.TabIndex = 311
         Me.ogc.TabStop = False
         Me.ogc.Tag = "3|"
@@ -1493,16 +1615,20 @@ Partial Class wPurchaseConsolidation
         Me.CMatterialTypeName.VisibleIndex = 1
         Me.CMatterialTypeName.Width = 150
         '
-        'xFTSubPgm
+        'xFNRMDSPrice
         '
-        Me.xFTSubPgm.Caption = "Sub Pgm"
-        Me.xFTSubPgm.FieldName = "FTSubPgm"
-        Me.xFTSubPgm.Name = "xFTSubPgm"
-        Me.xFTSubPgm.OptionsColumn.AllowEdit = False
-        Me.xFTSubPgm.OptionsColumn.ReadOnly = True
-        Me.xFTSubPgm.Visible = True
-        Me.xFTSubPgm.VisibleIndex = 45
-        Me.xFTSubPgm.Width = 150
+        Me.xFNRMDSPrice.Caption = "RMDS Price"
+        Me.xFNRMDSPrice.DisplayFormat.FormatString = "{0:n5}"
+        Me.xFNRMDSPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.xFNRMDSPrice.FieldName = "FNRMDSPrice"
+        Me.xFNRMDSPrice.MinWidth = 22
+        Me.xFNRMDSPrice.Name = "xFNRMDSPrice"
+        Me.xFNRMDSPrice.OptionsColumn.AllowEdit = False
+        Me.xFNRMDSPrice.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.xFNRMDSPrice.OptionsColumn.ReadOnly = True
+        Me.xFNRMDSPrice.Visible = True
+        Me.xFNRMDSPrice.VisibleIndex = 35
+        Me.xFNRMDSPrice.Width = 83
         '
         'wPurchaseConsolidation
         '
@@ -1519,6 +1645,8 @@ Partial Class wPurchaseConsolidation
         Me.Text = "Purchase Consolidation"
         CType(Me.ogbheader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbheader.ResumeLayout(False)
+        CType(Me.FNHSysMerMatId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNHSysMerMatId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysSeasonId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysBuyId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysBuyId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1666,4 +1794,10 @@ Partial Class wPurchaseConsolidation
     Friend WithEvents FTSCTime As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FNOrderType As DevExpress.XtraEditors.CheckedComboBoxEdit
     Friend WithEvents xFTSubPgm As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNHSysMerMatId As DevExpress.XtraEditors.ButtonEdit
+    Friend WithEvents FNHSysMerMatId_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents FNHSysMerMatId_None As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents ssFTOrderStatusName As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents xFNPOPrice As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents xFNRMDSPrice As DevExpress.XtraGrid.Columns.GridColumn
 End Class

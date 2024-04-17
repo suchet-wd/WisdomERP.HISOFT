@@ -634,6 +634,18 @@ Public Class wReserveAX
             Next
         Next
 
+        If FTOrderNo.Text.Trim = "" Then
+            HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, FTAXWH_lbl.Text)
+            FTOrderNo.Focus()
+            Return False
+        End If
+
+        If FTAXWH.Text.Trim = "" Then
+            HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, FTAXWH_lbl.Text)
+            FTAXWH.Focus()
+            Return False
+        End If
+
         Return True
     End Function
 
@@ -1261,15 +1273,50 @@ Public Class wReserveAX
                     Dim RowSeq As Integer = 0
 
                     Try
-                        _Str = " Delete FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TINVENReserveAX_Detail "
-                        _Str &= vbCrLf & "  WHERE FTReserveAXNo='" & HI.UL.ULF.rpQuoted(FTReserveAXNo.Text) & "' "
+                        '_Str = " Delete FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TINVENReserveAX_Detail "
+                        '_Str &= vbCrLf & "  WHERE FTReserveAXNo='" & HI.UL.ULF.rpQuoted(FTReserveAXNo.Text) & "' "
 
-                        HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_PUR
-                                                    )
+                        'HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_PUR)
                         RowSeq = RowSeq + 1
                         For Each R As DataRow In _dtBar.Select("  FTSelect='1' AND FNDocQuantity > 0 ", "FTRawMatCode,FTRawMatColorCode,FTRawMatSizeCode,JobNumber,LicencePlateId")
 
-                            _Str = " INSERT INTO [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TINVENReserveAX_Detail(FTInsUser, FDInsDate, FTInsTime,  FTReserveAXNo, FNSeq, FTRMCode, FTRMColorCode, FTRMColorName, FTRMSizeCode, FTBatchNo, FTLPNo, "
+
+                            _Str = " Declare @Count int = 0; "
+                            _Str &= vbCrLf & " UPDATE  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TINVENReserveAX_Detail "
+
+                            _Str &= vbCrLf & " SET FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                            _Str &= vbCrLf & ",FDUpdDate=" & HI.UL.ULDate.FormatDateDB & " "
+                            _Str &= vbCrLf & ",FTUpdTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                            _Str &= vbCrLf & ",FTRMColorName='" & HI.UL.ULF.rpQuoted(R!ColorName.ToString) & "' "
+                            _Str &= vbCrLf & ",FTFromAXSite='" & HI.UL.ULF.rpQuoted(R!Site.ToString) & "' "
+                            _Str &= vbCrLf & ",FNFromAXWH='" & HI.UL.ULF.rpQuoted(R!Warehouse.ToString) & "' "
+                            _Str &= vbCrLf & ",FTToAXSite='" & HI.UL.ULF.rpQuoted(R!ToSite.ToString) & "' "
+                            _Str &= vbCrLf & ",FNToAXWH='" & HI.UL.ULF.rpQuoted(R!Warehouse.ToString) & "' "
+                            _Str &= vbCrLf & ",FTFromOrderNo='" & HI.UL.ULF.rpQuoted(R!JobNumber.ToString) & "' "
+                            _Str &= vbCrLf & ",FTToOrderNo='" & HI.UL.ULF.rpQuoted(FTOrderNo.Text.Trim) & "' "
+                            _Str &= vbCrLf & ",FTFromSeason='" & HI.UL.ULF.rpQuoted(R!Season.ToString) & "' "
+                            _Str &= vbCrLf & ",FTToSeason='" & HI.UL.ULF.rpQuoted(R!ToSeason.ToString) & "' "
+                            _Str &= vbCrLf & ",FTUnit='" & HI.UL.ULF.rpQuoted(R!StockUnit.ToString) & "' "
+                            _Str &= vbCrLf & ",FNQuantity=" & Val(R!FNDocQuantity.ToString) & " "
+                            _Str &= vbCrLf & ",FTPONO='" & HI.UL.ULF.rpQuoted(R!PONumber.ToString) & "' "
+                            _Str &= vbCrLf & ",FromInventStatusId='" & HI.UL.ULF.rpQuoted(R!InventoryStatus.ToString) & "' "
+                            _Str &= vbCrLf & ",ToInventStatusId='Ordered' "
+                            _Str &= vbCrLf & ",FNHSysRawMatId=" & Val(R!FNHSysRawMatId.ToString) & " "
+                            _Str &= vbCrLf & ",FNHSysUnitId=" & Val(R!FNHSysUnitId.ToString) & " "
+                            _Str &= vbCrLf & ",DataAreaId='" & HI.UL.ULF.rpQuoted(R!DataAreaId.ToString) & "' "
+                            _Str &= vbCrLf & ",FTLocation='" & HI.UL.ULF.rpQuoted(R!Location.ToString) & "' "
+
+                            _Str &= vbCrLf & " WHERE FTReserveAXNo='" & HI.UL.ULF.rpQuoted(FTReserveAXNo.Text) & "' "
+                            _Str &= vbCrLf & " AND FTRMCode='" & HI.UL.ULF.rpQuoted(R!FTRawMatCode.ToString) & "'"
+                            _Str &= vbCrLf & " AND FTRMColorCode='" & HI.UL.ULF.rpQuoted(R!FTRawMatColorCode.ToString) & "'"
+                            _Str &= vbCrLf & " AND  FTRMSizeCode='" & HI.UL.ULF.rpQuoted(R!SizeId.ToString) & "' "
+                            _Str &= vbCrLf & " AND  FTBatchNo='" & HI.UL.ULF.rpQuoted(R!BatchNumber.ToString) & "'"
+                            _Str &= vbCrLf & " AND  FTLPNo ='" & HI.UL.ULF.rpQuoted(R!LicencePlateId.ToString) & "' "
+                            _Str &= vbCrLf & " SET  @Count  = @@ROWCOUNT "
+
+                            _Str &= vbCrLf & "    If @Count <=0 "
+                            _Str &= vbCrLf & "  BEGIN "
+                            _Str &= vbCrLf & "  INSERT INTO [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TINVENReserveAX_Detail(FTInsUser, FDInsDate, FTInsTime,  FTReserveAXNo, FNSeq, FTRMCode, FTRMColorCode, FTRMColorName, FTRMSizeCode, FTBatchNo, FTLPNo, "
                             _Str &= vbCrLf & "   FTFromAXSite, FNFromAXWH, FTToAXSite, FNToAXWH, FTFromOrderNo, FTToOrderNo, FTFromSeason, FTToSeason, FTUnit, FNQuantity, FTPONO, FromInventStatusId, ToInventStatusId,  "
                             _Str &= vbCrLf & "    FNHSysRawMatId, FNHSysUnitId, DataAreaId ,FTLocation"
                             _Str &= vbCrLf & " )  "
@@ -1277,7 +1324,7 @@ Public Class wReserveAX
                             _Str &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
                             _Str &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
                             _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTReserveAXNo.Text) & "' "
-                            _Str &= vbCrLf & "," & RowSeq & " "
+                            _Str &= vbCrLf & ",ISNULL((select max(FNSeq)  AS FNSeq from [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TINVENReserveAX_Detail AS X WHERE X.FTReserveAXNo ='" & HI.UL.ULF.rpQuoted(FTReserveAXNo.Text) & "'),0)+1 "
                             _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTRawMatCode.ToString) & "' "
                             _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTRawMatColorCode.ToString) & "' "
                             _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!ColorName.ToString) & "' "
@@ -1302,7 +1349,7 @@ Public Class wReserveAX
                             _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!DataAreaId.ToString) & "' "
 
                             _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!Location.ToString) & "' "
-
+                            _Str &= vbCrLf & " END "
 
                             If HI.Conn.SQLConn.ExecuteNonQuery(_Str, Conn.DB.DataBaseName.DB_PUR) Then
                                 RowSeq = RowSeq + 1
@@ -1380,7 +1427,6 @@ Public Class wReserveAX
             Exit Sub
         End If
 
-
         If FTReserveAXNo.Properties.Tag.ToString = "" Then
             If Me.VerrifyData() Then
                 If Me.SaveData Then
@@ -1393,6 +1439,20 @@ Public Class wReserveAX
         Else
 
             If Me.FTReserveAXNo.Text = "" Then Exit Sub
+
+
+            If FTOrderNo.Text.Trim = "" Then
+                HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, FTAXWH_lbl.Text)
+                FTOrderNo.Focus()
+                Exit Sub
+            End If
+
+            If FTAXWH.Text.Trim = "" Then
+                HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, FTAXWH_lbl.Text)
+                FTAXWH.Focus()
+                Exit Sub
+            End If
+
             LoadDataInfo(Me.FTReserveAXNo.Text)
 
         End If

@@ -105,8 +105,8 @@ Partial Class wPurchaseTracking
         Me.FTStateManagerReject = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSuperManagerAppDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.xFNHSysSuplId = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.xFNPoState = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.ogbheader.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
         CType(Me.ochkselectall.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1072,17 +1072,17 @@ Partial Class wPurchaseTracking
         Me.xFNHSysSuplId.OptionsColumn.AllowEdit = False
         Me.xFNHSysSuplId.OptionsColumn.ReadOnly = True
         '
-        'oDockManager
-        '
-        Me.oDockManager.Form = Me
-        Me.oDockManager.RootPanels.AddRange(New DevExpress.XtraBars.Docking.DockPanel() {Me.ogbheader})
-        Me.oDockManager.TopZIndexControls.AddRange(New String() {"DevExpress.XtraBars.BarDockControl", "DevExpress.XtraBars.StandaloneBarDockControl", "System.Windows.Forms.StatusBar", "DevExpress.XtraBars.Ribbon.RibbonStatusBar", "DevExpress.XtraBars.Ribbon.RibbonControl"})
-        '
         'xFNPoState
         '
         Me.xFNPoState.Caption = "FNPoState"
         Me.xFNPoState.FieldName = "FNPoState"
         Me.xFNPoState.Name = "xFNPoState"
+        '
+        'oDockManager
+        '
+        Me.oDockManager.Form = Me
+        Me.oDockManager.RootPanels.AddRange(New DevExpress.XtraBars.Docking.DockPanel() {Me.ogbheader})
+        Me.oDockManager.TopZIndexControls.AddRange(New String() {"DevExpress.XtraBars.BarDockControl", "DevExpress.XtraBars.StandaloneBarDockControl", "System.Windows.Forms.StatusBar", "DevExpress.XtraBars.Ribbon.RibbonStatusBar", "DevExpress.XtraBars.Ribbon.RibbonControl"})
         '
         'wPurchaseTracking
         '

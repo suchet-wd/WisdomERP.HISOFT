@@ -67,6 +67,7 @@
     <Reference Include="DevExpress.Data.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Docs.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Images.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Pdf.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -74,6 +75,7 @@
     <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Pdf.v20.1.Drawing, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.RichEdit.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -107,6 +109,7 @@
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.XtraPdfViewer.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -114,6 +117,7 @@
     <Reference Include="DevExpress.XtraSpreadsheet.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -165,6 +169,25 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\POPDFToDB.vb" />
+    <Compile Include="Fabricflows\wFabricflowsSetup.Designer.vb">
+      <DependentUpon>wFabricflowsSetup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Fabricflows\wFabricflowsSetup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wMatQCSpareAdd.Designer.vb">
+      <DependentUpon>wMatQCSpareAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wMatQCSpareAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wMatQCSpare.Designer.vb">
+      <DependentUpon>wMatQCSpare.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wMatQCSpare.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -204,10 +227,22 @@
     <Compile Include="Tracking\wOptiplantracking.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Fabricflows\wFabricflowsTrackig.Designer.vb">
+      <DependentUpon>wFabricflowsTrackig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Fabricflows\wFabricflowsTrackig.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Tracking\wSourcingInfomation.designer.vb">
       <DependentUpon>wSourcingInfomation.vb</DependentUpon>
     </Compile>
     <Compile Include="Tracking\wSourcingInfomation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPDFViewer.designer.vb">
+      <DependentUpon>wPDFViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPDFViewer.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Transaction\wAddItemPOByItem.designer.vb">
@@ -216,10 +251,22 @@
     <Compile Include="Transaction\wAddItemPOByItem.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Transaction\UpdatePOAMT.designer.vb">
+      <DependentUpon>UpdatePOAMT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\UpdatePOAMT.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Transaction\wPurchaseMaterialDelayT1T2Tracking.Designer.vb">
       <DependentUpon>wPurchaseMaterialDelayT1T2Tracking.vb</DependentUpon>
     </Compile>
     <Compile Include="Transaction\wPurchaseMaterialDelayT1T2Tracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseMaterialTrackingSample.Designer.vb">
+      <DependentUpon>wPurchaseMaterialTrackingSample.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\wPurchaseMaterialTrackingSample.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Transaction\wPurchaseMaterialTracking.Designer.vb">
@@ -232,6 +279,12 @@
       <DependentUpon>wPurchaseOrderChangePONO.vb</DependentUpon>
     </Compile>
     <Compile Include="Transaction\wPurchaseOrderChangePONO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fabricflows\wPurchasePackingList.Designer.vb">
+      <DependentUpon>wPurchasePackingList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Fabricflows\wPurchasePackingList.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Transaction\wPurchaseTrackingPIAddPI_CVN.designer.vb">
@@ -504,8 +557,29 @@
     <Compile Include="UI\POCondition.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="wInputHoldReason.Designer.vb">
+      <DependentUpon>wInputHoldReason.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wInputHoldReason.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wInputReason.Designer.vb">
+      <DependentUpon>wInputReason.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wInputReason.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Fabricflows\wFabricflowsSetup.resx">
+      <DependentUpon>wFabricflowsSetup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wMatQCSpareAdd.resx">
+      <DependentUpon>wMatQCSpareAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wMatQCSpare.resx">
+      <DependentUpon>wMatQCSpare.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -525,20 +599,35 @@
     <EmbeddedResource Include="Tracking\wOptiplantracking.resx">
       <DependentUpon>wOptiplantracking.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fabricflows\wFabricflowsTrackig.resx">
+      <DependentUpon>wFabricflowsTrackig.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tracking\wSourcingInfomation.resx">
       <DependentUpon>wSourcingInfomation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPDFViewer.resx">
+      <DependentUpon>wPDFViewer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\wAddItemPOByItem.resx">
       <DependentUpon>wAddItemPOByItem.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\UpdatePOAMT.resx">
+      <DependentUpon>UpdatePOAMT.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transaction\wPurchaseMaterialDelayT1T2Tracking.resx">
       <DependentUpon>wPurchaseMaterialDelayT1T2Tracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseMaterialTrackingSample.resx">
+      <DependentUpon>wPurchaseMaterialTrackingSample.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\wPurchaseMaterialTracking.resx">
       <DependentUpon>wPurchaseMaterialTracking.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\wPurchaseOrderChangePONO.resx">
       <DependentUpon>wPurchaseOrderChangePONO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fabricflows\wPurchasePackingList.resx">
+      <DependentUpon>wPurchasePackingList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\wPurchaseTrackingPIAddPI_CVN.resx">
       <DependentUpon>wPurchaseTrackingPIAddPI_CVN.vb</DependentUpon>
@@ -675,6 +764,12 @@
     <EmbeddedResource Include="UI\POCondition.resx">
       <DependentUpon>POCondition.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="wInputHoldReason.resx">
+      <DependentUpon>wInputHoldReason.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wInputReason.resx">
+      <DependentUpon>wInputReason.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">
@@ -745,6 +840,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

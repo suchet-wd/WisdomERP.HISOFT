@@ -19,11 +19,21 @@ Partial Class wPurchaseOrder
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim EditorButtonImageOptions23 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject89 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject90 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject91 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject92 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions24 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject93 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject94 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject95 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject96 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -39,6 +49,11 @@ Partial Class wPurchaseOrder
         Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions8 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject29 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject30 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject31 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject32 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions5 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject17 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject18 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -49,11 +64,11 @@ Partial Class wPurchaseOrder
         Dim SerializableAppearanceObject22 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject23 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject24 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions8 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject29 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject30 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject31 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject32 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions7 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject25 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject26 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject27 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject28 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions9 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject33 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject34 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -114,17 +129,8 @@ Partial Class wPurchaseOrder
         Dim SerializableAppearanceObject78 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject79 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject80 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions21 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject81 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject82 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject83 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject84 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions7 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject25 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject26 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject27 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject28 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbdocinfo = New DevExpress.XtraEditors.GroupControl()
+        Me.FTStateHold = New DevExpress.XtraEditors.CheckEdit()
         Me.FNListDocumentData = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.lblpomo = New DevExpress.XtraEditors.LabelControl()
         Me.FTStateSendApp = New DevExpress.XtraEditors.CheckEdit()
@@ -140,6 +146,8 @@ Partial Class wPurchaseOrder
         Me.FDPurchaseDate_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTPurchaseNo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.ogbh = New DevExpress.XtraEditors.GroupControl()
+        Me.FNPOStateType = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.FNPOStateType_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNPoType = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.FNPoType_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysCmpId = New DevExpress.XtraEditors.TextEdit()
@@ -246,10 +254,21 @@ Partial Class wPurchaseOrder
         Me.ocmremove = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmadd = New DevExpress.XtraEditors.SimpleButton()
         Me.ogbnote = New DevExpress.XtraEditors.GroupControl()
+        Me.otbxcancel = New DevExpress.XtraTab.XtraTabControl()
+        Me.otpnote = New DevExpress.XtraTab.XtraTabPage()
+        Me.otpcancelreason = New DevExpress.XtraTab.XtraTabPage()
+        Me.otbcancelreason = New DevExpress.XtraEditors.MemoEdit()
+        Me.otpholdreason = New DevExpress.XtraTab.XtraTabPage()
+        Me.FTHoldNote = New DevExpress.XtraEditors.MemoEdit()
+        Me.FNHSysPOHoldId_None = New DevExpress.XtraEditors.TextEdit()
+        Me.FNHSysPOHoldId = New DevExpress.XtraEditors.ButtonEdit()
+        Me.FNHSysPOHoldId_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FNHSysDocCmpId_None = New DevExpress.XtraEditors.TextEdit()
+        Me.FNHSysDocCmpId = New DevExpress.XtraEditors.ButtonEdit()
+        Me.FNHSysDocCmpId_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysDeliveryId_None = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysDeliveryId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysDeliveryId_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTRemark_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTContactPerson_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTContactPerson = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysCrTermId_None = New DevExpress.XtraEditors.TextEdit()
@@ -259,6 +278,7 @@ Partial Class wPurchaseOrder
         Me.FNHSysTermOfPMId_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysTermOfPMId = New DevExpress.XtraEditors.ButtonEdit()
         Me.ogbsuplcfm = New DevExpress.XtraEditors.GroupControl()
+        Me.ockcancel = New DevExpress.XtraEditors.CheckEdit()
         Me.FDSampleAppDate = New DevExpress.XtraEditors.DateEdit()
         Me.FDSuplCfmDliDate_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FDSuplCfmDliDate = New DevExpress.XtraEditors.DateEdit()
@@ -298,6 +318,7 @@ Partial Class wPurchaseOrder
         Me.FNCreditDay = New DevExpress.XtraEditors.CalcEdit()
         Me.FNCreditDay_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
+        Me.ocmholdpurchase = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmchengepono = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmadditemfrompohistory = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcalculate = New DevExpress.XtraEditors.SimpleButton()
@@ -310,11 +331,11 @@ Partial Class wPurchaseOrder
         Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmdelete = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmsave = New DevExpress.XtraEditors.SimpleButton()
-        Me.FNHSysDocCmpId_None = New DevExpress.XtraEditors.TextEdit()
-        Me.FNHSysDocCmpId = New DevExpress.XtraEditors.ButtonEdit()
-        Me.FNHSysDocCmpId_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.olbcancel = New DevExpress.XtraEditors.LabelControl()
+        Me.xFTDeliveryDate = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.ogbdocinfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbdocinfo.SuspendLayout()
+        CType(Me.FTStateHold.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNListDocumentData.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStateSendApp.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStateSendMail.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -328,6 +349,7 @@ Partial Class wPurchaseOrder
         CType(Me.FTPurchaseNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbh, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbh.SuspendLayout()
+        CType(Me.FNPOStateType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNPoType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysCmpId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStateColorBox.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -363,6 +385,17 @@ Partial Class wPurchaseOrder
         CType(Me.RepositoryItemCalcEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbnote, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbnote.SuspendLayout()
+        CType(Me.otbxcancel, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.otbxcancel.SuspendLayout()
+        Me.otpnote.SuspendLayout()
+        Me.otpcancelreason.SuspendLayout()
+        CType(Me.otbcancelreason.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.otpholdreason.SuspendLayout()
+        CType(Me.FTHoldNote.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FNHSysPOHoldId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FNHSysPOHoldId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FNHSysDocCmpId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FNHSysDocCmpId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysDeliveryId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysDeliveryId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTContactPerson.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -372,6 +405,7 @@ Partial Class wPurchaseOrder
         CType(Me.FNHSysTermOfPMId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbsuplcfm, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbsuplcfm.SuspendLayout()
+        CType(Me.ockcancel.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FDSampleAppDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FDSampleAppDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FDSuplCfmDliDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -402,12 +436,11 @@ Partial Class wPurchaseOrder
         CType(Me.FNCreditDay.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbmainprocbutton.SuspendLayout()
-        CType(Me.FNHSysDocCmpId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FNHSysDocCmpId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ogbdocinfo
         '
+        Me.ogbdocinfo.Controls.Add(Me.FTStateHold)
         Me.ogbdocinfo.Controls.Add(Me.FNListDocumentData)
         Me.ogbdocinfo.Controls.Add(Me.lblpomo)
         Me.ogbdocinfo.Controls.Add(Me.FTStateSendApp)
@@ -428,6 +461,19 @@ Partial Class wPurchaseOrder
         Me.ogbdocinfo.TabIndex = 4
         Me.ogbdocinfo.Tag = "2|"
         Me.ogbdocinfo.Text = "Doccument Info"
+        '
+        'FTStateHold
+        '
+        Me.FTStateHold.EditValue = "0"
+        Me.FTStateHold.Location = New System.Drawing.Point(29, 25)
+        Me.FTStateHold.Name = "FTStateHold"
+        Me.FTStateHold.Properties.Caption = "Hold PO"
+        Me.FTStateHold.Properties.ReadOnly = True
+        Me.FTStateHold.Properties.ValueChecked = "1"
+        Me.FTStateHold.Properties.ValueUnchecked = "0"
+        Me.FTStateHold.Size = New System.Drawing.Size(92, 21)
+        Me.FTStateHold.TabIndex = 284
+        Me.FTStateHold.Tag = "2|"
         '
         'FNListDocumentData
         '
@@ -481,7 +527,7 @@ Partial Class wPurchaseOrder
         Me.FTStateSendApp.Properties.ReadOnly = True
         Me.FTStateSendApp.Properties.ValueChecked = "1"
         Me.FTStateSendApp.Properties.ValueUnchecked = "0"
-        Me.FTStateSendApp.Size = New System.Drawing.Size(141, 20)
+        Me.FTStateSendApp.Size = New System.Drawing.Size(141, 21)
         Me.FTStateSendApp.TabIndex = 10
         Me.FTStateSendApp.Tag = "2|"
         '
@@ -493,7 +539,7 @@ Partial Class wPurchaseOrder
         Me.FTStateSendMail.Properties.ReadOnly = True
         Me.FTStateSendMail.Properties.ValueChecked = "1"
         Me.FTStateSendMail.Properties.ValueUnchecked = "0"
-        Me.FTStateSendMail.Size = New System.Drawing.Size(125, 20)
+        Me.FTStateSendMail.Size = New System.Drawing.Size(125, 21)
         Me.FTStateSendMail.TabIndex = 9
         Me.FTStateSendMail.Tag = "2|"
         '
@@ -505,7 +551,7 @@ Partial Class wPurchaseOrder
         Me.FTStatePrint.Properties.ReadOnly = True
         Me.FTStatePrint.Properties.ValueChecked = "1"
         Me.FTStatePrint.Properties.ValueUnchecked = "0"
-        Me.FTStatePrint.Size = New System.Drawing.Size(124, 20)
+        Me.FTStatePrint.Size = New System.Drawing.Size(124, 21)
         Me.FTStatePrint.TabIndex = 8
         Me.FTStatePrint.Tag = "2|"
         '
@@ -517,7 +563,7 @@ Partial Class wPurchaseOrder
         Me.FTStateManagerApp.Properties.ReadOnly = True
         Me.FTStateManagerApp.Properties.ValueChecked = "1"
         Me.FTStateManagerApp.Properties.ValueUnchecked = "0"
-        Me.FTStateManagerApp.Size = New System.Drawing.Size(141, 20)
+        Me.FTStateManagerApp.Size = New System.Drawing.Size(141, 21)
         Me.FTStateManagerApp.TabIndex = 7
         Me.FTStateManagerApp.Tag = "2|"
         '
@@ -529,7 +575,7 @@ Partial Class wPurchaseOrder
         Me.FTStateSuperVisorApp.Properties.ReadOnly = True
         Me.FTStateSuperVisorApp.Properties.ValueChecked = "1"
         Me.FTStateSuperVisorApp.Properties.ValueUnchecked = "0"
-        Me.FTStateSuperVisorApp.Size = New System.Drawing.Size(141, 20)
+        Me.FTStateSuperVisorApp.Size = New System.Drawing.Size(141, 21)
         Me.FTStateSuperVisorApp.TabIndex = 6
         Me.FTStateSuperVisorApp.Tag = "2|"
         '
@@ -581,7 +627,7 @@ Partial Class wPurchaseOrder
         Me.FDPurchaseDate.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FDPurchaseDate.Properties.AppearanceReadOnly.Options.UseTextOptions = True
         Me.FDPurchaseDate.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FDPurchaseDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FDPurchaseDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions23, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject89, SerializableAppearanceObject90, SerializableAppearanceObject91, SerializableAppearanceObject92, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FDPurchaseDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FDPurchaseDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDPurchaseDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -643,23 +689,23 @@ Partial Class wPurchaseOrder
         Me.FTPurchaseNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTPurchaseNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTPurchaseNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        SerializableAppearanceObject5.Options.UseTextOptions = True
-        SerializableAppearanceObject5.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject6.Options.UseTextOptions = True
-        SerializableAppearanceObject6.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject7.Options.UseTextOptions = True
-        SerializableAppearanceObject7.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject8.Options.UseTextOptions = True
-        SerializableAppearanceObject8.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject9.Options.UseTextOptions = True
-        SerializableAppearanceObject9.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject10.Options.UseTextOptions = True
-        SerializableAppearanceObject10.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject11.Options.UseTextOptions = True
-        SerializableAppearanceObject11.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject12.Options.UseTextOptions = True
-        SerializableAppearanceObject12.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTPurchaseNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "30", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", 20, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        SerializableAppearanceObject1.Options.UseTextOptions = True
+        SerializableAppearanceObject1.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject2.Options.UseTextOptions = True
+        SerializableAppearanceObject2.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject3.Options.UseTextOptions = True
+        SerializableAppearanceObject3.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject4.Options.UseTextOptions = True
+        SerializableAppearanceObject4.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject93.Options.UseTextOptions = True
+        SerializableAppearanceObject93.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject94.Options.UseTextOptions = True
+        SerializableAppearanceObject94.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject95.Options.UseTextOptions = True
+        SerializableAppearanceObject95.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject96.Options.UseTextOptions = True
+        SerializableAppearanceObject96.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTPurchaseNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "30", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", 20, True, True, False, EditorButtonImageOptions24, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject93, SerializableAppearanceObject94, SerializableAppearanceObject95, SerializableAppearanceObject96, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTPurchaseNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTPurchaseNo.Size = New System.Drawing.Size(172, 20)
         Me.FTPurchaseNo.TabIndex = 0
@@ -710,6 +756,8 @@ Partial Class wPurchaseOrder
         '
         Me.ogbh.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbh.Controls.Add(Me.FNPOStateType)
+        Me.ogbh.Controls.Add(Me.FNPOStateType_lbl)
         Me.ogbh.Controls.Add(Me.FNPoType)
         Me.ogbh.Controls.Add(Me.FNPoType_lbl)
         Me.ogbh.Controls.Add(Me.FNHSysCmpId)
@@ -736,12 +784,56 @@ Partial Class wPurchaseOrder
         Me.ogbh.TabIndex = 5
         Me.ogbh.Tag = "2|"
         '
+        'FNPOStateType
+        '
+        Me.FNPOStateType.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FNPOStateType.EditValue = ""
+        Me.FNPOStateType.EnterMoveNextControl = True
+        Me.FNPOStateType.Location = New System.Drawing.Point(450, 53)
+        Me.FNPOStateType.Name = "FNPOStateType"
+        Me.FNPOStateType.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FNPOStateType.Properties.Appearance.Options.UseBackColor = True
+        Me.FNPOStateType.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FNPOStateType.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FNPOStateType.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FNPOStateType.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FNPOStateType.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNPOStateType.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNPOStateType.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNPOStateType.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNPOStateType.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNPOStateType.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNPOStateType.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNPOStateType.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNPOStateType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.FNPOStateType.Properties.Items.AddRange(New Object() {"Puchase Normal", "Free Of Charge"})
+        Me.FNPOStateType.Properties.Tag = ""
+        Me.FNPOStateType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.FNPOStateType.Size = New System.Drawing.Size(110, 20)
+        Me.FNPOStateType.TabIndex = 287
+        Me.FNPOStateType.Tag = "2|"
+        '
+        'FNPOStateType_lbl
+        '
+        Me.FNPOStateType_lbl.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FNPOStateType_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNPOStateType_lbl.Appearance.Options.UseForeColor = True
+        Me.FNPOStateType_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNPOStateType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNPOStateType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNPOStateType_lbl.Location = New System.Drawing.Point(380, 53)
+        Me.FNPOStateType_lbl.Name = "FNPOStateType_lbl"
+        Me.FNPOStateType_lbl.Size = New System.Drawing.Size(68, 21)
+        Me.FNPOStateType_lbl.TabIndex = 288
+        Me.FNPOStateType_lbl.Tag = "2|"
+        Me.FNPOStateType_lbl.Text = "Status :"
+        '
         'FNPoType
         '
         Me.FNPoType.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FNPoType.EditValue = ""
         Me.FNPoType.EnterMoveNextControl = True
-        Me.FNPoType.Location = New System.Drawing.Point(450, 53)
+        Me.FNPoType.Location = New System.Drawing.Point(289, 53)
         Me.FNPoType.Name = "FNPoType"
         Me.FNPoType.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNPoType.Properties.Appearance.Options.UseBackColor = True
@@ -772,9 +864,9 @@ Partial Class wPurchaseOrder
         Me.FNPoType_lbl.Appearance.Options.UseTextOptions = True
         Me.FNPoType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNPoType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNPoType_lbl.Location = New System.Drawing.Point(346, 53)
+        Me.FNPoType_lbl.Location = New System.Drawing.Point(213, 53)
         Me.FNPoType_lbl.Name = "FNPoType_lbl"
-        Me.FNPoType_lbl.Size = New System.Drawing.Size(102, 19)
+        Me.FNPoType_lbl.Size = New System.Drawing.Size(74, 21)
         Me.FNPoType_lbl.TabIndex = 286
         Me.FNPoType_lbl.Tag = "2|"
         Me.FNPoType_lbl.Text = "PoType :"
@@ -812,7 +904,7 @@ Partial Class wPurchaseOrder
         Me.FTStateColorBox.Properties.Caption = "Color Box"
         Me.FTStateColorBox.Properties.ValueChecked = "1"
         Me.FTStateColorBox.Properties.ValueUnchecked = "0"
-        Me.FTStateColorBox.Size = New System.Drawing.Size(174, 20)
+        Me.FTStateColorBox.Size = New System.Drawing.Size(174, 21)
         Me.FTStateColorBox.TabIndex = 271
         Me.FTStateColorBox.Tag = "2|"
         '
@@ -840,7 +932,7 @@ Partial Class wPurchaseOrder
         Me.FTRefer.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTRefer.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTRefer.Properties.MaxLength = 100
-        Me.FTRefer.Size = New System.Drawing.Size(234, 20)
+        Me.FTRefer.Size = New System.Drawing.Size(104, 20)
         Me.FTRefer.TabIndex = 8
         Me.FTRefer.TabStop = False
         Me.FTRefer.Tag = "2|"
@@ -908,7 +1000,7 @@ Partial Class wPurchaseOrder
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysSuplId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "99", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSuplId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "99", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSuplId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysSuplId.Properties.MaxLength = 30
         Me.FNHSysSuplId.Size = New System.Drawing.Size(100, 20)
@@ -1021,7 +1113,7 @@ Partial Class wPurchaseOrder
         Me.FNHSysPurGrpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysPurGrpId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysPurGrpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysPurGrpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "102", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysPurGrpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "102", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysPurGrpId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysPurGrpId.Properties.MaxLength = 30
         Me.FNHSysPurGrpId.Size = New System.Drawing.Size(68, 20)
@@ -1090,7 +1182,7 @@ Partial Class wPurchaseOrder
         Me.FNHSysCmpRunId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCmpRunId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCmpRunId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCmpRunId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "87", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCmpRunId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "87", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpRunId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCmpRunId.Properties.MaxLength = 30
         Me.FNHSysCmpRunId.Size = New System.Drawing.Size(64, 20)
@@ -1140,14 +1232,12 @@ Partial Class wPurchaseOrder
         '
         'FTRemark
         '
-        Me.FTRemark.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FTRemark.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FTRemark.EditValue = ""
-        Me.FTRemark.Location = New System.Drawing.Point(110, 75)
+        Me.FTRemark.Location = New System.Drawing.Point(0, 0)
         Me.FTRemark.Name = "FTRemark"
         Me.FTRemark.Properties.MaxLength = 500
-        Me.FTRemark.Size = New System.Drawing.Size(395, 110)
+        Me.FTRemark.Size = New System.Drawing.Size(489, 94)
         Me.FTRemark.TabIndex = 2
         Me.FTRemark.Tag = "2|"
         '
@@ -1167,10 +1257,10 @@ Partial Class wPurchaseOrder
         'oxtb
         '
         Me.oxtb.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.oxtb.Location = New System.Drawing.Point(2, 23)
+        Me.oxtb.Location = New System.Drawing.Point(2, 25)
         Me.oxtb.Name = "oxtb"
         Me.oxtb.SelectedTabPage = Me.otpdetailitem
-        Me.oxtb.Size = New System.Drawing.Size(1049, 264)
+        Me.oxtb.Size = New System.Drawing.Size(1049, 262)
         Me.oxtb.TabIndex = 95
         Me.oxtb.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpdetailitem, Me.otpsummaryitem, Me.otprevisedhistory, Me.otppurchasepricehistory})
         '
@@ -1178,7 +1268,7 @@ Partial Class wPurchaseOrder
         '
         Me.otpdetailitem.Controls.Add(Me.ogcdetail)
         Me.otpdetailitem.Name = "otpdetailitem"
-        Me.otpdetailitem.Size = New System.Drawing.Size(1047, 239)
+        Me.otpdetailitem.Size = New System.Drawing.Size(1047, 237)
         Me.otpdetailitem.Text = "Detail Item"
         '
         'ogcdetail
@@ -1187,7 +1277,7 @@ Partial Class wPurchaseOrder
         Me.ogcdetail.Location = New System.Drawing.Point(0, 0)
         Me.ogcdetail.MainView = Me.ogvdetail
         Me.ogcdetail.Name = "ogcdetail"
-        Me.ogcdetail.Size = New System.Drawing.Size(1047, 239)
+        Me.ogcdetail.Size = New System.Drawing.Size(1047, 237)
         Me.ogcdetail.TabIndex = 1
         Me.ogcdetail.TabStop = False
         Me.ogcdetail.Tag = "2|"
@@ -1195,7 +1285,7 @@ Partial Class wPurchaseOrder
         '
         'ogvdetail
         '
-        Me.ogvdetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNHSysRawMatId, Me.FTRawMatCode, Me.FTMatDesc, Me.FTRawMatColorCode, Me.CFTRawMatColorName, Me.FTRawMatSizeCode, Me.FNHSysUnitId, Me.FTFabricFrontSize, Me.CFTOGacDate, Me.FTUnitCode, Me.FNPrice, Me.FNDisPer, Me.FNDisAmt, Me.FTOrderNo, Me.FNQuantity, Me.FNNetAmt, Me.ColFTRemark, Me.FTStateRcv, Me.FNReservePOQuantity, Me.FTStateReserve, Me.FNSurchangeAmt, Me.FNSurchangePerUnit, Me.FNGrandNetAmt, Me.CCCFNMerMatTypePOX})
+        Me.ogvdetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNHSysRawMatId, Me.FTRawMatCode, Me.FTMatDesc, Me.FTRawMatColorCode, Me.CFTRawMatColorName, Me.FTRawMatSizeCode, Me.FNHSysUnitId, Me.FTFabricFrontSize, Me.CFTOGacDate, Me.FTUnitCode, Me.FNPrice, Me.FNDisPer, Me.FNDisAmt, Me.FTOrderNo, Me.FNQuantity, Me.FNNetAmt, Me.ColFTRemark, Me.FTStateRcv, Me.FNReservePOQuantity, Me.FTStateReserve, Me.FNSurchangeAmt, Me.FNSurchangePerUnit, Me.FNGrandNetAmt, Me.CCCFNMerMatTypePOX, Me.xFTDeliveryDate})
         Me.ogvdetail.GridControl = Me.ogcdetail
         Me.ogvdetail.Name = "ogvdetail"
         Me.ogvdetail.OptionsCustomization.AllowGroup = False
@@ -1545,7 +1635,7 @@ Partial Class wPurchaseOrder
         '
         Me.otpsummaryitem.Controls.Add(Me.ogcsum)
         Me.otpsummaryitem.Name = "otpsummaryitem"
-        Me.otpsummaryitem.Size = New System.Drawing.Size(1047, 239)
+        Me.otpsummaryitem.Size = New System.Drawing.Size(1047, 237)
         Me.otpsummaryitem.Text = "Summary Item"
         '
         'ogcsum
@@ -1555,7 +1645,7 @@ Partial Class wPurchaseOrder
         Me.ogcsum.MainView = Me.ogvsum
         Me.ogcsum.Name = "ogcsum"
         Me.ogcsum.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit1})
-        Me.ogcsum.Size = New System.Drawing.Size(1047, 239)
+        Me.ogcsum.Size = New System.Drawing.Size(1047, 237)
         Me.ogcsum.TabIndex = 2
         Me.ogcsum.TabStop = False
         Me.ogcsum.Tag = "2|"
@@ -1878,7 +1968,7 @@ Partial Class wPurchaseOrder
         '
         Me.otprevisedhistory.Controls.Add(Me.ogcrevised)
         Me.otprevisedhistory.Name = "otprevisedhistory"
-        Me.otprevisedhistory.Size = New System.Drawing.Size(1047, 239)
+        Me.otprevisedhistory.Size = New System.Drawing.Size(1047, 237)
         Me.otprevisedhistory.Text = "Revised History"
         '
         'ogcrevised
@@ -1888,7 +1978,7 @@ Partial Class wPurchaseOrder
         Me.ogcrevised.MainView = Me.ogvrevised
         Me.ogcrevised.Name = "ogcrevised"
         Me.ogcrevised.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.ReposFTNote})
-        Me.ogcrevised.Size = New System.Drawing.Size(1047, 239)
+        Me.ogcrevised.Size = New System.Drawing.Size(1047, 237)
         Me.ogcrevised.TabIndex = 2
         Me.ogcrevised.TabStop = False
         Me.ogcrevised.Tag = "2|"
@@ -1980,7 +2070,7 @@ Partial Class wPurchaseOrder
         '
         Me.otppurchasepricehistory.Controls.Add(Me.ogcpricehistory)
         Me.otppurchasepricehistory.Name = "otppurchasepricehistory"
-        Me.otppurchasepricehistory.Size = New System.Drawing.Size(1047, 239)
+        Me.otppurchasepricehistory.Size = New System.Drawing.Size(1047, 237)
         Me.otppurchasepricehistory.Text = "Purchase Price History"
         '
         'ogcpricehistory
@@ -1990,7 +2080,7 @@ Partial Class wPurchaseOrder
         Me.ogcpricehistory.MainView = Me.ogvpricehistory
         Me.ogcpricehistory.Name = "ogcpricehistory"
         Me.ogcpricehistory.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit2})
-        Me.ogcpricehistory.Size = New System.Drawing.Size(1047, 239)
+        Me.ogcpricehistory.Size = New System.Drawing.Size(1047, 237)
         Me.ogcpricehistory.TabIndex = 3
         Me.ogcpricehistory.TabStop = False
         Me.ogcpricehistory.Tag = "2|"
@@ -2238,22 +2328,227 @@ Partial Class wPurchaseOrder
         '
         Me.ogbnote.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbnote.Controls.Add(Me.otbxcancel)
         Me.ogbnote.Controls.Add(Me.FNHSysDocCmpId_None)
         Me.ogbnote.Controls.Add(Me.FNHSysDocCmpId)
         Me.ogbnote.Controls.Add(Me.FNHSysDocCmpId_lbl)
         Me.ogbnote.Controls.Add(Me.FNHSysDeliveryId_None)
         Me.ogbnote.Controls.Add(Me.FNHSysDeliveryId)
         Me.ogbnote.Controls.Add(Me.FNHSysDeliveryId_lbl)
-        Me.ogbnote.Controls.Add(Me.FTRemark_lbl)
         Me.ogbnote.Controls.Add(Me.FTContactPerson_lbl)
         Me.ogbnote.Controls.Add(Me.FTContactPerson)
-        Me.ogbnote.Controls.Add(Me.FTRemark)
-        Me.ogbnote.Location = New System.Drawing.Point(306, 161)
+        Me.ogbnote.Location = New System.Drawing.Point(306, 158)
         Me.ogbnote.Name = "ogbnote"
         Me.ogbnote.ShowCaption = False
         Me.ogbnote.Size = New System.Drawing.Size(510, 193)
         Me.ogbnote.TabIndex = 8
         Me.ogbnote.Text = "GroupControl1"
+        '
+        'otbxcancel
+        '
+        Me.otbxcancel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.otbxcancel.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Bottom
+        Me.otbxcancel.Location = New System.Drawing.Point(15, 74)
+        Me.otbxcancel.Name = "otbxcancel"
+        Me.otbxcancel.SelectedTabPage = Me.otpnote
+        Me.otbxcancel.Size = New System.Drawing.Size(491, 119)
+        Me.otbxcancel.TabIndex = 279
+        Me.otbxcancel.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpnote, Me.otpcancelreason, Me.otpholdreason})
+        Me.otbxcancel.TabPageWidth = 100
+        '
+        'otpnote
+        '
+        Me.otpnote.Controls.Add(Me.FTRemark)
+        Me.otpnote.Name = "otpnote"
+        Me.otpnote.Size = New System.Drawing.Size(489, 94)
+        Me.otpnote.Text = "Note"
+        '
+        'otpcancelreason
+        '
+        Me.otpcancelreason.Controls.Add(Me.otbcancelreason)
+        Me.otpcancelreason.Name = "otpcancelreason"
+        Me.otpcancelreason.PageVisible = False
+        Me.otpcancelreason.Size = New System.Drawing.Size(489, 94)
+        Me.otpcancelreason.Text = "Cancel Reason"
+        '
+        'otbcancelreason
+        '
+        Me.otbcancelreason.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.otbcancelreason.EditValue = ""
+        Me.otbcancelreason.Location = New System.Drawing.Point(0, 0)
+        Me.otbcancelreason.Name = "otbcancelreason"
+        Me.otbcancelreason.Properties.MaxLength = 500
+        Me.otbcancelreason.Properties.ReadOnly = True
+        Me.otbcancelreason.Size = New System.Drawing.Size(489, 94)
+        Me.otbcancelreason.TabIndex = 3
+        Me.otbcancelreason.Tag = "2|"
+        '
+        'otpholdreason
+        '
+        Me.otpholdreason.Controls.Add(Me.FTHoldNote)
+        Me.otpholdreason.Controls.Add(Me.FNHSysPOHoldId_None)
+        Me.otpholdreason.Controls.Add(Me.FNHSysPOHoldId)
+        Me.otpholdreason.Controls.Add(Me.FNHSysPOHoldId_lbl)
+        Me.otpholdreason.Name = "otpholdreason"
+        Me.otpholdreason.PageVisible = False
+        Me.otpholdreason.Size = New System.Drawing.Size(489, 94)
+        Me.otpholdreason.Text = "Hold Reason"
+        '
+        'FTHoldNote
+        '
+        Me.FTHoldNote.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FTHoldNote.EditValue = ""
+        Me.FTHoldNote.Location = New System.Drawing.Point(1, 28)
+        Me.FTHoldNote.Name = "FTHoldNote"
+        Me.FTHoldNote.Properties.MaxLength = 500
+        Me.FTHoldNote.Properties.ReadOnly = True
+        Me.FTHoldNote.Size = New System.Drawing.Size(485, 63)
+        Me.FTHoldNote.TabIndex = 279
+        Me.FTHoldNote.Tag = "2|"
+        '
+        'FNHSysPOHoldId_None
+        '
+        Me.FNHSysPOHoldId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FNHSysPOHoldId_None.EnterMoveNextControl = True
+        Me.FNHSysPOHoldId_None.Location = New System.Drawing.Point(211, 4)
+        Me.FNHSysPOHoldId_None.Name = "FNHSysPOHoldId_None"
+        Me.FNHSysPOHoldId_None.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FNHSysPOHoldId_None.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNHSysPOHoldId_None.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysPOHoldId_None.Properties.Appearance.Options.UseForeColor = True
+        Me.FNHSysPOHoldId_None.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysPOHoldId_None.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysPOHoldId_None.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FNHSysPOHoldId_None.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FNHSysPOHoldId_None.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNHSysPOHoldId_None.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysPOHoldId_None.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNHSysPOHoldId_None.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNHSysPOHoldId_None.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysPOHoldId_None.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysPOHoldId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNHSysPOHoldId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNHSysPOHoldId_None.Properties.ReadOnly = True
+        Me.FNHSysPOHoldId_None.Size = New System.Drawing.Size(275, 20)
+        Me.FNHSysPOHoldId_None.TabIndex = 278
+        Me.FNHSysPOHoldId_None.TabStop = False
+        Me.FNHSysPOHoldId_None.Tag = "2|"
+        '
+        'FNHSysPOHoldId
+        '
+        Me.FNHSysPOHoldId.Enabled = False
+        Me.FNHSysPOHoldId.EnterMoveNextControl = True
+        Me.FNHSysPOHoldId.Location = New System.Drawing.Point(110, 4)
+        Me.FNHSysPOHoldId.Name = "FNHSysPOHoldId"
+        Me.FNHSysPOHoldId.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FNHSysPOHoldId.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysPOHoldId.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysPOHoldId.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysPOHoldId.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FNHSysPOHoldId.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FNHSysPOHoldId.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNHSysPOHoldId.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysPOHoldId.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNHSysPOHoldId.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNHSysPOHoldId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysPOHoldId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysPOHoldId.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNHSysPOHoldId.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNHSysPOHoldId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, False, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "111157", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysPOHoldId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.FNHSysPOHoldId.Properties.MaxLength = 30
+        Me.FNHSysPOHoldId.Properties.ReadOnly = True
+        Me.FNHSysPOHoldId.Size = New System.Drawing.Size(99, 20)
+        Me.FNHSysPOHoldId.TabIndex = 276
+        Me.FNHSysPOHoldId.Tag = "2|"
+        '
+        'FNHSysPOHoldId_lbl
+        '
+        Me.FNHSysPOHoldId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysPOHoldId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysPOHoldId_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNHSysPOHoldId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNHSysPOHoldId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNHSysPOHoldId_lbl.Location = New System.Drawing.Point(7, 3)
+        Me.FNHSysPOHoldId_lbl.Name = "FNHSysPOHoldId_lbl"
+        Me.FNHSysPOHoldId_lbl.Size = New System.Drawing.Size(101, 19)
+        Me.FNHSysPOHoldId_lbl.TabIndex = 277
+        Me.FNHSysPOHoldId_lbl.Tag = "2|"
+        Me.FNHSysPOHoldId_lbl.Text = "Hold PO Reason :"
+        '
+        'FNHSysDocCmpId_None
+        '
+        Me.FNHSysDocCmpId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FNHSysDocCmpId_None.EnterMoveNextControl = True
+        Me.FNHSysDocCmpId_None.Location = New System.Drawing.Point(211, 28)
+        Me.FNHSysDocCmpId_None.Name = "FNHSysDocCmpId_None"
+        Me.FNHSysDocCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FNHSysDocCmpId_None.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNHSysDocCmpId_None.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysDocCmpId_None.Properties.Appearance.Options.UseForeColor = True
+        Me.FNHSysDocCmpId_None.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysDocCmpId_None.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysDocCmpId_None.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FNHSysDocCmpId_None.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FNHSysDocCmpId_None.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNHSysDocCmpId_None.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysDocCmpId_None.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNHSysDocCmpId_None.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNHSysDocCmpId_None.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysDocCmpId_None.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysDocCmpId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNHSysDocCmpId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNHSysDocCmpId_None.Properties.ReadOnly = True
+        Me.FNHSysDocCmpId_None.Size = New System.Drawing.Size(294, 20)
+        Me.FNHSysDocCmpId_None.TabIndex = 278
+        Me.FNHSysDocCmpId_None.TabStop = False
+        Me.FNHSysDocCmpId_None.Tag = "2|"
+        '
+        'FNHSysDocCmpId
+        '
+        Me.FNHSysDocCmpId.EnterMoveNextControl = True
+        Me.FNHSysDocCmpId.Location = New System.Drawing.Point(110, 28)
+        Me.FNHSysDocCmpId.Name = "FNHSysDocCmpId"
+        Me.FNHSysDocCmpId.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FNHSysDocCmpId.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysDocCmpId.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysDocCmpId.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysDocCmpId.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FNHSysDocCmpId.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FNHSysDocCmpId.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNHSysDocCmpId.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysDocCmpId.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNHSysDocCmpId.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNHSysDocCmpId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysDocCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysDocCmpId.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNHSysDocCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNHSysDocCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "1363", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDocCmpId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.FNHSysDocCmpId.Properties.MaxLength = 30
+        Me.FNHSysDocCmpId.Size = New System.Drawing.Size(99, 20)
+        Me.FNHSysDocCmpId.TabIndex = 276
+        Me.FNHSysDocCmpId.Tag = "2|"
+        '
+        'FNHSysDocCmpId_lbl
+        '
+        Me.FNHSysDocCmpId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysDocCmpId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysDocCmpId_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNHSysDocCmpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNHSysDocCmpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNHSysDocCmpId_lbl.Location = New System.Drawing.Point(7, 27)
+        Me.FNHSysDocCmpId_lbl.Name = "FNHSysDocCmpId_lbl"
+        Me.FNHSysDocCmpId_lbl.Size = New System.Drawing.Size(101, 19)
+        Me.FNHSysDocCmpId_lbl.TabIndex = 277
+        Me.FNHSysDocCmpId_lbl.Tag = "2|"
+        Me.FNHSysDocCmpId_lbl.Text = "Invoice Cmp. :"
         '
         'FNHSysDeliveryId_None
         '
@@ -2303,7 +2598,7 @@ Partial Class wPurchaseOrder
         Me.FNHSysDeliveryId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysDeliveryId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysDeliveryId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysDeliveryId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "39", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDeliveryId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "39", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeliveryId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysDeliveryId.Properties.MaxLength = 30
         Me.FNHSysDeliveryId.Size = New System.Drawing.Size(99, 20)
@@ -2323,20 +2618,6 @@ Partial Class wPurchaseOrder
         Me.FNHSysDeliveryId_lbl.TabIndex = 274
         Me.FNHSysDeliveryId_lbl.Tag = "2|"
         Me.FNHSysDeliveryId_lbl.Text = "Delivery :"
-        '
-        'FTRemark_lbl
-        '
-        Me.FTRemark_lbl.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FTRemark_lbl.Appearance.Options.UseForeColor = True
-        Me.FTRemark_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTRemark_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTRemark_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRemark_lbl.Location = New System.Drawing.Point(11, 76)
-        Me.FTRemark_lbl.Name = "FTRemark_lbl"
-        Me.FTRemark_lbl.Size = New System.Drawing.Size(92, 19)
-        Me.FTRemark_lbl.TabIndex = 272
-        Me.FTRemark_lbl.Tag = "2|"
-        Me.FTRemark_lbl.Text = "Note :"
         '
         'FTContactPerson_lbl
         '
@@ -2439,7 +2720,7 @@ Partial Class wPurchaseOrder
         Me.FNHSysCrTermId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCrTermId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCrTermId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCrTermId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "14", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCrTermId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "14", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCrTermId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCrTermId.Properties.MaxLength = 30
         Me.FNHSysCrTermId.Size = New System.Drawing.Size(99, 20)
@@ -2508,7 +2789,7 @@ Partial Class wPurchaseOrder
         Me.FNHSysTermOfPMId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysTermOfPMId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysTermOfPMId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysTermOfPMId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "103", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysTermOfPMId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "103", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysTermOfPMId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysTermOfPMId.Properties.MaxLength = 30
         Me.FNHSysTermOfPMId.Size = New System.Drawing.Size(99, 20)
@@ -2518,6 +2799,7 @@ Partial Class wPurchaseOrder
         'ogbsuplcfm
         '
         Me.ogbsuplcfm.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbsuplcfm.Controls.Add(Me.ockcancel)
         Me.ogbsuplcfm.Controls.Add(Me.FDSampleAppDate)
         Me.ogbsuplcfm.Controls.Add(Me.FDSuplCfmDliDate_lbl)
         Me.ogbsuplcfm.Controls.Add(Me.FDSuplCfmDliDate)
@@ -2533,6 +2815,20 @@ Partial Class wPurchaseOrder
         Me.ogbsuplcfm.Size = New System.Drawing.Size(238, 189)
         Me.ogbsuplcfm.TabIndex = 9
         Me.ogbsuplcfm.Text = "Supplier Confirm Information"
+        '
+        'ockcancel
+        '
+        Me.ockcancel.EditValue = "0"
+        Me.ockcancel.Location = New System.Drawing.Point(53, 149)
+        Me.ockcancel.Name = "ockcancel"
+        Me.ockcancel.Properties.Caption = "Send E-Mail"
+        Me.ockcancel.Properties.ReadOnly = True
+        Me.ockcancel.Properties.ValueChecked = "1"
+        Me.ockcancel.Properties.ValueUnchecked = "0"
+        Me.ockcancel.Size = New System.Drawing.Size(125, 21)
+        Me.ockcancel.TabIndex = 276
+        Me.ockcancel.Tag = "2|"
+        Me.ockcancel.Visible = False
         '
         'FDSampleAppDate
         '
@@ -2840,7 +3136,7 @@ Partial Class wPurchaseOrder
         Me.FNPOGrandAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPOGrandAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPOGrandAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPOGrandAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPOGrandAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPOGrandAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPOGrandAmt.Properties.Precision = 2
         Me.FNPOGrandAmt.Properties.ReadOnly = True
@@ -2865,7 +3161,7 @@ Partial Class wPurchaseOrder
         Me.FNVatAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNVatAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNVatAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNVatAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNVatAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNVatAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNVatAmt.Properties.Precision = 2
         Me.FNVatAmt.Size = New System.Drawing.Size(86, 20)
@@ -2904,7 +3200,7 @@ Partial Class wPurchaseOrder
         Me.FNPONetAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPONetAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPONetAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPONetAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPONetAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPONetAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPONetAmt.Properties.Precision = 2
         Me.FNPONetAmt.Properties.ReadOnly = True
@@ -2929,7 +3225,7 @@ Partial Class wPurchaseOrder
         Me.FNDisCountAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNDisCountAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNDisCountAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNDisCountAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNDisCountAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNDisCountAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNDisCountAmt.Properties.Precision = 2
         Me.FNDisCountAmt.Size = New System.Drawing.Size(84, 20)
@@ -2954,7 +3250,7 @@ Partial Class wPurchaseOrder
         Me.FNPoAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPoAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPoAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPoAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPoAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPoAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPoAmt.Properties.Precision = 2
         Me.FNPoAmt.Properties.ReadOnly = True
@@ -2993,7 +3289,7 @@ Partial Class wPurchaseOrder
         Me.FNDisCountPer.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNDisCountPer.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNDisCountPer.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNDisCountPer.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNDisCountPer.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNDisCountPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNDisCountPer.Properties.MaxLength = 5
         Me.FNDisCountPer.Properties.Precision = 2
@@ -3032,7 +3328,7 @@ Partial Class wPurchaseOrder
         Me.FNSurcharge.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNSurcharge.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNSurcharge.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNSurcharge.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions17, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject65, SerializableAppearanceObject66, SerializableAppearanceObject67, SerializableAppearanceObject68, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNSurcharge.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNSurcharge.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNSurcharge.Properties.Precision = 2
         Me.FNSurcharge.Size = New System.Drawing.Size(150, 20)
@@ -3084,7 +3380,7 @@ Partial Class wPurchaseOrder
         Me.FNVatPer.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNVatPer.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNVatPer.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNVatPer.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions18, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject69, SerializableAppearanceObject70, SerializableAppearanceObject71, SerializableAppearanceObject72, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNVatPer.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions17, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject65, SerializableAppearanceObject66, SerializableAppearanceObject67, SerializableAppearanceObject68, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNVatPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNVatPer.Properties.MaxLength = 5
         Me.FNVatPer.Properties.Precision = 2
@@ -3130,7 +3426,7 @@ Partial Class wPurchaseOrder
         Me.FNExchangeRate.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNExchangeRate.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNExchangeRate.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNExchangeRate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions19, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject73, SerializableAppearanceObject74, SerializableAppearanceObject75, SerializableAppearanceObject76, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNExchangeRate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions18, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject69, SerializableAppearanceObject70, SerializableAppearanceObject71, SerializableAppearanceObject72, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNExchangeRate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNExchangeRate.Properties.Precision = 5
         Me.FNExchangeRate.Properties.ReadOnly = True
@@ -3171,7 +3467,7 @@ Partial Class wPurchaseOrder
         Me.FNHSysCurId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCurId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCurId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCurId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, False, False, False, EditorButtonImageOptions20, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject77, SerializableAppearanceObject78, SerializableAppearanceObject79, SerializableAppearanceObject80, "", "16", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCurId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, False, False, False, EditorButtonImageOptions19, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject73, SerializableAppearanceObject74, SerializableAppearanceObject75, SerializableAppearanceObject76, "", "16", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCurId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCurId.Properties.MaxLength = 30
         Me.FNHSysCurId.Properties.ReadOnly = True
@@ -3220,7 +3516,7 @@ Partial Class wPurchaseOrder
         Me.FNCreditDay.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNCreditDay.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNCreditDay.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNCreditDay.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions21, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject81, SerializableAppearanceObject82, SerializableAppearanceObject83, SerializableAppearanceObject84, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNCreditDay.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions20, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject77, SerializableAppearanceObject78, SerializableAppearanceObject79, SerializableAppearanceObject80, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNCreditDay.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNCreditDay.Properties.Precision = 0
         Me.FNCreditDay.Size = New System.Drawing.Size(99, 20)
@@ -3244,6 +3540,7 @@ Partial Class wPurchaseOrder
         'ogbmainprocbutton
         '
         Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmholdpurchase)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmchengepono)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmadditemfrompohistory)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmcalculate)
@@ -3263,6 +3560,16 @@ Partial Class wPurchaseOrder
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(966, 136)
         Me.ogbmainprocbutton.TabIndex = 137
         Me.ogbmainprocbutton.Tag = "2|"
+        '
+        'ocmholdpurchase
+        '
+        Me.ocmholdpurchase.Location = New System.Drawing.Point(386, 87)
+        Me.ocmholdpurchase.Name = "ocmholdpurchase"
+        Me.ocmholdpurchase.Size = New System.Drawing.Size(114, 25)
+        Me.ocmholdpurchase.TabIndex = 105
+        Me.ocmholdpurchase.TabStop = False
+        Me.ocmholdpurchase.Tag = "2|"
+        Me.ocmholdpurchase.Text = "Hold Purchase"
         '
         'ocmchengepono
         '
@@ -3386,86 +3693,52 @@ Partial Class wPurchaseOrder
         Me.ocmsave.Tag = "2|"
         Me.ocmsave.Text = "SAVE"
         '
-        'FNHSysDocCmpId_None
+        'olbcancel
         '
-        Me.FNHSysDocCmpId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.olbcancel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysDocCmpId_None.EnterMoveNextControl = True
-        Me.FNHSysDocCmpId_None.Location = New System.Drawing.Point(211, 28)
-        Me.FNHSysDocCmpId_None.Name = "FNHSysDocCmpId_None"
-        Me.FNHSysDocCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FNHSysDocCmpId_None.Properties.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FNHSysDocCmpId_None.Properties.Appearance.Options.UseBackColor = True
-        Me.FNHSysDocCmpId_None.Properties.Appearance.Options.UseForeColor = True
-        Me.FNHSysDocCmpId_None.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysDocCmpId_None.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysDocCmpId_None.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.FNHSysDocCmpId_None.Properties.AppearanceDisabled.Options.UseForeColor = True
-        Me.FNHSysDocCmpId_None.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
-        Me.FNHSysDocCmpId_None.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysDocCmpId_None.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.FNHSysDocCmpId_None.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.FNHSysDocCmpId_None.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysDocCmpId_None.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysDocCmpId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNHSysDocCmpId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysDocCmpId_None.Properties.ReadOnly = True
-        Me.FNHSysDocCmpId_None.Size = New System.Drawing.Size(294, 20)
-        Me.FNHSysDocCmpId_None.TabIndex = 278
-        Me.FNHSysDocCmpId_None.TabStop = False
-        Me.FNHSysDocCmpId_None.Tag = "2|"
+        Me.olbcancel.Appearance.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.olbcancel.Appearance.ForeColor = System.Drawing.Color.Red
+        Me.olbcancel.Appearance.Options.UseFont = True
+        Me.olbcancel.Appearance.Options.UseForeColor = True
+        Me.olbcancel.Appearance.Options.UseTextOptions = True
+        Me.olbcancel.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.olbcancel.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.olbcancel.Location = New System.Drawing.Point(39, 356)
+        Me.olbcancel.Name = "olbcancel"
+        Me.olbcancel.Size = New System.Drawing.Size(989, 57)
+        Me.olbcancel.TabIndex = 283
+        Me.olbcancel.Tag = "2|"
+        Me.olbcancel.Text = "Purchase Order has been Canceled"
+        Me.olbcancel.Visible = False
         '
-        'FNHSysDocCmpId
+        'xFTDeliveryDate
         '
-        Me.FNHSysDocCmpId.EnterMoveNextControl = True
-        Me.FNHSysDocCmpId.Location = New System.Drawing.Point(110, 28)
-        Me.FNHSysDocCmpId.Name = "FNHSysDocCmpId"
-        Me.FNHSysDocCmpId.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FNHSysDocCmpId.Properties.Appearance.Options.UseBackColor = True
-        Me.FNHSysDocCmpId.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysDocCmpId.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysDocCmpId.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.FNHSysDocCmpId.Properties.AppearanceDisabled.Options.UseForeColor = True
-        Me.FNHSysDocCmpId.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
-        Me.FNHSysDocCmpId.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysDocCmpId.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.FNHSysDocCmpId.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.FNHSysDocCmpId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysDocCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysDocCmpId.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FNHSysDocCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysDocCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "1363", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FNHSysDocCmpId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FNHSysDocCmpId.Properties.MaxLength = 30
-        Me.FNHSysDocCmpId.Size = New System.Drawing.Size(99, 20)
-        Me.FNHSysDocCmpId.TabIndex = 276
-        Me.FNHSysDocCmpId.Tag = "2|"
-        '
-        'FNHSysDocCmpId_lbl
-        '
-        Me.FNHSysDocCmpId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FNHSysDocCmpId_lbl.Appearance.Options.UseForeColor = True
-        Me.FNHSysDocCmpId_lbl.Appearance.Options.UseTextOptions = True
-        Me.FNHSysDocCmpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FNHSysDocCmpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysDocCmpId_lbl.Location = New System.Drawing.Point(7, 27)
-        Me.FNHSysDocCmpId_lbl.Name = "FNHSysDocCmpId_lbl"
-        Me.FNHSysDocCmpId_lbl.Size = New System.Drawing.Size(101, 19)
-        Me.FNHSysDocCmpId_lbl.TabIndex = 277
-        Me.FNHSysDocCmpId_lbl.Tag = "2|"
-        Me.FNHSysDocCmpId_lbl.Text = "Invoice Cmp. :"
+        Me.xFTDeliveryDate.Caption = "Request Delivery Date"
+        Me.xFTDeliveryDate.DisplayFormat.FormatString = "dd/MM/yyyy"
+        Me.xFTDeliveryDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.xFTDeliveryDate.FieldName = "FTDeliveryDate"
+        Me.xFTDeliveryDate.MinWidth = 22
+        Me.xFTDeliveryDate.Name = "xFTDeliveryDate"
+        Me.xFTDeliveryDate.OptionsColumn.AllowEdit = False
+        Me.xFTDeliveryDate.OptionsColumn.ReadOnly = True
+        Me.xFTDeliveryDate.Visible = True
+        Me.xFTDeliveryDate.VisibleIndex = 17
+        Me.xFTDeliveryDate.Width = 100
         '
         'wPurchaseOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1058, 644)
+        Me.Controls.Add(Me.olbcancel)
         Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.oxtab)
         Me.Name = "wPurchaseOrder"
         Me.Text = "Purchaser Order"
         CType(Me.ogbdocinfo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbdocinfo.ResumeLayout(False)
+        CType(Me.FTStateHold.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNListDocumentData.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStateSendApp.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStateSendMail.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3479,6 +3752,7 @@ Partial Class wPurchaseOrder
         CType(Me.FTPurchaseNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbh, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbh.ResumeLayout(False)
+        CType(Me.FNPOStateType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNPoType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysCmpId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStateColorBox.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3514,6 +3788,17 @@ Partial Class wPurchaseOrder
         CType(Me.RepositoryItemCalcEdit2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbnote, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbnote.ResumeLayout(False)
+        CType(Me.otbxcancel, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.otbxcancel.ResumeLayout(False)
+        Me.otpnote.ResumeLayout(False)
+        Me.otpcancelreason.ResumeLayout(False)
+        CType(Me.otbcancelreason.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.otpholdreason.ResumeLayout(False)
+        CType(Me.FTHoldNote.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNHSysPOHoldId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNHSysPOHoldId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNHSysDocCmpId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNHSysDocCmpId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysDeliveryId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysDeliveryId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTContactPerson.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3523,6 +3808,7 @@ Partial Class wPurchaseOrder
         CType(Me.FNHSysTermOfPMId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbsuplcfm, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbsuplcfm.ResumeLayout(False)
+        CType(Me.ockcancel.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FDSampleAppDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FDSampleAppDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FDSuplCfmDliDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3553,8 +3839,6 @@ Partial Class wPurchaseOrder
         CType(Me.FNCreditDay.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbmainprocbutton.ResumeLayout(False)
-        CType(Me.FNHSysDocCmpId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FNHSysDocCmpId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -3616,7 +3900,6 @@ Partial Class wPurchaseOrder
     Friend WithEvents FNVatPer_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FNDisCountPer As DevExpress.XtraEditors.CalcEdit
     Friend WithEvents FNDisCountPer_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTRemark_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTContactPerson_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTContactPerson As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FDSuplCfmDliDate_lbl As DevExpress.XtraEditors.LabelControl
@@ -3747,4 +4030,20 @@ Partial Class wPurchaseOrder
     Friend WithEvents FNHSysDocCmpId_None As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FNHSysDocCmpId As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FNHSysDocCmpId_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents otbxcancel As DevExpress.XtraTab.XtraTabControl
+    Friend WithEvents otpnote As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents otpcancelreason As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents otbcancelreason As DevExpress.XtraEditors.MemoEdit
+    Friend WithEvents ockcancel As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents olbcancel As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents otpholdreason As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents FTHoldNote As DevExpress.XtraEditors.MemoEdit
+    Friend WithEvents FNHSysPOHoldId_None As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents FNHSysPOHoldId As DevExpress.XtraEditors.ButtonEdit
+    Friend WithEvents FNHSysPOHoldId_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents ocmholdpurchase As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents FTStateHold As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents FNPOStateType As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents FNPOStateType_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents xFTDeliveryDate As DevExpress.XtraGrid.Columns.GridColumn
 End Class

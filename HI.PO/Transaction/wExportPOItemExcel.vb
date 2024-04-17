@@ -550,7 +550,7 @@ Public Class wExportPOItemExcel
             _Cmd &= vbCrLf & "  , ISNULL(XO.FTPORef,'') AS FTPORef"
             _Cmd &= vbCrLf & "  , ISNULL(BTU.FTBuyCode,'') AS FTBuyCode"
             _Cmd &= vbCrLf & "  , ISNULL(BTU.FTBuyNameEN,'') AS FTBuyName"
-            _Cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder As XO With(NOLOCK) "
+            _Cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.V_OrderProdAndSMPAll As XO With(NOLOCK) "
             _Cmd &= vbCrLf & "   Left OUTER JOIN    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMVenderPram AS PGM WITH(NOLOCK) ON XO.FNHSysVenderPramId = PGM.FNHSysVenderPramId "
             _Cmd &= vbCrLf & "   Left OUTER JOIN    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As ST With(NOLOCK) On XO.FNHSysStyleId =ST.FNHSysStyleId "
             _Cmd &= vbCrLf & "   Left OUTER JOIN     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMSeason AS SS WITH(NOLOCK) ON XO.FNHSysSeasonId = SS.FNHSysSeasonId"
@@ -572,7 +572,6 @@ Public Class wExportPOItemExcel
             _Cmd &= vbCrLf & "	Where (MRP.FTOrderNo = PD.FTOrderNo) And (MRP.FNHSysRawMatId = PD.FNHSysRawMatId)  AND RIGHT(CASE WHEN ISDATE(OS.FDShipDateOrginal) = 1 THEN  Convert(nvarchar(10),convert(datetime,OS.FDShipDateOrginal),103) ELSE '' END ,LEN(CASE WHEN  ISNULL(PD.FTOGacDate,'')='' THEN '8899/88/99' ELSE   ISNULL(PD.FTOGacDate,'') END))  = PD.FTOGacDate   "
             _Cmd &= vbCrLf & "		) As MRPX"
 
-
             _Cmd &= vbCrLf & "	OUTER APPLY("
             _Cmd &= vbCrLf & " SELECT SUM(OSBD.FNGrandQuantity) AS FNQuantity"
             _Cmd &= vbCrLf & "	,MIN(OS.FDShipDateOrginal) As FDShipDateOrginal"
@@ -581,10 +580,8 @@ Public Class wExportPOItemExcel
             _Cmd &= vbCrLf & "	Where (OS.FTOrderNo = PD.FTOrderNo) AND OSBD.FTColorway = ISNULL(IMC.FTRawMatColorCode,'')  AND OSBD.FTColorway <> '' "
             _Cmd &= vbCrLf & "		) As JOBMRPO"
 
-
             _Cmd &= vbCrLf & " WHERE(PH.FTPurchaseNo = '" & HI.UL.ULF.rpQuoted(PurchaseNo) & "') "
             _Cmd &= vbCrLf & " ) As A "
-
 
             _Cmd &= vbCrLf & " ) AS X "
             _Cmd &= vbCrLf & " GROUP BY FTRawMatColorCode"

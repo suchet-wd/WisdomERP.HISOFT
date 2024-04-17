@@ -19,11 +19,6 @@ Partial Class wPurchaseTrackingPIAddPI
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim EditorButtonImageOptions15 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject57 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject58 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject59 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject60 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -34,16 +29,16 @@ Partial Class wPurchaseTrackingPIAddPI
         Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions16 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject61 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject62 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject63 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject64 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions17 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject65 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject66 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject67 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject68 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject13 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions5 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject17 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject18 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -64,31 +59,37 @@ Partial Class wPurchaseTrackingPIAddPI
         Dim SerializableAppearanceObject30 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject31 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject32 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions18 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject69 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject70 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject71 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject72 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions19 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject73 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject74 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject75 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject76 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions20 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject77 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject78 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject79 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject80 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions21 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject81 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject82 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject83 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject84 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions9 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject33 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject34 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject35 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject36 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions10 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject37 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject38 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject39 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject40 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions11 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject41 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject42 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject43 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject44 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions12 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject45 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject46 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject47 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject48 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions13 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject49 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject50 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject51 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject52 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions14 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject53 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject54 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject55 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject56 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wPurchaseTrackingPIAddPI))
         Me.FNPIGrandQuantity_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNPIGrandQuantity = New DevExpress.XtraEditors.CalcEdit()
         Me.FTRemark_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -111,6 +112,7 @@ Partial Class wPurchaseTrackingPIAddPI
         Me.FNPIPOQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNPIPONetAmt = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemAmt = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.FTStateVendorUpload = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.RepositoryItemCalcEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
         Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
@@ -249,6 +251,10 @@ Partial Class wPurchaseTrackingPIAddPI
         Me.FTBLDate = New DevExpress.XtraEditors.DateEdit()
         Me.FTBLNo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTBLNo = New DevExpress.XtraEditors.TextEdit()
+        Me.ocmviewpdf = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmattachpoaccepted = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmviewpiacceptedpdf = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmreject = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.FNPIGrandQuantity.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTRemark.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTPINo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -378,7 +384,7 @@ Partial Class wPurchaseTrackingPIAddPI
         Me.FNPIGrandQuantity.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPIGrandQuantity.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPIGrandQuantity.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPIGrandQuantity.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPIGrandQuantity.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPIGrandQuantity.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPIGrandQuantity.Properties.Precision = 4
         Me.FNPIGrandQuantity.Properties.ReadOnly = True
@@ -408,14 +414,14 @@ Partial Class wPurchaseTrackingPIAddPI
         Me.FTRemark.Location = New System.Drawing.Point(137, 456)
         Me.FTRemark.Name = "FTRemark"
         Me.FTRemark.Properties.MaxLength = 500
-        Me.FTRemark.Size = New System.Drawing.Size(811, 87)
+        Me.FTRemark.Size = New System.Drawing.Size(811, 95)
         Me.FTRemark.TabIndex = 12
         Me.FTRemark.Tag = "2|"
         '
         'ocmadd
         '
         Me.ocmadd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.ocmadd.Location = New System.Drawing.Point(137, 552)
+        Me.ocmadd.Location = New System.Drawing.Point(137, 560)
         Me.ocmadd.Name = "ocmadd"
         Me.ocmadd.Size = New System.Drawing.Size(145, 27)
         Me.ocmadd.TabIndex = 13
@@ -424,7 +430,7 @@ Partial Class wPurchaseTrackingPIAddPI
         'ocmcancel
         '
         Me.ocmcancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.ocmcancel.Location = New System.Drawing.Point(661, 552)
+        Me.ocmcancel.Location = New System.Drawing.Point(661, 560)
         Me.ocmcancel.Name = "ocmcancel"
         Me.ocmcancel.Size = New System.Drawing.Size(145, 27)
         Me.ocmcancel.TabIndex = 14
@@ -489,7 +495,7 @@ Partial Class wPurchaseTrackingPIAddPI
         Me.FNPIGrandNetAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPIGrandNetAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPIGrandNetAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPIGrandNetAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPIGrandNetAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPIGrandNetAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPIGrandNetAmt.Properties.Precision = 2
         Me.FNPIGrandNetAmt.Properties.ReadOnly = True
@@ -537,7 +543,7 @@ Partial Class wPurchaseTrackingPIAddPI
         '
         Me.ogvpo.Appearance.EvenRow.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ogvpo.Appearance.EvenRow.Options.UseBackColor = True
-        Me.ogvpo.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTPurchaseNo, Me.cxFTUnitCode, Me.FNPOQuantity, Me.FNPONetAmt, Me.FNPOBalQuantity, Me.FNPOBalGrandAmt, Me.FNPIPOQuantity, Me.FNPIPONetAmt})
+        Me.ogvpo.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTPurchaseNo, Me.cxFTUnitCode, Me.FNPOQuantity, Me.FNPONetAmt, Me.FNPOBalQuantity, Me.FNPOBalGrandAmt, Me.FNPIPOQuantity, Me.FNPIPONetAmt, Me.FTStateVendorUpload})
         Me.ogvpo.GridControl = Me.ogcpo
         Me.ogvpo.Name = "ogvpo"
         Me.ogvpo.OptionsView.ColumnAutoWidth = False
@@ -668,6 +674,14 @@ Partial Class wPurchaseTrackingPIAddPI
         Me.RepositoryItemAmt.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.RepositoryItemAmt.Name = "RepositoryItemAmt"
         '
+        'FTStateVendorUpload
+        '
+        Me.FTStateVendorUpload.Caption = "FTStateVendorUpload"
+        Me.FTStateVendorUpload.FieldName = "FTStateVendorUpload"
+        Me.FTStateVendorUpload.MinWidth = 22
+        Me.FTStateVendorUpload.Name = "FTStateVendorUpload"
+        Me.FTStateVendorUpload.Width = 64
+        '
         'RepositoryItemCheckEdit1
         '
         Me.RepositoryItemCheckEdit1.AutoHeight = False
@@ -755,7 +769,7 @@ Partial Class wPurchaseTrackingPIAddPI
         'ReposFNHSysUnitId
         '
         Me.ReposFNHSysUnitId.AutoHeight = False
-        Me.ReposFNHSysUnitId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "5", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ReposFNHSysUnitId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "5", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ReposFNHSysUnitId.Name = "ReposFNHSysUnitId"
         '
         'RepPart
@@ -767,7 +781,7 @@ Partial Class wPurchaseTrackingPIAddPI
         'RepFNHSysSuplId
         '
         Me.RepFNHSysSuplId.AutoHeight = False
-        Me.RepFNHSysSuplId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", "99", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepFNHSysSuplId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "99", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepFNHSysSuplId.Name = "RepFNHSysSuplId"
         '
         'RepositoryFNHSysRawmatId
@@ -1035,7 +1049,7 @@ Partial Class wPurchaseTrackingPIAddPI
         Me.FNCNAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNCNAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNCNAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNCNAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions17, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject65, SerializableAppearanceObject66, SerializableAppearanceObject67, SerializableAppearanceObject68, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNCNAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNCNAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNCNAmt.Properties.Precision = 2
         Me.FNCNAmt.Properties.ReadOnly = True
@@ -1072,7 +1086,7 @@ Partial Class wPurchaseTrackingPIAddPI
         Me.FNDNAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNDNAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNDNAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNDNAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNDNAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNDNAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNDNAmt.Properties.Precision = 2
         Me.FNDNAmt.Properties.ReadOnly = True
@@ -1109,7 +1123,7 @@ Partial Class wPurchaseTrackingPIAddPI
         Me.FNPIGrandTotalAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPIGrandTotalAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPIGrandTotalAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPIGrandTotalAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPIGrandTotalAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPIGrandTotalAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPIGrandTotalAmt.Properties.Precision = 2
         Me.FNPIGrandTotalAmt.Properties.ReadOnly = True
@@ -1146,7 +1160,7 @@ Partial Class wPurchaseTrackingPIAddPI
         Me.FNSurchargeAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNSurchargeAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNSurchargeAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNSurchargeAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNSurchargeAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNSurchargeAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNSurchargeAmt.Properties.Precision = 2
         Me.FNSurchargeAmt.Properties.ReadOnly = True
@@ -1387,7 +1401,7 @@ Partial Class wPurchaseTrackingPIAddPI
         'RepositoryItemButtonEdit1
         '
         Me.RepositoryItemButtonEdit1.AutoHeight = False
-        Me.RepositoryItemButtonEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "5", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryItemButtonEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "5", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryItemButtonEdit1.Name = "RepositoryItemButtonEdit1"
         '
         'RepositoryItemPopupContainerEdit1
@@ -1399,7 +1413,7 @@ Partial Class wPurchaseTrackingPIAddPI
         'RepositoryItemButtonEdit2
         '
         Me.RepositoryItemButtonEdit2.AutoHeight = False
-        Me.RepositoryItemButtonEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions18, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject69, SerializableAppearanceObject70, SerializableAppearanceObject71, SerializableAppearanceObject72, "", "99", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryItemButtonEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "99", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryItemButtonEdit2.Name = "RepositoryItemButtonEdit2"
         '
         'RepositoryItemGridLookUpEdit2
@@ -1796,7 +1810,7 @@ Partial Class wPurchaseTrackingPIAddPI
         'RepositoryItemButtonEdit3
         '
         Me.RepositoryItemButtonEdit3.AutoHeight = False
-        Me.RepositoryItemButtonEdit3.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions19, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject73, SerializableAppearanceObject74, SerializableAppearanceObject75, SerializableAppearanceObject76, "", "5", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryItemButtonEdit3.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "5", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryItemButtonEdit3.Name = "RepositoryItemButtonEdit3"
         '
         'RepositoryItemPopupContainerEdit2
@@ -1808,7 +1822,7 @@ Partial Class wPurchaseTrackingPIAddPI
         'RepositoryItemButtonEdit4
         '
         Me.RepositoryItemButtonEdit4.AutoHeight = False
-        Me.RepositoryItemButtonEdit4.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions20, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject77, SerializableAppearanceObject78, SerializableAppearanceObject79, SerializableAppearanceObject80, "", "99", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryItemButtonEdit4.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "99", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryItemButtonEdit4.Name = "RepositoryItemButtonEdit4"
         '
         'RepositoryItemGridLookUpEdit4
@@ -1994,7 +2008,7 @@ Partial Class wPurchaseTrackingPIAddPI
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysSuplId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, False, False, EditorButtonImageOptions21, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject81, SerializableAppearanceObject82, SerializableAppearanceObject83, SerializableAppearanceObject84, "", "99", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSuplId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, False, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "99", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSuplId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysSuplId.Properties.MaxLength = 30
         Me.FNHSysSuplId.Properties.ReadOnly = True
@@ -2107,7 +2121,7 @@ Partial Class wPurchaseTrackingPIAddPI
         Me.FNHSysCurId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCurId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCurId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCurId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, False, False, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "16", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCurId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, False, False, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", "16", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCurId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCurId.Properties.MaxLength = 30
         Me.FNHSysCurId.Properties.ReadOnly = True
@@ -2248,12 +2262,57 @@ Partial Class wPurchaseTrackingPIAddPI
         Me.FTBLNo.TabStop = False
         Me.FTBLNo.Tag = "2|"
         '
+        'ocmviewpdf
+        '
+        Me.ocmviewpdf.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ocmviewpdf.ImageOptions.Image = CType(resources.GetObject("ocmviewpdf.ImageOptions.Image"), System.Drawing.Image)
+        Me.ocmviewpdf.Location = New System.Drawing.Point(748, 67)
+        Me.ocmviewpdf.Name = "ocmviewpdf"
+        Me.ocmviewpdf.Size = New System.Drawing.Size(200, 45)
+        Me.ocmviewpdf.TabIndex = 598
+        Me.ocmviewpdf.Text = "Show PDF File"
+        Me.ocmviewpdf.Visible = False
+        '
+        'ocmattachpoaccepted
+        '
+        Me.ocmattachpoaccepted.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ocmattachpoaccepted.ImageOptions.Image = CType(resources.GetObject("ocmattachpoaccepted.ImageOptions.Image"), System.Drawing.Image)
+        Me.ocmattachpoaccepted.Location = New System.Drawing.Point(749, 126)
+        Me.ocmattachpoaccepted.Name = "ocmattachpoaccepted"
+        Me.ocmattachpoaccepted.Size = New System.Drawing.Size(200, 45)
+        Me.ocmattachpoaccepted.TabIndex = 599
+        Me.ocmattachpoaccepted.Text = "Attach P/I Accepted file"
+        '
+        'ocmviewpiacceptedpdf
+        '
+        Me.ocmviewpiacceptedpdf.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ocmviewpiacceptedpdf.ImageOptions.Image = CType(resources.GetObject("ocmviewpiacceptedpdf.ImageOptions.Image"), System.Drawing.Image)
+        Me.ocmviewpiacceptedpdf.Location = New System.Drawing.Point(749, 184)
+        Me.ocmviewpiacceptedpdf.Name = "ocmviewpiacceptedpdf"
+        Me.ocmviewpiacceptedpdf.Size = New System.Drawing.Size(200, 45)
+        Me.ocmviewpiacceptedpdf.TabIndex = 600
+        Me.ocmviewpiacceptedpdf.Text = "Show P/I Accepted file"
+        Me.ocmviewpiacceptedpdf.Visible = False
+        '
+        'ocmreject
+        '
+        Me.ocmreject.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ocmreject.Location = New System.Drawing.Point(389, 560)
+        Me.ocmreject.Name = "ocmreject"
+        Me.ocmreject.Size = New System.Drawing.Size(145, 27)
+        Me.ocmreject.TabIndex = 601
+        Me.ocmreject.Text = "Delete PI (Reject)"
+        '
         'wPurchaseTrackingPIAddPI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(961, 590)
+        Me.ClientSize = New System.Drawing.Size(961, 598)
         Me.ControlBox = False
+        Me.Controls.Add(Me.ocmreject)
+        Me.Controls.Add(Me.ocmviewpiacceptedpdf)
+        Me.Controls.Add(Me.ocmattachpoaccepted)
+        Me.Controls.Add(Me.ocmviewpdf)
         Me.Controls.Add(Me.FTBLDate_lbl)
         Me.Controls.Add(Me.FTBLDate)
         Me.Controls.Add(Me.FTBLNo_lbl)
@@ -2557,4 +2616,9 @@ Partial Class wPurchaseTrackingPIAddPI
     Friend WithEvents FTBLDate As DevExpress.XtraEditors.DateEdit
     Friend WithEvents FTBLNo_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTBLNo As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents ocmviewpdf As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents FTStateVendorUpload As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ocmattachpoaccepted As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmviewpiacceptedpdf As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmreject As DevExpress.XtraEditors.SimpleButton
 End Class

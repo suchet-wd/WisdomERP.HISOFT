@@ -25,6 +25,7 @@ Public Class wPurchaseOrder
     Private _ProcLoad As Boolean = False
     Private _FormLoad As Boolean = True
     Private _PORunDocVat As Boolean = False
+    Private pCountMaxApp As Integer = 0
 
     Sub New()
         _FormLoad = True
@@ -71,8 +72,10 @@ Public Class wPurchaseOrder
         End Try
 
         Dim cmdstring As String = "select top 1 FTCfgData from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS X With(Nolock) where FTCfgName ='CVNPORunVat'"
-
         _PORunDocVat = (HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_SECURITY, "") = "Y")
+
+        Dim cmd As String = "Select top 1  FTCfgData from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig  WHERE  (FTCfgName = N'popdfmaxapp') "
+        pCountMaxApp = Val(HI.Conn.SQLConn.GetField(cmd, Conn.DB.DataBaseName.DB_SECURITY, "0"))
 
     End Sub
 
@@ -289,7 +292,7 @@ Public Class wPurchaseOrder
 
     Public Sub LoadDataInfo(Key As Object)
         _ProcLoad = True
-
+        ockcancel.Checked = False
         Try
             Dim _Dt As DataTable
             Dim _Str As String = Me.Query & "  WHERE  " & Me.MainKey & "='" & Key.ToString & "' "
@@ -364,9 +367,12 @@ Public Class wPurchaseOrder
 
             lblpomo.Visible = (HI.Conn.SQLConn.GetField(_Str, Conn.DB.DataBaseName.DB_PUR, "") <> "")
 
+            CheckPOCaceled()
+
             Call LoadPoDetail(Key.ToString)
 
             Me.oxtb.SelectedTabPageIndex = 0
+
 
             _Dt.Dispose()
         Catch ex As Exception
@@ -414,8 +420,15 @@ Public Class wPurchaseOrder
         _Str &= vbCrLf & "),'0') AS FTStateReserve"
 
         _Str &= vbCrLf & ",D.FTOGacDate,CASE WHEN ISNULL(MMX.FNMerMatType,0) <=0 THEN 0 ELSE 1 END AS FNMerMatTypePOX"
+        _Str &= vbCrLf & ",CASE WHEN ISDATE(D.FTDeliveryDate)= 1 THEN  Convert(Date,D.FTDeliveryDate,111) ELSE NULL END AS FTDeliveryDate "
 
-        _Str &= vbCrLf & " FROM            [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo AS D WITH (NOLOCK) INNER JOIN"
+        If ockcancel.Checked Then
+            _Str &= vbCrLf & " FROM            [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo_Cancel AS D WITH (NOLOCK) INNER JOIN"
+
+        Else
+            _Str &= vbCrLf & " FROM            [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo AS D WITH (NOLOCK) INNER JOIN"
+        End If
+
         _Str &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMaterial AS M WITH (NOLOCK) ON D.FNHSysRawMatId = M.FNHSysRawMatId INNER JOIN"
         _Str &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit AS U WITH (NOLOCK) ON D.FNHSysUnitId = U.FNHSysUnitId"
         _Str &= vbCrLf & " LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMatColor AS C WITH (NOLOCK) ON M.FNHSysRawMatColorId = C.FNHSysRawMatColorId"
@@ -454,7 +467,13 @@ Public Class wPurchaseOrder
 
         '_Str &= vbCrLf & ",SUM(ISNULL(D.FNGrandNetAmt,D.FNNetAmt)) AS FNGrandNetAmt"
         _Str &= vbCrLf & "  ,  (Convert(numeric(18,2),SUM(D.FNQuantity) *  D.FNPrice) + MAX(ISNULL(D.FNSurchangeAmt,0))  ) AS FNGrandNetAmt"
-        _Str &= vbCrLf & " FROM      [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo AS D WITH (NOLOCK) INNER JOIN"
+
+        If ockcancel.Checked Then
+            _Str &= vbCrLf & " FROM      [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo_Cancel AS D WITH (NOLOCK) INNER JOIN"
+        Else
+            _Str &= vbCrLf & " FROM      [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo AS D WITH (NOLOCK) INNER JOIN"
+        End If
+
         _Str &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMaterial AS M WITH (NOLOCK) ON D.FNHSysRawMatId = M.FNHSysRawMatId INNER JOIN"
         _Str &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit AS U WITH (NOLOCK) ON D.FNHSysUnitId = U.FNHSysUnitId"
         _Str &= vbCrLf & "  LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMatColor AS C WITH (NOLOCK) ON M.FNHSysRawMatColorId = C.FNHSysRawMatColorId"
@@ -547,7 +566,8 @@ Public Class wPurchaseOrder
         Next
 
         lblpomo.Visible = False
-
+        ockcancel.Checked = False
+        FTStateHold.Checked = False
         _FormLoad = False
     End Sub
 
@@ -1068,7 +1088,7 @@ Public Class wPurchaseOrder
                 _Str &= vbCrLf & "  ,FTSuperVisorName='' "
                 _Str &= vbCrLf & "  ,FTStateManagerApp='0' "
                 _Str &= vbCrLf & "  ,FTSuperManagerName='' "
-                _Str &= vbCrLf & "  ,FTStatePDF='0' "
+                _Str &= vbCrLf & "  ,FTStatePDF='0',FTStateSendMail='0' "
                 _Str &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
 
                 FTStateSendApp.Checked = False
@@ -1133,7 +1153,7 @@ Public Class wPurchaseOrder
 
     End Function
 
-    Private Function DeleteData() As Boolean
+    Private Function DeleteData(tReason As String) As Boolean
         Try
             HI.Conn.DB.ConnectionString(Conn.DB.DataBaseName.DB_SYSTEM)
             HI.Conn.SQLConn.SqlConnectionOpen()
@@ -1141,24 +1161,55 @@ Public Class wPurchaseOrder
             HI.Conn.SQLConn.Tran = HI.Conn.SQLConn.Cnn.BeginTransaction
 
             Dim _Str As String
-            _Str = "Delete From  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
-            If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
-                HI.Conn.SQLConn.Tran.Rollback()
-                HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
-                HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
-                Return False
-            End If
 
-            _Str = "Delete From  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
-            HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
+            Dim cmdstring As String
+            '_Str = "Delete From  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
+            'If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+            '    HI.Conn.SQLConn.Tran.Rollback()
+            '    HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+            '    HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+            '    Return False
+            'End If
 
-            _Str = "Delete From  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTReservePurchase WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
-            HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
+            '_Str = "Delete From  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
+            'HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
+
+            '_Str = "Delete From  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTReservePurchase WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
+            'HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
+
+
+
+
+            cmdstring = " UPDATE  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase  SET FTStatePOCancel='1',FTCancelPONote='" & HI.UL.ULF.rpQuoted(tReason) & "',FTCancelPOBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "',FTCancelPODate=" & HI.UL.ULDate.FormatDateDB & ",FTCancelPOTime=" & HI.UL.ULDate.FormatTimeDB & ""
+            cmdstring &= vbCrLf & "  WHERE FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' "
+            cmdstring &= vbCrLf & "  INSERT INTO   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo_Cancel (FTInsUser, FDInsDate, FTInsTime, FTUpdUser, FDUpdDate, FTUpdTime,"
+            cmdstring &= vbCrLf & "  FTPurchaseNo, FTOrderNo, FNHSysRawMatId, FNHSysUnitId, FNPrice, FNDisPer, FNDisAmt, FNQuantity, FNNetAmt, FTRemark, "
+            cmdstring &= vbCrLf & " FTFabricFrontSize, FNReservePOQuantity, FTRawMatColorNameTH, FTRawMatColorNameEN, FNSurchangeAmt, FNSurchangePerUnit, FNGrandNetAmt, FTOGacDate, FNRepeatLengthCM, FNRepeatConvert, FNTotalRepeat, "
+            cmdstring &= vbCrLf & "  FNLeadTime, FTStateExportAX, FTStateExportVender )  "
+            cmdstring &= vbCrLf & " SELECT  FTInsUser, FDInsDate, FTInsTime, FTUpdUser, FDUpdDate, FTUpdTime, FTPurchaseNo, FTOrderNo, FNHSysRawMatId, FNHSysUnitId, FNPrice, FNDisPer, FNDisAmt, FNQuantity, FNNetAmt, FTRemark, "
+            cmdstring &= vbCrLf & "  FTFabricFrontSize, FNReservePOQuantity, FTRawMatColorNameTH, FTRawMatColorNameEN, FNSurchangeAmt, FNSurchangePerUnit, FNGrandNetAmt, FTOGacDate, FNRepeatLengthCM, FNRepeatConvert, FNTotalRepeat, "
+            cmdstring &= vbCrLf & "  FNLeadTime, FTStateExportAX, FTStateExportVender"
+            cmdstring &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo AS X "
+            cmdstring &= vbCrLf & "  WHERE X.FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' "
+            cmdstring &= vbCrLf & "  DELETE X2 FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo AS X2 "
+            cmdstring &= vbCrLf & "  WHERE X2.FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' "
+            cmdstring &= vbCrLf & "  DELETE X2 FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTReservePurchase AS X2 "
+            cmdstring &= vbCrLf & "  WHERE X2.FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' "
+
+            HI.Conn.SQLConn.Execute_Tran(cmdstring, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
 
             HI.Conn.SQLConn.Tran.Commit()
             HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
             HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
 
+
+            Try
+                _Str = "  EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_SENDDATAPO_FORVENDER '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "',1"
+
+                HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_PUR)
+            Catch ex As Exception
+
+            End Try
             Try
 
                 _Str = " UPDATE A SET FTPurchaseRefNo='' "
@@ -1195,6 +1246,7 @@ Public Class wPurchaseOrder
     End Function
 
     Private Sub LoadData(HSysId As String)
+        ockcancel.Checked = False
         Dim _Str As String = Me.Query & "  WHERE " & Me.MainKey & "='" & HSysId & "' "
         Dim _dt As DataTable = HI.Conn.SQLConn.GetDataTable(_Str, _DBEnum)
         Dim _FieldName As String = ""
@@ -1255,6 +1307,9 @@ Public Class wPurchaseOrder
         Next
 
         _dt.Dispose()
+
+        CheckPOCaceled()
+
     End Sub
 
     Private Sub FormRefresh()
@@ -1322,6 +1377,10 @@ Public Class wPurchaseOrder
 
         Dim _StateNotReState As Boolean = True
         If CheckOwner() = False Then Exit Sub
+
+        CheckPOCaceled()
+        If ockcancel.Checked Then Exit Sub
+
         If Me.VerrifyData Then
             Dim _Qry As String = ""
             Dim _RevisedRemark As String = ""
@@ -1362,6 +1421,8 @@ Public Class wPurchaseOrder
 
             End If
 
+            FTStateSendMail.Checked = False
+
             If Me.SaveData(_RevisedRemark, _StateNotReState) Then
                 'FTStateSendApp.Checked = False
                 'FTStateSuperVisorApp.Checked = False
@@ -1387,16 +1448,30 @@ Public Class wPurchaseOrder
 
         If CheckOwner() = False Then Exit Sub
 
+        CheckPOCaceled()
+        If ockcancel.Checked Then Exit Sub
+
         If HI.MG.ShowMsg.mConfirmProcessDefaultNo(MG.ShowMsg.ProcessType.mDelete, Me.FTPurchaseNo.Text, Me.Text) = True Then
-            If Me.DeleteData() Then
-                Call ClearSourcing()
-                HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mDelete, Me.Text)
-                HI.TL.HandlerControl.ClearControl(Me)
-                Me.DefaultsData()
-                Me.FTPurchaseNo.Focus()
+
+            Dim tReason As String = ""
+            With New wInputReason
+                tReason = .SetReason()
+            End With
+            If tReason.Trim = "" Then
+                Exit Sub
             Else
-                HI.MG.ShowMsg.mProcessNotComplete(MG.ShowMsg.ProcessType.mDelete, Me.Text)
+                If Me.DeleteData(tReason) Then
+                    Call ClearSourcing()
+                    HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mDelete, Me.Text)
+                    HI.TL.HandlerControl.ClearControl(Me)
+                    Me.DefaultsData()
+                    Me.FTPurchaseNo.Focus()
+                Else
+                    HI.MG.ShowMsg.mProcessNotComplete(MG.ShowMsg.ProcessType.mDelete, Me.Text)
+                End If
             End If
+
+
         End If
 
     End Sub
@@ -1410,8 +1485,26 @@ Public Class wPurchaseOrder
 
             'Dim cmdstring As String = "select top 1 '1' AS FTState FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase AS A WITH(NOLOCK)   WHERE FTPurchaseNo=N'" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' AND FTStateSendApp='1' AND FTStateSuperVisorApp='1' "
 
-
+            Dim pStateApp As Boolean = False
             'Dim pStateComplete As Boolean = (HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN, "") = "1")
+            Dim cmdstring As String = ""
+            If pCountMaxApp > 0 Then
+                cmdstring = "Select top 1 FTPurchaseNo FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase "
+                cmdstring &= vbCrLf & "  WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' and FTStateSendApp='1'"
+
+                If pCountMaxApp = 2 Then
+                    cmdstring &= vbCrLf & "   and FTStateSuperVisorApp='1'"
+                ElseIf pCountMaxApp > 2 Then
+                    cmdstring &= vbCrLf & "   and FTStateManagerApp='1'"
+                End If
+
+                pStateApp = (HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_PUR, "") <> "")
+
+            Else
+
+                pStateApp = True
+
+            End If
 
             With New HI.RP.Report
 
@@ -1425,8 +1518,8 @@ Public Class wPurchaseOrder
 
                 .FormTitle = Me.Text
 
-                '.ShowExport = pStateComplete
-                '.ShowPrint = pStateComplete
+                .ShowExport = pStateApp
+                .ShowPrint = pStateApp
 
                 .ReportFolderName = "PurchaseOrder\"
                 .ReportName = "PurchaseOrder.rpt"
@@ -1444,7 +1537,35 @@ Public Class wPurchaseOrder
 
     Private Sub ocmprint_Click(sender As Object, e As EventArgs) Handles ocmprint.Click
         If Me.FTPurchaseNo.Text <> "" And Me.FTPurchaseNo.Properties.Tag.ToString <> "" Then
-            With New HI.RP.Report
+            CheckPOCaceled()
+            If ockcancel.Checked Then Exit Sub
+            Dim cmdstring As String = ""
+            If pCountMaxApp > 0 Then
+                cmdstring = "Select top 1 FTPurchaseNo FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase "
+                cmdstring &= vbCrLf & "  WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' and FTStateSendApp='1'"
+
+                If pCountMaxApp = 2 Then
+                    cmdstring &= vbCrLf & "   and FTStateSuperVisorApp='1'"
+                ElseIf pCountMaxApp > 2 Then
+                    cmdstring &= vbCrLf & "   and FTStateManagerApp='1'"
+                End If
+
+
+                If HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_PUR, "") = "" Then
+                    Select Case True
+                        Case pCountMaxApp = 1
+                            HI.MG.ShowMsg.mInfo("PO ยังไม่ได้ทำการส่งอนุมัติ ไม่สามามารถทำการ Print ได้ !!!", 23040102, Me.Text,, MessageBoxIcon.Warning)
+                        Case pCountMaxApp = 2
+                            HI.MG.ShowMsg.mInfo("Super Visor ยังไม่ได้ทำการ อนุมัติ PO ไม่สามามารถทำการ Print ได้ !!!", 23040103, Me.Text,, MessageBoxIcon.Warning)
+                        Case Else
+                            HI.MG.ShowMsg.mInfo("Director ยังไม่ได้ทำการ อนุมัติ PO ไม่สามามารถทำการ Print ได้ !!!", 23040104, Me.Text,, MessageBoxIcon.Warning)
+                    End Select
+
+                    Exit Sub
+                End If
+
+            End If
+                With New HI.RP.Report
 
                 'Dim cmdstring As String = "select top 1 '1' AS FTState FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase AS A WITH(NOLOCK)   WHERE FTPurchaseNo=N'" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' AND FTStateSendApp='1' AND FTStateSuperVisorApp='1' "
 
@@ -1502,7 +1623,7 @@ Public Class wPurchaseOrder
 
     Private Function CheckStateRevised() As Boolean
         Dim _Qry As String
-        _Qry = "SELECT TOP 1  FTStateManagerApp "
+        _Qry = "SELECT TOP 1  CASE WHEN FTStateSendMail='1' THEN '1' ELSE FTStateManagerApp END AS FTStateManagerApp "
         _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase AS A WITH(NOLOCK)"
         _Qry &= vbCrLf & "  WHERE FTPurchaseNo=N'" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
 
@@ -1596,6 +1717,7 @@ Public Class wPurchaseOrder
     Private Sub Form_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Try
 
+            ockcancel.Checked = False
             lblpomo.Visible = False
             _FormLoad = False
 
@@ -1613,6 +1735,9 @@ Public Class wPurchaseOrder
     End Sub
 
     Private Sub ocmadd_Click(sender As System.Object, e As System.EventArgs) Handles ocmadd.Click
+        CheckPOCaceled()
+        If ockcancel.Checked Then Exit Sub
+
         AddItemMulti()
     End Sub
 
@@ -1695,6 +1820,10 @@ Public Class wPurchaseOrder
 
     Private Sub ocmremove_Click(sender As System.Object, e As System.EventArgs) Handles ocmremove.Click
         If CheckOwner() = False Then Exit Sub
+
+        CheckPOCaceled()
+        If ockcancel.Checked Then Exit Sub
+
         With ogvdetail
             If .RowCount <= 0 Then Exit Sub
             If .FocusedRowHandle < 0 Or .FocusedRowHandle > .RowCount - 1 Then Exit Sub
@@ -1781,7 +1910,6 @@ Public Class wPurchaseOrder
 
                 End If
 
-
                 _Str = "      Select SUM(Convert(numeric(18, 2), FNQuantity * ((FNPrice - FNDisAmt) )) + FNSurchangeAmt ) AS NETAMT"
                 _Str &= vbCrLf & "    FROM"
                 _Str &= vbCrLf & " ("
@@ -1859,6 +1987,8 @@ Public Class wPurchaseOrder
                 HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_PUR)
 
                 'Me.SaveData(_RevisedRemark, _CheckRcv)
+
+
                 Me.LoadPoDetail(Me.FTPurchaseNo.Text)
 
             End If
@@ -2065,6 +2195,9 @@ Public Class wPurchaseOrder
 
     Private Sub ocmsendpoapprove_Click(sender As Object, e As EventArgs) Handles ocmsendpoapprove.Click
         If CheckOwner() = False Then Exit Sub
+        CheckPOCaceled()
+        If ockcancel.Checked Then Exit Sub
+
         If Me.FTPurchaseNo.Text <> "" And Me.FTPurchaseNo.Properties.Tag.ToString <> "" Then
 
             Dim _Qry As String = ""
@@ -2084,14 +2217,20 @@ Public Class wPurchaseOrder
                 _Qry &= vbCrLf & "  ,FTStateManagerApp='0' "
                 _Qry &= vbCrLf & "  ,FTSuperManagerName='' "
                 _Qry &= vbCrLf & "  ,FTStatePDF='0' "
+                _Qry &= vbCrLf & "  ,FTStateAutoSendFabricFlow='0' "
+                _Qry &= vbCrLf & "  ,FTStateSendMail='0' "
+                '_Qry &= vbCrLf & "  ,FTStateHold='0' "
+                '_Qry &= vbCrLf & "  ,FNHSysPOHoldId=0 "
                 _Qry &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
 
                 HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_PUR)
 
+                Me.CheckPOCaceled()
                 'Call CreatePOFactory(Me.FTPurchaseNo.Text)
 
             End If
 
+            'FTStateHold.Checked = False
             FTStateSendApp.Checked = True
         Else
             HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.SelectData, Me.Text, Me.FTPurchaseNo_lbl.Text)
@@ -2397,8 +2536,54 @@ Public Class wPurchaseOrder
 
         If Me.FTPurchaseNo.Text <> "" And Me.FTPurchaseNo.Properties.Tag.ToString <> "" Then
 
+            CheckPOCaceled()
+            If ockcancel.Checked Then Exit Sub
+
+
+
+            Dim cmdstring As String = ""
+            If pCountMaxApp > 0 Then
+                cmdstring = "Select top 1 FTPurchaseNo FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase "
+                cmdstring &= vbCrLf & "  WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' and FTStateSendApp='1'"
+
+                If pCountMaxApp = 2 Then
+                    cmdstring &= vbCrLf & "   and FTStateSuperVisorApp='1'"
+                ElseIf pCountMaxApp > 2 Then
+                    cmdstring &= vbCrLf & "   and FTStateManagerApp='1'"
+                End If
+
+
+                If HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_PUR, "") = "" Then
+                    Select Case True
+                        Case pCountMaxApp = 1
+                            HI.MG.ShowMsg.mInfo("PO ยังไม่ได้ทำการส่งอนุมัติ ไม่สามามารถทำการ Print ได้ !!!", 23040102, Me.Text,, MessageBoxIcon.Warning)
+                        Case pCountMaxApp = 2
+                            HI.MG.ShowMsg.mInfo("Super Visor ยังไม่ได้ทำการ อนุมัติ PO ไม่สามามารถทำการ Print ได้ !!!", 23040103, Me.Text,, MessageBoxIcon.Warning)
+                        Case Else
+                            HI.MG.ShowMsg.mInfo("Director ยังไม่ได้ทำการ อนุมัติ PO ไม่สามามารถทำการ Print ได้ !!!", 23040104, Me.Text,, MessageBoxIcon.Warning)
+                    End Select
+
+                    Exit Sub
+                End If
+
+            End If
+
+
+            Dim pPathPDF As String = ""
+
+
+            cmdstring = "select top 1 FTCfgData   "
+            cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig With(NOLOCK) "
+            cmdstring &= vbCrLf & "  Where (FTCfgName = N'POPDF')"
+
+            pPathPDF = HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_SECURITY, "")
+
+
             Dim _FTMail As String = ""
             Dim _Sql As String = ""
+            Dim StateFoundPDF As Boolean = False
+            Dim Str_Doc_Name As String = ""
+            Dim StatePDF As Boolean = False
 
             _Sql = "Select TOP 1 FTMail "
             _Sql &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSupplier With(NOLOCK) "
@@ -2408,6 +2593,30 @@ Public Class wPurchaseOrder
             Dim _Spls As New HI.TL.SplashScreen("Creating....Mail Please Wait.")
             Try
 
+
+                StateFoundPDF = False
+                Str_Doc_Name = ""
+                StatePDF = False
+
+                _Sql = "Select TOP 1 '1' AS FTStatePDF "
+                _Sql &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase With(NOLOCK) "
+                _Sql &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' AND FTStateManagerApp='1' AND FTStatePDF='1'"
+                StatePDF = HI.Conn.SQLConn.GetField(_Sql, Conn.DB.DataBaseName.DB_PUR, "") = "1"
+
+                If pPathPDF <> "" And StatePDF Then
+
+                    Str_Doc_Name = pPathPDF & "\" & FTPurchaseBy.Text.Trim & "\" & Me.FTPurchaseNo.Text & ".pdf"
+                    If File.Exists(Str_Doc_Name) = True Then
+                        StateFoundPDF = True
+                    Else
+                        Str_Doc_Name = ""
+                    End If
+
+                End If
+
+                If StateFoundPDF = False Then
+
+                End If
                 Dim OutlookMessage As outlook.MailItem
                 Dim AppOutlook As New outlook.Application
                 Dim objNS As outlook._NameSpace = AppOutlook.Session
@@ -2437,14 +2646,17 @@ Public Class wPurchaseOrder
                                 .ExportFile = RP.Report.ExFile.PDF
                                 .ExportName = FTPurchaseNo.Text
 
-
                                 Try
-                                    If Directory.Exists("C:\HISOFTPDF") = False Then
-                                        Directory.CreateDirectory("C:\HISOFTPDF")
-                                    End If
-                                Catch ex As Exception
 
+                                    If Directory.Exists("C:\HISOFTPDF") = False Then
+
+                                        Directory.CreateDirectory("C:\HISOFTPDF")
+
+                                    End If
+
+                                Catch ex As Exception
                                 End Try
+
                                 .PathExport = "C:\HISOFTPDF"
                                 .ReportFolderName = "PurchaseOrder\"
                                 .ReportName = "PurchaseOrder.rpt"
@@ -2452,29 +2664,52 @@ Public Class wPurchaseOrder
                                 .Formular = "{TPURTPurchase.FTPurchaseNo}='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
                                 .PrevieNoSplash()
 
+                                Str_Doc_Name = "C:\HISOFTPDF\" & FTPurchaseNo.Text & ".pdf"
+
                             End With
+
                         Catch ex As Exception
                         End Try
 
                         HI.ST.Lang.Language = _tmplang
 
                         Try
-                            .Attachments.Add("C:\HISOFTPDF\" & FTPurchaseNo.Text & ".pdf")
+
+                            If File.Exists(Str_Doc_Name) = True Then
+
+                                If StatePDF = False Then
+                                    HI.PO.POPDFToDB.SaveFilePDF(Me.FTPurchaseNo.Text, Str_Doc_Name)
+                                End If
+
+                                .Attachments.Add(Str_Doc_Name)
+
+                            End If
+
                         Catch ex As Exception
                         End Try
+
                         _Spls.Close()
                         .Display(True)
 
                     End With
 
                     Dim Qry As String
-                    Qry = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase SET FTStateSendMail='1'"
-                    Qry &= vbCrLf & ",FTSendMailBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                    Qry &= vbCrLf & ",FTSendMailDate=" & HI.UL.ULDate.FormatDateDB & " "
-                    Qry &= vbCrLf & ",FTSendMailTime=" & HI.UL.ULDate.FormatTimeDB & " "
-                    Qry &= vbCrLf & "  WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
+                    cmdstring = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase SET FTStateSendMail='1'"
+                    cmdstring &= vbCrLf & ",FTSendMailBy= CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  ELSE FTSendMailBy END"
+                    cmdstring &= vbCrLf & ",FTSendMailDate=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatDateDB & "  ELSE FTSendMailDate END "
+                    cmdstring &= vbCrLf & ",FTSendMailTime=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTSendMailTime END "
+                    cmdstring &= vbCrLf & ",FTLastMailBy= CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' ELSE FTLastMailBy  END "
+                    cmdstring &= vbCrLf & ",FTLastMailDate=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatDateDB & "  ELSE FTLastMailDate  END  "
+                    cmdstring &= vbCrLf & ",FTLastMailTime=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTLastMailTime  END  "
+                    cmdstring &= vbCrLf & ",FTSystemSendMailBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                    cmdstring &= vbCrLf & ",FTSystemSendMailDate=" & HI.UL.ULDate.FormatDateDB & " "
+                    cmdstring &= vbCrLf & ",FTSystemSendMailTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                    cmdstring &= vbCrLf & "  ,FTStateHold='0' "
+                    cmdstring &= vbCrLf & "  ,FNHSysPOHoldId=0 "
+                    cmdstring &= vbCrLf & "  WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
+                    cmdstring &= vbCrLf & "  EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_SENDDATAPO_FORVENDER '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
 
-                    HI.Conn.SQLConn.ExecuteOnly(Qry, Conn.DB.DataBaseName.DB_PUR)
+                    HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_PUR)
                     Me.FTStateSendMail.Checked = True
 
                     Try
@@ -2517,6 +2752,9 @@ Public Class wPurchaseOrder
         End If
 
         If CheckOwner() = False Then Exit Sub
+        CheckPOCaceled()
+        If ockcancel.Checked Then Exit Sub
+
         If HI.MG.ShowMsg.mConfirmProcess("คุณต้องการทำการคำนวณเพื่อปัดยอดสั่งซื้อต่อวัตถุดิบเป็นจำนวนเต็มใช่หรือไม่?", 1502259108, Me.FTPurchaseNo.Text) = True Then
             Dim _Str As String
             Dim _dtdiff As DataTable
@@ -2544,6 +2782,10 @@ Public Class wPurchaseOrder
             '_Str &= vbCrLf & "  WHERE FNQuantity % 1 >0"
 
 
+            _Str = " EXEC  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_PURCHASE_CALMATSPARE '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'  "
+            HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_PUR)
+
+
             _Str = " SELECt FTPurchaseNo,FNHSysRawMatId,FTOrderNo,FNQuantity,FNQuantity%1 AS FNQuantityDiff , 1-(FNQuantity%1) AS FNQuantityAdd,FNSurchangeAmt"
             _Str &= vbCrLf & "    FROM"
             _Str &= vbCrLf & "  (SELECT P.FTPurchaseNo, P.FNHSysRawMatId, MAX(P.FTOrderNo) AS FTOrderNo, SUM(P.FNQuantity) AS FNQuantity,Max(ISNULL(P.FNSurchangeAmt,0)) AS FNSurchangeAmt,P.FTStatePromo"
@@ -2561,6 +2803,7 @@ Public Class wPurchaseOrder
                     _Str = "   UPDATE   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo"
                     _Str &= vbCrLf & " SET FNQuantity=FNQuantity+" & Double.Parse(Val(R!FNQuantityAdd.ToString)) & ""
                     _Str &= vbCrLf & ",FNNetAmt=Convert(numeric(18, 2), (FNQuantity+" & Double.Parse(Val(R!FNQuantityAdd.ToString)) & ") * (FNPrice - FNDisAmt))"
+                    _Str &= vbCrLf & ",FTStateExportAX='0'"
                     _Str &= vbCrLf & "  WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' "
                     _Str &= vbCrLf & "  AND FTOrderNo='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "' "
                     _Str &= vbCrLf & "  AND FNHSysRawMatId=" & Integer.Parse(Val(R!FNHSysRawMatId.ToString)) & " "
@@ -2591,19 +2834,7 @@ Public Class wPurchaseOrder
 
                 Next
 
-                _Str = "      Select SUM(Convert(numeric(18, 2), FNQuantity * ((FNPrice - FNDisAmt) )) + FNSurchangeAmt ) AS NETAMT"
-                _Str &= vbCrLf & "    FROM"
-                _Str &= vbCrLf & " ("
-                _Str &= vbCrLf & " SELECT        FTPurchaseNo, FNHSysRawMatId, FNPrice, FNDisAmt, SUM(FNQuantity) AS FNQuantity,ISNULL(FNSurchangeAmt,0) AS FNSurchangeAmt"
-                _Str &= vbCrLf & " FROM            [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo AS A  WITH(NOLOCK)"
-                _Str &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' "
-                _Str &= vbCrLf & " GROUP BY FTPurchaseNo, FNHSysRawMatId, FNPrice, FNDisAmt,ISNULL(FNSurchangeAmt,0) ) AS A"
 
-                Me.FNPoAmt.Value = Val(HI.Conn.SQLConn.GetField(_Str, _DBEnum, "0"))
-
-
-                Me.SaveData()
-                Call LoadDataInfo(Me.FTPurchaseNo.Text)
 
                 HI.MG.ShowMsg.mInfo("ระบบทำการปัดยอดไเรียบร้อยแล้ว !!!", 1502259110, Me.Text, , MessageBoxIcon.Information)
 
@@ -2614,6 +2845,22 @@ Public Class wPurchaseOrder
             End If
 
             _dtdiff.Dispose()
+
+
+            _Str = "      Select SUM(Convert(numeric(18, 2), FNQuantity * ((FNPrice - FNDisAmt) )) + FNSurchangeAmt ) AS NETAMT"
+            _Str &= vbCrLf & "    FROM"
+            _Str &= vbCrLf & " ("
+            _Str &= vbCrLf & " SELECT        FTPurchaseNo, FNHSysRawMatId, FNPrice, FNDisAmt, SUM(FNQuantity) AS FNQuantity,ISNULL(FNSurchangeAmt,0) AS FNSurchangeAmt"
+            _Str &= vbCrLf & " FROM            [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo AS A  WITH(NOLOCK)"
+            _Str &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' "
+            _Str &= vbCrLf & " GROUP BY FTPurchaseNo, FNHSysRawMatId, FNPrice, FNDisAmt,ISNULL(FNSurchangeAmt,0) ) AS A"
+
+            Me.FNPoAmt.Value = Val(HI.Conn.SQLConn.GetField(_Str, _DBEnum, "0"))
+
+
+            Me.SaveData()
+            Call LoadDataInfo(Me.FTPurchaseNo.Text)
+
 
         End If
     End Sub
@@ -3143,7 +3390,8 @@ Public Class wPurchaseOrder
                         _Str &= vbCrLf & " ,FTRawMatColorNameTH='" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameTH) & "' "
                         _Str &= vbCrLf & " ,FTRawMatColorNameEN='" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameEN) & "' "
                         _Str &= vbCrLf & " ,FNSurchangeAmt=" & .FNSurchangeAmt.Value & ""
-                        _Str &= vbCrLf & " ,FTOGacDate='" & HI.UL.ULF.rpQuoted(.FTOGacDate.Text) & "' "
+                        _Str &= vbCrLf & " ,FTOGacDate='" & HI.UL.ULF.rpQuoted(.FTOGacDate.Text) & "',FTStateExportAX='0' "
+
                         _Str &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' "
                         _Str &= vbCrLf & " AND FTOrderNo='" & HI.UL.ULF.rpQuoted(.FTOrderNo.Text) & "' "
                         _Str &= vbCrLf & " AND FNHSysRawMatId=" & RawMatId & " "
@@ -3154,7 +3402,7 @@ Public Class wPurchaseOrder
 
                             _Str = "Insert into  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo(FTInsUser, FDInsDate, FTInsTime"
                             _Str &= vbCrLf & " , FTPurchaseNo,FTOrderNo, FNHSysRawMatId, FNHSysUnitId, FNPrice, FNDisPer, "
-                            _Str &= vbCrLf & "    FNDisAmt, FNQuantity, FNNetAmt, FTRemark ,FTFabricFrontSize,FTRawMatColorNameTH,FTRawMatColorNameEN,FNSurchangeAmt,FTOGacDate)"
+                            _Str &= vbCrLf & "    FNDisAmt, FNQuantity, FNNetAmt, FTRemark ,FTFabricFrontSize,FTRawMatColorNameTH,FTRawMatColorNameEN,FNSurchangeAmt,FTOGacDate,FTStateExportAX)"
                             _Str &= vbCrLf & "  SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                             _Str &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ""
                             _Str &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & ""
@@ -3172,7 +3420,8 @@ Public Class wPurchaseOrder
                             _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameTH) & "' "
                             _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameEN) & "' "
                             _Str &= vbCrLf & "," & .FNSurchangeAmt.Value & " "
-                            _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(.FTOGacDate.Text) & "' "
+                            _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(.FTOGacDate.Text) & "','0' "
+
 
 
                             If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
@@ -3200,7 +3449,7 @@ Public Class wPurchaseOrder
 
                                 _Str = "Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo SET  FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                                 _Str &= vbCrLf & " ,FDUpdDate=" & HI.UL.ULDate.FormatDateDB & ""
-                                _Str &= vbCrLf & " , FTUpdTime=" & HI.UL.ULDate.FormatTimeDB & ""
+                                _Str &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB & ""
                                 _Str &= vbCrLf & " ,FNHSysUnitId=" & Val(.FNHSysUnitIdPO.Properties.Tag.ToString) & ""
                                 _Str &= vbCrLf & " ,FNPrice=" & .FNPOPrice.Value & ""
                                 _Str &= vbCrLf & " ,FNDisPer=" & .FNDisPer.Value & ""
@@ -3212,7 +3461,8 @@ Public Class wPurchaseOrder
                                 _Str &= vbCrLf & " ,FTRawMatColorNameTH='" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameTH) & "' "
                                 _Str &= vbCrLf & " ,FTRawMatColorNameEN='" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameEN) & "' "
                                 _Str &= vbCrLf & " ,FNSurchangeAmt=" & .FNSurchangeAmt.Value & ""
-                                _Str &= vbCrLf & " ,FTOGacDate='" & HI.UL.ULF.rpQuoted(.FTOGacDate.Text) & "' "
+                                _Str &= vbCrLf & " ,FTOGacDate='" & HI.UL.ULF.rpQuoted(.FTOGacDate.Text) & "',FTStateExportAX='0' "
+
                                 _Str &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' "
                                 _Str &= vbCrLf & " AND FTOrderNo='" & HI.UL.ULF.rpQuoted(Rxi!FTOrderNo.ToString) & "' "
                                 _Str &= vbCrLf & " AND FNHSysRawMatId=" & RawMatId & " "
@@ -3223,7 +3473,7 @@ Public Class wPurchaseOrder
 
                                     _Str = "Insert into  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo(FTInsUser, FDInsDate, FTInsTime"
                                     _Str &= vbCrLf & " , FTPurchaseNo,FTOrderNo, FNHSysRawMatId, FNHSysUnitId, FNPrice, FNDisPer, "
-                                    _Str &= vbCrLf & "    FNDisAmt, FNQuantity, FNNetAmt, FTRemark ,FTFabricFrontSize,FTRawMatColorNameTH,FTRawMatColorNameEN,FNSurchangeAmt,FTOGacDate)"
+                                    _Str &= vbCrLf & "    FNDisAmt, FNQuantity, FNNetAmt, FTRemark ,FTFabricFrontSize,FTRawMatColorNameTH,FTRawMatColorNameEN,FNSurchangeAmt,FTOGacDate,FTStateExportAX)"
                                     _Str &= vbCrLf & "  SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                                     _Str &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ""
                                     _Str &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & ""
@@ -3241,7 +3491,7 @@ Public Class wPurchaseOrder
                                     _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameTH) & "' "
                                     _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameEN) & "' "
                                     _Str &= vbCrLf & "," & .FNSurchangeAmt.Value & " "
-                                    _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(.FTOGacDate.Text) & "' "
+                                    _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(.FTOGacDate.Text) & "','0' "
 
 
                                     If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
@@ -3374,6 +3624,7 @@ Public Class wPurchaseOrder
                         FTStateSendApp.Checked = False
                         FTStateSuperVisorApp.Checked = False
                         FTStateManagerApp.Checked = False
+                        FTStateSendMail.Checked = False
 
                         _Str = "      Select SUM(Convert(numeric(18, 2), FNQuantity * ((FNPrice - FNDisAmt) )) + FNSurchangeAmt ) AS NETAMT"
                         _Str &= vbCrLf & "    FROM"
@@ -3392,7 +3643,7 @@ Public Class wPurchaseOrder
                         _Str &= vbCrLf & "  ,FTSuperVisorName='' "
                         _Str &= vbCrLf & "  ,FTStateManagerApp='0' "
                         _Str &= vbCrLf & "  ,FTSuperManagerName='' "
-                        _Str &= vbCrLf & "  ,FTStatePDF='0' "
+                        _Str &= vbCrLf & "  ,FTStatePDF='0',FTStateSendMail='0' "
                         _Str &= vbCrLf & "  ,FNPoAmt=" & FNPoAmt.Value & ""
                         _Str &= vbCrLf & "  ,FNDisCountPer=" & FNDisCountPer.Value & ""
                         _Str &= vbCrLf & "  ,FNDisCountAmt=" & FNDisCountAmt.Value & ""
@@ -3700,6 +3951,7 @@ Public Class wPurchaseOrder
                         _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameEN) & "' "
                         _Str &= vbCrLf & "," & .FNSurchangeAmt.Value & " "
                         _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(.FTOGacDate.Text) & "' "
+
                     Else
 
                         _Str = "Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo SET  FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
@@ -3788,11 +4040,13 @@ Public Class wPurchaseOrder
                         _Str &= vbCrLf & " AND FNHSysRawMatId=" & Val(.FNHSysRawMatId.Properties.Tag.ToString) & " AND  (ISNULL(FTPurchaseNo,'') =''  OR  FTPurchaseNo='" & HI.UL.ULF.rpQuoted(FTPurchaseNo.Text) & "'  )  "
 
                         If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) = False Then
+
                             _Str = " SELECT TOP 1 ISNULL(FTPurchaseNo,'') FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTOrder_Sourcing "
                             _Str &= vbCrLf & " WHERE FTOrderNo='" & HI.UL.ULF.rpQuoted(.FTOrderNo.Text) & "' "
                             _Str &= vbCrLf & " AND FNHSysRawMatId=" & Val(.FNHSysRawMatId.Properties.Tag.ToString) & " "
 
                             If HI.Conn.SQLConn.GetFieldOnBeginTrans(_Str, Conn.DB.DataBaseName.DB_PUR, "") = "" Then
+
                                 _Str = " INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTOrder_Sourcing "
                                 _Str &= vbCrLf & "   (FTInsUser, FDInsDate, FTInsTime, FTOrderNo, FTSubOrderNo, FNHSysRawMatId, FNUsedQuantity, FNUsedPlusQuantity, FNHSysUnitId, FNPrice, FTStateNominate, FDDateSC, FTPurchaseNo, FNHSysSuplId, "
                                 _Str &= vbCrLf & "   FNSCQuantity, FNSCPlusQuantity, FNTotalPurchaseQuantity, FNHSysUnitIdPurchase"
@@ -3810,6 +4064,7 @@ Public Class wPurchaseOrder
                                 _Str &= vbCrLf & "," & Integer.Parse(Val(Me.FNHSysCurId.Properties.Tag.ToString)) & ",0,'" & HI.UL.ULF.rpQuoted(.FTFabricFrontSize.Text) & "'"
 
                                 HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
+
                             End If
 
                         End If
@@ -3951,6 +4206,8 @@ Public Class wPurchaseOrder
             End If
             ' End If
 
+
+
             With _AddItemPopupMultijob
                 .AddMat = False
 
@@ -4013,7 +4270,9 @@ Public Class wPurchaseOrder
                         _Str &= vbCrLf & " ,FTRawMatColorNameTH='" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameTH) & "' "
                         _Str &= vbCrLf & " ,FTRawMatColorNameEN='" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameEN) & "' "
                         _Str &= vbCrLf & " ,FNSurchangeAmt=" & .FNSurchangeAmt.Value & ""
-                        _Str &= vbCrLf & " ,FTOGacDate='" & HI.UL.ULF.rpQuoted(.FTOGacDate.Text) & "' "
+                        _Str &= vbCrLf & " ,FTOGacDate='" & HI.UL.ULF.rpQuoted(.FTOGacDate.Text) & "'  ,FTStateExportAX='0' "
+
+
                         _Str &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' "
                         _Str &= vbCrLf & " AND FTOrderNo='" & HI.UL.ULF.rpQuoted(.FTOrderNo.Text) & "' "
                         _Str &= vbCrLf & " AND FNHSysRawMatId=" & RawMatId & " "
@@ -4024,7 +4283,7 @@ Public Class wPurchaseOrder
 
                             _Str = "Insert into  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo(FTInsUser, FDInsDate, FTInsTime"
                             _Str &= vbCrLf & " , FTPurchaseNo,FTOrderNo, FNHSysRawMatId, FNHSysUnitId, FNPrice, FNDisPer, "
-                            _Str &= vbCrLf & "    FNDisAmt, FNQuantity, FNNetAmt, FTRemark ,FTFabricFrontSize,FTRawMatColorNameTH,FTRawMatColorNameEN,FNSurchangeAmt,FTOGacDate)"
+                            _Str &= vbCrLf & "    FNDisAmt, FNQuantity, FNNetAmt, FTRemark ,FTFabricFrontSize,FTRawMatColorNameTH,FTRawMatColorNameEN,FNSurchangeAmt,FTOGacDate,FTStateExportAX)"
                             _Str &= vbCrLf & "  SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                             _Str &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ""
                             _Str &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & ""
@@ -4042,13 +4301,16 @@ Public Class wPurchaseOrder
                             _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameTH) & "' "
                             _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameEN) & "' "
                             _Str &= vbCrLf & "," & .FNSurchangeAmt.Value & " "
-                            _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(.FTOGacDate.Text) & "' "
+                            _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(.FTOGacDate.Text) & "','0' "
 
                             If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+
                                 HI.Conn.SQLConn.Tran.Rollback()
                                 HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
                                 HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+
                                 Exit Sub
+
                             End If
 
                         End If
@@ -4063,9 +4325,6 @@ Public Class wPurchaseOrder
 
 
                             For Each Rxi As DataRow In dtorder.Select("FTOrderNo<>'' AND FNQuantity>0")
-
-
-
 
                                 _Str = "Update [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo SET  FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                                 _Str &= vbCrLf & " ,FDUpdDate=" & HI.UL.ULDate.FormatDateDB & ""
@@ -4086,9 +4345,7 @@ Public Class wPurchaseOrder
                                 _Str &= vbCrLf & " AND FTOrderNo='" & HI.UL.ULF.rpQuoted(Rxi!FTOrderNo.ToString) & "' "
                                 _Str &= vbCrLf & " AND FNHSysRawMatId=" & RawMatId & " "
 
-
                                 If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
-
 
                                     _Str = "Insert into  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo(FTInsUser, FDInsDate, FTInsTime"
                                     _Str &= vbCrLf & " , FTPurchaseNo,FTOrderNo, FNHSysRawMatId, FNHSysUnitId, FNPrice, FNDisPer, "
@@ -4121,7 +4378,6 @@ Public Class wPurchaseOrder
                                     End If
 
                                 End If
-
 
                                 _Str = " UPDATE [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTOrder_Sourcing "
                                 _Str &= vbCrLf & " SET FTPurchaseNo='" & HI.UL.ULF.rpQuoted(FTPurchaseNo.Text) & "' "
@@ -4208,9 +4464,10 @@ Public Class wPurchaseOrder
                             If HI.Conn.SQLConn.GetFieldOnBeginTrans(_Str, Conn.DB.DataBaseName.DB_PUR, "") = "" Then
 
                                 _Str = " INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTOrder_Sourcing "
+
                                 _Str &= vbCrLf & "   (FTInsUser, FDInsDate, FTInsTime, FTOrderNo, FTSubOrderNo, FNHSysRawMatId, FNUsedQuantity, FNUsedPlusQuantity, FNHSysUnitId, FNPrice, FTStateNominate, FDDateSC, FTPurchaseNo, FNHSysSuplId, "
                                 _Str &= vbCrLf & "   FNSCQuantity, FNSCPlusQuantity, FNTotalPurchaseQuantity, FNHSysUnitIdPurchase"
-                                _Str &= vbCrLf & ", FNPricePurchase, FNHSysCurId, FNStateChange, FTFabricFrontSize)"
+                                _Str &= vbCrLf & ", FNPricePurchase, FNHSysCurId, FNStateChange, FTFabricFrontS!@#Numize)"
                                 _Str &= vbCrLf & "  SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                                 _Str &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ""
                                 _Str &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & ""
@@ -4224,6 +4481,7 @@ Public Class wPurchaseOrder
                                 _Str &= vbCrLf & "," & Integer.Parse(Val(Me.FNHSysCurId.Properties.Tag.ToString)) & ",0,'" & HI.UL.ULF.rpQuoted(.FTFabricFrontSize.Text) & "'"
 
                                 HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
+
                             End If
 
                         End If
@@ -4243,7 +4501,7 @@ Public Class wPurchaseOrder
                         Me.FNPoAmt.Value = Val(HI.Conn.SQLConn.GetField(_Str, _DBEnum, "0"))
 
                         _Str = " UPDATE  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase "
-                        _Str &= vbCrLf & "  SET FNPoAmt=" & FNPoAmt.Value & ""
+                        _Str &= vbCrLf & "  SET FNPoAmt=" & FNPoAmt.Value & ",FTStateSendMail='0'"
                         _Str &= vbCrLf & "  ,FNDisCountPer=" & FNDisCountPer.Value & ""
                         _Str &= vbCrLf & "  ,FNDisCountAmt=" & FNDisCountAmt.Value & ""
                         _Str &= vbCrLf & "  ,FNPONetAmt=" & FNPONetAmt.Value & ""
@@ -4298,9 +4556,16 @@ Public Class wPurchaseOrder
 
                         HI.Conn.SQLConn.ExecuteNonQuery(_Str, Conn.DB.DataBaseName.DB_PUR)
 
-
+                        FTStateSendMail.Checked = False
                         ' Me.SaveData(_RevisedRemark, _CheckRcv)
 
+
+                        Try
+                            _Str = " EXEC  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_CHECKSPPO_CMPO '" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'  "
+                            HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_PUR)
+                        Catch ex As Exception
+
+                        End Try
                         Me.LoadPoDetail(Me.FTPurchaseNo.Text)
 
                     Catch ex As Exception
@@ -4358,6 +4623,9 @@ Public Class wPurchaseOrder
 
         End If
         If CheckOwner() = False Then Exit Sub
+
+        CheckPOCaceled()
+        If ockcancel.Checked Then Exit Sub
 
         Dim _CmpH As String = ""
 
@@ -4432,7 +4700,7 @@ Public Class wPurchaseOrder
                         cmdstring &= vbCrLf & "  SET  FTPurchaseNo='" & HI.UL.ULF.rpQuoted(NewPoNo) & "'"
                         cmdstring &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
                         cmdstring &= vbCrLf & "  UPDATE  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo "
-                        cmdstring &= vbCrLf & "  SET  FTPurchaseNo='" & HI.UL.ULF.rpQuoted(NewPoNo) & "'"
+                        cmdstring &= vbCrLf & "  SET  FTPurchaseNo='" & HI.UL.ULF.rpQuoted(NewPoNo) & "',FTStateExportAX='0'"
                         cmdstring &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "'"
                         cmdstring &= vbCrLf & "  UPDATE  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_Revised "
                         cmdstring &= vbCrLf & "  SET  FTPurchaseNo='" & HI.UL.ULF.rpQuoted(NewPoNo) & "'"
@@ -4470,6 +4738,106 @@ Public Class wPurchaseOrder
 
         End If
 
+    End Sub
+
+    Private Sub CheckPOCaceled()
+        Dim cmdstring As String = ""
+        FTStateHold.Checked = False
+        ockcancel.Checked = False
+        otbxcancel.SelectedTabPageIndex = 0
+
+        Dim dt As DataTable
+
+        cmdstring = "select top 1 A.FTStatePOCancel, A.FTCancelPOBy, A.FTCancelPODate, A.FTCancelPOTime, A.FTCancelPONote,A.FTStateSendMail,A.FTStateHold,A.FTStateHold,A.FTHoldNote,A.FNHSysPOHoldId,B.FTPOHoldCode "
+        cmdstring &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "]..TPURTPurchase AS A WITH(NOLOCK) "
+        cmdstring &= vbCrLf & "   OUTER APPLY (SELECT TOP 1 B.FTPOHoldCode  FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMPOHoldReason AS B WITH(NOLOCK) ) AS B "
+        cmdstring &= vbCrLf & "    Where A.FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' AND A.FTPurchaseNo <>'' "
+
+        dt = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PUR)
+
+        For Each R As DataRow In dt.Rows
+            Try
+
+                FTStateSendMail.Checked = R!FTStateSendMail.ToString = "1"
+                otbcancelreason.Text = R!FTCancelPONote.ToString
+                ockcancel.Checked = R!FTStatePOCancel.ToString = "1"
+                FTStateHold.Checked = R!FTStateHold.ToString = "1"
+
+                FNHSysPOHoldId.Text = R!FTPOHoldCode.ToString
+                FTHoldNote.Text = R!FTHoldNote.ToString
+
+            Catch ex As Exception
+
+            End Try
+
+        Next
+
+    End Sub
+
+    Private Sub ockcancel_CheckedChanged(sender As Object, e As EventArgs) Handles ockcancel.CheckedChanged
+        olbcancel.Visible = ockcancel.Checked
+        otpcancelreason.PageVisible = ockcancel.Checked
+    End Sub
+
+    Private Sub FTStateHold_CheckedChanged(sender As Object, e As EventArgs) Handles FTStateHold.CheckedChanged
+        otpholdreason.PageVisible = FTStateHold.Checked
+    End Sub
+
+    Private Sub ocmholdpurchase_Click(sender As Object, e As EventArgs) Handles ocmholdpurchase.Click
+
+        If FTPurchaseNo.Text <> "" Then
+            If (CheckReceive(Me.FTPurchaseNo.Text) = False) Then Exit Sub
+        End If
+
+        If CheckOwner() = False Then Exit Sub
+
+        CheckPOCaceled()
+        If ockcancel.Checked Then Exit Sub
+        If FTStateSendApp.Checked Then Exit Sub
+
+        ' If HI.MG.ShowMsg.mConfirmProcess("คุณ", 1541, FTPurchaseNo.Text.Trim) = True Then
+
+        Dim tReason As String = ""
+        Dim pHoldId As Integer = 0
+
+        With New wInputHoldReason
+            .bW_Confirm = False
+            .ShowDialog()
+
+            If .bW_Confirm Then
+
+                tReason = .otbCancelReason.Text.Trim
+                pHoldId = Val(.FNHSysPOHoldId.Properties.Tag.ToString)
+
+            End If
+
+        End With
+
+        If pHoldId = 0 Then
+
+            Exit Sub
+        Else
+
+            Dim cmdstring As String = ""
+
+            cmdstring = " UPDATE  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase  SET FTStateHold='1',FNHSysPOHoldId=" & pHoldId & ",FTHoldNote='" & HI.UL.ULF.rpQuoted(tReason) & "',FTHoldBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "',FTHoldDate=" & HI.UL.ULDate.FormatDateDB & ",FTHoldTime=" & HI.UL.ULDate.FormatTimeDB & ""
+            cmdstring &= vbCrLf & "  WHERE FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(Me.FTPurchaseNo.Text) & "' "
+
+            If HI.Conn.SQLConn.ExecuteNonQuery(cmdstring, Conn.DB.DataBaseName.DB_PUR) Then
+
+                HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
+                Me.CheckPOCaceled()
+                Me.FTPurchaseNo.Focus()
+
+            Else
+
+                HI.MG.ShowMsg.mProcessNotComplete(MG.ShowMsg.ProcessType.mDelete, Me.Text)
+
+            End If
+
+        End If
+
+        'End If
     End Sub
 
 

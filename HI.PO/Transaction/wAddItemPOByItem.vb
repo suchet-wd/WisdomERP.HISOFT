@@ -414,7 +414,7 @@ Public Class wAddItemPOByItem
                             .Rows.Clear()
 
                             For Each R As DataRow In dt.Select("FTStateSelect='1'")
-                                .Rows.Add(R!FTOrderNo.ToString, Val(R!FNQuantity), CDbl(Format(Val(R!FNQuantity) * (_Price - _DisAmt), HI.ST.Config.AmtFormat)))
+                                .Rows.Add(R!FTOrderNo.ToString, Val(R!FNQuantity), CDbl(Format(Val(R!FNQuantity) * (_Price - _DisAmt), HI.ST.Config.AmtFormat)), "")
 
                             Next
 
@@ -495,7 +495,7 @@ Public Class wAddItemPOByItem
 
         Dim cmdstring As String = ""
 
-        cmdstring = "   Select  FTOrderNo, FNQuantity, FNNetAmt "
+        cmdstring = "   Select  FTOrderNo, FNQuantity, FNNetAmt  "
         cmdstring &= vbCrLf & "    From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo AS X WITH(NOLOCK)"
         cmdstring &= vbCrLf & "   Where (FTPurchaseNo = N'" & HI.UL.ULF.rpQuoted(po) & "') AND (FNHSysRawMatId =" & Val(matid) & ") AND FTOrderNo<>'" & HI.UL.ULF.rpQuoted(OrderNo) & "'"
         cmdstring &= vbCrLf & " ORDER BY FTOrderNo "
@@ -734,8 +734,6 @@ Public Class wAddItemPOByItem
             Else
                 CXFNHSysRawmatId_Hide.Value = 0
             End If
-
-
 
             If Integer.Parse(RawMatID) > 0 Then
                 Dim _Qry As String

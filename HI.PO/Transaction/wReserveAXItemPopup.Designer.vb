@@ -98,6 +98,7 @@ Partial Class wReserveAXItemPopup
         Me.ogvbarcode.OptionsCustomization.AllowQuickHideColumns = False
         Me.ogvbarcode.OptionsView.ColumnAutoWidth = False
         Me.ogvbarcode.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
+        Me.ogvbarcode.OptionsView.ShowFooter = True
         Me.ogvbarcode.OptionsView.ShowGroupPanel = False
         Me.ogvbarcode.Tag = "2|"
         '
@@ -254,6 +255,7 @@ Partial Class wReserveAXItemPopup
         Me.BFNQuantity.OptionsColumn.AllowEdit = False
         Me.BFNQuantity.OptionsColumn.AllowMove = False
         Me.BFNQuantity.OptionsColumn.ReadOnly = True
+        Me.BFNQuantity.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "PhysicalQty", "{0:n4}")})
         Me.BFNQuantity.Visible = True
         Me.BFNQuantity.VisibleIndex = 10
         Me.BFNQuantity.Width = 87
@@ -265,6 +267,7 @@ Partial Class wReserveAXItemPopup
         Me.xFNOnReserve.Name = "xFNOnReserve"
         Me.xFNOnReserve.OptionsColumn.AllowEdit = False
         Me.xFNOnReserve.OptionsColumn.ReadOnly = True
+        Me.xFNOnReserve.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNOnReserve", "{0:n4}")})
         Me.xFNOnReserve.Visible = True
         Me.xFNOnReserve.VisibleIndex = 11
         Me.xFNOnReserve.Width = 64
@@ -278,6 +281,7 @@ Partial Class wReserveAXItemPopup
         Me.xQtyAvaiable.Name = "xQtyAvaiable"
         Me.xQtyAvaiable.OptionsColumn.AllowEdit = False
         Me.xQtyAvaiable.OptionsColumn.ReadOnly = True
+        Me.xQtyAvaiable.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "QtyAvaiable", "{0:n4}")})
         Me.xQtyAvaiable.Visible = True
         Me.xQtyAvaiable.VisibleIndex = 12
         Me.xQtyAvaiable.Width = 64
@@ -296,6 +300,7 @@ Partial Class wReserveAXItemPopup
         Me.FNReserveQty.MinWidth = 17
         Me.FNReserveQty.Name = "FNReserveQty"
         Me.FNReserveQty.OptionsColumn.AllowMove = False
+        Me.FNReserveQty.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNDocQuantity", "{0:n4}")})
         Me.FNReserveQty.Visible = True
         Me.FNReserveQty.VisibleIndex = 13
         Me.FNReserveQty.Width = 104

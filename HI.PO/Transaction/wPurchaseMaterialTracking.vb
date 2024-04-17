@@ -20,6 +20,9 @@ Public Class wPurchaseMaterialTracking
 
     Private wAddtracking As wPurchaseTrackingPIAddTracking
     Private _FormLoad As Boolean = True
+
+    Private pCountMaxApp As Integer = 0
+
     Sub New()
 
         ' This call is required by the designer.
@@ -48,6 +51,9 @@ Public Class wPurchaseMaterialTracking
         End With
 
         Call InitGrid()
+
+        Dim cmd As String = "Select top 1  FTCfgData from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig  WHERE  (FTCfgName = N'popdfmaxapp') "
+        pCountMaxApp = Val(HI.Conn.SQLConn.GetField(cmd, Conn.DB.DataBaseName.DB_SECURITY, "0"))
 
     End Sub
 
@@ -633,12 +639,49 @@ Public Class wPurchaseMaterialTracking
 
             End With
 
-            If dtpo.Select("FTSelect='1' AND FNDocType=0  AND ( FTStateSuperVisorApp='1' OR FTStatePDFWaitPrice='1' ) ").Length <= 0 Then
 
-                Exit Sub
+            If pCountMaxApp > 0 Then
+                Select Case True
+                    Case pCountMaxApp = 1
+
+                        If dtpo.Select("FTSelect='1' AND FNDocType=0  AND FTStateSendApp='1'   ").Length <= 0 Then
+
+                            Exit Sub
+                        End If
+
+                        dtpoList = dtpo.Select("FTSelect='1' AND FNDocType=0  AND FTStateSendApp='1'  ").CopyToDataTable
+
+                    Case pCountMaxApp = 2
+
+                        If dtpo.Select("FTSelect='1' AND FNDocType=0  AND  FTStateSuperVisorApp='1' ").Length <= 0 Then
+
+                            Exit Sub
+                        End If
+
+                        dtpoList = dtpo.Select("FTSelect='1' AND FNDocType=0  AND FTStateSuperVisorApp='1' ").CopyToDataTable
+
+                    Case Else
+
+                        If dtpo.Select("FTSelect='1' AND FNDocType=0  AND  FTStateManagerApp='1'  ").Length <= 0 Then
+
+                            Exit Sub
+                        End If
+
+                        dtpoList = dtpo.Select("FTSelect='1' AND FNDocType=0  AND  FTStateManagerApp='1'   ").CopyToDataTable
+
+                End Select
+
+            Else
+
+                If dtpo.Select("FTSelect='1' AND FNDocType=0  AND ( FTStateSuperVisorApp='1' OR FTStatePDFWaitPrice='1' ) ").Length <= 0 Then
+
+                    Exit Sub
+                End If
+
+                dtpoList = dtpo.Select("FTSelect='1' AND FNDocType=0  AND ( FTStateSuperVisorApp='1' OR FTStatePDFWaitPrice='1' ) ").CopyToDataTable
+
             End If
 
-            dtpoList = dtpo.Select("FTSelect='1' AND FNDocType=0  AND ( FTStateSuperVisorApp='1' OR FTStatePDFWaitPrice='1' ) ").CopyToDataTable
 
             Dim _FTMail As String = ""
             Dim _FTMailCC As String = ""
@@ -691,205 +734,227 @@ Public Class wPurchaseMaterialTracking
                     Dim StateFoundPDF As Boolean = False
                     Dim Str_Doc_Name As String
                     Dim StatePDF As Boolean = False
+                    Dim cmdstring As String = ""
 
                     objFolder = objNS.GetDefaultFolder(Outlook.OlDefaultFolders.olFolderDrafts)
 
                     Try
                         OutlookMessage = AppOutlook.CreateItem(Outlook.OlItemType.olMailItem)
 
-                        With OutlookMessage
+                        Try
+                            With OutlookMessage
 
 
-                            Dim _tmplang As HI.ST.Lang.eLang = HI.ST.Lang.Language
-                            Try
-
-
-
-                                Dim grplistpo As List(Of String) = (dtpoList.Select("FNHSysSuplId=" & Val(Ind) & " AND FNDocType=0 ", "FTPurchaseNo").CopyToDataTable).AsEnumerable() _
-                                                      .Select(Function(r) r.Field(Of String)("FTPurchaseNo")) _
-                                                      .Distinct() _
-                                                      .ToList()
-
-                                For Each POInd As String In grplistpo
-
-                                    For Each R As DataRow In dtpoList.Select("FNHSysSuplId = " & Val(Ind) & " AND FTPurchaseNo='" & POInd & "' AND FNDocType=0 ")
-
-                                        PoNo = R!FTPurchaseNo.ToString
-                                        PoState = Val(R!FNPoState.ToString)
+                                Dim _tmplang As HI.ST.Lang.eLang = HI.ST.Lang.Language
+                                Try
 
 
 
-                                        If PoAllNo = "" Then
+                                    Dim grplistpo As List(Of String) = (dtpoList.Select("FNHSysSuplId=" & Val(Ind) & " AND FNDocType=0 ", "FTPurchaseNo").CopyToDataTable).AsEnumerable() _
+                                                          .Select(Function(r) r.Field(Of String)("FTPurchaseNo")) _
+                                                          .Distinct() _
+                                                          .ToList()
 
-                                            PoAllNo = PoNo
-                                            UpdatePoAllNo = PoNo
-                                        Else
-                                            PoAllNo = PoAllNo & "," & PoNo
-                                            UpdatePoAllNo = UpdatePoAllNo & "','" & PoNo
-                                        End If
+                                    For Each POInd As String In grplistpo
 
-                                        StateFoundPDF = False
-                                        Str_Doc_Name = ""
+                                        For Each R As DataRow In dtpoList.Select("FNHSysSuplId = " & Val(Ind) & " AND FTPurchaseNo='" & POInd & "' AND FNDocType=0 ")
 
-                                        _Sql = "Select TOP 1 '1' AS FTStatePDF "
-                                        _Sql &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase With(NOLOCK) "
-                                        _Sql &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(PoNo) & "' AND FTStateManagerApp='1' AND FTStatePDF='1'"
-                                        StatePDF = HI.Conn.SQLConn.GetField(_Sql, Conn.DB.DataBaseName.DB_PUR, "") = "1"
+                                            PoNo = R!FTPurchaseNo.ToString
+                                            PoState = Val(R!FNPoState.ToString)
 
-                                        If pPathPDF <> "" And StatePDF Then
 
-                                            Str_Doc_Name = pPathPDF & "\" & R!FTPurchaseBy.ToString & "\" & PoNo & ".pdf"
-                                            If File.Exists(Str_Doc_Name) = True Then
-                                                StateFoundPDF = True
+
+                                            If PoAllNo = "" Then
+
+                                                PoAllNo = PoNo
+                                                UpdatePoAllNo = PoNo
                                             Else
-                                                Str_Doc_Name = ""
+                                                PoAllNo = PoAllNo & "," & PoNo
+                                                UpdatePoAllNo = UpdatePoAllNo & "','" & PoNo
                                             End If
 
-                                        End If
+                                            StateFoundPDF = False
+                                            Str_Doc_Name = ""
 
-                                        If StateFoundPDF = False Then
-                                            With New HI.RP.Report
-                                                .FormTitle = "Convert To " & PoNo & ".pdf"
-                                                .ReportFolderName = "PurchaseOrder\"  '"Purchase Report\" '
-                                                .ReportName = "PurchaseOrder.rpt"
-                                                .AddParameter("Draft", "")
-                                                .Formular = "{TPURTPurchase.FTPurchaseNo}='" & HI.UL.ULF.rpQuoted(PoNo) & "'"
+                                            _Sql = "Select TOP 1 '1' AS FTStatePDF "
+                                            _Sql &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase With(NOLOCK) "
+                                            _Sql &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(PoNo) & "' AND FTStateManagerApp='1' AND FTStatePDF='1'"
+                                            StatePDF = HI.Conn.SQLConn.GetField(_Sql, Conn.DB.DataBaseName.DB_PUR, "") = "1"
 
-                                                ' ตรวจสอบ โฟร์เดอร์ก่อน
+                                            If pPathPDF <> "" And StatePDF Then
 
-                                                .PathExport = _CheckPath & ""
-                                                '.PathExport = "\\hisoft_svr\HI SOFT SYSTEM\PO PDF\" & Temp_FTPurchaseBy & "\"
-                                                .ExportName = PoNo
-                                                .ExportFile = HI.RP.Report.ExFile.PDF
-
-                                                ' กรณีหาไฟล์ไม่เจอ  ????
-                                                .PrevieNoSplash(PoState)
-
-                                                Dim _FIleExportPDFName As String = .ExportFileSuccessName
-
-                                            End With
-
-                                            Str_Doc_Name = _CheckPath & "\" & PoNo & ".pdf"
-
-                                        End If
-
-
-                                        Try
-
-                                            If Str_Doc_Name <> "" Then
+                                                Str_Doc_Name = pPathPDF & "\" & R!FTPurchaseBy.ToString & "\" & PoNo & ".pdf"
                                                 If File.Exists(Str_Doc_Name) = True Then
-                                                    .Attachments.Add(Str_Doc_Name)
+                                                    StateFoundPDF = True
+                                                Else
+                                                    Str_Doc_Name = ""
                                                 End If
 
                                             End If
 
-                                        Catch ex As Exception
+                                            If StateFoundPDF = False Then
+                                                With New HI.RP.Report
+                                                    .FormTitle = "Convert To " & PoNo & ".pdf"
+                                                    .ReportFolderName = "PurchaseOrder\"  '"Purchase Report\" '
+                                                    .ReportName = "PurchaseOrder.rpt"
+                                                    .AddParameter("Draft", "")
+                                                    .Formular = "{TPURTPurchase.FTPurchaseNo}='" & HI.UL.ULF.rpQuoted(PoNo) & "'"
 
-                                        End Try
+                                                    ' ตรวจสอบ โฟร์เดอร์ก่อน
 
+                                                    .PathExport = _CheckPath & ""
+                                                    '.PathExport = "\\hisoft_svr\HI SOFT SYSTEM\PO PDF\" & Temp_FTPurchaseBy & "\"
+                                                    .ExportName = PoNo
+                                                    .ExportFile = HI.RP.Report.ExFile.PDF
 
-                                        Exit For
-                                    Next
+                                                    ' กรณีหาไฟล์ไม่เจอ  ????
+                                                    .PrevieNoSplash(PoState)
 
-                                Next
+                                                    Dim _FIleExportPDFName As String = .ExportFileSuccessName
 
-                            Catch ex As Exception
-                            End Try
+                                                End With
 
-                            .Display()
-                            .To = _FTMail
-                            .CC = _FTMailCC
-                            .Subject = PoAllNo
-
-                            Try
-                                oInsp = .GetInspector
-                            Catch ex As Exception
-
-                            End Try
-
-                            mySignature = .HTMLBody
-
-                            If TemplateMail <> "" Then
-
-                                Try
-                                    .HTMLBody = TemplateMail.Replace("{0}", PoAllNo) & mySignature
-                                Catch ex As Exception
-
-                                    .HTMLBody = "<p>" & "PO Ref No.  " & PoAllNo & "</p>" & mySignature
-                                    '.Body = "PO Ref No.  " & PoAllNo & .Body
-                                End Try
-
-
-                            Else
-                                '.Body = "PO Ref No.  " & PoAllNo & .Body
-                                .HTMLBody = "<p>" & "PO Ref No.  " & PoAllNo & "</p>" & mySignature
-                            End If
-
-
-                            _Spls.Close()
-
-
-
-
-                            Try
-                                ' .Send()
-
-                                Dim cmdstring As String
-                                cmdstring = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase SET FTStateSendMail='1'"
-                                cmdstring &= vbCrLf & ",FTSendMailBy= CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  ELSE FTSendMailBy END"
-                                cmdstring &= vbCrLf & ",FTSendMailDate=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatDateDB & "  ELSE FTSendMailDate END "
-                                cmdstring &= vbCrLf & ",FTSendMailTime=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTSendMailTime END "
-                                cmdstring &= vbCrLf & ",FTLastSendMailBy= CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' ELSE FTLastSendMailBy  END "
-                                cmdstring &= vbCrLf & ",FTLastSendMailDate=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatDateDB & "  ELSE FTLastSendMailDate  END  "
-                                cmdstring &= vbCrLf & ",FTLastSendMailTime=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTLastSendMailTime  END  "
-                                cmdstring &= vbCrLf & ",FTSystemSendMailBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                                cmdstring &= vbCrLf & ",FTSystemSendMailDate=" & HI.UL.ULDate.FormatDateDB & " "
-                                cmdstring &= vbCrLf & ",FTSystemSendMailTime=" & HI.UL.ULDate.FormatTimeDB & " "
-                                cmdstring &= vbCrLf & "  WHERE FTPurchaseNo IN ('" & UpdatePoAllNo & "')"
-                                cmdstring &= vbCrLf & " select  FTPurchaseNo,FTStateSendMail,FTSendMailBy,CASE WHEN ISDATE(FTSendMailDate) = 1 THEN Convert(varchar(10),Convert(datetime,FTSendMailDate),103) ELSE '' END AS  FTSendMailDate,FTSendMailTime "
-                                cmdstring &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase   "
-                                cmdstring &= vbCrLf & "  WHERE FTPurchaseNo IN ('" & UpdatePoAllNo & "')"
-
-                                Dim dt As DataTable = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PUR)
-
-                                For Each R As DataRow In dt.Rows
-
-
-                                    With CType(Me.ogdtime.DataSource, DataTable)
-                                        .AcceptChanges()
-
-                                        For Each Rxp As DataRow In .Select("FTPurchaseNo='" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "'")
-                                            Rxp!FTSelect = "0"
-
-                                            Rxp!FTStateSendMail = R!FTStateSendMail.ToString
-                                            Rxp!FTSendMailBy = R!FTSendMailBy.ToString
-                                            Rxp!FTSendMailDate = R!FTSendMailDate.ToString
-                                            Rxp!FTSendMailTime = R!FTSendMailTime.ToString
-
-                                            If Val(Rxp!FNLeadTime.ToString) > 0 Then
-
-                                                Rxp!FTOETCDate = HI.UL.ULDate.AddDay(R!FTSendMailDate.ToString, Val(Rxp!FNLeadTime.ToString))
+                                                Str_Doc_Name = _CheckPath & "\" & PoNo & ".pdf"
 
                                             End If
 
+
+                                            Try
+
+                                                If Str_Doc_Name <> "" Then
+                                                    If File.Exists(Str_Doc_Name) = True Then
+
+                                                        If StatePDF = False Then
+                                                            HI.PO.POPDFToDB.SaveFilePDF(PoNo, Str_Doc_Name)
+                                                        End If
+
+                                                        .Attachments.Add(Str_Doc_Name)
+                                                    End If
+
+                                                End If
+
+                                            Catch ex As Exception
+
+                                            End Try
+
+
+
+                                            Exit For
                                         Next
 
-                                        .AcceptChanges()
+                                    Next
 
-                                    End With
+                                Catch ex As Exception
+                                End Try
 
-                                Next
+                                .Display()
+                                .To = _FTMail
+                                .CC = _FTMailCC
+                                .Subject = PoAllNo
 
-                                dt.Dispose()
+                                Try
+                                    oInsp = .GetInspector
+                                Catch ex As Exception
+
+                                End Try
+
+                                mySignature = .HTMLBody
+
+                                If TemplateMail <> "" Then
+
+                                    Try
+                                        .HTMLBody = TemplateMail.Replace("{0}", PoAllNo) & mySignature
+                                    Catch ex As Exception
+
+                                        .HTMLBody = "<p>" & "PO Ref No.  " & PoAllNo & "</p>" & mySignature
+                                        '.Body = "PO Ref No.  " & PoAllNo & .Body
+                                    End Try
 
 
-                            Catch ex As Exception
-                                MsgBox(ex.Message)
-                            Finally
+                                Else
+                                    '.Body = "PO Ref No.  " & PoAllNo & .Body
+                                    .HTMLBody = "<p>" & "PO Ref No.  " & PoAllNo & "</p>" & mySignature
+                                End If
 
-                            End Try
 
-                        End With
+                                _Spls.Close()
+
+
+                            End With
+                        Catch ex As Exception
+                            _Spls.Close()
+                        End Try
+
+                        Try
+                            ' .Send()
+
+                            cmdstring = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase SET FTStateSendMail='1'"
+                            cmdstring &= vbCrLf & ",FTSendMailBy= CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  ELSE FTSendMailBy END"
+                            cmdstring &= vbCrLf & ",FTSendMailDate=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatDateDB & "  ELSE FTSendMailDate END "
+                            cmdstring &= vbCrLf & ",FTSendMailTime=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTSendMailTime END "
+                            cmdstring &= vbCrLf & ",FTLastMailBy= CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' ELSE FTLastMailBy  END "
+                            cmdstring &= vbCrLf & ",FTLastMailDate=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatDateDB & "  ELSE FTLastMailDate  END  "
+                            cmdstring &= vbCrLf & ",FTLastMailTime=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTLastMailTime  END  "
+                            cmdstring &= vbCrLf & ",FTSystemSendMailBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                            cmdstring &= vbCrLf & ",FTSystemSendMailDate=" & HI.UL.ULDate.FormatDateDB & " "
+                            cmdstring &= vbCrLf & ",FTSystemSendMailTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                            cmdstring &= vbCrLf & "  ,FTStateHold='0' "
+                            cmdstring &= vbCrLf & "  ,FNHSysPOHoldId=0 "
+                            cmdstring &= vbCrLf & "  WHERE FTPurchaseNo IN ('" & UpdatePoAllNo & "')"
+                            cmdstring &= vbCrLf & " select  FTPurchaseNo,FTStateSendMail,FTSendMailBy,CASE WHEN ISDATE(FTSendMailDate) = 1 THEN Convert(varchar(10),Convert(datetime,FTSendMailDate),103) ELSE '' END AS  FTSendMailDate,FTSendMailTime "
+                            cmdstring &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase   "
+                            cmdstring &= vbCrLf & "  WHERE FTPurchaseNo IN ('" & UpdatePoAllNo & "')"
+
+                            Dim dt As DataTable = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PUR)
+
+                            For Each R As DataRow In dt.Rows
+
+
+                                With CType(Me.ogdtime.DataSource, DataTable)
+                                    .AcceptChanges()
+
+                                    For Each Rxp As DataRow In .Select("FTPurchaseNo='" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "'")
+                                        Rxp!FTSelect = "0"
+
+                                        Rxp!FTStateSendMail = R!FTStateSendMail.ToString
+                                        Rxp!FTSendMailBy = R!FTSendMailBy.ToString
+                                        Rxp!FTSendMailDate = R!FTSendMailDate.ToString
+                                        Rxp!FTSendMailTime = R!FTSendMailTime.ToString
+
+                                        Rxp!FTStateHold = "0"
+                                        Rxp!FTHoldReason = ""
+
+                                        If Val(Rxp!FNLeadTime.ToString) > 0 Then
+
+                                            Rxp!FTOETCDate = HI.UL.ULDate.AddDay(R!FTSendMailDate.ToString, Val(Rxp!FNLeadTime.ToString))
+
+                                        End If
+
+                                    Next
+
+                                    .AcceptChanges()
+
+                                End With
+
+
+                                Try
+                                    cmdstring = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_SENDDATAPO_FORVENDER '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "'"
+                                    HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_PUR)
+
+                                Catch ex As Exception
+
+                                End Try
+
+                            Next
+
+                            dt.Dispose()
+
+
+                        Catch ex As Exception
+                            MsgBox(ex.Message)
+                        Finally
+
+                        End Try
 
                     Catch ex As Exception
                         _Spls.Close()
@@ -1210,73 +1275,91 @@ Public Class wPurchaseMaterialTracking
     End Sub
 
     Private Sub RepCheckEdit_EditValueChanging(sender As Object, e As ChangingEventArgs) Handles RepCheckEdit.EditValueChanging
-        Select Case ogvtime.FocusedColumn.FieldName.ToString
 
-            Case "FTStateSendMail"
+        If ogvtime.GetRowCellValue(ogvtime.FocusedRowHandle, "FTStateCancel").ToString() <> "1" Then
+            Select Case ogvtime.FocusedColumn.FieldName.ToString
 
-
-                Dim PoNo As String = ogvtime.GetRowCellValue(ogvtime.FocusedRowHandle, "FTPurchaseNo").ToString()
-
-                Dim FieldName As String = ogvtime.FocusedColumn.FieldName.ToString
-                Dim State As String = "0"
-                If e.NewValue.ToString = "1" Then
-                    State = "1"
-                End If
-
-                ogvtime.SetRowCellValue(ogvtime.FocusedRowHandle, ogvtime.FocusedColumn.FieldName.ToString, State)
+                Case "FTStateSendMail"
 
 
-                Dim cmdstring As String = ""
+                    Dim PoNo As String = ogvtime.GetRowCellValue(ogvtime.FocusedRowHandle, "FTPurchaseNo").ToString()
+
+                    Dim FieldName As String = ogvtime.FocusedColumn.FieldName.ToString
+                    Dim State As String = "0"
+                    If e.NewValue.ToString = "1" Then
+                        State = "1"
+                    End If
+
+                    ogvtime.SetRowCellValue(ogvtime.FocusedRowHandle, ogvtime.FocusedColumn.FieldName.ToString, State)
 
 
-                cmdstring = "update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase  Set "
-                cmdstring &= vbCrLf & " FTStateSendMail='" & HI.UL.ULF.rpQuoted(State) & "'"
-                cmdstring &= vbCrLf & ",FTSendMailBy= CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  ELSE FTSendMailBy END"
-                cmdstring &= vbCrLf & ",FTSendMailDate=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatDateDB & "  ELSE FTSendMailDate END "
-                cmdstring &= vbCrLf & ",FTSendMailTime=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTSendMailTime END "
-                cmdstring &= vbCrLf & ",FTLastSendMailBy= CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' ELSE FTLastSendMailBy  END "
-                cmdstring &= vbCrLf & ",FTLastSendMailDate=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatDateDB & "  ELSE FTLastSendMailDate  END  "
-                cmdstring &= vbCrLf & ",FTLastSendMailTime=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTLastSendMailTime  END  "
-                cmdstring &= vbCrLf & " select top 1 FTStateSendMail,FTSendMailBy,CASE WHEN ISDATE(FTSendMailDate) = 1 THEN Convert(varchar(10),Convert(datetime,FTSendMailDate),103) ELSE '' END AS FTSendMailDate,FTSendMailTime "
-                cmdstring &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase   "
-                cmdstring &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(PoNo) & "'  "
-
-                Dim dt As DataTable = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PUR)
-
-                For Each R As DataRow In dt.Rows
+                    Dim cmdstring As String = ""
 
 
-                    With CType(Me.ogdtime.DataSource, DataTable)
-                        .AcceptChanges()
+                    cmdstring = "update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase  Set "
+                    cmdstring &= vbCrLf & " FTStateSendMail='" & HI.UL.ULF.rpQuoted(State) & "'"
+                    cmdstring &= vbCrLf & ",FTSendMailBy= CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  ELSE FTSendMailBy END"
+                    cmdstring &= vbCrLf & ",FTSendMailDate=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatDateDB & "  ELSE FTSendMailDate END "
+                    cmdstring &= vbCrLf & ",FTSendMailTime=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTSendMailTime END "
+                    cmdstring &= vbCrLf & ",FTLastMailBy= CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' ELSE FTLastMailBy  END "
+                    cmdstring &= vbCrLf & ",FTLastMailDate=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatDateDB & "  ELSE FTLastMailDate  END  "
+                    cmdstring &= vbCrLf & ",FTLastMailTime=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTLastMailTime  END  "
+                    cmdstring &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(PoNo) & "'  "
+                    cmdstring &= vbCrLf & " select top 1 FTStateSendMail,FTSendMailBy,CASE WHEN ISDATE(FTSendMailDate) = 1 THEN Convert(varchar(10),Convert(datetime,FTSendMailDate),103) ELSE '' END AS FTSendMailDate,FTSendMailTime,FTPurchaseNo "
+                    cmdstring &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase   "
+                    cmdstring &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(PoNo) & "'  "
 
-                        For Each Rxd As DataRow In .Select("FTPurchaseNo='" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "'")
+                    Dim dt As DataTable = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PUR)
 
-                            Rxd!FTStateSendMail = R!FTStateSendMail
-                            Rxd!FTSendMailBy = R!FTSendMailBy
-                            Rxd!FTSendMailDate = R!FTSendMailDate
-                            Rxd!FTSendMailTime = R!FTSendMailTime
+                    For Each R As DataRow In dt.Rows
 
 
-                            If Val(Rxd!FNLeadTime.ToString) > 0 Then
+                        With CType(Me.ogdtime.DataSource, DataTable)
+                            .AcceptChanges()
 
-                                Rxd!FTOETCDate = HI.UL.ULDate.AddDay(R!FTSendMailDate.ToString, Val(Rxd!FNLeadTime.ToString))
+                            For Each Rxd As DataRow In .Select("FTPurchaseNo='" & HI.UL.ULF.rpQuoted(PoNo) & "'")
 
-                            End If
+                                Rxd!FTStateSendMail = R!FTStateSendMail
+                                Rxd!FTSendMailBy = R!FTSendMailBy
+                                Rxd!FTSendMailDate = R!FTSendMailDate
+                                Rxd!FTSendMailTime = R!FTSendMailTime
 
-                        Next
 
-                        .AcceptChanges()
+                                If Val(Rxd!FNLeadTime.ToString) > 0 Then
 
-                    End With
+                                    Rxd!FTOETCDate = HI.UL.ULDate.AddDay(R!FTSendMailDate.ToString, Val(Rxd!FNLeadTime.ToString))
 
-                    Exit For
-                Next
+                                End If
 
-                dt.Dispose()
+                            Next
 
-        End Select
+                            .AcceptChanges()
 
-        e.Cancel = False
+                        End With
+
+                        Exit For
+                    Next
+
+                    dt.Dispose()
+
+                    If State = "1" Then
+                        Try
+                            cmdstring = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_SENDDATAPO_FORVENDER '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(PoNo) & "'"
+                            HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_PUR)
+                        Catch ex As Exception
+
+                        End Try
+
+                    End If
+
+            End Select
+
+            e.Cancel = False
+
+        Else
+            e.Cancel = True
+        End If
+
 
     End Sub
 
@@ -1529,7 +1612,6 @@ Public Class wPurchaseMaterialTracking
 
                     Next
 
-
                 End If
 
             End With
@@ -1545,82 +1627,84 @@ Public Class wPurchaseMaterialTracking
             If FNDataType.SelectedIndex = 2 Then
                 e.Cancel = True
             Else
-                GridDataNoteBefore = ""
-                If ogvtime.GetFocusedRowCellValue("FNDocType").ToString = "1" Then
-                    Select Case ogvtime.FocusedColumn.FieldName
-                        Case "FTSelect", "FTTrackNote"
-                            e.Cancel = False
-                        Case "FTInvoiceNo", "FTInvoiceNote", "FTSendSMPDate", "FTSendSMPStatus", "FTSendSMPRemark", "FTSendSMPAWB", "FTSendSMPPayType"
-                            e.Cancel = False
-                            GridDataNoteBefore = ogvtime.GetFocusedRowCellValue(ogvtime.FocusedColumn.FieldName.ToString).ToString
-                        Case Else
-
-                            e.Cancel = True
-                    End Select
+                If ogvtime.GetFocusedRowCellValue("FTStateCancel").ToString = "1" Then
+                    e.Cancel = True
                 Else
-                    Select Case ogvtime.FocusedColumn.FieldName
-                        Case "FTSelect", "FTStateSendMail", "FTTrackNote"
-                            e.Cancel = False
-                        Case Else
-                            If ogvtime.GetFocusedRowCellValue("FTStateSendMail").ToString = "1" Then
+                    GridDataNoteBefore = ""
+                    If ogvtime.GetFocusedRowCellValue("FNDocType").ToString = "1" Then
+                        Select Case ogvtime.FocusedColumn.FieldName
+                            Case "FTSelect", "FTTrackNote"
+                                e.Cancel = False
+                            Case "FTInvoiceNo", "FTInvoiceNote", "FTSendSMPDate", "FTSendSMPStatus", "FTSendSMPRemark", "FTSendSMPAWB", "FTSendSMPPayType"
+                                e.Cancel = False
+                                GridDataNoteBefore = ogvtime.GetFocusedRowCellValue(ogvtime.FocusedColumn.FieldName.ToString).ToString
+                            Case Else
 
-                                Select Case ogvtime.FocusedColumn.FieldName.ToString
-                                    Case "FTORGOETCDate", "FTFinalOETCDate", "FNPOCFMQuantity", "FNPROCFMQuantity", "FTDelayReasonsCode", "FTFurtherDelayReasonCode", "FTPOCFMNote", "FTPROCFMNote"
+                                e.Cancel = True
+                        End Select
+                    Else
+                        Select Case ogvtime.FocusedColumn.FieldName
+                            Case "FTSelect", "FTStateSendMail", "FTTrackNote"
+                                e.Cancel = False
+                            Case "FTInvoiceNo", "FTInvoiceNote", "FTSendSMPDate", "FTSendSMPStatus", "FTSendSMPRemark", "FTSendSMPAWB", "FTSendSMPPayType"
+                                e.Cancel = False
+                                GridDataNoteBefore = ogvtime.GetFocusedRowCellValue(ogvtime.FocusedColumn.FieldName.ToString).ToString
+                            Case Else
+                                If ogvtime.GetFocusedRowCellValue("FTStateSendMail").ToString = "1" Then
 
-                                        If ogvtime.GetFocusedRowCellValue("FTOETCDate").ToString <> "" Then
+                                    Select Case ogvtime.FocusedColumn.FieldName.ToString
+                                        Case "FTORGOETCDate", "FTFinalOETCDate", "FNPOCFMQuantity", "FNPROCFMQuantity", "FTDelayReasonsCode", "FTFurtherDelayReasonCode", "FTPOCFMNote", "FTPROCFMNote"
+
+                                            If ogvtime.GetFocusedRowCellValue("FTOETCDate").ToString <> "" Then
+                                                e.Cancel = False
+
+                                                Select Case ogvtime.FocusedColumn.FieldName.ToString
+
+                                                    Case "FNPOCFMQuantity", "FNPROCFMQuantity"
+                                                        GridDataQtyBefore = Val(ogvtime.GetFocusedRowCellValue(ogvtime.FocusedColumn.FieldName.ToString).ToString)
+
+                                                    Case "FTPOCFMNote", "FTPROCFMNote"
+
+                                                        GridDataNoteBefore = ogvtime.GetFocusedRowCellValue(ogvtime.FocusedColumn.FieldName.ToString).ToString
+                                                End Select
+
+                                            Else
+                                                e.Cancel = True
+                                            End If
+
+
+                                        Case "FNLeadTime"
                                             e.Cancel = False
 
-                                            Select Case ogvtime.FocusedColumn.FieldName.ToString
+                                            If ogvtime.GetFocusedRowCellValue(ogvtime.FocusedColumn.FieldName.ToString) Is Nothing Then
+                                                GridDataQtyBefore = -1
 
-                                                Case "FNPOCFMQuantity", "FNPROCFMQuantity"
-                                                    GridDataQtyBefore = Val(ogvtime.GetFocusedRowCellValue(ogvtime.FocusedColumn.FieldName.ToString).ToString)
+                                            Else
 
-                                                Case "FTPOCFMNote", "FTPROCFMNote"
-
-                                                    GridDataNoteBefore = ogvtime.GetFocusedRowCellValue(ogvtime.FocusedColumn.FieldName.ToString).ToString
-                                            End Select
-
-                                        Else
-                                            e.Cancel = True
-                                        End If
-
-                                    Case "FTInvoiceNo", "FTInvoiceNote", "FTSendSMPDate", "FTSendSMPStatus", "FTSendSMPRemark", "FTSendSMPAWB", "FTSendSMPPayType"
-                                        e.Cancel = False
-                                        GridDataNoteBefore = ogvtime.GetFocusedRowCellValue(ogvtime.FocusedColumn.FieldName.ToString).ToString
-                                    Case "FNLeadTime"
-                                        e.Cancel = False
-
-                                        If ogvtime.GetFocusedRowCellValue(ogvtime.FocusedColumn.FieldName.ToString) Is Nothing Then
-                                            GridDataQtyBefore = -1
-
-                                        Else
-
-                                            GridDataQtyBefore = Val(ogvtime.GetFocusedRowCellValue(ogvtime.FocusedColumn.FieldName.ToString).ToString)
-                                        End If
+                                                GridDataQtyBefore = Val(ogvtime.GetFocusedRowCellValue(ogvtime.FocusedColumn.FieldName.ToString).ToString)
+                                            End If
 
 
-                                    Case Else
-                                        e.Cancel = False
+                                        Case Else
+                                            e.Cancel = False
 
-                                End Select
+                                    End Select
 
-                            Else
-                                e.Cancel = True
-                            End If
+                                Else
+                                    e.Cancel = True
+                                End If
 
 
-                    End Select
+                        End Select
+                    End If
                 End If
 
 
             End If
 
-
-
         Catch ex As Exception
             e.Cancel = True
         End Try
-
 
     End Sub
 
@@ -1636,8 +1720,13 @@ Public Class wPurchaseMaterialTracking
                 If Not (.DataSource Is Nothing) And ogvtime.RowCount > 0 Then
 
                     With ogvtime
+
                         For I As Integer = 0 To .RowCount - 1
-                            .SetRowCellValue(I, .Columns.ColumnByFieldName("FTSelect"), _State)
+
+                            If .GetRowCellValue(I, "FTStateCancel").ToString <> "1" Then
+                                .SetRowCellValue(I, .Columns.ColumnByFieldName("FTSelect"), _State)
+                            End If
+
                         Next
                     End With
 
@@ -2335,7 +2424,7 @@ Public Class wPurchaseMaterialTracking
 
                 Try
 
-                    _TData = CType(sender, DevExpress.XtraEditors.MemoExEdit).Text.Trim
+                    _TData = CType(sender, DevExpress.XtraEditors.TextEdit).Text.Trim
 
                 Catch ex As Exception
                     _TData = ""
@@ -2465,7 +2554,7 @@ Public Class wPurchaseMaterialTracking
 
                 Try
 
-                    _TData = CType(sender, DevExpress.XtraEditors.MemoExEdit).Text.Trim
+                    _TData = CType(sender, DevExpress.XtraEditors.TextEdit).Text.Trim
 
                 Catch ex As Exception
                     _TData = ""
@@ -2692,6 +2781,121 @@ Public Class wPurchaseMaterialTracking
         Catch ex As Exception
 
         End Try
+
+    End Sub
+
+    Private Sub ogvtime_RowStyle(sender As Object, e As RowStyleEventArgs) Handles ogvtime.RowStyle
+        Try
+            With Me.ogvtime
+                If "" & .GetRowCellValue(e.RowHandle, "FTStateCancel").ToString = "1" Then
+
+                    e.Appearance.BackColor = System.Drawing.Color.Pink
+                    e.Appearance.ForeColor = System.Drawing.Color.Red
+
+                End If
+
+            End With
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+    Private Sub ocmholdpurchase_Click(sender As Object, e As EventArgs) Handles ocmholdpurchase.Click
+        Try
+            Dim dtpo As DataTable
+            Dim dtpoList As DataTable
+
+            With CType(Me.ogdtime.DataSource, DataTable)
+                .AcceptChanges()
+
+                dtpo = .Copy()
+
+            End With
+
+            Dim tReason As String = ""
+            Dim pHoldId As Integer = 0
+            Dim pHoldCode As String = ""
+            Dim pHoldName As String = ""
+
+            If dtpo.Select("FTSelect='1' AND FNDocType=0  AND  FTStateSendMail='0' ").Length <= 0 Then
+
+                Exit Sub
+
+            Else
+
+                With New wInputHoldReason
+                    .bW_Confirm = False
+                    .ShowDialog()
+
+                    If .bW_Confirm Then
+
+                        tReason = .otbCancelReason.Text.Trim
+                        pHoldId = Val(.FNHSysPOHoldId.Properties.Tag.ToString)
+                        pHoldCode = .FNHSysPOHoldId.Text
+                        pHoldName = .FNHSysPOHoldId_None.Text.Trim
+                    End If
+
+                End With
+
+                If pHoldId = 0 Then
+                    Exit Sub
+
+                End If
+            End If
+
+            dtpoList = dtpo.Select("FTSelect='1' AND FNDocType=0  AND  FTStateSendMail='0' ").CopyToDataTable
+
+            Dim _FTMail As String = ""
+            Dim _FTMailCC As String = ""
+            Dim TemplateMail As String = ""
+
+            Dim PoNo As String = ""
+            Dim PoAllNo As String = ""
+            Dim UpdatePoAllNo As String = ""
+            Dim PoState As Integer = 0
+
+            Dim grp As List(Of String) = (dtpoList.Select("FNHSysSuplId>0 AND FNDocType=0", "FTPurchaseNo").CopyToDataTable).AsEnumerable() _
+                                                      .Select(Function(r) r.Field(Of String)("FTPurchaseNo")) _
+                                                      .Distinct() _
+                                                      .ToList()
+
+
+            For Each Ind As String In grp
+
+                PoNo = ""
+
+                Dim cmdstring As String = ""
+
+                cmdstring = " UPDATE  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase  SET FTStateHold='1',FNHSysPOHoldId=" & pHoldId & ",FTHoldNote='" & HI.UL.ULF.rpQuoted(tReason) & "',FTHoldBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "',FTHoldDate=" & HI.UL.ULDate.FormatDateDB & ",FTHoldTime=" & HI.UL.ULDate.FormatTimeDB & ""
+                cmdstring &= vbCrLf & "  WHERE FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(Ind) & "' "
+
+                If HI.Conn.SQLConn.ExecuteNonQuery(cmdstring, Conn.DB.DataBaseName.DB_PUR) Then
+
+                    With CType(Me.ogdtime.DataSource, DataTable)
+                        .AcceptChanges()
+
+                        For Each Rxp As DataRow In .Select("FTPurchaseNo='" & HI.UL.ULF.rpQuoted(Ind) & "'")
+                            Rxp!FTStateHold = "1"
+                            Rxp!FTHoldReason = pHoldName
+
+
+                        Next
+
+                        .AcceptChanges()
+
+                    End With
+
+
+                End If
+
+            Next
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+
 
     End Sub
 End Class

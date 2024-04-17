@@ -1,8 +1,10 @@
 ﻿Imports DevExpress.Data
+Imports DevExpress.Utils
 Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.XtraGrid.Views.Grid
 Imports Microsoft.Office.Interop
 Imports System.ComponentModel
+Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Windows.Forms
 
@@ -21,13 +23,15 @@ Public Class wPurchaseTrackingPI
     Private wAddPIPreview As wPurchaseTrackingPIPreview
     Private wListPINo As wPurchaseTrackingPIListPI
     Private _FormLoad As Boolean = True
+    Private pCountMaxApp As Integer = 0
+    Private ds As DataSet
+
     Sub New()
 
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-
 
         wAddPI = New wPurchaseTrackingPIAddPI
         HI.TL.HandlerControl.AddHandlerObj(wAddPI)
@@ -42,13 +46,11 @@ Public Class wPurchaseTrackingPI
         wAddPIPayment = New wPurchaseTrackingPIAddPayment
         HI.TL.HandlerControl.AddHandlerObj(wAddPIPayment)
 
-
         Try
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleName, wAddPIPayment.Name.ToString.Trim, wAddPIPayment)
         Catch ex As Exception
         Finally
         End Try
-
 
         wAddtracking = New wPurchaseTrackingPIAddTracking
         HI.TL.HandlerControl.AddHandlerObj(wAddtracking)
@@ -68,10 +70,8 @@ Public Class wPurchaseTrackingPI
         Finally
         End Try
 
-
         wAddPIPreview = New wPurchaseTrackingPIPreview
         HI.TL.HandlerControl.AddHandlerObj(wAddPIPreview)
-
 
         Try
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleName, wAddPIPreview.Name.ToString.Trim, wAddPIPreview)
@@ -82,13 +82,11 @@ Public Class wPurchaseTrackingPI
         wListPINo = New wPurchaseTrackingPIListPI
         '  HI.TL.HandlerControl.AddHandlerObj(wListPINo)
 
-
         Try
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleName, wListPINo.Name.ToString.Trim, wListPINo)
         Catch ex As Exception
         Finally
         End Try
-
 
         With RepositoryItemDateEdit1
 
@@ -101,10 +99,14 @@ Public Class wPurchaseTrackingPI
 
         Call InitGrid()
 
+        Dim cmd As String = "Select top 1  FTCfgData from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig  WHERE  (FTCfgName = N'popdfmaxapp') "
+        pCountMaxApp = Val(HI.Conn.SQLConn.GetField(cmd, Conn.DB.DataBaseName.DB_SECURITY, "0"))
+
     End Sub
 
 #Region "Initial Grid"
     Private Sub InitGrid()
+
         '------Start Add Summary Grid-------------
         'Dim sFieldCount As String = ""
         'Dim sFieldSum As String = "FNPOQuantity|FNRcvQuantity|FNRTsQuantity|FNPOBalQuantity"
@@ -166,9 +168,9 @@ Public Class wPurchaseTrackingPI
         '    .ExpandAllGroups()
         '    .RefreshData()
 
-
         'End With
         '------End Add Summary Grid-------------
+
     End Sub
 #End Region
 
@@ -341,24 +343,31 @@ Public Class wPurchaseTrackingPI
 
     Private Sub LoadData()
         Dim _Qry As String = ""
-        Dim _dt As DataTable
+        'Dim _dt As DataTable
 
 
         StateCal = False
 
 
-
-
-
         Dim _Spls As New HI.TL.SplashScreen("Loading...   Please Wait   ")
 
-        _Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETDATAPO_TRACKING '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & FNListDocumentTrackPIData.SelectedIndex.ToString() & ",'" & HI.UL.ULDate.ConvertEnDB(FTStartPurchaseDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndPurchaseDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTStartDelivery.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndDelivery.Text) & "','',''," & Val(FNHSysSuplId.Properties.Tag.ToString) & ""
+        ds = New DataSet()
+        Try
+            _Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETDATAPO_TRACKING '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & FNListDocumentTrackPIData.SelectedIndex.ToString() & ",'" & HI.UL.ULDate.ConvertEnDB(FTStartPurchaseDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndPurchaseDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTStartDelivery.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndDelivery.Text) & "','',''," & Val(FNHSysSuplId.Properties.Tag.ToString) & ",'" & HI.UL.ULDate.ConvertEnDB(FTStartPayment.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndPayment.Text) & "','" & HI.UL.ULF.rpQuoted(chknewupload.EditValue.ToString) & "',1"
 
+            ' _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PUR)
 
-        _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PUR)
+            HI.Conn.SQLConn.GetDataSet(_Qry, Conn.DB.DataBaseName.DB_PUR, ds)
 
-        Me.ogdtime.DataSource = _dt.Copy
-        _dt.Dispose()
+            ds.Relations.Add("Item_PoNo", ds.Tables(0).Columns("FTPurchaseNo"), ds.Tables(1).Columns("FTPurchaseNo"))
+
+            Me.ogdtime.DataSource = ds.Tables(0)
+
+        Catch ex As Exception
+            Me.ogdtime.DataSource = Nothing
+        End Try
+
+        ' _dt.Dispose()
         _Spls.Close()
 
         _RowDataChange = False
@@ -370,9 +379,16 @@ Public Class wPurchaseTrackingPI
 
         Return _Pass
     End Function
+
 #End Region
 
 #Region "General"
+
+    Private Sub ogv_MasterRowGetRelationDisplayCaption(sender As Object, e As MasterRowGetRelationNameEventArgs) Handles ogvtime.MasterRowGetRelationDisplayCaption
+        Dim view As GridView = TryCast(sender, GridView)
+        Dim companyName = CStr(view.GetRowCellValue(e.RowHandle, "FTPurchaseNo"))
+        If e.RelationIndex = 0 Then e.RelationName = $"{companyName}: P/I Detail "
+    End Sub
 
     Private Sub Form_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
@@ -392,13 +408,10 @@ Public Class wPurchaseTrackingPI
                     .Columns.ColumnByFieldName("FTStateSendMail").AppearanceCell.BackColor = Nothing
                 End If
 
-
-
                 .Columns.ColumnByFieldName("FNPOGrandAmt").Visible = ocmshowamount.Enabled
                 .Columns.ColumnByFieldName("FNPOGrandAmt").OptionsColumn.ShowInCustomizationForm = ocmshowamount.Enabled
                 .Columns.ColumnByFieldName("FNPIPONetAmt").Visible = ocmshowamount.Enabled
                 .Columns.ColumnByFieldName("FNPIPONetAmt").OptionsColumn.ShowInCustomizationForm = ocmshowamount.Enabled
-
 
                 .Columns.ColumnByFieldName("FNPIGrandNetAmt").Visible = ocmshowamount.Enabled
                 .Columns.ColumnByFieldName("FNPIGrandNetAmt").OptionsColumn.ShowInCustomizationForm = ocmshowamount.Enabled
@@ -415,9 +428,7 @@ Public Class wPurchaseTrackingPI
                 .Columns.ColumnByFieldName("FNPIGrandTotalAmt").Visible = ocmshowamount.Enabled
                 .Columns.ColumnByFieldName("FNPIGrandTotalAmt").OptionsColumn.ShowInCustomizationForm = ocmshowamount.Enabled
 
-
                 .Columns.ColumnByFieldName("FTStateSendPIToAcc").OptionsColumn.AllowEdit = (Me.ocmFTStateSendPIToAcc.Enabled)
-
 
                 If Me.ocmFTStateSendPIToAcc.Enabled = False Then
                     .Columns.ColumnByFieldName("FTStateSendPIToAcc").AppearanceCell.BackColor = Nothing
@@ -435,8 +446,6 @@ Public Class wPurchaseTrackingPI
                 If Me.ocmFTFacCheckCFMDeliveryDate1.Enabled = False Then
                     .Columns.ColumnByFieldName("FTFacCheckCFMDeliveryDate1").AppearanceCell.BackColor = Nothing
                 End If
-
-
 
                 .Columns.ColumnByFieldName("FTFacCheckCFMDeliveryDate2").OptionsColumn.AllowEdit = (Me.ocmFTFacCheckCFMDeliveryDate2.Enabled)
 
@@ -533,6 +542,23 @@ Public Class wPurchaseTrackingPI
             FNListDocumentTrackPIData.SelectedIndex = Indx
 
 
+            Try
+                With ogvlist
+                    For Each GridCol As DevExpress.XtraGrid.Columns.GridColumn In .Columns
+                        GridCol.OptionsColumn.AllowMerge = DefaultBoolean.False
+                        GridCol.OptionsColumn.AllowEdit = False
+                        GridCol.OptionsColumn.AllowMove = False
+                        GridCol.OptionsColumn.ReadOnly = True
+                        GridCol.OptionsColumn.AllowSort = DefaultBoolean.False
+                    Next
+
+                    .OptionsView.ShowFooter = False
+
+                End With
+            Catch ex As Exception
+
+            End Try
+
         Catch ex As Exception
         End Try
     End Sub
@@ -628,6 +654,16 @@ Public Class wPurchaseTrackingPI
             Exit Sub
         End Try
 
+
+        Dim pPathPDF As String = ""
+        Dim cmdstring As String = ""
+
+        cmdstring = "select top 1 FTCfgData   "
+        cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig With(NOLOCK) "
+        cmdstring &= vbCrLf & "  Where (FTCfgName = N'POPDF')"
+
+        pPathPDF = HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_SECURITY, "")
+
         Try
 
             Dim dtpo As DataTable
@@ -641,12 +677,50 @@ Public Class wPurchaseTrackingPI
 
             End With
 
-            If dtpo.Select("FTSelect='1' AND FTStateSuperVisorApp='1'").Length <= 0 Then
 
-                Exit Sub
+            If pCountMaxApp > 0 Then
+                Select Case True
+                    Case pCountMaxApp = 1
+
+                        If dtpo.Select("FTSelect='1' AND FNDocType=0  AND FTStateSendApp='1'   ").Length <= 0 Then
+
+                            Exit Sub
+                        End If
+
+                        dtpoList = dtpo.Select("FTSelect='1' AND FNDocType=0  AND FTStateSendApp='1'  ").CopyToDataTable
+
+                    Case pCountMaxApp = 2
+
+                        If dtpo.Select("FTSelect='1' AND FNDocType=0  AND  FTStateSuperVisorApp='1' ").Length <= 0 Then
+
+                            Exit Sub
+                        End If
+
+                        dtpoList = dtpo.Select("FTSelect='1' AND FNDocType=0  AND FTStateSuperVisorApp='1' ").CopyToDataTable
+
+                    Case Else
+
+                        If dtpo.Select("FTSelect='1' AND FNDocType=0  AND  FTStateManagerApp='1'  ").Length <= 0 Then
+
+                            Exit Sub
+                        End If
+
+                        dtpoList = dtpo.Select("FTSelect='1' AND FNDocType=0  AND  FTStateManagerApp='1'   ").CopyToDataTable
+
+                End Select
+
+            Else
+
+                If dtpo.Select("FTSelect='1' AND FTStateSuperVisorApp='1'").Length <= 0 Then
+
+                    Exit Sub
+                End If
+
+                dtpoList = dtpo.Select("FTSelect='1'  AND FTStateSuperVisorApp='1' ").CopyToDataTable
+
             End If
 
-            dtpoList = dtpo.Select("FTSelect='1'  AND FTStateSuperVisorApp='1' ").CopyToDataTable
+
 
             Dim _FTMail As String = ""
             Dim _FTMailCC As String = ""
@@ -655,6 +729,9 @@ Public Class wPurchaseTrackingPI
             Dim PoNo As String = ""
             Dim PoAllNo As String = ""
             Dim PoState As Integer = 0
+            Dim StateFoundPDF As Boolean = False
+            Dim Str_Doc_Name As String = ""
+            Dim StatePDF As Boolean = False
 
             Dim grp As List(Of Integer) = (dtpoList.Select("FNHSysSuplId>0", "FNHSysSuplId").CopyToDataTable).AsEnumerable() _
                                                           .Select(Function(r) r.Field(Of Integer)("FNHSysSuplId")) _
@@ -681,7 +758,7 @@ Public Class wPurchaseTrackingPI
 
                 Next
                 dtsupl.Dispose()
-
+                cmdstring = ""
 
                 Dim _Spls As New HI.TL.SplashScreen("Creating....Mail Please Wait.")
                 Try
@@ -710,7 +787,6 @@ Public Class wPurchaseTrackingPI
                                     PoNo = R!FTPurchaseNo.ToString
                                     PoState = Val(R!FNPoState.ToString)
 
-
                                     If PoAllNo = "" Then
 
                                         PoAllNo = PoNo
@@ -718,41 +794,71 @@ Public Class wPurchaseTrackingPI
                                         PoAllNo = PoAllNo & "," & PoNo
                                     End If
 
-                                    With New HI.RP.Report
-                                        .FormTitle = "Convert To " & PoNo & ".pdf"
-                                        .ReportFolderName = "PurchaseOrder\"  '"Purchase Report\" '
-                                        .ReportName = "PurchaseOrder.rpt"
-                                        .AddParameter("Draft", "")
-                                        .Formular = "{TPURTPurchase.FTPurchaseNo}='" & HI.UL.ULF.rpQuoted(PoNo) & "'"
+                                    StateFoundPDF = False
+                                    Str_Doc_Name = ""
+                                    StatePDF = False
 
-                                        ' ตรวจสอบ โฟร์เดอร์ก่อน
+                                    _Sql = "Select TOP 1 '1' AS FTStatePDF "
+                                    _Sql &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase With(NOLOCK) "
+                                    _Sql &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(PoNo) & "' AND FTStateManagerApp='1' AND FTStatePDF='1'"
+                                    StatePDF = HI.Conn.SQLConn.GetField(_Sql, Conn.DB.DataBaseName.DB_PUR, "") = "1"
+
+                                    If pPathPDF <> "" And StatePDF Then
+
+                                        Str_Doc_Name = pPathPDF & "\" & R!FTPurchaseBy.ToString & "\" & PoNo & ".pdf"
+                                        If File.Exists(Str_Doc_Name) = True Then
+                                            StateFoundPDF = True
+                                        Else
+                                            Str_Doc_Name = ""
+                                        End If
+
+                                    End If
+
+                                    If StateFoundPDF = False Then
+                                        With New HI.RP.Report
+                                            .FormTitle = "Convert To " & PoNo & ".pdf"
+                                            .ReportFolderName = "PurchaseOrder\"  '"Purchase Report\" '
+                                            .ReportName = "PurchaseOrder.rpt"
+                                            .AddParameter("Draft", "")
+                                            .Formular = "{TPURTPurchase.FTPurchaseNo}='" & HI.UL.ULF.rpQuoted(PoNo) & "'"
+
+                                            ' ตรวจสอบ โฟร์เดอร์ก่อน
 
 
-                                        .PathExport = _CheckPath & ""
-                                        '.PathExport = "\\hisoft_svr\HI SOFT SYSTEM\PO PDF\" & Temp_FTPurchaseBy & "\"
-                                        .ExportName = PoNo
-                                        .ExportFile = HI.RP.Report.ExFile.PDF
+                                            .PathExport = _CheckPath & ""
+                                            '.PathExport = "\\hisoft_svr\HI SOFT SYSTEM\PO PDF\" & Temp_FTPurchaseBy & "\"
+                                            .ExportName = PoNo
+                                            .ExportFile = HI.RP.Report.ExFile.PDF
 
-                                        ' กรณีหาไฟล์ไม่เจอ  ????
-                                        .PrevieNoSplash(PoState)
+                                            ' กรณีหาไฟล์ไม่เจอ  ????
+                                            .PrevieNoSplash(PoState)
 
-                                        Dim _FIleExportPDFName As String = .ExportFileSuccessName
+                                            Dim _FIleExportPDFName As String = .ExportFileSuccessName
 
-                                    End With
+                                            Str_Doc_Name = _CheckPath & "\" & PoNo & ".pdf"
+                                        End With
 
+
+                                    End If
 
                                     Try
 
-                                        Dim Str_Doc_Name As String = _CheckPath & "\" & PoNo & ".pdf"
+                                        If Str_Doc_Name <> "" Then
+                                            If File.Exists(Str_Doc_Name) = True Then
 
+                                                If StatePDF = False Then
+                                                    HI.PO.POPDFToDB.SaveFilePDF(PoNo, Str_Doc_Name)
+                                                End If
 
-                                        If File.Exists(Str_Doc_Name) = True Then
-                                            .Attachments.Add(Str_Doc_Name)
+                                                .Attachments.Add(Str_Doc_Name)
+                                            End If
+
                                         End If
 
                                     Catch ex As Exception
 
                                     End Try
+
 
 
                                 Next
@@ -806,14 +912,19 @@ Public Class wPurchaseTrackingPI
                             Try
                                 ' .Send()
 
-                                Dim cmdstring As String
+
                                 cmdstring = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase SET FTStateSendMail='1'"
-                                cmdstring &= vbCrLf & ",FTSendMailBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                                cmdstring &= vbCrLf & ",FTSendMailDate=" & HI.UL.ULDate.FormatDateDB & " "
-                                cmdstring &= vbCrLf & ",FTSendMailTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                                cmdstring &= vbCrLf & ",FTSendMailBy= CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  ELSE FTSendMailBy END"
+                                cmdstring &= vbCrLf & ",FTSendMailDate=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatDateDB & "  ELSE FTSendMailDate END "
+                                cmdstring &= vbCrLf & ",FTSendMailTime=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTSendMailTime END "
+                                cmdstring &= vbCrLf & ",FTLastMailBy= CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' ELSE FTLastMailBy  END "
+                                cmdstring &= vbCrLf & ",FTLastMailDate=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatDateDB & "  ELSE FTLastMailDate  END  "
+                                cmdstring &= vbCrLf & ",FTLastMailTime=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTLastMailTime  END  "
                                 cmdstring &= vbCrLf & ",FTSystemSendMailBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                                 cmdstring &= vbCrLf & ",FTSystemSendMailDate=" & HI.UL.ULDate.FormatDateDB & " "
                                 cmdstring &= vbCrLf & ",FTSystemSendMailTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                                cmdstring &= vbCrLf & "  ,FTStateHold='0' "
+                                cmdstring &= vbCrLf & "  ,FNHSysPOHoldId=0 "
                                 cmdstring &= vbCrLf & "  WHERE FTPurchaseNo IN ('" & PoAllNo.Replace(",", "','") & "')"
                                 cmdstring &= vbCrLf & " select FTPurchaseNo,FTStateSendMail,FTSendMailBy,CASE WHEN ISDATE(FTSendMailDate) = 1 THEN Convert(varchar(10),Convert(datetime,FTSendMailDate),103) ELSE '' END AS  FTSendMailDate,FTSendMailTime "
                                 cmdstring &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase   "
@@ -846,7 +957,13 @@ Public Class wPurchaseTrackingPI
 
                                     End With
 
+                                    Try
+                                        cmdstring = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_SENDDATAPO_FORVENDER '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "'"
+                                        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_PUR)
 
+                                    Catch ex As Exception
+
+                                    End Try
                                 Next
 
                                 dt.Dispose()
@@ -1187,10 +1304,12 @@ Public Class wPurchaseTrackingPI
 
 
                 cmdstring = "update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase  Set "
-                cmdstring &= vbCrLf & " FTStateSendMail='" & HI.UL.ULF.rpQuoted(State) & "'"
-                cmdstring &= vbCrLf & ",FTSendMailBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-                cmdstring &= vbCrLf & ",FTSendMailDate=" & HI.UL.ULDate.FormatDateDB & ""
-                cmdstring &= vbCrLf & ",FTSendMailTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                cmdstring &= vbCrLf & ",FTSendMailBy= CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  ELSE FTSendMailBy END"
+                cmdstring &= vbCrLf & ",FTSendMailDate=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatDateDB & "  ELSE FTSendMailDate END "
+                cmdstring &= vbCrLf & ",FTSendMailTime=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTSendMailTime END "
+                cmdstring &= vbCrLf & ",FTLastMailBy= CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' ELSE FTLastMailBy  END "
+                cmdstring &= vbCrLf & ",FTLastMailDate=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatDateDB & "  ELSE FTLastMailDate  END  "
+                cmdstring &= vbCrLf & ",FTLastMailTime=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTLastMailTime  END  "
                 cmdstring &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(PoNo) & "'  "
                 cmdstring &= vbCrLf & " select top 1 FTStateSendMail,FTSendMailBy,CASE WHEN ISDATE(FTSendMailDate) = 1 THEN Convert(varchar(10),Convert(datetime,FTSendMailDate),103) ELSE '' END AS FTSendMailDate,FTSendMailTime "
                 cmdstring &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase   "
@@ -1209,6 +1328,13 @@ Public Class wPurchaseTrackingPI
                 Next
 
                 dt.Dispose()
+
+                If State = "1" Then
+                    cmdstring = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_SENDDATAPO_FORVENDER '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(PoNo) & "'"
+                    HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_PUR)
+                End If
+
+
 
         End Select
     End Sub
@@ -1328,6 +1454,14 @@ Public Class wPurchaseTrackingPI
             .ocmcancel.Enabled = True
             .FNHSysSuplId.Text = SuplCode
             .FNHSysCurId.Text = CurCode
+            .ocmviewpdf.Enabled = True
+            .ocmviewpdf.Visible = False
+            .ocmattachpoaccepted.Enabled = True
+            .ocmviewpiacceptedpdf.Enabled = True
+            .ocmviewpiacceptedpdf.Visible = False
+            .ocmreject.Visible = False
+            .ocmreject.Enabled = False
+            .StateDelete = False
             ' .ogcpo.DataSource = dtpoList.Copy
             .LoadDataPI("")
 
@@ -1372,12 +1506,10 @@ Public Class wPurchaseTrackingPI
                 Dim _Spls As New HI.TL.SplashScreen("Saving...   Please Wait   ")
                 For Each R As DataRow In dtpoList.Rows
 
-
                     cmdstring = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase SET "
                     cmdstring &= vbCrLf & " FTPINoBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                     cmdstring &= vbCrLf & ",FTPINoDate=" & HI.UL.ULDate.FormatDateDB & " "
                     cmdstring &= vbCrLf & ",FTPINoTime=" & HI.UL.ULDate.FormatTimeDB & " "
-
                     cmdstring &= vbCrLf & ",FTPINo='" & HI.UL.ULF.rpQuoted(pPINo) & "' "
                     cmdstring &= vbCrLf & ",FTPIDate='" & HI.UL.ULDate.ConvertEnDB(pPIDate) & "' "
                     cmdstring &= vbCrLf & ",FTRcvPIDate='" & HI.UL.ULDate.ConvertEnDB(pPIRcvDate) & "' "
@@ -1385,9 +1517,7 @@ Public Class wPurchaseTrackingPI
                     cmdstring &= vbCrLf & " ,FTPIRemark='" & HI.UL.ULF.rpQuoted(pNote) & "' "
                     cmdstring &= vbCrLf & " ,FNPIQuantity=" & Val(R!FNPIPOQuantity.ToString) & " "
                     cmdstring &= vbCrLf & " ,FNPINetAmt=" & Val(R!FNPIPONetAmt.ToString) & ""
-
                     cmdstring &= vbCrLf & "  WHERE FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "'"
-
                     cmdstring &= vbCrLf & "  DECLARE @CountData int = 0 "
                     cmdstring &= vbCrLf & " UPDATE [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI "
                     cmdstring &= vbCrLf & " Set FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
@@ -1401,7 +1531,6 @@ Public Class wPurchaseTrackingPI
                     cmdstring &= vbCrLf & ",FTRcvPIDate='" & HI.UL.ULDate.ConvertEnDB(pPIRcvDate) & "' "
                     cmdstring &= vbCrLf & ",FTPISuplCFMDeliveryDate='" & HI.UL.ULDate.ConvertEnDB(pPICFMDate) & "' "
                     cmdstring &= vbCrLf & ",FTPIRemark='" & HI.UL.ULF.rpQuoted(pNote) & "' "
-
                     cmdstring &= vbCrLf & " ,FNPOQuantity=" & Val(R!FNPOQuantity.ToString) & " "
                     cmdstring &= vbCrLf & " ,FNPONetAmt=" & Val(R!FNPONetAmt.ToString) & ""
                     cmdstring &= vbCrLf & " ,FNPIPOQuantity=" & Val(R!FNPIPOQuantity.ToString) & " "
@@ -1410,12 +1539,10 @@ Public Class wPurchaseTrackingPI
                     cmdstring &= vbCrLf & " ,FNPIGrandNetAmt=" & PIAmt & ""
                     cmdstring &= vbCrLf & " ,FNPOBalQuantity=" & Val(R!FNPOBalQuantity.ToString) & " "
                     cmdstring &= vbCrLf & " ,FNPOBalGrandAmt=" & Val(R!FNPOBalGrandAmt.ToString) & ""
-
                     cmdstring &= vbCrLf & " ,FNCNAmt=" & PICNAmt & " "
                     cmdstring &= vbCrLf & " ,FNDNAmt=" & PIDNAmt & ""
                     cmdstring &= vbCrLf & " ,FNSurchargeAmt=" & PISurchargeAmt & " "
                     cmdstring &= vbCrLf & " ,FNPIGrandTotalAmt=" & PIGTotalAmt & ""
-
                     cmdstring &= vbCrLf & " ,FNHSysSuplId=" & SuplID & ""
                     cmdstring &= vbCrLf & " ,FNHSysCurId=" & CurID & " "
                     cmdstring &= vbCrLf & " ,FNPIDocType=" & DocType & ""
@@ -1423,16 +1550,11 @@ Public Class wPurchaseTrackingPI
                     cmdstring &= vbCrLf & " ,FTUnitCode='" & HI.UL.ULF.rpQuoted(R!FTUnitCode.ToString) & "'"
                     cmdstring &= vbCrLf & " ,FTBLNo='" & HI.UL.ULF.rpQuoted(BLNo) & "'"
                     cmdstring &= vbCrLf & " ,FTBLDate='" & HI.UL.ULDate.ConvertEnDB(BLDate) & "'"
-
-
                     cmdstring &= vbCrLf & "  WHERE FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "'"
                     cmdstring &= vbCrLf & "  AND FTPINo ='" & HI.UL.ULF.rpQuoted(pPINo) & "'"
-
-
                     cmdstring &= vbCrLf & " SET @CountData = @@ROWCOUNT  "
                     cmdstring &= vbCrLf & " IF @CountData <=0 "
                     cmdstring &= vbCrLf & "   BEGIN "
-
                     cmdstring &= vbCrLf & "        INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI(FTInsUser, FDInsDate, FTInsTime"
                     cmdstring &= vbCrLf & ", FTPINo, FTPurchaseNo, FTPIDate, FTRcvPIDate, FTPISuplCFMDeliveryDate"
                     cmdstring &= vbCrLf & ",  FTPIRemark, FNPOQuantity, FNPONetAmt,  FNPIPOQuantity, FNPIPONetAmt, FNPIGrandQuantity, FNPIGrandNetAmt,FNPOBalQuantity,FNPOBalGrandAmt,FNCNAmt,FNDNAmt,FNSurchargeAmt,FNPIGrandTotalAmt,FNHSysSuplId,FNHSysCurId,FNPIDocType,FTPIMatType,FTUnitCode,FTBLNo,FTBLDate)  "
@@ -1441,12 +1563,10 @@ Public Class wPurchaseTrackingPI
                     cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
                     cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pPINo) & "' "
                     cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "' "
-
                     cmdstring &= vbCrLf & ",'" & HI.UL.ULDate.ConvertEnDB(pPIDate) & "' "
                     cmdstring &= vbCrLf & ",'" & HI.UL.ULDate.ConvertEnDB(pPIRcvDate) & "' "
                     cmdstring &= vbCrLf & ",'" & HI.UL.ULDate.ConvertEnDB(pPICFMDate) & "' "
                     cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pNote) & "' "
-
                     cmdstring &= vbCrLf & " ," & Val(R!FNPOQuantity.ToString) & " "
                     cmdstring &= vbCrLf & " ," & Val(R!FNPONetAmt.ToString) & ""
                     cmdstring &= vbCrLf & " ," & Val(R!FNPIPOQuantity.ToString) & " "
@@ -1466,20 +1586,15 @@ Public Class wPurchaseTrackingPI
                     cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(R!FTUnitCode.ToString) & "'"
                     cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(BLNo) & "'"
                     cmdstring &= vbCrLf & " ,'" & HI.UL.ULDate.ConvertEnDB(BLDate) & "'"
-
-                    cmdstring &= vbCrLf & " SET @CountData = @@ROWCOUNT  "
-
-                    cmdstring &= vbCrLf & "   END "
-                    cmdstring &= vbCrLf & " delete from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_Surcharge where FTPINo='" & HI.UL.ULF.rpQuoted(pPINo) & "' AND FNHSysSuplId=" & SuplID & ""
-                    cmdstring &= vbCrLf & " delete from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_CNDN where FTPINo='" & HI.UL.ULF.rpQuoted(pPINo) & "' AND FNHSysSuplId=" & SuplID & ""
+                    cmdstring &= vbCrLf & "  SET @CountData = @@ROWCOUNT  "
+                    cmdstring &= vbCrLf & "   END  "
+                    cmdstring &= vbCrLf & "       delete from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_Surcharge where FTPINo='" & HI.UL.ULF.rpQuoted(pPINo) & "' AND FNHSysSuplId=" & SuplID & ""
+                    cmdstring &= vbCrLf & "       delete from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_CNDN where FTPINo='" & HI.UL.ULF.rpQuoted(pPINo) & "' AND FNHSysSuplId=" & SuplID & ""
 
                     Dim Rseq As Integer = 0
 
-
-
                     For Each Rxm As DataRow In dtsurcharge.Select("FTDescription<>''", "FNSeq")
                         Rseq = Rseq + 1
-
 
                         cmdstring &= vbCrLf & "        INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_Surcharge(FTInsUser, FDInsDate, FTInsTime"
                         cmdstring &= vbCrLf & ", FTPINo, FNSeq, FTDescription, FNSurchargeAmt, FTRemark,FNHSysSuplId)  "
@@ -1492,10 +1607,13 @@ Public Class wPurchaseTrackingPI
                         cmdstring &= vbCrLf & " ," & Val(Rxm!FNSurchargeAmt.ToString) & " "
                         cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Rxm!FTRemark.ToString) & "' "
                         cmdstring &= vbCrLf & " ," & SuplID & " "
+
                     Next
 
                     Rseq = 0
+
                     For Each Rxm As DataRow In dtpocndn.Select("FTDocRefNo<>''", "FNSeq")
+
                         Rseq = Rseq + 1
 
                         cmdstring &= vbCrLf & "        INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_CNDN(FTInsUser, FDInsDate, FTInsTime"
@@ -1511,15 +1629,12 @@ Public Class wPurchaseTrackingPI
                         cmdstring &= vbCrLf & " ," & Val(Rxm!FNDocAmt.ToString) & " "
                         cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Rxm!FTDocRemark.ToString) & "' "
                         cmdstring &= vbCrLf & " ," & SuplID & " "
+
                     Next
 
                     cmdstring &= vbCrLf & " SELECT  @CountData"
 
-
                     HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_PUR)
-
-
-
 
                     cmdstring = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETDATAPO_TRACKING '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & FNListDocumentTrackPIData.SelectedIndex.ToString() & ",'','','','','" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "','" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "',0"
 
@@ -1552,6 +1667,10 @@ Public Class wPurchaseTrackingPI
 
                 Next
 
+
+                cmdstring = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_SENDDATAPAYMENT_FORVENDER '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(pPINo) & "'"
+                HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_PUR)
+
                 _Spls.Close()
                 ' Call LoadData()
 
@@ -1567,7 +1686,6 @@ Public Class wPurchaseTrackingPI
     Private Sub ocmsavetrack_Click(sender As Object, e As EventArgs) Handles ocmsavetrack.Click
         Dim dtpo As DataTable
         Dim dtpoList As DataTable
-
 
         With CType(Me.ogdtime.DataSource, DataTable)
             .AcceptChanges()
@@ -1619,9 +1737,6 @@ Public Class wPurchaseTrackingPI
                     Dim mdt As DataTable
                     mdt = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_PUR)
 
-
-
-
                     For Each Rxp As DataRow In mdt.Rows
 
                         With CType(Me.ogdtime.DataSource, DataTable)
@@ -1668,12 +1783,12 @@ Public Class wPurchaseTrackingPI
 
         End With
 
-        If dtpo.Select("FTSelect='1' AND FTStateSuperVisorApp='1' AND FTStateManagerApp='1'").Length <= 0 Then
+        If dtpo.Select("FTSelect='1' AND FTStateSuperVisorApp='1' AND FTStateManagerApp='1' AND FTPINo<>''").Length <= 0 Then
 
             Exit Sub
         End If
 
-        dtpoList = dtpo.Select("FTSelect='1'  AND FTStateSuperVisorApp='1'  AND FTStateManagerApp='1' ").CopyToDataTable
+        dtpoList = dtpo.Select("FTSelect='1'  AND FTStateSuperVisorApp='1'  AND FTStateManagerApp='1'  AND FTPINo<>'' ").CopyToDataTable
 
         HI.TL.HandlerControl.ClearControl(wAddPaid)
         With wAddPaid
@@ -1686,8 +1801,60 @@ Public Class wPurchaseTrackingPI
 
                 Dim pNote As String = .FTPaidNote.Text.Trim
                 Dim pContactDate As String = .FTPaidDate.Text
-                Dim cmd As String = ""
+                Dim pLCNo As String = .FTLCNo.Text.Trim
 
+                Dim cmd As String = ""
+                Dim FileID As Integer = 0
+
+                If .FTFilePath.Text <> "" Then
+
+                    Dim pFilePath As String = .FTFilePath.Text
+                    Dim pFileName As String = .FTPDFName.Text
+
+                    cmd = "Declare @FileId int =0 "
+                    cmd &= vbCrLf & " Select TOP 1  @FileId= ISNULL(MAX(A.FNFileID),0) +1  "
+                    cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_File As A With(NOLOCK)"
+                    cmd &= vbCrLf & "  IF @FileId  > 0 "
+                    cmd &= vbCrLf & "          BEGIN "
+                    cmd &= vbCrLf & "                INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_File(FTInsUser, FDInsDate, FTInsTime, FNFileID, FTFileName)"
+                    cmd &= vbCrLf & "                Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    cmd &= vbCrLf & "                       ," & HI.UL.ULDate.FormatDateDB
+                    cmd &= vbCrLf & "                       ," & HI.UL.ULDate.FormatTimeDB
+                    cmd &= vbCrLf & "                      ,@FileId"
+                    cmd &= vbCrLf & "                      ,'" & HI.UL.ULF.rpQuoted(pFileName) & "'"
+                    cmd &= vbCrLf & "          END "
+                    cmd &= vbCrLf & "   SELECT @FileId "
+
+                    FileID = Val(HI.Conn.SQLConn.GetField(cmd, Conn.DB.DataBaseName.DB_PUR, "0"))
+
+                    If FileID > 0 Then
+
+                        Dim data As Byte() = System.IO.File.ReadAllBytes(pFilePath)
+
+                        HI.Conn.SQLConn._ConnString = HI.Conn.DB.ConnectionString(HI.Conn.DB.DataBaseName.DB_ACCOUNT)
+                        HI.Conn.SQLConn.SqlConnectionOpen()
+
+                        cmd = "UPDATE [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_File"
+                        cmd &= " Set  FPFile=@FPFile"
+                        cmd &= "  Where FNFileID=@FNFileID"
+
+                        Dim scmd As New SqlCommand(cmd, HI.Conn.SQLConn.Cnn)
+                        Dim p6 As New SqlParameter("@FPFile", SqlDbType.VarBinary)
+                        p6.Value = data
+
+                        Dim p8 As New SqlParameter("@FNFileID", SqlDbType.NVarChar)
+                        p8.Value = FileID
+
+                        scmd.Parameters.Add(p6)
+                        scmd.Parameters.Add(p8)
+
+                        scmd.ExecuteNonQuery()
+
+                        HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cnn)
+
+                    End If
+
+                End If
 
                 Dim _Spls As New HI.TL.SplashScreen("Saving...   Please Wait   ")
                 For Each R As DataRow In dtpoList.Rows
@@ -1705,12 +1872,14 @@ Public Class wPurchaseTrackingPI
                     cmd &= vbCrLf & ",FTStatePaidBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                     cmd &= vbCrLf & ",FTStatePaidDate=" & HI.UL.ULDate.FormatDateDB & " "
                     cmd &= vbCrLf & ",FTStatePaidTime=" & HI.UL.ULDate.FormatTimeDB & " "
-                    cmd &= vbCrLf & ",FTPaidDate='" & HI.UL.ULDate.ConvertEnDB(pContactDate) & "' "
-                    cmd &= vbCrLf & ",FTPaidNote='" & HI.UL.ULF.rpQuoted(pNote) & "' "
-                    cmd &= vbCrLf & "  WHERE FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "'  AND ISNULL(FTStatePaid,'') <>'1' "
+                    cmd &= vbCrLf & ",FTPaidDate=CASE WHEN ISNULL(FTLCNo,'') ='' THEN '" & HI.UL.ULDate.ConvertEnDB(pContactDate) & "' ELSE ISNULL(FTPaidDate,'') END "
+                    cmd &= vbCrLf & ",FTLCNo= CASE WHEN ISNULL(FTLCNo,'') ='' THEN '" & HI.UL.ULF.rpQuoted(pLCNo) & "' ELSE ISNULL(FTLCNo,'') END "
+                    cmd &= vbCrLf & ",FTPaidNote=CASE WHEN ISNULL(FTLCNo,'') ='' THEN '" & HI.UL.ULF.rpQuoted(pNote) & "'   ELSE FTPaidNote END"
+                    cmd &= vbCrLf & ",FNFileID= CASE WHEN ISNULL(FNFileID,0) =0 THEN   " & FileID & " ELSE ISNULL(FNFileID,0)  END "
+
+                    cmd &= vbCrLf & "  WHERE FTPINo ='" & HI.UL.ULF.rpQuoted(R!FTPINo.ToString) & "'  "
 
                     HI.Conn.SQLConn.ExecuteNonQuery(cmd, Conn.DB.DataBaseName.DB_PUR)
-
 
                     cmd = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETDATAPO_TRACKING '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & FNListDocumentTrackPIData.SelectedIndex.ToString() & ",'','','','','" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "','" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "',0"
 
@@ -1742,6 +1911,28 @@ Public Class wPurchaseTrackingPI
                     Next
 
                 Next
+                Try
+                    Dim grp As List(Of String) = (dtpoList.Select("FTPINo<>''", "FTPINo").CopyToDataTable).AsEnumerable() _
+                                                        .Select(Function(r) r.Field(Of String)("FTPINo")) _
+                                                        .Distinct() _
+                                                        .ToList()
+
+
+                    For Each ppi As String In grp
+
+                        If ppi <> "" Then
+
+                            cmd = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_SENDDATAPAYMENT_FORVENDER '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(ppi) & "'"
+                            HI.Conn.SQLConn.ExecuteOnly(cmd, Conn.DB.DataBaseName.DB_PUR)
+
+
+                        End If
+
+                    Next
+                Catch ex As Exception
+
+                End Try
+
 
                 _Spls.Close()
                 '  Call LoadData()
@@ -1805,9 +1996,7 @@ Public Class wPurchaseTrackingPI
                     cmd &= vbCrLf & ",FTPIPayDate='" & HI.UL.ULDate.ConvertEnDB(pContactDate) & "' "
                     cmd &= vbCrLf & ",FTPIPayTypeRemark='" & HI.UL.ULF.rpQuoted(pNote) & "' "
                     cmd &= vbCrLf & ",FTVenderAccNo='" & HI.UL.ULF.rpQuoted(VenderAccNo) & "' "
-
-
-                    cmd &= vbCrLf & "  WHERE FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "'  AND ISNULL(FTStatePaid,'') <>'1' "
+                    cmd &= vbCrLf & "  WHERE FTPINo ='" & HI.UL.ULF.rpQuoted(R!FTPINo.ToString) & "'  AND ISNULL(FTStatePaid,'') <>'1' "
 
                     HI.Conn.SQLConn.ExecuteNonQuery(cmd, Conn.DB.DataBaseName.DB_PUR)
 
@@ -1839,6 +2028,25 @@ Public Class wPurchaseTrackingPI
 
 
                     Next
+
+                Next
+
+
+                Dim grp As List(Of String) = (dtpoList.Select("FTPINo<>''", "FTPINo").CopyToDataTable).AsEnumerable() _
+                                                          .Select(Function(r) r.Field(Of String)("FTPINo")) _
+                                                          .Distinct() _
+                                                          .ToList()
+
+
+                For Each ppi As String In grp
+
+                    If ppi <> "" Then
+
+                        cmd = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_SENDDATAPAYMENT_FORVENDER '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(ppi) & "'"
+                        HI.Conn.SQLConn.ExecuteOnly(cmd, Conn.DB.DataBaseName.DB_PUR)
+
+
+                    End If
 
                 Next
 
@@ -1959,6 +2167,18 @@ Public Class wPurchaseTrackingPI
             Case "FTNote"
 
                 GridDataNoteBefore = ogvtime.GetFocusedRowCellValue(ogvtime.FocusedColumn.FieldName.ToString).ToString
+            Case "PDF"
+                If ogvtime.GetFocusedRowCellValue("FTStateFile").ToString = "1" Then
+                    e.Cancel = False
+                Else
+                    e.Cancel = True
+                End If
+            Case "PIPDF"
+                If ogvtime.GetFocusedRowCellValue("FTStatePIPDFFile").ToString = "1" Then
+                    e.Cancel = False
+                Else
+                    e.Cancel = True
+                End If
         End Select
     End Sub
 
@@ -2021,7 +2241,7 @@ Public Class wPurchaseTrackingPI
         Else
             If dtpi.Rows.Count = 1 Then
                 mPINO = dtpi.Rows(0)!FTPINo.ToString
-ELse
+            Else
                 With wListPINo
                     .PINo = ""
                     .ogcdetail.DataSource = dtpi.Copy
@@ -2059,8 +2279,6 @@ ELse
         End If
 
 
-
-
         HI.TL.HandlerControl.ClearControl(wAddPI)
         With wAddPI
             .PINO = mPINO
@@ -2074,6 +2292,14 @@ ELse
             .FNHSysSuplId.Text = SuplCode
             .FNHSysCurId.Text = CurCode
             .FTPINo.Text = mPINO
+            .ocmviewpdf.Enabled = True
+            .ocmviewpdf.Visible = False
+            .ocmattachpoaccepted.Enabled = True
+            .ocmviewpiacceptedpdf.Enabled = True
+            .ocmviewpiacceptedpdf.Visible = False
+            .ocmreject.Visible = True
+            .ocmreject.Enabled = True
+            .StateDelete = False
             .LoadDataPI(mPINO)
 
             Try
@@ -2083,6 +2309,7 @@ ELse
 
                     Next
                 End If
+
 
             Catch ex As Exception
 
@@ -2123,163 +2350,166 @@ ELse
                 Dim BLNo As String = .FTBLNo.Text.Trim
                 Dim BLDate As String = .FTBLDate.Text
 
+                Dim pStatedelete As Boolean = .StateDelete
                 Dim _Spls As New HI.TL.SplashScreen("Saving...   Please Wait   ")
                 For Each R As DataRow In dtpoList.Rows
 
-
-
-
-                    cmdstring = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase SET "
-                    cmdstring &= vbCrLf & " FTPINoBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                    cmdstring &= vbCrLf & ",FTPINoDate=" & HI.UL.ULDate.FormatDateDB & " "
-                    cmdstring &= vbCrLf & ",FTPINoTime=" & HI.UL.ULDate.FormatTimeDB & " "
-
-                    cmdstring &= vbCrLf & ",FTPINo='" & HI.UL.ULF.rpQuoted(pPINo) & "' "
-                    cmdstring &= vbCrLf & ",FTPIDate='" & HI.UL.ULDate.ConvertEnDB(pPIDate) & "' "
-                    cmdstring &= vbCrLf & ",FTRcvPIDate='" & HI.UL.ULDate.ConvertEnDB(pPIRcvDate) & "' "
-                    cmdstring &= vbCrLf & ",FTPISuplCFMDeliveryDate='" & HI.UL.ULDate.ConvertEnDB(pPICFMDate) & "' "
-                    cmdstring &= vbCrLf & " ,FTPIRemark='" & HI.UL.ULF.rpQuoted(pNote) & "' "
-                    cmdstring &= vbCrLf & " ,FNPIQuantity=" & Val(R!FNPIPOQuantity.ToString) & " "
-                    cmdstring &= vbCrLf & " ,FNPINetAmt=" & Val(R!FNPIPONetAmt.ToString) & ""
-
-
-                    cmdstring &= vbCrLf & "  WHERE FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "'"
-
+                    cmdstring = " "
                     cmdstring &= vbCrLf & "  DECLARE @CountData int = 0 "
-                    cmdstring &= vbCrLf & " UPDATE [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI "
-                    cmdstring &= vbCrLf & " Set FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                    cmdstring &= vbCrLf & ",FDUpdDate=" & HI.UL.ULDate.FormatDateDB & " "
-                    cmdstring &= vbCrLf & ",FTUpdTime=" & HI.UL.ULDate.FormatTimeDB & " "
-                    'cmdstring &= vbCrLf & " FTPINoBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                    'cmdstring &= vbCrLf & ",FTPINoDate=" & HI.UL.ULDate.FormatDateDB & " "
-                    'cmdstring &= vbCrLf & ",FTPINoTime=" & HI.UL.ULDate.FormatTimeDB & " "
-                    cmdstring &= vbCrLf & ",FTPINo='" & HI.UL.ULF.rpQuoted(pPINo) & "' "
-                    cmdstring &= vbCrLf & ",FTPIDate='" & HI.UL.ULDate.ConvertEnDB(pPIDate) & "' "
-                    cmdstring &= vbCrLf & ",FTRcvPIDate='" & HI.UL.ULDate.ConvertEnDB(pPIRcvDate) & "' "
-                    cmdstring &= vbCrLf & ",FTPISuplCFMDeliveryDate='" & HI.UL.ULDate.ConvertEnDB(pPICFMDate) & "' "
-                    cmdstring &= vbCrLf & ",FTPIRemark='" & HI.UL.ULF.rpQuoted(pNote) & "' "
 
-                    cmdstring &= vbCrLf & " ,FNPOQuantity=" & Val(R!FNPOQuantity.ToString) & " "
-                    cmdstring &= vbCrLf & " ,FNPONetAmt=" & Val(R!FNPONetAmt.ToString) & ""
-                    cmdstring &= vbCrLf & " ,FNPIPOQuantity=" & Val(R!FNPIPOQuantity.ToString) & " "
-                    cmdstring &= vbCrLf & " ,FNPIPONetAmt=" & Val(R!FNPIPONetAmt.ToString) & ""
-                    cmdstring &= vbCrLf & " ,FNPIGrandQuantity=" & PIQty & " "
-                    cmdstring &= vbCrLf & " ,FNPIGrandNetAmt=" & PIAmt & ""
-                    cmdstring &= vbCrLf & " ,FNPOBalQuantity=" & Val(R!FNPOBalQuantity.ToString) & " "
-                    cmdstring &= vbCrLf & " ,FNPOBalGrandAmt=" & Val(R!FNPOBalGrandAmt.ToString) & ""
+                    If pStatedelete = False Then
 
-                    cmdstring &= vbCrLf & " ,FNCNAmt=" & PICNAmt & " "
-                    cmdstring &= vbCrLf & " ,FNDNAmt=" & PIDNAmt & ""
-                    cmdstring &= vbCrLf & " ,FNSurchargeAmt=" & PISurchargeAmt & " "
-                    cmdstring &= vbCrLf & " ,FNPIGrandTotalAmt=" & PIGTotalAmt & ""
+                        cmdstring &= vbCrLf & "  Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase Set "
+                        cmdstring &= vbCrLf & " FTPINoBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                        cmdstring &= vbCrLf & ",FTPINoDate=" & HI.UL.ULDate.FormatDateDB & " "
+                        cmdstring &= vbCrLf & ",FTPINoTime=" & HI.UL.ULDate.FormatTimeDB & " "
 
-                    cmdstring &= vbCrLf & " ,FNHSysSuplId=" & SuplID & ""
-                    cmdstring &= vbCrLf & " ,FNHSysCurId=" & CurID & " "
-                    cmdstring &= vbCrLf & " ,FNPIDocType=" & DocType & ""
-                    cmdstring &= vbCrLf & " ,FTPIMatType='" & HI.UL.ULF.rpQuoted(MatType) & "'"
-                    cmdstring &= vbCrLf & " ,FTUnitCode='" & HI.UL.ULF.rpQuoted(R!FTUnitCode.ToString) & "'"
-                    cmdstring &= vbCrLf & " ,FTBLNo='" & HI.UL.ULF.rpQuoted(BLNo) & "'"
-                    cmdstring &= vbCrLf & " ,FTBLDate='" & HI.UL.ULDate.ConvertEnDB(BLDate) & "'"
+                        cmdstring &= vbCrLf & ",FTPINo='" & HI.UL.ULF.rpQuoted(pPINo) & "' "
+                        cmdstring &= vbCrLf & ",FTPIDate='" & HI.UL.ULDate.ConvertEnDB(pPIDate) & "' "
+                        cmdstring &= vbCrLf & ",FTRcvPIDate='" & HI.UL.ULDate.ConvertEnDB(pPIRcvDate) & "' "
+                        cmdstring &= vbCrLf & ",FTPISuplCFMDeliveryDate='" & HI.UL.ULDate.ConvertEnDB(pPICFMDate) & "' "
+                        cmdstring &= vbCrLf & " ,FTPIRemark='" & HI.UL.ULF.rpQuoted(pNote) & "' "
+                        cmdstring &= vbCrLf & " ,FNPIQuantity=" & Val(R!FNPIPOQuantity.ToString) & " "
+                        cmdstring &= vbCrLf & " ,FNPINetAmt=" & Val(R!FNPIPONetAmt.ToString) & ""
+                        cmdstring &= vbCrLf & "  WHERE FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "'"
 
-                    cmdstring &= vbCrLf & "  WHERE FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "'"
-                    cmdstring &= vbCrLf & "  AND FTPINo ='" & HI.UL.ULF.rpQuoted(mPINO) & "'"
+                        cmdstring &= vbCrLf & " UPDATE [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI "
+                        cmdstring &= vbCrLf & " Set FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                        cmdstring &= vbCrLf & ",FDUpdDate=" & HI.UL.ULDate.FormatDateDB & " "
+                        cmdstring &= vbCrLf & ",FTUpdTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                        'cmdstring &= vbCrLf & " FTPINoBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                        'cmdstring &= vbCrLf & ",FTPINoDate=" & HI.UL.ULDate.FormatDateDB & " "
+                        'cmdstring &= vbCrLf & ",FTPINoTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                        cmdstring &= vbCrLf & ",FTPINo='" & HI.UL.ULF.rpQuoted(pPINo) & "' "
+                        cmdstring &= vbCrLf & ",FTPIDate='" & HI.UL.ULDate.ConvertEnDB(pPIDate) & "' "
+                        cmdstring &= vbCrLf & ",FTRcvPIDate='" & HI.UL.ULDate.ConvertEnDB(pPIRcvDate) & "' "
+                        cmdstring &= vbCrLf & ",FTPISuplCFMDeliveryDate='" & HI.UL.ULDate.ConvertEnDB(pPICFMDate) & "' "
+                        cmdstring &= vbCrLf & ",FTPIRemark='" & HI.UL.ULF.rpQuoted(pNote) & "' "
+
+                        cmdstring &= vbCrLf & " ,FNPOQuantity=" & Val(R!FNPOQuantity.ToString) & " "
+                        cmdstring &= vbCrLf & " ,FNPONetAmt=" & Val(R!FNPONetAmt.ToString) & ""
+                        cmdstring &= vbCrLf & " ,FNPIPOQuantity=" & Val(R!FNPIPOQuantity.ToString) & " "
+                        cmdstring &= vbCrLf & " ,FNPIPONetAmt=" & Val(R!FNPIPONetAmt.ToString) & ""
+                        cmdstring &= vbCrLf & " ,FNPIGrandQuantity=" & PIQty & " "
+                        cmdstring &= vbCrLf & " ,FNPIGrandNetAmt=" & PIAmt & ""
+                        cmdstring &= vbCrLf & " ,FNPOBalQuantity=" & Val(R!FNPOBalQuantity.ToString) & " "
+                        cmdstring &= vbCrLf & " ,FNPOBalGrandAmt=" & Val(R!FNPOBalGrandAmt.ToString) & ""
+
+                        cmdstring &= vbCrLf & " ,FNCNAmt=" & PICNAmt & " "
+                        cmdstring &= vbCrLf & " ,FNDNAmt=" & PIDNAmt & ""
+                        cmdstring &= vbCrLf & " ,FNSurchargeAmt=" & PISurchargeAmt & " "
+                        cmdstring &= vbCrLf & " ,FNPIGrandTotalAmt=" & PIGTotalAmt & ""
+
+                        cmdstring &= vbCrLf & " ,FNHSysSuplId=" & SuplID & ""
+                        cmdstring &= vbCrLf & " ,FNHSysCurId=" & CurID & " "
+                        cmdstring &= vbCrLf & " ,FNPIDocType=" & DocType & ""
+                        cmdstring &= vbCrLf & " ,FTPIMatType='" & HI.UL.ULF.rpQuoted(MatType) & "'"
+                        cmdstring &= vbCrLf & " ,FTUnitCode='" & HI.UL.ULF.rpQuoted(R!FTUnitCode.ToString) & "'"
+                        cmdstring &= vbCrLf & " ,FTBLNo='" & HI.UL.ULF.rpQuoted(BLNo) & "'"
+                        cmdstring &= vbCrLf & " ,FTBLDate='" & HI.UL.ULDate.ConvertEnDB(BLDate) & "'"
+
+                        cmdstring &= vbCrLf & "  WHERE FTPurchaseNo ='" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "'"
+                        cmdstring &= vbCrLf & "  AND FTPINo ='" & HI.UL.ULF.rpQuoted(mPINO) & "'"
 
 
-                    cmdstring &= vbCrLf & " SET @CountData = @@ROWCOUNT  "
-                    cmdstring &= vbCrLf & " IF @CountData <=0 "
-                    cmdstring &= vbCrLf & "   BEGIN "
+                        cmdstring &= vbCrLf & " SET @CountData = @@ROWCOUNT  "
+                        cmdstring &= vbCrLf & " IF @CountData <=0 "
+                        cmdstring &= vbCrLf & "   BEGIN "
 
-                    cmdstring &= vbCrLf & "        INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI(FTInsUser, FDInsDate, FTInsTime"
-                    cmdstring &= vbCrLf & ", FTPINo, FTPurchaseNo, FTPIDate, FTRcvPIDate, FTPISuplCFMDeliveryDate"
-                    cmdstring &= vbCrLf & ",  FTPIRemark, FNPOQuantity, FNPONetAmt,  FNPIPOQuantity, FNPIPONetAmt, FNPIGrandQuantity, FNPIGrandNetAmt,FNPOBalQuantity,FNPOBalGrandAmt,FNCNAmt,FNDNAmt,FNSurchargeAmt,FNPIGrandTotalAmt,FNHSysSuplId,FNHSysCurId,FNPIDocType,FTPIMatType,FTUnitCode,FTBLNo,FTBLDate)  "
-                    cmdstring &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
-                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
-                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pPINo) & "' "
-                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "' "
+                        cmdstring &= vbCrLf & "        INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI(FTInsUser, FDInsDate, FTInsTime"
+                        cmdstring &= vbCrLf & ", FTPINo, FTPurchaseNo, FTPIDate, FTRcvPIDate, FTPISuplCFMDeliveryDate"
+                        cmdstring &= vbCrLf & ",  FTPIRemark, FNPOQuantity, FNPONetAmt,  FNPIPOQuantity, FNPIPONetAmt, FNPIGrandQuantity, FNPIGrandNetAmt,FNPOBalQuantity,FNPOBalGrandAmt,FNCNAmt,FNDNAmt,FNSurchargeAmt,FNPIGrandTotalAmt,FNHSysSuplId,FNHSysCurId,FNPIDocType,FTPIMatType,FTUnitCode,FTBLNo,FTBLDate)  "
+                        cmdstring &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pPINo) & "' "
+                        cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "' "
 
-                    cmdstring &= vbCrLf & ",'" & HI.UL.ULDate.ConvertEnDB(pPIDate) & "' "
-                    cmdstring &= vbCrLf & ",'" & HI.UL.ULDate.ConvertEnDB(pPIRcvDate) & "' "
-                    cmdstring &= vbCrLf & ",'" & HI.UL.ULDate.ConvertEnDB(pPICFMDate) & "' "
-                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pNote) & "' "
+                        cmdstring &= vbCrLf & ",'" & HI.UL.ULDate.ConvertEnDB(pPIDate) & "' "
+                        cmdstring &= vbCrLf & ",'" & HI.UL.ULDate.ConvertEnDB(pPIRcvDate) & "' "
+                        cmdstring &= vbCrLf & ",'" & HI.UL.ULDate.ConvertEnDB(pPICFMDate) & "' "
+                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pNote) & "' "
 
-                    cmdstring &= vbCrLf & " ," & Val(R!FNPOQuantity.ToString) & " "
-                    cmdstring &= vbCrLf & " ," & Val(R!FNPONetAmt.ToString) & ""
-                    cmdstring &= vbCrLf & " ," & Val(R!FNPIPOQuantity.ToString) & " "
-                    cmdstring &= vbCrLf & " ," & Val(R!FNPIPONetAmt.ToString) & ""
-                    cmdstring &= vbCrLf & " ," & PIQty & " "
-                    cmdstring &= vbCrLf & " ," & PIAmt & ""
-                    cmdstring &= vbCrLf & " ," & Val(R!FNPOBalQuantity.ToString) & " "
-                    cmdstring &= vbCrLf & " ," & Val(R!FNPOBalGrandAmt.ToString) & ""
-                    cmdstring &= vbCrLf & " ," & PICNAmt & " "
-                    cmdstring &= vbCrLf & " ," & PIDNAmt & ""
-                    cmdstring &= vbCrLf & " ," & PISurchargeAmt & " "
-                    cmdstring &= vbCrLf & " ," & PIGTotalAmt & ""
-                    cmdstring &= vbCrLf & " ," & SuplID & ""
-                    cmdstring &= vbCrLf & " ," & CurID & " "
-                    cmdstring &= vbCrLf & " ," & DocType & ""
-                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(MatType) & "' "
-                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(R!FTUnitCode.ToString) & "'"
-                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(BLNo) & "'"
-                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULDate.ConvertEnDB(BLDate) & "'"
+                        cmdstring &= vbCrLf & " ," & Val(R!FNPOQuantity.ToString) & " "
+                        cmdstring &= vbCrLf & " ," & Val(R!FNPONetAmt.ToString) & ""
+                        cmdstring &= vbCrLf & " ," & Val(R!FNPIPOQuantity.ToString) & " "
+                        cmdstring &= vbCrLf & " ," & Val(R!FNPIPONetAmt.ToString) & ""
+                        cmdstring &= vbCrLf & " ," & PIQty & " "
+                        cmdstring &= vbCrLf & " ," & PIAmt & ""
+                        cmdstring &= vbCrLf & " ," & Val(R!FNPOBalQuantity.ToString) & " "
+                        cmdstring &= vbCrLf & " ," & Val(R!FNPOBalGrandAmt.ToString) & ""
+                        cmdstring &= vbCrLf & " ," & PICNAmt & " "
+                        cmdstring &= vbCrLf & " ," & PIDNAmt & ""
+                        cmdstring &= vbCrLf & " ," & PISurchargeAmt & " "
+                        cmdstring &= vbCrLf & " ," & PIGTotalAmt & ""
+                        cmdstring &= vbCrLf & " ," & SuplID & ""
+                        cmdstring &= vbCrLf & " ," & CurID & " "
+                        cmdstring &= vbCrLf & " ," & DocType & ""
+                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(MatType) & "' "
+                        cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(R!FTUnitCode.ToString) & "'"
+                        cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(BLNo) & "'"
+                        cmdstring &= vbCrLf & " ,'" & HI.UL.ULDate.ConvertEnDB(BLDate) & "'"
 
-                    cmdstring &= vbCrLf & " SET @CountData = @@ROWCOUNT  "
+                        cmdstring &= vbCrLf & " SET @CountData = @@ROWCOUNT  "
 
-                    cmdstring &= vbCrLf & "   END "
+                        cmdstring &= vbCrLf & "   END "
+
+
+                    End If
 
                     cmdstring &= vbCrLf & " delete from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_Surcharge where FTPINo='" & HI.UL.ULF.rpQuoted(mPINO) & "' AND FNHSysSuplId=" & SuplID & ""
                     cmdstring &= vbCrLf & " delete from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_CNDN where FTPINo='" & HI.UL.ULF.rpQuoted(mPINO) & "' AND FNHSysSuplId=" & SuplID & ""
 
-                    Dim Rseq As Integer = 0
+                    If pStatedelete = False Then
+
+                        Dim Rseq As Integer = 0
+
+                        For Each Rxm As DataRow In dtsurcharge.Select("FTDescription<>''", "FNSeq")
+                            Rseq = Rseq + 1
+
+                            cmdstring &= vbCrLf & "        INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_Surcharge(FTInsUser, FDInsDate, FTInsTime"
+                            cmdstring &= vbCrLf & ", FTPINo, FNSeq, FTDescription, FNSurchargeAmt, FTRemark,FNHSysSuplId)  "
+                            cmdstring &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                            cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+                            cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+                            cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pPINo) & "' "
+                            cmdstring &= vbCrLf & " ," & Rseq & " "
+                            cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Rxm!FTDescription.ToString) & "' "
+                            cmdstring &= vbCrLf & " ," & Val(Rxm!FNSurchargeAmt.ToString) & " "
+                            cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Rxm!FTRemark.ToString) & "' "
+                            cmdstring &= vbCrLf & " ," & SuplID & " "
+                        Next
+
+                        Rseq = 0
+
+                        For Each Rxm As DataRow In dtpocndn.Select("FTDocRefNo<>''", "FNSeq")
+                            Rseq = Rseq + 1
+
+                            cmdstring &= vbCrLf & "        INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_CNDN(FTInsUser, FDInsDate, FTInsTime"
+                            cmdstring &= vbCrLf & ", FTPINo, FNSeq, FTDocRefNo, FTDocRefDate, FTDocType, FNDocAmt, FTDocRemark,FNHSysSuplId)  "
+                            cmdstring &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                            cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+                            cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+                            cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pPINo) & "' "
+                            cmdstring &= vbCrLf & " ," & Rseq & " "
+                            cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Rxm!FTDocRefNo.ToString) & "' "
+                            cmdstring &= vbCrLf & " ,'' "
+                            cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Rxm!FTDocType.ToString) & "' "
+                            cmdstring &= vbCrLf & " ," & Val(Rxm!FNDocAmt.ToString) & " "
+                            cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Rxm!FTDocRemark.ToString) & "' "
+                            cmdstring &= vbCrLf & " ," & SuplID & " "
+                        Next
 
 
-                    For Each Rxm As DataRow In dtsurcharge.Select("FTDescription<>''", "FNSeq")
-                        Rseq = Rseq + 1
-
-
-                        cmdstring &= vbCrLf & "        INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_Surcharge(FTInsUser, FDInsDate, FTInsTime"
-                        cmdstring &= vbCrLf & ", FTPINo, FNSeq, FTDescription, FNSurchargeAmt, FTRemark,FNHSysSuplId)  "
-                        cmdstring &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
-                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
-                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pPINo) & "' "
-                        cmdstring &= vbCrLf & " ," & Rseq & " "
-                        cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Rxm!FTDescription.ToString) & "' "
-                        cmdstring &= vbCrLf & " ," & Val(Rxm!FNSurchargeAmt.ToString) & " "
-                        cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Rxm!FTRemark.ToString) & "' "
-                        cmdstring &= vbCrLf & " ," & SuplID & " "
-                    Next
-
-                    Rseq = 0
-                    For Each Rxm As DataRow In dtpocndn.Select("FTDocRefNo<>''", "FNSeq")
-                        Rseq = Rseq + 1
-
-                        cmdstring &= vbCrLf & "        INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_CNDN(FTInsUser, FDInsDate, FTInsTime"
-                        cmdstring &= vbCrLf & ", FTPINo, FNSeq, FTDocRefNo, FTDocRefDate, FTDocType, FNDocAmt, FTDocRemark,FNHSysSuplId)  "
-                        cmdstring &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
-                        cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
-                        cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(pPINo) & "' "
-                        cmdstring &= vbCrLf & " ," & Rseq & " "
-                        cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Rxm!FTDocRefNo.ToString) & "' "
-                        cmdstring &= vbCrLf & " ,'' "
-                        cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Rxm!FTDocType.ToString) & "' "
-                        cmdstring &= vbCrLf & " ," & Val(Rxm!FNDocAmt.ToString) & " "
-                        cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Rxm!FTDocRemark.ToString) & "' "
-                        cmdstring &= vbCrLf & " ," & SuplID & " "
-                    Next
+                    End If
 
                     cmdstring &= vbCrLf & " SELECT  @CountData"
 
-
                     HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_PUR)
-
-
-
 
                     cmdstring = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETDATAPO_TRACKING '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & FNListDocumentTrackPIData.SelectedIndex.ToString() & ",'','','','','" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "','" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "',0"
 
-                        Dim mdt As DataTable
+                    Dim mdt As DataTable
                     mdt = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PUR)
 
                     For Each Rxp As DataRow In mdt.Rows
@@ -2310,6 +2540,10 @@ ELse
 
                 Next
 
+
+                cmdstring = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_SENDDATAPAYMENT_FORVENDER '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(pPINo) & "'"
+                HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_PUR)
+
                 _Spls.Close()
                 ' Call LoadData()
 
@@ -2331,5 +2565,153 @@ ELse
             .ocmcancel.Enabled = True
             .ShowDialog()
         End With
+    End Sub
+
+    Private Sub ocmFTStatePaid_Click(sender As Object, e As EventArgs) Handles ocmFTStatePaid.Click
+
+    End Sub
+
+    Private Sub RepositoryItemPopupContainerEdit0_QueryPopUp(sender As Object, e As CancelEventArgs) Handles RepositoryItemPopupContainerPDF.QueryPopUp
+        Try
+            If Me.ogdtime.DataSource Is Nothing Then Exit Sub
+
+
+            Try
+                FilePdfViewer.CloseDocument()
+            Catch ex As Exception
+
+            End Try
+
+            Dim cmdstring As String = ""
+
+            Select Case ogvtime.FocusedColumn.FieldName
+                Case "PIPDF"
+
+                    Dim PINO As String = Me.ogvtime.GetFocusedRowCellValue("FTPINo").ToString().Split(",")(0)
+                    cmdstring = " EXEC   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETFILEPIPDF '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(PINO) & "'"
+
+                Case Else
+
+                    Dim pPDFSeq As Integer = Val(Me.ogvtime.GetFocusedRowCellValue("FNFileID").ToString)
+
+                    cmdstring = "Select TOP 1 FPFile "
+                    cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_File AS A With(NOLOCK) "
+                    cmdstring &= vbCrLf & " WHERE  A.FNFileID =" & pPDFSeq & "  "
+
+            End Select
+
+            Dim dt As DataTable = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PUR)
+
+            If dt.Rows.Count > 0 Then
+
+
+                Try
+                    Dim br As Byte() = dt.Rows(0)!FPFile
+                    FilePdfViewer.LoadDocument(New MemoryStream(br))
+                Catch ex As Exception
+
+                End Try
+
+            Else
+
+
+            End If
+
+
+            dt.Dispose()
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+
+    Private Sub RepositoryItemPopupContainerEdit1_QueryPopUp(sender As Object, e As CancelEventArgs) Handles RepositoryItemPopupContainerPDFPI.QueryPopUp
+        Try
+            If Me.ogdtime.DataSource Is Nothing Then Exit Sub
+
+
+            Dim masterView As GridView = Me.ogvtime
+            Dim detailView As GridView = TryCast(masterView.GetDetailView(masterView.FocusedRowHandle, 0), GridView)
+            detailView.Focus()
+
+            Try
+                FilePdfViewerPI.CloseDocument()
+            Catch ex As Exception
+
+            End Try
+
+            Dim cmdstring As String = ""
+
+            Select Case detailView.FocusedColumn.FieldName
+                Case "PIPDF"
+
+                    Dim PINO As String = detailView.GetFocusedRowCellValue("FTPINo").ToString()
+                    cmdstring = " EXEC   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETFILEPIPDF '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(PINO) & "'"
+
+                Case Else
+
+                    Dim pPDFSeq As Integer = Val(detailView.GetFocusedRowCellValue("FNFileID").ToString)
+
+                    cmdstring = "Select TOP 1 FPFile "
+                    cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_PI_File AS A With(NOLOCK) "
+                    cmdstring &= vbCrLf & " WHERE  A.FNFileID =" & pPDFSeq & "  "
+
+            End Select
+
+            Dim dt As DataTable = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PUR)
+
+            If dt.Rows.Count > 0 Then
+
+
+                Try
+                    Dim br As Byte() = dt.Rows(0)!FPFile
+                    FilePdfViewerPI.LoadDocument(New MemoryStream(br))
+                Catch ex As Exception
+
+                End Try
+
+            Else
+
+
+            End If
+
+
+            dt.Dispose()
+
+        Catch ex As Exception
+            Dim msg As String = ex.Message
+
+        End Try
+    End Sub
+
+    Private Sub ogvlist_ShowingEditor(sender As Object, e As CancelEventArgs) Handles ogvlist.ShowingEditor
+        Try
+
+            Dim masterView As GridView = Me.ogvtime
+            Dim detailView As GridView = TryCast(masterView.GetDetailView(masterView.FocusedRowHandle, 0), GridView)
+            detailView.Focus()
+
+            Select Case detailView.FocusedColumn.FieldName
+                Case "PIPDF"
+                    If detailView.GetFocusedRowCellValue("FTStatePIPDFFile").ToString = "1" Then
+                        e.Cancel = False
+
+                    Else
+                        e.Cancel = True
+                    End If
+                Case "PDF"
+
+                    If detailView.GetFocusedRowCellValue("FTStateFile").ToString = "1" Then
+                        e.Cancel = False
+
+                    Else
+                        e.Cancel = True
+                    End If
+
+            End Select
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

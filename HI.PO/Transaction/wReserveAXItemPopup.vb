@@ -85,6 +85,15 @@
     End Sub
 
     Private Sub ocmsearch_Click(sender As Object, e As EventArgs) Handles ocmsearch.Click
+
+        If FTStateCheckMRP.Checked = False Then
+            If FNHSysMainMatId.Text.Trim = "" Then
+                HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text, FNHSysMainMatId_lbl.Text)
+                FNHSysMainMatId.Focus()
+                Exit Sub
+            End If
+        End If
+
         Dim _Str As String = ""
         Dim spls2 As New HI.TL.SplashScreen("Loading Data Onhand Please wait....")
         Dim _dtBar As DataTable

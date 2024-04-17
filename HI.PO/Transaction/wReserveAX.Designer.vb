@@ -86,9 +86,13 @@ Partial Class wReserveAX
         Me.CFTBatchNo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.mFTReserveAXNo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.mFNSeq = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.xxINTERFACESTATUS = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.xxISREVERT = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.xxREVERTSTATUS = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.XDBC = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
+        Me.pSendToAXDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.xxINTERFACESTATUS = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemCheckEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.FTAXWH_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.ogbnote = New DevExpress.XtraEditors.GroupControl()
         Me.FTReserveAXByUserAD_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -101,6 +105,7 @@ Partial Class wReserveAX
         Me.FTAXWH = New DevExpress.XtraEditors.GridLookUpEdit()
         Me.GridLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.cINVENTLOCATIONID = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNINTERFACESTATUS = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.ogbdocinfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbdocinfo.SuspendLayout()
         CType(Me.FNDocumentState.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,6 +121,8 @@ Partial Class wReserveAX
         Me.ogbdetail.SuspendLayout()
         CType(Me.ogcdetail, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvdetail, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbnote, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbnote.SuspendLayout()
         CType(Me.FTReserveAXByUserAD.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -510,6 +517,7 @@ Partial Class wReserveAX
         Me.ogcdetail.Location = New System.Drawing.Point(5, 31)
         Me.ogcdetail.MainView = Me.ogvdetail
         Me.ogcdetail.Name = "ogcdetail"
+        Me.ogcdetail.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemCheckEdit2})
         Me.ogcdetail.Size = New System.Drawing.Size(1027, 444)
         Me.ogcdetail.TabIndex = 301
         Me.ogcdetail.TabStop = False
@@ -518,7 +526,7 @@ Partial Class wReserveAX
         '
         'ogvdetail
         '
-        Me.ogvdetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.mmFTFromAXSite, Me.GFNHSysWHId, Me.GFTOrderNo, Me.xxFTFromSeason, Me.xxFTToSeason, Me.BFTBarcodeNo, Me.FTRawMatCode, Me.FTRawMatName, Me.FTRawMatColorCode, Me.CFTRawMatColorName, Me.FTRawMatSizeCode, Me.GFTPurchaseNo, Me.FTUnitCode, Me.FNQuantity, Me.HFNHSysWHId, Me.CFTBatchNo, Me.mFTReserveAXNo, Me.mFNSeq, Me.xxINTERFACESTATUS, Me.xxISREVERT, Me.xxREVERTSTATUS})
+        Me.ogvdetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.mmFTFromAXSite, Me.GFNHSysWHId, Me.GFTOrderNo, Me.xxFTFromSeason, Me.xxFTToSeason, Me.BFTBarcodeNo, Me.FTRawMatCode, Me.FTRawMatName, Me.FTRawMatColorCode, Me.CFTRawMatColorName, Me.FTRawMatSizeCode, Me.GFTPurchaseNo, Me.FTUnitCode, Me.FNQuantity, Me.HFNHSysWHId, Me.CFTBatchNo, Me.mFTReserveAXNo, Me.mFNSeq, Me.xxISREVERT, Me.xxREVERTSTATUS, Me.XDBC, Me.pSendToAXDate, Me.xxINTERFACESTATUS, Me.FNINTERFACESTATUS})
         Me.ogvdetail.GridControl = Me.ogcdetail
         Me.ogvdetail.Name = "ogvdetail"
         Me.ogvdetail.OptionsCustomization.AllowGroup = False
@@ -756,12 +764,6 @@ Partial Class wReserveAX
         Me.mFNSeq.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.mFNSeq.OptionsColumn.ReadOnly = True
         '
-        'xxINTERFACESTATUS
-        '
-        Me.xxINTERFACESTATUS.Caption = "INTERFACESTATUS"
-        Me.xxINTERFACESTATUS.FieldName = "INTERFACESTATUS"
-        Me.xxINTERFACESTATUS.Name = "xxINTERFACESTATUS"
-        '
         'xxISREVERT
         '
         Me.xxISREVERT.Caption = "ISREVERT"
@@ -773,6 +775,56 @@ Partial Class wReserveAX
         Me.xxREVERTSTATUS.Caption = "REVERTSTATUS"
         Me.xxREVERTSTATUS.FieldName = "REVERTSTATUS"
         Me.xxREVERTSTATUS.Name = "xxREVERTSTATUS"
+        '
+        'XDBC
+        '
+        Me.XDBC.Caption = "Send To Ax"
+        Me.XDBC.ColumnEdit = Me.RepositoryItemCheckEdit1
+        Me.XDBC.FieldName = "DBC"
+        Me.XDBC.MinWidth = 22
+        Me.XDBC.Name = "XDBC"
+        Me.XDBC.OptionsColumn.AllowEdit = False
+        Me.XDBC.OptionsColumn.ReadOnly = True
+        Me.XDBC.Visible = True
+        Me.XDBC.VisibleIndex = 15
+        Me.XDBC.Width = 83
+        '
+        'RepositoryItemCheckEdit1
+        '
+        Me.RepositoryItemCheckEdit1.AutoHeight = False
+        Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
+        Me.RepositoryItemCheckEdit1.ValueChecked = "1"
+        Me.RepositoryItemCheckEdit1.ValueUnchecked = "0"
+        '
+        'pSendToAXDate
+        '
+        Me.pSendToAXDate.Caption = "Send To AX Date"
+        Me.pSendToAXDate.DisplayFormat.FormatString = "dd/MM/yyyy"
+        Me.pSendToAXDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.pSendToAXDate.FieldName = "IMPDATETIME"
+        Me.pSendToAXDate.MinWidth = 22
+        Me.pSendToAXDate.Name = "pSendToAXDate"
+        Me.pSendToAXDate.OptionsColumn.AllowEdit = False
+        Me.pSendToAXDate.OptionsColumn.ReadOnly = True
+        Me.pSendToAXDate.Visible = True
+        Me.pSendToAXDate.VisibleIndex = 16
+        Me.pSendToAXDate.Width = 100
+        '
+        'xxINTERFACESTATUS
+        '
+        Me.xxINTERFACESTATUS.Caption = "INTERFACE STATUS"
+        Me.xxINTERFACESTATUS.FieldName = "INTERFACESTATUS"
+        Me.xxINTERFACESTATUS.Name = "xxINTERFACESTATUS"
+        Me.xxINTERFACESTATUS.OptionsColumn.AllowEdit = False
+        Me.xxINTERFACESTATUS.OptionsColumn.ReadOnly = True
+        Me.xxINTERFACESTATUS.Width = 100
+        '
+        'RepositoryItemCheckEdit2
+        '
+        Me.RepositoryItemCheckEdit2.AutoHeight = False
+        Me.RepositoryItemCheckEdit2.Name = "RepositoryItemCheckEdit2"
+        Me.RepositoryItemCheckEdit2.ValueChecked = CType(1, Byte)
+        Me.RepositoryItemCheckEdit2.ValueUnchecked = CType(0, Byte)
         '
         'FTAXWH_lbl
         '
@@ -994,6 +1046,19 @@ Partial Class wReserveAX
         Me.cINVENTLOCATIONID.Visible = True
         Me.cINVENTLOCATIONID.VisibleIndex = 0
         '
+        'FNINTERFACESTATUS
+        '
+        Me.FNINTERFACESTATUS.Caption = "INTERFACE STATUS"
+        Me.FNINTERFACESTATUS.ColumnEdit = Me.RepositoryItemCheckEdit1
+        Me.FNINTERFACESTATUS.FieldName = "FNINTERFACESTATUS"
+        Me.FNINTERFACESTATUS.MinWidth = 22
+        Me.FNINTERFACESTATUS.Name = "FNINTERFACESTATUS"
+        Me.FNINTERFACESTATUS.OptionsColumn.AllowEdit = False
+        Me.FNINTERFACESTATUS.OptionsColumn.ReadOnly = True
+        Me.FNINTERFACESTATUS.Visible = True
+        Me.FNINTERFACESTATUS.VisibleIndex = 17
+        Me.FNINTERFACESTATUS.Width = 100
+        '
         'wReserveAX
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1020,6 +1085,8 @@ Partial Class wReserveAX
         Me.ogbdetail.ResumeLayout(False)
         CType(Me.ogcdetail, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogvdetail, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbnote, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbnote.ResumeLayout(False)
         CType(Me.FTReserveAXByUserAD.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1088,4 +1155,9 @@ Partial Class wReserveAX
     Friend WithEvents xxISREVERT As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents xxREVERTSTATUS As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents cINVENTLOCATIONID As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents XDBC As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents pSendToAXDate As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemCheckEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents FNINTERFACESTATUS As DevExpress.XtraGrid.Columns.GridColumn
 End Class

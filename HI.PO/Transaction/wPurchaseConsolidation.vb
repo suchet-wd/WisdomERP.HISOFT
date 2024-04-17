@@ -229,7 +229,7 @@
 
             Dim _dt As DataTable
             Dim username As String = ""
-            ' username = "mlpsirikanya"
+            'username = "mlpsirikanya"
             username = HI.ST.UserInfo.UserName
 
 
@@ -242,7 +242,6 @@
                     If StrAllTextType = "" Then
                         ' StrAllType = I.ToString
 
-
                         StrAllTextType = FNOrderType.Properties.Items(I).Value.ToString
 
                     Else
@@ -254,7 +253,7 @@
                 End If
             Next
 
-            _Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.SP_GETDATA_FOR_CONSOLIDATE " & _FNHSysBuyId & "," & _FNHSysStyleId & "," & _FNHSysSeasonId & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "','" & HI.UL.ULF.rpQuoted(username) & "','" & HI.UL.ULF.rpQuoted(_Lang) & "'," & -1 & " ,'" & _FNAllMattype & "','" & StrAllType & "','" & (StrAllTextType) & "'"
+            _Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.SP_GETDATA_FOR_CONSOLIDATE " & _FNHSysBuyId & "," & _FNHSysStyleId & "," & _FNHSysSeasonId & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "','" & HI.UL.ULF.rpQuoted(username) & "','" & HI.UL.ULF.rpQuoted(_Lang) & "'," & -1 & " ,'" & _FNAllMattype & "','" & StrAllType & "','" & (StrAllTextType) & "','" & HI.UL.ULF.rpQuoted(FNHSysMerMatId.Text.Trim) & "'"
             _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PUR)
 
             Me.ogcsc.DataSource = _dt.Copy
@@ -790,7 +789,7 @@
                                                         .SetRowCellValue(I1, "FNTotalPurchaseQuantity", (Val(.GetRowCellValue(I1, "FNUsedQuantity").ToString) + Val(.GetRowCellValue(I1, "FNUsedPlusQuantity").ToString)) - (Val(.GetRowCellValue(I1, "FNReserveQuantity").ToString) + Val(Val(.GetRowCellValue(I1, "FNTransferQuantity").ToString))))
                                                     End If
 
-                                                    If Val(.GetRowCellValue(I1, "FNTotalPurchaseQuantity").ToString) Then
+                                                    If Val(.GetRowCellValue(I1, "FNTotalPurchaseQuantity").ToString) < 0 Then
 
                                                         .SetRowCellValue(I1, "FNTotalPurchaseQuantity", 0)
                                                     End If
@@ -811,7 +810,7 @@
                                                 .SetFocusedRowCellValue("FNTotalPurchaseQuantity", (Val(.GetFocusedRowCellValue("FNUsedQuantity").ToString) + Val(.GetFocusedRowCellValue("FNUsedPlusQuantity").ToString)) - (Val(.GetFocusedRowCellValue("FNReserveQuantity").ToString) + Val(Val(.GetFocusedRowCellValue("FNTransferQuantity").ToString))))
                                             End If
 
-                                            If Val(.GetFocusedRowCellValue("FNTotalPurchaseQuantity").ToString) Then
+                                            If Val(.GetFocusedRowCellValue("FNTotalPurchaseQuantity").ToString) < 0 Then
 
                                                 .SetFocusedRowCellValue("FNTotalPurchaseQuantity", 0)
                                             End If
@@ -832,7 +831,7 @@
                                             .SetFocusedRowCellValue("FNTotalPurchaseQuantity", (Val(.GetFocusedRowCellValue("FNUsedQuantity").ToString) + Val(.GetFocusedRowCellValue("FNUsedPlusQuantity").ToString)) - (Val(.GetFocusedRowCellValue("FNReserveQuantity").ToString) + Val(Val(.GetFocusedRowCellValue("FNTransferQuantity").ToString))))
                                         End If
 
-                                        If Val(.GetFocusedRowCellValue("FNTotalPurchaseQuantity").ToString) Then
+                                        If Val(.GetFocusedRowCellValue("FNTotalPurchaseQuantity").ToString) < 0 Then
 
                                             .SetFocusedRowCellValue("FNTotalPurchaseQuantity", 0)
                                         End If
@@ -881,10 +880,11 @@
 
                                                     Else
 
+
                                                         .SetRowCellValue(I1, "FNTotalPurchaseQuantity", (Val(.GetRowCellValue(I1, "FNUsedQuantity").ToString) + Val(.GetRowCellValue(I1, "FNUsedPlusQuantity").ToString)) - (Val(.GetRowCellValue(I1, "FNReserveQuantity").ToString) + Val(Val(.GetRowCellValue(I1, "FNTransferQuantity").ToString))))
                                                     End If
 
-                                                    If Val(.GetRowCellValue(I1, "FNTotalPurchaseQuantity").ToString) Then
+                                                    If Val(.GetRowCellValue(I1, "FNTotalPurchaseQuantity").ToString) < 0 Then
 
                                                         .SetRowCellValue(I1, "FNTotalPurchaseQuantity", 0)
                                                     End If
@@ -903,7 +903,7 @@
                                                 .SetFocusedRowCellValue("FNTotalPurchaseQuantity", (Val(.GetFocusedRowCellValue("FNUsedQuantity").ToString) + Val(.GetFocusedRowCellValue("FNUsedPlusQuantity").ToString)) - (Val(.GetFocusedRowCellValue("FNReserveQuantity").ToString) + Val(Val(.GetFocusedRowCellValue("FNTransferQuantity").ToString))))
                                             End If
 
-                                            If Val(.GetFocusedRowCellValue("FNTotalPurchaseQuantity").ToString) Then
+                                            If Val(.GetFocusedRowCellValue("FNTotalPurchaseQuantity").ToString) < 0 Then
 
                                                 .SetFocusedRowCellValue("FNTotalPurchaseQuantity", 0)
                                             End If
@@ -922,7 +922,7 @@
                                             .SetFocusedRowCellValue("FNTotalPurchaseQuantity", (Val(.GetFocusedRowCellValue("FNUsedQuantity").ToString) + Val(.GetFocusedRowCellValue("FNUsedPlusQuantity").ToString)) - (Val(.GetFocusedRowCellValue("FNReserveQuantity").ToString) + Val(Val(.GetFocusedRowCellValue("FNTransferQuantity").ToString))))
                                         End If
 
-                                        If Val(.GetFocusedRowCellValue("FNTotalPurchaseQuantity").ToString) Then
+                                        If Val(.GetFocusedRowCellValue("FNTotalPurchaseQuantity").ToString) < 0 Then
 
                                             .SetFocusedRowCellValue("FNTotalPurchaseQuantity", 0)
                                         End If
@@ -968,9 +968,6 @@
                         End Try
 
                     End Try
-
-
-
 
                 Else
                     e.Cancel = True

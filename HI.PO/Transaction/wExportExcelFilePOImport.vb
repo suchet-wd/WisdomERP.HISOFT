@@ -56,22 +56,32 @@ Public Class wExportExcelFilePOImport
                     Dim Op As New System.Windows.Forms.SaveFileDialog
                     Op.Filter = "Excel Files(.xlsx)|*.xlsx"
                     Op.ShowDialog()
+
                     Try
+
                         If Op.FileName <> "" Then
+
                             With ogcdetail
+
                                 .ExportToXlsx(Op.FileName)
+
                                 Try
+
                                     Process.Start(Op.FileName)
+
                                 Catch ex As Exception
                                 End Try
+
                             End With
+
                         End If
+
                     Catch ex As Exception
                     End Try
+
                 Catch ex As Exception
                 End Try
                 End If
-
 
         Else
 
@@ -116,7 +126,6 @@ Public Class wExportExcelFilePOImport
 
         Next
 
-
         Try
 
             _Qry = " Exec  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.SP_GETDATA_PO_IMPORT " & Val(Me.FNHSysBuyId.Properties.Tag.ToString) & ",'" & HI.UL.ULF.rpQuoted(_FNAllUser) & "'," & FNPoState.SelectedIndex & ",'" & HI.UL.ULDate.ConvertEnDB(FTStartPurchaseDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndPurchaseDate.Text) & "'," & Val(FNHSysSuplId.Properties.Tag.ToString) & "," & Val(FNHSysCustId.Properties.Tag.ToString) & " "
@@ -132,16 +141,17 @@ Public Class wExportExcelFilePOImport
 
         _Spls.Close()
 
-
     End Sub
 
     Private Sub ocmload_Click(sender As Object, e As EventArgs) Handles ocmload.Click
+
         If (Me.FNHSysBuyId.Text <> "") OrElse (FTEndPurchaseDate.Text <> "" And FTStartPurchaseDate.Text <> "") Then
             Call LoadDataInfo()
         Else
             HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, FNHSysBuyId_lbl.Text)
             FNHSysBuyId.Focus()
         End If
+
     End Sub
 
     Private Sub FNHSysBuyId_EditValueChanged(sender As Object, e As EventArgs) Handles FNHSysBuyId.EditValueChanged

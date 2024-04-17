@@ -1433,7 +1433,8 @@ Public Class wAutoGeneratePO
             '    _CmpH = HI.Conn.SQLConn.GetField("SELECT TOP 1 FTDocRun FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp WITH(NOLOCK) WHERE FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID) & " ", Conn.DB.DataBaseName.DB_SYSTEM, "")
 
             'End If
-
+            Dim pSPPrefix As String = ""
+            Dim pPrefix As String = POPDFToDB.GetPrefixPO("", pSPPrefix)
 
             If CmpCreateOrderId > 0 Then
                 _CmpH = HI.Conn.SQLConn.GetField("SELECT TOP 1 FTDocRun FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp WITH(NOLOCK) WHERE FNHSysCmpId=" & Val(CmpCreateOrderId) & " ", Conn.DB.DataBaseName.DB_SYSTEM, "")
@@ -1446,9 +1447,9 @@ Public Class wAutoGeneratePO
 
 
             If HI.ST.SysInfo.CmpID = 1306010001 Then
-                PoNoKey = HI.TL.Document.GetDocumentNo(HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR), "TPURTPurchase", "", False, _CmpH & "H" & cmprunpo & _Year & POGrpText & HI.TL.CboList.GetListRefer("FNPoState", POTypeKey) & _Month).ToString
+                PoNoKey = HI.TL.Document.GetDocumentNo(HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR), "TPURTPurchase", "", False, _CmpH & pPrefix & "H" & cmprunpo & _Year & POGrpText & HI.TL.CboList.GetListRefer("FNPoState", POTypeKey) & _Month & pSPPrefix).ToString
             Else
-                PoNoKey = HI.TL.Document.GetDocumentNo(HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR), "TPURTPurchase", "", False, _CmpH & "" & cmprunpo & _Year & POGrpText & HI.TL.CboList.GetListRefer("FNPoState", POTypeKey) & _Month).ToString
+                PoNoKey = HI.TL.Document.GetDocumentNo(HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR), "TPURTPurchase", "", False, _CmpH & pPrefix & "" & cmprunpo & _Year & POGrpText & HI.TL.CboList.GetListRefer("FNPoState", POTypeKey) & _Month & pSPPrefix).ToString
 
             End If
 
@@ -1565,7 +1566,7 @@ Public Class wAutoGeneratePO
 
                     _Str = "Insert into  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo(FTInsUser, FDInsDate, FTInsTime"
                     _Str &= vbCrLf & " , FTPurchaseNo,FTOrderNo, FNHSysRawMatId, FNHSysUnitId, FNPrice, FNDisPer, "
-                    _Str &= vbCrLf & "    FNDisAmt, FNQuantity, FNNetAmt, FTRemark ,FTFabricFrontSize,FTRawMatColorNameTH,FTRawMatColorNameEN,FTOGacDate)"
+                    _Str &= vbCrLf & "    FNDisAmt, FNQuantity, FNNetAmt, FTRemark ,FTFabricFrontSize,FTRawMatColorNameTH,FTRawMatColorNameEN,FTOGacDate,FTStateExportAX)"
                     _Str &= vbCrLf & "  SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                     _Str &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ""
                     _Str &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & ""
@@ -1582,7 +1583,7 @@ Public Class wAutoGeneratePO
                     _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTFabricFrontSize.ToString) & "' "
                     _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameTH) & "' "
                     _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameEN) & "' "
-                    _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_OGACDate) & "' "
+                    _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_OGACDate) & "','0' "
 
                     If HI.Conn.SQLConn.Execute_Tran(_Str, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                         HI.Conn.SQLConn.Tran.Rollback()
@@ -1640,6 +1641,7 @@ Public Class wAutoGeneratePO
                         'Else
                         '    _CmpH = HI.Conn.SQLConn.GetField("SELECT TOP 1 FTDocRun FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp WITH(NOLOCK) WHERE FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID) & " ", Conn.DB.DataBaseName.DB_SYSTEM, "")
                         'End If
+
 
                         If CmpCreateOrderId > 0 Then
                             _CmpH = HI.Conn.SQLConn.GetField("SELECT TOP 1 FTDocRun FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp WITH(NOLOCK) WHERE FNHSysCmpId=" & Val(CmpCreateOrderId) & " ", Conn.DB.DataBaseName.DB_SYSTEM, "")
@@ -1736,10 +1738,15 @@ Public Class wAutoGeneratePO
                                                       .ToList()
 
 
+
+                                pSPPrefix = ""
+                                pPrefix = POPDFToDB.GetPrefixPO("", pSPPrefix)
+
+
                                 If HI.ST.SysInfo.CmpID = 1306010001 Then
-                                    _PoDocNo = HI.TL.Document.GetDocumentNo(HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR), "TPURTPurchase", "", False, _CmpH & "H" & cmprunpo & _Year & POGrpText & HI.TL.CboList.GetListRefer("FNPoState", POTypeKey) & _Month).ToString
+                                    _PoDocNo = HI.TL.Document.GetDocumentNo(HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR), "TPURTPurchase", "", False, _CmpH & pPrefix & "H" & cmprunpo & _Year & POGrpText & HI.TL.CboList.GetListRefer("FNPoState", POTypeKey) & _Month & pSPPrefix).ToString
                                 Else
-                                    _PoDocNo = HI.TL.Document.GetDocumentNo(HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR), "TPURTPurchase", "", False, _CmpH & "" & cmprunpo & _Year & POGrpText & HI.TL.CboList.GetListRefer("FNPoState", POTypeKey) & _Month).ToString
+                                    _PoDocNo = HI.TL.Document.GetDocumentNo(HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR), "TPURTPurchase", "", False, _CmpH & pPrefix & "" & cmprunpo & _Year & POGrpText & HI.TL.CboList.GetListRefer("FNPoState", POTypeKey) & _Month & pSPPrefix).ToString
                                 End If
 
 
@@ -1918,7 +1925,7 @@ Public Class wAutoGeneratePO
 
                                         _Str = "Insert into  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo(FTInsUser, FDInsDate, FTInsTime"
                                         _Str &= vbCrLf & " , FTPurchaseNo,FTOrderNo, FNHSysRawMatId, FNHSysUnitId, FNPrice, FNDisPer, "
-                                        _Str &= vbCrLf & "    FNDisAmt, FNQuantity, FNNetAmt, FTRemark ,FTFabricFrontSize,FTRawMatColorNameTH,FTRawMatColorNameEN,FTOGacDate)"
+                                        _Str &= vbCrLf & "    FNDisAmt, FNQuantity, FNNetAmt, FTRemark ,FTFabricFrontSize,FTRawMatColorNameTH,FTRawMatColorNameEN,FTOGacDate,FTStateExportAX)"
                                         _Str &= vbCrLf & "  SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                                         _Str &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ""
                                         _Str &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & ""
@@ -1935,7 +1942,7 @@ Public Class wAutoGeneratePO
                                         _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTFabricFrontSize.ToString) & "' "
                                         _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameTH) & "' "
                                         _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTRawMatColorNameEN) & "' "
-                                        _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_OGACDate) & "'"
+                                        _Str &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_OGACDate) & "','0'"
 
                                         HI.Conn.SQLConn.ExecuteNonQuery(_Str, Conn.DB.DataBaseName.DB_PUR)
 
@@ -3081,6 +3088,12 @@ Public Class wAutoGeneratePO
         Dim _VatAmt As Decimal = 0.0
         Dim _NetAmt As Decimal = 0.0
 
+
+        _Str = " EXEC  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_PURCHASE_CALMATSPARE '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(PoKey) & "'  "
+        HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_PUR)
+
+
+
         Dim PoAmtTH As String = ""
         Dim PoAmtEN As String = ""
 
@@ -3145,47 +3158,46 @@ Public Class wAutoGeneratePO
 
             Next
 
-            _Str = "      Select SUM(Convert(numeric(18, 2), FNQuantity * ((FNPrice - FNDisAmt) )) + FNSurchangeAmt ) AS NETAMT"
-            _Str &= vbCrLf & "    FROM"
-            _Str &= vbCrLf & " ("
-            _Str &= vbCrLf & " SELECT        FTPurchaseNo, FNHSysRawMatId, FNPrice, FNDisAmt, SUM(FNQuantity) AS FNQuantity,ISNULL(FNSurchangeAmt,0) AS FNSurchangeAmt"
-            _Str &= vbCrLf & " FROM            [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo AS A  WITH(NOLOCK)"
-            _Str &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(PoKey) & "' "
-            _Str &= vbCrLf & " GROUP BY FTPurchaseNo, FNHSysRawMatId, FNPrice, FNDisAmt,ISNULL(FNSurchangeAmt,0) ) AS A"
 
-            PoAmt = Val(HI.Conn.SQLConn.GetField(_Str, Conn.DB.DataBaseName.DB_PUR, "0"))
-
-            If DiscountPer > 0 Then
-                _DisAmt = CDbl(Format((PoAmt * DiscountPer) / 100, HI.ST.Config.AmtFormat))
-            End If
-
-            If Vat > 0 Then
-                _VatAmt = CDbl(Format((((PoAmt - _DisAmt) + SurCharge) * Vat) / 100, HI.ST.Config.AmtFormat))
-            End If
-
-            _NetAmt = ((PoAmt - _DisAmt) + SurCharge) + _VatAmt
-
-            PoAmtEN = HI.UL.ULF.Convert_Bath_EN(_NetAmt)
-            PoAmtTH = HI.UL.ULF.Convert_Bath_TH(_NetAmt)
-
-
-
-            _Str = " UPDATE  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase SET "
-            _Str &= vbCrLf & "  FNPoAmt=" & PoAmt & "  "
-            _Str &= vbCrLf & " , FNDisCountAmt =" & _DisAmt & "  "
-            _Str &= vbCrLf & " , FNPONetAmt=" & (PoAmt - _DisAmt) & "  "
-            _Str &= vbCrLf & " , FNVatAmt=" & _VatAmt & "  "
-            _Str &= vbCrLf & " , FNPOGrandAmt=" & _NetAmt & "  "
-            _Str &= vbCrLf & " , FTPOGrandAmtTH='" & HI.UL.ULF.rpQuoted(PoAmtEN) & "'"
-            _Str &= vbCrLf & " , FTPOGrandAmtEN='" & HI.UL.ULF.rpQuoted(PoAmtEN) & "'"
-            _Str &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(PoKey) & "' "
-            HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_PUR)
 
         End If
 
+        _Str = "      Select SUM(Convert(numeric(18, 2), FNQuantity * ((FNPrice - FNDisAmt) )) + FNSurchangeAmt ) AS NETAMT"
+        _Str &= vbCrLf & "    FROM"
+        _Str &= vbCrLf & " ("
+        _Str &= vbCrLf & " SELECT        FTPurchaseNo, FNHSysRawMatId, FNPrice, FNDisAmt, SUM(FNQuantity) AS FNQuantity,ISNULL(FNSurchangeAmt,0) AS FNSurchangeAmt"
+        _Str &= vbCrLf & " FROM            [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_OrderNo AS A  WITH(NOLOCK)"
+        _Str &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(PoKey) & "' "
+        _Str &= vbCrLf & " GROUP BY FTPurchaseNo, FNHSysRawMatId, FNPrice, FNDisAmt,ISNULL(FNSurchangeAmt,0) ) AS A"
 
-        _Str = " EXEC  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_CHECKSPPO_CMPO '" & HI.UL.ULF.rpQuoted(PoKey) & "'  "
+        PoAmt = Val(HI.Conn.SQLConn.GetField(_Str, Conn.DB.DataBaseName.DB_PUR, "0"))
+
+        If DiscountPer > 0 Then
+            _DisAmt = CDbl(Format((PoAmt * DiscountPer) / 100, HI.ST.Config.AmtFormat))
+        End If
+
+        If Vat > 0 Then
+            _VatAmt = CDbl(Format((((PoAmt - _DisAmt) + SurCharge) * Vat) / 100, HI.ST.Config.AmtFormat))
+        End If
+
+        _NetAmt = ((PoAmt - _DisAmt) + SurCharge) + _VatAmt
+
+        PoAmtEN = HI.UL.ULF.Convert_Bath_EN(_NetAmt)
+        PoAmtTH = HI.UL.ULF.Convert_Bath_TH(_NetAmt)
+
+
+
+        _Str = " UPDATE  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase SET "
+        _Str &= vbCrLf & "  FNPoAmt=" & PoAmt & "  "
+        _Str &= vbCrLf & " , FNDisCountAmt =" & _DisAmt & "  "
+        _Str &= vbCrLf & " , FNPONetAmt=" & (PoAmt - _DisAmt) & "  "
+        _Str &= vbCrLf & " , FNVatAmt=" & _VatAmt & "  "
+        _Str &= vbCrLf & " , FNPOGrandAmt=" & _NetAmt & "  "
+        _Str &= vbCrLf & " , FTPOGrandAmtTH='" & HI.UL.ULF.rpQuoted(PoAmtEN) & "'"
+        _Str &= vbCrLf & " , FTPOGrandAmtEN='" & HI.UL.ULF.rpQuoted(PoAmtEN) & "'"
+        _Str &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(PoKey) & "' "
         HI.Conn.SQLConn.ExecuteOnly(_Str, Conn.DB.DataBaseName.DB_PUR)
+
 
     End Sub
 End Class

@@ -19,14 +19,12 @@ Public Class wPurchaseTrackingPIPreview
             spls.Close()
             With New HI.RP.Report
 
-
                 .FormTitle = Me.Text
                 .ReportFolderName = "PurchaseOrder\"
                 .ReportName = "PISummaryReport.rpt"
 
                 .Formular = "{TTMPPIReport.FTUserLogIn}='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                 .Preview()
-
 
             End With
 

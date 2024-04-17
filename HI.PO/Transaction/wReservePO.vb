@@ -960,10 +960,21 @@
                     Select Case _FNOrderType
                         Case 0, 13, 22
 
-                            _Qry = " Select TOP 1 FTOrderNo"
-                            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder_Resource AS X WITH(NOLOCK)"
-                            _Qry &= vbCrLf & " WHERE  (FTOrderNo = N'" & HI.UL.ULF.rpQuoted(FTOrderNo.Text) & "')"
-                            _Qry &= vbCrLf & "  AND (FNHSysRawMatId = " & Integer.Parse(Val(_FNHSysRawMatId)) & ")"
+                            If Microsoft.VisualBasic.Right(Microsoft.VisualBasic.Left(FTOrderNo.Text.Trim, 5), 1) = "-" Then
+
+                                _Qry = " Select TOP 1 FTOrderNo"
+                                _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTMPR AS X WITH(NOLOCK)"
+                                _Qry &= vbCrLf & " WHERE  (FTOrderNo  = N'" & HI.UL.ULF.rpQuoted(FTOrderNo.Text) & "')"
+                                _Qry &= vbCrLf & "  AND (FNHSysRawMatId = " & Integer.Parse(Val(_FNHSysRawMatId)) & ")"
+
+                            Else
+
+                                _Qry = " Select TOP 1 FTOrderNo"
+                                _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder_Resource AS X WITH(NOLOCK)"
+                                _Qry &= vbCrLf & " WHERE  (FTOrderNo = N'" & HI.UL.ULF.rpQuoted(FTOrderNo.Text) & "')"
+                                _Qry &= vbCrLf & "  AND (FNHSysRawMatId = " & Integer.Parse(Val(_FNHSysRawMatId)) & ")"
+
+                            End If
 
                             If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "") = "" Then
                                 HI.MG.ShowMsg.mInfo("ไม่สามารถโอนยอดสั่งซื้อได้ เนื่องจาก ไม่พบรายการการใช้วัตถุดิบนี้ ในใบ สั่งผลิตปลางทาง !!!", 1418910188, Me.Text, FTOrderNo.Text, System.Windows.Forms.MessageBoxIcon.Warning)
@@ -973,7 +984,6 @@
                         Case Else
 
                     End Select
-                   
 
                 End If
 
@@ -990,9 +1000,11 @@
 
                     If SaveReservePurchase(_FTPurchaseNo, _FTOrderNo, Integer.Parse(Val(_FNHSysRawMatId)), FTOrderNo.Text, _FNPOQuantity, _FNQuantity, _FNReserveQuantityBF, FNRsvQuantity.Value) Then
 
-
-
                         _Qry = " EXEC  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_CHECKSPPO_CMPO '" & HI.UL.ULF.rpQuoted(_FTPurchaseNo) & "'  "
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_PUR)
+
+
+                        _Qry = " EXEC  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_CECKSENDREVISEDPO '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(_FTPurchaseNo) & "'  "
                         HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_PUR)
 
                         HI.MG.ShowMsg.mInfo("ระบบทำการ โอนยอดสั่งซื้อเรียบร้อยแล้ว !!!", 1412010100, Me.Text, , System.Windows.Forms.MessageBoxIcon.Information)
@@ -1006,8 +1018,10 @@
                         Try
 
                             If ogvdetail.FocusedRowHandle > 0 Then
+
                                 _FocusRowInDex = ogvdetail.FocusedRowHandle
                                 _FTKeyRef = ogvdetail.GetRowCellValue(ogvdetail.FocusedRowHandle, "FTKeyRef").ToString
+
                             End If
 
                         Catch ex As Exception
@@ -1129,6 +1143,10 @@
                         _Qry = " EXEC  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_CHECKSPPO_CMPO '" & HI.UL.ULF.rpQuoted(_FTPurchaseNo) & "'  "
                         HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_PUR)
 
+
+                        _Qry = " EXEC  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_CECKSENDREVISEDPO '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(_FTPurchaseNo) & "'  "
+                        HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_PUR)
+
                         HI.MG.ShowMsg.mInfo("ระบบทำการ ลบการโอนยอดสั่งซื้อเรียบร้อยแล้ว !!!", 1412010113, Me.Text, , System.Windows.Forms.MessageBoxIcon.Information)
                         FTOrderNo.Text = ""
                         FTOrderNo.Focus()
@@ -1220,5 +1238,9 @@
 
         Catch ex As Exception
         End Try
+    End Sub
+
+    Private Sub FTOrderNo_EditValueChanged(sender As Object, e As EventArgs) Handles FTOrderNo.EditValueChanged
+
     End Sub
 End Class

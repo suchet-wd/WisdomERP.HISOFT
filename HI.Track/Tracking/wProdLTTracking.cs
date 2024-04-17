@@ -215,7 +215,11 @@ namespace HI.Track
                         _Qry += "@Style = '" + FNHSysStyleId.Text + "', @StyleTo = '" + FNHSysStyleIdTo.Text + "'";
                     }
 
+                    _Qry += ", @LangShow = '" + (HI.ST.Lang.Language).ToString() + "'";
+
                     DataTable dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
+                    DataTable dtResult = new DataTable();
+
                     String _style = "";
                     int _FTMerPLT = 0;
 
@@ -246,6 +250,32 @@ namespace HI.Track
                     dt.AcceptChanges();
                     //End Delete Cost sheet old version
 
+                    //ArrayList iv = new ArrayList();
+                    //String _itemVender = "";
+
+                    //foreach (DataRow dr1 in dt.Select("Seqnum <> 0"))
+                    //{
+
+                    //    //foreach (DataRow dr2 in dt.Select("Seqnum = 0 AND FTMerPLT = '" + dr1["FTMerPLT"].ToString() + "'"))
+                    //    //{
+                    //    //    //dtResult.ImportRow(dr2);
+                    //    //    Console.WriteLine(dr2["ItemVender"].ToString());
+                    //    //}
+                    //    //iv.Add(dr["ItemVender"].ToString());
+                    //    //string s = dr["FTMerPLT"].ToString();
+                    //}
+
+                    //foreach (DataRow dr1 in dt.Select("Seqnum = 1"))
+                    //{
+                    //    foreach (DataRow dr2 in dt.Select("Seqnum > 1 AND FTMerPLT = '" + dr1["FTMerPLT"].ToString() + "'"))
+                    //    {
+                    //        dtResult.ImportRow(dr2);
+                    //        //Console.WriteLine(dr2["ItemVender"].ToString());
+                    //    }
+                    //    //iv.Add(dr["ItemVender"].ToString());
+                    //    //string s = dr["FTMerPLT"].ToString();
+                    //}
+
                     int _i = 0;
                     //int _j = 0;
                     ArrayList iv = new ArrayList();
@@ -253,6 +283,7 @@ namespace HI.Track
                     ArrayList styleChild = new ArrayList();
                     String _itemVender = "";
                     String _itemVenderChild = "";
+
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
 
@@ -298,7 +329,7 @@ namespace HI.Track
                                         {
                                             if (dt.Rows[i]["StyleParent"].ToString() == dt.Rows[i]["FTStyleCode"].ToString())
                                             {
-                                                dt.Rows[i]["StyleParent"] = "";
+                                                //dt.Rows[i]["StyleParent"] = "";
                                                 //dt.Rows[i].Delete();
                                             }
                                             else
@@ -341,7 +372,7 @@ namespace HI.Track
                         }
                         else
                         {
-                            if((dt.Rows[i]["Seqnum"].ToString()) == "1")
+                            if ((dt.Rows[i]["Seqnum"].ToString()) == "1")
                             {
                                 ivChild.Clear();
                                 iv.Clear();
@@ -364,7 +395,7 @@ namespace HI.Track
 
 
                     // Load Data to Grid
-                    ogcDetail.DataSource = dt;
+                    ogcDetail.DataSource = dtResult; // dt;
 
                 }
                 catch (Exception ex)

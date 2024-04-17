@@ -617,6 +617,14 @@ Public Class wPurchaseTracking
             Exit Sub
         End Try
 
+        Dim pPathPDF As String = ""
+        Dim cmdstring As String = ""
+
+        cmdstring = "select top 1 FTCfgData   "
+        cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig With(NOLOCK) "
+        cmdstring &= vbCrLf & "  Where (FTCfgName = N'POPDF')"
+
+        pPathPDF = HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_SECURITY, "")
 
         Try
 
@@ -645,6 +653,9 @@ Public Class wPurchaseTracking
             Dim PoNo As String = ""
             Dim PoAllNo As String = ""
             Dim PoState As Integer = 0
+            Dim StateFoundPDF As Boolean = False
+            Dim Str_Doc_Name As String = ""
+            Dim StatePDF As Boolean = False
 
             Dim grp As List(Of Integer) = (dtpoList.Select("FNHSysSuplId>0", "FNHSysSuplId").CopyToDataTable).AsEnumerable() _
                                                       .Select(Function(r) r.Field(Of Integer)("FNHSysSuplId")) _
@@ -698,7 +709,7 @@ Public Class wPurchaseTracking
                                 For Each R As DataRow In dtpoList.Select("FNHSysSuplId = " & Val(Ind) & "")
                                     PoNo = R!FTPurchaseNo.ToString
                                     PoState = Val(R!FNPoState.ToString)
-
+                                    StateFoundPDF = False
 
                                     If PoAllNo = "" Then
 
@@ -707,36 +718,66 @@ Public Class wPurchaseTracking
                                         PoAllNo = PoAllNo & "," & PoNo
                                     End If
 
-                                    With New HI.RP.Report
-                                        .FormTitle = "Convert To " & PoNo & ".pdf"
-                                        .ReportFolderName = "PurchaseOrder\"  '"Purchase Report\" '
-                                        .ReportName = "PurchaseOrder.rpt"
-                                        .AddParameter("Draft", "")
-                                        .Formular = "{TPURTPurchase.FTPurchaseNo}='" & HI.UL.ULF.rpQuoted(PoNo) & "'"
 
-                                        ' ตรวจสอบ โฟร์เดอร์ก่อน
+                                    StateFoundPDF = False
+                                    Str_Doc_Name = ""
+                                    StatePDF = False
+
+                                    _Sql = "Select TOP 1 '1' AS FTStatePDF "
+                                    _Sql &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase With(NOLOCK) "
+                                    _Sql &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(PoNo) & "' AND FTStateManagerApp='1' AND FTStatePDF='1'"
+                                    StatePDF = HI.Conn.SQLConn.GetField(_Sql, Conn.DB.DataBaseName.DB_PUR, "") = "1"
+
+                                    If pPathPDF <> "" And StatePDF Then
+
+                                        Str_Doc_Name = pPathPDF & "\" & R!FTPurchaseBy.ToString & "\" & PoNo & ".pdf"
+                                        If File.Exists(Str_Doc_Name) = True Then
+                                            StateFoundPDF = True
+                                        Else
+                                            Str_Doc_Name = ""
+                                        End If
+
+                                    End If
+
+                                    If StateFoundPDF = False Then
+                                        With New HI.RP.Report
+                                            .FormTitle = "Convert To " & PoNo & ".pdf"
+                                            .ReportFolderName = "PurchaseOrder\"  '"Purchase Report\" '
+                                            .ReportName = "PurchaseOrder.rpt"
+                                            .AddParameter("Draft", "")
+                                            .Formular = "{TPURTPurchase.FTPurchaseNo}='" & HI.UL.ULF.rpQuoted(PoNo) & "'"
+
+                                            ' ตรวจสอบ โฟร์เดอร์ก่อน
 
 
-                                        .PathExport = _CheckPath & ""
-                                        '.PathExport = "\\hisoft_svr\HI SOFT SYSTEM\PO PDF\" & Temp_FTPurchaseBy & "\"
-                                        .ExportName = PoNo
-                                        .ExportFile = HI.RP.Report.ExFile.PDF
+                                            .PathExport = _CheckPath & ""
+                                            '.PathExport = "\\hisoft_svr\HI SOFT SYSTEM\PO PDF\" & Temp_FTPurchaseBy & "\"
+                                            .ExportName = PoNo
+                                            .ExportFile = HI.RP.Report.ExFile.PDF
 
-                                        ' กรณีหาไฟล์ไม่เจอ  ????
-                                        .PrevieNoSplash(PoState)
+                                            ' กรณีหาไฟล์ไม่เจอ  ????
+                                            .PrevieNoSplash(PoState)
 
-                                        Dim _FIleExportPDFName As String = .ExportFileSuccessName
+                                            Dim _FIleExportPDFName As String = .ExportFileSuccessName
 
-                                    End With
+                                            Str_Doc_Name = _CheckPath & "\" & PoNo & ".pdf"
+                                        End With
+                                    End If
+
 
 
                                     Try
 
-                                        Dim Str_Doc_Name As String = _CheckPath & "\" & PoNo & ".pdf"
+                                        If Str_Doc_Name <> "" Then
+                                            If File.Exists(Str_Doc_Name) = True Then
 
+                                                If StatePDF = False Then
+                                                    HI.PO.POPDFToDB.SaveFilePDF(PoNo, Str_Doc_Name)
+                                                End If
 
-                                        If File.Exists(Str_Doc_Name) = True Then
-                                            .Attachments.Add(Str_Doc_Name)
+                                                .Attachments.Add(Str_Doc_Name)
+                                            End If
+
                                         End If
 
                                     Catch ex As Exception
@@ -793,14 +834,19 @@ Public Class wPurchaseTracking
                             Try
                                 ' .Send()
 
-                                Dim cmdstring As String
+                                cmdstring = ""
                                 cmdstring = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase SET FTStateSendMail='1'"
-                                cmdstring &= vbCrLf & ",FTSendMailBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                                cmdstring &= vbCrLf & ",FTSendMailDate=" & HI.UL.ULDate.FormatDateDB & " "
-                                cmdstring &= vbCrLf & ",FTSendMailTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                                cmdstring &= vbCrLf & ",FTSendMailBy= CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  ELSE FTSendMailBy END"
+                                cmdstring &= vbCrLf & ",FTSendMailDate=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatDateDB & "  ELSE FTSendMailDate END "
+                                cmdstring &= vbCrLf & ",FTSendMailTime=CASE WHEN ISNULL(FTSendMailBy,'') ='' THEN  " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTSendMailTime END "
+                                cmdstring &= vbCrLf & ",FTLastMailBy= CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' ELSE FTLastMailBy  END "
+                                cmdstring &= vbCrLf & ",FTLastMailDate=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatDateDB & "  ELSE FTLastMailDate  END  "
+                                cmdstring &= vbCrLf & ",FTLastMailTime=CASE WHEN ISNULL(FTSendMailBy,'') <>'' THEN   " & HI.UL.ULDate.FormatTimeDB & "  ELSE FTLastMailTime  END  "
                                 cmdstring &= vbCrLf & ",FTSystemSendMailBy='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                                 cmdstring &= vbCrLf & ",FTSystemSendMailDate=" & HI.UL.ULDate.FormatDateDB & " "
                                 cmdstring &= vbCrLf & ",FTSystemSendMailTime=" & HI.UL.ULDate.FormatTimeDB & " "
+                                cmdstring &= vbCrLf & "  ,FTStateHold='0' "
+                                cmdstring &= vbCrLf & "  ,FNHSysPOHoldId=0 "
                                 cmdstring &= vbCrLf & "  WHERE FTPurchaseNo IN ('" & PoAllNo.Replace(",", "','") & "')"
                                 cmdstring &= vbCrLf & " select FTPurchaseNo,FTStateSendMail,FTSendMailBy,CASE WHEN ISDATE(FTSendMailDate) = 1 THEN Convert(varchar(10),Convert(datetime,FTSendMailDate),103) ELSE '' END AS  FTSendMailDate,FTSendMailTime "
                                 cmdstring &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase   "
@@ -832,6 +878,19 @@ Public Class wPurchaseTracking
                                         .AcceptChanges()
 
                                     End With
+
+
+                                    Try
+
+                                        cmdstring = "  EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_SENDDATAPO_FORVENDER '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(R!FTPurchaseNo.ToString) & "'"
+
+                                        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_PUR)
+
+
+                                    Catch ex As Exception
+
+                                    End Try
+
 
 
                                 Next
