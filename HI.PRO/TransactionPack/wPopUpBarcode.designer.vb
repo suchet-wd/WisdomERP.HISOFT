@@ -69,6 +69,8 @@ Partial Class wPopUpBarcode
         'FTCTNS_lbl
         '
         Me.FTCTNS_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTCTNS_lbl.Appearance.Options.UseForeColor = True
+        Me.FTCTNS_lbl.Appearance.Options.UseTextOptions = True
         Me.FTCTNS_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTCTNS_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTCTNS_lbl.Location = New System.Drawing.Point(4, 15)
@@ -81,6 +83,8 @@ Partial Class wPopUpBarcode
         'FNQtyCarton_lbl
         '
         Me.FNQtyCarton_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNQtyCarton_lbl.Appearance.Options.UseForeColor = True
+        Me.FNQtyCarton_lbl.Appearance.Options.UseTextOptions = True
         Me.FNQtyCarton_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNQtyCarton_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNQtyCarton_lbl.Location = New System.Drawing.Point(316, 42)
@@ -103,6 +107,8 @@ Partial Class wPopUpBarcode
         'FNCartonNoBegin_lbl
         '
         Me.FNCartonNoBegin_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNCartonNoBegin_lbl.Appearance.Options.UseForeColor = True
+        Me.FNCartonNoBegin_lbl.Appearance.Options.UseTextOptions = True
         Me.FNCartonNoBegin_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNCartonNoBegin_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNCartonNoBegin_lbl.Location = New System.Drawing.Point(4, 43)

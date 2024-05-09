@@ -21,22 +21,38 @@ Partial Class wStyleWeightSet
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wStyleWeightSet))
-        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject13 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ReposFDShipDateTo = New DevExpress.XtraEditors.Repository.RepositoryItemDateEdit()
         Me.RepositoryItemFTSelect = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.RepositoryItemrFTSelect = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
-        Me.ocmdoc = New DevExpress.XtraBars.Docking.DockManager(Me.components)
+        Me.ocmdoc = New DevExpress.XtraBars.Docking.DockManager()
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
         Me.FNHSysStyleIdTo = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysStyleIdTo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysStyleId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysStyleIdTo_None = New DevExpress.XtraEditors.TextEdit()
+        Me.info = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysStyleId_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysStyleId_None = New DevExpress.XtraEditors.TextEdit()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
@@ -55,7 +71,6 @@ Partial Class wStyleWeightSet
         Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemCalcQty = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
         Me.RepositoryItemButtonFNHSysSuplId = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
-        Me.info = New DevExpress.XtraEditors.LabelControl()
         CType(Me.ReposFDShipDateTo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReposFDShipDateTo.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemFTSelect, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -113,7 +128,7 @@ Partial Class wStyleWeightSet
         Me.DockPanel1.Controls.Add(Me.DockPanel1_Container)
         Me.DockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top
         Me.DockPanel1.ID = New System.Guid("3bdcacab-6a20-41e6-a422-b80ff4949584")
-        Me.DockPanel1.Image = CType(resources.GetObject("DockPanel1.Image"), System.Drawing.Image)
+        Me.DockPanel1.ImageOptions.Image = CType(resources.GetObject("DockPanel1.ImageOptions.Image"), System.Drawing.Image)
         Me.DockPanel1.Location = New System.Drawing.Point(0, 0)
         Me.DockPanel1.Name = "DockPanel1"
         Me.DockPanel1.Options.AllowDockBottom = False
@@ -135,9 +150,9 @@ Partial Class wStyleWeightSet
         Me.DockPanel1_Container.Controls.Add(Me.info)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysStyleId_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysStyleId_None)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 27)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 32)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1016, 57)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1018, 53)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FNHSysStyleIdTo
@@ -145,7 +160,7 @@ Partial Class wStyleWeightSet
         Me.FNHSysStyleIdTo.Location = New System.Drawing.Point(614, 14)
         Me.FNHSysStyleIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysStyleIdTo.Name = "FNHSysStyleIdTo"
-        Me.FNHSysStyleIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, "", "249", Nothing, True)})
+        Me.FNHSysStyleIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "249", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleIdTo.Properties.Tag = "57"
         Me.FNHSysStyleIdTo.Size = New System.Drawing.Size(132, 22)
         Me.FNHSysStyleIdTo.TabIndex = 317
@@ -171,7 +186,7 @@ Partial Class wStyleWeightSet
         Me.FNHSysStyleId.Location = New System.Drawing.Point(148, 14)
         Me.FNHSysStyleId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysStyleId.Name = "FNHSysStyleId"
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject4, "", "89", Nothing, True)})
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.Tag = "57"
         Me.FNHSysStyleId.Size = New System.Drawing.Size(132, 22)
         Me.FNHSysStyleId.TabIndex = 317
@@ -187,9 +202,25 @@ Partial Class wStyleWeightSet
         Me.FNHSysStyleIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysStyleIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysStyleIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysStyleIdTo_None.Size = New System.Drawing.Size(189, 22)
+        Me.FNHSysStyleIdTo_None.Size = New System.Drawing.Size(191, 22)
         Me.FNHSysStyleIdTo_None.TabIndex = 319
         Me.FNHSysStyleIdTo_None.Tag = "2|"
+        '
+        'info
+        '
+        Me.info.Appearance.Font = New System.Drawing.Font("Tahoma", 6.0!)
+        Me.info.Appearance.ForeColor = System.Drawing.Color.Red
+        Me.info.Appearance.Options.UseFont = True
+        Me.info.Appearance.Options.UseForeColor = True
+        Me.info.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.info.Location = New System.Drawing.Point(17, 36)
+        Me.info.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.info.Name = "info"
+        Me.info.Size = New System.Drawing.Size(945, 21)
+        Me.info.TabIndex = 318
+        Me.info.Tag = "2|"
+        Me.info.Text = "*F9 Defualt Weigth All SizeBreakDown * F10 Defualt Weigth All Colorway  *F11 Defu" &
+    "alt Weigth All Right"
         '
         'FNHSysStyleId_lbl
         '
@@ -314,11 +345,11 @@ Partial Class wStyleWeightSet
         'ogc
         '
         Me.ogc.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc.Location = New System.Drawing.Point(2, 25)
+        Me.ogc.Location = New System.Drawing.Point(2, 28)
         Me.ogc.MainView = Me.ogv
         Me.ogc.Name = "ogc"
         Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemButtonFNHSysSuplId, Me.RepositoryItemCalcQty})
-        Me.ogc.Size = New System.Drawing.Size(1022, 724)
+        Me.ogc.Size = New System.Drawing.Size(1022, 721)
         Me.ogc.TabIndex = 0
         Me.ogc.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogv})
         '
@@ -370,32 +401,16 @@ Partial Class wStyleWeightSet
         'RepositoryItemCalcQty
         '
         Me.RepositoryItemCalcQty.AutoHeight = False
-        Me.RepositoryItemCalcQty.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
+        Me.RepositoryItemCalcQty.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryItemCalcQty.Name = "RepositoryItemCalcQty"
         Me.RepositoryItemCalcQty.Precision = 5
         '
         'RepositoryItemButtonFNHSysSuplId
         '
         Me.RepositoryItemButtonFNHSysSuplId.AutoHeight = False
-        Me.RepositoryItemButtonFNHSysSuplId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", "506", Nothing, True)})
+        Me.RepositoryItemButtonFNHSysSuplId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "506", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryItemButtonFNHSysSuplId.Name = "RepositoryItemButtonFNHSysSuplId"
         Me.RepositoryItemButtonFNHSysSuplId.Tag = ""
-        '
-        'info
-        '
-        Me.info.Appearance.Font = New System.Drawing.Font("Tahoma", 6.0!)
-        Me.info.Appearance.ForeColor = System.Drawing.Color.Red
-        Me.info.Appearance.Options.UseFont = True
-        Me.info.Appearance.Options.UseForeColor = True
-        Me.info.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.info.Location = New System.Drawing.Point(17, 36)
-        Me.info.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.info.Name = "info"
-        Me.info.Size = New System.Drawing.Size(945, 21)
-        Me.info.TabIndex = 318
-        Me.info.Tag = "2|"
-        Me.info.Text = "*F9 Defualt Weigth All SizeBreakDown * F10 Defualt Weigth All Colorway  *F11 Defu" &
-    "alt Weigth All Right"
         '
         'wStyleWeightSet
         '

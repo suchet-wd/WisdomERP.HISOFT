@@ -354,6 +354,8 @@ Public Class wScanBarcodeSendSuplToBranch
             Else
                 _Qry &= vbCrLf & ",  CMK.FTMarkNameEN AS FTMarkName  "
             End If
+            _Qry &= vbCrLf & " ,convert(varchar(10) , convert( date , B.FDInsDate) , 103 ) as FDInsDate "
+            _Qry &= vbCrLf & " ,B.FTInsTime  "
 
             _Qry &= vbCrLf & " 	 FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTSendSuplToBranch AS A WITH (NOLOCK)   INNER JOIN"
             _Qry &= vbCrLf & " 	        [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTSendSuplToBranch_Barcode AS B  WITH (NOLOCK) ON A.FTSendSuplNo = B.FTSendSuplNo INNER JOIN"

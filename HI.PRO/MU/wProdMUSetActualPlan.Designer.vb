@@ -123,7 +123,7 @@ Partial Class wProdMUSetActualPlan
         Me.BandedGridColumn17 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
         Me.BandedGridColumn19 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
         Me.gbyard = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
-        Me.cFNActuallong = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
+        Me.FNActuallong = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
         Me.RepositoryItemCalcEditFNActuallong = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
         Me.BandedGridColumn11 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
         Me.RepositoryItemCalcEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
@@ -642,7 +642,7 @@ Partial Class wProdMUSetActualPlan
         'AdvBandedGridView2
         '
         Me.AdvBandedGridView2.Bands.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.gBMark, Me.GridBand1, Me.GridBand2, Me.gBTotal, Me.gbyard, Me.gridBand3})
-        Me.AdvBandedGridView2.Columns.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn() {Me.BandedGridColumn10, Me.BandedGridColumn9, Me.BandedGridColumn7, Me.cFNHSysMarkId, Me.BandedGridColumn4, Me.BandedGridColumn5, Me.BandedGridColumn6, Me.BandedGridColumn1, Me.BandedGridColumn2, Me.BandedGridColumn3, Me.BandedGridColumn20, Me.BandedGridColumn18, Me.BandedGridColumn17, Me.BandedGridColumn19, Me.BandedGridColumn8, Me.BandedGridColumn11, Me.BandedGridColumn12, Me.BandedGridColumn13, Me.cFNActuallong, Me.cFNEfficency})
+        Me.AdvBandedGridView2.Columns.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn() {Me.BandedGridColumn10, Me.BandedGridColumn9, Me.BandedGridColumn7, Me.cFNHSysMarkId, Me.BandedGridColumn4, Me.BandedGridColumn5, Me.BandedGridColumn6, Me.BandedGridColumn1, Me.BandedGridColumn2, Me.BandedGridColumn3, Me.BandedGridColumn20, Me.BandedGridColumn18, Me.BandedGridColumn17, Me.BandedGridColumn19, Me.BandedGridColumn8, Me.BandedGridColumn11, Me.BandedGridColumn12, Me.BandedGridColumn13, Me.FNActuallong, Me.cFNEfficency})
         Me.AdvBandedGridView2.DetailHeight = 431
         Me.AdvBandedGridView2.GridControl = Me.ogcratio
         Me.AdvBandedGridView2.Name = "AdvBandedGridView2"
@@ -819,7 +819,7 @@ Partial Class wProdMUSetActualPlan
         Me.gbyard.AppearanceHeader.Options.UseTextOptions = True
         Me.gbyard.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.gbyard.Caption = "ความยาว"
-        Me.gbyard.Columns.Add(Me.cFNActuallong)
+        Me.gbyard.Columns.Add(Me.FNActuallong)
         Me.gbyard.Columns.Add(Me.BandedGridColumn11)
         Me.gbyard.Columns.Add(Me.BandedGridColumn12)
         Me.gbyard.Columns.Add(Me.BandedGridColumn13)
@@ -828,17 +828,17 @@ Partial Class wProdMUSetActualPlan
         Me.gbyard.VisibleIndex = 4
         Me.gbyard.Width = 474
         '
-        'cFNActuallong
+        'FNActuallong
         '
-        Me.cFNActuallong.Caption = "FNActuallong"
-        Me.cFNActuallong.ColumnEdit = Me.RepositoryItemCalcEditFNActuallong
-        Me.cFNActuallong.DisplayFormat.FormatString = "N2"
-        Me.cFNActuallong.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.cFNActuallong.FieldName = "FNActuallong"
-        Me.cFNActuallong.MinWidth = 25
-        Me.cFNActuallong.Name = "cFNActuallong"
-        Me.cFNActuallong.Visible = True
-        Me.cFNActuallong.Width = 141
+        Me.FNActuallong.Caption = "FNActuallong"
+        Me.FNActuallong.ColumnEdit = Me.RepositoryItemCalcEditFNActuallong
+        Me.FNActuallong.DisplayFormat.FormatString = "N2"
+        Me.FNActuallong.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNActuallong.FieldName = "FNActuallong"
+        Me.FNActuallong.MinWidth = 25
+        Me.FNActuallong.Name = "FNActuallong"
+        Me.FNActuallong.Visible = True
+        Me.FNActuallong.Width = 141
         '
         'RepositoryItemCalcEditFNActuallong
         '
@@ -1235,7 +1235,7 @@ Partial Class wProdMUSetActualPlan
     Friend WithEvents RepositoryItemCalcEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
     Friend WithEvents RepositoryItemCalcEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
     Friend WithEvents RepositoryItemButtonEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
-    Friend WithEvents cFNActuallong As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+    Friend WithEvents FNActuallong As DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
     Friend WithEvents RepositoryItemCalcEditFNActuallong As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
     Friend WithEvents ocmdeletejobprod As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ocmgeneratejobprod As DevExpress.XtraEditors.SimpleButton

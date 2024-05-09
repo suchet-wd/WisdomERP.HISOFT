@@ -617,11 +617,11 @@
     <EmbeddedResource Include="Transaction\wPurchaseMaterialDelayT1T2Tracking.resx">
       <DependentUpon>wPurchaseMaterialDelayT1T2Tracking.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaction\wPurchaseMaterialTrackingSample.resx">
-      <DependentUpon>wPurchaseMaterialTrackingSample.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Transaction\wPurchaseMaterialTracking.resx">
       <DependentUpon>wPurchaseMaterialTracking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\wPurchaseMaterialTrackingSample.resx">
+      <DependentUpon>wPurchaseMaterialTrackingSample.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\wPurchaseOrderChangePONO.resx">
       <DependentUpon>wPurchaseOrderChangePONO.vb</DependentUpon>

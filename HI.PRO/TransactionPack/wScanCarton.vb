@@ -68,7 +68,7 @@ Public Class wScanCarton
         Me.PrepareForm()
         Call InitGrid()
         Call TabChenge()
-        Call Default_Grid_Scan()
+
         Call SetImagePack()
     End Sub
 
@@ -103,23 +103,6 @@ Public Class wScanCarton
         End If
     End Sub
 
-    Private Sub Default_Grid_Scan()
-        Try
-            With ogvScan
-                For I As Integer = .Columns.Count - 1 To 0 Step -1
-                    Select Case .Columns(I).FieldName.ToString.ToUpper
-                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper
-                            .Columns(I).AppearanceCell.BackColor = Color.White
-                            .Columns(I).AppearanceCell.ForeColor = Color.Black
-                            .Columns(I).OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False
-                        Case Else
-                            .Columns.Remove(.Columns(I))
-                    End Select
-                Next
-            End With
-        Catch ex As Exception
-        End Try
-    End Sub
 
     Private Sub TabChenge()
         HI.TL.METHOD.CallActiveToolBarFunction(Me)
@@ -168,12 +151,6 @@ Public Class wScanCarton
         '    .OptionsSelection.MultiSelect = False
         '    .OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.RowSelect
         'End With
-
-        With ogvppercarton
-            .OptionsView.ShowAutoFilterRow = False
-            .OptionsSelection.MultiSelect = False
-            .OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.RowSelect
-        End With
 
     End Sub
 
@@ -246,68 +223,7 @@ Public Class wScanCarton
         Me.FTOrderNo.Text = _PFTOrderNo
         Call GetPOCuts()
 
-        With Me.ogvppercarton
-            For I As Integer = .Columns.Count - 1 To 0 Step -1
-                Select Case .Columns(I).FieldName.ToString.ToUpper
-                    Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper
-                        .Columns(I).AppearanceCell.BackColor = Color.White
-                        .Columns(I).AppearanceCell.ForeColor = Color.Black
-                        .Columns(I).OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False
-                    Case Else
-                        .Columns.Remove(.Columns(I))
-                End Select
-            Next
 
-            If Not (_dt Is Nothing) Then
-                For Each Col As DataColumn In _dt.Columns
-
-                    Select Case Col.ColumnName.ToString.ToUpper
-                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper
-                        Case Else
-                            _colcount = _colcount + 1
-                            Dim ColG As New DevExpress.XtraGrid.Columns.GridColumn
-                            With ColG
-                                .Visible = True
-                                .FieldName = Col.ColumnName.ToString
-                                .Name = "FTSubOrderNo" & Col.ColumnName.ToString
-                                .Caption = Col.ColumnName.ToString
-
-                            End With
-
-                            .Columns.Add(ColG)
-
-                            With .Columns(Col.ColumnName.ToString)
-
-                                .OptionsFilter.AllowAutoFilter = False
-                                .OptionsFilter.AllowFilter = False
-                                .DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-                                .DisplayFormat.FormatString = "{0:n0}"
-                                .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-                                .AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-
-                                With .OptionsColumn
-                                    .AllowMove = False
-                                    .AllowGroup = DevExpress.Utils.DefaultBoolean.False
-                                    .AllowSort = DevExpress.Utils.DefaultBoolean.False
-                                    .AllowEdit = False
-                                    .ReadOnly = True
-                                End With
-
-                            End With
-
-                            .Columns(Col.ColumnName.ToString).Width = 45
-                            .Columns(Col.ColumnName.ToString).Summary.Add(DevExpress.Data.SummaryItemType.Sum)
-                            .Columns(Col.ColumnName.ToString).SummaryItem.DisplayFormat = "{0:n0}"
-                    End Select
-                Next
-                For Each GridCol As DevExpress.XtraGrid.Columns.GridColumn In .Columns
-                    With GridCol
-                        .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-                    End With
-                Next
-            End If
-        End With
-        Me.ogcppercarton.DataSource = _dt.Copy
         _dt.Dispose()
         _dtpack.Dispose()
     End Sub
@@ -1779,11 +1695,11 @@ Public Class wScanCarton
             Dim _Cmd As String = ""
             Dim _oDt As DataTable
             Dim _State As Boolean = False
-            _Cmd = "SELECT     B.FTPackNo, B.FNCartonNo, B.FTBarCodeCarton, D.FTOrderNo, D.FTSubOrderNo, D.FTColorway, D.FTSizeBreakDown, D.FNQuantity"
+            _Cmd = "SELECT     B.FTPackNo, B.FNCartonNo, B.FTBarCodeCarton, D.FTOrderNo, D.FTSubOrderNo, D.FTColorway, D.FTSizeBreakDown, D.FNQuantity , D.FTPOLine"
             _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Barcode AS B WITH (NOLOCK) LEFT OUTER JOIN"
             _Cmd &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Detail AS D WITH (NOLOCK) ON B.FTPackNo = D.FTPackNo AND B.FNCartonNo = D.FNCartonNo"
             _Cmd &= vbCrLf & "Where B.FTBarCodeCarton='" & HI.UL.ULF.rpQuoted(_Barcode) & "'"
-            _Cmd &= vbCrLf & "and D.FTOrderNo='" & HI.UL.ULF.rpQuoted(_OrderNo) & "'"
+            '_Cmd &= vbCrLf & "and D.FTOrderNo='" & HI.UL.ULF.rpQuoted(_OrderNo) & "'"
 
 
             _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD)
@@ -1799,27 +1715,74 @@ Public Class wScanCarton
                 _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd AS P WITH (NOLOCK) ON A.FTOrderProdNo = P.FTOrderProdNo"
                 _Cmd &= vbCrLf & "Where  P.FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
                 _Cmd &= vbCrLf & "and  A.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                _Cmd &= vbCrLf & "and  O.FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
                 _Cmd &= vbCrLf & "and   CASE WHEN ISNULL(A.FTColorwayNew,'') ='' THEN A.FTColorway ELSE ISNULL(A.FTColorwayNew,'') END='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
                 _Cmd &= vbCrLf & "Group by  O.FTBarcodeNo  "
+
+
+                _Cmd &= vbCrLf & " UNION ALL"
+                _Cmd &= vbCrLf & " SELECT  sum(FNQuantity) as FNQuantity  , max( b.FTBarcodeNo  ) as FTBarcodeNo "
+                _Cmd &= vbCrLf & " FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKIssMiniFG_Detail a "
+                _Cmd &= vbCrLf & " LEFT JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKIssMiniFG h on a.FTIssMiniFgNo = h.FTIssMiniFgNo "
+                _Cmd &= vbCrLf & " outer apply ("
+                _Cmd &= vbCrLf & " SELECT  top 1   O.FTBarcodeNo "
+                _Cmd &= vbCrLf & " FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODBarcodeScanOutline AS O WITH (NOLOCK) LEFT OUTER JOIN"
+                _Cmd &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle AS A WITH (NOLOCK) ON O.FTBarcodeNo = A.FTBarcodeBundleNo LEFT OUTER JOIN"
+                _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd AS P WITH (NOLOCK) ON A.FTOrderProdNo = P.FTOrderProdNo"
+                _Cmd &= vbCrLf & "Where  P.FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                _Cmd &= vbCrLf & "and  A.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                _Cmd &= vbCrLf & "and   CASE WHEN ISNULL(A.FTColorwayNew,'') ='' THEN A.FTColorway ELSE ISNULL(A.FTColorwayNew,'') END='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                _Cmd &= vbCrLf & "Group by  O.FTBarcodeNo  "
+
+                _Cmd &= vbCrLf & " ) as b "
+                _Cmd &= vbCrLf & " where a.FTPORefNew = '" & HI.UL.ULF.rpQuoted(Me.FTPORef.Text) & "'    "
+                _Cmd &= vbCrLf & " and a.FTPOLineNew = '" & HI.UL.ULF.rpQuoted(R!FTPOLine.ToString) & "'    "
+                '_Cmd &= vbCrLf & " and FNHSysSeasonId = "
+                _Cmd &= vbCrLf & "and   a.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                _Cmd &= vbCrLf & "and   a.FTColorWay = '" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                _Cmd &= vbCrLf & " and isnull( h.FTStateApp ,'0') ='1'"
+
+
+
+
                 _Cmd &= vbCrLf & " UNION ALL"
                 _Cmd &= vbCrLf & "Select  -sum(FNScanQuantity) AS FNQuantity , FTBarcodeNo"
                 _Cmd &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Scan_Detail WITH(NOLOCK) "
                 _Cmd &= vbCrLf & "Where  FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
                 _Cmd &= vbCrLf & "and  FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
                 _Cmd &= vbCrLf & "and  FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                _Cmd &= vbCrLf & "and  FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
                 _Cmd &= vbCrLf & "group by FTBarcodeNo ) AS T "
                 _Cmd &= vbCrLf & "group by FTBarcodeNo ) AS TT INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODBarcodeScanOutline AS O WITH(NOLOCK) ON TT.FTBarcodeNo = O.FTBarcodeNo"
                 _Cmd &= vbCrLf & "Where TT.FNQuantity > 0 "
                 _Cmd &= vbCrLf & "group by TT.FTBarcodeNo , TT.FNQuantity , O.FNHSysUnitSectId) AS B LEFT OUTER JOIN"
-                _Cmd &= vbCrLf & " (SELECT        H.FTBarcodeBundleNo,   CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END FTColorway, H.FTSizeBreakDown, P.FTOrderNo"
-                _Cmd &= vbCrLf & "FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle AS H WITH (NOLOCK) LEFT OUTER JOIN"
-                ' _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle_Detail AS D WITH (NOLOCK) ON H.FTBarcodeBundleNo = D.FTBarcodeBundleNo LEFT OUTER JOIN"
-                _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd AS P WITH (NOLOCK) ON H.FTOrderProdNo = P.FTOrderProdNo"
+
+
+                '_Cmd &= vbCrLf & " (SELECT        H.FTBarcodeBundleNo,   CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END FTColorway, H.FTSizeBreakDown, P.FTOrderNo"
+                '_Cmd &= vbCrLf & "FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle AS H WITH (NOLOCK) LEFT OUTER JOIN"
+                '' _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle_Detail AS D WITH (NOLOCK) ON H.FTBarcodeBundleNo = D.FTBarcodeBundleNo LEFT OUTER JOIN"
+                '_Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd AS P WITH (NOLOCK) ON H.FTOrderProdNo = P.FTOrderProdNo"
+                '_Cmd &= vbCrLf & "Where  P.FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                '_Cmd &= vbCrLf & "and H.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                '_Cmd &= vbCrLf & "and  CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                '_Cmd &= vbCrLf & "  Group by    H.FTBarcodeBundleNo, CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END, H.FTSizeBreakDown, P.FTOrderNo"
+                '_Cmd &= vbCrLf & " ) AS D ON B.FTBarcodeNo = D.FTBarcodeBundleNo"
+
+                _Cmd &= vbCrLf & " (SELECT        H.FTBarcodeBundleNo,   CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END AS  FTColorway, H.FTSizeBreakDown, P.FTOrderNo"
+                _Cmd &= vbCrLf & "FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle AS H WITH (NOLOCK) LEFT OUTER JOIN"
+                '_Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle_Detail AS D WITH (NOLOCK) ON H.FTBarcodeBundleNo = D.FTBarcodeBundleNo LEFT OUTER JOIN"
+                _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd_Detail AS P WITH (NOLOCK) ON H.FTOrderProdNo = P.FTOrderProdNo"
+                _Cmd &= vbCrLf & "  LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..V_OrderSub_BreakDown_ShipDestination AS B WITH(NOLOCK) ON P.FTOrderNo = B.FTOrderNo and P.FTSubOrderNo = B.FTSubOrderNo "
+                _Cmd &= vbCrLf & "   And H.FTSizeBreakDown = B.FTSizeBreakDown and CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END = B.FTColorway    " 'and  H.FTPOLineItemNo = B.FTNikePOLineItem"
                 _Cmd &= vbCrLf & "Where  P.FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
                 _Cmd &= vbCrLf & "and H.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
-                _Cmd &= vbCrLf & "and  CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
-                _Cmd &= vbCrLf & "  Group by    H.FTBarcodeBundleNo, CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END, H.FTSizeBreakDown, P.FTOrderNo"
+                _Cmd &= vbCrLf & "and CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                _Cmd &= vbCrLf & "	and B.FTSubOrderNo = '" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+                _Cmd &= vbCrLf & "Group by    H.FTBarcodeBundleNo, CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END , H.FTSizeBreakDown, P.FTOrderNo "
                 _Cmd &= vbCrLf & " ) AS D ON B.FTBarcodeNo = D.FTBarcodeBundleNo"
+
+
+
                 _Cmd &= vbCrLf & "Where  D.FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
                 _Cmd &= vbCrLf & "and D.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
                 _Cmd &= vbCrLf & "and D.FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
@@ -1842,11 +1805,13 @@ Public Class wScanCarton
         End Try
     End Function
 
+
     Private Function ChkBarcodeCartonFromOrderPack(_Barcode As String, _OrderNo As String, _Colorway As String, _SizeBreakDown As String, _CartonNo As Integer) As Boolean
         Try
             Dim _Cmd As String = ""
             Dim _oDt As DataTable = Nothing : Dim _oDt2 As DataTable
             Dim _Qty As Integer = 0 : Dim _QtyBal As Integer = 0 : Dim _QtyPack As Integer = 0
+            Dim _Return As Boolean = False
 
             If Not (ChkOnhandScan(_Barcode, _OrderNo, _Colorway, _SizeBreakDown, _oDt)) Then
                 HI.MG.ShowMsg.mInfo("ยอดสแกนออกไลน์ไม่พอสำหรับการแพ็คกล่องนี้...กรุณาตรวจสอบ!!!!", 1512091623, Me.Text)
@@ -1873,12 +1838,14 @@ Public Class wScanCarton
                 Return False
             End If
 
+
+
             HI.Conn.DB.ConnectionString(Conn.DB.DataBaseName.DB_PROD)
             HI.Conn.SQLConn.SqlConnectionOpen()
             HI.Conn.SQLConn.Cmd = HI.Conn.SQLConn.Cnn.CreateCommand
             HI.Conn.SQLConn.Tran = HI.Conn.SQLConn.Cnn.BeginTransaction
 
-            _Cmd = "SELECT    B.FTBarcodeBundleNo  ,  B.FTPackNo, B.FNCartonNo, B.FTBarCodeCarton, D.FTOrderNo, D.FTSubOrderNo, D.FTColorway, D.FTSizeBreakDown, D.FNQuantity"
+            _Cmd = "SELECT    B.FTBarcodeBundleNo  ,  B.FTPackNo, B.FNCartonNo, B.FTBarCodeCarton, D.FTOrderNo, D.FTSubOrderNo, D.FTColorway, D.FTSizeBreakDown, D.FNQuantity , D.FTPOLine "
             _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Barcode AS B WITH (NOLOCK) LEFT OUTER JOIN"
             _Cmd &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Detail AS D WITH (NOLOCK) ON B.FTPackNo = D.FTPackNo AND B.FNCartonNo = D.FNCartonNo"
             _Cmd &= vbCrLf & "  inner join HITECH_PRODUCTION..TPACKOrderPack P on B.FTPackNo = P.FTPackNo "
@@ -1900,6 +1867,96 @@ Public Class wScanCarton
             For Each R As DataRow In _oDt.Rows
                 _Qty = 0
                 _QtyBal = Integer.Parse(R!FNQuantity.ToString)
+                '_Cmd = "SELECT TZ.* "
+                '_Cmd &= vbCrLf & " FROM ( SELECT  B.FTBarcodeNo, B.FNHSysUnitSectId, sum(B.FNQuantity) as FNQuantity, D.FTColorway, D.FTSizeBreakDown , D.FTOrderNo ,min(B.FTTime) AS FTTime , min(B.FDDate) AS FDDate  "
+                '_Cmd &= vbCrLf & "FROM    (Select TT.FTBarcodeNo , TT.FNQuantity , O.FNHSysUnitSectId , min(O.FTTime) AS FTTime , min( O.FDDate) AS FDDate"
+                '_Cmd &= vbCrLf & "From ("
+                '_Cmd &= vbCrLf & "Select sum(FNQuantity) AS FNQuantity , FTBarcodeNo"
+                '_Cmd &= vbCrLf & "From (SELECT  sum(O.FNQuantity) AS FNQuantity ,  O.FTBarcodeNo "
+                '_Cmd &= vbCrLf & " FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODBarcodeScanOutline AS O WITH (NOLOCK) LEFT OUTER JOIN"
+                '_Cmd &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle AS A WITH (NOLOCK) ON O.FTBarcodeNo = A.FTBarcodeBundleNo LEFT OUTER JOIN"
+                '_Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd AS P WITH (NOLOCK) ON A.FTOrderProdNo = P.FTOrderProdNo"
+                '_Cmd &= vbCrLf & "Where  P.FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                '_Cmd &= vbCrLf & "and  A.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                '_Cmd &= vbCrLf & "and  O.FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+                '_Cmd &= vbCrLf & " and case when isnull( A.FTChangeToLineItemNo , '') = '' then  A.FTPOLineItemNo else A.FTChangeToLineItemNo end ='" & HI.UL.ULF.rpQuoted(R!FTPOLine.ToString) & "'    "
+
+                '_Cmd &= vbCrLf & "and  CASE WHEN ISNULL(A.FTColorwayNew,'') ='' THEN A.FTColorway ELSE ISNULL(A.FTColorwayNew,'') END='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                '_Cmd &= vbCrLf & "Group by O.FTBarcodeNo "
+
+
+                '_Cmd &= vbCrLf & " UNION ALL"
+                '_Cmd &= vbCrLf & " SELECT  sum(FNQuantity) as FNQuantity  , max( a.FTIssMiniFgNo  ) as FTBarcodeNo "
+                '_Cmd &= vbCrLf & " FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKIssMiniFG_Detail a "
+                '_Cmd &= vbCrLf & " LEFT JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKIssMiniFG h on a.FTIssMiniFgNo = h.FTIssMiniFgNo "
+                ''_Cmd &= vbCrLf & " outer apply ("
+                ''_Cmd &= vbCrLf & " SELECT  top 1   O.FTBarcodeNo "
+                ''_Cmd &= vbCrLf & " FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODBarcodeScanOutline AS O WITH (NOLOCK) LEFT OUTER JOIN"
+                ''_Cmd &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle AS A WITH (NOLOCK) ON O.FTBarcodeNo = A.FTBarcodeBundleNo LEFT OUTER JOIN"
+                ''_Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd AS P WITH (NOLOCK) ON A.FTOrderProdNo = P.FTOrderProdNo"
+                ''_Cmd &= vbCrLf & "Where  P.FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                ''_Cmd &= vbCrLf & "and  A.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                ''_Cmd &= vbCrLf & "and   CASE WHEN ISNULL(A.FTColorwayNew,'') ='' THEN A.FTColorway ELSE ISNULL(A.FTColorwayNew,'') END='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                ''_Cmd &= vbCrLf & "Group by  O.FTBarcodeNo  "
+
+                ''_Cmd &= vbCrLf & " ) as b "
+                '_Cmd &= vbCrLf & " where a.FTPORefNew = '" & HI.UL.ULF.rpQuoted(Me.FTPORef.Text) & "'    "
+                '_Cmd &= vbCrLf & " and a.FTPOLineNew = '" & HI.UL.ULF.rpQuoted(R!FTPOLine.ToString) & "'    "
+                ''_Cmd &= vbCrLf & " and FNHSysSeasonId = "
+                '_Cmd &= vbCrLf & "and   a.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                '_Cmd &= vbCrLf & "and   a.FTColorWay = '" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                '_Cmd &= vbCrLf & " and isnull( h.FTStateApp ,'0') ='1'"
+
+
+
+
+
+                '_Cmd &= vbCrLf & " UNION ALL"
+                '_Cmd &= vbCrLf & "Select  -sum(FNScanQuantity) AS FNQuantity , FTBarcodeNo"
+                '_Cmd &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Scan_Detail WITH(NOLOCK) "
+                '_Cmd &= vbCrLf & "Where  FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                '_Cmd &= vbCrLf & "and  FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                '_Cmd &= vbCrLf & "and  FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                '_Cmd &= vbCrLf & "and  FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+                ''_Cmd &= vbCrLf & " and   FTPOLineItemNo ='" & HI.UL.ULF.rpQuoted(R!FTPOLine.ToString) & "'    "
+                '_Cmd &= vbCrLf & "group by FTBarcodeNo ) AS T "
+                '_Cmd &= vbCrLf & "group by FTBarcodeNo ) AS TT INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODBarcodeScanOutline AS O WITH(NOLOCK) ON TT.FTBarcodeNo = O.FTBarcodeNo"
+                '_Cmd &= vbCrLf & "Where TT.FNQuantity > 0 "
+                '_Cmd &= vbCrLf & " group by  TT.FTBarcodeNo, TT.FNQuantity, O.FNHSysUnitSectId ) AS B LEFT OUTER JOIN"
+                '_Cmd &= vbCrLf & " (SELECT        H.FTBarcodeBundleNo,   CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END AS  FTColorway, H.FTSizeBreakDown, P.FTOrderNo"
+                '_Cmd &= vbCrLf & "FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle AS H WITH (NOLOCK) LEFT OUTER JOIN"
+                ''_Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle_Detail AS D WITH (NOLOCK) ON H.FTBarcodeBundleNo = D.FTBarcodeBundleNo LEFT OUTER JOIN"
+                '_Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd_Detail AS P WITH (NOLOCK) ON H.FTOrderProdNo = P.FTOrderProdNo"
+                '_Cmd &= vbCrLf & "  LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..V_OrderSub_BreakDown_ShipDestination AS B WITH(NOLOCK) ON P.FTOrderNo = B.FTOrderNo and P.FTSubOrderNo = B.FTSubOrderNo "
+                '_Cmd &= vbCrLf & "   And H.FTSizeBreakDown = B.FTSizeBreakDown and CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END = B.FTColorway    " 'and  H.FTPOLineItemNo = B.FTNikePOLineItem"
+                '_Cmd &= vbCrLf & "Where  P.FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                '_Cmd &= vbCrLf & "and H.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                '_Cmd &= vbCrLf & "and CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                '_Cmd &= vbCrLf & "	and B.FTSubOrderNo = '" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+                '_Cmd &= vbCrLf & "Group by    H.FTBarcodeBundleNo, CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END , H.FTSizeBreakDown, P.FTOrderNo "
+                '_Cmd &= vbCrLf & " ) AS D ON B.FTBarcodeNo = D.FTBarcodeBundleNo"
+                '_Cmd &= vbCrLf & "Where  D.FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                '_Cmd &= vbCrLf & "and D.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                '_Cmd &= vbCrLf & "and D.FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                ''If HI.UL.ULF.rpQuoted(R!FTBarcodeBundleNo.ToString) <> "" Then
+                ''    _Cmd &= vbCrLf & "and B.FTBarcodeNo='" & HI.UL.ULF.rpQuoted(R!FTBarcodeBundleNo.ToString) & "'"
+                ''End If
+                '_Cmd &= vbCrLf & "Group by  B.FTBarcodeNo, B.FNHSysUnitSectId,  D.FTColorway, D.FTSizeBreakDown , D.FTOrderNo   ) AS TZ "
+                '_Cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle AS B WITH (NOLOCK) ON  TZ.FTBarcodeNo =  B.FTBarcodeBundleNo"
+
+                'If (Not GetStateHanger()) Then
+                '    If (CheckPackType(Me.FTPackNo.Text)) Then
+                '        If (_PQty > 0) And (_StateCarton) Then
+                '            _Cmd &= vbCrLf & " WHERE ( B.FNQuantity =" & _PQty & ")   "
+                '        Else
+                '            _Cmd &= vbCrLf & " WHERE ( B.FNQuantity <" & _PQty & ")   "
+                '        End If
+                '    End If
+                'End If
+
+                '_Cmd &= vbCrLf & "Order by  TZ.FDDate, TZ.FTTime asc "
+
+
                 _Cmd = "SELECT TZ.* "
                 _Cmd &= vbCrLf & " FROM ( SELECT  B.FTBarcodeNo, B.FNHSysUnitSectId, sum(B.FNQuantity) as FNQuantity, D.FTColorway, D.FTSizeBreakDown , D.FTOrderNo ,min(B.FTTime) AS FTTime , min(B.FDDate) AS FDDate  "
                 _Cmd &= vbCrLf & "FROM    (Select TT.FTBarcodeNo , TT.FNQuantity , O.FNHSysUnitSectId , min(O.FTTime) AS FTTime , min( O.FDDate) AS FDDate"
@@ -1911,18 +1968,74 @@ Public Class wScanCarton
                 _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd AS P WITH (NOLOCK) ON A.FTOrderProdNo = P.FTOrderProdNo"
                 _Cmd &= vbCrLf & "Where  P.FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
                 _Cmd &= vbCrLf & "and  A.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                _Cmd &= vbCrLf & "and  O.FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+                _Cmd &= vbCrLf & " and case when isnull( A.FTChangeToLineItemNo , '') = '' then  A.FTPOLineItemNo else A.FTChangeToLineItemNo end ='" & HI.UL.ULF.rpQuoted(R!FTPOLine.ToString) & "'    "
+
                 _Cmd &= vbCrLf & "and  CASE WHEN ISNULL(A.FTColorwayNew,'') ='' THEN A.FTColorway ELSE ISNULL(A.FTColorwayNew,'') END='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
                 _Cmd &= vbCrLf & "Group by O.FTBarcodeNo "
+
+
+                '_Cmd &= vbCrLf & " UNION ALL"
+                '_Cmd &= vbCrLf & " SELECT  sum(FNQuantity) as FNQuantity  , max( a.FTIssMiniFgNo  ) as FTBarcodeNo "
+                '_Cmd &= vbCrLf & " FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKIssMiniFG_Detail a "
+                '_Cmd &= vbCrLf & " LEFT JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKIssMiniFG h on a.FTIssMiniFgNo = h.FTIssMiniFgNo "
+
+                '_Cmd &= vbCrLf & " where a.FTPORefNew = '" & HI.UL.ULF.rpQuoted(Me.FTPORef.Text) & "'    "
+                '_Cmd &= vbCrLf & " and a.FTPOLineNew = '" & HI.UL.ULF.rpQuoted(R!FTPOLine.ToString) & "'    "
+                ''_Cmd &= vbCrLf & " and FNHSysSeasonId = "
+                '_Cmd &= vbCrLf & "and   a.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                '_Cmd &= vbCrLf & "and   a.FTColorWay = '" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                '_Cmd &= vbCrLf & " and isnull( h.FTStateApp ,'0') ='1'"
+
+
+
+
+
+                _Cmd &= vbCrLf & " UNION ALL"
+
+                _Cmd &= vbCrLf & "Select  -sum(FNScanQuantity) AS FNQuantity , FTBarcodeNo"
+                _Cmd &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Scan_Detail WITH(NOLOCK) "
+                _Cmd &= vbCrLf & "Where  FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                _Cmd &= vbCrLf & "and  FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                _Cmd &= vbCrLf & "and  FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                _Cmd &= vbCrLf & "and  FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+                '_Cmd &= vbCrLf & " and   FTPOLineItemNo ='" & HI.UL.ULF.rpQuoted(R!FTPOLine.ToString) & "'    "
+                _Cmd &= vbCrLf & "group by FTBarcodeNo ) AS T "
+                _Cmd &= vbCrLf & "group by FTBarcodeNo ) AS TT INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODBarcodeScanOutline AS O WITH(NOLOCK) ON TT.FTBarcodeNo = O.FTBarcodeNo"
+                _Cmd &= vbCrLf & "Where TT.FNQuantity > 0 "
+                _Cmd &= vbCrLf & " group by  TT.FTBarcodeNo, TT.FNQuantity, O.FNHSysUnitSectId  "
+
+                _Cmd &= vbCrLf & " UNION ALL"
+
+                _Cmd &= vbCrLf & " select   TT.FTBarcodeNo , TT.FNQuantity , 0 , min(O.FTInsTime) AS FTTime , min( O.FDInsDate) AS FDDate  "
+                _Cmd &= vbCrLf & " From ( "
+
+                _Cmd &= vbCrLf & " SELECT  sum(FNQuantity) as FNQuantity  , max( a.FTIssMiniFgNo  ) as FTBarcodeNo "
+                _Cmd &= vbCrLf & " FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKIssMiniFG_Detail a "
+                _Cmd &= vbCrLf & " LEFT JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKIssMiniFG h on a.FTIssMiniFgNo = h.FTIssMiniFgNo "
+
+                _Cmd &= vbCrLf & " where a.FTPORefNew = '" & HI.UL.ULF.rpQuoted(Me.FTPORef.Text) & "'    "
+                _Cmd &= vbCrLf & " and a.FTPOLineNew = '" & HI.UL.ULF.rpQuoted(R!FTPOLine.ToString) & "'    "
+                '_Cmd &= vbCrLf & " and FNHSysSeasonId = "
+                _Cmd &= vbCrLf & "and   a.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                _Cmd &= vbCrLf & "and   a.FTColorWay = '" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                _Cmd &= vbCrLf & " and isnull( h.FTStateApp ,'0') ='1'"
                 _Cmd &= vbCrLf & " UNION ALL"
                 _Cmd &= vbCrLf & "Select  -sum(FNScanQuantity) AS FNQuantity , FTBarcodeNo"
                 _Cmd &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Scan_Detail WITH(NOLOCK) "
                 _Cmd &= vbCrLf & "Where  FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
                 _Cmd &= vbCrLf & "and  FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
                 _Cmd &= vbCrLf & "and  FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
-                _Cmd &= vbCrLf & "group by FTBarcodeNo ) AS T "
-                _Cmd &= vbCrLf & "group by FTBarcodeNo ) AS TT INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODBarcodeScanOutline AS O WITH(NOLOCK) ON TT.FTBarcodeNo = O.FTBarcodeNo"
+                _Cmd &= vbCrLf & "and  FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+                '_Cmd &= vbCrLf & " and   FTPOLineItemNo ='" & HI.UL.ULF.rpQuoted(R!FTPOLine.ToString) & "'    "
+                _Cmd &= vbCrLf & "group by FTBarcodeNo ) as tt   "
+
+                _Cmd &= vbCrLf & " INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKIssMiniFG AS O WITH(NOLOCK) ON TT.FTBarcodeNo = O.FTIssMiniFgNo  "
                 _Cmd &= vbCrLf & "Where TT.FNQuantity > 0 "
-                _Cmd &= vbCrLf & " group by  TT.FTBarcodeNo, TT.FNQuantity, O.FNHSysUnitSectId ) AS B LEFT OUTER JOIN"
+                _Cmd &= vbCrLf & " group by  TT.FTBarcodeNo, TT.FNQuantity    "
+
+
+                _Cmd &= vbCrLf & "   ) AS B LEFT OUTER JOIN"
                 _Cmd &= vbCrLf & " (SELECT        H.FTBarcodeBundleNo,   CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END AS  FTColorway, H.FTSizeBreakDown, P.FTOrderNo"
                 _Cmd &= vbCrLf & "FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle AS H WITH (NOLOCK) LEFT OUTER JOIN"
                 '_Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle_Detail AS D WITH (NOLOCK) ON H.FTBarcodeBundleNo = D.FTBarcodeBundleNo LEFT OUTER JOIN"
@@ -1934,6 +2047,20 @@ Public Class wScanCarton
                 _Cmd &= vbCrLf & "and CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
                 _Cmd &= vbCrLf & "	and B.FTSubOrderNo = '" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
                 _Cmd &= vbCrLf & "Group by    H.FTBarcodeBundleNo, CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END , H.FTSizeBreakDown, P.FTOrderNo "
+                _Cmd &= vbCrLf & "union all"
+                _Cmd &= vbCrLf & " SELECT   max( a.FTIssMiniFgNo  ) as FTBarcodeNo , a.FTColorWay , a.FTSizeBreakDown ,'" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "' as  FTOrderNo   "
+                _Cmd &= vbCrLf & " FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKIssMiniFG_Detail a "
+                _Cmd &= vbCrLf & " LEFT JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKIssMiniFG h on a.FTIssMiniFgNo = h.FTIssMiniFgNo "
+
+                _Cmd &= vbCrLf & " where a.FTPORefNew = '" & HI.UL.ULF.rpQuoted(Me.FTPORef.Text) & "'    "
+                _Cmd &= vbCrLf & " and a.FTPOLineNew = '" & HI.UL.ULF.rpQuoted(R!FTPOLine.ToString) & "'    "
+                '_Cmd &= vbCrLf & " and FNHSysSeasonId = "
+                _Cmd &= vbCrLf & "and   a.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                _Cmd &= vbCrLf & "and   a.FTColorWay = '" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                _Cmd &= vbCrLf & " and isnull( h.FTStateApp ,'0') ='1'"
+                _Cmd &= vbCrLf & "  group by  a.FTColorWay , a.FTSizeBreakDown   "
+
+
                 _Cmd &= vbCrLf & " ) AS D ON B.FTBarcodeNo = D.FTBarcodeBundleNo"
                 _Cmd &= vbCrLf & "Where  D.FTOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
                 _Cmd &= vbCrLf & "and D.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
@@ -1955,6 +2082,9 @@ Public Class wScanCarton
                 End If
 
                 _Cmd &= vbCrLf & "Order by  TZ.FDDate, TZ.FTTime asc "
+
+
+
                 _oDt2 = HI.Conn.SQLConn.GetDataTableOnbeginTrans(_Cmd, Conn.DB.DataBaseName.DB_PROD)
 
                 If _oDt2.Rows.Count <= 0 Then Return False
@@ -2004,7 +2134,7 @@ Public Class wScanCarton
                     _Cmd &= vbCrLf & ",0" '& Integer.Parse(x!FNHSysUnitSectId.ToString)
                     _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(x!FTBarcodeNo.ToString) & "'"
                     _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(x!FDDate.ToString) & "'"
-                    _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(x!FTTime.ToString) & "'"
+                    _Cmd &= vbCrLf & ",'" & Microsoft.VisualBasic.Left(HI.UL.ULF.rpQuoted(x!FTTime.ToString), 5) & "'"
                     _Cmd &= vbCrLf & "," & _QtyPack
                     _Cmd &= vbCrLf & ",'1'"
                     If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
@@ -2013,7 +2143,7 @@ Public Class wScanCarton
                         HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
                         Return False
                     End If
-
+                    _Return = True
                     If _QtyBal <= 0 Then
                         Exit For
                     End If
@@ -2023,7 +2153,9 @@ Public Class wScanCarton
             HI.Conn.SQLConn.Tran.Commit()
             HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
             HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
-            Return True
+
+            Return _Return
+
         Catch ex As Exception
             Return False
         End Try
@@ -2072,7 +2204,7 @@ L0:
                     Dim _Qry As String = ""
                     _Qry = "SELECT TOP 1 FTPackNo "
                     _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Barcode AS A WITH(NOLOCK)"
-                    _Qry &= vbCrLf & "  WHERE  (FTPackNo = N'" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "')"
+                    _Qry &= vbCrLf & " WHERE  (FTPackNo = N'" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "')"
                     _Qry &= vbCrLf & " and FTBarCodeCarton='" & HI.UL.ULF.rpQuoted(Me.FTProductBarcodeNo.Text) & "'"
 
                     If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_PROD, "") <> "" Then
@@ -2301,18 +2433,14 @@ L0:
                     Else
                         Dim _Invoice As String
                         If CheckCartonInvoice(Me.FTPackNo.Text, _PFNCartonNo, _Invoice) Then
-
                             If DeleteBarcode(Me.FTPackNo.Text, Me.FTProductBarcodeNo.Text, _PFNCartonNo) Then
-
                                 SetNewCarton(False)
                             Else
                                 SetNewCarton(False, False)
                             End If
-
                         Else
                             HI.MG.ShowMsg.mInfo("ไม่สามารถลบได้ เนื่องจากมีการ ออกอินวอยไปแล้ว!!! ", 2208241005, "", _Invoice, MessageBoxIcon.Warning)
                             Exit Sub
-
                         End If
                     End If
                     '   GetPackNo(Me.FTProductBarcodeNo.Text)
@@ -2401,15 +2529,36 @@ L0:
             HI.Conn.SQLConn.Cmd = HI.Conn.SQLConn.Cnn.CreateCommand
             HI.Conn.SQLConn.Tran = HI.Conn.SQLConn.Cnn.BeginTransaction
 
-            _Cmd = "UPDATE  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKCarton"
-            _Cmd &= vbCrLf & "SET FTState='1'"
-            _Cmd &= vbCrLf & ",FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-            _Cmd &= vbCrLf & ",FDUpdDate=" & HI.UL.ULDate.FormatDateDB
-            _Cmd &= vbCrLf & ",FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+
+            _Cmd = "Select top 1   *   from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKCarton"
             _Cmd &= vbCrLf & "WHERE FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
             _Cmd &= vbCrLf & " AND FNCartonNo=" & CInt(_CartanNo)
+            If HI.Conn.SQLConn.GetDataTableOnbeginTrans(_Cmd).Rows.Count > 0 Then
+                _Cmd = "UPDATE  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKCarton"
+                _Cmd &= vbCrLf & "SET FTState='1'"
+                _Cmd &= vbCrLf & ",FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                _Cmd &= vbCrLf & ",FDUpdDate=" & HI.UL.ULDate.FormatDateDB
+                _Cmd &= vbCrLf & ",FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                _Cmd &= vbCrLf & "WHERE FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
+                _Cmd &= vbCrLf & " AND FNCartonNo=" & CInt(_CartanNo)
+                _Cmd &= vbCrLf & " and  isnull(FTState,'0')='0' "
+                If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) > 0 Then
+                    Try
+                        _Cmd = " exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.[WISDOM_SP_SETDATATO_AX_IVZ_WISDOMREPORTASFINISHSTAGING_ReadTime]  @PackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "' , @CartonNo=" & CInt(_CartanNo)
+                        If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                        End If
+                        If Me.FNOrderPackType.SelectedIndex > 0 Then
+                            _Cmd = " exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.[WISDOM_SP_SETDATATO_AX_IVZ_WisdomInterfaceBOMJournalStaging_ReadTime]  @PackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "' , @CartonNo=" & CInt(_CartanNo)
+                            If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                            End If
+                        End If
+                    Catch ex As Exception
+                    End Try
+                End If
 
-            If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+
+            Else
+
 
                 _Cmd = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKCarton(FTInsUser, FDInsDate, FTInsTime, FTPackNo, FNCartonNo, FTState)"
                 _Cmd &= vbCrLf & "Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
@@ -2425,7 +2574,64 @@ L0:
                     HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
                     Return False
                 End If
+                Try
+
+                    _Cmd = " exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.[WISDOM_SP_SETDATATO_AX_IVZ_WISDOMREPORTASFINISHSTAGING_ReadTime]  @PackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "' , @CartonNo=" & CInt(_CartanNo)
+                    If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                    End If
+                    If Me.FNOrderPackType.SelectedIndex > 0 Then
+                        _Cmd = " exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.[WISDOM_SP_SETDATATO_AX_IVZ_WisdomInterfaceBOMJournalStaging_ReadTime]  @PackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "' , @CartonNo=" & CInt(_CartanNo)
+                        If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                        End If
+                    End If
+
+
+                Catch ex As Exception
+                End Try
+
+
+
             End If
+
+            ' before interface to ax 20230227
+            '_Cmd = "UPDATE  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKCarton"
+            '_Cmd &= vbCrLf & "SET FTState='1'"
+            '_Cmd &= vbCrLf & ",FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            '_Cmd &= vbCrLf & ",FDUpdDate=" & HI.UL.ULDate.FormatDateDB
+            '_Cmd &= vbCrLf & ",FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+            '_Cmd &= vbCrLf & "WHERE FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
+            '_Cmd &= vbCrLf & " AND FNCartonNo=" & CInt(_CartanNo)
+            '_Cmd &= vbCrLf & " and  isnull(FTState,'0')='0' "
+
+            'If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+
+            '    _Cmd = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKCarton(FTInsUser, FDInsDate, FTInsTime, FTPackNo, FNCartonNo, FTState)"
+            '    _Cmd &= vbCrLf & "Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            '    _Cmd &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+            '    _Cmd &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+            '    _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
+            '    _Cmd &= vbCrLf & "," & CInt(_CartanNo)
+            '    _Cmd &= vbCrLf & ",'1'"
+
+            '    If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+            '        HI.Conn.SQLConn.Tran.Rollback()
+            '        HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+            '        HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+            '        Return False
+            '    End If
+            '    Try
+            '        _Cmd = " exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.[WISDOM_SP_SETDATATO_AX_IVZ_WISDOMREPORTASFINISHSTAGING_ReadTime]  @PackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "' , @CartonNo=" & CInt(_CartanNo)
+            '        If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+            '        End If
+
+            '    Catch ex As Exception
+            '    End Try
+
+            'End If
+
+
+
+
 
             Try
                 Dim _Qry As String = ""
@@ -2831,7 +3037,7 @@ L0:
             _Cmd = "EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.SP_Get_ScanQty '" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "','" & CInt("0" & _PFNCartonNo) & "','" & HI.UL.ULF.rpQuoted(_PFTOrderNo) & "'"
             _Cmd &= ",'" & HI.UL.ULF.rpQuoted(_PFTSubOrderNo) & "','" & CInt(0) & "','" & HI.UL.ULF.rpQuoted(Me.FTProductBarcodeNo.Text) & "','" & HI.UL.ULF.rpQuoted(_PFTColorway) & "'"
             _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD)
-            Me.ogcScan.DataSource = _oDt
+            ' Me.ogcScan.DataSource = _oDt
             Try
                 For Each R As DataRow In _oDt.Rows
                     _QtyScan += +R!Total.ToString
@@ -2845,61 +3051,61 @@ L0:
                 lblQtyScan.Text = 0
                 Me.lblQtyScanSet.Text = 0
             End Try
-            With Me.ogvScan
-                For I As Integer = .Columns.Count - 1 To 0 Step -1
-                    Select Case .Columns(I).FieldName.ToString.ToUpper
+            'With Me.ogvScan
+            '    For I As Integer = .Columns.Count - 1 To 0 Step -1
+            '        Select Case .Columns(I).FieldName.ToString.ToUpper
 
-                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper
-                            .Columns(I).AppearanceCell.BackColor = Color.White
-                            .Columns(I).AppearanceCell.ForeColor = Color.Black
-                            .Columns(I).OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False
-                        Case Else
-                            .Columns.Remove(.Columns(I))
-                    End Select
-                Next
-                If Not (_oDt Is Nothing) Then
-                    For Each Col As DataColumn In _oDt.Columns
+            '            Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper
+            '                .Columns(I).AppearanceCell.BackColor = Color.White
+            '                .Columns(I).AppearanceCell.ForeColor = Color.Black
+            '                .Columns(I).OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False
+            '            Case Else
+            '                .Columns.Remove(.Columns(I))
+            '        End Select
+            '    Next
+            '    If Not (_oDt Is Nothing) Then
+            '        For Each Col As DataColumn In _oDt.Columns
 
-                        Select Case Col.ColumnName.ToString.ToUpper
-                            Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper
-                            Case Else
-                                _colcount = _colcount + 1
-                                Dim ColG As New DevExpress.XtraGrid.Columns.GridColumn
-                                With ColG
-                                    .Visible = True
-                                    .FieldName = Col.ColumnName.ToString
-                                    .Name = "FTSubOrderNo" & Col.ColumnName.ToString
-                                    .Caption = Col.ColumnName.ToString
-                                End With
-                                .Columns.Add(ColG)
-                                With .Columns(Col.ColumnName.ToString)
-                                    .OptionsFilter.AllowAutoFilter = False
-                                    .OptionsFilter.AllowFilter = False
-                                    .DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-                                    .DisplayFormat.FormatString = "{0:n0}"
-                                    .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-                                    .AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-                                    With .OptionsColumn
-                                        .AllowMove = False
-                                        .AllowGroup = DevExpress.Utils.DefaultBoolean.False
-                                        .AllowSort = DevExpress.Utils.DefaultBoolean.False
-                                        .AllowEdit = False
-                                        .ReadOnly = True
-                                    End With
-                                End With
-                                .Columns(Col.ColumnName.ToString).Width = 45
-                                .Columns(Col.ColumnName.ToString).Summary.Add(DevExpress.Data.SummaryItemType.Sum)
-                                .Columns(Col.ColumnName.ToString).SummaryItem.DisplayFormat = "{0:n0}"
-                        End Select
-                    Next
-                    For Each GridCol As DevExpress.XtraGrid.Columns.GridColumn In .Columns
-                        With GridCol
-                            .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-                        End With
-                    Next
+            '            Select Case Col.ColumnName.ToString.ToUpper
+            '                Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper
+            '                Case Else
+            '                    _colcount = _colcount + 1
+            '                    Dim ColG As New DevExpress.XtraGrid.Columns.GridColumn
+            '                    With ColG
+            '                        .Visible = True
+            '                        .FieldName = Col.ColumnName.ToString
+            '                        .Name = "FTSubOrderNo" & Col.ColumnName.ToString
+            '                        .Caption = Col.ColumnName.ToString
+            '                    End With
+            '                    .Columns.Add(ColG)
+            '                    With .Columns(Col.ColumnName.ToString)
+            '                        .OptionsFilter.AllowAutoFilter = False
+            '                        .OptionsFilter.AllowFilter = False
+            '                        .DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+            '                        .DisplayFormat.FormatString = "{0:n0}"
+            '                        .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+            '                        .AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+            '                        With .OptionsColumn
+            '                            .AllowMove = False
+            '                            .AllowGroup = DevExpress.Utils.DefaultBoolean.False
+            '                            .AllowSort = DevExpress.Utils.DefaultBoolean.False
+            '                            .AllowEdit = False
+            '                            .ReadOnly = True
+            '                        End With
+            '                    End With
+            '                    .Columns(Col.ColumnName.ToString).Width = 45
+            '                    .Columns(Col.ColumnName.ToString).Summary.Add(DevExpress.Data.SummaryItemType.Sum)
+            '                    .Columns(Col.ColumnName.ToString).SummaryItem.DisplayFormat = "{0:n0}"
+            '            End Select
+            '        Next
+            '        For Each GridCol As DevExpress.XtraGrid.Columns.GridColumn In .Columns
+            '            With GridCol
+            '                .AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+            '            End With
+            '        Next
 
-                End If
-            End With
+            '    End If
+            'End With
             Call GetTotalCartonScan()
         Catch ex As Exception
         End Try
@@ -2960,6 +3166,21 @@ L0:
                 _Cmd &= vbCrLf & "and FTStateScanAuto='1'"
                 HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
             End If
+
+            _Cmd = "Exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.Tmp_WISDOM_ReportAsFINISH_Cancel @FTPackNo='" & HI.UL.ULF.rpQuoted(_PackNo) & "' , @FNCartonNo=" & Integer.Parse(_CartonNo)
+            _Cmd &= vbCrLf & " ,@FDInsDate='' , @FTInsUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+
+            End If
+
+            If Me.FNOrderPackType.SelectedIndex > 0 Then
+                _Cmd = " exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.[Tmp_WISDOM_BOMJournal_Cancel] @FTPackNo='" & HI.UL.ULF.rpQuoted(_PackNo) & "' , @FNCartonNo=" & Integer.Parse(_CartonNo)
+                _Cmd &= vbCrLf & " ,@FDInsDate='' , @FTInsUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                End If
+            End If
+
+
 
             HI.Conn.SQLConn.Tran.Commit()
             HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
@@ -3552,7 +3773,6 @@ L0:
 
         End Try
     End Function
-
 
 End Class
 

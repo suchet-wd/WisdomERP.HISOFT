@@ -19,11 +19,31 @@ Partial Class wCustomerBarcodeMapping
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim EditorButtonImageOptions5 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject17 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject18 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject19 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject20 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions6 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject21 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject22 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject23 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject24 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogborderinfo = New DevExpress.XtraEditors.GroupControl()
         Me.XtraScrollableControl1 = New DevExpress.XtraEditors.XtraScrollableControl()
         Me.FNHSysCmpId_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -129,15 +149,17 @@ Partial Class wCustomerBarcodeMapping
         Me.XtraScrollableControl1.Controls.Add(Me.FNHSysCustId_None)
         Me.XtraScrollableControl1.Controls.Add(Me.FNHSysCustId)
         Me.XtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 24)
+        Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 28)
         Me.XtraScrollableControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1335, 98)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1335, 94)
         Me.XtraScrollableControl1.TabIndex = 485
         '
         'FNHSysCmpId_lbl
         '
         Me.FNHSysCmpId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNHSysCmpId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysCmpId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCmpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCmpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNHSysCmpId_lbl.Location = New System.Drawing.Point(37, 4)
@@ -151,6 +173,8 @@ Partial Class wCustomerBarcodeMapping
         'FDShipDate_lbl
         '
         Me.FDShipDate_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FDShipDate_lbl.Appearance.Options.UseForeColor = True
+        Me.FDShipDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDShipDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDShipDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FDShipDate_lbl.Location = New System.Drawing.Point(752, 30)
@@ -164,6 +188,8 @@ Partial Class wCustomerBarcodeMapping
         'FTOrderNo_lbl
         '
         Me.FTOrderNo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTOrderNo_lbl.Appearance.Options.UseForeColor = True
+        Me.FTOrderNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTOrderNo_lbl.Location = New System.Drawing.Point(15, 33)
@@ -177,6 +203,8 @@ Partial Class wCustomerBarcodeMapping
         'FDProDate_lbl
         '
         Me.FDProDate_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FDProDate_lbl.Appearance.Options.UseForeColor = True
+        Me.FDProDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDProDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDProDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FDProDate_lbl.Location = New System.Drawing.Point(537, 31)
@@ -190,6 +218,8 @@ Partial Class wCustomerBarcodeMapping
         'FNHSysStyleId_lbl
         '
         Me.FNHSysStyleId_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNHSysStyleId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysStyleId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysStyleId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysStyleId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNHSysStyleId_lbl.Location = New System.Drawing.Point(540, 58)
@@ -203,6 +233,8 @@ Partial Class wCustomerBarcodeMapping
         'FDOrderDate_lbl
         '
         Me.FDOrderDate_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FDOrderDate_lbl.Appearance.Options.UseForeColor = True
+        Me.FDOrderDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDOrderDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDOrderDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FDOrderDate_lbl.Location = New System.Drawing.Point(321, 30)
@@ -223,7 +255,7 @@ Partial Class wCustomerBarcodeMapping
         Me.FNHSysStyleId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysStyleId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysStyleId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", "89", Nothing, True)})
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysStyleId.Properties.ReadOnly = True
         Me.FNHSysStyleId.Properties.Tag = ""
@@ -282,7 +314,7 @@ Partial Class wCustomerBarcodeMapping
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", "11", Nothing, True)})
+        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
         Me.FNHSysCmpId.Size = New System.Drawing.Size(152, 22)
@@ -333,7 +365,7 @@ Partial Class wCustomerBarcodeMapping
         Me.FNGrandQty.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNGrandQty.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNGrandQty.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNGrandQty.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, "", Nothing, Nothing, True)})
+        Me.FNGrandQty.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNGrandQty.Properties.DisplayFormat.FormatString = """n0"""
         Me.FNGrandQty.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNGrandQty.Properties.EditFormat.FormatString = """n0"""
@@ -349,7 +381,7 @@ Partial Class wCustomerBarcodeMapping
         Me.FTOrderNo.Location = New System.Drawing.Point(166, 30)
         Me.FTOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNo.Name = "FTOrderNo"
-        Me.FTOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject4, "", "160", Nothing, True)})
+        Me.FTOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "160", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOrderNo.Properties.Tag = ""
         Me.FTOrderNo.Size = New System.Drawing.Size(152, 22)
         Me.FTOrderNo.TabIndex = 469
@@ -358,6 +390,8 @@ Partial Class wCustomerBarcodeMapping
         'FNGrandQty_lbl
         '
         Me.FNGrandQty_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNGrandQty_lbl.Appearance.Options.UseForeColor = True
+        Me.FNGrandQty_lbl.Appearance.Options.UseTextOptions = True
         Me.FNGrandQty_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNGrandQty_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNGrandQty_lbl.Location = New System.Drawing.Point(971, 31)
@@ -371,6 +405,8 @@ Partial Class wCustomerBarcodeMapping
         'FNHSysCustId_lbl
         '
         Me.FNHSysCustId_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNHSysCustId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysCustId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCustId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCustId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNHSysCustId_lbl.Location = New System.Drawing.Point(36, 57)
@@ -403,7 +439,7 @@ Partial Class wCustomerBarcodeMapping
         Me.FNHSysCustId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCustId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCustId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, "", "83", Nothing, True)})
+        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCustId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCustId.Properties.ReadOnly = True
         Me.FNHSysCustId.Properties.Tag = ""
@@ -531,6 +567,9 @@ Partial Class wCustomerBarcodeMapping
         '
         Me.FTSubOrderNo_lbl.Appearance.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
         Me.FTSubOrderNo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTSubOrderNo_lbl.Appearance.Options.UseFont = True
+        Me.FTSubOrderNo_lbl.Appearance.Options.UseForeColor = True
+        Me.FTSubOrderNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSubOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.FTSubOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTSubOrderNo_lbl.Location = New System.Drawing.Point(22, 36)
@@ -573,6 +612,9 @@ Partial Class wCustomerBarcodeMapping
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
         Me.LabelControl2.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.LabelControl2.Appearance.Options.UseFont = True
+        Me.LabelControl2.Appearance.Options.UseForeColor = True
+        Me.LabelControl2.Appearance.Options.UseTextOptions = True
         Me.LabelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.LabelControl2.Location = New System.Drawing.Point(22, 100)
@@ -587,6 +629,9 @@ Partial Class wCustomerBarcodeMapping
         '
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
         Me.LabelControl1.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.LabelControl1.Appearance.Options.UseFont = True
+        Me.LabelControl1.Appearance.Options.UseForeColor = True
+        Me.LabelControl1.Appearance.Options.UseTextOptions = True
         Me.LabelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.LabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.LabelControl1.Location = New System.Drawing.Point(22, 68)
@@ -613,6 +658,9 @@ Partial Class wCustomerBarcodeMapping
         '
         Me.FTCustBarcodeNo_lbl.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold)
         Me.FTCustBarcodeNo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTCustBarcodeNo_lbl.Appearance.Options.UseFont = True
+        Me.FTCustBarcodeNo_lbl.Appearance.Options.UseForeColor = True
+        Me.FTCustBarcodeNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTCustBarcodeNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
         Me.FTCustBarcodeNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTCustBarcodeNo_lbl.Location = New System.Drawing.Point(22, 144)

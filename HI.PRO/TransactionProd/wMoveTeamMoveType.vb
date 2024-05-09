@@ -626,7 +626,7 @@
 
 
         Dim _Qry As String
-        If Val(FNHSysUnitSectIdToMove.Properties.Tag) > 0 Then
+        If Val(FNHSysUnitSectIdToMove.Properties.Tag) > 0 Or Val(FNHSysEmpTypeIdToMove.Properties.Tag) > 0 Then
 
 
             _Qry = " SELECT U.FTUnitSectCode FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTIncentive I "

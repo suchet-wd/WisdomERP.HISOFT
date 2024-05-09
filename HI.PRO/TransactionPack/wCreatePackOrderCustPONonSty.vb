@@ -3049,7 +3049,7 @@ Public Class wCreatePackOrderCustPONonSty
         _StateSumGrid = False
     End Sub
 
-    Private Sub ReposCaleditWeight_EditValueChanging(sender As Object, e As DevExpress.XtraEditors.Controls.ChangingEventArgs) Handles ReposCaleditWeight.EditValueChanging
+    Private Sub ReposCaleditWeight_EditValueChanging(sender As Object, e As DevExpress.XtraEditors.Controls.ChangingEventArgs)
         Try
             Dim _NewValue As Double = e.NewValue
             Dim _OrgValue As Double = 0
@@ -3191,6 +3191,10 @@ Public Class wCreatePackOrderCustPONonSty
                     If HI.MG.ShowMsg.mConfirmProcessDefaultNo(MG.ShowMsg.ProcessType.mDelete, " Carton No :" & Me.FNCartonNo.Value.ToString) = True Then
                         If Me.DeleteCarton(Me.FTPackNo.Text, Me.FNCartonNo.Value) = True Then
 
+                            'create packing 2023/07/20
+                            Dim _Prod As New PROD
+                            _Prod.createPackingplanNonnike(Me.FTPackNo.Text)
+
                             HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mDelete, Me.Text)
                             Call CreateTreeCarton()
                             Call LoadTotalOrderPackBreakDownCreateCarton(Me.FTPackNo.Text)
@@ -3220,6 +3224,10 @@ Public Class wCreatePackOrderCustPONonSty
         If Me.FTPackNo.Text <> "" And Me.FTPackNo.Properties.Tag.ToString <> "" Then
             If HI.MG.ShowMsg.mConfirmProcessDefaultNo("คุณต้องการทำการลบทุก Carton ที่ยังไม่ได้ทำการ Scan ใช่หรือไม่ ?", 1411210018) = True Then
                 If Me.DeleteAllCarton(Me.FTPackNo.Text) = True Then
+                    'create packing 2023/07/20
+                    Dim _Prod As New PROD
+                    _Prod.createPackingplanNonnike(Me.FTPackNo.Text)
+
                     HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mDelete, Me.Text)
                     Call CreateTreeCarton()
                     Call LoadTotalOrderPackBreakDownCreateCarton(Me.FTPackNo.Text)
@@ -3515,7 +3523,7 @@ Public Class wCreatePackOrderCustPONonSty
         End Try
     End Sub
 
-    Private Sub CalSet_EditValueChanging(sender As Object, e As DevExpress.XtraEditors.Controls.ChangingEventArgs) Handles RepCalSet.EditValueChanging
+    Private Sub CalSet_EditValueChanging(sender As Object, e As DevExpress.XtraEditors.Controls.ChangingEventArgs)
         Try
             Dim _NewValue As Double = e.NewValue
             Dim _OrgValue As Double = 0

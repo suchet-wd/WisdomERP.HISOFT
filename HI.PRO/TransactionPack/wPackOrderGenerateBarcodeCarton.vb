@@ -973,10 +973,12 @@ Public Class wPackOrderGenerateBarcodeCarton
 
 
     Private Function GenBarcodeEN13(_dt As DataTable) As Boolean
+        Dim _Spls As New HI.TL.SplashScreen("Generate BarodeCode Carton Please Wait....")
         Try
             Dim _Cmd As String = "" : Dim _EN13 As String = "" : Dim _CartonNO As String = ""
             Dim _oDt As System.Data.DataTable
             _oDt = _dt
+            Dim _MaxCarton As Integer = 0
             '_Cmd = "SELECT   C.FTColorway, C.FTSizeBreakDown, C.FTOrderNo, C.FTPackNo,  C.FTPOLine  , C.FTSubOrderNo, PK.FTCustomerPO, C.FNCartonNo, D.FTSerialFrom , D.FTSerialTo  , D.FNFrom , D.FNTo ,C.FNQuantity"
             '_Cmd &= vbCrLf & " , convert(nvarchar(30) , convert(int ,D.FTSerialFrom ) + ROW_NUMBER() Over (partition by C.FTOrderNo , C.FTSubOrderNo, C.FTPOLine ,C.FTPackNo,C.FTColorway, C.FTSizeBreakDown ,PK.FTCustomerPO ,C.FNQuantity ORder by  C.FTPackNo,C.FNCartonNo) -1 )AS FNCartonSeq  "
             '_Cmd &= vbCrLf & " FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Detail AS C  LEFT OUTER JOIN "
@@ -988,44 +990,99 @@ Public Class wPackOrderGenerateBarcodeCarton
 
             '_Cmd &= vbCrLf & " where  (T.FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
             '_oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT)
+            _Cmd = " Delete from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].. TPACKOrderPack_Carton_Barcode   "
+            _Cmd &= vbCrLf & " where   FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
 
+            _Cmd &= vbCrLf & "Select distinct    D.FNCartonNo "
+            _Cmd &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Detail D  with(nolock) "
+            _Cmd &= vbCrLf & " where  D.FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
+            _Cmd &= vbCrLf & "Order by  D.FNCartonNo asc "
+            _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD)
+            Try
+                _MaxCarton = Val(_oDt.Compute("max(FNCartonNo)", "FNCartonNo> 0"))
+            Catch ex As Exception
 
+            End Try
             For Each R As DataRow In _oDt.Rows
-                _EN13 = HI.UL.ULF.rpQuoted(GenerateBarcodeSSCCEN13(R!FNCartonSeq.ToString, R!FNCartonSeq.ToString, R!FNCartonNo.ToString, R!FTPONo.ToString))
-                '_Cmd = " Select  FTBarCodeEAN13 From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Barcode  "
-                '_Cmd &= vbCrLf & " where  FTPackNo='" & HI.UL.ULF.rpQuoted(R!FTPackNo.ToString) & "'"
-                '_Cmd &= vbCrLf & " and   FNCartonNo='" & HI.UL.ULF.rpQuoted(R!FNCartonNo.ToString) & "'"
-                '_Cmd &= vbCrLf & " and isnull(FTBarCodeEAN13,'') <>'' "
-                'If HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT).Rows.Count <= 0 Then
-                _Cmd = "Update  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Barcode"
-                _Cmd &= vbCrLf & "Set  FTUpdUser= '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-                _Cmd &= vbCrLf & ",FDUpdDate=" & HI.UL.ULDate.FormatDateDB
-                _Cmd &= vbCrLf & ",FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
-                _Cmd &= vbCrLf & ",FTCartonNo='" & HI.UL.ULF.rpQuoted(R!FNCartonSeq.ToString) & "'"
-                _Cmd &= vbCrLf & ",FTBarCodeEAN13='" & HI.UL.ULF.rpQuoted(_EN13) & "'"
-                _Cmd &= vbCrLf & ",FTBarCodeCarton='" & HI.UL.ULF.rpQuoted(_EN13) & "'"
-                _Cmd &= vbCrLf & " where  FTPackNo='" & HI.UL.ULF.rpQuoted(R!FTPackNo.ToString) & "'"
-                _Cmd &= vbCrLf & " and   FNCartonNo='" & HI.UL.ULF.rpQuoted(R!FNCartonNo.ToString) & "'"
-                If HI.Conn.SQLConn.ExecuteNonQuery(_Cmd, Conn.DB.DataBaseName.DB_PROD) = False Then
-                    _Cmd = "INSERT INTO   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Barcode (FTInsUser,FDInsDate,FTUpdTime,FTCartonNo,FTBarCodeEAN13,FTBarCodeCarton,FTPackNo,FNCartonNo)"
-                    _Cmd &= vbCrLf & "Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-                    _Cmd &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
-                    _Cmd &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
-                    _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FNCartonSeq.ToString) & "'"
-                    _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_EN13) & "'"
-                    _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_EN13) & "'"
-                    _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTPackNo.ToString) & "'"
-                    _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FNCartonNo.ToString) & "'"
-                    HI.Conn.SQLConn.ExecuteNonQuery(_Cmd, Conn.DB.DataBaseName.DB_PROD)
-                End If
-                'End If
+                _Spls.UpdateInformation("Generate BarodeCode Carton " & R!FNCartonNo.ToString & " / " & _MaxCarton.ToString & "'")
+                _Cmd = " exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.sp_genbarcodeucc '" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'," & Val(R!FNCartonNo) & " , '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD)
             Next
 
 
 
+            '            For Each R As DataRow In _oDt.Rows
+
+
+            '                _EN13 = HI.UL.ULF.rpQuoted(GenerateBarcodeSSCCEN13(R!FNCartonSeq.ToString, R!FNCartonSeq.ToString, R!FNCartonNo.ToString, R!FTPONo.ToString))
+            '                '_Cmd = " Select  FTBarCodeEAN13 From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Barcode  "
+            '                '_Cmd &= vbCrLf & " where  FTPackNo='" & HI.UL.ULF.rpQuoted(R!FTPackNo.ToString) & "'"
+            '                '_Cmd &= vbCrLf & " and   FNCartonNo='" & HI.UL.ULF.rpQuoted(R!FNCartonNo.ToString) & "'"
+            '                '_Cmd &= vbCrLf & " and isnull(FTBarCodeEAN13,'') <>'' "
+            '                'If HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT).Rows.Count <= 0 Then
+            '                _Cmd = "Select   *   from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_ACCOUNT) & "]..TmpDataFromMecury "
+            '                _Cmd &= vbCrLf & "  where  RefPO='" & HI.UL.ULF.rpQuoted(R!FTCustomerPO.ToString) & "'"
+            '                _Cmd &= vbCrLf & "  and   POItem='" & HI.UL.ULF.rpQuoted(R!FTPOLine.ToString) & "'"
+            '                _Cmd &= vbCrLf & "  and   SizeDescription='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+            '                '_Cmd &= vbCrLf & "  and   SizeDescription='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+
+
+            '                For Each x As DataRow In HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_ACCOUNT).Rows
+            '                    _EN13 = x!CartonBarcode.ToString
+            '                    If checkbarcodedupl(_EN13) Then
+
+            '                        _Cmd = "Update  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Barcode"
+            '                        _Cmd &= vbCrLf & "Set  FTUpdUser= '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            '                        _Cmd &= vbCrLf & ",FDUpdDate=" & HI.UL.ULDate.FormatDateDB
+            '                        _Cmd &= vbCrLf & ",FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+            '                        _Cmd &= vbCrLf & ",FTCartonNo='" & HI.UL.ULF.rpQuoted(R!FNCartonSeq.ToString) & "'"
+            '                        _Cmd &= vbCrLf & ",FTBarCodeEAN13='" & HI.UL.ULF.rpQuoted(_EN13) & "'"
+            '                        _Cmd &= vbCrLf & ",FTBarCodeCarton='" & HI.UL.ULF.rpQuoted(_EN13) & "'"
+            '                        _Cmd &= vbCrLf & " where  FTPackNo='" & HI.UL.ULF.rpQuoted(R!FTPackNo.ToString) & "'"
+            '                        _Cmd &= vbCrLf & " and   FNCartonNo='" & HI.UL.ULF.rpQuoted(R!FNCartonNo.ToString) & "'"
+            '                        If HI.Conn.SQLConn.ExecuteNonQuery(_Cmd, Conn.DB.DataBaseName.DB_PROD) = False Then
+            '                            _Cmd = "INSERT INTO   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Barcode (FTInsUser,FDInsDate,FTUpdTime,FTCartonNo,FTBarCodeEAN13,FTBarCodeCarton,FTPackNo,FNCartonNo)"
+            '                            _Cmd &= vbCrLf & "Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            '                            _Cmd &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+            '                            _Cmd &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+            '                            _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FNCartonSeq.ToString) & "'"
+            '                            _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_EN13) & "'"
+            '                            _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_EN13) & "'"
+            '                            _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTPackNo.ToString) & "'"
+            '                            _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FNCartonNo.ToString) & "'"
+            '                            HI.Conn.SQLConn.ExecuteNonQuery(_Cmd, Conn.DB.DataBaseName.DB_PROD)
+            '                            GoTo 1
+            '                        Else
+            '                            GoTo 1
+            '                        End If
+
+            '                    End If
+            '                Next
+
+            '1:
+            '                'End If
+            '            Next
+
+
+            _Spls.Close()
             Return True
         Catch ex As Exception
+            MsgBox(ex.ToString)
+            _Spls.Close()
             Return False
+        End Try
+    End Function
+
+
+    Private Function checkbarcodedupl(_barcode As String) As Boolean
+        Try
+            Dim _cmd As String = ""
+            _cmd = "select top  1  FTBarCodeEAN13  from   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Barcode "
+            _cmd &= vbCrLf & " where FTBarCodeEAN13 = '" & HI.UL.ULF.rpQuoted(_barcode) & "'"
+
+            Return HI.Conn.SQLConn.GetDataTable(_cmd, Conn.DB.DataBaseName.DB_PROD).Rows.Count = 0
+        Catch ex As Exception
+
         End Try
     End Function
 
@@ -1054,7 +1111,6 @@ Public Class wPackOrderGenerateBarcodeCarton
                 ' If HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_PROD, "") = "" Then
 
                 _BarCodeSSS = _FacNo & Microsoft.VisualBasic.Right("000000000" & CStr(I), 9)
-
                 _O = 0 : _M = 0 : _T = 0
                 For x As Integer = 1 To 16
                     _DemoBarcode = _BarCodeSSS
@@ -1847,7 +1903,11 @@ Public Class wPackOrderGenerateBarcodeCarton
                             FNHSysCartonId.Text = _FTCartonCode
                             FNPackCartonSubType.SelectedIndex = Val(_FNPackCartonSubType)
                             FNPackCartonSubType.SelectedIndex = Val(_FNPackCartonSubType)
-                            FNNW.Value = Val(_FNWeight)
+                            FNCTNW.Value = Val(_FNWeight)
+                            FNNW.Value = Val(_FNNetWeight)
+                            FNGW.Value = Val(_FNWeight) + Val(_FNNetWeight)
+
+
                             FNCartonNo.Text = _FNCartonNo
 
                             Call LoadrderPackBreakDownCarton(Me.FTPackNo.Text, Val(_FNCartonNo))

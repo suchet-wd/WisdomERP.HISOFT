@@ -681,6 +681,7 @@ Public Class wScanBarcodeOutline
             _Cmd &= vbCrLf & "   LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS SB WITH(NOLOCK) ON "
             _Cmd &= vbCrLf & "  B.FTPOLineItemNo = SB.FTNikePOLineItem AND B.FTSizeBreakDown = SB.FTSizeBreakDown AND B.FTColorway = SB.FTColorway  and P.FTOrderNo = SB.FTOrderNo "
             _Cmd &= vbCrLf & " WHERE  A.FTBarcodeNo='" & HI.UL.ULF.rpQuoted(_BarcodeKey) & "' and    (US.FTStateSew = '1') AND O.FNHSysCmpId = " & Val(HI.ST.SysInfo.CmpID) & ""
+
             _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD)
             For Each R As DataRow In _oDt.Rows
                 Me.FNHSysUnitSectId.Text = HI.UL.ULF.rpQuoted(R!FTUnitSectCode.ToString)

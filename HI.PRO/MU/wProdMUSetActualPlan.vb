@@ -179,10 +179,17 @@ Public Class wProdMUSetActualPlan
             _Cmd = "Select top 1  FTCfgData   from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig  where FTCfgName='TableCutMarkSpare'"
 
             Me.FNToralent.Value = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_SECURITY, 0)
-
+            Dim _OptiplanYardsTotal As Double = 0
+            Dim _OptiplanYardsOtherTotal As Double = 0
             _Cmd = "SELECT  sum(FNOptiplanYards ) as FNOptiplanYards   FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMUGroupPlan with(nolock)  FTGroupNo ='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "' "
             _Cmd &= vbCrLf & " and FTDocumentNo ='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' "
-            Me.FNOptiplanYard.Value = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_SECURITY, 0)
+            _OptiplanYardsTotal = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_SECURITY, 0)
+
+            _Cmd = "SELECT  sum(FNOptiplanYards ) as FNOptiplanYards   FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMUGroupPlan with(nolock)  FTGroupNo ='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "' "
+            _Cmd &= vbCrLf & " and FTDocumentNo <> '" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' "
+            _OptiplanYardsOtherTotal = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_SECURITY, 0)
+
+            Me.FNOptiplanYard.Value = _OptiplanYardsTotal - _OptiplanYardsOtherTotal
 
         Catch ex As Exception
 
@@ -632,11 +639,11 @@ Public Class wProdMUSetActualPlan
                 'InitGridRatio(_dt, _dt2)
 
 
-
                 HI.TL.HandlerControl.AddHandlerObj(_TabPage)
+                HI.ST.Lang.SP_SETxLanguage(Me)
 
                 Me.xtabpart.TabPages.Add(_TabPage)
-
+                initgridBest()
 
 
 
@@ -644,9 +651,34 @@ Public Class wProdMUSetActualPlan
 
                 Me.FNToralent.Value = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, 0)
 
-                _Qry = "SELECT  sum(FNOptiplanYards ) as FNOptiplanYards   FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMUGroupPlan with(nolock)  where FTGroupNo ='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "' "
+                '_Qry = "SELECT  sum(FNOptiplanYards ) as FNOptiplanYards   FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMUGroupPlan with(nolock)  where FTGroupNo ='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "' "
+                '_Qry &= vbCrLf & " and FTDocumentNo ='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' "
+                'Me.FNOptiplanYard.Value = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, 0)
+
+                Dim _OptiplanYardsTotal As Double = 0
+                Dim _OptiplanYardsOtherTotal As Double = 0
+                Dim _OrderNo As String = "" : Dim _SubOrderNo As String = "" : Dim _Colorway As String = "" : Dim _RawMatColor As String = ""
+                Dim _Mark As String = ""
+                _Qry = "SELECT  distinct  (FNOptiplanYards ) as FNOptiplanYards , FTOrderNo ,   FTColorWay , FTColorCode , FTRawMatCode ,  FTPartCode FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMUGroupPlan with(nolock)  where FTGroupNo ='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "' "
                 _Qry &= vbCrLf & " and FTDocumentNo ='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' "
-                Me.FNOptiplanYard.Value = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, 0)
+                Dim _oxDt As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_SECURITY, 0)
+
+                For Each Rx As DataRow In _oxDt.Rows
+                    _OptiplanYardsTotal += Val(Rx!FNOptiplanYards.ToString)
+                    _OrderNo = Rx!FTOrderNo.ToString
+                    '_SubOrderNo = Rx!FTSubOrderNo.ToString
+                    _Colorway = Rx!FTColorWay.ToString
+
+
+                Next
+                '_OptiplanYardsTotal = 0
+
+                _Qry = "SELECT  max(FNOptiplanYards ) as FNOptiplanYards   FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMUGroupPlan with(nolock)  where FTGroupNo ='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "' "
+                _Qry &= vbCrLf & " and FTDocumentNo <> '" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' "
+                _OptiplanYardsOtherTotal = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, 0)
+
+                Me.FNOptiplanYard.Value = _OptiplanYardsTotal '- _OptiplanYardsOtherTotal
+
 
 
                 Me.FNOptiplanBal.Value = Me.FNOptiplanYard.Value - Val("0" & _dt.Compute("Sum(FNQuantityUse)", "").ToString())
@@ -678,6 +710,32 @@ Public Class wProdMUSetActualPlan
 
     End Sub
 
+
+    Private Sub initgridBest()
+        Try
+            For Each Obj As Object In Me.xtabpart.SelectedTabPage.Controls
+                Select Case HI.ENM.Control.GeTypeControl(Obj)
+                    Case ENM.Control.ControlType.GridControl
+                        Dim _Grid As DevExpress.XtraGrid.GridControl
+                        _Grid = DirectCast(Obj, DevExpress.XtraGrid.GridControl)
+                        Dim _GridView As DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView
+                        _GridView = _Grid.MainView
+
+                        With DirectCast(_Grid.MainView, DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView)
+                            .BestFitColumns()
+                        End With
+
+
+
+                End Select
+            Next
+
+
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
 
 
     Private Function _gridCtl(_PartCode As String, _Grid As DevExpress.XtraGrid.GridControl) As DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView
@@ -732,7 +790,7 @@ Public Class wProdMUSetActualPlan
             Dim _cFNHSysMarkId As New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
 
 
-            _cFNHSysMarkId.Caption = "Mark"
+            _cFNHSysMarkId.Caption = Me.cFNHSysMarkId.Caption
             _cFNHSysMarkId.FieldName = "FNHSysMarkId"
             _cFNHSysMarkId.MinWidth = 25
             _cFNHSysMarkId.Name = "cFNHSysMarkId" & _PartCode
@@ -750,7 +808,7 @@ Public Class wProdMUSetActualPlan
             _gBMark.VisibleIndex = 0
             _gBMark.Width = 209
 
-            _BandedGridColumn7.Caption = "FNHSysMarkId"
+            _BandedGridColumn7.Caption = Me.cFNHSysMarkId.Caption
             _BandedGridColumn7.FieldName = "FNHSysMarkId_Hide"
             _BandedGridColumn7.MinWidth = 25
             _BandedGridColumn7.Name = "BandedGridColumn7" & _PartCode
@@ -796,7 +854,13 @@ Public Class wProdMUSetActualPlan
             '
             'BandedGridColumn19
             '
-            _BandedGridColumn19.Caption = "ยอด"
+
+            Try
+                _BandedGridColumn19.Caption = GetObjLang("", Me.Name, "FNTotalQty", "").Split("|")(HI.ST.Lang.Language)
+            Catch ex As Exception
+                _BandedGridColumn19.Caption = "FNTotalQty"
+            End Try
+
             _BandedGridColumn19.DisplayFormat.FormatString = "N0"
             _BandedGridColumn19.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
             _BandedGridColumn19.FieldName = "FNTotalQty"
@@ -809,7 +873,13 @@ Public Class wProdMUSetActualPlan
 
 
 
-            _BandedGridColumn10.Caption = "MarkSeq"
+
+            Try
+                _BandedGridColumn10.Caption = GetObjLang("", Me.Name, "MarkSeq", "").Split("|")(HI.ST.Lang.Language)
+            Catch ex As Exception
+                _BandedGridColumn10.Caption = "MarkSeq"
+            End Try
+
             _BandedGridColumn10.FieldName = "MarkSeq"
             _BandedGridColumn10.MinWidth = 25
             _BandedGridColumn10.Name = "BandedGridColumn10" & _PartCode
@@ -817,7 +887,12 @@ Public Class wProdMUSetActualPlan
             '
             'BandedGridColumn9
             '
-            _BandedGridColumn9.Caption = "BandedGridColumn9"
+
+            Try
+                _BandedGridColumn9.Caption = GetObjLang("", Me.Name, "BandedGridColumn9", "").Split("|")(HI.ST.Lang.Language)
+            Catch ex As Exception
+                _BandedGridColumn9.Caption = "BandedGridColumn9"
+            End Try
             _BandedGridColumn9.FieldName = "FNSeq"
             _BandedGridColumn9.MinWidth = 25
             _BandedGridColumn9.Name = "BandedGridColumn9" & _PartCode
@@ -825,7 +900,12 @@ Public Class wProdMUSetActualPlan
             '
             'BandedGridColumn7
             '
-            _BandedGridColumn7.Caption = "FNHSysMarkId"
+
+            Try
+                _BandedGridColumn7.Caption = GetObjLang("", Me.Name, "FNHSysMarkId", "").Split("|")(HI.ST.Lang.Language)
+            Catch ex As Exception
+                _BandedGridColumn7.Caption = "FNHSysMarkId"
+            End Try
             _BandedGridColumn7.FieldName = "FNHSysMarkId_Hide"
             _BandedGridColumn7.MinWidth = 25
             _BandedGridColumn7.Name = "BandedGridColumn7" & _PartCode
@@ -833,7 +913,13 @@ Public Class wProdMUSetActualPlan
             '
             'BandedGridColumn8
             '
-            _BandedGridColumn8.Caption = "BandedGridColumn8"
+
+            Try
+                _BandedGridColumn8.Caption = GetObjLang("", Me.Name, "BandedGridColumn8", "").Split("|")(HI.ST.Lang.Language)
+            Catch ex As Exception
+                _BandedGridColumn8.Caption = "BandedGridColumn8"
+            End Try
+
             _BandedGridColumn8.FieldName = "FNHSysStyleId"
             _BandedGridColumn8.MinWidth = 25
             _BandedGridColumn8.Name = "BandedGridColumn8" & _PartCode
@@ -851,17 +937,30 @@ Public Class wProdMUSetActualPlan
 
 
 
-            _cFNActuallong.Caption = "FNActuallong"
+
+            Try
+                _cFNActuallong.Caption = GetObjLang("", Me.Name, "FNActuallong", "").Split("|")(HI.ST.Lang.Language)
+            Catch ex As Exception
+                _cFNActuallong.Caption = "FNActuallong"
+            End Try
+
             _cFNActuallong.ColumnEdit = Me.RepositoryItemCalcEditFNActuallong
             _cFNActuallong.DisplayFormat.FormatString = "N2"
             _cFNActuallong.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
             _cFNActuallong.FieldName = "FNActuallong"
             _cFNActuallong.MinWidth = 25
-            _cFNActuallong.Name = "cFNActuallong"
+            _cFNActuallong.Name = "FNActuallong"
             _cFNActuallong.Visible = True
             _cFNActuallong.Width = 141
+            _cFNActuallong.Tag = "2|"
 
-            _BandedGridColumn11.Caption = "หลา"
+
+            Try
+                _BandedGridColumn11.Caption = GetObjLang("", Me.Name, "BandedGridColumn11", "").Split("|")(HI.ST.Lang.Language)
+            Catch ex As Exception
+                _BandedGridColumn11.Caption = "BandedGridColumn11"
+            End Try
+
             _BandedGridColumn11.ColumnEdit = Me.RepositoryItemCalcEdit1
             _BandedGridColumn11.DisplayFormat.FormatString = "N0"
             _BandedGridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
@@ -870,9 +969,14 @@ Public Class wProdMUSetActualPlan
             _BandedGridColumn11.Name = "BandedGridColumn11"
             _BandedGridColumn11.Visible = True
             _BandedGridColumn11.Width = 147
+            _BandedGridColumn11.Tag = "2|"
 
+            Try
+                _BandedGridColumn12.Caption = GetObjLang("", Me.Name, "BandedGridColumn12", "").Split("|")(HI.ST.Lang.Language)
+            Catch ex As Exception
+                _BandedGridColumn12.Caption = "BandedGridColumn12"
+            End Try
 
-            _BandedGridColumn12.Caption = "นิ้ว"
             _BandedGridColumn12.ColumnEdit = Me.RepositoryItemCalcEdit2
             _BandedGridColumn12.DisplayFormat.FormatString = "N2"
             _BandedGridColumn12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
@@ -883,7 +987,11 @@ Public Class wProdMUSetActualPlan
             _BandedGridColumn12.Width = 87
 
 
-            _BandedGridColumn13.Caption = "จำนวนใช้"
+            Try
+                _BandedGridColumn13.Caption = GetObjLang("", Me.Name, "BandedGridColumn13", "").Split("|")(HI.ST.Lang.Language)
+            Catch ex As Exception
+                _BandedGridColumn13.Caption = "BandedGridColumn13"
+            End Try
             _BandedGridColumn13.DisplayFormat.FormatString = "N6"
             _BandedGridColumn13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
             _BandedGridColumn13.FieldName = "FNQuantityUse"
@@ -900,12 +1008,18 @@ Public Class wProdMUSetActualPlan
 
             _gbyard.AppearanceHeader.Options.UseTextOptions = True
             _gbyard.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-            _gbyard.Caption = "ความยาว"
+
             _gbyard.Columns.Add(_cFNActuallong)
             _gbyard.Columns.Add(_BandedGridColumn11)
             _gbyard.Columns.Add(_BandedGridColumn12)
             _gbyard.Columns.Add(_BandedGridColumn13)
             _gbyard.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right
+            Try
+                _gbyard.Caption = GetObjLang("", Me.Name, "gbyard", "").Split("|")(HI.ST.Lang.Language)
+            Catch ex As Exception
+                _gbyard.Caption = "ความยาว"
+            End Try
+
             _gbyard.Name = "gbyard"
             _gbyard.VisibleIndex = 4
             _gbyard.Width = 474
@@ -938,6 +1052,38 @@ Public Class wProdMUSetActualPlan
             Return Nothing
         End Try
     End Function
+
+    Private _DtObject As DataTable
+
+    Private Function GetObjLang(ByVal pModuleName As String, ByVal pFormName As String, ByVal pObjectName As String, ByVal _ObjTag As String) As String
+        Dim tSql As String = Nothing
+        Dim _Tag As String = "1"
+
+        If Not String.IsNullOrEmpty(_ObjTag) Then
+            _Tag = _ObjTag
+        End If
+
+        If _DtObject Is Nothing Then
+            tSql = "SELECT '|'  + ISNULL(FTLangEN,'')  +'|'+ ISNULL(FTLangTH,'') + '|'+ ISNULL(FTLangVT,'') +'|'+ ISNULL(FTLangKM,'') +'|'+ ISNULL(FTLangBM,'') + '|'+ ISNULL(FTLangLAO,'') +'|'+ ISNULL(FTLangCH,'') AS LangT,FTObjectName "
+            tSql += Constants.vbCrLf & " FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_LANG) & "].dbo.HSysLanguage WITH(Nolock) "
+            tSql += Constants.vbCrLf & " WHERE  FTFormName='" + HI.UL.ULF.rpQuoted(pFormName) & "' "
+            _DtObject = HI.Conn.SQLConn.GetDataTable(tSql, Conn.DB.DataBaseName.DB_LANG)
+        End If
+
+        Try
+
+            For Each R As DataRow In _DtObject.[Select](" FTObjectName='" & HI.UL.ULF.rpQuoted(pObjectName.Trim()) & "'")
+                Return _Tag & (R("LangT")).ToString()
+            Next
+
+            Return ""
+        Catch ex As Exception
+            Return ""
+        End Try
+
+        Return ""
+    End Function
+
 
 
 
@@ -1084,7 +1230,7 @@ Public Class wProdMUSetActualPlan
 
                                             Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
                                             "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
-                                         "FNHSysStyleId_Hide".ToUpper, "FNYard".ToUpper, "FNInc".ToUpper, "FNQuantityUse".ToUpper, "FNEfficency".ToUpper
+                                         "FNHSysStyleId_Hide".ToUpper, "FNYard".ToUpper, "FNInc".ToUpper, "FNQuantityUse".ToUpper, "FNEfficency".ToUpper, "FNActuallong".ToUpper
                                             Case Else
 
                                                 .Bands(I).Columns.Add(Col)
@@ -1120,7 +1266,7 @@ Public Class wProdMUSetActualPlan
         _Pass = True
 
         If Not (_Pass) Then
-            HI.MG.ShowMsg.mInfo("กรุณาทำการเลือกเงื่อไข อย่างน้อย 1 รายการ !!!", 1406170001, Me.Text, , System.Windows.Forms.MessageBoxIcon.Warning)
+            HI.MG.ShowMsg.mInfo("กรุณาทำการเลือกเงื่อนไข อย่างน้อย 1 รายการ !!!", 1406170001, Me.Text, , System.Windows.Forms.MessageBoxIcon.Warning)
         End If
 
         Return _Pass
@@ -1142,15 +1288,9 @@ Public Class wProdMUSetActualPlan
     End Sub
 
     Private Sub ocmload_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmload.Click
-
         If VerifyData() Then
-
-
-
             Call LoadData()
-
         End If
-
     End Sub
 
     Private Sub ocmclear_Click(sender As System.Object, e As System.EventArgs) Handles ocmclear.Click
@@ -1179,6 +1319,10 @@ Public Class wProdMUSetActualPlan
 
                 _Inc = Val(.GetRowCellValue(.FocusedRowHandle, "FNInc"))
 
+                If Me.FNInc.Value <= 0 Then
+                    Me.FNInc.Focus()
+                    Exit Sub
+                End If
                 _NYard1 = (_Inc + Me.FNToralent.Value) / Me.FNInc.Value
                 _TotalUse = (_NYard1 + _NYard) * _NLayer
 
@@ -1304,7 +1448,7 @@ Public Class wProdMUSetActualPlan
                                         _Cmd &= vbCrLf & " and FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "'"
                                         _Cmd &= vbCrLf & " and FNHSysCmpId=" & Val(Me.FNHSysCmpId.Properties.Tag) & ""
                                         _Cmd &= vbCrLf & " and FNSeq=" & Val(X!MarkSeq.ToString) & ""
-                                        _Cmd &= vbCrLf & " and FTPartCode='" & Microsoft.VisualBasic.Left(X!FNHSysMarkId.ToString, Len(X!FNHSysMarkId.ToString) - 3) & "'"
+                                        _Cmd &= vbCrLf & " and FTPartCode='" & Microsoft.VisualBasic.Left(X!FNHSysMarkId.ToString, Len(X!FNHSysMarkId.ToString) - 10) & "'"
                                         _Cmd &= vbCrLf & " and FTMarkCode='" & (X!FNHSysMarkId.ToString) & "'"
                                         If HI.Conn.SQLConn.ExecuteTran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
 
@@ -1318,7 +1462,7 @@ Public Class wProdMUSetActualPlan
                                             _Cmd &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "'"
                                             _Cmd &= vbCrLf & " ," & Val(X!MarkSeq.ToString) & ""
                                             _Cmd &= vbCrLf & " ,'" & Me.FTRemark.Text & "'"
-                                            _Cmd &= vbCrLf & " ,'" & Microsoft.VisualBasic.Left(X!FNHSysMarkId.ToString, Len(X!FNHSysMarkId.ToString) - 3) & "'"
+                                            _Cmd &= vbCrLf & " ,'" & Microsoft.VisualBasic.Left(X!FNHSysMarkId.ToString, Len(X!FNHSysMarkId.ToString) - 10) & "'"
 
                                             _Cmd &= vbCrLf & " ," & Val(X!FNActuallong.ToString) & ""
                                             _Cmd &= vbCrLf & " ," & Val(X!FNYard.ToString) & ""
@@ -1549,9 +1693,9 @@ Public Class wProdMUSetActualPlan
 
                 .ShowDialog()
 
-
-
             End With
+
+
         Catch ex As Exception
 
         End Try

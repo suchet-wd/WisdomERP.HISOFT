@@ -382,7 +382,7 @@ Public Class wGenerateCartonNonSty
                 _dt.Columns.Add("FTSelect", GetType(String))
 
                 For Each R As DataRow In _dt.Rows
-                    R!FTSelect = "0"
+                    R!FTSelect = "1"
                 Next
 
 
@@ -595,33 +595,33 @@ Public Class wGenerateCartonNonSty
         If SetPackType = 1 Then
 
 
-            If CType(Me.ogcsubprod.DataSource, DataTable).Select("FTSelect='1'").Length < SetPackValue Then
-                With DirectCast(Me.ogcsubprod.DataSource, DataTable)
-                    .AcceptChanges()
-                    For Each R As DataRow In .Select("FTSelect='1'")
-                        _cmd = "Select top 1  isnull( FTStateStyleSet ,'0') as FTStateStyleSet  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.tmermstyle with(nolock) "
-                        _cmd &= vbCrLf & " where exists ( SELECT TOP 1 V.FNHSysStyleId "
-                        _cmd &= vbCrLf & "  FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo. TPACKOrderPack_Detail AS D INNER JOIN"
-                        _cmd &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS V ON D.FTOrderNo = V.FTOrderNo --AND D.FTSubOrderNo = V.FTSubOrderNo  "
-                        _cmd &= vbCrLf & " WHERE  (D.FTPackNo = N'" & FTPackNo.ToString & "')"
-                        _cmd &= vbCrLf & " ) "
-                        _cmd &= vbCrLf & " "
+            'If CType(Me.ogcsubprod.DataSource, DataTable).Select("FTSelect='1'").Length < SetPackValue Then
+            '    With DirectCast(Me.ogcsubprod.DataSource, DataTable)
+            '        .AcceptChanges()
+            '        For Each R As DataRow In .Select("FTSelect='1'")
+            '            _cmd = "Select top 1  isnull( FTStateStyleSet ,'0') as FTStateStyleSet  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.tmermstyle with(nolock) "
+            '            _cmd &= vbCrLf & " where exists ( SELECT TOP 1 V.FNHSysStyleId "
+            '            _cmd &= vbCrLf & "  FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo. TPACKOrderPack_Detail AS D INNER JOIN"
+            '            _cmd &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS V ON D.FTOrderNo = V.FTOrderNo --AND D.FTSubOrderNo = V.FTSubOrderNo  "
+            '            _cmd &= vbCrLf & " WHERE  (D.FTPackNo = N'" & FTPackNo.ToString & "')"
+            '            _cmd &= vbCrLf & " ) "
+            '            _cmd &= vbCrLf & " "
 
 
-                        Exit For
-                    Next
-                End With
-                If HI.Conn.SQLConn.GetField(_cmd, Conn.DB.DataBaseName.DB_MASTER, "").ToString <> "0" Then
-                    HI.MG.ShowMsg.mInfo("กรุณาเลือก sub order ให้ครบ Set  !!! !!!", 2206171724, Me.Text, , System.Windows.Forms.MessageBoxIcon.Warning)
+            '            Exit For
+            '        Next
+            '    End With
+            '    If HI.Conn.SQLConn.GetField(_cmd, Conn.DB.DataBaseName.DB_MASTER, "").ToString <> "0" Then
+            '        HI.MG.ShowMsg.mInfo("กรุณาเลือก sub order ให้ครบ Set  !!! !!!", 2206171724, Me.Text, , System.Windows.Forms.MessageBoxIcon.Warning)
 
-                    Return False
+            '        Return False
 
-                End If
-
-
+            '    End If
 
 
-            End If
+
+
+            'End If
 
         End If
 
@@ -881,289 +881,59 @@ Public Class wGenerateCartonNonSty
             _dt = CType(Me.ogcsubprod.DataSource, DataTable).Copy
 
 
+
             'If FTStateMerge.Checked = True Then
             '    _Qry = "Exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.SP_Get_OrderPackBreakDown_CreateCarton_Bal_Merge '" & HI.UL.ULF.rpQuoted(Me.FTPackNo.TrimEnd) & "' "
             '    _dtMerge = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
+
             'End If
             Dim _dtgenrow = _dt.Copy
             _dtgenrow.Rows.Clear()
 
-            For Each row As DataRow In _dt.Select("", "FTPOLine asc ")
-                _dtgenrow.Rows.Clear()
-                _dtgenrow.ImportRow(row)
+            'For Each row As DataRow In _dt.Select("", "FTPOLine asc ")
+            '    _dtgenrow.Rows.Clear()
+            '    _dtgenrow.ImportRow(row)
 
 
 
 
 
-                With _dtgenrow
+            With _dt
 
-                    .BeginInit()
+                .BeginInit()
 
-                    Dim _PackBal As Integer = _PackQty
-                    For Each Col As DataColumn In .Columns
+                Dim _PackBal As Integer = _PackQty
+                For Each Col As DataColumn In .Columns
 
-                        Select Case Col.ColumnName.ToUpper
-                            Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper, "FTSelect".ToUpper
-                            Case Else
-                                For Each R As DataRow In .Select("FTOrderNo <> ''", "FTColorway asc ,  FTSubOrderNo asc")
-
-
-                                    _FTOrderNo = R!FTOrderNo.ToString()
-                                    _FTSubOrderNo = R!FTSubOrderNo.ToString()
-                                    _FTColorway = R!FTColorway.ToString()
-                                    _POLine = R!FTPOLine.ToString
-
-                                    'For Each Col As DataColumn In .Columns
-                                    '    Select Case Col.ColumnName.ToUpper
-                                    '        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper
-                                    '        Case Else
-                                    _SizeQty = Integer.Parse(Val(R.Item(Col)))
-
-                                    If _SizeQty >= _PackQty Then
+                    Select Case Col.ColumnName.ToUpper
+                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper, "FTSelect".ToUpper
+                        Case Else
+                            For Each R As DataRow In .Select("FTOrderNo <> ''", "FTColorway asc ,  FTSubOrderNo asc")
 
 
+                                _FTOrderNo = R!FTOrderNo.ToString()
+                                _FTSubOrderNo = R!FTSubOrderNo.ToString()
+                                _FTColorway = R!FTColorway.ToString()
+                                _POLine = R!FTPOLine.ToString
 
-                                        Do While _SizeQty >= _PackQty
+                                'For Each Col As DataColumn In .Columns
+                                '    Select Case Col.ColumnName.ToUpper
+                                '        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper
+                                '        Case Else
+                                _SizeQty = Integer.Parse(Val(R.Item(Col)))
 
-                                            If _PackBal < _PackQty Then
-
-                                                _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
-                                                _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
-                                                _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
-                                                _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton , FTPOLine)"
-                                                _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
-                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
-                                                _Qry &= vbCrLf & "," & _LastCartonNo & " "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
-                                                _Qry &= vbCrLf & "," & _PackBal & " "
-                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
-                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
-                                                _Qry &= vbCrLf & "," & _PackQty & " "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
-                                                '   HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
-                                                If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
-                                                    HI.Conn.SQLConn.Tran.Rollback()
-                                                    HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
-                                                    HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
-                                                    Return False
-                                                End If
-
-                                                _SizeQty = _SizeQty - _PackBal
-                                                _PackBal = 0
-                                                If _SizeQty <= 0 Then
-                                                    _SizeQty = 0
-                                                End If
-                                                R.Item(Col) = _SizeQty
-
-                                                If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "] >= 0 and FTPOLine='" & _POLine & "'") < _PackQty Then
-                                                    _PackBal = _PackQty
-                                                    If Me.FNPackCartonScrapType.SelectedIndex = 1 Then
-                                                        GoTo 97
-                                                    Else
-                                                        GoTo 9
-                                                    End If
-
-                                                End If
+                                If _SizeQty >= _PackQty Then
 
 
 
-                                                If _PackBal <= 0 Then
-                                                    _PackBal = _PackQty
-                                                End If
+                                    Do While _SizeQty >= _PackQty
 
-                                            Else
-
-                                                _LastCartonNo = _LastCartonNo + 1
-
-                                                _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
-                                                _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
-                                                _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
-                                                _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton , FTPOLine)"
-                                                _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
-                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
-                                                _Qry &= vbCrLf & "," & _LastCartonNo & " "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
-                                                _Qry &= vbCrLf & "," & _PackQty & " "
-                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
-                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
-                                                _Qry &= vbCrLf & "," & _PackQty & " "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
-                                                'HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
-                                                If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
-                                                    HI.Conn.SQLConn.Tran.Rollback()
-                                                    HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
-                                                    HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
-                                                    Return False
-                                                End If
-                                                _SizeQty = _SizeQty - _PackQty
-                                                If _SizeQty <= 0 Then
-                                                    _SizeQty = 0
-                                                End If
-                                                R.Item(Col) = _SizeQty '999
-                                                If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0  and FTPOLine='" & _POLine & "'") < _PackQty Then
-                                                    _PackBal = _PackQty
-                                                    If Me.FNPackCartonScrapType.SelectedIndex = 1 Then
-                                                        GoTo 97
-                                                    Else
-                                                        GoTo 9
-                                                    End If
-                                                End If
-
-
-                                                _PackBal = _PackBal - _PackQty
-                                                If _PackBal <= 0 Then
-                                                    _PackBal = _PackQty
-                                                End If
-
-
-
-
-                                            End If
-                                        Loop
-
-                                        If _SizeQty > 0 Then
-                                            GoTo 12
-                                        End If
-
-
-
-                                    Else
-12:
-                                        Do While _SizeQty >= 1
-
-                                            R.Item(Col) = _SizeQty
-                                            'If .Compute("Sum(" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & ")", "" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "  >= 0") < _PackQty Then
-                                            '    _PackBal = _PackQty
-                                            '    GoTo 9
-                                            'End If
-                                            If _PackBal = _PackQty Then
-                                                Try
-
-                                                    If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0 and FTColorway = '" & HI.UL.ULF.rpQuoted(_FTColorway) & "'  and FTPOLine='" & _POLine & "'") < _PackQty Then
-                                                        _PackBal = _PackQty
-                                                        If Me.FNPackCartonScrapType.SelectedIndex = 1 Then
-                                                            GoTo 97
-                                                        Else
-                                                            GoTo 9
-                                                        End If
-                                                    End If
-                                                Catch ex As Exception
-                                                    MsgBox(ex)
-                                                End Try
-
-                                                _LastCartonNo = _LastCartonNo + 1
-                                            End If
-
-                                            If _PackBal <= _SizeQty Then
-
-                                                _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
-                                                _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
-                                                _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
-                                                _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton , FTPOLine)"
-                                                _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
-                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
-                                                _Qry &= vbCrLf & "," & _LastCartonNo & " "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
-                                                _Qry &= vbCrLf & "," & _PackBal & " "
-                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
-                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
-                                                _Qry &= vbCrLf & "," & _PackQty & " "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
-                                                'HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
-                                                If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
-                                                    HI.Conn.SQLConn.Tran.Rollback()
-                                                    HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
-                                                    HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
-                                                    Return False
-                                                End If
-                                                '_PackBal = _PackBal - _SizeQty
-
-                                                _SizeQty = _SizeQty - _PackBal
-                                                _PackBal = 0
-
-                                            Else
-
-                                                If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0 and FTColorway = '" & HI.UL.ULF.rpQuoted(_FTColorway) & "'  and FTPOLine='" & _POLine & "'") < _PackQty Then
-                                                    _PackBal = _PackQty
-                                                    If Me.FNPackCartonScrapType.SelectedIndex = 1 Then
-                                                        GoTo 97
-                                                    Else
-                                                        GoTo 9
-                                                    End If
-                                                End If
-
-                                                _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
-                                                _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
-                                                _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
-                                                _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton , FTPOLine)"
-                                                _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
-                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
-                                                _Qry &= vbCrLf & "," & _LastCartonNo & " "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
-                                                _Qry &= vbCrLf & "," & _SizeQty & " "
-                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
-                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
-                                                _Qry &= vbCrLf & "," & _PackQty & " "
-                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
-                                                ' HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
-                                                If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
-                                                    HI.Conn.SQLConn.Tran.Rollback()
-                                                    HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
-                                                    HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
-                                                    Return False
-                                                End If
-                                                _PackBal = _PackBal - _SizeQty
-                                                _SizeQty = 0
-
-                                            End If
-
-
-                                            If _SizeQty <= 0 Then
-                                                _SizeQty = 0
-                                            End If
-                                            R.Item(Col) = _SizeQty
-                                            'If .Compute("Sum(" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & ")", "" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "  >= 0") < _PackQty Then
-                                            '    _PackBal = _PackQty
-                                            '    GoTo 9
-                                            'End If
-                                            If _PackBal <= 0 Then
-                                                _PackBal = _PackQty
-                                            End If
-
-                                        Loop
-                                    End If
-
-
-97:
-                                    If Me.FNPackCartonScrapType.SelectedIndex = 1 Then
-                                        If _SizeQty > 0 Then
-                                            _LastCartonNo = _LastCartonNo + 1
+                                        If _PackBal < _PackQty Then
 
                                             _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
                                             _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
                                             _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
-                                            _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton, FTPOLine)"
+                                            _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton , FTPOLine)"
                                             _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                                             _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
                                             _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
@@ -1173,57 +943,177 @@ Public Class wGenerateCartonNonSty
                                             _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
                                             _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
                                             _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
-                                            _Qry &= vbCrLf & "," & _SizeQty & " "
+                                            _Qry &= vbCrLf & "," & _PackBal & " "
                                             _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
                                             _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
-                                            _Qry &= vbCrLf & "," & _SizeQty & " "
+                                            _Qry &= vbCrLf & "," & _PackQty & " "
                                             _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
-
-
-                                            ' HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+                                            '   HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
                                             If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                                                 HI.Conn.SQLConn.Tran.Rollback()
                                                 HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
                                                 HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
                                                 Return False
                                             End If
-                                            _SizeQty = 0
-                                        End If
-                                    End If
 
-                                    R.Item(Col) = _SizeQty
+                                            _SizeQty = _SizeQty - _PackBal
+                                            _PackBal = 0
+                                            If _SizeQty <= 0 Then
+                                                _SizeQty = 0
+                                            End If
+                                            R.Item(Col) = _SizeQty
 
-9:
+                                            If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "] >= 0 and FTPOLine='" & _POLine & "'") < _PackQty Then
+                                                _PackBal = _PackQty
+                                                If Me.FNPackCartonScrapType.SelectedIndex = 1 Then
+                                                    GoTo 97
+                                                Else
+                                                    GoTo 9
+                                                End If
 
-                                    '    End Select
-                                    'Next
-                                Next
-                        End Select
-                    Next
+                                            End If
 
-                    If Me.FNPackCartonScrapType.SelectedIndex = 0 Then
-                        For Each R As DataRow In .Select("FTOrderNo <> ''", "FTColorway asc ,  FTSubOrderNo asc")
 
-                            _FTOrderNo = R!FTOrderNo.ToString()
-                            _FTSubOrderNo = R!FTSubOrderNo.ToString()
-                            _FTColorway = R!FTColorway.ToString()
-                            _POLine = R!FTPOLine.ToString
 
-                            For Each Col As DataColumn In .Columns
-                                Select Case Col.ColumnName.ToUpper
-                                    Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper, "FTSelect".ToUpper
-                                    Case Else
-                                        _SizeQty = Integer.Parse(Val(R.Item(Col)))
-                                        If _SizeQty > 0 Then
+                                            If _PackBal <= 0 Then
+                                                _PackBal = _PackQty
+                                            End If
 
-                                            Dim _PackQtyUse As Integer = _PackQty
+                                        Else
+
                                             _LastCartonNo = _LastCartonNo + 1
-
 
                                             _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
                                             _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
                                             _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
-                                            _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton ,FTPOLine)"
+                                            _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton , FTPOLine)"
+                                            _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+                                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+                                            _Qry &= vbCrLf & "," & _LastCartonNo & " "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
+                                            _Qry &= vbCrLf & "," & _PackQty & " "
+                                            _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+                                            _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+                                            _Qry &= vbCrLf & "," & _PackQty & " "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
+                                            'HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+                                            If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                                                HI.Conn.SQLConn.Tran.Rollback()
+                                                HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                                                HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                                                Return False
+                                            End If
+                                            _SizeQty = _SizeQty - _PackQty
+                                            If _SizeQty <= 0 Then
+                                                _SizeQty = 0
+                                            End If
+                                            R.Item(Col) = _SizeQty '999
+                                            If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0  and FTPOLine='" & _POLine & "'") < _PackQty Then
+                                                _PackBal = _PackQty
+                                                If Me.FNPackCartonScrapType.SelectedIndex = 1 Then
+                                                    GoTo 97
+                                                Else
+                                                    GoTo 9
+                                                End If
+                                            End If
+
+
+                                            _PackBal = _PackBal - _PackQty
+                                            If _PackBal <= 0 Then
+                                                _PackBal = _PackQty
+                                            End If
+
+
+
+
+                                        End If
+                                    Loop
+
+                                    If _SizeQty > 0 Then
+                                        GoTo 12
+                                    End If
+
+
+
+                                Else
+12:
+                                    Do While _SizeQty >= 1
+
+                                        R.Item(Col) = _SizeQty
+                                        'If .Compute("Sum(" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & ")", "" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "  >= 0") < _PackQty Then
+                                        '    _PackBal = _PackQty
+                                        '    GoTo 9
+                                        'End If
+                                        If _PackBal = _PackQty Then
+                                            Try
+
+                                                If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0 and FTColorway = '" & HI.UL.ULF.rpQuoted(_FTColorway) & "'  and FTPOLine='" & _POLine & "'") < _PackQty Then
+                                                    _PackBal = _PackQty
+                                                    If Me.FNPackCartonScrapType.SelectedIndex = 1 Then
+                                                        GoTo 97
+                                                    Else
+                                                        GoTo 9
+                                                    End If
+                                                End If
+                                            Catch ex As Exception
+                                                MsgBox(ex)
+                                            End Try
+
+                                            _LastCartonNo = _LastCartonNo + 1
+                                        End If
+
+                                        If _PackBal <= _SizeQty Then
+
+                                            _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+                                            _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+                                            _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+                                            _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton , FTPOLine)"
+                                            _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+                                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+                                            _Qry &= vbCrLf & "," & _LastCartonNo & " "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
+                                            _Qry &= vbCrLf & "," & _PackBal & " "
+                                            _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+                                            _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+                                            _Qry &= vbCrLf & "," & _PackQty & " "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
+                                            'HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+                                            If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                                                HI.Conn.SQLConn.Tran.Rollback()
+                                                HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                                                HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                                                Return False
+                                            End If
+                                            '_PackBal = _PackBal - _SizeQty
+
+                                            _SizeQty = _SizeQty - _PackBal
+                                            _PackBal = 0
+
+                                        Else
+
+                                            If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0 and FTColorway = '" & HI.UL.ULF.rpQuoted(_FTColorway) & "'  and FTPOLine='" & _POLine & "'") < _PackBal Then  '_PackQty   แก้จาก packqty > packbal เคสของ กัมพูชา สร้างใบแพ็ค cdpac-2309050024  size XL เต็มกล่องไม่ถูก 
+                                                _PackBal = _PackQty
+                                                If Me.FNPackCartonScrapType.SelectedIndex = 1 Then
+                                                    GoTo 97
+                                                Else
+                                                    GoTo 9
+                                                End If
+                                            End If
+
+                                            _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+                                            _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+                                            _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+                                            _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton , FTPOLine)"
                                             _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                                             _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
                                             _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
@@ -1238,69 +1128,181 @@ Public Class wGenerateCartonNonSty
                                             _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
                                             _Qry &= vbCrLf & "," & _PackQty & " "
                                             _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
-
+                                            ' HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
                                             If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                                                 HI.Conn.SQLConn.Tran.Rollback()
                                                 HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
                                                 HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
                                                 Return False
                                             End If
-                                            R.Item(Col) = 0
-                                            If _PackQty > _SizeQty Then
-                                                _PackQtyUse = _PackQty - _SizeQty
-                                                For Each rowx As DataRow In .Select("FTPOLine='" & HI.UL.ULF.rpQuoted(_POLine) & "' and  FTColorway ='" & HI.UL.ULF.rpQuoted(_FTColorway) & "'  ")
-                                                    _SizeQty = Integer.Parse(Val(rowx.Item(Col)))
-                                                    If _SizeQty > 0 Then
-
-
-
-                                                        _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
-                                                        _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
-                                                        _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
-                                                        _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton ,FTPOLine)"
-                                                        _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                                                        _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
-                                                        _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
-                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
-                                                        _Qry &= vbCrLf & "," & _LastCartonNo & " "
-                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(rowx!FTOrderNo.ToString()) & "' "
-                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(rowx!FTSubOrderNo.ToString()) & "' "
-                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
-                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
-                                                        _Qry &= vbCrLf & "," & _SizeQty & " "
-                                                        _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
-                                                        _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
-                                                        _Qry &= vbCrLf & "," & _PackQty & " "
-                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
-
-                                                        ' HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
-                                                        If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
-                                                            HI.Conn.SQLConn.Tran.Rollback()
-                                                            HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
-                                                            HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
-                                                            Return False
-                                                        End If
-                                                        rowx.Item(Col) = 0
-                                                    End If
-
-
-                                                Next
-
-
-                                            End If
+                                            _PackBal = _PackBal - _SizeQty
+                                            _SizeQty = 0
 
                                         End If
 
-                                End Select
+
+                                        If _SizeQty <= 0 Then
+                                            _SizeQty = 0
+                                        End If
+                                        R.Item(Col) = _SizeQty
+                                        'If .Compute("Sum(" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & ")", "" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "  >= 0") < _PackQty Then
+                                        '    _PackBal = _PackQty
+                                        '    GoTo 9
+                                        'End If
+                                        If _PackBal <= 0 Then
+                                            _PackBal = _PackQty
+                                        End If
+
+                                    Loop
+                                End If
+
+
+97:
+                                If Me.FNPackCartonScrapType.SelectedIndex = 1 Then
+                                    If _SizeQty > 0 Then
+                                        _LastCartonNo = _LastCartonNo + 1
+
+                                        _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+                                        _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+                                        _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+                                        _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton, FTPOLine)"
+                                        _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                                        _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+                                        _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+                                        _Qry &= vbCrLf & "," & _LastCartonNo & " "
+                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
+                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
+                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
+                                        _Qry &= vbCrLf & "," & _SizeQty & " "
+                                        _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+                                        _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+                                        _Qry &= vbCrLf & "," & _SizeQty & " "
+                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
+
+
+                                        ' HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+                                        If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                                            HI.Conn.SQLConn.Tran.Rollback()
+                                            HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                                            HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                                            Return False
+                                        End If
+                                        _SizeQty = 0
+                                    End If
+                                End If
+
+                                R.Item(Col) = _SizeQty
+
+9:
+
+                                '    End Select
+                                'Next
                             Next
+                    End Select
+                Next
+
+                If Me.FNPackCartonScrapType.SelectedIndex = 0 Then
+                    For Each R As DataRow In .Select("FTOrderNo <> ''", "FTColorway asc ,  FTSubOrderNo asc")
+
+                        _FTOrderNo = R!FTOrderNo.ToString()
+                        _FTSubOrderNo = R!FTSubOrderNo.ToString()
+                        _FTColorway = R!FTColorway.ToString()
+                        _POLine = R!FTPOLine.ToString
+
+                        For Each Col As DataColumn In .Columns
+                            Select Case Col.ColumnName.ToUpper
+                                Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper, "FTSelect".ToUpper
+                                Case Else
+                                    _SizeQty = Integer.Parse(Val(R.Item(Col)))
+                                    If _SizeQty > 0 Then
+
+                                        Dim _PackQtyUse As Integer = _PackQty
+                                        _LastCartonNo = _LastCartonNo + 1
+
+
+                                        _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+                                        _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+                                        _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+                                        _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton ,FTPOLine)"
+                                        _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                                        _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+                                        _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+                                        _Qry &= vbCrLf & "," & _LastCartonNo & " "
+                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
+                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
+                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
+                                        _Qry &= vbCrLf & "," & _SizeQty & " "
+                                        _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+                                        _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+                                        _Qry &= vbCrLf & "," & _PackQty & " "
+                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
+
+                                        If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                                            HI.Conn.SQLConn.Tran.Rollback()
+                                            HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                                            HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                                            Return False
+                                        End If
+                                        R.Item(Col) = 0
+                                        If _PackQty > _SizeQty Then
+                                            _PackQtyUse = _PackQty - _SizeQty
+                                            For Each rowx As DataRow In .Select("FTPOLine='" & HI.UL.ULF.rpQuoted(_POLine) & "' and  FTColorway ='" & HI.UL.ULF.rpQuoted(_FTColorway) & "'  ")
+                                                _SizeQty = Integer.Parse(Val(rowx.Item(Col)))
+                                                If _SizeQty > 0 Then
+
+
+
+                                                    _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+                                                    _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+                                                    _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+                                                    _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton ,FTPOLine)"
+                                                    _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                                                    _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+                                                    _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+                                                    _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+                                                    _Qry &= vbCrLf & "," & _LastCartonNo & " "
+                                                    _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(rowx!FTOrderNo.ToString()) & "' "
+                                                    _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(rowx!FTSubOrderNo.ToString()) & "' "
+                                                    _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+                                                    _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
+                                                    _Qry &= vbCrLf & "," & _SizeQty & " "
+                                                    _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+                                                    _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+                                                    _Qry &= vbCrLf & "," & _PackQty & " "
+                                                    _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
+
+                                                    ' HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+                                                    If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                                                        HI.Conn.SQLConn.Tran.Rollback()
+                                                        HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                                                        HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                                                        Return False
+                                                    End If
+                                                    rowx.Item(Col) = 0
+                                                End If
+
+
+                                            Next
+
+
+                                        End If
+
+                                    End If
+
+                            End Select
                         Next
-                    End If
+                    Next
+                End If
 
 
-                    .EndInit()
+                .EndInit()
 
-                End With
-            Next
+            End With
+            '  Next
             HI.Conn.SQLConn.Tran.Commit()
             HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
             HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
@@ -1344,46 +1346,89 @@ Public Class wGenerateCartonNonSty
             'If _SetPackType = 1 And _SetPackValue > 1 Then
             '    _dtView = New DataView(_dt)
             '    _oDtSet = _dtView.ToTable(True, "FTOrderNo", "FTColorway", "FTPOLine")
-
             'End If
 
 
             'If FTStateMerge.Checked = True Then
             '    _Qry = "Exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.SP_Get_OrderPackBreakDown_CreateCarton_Bal_Merge '" & HI.UL.ULF.rpQuoted(Me.FTPackNo.TrimEnd) & "' "
             '    _dtMerge = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
+            '    With _dtMerge
+            '        .BeginInit()
+            '        For Each Col As DataColumn In .Columns
+            '            Select Case Col.ColumnName.ToUpper
+            '                Case "FTOrderNo".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper
+            '                Case Else
+            '                    For Each R As DataRow In .Select("FTOrderNo <> '' ")
+            '                        R.Item(Col) = R.Item(Col) / SetPackValue
+
+            '                    Next
+            '            End Select
+            '        Next
+            '        .EndInit()
+            '    End With
+
             'End If
 
 
 
-            _Qry = " SELECT MAX(FNCartonNo) AS FNCartonNo "
-            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail AS T WITH(NOLOCK)"
+
+            _Qry = " Select MAX(FNCartonNo) As FNCartonNo "
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail As T With(NOLOCK)"
             _Qry &= vbCrLf & " WHERE FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "'"
             _LastCartonNo = Integer.Parse(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_PROD)))
 
             Dim _LastCartonNoStart As Integer = _LastCartonNo
 
-            For Each Rx As DataRow In _dt.Rows
-                Dim _dtn As New DataTable
-                _dtn = _dt.Select("FTOrderNo='" & Rx!FTOrderNo.ToString & "' and FTSubOrderNo='" & Rx!FTSubOrderNo.ToString & "' and FTColorway='" & Rx!FTColorway.ToString & "' and FTPOLine='" & Rx!FTPOLine.ToString & "'").CopyToDataTable
-                _LastCartonNo = _LastCartonNoStart
+            _dt.BeginInit()
+            _dt.Columns.Add("FNSetType", GetType(String))
+            _dt.EndInit()
+            For Each x As DataRow In _dt.Rows
+                Dim _SetType As Integer = 0
+
+                _SetType = HI.Conn.SQLConn.GetField("select top 1 FNOrderSetType From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub with(nolock) where FTSubOrderNo='" & x!FTSubOrderNo.ToString & "'", Conn.DB.DataBaseName.DB_MERCHAN, "0")
+
+                If _SetType = 0 Then
+
+                    HI.MG.ShowMsg.mInfo("กรุณาเลือก SubOrder ที่เป็น เสื้อ หรือ กางเกง กรุณาตรวจสอบ ....", 2304051444, Me.Text)
+                    Return False
+                End If
+                x!FNSetType = _SetType
+            Next
+
+
+            'For Each Rx As DataRow In _dt.Select("FNSetType=1")
+            Dim _dtn As New DataTable
+            _dtn = _dt '(" FTColorway='" & Rx!FTColorway.ToString & "' and FTPOLine='" & Rx!FTPOLine.ToString & "'").CopyToDataTable
+            _LastCartonNo = _LastCartonNoStart
                 With _dtn
 
                     .BeginInit()
 
-                    Dim _PackBal As Integer = _PackQty
-                    For Each Col As DataColumn In .Columns
+                Dim _PackBal As Integer = _PackQty
+                For Each Col As DataColumn In .Columns
 
-                        Select Case Col.ColumnName.ToUpper
-                            Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper, "FTSelect".ToUpper
-                            Case Else
-                                For Each R As DataRow In .Select("FTOrderNo <> ''", "FTColorway asc ,  FTSubOrderNo asc")
+                    Select Case Col.ColumnName.ToUpper
+                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper, "FTSelect".ToUpper, "FNSetType".ToUpper
+                        Case Else
+                            _PackBal = _PackQty
+257:
 
-
+                            If (_PackBal * SetPackValue) > Val(.Compute("sum([" & Col.ColumnName.ToString & "])", "")) Then
+                                If Me.FNPackCartonScrapType.SelectedIndex = 2 Then
+                                    GoTo 259
+                                End If
+                                If Me.FNPackCartonScrapType.SelectedIndex = 0 Then
+                                    GoTo 259
+                                End If
+                            End If
+                            _LastCartonNo = _LastCartonNo + 1
+                            For i As Integer = 1 To _SetPackValue
+                                _PackBal = _PackQty
+                                For Each R As DataRow In .Select("FTOrderNo <> '' and FNSetType=" & i, "FTColorway asc ,  FTSubOrderNo asc")
                                     _FTOrderNo = R!FTOrderNo.ToString()
                                     _FTSubOrderNo = R!FTSubOrderNo.ToString()
                                     _FTColorway = R!FTColorway.ToString()
                                     _POLine = R!FTPOLine.ToString
-
 
                                     'For Each Col As DataColumn In .Columns
                                     '    Select Case Col.ColumnName.ToUpper
@@ -1392,13 +1437,8 @@ Public Class wGenerateCartonNonSty
                                     _SizeQty = Integer.Parse(Val(R.Item(Col)))
 
                                     If _SizeQty >= _PackQty Then
-
-
-
                                         Do While _SizeQty >= _PackQty
-
                                             If _PackBal < _PackQty Then
-
                                                 _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
                                                 _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
                                                 _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
@@ -1419,25 +1459,30 @@ Public Class wGenerateCartonNonSty
                                                 _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
                                                 HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
 
-
                                                 _SizeQty = _SizeQty - _PackBal
                                                 _PackBal = 0
                                                 If _SizeQty <= 0 Then
                                                     _SizeQty = 0
                                                 End If
                                                 R.Item(Col) = _SizeQty
-                                                If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "] >= 0 and FTPOLine='" & _POLine & "'") < _PackQty Then
-                                                    _PackBal = _PackQty
-                                                    GoTo 9
-                                                End If
+                                                'If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "] >= 0 and FTPOLine='" & _POLine & "'") < _PackQty Then
+                                                '    _PackBal = _PackQty
+                                                '    GoTo 9
+                                                'End If
 
                                                 If _PackBal <= 0 Then
                                                     _PackBal = _PackQty
+                                                    If i = SetPackValue Then
+                                                        GoTo 257
+                                                    Else
+                                                        GoTo 256
+                                                    End If
                                                 End If
 
                                             Else
 
-                                                _LastCartonNo = _LastCartonNo + 1
+                                                ' _LastCartonNo = _LastCartonNo + 1
+                                                '_LastCartonNo = 1
 
                                                 _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
                                                 _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
@@ -1464,14 +1509,20 @@ Public Class wGenerateCartonNonSty
                                                     _SizeQty = 0
                                                 End If
                                                 R.Item(Col) = _SizeQty '999
-                                                If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0  and FTPOLine='" & _POLine & "'") < _PackQty Then
-                                                    _PackBal = _PackQty
-                                                    GoTo 9
-                                                End If
+                                                'If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0  and FTPOLine='" & _POLine & "'") < _PackQty Then
+                                                '    _PackBal = _PackQty
+                                                '    GoTo 9
+                                                'End If
 
                                                 _PackBal = _PackBal - _PackQty
                                                 If _PackBal <= 0 Then
                                                     _PackBal = _PackQty
+                                                    If i = SetPackValue Then
+                                                        GoTo 257
+                                                    Else
+                                                        GoTo 256
+                                                    End If
+
                                                 End If
 
 
@@ -1489,18 +1540,18 @@ Public Class wGenerateCartonNonSty
 12:
                                         Do While _SizeQty >= 1
 
-                                            R.Item(Col) = _SizeQty
+                                            ' R.Item(Col) = _SizeQty
                                             'If .Compute("Sum(" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & ")", "" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "  >= 0") < _PackQty Then
                                             '    _PackBal = _PackQty
                                             '    GoTo 9
                                             'End If
-                                            If _PackBal = _PackQty Then
-                                                If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0 and FTColorway = '" & HI.UL.ULF.rpQuoted(_FTColorway) & "'  and FTPOLine='" & _POLine & "'") < _PackQty Then
-                                                    _PackBal = _PackQty
-                                                    GoTo 9
-                                                End If
-                                                _LastCartonNo = _LastCartonNo + 1
-                                            End If
+                                            'If _PackBal = _PackQty Then
+                                            '    If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0 and FTColorway = '" & HI.UL.ULF.rpQuoted(_FTColorway) & "'  and FTPOLine='" & _POLine & "'") < _PackQty Then
+                                            '        _PackBal = _PackQty
+                                            '        GoTo 9
+                                            '    End If
+                                            '    ' _LastCartonNo = _LastCartonNo + 1
+                                            'End If
 
                                             If _PackBal <= _SizeQty Then
 
@@ -1530,10 +1581,10 @@ Public Class wGenerateCartonNonSty
 
                                             Else
 
-                                                If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0 and FTColorway = '" & HI.UL.ULF.rpQuoted(_FTColorway) & "'  and FTPOLine='" & _POLine & "'") < _PackQty Then
-                                                    _PackBal = _PackQty
-                                                    GoTo 9
-                                                End If
+                                                'If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0 and FTColorway = '" & HI.UL.ULF.rpQuoted(_FTColorway) & "'  and FTPOLine='" & _POLine & "'") < _PackQty Then
+                                                '    _PackBal = _PackQty
+                                                '    GoTo 9
+                                                'End If
 
                                                 _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
                                                 _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
@@ -1573,6 +1624,14 @@ Public Class wGenerateCartonNonSty
                                             'End If
                                             If _PackBal <= 0 Then
                                                 _PackBal = _PackQty
+
+                                                If i = SetPackValue Then
+                                                    GoTo 257
+                                                Else
+                                                    GoTo 256
+                                                End If
+
+
                                             End If
 
                                         Loop
@@ -1580,35 +1639,35 @@ Public Class wGenerateCartonNonSty
 
 
 
-                                    If Me.FNPackCartonScrapType.SelectedIndex = 1 Then
-                                        If _SizeQty > 0 Then
-                                            _LastCartonNo = _LastCartonNo + 1
+                                    'If Me.FNPackCartonScrapType.SelectedIndex = 1 Then
+                                    '    If _SizeQty > 0 Then
+                                    '        _LastCartonNo = _LastCartonNo + 1
 
-                                            _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
-                                            _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
-                                            _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
-                                            _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton, FTPOLine)"
-                                            _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
-                                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
-                                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
-                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
-                                            _Qry &= vbCrLf & "," & _LastCartonNo & " "
-                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
-                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
-                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
-                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
-                                            _Qry &= vbCrLf & "," & _SizeQty & " "
-                                            _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
-                                            _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
-                                            _Qry &= vbCrLf & "," & _SizeQty & " "
-                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
+                                    '        _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+                                    '        _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+                                    '        _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+                                    '        _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton, FTPOLine)"
+                                    '        _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                                    '        _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+                                    '        _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+                                    '        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+                                    '        _Qry &= vbCrLf & "," & _LastCartonNo & " "
+                                    '        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
+                                    '        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
+                                    '        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+                                    '        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
+                                    '        _Qry &= vbCrLf & "," & _SizeQty & " "
+                                    '        _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+                                    '        _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+                                    '        _Qry &= vbCrLf & "," & _SizeQty & " "
+                                    '        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
 
 
-                                            HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+                                    '        HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
 
-                                            _SizeQty = 0
-                                        End If
-                                    End If
+                                    '        _SizeQty = 0
+                                    '    End If
+                                    'End If
 
                                     R.Item(Col) = _SizeQty
 
@@ -1617,10 +1676,13 @@ Public Class wGenerateCartonNonSty
                                     '    End Select
                                     'Next
                                 Next
-                        End Select
-                    Next
+256:
+                            Next
+                    End Select
+259:
+                Next
 
-                    If Me.FNPackCartonScrapType.SelectedIndex = 0 Then
+                If Me.FNPackCartonScrapType.SelectedIndex = 0 Then
                         For Each R As DataRow In .Select("FTOrderNo <> ''", "FTColorway asc ,  FTSubOrderNo asc")
 
                             _FTOrderNo = R!FTOrderNo.ToString()
@@ -1630,7 +1692,7 @@ Public Class wGenerateCartonNonSty
 
                             For Each Col As DataColumn In .Columns
                                 Select Case Col.ColumnName.ToUpper
-                                    Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper, "FTSelect".ToUpper
+                                    Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper, "FTSelect".ToUpper, "FNSetType".ToUpper
                                     Case Else
                                         _SizeQty = Integer.Parse(Val(R.Item(Col)))
                                         If _SizeQty > 0 Then
@@ -1710,7 +1772,7 @@ Public Class wGenerateCartonNonSty
                 End With
 
 
-            Next
+            'Next
 
 
 
@@ -1722,6 +1784,417 @@ Public Class wGenerateCartonNonSty
         _Spls.Close()
         Return True
     End Function
+
+
+
+    '    Private Function CreateCartonSet() As Boolean
+
+    '        Dim _Spls As New HI.TL.SplashScreen("Creating...Carton Please Wait....")
+    '        Try
+
+
+    '            Dim _LastCartonNo As Integer = 0
+    '            Dim _Qry As String = ""
+    '            Dim _dt As DataTable
+    '            Dim _SizeQty As Integer = 0
+    '            Dim _PackQty As Integer = Me.FNPackPerCaton.Value
+    '            Dim _FTOrderNo As String = ""
+    '            Dim _FTSubOrderNo As String = ""
+    '            Dim _FTColorway As String = ""
+    '            Dim _POLine As String = ""
+    '            Dim _dtMerge As DataTable
+
+    '            CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+    '            _dt = CType(Me.ogcsubprod.DataSource, DataTable).Select("FTSelect='1'").CopyToDataTable
+
+    '            'Dim _oDtSet As New DataTable
+    '            'Dim _dtView As DataView
+    '            'If _SetPackType = 1 And _SetPackValue > 1 Then
+    '            '    _dtView = New DataView(_dt)
+    '            '    _oDtSet = _dtView.ToTable(True, "FTOrderNo", "FTColorway", "FTPOLine")
+    '            'End If
+
+
+    '            'If FTStateMerge.Checked = True Then
+    '            '    _Qry = "Exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.SP_Get_OrderPackBreakDown_CreateCarton_Bal_Merge '" & HI.UL.ULF.rpQuoted(Me.FTPackNo.TrimEnd) & "' "
+    '            '    _dtMerge = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
+    '            'End If
+
+    '            _Qry = " SELECT MAX(FNCartonNo) AS FNCartonNo "
+    '            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail AS T WITH(NOLOCK)"
+    '            _Qry &= vbCrLf & " WHERE FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "'"
+    '            _LastCartonNo = Integer.Parse(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_PROD)))
+
+    '            Dim _LastCartonNoStart As Integer = _LastCartonNo
+
+    '            _dt.BeginInit()
+    '            _dt.Columns.Add("FNSetType", GetType(String))
+    '            _dt.EndInit()
+    '            For Each x As DataRow In _dt.Rows
+    '                Dim _SetType As Integer = 0
+
+    '                _SetType = HI.Conn.SQLConn.GetField("select top 1 FNOrderSetType From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub with(nolock) where FTSubOrderNo='" & x!FTSubOrderNo.ToString & "'", Conn.DB.DataBaseName.DB_MERCHAN, "0")
+
+    '                If _SetType = 0 Then
+
+    '                    HI.MG.ShowMsg.mInfo("กรุณาเลือก SubOrder ที่เป็น เสื้อ หรือ กางเกง กรุณาตรวจสอบ ....", 2304051444, Me.Text)
+    '                    Return False
+    '                End If
+    '                x!FNSetType = _SetType
+    '            Next
+
+
+    '            For Each Rx As DataRow In _dt.Rows
+    '                Dim _dtn As New DataTable
+    '                _dtn = _dt.Select("FTOrderNo='" & Rx!FTOrderNo.ToString & "' and FTSubOrderNo='" & Rx!FTSubOrderNo.ToString & "' and FTColorway='" & Rx!FTColorway.ToString & "' and FTPOLine='" & Rx!FTPOLine.ToString & "'").CopyToDataTable
+    '                _LastCartonNo = _LastCartonNoStart
+    '                With _dtn
+
+    '                    .BeginInit()
+
+    '                    Dim _PackBal As Integer = _PackQty
+    '                    For Each Col As DataColumn In .Columns
+
+    '                        Select Case Col.ColumnName.ToUpper
+    '                            Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper, "FTSelect".ToUpper
+    '                            Case Else
+    '                                For Each R As DataRow In .Select("FTOrderNo <> ''", "FTColorway asc ,  FTSubOrderNo asc")
+    '                                    _FTOrderNo = R!FTOrderNo.ToString()
+    '                                    _FTSubOrderNo = R!FTSubOrderNo.ToString()
+    '                                    _FTColorway = R!FTColorway.ToString()
+    '                                    _POLine = R!FTPOLine.ToString
+
+    '                                    'For Each Col As DataColumn In .Columns
+    '                                    '    Select Case Col.ColumnName.ToUpper
+    '                                    '        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper
+    '                                    '        Case Else
+    '                                    _SizeQty = Integer.Parse(Val(R.Item(Col)))
+
+    '                                    If _SizeQty >= _PackQty Then
+    '                                        Do While _SizeQty >= _PackQty
+    '                                            If _PackBal < _PackQty Then
+    '                                                _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+    '                                                _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+    '                                                _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+    '                                                _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton , FTPOLine)"
+    '                                                _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+    '                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+    '                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+    '                                                _Qry &= vbCrLf & "," & _LastCartonNo & " "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
+    '                                                _Qry &= vbCrLf & "," & _PackBal & " "
+    '                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+    '                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+    '                                                _Qry &= vbCrLf & "," & _PackQty & " "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
+    '                                                HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+
+    '                                                _SizeQty = _SizeQty - _PackBal
+    '                                                _PackBal = 0
+    '                                                If _SizeQty <= 0 Then
+    '                                                    _SizeQty = 0
+    '                                                End If
+    '                                                R.Item(Col) = _SizeQty
+    '                                                If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "] >= 0 and FTPOLine='" & _POLine & "'") < _PackQty Then
+    '                                                    _PackBal = _PackQty
+    '                                                    GoTo 9
+    '                                                End If
+
+    '                                                If _PackBal <= 0 Then
+    '                                                    _PackBal = _PackQty
+    '                                                End If
+
+    '                                            Else
+
+    '                                                _LastCartonNo = _LastCartonNo + 1
+
+    '                                                _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+    '                                                _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+    '                                                _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+    '                                                _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton , FTPOLine)"
+    '                                                _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+    '                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+    '                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+    '                                                _Qry &= vbCrLf & "," & _LastCartonNo & " "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
+    '                                                _Qry &= vbCrLf & "," & _PackQty & " "
+    '                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+    '                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+    '                                                _Qry &= vbCrLf & "," & _PackQty & " "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
+    '                                                HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+
+    '                                                _SizeQty = _SizeQty - _PackQty
+    '                                                If _SizeQty <= 0 Then
+    '                                                    _SizeQty = 0
+    '                                                End If
+    '                                                R.Item(Col) = _SizeQty '999
+    '                                                If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0  and FTPOLine='" & _POLine & "'") < _PackQty Then
+    '                                                    _PackBal = _PackQty
+    '                                                    GoTo 9
+    '                                                End If
+
+    '                                                _PackBal = _PackBal - _PackQty
+    '                                                If _PackBal <= 0 Then
+    '                                                    _PackBal = _PackQty
+    '                                                End If
+
+
+
+    '                                            End If
+    '                                        Loop
+
+    '                                        If _SizeQty > 0 Then
+    '                                            GoTo 12
+    '                                        End If
+
+
+
+    '                                    Else
+    '12:
+    '                                        Do While _SizeQty >= 1
+
+    '                                            R.Item(Col) = _SizeQty
+    '                                            'If .Compute("Sum(" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & ")", "" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "  >= 0") < _PackQty Then
+    '                                            '    _PackBal = _PackQty
+    '                                            '    GoTo 9
+    '                                            'End If
+    '                                            If _PackBal = _PackQty Then
+    '                                                If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0 and FTColorway = '" & HI.UL.ULF.rpQuoted(_FTColorway) & "'  and FTPOLine='" & _POLine & "'") < _PackQty Then
+    '                                                    _PackBal = _PackQty
+    '                                                    GoTo 9
+    '                                                End If
+    '                                                _LastCartonNo = _LastCartonNo + 1
+    '                                            End If
+
+    '                                            If _PackBal <= _SizeQty Then
+
+    '                                                _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+    '                                                _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+    '                                                _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+    '                                                _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton , FTPOLine)"
+    '                                                _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+    '                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+    '                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+    '                                                _Qry &= vbCrLf & "," & _LastCartonNo & " "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
+    '                                                _Qry &= vbCrLf & "," & _PackBal & " "
+    '                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+    '                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+    '                                                _Qry &= vbCrLf & "," & _PackQty & " "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
+    '                                                HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+    '                                                '_PackBal = _PackBal - _SizeQty
+
+    '                                                _SizeQty = _SizeQty - _PackBal
+    '                                                _PackBal = 0
+
+    '                                            Else
+
+    '                                                If .Compute("Sum([" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "])", "[" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "]  >= 0 and FTColorway = '" & HI.UL.ULF.rpQuoted(_FTColorway) & "'  and FTPOLine='" & _POLine & "'") < _PackQty Then
+    '                                                    _PackBal = _PackQty
+    '                                                    GoTo 9
+    '                                                End If
+
+    '                                                _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+    '                                                _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+    '                                                _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+    '                                                _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton , FTPOLine)"
+    '                                                _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+    '                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+    '                                                _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+    '                                                _Qry &= vbCrLf & "," & _LastCartonNo & " "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
+    '                                                _Qry &= vbCrLf & "," & _SizeQty & " "
+    '                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+    '                                                _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+    '                                                _Qry &= vbCrLf & "," & _PackQty & " "
+    '                                                _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
+    '                                                HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+    '                                                _PackBal = _PackBal - _SizeQty
+    '                                                _SizeQty = 0
+
+    '                                            End If
+
+
+
+
+
+    '                                            If _SizeQty <= 0 Then
+    '                                                _SizeQty = 0
+    '                                            End If
+    '                                            R.Item(Col) = _SizeQty
+    '                                            'If .Compute("Sum(" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & ")", "" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "  >= 0") < _PackQty Then
+    '                                            '    _PackBal = _PackQty
+    '                                            '    GoTo 9
+    '                                            'End If
+    '                                            If _PackBal <= 0 Then
+    '                                                _PackBal = _PackQty
+    '                                            End If
+
+    '                                        Loop
+    '                                    End If
+
+
+
+    '                                    If Me.FNPackCartonScrapType.SelectedIndex = 1 Then
+    '                                        If _SizeQty > 0 Then
+    '                                            _LastCartonNo = _LastCartonNo + 1
+
+    '                                            _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+    '                                            _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+    '                                            _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+    '                                            _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton, FTPOLine)"
+    '                                            _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+    '                                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+    '                                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+    '                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+    '                                            _Qry &= vbCrLf & "," & _LastCartonNo & " "
+    '                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
+    '                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
+    '                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+    '                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
+    '                                            _Qry &= vbCrLf & "," & _SizeQty & " "
+    '                                            _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+    '                                            _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+    '                                            _Qry &= vbCrLf & "," & _SizeQty & " "
+    '                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
+
+
+    '                                            HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+
+    '                                            _SizeQty = 0
+    '                                        End If
+    '                                    End If
+
+    '                                    R.Item(Col) = _SizeQty
+
+    '9:
+
+    '                                    '    End Select
+    '                                    'Next
+    '                                Next
+    '                        End Select
+    '                    Next
+
+    '                    If Me.FNPackCartonScrapType.SelectedIndex = 0 Then
+    '                        For Each R As DataRow In .Select("FTOrderNo <> ''", "FTColorway asc ,  FTSubOrderNo asc")
+
+    '                            _FTOrderNo = R!FTOrderNo.ToString()
+    '                            _FTSubOrderNo = R!FTSubOrderNo.ToString()
+    '                            _FTColorway = R!FTColorway.ToString()
+    '                            _POLine = R!FTPOLine.ToString
+
+    '                            For Each Col As DataColumn In .Columns
+    '                                Select Case Col.ColumnName.ToUpper
+    '                                    Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper, "FTSelect".ToUpper
+    '                                    Case Else
+    '                                        _SizeQty = Integer.Parse(Val(R.Item(Col)))
+    '                                        If _SizeQty > 0 Then
+
+    '                                            Dim _PackQtyUse As Integer = _PackQty
+    '                                            _LastCartonNo = _LastCartonNo + 1
+
+
+    '                                            _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+    '                                            _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+    '                                            _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+    '                                            _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton ,FTPOLine)"
+    '                                            _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+    '                                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+    '                                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+    '                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+    '                                            _Qry &= vbCrLf & "," & _LastCartonNo & " "
+    '                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
+    '                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
+    '                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+    '                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
+    '                                            _Qry &= vbCrLf & "," & _SizeQty & " "
+    '                                            _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+    '                                            _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+    '                                            _Qry &= vbCrLf & "," & _PackQty & " "
+    '                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
+
+    '                                            HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+    '                                            R.Item(Col) = 0
+    '                                            If _PackQty > _SizeQty Then
+    '                                                _PackQtyUse = _PackQty - _SizeQty
+    '                                                For Each rowx As DataRow In .Select("FTPOLine='" & HI.UL.ULF.rpQuoted(_POLine) & "' and  FTColorway ='" & HI.UL.ULF.rpQuoted(_FTColorway) & "'  ")
+    '                                                    _SizeQty = Integer.Parse(Val(rowx.Item(Col)))
+    '                                                    If _SizeQty > 0 Then
+
+
+
+    '                                                        _Qry = "Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+    '                                                        _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+    '                                                        _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+    '                                                        _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton ,FTPOLine)"
+    '                                                        _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+    '                                                        _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+    '                                                        _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+    '                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+    '                                                        _Qry &= vbCrLf & "," & _LastCartonNo & " "
+    '                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(rowx!FTOrderNo.ToString()) & "' "
+    '                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(rowx!FTSubOrderNo.ToString()) & "' "
+    '                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+    '                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
+    '                                                        _Qry &= vbCrLf & "," & _SizeQty & " "
+    '                                                        _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+    '                                                        _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+    '                                                        _Qry &= vbCrLf & "," & _PackQty & " "
+    '                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
+
+    '                                                        HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+    '                                                        rowx.Item(Col) = 0
+    '                                                    End If
+
+
+    '                                                Next
+
+
+    '                                            End If
+
+    '                                        End If
+
+    '                                End Select
+    '                            Next
+    '                        Next
+    '                    End If
+
+
+    '                    .EndInit()
+
+    '                End With
+
+
+    '            Next
+
+
+
+    '            Call LoadOrderPackBreakDownCreateCarton(Me.FTPackNo)
+    '        Catch ex As Exception
+    '            _Spls.Close()
+    '            Return False
+    '        End Try
+    '        _Spls.Close()
+    '        Return True
+    '    End Function
 
 
     Private Function CreateCartonSolidmultiSubOrder() As Boolean
@@ -2912,6 +3385,236 @@ T1:
         Return True
     End Function
 
+
+    Private Function CreateCartonAssortOneSizeMultiColorSet() As Boolean
+        Dim _Spls As New HI.TL.SplashScreen("Creating...Carton Please Wait....")
+        Try
+
+
+            Dim _LastCartonNo As Integer = 0
+            Dim _Qry As String = ""
+            Dim _dt As DataTable
+            Dim _SizeQty As Integer = 0
+            Dim _PackQty As Integer = Me.FNPackPerCaton.Value
+            Dim _FTOrderNo As String = ""
+            Dim _FTSubOrderNo As String = ""
+            Dim _FTColorway As String = ""
+            Dim _POLine As String = ""
+            Dim _dtpack As DataTable
+            Dim _dtpacktmp As DataTable
+            Dim _dtpackmerge As DataTable
+            With CType(Me.ogcsubprodpackmerge.DataSource, DataTable)
+                .AcceptChanges()
+                _dtpack = .Copy
+                _dtpacktmp = .Copy
+                _dtpackmerge = _dtpacktmp
+            End With
+
+
+
+
+            Dim _TotalPack As Integer = 0
+            Dim _SumPack As Integer = 0
+
+            Try
+                With _dtpacktmp
+
+                    _dtpack.Columns.Remove("Total")
+
+                    For Each Col As DataColumn In .Columns
+                        _SumPack = 0
+                        Select Case Col.ColumnName.ToUpper
+                            Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper, "FTSelect".ToUpper
+                            Case Else
+                                For Each R As DataRow In .Rows
+                                    _TotalPack = _TotalPack + Val(R.Item(Col))
+                                    _SumPack = _SumPack + Val(R.Item(Col))
+                                Next
+
+                                If _SumPack > 0 Then
+                                    If _SumPack <> _PackQty Then
+                                        _dtpack.Columns.Remove(Col.ColumnName)
+                                    End If
+                                Else
+                                    _dtpack.Columns.Remove(Col.ColumnName)
+                                End If
+
+                        End Select
+
+                    Next
+                End With
+            Catch ex As Exception
+            End Try
+
+            CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+            _dt = CType(Me.ogcsubprod.DataSource, DataTable).Copy
+
+            _dt.BeginInit()
+            _dt.Columns.Add("FNSetType", GetType(String))
+            _dt.EndInit()
+            For Each x As DataRow In _dt.Rows
+                Dim _SetType As Integer = 0
+
+                _SetType = HI.Conn.SQLConn.GetField("select top 1 FNOrderSetType From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub with(nolock) where FTSubOrderNo='" & x!FTSubOrderNo.ToString & "'", Conn.DB.DataBaseName.DB_MERCHAN, "0")
+
+                If _SetType = 0 Then
+
+                    HI.MG.ShowMsg.mInfo("กรุณาเลือก SubOrder ที่เป็น เสื้อ หรือ กางเกง กรุณาตรวจสอบ ....", 2304051444, Me.Text)
+                    Return False
+                End If
+                x!FNSetType = _SetType
+            Next
+
+
+
+            _Qry = " SELECT MAX(FNCartonNo) AS FNCartonNo "
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail AS T WITH(NOLOCK)"
+            _Qry &= vbCrLf & " WHERE FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "'"
+            _LastCartonNo = Integer.Parse(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_PROD)))
+            _LastCartonNo = _LastCartonNo + 1
+            Dim _ColorWay As String = ""
+            Dim _SizePackQty As Integer = 0
+            Dim _StateIns As Boolean = True
+
+
+            With CType(Me.ogcsubprodpack.DataSource, DataTable)
+                .AcceptChanges()
+                _dtpack = .Copy
+                _dtpacktmp = .Copy
+            End With
+
+
+
+            For Each Col As DataColumn In _dtpack.Columns
+                _SumPack = 0
+                _StateIns = True
+
+                Do While (_StateIns)
+                    _Qry = ""
+
+                    Select Case Col.ColumnName.ToUpper
+                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper, "FTSelect".ToUpper
+                        Case Else
+
+                            For Each R As DataRow In _dtpackmerge.Rows
+
+                                '_FTOrderNo = R!FTOrderNo.ToString()
+                                '_FTSubOrderNo = R!FTSubOrderNo.ToString()
+                                _FTColorway = R!FTColorway.ToString()
+                                _POLine = R!FTPOLine.ToString
+
+                                If Val(R.Item(Col.ColumnName.ToString)) > 0 Then
+
+
+                                    For i As Integer = 1 To _SetPackValue
+                                        _PackQty = Val(R.Item(Col.ColumnName.ToString))
+                                        ' Dim _Str As String = " FTPOLine ='" & HI.UL.ULF.rpQuoted(_POLine) & "' AND FTColorway ='" & HI.UL.ULF.rpQuoted(_FTColorway) & "' AND [" & Col.ColumnName.ToString & "]>=" & _PackQty & ""
+                                        Dim _Str2 As String = "  FTPOLine ='" & HI.UL.ULF.rpQuoted(_POLine) & "' AND FTColorway ='" & HI.UL.ULF.rpQuoted(_FTColorway) & "'  and     FNSetType=" & i & ""
+
+
+                                        'AND FTSubOrderNo ='" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' 
+                                        Dim _dtn As DataTable = _dt.Select(_Str2, "FTSubOrderNo ASC").CopyToDataTable
+
+                                        Dim tmpRow() As DataRow = _dt.Select(_Str2, "FTSubOrderNo ASC")
+                                        If _dtn.Compute(" sum( [" & Col.ColumnName.ToString & "])", _Str2) >= _PackQty Then
+
+
+                                            If tmpRow.Length > 0 Then
+
+                                                For Each Rxp As DataRow In tmpRow
+                                                    _SizePackQty = Integer.Parse(Val(Rxp.Item(Col.ColumnName)))
+                                                    If _PackQty > 0 And _SizePackQty > 0 Then
+
+                                                        Dim QtyUse As Integer = 0
+
+                                                        _SizeQty = Integer.Parse(Val(Rxp.Item(Col.ColumnName)))
+                                                        QtyUse = _PackQty
+                                                        If _PackQty > _SizeQty And _SizeQty > 0 Then
+                                                            QtyUse = _SizeQty
+                                                        End If
+
+                                                        _FTOrderNo = Rxp!FTOrderNo.ToString()
+                                                        _FTSubOrderNo = Rxp!FTSubOrderNo.ToString()
+                                                        _Qry &= vbCrLf & " Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+                                                        _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+                                                        _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+                                                        _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton,FTPOLine)"
+                                                        _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                                                        _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+                                                        _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+                                                        _Qry &= vbCrLf & "," & _LastCartonNo & " "
+                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
+                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
+                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Col.ColumnName.ToString) & "' "
+                                                        _Qry &= vbCrLf & "," & QtyUse & " "
+                                                        _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+                                                        _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+                                                        _Qry &= vbCrLf & "," & Me.FNPackPerCaton.Value & " "
+                                                        _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "' "
+                                                        _SizeQty = _SizeQty - QtyUse
+                                                        If _SizeQty <= 0 Then
+                                                            _SizeQty = 0
+                                                        End If
+
+                                                        Rxp.Item(Col.ColumnName) = _SizeQty
+                                                        _PackQty = _PackQty - QtyUse
+                                                    End If
+                                                    If _PackQty = 0 Then
+                                                        GoTo 99
+                                                    End If
+                                                Next
+                                            Else
+
+
+                                                '_Str = " FTPOLine ='" & HI.UL.ULF.rpQuoted(_POLine) & "' AND FTColorway ='" & HI.UL.ULF.rpQuoted(_FTColorway) & "' AND [" & Col.ColumnName.ToString & "]>=" & _PackQty & ""
+                                                ''AND FTSubOrderNo ='" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' 
+                                                'Dim tmpRow2() As DataRow = _dt.Select(_Str, "FTSubOrderNo ASC")
+
+
+
+                                                _StateIns = False
+                                            End If
+
+
+                                        Else
+                                            _StateIns = False
+                                        End If
+99:
+                                    Next
+                                End If
+
+                            Next
+
+                    End Select
+
+                    If _Qry = "" Then
+                        _StateIns = False
+                    End If
+
+                    If (_StateIns) And _Qry <> "" Then
+                        HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+                        _LastCartonNo = _LastCartonNo + 1
+
+                    End If
+                Loop
+            Next
+
+            Call LoadOrderPackBreakDownCreateCarton(Me.FTPackNo)
+        Catch ex As Exception
+            _Spls.Close()
+            Return False
+        End Try
+        _Spls.Close()
+        Return True
+    End Function
+
+
+
+
+
+
     Private Function CreateCartonAssortMultiColorMultiSize() As Boolean
         Dim _Spls As New HI.TL.SplashScreen("Creating...Carton Please Wait....")
         Try
@@ -3081,6 +3784,212 @@ T1:
         _Spls.Close()
         Return True
     End Function
+
+
+    Private Function CreateCartonAssortMultiColorMultiSizeSet() As Boolean
+        Dim _Spls As New HI.TL.SplashScreen("Creating...Carton Please Wait....")
+        Try
+
+
+            Dim _LastCartonNo As Integer = 0
+            Dim _Qry As String = ""
+            Dim _dt As DataTable
+            Dim _SizeQty As Integer = 0
+            Dim _PackQty As Integer = Me.FNPackPerCaton.Value
+            Dim _FTOrderNo As String = ""
+            Dim _FTSubOrderNo As String = ""
+            Dim _FTColorway As String = ""
+
+            Dim _POLine As String = ""
+            Dim _dtpack As DataTable
+            Dim _dtpackmerge As DataTable
+            With CType(Me.ogcsubprodpack.DataSource, DataTable)
+                .AcceptChanges()
+                _dtpack = .Copy
+            End With
+
+            If FTStateMerge.Checked Then
+                With CType(Me.ogcsubprodpackmerge.DataSource, DataTable)
+                    .AcceptChanges()
+                    _dtpackmerge = .Copy
+                End With
+            End If
+            CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+            _dt = CType(Me.ogcsubprod.DataSource, DataTable).Copy
+
+
+            _dt.BeginInit()
+            _dt.Columns.Add("FNSetType", GetType(String))
+            _dt.EndInit()
+            For Each x As DataRow In _dt.Rows
+                Dim _SetType As Integer = 0
+
+                _SetType = HI.Conn.SQLConn.GetField("select top 1 FNOrderSetType From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub with(nolock) where FTSubOrderNo='" & x!FTSubOrderNo.ToString & "'", Conn.DB.DataBaseName.DB_MERCHAN, "0")
+
+                If _SetType = 0 Then
+
+                    HI.MG.ShowMsg.mInfo("กรุณาเลือก SubOrder ที่เป็น เสื้อ หรือ กางเกง กรุณาตรวจสอบ ....", 2304051444, Me.Text)
+                    Return False
+                End If
+                x!FNSetType = _SetType
+            Next
+
+
+
+            Dim dtpackassort As New DataTable
+            dtpackassort.Columns.Add("FTOrderNo", GetType(String))
+            dtpackassort.Columns.Add("FTSubOrderNo", GetType(String))
+            dtpackassort.Columns.Add("FTColorCode", GetType(String))
+            dtpackassort.Columns.Add("FTPOLine", GetType(String))
+            dtpackassort.Columns.Add("FTSizeCode", GetType(String))
+            dtpackassort.Columns.Add("FNQuantity", GetType(Integer))
+
+            dtpackassort.Rows.Clear()
+            Dim _SizePackQty As Integer = 0
+            For Each Row As DataRow In _dtpackmerge.Rows
+                '_FTOrderNo = Row!FTOrderNo.ToString()
+                '_FTSubOrderNo = Row!FTSubOrderNo.ToString()
+                _FTColorway = Row!FTColorway.ToString()
+                _POLine = Row!FTPOLine.ToString
+
+                For Each ColP As DataColumn In _dtpackmerge.Columns
+
+                    Select Case ColP.ColumnName.ToUpper
+                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FTPOLine".ToUpper, "FTSelect".ToUpper
+                        Case Else
+                            _SizePackQty = Integer.Parse(Val(Row.Item(ColP)))
+
+                            If _SizePackQty > 0 Then
+                                dtpackassort.Rows.Add(_FTOrderNo, _FTSubOrderNo, _FTColorway, _POLine, ColP.ColumnName.ToString, _SizePackQty)
+                            End If
+
+                    End Select
+                Next
+            Next
+            _Qry = " SELECT MAX(FNCartonNo) AS FNCartonNo "
+            _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail AS T WITH(NOLOCK)"
+            _Qry &= vbCrLf & " WHERE FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "'"
+            _LastCartonNo = Integer.Parse(Val(HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_PROD)))
+
+            _LastCartonNo = _LastCartonNo + 1
+            Dim _StateIns As Boolean = True
+            Dim _SumPack As Integer = 0
+            Dim _FTSizeCode As String = ""
+
+            If dtpackassort.Rows.Count > 0 Then
+                _SumPack = 0
+                _StateIns = True
+
+                Do While (_StateIns)
+                    _Qry = ""
+                    _SumPack = 0
+
+                    For Each R As DataRow In dtpackassort.Rows
+                        '_FTOrderNo = R!FTOrderNo.ToString()
+                        '_FTSubOrderNo = R!FTSubOrderNo.ToString()
+                        _FTColorway = R!FTColorCode.ToString()
+                        _FTSizeCode = R!FTSizeCode.ToString
+                        _POLine = R!FTPOLine.ToString
+
+                        If Val(R!FNQuantity.ToString) > 0 Then
+                            _PackQty = Val(R!FNQuantity.ToString)
+
+                            For i As Integer = 1 To _SetPackValue
+
+
+
+
+                                Dim _Str As String = " FTPOLine ='" & HI.UL.ULF.rpQuoted(_POLine) & "' and     FNSetType=" & i & ""
+                                _Str &= vbCrLf & " And FTColorway ='" & HI.UL.ULF.rpQuoted(_FTColorway) & "' AND [" & _FTSizeCode & "]>=" & _PackQty & ""
+                                'FTSubOrderNo ='" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "'
+                                Dim tmpRow() As DataRow = _dt.Select(_Str)
+
+                                If tmpRow.Length > 0 Then
+                                    For Each Rxp As DataRow In tmpRow
+
+                                        _SizePackQty = Integer.Parse(Val(Rxp.Item(_FTSizeCode)))
+                                        If _SizePackQty >= _PackQty Then
+
+                                            _SumPack = _SumPack + _PackQty
+
+                                            _FTOrderNo = Rxp!FTOrderNo.ToString()
+                                            _FTSubOrderNo = Rxp!FTSubOrderNo.ToString()
+
+                                            _SizeQty = Integer.Parse(Val(Rxp.Item(_FTSizeCode)))
+
+                                            _Qry &= vbCrLf & " Insert Into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail "
+                                            _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTPackNo"
+                                            _Qry &= vbCrLf & " , FNCartonNo, FTOrderNo, FTSubOrderNo"
+                                            _Qry &= vbCrLf & "  , FTColorway, FTSizeBreakDown, FNQuantity,FNHSysCartonId,FNPackCartonSubType,FNPackPerCarton , FTPOLine)"
+                                            _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & " "
+                                            _Qry &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & " "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo) & "' "
+                                            _Qry &= vbCrLf & "," & _LastCartonNo & " "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "' "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSubOrderNo) & "' "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTColorway) & "' "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_FTSizeCode) & "' "
+                                            _Qry &= vbCrLf & "," & _PackQty & " "
+                                            _Qry &= vbCrLf & "," & Integer.Parse(Val(FNHSysCartonId.Properties.Tag.ToString)) & " "
+                                            _Qry &= vbCrLf & "," & Integer.Parse(Val(FNPackCartonSubType.SelectedIndex)) & " "
+                                            _Qry &= vbCrLf & "," & Me.FNPackPerCaton.Value & " "
+                                            _Qry &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(_POLine) & "'"
+
+                                            _SizeQty = _SizeQty - _PackQty
+                                            If _SizeQty <= 0 Then
+                                                _SizeQty = 0
+                                            End If
+
+                                            Rxp.Item(_FTSizeCode) = _SizeQty
+
+
+                                        End If
+
+                                    Next
+                                Else
+                                    _StateIns = False
+                                End If
+
+                            Next
+
+                        End If
+                    Next
+
+                    If (_SetPackType = 1) Then
+                        If _SumPack <> (FNPackPerCaton.Value * _SetPackValue) Then
+                            _StateIns = False
+                        End If
+                    Else
+                        If _SumPack <> FNPackPerCaton.Value Then
+                            _StateIns = False
+                        End If
+                    End If
+
+
+                    If _Qry = "" Then
+                        _StateIns = False
+                    End If
+
+                    If (_StateIns) And _Qry <> "" Then
+                        HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_PROD)
+                        _LastCartonNo = _LastCartonNo + 1
+                    End If
+
+                Loop
+
+            End If
+
+            Call LoadOrderPackBreakDownCreateCarton(Me.FTPackNo)
+
+        Catch ex As Exception
+            _Spls.Close()
+            Return False
+        End Try
+        _Spls.Close()
+        Return True
+    End Function
+
 
 #End Region
 
@@ -3285,66 +4194,212 @@ T1:
 
                 Select Case FNPackCartonSubType.SelectedIndex
                     Case 0
-                        If (Me.FTStateMerge.Checked) Then
-                            If Me.CreateCartonSet Then
-                                Me.Process = True
-                                Call CallLoadCarton()
-                                CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
-                                If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
-                                    Me.Close()
+
+                        Dim _dt As DataTable
+                        CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                        _dt = CType(Me.ogcsubprod.DataSource, DataTable).Copy
+
+                        Dim _SetType As Integer = 0
+                        For Each x As DataRow In _dt.Rows
+
+                            _SetType = HI.Conn.SQLConn.GetField("select top 1 FNOrderSetType From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub with(nolock) where FTSubOrderNo='" & x!FTSubOrderNo.ToString & "'", Conn.DB.DataBaseName.DB_MERCHAN, "0")
+                            Exit For
+                        Next
+
+
+                        If _SetType = 0 Then
+                            If (Me.FTStateMerge.Checked) Then
+                                If Me.CreateCarton Then
+                                    Me.Process = True
+                                    Call CallLoadCarton()
+                                    CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                                    If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
+                                        Me.Close()
+                                    End If
+                                End If
+                            Else
+                                If Me.CreateCartonSolidmultiSubOrder Then
+                                    Me.Process = True
+                                    Call CallLoadCarton()
+                                    CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                                    If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
+                                        Me.Close()
+                                    End If
                                 End If
                             End If
+
                         Else
-                            'If Me.CreateCartonSolidmultiSubOrder Then
-                            '    Me.Process = True
-                            '    Call CallLoadCarton()
-                            '    CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
-                            '    If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
-                            '        Me.Close()
-                            '    End If
-                            'End If
+
+
+                            If (Me.FTStateMerge.Checked) Then
+                                If Me.CreateCartonSet Then
+                                    Me.Process = True
+                                    Call CallLoadCarton()
+                                    CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                                    If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
+                                        Me.Close()
+                                    End If
+                                End If
+                            Else
+                                'If Me.CreateCartonSolidmultiSubOrder Then
+                                '    Me.Process = True
+                                '    Call CallLoadCarton()
+                                '    CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                                '    If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
+                                '        Me.Close()
+                                '    End If
+                                'End If
+                            End If
                         End If
-
                     Case 1
-                        If (Me.FTStateMerge.Checked) Then
-                            If Me.CreateCartonAssortOneColorMultiSizeSet Then
-                                Me.Process = True
-                                Call CallLoadCarton()
-                                CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
-                                If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
-                                    Me.Close()
+
+                        Dim _dt As DataTable
+                        CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                        _dt = CType(Me.ogcsubprod.DataSource, DataTable).Copy
+
+                        Dim _SetType As Integer = 0
+                        For Each x As DataRow In _dt.Rows
+
+                            _SetType = HI.Conn.SQLConn.GetField("select top 1 FNOrderSetType From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub with(nolock) where FTSubOrderNo='" & x!FTSubOrderNo.ToString & "'", Conn.DB.DataBaseName.DB_MERCHAN, "0")
+                            Exit For
+                        Next
+
+
+                        If _SetType = 0 Then
+                            If (Me.FTStateMerge.Checked) Then
+                                If Me.CreateCartonAssortOneColorMultiSize Then
+                                    Me.Process = True
+                                    Call CallLoadCarton()
+                                    CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                                    If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
+                                        Me.Close()
+                                    End If
                                 End If
+                            Else
+                                If Me.CreateCartonAssortOneColorMultiSize(1) Then
+                                    Me.Process = True
+                                    Call CallLoadCarton()
+                                    CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                                    If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
+                                        Me.Close()
+                                    End If
+                                End If
+
                             End If
                         Else
-                            'If Me.CreateCartonAssortOneColorMultiSize(1) Then
-                            '    Me.Process = True
-                            '    Call CallLoadCarton()
-                            '    CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
-                            '    If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
-                            '        Me.Close()
-                            '    End If
-                            'End If
 
+
+
+
+
+
+                            If (Me.FTStateMerge.Checked) Then
+                                If Me.CreateCartonAssortOneColorMultiSizeSet Then
+                                    Me.Process = True
+                                    Call CallLoadCarton()
+                                    CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                                    If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
+                                        Me.Close()
+                                    End If
+                                End If
+                            Else
+                                'If Me.CreateCartonAssortOneColorMultiSize(1) Then
+                                '    Me.Process = True
+                                '    Call CallLoadCarton()
+                                '    CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                                '    If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
+                                '        Me.Close()
+                                '    End If
+                                'End If
+
+                            End If
                         End If
 
                     Case 2
-                        If Me.CreateCartonAssortOneSizeMultiColor Then
-                            Me.Process = True
-                            Call CallLoadCarton()
-                            CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
-                            If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
-                                Me.Close()
+
+
+
+
+                        Dim _dt As DataTable
+                        CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                        _dt = CType(Me.ogcsubprod.DataSource, DataTable).Copy
+
+                        Dim _SetType As Integer = 0
+                        For Each x As DataRow In _dt.Rows
+
+                            _SetType = HI.Conn.SQLConn.GetField("select top 1 FNOrderSetType From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub with(nolock) where FTSubOrderNo='" & x!FTSubOrderNo.ToString & "'", Conn.DB.DataBaseName.DB_MERCHAN, "0")
+                            Exit For
+                        Next
+
+
+
+
+
+                        If _SetType = 0 Then
+                            If Me.CreateCartonAssortOneSizeMultiColor Then
+                                Me.Process = True
+                                Call CallLoadCarton()
+                                CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                                If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
+                                    Me.Close()
+                                End If
                             End If
+
+                        Else
+
+
+                            If Me.CreateCartonAssortOneSizeMultiColorSet Then
+                                Me.Process = True
+                                Call CallLoadCarton()
+                                CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                                If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
+                                    Me.Close()
+                                End If
+                            End If
+
+
                         End If
+
+
+
+
                     Case 3
-                        If Me.CreateCartonAssortMultiColorMultiSize Then
-                            Me.Process = True
-                            Call CallLoadCarton()
-                            CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
-                            If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
-                                Me.Close()
+
+
+                        Dim _dt As DataTable
+                        CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                        _dt = CType(Me.ogcsubprod.DataSource, DataTable).Copy
+
+                        Dim _SetType As Integer = 0
+                        For Each x As DataRow In _dt.Rows
+
+                            _SetType = HI.Conn.SQLConn.GetField("select top 1 FNOrderSetType From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub with(nolock) where FTSubOrderNo='" & x!FTSubOrderNo.ToString & "'", Conn.DB.DataBaseName.DB_MERCHAN, "0")
+                            Exit For
+                        Next
+
+
+                        If _SetType = 0 Then
+                            If Me.CreateCartonAssortMultiColorMultiSize Then
+                                Me.Process = True
+                                Call CallLoadCarton()
+                                CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                                If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
+                                    Me.Close()
+                                End If
+                            End If
+                        Else
+
+                            If Me.CreateCartonAssortMultiColorMultiSizeSet Then
+                                Me.Process = True
+                                Call CallLoadCarton()
+                                CType(Me.ogcsubprod.DataSource, DataTable).AcceptChanges()
+                                If CType(Me.ogcsubprod.DataSource, DataTable).Select("Total>0").Length <= 0 Then
+                                    Me.Close()
+                                End If
                             End If
                         End If
+
+
                 End Select
 
 
@@ -3356,12 +4411,20 @@ T1:
 
     Private Sub CallLoadCarton()
         Try
-            GenBarcodeEN13(FTPackNo)
+            GenBacodeEN13New(FTPackNo)
 
             Call CallByName(_ObjectParent, "CreateTreeCarton", CallType.Method, Nothing)
+            Dim _Prod As New PROD
+            _Prod.createPackingplanNonnike(FTPackNo)
+
         Catch ex As Exception
         End Try
     End Sub
+
+
+
+
+
 
     Private _StateSumGrid As Boolean
     Private Sub SumGrid()
@@ -3600,6 +4663,40 @@ T1:
     'End Function
 
 
+    Private Function GenBacodeEN13New(Pack As String) As Boolean
+        Dim _Spls As New HI.TL.SplashScreen("Generate BarodeCode Carton Please Wait....")
+        Try
+            Dim _Cmd As String = "" : Dim _EN13 As String = "" : Dim _CartonNO As String = ""
+            Dim _oDt As System.Data.DataTable
+            Dim _MaxCarton As Integer = 0
+
+            _Cmd = " Delete from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].. TPACKOrderPack_Carton_Barcode   "
+            _Cmd &= vbCrLf & " where  FTPackNo='" & HI.UL.ULF.rpQuoted(Pack) & "'"
+
+            _Cmd &= vbCrLf & "Select distinct    D.FNCartonNo  "
+            _Cmd &= vbCrLf & " From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Detail D  with(nolock) "
+            _Cmd &= vbCrLf & " where  D.FTPackNo='" & HI.UL.ULF.rpQuoted(Pack) & "'"
+            _Cmd &= vbCrLf & "Order by  D.FNCartonNo asc "
+            _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD)
+            Try
+                _MaxCarton = Val(_oDt.Compute("max(FNCartonNo)", "FNCartonNo> 0"))
+            Catch ex As Exception
+
+            End Try
+            For Each R As DataRow In _oDt.Rows
+                _Spls.UpdateInformation("Generate BarodeCode Carton " & R!FNCartonNo.ToString & " / " & _MaxCarton.ToString & "'")
+                _Cmd = " exec [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.sp_genbarcodeucc '" & HI.UL.ULF.rpQuoted(Pack) & "'," & Val(R!FNCartonNo) & " , '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD)
+            Next
+            _Spls.Close()
+
+            Return True
+        Catch ex As Exception
+            _Spls.Close()
+            Return False
+        End Try
+    End Function
+
     Private Function GenBarcodeEN13(packno As String) As Boolean
         Try
             Dim _Cmd As String = "" : Dim _EN13 As String = "" : Dim _CartonNO As String = ""
@@ -3668,6 +4765,9 @@ T1:
             Next
 
 
+
+            _Cmd = "exec  dbo.sp_updatebarcodeucc '" & packno & "'"
+            HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_PROD)
 
             Return True
         Catch ex As Exception

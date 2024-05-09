@@ -20,6 +20,26 @@ Partial Class wScanPackOrder_New_single
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim EditorButtonImageOptions11 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject41 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject42 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject43 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject44 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions12 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject45 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject46 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject47 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject48 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions15 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject57 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject58 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject59 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject60 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions13 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject49 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject50 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject51 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject52 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -65,26 +85,6 @@ Partial Class wScanPackOrder_New_single
         Dim SerializableAppearanceObject34 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject35 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject36 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions10 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject37 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject38 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject39 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject40 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions11 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject41 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject42 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject43 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject44 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions12 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject45 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject46 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject47 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject48 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions13 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject49 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject50 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject51 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject52 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wScanPackOrder_New_single))
         Me.ogbdocinfo = New DevExpress.XtraEditors.GroupControl()
         Me.FDPackDate = New DevExpress.XtraEditors.DateEdit()
@@ -262,14 +262,14 @@ Partial Class wScanPackOrder_New_single
         Me.FDPackDate.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FDPackDate.Properties.AppearanceReadOnly.Options.UseTextOptions = True
         Me.FDPackDate.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FDPackDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FDPackDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FDPackDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FDPackDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDPackDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDPackDate.Properties.NullDate = ""
         Me.FDPackDate.Properties.ReadOnly = True
         Me.FDPackDate.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never
-        Me.FDPackDate.Size = New System.Drawing.Size(238, 22)
+        Me.FDPackDate.Size = New System.Drawing.Size(238, 23)
         Me.FDPackDate.TabIndex = 1
         Me.FDPackDate.TabStop = False
         Me.FDPackDate.Tag = "2|"
@@ -299,7 +299,7 @@ Partial Class wScanPackOrder_New_single
         Me.FTPackBy.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTPackBy.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTPackBy.Properties.ReadOnly = True
-        Me.FTPackBy.Size = New System.Drawing.Size(238, 22)
+        Me.FTPackBy.Size = New System.Drawing.Size(238, 23)
         Me.FTPackBy.TabIndex = 2
         Me.FTPackBy.TabStop = False
         Me.FTPackBy.Tag = "2|"
@@ -326,25 +326,25 @@ Partial Class wScanPackOrder_New_single
         Me.FTPackNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTPackNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTPackNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        SerializableAppearanceObject5.Options.UseTextOptions = True
-        SerializableAppearanceObject5.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject6.Options.UseTextOptions = True
-        SerializableAppearanceObject6.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject7.Options.UseTextOptions = True
-        SerializableAppearanceObject7.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject8.Options.UseTextOptions = True
-        SerializableAppearanceObject8.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject9.Options.UseTextOptions = True
-        SerializableAppearanceObject9.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject10.Options.UseTextOptions = True
-        SerializableAppearanceObject10.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject11.Options.UseTextOptions = True
-        SerializableAppearanceObject11.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject12.Options.UseTextOptions = True
-        SerializableAppearanceObject12.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTPackNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "202", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", 20, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        SerializableAppearanceObject45.Options.UseTextOptions = True
+        SerializableAppearanceObject45.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject46.Options.UseTextOptions = True
+        SerializableAppearanceObject46.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject47.Options.UseTextOptions = True
+        SerializableAppearanceObject47.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject48.Options.UseTextOptions = True
+        SerializableAppearanceObject48.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject57.Options.UseTextOptions = True
+        SerializableAppearanceObject57.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject58.Options.UseTextOptions = True
+        SerializableAppearanceObject58.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject59.Options.UseTextOptions = True
+        SerializableAppearanceObject59.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject60.Options.UseTextOptions = True
+        SerializableAppearanceObject60.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTPackNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "202", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", 20, True, False, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTPackNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTPackNo.Size = New System.Drawing.Size(238, 22)
+        Me.FTPackNo.Size = New System.Drawing.Size(238, 23)
         Me.FTPackNo.TabIndex = 0
         Me.FTPackNo.TabStop = False
         Me.FTPackNo.Tag = "2|"
@@ -410,7 +410,7 @@ Partial Class wScanPackOrder_New_single
         Me.ogbnote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbnote.Name = "ogbnote"
         Me.ogbnote.ShowCaption = False
-        Me.ogbnote.Size = New System.Drawing.Size(1220, 120)
+        Me.ogbnote.Size = New System.Drawing.Size(1225, 120)
         Me.ogbnote.TabIndex = 146
         Me.ogbnote.Text = "GroupControl1"
         '
@@ -424,7 +424,7 @@ Partial Class wScanPackOrder_New_single
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmdelete)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmsave)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(723, 4)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(728, 4)
         Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(327, 81)
@@ -529,10 +529,10 @@ Partial Class wScanPackOrder_New_single
         Me.FNPackSetValue.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPackSetValue.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPackSetValue.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPackSetValue.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPackSetValue.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPackSetValue.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPackSetValue.Properties.Precision = 0
-        Me.FNPackSetValue.Size = New System.Drawing.Size(98, 22)
+        Me.FNPackSetValue.Size = New System.Drawing.Size(98, 23)
         Me.FNPackSetValue.TabIndex = 292
         Me.FNPackSetValue.TabStop = False
         Me.FNPackSetValue.Tag = "2|"
@@ -564,7 +564,7 @@ Partial Class wScanPackOrder_New_single
         Me.FNHSysStyleId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysStyleId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysStyleId_None.Properties.ReadOnly = True
-        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(871, 22)
+        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(876, 23)
         Me.FNHSysStyleId_None.TabIndex = 289
         Me.FNHSysStyleId_None.Tag = "2|"
         '
@@ -589,9 +589,9 @@ Partial Class wScanPackOrder_New_single
         Me.FNHSysStyleId.Location = New System.Drawing.Point(150, 7)
         Me.FNHSysStyleId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysStyleId.Name = "FNHSysStyleId"
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "157", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "157", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.Tag = ""
-        Me.FNHSysStyleId.Size = New System.Drawing.Size(182, 22)
+        Me.FNHSysStyleId.Size = New System.Drawing.Size(182, 23)
         Me.FNHSysStyleId.TabIndex = 288
         Me.FNHSysStyleId.Tag = "2|"
         '
@@ -635,7 +635,7 @@ Partial Class wScanPackOrder_New_single
         Me.FNOrderPackType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNOrderPackType.Properties.Tag = "FNOrderPackType"
         Me.FNOrderPackType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNOrderPackType.Size = New System.Drawing.Size(182, 22)
+        Me.FNOrderPackType.Size = New System.Drawing.Size(182, 23)
         Me.FNOrderPackType.TabIndex = 285
         Me.FNOrderPackType.Tag = "2|"
         '
@@ -665,7 +665,7 @@ Partial Class wScanPackOrder_New_single
         Me.ogbproductweigthperpcs.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbproductweigthperpcs.Name = "ogbproductweigthperpcs"
         Me.ogbproductweigthperpcs.Properties.MaxLength = 500
-        Me.ogbproductweigthperpcs.Size = New System.Drawing.Size(1065, 54)
+        Me.ogbproductweigthperpcs.Size = New System.Drawing.Size(1070, 54)
         Me.ogbproductweigthperpcs.TabIndex = 2
         Me.ogbproductweigthperpcs.Tag = "2|"
         '
@@ -691,7 +691,7 @@ Partial Class wScanPackOrder_New_single
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysCmpId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCmpId.Properties.MaxLength = 30
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(96, 22)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(96, 23)
         Me.FNHSysCmpId.TabIndex = 284
         Me.FNHSysCmpId.Tag = "|"
         Me.FNHSysCmpId.Visible = False
@@ -703,7 +703,7 @@ Partial Class wScanPackOrder_New_single
         Me.otbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otbdetail.Name = "otbdetail"
         Me.otbdetail.SelectedTabPage = Me.otppackdetailcarton
-        Me.otbdetail.Size = New System.Drawing.Size(1703, 813)
+        Me.otbdetail.Size = New System.Drawing.Size(1708, 857)
         Me.otbdetail.TabIndex = 391
         Me.otbdetail.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otppackdetailcarton})
         '
@@ -713,7 +713,7 @@ Partial Class wScanPackOrder_New_single
         Me.otppackdetailcarton.Controls.Add(Me.otlpack)
         Me.otppackdetailcarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otppackdetailcarton.Name = "otppackdetailcarton"
-        Me.otppackdetailcarton.Size = New System.Drawing.Size(1701, 783)
+        Me.otppackdetailcarton.Size = New System.Drawing.Size(1698, 821)
         Me.otppackdetailcarton.Text = "Carton Detail"
         '
         'ogbpackinfo
@@ -723,11 +723,11 @@ Partial Class wScanPackOrder_New_single
         Me.ogbpackinfo.Controls.Add(Me.ogbcarton)
         Me.ogbpackinfo.Controls.Add(Me.ogbb)
         Me.ogbpackinfo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbpackinfo.Location = New System.Drawing.Point(356, 0)
+        Me.ogbpackinfo.Location = New System.Drawing.Point(476, 0)
         Me.ogbpackinfo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbpackinfo.Name = "ogbpackinfo"
         Me.ogbpackinfo.ShowCaption = False
-        Me.ogbpackinfo.Size = New System.Drawing.Size(1345, 783)
+        Me.ogbpackinfo.Size = New System.Drawing.Size(1646, 1026)
         Me.ogbpackinfo.TabIndex = 146
         Me.ogbpackinfo.Tag = "2|"
         Me.ogbpackinfo.Text = "Pack Info"
@@ -736,10 +736,10 @@ Partial Class wScanPackOrder_New_single
         '
         Me.ogdscanqty.Controls.Add(Me.ogcScan)
         Me.ogdscanqty.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdscanqty.Location = New System.Drawing.Point(2, 505)
+        Me.ogdscanqty.Location = New System.Drawing.Point(2, 6549)
         Me.ogdscanqty.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdscanqty.Name = "ogdscanqty"
-        Me.ogdscanqty.Size = New System.Drawing.Size(1341, 276)
+        Me.ogdscanqty.Size = New System.Drawing.Size(1642, 0)
         Me.ogdscanqty.TabIndex = 307
         Me.ogdscanqty.Text = "SCAN Qty"
         '
@@ -747,11 +747,11 @@ Partial Class wScanPackOrder_New_single
         '
         Me.ogcScan.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcScan.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcScan.Location = New System.Drawing.Point(2, 28)
+        Me.ogcScan.Location = New System.Drawing.Point(2, 27)
         Me.ogcScan.MainView = Me.ogvScan
         Me.ogcScan.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcScan.Name = "ogcScan"
-        Me.ogcScan.Size = New System.Drawing.Size(1337, 246)
+        Me.ogcScan.Size = New System.Drawing.Size(1638, 0)
         Me.ogcScan.TabIndex = 305
         Me.ogcScan.TabStop = False
         Me.ogcScan.Tag = "3|"
@@ -846,10 +846,10 @@ Partial Class wScanPackOrder_New_single
         '
         Me.ogbpackpercarton.Controls.Add(Me.ogcppercarton)
         Me.ogbpackpercarton.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ogbpackpercarton.Location = New System.Drawing.Point(2, 331)
+        Me.ogbpackpercarton.Location = New System.Drawing.Point(2, 345)
         Me.ogbpackpercarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbpackpercarton.Name = "ogbpackpercarton"
-        Me.ogbpackpercarton.Size = New System.Drawing.Size(1341, 174)
+        Me.ogbpackpercarton.Size = New System.Drawing.Size(1642, 6204)
         Me.ogbpackpercarton.TabIndex = 307
         Me.ogbpackpercarton.Text = "จำนวนแพ็ค/กล่อง"
         '
@@ -857,11 +857,11 @@ Partial Class wScanPackOrder_New_single
         '
         Me.ogcppercarton.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcppercarton.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcppercarton.Location = New System.Drawing.Point(2, 28)
+        Me.ogcppercarton.Location = New System.Drawing.Point(2, 27)
         Me.ogcppercarton.MainView = Me.ogvppercarton
         Me.ogcppercarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcppercarton.Name = "ogcppercarton"
-        Me.ogcppercarton.Size = New System.Drawing.Size(1337, 144)
+        Me.ogcppercarton.Size = New System.Drawing.Size(1638, 6175)
         Me.ogcppercarton.TabIndex = 305
         Me.ogcppercarton.TabStop = False
         Me.ogcppercarton.Tag = "3|"
@@ -956,10 +956,11 @@ Partial Class wScanPackOrder_New_single
         Me.ogbcarton.Controls.Add(Me.FNHSysCartonId_None)
         Me.ogbcarton.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbcarton.InvertTouchScroll = True
-        Me.ogbcarton.Location = New System.Drawing.Point(2, 181)
+        Me.ogbcarton.Location = New System.Drawing.Point(2, 193)
         Me.ogbcarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbcarton.MaximumSize = New System.Drawing.Size(0, 152)
         Me.ogbcarton.Name = "ogbcarton"
-        Me.ogbcarton.Size = New System.Drawing.Size(1341, 150)
+        Me.ogbcarton.Size = New System.Drawing.Size(1642, 152)
         Me.ogbcarton.TabIndex = 147
         Me.ogbcarton.Tag = "2|"
         Me.ogbcarton.Text = "Carton Info"
@@ -972,7 +973,7 @@ Partial Class wScanPackOrder_New_single
         Me.FNHSysEmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpId_None.Size = New System.Drawing.Size(773, 22)
+        Me.FNHSysEmpId_None.Size = New System.Drawing.Size(773, 23)
         Me.FNHSysEmpId_None.TabIndex = 1000010
         Me.FNHSysEmpId_None.Tag = "2|"
         '
@@ -996,9 +997,9 @@ Partial Class wScanPackOrder_New_single
         Me.FNHSysEmpId.Location = New System.Drawing.Point(126, 116)
         Me.FNHSysEmpId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysEmpId.Name = "FNHSysEmpId"
-        Me.FNHSysEmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "70", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysEmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "70", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpId.Properties.Tag = "57"
-        Me.FNHSysEmpId.Size = New System.Drawing.Size(128, 22)
+        Me.FNHSysEmpId.Size = New System.Drawing.Size(128, 23)
         Me.FNHSysEmpId.TabIndex = 1000009
         Me.FNHSysEmpId.Tag = "2|"
         '
@@ -1053,14 +1054,14 @@ Partial Class wScanPackOrder_New_single
         Me.FNCartonNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNCartonNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNCartonNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNCartonNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNCartonNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNCartonNo.Properties.DisplayFormat.FormatString = "{0:n0}"
         Me.FNCartonNo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNCartonNo.Properties.EditFormat.FormatString = "{0:n0}"
         Me.FNCartonNo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNCartonNo.Properties.Precision = 0
         Me.FNCartonNo.Properties.ReadOnly = True
-        Me.FNCartonNo.Size = New System.Drawing.Size(126, 22)
+        Me.FNCartonNo.Size = New System.Drawing.Size(126, 23)
         Me.FNCartonNo.TabIndex = 303
         Me.FNCartonNo.Tag = "2|"
         '
@@ -1074,10 +1075,10 @@ Partial Class wScanPackOrder_New_single
         Me.FTBarcodeBundleNo.Appearance.Options.UseTextOptions = True
         Me.FTBarcodeBundleNo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTBarcodeBundleNo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBarcodeBundleNo.Location = New System.Drawing.Point(1001, 28)
+        Me.FTBarcodeBundleNo.Location = New System.Drawing.Point(1410, 32)
         Me.FTBarcodeBundleNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTBarcodeBundleNo.Name = "FTBarcodeBundleNo"
-        Me.FTBarcodeBundleNo.Size = New System.Drawing.Size(672, 33)
+        Me.FTBarcodeBundleNo.Size = New System.Drawing.Size(218, 33)
         Me.FTBarcodeBundleNo.TabIndex = 298
         Me.FTBarcodeBundleNo.Tag = "2|"
         '
@@ -1157,11 +1158,11 @@ Partial Class wScanPackOrder_New_single
         Me.FNNNW.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNNNW.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNNNW.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNNNW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNNNW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNNNW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNNNW.Properties.Precision = 2
         Me.FNNNW.Properties.ReadOnly = True
-        Me.FNNNW.Size = New System.Drawing.Size(129, 22)
+        Me.FNNNW.Size = New System.Drawing.Size(129, 23)
         Me.FNNNW.TabIndex = 294
         Me.FNNNW.Tag = "2|"
         '
@@ -1181,11 +1182,11 @@ Partial Class wScanPackOrder_New_single
         Me.FNGW.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNGW.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNGW.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNGW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNGW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNGW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNGW.Properties.Precision = 2
         Me.FNGW.Properties.ReadOnly = True
-        Me.FNGW.Size = New System.Drawing.Size(134, 22)
+        Me.FNGW.Size = New System.Drawing.Size(134, 23)
         Me.FNGW.TabIndex = 293
         Me.FNGW.Tag = "2|"
         '
@@ -1205,11 +1206,11 @@ Partial Class wScanPackOrder_New_single
         Me.FNNW.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNNW.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNNW.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNNW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNNW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNNW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNNW.Properties.Precision = 2
         Me.FNNW.Properties.ReadOnly = True
-        Me.FNNW.Size = New System.Drawing.Size(129, 22)
+        Me.FNNW.Size = New System.Drawing.Size(129, 23)
         Me.FNNW.TabIndex = 292
         Me.FNNW.Tag = "2|"
         '
@@ -1229,11 +1230,11 @@ Partial Class wScanPackOrder_New_single
         Me.FNCTNW.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNCTNW.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNCTNW.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNCTNW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNCTNW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNCTNW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNCTNW.Properties.Precision = 2
         Me.FNCTNW.Properties.ReadOnly = True
-        Me.FNCTNW.Size = New System.Drawing.Size(125, 22)
+        Me.FNCTNW.Size = New System.Drawing.Size(125, 23)
         Me.FNCTNW.TabIndex = 291
         Me.FNCTNW.Tag = "2|"
         '
@@ -1254,8 +1255,6 @@ Partial Class wScanPackOrder_New_single
         '
         'FNPackCartonSubType
         '
-        Me.FNPackCartonSubType.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FNPackCartonSubType.EditValue = ""
         Me.FNPackCartonSubType.EnterMoveNextControl = True
         Me.FNPackCartonSubType.Location = New System.Drawing.Point(395, 32)
@@ -1275,11 +1274,11 @@ Partial Class wScanPackOrder_New_single
         Me.FNPackCartonSubType.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPackCartonSubType.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPackCartonSubType.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPackCartonSubType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "FNPackCartonSubType", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPackCartonSubType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "FNPackCartonSubType", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPackCartonSubType.Properties.ReadOnly = True
         Me.FNPackCartonSubType.Properties.Tag = "FNPackCartonSubType"
         Me.FNPackCartonSubType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNPackCartonSubType.Size = New System.Drawing.Size(255, 22)
+        Me.FNPackCartonSubType.Size = New System.Drawing.Size(255, 23)
         Me.FNPackCartonSubType.TabIndex = 289
         Me.FNPackCartonSubType.Tag = "2|"
         '
@@ -1308,7 +1307,7 @@ Partial Class wScanPackOrder_New_single
         Me.FTDimension.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTDimension.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTDimension.Properties.ReadOnly = True
-        Me.FTDimension.Size = New System.Drawing.Size(647, 22)
+        Me.FTDimension.Size = New System.Drawing.Size(948, 23)
         Me.FTDimension.TabIndex = 252
         Me.FTDimension.TabStop = False
         Me.FTDimension.Tag = "2|"
@@ -1334,10 +1333,10 @@ Partial Class wScanPackOrder_New_single
         Me.FNHSysCartonId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCartonId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCartonId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCartonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "220", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCartonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "220", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCartonId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCartonId.Properties.MaxLength = 30
-        Me.FNHSysCartonId.Size = New System.Drawing.Size(126, 22)
+        Me.FNHSysCartonId.Size = New System.Drawing.Size(126, 23)
         Me.FNHSysCartonId.TabIndex = 249
         Me.FNHSysCartonId.Tag = "2|"
         '
@@ -1379,7 +1378,7 @@ Partial Class wScanPackOrder_New_single
         Me.FNHSysCartonId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCartonId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysCartonId_None.Properties.ReadOnly = True
-        Me.FNHSysCartonId_None.Size = New System.Drawing.Size(120, 22)
+        Me.FNHSysCartonId_None.Size = New System.Drawing.Size(120, 23)
         Me.FNHSysCartonId_None.TabIndex = 251
         Me.FNHSysCartonId_None.TabStop = False
         Me.FNHSysCartonId_None.Tag = "2|"
@@ -1392,9 +1391,10 @@ Partial Class wScanPackOrder_New_single
         Me.ogbb.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbb.Location = New System.Drawing.Point(2, 2)
         Me.ogbb.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbb.MaximumSize = New System.Drawing.Size(0, 191)
         Me.ogbb.Name = "ogbb"
         Me.ogbb.ShowCaption = False
-        Me.ogbb.Size = New System.Drawing.Size(1341, 179)
+        Me.ogbb.Size = New System.Drawing.Size(1642, 191)
         Me.ogbb.TabIndex = 309
         Me.ogbb.Text = "Carton Barcode"
         '
@@ -1403,10 +1403,10 @@ Partial Class wScanPackOrder_New_single
         Me.ogdProductBarcode.Controls.Add(Me.FTStateDeleteBarcode)
         Me.ogdProductBarcode.Controls.Add(Me.FTProductBarcodeNo)
         Me.ogdProductBarcode.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdProductBarcode.Location = New System.Drawing.Point(2, 88)
+        Me.ogdProductBarcode.Location = New System.Drawing.Point(2, 93)
         Me.ogdProductBarcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdProductBarcode.Name = "ogdProductBarcode"
-        Me.ogdProductBarcode.Size = New System.Drawing.Size(1019, 89)
+        Me.ogdProductBarcode.Size = New System.Drawing.Size(1387, 96)
         Me.ogdProductBarcode.TabIndex = 309
         Me.ogdProductBarcode.Text = "Product Barcode"
         '
@@ -1418,19 +1418,19 @@ Partial Class wScanPackOrder_New_single
         Me.FTStateDeleteBarcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStateDeleteBarcode.Name = "FTStateDeleteBarcode"
         Me.FTStateDeleteBarcode.Properties.Caption = "Delete Barcode"
-        Me.FTStateDeleteBarcode.Size = New System.Drawing.Size(197, 24)
+        Me.FTStateDeleteBarcode.Size = New System.Drawing.Size(567, 20)
         Me.FTStateDeleteBarcode.TabIndex = 1
         '
         'FTProductBarcodeNo
         '
         Me.FTProductBarcodeNo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FTProductBarcodeNo.EditValue = ""
-        Me.FTProductBarcodeNo.Location = New System.Drawing.Point(2, 28)
+        Me.FTProductBarcodeNo.Location = New System.Drawing.Point(2, 27)
         Me.FTProductBarcodeNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTProductBarcodeNo.Name = "FTProductBarcodeNo"
         Me.FTProductBarcodeNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 26.0!, System.Drawing.FontStyle.Bold)
         Me.FTProductBarcodeNo.Properties.Appearance.Options.UseFont = True
-        Me.FTProductBarcodeNo.Size = New System.Drawing.Size(1015, 58)
+        Me.FTProductBarcodeNo.Size = New System.Drawing.Size(1383, 58)
         Me.FTProductBarcodeNo.TabIndex = 0
         '
         'ogbbarcodecarton
@@ -1441,7 +1441,7 @@ Partial Class wScanPackOrder_New_single
         Me.ogbbarcodecarton.Location = New System.Drawing.Point(2, 2)
         Me.ogbbarcodecarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbbarcodecarton.Name = "ogbbarcodecarton"
-        Me.ogbbarcodecarton.Size = New System.Drawing.Size(1019, 86)
+        Me.ogbbarcodecarton.Size = New System.Drawing.Size(1387, 91)
         Me.ogbbarcodecarton.TabIndex = 308
         Me.ogbbarcodecarton.Text = "Carton Barcode"
         '
@@ -1451,29 +1451,29 @@ Partial Class wScanPackOrder_New_single
         Me.ockmanual.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ockmanual.Name = "ockmanual"
         Me.ockmanual.Properties.Caption = "Manual"
-        Me.ockmanual.Size = New System.Drawing.Size(194, 24)
+        Me.ockmanual.Size = New System.Drawing.Size(194, 20)
         Me.ockmanual.TabIndex = 309
         '
         'FTCartonBarcodeNo
         '
         Me.FTCartonBarcodeNo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FTCartonBarcodeNo.EditValue = ""
-        Me.FTCartonBarcodeNo.Location = New System.Drawing.Point(2, 28)
+        Me.FTCartonBarcodeNo.Location = New System.Drawing.Point(2, 27)
         Me.FTCartonBarcodeNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTCartonBarcodeNo.Name = "FTCartonBarcodeNo"
         Me.FTCartonBarcodeNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 26.0!, System.Drawing.FontStyle.Bold)
         Me.FTCartonBarcodeNo.Properties.Appearance.Options.UseFont = True
-        Me.FTCartonBarcodeNo.Size = New System.Drawing.Size(1015, 58)
+        Me.FTCartonBarcodeNo.Size = New System.Drawing.Size(1383, 58)
         Me.FTCartonBarcodeNo.TabIndex = 1
         '
         'ogrpQtyScan
         '
         Me.ogrpQtyScan.Controls.Add(Me.lblQtyScan)
         Me.ogrpQtyScan.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ogrpQtyScan.Location = New System.Drawing.Point(1021, 2)
+        Me.ogrpQtyScan.Location = New System.Drawing.Point(1389, 2)
         Me.ogrpQtyScan.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogrpQtyScan.Name = "ogrpQtyScan"
-        Me.ogrpQtyScan.Size = New System.Drawing.Size(318, 175)
+        Me.ogrpQtyScan.Size = New System.Drawing.Size(251, 187)
         Me.ogrpQtyScan.TabIndex = 310
         Me.ogrpQtyScan.Text = "SCAN QTY"
         '
@@ -1487,10 +1487,10 @@ Partial Class wScanPackOrder_New_single
         Me.lblQtyScan.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.lblQtyScan.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.lblQtyScan.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblQtyScan.Location = New System.Drawing.Point(2, 28)
+        Me.lblQtyScan.Location = New System.Drawing.Point(2, 27)
         Me.lblQtyScan.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblQtyScan.Name = "lblQtyScan"
-        Me.lblQtyScan.Size = New System.Drawing.Size(314, 145)
+        Me.lblQtyScan.Size = New System.Drawing.Size(247, 158)
         Me.lblQtyScan.TabIndex = 309
         Me.lblQtyScan.Tag = "2|"
         Me.lblQtyScan.Text = "000"
@@ -1502,7 +1502,7 @@ Partial Class wScanPackOrder_New_single
         Me.otlpack.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otlpack.Name = "otlpack"
         Me.otlpack.SelectImageList = Me.imagepackList
-        Me.otlpack.Size = New System.Drawing.Size(356, 783)
+        Me.otlpack.Size = New System.Drawing.Size(381, 1026)
         Me.otlpack.TabIndex = 0
         Me.otlpack.TreeLevelWidth = 17
         '
@@ -1529,7 +1529,7 @@ Partial Class wScanPackOrder_New_single
         Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl1.Name = "GroupControl1"
         Me.GroupControl1.ShowCaption = False
-        Me.GroupControl1.Size = New System.Drawing.Size(1703, 124)
+        Me.GroupControl1.Size = New System.Drawing.Size(1708, 124)
         Me.GroupControl1.TabIndex = 392
         Me.GroupControl1.Text = "GroupControl1"
         '
@@ -1537,7 +1537,7 @@ Partial Class wScanPackOrder_New_single
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1703, 937)
+        Me.ClientSize = New System.Drawing.Size(1708, 981)
         Me.Controls.Add(Me.otbdetail)
         Me.Controls.Add(Me.GroupControl1)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)

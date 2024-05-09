@@ -400,7 +400,7 @@ Public Class wProdIronTracking
             _Qry = " Select   Case When ISDATE(A.FDInsDate) = 1 Then   Convert(DateTime,A.FDInsDate)  Else NULL End As FDInsDate "
             _Qry &= vbCrLf & "  , A.FTPackNo"
             _Qry &= vbCrLf & "  , A.FNCartonNo		 "
-            _Qry &= vbCrLf & "  , XPO.FTCustomerPO"
+            _Qry &= vbCrLf & "  , B.FTCustomerPO"
             _Qry &= vbCrLf & "  , ST.FTStyleCode"
             _Qry &= vbCrLf & "  , PCT.FTOrderNo"
             _Qry &= vbCrLf & "  , PCT.FTSubOrderNo"
@@ -430,7 +430,7 @@ Public Class wProdIronTracking
             _Qry &= vbCrLf & "  And SC.FTSubOrderNo  = PCT.FTSubOrderNo"
             _Qry &= vbCrLf & " And SC.FTColorway  = PCT.FTColorway"
             _Qry &= vbCrLf & "  And SC.FTSizeBreakDown  = PCT.FTSizeBreakDown "
-            _Qry &= vbCrLf & "  And SC.FTNikePOLineItem  = ISNULL(PCT.FTPOLine,SC.FTNikePOLineItem) "
+            _Qry &= vbCrLf & "  And SC.FTNikePOLineItem  = ISNULL(PCT.FTPOLine,SC.FTNikePOLineItem) and sc.FTPOref = b.FTCustomerPO "
             _Qry &= vbCrLf & ") As XPO  "
 
 
@@ -482,7 +482,7 @@ Public Class wProdIronTracking
             _Qry &= vbCrLf & " GROUP BY   CASE WHEN ISDATE(A.FDInsDate) = 1 THEN   Convert(DateTime,A.FDInsDate)  ELSE NULL END "
             _Qry &= vbCrLf & " , A.FTPackNo"
             _Qry &= vbCrLf & "  , A.FNCartonNo"
-            _Qry &= vbCrLf & "  , XPO.FTCustomerPO"
+            _Qry &= vbCrLf & "  , B.FTCustomerPO"
             _Qry &= vbCrLf & " , ST.FTStyleCode"
             _Qry &= vbCrLf & " , PCT.FTOrderNo"
             _Qry &= vbCrLf & " , PCT.FTSubOrderNo"
@@ -490,7 +490,7 @@ Public Class wProdIronTracking
             _Qry &= vbCrLf & " , PCT.FTSizeBreakDown"
             _Qry &= vbCrLf & " , XPO.FTPOLine "
 
-            _Qry &= vbCrLf & "  ORDER BY CASE WHEN ISDATE(A.FDInsDate) = 1 THEN   Convert(DateTime,A.FDInsDate)  ELSE NULL END ,A.FTPackNo,A.FNCartonNo,XPO.FTCustomerPO "
+            _Qry &= vbCrLf & "  ORDER BY CASE WHEN ISDATE(A.FDInsDate) = 1 THEN   Convert(DateTime,A.FDInsDate)  ELSE NULL END ,A.FTPackNo,A.FNCartonNo,B.FTCustomerPO "
 
             _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
 

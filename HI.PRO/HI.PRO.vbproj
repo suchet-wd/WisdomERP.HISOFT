@@ -25,6 +25,7 @@
     <DocumentationFile>HI.PRO.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -124,14 +125,24 @@
     <Reference Include="DevExpress.XtraTreeList.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\..\DLL\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Drawing">
       <Private>True</Private>
     </Reference>
@@ -166,6 +177,60 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\PROD.vb" />
+    <Compile Include="CM\wCMOrderBreakDown.Designer.vb">
+      <DependentUpon>wCMOrderBreakDown.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CM\wCMOrderBreakDown.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CM\wCMOrderDistination.designer.vb">
+      <DependentUpon>wCMOrderDistination.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CM\wCMOrderDistination.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CM\wCMOrderOverview.Designer.vb">
+      <DependentUpon>wCMOrderOverview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CM\wCMOrderOverview.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CM\wCMScanBarcodeOperationRcvApproved.Designer.vb">
+      <DependentUpon>wCMScanBarcodeOperationRcvApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CM\wCMScanBarcodeOperationRcvApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CM\wCMScanBarcodeOperationRcv.Designer.vb">
+      <DependentUpon>wCMScanBarcodeOperationRcv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CM\wCMScanBarcodeOperationRcv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CM\wCMScanBarcodeOperationApproved.Designer.vb">
+      <DependentUpon>wCMScanBarcodeOperationApproved.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CM\wCMScanBarcodeOperationApproved.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CM\wCMTrack.designer.vb">
+      <DependentUpon>wCMTrack.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CM\wCMTrack.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CM\wOrderCMProduction.designer.vb">
+      <DependentUpon>wOrderCMProduction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CM\wOrderCMProduction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CM\wCMScanBarcodeOperation.Designer.vb">
+      <DependentUpon>wCMScanBarcodeOperation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CM\wCMScanBarcodeOperation.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Efka\EfkaDisplayCycleTimeInfo.Designer.vb">
       <DependentUpon>EfkaDisplayCycleTimeInfo.vb</DependentUpon>
     </Compile>
@@ -218,6 +283,42 @@
       <DependentUpon>wStyleWeightSet.vb</DependentUpon>
     </Compile>
     <Compile Include="Master\wStyleWeightSet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MiniFG\wCreatePackOrderCustPONonStyMiniFG.Designer.vb">
+      <DependentUpon>wCreatePackOrderCustPONonStyMiniFG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MiniFG\wCreatePackOrderCustPONonStyMiniFG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MiniFG\wGenerateCartonNonStyMiniFG.Designer.vb">
+      <DependentUpon>wGenerateCartonNonStyMiniFG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MiniFG\wGenerateCartonNonStyMiniFG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MiniFG\wIssMiniFG.designer.vb">
+      <DependentUpon>wIssMiniFG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MiniFG\wIssMiniFG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MiniFG\wMiniFGOnhand.designer.vb">
+      <DependentUpon>wMiniFGOnhand.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MiniFG\wMiniFGOnhand.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MiniFG\wQAToMiniFG.designer.vb">
+      <DependentUpon>wQAToMiniFG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MiniFG\wQAToMiniFG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CM\wCMScanBarcodeSend.designer.vb">
+      <DependentUpon>wCMScanBarcodeSend.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CM\wCMScanBarcodeSend.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MRPThread\wThreadAutoGeneratePO.Designer.vb">
@@ -292,6 +393,12 @@
     <Compile Include="MU\wProdIssueRequestMU.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MU\wProdMUOnhand.Designer.vb">
+      <DependentUpon>wProdMUOnhand.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MU\wProdMUOnhand.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MU\wProdMUGroup.Designer.vb">
       <DependentUpon>wProdMUGroup.vb</DependentUpon>
     </Compile>
@@ -308,6 +415,12 @@
       <DependentUpon>wProdMUSetRatio.vb</DependentUpon>
     </Compile>
     <Compile Include="MU\wProdMUSetRatio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\wEffByReport.designer.vb">
+      <DependentUpon>wEffByReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\wEffByReport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Report\wReportOrderPack.designer.vb">
@@ -829,8 +942,41 @@
     <Compile Include="UI\EfkaDataCycleTimeInfo.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="InterfaceToAx\wInterfaceToAx.designer.vb">
+      <DependentUpon>wInterfaceToAx.vb</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceToAx\wInterfaceToAx.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CM\wCMOrderBreakDown.resx">
+      <DependentUpon>wCMOrderBreakDown.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CM\wCMOrderDistination.resx">
+      <DependentUpon>wCMOrderDistination.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CM\wCMOrderOverview.resx">
+      <DependentUpon>wCMOrderOverview.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CM\wCMScanBarcodeOperationRcvApproved.resx">
+      <DependentUpon>wCMScanBarcodeOperationRcvApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CM\wCMScanBarcodeOperationRcv.resx">
+      <DependentUpon>wCMScanBarcodeOperationRcv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CM\wCMScanBarcodeOperationApproved.resx">
+      <DependentUpon>wCMScanBarcodeOperationApproved.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CM\wCMTrack.resx">
+      <DependentUpon>wCMTrack.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CM\wOrderCMProduction.resx">
+      <DependentUpon>wOrderCMProduction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CM\wCMScanBarcodeOperation.resx">
+      <DependentUpon>wCMScanBarcodeOperation.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Efka\EfkaDisplayCycleTimeInfo.resx">
       <DependentUpon>EfkaDisplayCycleTimeInfo.vb</DependentUpon>
     </EmbeddedResource>
@@ -857,6 +1003,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Master\wStyleWeightSet.resx">
       <DependentUpon>wStyleWeightSet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiniFG\wCreatePackOrderCustPONonStyMiniFG.resx">
+      <DependentUpon>wCreatePackOrderCustPONonStyMiniFG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiniFG\wGenerateCartonNonStyMiniFG.resx">
+      <DependentUpon>wGenerateCartonNonStyMiniFG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiniFG\wIssMiniFG.resx">
+      <DependentUpon>wIssMiniFG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiniFG\wMiniFGOnhand.resx">
+      <DependentUpon>wMiniFGOnhand.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiniFG\wQAToMiniFG.resx">
+      <DependentUpon>wQAToMiniFG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CM\wCMScanBarcodeSend.resx">
+      <DependentUpon>wCMScanBarcodeSend.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MRPThread\wThreadAutoGeneratePO.resx">
       <DependentUpon>wThreadAutoGeneratePO.vb</DependentUpon>
@@ -894,6 +1058,9 @@
     <EmbeddedResource Include="MU\wProdIssueRequestMU.resx">
       <DependentUpon>wProdIssueRequestMU.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MU\wProdMUOnhand.resx">
+      <DependentUpon>wProdMUOnhand.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MU\wProdMUGroup.resx">
       <DependentUpon>wProdMUGroup.vb</DependentUpon>
     </EmbeddedResource>
@@ -902,6 +1069,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MU\wProdMUSetRatio.resx">
       <DependentUpon>wProdMUSetRatio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\wEffByReport.resx">
+      <DependentUpon>wEffByReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\wReportOrderPack.resx">
       <DependentUpon>wReportOrderPack.vb</DependentUpon>
@@ -1162,6 +1332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\EfkaDataCycleTimeInfo.resx">
       <DependentUpon>EfkaDataCycleTimeInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceToAx\wInterfaceToAx.resx">
+      <DependentUpon>wInterfaceToAx.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

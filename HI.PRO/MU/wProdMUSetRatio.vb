@@ -6,6 +6,7 @@ Imports System.Drawing
 Imports DevExpress.XtraEditors.Controls
 Imports System.ComponentModel
 Imports System.Windows.Forms
+Imports DevExpress.XtraTab
 
 Public Class wProdMUSetRatio
 
@@ -200,7 +201,7 @@ Public Class wProdMUSetRatio
                     Select Case .Columns(I).FieldName.ToString.ToUpper
 
                         Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                         "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper
+                         "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNTableQty".ToUpper, "FNQuantity".ToUpper, "FNTotalYardPerLayer".ToUpper
                             .Columns(I).OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False
                         Case Else
                             .Columns.Remove(.Columns(I))
@@ -246,7 +247,7 @@ Public Class wProdMUSetRatio
                         Select Case Col.ColumnName.ToString.ToUpper
 
                             Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                        "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                        "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                      "FNHSysStyleId_Hide".ToUpper
 
 
@@ -337,7 +338,7 @@ Public Class wProdMUSetRatio
                                         Select Case Col.FieldName.ToUpper
 
                                             Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                          "FNHSysStyleId_Hide".ToUpper
                                             Case Else
 
@@ -373,7 +374,7 @@ Public Class wProdMUSetRatio
                     Select Case .Columns(I).FieldName.ToString.ToUpper
 
                         Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                         "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper
+                         "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper
                             .Columns(I).OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False
                         Case Else
                             .Columns.Remove(.Columns(I))
@@ -420,7 +421,7 @@ Public Class wProdMUSetRatio
                         Select Case Col.ColumnName.ToString.ToUpper
 
                             Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                        "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                        "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                      "FNHSysStyleId_Hide".ToUpper
 
 
@@ -511,7 +512,7 @@ Public Class wProdMUSetRatio
                                         Select Case Col.FieldName.ToUpper
 
                                             Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                          "FNHSysStyleId_Hide".ToUpper
                                             Case Else
 
@@ -691,10 +692,25 @@ Public Class wProdMUSetRatio
 
 
         Try
+            Me.FNConsAvg.Value = 0
+            Me.FNMaxLayers.Value = 0
+            Me.FNMaxYard.Value = 0
+            Me.FNMinYard.Value = 0
+            _Qry = "select top 1   FNMaxLayer, FNConsAvg, FNMinYard, FNMaxYard   from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODMURatio with(nolock)"
+            _Qry &= vbCrLf & " where FTGroupNo='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "'"
+            _Qry &= vbCrLf & " and FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "'"
+            _Qry &= vbCrLf & " and FNHSysCmpId=" & Val(Me.FNHSysCmpId.Properties.Tag) & ""
+            For Each R As DataRow In HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD).Rows
+
+                Me.FNConsAvg.Value = Val(R!FNConsAvg)
+                Me.FNMaxLayers.Value = Val(R!FNMaxLayer)
+                Me.FNMaxYard.Value = Val(R!FNMaxYard)
+                Me.FNMinYard.Value = Val(R!FNMinYard)
+            Next
 
 
             Dim _PartCode As String = ""
-
+            _Qry = ""
 
             _Qry &= vbCrLf & "Select   distinct FNSeq  ,    "
             _Qry &= vbCrLf & "  STUFF ( (SELECT   distinct ',' +FTPartCode   "
@@ -712,27 +728,71 @@ Public Class wProdMUSetRatio
             _Qry &= vbCrLf & " order by FNSeq asc "
             _dtpart = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
 
+            Try
+                Me.xtabpart.TabPages.Clear()
+            Catch ex As Exception
+
+            End Try
+
+            Try
+                Me.xtabpart.TabPages.Clear()
+            Catch ex As Exception
+
+            End Try
+
+
+            Try
+                Me.xtabpart.TabPages.Clear()
+            Catch ex As Exception
+
+            End Try
+
+
+            Try
+                Me.xtabpart.TabPages.Clear()
+            Catch ex As Exception
+
+            End Try
+
+
+            Try
+                Me.xtabpart.TabPages.Clear()
+            Catch ex As Exception
+
+            End Try
+
+
+
             If _dtpart.Rows.Count > 0 Then
 
-                Me.xtabpart.TabPages.Clear()
-                Me.xtabpart.TabPages.Add(Me.XtraTabPage1)
 
-                For Each x As DevExpress.XtraTab.XtraTabPage In Me.xtabpart.TabPages
 
-                    If x.Name = "XtraTabPage1" Then
 
-                        x.PageEnabled = False
-                        x.PageVisible = False
-                    Else
-                        Try
-                            Me.xtabpart.TabPages.Remove(x)
-                        Catch ex As Exception
+                ' Me.xtabpart.TabPages.Add(Me.XtraTabPage1)
 
-                        End Try
+                Try
+                    Dim i As Integer = 0
+                    For Each x As DevExpress.XtraTab.XtraTabPage In Me.xtabpart.TabPages
 
-                    End If
+                        If x.Name = "XtraTabPage1" Then
 
-                Next
+                            x.PageEnabled = False
+                            x.PageVisible = False
+                        Else
+                            Try
+                                Me.xtabpart.TabPages.Remove(x)
+                                Me.xtabpart.TabPages.RemoveAt(i)
+                            Catch ex As Exception
+
+                            End Try
+
+                        End If
+                        i += +1
+                    Next
+
+                Catch ex As Exception
+
+                End Try
 
 
                 For Each R As DataRow In _dtpart.Rows
@@ -779,12 +839,6 @@ Public Class wProdMUSetRatio
                     End With
 
 
-
-
-
-                    '_GridV = Me.AdvBandedGridView2
-
-
                     _GridV = _gridCtl(_PartCode, _Grid)
 
 
@@ -794,18 +848,12 @@ Public Class wProdMUSetRatio
                     _Grid.MainView = _GridV
                     _Grid.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {_GridV})
                     _Grid.EndInit()
-                    _TabPage.Controls.Add(_Grid)
-                    _Grid.Dock = DockStyle.Fill
-
-
-
-
 
 
                     InitGridRatioDynamic(_dt, _dt2, _GridV, _Grid)
-                    'Me.ogcratio.DataSource = _dt
 
-                    'InitGridRatio(_dt, _dt2)
+                    _TabPage.Controls.Add(_Grid)
+                    _Grid.Dock = DockStyle.Fill
 
 
 
@@ -815,61 +863,9 @@ Public Class wProdMUSetRatio
 
                 Next
 
-                'With DirectCast(Me.ogcpart.DataSource, DataTable)
-                '    .AcceptChanges()
-                '    For Each r As DataRow In .Select("FTSelect='1'")
-                '        If _PartCode <> "" Then _PartCode &= ","
-                '        _PartCode &= r!FTPartCode.ToString
-                '    Next
-
-                'End With
 
 
 
-
-
-
-
-            Else
-                Me.xtabpart.TabPages.Clear()
-                Me.xtabpart.TabPages.Add(Me.XtraTabPage1)
-
-                For Each x As DevExpress.XtraTab.XtraTabPage In Me.xtabpart.TabPages
-
-                    If x.Name = "XtraTabPage1" Then
-
-                        x.PageEnabled = False
-                        x.PageVisible = False
-                    Else
-                        Try
-                            Me.xtabpart.TabPages.Remove(x)
-                        Catch ex As Exception
-
-                        End Try
-
-                    End If
-
-                Next
-
-                '_Qry = "Exec  dbo.SP_GET_MUGroupPlanForRatio  @FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' , @FTGroupNo='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "'"
-
-                'HI.Conn.SQLConn.GetDataSet(_Qry, Conn.DB.DataBaseName.DB_PROD, _ds)
-                'If _ds.Tables.Count <= 1 Then
-                '    _ds = New DataSet
-                '    _Qry = "Exec  dbo.SP_GET_MUGroupPlanForRatio  @FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' , @FTGroupNo='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "'"
-                '    HI.Conn.SQLConn.GetDataSet(_Qry, Conn.DB.DataBaseName.DB_PROD, _ds)
-
-                '    _dt = _ds.Tables(0)
-                '    _dt2 = _ds.Tables(1)
-                'Else
-                '    _dt = _ds.Tables(0)
-                '    _dt2 = _ds.Tables(1)
-                'End If
-
-
-
-                'InitGridRatio(_dt, _dt2)
-                'Me.ogcratio.DataSource = _dt
 
 
 
@@ -878,51 +874,6 @@ Public Class wProdMUSetRatio
 
             Call LoadOrderPackBreakDown()
 
-            '_Qry = "Select  Top 1   FTDocumentNo  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMURatio with(nolock)"
-            '_Qry &= vbCrLf & " where  FTDocumentNo  = '" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "'  and FTGroupNo = '" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "' "
-
-
-            'If (HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD).Rows.Count > 0) Then
-            '    _Qry = "Exec  dbo.SP_GET_MUGroupPlanForRatio_Save  @FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' , @FTGroupNo='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "'  , @PartCode='" & HI.UL.ULF.rpQuoted(_PartCode) & "' "
-            '    Me.ogcratio.DataSource = Nothing
-
-
-            'Else
-            '    _Qry = "Exec  dbo.SP_GET_MUGroupPlanForRatio  @FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' , @FTGroupNo='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "'"
-
-            'End If
-
-
-            'HI.Conn.SQLConn.GetDataSet(_Qry, Conn.DB.DataBaseName.DB_PROD, _ds)
-            'If _ds.Tables.Count <= 1 Then
-            '    _ds = New DataSet
-            '    _Qry = "Exec  dbo.SP_GET_MUGroupPlanForRatio  @FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' , @FTGroupNo='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "'"
-            '    HI.Conn.SQLConn.GetDataSet(_Qry, Conn.DB.DataBaseName.DB_PROD, _ds)
-
-            '    _dt = _ds.Tables(0)
-            '    _dt2 = _ds.Tables(1)
-            'Else
-            '    _dt = _ds.Tables(0)
-            '    _dt2 = _ds.Tables(1)
-            'End If
-
-
-
-            'InitGridRatio(_dt, _dt2)
-            ''Me.ogcratio.DataSource = _dt
-
-
-
-            'Call LoadOrderPackBreakDown()
-
-
-
-            '_Qry = "Exec  dbo.SP_GET_MUGroupPlan  @CmpCode='" & HI.UL.ULF.rpQuoted(Me.FNHSysCmpId.Text) & "' , @BuyGroupCode='" & HI.UL.ULF.rpQuoted(Me.FNHSysBuyId.Text) & "' , @FTStyleCode='" & HI.UL.ULF.rpQuoted(Me.FNHSysStyleId.Text) & "'"
-            '_Qry &= vbCrLf & " ,@FTOrderNo='" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text) & "' , @FTOrderNoTo ='" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text) & "' , @FTCustomerPO='" & HI.UL.ULF.rpQuoted(Me.FTCustomerPO.Text) & "' , @FTCustomerPOTo ='" & HI.UL.ULF.rpQuoted(Me.FTCustomerPOTo.Text) & "'"
-            '_dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
-
-
-            ' Call LoaddataDetailColorSize()
 
         Catch ex As Exception
         End Try
@@ -1035,7 +986,8 @@ Public Class wProdMUSetRatio
                     If _PartCode = "" Then
                         r!FNHSysMarkId = ""
                     Else
-                        r!FNHSysMarkId = _PartCode & Microsoft.VisualBasic.Right("00" & _RawInd, 3)
+                        'r!FNHSysMarkId = _PartCode & Microsoft.VisualBasic.Right("00" & _RawInd, 3)
+                        r!FNHSysMarkId = Me.genMarkRun(_PartCode, _RawInd)
                     End If
                 Next
                 .AcceptChanges()
@@ -1044,6 +996,7 @@ Public Class wProdMUSetRatio
 
 
             HI.TL.HandlerControl.AddHandlerObj(_TabPage)
+
 
             Me.xtabpart.TabPages.Add(_TabPage)
 
@@ -1063,7 +1016,34 @@ Public Class wProdMUSetRatio
 
     End Sub
 
+    Private Function genMarkRun(Part As String, Optional ByVal seq As Integer = 1) As String
+        Try
 
+            Dim _cmd As String = ""
+            Dim _DocRun As String = ""
+            _cmd = "select ISNULL( MAX(FTDocRunNo)  ,'')  as FTDocNo "
+            _cmd &= vbCrLf & " FROM       " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.SequenceTABLE"
+            _cmd &= vbCrLf & " where FTTableName = 'TPRODMURatio_D' and FNHSysCmpId =  " & HI.ST.SysInfo.CmpID
+            _cmd &= vbCrLf & " and LEFT(FTDocRunNo,len('" & Part & "'))  = '" & Part & "'  "
+            _cmd &= vbCrLf & " and LEFT(FTDocRunNo , len('" & Part & "') + 6 ) = '" & Part & "' +  RIGHT( CONVERT(varchar(10) ,  GETDATE() ,112)  , 6)   "
+            _DocRun = HI.Conn.SQLConn.GetField(_cmd, Conn.DB.DataBaseName.DB_SYSTEM, "")
+            If _DocRun = "" Then
+                _cmd = " select  '" & Part & "' +  RIGHT( CONVERT(varchar(10) ,  GETDATE() ,112)  , 6) +  right( '000' + '" & seq.ToString & "' , 4) as FTDocNo   "
+                _DocRun = HI.Conn.SQLConn.GetField(_cmd, Conn.DB.DataBaseName.DB_SYSTEM, "")
+            Else
+                Dim NewDoc As String = Microsoft.VisualBasic.Right("0000" + (Integer.Parse(Microsoft.VisualBasic.Right(_DocRun, 4)) + seq).ToString, 4)
+                _DocRun = Microsoft.VisualBasic.Left(_DocRun, Len(_DocRun) - 4) & NewDoc
+            End If
+
+            _cmd = "insert into  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.SequenceTABLE ( FNHSysCmpId, FTDocRunNo, FTTableName) "
+            _cmd &= vbCrLf & " select " & HI.ST.SysInfo.CmpID & ",'" & _DocRun & "' ,'TPRODMURatio_D'"
+            HI.Conn.SQLConn.ExecuteOnly(_cmd, Conn.DB.DataBaseName.DB_PROD)
+
+            Return _DocRun
+        Catch ex As Exception
+            Return ""
+        End Try
+    End Function
     Private Function _gridCtl(_PartCode As String, _Grid As DevExpress.XtraGrid.GridControl) As DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView
         Try
             Dim _gBMark As New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
@@ -1073,10 +1053,14 @@ Public Class wProdMUSetRatio
             Dim _BandedGridColumn18 As New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
             Dim _BandedGridColumn19 As New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
             Dim _BandedGridColumn20 As New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+
             Dim _BandedGridColumn7 As New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
             Dim _BandedGridColumn8 As New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
             Dim _BandedGridColumn9 As New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
             Dim _BandedGridColumn10 As New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+
+            Dim _BandedGridColumn21 As New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
+            Dim _BandedGridColumn22 As New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
 
 
             Dim _cFNHSysMarkId As New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn
@@ -1154,6 +1138,29 @@ Public Class wProdMUSetRatio
             _BandedGridColumn19.Width = 110
 
 
+            _BandedGridColumn21.Caption = "จำนวนโต๊ะ"
+            _BandedGridColumn21.DisplayFormat.FormatString = "N0"
+            _BandedGridColumn21.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+            _BandedGridColumn21.FieldName = "FNTableQty"
+            _BandedGridColumn21.MinWidth = 25
+            _BandedGridColumn21.Name = "BandedGridColumn21" & _PartCode
+            _BandedGridColumn21.OptionsColumn.AllowEdit = False
+            _BandedGridColumn21.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNTableQty", "{0:N0}")})
+            _BandedGridColumn21.Visible = True
+            _BandedGridColumn21.Width = 110
+
+
+            _BandedGridColumn22.Caption = "Length"
+            _BandedGridColumn22.DisplayFormat.FormatString = "N2"
+            _BandedGridColumn22.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+            _BandedGridColumn22.FieldName = "FNTotalYardPerLayer"
+            _BandedGridColumn22.MinWidth = 25
+            _BandedGridColumn22.Name = "BandedGridColumn22" & _PartCode
+            _BandedGridColumn22.OptionsColumn.AllowEdit = False
+            _BandedGridColumn22.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNTotalYardPerLayer", "{0:N2}")})
+            _BandedGridColumn22.Visible = True
+            _BandedGridColumn21.Width = 110
+
 
             _BandedGridColumn10.Caption = "MarkSeq"
             _BandedGridColumn10.FieldName = "MarkSeq"
@@ -1189,6 +1196,8 @@ Public Class wProdMUSetRatio
             _gBTotal.Columns.Add(_BandedGridColumn18)
             _gBTotal.Columns.Add(_BandedGridColumn17)
             _gBTotal.Columns.Add(_BandedGridColumn19)
+            _gBTotal.Columns.Add(_BandedGridColumn21)
+            _gBTotal.Columns.Add(_BandedGridColumn22)
             _gBTotal.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right
             _gBTotal.Name = "gBTotal" & _PartCode
             _gBTotal.Caption = "-"
@@ -1201,7 +1210,7 @@ Public Class wProdMUSetRatio
                 .Name = "ogvGSum" & _PartCode
 
                 .Bands.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {_gBMark, _gBTotal})
-                .Columns.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn() {_BandedGridColumn10, _BandedGridColumn9, _BandedGridColumn7, _cFNHSysMarkId, _BandedGridColumn20, _BandedGridColumn18, _BandedGridColumn17, _BandedGridColumn19, _BandedGridColumn8})
+                .Columns.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn() {_BandedGridColumn10, _BandedGridColumn9, _BandedGridColumn7, _cFNHSysMarkId, _BandedGridColumn20, _BandedGridColumn18, _BandedGridColumn17, _BandedGridColumn19, _BandedGridColumn8, _BandedGridColumn21, _BandedGridColumn22})
                 .DetailHeight = 431
                 '.GridControl = Me.ogcratio
                 '.Name = "ogvGSum" & _PartCode
@@ -1210,6 +1219,7 @@ Public Class wProdMUSetRatio
                 .OptionsView.ShowFooter = True
                 .OptionsView.ShowGroupPanel = False
                 .Tag = "2|"
+
             End With
 
             Return _GridV
@@ -1457,6 +1467,28 @@ Public Class wProdMUSetRatio
         End Try
     End Sub
 
+
+    Private Sub CalsAI(ogv As DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView, ogc As DevExpress.XtraGrid.GridControl)
+        Try
+            With ogv
+                If .FocusedRowHandle < 0 Or .RowCount < 0 Then Exit Sub
+
+                Dim _dt As DataTable
+                With DirectCast(ogc.DataSource, DataTable)
+                    .AcceptChanges()
+
+                    _dt = .Copy
+
+                End With
+
+            End With
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+
     Private Sub Calslayer(ogv As DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView, ogc As DevExpress.XtraGrid.GridControl)
         Try
 
@@ -1504,7 +1536,7 @@ Public Class wProdMUSetRatio
                                 Select Case Col.ColumnName.ToString.ToUpper
 
                                     Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                          "FNHSysStyleId_Hide".ToUpper
                                     Case Else
 
@@ -1519,6 +1551,14 @@ Public Class wProdMUSetRatio
 
                     Next
                     _dt.AcceptChanges()
+
+                    Dim totalsolid As Integer = 0
+
+                    If (Me.FNMaxLayers.Value < valuex) Then
+                        totalsolid = Math.Floor(valuex / Me.FNMaxLayers.Value)
+                        valuex = Me.FNMaxLayers.Value * totalsolid
+
+                    End If
 
                     For Each R As DataRow In _dt.Select("MarkSeq=" & MarkSeq)
                         If R!FNSeq = 1 Then
@@ -1538,6 +1578,10 @@ Public Class wProdMUSetRatio
                                         R.Item(Col.ColumnName) = _OrderQty
                                     Case "FNTotalQty".ToUpper
                                         R.Item(Col.ColumnName) = valuex * _OrderQty
+                                    Case "FNTableQty".ToUpper
+                                        R.Item(Col.ColumnName) = totalsolid
+                                    Case "FNTotalYardPerLayer".ToUpper
+                                        R.Item(Col.ColumnName) = _OrderQty * Me.FNConsAvg.Value
                                     Case Else
 
 
@@ -1567,7 +1611,7 @@ Public Class wProdMUSetRatio
                                 Select Case Col.ColumnName.ToString.ToUpper
 
                                     Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                          "FNHSysStyleId_Hide".ToUpper
 
 
@@ -1590,7 +1634,7 @@ Public Class wProdMUSetRatio
                                 Select Case Col.ColumnName.ToString.ToUpper
 
                                     Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                            "FNTotalQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                            "FNTotalQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                          "FNHSysStyleId_Hide".ToUpper
                                     Case "FNOrderQty".ToUpper
                                         R.Item(Col.ColumnName) = _OrderBal
@@ -1654,6 +1698,10 @@ Public Class wProdMUSetRatio
     End Sub
 
     Private Sub ocmaddmark_Click(sender As Object, e As EventArgs) Handles ocmaddmark.Click
+        addnewmark()
+    End Sub
+
+    Public Sub addnewmark()
         Try
 
 
@@ -1664,6 +1712,11 @@ Public Class wProdMUSetRatio
                         _Grid = DirectCast(Obj, DevExpress.XtraGrid.GridControl)
                         Dim _GridView As DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView
                         _GridView = _Grid.MainView
+
+                        With DirectCast(_Grid.MainView, DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView)
+                            .BestFitColumns()
+                        End With
+
 
                         With _GridView
                             If .RowCount < 0 Then Exit Sub
@@ -1679,7 +1732,8 @@ Public Class wProdMUSetRatio
                                 For Each R As DataRow In .Select("FNSeq=1", "MarkSeq asc  ")
                                     _MarkCode = (R!FNHSysMarkId.ToString)
                                 Next
-                                _MarkCode = Microsoft.VisualBasic.Left(_MarkCode, Len(_MarkCode) - 3) & Microsoft.VisualBasic.Right("00" & (Val(Microsoft.VisualBasic.Right(_MarkCode, 3) + 1)).ToString(), 3)
+                                ' _MarkCode = Microsoft.VisualBasic.Left(_MarkCode, Len(_MarkCode) - 3) & Microsoft.VisualBasic.Right("00" & (Val(Microsoft.VisualBasic.Right(_MarkCode, 3) + 1)).ToString(), 3)
+                                _MarkCode = Me.genMarkRun(Me.xtabpart.SelectedTabPage.Text)
 
                                 _dr = .NewRow
                                 _dr("MarkSeq") = _markSeq + 1
@@ -1758,6 +1812,12 @@ Public Class wProdMUSetRatio
                                 _Cmd &= vbCrLf & " , FDUpdDate =" & HI.UL.ULDate.FormatDateDB
                                 _Cmd &= vbCrLf & " , FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
                                 _Cmd &= vbCrLf & " ,FTRemark='" & Me.FTRemark.Text & "'"
+                                _Cmd &= vbCrLf & " ,FNMaxLayer= " & Me.FNMaxLayers.Value
+                                _Cmd &= vbCrLf & " ,FNConsAvg= " & Me.FNConsAvg.Value
+                                _Cmd &= vbCrLf & " ,FNMinYard= " & Me.FNMinYard.Value
+                                _Cmd &= vbCrLf & " ,FNMaxYard= " & Me.FNMaxYard.Value
+
+
                                 _Cmd &= vbCrLf & " where FTGroupNo='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "'"
                                 _Cmd &= vbCrLf & " and FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "'"
                                 _Cmd &= vbCrLf & " and FNHSysCmpId=" & Val(Me.FNHSysCmpId.Properties.Tag) & ""
@@ -1766,7 +1826,7 @@ Public Class wProdMUSetRatio
                                 If HI.Conn.SQLConn.ExecuteTran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
 
                                     _Cmd = "insert into  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODMURatio "
-                                    _Cmd &= vbCrLf & "(FTInsUser, FDInsDate, FTInsTime,FNHSysCmpId, FTGroupNo, FTDocumentNo, FNSeq, FTRemark, FTPartCode )"
+                                    _Cmd &= vbCrLf & "(FTInsUser, FDInsDate, FTInsTime,FNHSysCmpId, FTGroupNo, FTDocumentNo, FNSeq, FTRemark, FTPartCode,FNMaxLayer ,FNConsAvg,FNMinYard,FNMaxYard )"
                                     _Cmd &= vbCrLf & " select  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                                     _Cmd &= vbCrLf & " , " & HI.UL.ULDate.FormatDateDB
                                     _Cmd &= vbCrLf & " , " & HI.UL.ULDate.FormatTimeDB
@@ -1776,6 +1836,11 @@ Public Class wProdMUSetRatio
                                     _Cmd &= vbCrLf & " ," & Me.FNSeq.Value & ""
                                     _Cmd &= vbCrLf & " ,'" & Me.FTRemark.Text & "'"
                                     _Cmd &= vbCrLf & " ,'" & _Tab.Text & "'"
+                                    _Cmd &= vbCrLf & " ,  " & Me.FNMaxLayers.Value
+                                    _Cmd &= vbCrLf & " , " & Me.FNConsAvg.Value
+                                    _Cmd &= vbCrLf & " , " & Me.FNMinYard.Value
+                                    _Cmd &= vbCrLf & " , " & Me.FNMaxYard.Value
+
 
                                     If HI.Conn.SQLConn.ExecuteTran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                                         HI.Conn.SQLConn.Tran.Rollback()
@@ -1786,7 +1851,14 @@ Public Class wProdMUSetRatio
                                 End If
 
 
+                                _Cmd = "delete from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODMURatio_D "
 
+                                _Cmd &= vbCrLf & " where FTGroupNo='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "'"
+                                _Cmd &= vbCrLf & " and FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "'"
+                                _Cmd &= vbCrLf & " and FNHSysCmpId=" & Val(Me.FNHSysCmpId.Properties.Tag) & ""
+
+
+                                HI.Conn.SQLConn.ExecuteTran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
 
                                 With DirectCast(_Grid.DataSource, DataTable)
                                     .AcceptChanges()
@@ -1795,7 +1867,7 @@ Public Class wProdMUSetRatio
                                             Select Case Col.ColumnName.ToString.ToUpper
 
                                                 Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                            "FNTotalQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                            "FNTotalQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                          "FNHSysStyleId_Hide".ToUpper
                                                 Case "FNOrderQty".ToUpper
 
@@ -1819,6 +1891,10 @@ Public Class wProdMUSetRatio
                                                     _Cmd &= vbCrLf & " ,FNLayerQty=" & Val(R!FNLayerQty.ToString) & ""
                                                     _Cmd &= vbCrLf & " ,FNQuantity=" & Val(R!FNQuantity.ToString) & ""
                                                     _Cmd &= vbCrLf & " ,FNTotalQty=" & Val(R!FNTotalQty.ToString) & ""
+                                                    _Cmd &= vbCrLf & " ,FNTableQty=" & Val(R!FNTableQty.ToString) & ""
+                                                    _Cmd &= vbCrLf & " ,FNTotalYardPerLayer=" & Val(R!FNTotalYardPerLayer.ToString) & ""
+
+
                                                     _Cmd &= vbCrLf & " where FTGroupNo='" & HI.UL.ULF.rpQuoted(Me.FTGroupNo.Text) & "'"
                                                     _Cmd &= vbCrLf & " and FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "'"
                                                     _Cmd &= vbCrLf & " and FNHSysCmpId=" & Val(Me.FNHSysCmpId.Properties.Tag) & ""
@@ -1834,7 +1910,7 @@ Public Class wProdMUSetRatio
 
                                                         _Cmd = "insert into  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODMURatio_D "
                                                         _Cmd &= vbCrLf & "(FTInsUser, FDInsDate, FTInsTime,  FNHSysCmpId, FTGroupNo, FTDocumentNo,  FNHSysStyleId, FTColorWay, FTSizeBreakDown, FNHSysMarkId, FNMarkSeq, FNMarkQty, FNRowNo, "
-                                                        _Cmd &= vbCrLf & "  FNOrderQty, FNLayerQty, FNQuantity, FNTotalQty , FNSeq ,FTMarkCode )"
+                                                        _Cmd &= vbCrLf & "  FNOrderQty, FNLayerQty, FNQuantity, FNTotalQty , FNSeq ,FTMarkCode ,FNTableQty ,FNTotalYardPerLayer )"
                                                         _Cmd &= vbCrLf & " select  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                                                         _Cmd &= vbCrLf & " , " & HI.UL.ULDate.FormatDateDB
                                                         _Cmd &= vbCrLf & " , " & HI.UL.ULDate.FormatTimeDB
@@ -1854,6 +1930,8 @@ Public Class wProdMUSetRatio
                                                         _Cmd &= vbCrLf & " ," & Val(R!FNTotalQty.ToString) & ""
                                                         _Cmd &= vbCrLf & " ," & Me.FNSeq.Value & ""
                                                         _Cmd &= vbCrLf & " ,'" & (R!FNHSysMarkId.ToString) & "'"
+                                                        _Cmd &= vbCrLf & " ," & Val(R!FNTableQty.ToString) & ""
+                                                        _Cmd &= vbCrLf & " ," & Val(R!FNTotalYardPerLayer.ToString) & ""
 
                                                         If HI.Conn.SQLConn.ExecuteTran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                                                             HI.Conn.SQLConn.Tran.Rollback()
@@ -2082,6 +2160,7 @@ Public Class wProdMUSetRatio
                 If .FocusedRowHandle < 0 Or .RowCount < 0 Then Exit Sub
 
                 Dim ratiofocus As Integer = Val(.GetRowCellValue(.FocusedRowHandle, "FNLayerQty").ToString())
+                If ratiofocus <= 0 Then Exit Sub
                 'Dim breakdown As Integer = Val(.GetRowCellValue(.FocusedRowHandle - 1, .FocusedColumn).ToString())
                 Dim MarkSeq As Integer = Val(.GetRowCellValue(.FocusedRowHandle, "MarkSeq").ToString())
                 Dim Seq As Integer = Val(.GetRowCellValue(.FocusedRowHandle, "FNSeq").ToString())
@@ -2122,7 +2201,7 @@ Public Class wProdMUSetRatio
                                 Select Case Col.ColumnName.ToString.ToUpper
 
                                     Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                          "FNHSysStyleId_Hide".ToUpper
                                     Case Else
 
@@ -2137,6 +2216,14 @@ Public Class wProdMUSetRatio
 
                     Next
                     _dt.AcceptChanges()
+
+                    Dim totalsolid As Integer = 0
+
+                    If (Me.FNMaxLayers.Value < valuex) Then
+                        totalsolid = Math.Floor(valuex / Me.FNMaxLayers.Value)
+                        valuex = Me.FNMaxLayers.Value * totalsolid
+
+                    End If
 
                     For Each R As DataRow In _dt.Select("MarkSeq=" & MarkSeq)
                         If R!FNSeq = 1 Then
@@ -2156,6 +2243,11 @@ Public Class wProdMUSetRatio
                                         R.Item(Col.ColumnName) = _OrderQty
                                     Case "FNTotalQty".ToUpper
                                         R.Item(Col.ColumnName) = valuex * _OrderQty
+                                    Case "FNTableQty".ToUpper
+                                        R.Item(Col.ColumnName) = totalsolid
+                                    Case "FNTotalYardPerLayer".ToUpper
+
+                                        R.Item(Col.ColumnName) = _OrderQty * Me.FNConsAvg.Value
                                     Case Else
 
 
@@ -2185,7 +2277,7 @@ Public Class wProdMUSetRatio
                                 Select Case Col.ColumnName.ToString.ToUpper
 
                                     Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                          "FNHSysStyleId_Hide".ToUpper
 
 
@@ -2208,7 +2300,7 @@ Public Class wProdMUSetRatio
                                 Select Case Col.ColumnName.ToString.ToUpper
 
                                     Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                            "FNTotalQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                            "FNTotalQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                          "FNHSysStyleId_Hide".ToUpper
                                     Case "FNOrderQty".ToUpper
                                         R.Item(Col.ColumnName) = _OrderBal
@@ -2236,7 +2328,7 @@ Public Class wProdMUSetRatio
 
             End With
 
-
+            ogv.BestFitColumns()
 
         Catch ex As Exception
             MsgBox("n" & ex.Message.ToString)
@@ -2457,7 +2549,7 @@ Public Class wProdMUSetRatio
                                     Select Case d.FieldName.ToUpper
 
                                         Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                    "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                    "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                  "FNHSysStyleId_Hide".ToUpper
                                         Case Else
 
@@ -2575,7 +2667,7 @@ Public Class wProdMUSetRatio
                                             Select Case Col.ColumnName.ToString.ToUpper
 
                                                 Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                          "FNHSysStyleId_Hide".ToUpper
                                                 Case Else
 
@@ -2592,7 +2684,13 @@ Public Class wProdMUSetRatio
 
 
                                 _dt.AcceptChanges()
+                                Dim totalsolid As Integer = 0
 
+                                If (Me.FNMaxLayers.Value < valuex) Then
+                                    totalsolid = Math.Floor(valuex / Me.FNMaxLayers.Value)
+                                    valuex = Me.FNMaxLayers.Value * totalsolid
+
+                                End If
                                 For Each R As DataRow In _dt.Select("MarkSeq=" & MarkSeq)
                                     If R!FNSeq = 1 Then
 
@@ -2611,6 +2709,11 @@ Public Class wProdMUSetRatio
                                                     R.Item(Col.ColumnName) = _OrderQty
                                                 Case "FNTotalQty".ToUpper
                                                     R.Item(Col.ColumnName) = valuex * _OrderQty
+
+                                                Case "FNTableQty".ToUpper
+                                                    R.Item(Col.ColumnName) = totalsolid
+                                                Case "FNTotalYardPerLayer".ToUpper
+                                                    R.Item(Col.ColumnName) = _OrderQty * Me.FNConsAvg.Value
                                                 Case Else
 
                                                     ' R.Item(Col.ColumnName) = Val(_odtbd.Rows(0).Item(Col.ColumnName).ToString) / valuex
@@ -2639,7 +2742,7 @@ Public Class wProdMUSetRatio
                                             Select Case Col.ColumnName.ToString.ToUpper
 
                                                 Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTotalYardPerLayer".ToUpper, "FNTableQty".ToUpper,
                                          "FNHSysStyleId_Hide".ToUpper
 
 
@@ -2662,7 +2765,7 @@ Public Class wProdMUSetRatio
                                             Select Case Col.ColumnName.ToString.ToUpper
 
                                                 Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                            "FNTotalQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                            "FNTotalQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                          "FNHSysStyleId_Hide".ToUpper
                                                 Case "FNOrderQty".ToUpper
                                                     R.Item(Col.ColumnName) = _OrderBal
@@ -2742,7 +2845,7 @@ Public Class wProdMUSetRatio
                                     Select Case d.FieldName.ToUpper
 
                                         Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
-                                    "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper,
+                                    "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
                                  "FNHSysStyleId_Hide".ToUpper
                                         Case Else
 
@@ -2941,4 +3044,423 @@ Public Class wProdMUSetRatio
             'Exit Sub
         End Try
     End Sub
+
+    Private Sub xtabpart_SelectedPageChanged(sender As Object, e As TabPageChangedEventArgs) Handles xtabpart.SelectedPageChanged
+        For Each Obj As Object In Me.xtabpart.SelectedTabPage.Controls
+            Select Case HI.ENM.Control.GeTypeControl(Obj)
+                Case ENM.Control.ControlType.GridControl
+                    Dim _Grid As DevExpress.XtraGrid.GridControl
+                    _Grid = DirectCast(Obj, DevExpress.XtraGrid.GridControl)
+                    Dim _GridView As DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView
+                    _GridView = _Grid.MainView
+
+                    With DirectCast(_Grid.MainView, DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView)
+                        .BestFitColumns()
+                    End With
+                Case Else
+            End Select
+        Next
+
+    End Sub
+
+
+    Private Function validatedata() As Boolean
+        Try
+            If Me.FNMaxLayers.Value <= 0 Then
+                Me.FNMaxLayers.Focus()
+                Return False
+            End If
+
+            If Me.FNConsAvg.Value <= 0.00 Then
+                Me.FNConsAvg.Focus()
+                Return False
+            End If
+
+
+            If Me.FNMinYard.Value <= 0.00 Then
+                Me.FNMinYard.Focus()
+                Return False
+            End If
+            If Me.FNMaxYard.Value <= 0.00 Then
+                Me.FNMaxYard.Focus()
+                Return False
+            End If
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
+    Private Sub ocmcalsratioauto_Click(sender As Object, e As EventArgs) Handles ocmcalsratioauto.Click
+
+        If Not validatedata() Then
+            Exit Sub
+        End If
+
+        Dim _Spls As New HI.TL.SplashScreen("Calculating  data. Please wait a moment. ")
+        Try
+
+            For Each Obj As Object In Me.xtabpart.SelectedTabPage.Controls
+                Select Case HI.ENM.Control.GeTypeControl(Obj)
+                    Case ENM.Control.ControlType.GridControl
+                        Dim _Grid As DevExpress.XtraGrid.GridControl
+                        _Grid = DirectCast(Obj, DevExpress.XtraGrid.GridControl)
+                        With DirectCast(_Grid.DataSource, DataTable)
+
+                            .AcceptChanges()
+                            _Grid.DataSource = .Select("MarkSeq=1").CopyToDataTable
+                        End With
+                End Select
+            Next
+
+
+
+
+            Dim ref As Boolean = False
+            Dim ref2 As Boolean = False
+            Dim MarkSeq As Integer = 1
+            Dim Seq As Integer = 1
+            Dim lost As Integer = 0
+            Dim div As Integer = 0
+
+            Dim _maxloop As Integer = 100
+5:
+            ref = False
+            If (lost >= 99) Then
+                lost = 0
+                div += +1
+            End If
+
+            For i As Integer = 1 To _maxloop Step 1
+                For Each Obj As Object In Me.xtabpart.SelectedTabPage.Controls
+                    Select Case HI.ENM.Control.GeTypeControl(Obj)
+                        Case ENM.Control.ControlType.GridControl
+                            Dim _Grid As DevExpress.XtraGrid.GridControl
+                            _Grid = DirectCast(Obj, DevExpress.XtraGrid.GridControl)
+                            Calslayeruto(_Grid.MainView, _Grid, i, MarkSeq, Seq, ref, ref2, lost, div)
+
+                            If (ref2) Then
+                                GoTo 9
+                            End If
+
+                            If (ref) Then
+                                addnewmark()
+                                MarkSeq += +1
+                                GoTo 5
+
+
+                            End If
+
+                            If (lost >= 99) Then
+
+                                GoTo 5
+                            End If
+
+                            Exit Select
+                    End Select
+                Next
+
+
+            Next
+9:
+
+            _Spls.Close()
+        Catch ex As Exception
+            _Spls.Close()
+        End Try
+    End Sub
+
+
+    Private Sub Calslayeruto(ogv As DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView, ogc As DevExpress.XtraGrid.GridControl,
+                             i As Integer, MarkSeq As Integer, Seq As Integer, ByRef ref As Boolean, ByRef ref2 As Boolean, ByRef lost As Integer, ByRef div As Integer)
+
+        Dim _maxloop As Integer = 1000
+        Dim _maxLayer As Integer = Me.FNMaxLayers.Value
+        Dim _maxCons As Double = Me.FNConsAvg.Value
+        Dim _maxyard As Double = Me.FNMaxYard.Value
+        Dim _minyard As Double = Me.FNMinYard.Value
+
+        Dim _stateUse As Boolean = False
+
+
+        Try
+
+
+
+            With ogv
+                If .FocusedRowHandle < 0 Or .RowCount < 0 Then Exit Sub
+
+                Dim ratiofocus As Integer = i ' Val(.GetRowCellValue(.FocusedRowHandle, .FocusedColumn).ToString())
+                Dim breakdown As Integer = 1 ' Val(.GetRowCellValue(.FocusedRowHandle - 1, .FocusedColumn).ToString())
+
+                'Dim MarkSeq As Integer = Val(.GetRowCellValue(.FocusedRowHandle, "MarkSeq").ToString())
+                ' Dim Seq As Integer = Val(.GetRowCellValue(.FocusedRowHandle, "FNSeq").ToString())
+
+
+                Dim valuex As Double = breakdown \ ratiofocus
+
+
+                Dim _dt As DataTable
+                With DirectCast(ogc.DataSource, DataTable)
+                    .AcceptChanges()
+
+                    _dt = .Copy
+
+                End With
+
+
+                If Not (_dt Is Nothing) Then
+                    Dim _StyleCodeOld As String = ""
+                    Dim ColBand As New DevExpress.XtraGrid.Views.BandedGrid.GridBand
+                    Dim colwith As Integer = 0
+                    Dim _OrderQty As Integer = 0
+
+                    For Each R As DataRow In _dt.Select("MarkSeq=" & MarkSeq)
+                        If R!FNSeq = 1 Then
+
+
+                            Dim _odtbd As DataTable
+
+                            If MarkSeq = 1 Then
+                                _odtbd = _dt.Select("FNSeq=0").CopyToDataTable
+                            Else
+                                _odtbd = _dt.Select("FNSeq=3 and MarkSeq=" & MarkSeq - 1).CopyToDataTable
+                            End If
+                            Dim _stateassort As Boolean = False
+                            Dim _ttassort As Integer = 0
+                            For Each Colx As DataColumn In _dt.Columns
+
+                                Select Case Colx.ColumnName.ToString.ToUpper
+
+                                    Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
+                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
+                                         "FNHSysStyleId_Hide".ToUpper
+                                    Case Else
+
+                                        _ttassort += +_odtbd.Rows(0).Item(Colx.ColumnName)
+                                End Select
+
+                            Next
+
+                            If (_ttassort * _maxCons) <= 11 Then
+                                _stateassort = True
+                            End If
+
+                            For Each Colx As DataColumn In _dt.Columns
+
+                                Select Case Colx.ColumnName.ToString.ToUpper
+
+                                    Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
+                                            "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
+                                         "FNHSysStyleId_Hide".ToUpper
+                                    Case Else
+
+                                        Try
+                                            breakdown = _odtbd.Rows(0).Item(Colx.ColumnName)
+                                        Catch ex As Exception
+                                            breakdown = 1
+                                        End Try
+
+
+                                        valuex = breakdown \ ratiofocus
+                                        _OrderQty = 0
+                                        If valuex = 0 Then
+                                            valuex = 1
+                                        End If
+
+                                        For Each Col As DataColumn In _dt.Columns
+                                            Select Case Col.ColumnName.ToString.ToUpper
+
+                                                Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
+                                                        "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
+                                                     "FNHSysStyleId_Hide".ToUpper
+                                                Case Else
+
+                                                    If (_stateassort) Then
+                                                        R.Item(Col.ColumnName) = Val(_odtbd.Rows(0).Item(Col.ColumnName).ToString)
+                                                        _OrderQty += +Val(_odtbd.Rows(0).Item(Col.ColumnName).ToString)
+                                                    Else
+                                                        R.Item(Col.ColumnName) = Val(_odtbd.Rows(0).Item(Col.ColumnName).ToString) \ valuex
+                                                        _OrderQty += +Val(_odtbd.Rows(0).Item(Col.ColumnName).ToString) \ valuex
+                                                    End If
+
+
+
+
+                                            End Select
+
+                                        Next
+                                        If (_OrderQty * _maxCons) > (Me.FNMinYard.Value - div) And (_OrderQty * _maxCons) <= (Me.FNMaxYard.Value) Then
+                                            _stateUse = True
+                                            GoTo 9
+                                        Else
+                                            If (_stateassort) Then
+                                                _stateUse = True
+                                                GoTo 9
+                                            End If
+
+                                        End If
+
+                                End Select
+
+
+
+                            Next
+                        End If
+
+                    Next
+                    _dt.AcceptChanges()
+
+9:
+                    Dim totalsolid As Integer = 0
+                    If (_stateUse) Then
+                        If (_maxLayer < valuex) Then
+                            totalsolid = Math.Floor(valuex / _maxLayer)
+                            valuex = _maxLayer * totalsolid
+                        Else
+                            totalsolid = 1
+                        End If
+
+
+
+                        For Each R As DataRow In _dt.Select("MarkSeq=" & MarkSeq)
+                            If R!FNSeq = 1 Then
+
+                                For Each Col As DataColumn In _dt.Columns
+
+                                    Select Case Col.ColumnName.ToString.ToUpper
+
+                                        Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
+                                                "Total".ToUpper, "FNHSysStyleId_Hide".ToUpper
+
+                                        Case "FNOrderQty".ToUpper
+                                            R.Item(Col.ColumnName) = 0
+                                        Case "FNLayerQty".ToUpper
+                                            R.Item(Col.ColumnName) = valuex
+                                        Case "FNQuantity".ToUpper
+                                            R.Item(Col.ColumnName) = _OrderQty
+                                        Case "FNTotalQty".ToUpper
+                                            R.Item(Col.ColumnName) = valuex * _OrderQty
+
+                                        Case "FNTableQty".ToUpper
+                                            R.Item(Col.ColumnName) = totalsolid
+                                        Case "FNTotalYardPerLayer".ToUpper
+                                            R.Item(Col.ColumnName) = _OrderQty * Me.FNConsAvg.Value
+                                        Case Else
+
+
+                                            ' R.Item(Col.ColumnName) = Val(_odtbd.Rows(0).Item(Col.ColumnName).ToString) / valuex
+
+                                    End Select
+                                Next
+                            End If
+
+                        Next
+
+                        Dim _OrderBal As Integer = 0
+                        _dt.AcceptChanges()
+
+                        For Each R As DataRow In _dt.Select("MarkSeq=" & MarkSeq)
+                            If R!FNSeq = 3 Then
+                                Dim _odtbd As DataTable
+                                If MarkSeq = 1 Then
+                                    _odtbd = _dt.Select("FNSeq<>3", "FNSeq asc").CopyToDataTable
+                                Else
+                                    _odtbd = _dt.Select("FNSeq=3 and MarkSeq=" & MarkSeq - 1, "FNSeq asc").CopyToDataTable
+                                    _odtbd.Merge(_dt.Select("FNSeq<>3 and MarkSeq=" & MarkSeq, "FNSeq asc").CopyToDataTable)
+                                End If
+
+                                For Each Col As DataColumn In _dt.Columns
+
+                                    Select Case Col.ColumnName.ToString.ToUpper
+
+                                        Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
+                                                "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
+                                             "FNHSysStyleId_Hide".ToUpper
+
+
+                                        Case Else
+
+                                            _OrderBal += +(Val(_odtbd.Rows(0).Item(Col.ColumnName).ToString) - (Val(_odtbd.Rows(1).Item(Col.ColumnName).ToString) * valuex))
+                                            R.Item(Col.ColumnName) = (Val(_odtbd.Rows(0).Item(Col.ColumnName).ToString) - (Val(_odtbd.Rows(1).Item(Col.ColumnName).ToString) * valuex)) 'Val(_odtbd.Rows(0).Item(Col.ColumnName).ToString) - Val(_odtbd.Rows(1).Item(Col.ColumnName).ToString)
+
+                                    End Select
+                                Next
+                            End If
+
+                        Next
+
+                        For Each R As DataRow In _dt.Select("MarkSeq=" & MarkSeq)
+                            If R!FNSeq = 3 Then
+
+                                For Each Col As DataColumn In _dt.Columns
+
+                                    Select Case Col.ColumnName.ToString.ToUpper
+
+                                        Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
+                                                "FNTotalQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
+                                             "FNHSysStyleId_Hide".ToUpper
+                                        Case "FNOrderQty".ToUpper
+                                            R.Item(Col.ColumnName) = _OrderBal
+
+                                        Case Else
+
+
+                                            'R.Item(Col.ColumnName) = Val(_odtbd.Rows(0).Item(Col.ColumnName).ToString) - Val(_odtbd.Rows(1).Item(Col.ColumnName).ToString)
+
+                                    End Select
+                                Next
+                            End If
+
+                        Next
+
+
+                        ogc.DataSource = _dt
+                        ref = True
+
+                        Dim _odtbdx As DataTable
+                        If MarkSeq = 1 Then
+                            _odtbdx = _dt.Select("FNSeq=3").CopyToDataTable
+                        Else
+                            _odtbdx = _dt.Select("FNSeq=3 and MarkSeq=" & MarkSeq).CopyToDataTable
+                        End If
+                        Dim _stateassort As Boolean = False
+                        Dim _ttassort As Integer = 0
+                        For Each Colx As DataColumn In _dt.Columns
+
+                            Select Case Colx.ColumnName.ToString.ToUpper
+
+                                Case "MarkSeq".ToUpper, "FNSeq".ToUpper, "FNHSysMarkId".ToUpper, "FNHSysMarkId_Hide".ToUpper, "FNHSysStyleId".ToUpper, "FTColorWay".ToUpper, "FNHSysStyleId".ToUpper,
+                                        "FNTotalQty".ToUpper, "FNOrderQty".ToUpper, "FNOrderQty".ToUpper, "FNLayerQty".ToUpper, "FNQuantity".ToUpper, "Total".ToUpper, "FNTableQty".ToUpper, "FNTotalYardPerLayer".ToUpper,
+                                     "FNHSysStyleId_Hide".ToUpper
+                                Case Else
+
+                                    _ttassort += +_odtbdx.Rows(0).Item(Colx.ColumnName)
+                            End Select
+
+                        Next
+
+                        If _ttassort <= 0 Then
+
+                            ref2 = True
+                        End If
+
+
+
+                        ' Next
+                    Else
+                        lost += +1
+                    End If
+
+                End If
+
+
+            End With
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+
 End Class

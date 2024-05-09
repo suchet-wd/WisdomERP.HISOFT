@@ -19,7 +19,11 @@ Partial Class wGeneratePackOrderCustPO
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbsuborderdetail = New DevExpress.XtraEditors.GroupControl()
         Me.ogcsub = New DevExpress.XtraGrid.GridControl()
         Me.ogvsub = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -91,12 +95,12 @@ Partial Class wGeneratePackOrderCustPO
         '
         Me.ogcsub.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcsub.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcsub.Location = New System.Drawing.Point(2, 25)
+        Me.ogcsub.Location = New System.Drawing.Point(2, 28)
         Me.ogcsub.MainView = Me.ogvsub
         Me.ogcsub.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsub.Name = "ogcsub"
         Me.ogcsub.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepFTStateSelect})
-        Me.ogcsub.Size = New System.Drawing.Size(594, 241)
+        Me.ogcsub.Size = New System.Drawing.Size(594, 238)
         Me.ogcsub.TabIndex = 303
         Me.ogcsub.TabStop = False
         Me.ogcsub.Tag = "3|"
@@ -281,12 +285,12 @@ Partial Class wGeneratePackOrderCustPO
         '
         Me.ogcsuborder.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcsuborder.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcsuborder.Location = New System.Drawing.Point(2, 25)
+        Me.ogcsuborder.Location = New System.Drawing.Point(2, 28)
         Me.ogcsuborder.MainView = Me.ogvsuborder
         Me.ogcsuborder.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsuborder.Name = "ogcsuborder"
         Me.ogcsuborder.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepSubOrderCal})
-        Me.ogcsuborder.Size = New System.Drawing.Size(618, 276)
+        Me.ogcsuborder.Size = New System.Drawing.Size(618, 273)
         Me.ogcsuborder.TabIndex = 303
         Me.ogcsuborder.TabStop = False
         Me.ogcsuborder.Tag = "3|"
@@ -356,7 +360,7 @@ Partial Class wGeneratePackOrderCustPO
         'RepSubOrderCal
         '
         Me.RepSubOrderCal.AutoHeight = False
-        Me.RepSubOrderCal.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
+        Me.RepSubOrderCal.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepSubOrderCal.DisplayFormat.FormatString = "{0:n0}"
         Me.RepSubOrderCal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.RepSubOrderCal.EditFormat.FormatString = "N0"
@@ -380,11 +384,11 @@ Partial Class wGeneratePackOrderCustPO
         '
         Me.ogcsubprod.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcsubprod.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcsubprod.Location = New System.Drawing.Point(2, 25)
+        Me.ogcsubprod.Location = New System.Drawing.Point(2, 28)
         Me.ogcsubprod.MainView = Me.ogvsubprod
         Me.ogcsubprod.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsubprod.Name = "ogcsubprod"
-        Me.ogcsubprod.Size = New System.Drawing.Size(618, 241)
+        Me.ogcsubprod.Size = New System.Drawing.Size(618, 238)
         Me.ogcsubprod.TabIndex = 304
         Me.ogcsubprod.TabStop = False
         Me.ogcsubprod.Tag = "3|"
@@ -490,11 +494,11 @@ Partial Class wGeneratePackOrderCustPO
         '
         Me.ogcsuborderorg.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcsuborderorg.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcsuborderorg.Location = New System.Drawing.Point(2, 25)
+        Me.ogcsuborderorg.Location = New System.Drawing.Point(2, 28)
         Me.ogcsuborderorg.MainView = Me.ogvsuborderorg
         Me.ogcsuborderorg.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsuborderorg.Name = "ogcsuborderorg"
-        Me.ogcsuborderorg.Size = New System.Drawing.Size(592, 323)
+        Me.ogcsuborderorg.Size = New System.Drawing.Size(592, 320)
         Me.ogcsuborderorg.TabIndex = 304
         Me.ogcsuborderorg.TabStop = False
         Me.ogcsuborderorg.Tag = "3|"

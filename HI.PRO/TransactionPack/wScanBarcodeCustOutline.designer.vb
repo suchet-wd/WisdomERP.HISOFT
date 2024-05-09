@@ -93,6 +93,7 @@ Partial Class wScanBarcodeCustOutline
         Me.FDUpdDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTUpdTime = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTUpdUser = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemFNStateSewPack = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
         CType(Me.FNBunbleSeq.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTSizeBreakDown.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -294,7 +295,7 @@ Partial Class wScanBarcodeCustOutline
         Me.FTStyleCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTStyleCode.Properties.MaxLength = 30
         Me.FTStyleCode.Properties.ReadOnly = True
-        Me.FTStyleCode.Size = New System.Drawing.Size(380, 22)
+        Me.FTStyleCode.Size = New System.Drawing.Size(409, 22)
         Me.FTStyleCode.TabIndex = 303
         Me.FTStyleCode.Tag = "2|"
         '
@@ -331,7 +332,7 @@ Partial Class wScanBarcodeCustOutline
         Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 28)
         Me.XtraScrollableControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1293, 206)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1301, 206)
         Me.XtraScrollableControl1.TabIndex = 0
         '
         'FNStateSewPack
@@ -342,7 +343,7 @@ Partial Class wScanBarcodeCustOutline
         Me.FNStateSewPack.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNStateSewPack.Properties.Tag = "FNStateSewPack"
         Me.FNStateSewPack.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNStateSewPack.Size = New System.Drawing.Size(235, 22)
+        Me.FNStateSewPack.Size = New System.Drawing.Size(234, 22)
         Me.FNStateSewPack.TabIndex = 1000005
         '
         'FNStateSewPack_lbl
@@ -364,10 +365,10 @@ Partial Class wScanBarcodeCustOutline
         '
         Me.ogrpQtyScan.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogrpQtyScan.Controls.Add(Me.lblQtyScan)
-        Me.ogrpQtyScan.Location = New System.Drawing.Point(947, 4)
+        Me.ogrpQtyScan.Location = New System.Drawing.Point(976, 0)
         Me.ogrpQtyScan.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogrpQtyScan.Name = "ogrpQtyScan"
-        Me.ogrpQtyScan.Size = New System.Drawing.Size(347, 164)
+        Me.ogrpQtyScan.Size = New System.Drawing.Size(324, 168)
         Me.ogrpQtyScan.TabIndex = 1000003
         Me.ogrpQtyScan.Text = "SCAN QTY"
         '
@@ -384,7 +385,7 @@ Partial Class wScanBarcodeCustOutline
         Me.lblQtyScan.Location = New System.Drawing.Point(2, 28)
         Me.lblQtyScan.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblQtyScan.Name = "lblQtyScan"
-        Me.lblQtyScan.Size = New System.Drawing.Size(343, 134)
+        Me.lblQtyScan.Size = New System.Drawing.Size(320, 138)
         Me.lblQtyScan.TabIndex = 309
         Me.lblQtyScan.Tag = "2|"
         Me.lblQtyScan.Text = "000"
@@ -407,7 +408,7 @@ Partial Class wScanBarcodeCustOutline
         Me.FDDateTrans.Name = "FDDateTrans"
         Me.FDDateTrans.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FDDateTrans.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.FDDateTrans.Size = New System.Drawing.Size(130, 22)
+        Me.FDDateTrans.Size = New System.Drawing.Size(129, 22)
         Me.FDDateTrans.TabIndex = 1000001
         Me.FDDateTrans.Tag = "2|"
         '
@@ -466,7 +467,7 @@ Partial Class wScanBarcodeCustOutline
         Me.FTPORef.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTPORef.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTPORef.Properties.ReadOnly = True
-        Me.FTPORef.Size = New System.Drawing.Size(447, 22)
+        Me.FTPORef.Size = New System.Drawing.Size(476, 22)
         Me.FTPORef.TabIndex = 324
         Me.FTPORef.TabStop = False
         Me.FTPORef.Tag = "2|"
@@ -509,7 +510,7 @@ Partial Class wScanBarcodeCustOutline
         Me.FNHSysUnitSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(130, 22)
+        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(129, 22)
         Me.FNHSysUnitSectId_None.TabIndex = 322
         Me.FNHSysUnitSectId_None.Tag = "2|"
         '
@@ -596,7 +597,7 @@ Partial Class wScanBarcodeCustOutline
         Me.FTBarcodeBundleNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTBarcodeBundleNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTBarcodeBundleNo.Properties.MaxLength = 30
-        Me.FTBarcodeBundleNo.Size = New System.Drawing.Size(380, 40)
+        Me.FTBarcodeBundleNo.Size = New System.Drawing.Size(409, 40)
         Me.FTBarcodeBundleNo.TabIndex = 0
         Me.FTBarcodeBundleNo.Tag = "2|"
         '
@@ -690,7 +691,7 @@ Partial Class wScanBarcodeCustOutline
         Me.ogbbarcodeinfo.Location = New System.Drawing.Point(3, 4)
         Me.ogbbarcodeinfo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbbarcodeinfo.Name = "ogbbarcodeinfo"
-        Me.ogbbarcodeinfo.Size = New System.Drawing.Size(1297, 236)
+        Me.ogbbarcodeinfo.Size = New System.Drawing.Size(1305, 236)
         Me.ogbbarcodeinfo.TabIndex = 318
         Me.ogbbarcodeinfo.Text = "Barcode Info"
         '
@@ -702,7 +703,7 @@ Partial Class wScanBarcodeCustOutline
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmdelete)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(225, 427)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(233, 427)
         Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(979, 58)
@@ -792,7 +793,7 @@ Partial Class wScanBarcodeCustOutline
         Me.ogbdetail.Location = New System.Drawing.Point(2, 249)
         Me.ogbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbdetail.Name = "ogbdetail"
-        Me.ogbdetail.Size = New System.Drawing.Size(1297, 449)
+        Me.ogbdetail.Size = New System.Drawing.Size(1305, 458)
         Me.ogbdetail.TabIndex = 317
         Me.ogbdetail.Text = "Detail"
         '
@@ -805,7 +806,7 @@ Partial Class wScanBarcodeCustOutline
         Me.ogcdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcdetail.Name = "ogcdetail"
         Me.ogcdetail.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemFNStateSewPack})
-        Me.ogcdetail.Size = New System.Drawing.Size(1293, 419)
+        Me.ogcdetail.Size = New System.Drawing.Size(1301, 428)
         Me.ogcdetail.TabIndex = 300
         Me.ogcdetail.TabStop = False
         Me.ogcdetail.Tag = "2|"
@@ -813,7 +814,7 @@ Partial Class wScanBarcodeCustOutline
         '
         'ogvdetail
         '
-        Me.ogvdetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.CFTBarcodeBundleNo, Me.CFTColorway, Me.CFTNikePOLineItem, Me.CFTSizeBreakDown, Me.CFTOrderNo, Me.CFTUnitSectCode, Me.FNQuantity, Me.cFNBunbleSeq, Me.cFTPORef, Me.cFTBarcodeCustRef, Me.cFNScanByBundleNoQty, Me.cFTStyleCode, Me.FTStyleName, Me.cFNStateSewPack, Me.FDInsDate, Me.FTInsTime, Me.FTInsUser, Me.FDUpdDate, Me.FTUpdTime, Me.FTUpdUser})
+        Me.ogvdetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.CFTBarcodeBundleNo, Me.CFTColorway, Me.CFTNikePOLineItem, Me.CFTSizeBreakDown, Me.CFTOrderNo, Me.CFTUnitSectCode, Me.FNQuantity, Me.cFNBunbleSeq, Me.cFTPORef, Me.cFTBarcodeCustRef, Me.cFNScanByBundleNoQty, Me.cFTStyleCode, Me.FTStyleName, Me.cFNStateSewPack, Me.FDInsDate, Me.FTInsTime, Me.FTInsUser, Me.FDUpdDate, Me.FTUpdTime, Me.FTUpdUser, Me.GridColumn1})
         Me.ogvdetail.GridControl = Me.ogcdetail
         Me.ogvdetail.Name = "ogvdetail"
         Me.ogvdetail.OptionsCustomization.AllowGroup = False
@@ -857,9 +858,6 @@ Partial Class wScanBarcodeCustOutline
         Me.CFTNikePOLineItem.Name = "CFTNikePOLineItem"
         Me.CFTNikePOLineItem.OptionsColumn.AllowEdit = False
         Me.CFTNikePOLineItem.OptionsColumn.AllowMove = False
-        Me.CFTNikePOLineItem.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.CFTNikePOLineItem.OptionsFilter.AllowAutoFilter = False
-        Me.CFTNikePOLineItem.OptionsFilter.AllowFilter = False
         Me.CFTNikePOLineItem.Visible = True
         Me.CFTNikePOLineItem.VisibleIndex = 5
         Me.CFTNikePOLineItem.Width = 107
@@ -1040,6 +1038,13 @@ Partial Class wScanBarcodeCustOutline
         Me.FTUpdUser.VisibleIndex = 19
         Me.FTUpdUser.Width = 120
         '
+        'GridColumn1
+        '
+        Me.GridColumn1.Caption = "FNStateSewPack_Hide"
+        Me.GridColumn1.FieldName = "FNStateSewPack_Hide"
+        Me.GridColumn1.MinWidth = 23
+        Me.GridColumn1.Name = "GridColumn1"
+        '
         'RepositoryItemFNStateSewPack
         '
         Me.RepositoryItemFNStateSewPack.AutoHeight = False
@@ -1051,7 +1056,7 @@ Partial Class wScanBarcodeCustOutline
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1303, 702)
+        Me.ClientSize = New System.Drawing.Size(1311, 711)
         Me.Controls.Add(Me.ogbbarcodeinfo)
         Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.ogbdetail)
@@ -1148,4 +1153,5 @@ Partial Class wScanBarcodeCustOutline
     Friend WithEvents FTInsUser As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTUpdUser As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ocmdelete As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
 End Class

@@ -19,16 +19,26 @@ Partial Class wScanBarcodeOperation_Outline
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject13 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.FTBarcodeBundleNo = New DevExpress.XtraEditors.TextEdit()
         Me.FTBarcodeBundleNo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysMarkId = New DevExpress.XtraEditors.TextEdit()
@@ -423,10 +433,10 @@ Partial Class wScanBarcodeOperation_Outline
         Me.XtraScrollableControl1.Controls.Add(Me.FTBarcodeNo_lbl)
         Me.XtraScrollableControl1.Controls.Add(Me.FTBarcodeNo)
         Me.XtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 25)
+        Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 28)
         Me.XtraScrollableControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1174, 140)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1174, 137)
         Me.XtraScrollableControl1.TabIndex = 0
         '
         'FTSubOrderNo
@@ -504,7 +514,7 @@ Partial Class wScanBarcodeOperation_Outline
         Me.FNHSysUnitSectId.Location = New System.Drawing.Point(201, 44)
         Me.FNHSysUnitSectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
-        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", "165", Nothing, True)})
+        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "165", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.Tag = "57"
         Me.FNHSysUnitSectId.Size = New System.Drawing.Size(132, 22)
         Me.FNHSysUnitSectId.TabIndex = 1
@@ -517,7 +527,7 @@ Partial Class wScanBarcodeOperation_Outline
         Me.FNHSysOperationId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysOperationId.Name = "FNHSysOperationId"
         Me.FNHSysOperationId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.FNHSysOperationId.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FNHSysOperationId", "FNHSysOperationId", 100, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default]), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FTOperationName", 250, "FTOperationName")})
+        Me.FNHSysOperationId.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FNHSysOperationId", "FNHSysOperationId", 100, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default]), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FTOperationName", "FTOperationName", 250, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
         Me.FNHSysOperationId.Properties.DisplayMember = "FTOperationName"
         Me.FNHSysOperationId.Properties.PopupFormMinSize = New System.Drawing.Size(280, 0)
         Me.FNHSysOperationId.Properties.PopupWidth = 280
@@ -776,7 +786,7 @@ Partial Class wScanBarcodeOperation_Outline
         Me.FDDocScanDate.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FDDocScanDate.Properties.AppearanceReadOnly.Options.UseTextOptions = True
         Me.FDDocScanDate.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FDDocScanDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", Nothing, Nothing, True)})
+        Me.FDDocScanDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FDDocScanDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FDDocScanDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDocScanDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -840,23 +850,23 @@ Partial Class wScanBarcodeOperation_Outline
         Me.FTDocScanNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTDocScanNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTDocScanNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        SerializableAppearanceObject3.Options.UseTextOptions = True
-        SerializableAppearanceObject3.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject4.Options.UseTextOptions = True
-        SerializableAppearanceObject4.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject5.Options.UseTextOptions = True
-        SerializableAppearanceObject5.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject6.Options.UseTextOptions = True
-        SerializableAppearanceObject6.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject7.Options.UseTextOptions = True
-        SerializableAppearanceObject7.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject8.Options.UseTextOptions = True
-        SerializableAppearanceObject8.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         SerializableAppearanceObject9.Options.UseTextOptions = True
         SerializableAppearanceObject9.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         SerializableAppearanceObject10.Options.UseTextOptions = True
         SerializableAppearanceObject10.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTDocScanNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, "", New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, SerializableAppearanceObject4, SerializableAppearanceObject5, SerializableAppearanceObject6, "", "362", Nothing, True), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", 20, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, "", New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject7, SerializableAppearanceObject8, SerializableAppearanceObject9, SerializableAppearanceObject10, "", "d", Nothing, True)})
+        SerializableAppearanceObject11.Options.UseTextOptions = True
+        SerializableAppearanceObject11.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject12.Options.UseTextOptions = True
+        SerializableAppearanceObject12.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject13.Options.UseTextOptions = True
+        SerializableAppearanceObject13.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject14.Options.UseTextOptions = True
+        SerializableAppearanceObject14.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject15.Options.UseTextOptions = True
+        SerializableAppearanceObject15.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject16.Options.UseTextOptions = True
+        SerializableAppearanceObject16.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTDocScanNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "362", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", 20, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTDocScanNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTDocScanNo.Size = New System.Drawing.Size(185, 22)
         Me.FTDocScanNo.TabIndex = 0

@@ -899,6 +899,7 @@ Public Class wCreateJobProduction
 
         M3.Columns.Remove("Total")
         M3.Columns.Add("FNAssort", GetType(String))
+        M3.Columns.Add("FNTableNoRef", GetType(Integer))
         Dim R As DataRow = M3.NewRow
         R!FNAssort = "Layer\Assort"
         M3.Rows.InsertAt(R, 0)
@@ -908,7 +909,7 @@ Public Class wCreateJobProduction
             If Ridx > 0 Then
                 For Each Col As DataColumn In M3.Columns
                     Select Case Col.ColumnName.ToString.ToUpper
-                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FNAssort".ToUpper
+                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FNAssort".ToUpper, "FNTableNoRef".ToUpper
                         Case Else
                             Rx.Item(Col.ColumnName.ToString) = 0
                     End Select
@@ -988,7 +989,7 @@ Public Class wCreateJobProduction
             Exit For
         Next
 
-        _Qry = "SELECT       FTOrderProdNo, FNHSysMarkId, FNTableNo, FTColorway, FTSizeBreakDown, FNLayer, FNAssort, FNQuantity"
+        _Qry = "SELECT       FTOrderProdNo, FNHSysMarkId, FNTableNo, FTColorway, FTSizeBreakDown, FNLayer, FNAssort, FNQuantity , isnull(FNTableNoRef, 0) as  FNTableNoRef "
         _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_TableCut_Detail AS D WITH(Nolock)"
 
         If Not (Me.otbjobprod.SelectedTabPage Is Nothing) And Not (Me.otbmarkcutting.SelectedTabPage Is Nothing) Then
@@ -1020,7 +1021,7 @@ Public Class wCreateJobProduction
                 Dim _RowTotal As Integer = 0
                 For Each Col As DataColumn In .Columns
                     Select Case Col.ColumnName.ToString.ToUpper
-                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FNAssort".ToUpper
+                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FNAssort".ToUpper, "FNTableNoRef".ToUpper
                         Case Else
                             _RowTotal = _RowTotal + Rx.Item(Col.ColumnName.ToString)
                     End Select
@@ -1052,7 +1053,7 @@ Public Class wCreateJobProduction
                 Dim _RowTotal As Integer = 0
                 For Each Col As DataColumn In .Columns
                     Select Case Col.ColumnName.ToString.ToUpper
-                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FNAssort".ToUpper
+                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "Total".ToUpper, "FNAssort".ToUpper, "FNTableNoRef".ToUpper
                         Case Else
                             _RowTotal = _RowTotal + Rx.Item(Col.ColumnName.ToString)
                     End Select
@@ -1073,6 +1074,7 @@ Public Class wCreateJobProduction
                     _dt.Rows(0).Item(R!FTSizeBreakDown.ToString) = Integer.Parse(Val(R!FNAssort.ToString))
                     Rx.Item("FNAssort") = Integer.Parse(Val((R!FNLayer.ToString)))
                     Rx.Item(R!FTSizeBreakDown.ToString) = Integer.Parse(Val((R!FNQuantity.ToString)))
+                    Rx.Item("FNTableNoRef") = Integer.Parse(Val((R!FNTableNoRef.ToString)))
                 Catch ex As Exception
                 End Try
             Next
@@ -1087,7 +1089,7 @@ Public Class wCreateJobProduction
             For I As Integer = .Columns.Count - 1 To 0 Step -1
                 Select Case .Columns(I).FieldName.ToString.ToUpper
 
-                    Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "FNAssort".ToUpper
+                    Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "FNAssort".ToUpper, "FNTableNoRef".ToUpper
                         .Columns(I).OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False
                     Case Else
                         .Columns.Remove(.Columns(I))
@@ -1098,7 +1100,7 @@ Public Class wCreateJobProduction
                 For Each Col As DataColumn In _dt.Columns
 
                     Select Case Col.ColumnName.ToString.ToUpper
-                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "FNAssort".ToUpper
+                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "FNAssort".ToUpper, "FNTableNoRef".ToUpper
                         Case Else
                             _colcount = _colcount + 1
                             Dim ColG As New DevExpress.XtraGrid.Columns.GridColumn
@@ -1501,14 +1503,14 @@ Public Class wCreateJobProduction
 
                     For Each Col As DataColumn In .Columns
                         Select Case Col.ColumnName.ToString.ToUpper
-                            Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "FNAssort".ToUpper
+                            Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "FNAssort".ToUpper, "FNTableNoRef".ToUpper
                             Case Else
                                 If IsNumeric(R.Item(Col.ColumnName.ToString)) Then
 
                                     If Integer.Parse(R.Item(Col.ColumnName.ToString)) > 0 AndAlso R!FTColorway.ToString <> "" Then
 
                                         _Qry = " INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo. TPRODTOrderProd_TableCut_Detail "
-                                        _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime,FTOrderProdNo, FNHSysMarkId, FNTableNo, FTColorway, FTSizeBreakDown, FNLayer, FNAssort, FNQuantity,FNHSysCmpId) "
+                                        _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime,FTOrderProdNo, FNHSysMarkId, FNTableNo, FTColorway, FTSizeBreakDown, FNLayer, FNAssort, FNQuantity,FNHSysCmpId ,FNTableNoRef) "
                                         _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                                         _Qry &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB & " "
                                         _Qry &= vbCrLf & " ," & HI.UL.ULDate.FormatTimeDB & " "
@@ -1521,6 +1523,7 @@ Public Class wCreateJobProduction
                                         _Qry &= vbCrLf & " ," & Integer.Parse(Val(.Rows(0).Item(Col.ColumnName.ToString))) & " "
                                         _Qry &= vbCrLf & " ," & Integer.Parse(R.Item(Col.ColumnName.ToString)) & " "
                                         _Qry &= vbCrLf & "," & Val(HI.ST.SysInfo.CmpID) & " "
+                                        _Qry &= vbCrLf & " ," & Integer.Parse(Val(R!FNTableNoRef.ToString)) & " "
 
                                         If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                                             HI.Conn.SQLConn.Tran.Rollback()
@@ -1740,11 +1743,16 @@ Public Class wCreateJobProduction
 
     Private Sub FTOrderNo_EditValueChanged(sender As Object, e As EventArgs) Handles FTOrderNo.EditValueChanged
         If (Me.InvokeRequired) Then
+
             Me.Invoke(New HI.Delegate.Dele.ButtonEdit_ValueChanged(AddressOf FTOrderNo_EditValueChanged), New Object() {sender, e})
+
         Else
+
             Call LoadOrderProdDataInfo(FTOrderNo.Text)
             Me.otbdetail.SelectedTabPageIndex = 0
+
         End If
+
     End Sub
 
     Private Sub otbjobprod_SelectedPageChanged(sender As Object, e As DevExpress.XtraTab.TabPageChangedEventArgs) Handles otbjobprod.SelectedPageChanged
@@ -1789,6 +1797,7 @@ Public Class wCreateJobProduction
         '    HI.MG.ShowMsg.mInfo("พบข้อมูลการออกใบสั่งปูตัดแล้วไม่สามารถทำการลบได้ !!!", 1404180077, Me.Text, , System.Windows.Forms.MessageBoxIcon.Warning)
         '    Exit Sub
         'End If
+
         Call SavSubMark()
 
         If Me.FTOrderNo.Text <> "" And FTOrderNo.Properties.Tag.ToString <> "" Then
@@ -1801,9 +1810,12 @@ Public Class wCreateJobProduction
                     .ShowDialog()
 
                     If (.Process) Then
+
                         Call LoadOrderProdDetail(otbjobprod.SelectedTabPage.Name.ToString)
                         Call LoadOrderProdBreakDown(otbjobprod.SelectedTabPage.Name.ToString)
+
                     End If
+
                 End With
             Else
                 HI.MG.ShowMsg.mInfo("", 1405110004, Me.Text)
@@ -2241,7 +2253,7 @@ Public Class wCreateJobProduction
 
                                 For Each Col As DataColumn In .Columns
                                     Select Case Col.ColumnName.ToString.ToUpper
-                                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "FNAssort".ToUpper
+                                        Case "FTOrderNo".ToUpper, "FTSubOrderNo".ToUpper, "FTColorway".ToUpper, "FNAssort".ToUpper, "FNTableNoRef".ToUpper
                                         Case Else
 
                                             If IsNumeric(.Rows(0).Item(Col.ColumnName.ToString)) Then

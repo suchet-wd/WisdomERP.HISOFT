@@ -1,6 +1,7 @@
 ﻿Imports DevExpress.Data
 Imports System.IO
 Imports DevExpress.XtraGrid.Columns
+Imports DevExpress.XtraGrid.Views.Grid
 
 Public Class wProdMUGroup
 
@@ -212,16 +213,21 @@ Public Class wProdMUGroup
         Try
 
             _Qry = "Exec  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.SP_GET_MUGroupPlan  @CmpCode='" & HI.UL.ULF.rpQuoted(Me.FNHSysCmpId.Text) & "' , @BuyGroupCode='" & HI.UL.ULF.rpQuoted(Me.FNHSysBuyId.Text) & "' , @FTStyleCode='" & HI.UL.ULF.rpQuoted(Me.FNHSysStyleId.Text) & "'"
-            _Qry &= vbCrLf & " ,@FTOrderNo='" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text) & "' , @FTOrderNoTo ='" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text) & "' , @FTCustomerPO='" & HI.UL.ULF.rpQuoted(Me.FTCustomerPO.Text) & "' , @FTCustomerPOTo ='" & HI.UL.ULF.rpQuoted(Me.FTCustomerPOTo.Text) & "'"
+            _Qry &= vbCrLf & " ,@FTOrderNo='" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text) & "' , @FTOrderNoTo ='" & HI.UL.ULF.rpQuoted(Me.FTOrderNoTo.Text) & "' , @FTCustomerPO='" & HI.UL.ULF.rpQuoted(Me.FTCustomerPO.Text) & "' , @FTCustomerPOTo ='" & HI.UL.ULF.rpQuoted(Me.FTCustomerPOTo.Text) & "'"
             _Qry &= vbCrLf & " ,@FTRawmatCode='" & HI.UL.ULF.rpQuoted(Me.FNHSysMerMatId.Text) & "' ,@FTRawmatCodeTo='" & HI.UL.ULF.rpQuoted(Me.FNHSysMerMatIdTo.Text) & "' "
             _Qry &= vbCrLf & " ,@FTRawmatColorCode='" & HI.UL.ULF.rpQuoted(Me.FNHSysRawMatColorId.Text) & "' ,@FTRawmatColorCodeTo='" & HI.UL.ULF.rpQuoted(Me.FNHSysRawMatColorId.Text) & "' "
 
-
-
             _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
+
+
+            'Dim _Cmd As String = ""
+
+            '_Cmd = ""
+            '_Cmd &= vbCrLf & "select * from dbo.FN_GET_MUGroupPlan(@CmpCode , @BuyGroupCode , @FTStyleCode , @FTOrderNo , @FTOrderNoTo , @FTCustomerPO , @FTCustomerPOTo , @FTRawmatCode , @FTRawmatCodeTo , @FTRawmatColorCode , @FTRawmatColorCodeTo) A "
+
+            '_dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
+
             Me.ogdtime.DataSource = _dt
-
-
 
             ' Call LoaddataDetailColorSize()
 
@@ -308,6 +314,7 @@ Public Class wProdMUGroup
 
     Private Sub ocmsavelayout_Click(sender As Object, e As EventArgs) Handles ocmsavelayout.Click
         HI.UL.AppRegistry.SaveLayoutGridToRegistry(Me, Me.ogvtime)
+
         HI.MG.ShowMsg.mInfo("Save Layout Grid Complete...", 1404240001, Me.Text, , System.Windows.Forms.MessageBoxIcon.Information)
     End Sub
 
@@ -539,14 +546,14 @@ Public Class wProdMUGroup
 
 
 
-                    _Cmd = " delete from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].. TPRODMUGroupPlan "
+                    _Cmd = " delete from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODMUGroupPlan "
                     _Cmd &= vbCrLf & "where FNHSysCmpId=" & Val(Me.FNHSysCmpId.Properties.Tag.ToString)
                     _Cmd &= vbCrLf & " and FTGroupNo='" & HI.UL.ULF.rpQuoted(R!FTGroupNo.ToString) & "'"
                     _Cmd &= vbCrLf & " and FTDocumentNo='" & HI.UL.ULF.rpQuoted(R!FTDocumentNo.ToString) & "'"
                     _Cmd &= vbCrLf & " and FTCustomerPO = '" & HI.UL.ULF.rpQuoted(R!FTCustomerPO.ToString) & "'"
                     _Cmd &= vbCrLf & " and FTPOLine =  '" & HI.UL.ULF.rpQuoted(R!FTPOLine.ToString) & "'"
                     _Cmd &= vbCrLf & " and FTOrderNo =  '" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
-                    _Cmd &= vbCrLf & "  and FTSubOrderNo =  '" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+                    _Cmd &= vbCrLf & " and FTSubOrderNo =  '" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
                     _Cmd &= vbCrLf & " and FTStyleCode =  '" & HI.UL.ULF.rpQuoted(R!FTStyleCode.ToString) & "'"
                     _Cmd &= vbCrLf & " and FTColorWay =  '" & HI.UL.ULF.rpQuoted(R!FTColorWay.ToString) & "'"
                     _Cmd &= vbCrLf & " and FTSizeBreakDown =  '" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
@@ -575,7 +582,6 @@ Public Class wProdMUGroup
             HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
             HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
             Return False
-            Return False
         End Try
     End Function
 
@@ -586,17 +592,73 @@ Public Class wProdMUGroup
             With CType(sender, DevExpress.XtraGrid.Views.Grid.GridView)
                 If e.RowHandle <> .FocusedRowHandle OrElse e.Column.AbsoluteIndex = .FocusedColumn.AbsoluteIndex Then
                     If (e.RowHandle Mod 2 = 1) Then
-                        e.Appearance.BackColor = System.Drawing.Color.LightSkyBlue
+                        e.Appearance.BackColor = System.Drawing.Color.LightSteelBlue
                     Else
                         e.Appearance.BackColor = System.Drawing.Color.White
                     End If
                 End If
             End With
-
-
-
         Catch ex As Exception
         End Try
     End Sub
 
+    Private Sub ogvtime_CellMerge(sender As Object, e As CellMergeEventArgs) Handles ogvtime.CellMerge
+        If (e.Column.FieldName = "FNOptiplanYards") Then
+            Dim view As GridView = CType(sender, GridView)
+            Dim val1 As String = view.GetRowCellValue(e.RowHandle1, e.Column)
+            Dim val2 As String = view.GetRowCellValue(e.RowHandle2, e.Column)
+
+            Dim val11 As String = view.GetRowCellValue(e.RowHandle1, "FTOrderNo")
+            Dim val12 As String = view.GetRowCellValue(e.RowHandle2, "FTOrderNo")
+            Dim val21 As String = view.GetRowCellValue(e.RowHandle1, "FTColorWay")
+            Dim val22 As String = view.GetRowCellValue(e.RowHandle2, "FTColorWay")
+            Dim val31 As String = view.GetRowCellValue(e.RowHandle1, "FTRawMatCode")
+            Dim val32 As String = view.GetRowCellValue(e.RowHandle2, "FTRawMatCode")
+            Dim val41 As String = view.GetRowCellValue(e.RowHandle1, "FTColorCode")
+            Dim val42 As String = view.GetRowCellValue(e.RowHandle2, "FTColorCode")
+            Dim val51 As String = view.GetRowCellValue(e.RowHandle1, "FTPartCode")
+            Dim val52 As String = view.GetRowCellValue(e.RowHandle2, "FTPartCode")
+
+            e.Merge = (val1 = val2) And (val11 = val12) And (val21 = val22) And (val31 = val32) And (val41 = val42) And (val51 = val52)
+            e.Handled = True
+        End If
+    End Sub
+
+    Dim _totalOptiplanYard As Double = 0
+    Dim _RowHandleHold As Integer = 0
+    Private Sub ogvtime_CustomSummaryCalculate(sender As Object, e As CustomSummaryEventArgs) Handles ogvtime.CustomSummaryCalculate
+        Try
+            Dim view As GridView = DirectCast(sender, GridView)
+            Select Case e.SummaryProcess
+                Case CustomSummaryProcess.Start
+                    _totalOptiplanYard = 0
+                Case CustomSummaryProcess.Calculate
+
+                    If (e.RowHandle <> _RowHandleHold) And e.RowHandle > 0 Then
+
+                        Dim RowCurent As String = (view.GetRowCellValue(e.RowHandle, "FTOrderNo") & "|" & view.GetRowCellValue(e.RowHandle, "FTPartCode") & "|" & view.GetRowCellValue(e.RowHandle, "FTRawMatCode") &
+                            "|" & view.GetRowCellValue(e.RowHandle, "FTColorWay") & "|" & view.GetRowCellValue(e.RowHandle, "FTColorCode"))
+                        Dim RowHold As String = (view.GetRowCellValue(_RowHandleHold, "FTOrderNo") & "|" & view.GetRowCellValue(_RowHandleHold, "FTPartCode") & "|" & view.GetRowCellValue(_RowHandleHold, "FTRawMatCode") &
+                            "|" & view.GetRowCellValue(_RowHandleHold, "FTColorWay") & "|" & view.GetRowCellValue(_RowHandleHold, "FTColorCode"))
+
+                        If RowCurent <> RowHold Then
+
+                            _totalOptiplanYard += +Double.Parse(Val(e.FieldValue.ToString))
+                        End If
+
+                    End If
+                    If (e.RowHandle = 0) Then
+                        _totalOptiplanYard += +Double.Parse(Val(e.FieldValue.ToString))
+                    End If
+                    _RowHandleHold = e.RowHandle
+
+                Case CustomSummaryProcess.Finalize
+
+                        e.TotalValue = _totalOptiplanYard
+            End Select
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

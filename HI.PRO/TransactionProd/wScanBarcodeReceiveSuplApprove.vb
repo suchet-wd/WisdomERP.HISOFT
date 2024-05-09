@@ -523,6 +523,8 @@ Public Class wScanBarcodeReceiveSuplApprove
                 _Qry &= vbCrLf & "  C.FTMarkNameEN AS FTMarkName  "
             End If
 
+
+
             _Qry &= vbCrLf & "   FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle_Detail AS AA  WITH (NOLOCK)  INNER JOIN"
             _Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTLayCut AS B  WITH (NOLOCK) ON AA.FTLayCutNo = B.FTLayCutNo LEFT OUTER JOIN"
             _Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TPRODMMark AS C  WITH (NOLOCK)  ON B.FNHSysMarkId = C.FNHSysMarkId"
@@ -530,6 +532,8 @@ Public Class wScanBarcodeReceiveSuplApprove
             _Qry &= vbCrLf & " ),'') AS FNHSysMarkId"
 
             _Qry &= vbCrLf & "	, RCVB.FTRcvSuplNo"
+            _Qry &= vbCrLf & " ,convert(varchar(10) , convert( date , RCVB.FDInsDate) , 103 ) as FDInsDate "
+            _Qry &= vbCrLf & " ,RCVB.FTInsTime  "
 
             _Qry &= vbCrLf & "	From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTSendSuplToBranch_Barcode AS A WITH (NOLOCK)  "
             _Qry &= vbCrLf & "	LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSupplier AS S WITH (NOLOCK) ON A.FNHSysSuplId = S.FNHSysSuplId"
@@ -2105,5 +2109,9 @@ Public Class wScanBarcodeReceiveSuplApprove
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub FTBarcodeNo_EditValueChanged(sender As Object, e As EventArgs) Handles FTBarcodeNo.EditValueChanged
+
     End Sub
 End Class

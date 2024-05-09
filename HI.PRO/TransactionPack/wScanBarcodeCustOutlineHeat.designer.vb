@@ -836,8 +836,6 @@ Partial Class wScanBarcodeCustOutlineHeat
         Me.CFTNikePOLineItem.OptionsColumn.AllowEdit = False
         Me.CFTNikePOLineItem.OptionsColumn.AllowMove = False
         Me.CFTNikePOLineItem.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.CFTNikePOLineItem.OptionsFilter.AllowAutoFilter = False
-        Me.CFTNikePOLineItem.OptionsFilter.AllowFilter = False
         Me.CFTNikePOLineItem.Visible = True
         Me.CFTNikePOLineItem.VisibleIndex = 5
         Me.CFTNikePOLineItem.Width = 107

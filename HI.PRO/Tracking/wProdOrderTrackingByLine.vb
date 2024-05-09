@@ -1463,7 +1463,7 @@ Public Class wProdOrderTrackingByLine
             _Qry &= vbCrLf & "  [FTSizeBreakDown] [varchar](30) NULL,"
             _Qry &= vbCrLf & "  [FNScanQuantity] [Int] NULL,  "
             _Qry &= vbCrLf & "  [FTPOLineItemNo] [nvarchar](30) NULL,"
-            _Qry &= vbCrLf & "  [FTBarcodeNo] [nvarchar](30) NULL"
+            _Qry &= vbCrLf & "  [FTBarcodeNo] [nvarchar](30) NULL , [FNOrderType] [int] NULL"
             _Qry &= vbCrLf & "   Unique nonclustered ([FTOrderNo],[FTColorway],[FTSizeBreakDown])  "
             _Qry &= vbCrLf & "  ) "
 
@@ -1709,6 +1709,7 @@ Public Class wProdOrderTrackingByLine
                     _Qry &= vbCrLf & " And SUX.FTSizeBreakDown =Z.FTSizeBreakDown ) AS SUX "
 
                     _Qry &= vbCrLf & " WHERE Z.FTOrderNo <> '' "
+                    _Qry &= vbCrLf & " and  exists ( select    o.FNOrderType   from   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder o with(nolock) where  o.FNHSysCmpId = " & Val(HI.ST.SysInfo.CmpID) & " and  o.FTOrderNo = z.FTOrderNo )  "
 
                     If FNHSysBuyId.Text <> "" Then
                         _Qry &= vbCrLf & " And Z.FNHSysBuyId =" & Integer.Parse(Val(FNHSysBuyId.Properties.Tag.ToString)) & "  "
@@ -1750,11 +1751,12 @@ Public Class wProdOrderTrackingByLine
 
             End Select
 
-            _Qry &= vbCrLf & " INSERT INTO @TabDataBD(FTOrderNo, FTColorway, FTSizeBreakDown, FTPOLineItemNo)"
-            _Qry &= vbCrLf & " Select  T.FTOrderNo, T.FTColorway, T.FTSizeBreakDown  ,MAX(T.FTPOLineItemNo) AS FTPOLineItemNo"
+            _Qry &= vbCrLf & " INSERT INTO @TabDataBD(FTOrderNo, FTColorway, FTSizeBreakDown, FTPOLineItemNo ,FNOrderType )"
+            _Qry &= vbCrLf & " Select  T.FTOrderNo, T.FTColorway, T.FTSizeBreakDown  ,MAX(T.FTPOLineItemNo) AS FTPOLineItemNo  , o.FNOrderType"
             _Qry &= vbCrLf & " FROM @TabData   AS  T  INNER Join  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..V_OrderSub_BreakDown_ShipDestination As Z On T.FTOrderNo = Z.FTOrderNo "
             _Qry &= vbCrLf & " And T.FTColorway = Z.FTColorway"
             _Qry &= vbCrLf & "And  T.FTSizeBreakDown = Z.FTSizeBreakDown"
+            _Qry &= vbCrLf & "  outer apply ( select top 1    o.FNOrderType   from   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder o with(nolock) where o.FTOrderNo = z.FTOrderNo ) o  "
 
             _Qry &= vbCrLf & " WHERE T.FTOrderNo <> '' "
             If FNHSysBuyId.Text <> "" Then
@@ -1791,7 +1793,7 @@ Public Class wProdOrderTrackingByLine
                 _Qry &= vbCrLf & " AND Z.FDShipDate <='" & HI.UL.ULDate.ConvertEnDB(FTEndShipment.Text) & "'  "
 
             End If
-            _Qry &= vbCrLf & " GROUP BY   T.FTOrderNo, T.FTColorway, T.FTSizeBreakDown "
+            _Qry &= vbCrLf & " GROUP BY   T.FTOrderNo, T.FTColorway, T.FTSizeBreakDown , o.FNOrderType"
 
             _Qry &= vbCrLf & "  INSERT INTO @TabOrder ([FTOrderNo]) "
             _Qry &= vbCrLf & "  SELECT DISTINCT FTOrderNo  FROM @TabDataBD "
@@ -2139,6 +2141,142 @@ Public Class wProdOrderTrackingByLine
 
             '----------End  Sew Out
 
+
+            'new modify  20230215
+            _Qry &= vbCrLf & " SELECT SC.FTOrderNo,B.FTColorway,B.FTSizeBreakDown, SUM(SC.FNScanQuantity) AS FNQuantity , B.FTPOLineItemNo , B.FTMainBarcodeBundleNo AS FTBarcodeNo "
+            _Qry &= vbCrLf & "  into #TmpPack "
+            _Qry &= vbCrLf & "  FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan AS SC WITH(NOLOCK)  "
+            _Qry &= vbCrLf & "  INNER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKCarton AS PC WITH(NOLOCK) ON SC.FTPackNo = PC.FTPackNo AND SC.FNCartonNo = PC.FNCartonNo  "
+            _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect AS US WITH(NOLOCK) ON SC.FNHSysUnitSectId = US.FNHSysUnitSectId  "
+            _Qry &= vbCrLf & "  Outer Apply(SELECT TOP 1  B.FTColorway,B.FTSizeBreakDown ,B.FTPOLineItemNo,B.FTMainBarcodeBundleNo   "
+            _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS B WITH(NOLOCK) WHERE B.FTBarcodeBundleNo = SC.FTBarcodeNo ) AS B  "
+            _Qry &= vbCrLf & "  INNER JOIN @TabDataBD As X ON X.FTOrderNo = SC.FTOrderNo AND X.FTColorway=B.FTColorway AND X.FTSizeBreakDown=B.FTSizeBreakDown      "
+            _Qry &= vbCrLf & "  INNER JOIN @TabOrder AS Ozx ON   SC.FTOrderNo = Ozx.FTOrderNo    "
+            _Qry &= vbCrLf & "  WHERE    PC.FTState='1'  --and X.FNOrderType not in ( 13 , 9)    "
+            _Qry &= vbCrLf & "  GROUP BY SC.FTOrderNo,B.FTColorway,B.FTSizeBreakDown , B.FTPOLineItemNo , B.FTMainBarcodeBundleNo    "
+            _Qry &= vbCrLf & "  "
+            '_Qry &= vbCrLf & "  UNION ALL "
+            '_Qry &= vbCrLf & "  "
+            '_Qry &= vbCrLf & "  SELECT   SC.FTOrderNo    ,BSC.FTColorway  ,BSC.FTSizeBreakDown ,  SUM(SC.FNQuantity) AS FNScanQuantity     ,bSC.FTPOLineItemNo ,  sc.FTBarcodeNo "
+            '_Qry &= vbCrLf & "  FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline AS SC WITH(NOLOCK) "
+            '_Qry &= vbCrLf & "  LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS Bsc WITH(NOLOCK) ON SC.FTBarcodeNo = Bsc.FTBarcodeBundleNo "
+            '_Qry &= vbCrLf & "   WHERE sc.FTOrderNo <>'' AND    exists  (SELECT   FTOrderNo FROM @TabDataBD o where o.FTOrderNo = sc.FTOrderNo and o.FNOrderType   in ( 13 , 9) )   "
+            '_Qry &= vbCrLf & " group by SC.FTOrderNo   ,bSC.FTColorway  ,BSC.FTSizeBreakDown  ,bSC.FTPOLineItemNo ,  sc.FTBarcodeNo    "
+            '_Qry &= vbCrLf & "  "
+
+            _Qry &= vbCrLf & "  SELECT FTOrderNo, FTUnitSectCode, FTColorway, FTSizeBreakDown, FTPOLineItemNo, FTBarcodeNo,SUM(FNQuantity) AS FNQuantity  "
+            _Qry &= vbCrLf & "  ,SUM(CASE WHEN FNSendSuplType =0 THEN FNQuantity ELSE 0 END ) AS FNQtyEmbroidery"
+            _Qry &= vbCrLf & "  ,SUM(CASE WHEN FNSendSuplType =1 THEN FNQuantity ELSE 0 END ) AS FNQtyPrint  "
+            _Qry &= vbCrLf & "  ,SUM(CASE WHEN FNSendSuplType =2 THEN FNQuantity ELSE 0 END ) AS FNQtyHeat "
+            _Qry &= vbCrLf & "  ,SUM(CASE WHEN FNSendSuplType =3 THEN FNQuantity ELSE 0 END ) AS FNQtyLaser"
+            _Qry &= vbCrLf & "  ,SUM(CASE WHEN FNSendSuplType =4 THEN FNQuantity ELSE 0 END ) AS FNQtyPadPrint"
+            _Qry &= vbCrLf & "  ,SUM(CASE WHEN FNSendSuplType =5 THEN FNQuantity ELSE 0 END ) AS FNQtyWindow "
+            _Qry &= vbCrLf & "   into #TabDataRcvSupl"
+            _Qry &= vbCrLf & "   FROM @TabDataRcvSupl "
+            _Qry &= vbCrLf & "   GROUP BY  FTOrderNo, FTUnitSectCode, FTColorway, FTSizeBreakDown, FTPOLineItemNo, FTBarcodeNo  "
+            _Qry &= vbCrLf & "  "
+
+            _Qry &= vbCrLf & "   SELECT FTOrderNo, FTUnitSectCode, FTColorway, FTSizeBreakDown, FTPOLineItemNo, FTBarcodeNo,SUM(FNQuantity) AS FNQuantity "
+            _Qry &= vbCrLf & "  ,SUM(CASE WHEN FNSendSuplType =0 THEN FNQuantity ELSE 0 END ) AS FNQtyEmbroidery"
+            _Qry &= vbCrLf & "  ,SUM(CASE WHEN FNSendSuplType =1 THEN FNQuantity ELSE 0 END ) AS FNQtyPrint"
+            _Qry &= vbCrLf & "  ,SUM(CASE WHEN FNSendSuplType =2 THEN FNQuantity ELSE 0 END ) AS FNQtyHeat"
+            _Qry &= vbCrLf & "  ,SUM(CASE WHEN FNSendSuplType =3 THEN FNQuantity ELSE 0 END ) AS FNQtyLaser"
+            _Qry &= vbCrLf & "  ,SUM(CASE WHEN FNSendSuplType =4 THEN FNQuantity ELSE 0 END ) AS FNQtyPadPrint"
+            _Qry &= vbCrLf & "  ,SUM(CASE WHEN FNSendSuplType =5 THEN FNQuantity ELSE 0 END ) AS FNQtyWindow"
+            _Qry &= vbCrLf & "   into #TabDataSendSupl"
+            _Qry &= vbCrLf & "  FROM @TabDataSendSupl  "
+            _Qry &= vbCrLf & "   GROUP BY  FTOrderNo, FTUnitSectCode, FTColorway, FTSizeBreakDown, FTPOLineItemNo, FTBarcodeNo "
+            _Qry &= vbCrLf & "  "
+            _Qry &= vbCrLf & "  "
+
+
+            _Qry &= vbCrLf & "   Select Cut.FTOrderNo"
+            _Qry &= vbCrLf & "   ,Cut.FTUnitSectCode"
+            _Qry &= vbCrLf & "   ,Cut.FTColorway"
+            _Qry &= vbCrLf & "   ,Cut.FTSizeBreakDown"
+            _Qry &= vbCrLf & "   ,Cut.FNQuantity"
+            _Qry &= vbCrLf & "   ,ISNULL(SPMK.FNQuantity ,0) AS FNQuantitySPMK ,ISNULL(SPMK.FNQuantityOut,0) AS FNQuantitySPMKOut"
+            _Qry &= vbCrLf & "   ,ISNULL(SendSupl.FNQuantity ,0) AS FNQuantitySendSupl"
+            _Qry &= vbCrLf & "   ,ISNULL(RcvSupl.FNQuantity ,0) AS FNQuantityRcvSupl"
+
+
+            _Qry &= vbCrLf & "   ,ISNULL(SendSupl.FNQtyEmbroidery ,0) AS FNQtyEmbroidery"
+            _Qry &= vbCrLf & "   ,ISNULL(SendSupl.FNQtyPrint ,0) AS FNQtyPrint"
+            _Qry &= vbCrLf & "   ,ISNULL(SendSupl.FNQtyHeat ,0) AS FNQtyHeat"
+            _Qry &= vbCrLf & "   ,ISNULL(SendSupl.FNQtyLaser ,0) AS FNQtyLaser"
+            _Qry &= vbCrLf & "   ,ISNULL(SendSupl.FNQtyPadPrint ,0) AS FNQtyPadPrint"
+            _Qry &= vbCrLf & "   ,ISNULL(SendSupl.FNQtyWindow ,0) AS FNQtyWindow"
+
+            _Qry &= vbCrLf & "   ,ISNULL(RcvSupl.FNQtyEmbroidery ,0) AS FNRcvQtyEmbroidery"
+            _Qry &= vbCrLf & "   ,ISNULL(RcvSupl.FNQtyPrint ,0) AS FNRcvQtyPrint"
+            _Qry &= vbCrLf & "   ,ISNULL(RcvSupl.FNQtyHeat ,0) AS FNRcvQtyHeat"
+            _Qry &= vbCrLf & "   ,ISNULL(RcvSupl.FNQtyLaser ,0) AS FNRcvQtyLaser"
+            _Qry &= vbCrLf & "   ,ISNULL(RcvSupl.FNQtyPadPrint ,0) AS FNRcvQtyPadPrint"
+            _Qry &= vbCrLf & "   ,ISNULL(RcvSupl.FNQtyWindow ,0) AS FNRcvQtyWindow"
+
+
+            _Qry &= vbCrLf & "   ,ISNULL(Sew.FTUnitSectCodeSew ,'') AS FTUnitSectCodeSew"
+            _Qry &= vbCrLf & "   ,ISNULL(Sew.FNQuantity,0) AS FNQuantitySew "
+            _Qry &= vbCrLf & "   ,ISNULL(SewOut.FNScanQuantity,0) AS FNQuantityScan "
+            _Qry &= vbCrLf & "   ,ISNULL(PAC.FNQuantity,0) AS FNQuantityPack  ,Cut.FTPOLineItemNo "
+            _Qry &= vbCrLf & " into #TmpBM "
+            _Qry &= vbCrLf & "      FROM  @TabDataCut   AS Cut"
+            _Qry &= vbCrLf & "   LEFT OUTER JOIN  #TabDataSendSupl AS SendSupl ON Cut.FTOrderNo = SendSupl.FTOrderNo AND Cut.FTUnitSectCode = SendSupl.FTUnitSectCode AND Cut.FTColorway = SendSupl.FTColorway AND Cut.FTSizeBreakDown = SendSupl.FTSizeBreakDown  and Cut.FTPOLineItemNo = SendSupl.FTPOLineItemNo "
+            _Qry &= vbCrLf & "   LEFT OUTER JOIN  #TabDataRcvSupl As RcvSupl On Cut.FTOrderNo = RcvSupl.FTOrderNo  And Cut.FTUnitSectCode = RcvSupl.FTUnitSectCode  And Cut.FTColorway = RcvSupl.FTColorway And Cut.FTSizeBreakDown = RcvSupl.FTSizeBreakDown And Cut.FTPOLineItemNo = RcvSupl.FTPOLineItemNo "
+
+            _Qry &= vbCrLf & "    LEFT OUTER JOIN  @TabDataSMK  AS SPMK ON Cut.FTOrderNo = SPMK.FTOrderNo AND Cut .FTUnitSectCode = SPMK.FTUnitSectCode  AND Cut.FTColorway = SPMK.FTColorway AND Cut.FTSizeBreakDown = SPMK.FTSizeBreakDown and Cut.FTPOLineItemNo = SPMK.FTPOLineItemNo "
+
+            If FTStartDateScanIn.Text = "" And FTEndDateScanIn.Text = "" Then
+                _Qry &= vbCrLf & "     LEFT OUTER JOIN  "
+            Else
+                _Qry &= vbCrLf & "     INNER JOIN  "
+            End If
+
+
+
+            '----------Start Sew
+            _Qry &= vbCrLf & "   @TabDataSew   AS Sew ON Cut.FTOrderNo = Sew.FTOrderNo AND Cut .FTUnitSectCode = Sew.FTUnitSectCode AND Cut.FTColorway = Sew.FTColorway AND Cut.FTSizeBreakDown = Sew.FTSizeBreakDown 	and Cut.FTPOLineItemNo = Sew.FTPOLineItemNo"
+
+            If FTStartDateScan.Text = "" And FTEndDateScan.Text = "" Then
+
+                _Qry &= vbCrLf & "    LEFT OUTER JOIN   "
+
+            Else
+                _Qry &= vbCrLf & "   INNER JOIN   "
+
+            End If
+
+
+            '----------Start Sew Out
+
+            _Qry &= vbCrLf & "   #TabDataSewOut "
+
+
+            _Qry &= vbCrLf & "      AS SewOut ON Sew.FTOrderNo = SewOut.FTOrderNo  AND Sew.FTUnitSectCodeSew = SewOut.FTUnitSectCode  AND Sew.FTColorway = SewOut.FTColorway AND Sew.FTSizeBreakDown = SewOut.FTSizeBreakDown and Sew.FTPOLineItemNo = SewOut.FTPOLineItemNo and Sew.FTBarcodeNo = SewOut.FTBarcodeNo"
+
+            _Qry &= vbCrLf & "    LEFT OUTER JOIN #TmpPack "
+            _Qry &= vbCrLf & "   AS PAC ON SewOut.FTOrderNo = PAC.FTOrderNo AND SewOut.FTPOLineItemNo = PAC.FTPOLineItemNo  AND SewOut.FTColorway = PAC.FTColorway AND SewOut.FTSizeBreakDown = PAC.FTSizeBreakDown "
+            _Qry &= vbCrLf & "   and SewOut.FTBarcodeNo = PAC.FTBarcodeNo "
+
+
+
+            _Qry &= vbCrLf & " 	SELECT FTNikePOLineItem,SBD.FTOrderNo,FTColorway,FTSizeBreakDown, SUM(FNQuantity) AS FNQuantity, SUM(FNQuantityExtra) AS FNQuantityExtra, SUM(FNGarmentQtyTest) AS FNGarmentQtyTest, SUM(FNGrandQuantity) AS FNGrandQuantity "
+            _Qry &= vbCrLf & " into #Tmpbreakdown "
+            _Qry &= vbCrLf & " FROM     [HITECH_MERCHAN].dbo.TMERTOrderSub_BreakDown AS SBD WITH(NOLOCK) "
+            _Qry &= vbCrLf & "  INNER JOIN @TabOrder AS Ozx ON   SBD.FTOrderNo = Ozx.FTOrderNo    "
+            _Qry &= vbCrLf & " 	GROUP BY FTNikePOLineItem,SBD.FTOrderNo,FTColorway,FTSizeBreakDown  "
+            _Qry &= vbCrLf & "  "
+
+
+
+
+            _Qry &= vbCrLf & "   select   A.FTOrderNo , A.FTPORef  , a.FNHSysStyleId   , a.FNHSysCmpId "
+            _Qry &= vbCrLf & "   into #TmpOrderno"
+            _Qry &= vbCrLf & "  from    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS  A WITH(NOLOCK)  "
+            _Qry &= vbCrLf & "  where exists (select   *  from @TabData b where b.FTOrderNo =  a.FTOrderNo ) "
+            _Qry &= vbCrLf & "  and  a.FNHSysCmpId = " & Val(HI.ST.SysInfo.CmpID) & " "
+            _Qry &= vbCrLf & "  "
+
             _Qry &= vbCrLf & "  "
             _Qry &= vbCrLf & "  "
             _Qry &= vbCrLf & "  Select   ST.FTStyleCode,A.FTOrderNo , A.FTPORef"
@@ -2209,33 +2347,10 @@ Public Class wProdOrderTrackingByLine
 
             _Qry &= vbCrLf & " FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS A WITH(NOLOCK) INNER JOIN "
             _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMStyle AS ST WITH(NOLOCK) ON A.FNHSysStyleId=ST.FNHSysStyleId INNER jOIN"
-            _Qry &= vbCrLf & "  ("
-            _Qry &= vbCrLf & "	SELECT FTNikePOLineItem,SBD.FTOrderNo,FTColorway,FTSizeBreakDown, SUM(FNQuantity) AS FNQuantity, SUM(FNQuantityExtra) AS FNQuantityExtra, SUM(FNGarmentQtyTest) AS FNGarmentQtyTest, SUM(FNGrandQuantity) AS FNGrandQuantity"
-            _Qry &= vbCrLf & "FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS SBD WITH(NOLOCK)"
+            _Qry &= vbCrLf & "  #Tmpbreakdown   AS B ON A.FTOrderNo = B.FTOrderNo  "
+            _Qry &= vbCrLf & "  LEFT OUTER JOIN   @TabDataLC "
 
-            _Qry &= vbCrLf & "       INNER JOIN @TabOrder AS Ozx ON   SBD.FTOrderNo = Ozx.FTOrderNo   "
-
-
-
-            _Qry &= vbCrLf & "	GROUP BY FTNikePOLineItem,SBD.FTOrderNo,FTColorway,FTSizeBreakDown"
-            _Qry &= vbCrLf & "  ) AS B ON A.FTOrderNo = B.FTOrderNo  "
-            _Qry &= vbCrLf & "  LEFT OUTER JOIN ("
-
-            '----------Start LC
-
-            _Qry &= vbCrLf & " SELECT * FROM @TabDataLC "
-            '_Qry &= vbCrLf & " SELECT A.FTOrderNo,B.FTColorway,B.FTSizeBreakDown, SUM(BD.FNQuantity) AS FNQuantity , B.FTPOLineItemNo "
-            '_Qry &= vbCrLf & "  FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS B WITH(NOLOCK)  INNER JOIN"
-            '_Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd AS A  WITH(NOLOCK) ON B.FTOrderProdNo = A.FTOrderProdNo INNER JOIN"
-            '_Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle_Detail AS BD WITH(NOLOCK)  ON B.FTBarcodeBundleNo = BD.FTBarcodeBundleNo INNER JOIN"
-            '_Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTLayCut AS LC WITH(NOLOCK)  ON BD.FTLayCutNo = LC.FTLayCutNo INNER JOIN"
-            '_Qry &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_MarkMain AS PM WITH(NOLOCK)  ON LC.FTOrderProdNo = PM.FTOrderProdNo AND LC.FNHSysMarkId = PM.FNHSysMarkId"
-            '_Qry &= vbCrLf & "       INNER Join @TabDataBD As X ON X.FTOrderNo = A.FTOrderNo And X.FTColorway=B.FTColorway And X.FTSizeBreakDown=B.FTSizeBreakDown  "
-            '_Qry &= vbCrLf & " WHERE   A.FTOrderNo IN (SELECT DISTINCT FTOrderNo FROM @TabOrder) AND  (B.FTStateGenBarcode = '1')"
-            '_Qry &= vbCrLf & "  GROUP BY A.FTOrderNo,B.FTColorway,B.FTSizeBreakDown , B.FTPOLineItemNo "
-
-            '----------END LC
-            _Qry &= vbCrLf & "  ) AS C ON A.FTOrderNo = C.FTOrderNo  AND B.FTColorway = C.FTColorway AND B.FTSizeBreakDown = C.FTSizeBreakDown  and B.FTNikePOLineItem = C.FTPOLineItemNo"
+            _Qry &= vbCrLf & "    AS C ON A.FTOrderNo = C.FTOrderNo  AND B.FTColorway = C.FTColorway AND B.FTSizeBreakDown = C.FTSizeBreakDown  and B.FTNikePOLineItem = C.FTPOLineItemNo"
 
             If FTStartDateScan.Text = "" And FTEndDateScan.Text = "" Then
                 _Qry &= vbCrLf & "   LEFT OUTER JOIN "
@@ -2243,391 +2358,27 @@ Public Class wProdOrderTrackingByLine
                 _Qry &= vbCrLf & "  INNER JOIN "
             End If
 
-            _Qry &= vbCrLf & " ("
-
-            _Qry &= vbCrLf & "     Select Cut.FTOrderNo"
-            _Qry &= vbCrLf & "   ,Cut.FTUnitSectCode"
-            _Qry &= vbCrLf & "   ,Cut.FTColorway"
-            _Qry &= vbCrLf & "   ,Cut.FTSizeBreakDown"
-            _Qry &= vbCrLf & "   ,Cut.FNQuantity"
-            _Qry &= vbCrLf & "   ,ISNULL(SPMK.FNQuantity ,0) AS FNQuantitySPMK ,ISNULL(SPMK.FNQuantityOut,0) AS FNQuantitySPMKOut"
-            _Qry &= vbCrLf & "   ,ISNULL(SendSupl.FNQuantity ,0) AS FNQuantitySendSupl"
-            _Qry &= vbCrLf & "   ,ISNULL(RcvSupl.FNQuantity ,0) AS FNQuantityRcvSupl"
-
-
-            _Qry &= vbCrLf & "   ,ISNULL(SendSupl.FNQtyEmbroidery ,0) AS FNQtyEmbroidery"
-            _Qry &= vbCrLf & "   ,ISNULL(SendSupl.FNQtyPrint ,0) AS FNQtyPrint"
-            _Qry &= vbCrLf & "   ,ISNULL(SendSupl.FNQtyHeat ,0) AS FNQtyHeat"
-            _Qry &= vbCrLf & "   ,ISNULL(SendSupl.FNQtyLaser ,0) AS FNQtyLaser"
-            _Qry &= vbCrLf & "   ,ISNULL(SendSupl.FNQtyPadPrint ,0) AS FNQtyPadPrint"
-            _Qry &= vbCrLf & "   ,ISNULL(SendSupl.FNQtyWindow ,0) AS FNQtyWindow"
-
-            _Qry &= vbCrLf & "   ,ISNULL(RcvSupl.FNQtyEmbroidery ,0) AS FNRcvQtyEmbroidery"
-            _Qry &= vbCrLf & "   ,ISNULL(RcvSupl.FNQtyPrint ,0) AS FNRcvQtyPrint"
-            _Qry &= vbCrLf & "   ,ISNULL(RcvSupl.FNQtyHeat ,0) AS FNRcvQtyHeat"
-            _Qry &= vbCrLf & "   ,ISNULL(RcvSupl.FNQtyLaser ,0) AS FNRcvQtyLaser"
-            _Qry &= vbCrLf & "   ,ISNULL(RcvSupl.FNQtyPadPrint ,0) AS FNRcvQtyPadPrint"
-            _Qry &= vbCrLf & "   ,ISNULL(RcvSupl.FNQtyWindow ,0) AS FNRcvQtyWindow"
-
-
-            _Qry &= vbCrLf & "   ,ISNULL(Sew.FTUnitSectCodeSew ,'') AS FTUnitSectCodeSew"
-            _Qry &= vbCrLf & "   ,ISNULL(Sew.FNQuantity,0) AS FNQuantitySew "
-            _Qry &= vbCrLf & "   ,ISNULL(SewOut.FNScanQuantity,0) AS FNQuantityScan "
-            _Qry &= vbCrLf & "   ,ISNULL(PAC.FNQuantity,0) AS FNQuantityPack  ,Cut.FTPOLineItemNo "
-            _Qry &= vbCrLf & "      FROM"
-            _Qry &= vbCrLf & "   ("
-
-
-            '----------Start Cut
-
-            _Qry &= vbCrLf & " SELECT * FROM @TabDataCut "
-
-            '_Qry &= vbCrLf & "   SELECT A.FTOrderNo,US.FTUnitSectCode,B.FTColorway,B.FTSizeBreakDown, SUM(BD.FNQuantity) AS FNQuantity , B.FTPOLineItemNo "
-            '_Qry &= vbCrLf & "   FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS B WITH(NOLOCK)  INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd AS A  WITH(NOLOCK) ON B.FTOrderProdNo = A.FTOrderProdNo INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle_Detail AS BD WITH(NOLOCK)  ON B.FTBarcodeBundleNo = BD.FTBarcodeBundleNo INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTLayCut AS LC WITH(NOLOCK)  ON BD.FTLayCutNo = LC.FTLayCutNo INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_MarkMain AS PM WITH(NOLOCK)  ON LC.FTOrderProdNo = PM.FTOrderProdNo AND LC.FNHSysMarkId = PM.FNHSysMarkId"
-
-            'If Not (_StateQtyBySPM) Then
-            '    _Qry &= vbCrLf & "  	INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_TableCut AS TC WITH(NOLOCK) ON LC.FTOrderProdNo = TC.FTOrderProdNo AND LC.FNHSysMarkId = TC.FNHSysMarkId AND LC.FNTableNo = TC.FNTableNo "
-            'Else
-            '    _Qry &= vbCrLf & "  	INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScan_Detail AS TC WITH(NOLOCK) ON B.FTBarcodeBundleNo = TC.FTBarcodeNo "
-            'End If
-
-            '_Qry &= vbCrLf & "  	LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect AS US WITH(NOLOCK) ON TC.FNHSysUnitSectId = US.FNHSysUnitSectId "
-
-            '_Qry &= vbCrLf & "      INNER JOIN @TabDataBD As X ON X.FTOrderNo = A.FTOrderNo AND X.FTColorway=B.FTColorway AND X.FTSizeBreakDown=B.FTSizeBreakDown   "
-
-            '_Qry &= vbCrLf & "   WHERE    A.FTOrderNo IN (SELECT DISTINCT FTOrderNo FROM @TabOrder)  AND  (B.FTStateGenBarcode = '1')"
-            'If (_StateQtyBySPM) Then
-            '    _Qry &= vbCrLf & " and  TC.FNHSysOperationId = 1405310009 "
-            'End If
-            '_Qry &= vbCrLf & "   GROUP BY A.FTOrderNo,US.FTUnitSectCode,B.FTColorway,B.FTSizeBreakDown , B.FTPOLineItemNo "
-
-
-
-            '----------END Cut
-
-            _Qry &= vbCrLf & "   ) AS Cut"
-            _Qry &= vbCrLf & "   LEFT OUTER JOIN ("
-
-            '----------Start Send Supl
-            'FTOrderNo, FTUnitSectCode, FTColorway, FTSizeBreakDown, FNQuantity, FTPOLineItemNo, FTBarcodeNo ,FNSendSuplType
-
-
-            _Qry &= vbCrLf & " SELECT FTOrderNo, FTUnitSectCode, FTColorway, FTSizeBreakDown, FTPOLineItemNo, FTBarcodeNo,SUM(FNQuantity) AS FNQuantity "
-
-            _Qry &= vbCrLf & " ,SUM(CASE WHEN FNSendSuplType =0 THEN FNQuantity ELSE 0 END ) AS FNQtyEmbroidery"
-            _Qry &= vbCrLf & " ,SUM(CASE WHEN FNSendSuplType =1 THEN FNQuantity ELSE 0 END ) AS FNQtyPrint"
-            _Qry &= vbCrLf & " ,SUM(CASE WHEN FNSendSuplType =2 THEN FNQuantity ELSE 0 END ) AS FNQtyHeat"
-            _Qry &= vbCrLf & " ,SUM(CASE WHEN FNSendSuplType =3 THEN FNQuantity ELSE 0 END ) AS FNQtyLaser"
-            _Qry &= vbCrLf & " ,SUM(CASE WHEN FNSendSuplType =4 THEN FNQuantity ELSE 0 END ) AS FNQtyPadPrint"
-            _Qry &= vbCrLf & " ,SUM(CASE WHEN FNSendSuplType =5 THEN FNQuantity ELSE 0 END ) AS FNQtyWindow"
-
-            _Qry &= vbCrLf & "  FROM @TabDataSendSupl  "
-            _Qry &= vbCrLf & " GROUP BY  FTOrderNo, FTUnitSectCode, FTColorway, FTSizeBreakDown, FTPOLineItemNo, FTBarcodeNo "
-
-            '_Qry &= vbCrLf & "   SELECT SUM(BD.FNQuantity) AS FNQuantity, P.FTOrderNo,B.FTColorway,B.FTSizeBreakDown,US.FTUnitSectCode , B.FTPOLineItemNo  "
-            '_Qry &= vbCrLf & "   FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTSendSupl_Barcode AS A WITH(NOLOCK)   INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcode_SendSupl AS SS WITH(NOLOCK)   ON A.FTBarcodeSendSuplNo = SS.FTBarcodeSendSuplNo INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS B  WITH(NOLOCK)  ON SS.FTBarcodeBundleNo = B.FTBarcodeBundleNo INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd AS P WITH(NOLOCK)   ON SS.FTOrderProdNo = P.FTOrderProdNo  INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle_Detail AS BD WITH(NOLOCK)  ON B.FTBarcodeBundleNo = BD.FTBarcodeBundleNo INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTLayCut AS LC WITH(NOLOCK)  ON BD.FTLayCutNo = LC.FTLayCutNo INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_MarkMain AS PM WITH(NOLOCK)  ON LC.FTOrderProdNo = PM.FTOrderProdNo AND LC.FNHSysMarkId = PM.FNHSysMarkId"
-
-            ''_Qry &= vbCrLf & "   INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_TableCut AS TC WITH(NOLOCK) ON LC.FTOrderProdNo = TC.FTOrderProdNo AND LC.FNHSysMarkId = TC.FNHSysMarkId AND LC.FNTableNo = TC.FNTableNo "
-            'If Not (_StateQtyBySPM) Then
-            '    _Qry &= vbCrLf & "  	INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_TableCut AS TC WITH(NOLOCK) ON LC.FTOrderProdNo = TC.FTOrderProdNo AND LC.FNHSysMarkId = TC.FNHSysMarkId AND LC.FNTableNo = TC.FNTableNo "
-            'Else
-            '    _Qry &= vbCrLf & "  	INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScan_Detail AS TC WITH(NOLOCK) ON B.FTBarcodeBundleNo = TC.FTBarcodeNo  "
-            '    ' _Qry &= vbCrLf & " and A.FTBarcodeNo = TC.FTBarcodeNo	and A.FNHSysOperationId = TC.FNHSysOperationId and A.FNHSysUnitSectId = TC.FNHSysUnitSectId "
-            'End If
-
-            '_Qry &= vbCrLf & "   LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect AS US WITH(NOLOCK) ON TC.FNHSysUnitSectId = US.FNHSysUnitSectId "
-
-            '_Qry &= vbCrLf & "      INNER JOIN @TabDataBD As X ON X.FTOrderNo = P.FTOrderNo AND X.FTColorway=B.FTColorway AND X.FTSizeBreakDown=B.FTSizeBreakDown     "
-
-            '_Qry &= vbCrLf & "   WHERE  P.FTOrderNo IN (SELECT DISTINCT FTOrderNo FROM @TabOrder)  "
-            'If (_StateQtyBySPM) Then
-            '    _Qry &= vbCrLf & "  AND  TC.FNHSysOperationId = 1405310009  "
-            'End If
-
-            '_Qry &= vbCrLf & "   GROUP BY P.FTOrderNo,B.FTColorway,B.FTSizeBreakDown ,US.FTUnitSectCode , B.FTPOLineItemNo "
-
-            '----------END Send Supl
-
-            _Qry &= vbCrLf & "    ) AS SendSupl ON Cut.FTOrderNo = SendSupl.FTOrderNo AND Cut.FTUnitSectCode = SendSupl.FTUnitSectCode AND Cut.FTColorway = SendSupl.FTColorway AND Cut.FTSizeBreakDown = SendSupl.FTSizeBreakDown  and Cut.FTPOLineItemNo = SendSupl.FTPOLineItemNo "
-            _Qry &= vbCrLf & "   LEFT OUTER JOIN ("
-
-
-
-            '----------Start Rcv Supl
-            'FTOrderNo, FTUnitSectCode, FTColorway, FTSizeBreakDown, FNQuantity, FTPOLineItemNo, FTBarcodeNo ,FNSendSuplType
-            _Qry &= vbCrLf & " SELECT FTOrderNo, FTUnitSectCode, FTColorway, FTSizeBreakDown, FTPOLineItemNo, FTBarcodeNo,SUM(FNQuantity) AS FNQuantity "
-
-            _Qry &= vbCrLf & " ,SUM(CASE WHEN FNSendSuplType =0 THEN FNQuantity ELSE 0 END ) AS FNQtyEmbroidery"
-            _Qry &= vbCrLf & " ,SUM(CASE WHEN FNSendSuplType =1 THEN FNQuantity ELSE 0 END ) AS FNQtyPrint"
-            _Qry &= vbCrLf & " ,SUM(CASE WHEN FNSendSuplType =2 THEN FNQuantity ELSE 0 END ) AS FNQtyHeat"
-            _Qry &= vbCrLf & " ,SUM(CASE WHEN FNSendSuplType =3 THEN FNQuantity ELSE 0 END ) AS FNQtyLaser"
-            _Qry &= vbCrLf & " ,SUM(CASE WHEN FNSendSuplType =4 THEN FNQuantity ELSE 0 END ) AS FNQtyPadPrint"
-            _Qry &= vbCrLf & " ,SUM(CASE WHEN FNSendSuplType =5 THEN FNQuantity ELSE 0 END ) AS FNQtyWindow"
-
-            _Qry &= vbCrLf & "  FROM @TabDataRcvSupl "
-            _Qry &= vbCrLf & " GROUP BY  FTOrderNo, FTUnitSectCode, FTColorway, FTSizeBreakDown, FTPOLineItemNo, FTBarcodeNo "
-
-            '_Qry &= vbCrLf & "   Select SUM(BD.FNQuantity) As FNQuantity, P.FTOrderNo,B.FTColorway,B.FTSizeBreakDown,US.FTUnitSectCode , B.FTPOLineItemNo "
-            '_Qry &= vbCrLf & "  	FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTReceiveSupl_Barcode As A With(NOLOCK)   INNER JOIN"
-            '_Qry &= vbCrLf & "               [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcode_SendSupl As SS With(NOLOCK)   On A.FTBarcodeSendSuplNo = SS.FTBarcodeSendSuplNo INNER JOIN"
-            '_Qry &= vbCrLf & "               [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle As B  With(NOLOCK)  On SS.FTBarcodeBundleNo = B.FTBarcodeBundleNo INNER JOIN"
-            '_Qry &= vbCrLf & "               [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd As P With(NOLOCK)   On SS.FTOrderProdNo = P.FTOrderProdNo INNER JOIN"
-            '_Qry &= vbCrLf & "               [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle_Detail As BD With(NOLOCK) On B.FTBarcodeBundleNo = BD.FTBarcodeBundleNo INNER JOIN"
-            '_Qry &= vbCrLf & "               [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTLayCut As LC With(NOLOCK)  On BD.FTLayCutNo = LC.FTLayCutNo INNER JOIN"
-            '_Qry &= vbCrLf & "               [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_MarkMain As PM With(NOLOCK)  On LC.FTOrderProdNo = PM.FTOrderProdNo And LC.FNHSysMarkId = PM.FNHSysMarkId"
-
-            ''_Qry &= vbCrLf & "   INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_TableCut As TC With(NOLOCK) On LC.FTOrderProdNo = TC.FTOrderProdNo And LC.FNHSysMarkId = TC.FNHSysMarkId And LC.FNTableNo = TC.FNTableNo "
-            'If Not (_StateQtyBySPM) Then
-            '    _Qry &= vbCrLf & "  	INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_TableCut As TC With(NOLOCK) On LC.FTOrderProdNo = TC.FTOrderProdNo And LC.FNHSysMarkId = TC.FNHSysMarkId And LC.FNTableNo = TC.FNTableNo "
-            'Else
-            '    _Qry &= vbCrLf & "  	INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScan_Detail As TC With(NOLOCK) On B.FTBarcodeBundleNo = TC.FTBarcodeNo  "
-            '    '    _Qry &= vbCrLf & " And A.FTBarcodeNo = TC.FTBarcodeNo	And A.FNHSysOperationId = TC.FNHSysOperationId And A.FNHSysUnitSectId = TC.FNHSysUnitSectId "
-            'End If
-
-            '_Qry &= vbCrLf & "  	LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect As US With(NOLOCK) On TC.FNHSysUnitSectId = US.FNHSysUnitSectId "
-            '_Qry &= vbCrLf & "      INNER JOIN @TabDataBD As X On X.FTOrderNo = P.FTOrderNo And X.FTColorway=B.FTColorway And X.FTSizeBreakDown=B.FTSizeBreakDown     "
-            '_Qry &= vbCrLf & "   WHERE  P.FTOrderNo In (Select DISTINCT FTOrderNo FROM @TabOrder)  "
-
-            'If (_StateQtyBySPM) Then
-
-            '    _Qry &= vbCrLf & "  And  TC.FNHSysOperationId = 1405310009  "
-
-            'End If
-
-            '_Qry &= vbCrLf & "   GROUP BY P.FTOrderNo,B.FTColorway,B.FTSizeBreakDown,US.FTUnitSectCode  , B.FTPOLineItemNo "
-
-            '----------END Rcv Supl
-            _Qry &= vbCrLf & "   ) As RcvSupl On Cut.FTOrderNo = RcvSupl.FTOrderNo  And Cut.FTUnitSectCode = RcvSupl.FTUnitSectCode  And Cut.FTColorway = RcvSupl.FTColorway And Cut.FTSizeBreakDown = RcvSupl.FTSizeBreakDown And Cut.FTPOLineItemNo = RcvSupl.FTPOLineItemNo "
-
-            _Qry &= vbCrLf & "    LEFT OUTER JOIN ("
-
-            '----------Start SMK
-            _Qry &= vbCrLf & " SELECT * FROM @TabDataSMK "
-            '_Qry &= vbCrLf & "  Select P.FTOrderNo,B.FTColorway,B.FTSizeBreakDown, SUM(BD.FNQuantity) As FNQuantity,US.FTUnitSectCode , B.FTPOLineItemNo "
-            '_Qry &= vbCrLf & "   FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScan_Detail As A With(NOLOCK)  INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle As B With(NOLOCK) On A.FTBarcodeNo = B.FTBarcodeBundleNo INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd As P With(NOLOCK) On B.FTOrderProdNo = P.FTOrderProdNo INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle_Detail As BD With(NOLOCK)   On B.FTBarcodeBundleNo = BD.FTBarcodeBundleNo INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTLayCut As LC With(NOLOCK)  On BD.FTLayCutNo = LC.FTLayCutNo INNER JOIN"
-            '_Qry &= vbCrLf & "            [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_MarkMain As PM With(NOLOCK)  On LC.FTOrderProdNo = PM.FTOrderProdNo And LC.FNHSysMarkId = PM.FNHSysMarkId"
-
-            'If Not (_StateQtyBySPM) Then
-            '    _Qry &= vbCrLf & "  	INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_TableCut As TC With(NOLOCK) On LC.FTOrderProdNo = TC.FTOrderProdNo And LC.FNHSysMarkId = TC.FNHSysMarkId And LC.FNTableNo = TC.FNTableNo "
-            'Else
-            '    _Qry &= vbCrLf & "  	INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScan_Detail As TC With(NOLOCK) On B.FTBarcodeBundleNo = TC.FTBarcodeNo  "
-            '    _Qry &= vbCrLf & " And A.FTBarcodeNo = TC.FTBarcodeNo	And A.FNHSysOperationId = TC.FNHSysOperationId And A.FNHSysUnitSectId = TC.FNHSysUnitSectId "
-            'End If
-
-            ''_Qry &= vbCrLf & "   INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_TableCut As TC With(NOLOCK) On LC.FTOrderProdNo = TC.FTOrderProdNo And LC.FNHSysMarkId = TC.FNHSysMarkId And LC.FNTableNo = TC.FNTableNo "
-            '_Qry &= vbCrLf & "  	LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect As US With(NOLOCK) On TC.FNHSysUnitSectId = US.FNHSysUnitSectId "
-            '_Qry &= vbCrLf & "  	INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TPRODMOperation As OPR With(NOLOCK) On A.FNHSysOperationId = OPR.FNHSysOperationId "
-
-            '_Qry &= vbCrLf & "      INNER JOIN @TabDataBD As X On X.FTOrderNo = P.FTOrderNo And X.FTColorway=B.FTColorway And X.FTSizeBreakDown=B.FTSizeBreakDown      "
-
-            '_Qry &= vbCrLf & "     WHERE P.FTOrderNo In (Select DISTINCT FTOrderNo FROM @TabOrder) And (OPR.FTStateSPMK = '1')"
-
-            'If (_StateQtyBySPM) Then
-            '    _Qry &= vbCrLf & "  and  TC.FNHSysOperationId = 1405310009  "
-            'End If
-
-            '_Qry &= vbCrLf & "   GROUP BY P.FTOrderNo,B.FTColorway,B.FTSizeBreakDown,US.FTUnitSectCode , B.FTPOLineItemNo "
-
-            '----------END SMK
-
-            _Qry &= vbCrLf & "    ) AS SPMK ON Cut.FTOrderNo = SPMK.FTOrderNo AND Cut .FTUnitSectCode = SPMK.FTUnitSectCode  AND Cut.FTColorway = SPMK.FTColorway AND Cut.FTSizeBreakDown = SPMK.FTSizeBreakDown and Cut.FTPOLineItemNo = SPMK.FTPOLineItemNo "
-
-            If FTStartDateScanIn.Text = "" And FTEndDateScanIn.Text = "" Then
-                _Qry &= vbCrLf & "     LEFT OUTER JOIN ("
-            Else
-                _Qry &= vbCrLf & "     INNER JOIN ("
-            End If
-
-
-
-            '----------Start Sew
-            _Qry &= vbCrLf & " SELECT * FROM @TabDataSew "
-            '_Qry &= vbCrLf & "   	SELECT P.FTOrderNo,USC.FTUnitSectCode,US.FTUnitSectCode AS FTUnitSectCodeSew,B.FTColorway,B.FTSizeBreakDown, SUM(BD.FNQuantity) AS FNQuantity , B.FTPOLineItemNo , B.FTBarcodeBundleNo AS FTBarcodeNo"
-            '_Qry &= vbCrLf & "   	FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScan_Detail AS A WITH(NOLOCK)  INNER JOIN"
-            '_Qry &= vbCrLf & "               [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect AS US WITH(NOLOCK) ON A.FNHSysUnitSectId = US.FNHSysUnitSectId INNER JOIN"
-            '_Qry &= vbCrLf & "               [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS B WITH(NOLOCK) ON A.FTBarcodeNo = B.FTBarcodeBundleNo  INNER JOIN"
-            '_Qry &= vbCrLf & "               [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle_Detail AS BD WITH(NOLOCK)  ON B.FTBarcodeBundleNo = BD.FTBarcodeBundleNo INNER JOIN"
-            '_Qry &= vbCrLf & "               [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd AS P WITH(NOLOCK) ON B.FTOrderProdNo = P.FTOrderProdNo  INNER JOIN"
-            '_Qry &= vbCrLf & "               [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTLayCut AS LC WITH(NOLOCK)  ON BD.FTLayCutNo = LC.FTLayCutNo INNER JOIN"
-            '_Qry &= vbCrLf & "               [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_MarkMain AS PM WITH(NOLOCK)  ON LC.FTOrderProdNo = PM.FTOrderProdNo AND LC.FNHSysMarkId = PM.FNHSysMarkId"
-
-            'If Not (_StateQtyBySPM) Then
-            '    _Qry &= vbCrLf & "  	INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_TableCut AS TC WITH(NOLOCK) ON LC.FTOrderProdNo = TC.FTOrderProdNo AND LC.FNHSysMarkId = TC.FNHSysMarkId AND LC.FNTableNo = TC.FNTableNo "
-            'Else
-            '    _Qry &= vbCrLf & "  	INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScan_Detail AS TC WITH(NOLOCK) ON B.FTBarcodeBundleNo = TC.FTBarcodeNo  "
-            '    _Qry &= vbCrLf & " and A.FTBarcodeNo = TC.FTBarcodeNo	-- and A.FNHSysOperationId = TC.FNHSysOperationId and A.FNHSysUnitSectId = TC.FNHSysUnitSectId "
-            'End If
-
-
-            '_Qry &= vbCrLf & "  	LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect As USC With(NOLOCK) On TC.FNHSysUnitSectId = USC.FNHSysUnitSectId "
-            '_Qry &= vbCrLf & "      INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScan As HA With(NOLOCK)  On A.FTDocScanNo=HA.FTDocScanNo"
-
-            '_Qry &= vbCrLf & "      INNER JOIN @TabDataBD As X ON X.FTOrderNo = P.FTOrderNo AND X.FTColorway=B.FTColorway AND X.FTSizeBreakDown=B.FTSizeBreakDown       "
-
-
-            '_Qry &= vbCrLf & "   WHERE  P.FTOrderNo IN (SELECT DISTINCT FTOrderNo FROM @TabOrder)  AND  (US.FTStateSew = '1')   AND (A.FNHSysOperationId = 1405310010) "
-
-            'If (_StateQtyBySPM) Then
-
-            '    _Qry &= vbCrLf & "  and  TC.FNHSysOperationId = 1405310009  "
-
-            'End If
-
-            'If FTStartDateScanIn.Text <> "" Or FTEndDateScanIn.Text <> "" Then
-
-            '    If FTStartDateScanIn.Text <> "" Then
-
-            '        _Qry &= vbCrLf & "   AND HA.FDDocScanDate >='" & HI.UL.ULDate.ConvertEnDB(FTStartDateScanIn.Text) & "' "
-
-            '    End If
-
-            '    If FTEndDateScanIn.Text <> "" Then
-
-            '        _Qry &= vbCrLf & "   AND HA.FDDocScanDate <='" & HI.UL.ULDate.ConvertEnDB(FTEndDateScanIn.Text) & "' "
-
-            '    End If
-
-            'End If
-
-            '_Qry &= vbCrLf & "   GROUP BY P.FTOrderNo,USC.FTUnitSectCode,US.FTUnitSectCode,B.FTColorway,B.FTSizeBreakDown , B.FTPOLineItemNo, B.FTBarcodeBundleNo "
-
-
-            '----------End Sew
-
-            _Qry &= vbCrLf & "    ) AS Sew ON Cut.FTOrderNo = Sew.FTOrderNo AND Cut .FTUnitSectCode = Sew.FTUnitSectCode AND Cut.FTColorway = Sew.FTColorway AND Cut.FTSizeBreakDown = Sew.FTSizeBreakDown 	and Cut.FTPOLineItemNo = Sew.FTPOLineItemNo"
-
-            If FTStartDateScan.Text = "" And FTEndDateScan.Text = "" Then
-
-                _Qry &= vbCrLf & "    LEFT OUTER JOIN ( "
-
-            Else
-                _Qry &= vbCrLf & "   INNER JOIN ( "
-
-            End If
-
-
-            '----------Start Sew Out
-
-            _Qry &= vbCrLf & " SELECT * FROM #TabDataSewOut "
-
-            '_Qry &= vbCrLf & "  Select   FTOrderNo,FTUnitSectCode, FTColorway, FTSizeBreakDown ,sum( FNScanQuantity) As FNScanQuantity ,FTPOLineItemNo ,FTBarcodeNo    From ( "
-
-            '_Qry &= vbCrLf & "   SELECT P.FTOrderNo,US.FTUnitSectCode,B.FTColorway,B.FTSizeBreakDown, SUM(SC.FNQuantity) AS FNScanQuantity , B.FTPOLineItemNo  , SC.FTBarcodeNo"
-            ''_Qry &= vbCrLf & "   FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Detail AS SC"
-            ''_Qry &= vbCrLf & "   LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect AS US WITH(NOLOCK) ON SC.FNHSysUnitSectId = US.FNHSysUnitSectId "
-
-            '_Qry &= vbCrLf & "  FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline AS SC WITH(NOLOCK)"
-            '_Qry &= vbCrLf & " LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect AS US WITH(NOLOCK) ON SC.FNHSysUnitSectId = US.FNHSysUnitSectId "
-            '_Qry &= vbCrLf & " LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS B WITH(NOLOCK) ON SC.FTBarcodeNo = B.FTBarcodeBundleNo"
-            '_Qry &= vbCrLf & " INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd AS P WITH(NOLOCK) ON B.FTOrderProdNo = P.FTOrderProdNo"
-            '_Qry &= vbCrLf & "      INNER JOIN @TabDataBD As X ON X.FTOrderNo = P.FTOrderNo AND X.FTColorway=B.FTColorway AND X.FTSizeBreakDown=B.FTSizeBreakDown        "
-
-            '_Qry &= vbCrLf & "   WHERE P.FTOrderNo <>'' AND   P.FTOrderNo IN (SELECT DISTINCT FTOrderNo FROM @TabOrder)  "
-
-            'If FTStartDateScan.Text <> "" Or FTEndDateScan.Text <> "" Then
-
-            '    If FTStartDateScan.Text <> "" Then
-            '        _Qry &= vbCrLf & "   AND SC.FDDate >='" & HI.UL.ULDate.ConvertEnDB(FTStartDateScan.Text) & "' "
-            '    End If
-
-            '    If FTEndDateScan.Text <> "" Then
-            '        _Qry &= vbCrLf & "   AND SC.FDDate <='" & HI.UL.ULDate.ConvertEnDB(FTEndDateScan.Text) & "' "
-            '    End If
-
-            'End If
-
-            '_Qry &= vbCrLf & "   GROUP BY P.FTOrderNo,US.FTUnitSectCode,B.FTColorway,B.FTSizeBreakDown , B.FTPOLineItemNo , SC.FTBarcodeNo) AS T "
-            '_Qry &= vbCrLf & "  GROUP BY FTOrderNo,FTUnitSectCode,FTColorway,FTSizeBreakDown , FTPOLineItemNo ,FTBarcodeNo "
-
-            '----------END Sew Out
-            _Qry &= vbCrLf & "    ) AS SewOut ON Sew.FTOrderNo = SewOut.FTOrderNo  AND Sew.FTUnitSectCodeSew = SewOut.FTUnitSectCode  AND Sew.FTColorway = SewOut.FTColorway AND Sew.FTSizeBreakDown = SewOut.FTSizeBreakDown and Sew.FTPOLineItemNo = SewOut.FTPOLineItemNo and Sew.FTBarcodeNo = SewOut.FTBarcodeNo"
-
-            _Qry &= vbCrLf & "    LEFT OUTER JOIN ("
-            _Qry &= vbCrLf & "  SELECT SC.FTOrderNo,B.FTColorway,B.FTSizeBreakDown, SUM(SC.FNScanQuantity) AS FNQuantity , B.FTPOLineItemNo , B.FTMainBarcodeBundleNo AS FTBarcodeNo"
-            _Qry &= vbCrLf & "   FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan AS SC WITH(NOLOCK) "
-            _Qry &= vbCrLf & "   INNER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKCarton AS PC WITH(NOLOCK) ON SC.FTPackNo = PC.FTPackNo AND SC.FNCartonNo = PC.FNCartonNo "
-            _Qry &= vbCrLf & "   LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect AS US WITH(NOLOCK) ON SC.FNHSysUnitSectId = US.FNHSysUnitSectId "
-            ' _Qry &= vbCrLf & "   INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS B WITH(NOLOCK) ON SC.FTBarcodeNo = B.FTBarcodeBundleNo " 'and SC.FTColorway = B.FTColorway and SC.FTSizeBreakDown = B.FTSizeBreakDown"
-
-            _Qry &= vbCrLf & "    Outer Apply(SELECT TOP 1  B.FTColorway,B.FTSizeBreakDown ,B.FTPOLineItemNo,B.FTMainBarcodeBundleNo  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS B WITH(NOLOCK) WHERE B.FTBarcodeBundleNo = SC.FTBarcodeNo ) AS B "
-
-
-            _Qry &= vbCrLf & "     INNER JOIN @TabDataBD As X ON X.FTOrderNo = SC.FTOrderNo AND X.FTColorway=B.FTColorway AND X.FTSizeBreakDown=B.FTSizeBreakDown      "
-
-            _Qry &= vbCrLf & "       INNER JOIN @TabOrder AS Ozx ON   SC.FTOrderNo = Ozx.FTOrderNo   "
-
-            _Qry &= vbCrLf & "   WHERE    PC.FTState='1' "
-            _Qry &= vbCrLf & "   GROUP BY SC.FTOrderNo,B.FTColorway,B.FTSizeBreakDown , B.FTPOLineItemNo , B.FTMainBarcodeBundleNo  "
-            _Qry &= vbCrLf & "   ) AS PAC ON SewOut.FTOrderNo = PAC.FTOrderNo AND SewOut.FTPOLineItemNo = PAC.FTPOLineItemNo  AND SewOut.FTColorway = PAC.FTColorway AND SewOut.FTSizeBreakDown = PAC.FTSizeBreakDown "
-            _Qry &= vbCrLf & "   and SewOut.FTBarcodeNo = PAC.FTBarcodeNo "
-            _Qry &= vbCrLf & "  ) AS BM ON A.FTOrderNo = BM.FTOrderNo   AND B.FTColorway = BM.FTColorway AND B.FTSizeBreakDown = BM.FTSizeBreakDown and C.FTPOLineItemNo = BM.FTPOLineItemNo "
+            _Qry &= vbCrLf & "  #TmpBM  AS BM ON A.FTOrderNo = BM.FTOrderNo   AND B.FTColorway = BM.FTColorway AND B.FTSizeBreakDown = BM.FTSizeBreakDown and C.FTPOLineItemNo = BM.FTPOLineItemNo "
             _Qry &= vbCrLf & "  INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp AS Cmp WITH(NOLOCK) ON A.FNHSysCmpId = Cmp.FNHSysCmpId "
             _Qry &= vbCrLf & "  LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize AS SSB WITH(NOLOCK) ON B.FTSizeBreakDown = SSB.FTMatSizeCode "
 
-            _Qry &= vbCrLf & "       INNER JOIN @TabOrder AS Ozx ON   A.FTOrderNo = Ozx.FTOrderNo   "
+            _Qry &= vbCrLf & "  INNER JOIN @TabOrder AS Ozx ON   A.FTOrderNo = Ozx.FTOrderNo   "
 
             _Qry &= vbCrLf & " WHERE A.FTOrderNo <> ''"
             _Qry &= vbCrLf & "  AND  A.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & ""
 
 
-            'If FNHSysBuyId.Text <> "" Then
-            '    _Qry &= vbCrLf & " AND A.FNHSysBuyId =" & Integer.Parse(Val(FNHSysBuyId.Properties.Tag.ToString)) & "  "
-            'End If
-
-            'If FNHSysStyleId.Text <> "" Then
-            '    _Qry &= vbCrLf & " AND A.FNHSysStyleId =" & Integer.Parse(Val(FNHSysStyleId.Properties.Tag.ToString)) & "  "
-            'End If
-
-            'If FTOrderNo.Text <> "" Then
-            '    _Qry &= vbCrLf & " AND A.FTOrderNo >='" & HI.UL.ULF.rpQuoted(FTOrderNo.Text) & "'  "
-            'End If
-
-            'If FTOrderNoTo.Text <> "" Then
-            '    _Qry &= vbCrLf & " AND A.FTOrderNo <='" & HI.UL.ULF.rpQuoted(FTOrderNoTo.Text) & "'  "
-            'End If
-
-            'If FTCustomerPO.Text <> "" Then
-            '    _Qry &= vbCrLf & " AND A.FTPORef >='" & HI.UL.ULF.rpQuoted(FTCustomerPO.Text) & "'  "
-            'End If
-
-            'If FTCustomerPOTo.Text <> "" Then
-            '    _Qry &= vbCrLf & " AND A.FTPORef <='" & HI.UL.ULF.rpQuoted(FTCustomerPOTo.Text) & "'  "
-            'End If
-
-            'If FTStartShipment.Text <> "" Or FTStartShipment.Text <> "" Then
-            '    _Qry &= vbCrLf & " AND  A.FTOrderNo In ( "
-            '    _Qry &= vbCrLf & " SELECT DISTINCT  FTOrderNo "
-            '    _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub AS SS WITH(NOLOCK) "
-            '    _Qry &= vbCrLf & " WHERE FTOrderNo <>'' "
-            '    If FTStartShipment.Text <> "" Then
-            '        _Qry &= vbCrLf & " AND SS.FDShipDate >='" & HI.UL.ULDate.ConvertEnDB(FTStartShipment.Text) & "'  "
-            '    End If
-            '    If FTEndShipment.Text <> "" Then
-            '        _Qry &= vbCrLf & " AND SS.FDShipDate <='" & HI.UL.ULDate.ConvertEnDB(FTEndShipment.Text) & "'  "
-            '    End If
-            '    _Qry &= vbCrLf & ") "
-            'End If
-
             _Qry &= vbCrLf & "  ORDER BY A.FTOrderNo,B.FTColorWay,Isnull(C.FTPOLineItemNo,''),SSB.FNMatSizeSeq,ISNULL(BM.FTUnitSectCode,''),ISNULL(BM.FTUnitSectCodeSew,'')  "
 
             _Qry &= vbCrLf & "   DROP TABLE  #TabDataSewOut "
+            _Qry &= vbCrLf & "  DROP TABLE  #TmpOrderno "
 
-
-            _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MERCHAN)
+            _Qry &= vbCrLf & "  DROP table #TabDataRcvSupl "
+            _Qry &= vbCrLf & "  DROP table #TabDataSendSupl"
+            _Qry &= vbCrLf & "  DROP table #TmpPack"
+            _Qry &= vbCrLf & "  drop table #TmpBM"
+            _Qry &= vbCrLf & "  drop table #Tmpbreakdown "
+            _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
 
             Me.ogcdetailcolorsizelineg.DataSource = _dt
             Call InitialGridMergCell()
@@ -2669,27 +2420,27 @@ Public Class wProdOrderTrackingByLine
 
         Dim _Pass As Boolean = False
 
-        If Me.FNHSysBuyId.Text <> "" And FNHSysBuyId.Properties.Tag.ToString <> "" Then
+        If Me.FNHSysBuyId.Text <> "" Then
             _Pass = True
         End If
 
-        If Me.FNHSysStyleId.Text <> "" And FNHSysStyleId.Properties.Tag.ToString <> "" Then
+        If Me.FNHSysStyleId.Text <> "" Then
             _Pass = True
         End If
 
-        If Me.FTOrderNo.Text <> "" And FTOrderNo.Properties.Tag.ToString <> "" Then
+        If Me.FTOrderNo.Text <> "" Then
             _Pass = True
         End If
 
-        If Me.FTOrderNoTo.Text <> "" And FTOrderNoTo.Properties.Tag.ToString <> "" Then
+        If Me.FTOrderNoTo.Text <> "" Then
             _Pass = True
         End If
 
-        If Me.FTCustomerPO.Text <> "" And FTCustomerPO.Properties.Tag.ToString <> "" Then
+        If Me.FTCustomerPO.Text <> "" Then 'And FTCustomerPO.Properties.Tag.ToString <> ""
             _Pass = True
         End If
 
-        If Me.FTCustomerPOTo.Text <> "" And FTCustomerPOTo.Properties.Tag.ToString <> "" Then
+        If Me.FTCustomerPOTo.Text <> "" Then  'ThenAnd FTCustomerPOTo.Properties.Tag.ToString <> ""
             _Pass = True
         End If
 

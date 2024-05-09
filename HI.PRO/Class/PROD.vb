@@ -1,4 +1,6 @@
-﻿Public Class PROD
+﻿Imports System.Reflection
+
+Public Class PROD
 
     Private _MessageCheck As String = ""
     Public Property MessageCheck As String
@@ -91,4 +93,151 @@
         End Try
 
     End Function
+
+
+    Public Shared Sub DynamicButtone_ButtonClick(ByVal sender As Object)
+        Try
+            Try
+                Dim _form2 As Object = CType(sender, DevExpress.XtraEditors.ButtonEdit).Parent.FindForm
+                For Each ctrl As Object In _form2.Controls.Find(sender.Name.ToString & "_Browse", True)
+                    With CType(ctrl, HI.UCTR.HButtonDropDown)
+                        If _form2.ActiveControl.Name.ToString <> sender.Name.ToString & "_Browse" Then
+                            If (.Visible) Then
+                                .Visible = False
+                            End If
+                            .DisposeObject()
+                        End If
+
+                    End With
+                Next
+            Catch ex As Exception
+            End Try
+            Dim brwsedataid As Integer = 0
+
+
+            Dim _Form As Object = CType(sender, DevExpress.XtraEditors.ButtonEdit).FindForm
+
+            Dim T As System.Type = _Form.GetType()
+
+            Dim _CmpH As String = ""
+            For Each ctrl As Object In _Form.Controls.Find("FNHSysCmpId", True)
+
+                ' _CmpH = HI.ST.SysInfo.CmpRunID
+
+                Select Case HI.ENM.Control.GeTypeControl(ctrl)
+                    Case ENM.Control.ControlType.ButtonEdit
+                        With CType(ctrl, DevExpress.XtraEditors.ButtonEdit)
+                            _CmpH = HI.Conn.SQLConn.GetField("SELECT TOP 1 FTDocRun FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp WHERE FNHSysCmpId=" & Val("" & .Properties.Tag.ToString) & " ", Conn.DB.DataBaseName.DB_SYSTEM, "")
+                        End With
+
+                        Exit For
+                    Case ENM.Control.ControlType.TextEdit
+                        With CType(ctrl, DevExpress.XtraEditors.TextEdit)
+                            If .Text = "" Then
+                                _CmpH = HI.Conn.SQLConn.GetField("SELECT TOP 1 FTDocRun FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp WHERE FNHSysCmpId=" & Val(HI.ST.SysInfo.CmpID.ToString) & " ", Conn.DB.DataBaseName.DB_SYSTEM, "")
+                            Else
+                                _CmpH = HI.Conn.SQLConn.GetField("SELECT TOP 1 FTDocRun FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCmp WHERE FNHSysCmpId=" & Val("" & .Text) & " ", Conn.DB.DataBaseName.DB_SYSTEM, "")
+                            End If
+
+                        End With
+
+                        Exit For
+                End Select
+
+            Next
+
+
+
+            With CType(sender, DevExpress.XtraEditors.ButtonEdit)
+
+                Dim _pdbnameinfo As PropertyInfo
+                Dim _ptablenameinfo As PropertyInfo
+                Dim _pdoctypeinfo As PropertyInfo
+                Dim _pdocclearinfo As PropertyInfo
+                Dim _minfo As MethodInfo
+                Dim _minfo2 As MethodInfo
+
+                _pdbnameinfo = T.GetProperty("SysDBName")
+                _ptablenameinfo = T.GetProperty("SysTableName")
+                _pdoctypeinfo = T.GetProperty("SysDocType")
+                _pdocclearinfo = T.GetProperty("SysDocClear")
+                _minfo = T.GetMethod("InitData")
+                _minfo2 = T.GetMethod("DefaultsData")
+
+                If Not (_pdbnameinfo Is Nothing) AndAlso Not (_ptablenameinfo Is Nothing) AndAlso Not (_pdoctypeinfo Is Nothing) Then
+
+                    If Not (_pdocclearinfo Is Nothing) Then
+
+                        Try
+
+                            If _pdocclearinfo.GetValue(_Form, Nothing) = True Then
+                                HI.TL.HandlerControl.ClearControl(_Form)
+                            End If
+
+                        Catch ex As Exception
+                            HI.TL.HandlerControl.ClearControl(_Form)
+                        End Try
+
+                    Else
+                        HI.TL.HandlerControl.ClearControl(_Form)
+                    End If
+
+                    .Text = HI.TL.Document.GetDocumentNo(_pdbnameinfo.GetValue(_Form, Nothing).ToString, _ptablenameinfo.GetValue(_Form, Nothing).ToString, _pdoctypeinfo.GetValue(_Form, Nothing).ToString, True, _CmpH)
+
+                    If Not (_minfo Is Nothing) Then
+                        _minfo.Invoke(_Form, Nothing)
+                    End If
+
+                    If Not (_minfo2 Is Nothing) Then
+                        _minfo2.Invoke(_Form, Nothing)
+                    End If
+
+                End If
+
+            End With
+
+
+        Catch ex As Exception
+
+        End Try
+
+
+    End Sub
+
+
+    Public Sub createPackingplanNonnike(_packing As String)
+        Try
+
+            Dim _Cmd As String = ""
+            _Cmd = "exec  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.[SP_CREATE_PACKINGPLAN_FROM_OrderPack] @packing ='" & _packing & "' , @UserLogin='" & HI.ST.UserInfo.UserName & "'"
+            HI.Conn.SQLConn.ExecuteNonQuery(_Cmd, Conn.DB.DataBaseName.DB_PROD)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+
+    Public Function gen_NewMarkCode(_PartCode As String) As String
+        Try
+            Dim _Cmd As String = "" : Dim MaxMarkCode As String = ""
+            _Cmd = " select max(FTMarkCode) FTMarkCode  from   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMURatio_D "
+            _Cmd &= vbCrLf & " where  left(FTMarkCode ," & Len(_PartCode) & ")  =  '" & _PartCode & "'"
+
+            MaxMarkCode = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_PROD, "")
+
+            If MaxMarkCode <> "" Then
+                MaxMarkCode = Integer.Parse(Replace(MaxMarkCode, _PartCode, "").ToString()) + 1
+
+            End If
+
+
+            Return MaxMarkCode
+
+        Catch ex As Exception
+            Return ""
+        End Try
+
+    End Function
+
+
 End Class

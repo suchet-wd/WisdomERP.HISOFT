@@ -103,12 +103,12 @@ Partial Class wGeneratePackOrderCustPONonSty
         '
         Me.ogcsub.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcsub.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcsub.Location = New System.Drawing.Point(2, 27)
+        Me.ogcsub.Location = New System.Drawing.Point(2, 28)
         Me.ogcsub.MainView = Me.ogvsub
         Me.ogcsub.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsub.Name = "ogcsub"
         Me.ogcsub.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepFTStateSelect})
-        Me.ogcsub.Size = New System.Drawing.Size(594, 239)
+        Me.ogcsub.Size = New System.Drawing.Size(594, 238)
         Me.ogcsub.TabIndex = 303
         Me.ogcsub.TabStop = False
         Me.ogcsub.Tag = "3|"
@@ -300,7 +300,7 @@ Partial Class wGeneratePackOrderCustPONonSty
         Me.ogbsuborder.Location = New System.Drawing.Point(601, 277)
         Me.ogbsuborder.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbsuborder.Name = "ogbsuborder"
-        Me.ogbsuborder.Size = New System.Drawing.Size(622, 325)
+        Me.ogbsuborder.Size = New System.Drawing.Size(620, 370)
         Me.ogbsuborder.TabIndex = 305
         Me.ogbsuborder.Text = "Sub Order Create Pack Order"
         '
@@ -308,12 +308,12 @@ Partial Class wGeneratePackOrderCustPONonSty
         '
         Me.ogcsuborder.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcsuborder.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcsuborder.Location = New System.Drawing.Point(2, 27)
+        Me.ogcsuborder.Location = New System.Drawing.Point(2, 28)
         Me.ogcsuborder.MainView = Me.ogvsuborder
         Me.ogcsuborder.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsuborder.Name = "ogcsuborder"
         Me.ogcsuborder.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepSubOrderCal})
-        Me.ogcsuborder.Size = New System.Drawing.Size(618, 296)
+        Me.ogcsuborder.Size = New System.Drawing.Size(616, 340)
         Me.ogcsuborder.TabIndex = 303
         Me.ogcsuborder.TabStop = False
         Me.ogcsuborder.Tag = "3|"
@@ -423,11 +423,11 @@ Partial Class wGeneratePackOrderCustPONonSty
         '
         Me.ogcsubprod.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcsubprod.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcsubprod.Location = New System.Drawing.Point(2, 27)
+        Me.ogcsubprod.Location = New System.Drawing.Point(2, 28)
         Me.ogcsubprod.MainView = Me.ogvsubprod
         Me.ogcsubprod.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsubprod.Name = "ogcsubprod"
-        Me.ogcsubprod.Size = New System.Drawing.Size(618, 239)
+        Me.ogcsubprod.Size = New System.Drawing.Size(618, 238)
         Me.ogcsubprod.TabIndex = 304
         Me.ogcsubprod.TabStop = False
         Me.ogcsubprod.Tag = "3|"
@@ -512,7 +512,7 @@ Partial Class wGeneratePackOrderCustPONonSty
         'ocmcreate
         '
         Me.ocmcreate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmcreate.Location = New System.Drawing.Point(880, 610)
+        Me.ocmcreate.Location = New System.Drawing.Point(840, 655)
         Me.ocmcreate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmcreate.Name = "ocmcreate"
         Me.ocmcreate.Size = New System.Drawing.Size(164, 31)
@@ -524,7 +524,7 @@ Partial Class wGeneratePackOrderCustPONonSty
         'ocmclose
         '
         Me.ocmclose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmclose.Location = New System.Drawing.Point(1051, 610)
+        Me.ocmclose.Location = New System.Drawing.Point(1054, 655)
         Me.ocmclose.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmclose.Name = "ocmclose"
         Me.ocmclose.Size = New System.Drawing.Size(164, 31)
@@ -541,7 +541,7 @@ Partial Class wGeneratePackOrderCustPONonSty
         Me.ogbsuborderorg.Location = New System.Drawing.Point(3, 277)
         Me.ogbsuborderorg.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbsuborderorg.Name = "ogbsuborderorg"
-        Me.ogbsuborderorg.Size = New System.Drawing.Size(596, 372)
+        Me.ogbsuborderorg.Size = New System.Drawing.Size(596, 368)
         Me.ogbsuborderorg.TabIndex = 309
         Me.ogbsuborderorg.Text = "Sub Order Breakdown"
         '
@@ -549,11 +549,11 @@ Partial Class wGeneratePackOrderCustPONonSty
         '
         Me.ogcsuborderorg.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcsuborderorg.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcsuborderorg.Location = New System.Drawing.Point(2, 27)
+        Me.ogcsuborderorg.Location = New System.Drawing.Point(2, 28)
         Me.ogcsuborderorg.MainView = Me.ogvsuborderorg
         Me.ogcsuborderorg.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsuborderorg.Name = "ogcsuborderorg"
-        Me.ogcsuborderorg.Size = New System.Drawing.Size(592, 343)
+        Me.ogcsuborderorg.Size = New System.Drawing.Size(592, 338)
         Me.ogcsuborderorg.TabIndex = 304
         Me.ogcsuborderorg.TabStop = False
         Me.ogcsuborderorg.Tag = "3|"
@@ -639,7 +639,7 @@ Partial Class wGeneratePackOrderCustPONonSty
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1230, 652)
+        Me.ClientSize = New System.Drawing.Size(1230, 701)
         Me.ControlBox = False
         Me.Controls.Add(Me.ogbsuborderorg)
         Me.Controls.Add(Me.ocmclose)

@@ -20,11 +20,21 @@ Partial Class wCreatePackOrderCustPONonSty
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim EditorButtonImageOptions13 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject53 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject54 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject55 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject56 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions14 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject57 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject58 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject59 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject60 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -35,6 +45,10 @@ Partial Class wCreatePackOrderCustPONonSty
         Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject45 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject46 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject47 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject48 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject13 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -45,11 +59,6 @@ Partial Class wCreatePackOrderCustPONonSty
         Dim SerializableAppearanceObject18 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject19 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject20 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions6 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject21 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject22 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject23 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject24 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions7 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject25 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject26 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -75,18 +84,8 @@ Partial Class wCreatePackOrderCustPONonSty
         Dim SerializableAppearanceObject42 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject43 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject44 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions12 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject45 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject46 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject47 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject48 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions13 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject49 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject50 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject51 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject52 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wCreatePackOrderCustPONonSty))
-        Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
+        Dim GridLevelNode2 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Me.ogbdocinfo = New DevExpress.XtraEditors.GroupControl()
         Me.FDPackDate = New DevExpress.XtraEditors.DateEdit()
         Me.FTPackBy = New DevExpress.XtraEditors.TextEdit()
@@ -124,6 +123,14 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.otbdetail = New DevExpress.XtraTab.XtraTabControl()
         Me.otppackdetail = New DevExpress.XtraTab.XtraTabPage()
         Me.ogbpackdetail = New DevExpress.XtraEditors.GroupControl()
+        Me.ogcpackdetail = New DevExpress.XtraGrid.GridControl()
+        Me.ogvpackdetail = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.G2FTOrderNo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.G2FTSubOrderNo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.G2FTColorway = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.G2FTNikePOLineItem = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.G2FNHSysStyleId_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.G2FNHSysStyleId = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
         Me.ogcpackdetailWeight = New DevExpress.XtraGrid.GridControl()
         Me.ogvpackdetailWeight = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -134,14 +141,6 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.cwFNHSysStyleId_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.cwFNHSysStyleId = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ReposCaleditWeight = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.ogcpackdetail = New DevExpress.XtraGrid.GridControl()
-        Me.ogvpackdetail = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.G2FTOrderNo = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.G2FTSubOrderNo = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.G2FTColorway = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.G2FTNikePOLineItem = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.G2FNHSysStyleId_Hide = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.G2FNHSysStyleId = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ogbsubpackdetail = New DevExpress.XtraEditors.GroupControl()
         Me.ogcsubpackdetail = New DevExpress.XtraGrid.GridControl()
         Me.ogvsubpackdetail = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -293,13 +292,13 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.otppackdetail.SuspendLayout()
         CType(Me.ogbpackdetail, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbpackdetail.SuspendLayout()
+        CType(Me.ogcpackdetail, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ogvpackdetail, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.ogcpackdetailWeight, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvpackdetailWeight, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReposCaleditWeight, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogcpackdetail, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogvpackdetail, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbsubpackdetail, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbsubpackdetail.SuspendLayout()
         CType(Me.ogcsubpackdetail, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -389,7 +388,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogbdocinfo.Location = New System.Drawing.Point(2, 2)
         Me.ogbdocinfo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbdocinfo.Name = "ogbdocinfo"
-        Me.ogbdocinfo.Size = New System.Drawing.Size(396, 133)
+        Me.ogbdocinfo.Size = New System.Drawing.Size(395, 133)
         Me.ogbdocinfo.TabIndex = 145
         Me.ogbdocinfo.Tag = "2|"
         Me.ogbdocinfo.Text = "Doccument Info"
@@ -412,7 +411,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FDPackDate.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FDPackDate.Properties.AppearanceReadOnly.Options.UseTextOptions = True
         Me.FDPackDate.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FDPackDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FDPackDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FDPackDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FDPackDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDPackDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -476,23 +475,23 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FTPackNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTPackNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTPackNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        SerializableAppearanceObject5.Options.UseTextOptions = True
-        SerializableAppearanceObject5.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject6.Options.UseTextOptions = True
-        SerializableAppearanceObject6.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject7.Options.UseTextOptions = True
-        SerializableAppearanceObject7.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject8.Options.UseTextOptions = True
-        SerializableAppearanceObject8.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject9.Options.UseTextOptions = True
-        SerializableAppearanceObject9.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject10.Options.UseTextOptions = True
-        SerializableAppearanceObject10.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject11.Options.UseTextOptions = True
-        SerializableAppearanceObject11.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject12.Options.UseTextOptions = True
-        SerializableAppearanceObject12.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTPackNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "202", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", 20, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        SerializableAppearanceObject1.Options.UseTextOptions = True
+        SerializableAppearanceObject1.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject2.Options.UseTextOptions = True
+        SerializableAppearanceObject2.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject3.Options.UseTextOptions = True
+        SerializableAppearanceObject3.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject4.Options.UseTextOptions = True
+        SerializableAppearanceObject4.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject57.Options.UseTextOptions = True
+        SerializableAppearanceObject57.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject58.Options.UseTextOptions = True
+        SerializableAppearanceObject58.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject59.Options.UseTextOptions = True
+        SerializableAppearanceObject59.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject60.Options.UseTextOptions = True
+        SerializableAppearanceObject60.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTPackNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "202", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", 20, True, True, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTPackNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTPackNo.Size = New System.Drawing.Size(191, 22)
         Me.FTPackNo.TabIndex = 0
@@ -556,11 +555,11 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogbnote.Controls.Add(Me.FTRemark)
         Me.ogbnote.Controls.Add(Me.FNHSysCmpId)
         Me.ogbnote.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbnote.Location = New System.Drawing.Point(398, 2)
+        Me.ogbnote.Location = New System.Drawing.Point(397, 2)
         Me.ogbnote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbnote.Name = "ogbnote"
         Me.ogbnote.ShowCaption = False
-        Me.ogbnote.Size = New System.Drawing.Size(1267, 133)
+        Me.ogbnote.Size = New System.Drawing.Size(1061, 133)
         Me.ogbnote.TabIndex = 146
         Me.ogbnote.Text = "GroupControl1"
         '
@@ -582,16 +581,16 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmdelete)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmsave)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(694, -10)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(612, -10)
         Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(539, 253)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(539, 254)
         Me.ogbmainprocbutton.TabIndex = 392
         Me.ogbmainprocbutton.Tag = "2|"
         '
         'ocmgenbarcodesscc
         '
-        Me.ocmgenbarcodesscc.Location = New System.Drawing.Point(363, 51)
+        Me.ocmgenbarcodesscc.Location = New System.Drawing.Point(363, 50)
         Me.ocmgenbarcodesscc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmgenbarcodesscc.Name = "ocmgenbarcodesscc"
         Me.ocmgenbarcodesscc.Size = New System.Drawing.Size(160, 31)
@@ -603,6 +602,7 @@ Partial Class wCreatePackOrderCustPONonSty
         'ocmpreviewbarcodeutc
         '
         Me.ocmpreviewbarcodeutc.Location = New System.Drawing.Point(363, 89)
+        Me.ocmpreviewbarcodeutc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ocmpreviewbarcodeutc.Name = "ocmpreviewbarcodeutc"
         Me.ocmpreviewbarcodeutc.Size = New System.Drawing.Size(174, 31)
         Me.ocmpreviewbarcodeutc.TabIndex = 108
@@ -758,8 +758,8 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FTCustomerPO.Location = New System.Drawing.Point(149, 6)
         Me.FTCustomerPO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTCustomerPO.Name = "FTCustomerPO"
-        Me.FTCustomerPO.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", CType(967, Short), Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FTCustomerPO.Size = New System.Drawing.Size(221, 22)
+        Me.FTCustomerPO.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", CType(967, Short), Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTCustomerPO.Size = New System.Drawing.Size(220, 22)
         Me.FTCustomerPO.TabIndex = 295
         Me.FTCustomerPO.Tag = "2|"
         '
@@ -806,7 +806,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FNPackSetValue.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPackSetValue.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPackSetValue.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPackSetValue.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPackSetValue.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPackSetValue.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPackSetValue.Properties.Precision = 0
         Me.FNPackSetValue.Size = New System.Drawing.Size(69, 22)
@@ -881,7 +881,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FTRemark_lbl.Appearance.Options.UseTextOptions = True
         Me.FTRemark_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTRemark_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTRemark_lbl.Location = New System.Drawing.Point(11, 63)
+        Me.FTRemark_lbl.Location = New System.Drawing.Point(10, 63)
         Me.FTRemark_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTRemark_lbl.Name = "FTRemark_lbl"
         Me.FTRemark_lbl.Size = New System.Drawing.Size(135, 23)
@@ -899,7 +899,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FTRemark.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTRemark.Name = "FTRemark"
         Me.FTRemark.Properties.MaxLength = 500
-        Me.FTRemark.Size = New System.Drawing.Size(1104, 64)
+        Me.FTRemark.Size = New System.Drawing.Size(1021, 64)
         Me.FTRemark.TabIndex = 2
         Me.FTRemark.Tag = "2|"
         '
@@ -937,39 +937,124 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.otbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otbdetail.Name = "otbdetail"
         Me.otbdetail.SelectedTabPage = Me.otppackdetail
-        Me.otbdetail.Size = New System.Drawing.Size(1667, 718)
+        Me.otbdetail.Size = New System.Drawing.Size(1460, 803)
         Me.otbdetail.TabIndex = 391
         Me.otbdetail.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otppackdetail, Me.otppackdetailcarton, Me.otpbarcodeset})
         '
         'otppackdetail
         '
         Me.otppackdetail.Controls.Add(Me.ogbpackdetail)
+        Me.otppackdetail.Controls.Add(Me.GroupControl1)
         Me.otppackdetail.Controls.Add(Me.ogbsubpackdetail)
         Me.otppackdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otppackdetail.Name = "otppackdetail"
-        Me.otppackdetail.Size = New System.Drawing.Size(1665, 688)
+        Me.otppackdetail.Size = New System.Drawing.Size(1458, 773)
         Me.otppackdetail.Text = "Pack Detail"
         '
         'ogbpackdetail
         '
-        Me.ogbpackdetail.Controls.Add(Me.GroupControl1)
         Me.ogbpackdetail.Controls.Add(Me.ogcpackdetail)
         Me.ogbpackdetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbpackdetail.Location = New System.Drawing.Point(485, 0)
+        Me.ogbpackdetail.Location = New System.Drawing.Point(518, 0)
         Me.ogbpackdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbpackdetail.Name = "ogbpackdetail"
-        Me.ogbpackdetail.Size = New System.Drawing.Size(1596, 860)
+        Me.ogbpackdetail.Size = New System.Drawing.Size(940, 344)
         Me.ogbpackdetail.TabIndex = 304
         Me.ogbpackdetail.Text = "Pack Detail"
+        '
+        'ogcpackdetail
+        '
+        Me.ogcpackdetail.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcpackdetail.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcpackdetail.Location = New System.Drawing.Point(2, 28)
+        Me.ogcpackdetail.MainView = Me.ogvpackdetail
+        Me.ogcpackdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcpackdetail.Name = "ogcpackdetail"
+        Me.ogcpackdetail.Size = New System.Drawing.Size(936, 314)
+        Me.ogcpackdetail.TabIndex = 305
+        Me.ogcpackdetail.TabStop = False
+        Me.ogcpackdetail.Tag = "3|"
+        Me.ogcpackdetail.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvpackdetail})
+        '
+        'ogvpackdetail
+        '
+        Me.ogvpackdetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G2FTOrderNo, Me.G2FTSubOrderNo, Me.G2FTColorway, Me.G2FTNikePOLineItem, Me.G2FNHSysStyleId_Hide, Me.G2FNHSysStyleId})
+        Me.ogvpackdetail.GridControl = Me.ogcpackdetail
+        Me.ogvpackdetail.Name = "ogvpackdetail"
+        Me.ogvpackdetail.OptionsCustomization.AllowGroup = False
+        Me.ogvpackdetail.OptionsCustomization.AllowQuickHideColumns = False
+        Me.ogvpackdetail.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect
+        Me.ogvpackdetail.OptionsView.ColumnAutoWidth = False
+        Me.ogvpackdetail.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
+        Me.ogvpackdetail.OptionsView.ShowFooter = True
+        Me.ogvpackdetail.OptionsView.ShowGroupPanel = False
+        Me.ogvpackdetail.Tag = "2|"
+        '
+        'G2FTOrderNo
+        '
+        Me.G2FTOrderNo.Caption = "FTOrderNo"
+        Me.G2FTOrderNo.FieldName = "FTOrderNo"
+        Me.G2FTOrderNo.Name = "G2FTOrderNo"
+        '
+        'G2FTSubOrderNo
+        '
+        Me.G2FTSubOrderNo.Caption = "FTSubOrderNo"
+        Me.G2FTSubOrderNo.FieldName = "FTSubOrderNo"
+        Me.G2FTSubOrderNo.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.G2FTSubOrderNo.Name = "G2FTSubOrderNo"
+        Me.G2FTSubOrderNo.Width = 120
+        '
+        'G2FTColorway
+        '
+        Me.G2FTColorway.Caption = "FTColorway"
+        Me.G2FTColorway.FieldName = "FTColorway"
+        Me.G2FTColorway.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.G2FTColorway.Name = "G2FTColorway"
+        Me.G2FTColorway.OptionsColumn.AllowEdit = False
+        Me.G2FTColorway.OptionsColumn.AllowMove = False
+        Me.G2FTColorway.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.G2FTColorway.OptionsFilter.AllowAutoFilter = False
+        Me.G2FTColorway.OptionsFilter.AllowFilter = False
+        Me.G2FTColorway.Visible = True
+        Me.G2FTColorway.VisibleIndex = 0
+        Me.G2FTColorway.Width = 99
+        '
+        'G2FTNikePOLineItem
+        '
+        Me.G2FTNikePOLineItem.Caption = "FTNikePOLineItem"
+        Me.G2FTNikePOLineItem.FieldName = "FTNikePOLineItem"
+        Me.G2FTNikePOLineItem.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.G2FTNikePOLineItem.Name = "G2FTNikePOLineItem"
+        Me.G2FTNikePOLineItem.OptionsColumn.AllowEdit = False
+        Me.G2FTNikePOLineItem.Visible = True
+        Me.G2FTNikePOLineItem.VisibleIndex = 1
+        '
+        'G2FNHSysStyleId_Hide
+        '
+        Me.G2FNHSysStyleId_Hide.Caption = "FNHSysStyleId_Hide"
+        Me.G2FNHSysStyleId_Hide.FieldName = "FNHSysStyleId_Hide"
+        Me.G2FNHSysStyleId_Hide.Name = "G2FNHSysStyleId_Hide"
+        '
+        'G2FNHSysStyleId
+        '
+        Me.G2FNHSysStyleId.Caption = "FNHSysStyleId"
+        Me.G2FNHSysStyleId.FieldName = "FNHSysStyleId"
+        Me.G2FNHSysStyleId.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.G2FNHSysStyleId.Name = "G2FNHSysStyleId"
+        Me.G2FNHSysStyleId.OptionsColumn.AllowEdit = False
+        Me.G2FNHSysStyleId.Visible = True
+        Me.G2FNHSysStyleId.VisibleIndex = 2
         '
         'GroupControl1
         '
         Me.GroupControl1.Controls.Add(Me.ogcpackdetailWeight)
-        Me.GroupControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupControl1.Location = New System.Drawing.Point(2, 9111)
+        Me.GroupControl1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.GroupControl1.Location = New System.Drawing.Point(518, 344)
         Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl1.MaximumSize = New System.Drawing.Size(0, 429)
+        Me.GroupControl1.MinimumSize = New System.Drawing.Size(0, 429)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(1592, 0)
+        Me.GroupControl1.Size = New System.Drawing.Size(940, 429)
         Me.GroupControl1.TabIndex = 309
         Me.GroupControl1.Text = "น้ำหนักสินค้า/ตัว"
         '
@@ -982,7 +1067,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogcpackdetailWeight.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcpackdetailWeight.Name = "ogcpackdetailWeight"
         Me.ogcpackdetailWeight.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.ReposCaleditWeight})
-        Me.ogcpackdetailWeight.Size = New System.Drawing.Size(1588, 0)
+        Me.ogcpackdetailWeight.Size = New System.Drawing.Size(936, 399)
         Me.ogcpackdetailWeight.TabIndex = 305
         Me.ogcpackdetailWeight.TabStop = False
         Me.ogcpackdetailWeight.Tag = "3|"
@@ -1066,92 +1151,9 @@ Partial Class wCreatePackOrderCustPONonSty
         'ReposCaleditWeight
         '
         Me.ReposCaleditWeight.AutoHeight = False
-        Me.ReposCaleditWeight.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ReposCaleditWeight.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ReposCaleditWeight.Name = "ReposCaleditWeight"
         Me.ReposCaleditWeight.Precision = 4
-        '
-        'ogcpackdetail
-        '
-        Me.ogcpackdetail.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ogcpackdetail.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcpackdetail.Location = New System.Drawing.Point(2, 28)
-        Me.ogcpackdetail.MainView = Me.ogvpackdetail
-        Me.ogcpackdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcpackdetail.Name = "ogcpackdetail"
-        Me.ogcpackdetail.Size = New System.Drawing.Size(1592, 9083)
-        Me.ogcpackdetail.TabIndex = 305
-        Me.ogcpackdetail.TabStop = False
-        Me.ogcpackdetail.Tag = "3|"
-        Me.ogcpackdetail.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvpackdetail})
-        '
-        'ogvpackdetail
-        '
-        Me.ogvpackdetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G2FTOrderNo, Me.G2FTSubOrderNo, Me.G2FTColorway, Me.G2FTNikePOLineItem, Me.G2FNHSysStyleId_Hide, Me.G2FNHSysStyleId})
-        Me.ogvpackdetail.GridControl = Me.ogcpackdetail
-        Me.ogvpackdetail.Name = "ogvpackdetail"
-        Me.ogvpackdetail.OptionsCustomization.AllowGroup = False
-        Me.ogvpackdetail.OptionsCustomization.AllowQuickHideColumns = False
-        Me.ogvpackdetail.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect
-        Me.ogvpackdetail.OptionsView.ColumnAutoWidth = False
-        Me.ogvpackdetail.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
-        Me.ogvpackdetail.OptionsView.ShowFooter = True
-        Me.ogvpackdetail.OptionsView.ShowGroupPanel = False
-        Me.ogvpackdetail.Tag = "2|"
-        '
-        'G2FTOrderNo
-        '
-        Me.G2FTOrderNo.Caption = "FTOrderNo"
-        Me.G2FTOrderNo.FieldName = "FTOrderNo"
-        Me.G2FTOrderNo.Name = "G2FTOrderNo"
-        '
-        'G2FTSubOrderNo
-        '
-        Me.G2FTSubOrderNo.Caption = "FTSubOrderNo"
-        Me.G2FTSubOrderNo.FieldName = "FTSubOrderNo"
-        Me.G2FTSubOrderNo.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.G2FTSubOrderNo.Name = "G2FTSubOrderNo"
-        Me.G2FTSubOrderNo.Width = 120
-        '
-        'G2FTColorway
-        '
-        Me.G2FTColorway.Caption = "FTColorway"
-        Me.G2FTColorway.FieldName = "FTColorway"
-        Me.G2FTColorway.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.G2FTColorway.Name = "G2FTColorway"
-        Me.G2FTColorway.OptionsColumn.AllowEdit = False
-        Me.G2FTColorway.OptionsColumn.AllowMove = False
-        Me.G2FTColorway.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.G2FTColorway.OptionsFilter.AllowAutoFilter = False
-        Me.G2FTColorway.OptionsFilter.AllowFilter = False
-        Me.G2FTColorway.Visible = True
-        Me.G2FTColorway.VisibleIndex = 0
-        Me.G2FTColorway.Width = 99
-        '
-        'G2FTNikePOLineItem
-        '
-        Me.G2FTNikePOLineItem.Caption = "FTNikePOLineItem"
-        Me.G2FTNikePOLineItem.FieldName = "FTNikePOLineItem"
-        Me.G2FTNikePOLineItem.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.G2FTNikePOLineItem.Name = "G2FTNikePOLineItem"
-        Me.G2FTNikePOLineItem.OptionsColumn.AllowEdit = False
-        Me.G2FTNikePOLineItem.Visible = True
-        Me.G2FTNikePOLineItem.VisibleIndex = 1
-        '
-        'G2FNHSysStyleId_Hide
-        '
-        Me.G2FNHSysStyleId_Hide.Caption = "FNHSysStyleId_Hide"
-        Me.G2FNHSysStyleId_Hide.FieldName = "FNHSysStyleId_Hide"
-        Me.G2FNHSysStyleId_Hide.Name = "G2FNHSysStyleId_Hide"
-        '
-        'G2FNHSysStyleId
-        '
-        Me.G2FNHSysStyleId.Caption = "FNHSysStyleId"
-        Me.G2FNHSysStyleId.FieldName = "FNHSysStyleId"
-        Me.G2FNHSysStyleId.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.G2FNHSysStyleId.Name = "G2FNHSysStyleId"
-        Me.G2FNHSysStyleId.OptionsColumn.AllowEdit = False
-        Me.G2FNHSysStyleId.Visible = True
-        Me.G2FNHSysStyleId.VisibleIndex = 2
         '
         'ogbsubpackdetail
         '
@@ -1160,8 +1162,10 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogbsubpackdetail.Dock = System.Windows.Forms.DockStyle.Left
         Me.ogbsubpackdetail.Location = New System.Drawing.Point(0, 0)
         Me.ogbsubpackdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbsubpackdetail.MaximumSize = New System.Drawing.Size(518, 0)
+        Me.ogbsubpackdetail.MinimumSize = New System.Drawing.Size(518, 0)
         Me.ogbsubpackdetail.Name = "ogbsubpackdetail"
-        Me.ogbsubpackdetail.Size = New System.Drawing.Size(388, 688)
+        Me.ogbsubpackdetail.Size = New System.Drawing.Size(518, 773)
         Me.ogbsubpackdetail.TabIndex = 303
         Me.ogbsubpackdetail.Text = "Sub Order Pack Detail"
         '
@@ -1169,11 +1173,11 @@ Partial Class wCreatePackOrderCustPONonSty
         '
         Me.ogcsubpackdetail.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcsubpackdetail.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcsubpackdetail.Location = New System.Drawing.Point(3, 229)
+        Me.ogcsubpackdetail.Location = New System.Drawing.Point(2, 128)
         Me.ogcsubpackdetail.MainView = Me.ogvsubpackdetail
         Me.ogcsubpackdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsubpackdetail.Name = "ogcsubpackdetail"
-        Me.ogcsubpackdetail.Size = New System.Drawing.Size(480, 629)
+        Me.ogcsubpackdetail.Size = New System.Drawing.Size(514, 643)
         Me.ogcsubpackdetail.TabIndex = 306
         Me.ogcsubpackdetail.TabStop = False
         Me.ogcsubpackdetail.Tag = "3|"
@@ -1252,9 +1256,10 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.otbsuborder.Dock = System.Windows.Forms.DockStyle.Top
         Me.otbsuborder.Location = New System.Drawing.Point(2, 28)
         Me.otbsuborder.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otbsuborder.MaximumSize = New System.Drawing.Size(0, 100)
         Me.otbsuborder.Name = "otbsuborder"
         Me.otbsuborder.ShowTabHeader = DevExpress.Utils.DefaultBoolean.[True]
-        Me.otbsuborder.Size = New System.Drawing.Size(480, 155)
+        Me.otbsuborder.Size = New System.Drawing.Size(514, 100)
         Me.otbsuborder.TabIndex = 4
         '
         'otppackdetailcarton
@@ -1263,7 +1268,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.otppackdetailcarton.Controls.Add(Me.otlpack)
         Me.otppackdetailcarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otppackdetailcarton.Name = "otppackdetailcarton"
-        Me.otppackdetailcarton.Size = New System.Drawing.Size(1665, 688)
+        Me.otppackdetailcarton.Size = New System.Drawing.Size(1458, 773)
         Me.otppackdetailcarton.Text = "Carton Detail"
         '
         'ogbpackinfo
@@ -1272,11 +1277,11 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogbpackinfo.Controls.Add(Me.GroupControl5)
         Me.ogbpackinfo.Controls.Add(Me.GroupControl3)
         Me.ogbpackinfo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbpackinfo.Location = New System.Drawing.Point(545, 0)
+        Me.ogbpackinfo.Location = New System.Drawing.Point(391, 0)
         Me.ogbpackinfo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbpackinfo.Name = "ogbpackinfo"
         Me.ogbpackinfo.ShowCaption = False
-        Me.ogbpackinfo.Size = New System.Drawing.Size(1536, 860)
+        Me.ogbpackinfo.Size = New System.Drawing.Size(1067, 773)
         Me.ogbpackinfo.TabIndex = 146
         Me.ogbpackinfo.Tag = "2|"
         Me.ogbpackinfo.Text = "Pack Info"
@@ -1286,11 +1291,11 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.GroupControl6.Controls.Add(Me.ogbpackpercarton)
         Me.GroupControl6.Controls.Add(Me.ogbproductweigthpercarton)
         Me.GroupControl6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupControl6.Location = New System.Drawing.Point(2, 519)
+        Me.GroupControl6.Location = New System.Drawing.Point(2, 482)
         Me.GroupControl6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl6.Name = "GroupControl6"
         Me.GroupControl6.ShowCaption = False
-        Me.GroupControl6.Size = New System.Drawing.Size(1532, 339)
+        Me.GroupControl6.Size = New System.Drawing.Size(1063, 289)
         Me.GroupControl6.TabIndex = 312
         Me.GroupControl6.Text = "น้ำหนักสินค้า/ตัว"
         '
@@ -1301,7 +1306,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogbpackpercarton.Location = New System.Drawing.Point(516, 2)
         Me.ogbpackpercarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbpackpercarton.Name = "ogbpackpercarton"
-        Me.ogbpackpercarton.Size = New System.Drawing.Size(1014, 335)
+        Me.ogbpackpercarton.Size = New System.Drawing.Size(545, 285)
         Me.ogbpackpercarton.TabIndex = 307
         Me.ogbpackpercarton.Text = "จำนวนแพ็ค/กล่อง"
         '
@@ -1309,17 +1314,19 @@ Partial Class wCreatePackOrderCustPONonSty
         '
         Me.XtraTabControl3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.XtraTabControl3.Location = New System.Drawing.Point(2, 28)
+        Me.XtraTabControl3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabControl3.Name = "XtraTabControl3"
         Me.XtraTabControl3.SelectedTabPage = Me.XtraTabPage1
-        Me.XtraTabControl3.Size = New System.Drawing.Size(1010, 305)
+        Me.XtraTabControl3.Size = New System.Drawing.Size(541, 255)
         Me.XtraTabControl3.TabIndex = 307
         Me.XtraTabControl3.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage1, Me.XtraTabPage2})
         '
         'XtraTabPage1
         '
         Me.XtraTabPage1.Controls.Add(Me.ogcppercarton)
+        Me.XtraTabPage1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage1.Name = "XtraTabPage1"
-        Me.XtraTabPage1.Size = New System.Drawing.Size(1008, 275)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(539, 224)
         Me.XtraTabPage1.Text = "ตัว"
         '
         'ogcppercarton
@@ -1330,7 +1337,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogcppercarton.MainView = Me.ogvppercarton
         Me.ogcppercarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcppercarton.Name = "ogcppercarton"
-        Me.ogcppercarton.Size = New System.Drawing.Size(1260, 344)
+        Me.ogcppercarton.Size = New System.Drawing.Size(539, 224)
         Me.ogcppercarton.TabIndex = 305
         Me.ogcppercarton.TabStop = False
         Me.ogcppercarton.Tag = "3|"
@@ -1414,8 +1421,9 @@ Partial Class wCreatePackOrderCustPONonSty
         'XtraTabPage2
         '
         Me.XtraTabPage2.Controls.Add(Me.ogcppercartonset)
+        Me.XtraTabPage2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(701, 207)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(539, 224)
         Me.XtraTabPage2.Text = "เซ็ต"
         '
         'ogcppercartonset
@@ -1426,7 +1434,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogcppercartonset.MainView = Me.ogvppercartonset
         Me.ogcppercartonset.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcppercartonset.Name = "ogcppercartonset"
-        Me.ogcppercartonset.Size = New System.Drawing.Size(876, 259)
+        Me.ogcppercartonset.Size = New System.Drawing.Size(539, 224)
         Me.ogcppercartonset.TabIndex = 306
         Me.ogcppercartonset.TabStop = False
         Me.ogcppercartonset.Tag = "3|"
@@ -1513,8 +1521,9 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogbproductweigthpercarton.Dock = System.Windows.Forms.DockStyle.Left
         Me.ogbproductweigthpercarton.Location = New System.Drawing.Point(2, 2)
         Me.ogbproductweigthpercarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbproductweigthpercarton.MaximumSize = New System.Drawing.Size(514, 0)
         Me.ogbproductweigthpercarton.Name = "ogbproductweigthpercarton"
-        Me.ogbproductweigthpercarton.Size = New System.Drawing.Size(514, 335)
+        Me.ogbproductweigthpercarton.Size = New System.Drawing.Size(514, 285)
         Me.ogbproductweigthpercarton.TabIndex = 309
         Me.ogbproductweigthpercarton.Text = "นำหนักสินค้ารวม/กล่อง"
         '
@@ -1526,7 +1535,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogcptotalweight.MainView = Me.ogvptotalweight
         Me.ogcptotalweight.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcptotalweight.Name = "ogcptotalweight"
-        Me.ogcptotalweight.Size = New System.Drawing.Size(510, 305)
+        Me.ogcptotalweight.Size = New System.Drawing.Size(510, 255)
         Me.ogcptotalweight.TabIndex = 305
         Me.ogcptotalweight.TabStop = False
         Me.ogcptotalweight.Tag = "3|"
@@ -1565,7 +1574,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.G3FTSubOrderNo.OptionsColumn.ReadOnly = True
         Me.G3FTSubOrderNo.Visible = True
         Me.G3FTSubOrderNo.VisibleIndex = 0
-        Me.G3FTSubOrderNo.Width = 130
+        Me.G3FTSubOrderNo.Width = 129
         '
         'G3FTColorway
         '
@@ -1613,11 +1622,12 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.GroupControl5.Controls.Add(Me.ogbpacktotal)
         Me.GroupControl5.Controls.Add(Me.GroupControl4)
         Me.GroupControl5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupControl5.Location = New System.Drawing.Point(2, 270)
+        Me.GroupControl5.Location = New System.Drawing.Point(2, 232)
         Me.GroupControl5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl5.MaximumSize = New System.Drawing.Size(0, 250)
         Me.GroupControl5.Name = "GroupControl5"
         Me.GroupControl5.ShowCaption = False
-        Me.GroupControl5.Size = New System.Drawing.Size(1532, 249)
+        Me.GroupControl5.Size = New System.Drawing.Size(1063, 250)
         Me.GroupControl5.TabIndex = 311
         Me.GroupControl5.Text = "น้ำหนักสินค้า/ตัว"
         '
@@ -1628,7 +1638,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogbpacktotal.Location = New System.Drawing.Point(516, 2)
         Me.ogbpacktotal.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbpacktotal.Name = "ogbpacktotal"
-        Me.ogbpacktotal.Size = New System.Drawing.Size(1014, 245)
+        Me.ogbpacktotal.Size = New System.Drawing.Size(545, 246)
         Me.ogbpacktotal.TabIndex = 306
         Me.ogbpacktotal.Text = "จำนวนแพ็ครวม"
         '
@@ -1636,17 +1646,19 @@ Partial Class wCreatePackOrderCustPONonSty
         '
         Me.XtraTabControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.XtraTabControl2.Location = New System.Drawing.Point(2, 28)
+        Me.XtraTabControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabControl2.Name = "XtraTabControl2"
         Me.XtraTabControl2.SelectedTabPage = Me.ogbpacktotalpcs
-        Me.XtraTabControl2.Size = New System.Drawing.Size(1010, 215)
+        Me.XtraTabControl2.Size = New System.Drawing.Size(541, 216)
         Me.XtraTabControl2.TabIndex = 306
         Me.XtraTabControl2.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.ogbpacktotalpcs, Me.ogbpacktotalset})
         '
         'ogbpacktotalpcs
         '
         Me.ogbpacktotalpcs.Controls.Add(Me.ogcpgrandpack)
+        Me.ogbpacktotalpcs.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogbpacktotalpcs.Name = "ogbpacktotalpcs"
-        Me.ogbpacktotalpcs.Size = New System.Drawing.Size(701, 135)
+        Me.ogbpacktotalpcs.Size = New System.Drawing.Size(539, 185)
         Me.ogbpacktotalpcs.Text = "ตัว"
         '
         'ogcpgrandpack
@@ -1657,7 +1669,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogcpgrandpack.MainView = Me.ogvpgrandpack
         Me.ogcpgrandpack.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcpgrandpack.Name = "ogcpgrandpack"
-        Me.ogcpgrandpack.Size = New System.Drawing.Size(876, 169)
+        Me.ogcpgrandpack.Size = New System.Drawing.Size(539, 185)
         Me.ogcpgrandpack.TabIndex = 305
         Me.ogcpgrandpack.TabStop = False
         Me.ogcpgrandpack.Tag = "3|"
@@ -1741,8 +1753,9 @@ Partial Class wCreatePackOrderCustPONonSty
         'ogbpacktotalset
         '
         Me.ogbpacktotalset.Controls.Add(Me.ogcpgrandpackset)
+        Me.ogbpacktotalset.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogbpacktotalset.Name = "ogbpacktotalset"
-        Me.ogbpacktotalset.Size = New System.Drawing.Size(1008, 185)
+        Me.ogbpacktotalset.Size = New System.Drawing.Size(539, 185)
         Me.ogbpacktotalset.Text = "เซ็ต"
         '
         'ogcpgrandpackset
@@ -1753,7 +1766,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogcpgrandpackset.MainView = Me.ogvpgrandpackset
         Me.ogcpgrandpackset.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcpgrandpackset.Name = "ogcpgrandpackset"
-        Me.ogcpgrandpackset.Size = New System.Drawing.Size(1260, 231)
+        Me.ogcpgrandpackset.Size = New System.Drawing.Size(539, 185)
         Me.ogcpgrandpackset.TabIndex = 306
         Me.ogcpgrandpackset.TabStop = False
         Me.ogcpgrandpackset.Tag = "3|"
@@ -1840,8 +1853,9 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.GroupControl4.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupControl4.Location = New System.Drawing.Point(2, 2)
         Me.GroupControl4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl4.MaximumSize = New System.Drawing.Size(514, 0)
         Me.GroupControl4.Name = "GroupControl4"
-        Me.GroupControl4.Size = New System.Drawing.Size(514, 245)
+        Me.GroupControl4.Size = New System.Drawing.Size(514, 246)
         Me.GroupControl4.TabIndex = 308
         Me.GroupControl4.Text = "น้ำหนักสินค้า/ตัว"
         '
@@ -1853,7 +1867,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogcpweight.MainView = Me.ogvpweight
         Me.ogcpweight.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcpweight.Name = "ogcpweight"
-        Me.ogcpweight.Size = New System.Drawing.Size(510, 215)
+        Me.ogcpweight.Size = New System.Drawing.Size(510, 216)
         Me.ogcpweight.TabIndex = 305
         Me.ogcpweight.TabStop = False
         Me.ogcpweight.Tag = "3|"
@@ -1941,9 +1955,10 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.GroupControl3.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupControl3.Location = New System.Drawing.Point(2, 2)
         Me.GroupControl3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl3.MaximumSize = New System.Drawing.Size(0, 230)
         Me.GroupControl3.Name = "GroupControl3"
         Me.GroupControl3.ShowCaption = False
-        Me.GroupControl3.Size = New System.Drawing.Size(1532, 268)
+        Me.GroupControl3.Size = New System.Drawing.Size(1063, 230)
         Me.GroupControl3.TabIndex = 310
         Me.GroupControl3.Text = "น้ำหนักสินค้า/ตัว"
         '
@@ -1954,7 +1969,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogbpackalltotal.Location = New System.Drawing.Point(516, 2)
         Me.ogbpackalltotal.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbpackalltotal.Name = "ogbpackalltotal"
-        Me.ogbpackalltotal.Size = New System.Drawing.Size(1014, 264)
+        Me.ogbpackalltotal.Size = New System.Drawing.Size(545, 226)
         Me.ogbpackalltotal.TabIndex = 305
         Me.ogbpackalltotal.Text = "จำนวนสั่งแพ็ค"
         '
@@ -1962,17 +1977,19 @@ Partial Class wCreatePackOrderCustPONonSty
         '
         Me.XtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.XtraTabControl1.Location = New System.Drawing.Point(2, 28)
+        Me.XtraTabControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.ogbpackalltotaltabpcs
-        Me.XtraTabControl1.Size = New System.Drawing.Size(1010, 234)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(541, 196)
         Me.XtraTabControl1.TabIndex = 306
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.ogbpackalltotaltabpcs, Me.ogbpackalltotaltabSet})
         '
         'ogbpackalltotaltabpcs
         '
         Me.ogbpackalltotaltabpcs.Controls.Add(Me.ogcptotalpack)
+        Me.ogbpackalltotaltabpcs.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogbpackalltotaltabpcs.Name = "ogbpackalltotaltabpcs"
-        Me.ogbpackalltotaltabpcs.Size = New System.Drawing.Size(1008, 204)
+        Me.ogbpackalltotaltabpcs.Size = New System.Drawing.Size(539, 165)
         Me.ogbpackalltotaltabpcs.Text = "ตัว"
         '
         'ogcptotalpack
@@ -1983,7 +2000,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogcptotalpack.MainView = Me.ogvptotalpack
         Me.ogcptotalpack.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcptotalpack.Name = "ogcptotalpack"
-        Me.ogcptotalpack.Size = New System.Drawing.Size(1260, 255)
+        Me.ogcptotalpack.Size = New System.Drawing.Size(539, 165)
         Me.ogcptotalpack.TabIndex = 305
         Me.ogcptotalpack.TabStop = False
         Me.ogcptotalpack.Tag = "3|"
@@ -2067,8 +2084,9 @@ Partial Class wCreatePackOrderCustPONonSty
         'ogbpackalltotaltabSet
         '
         Me.ogbpackalltotaltabSet.Controls.Add(Me.ogcptotalpackset)
+        Me.ogbpackalltotaltabSet.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogbpackalltotaltabSet.Name = "ogbpackalltotaltabSet"
-        Me.ogbpackalltotaltabSet.Size = New System.Drawing.Size(701, 150)
+        Me.ogbpackalltotaltabSet.Size = New System.Drawing.Size(539, 165)
         Me.ogbpackalltotaltabSet.Text = "เซ็ต"
         '
         'ogcptotalpackset
@@ -2079,7 +2097,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogcptotalpackset.MainView = Me.ogvptotalpackset
         Me.ogcptotalpackset.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcptotalpackset.Name = "ogcptotalpackset"
-        Me.ogcptotalpackset.Size = New System.Drawing.Size(876, 188)
+        Me.ogcptotalpackset.Size = New System.Drawing.Size(539, 165)
         Me.ogcptotalpackset.TabIndex = 306
         Me.ogcptotalpackset.TabStop = False
         Me.ogcptotalpackset.Tag = "3|"
@@ -2184,7 +2202,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.ogbcarton.Location = New System.Drawing.Point(2, 2)
         Me.ogbcarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbcarton.Name = "ogbcarton"
-        Me.ogbcarton.Size = New System.Drawing.Size(514, 264)
+        Me.ogbcarton.Size = New System.Drawing.Size(514, 226)
         Me.ogbcarton.TabIndex = 147
         Me.ogbcarton.Tag = "2|"
         Me.ogbcarton.Text = "Carton Info"
@@ -2240,7 +2258,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FNCartonNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNCartonNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNCartonNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNCartonNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNCartonNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNCartonNo.Properties.DisplayFormat.FormatString = "{0:n0}"
         Me.FNCartonNo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNCartonNo.Properties.EditFormat.FormatString = "{0:n0}"
@@ -2273,7 +2291,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FNNNW_lbl.Appearance.Options.UseTextOptions = True
         Me.FNNNW_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNNNW_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNNNW_lbl.Location = New System.Drawing.Point(47, 136)
+        Me.FNNNW_lbl.Location = New System.Drawing.Point(47, 135)
         Me.FNNNW_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNNNW_lbl.Name = "FNNNW_lbl"
         Me.FNNNW_lbl.Size = New System.Drawing.Size(84, 23)
@@ -2316,7 +2334,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FNNNW.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FNNNW.EnterMoveNextControl = True
-        Me.FNNNW.Location = New System.Drawing.Point(136, 136)
+        Me.FNNNW.Location = New System.Drawing.Point(136, 135)
         Me.FNNNW.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNNNW.Name = "FNNNW"
         Me.FNNNW.Properties.Appearance.Options.UseTextOptions = True
@@ -2329,7 +2347,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FNNNW.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNNNW.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNNNW.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNNNW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNNNW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNNNW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNNNW.Properties.Precision = 2
         Me.FNNNW.Properties.ReadOnly = True
@@ -2353,7 +2371,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FNGW.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNGW.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNGW.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNGW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNGW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNGW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNGW.Properties.Precision = 2
         Me.FNGW.Properties.ReadOnly = True
@@ -2379,7 +2397,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FNNW.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNNW.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNNW.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNNW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNNW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNNW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNNW.Properties.Precision = 2
         Me.FNNW.Properties.ReadOnly = True
@@ -2403,7 +2421,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FNCTNW.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNCTNW.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNCTNW.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNCTNW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNCTNW.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNCTNW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNCTNW.Properties.Precision = 2
         Me.FNCTNW.Properties.ReadOnly = True
@@ -2449,7 +2467,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FNPackCartonSubType.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPackCartonSubType.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPackCartonSubType.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPackCartonSubType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "FNPackCartonSubType", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPackCartonSubType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "FNPackCartonSubType", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPackCartonSubType.Properties.ReadOnly = True
         Me.FNPackCartonSubType.Properties.Tag = "FNPackCartonSubType"
         Me.FNPackCartonSubType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
@@ -2507,7 +2525,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FNHSysCartonId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCartonId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCartonId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCartonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, False, True, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "220", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCartonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, False, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "220", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCartonId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCartonId.Properties.MaxLength = 30
         Me.FNHSysCartonId.Properties.ReadOnly = True
@@ -2567,8 +2585,9 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.otlpack.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otlpack.Name = "otlpack"
         Me.otlpack.SelectImageList = Me.imagepackList
-        Me.otlpack.Size = New System.Drawing.Size(436, 860)
+        Me.otlpack.Size = New System.Drawing.Size(391, 773)
         Me.otlpack.TabIndex = 0
+        Me.otlpack.TreeLevelWidth = 17
         '
         'imagepackList
         '
@@ -2584,22 +2603,23 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.otpbarcodeset.Controls.Add(Me.ogcbreakdownbarcodeset)
         Me.otpbarcodeset.Controls.Add(Me.GroupControl2)
         Me.otpbarcodeset.Controls.Add(Me.otlbarcodeset)
+        Me.otpbarcodeset.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpbarcodeset.Name = "otpbarcodeset"
-        Me.otpbarcodeset.Size = New System.Drawing.Size(1665, 688)
+        Me.otpbarcodeset.Size = New System.Drawing.Size(1458, 773)
         Me.otpbarcodeset.Text = "Barcode set"
         '
         'ogcbreakdownbarcodeset
         '
         Me.ogcbreakdownbarcodeset.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcbreakdownbarcodeset.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        GridLevelNode1.RelationName = "Level1"
-        Me.ogcbreakdownbarcodeset.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
-        Me.ogcbreakdownbarcodeset.Location = New System.Drawing.Point(435, 0)
+        GridLevelNode2.RelationName = "Level1"
+        Me.ogcbreakdownbarcodeset.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode2})
+        Me.ogcbreakdownbarcodeset.Location = New System.Drawing.Point(350, 0)
         Me.ogcbreakdownbarcodeset.MainView = Me.ogvbreakdownbarcodeset
         Me.ogcbreakdownbarcodeset.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcbreakdownbarcodeset.Name = "ogcbreakdownbarcodeset"
         Me.ogcbreakdownbarcodeset.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepCalSet})
-        Me.ogcbreakdownbarcodeset.Size = New System.Drawing.Size(1646, 604)
+        Me.ogcbreakdownbarcodeset.Size = New System.Drawing.Size(1108, 623)
         Me.ogcbreakdownbarcodeset.TabIndex = 1000004
         Me.ogcbreakdownbarcodeset.TabStop = False
         Me.ogcbreakdownbarcodeset.Tag = "3|"
@@ -2689,30 +2709,29 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.GroupControl2.Controls.Add(Me.FTBarcodeSetNo_lbl)
         Me.GroupControl2.Controls.Add(Me.FTStateDeleteBarcode)
         Me.GroupControl2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.GroupControl2.Location = New System.Drawing.Point(435, 655)
+        Me.GroupControl2.Location = New System.Drawing.Point(350, 623)
         Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl2.MaximumSize = New System.Drawing.Size(0, 150)
+        Me.GroupControl2.MinimumSize = New System.Drawing.Size(0, 150)
         Me.GroupControl2.Name = "GroupControl2"
         Me.GroupControl2.ShowCaption = False
-        Me.GroupControl2.Size = New System.Drawing.Size(1646, 205)
+        Me.GroupControl2.Size = New System.Drawing.Size(1108, 150)
         Me.GroupControl2.TabIndex = 1000012
         '
         'FTBarcodeSetNo
         '
-        Me.FTBarcodeSetNo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTBarcodeSetNo.EditValue = ""
-        Me.FTBarcodeSetNo.Location = New System.Drawing.Point(297, 98)
+        Me.FTBarcodeSetNo.Location = New System.Drawing.Point(316, 22)
         Me.FTBarcodeSetNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTBarcodeSetNo.Name = "FTBarcodeSetNo"
         Me.FTBarcodeSetNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Bold)
         Me.FTBarcodeSetNo.Properties.Appearance.Options.UseFont = True
         Me.FTBarcodeSetNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTBarcodeSetNo.Size = New System.Drawing.Size(1335, 42)
+        Me.FTBarcodeSetNo.Size = New System.Drawing.Size(781, 42)
         Me.FTBarcodeSetNo.TabIndex = 1000006
         '
         'FTBarcodeSetNo_lbl
         '
-        Me.FTBarcodeSetNo_lbl.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.FTBarcodeSetNo_lbl.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold)
         Me.FTBarcodeSetNo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
         Me.FTBarcodeSetNo_lbl.Appearance.Options.UseFont = True
@@ -2720,18 +2739,17 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.FTBarcodeSetNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTBarcodeSetNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTBarcodeSetNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBarcodeSetNo_lbl.Location = New System.Drawing.Point(6, 92)
+        Me.FTBarcodeSetNo_lbl.Location = New System.Drawing.Point(25, 8)
         Me.FTBarcodeSetNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTBarcodeSetNo_lbl.Name = "FTBarcodeSetNo_lbl"
-        Me.FTBarcodeSetNo_lbl.Size = New System.Drawing.Size(285, 61)
+        Me.FTBarcodeSetNo_lbl.Size = New System.Drawing.Size(285, 62)
         Me.FTBarcodeSetNo_lbl.TabIndex = 1000005
         Me.FTBarcodeSetNo_lbl.Tag = "2|"
         Me.FTBarcodeSetNo_lbl.Text = "Barcode Set No :"
         '
         'FTStateDeleteBarcode
         '
-        Me.FTStateDeleteBarcode.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.FTStateDeleteBarcode.Location = New System.Drawing.Point(296, 174)
+        Me.FTStateDeleteBarcode.Location = New System.Drawing.Point(316, 72)
         Me.FTStateDeleteBarcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStateDeleteBarcode.Name = "FTStateDeleteBarcode"
         Me.FTStateDeleteBarcode.Properties.Caption = "Delete Barcode"
@@ -2744,10 +2762,12 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.otlbarcodeset.Dock = System.Windows.Forms.DockStyle.Left
         Me.otlbarcodeset.Location = New System.Drawing.Point(0, 0)
         Me.otlbarcodeset.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.otlbarcodeset.MaximumSize = New System.Drawing.Size(350, 0)
         Me.otlbarcodeset.Name = "otlbarcodeset"
         Me.otlbarcodeset.SelectImageList = Me.imagepackList
-        Me.otlbarcodeset.Size = New System.Drawing.Size(348, 860)
+        Me.otlbarcodeset.Size = New System.Drawing.Size(350, 773)
         Me.otlbarcodeset.TabIndex = 1000007
+        Me.otlbarcodeset.TreeLevelWidth = 17
         '
         'GroupControl7
         '
@@ -2758,7 +2778,7 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.GroupControl7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl7.Name = "GroupControl7"
         Me.GroupControl7.ShowCaption = False
-        Me.GroupControl7.Size = New System.Drawing.Size(1667, 137)
+        Me.GroupControl7.Size = New System.Drawing.Size(1460, 137)
         Me.GroupControl7.TabIndex = 392
         Me.GroupControl7.Text = "น้ำหนักสินค้า/ตัว"
         '
@@ -2766,7 +2786,7 @@ Partial Class wCreatePackOrderCustPONonSty
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1667, 855)
+        Me.ClientSize = New System.Drawing.Size(1460, 940)
         Me.Controls.Add(Me.otbdetail)
         Me.Controls.Add(Me.GroupControl7)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -2793,13 +2813,13 @@ Partial Class wCreatePackOrderCustPONonSty
         Me.otppackdetail.ResumeLayout(False)
         CType(Me.ogbpackdetail, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbpackdetail.ResumeLayout(False)
+        CType(Me.ogcpackdetail, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogvpackdetail, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
         CType(Me.ogcpackdetailWeight, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogvpackdetailWeight, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReposCaleditWeight, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogcpackdetail, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogvpackdetail, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbsubpackdetail, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbsubpackdetail.ResumeLayout(False)
         CType(Me.ogcsubpackdetail, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2974,7 +2994,6 @@ Partial Class wCreatePackOrderCustPONonSty
     Friend WithEvents cwFTOrderNo As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents cwFTSubOrderNo As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents cwFTColorway As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents ReposCaleditWeight As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
     Friend WithEvents ocmsaveweightpack As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents FNCartonNo_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FNCartonNo As DevExpress.XtraEditors.CalcEdit
@@ -3004,7 +3023,6 @@ Partial Class wCreatePackOrderCustPONonSty
     Friend WithEvents CC3FTSubOrderNo As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CC3FTColorway As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CC3FTNikePOLineItem As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents RepCalSet As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
     Friend WithEvents ocmpreviewbarcodeutc As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ocmgenbarcodesscc As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ocmreviedsuborder As DevExpress.XtraEditors.SimpleButton
@@ -3064,4 +3082,6 @@ Partial Class wCreatePackOrderCustPONonSty
     Friend WithEvents GridColumn4 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn5 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepCalSet As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
+    Friend WithEvents ReposCaleditWeight As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
 End Class

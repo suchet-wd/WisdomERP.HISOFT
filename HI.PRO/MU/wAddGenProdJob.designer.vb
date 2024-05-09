@@ -19,16 +19,16 @@ Partial Class wAddGenProdJob
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject13 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.grpTableType = New DevExpress.XtraEditors.GroupControl()
         Me.ockTableManual = New DevExpress.XtraEditors.CheckEdit()
         Me.ockTableAuto = New DevExpress.XtraEditors.CheckEdit()
@@ -43,15 +43,15 @@ Partial Class wAddGenProdJob
         Me.RepositoryItemCalcEditFNLayerPerTable = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
         Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemCalcEditFNTotalTable = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
+        Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ReposCaleditWeight = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
         Me.ReposPartCode = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
         Me.ReposColorway = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
         Me.ocmcancel = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmok = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupControl3 = New DevExpress.XtraEditors.GroupControl()
-        Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.grpTableType, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpTableType.SuspendLayout()
         CType(Me.ockTableManual.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -204,6 +204,30 @@ Partial Class wAddGenProdJob
         Me.RepositoryItemCalcEditFNTotalTable.Name = "RepositoryItemCalcEditFNTotalTable"
         Me.RepositoryItemCalcEditFNTotalTable.Precision = 0
         '
+        'GridColumn4
+        '
+        Me.GridColumn4.Caption = "GridColumn4"
+        Me.GridColumn4.FieldName = "FNActuallong"
+        Me.GridColumn4.MinWidth = 25
+        Me.GridColumn4.Name = "GridColumn4"
+        Me.GridColumn4.Width = 94
+        '
+        'GridColumn6
+        '
+        Me.GridColumn6.Caption = "GridColumn6"
+        Me.GridColumn6.FieldName = "FNInc"
+        Me.GridColumn6.MinWidth = 25
+        Me.GridColumn6.Name = "GridColumn6"
+        Me.GridColumn6.Width = 94
+        '
+        'GridColumn7
+        '
+        Me.GridColumn7.Caption = "GridColumn7"
+        Me.GridColumn7.FieldName = "FNYard"
+        Me.GridColumn7.MinWidth = 25
+        Me.GridColumn7.Name = "GridColumn7"
+        Me.GridColumn7.Width = 94
+        '
         'ReposCaleditWeight
         '
         Me.ReposCaleditWeight.AutoHeight = False
@@ -215,13 +239,13 @@ Partial Class wAddGenProdJob
         'ReposPartCode
         '
         Me.ReposPartCode.AutoHeight = False
-        Me.ReposPartCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "596", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ReposPartCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "596", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ReposPartCode.Name = "ReposPartCode"
         '
         'ReposColorway
         '
         Me.ReposColorway.AutoHeight = False
-        Me.ReposColorway.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "597", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ReposColorway.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "597", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ReposColorway.Name = "ReposColorway"
         '
         'ocmcancel
@@ -258,30 +282,6 @@ Partial Class wAddGenProdJob
         Me.GroupControl3.Size = New System.Drawing.Size(967, 46)
         Me.GroupControl3.TabIndex = 2
         Me.GroupControl3.Text = "GroupControl3"
-        '
-        'GridColumn4
-        '
-        Me.GridColumn4.Caption = "GridColumn4"
-        Me.GridColumn4.FieldName = "FNActuallong"
-        Me.GridColumn4.MinWidth = 25
-        Me.GridColumn4.Name = "GridColumn4"
-        Me.GridColumn4.Width = 94
-        '
-        'GridColumn6
-        '
-        Me.GridColumn6.Caption = "GridColumn6"
-        Me.GridColumn6.FieldName = "FNInc"
-        Me.GridColumn6.MinWidth = 25
-        Me.GridColumn6.Name = "GridColumn6"
-        Me.GridColumn6.Width = 94
-        '
-        'GridColumn7
-        '
-        Me.GridColumn7.Caption = "GridColumn7"
-        Me.GridColumn7.FieldName = "FNYard"
-        Me.GridColumn7.MinWidth = 25
-        Me.GridColumn7.Name = "GridColumn7"
-        Me.GridColumn7.Width = 94
         '
         'wAddGenProdJob
         '

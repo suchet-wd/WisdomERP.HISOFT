@@ -20,11 +20,26 @@ Partial Class wTrackSendSupl
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wTrackSendSupl))
+        Dim EditorButtonImageOptions5 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject17 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject18 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject19 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject20 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.oDockPanel = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
@@ -108,7 +123,6 @@ Partial Class wTrackSendSupl
         Me.oDockPanel.Controls.Add(Me.DockPanel1_Container)
         Me.oDockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top
         Me.oDockPanel.ID = New System.Guid("2907d41c-6ae1-4bcf-8998-f980a6a1f183")
-        Me.oDockPanel.Image = CType(resources.GetObject("oDockPanel.Image"), System.Drawing.Image)
         Me.oDockPanel.Location = New System.Drawing.Point(0, 0)
         Me.oDockPanel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.oDockPanel.Name = "oDockPanel"
@@ -141,10 +155,10 @@ Partial Class wTrackSendSupl
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysSuplId)
         Me.DockPanel1_Container.Controls.Add(Me.FTInvoiceNo_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FTInvoiceNo)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 27)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 32)
         Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1278, 116)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1280, 112)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FTInvoiceNoTo_lbl
@@ -167,7 +181,7 @@ Partial Class wTrackSendSupl
         Me.FTInvoiceNoTo.Location = New System.Drawing.Point(710, 11)
         Me.FTInvoiceNoTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTInvoiceNoTo.Name = "FTInvoiceNoTo"
-        Me.FTInvoiceNoTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", "701", Nothing, True)})
+        Me.FTInvoiceNoTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "701", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTInvoiceNoTo.Properties.Tag = ""
         Me.FTInvoiceNoTo.Size = New System.Drawing.Size(152, 22)
         Me.FTInvoiceNoTo.TabIndex = 516
@@ -297,7 +311,7 @@ Partial Class wTrackSendSupl
         Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCmpId_None.Properties.ReadOnly = True
-        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(134, 22)
+        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(136, 22)
         Me.FNHSysCmpId_None.TabIndex = 407
         Me.FNHSysCmpId_None.Tag = "2|"
         Me.FNHSysCmpId_None.Visible = False
@@ -325,7 +339,7 @@ Partial Class wTrackSendSupl
         Me.FNHSysCmpId.Location = New System.Drawing.Point(13, 34)
         Me.FNHSysCmpId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCmpId.Name = "FNHSysCmpId"
-        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", "11", Nothing, True)})
+        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.Tag = ""
         Me.FNHSysCmpId.Size = New System.Drawing.Size(37, 22)
         Me.FNHSysCmpId.TabIndex = 406
@@ -383,7 +397,7 @@ Partial Class wTrackSendSupl
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysSuplId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, "", "196", Nothing, True)})
+        Me.FNHSysSuplId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "196", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSuplId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysSuplId.Properties.MaxLength = 30
         Me.FNHSysSuplId.Size = New System.Drawing.Size(152, 22)
@@ -410,7 +424,7 @@ Partial Class wTrackSendSupl
         Me.FTInvoiceNo.Location = New System.Drawing.Point(278, 9)
         Me.FTInvoiceNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTInvoiceNo.Name = "FTInvoiceNo"
-        Me.FTInvoiceNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject4, "", "396", Nothing, True)})
+        Me.FTInvoiceNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "396", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTInvoiceNo.Properties.Tag = ""
         Me.FTInvoiceNo.Size = New System.Drawing.Size(152, 22)
         Me.FTInvoiceNo.TabIndex = 401
@@ -487,11 +501,11 @@ Partial Class wTrackSendSupl
         '
         Me.ogc.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogc.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogc.Location = New System.Drawing.Point(2, 25)
+        Me.ogc.Location = New System.Drawing.Point(2, 28)
         Me.ogc.MainView = Me.bgv
         Me.ogc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Name = "ogc"
-        Me.ogc.Size = New System.Drawing.Size(1284, 513)
+        Me.ogc.Size = New System.Drawing.Size(1284, 510)
         Me.ogc.TabIndex = 0
         Me.ogc.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.bgv})
         '

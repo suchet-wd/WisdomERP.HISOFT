@@ -7,6 +7,7 @@ Imports Microsoft.Office.Interop.Excel
 Imports Microsoft.Office.Interop
 Imports DevExpress.XtraGrid.Views.Grid
 Imports System.Drawing
+Imports DevExpress.Export
 
 Public Class wProdOrderTrackingByLineDaily_CD
 
@@ -346,6 +347,12 @@ Public Class wProdOrderTrackingByLineDaily_CD
 
                     _Qry = "exec  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "..SP_GET_OrderWIPDaily_CD '" & HI.UL.ULF.rpQuoted(FTOrderNo.Text) & "','" & HI.UL.ULF.rpQuoted(FTOrderNoTo.Text) & "'"
                     _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
+
+
+                    '_Qry = "exec  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "..[SP_GET_OrderWIPDaily_CD_BYCMP] '" & HI.UL.ULF.rpQuoted(FTOrderNo.Text) & "','" & HI.UL.ULF.rpQuoted(FTOrderNoTo.Text) & "', '" & HI.UL.ULDate.ConvertEnDB(Me.FTStartDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(Me.FTEndDate.Text) & "'," & Val(HI.ST.SysInfo.CmpID)
+
+
+                    '_dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
 
                     Me.ogcdetailcolorsizelineg.DataSource = _dt
                     Call InitialGridMergCell()
@@ -1851,31 +1858,33 @@ Public Class wProdOrderTrackingByLineDaily_CD
         Try
 
             Dim _FileName As String = ""
-                Dim folderDlg As New SaveFileDialog
-                With folderDlg
-                    .Filter = "Excel Worksheets(2010-2013)" & "|*.xlsx|Excel Worksheets(97-2003)|*.xls"
-                    .FilterIndex = 1
-                    Dim dr As DialogResult = .ShowDialog()
-                    If (dr = System.Windows.Forms.DialogResult.OK) Then
-                        Dim _Spls As New HI.TL.SplashScreen("Please Wait.....", "Export Data From File ")
+            Dim folderDlg As New SaveFileDialog
+            With folderDlg
+                .Filter = "Excel Worksheets(2010-2013)" & "|*.xlsx|Excel Worksheets(97-2003)|*.xls"
+                .FilterIndex = 1
+                Dim dr As DialogResult = .ShowDialog()
+                If (dr = System.Windows.Forms.DialogResult.OK) Then
+                    Dim _Spls As New HI.TL.SplashScreen("Please Wait.....", "Export Data From File ")
 
-                        Dim path As String = .FileNames(0).ToString
-                        Dim _Strm As Stream = New MemoryStream()
+                    Dim path As String = .FileNames(0).ToString
+                    Dim _Strm As Stream = New MemoryStream()
 
-                        Select Case Me.ogcdetailcolorsizeline.SelectedTabPageIndex
-                            Case 0
-                                ogcdetailcolorsizelineg.ExportToXlsx(path)
+                    DevExpress.Export.ExportSettings.DefaultExportType = ExportType.WYSIWYG
 
-                            Case Else
-                                ogcmonthly.ExportToXlsx(path)
+                    Select Case Me.ogcdetailcolorsizeline.SelectedTabPageIndex
+                        Case 0
+                            ogcdetailcolorsizelineg.ExportToXlsx(path)
 
-                        End Select
+                        Case Else
+                            ogcmonthly.ExportToXlsx(path)
+
+                    End Select
 
 
-                        Process.Start(path)
-                        _Spls.Close()
-                    End If
-                End With
+                    Process.Start(path)
+                    _Spls.Close()
+                End If
+            End With
 
         Catch ex As Exception
 

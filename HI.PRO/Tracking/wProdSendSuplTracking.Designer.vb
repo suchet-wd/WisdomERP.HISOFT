@@ -23,6 +23,11 @@ Partial Class wProdSendSuplTracking
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wProdSendSuplTracking))
+        Dim EditorButtonImageOptions16 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject61 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject62 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject63 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject64 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -93,19 +98,8 @@ Partial Class wProdSendSuplTracking
         Dim SerializableAppearanceObject54 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject55 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject56 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions15 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject57 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject58 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject59 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject60 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbheader = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
-        Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
-        Me.ocmpreview = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmsavelayout = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmload = New DevExpress.XtraEditors.SimpleButton()
         Me.otbx = New DevExpress.XtraTab.XtraTabControl()
         Me.otpcompany = New DevExpress.XtraTab.XtraTabPage()
         Me.ogccmp = New DevExpress.XtraGrid.GridControl()
@@ -153,6 +147,12 @@ Partial Class wProdSendSuplTracking
         Me.FNHSysBuyId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysStyleId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysBuyId_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
+        Me.ocmpreview = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmsavelayout = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmload = New DevExpress.XtraEditors.SimpleButton()
         Me.ogbdetail = New DevExpress.XtraEditors.GroupControl()
         Me.ogcdetailcolorsizeline = New DevExpress.XtraTab.XtraTabControl()
         Me.otbsummary = New DevExpress.XtraTab.XtraTabPage()
@@ -274,10 +274,10 @@ Partial Class wProdSendSuplTracking
         Me.LabelControl19 = New DevExpress.XtraEditors.LabelControl()
         Me.DateEdit10 = New DevExpress.XtraEditors.DateEdit()
         Me.LabelControl20 = New DevExpress.XtraEditors.LabelControl()
+        Me.cFDShipDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GFDShipDate = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ogbheader.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
-        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbmainprocbutton.SuspendLayout()
         CType(Me.otbx, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.otbx.SuspendLayout()
         Me.otpcompany.SuspendLayout()
@@ -311,6 +311,8 @@ Partial Class wProdSendSuplTracking
         CType(Me.FTOrderNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysBuyId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysStyleId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ogbmainprocbutton.SuspendLayout()
         CType(Me.ogbdetail, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbdetail.SuspendLayout()
         CType(Me.ogcdetailcolorsizeline, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -425,71 +427,6 @@ Partial Class wProdSendSuplTracking
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
         Me.DockPanel1_Container.Size = New System.Drawing.Size(1706, 232)
         Me.DockPanel1_Container.TabIndex = 0
-        '
-        'ogbmainprocbutton
-        '
-        Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmpreview)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmsavelayout)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(146, 181)
-        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(619, 50)
-        Me.ogbmainprocbutton.TabIndex = 387
-        Me.ogbmainprocbutton.Tag = "2|"
-        '
-        'ocmpreview
-        '
-        Me.ocmpreview.Location = New System.Drawing.Point(385, 9)
-        Me.ocmpreview.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ocmpreview.Name = "ocmpreview"
-        Me.ocmpreview.Size = New System.Drawing.Size(111, 28)
-        Me.ocmpreview.TabIndex = 333
-        Me.ocmpreview.Text = "Preview"
-        '
-        'ocmsavelayout
-        '
-        Me.ocmsavelayout.Location = New System.Drawing.Point(124, 9)
-        Me.ocmsavelayout.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ocmsavelayout.Name = "ocmsavelayout"
-        Me.ocmsavelayout.Size = New System.Drawing.Size(136, 28)
-        Me.ocmsavelayout.TabIndex = 332
-        Me.ocmsavelayout.Text = "savelayoutgrid"
-        '
-        'ocmexit
-        '
-        Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(503, 9)
-        Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ocmexit.Name = "ocmexit"
-        Me.ocmexit.Size = New System.Drawing.Size(111, 31)
-        Me.ocmexit.TabIndex = 96
-        Me.ocmexit.TabStop = False
-        Me.ocmexit.Tag = "2|"
-        Me.ocmexit.Text = "EXIT"
-        '
-        'ocmclear
-        '
-        Me.ocmclear.Location = New System.Drawing.Point(6, 6)
-        Me.ocmclear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ocmclear.Name = "ocmclear"
-        Me.ocmclear.Size = New System.Drawing.Size(111, 31)
-        Me.ocmclear.TabIndex = 95
-        Me.ocmclear.TabStop = False
-        Me.ocmclear.Tag = "2|"
-        Me.ocmclear.Text = "CLEAR"
-        '
-        'ocmload
-        '
-        Me.ocmload.Location = New System.Drawing.Point(267, 9)
-        Me.ocmload.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ocmload.Name = "ocmload"
-        Me.ocmload.Size = New System.Drawing.Size(111, 28)
-        Me.ocmload.TabIndex = 329
-        Me.ocmload.Text = "Load Data"
         '
         'otbx
         '
@@ -622,7 +559,7 @@ Partial Class wProdSendSuplTracking
         Me.otpsupplier.Controls.Add(Me.ogcsupl)
         Me.otpsupplier.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otpsupplier.Name = "otpsupplier"
-        Me.otpsupplier.Size = New System.Drawing.Size(929, 182)
+        Me.otpsupplier.Size = New System.Drawing.Size(1008, 177)
         Me.otpsupplier.Text = "Select Supplier"
         '
         'ogcsupl
@@ -634,7 +571,7 @@ Partial Class wProdSendSuplTracking
         Me.ogcsupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsupl.Name = "ogcsupl"
         Me.ogcsupl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2, Me.RepositoryItemComboBox1})
-        Me.ogcsupl.Size = New System.Drawing.Size(929, 182)
+        Me.ogcsupl.Size = New System.Drawing.Size(1008, 177)
         Me.ogcsupl.TabIndex = 6
         Me.ogcsupl.TabStop = False
         Me.ogcsupl.Tag = "3|"
@@ -915,7 +852,7 @@ Partial Class wProdSendSuplTracking
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysSuplId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "177", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSuplId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", "177", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSuplId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysSuplId.Properties.MaxLength = 30
         Me.FNHSysSuplId.Size = New System.Drawing.Size(152, 22)
@@ -1081,7 +1018,7 @@ Partial Class wProdSendSuplTracking
         Me.FTOrderNoTo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTOrderNoTo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTOrderNoTo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTOrderNoTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "219", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTOrderNoTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "219", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOrderNoTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTOrderNoTo.Properties.MaxLength = 30
         Me.FTOrderNoTo.Size = New System.Drawing.Size(152, 22)
@@ -1135,7 +1072,7 @@ Partial Class wProdSendSuplTracking
         Me.FTOrderNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "218", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "218", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOrderNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTOrderNo.Properties.MaxLength = 30
         Me.FTOrderNo.Size = New System.Drawing.Size(152, 22)
@@ -1162,7 +1099,7 @@ Partial Class wProdSendSuplTracking
         Me.FNHSysBuyId.Location = New System.Drawing.Point(216, 4)
         Me.FNHSysBuyId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysBuyId.Name = "FNHSysBuyId"
-        Me.FNHSysBuyId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysBuyId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBuyId.Properties.Tag = ""
         Me.FNHSysBuyId.Size = New System.Drawing.Size(152, 22)
         Me.FNHSysBuyId.TabIndex = 288
@@ -1173,7 +1110,7 @@ Partial Class wProdSendSuplTracking
         Me.FNHSysStyleId.Location = New System.Drawing.Point(216, 30)
         Me.FNHSysStyleId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysStyleId.Name = "FNHSysStyleId"
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.Tag = ""
         Me.FNHSysStyleId.Size = New System.Drawing.Size(152, 22)
         Me.FNHSysStyleId.TabIndex = 290
@@ -1193,6 +1130,71 @@ Partial Class wProdSendSuplTracking
         Me.FNHSysBuyId_lbl.TabIndex = 292
         Me.FNHSysBuyId_lbl.Tag = "2|"
         Me.FNHSysBuyId_lbl.Text = "Buy :"
+        '
+        'ogbmainprocbutton
+        '
+        Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmpreview)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmsavelayout)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(146, 181)
+        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(619, 50)
+        Me.ogbmainprocbutton.TabIndex = 387
+        Me.ogbmainprocbutton.Tag = "2|"
+        '
+        'ocmpreview
+        '
+        Me.ocmpreview.Location = New System.Drawing.Point(385, 9)
+        Me.ocmpreview.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmpreview.Name = "ocmpreview"
+        Me.ocmpreview.Size = New System.Drawing.Size(111, 28)
+        Me.ocmpreview.TabIndex = 333
+        Me.ocmpreview.Text = "Preview"
+        '
+        'ocmsavelayout
+        '
+        Me.ocmsavelayout.Location = New System.Drawing.Point(124, 9)
+        Me.ocmsavelayout.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmsavelayout.Name = "ocmsavelayout"
+        Me.ocmsavelayout.Size = New System.Drawing.Size(136, 28)
+        Me.ocmsavelayout.TabIndex = 332
+        Me.ocmsavelayout.Text = "savelayoutgrid"
+        '
+        'ocmexit
+        '
+        Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmexit.Location = New System.Drawing.Point(503, 9)
+        Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmexit.Name = "ocmexit"
+        Me.ocmexit.Size = New System.Drawing.Size(111, 31)
+        Me.ocmexit.TabIndex = 96
+        Me.ocmexit.TabStop = False
+        Me.ocmexit.Tag = "2|"
+        Me.ocmexit.Text = "EXIT"
+        '
+        'ocmclear
+        '
+        Me.ocmclear.Location = New System.Drawing.Point(6, 6)
+        Me.ocmclear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclear.Name = "ocmclear"
+        Me.ocmclear.Size = New System.Drawing.Size(111, 31)
+        Me.ocmclear.TabIndex = 95
+        Me.ocmclear.TabStop = False
+        Me.ocmclear.Tag = "2|"
+        Me.ocmclear.Text = "CLEAR"
+        '
+        'ocmload
+        '
+        Me.ocmload.Location = New System.Drawing.Point(267, 9)
+        Me.ocmload.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmload.Name = "ocmload"
+        Me.ocmload.Size = New System.Drawing.Size(111, 28)
+        Me.ocmload.TabIndex = 329
+        Me.ocmload.Text = "Load Data"
         '
         'ogbdetail
         '
@@ -1222,7 +1224,7 @@ Partial Class wProdSendSuplTracking
         Me.otbsummary.Controls.Add(Me.ogdtime)
         Me.otbsummary.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otbsummary.Name = "otbsummary"
-        Me.otbsummary.Size = New System.Drawing.Size(1708, 356)
+        Me.otbsummary.Size = New System.Drawing.Size(1708, 484)
         Me.otbsummary.Text = "Summary"
         '
         'ogdtime
@@ -1233,7 +1235,7 @@ Partial Class wProdSendSuplTracking
         Me.ogdtime.MainView = Me.ogvtime
         Me.ogdtime.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdtime.Name = "ogdtime"
-        Me.ogdtime.Size = New System.Drawing.Size(1708, 356)
+        Me.ogdtime.Size = New System.Drawing.Size(1708, 484)
         Me.ogdtime.TabIndex = 0
         Me.ogdtime.TabStop = False
         Me.ogdtime.Tag = "2|"
@@ -1241,7 +1243,7 @@ Partial Class wProdSendSuplTracking
         '
         'ogvtime
         '
-        Me.ogvtime.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTStyleCode, Me.CFTOrderNo, Me.FTCmpCode, Me.FTCmpName, Me.FTColorway, Me.FTSizeBreakDown, Me.FTSenSuplTypeName, Me.FTPartName, Me.FNQuantity, Me.FTSendSuplNo, Me.FDSendSuplDate, Me.FTSuplCode, Me.FTSuplName, Me.FNSendSuplState, Me.FNSendQuantity, Me.FNTotalRcvQuantity, Me.FTRcvSuplNo, Me.FDRcvSuplDate, Me.FNRcvQuantity, Me.FNBalRcvSupl, Me.FTPORef, Me.FTRcvSuplBy, Me.FTSendSuplBy, Me.sFTNikePOLineItem})
+        Me.ogvtime.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTStyleCode, Me.CFTOrderNo, Me.FTCmpCode, Me.FTCmpName, Me.FTColorway, Me.FTSizeBreakDown, Me.FTSenSuplTypeName, Me.FTPartName, Me.FNQuantity, Me.FTSendSuplNo, Me.FDSendSuplDate, Me.FTSuplCode, Me.FTSuplName, Me.FNSendSuplState, Me.FNSendQuantity, Me.FNTotalRcvQuantity, Me.FTRcvSuplNo, Me.FDRcvSuplDate, Me.FNRcvQuantity, Me.FNBalRcvSupl, Me.FTPORef, Me.FTRcvSuplBy, Me.FTSendSuplBy, Me.sFTNikePOLineItem, Me.cFDShipDate})
         Me.ogvtime.DetailHeight = 431
         Me.ogvtime.GridControl = Me.ogdtime
         Me.ogvtime.Name = "ogvtime"
@@ -1313,7 +1315,7 @@ Partial Class wProdSendSuplTracking
         Me.FTCmpCode.OptionsColumn.ReadOnly = True
         Me.FTCmpCode.OptionsColumn.ShowInCustomizationForm = False
         Me.FTCmpCode.Visible = True
-        Me.FTCmpCode.VisibleIndex = 4
+        Me.FTCmpCode.VisibleIndex = 5
         Me.FTCmpCode.Width = 117
         '
         'FTCmpName
@@ -1331,7 +1333,7 @@ Partial Class wProdSendSuplTracking
         Me.FTCmpName.OptionsColumn.ReadOnly = True
         Me.FTCmpName.OptionsColumn.ShowInCustomizationForm = False
         Me.FTCmpName.Visible = True
-        Me.FTCmpName.VisibleIndex = 5
+        Me.FTCmpName.VisibleIndex = 6
         Me.FTCmpName.Width = 140
         '
         'FTColorway
@@ -1348,7 +1350,7 @@ Partial Class wProdSendSuplTracking
         Me.FTColorway.OptionsColumn.ReadOnly = True
         Me.FTColorway.OptionsColumn.ShowInCustomizationForm = False
         Me.FTColorway.Visible = True
-        Me.FTColorway.VisibleIndex = 6
+        Me.FTColorway.VisibleIndex = 7
         Me.FTColorway.Width = 93
         '
         'FTSizeBreakDown
@@ -1365,7 +1367,7 @@ Partial Class wProdSendSuplTracking
         Me.FTSizeBreakDown.OptionsColumn.ReadOnly = True
         Me.FTSizeBreakDown.OptionsColumn.ShowInCustomizationForm = False
         Me.FTSizeBreakDown.Visible = True
-        Me.FTSizeBreakDown.VisibleIndex = 7
+        Me.FTSizeBreakDown.VisibleIndex = 8
         Me.FTSizeBreakDown.Width = 82
         '
         'FTSenSuplTypeName
@@ -1382,7 +1384,7 @@ Partial Class wProdSendSuplTracking
         Me.FTSenSuplTypeName.OptionsColumn.ReadOnly = True
         Me.FTSenSuplTypeName.OptionsColumn.ShowInCustomizationForm = False
         Me.FTSenSuplTypeName.Visible = True
-        Me.FTSenSuplTypeName.VisibleIndex = 8
+        Me.FTSenSuplTypeName.VisibleIndex = 9
         Me.FTSenSuplTypeName.Width = 93
         '
         'FTPartName
@@ -1399,7 +1401,7 @@ Partial Class wProdSendSuplTracking
         Me.FTPartName.OptionsColumn.ReadOnly = True
         Me.FTPartName.OptionsColumn.ShowInCustomizationForm = False
         Me.FTPartName.Visible = True
-        Me.FTPartName.VisibleIndex = 9
+        Me.FTPartName.VisibleIndex = 10
         Me.FTPartName.Width = 93
         '
         'FNQuantity
@@ -1436,7 +1438,7 @@ Partial Class wProdSendSuplTracking
         Me.FTSendSuplNo.OptionsColumn.ReadOnly = True
         Me.FTSendSuplNo.OptionsColumn.ShowInCustomizationForm = False
         Me.FTSendSuplNo.Visible = True
-        Me.FTSendSuplNo.VisibleIndex = 12
+        Me.FTSendSuplNo.VisibleIndex = 13
         Me.FTSendSuplNo.Width = 117
         '
         'FDSendSuplDate
@@ -1457,7 +1459,7 @@ Partial Class wProdSendSuplTracking
         Me.FDSendSuplDate.OptionsColumn.ReadOnly = True
         Me.FDSendSuplDate.OptionsColumn.ShowInCustomizationForm = False
         Me.FDSendSuplDate.Visible = True
-        Me.FDSendSuplDate.VisibleIndex = 14
+        Me.FDSendSuplDate.VisibleIndex = 15
         Me.FDSendSuplDate.Width = 105
         '
         'FTSuplCode
@@ -1476,7 +1478,7 @@ Partial Class wProdSendSuplTracking
         Me.FTSuplCode.OptionsColumn.ReadOnly = True
         Me.FTSuplCode.OptionsColumn.ShowInCustomizationForm = False
         Me.FTSuplCode.Visible = True
-        Me.FTSuplCode.VisibleIndex = 10
+        Me.FTSuplCode.VisibleIndex = 11
         Me.FTSuplCode.Width = 93
         '
         'FTSuplName
@@ -1493,7 +1495,7 @@ Partial Class wProdSendSuplTracking
         Me.FTSuplName.OptionsColumn.ReadOnly = True
         Me.FTSuplName.OptionsColumn.ShowInCustomizationForm = False
         Me.FTSuplName.Visible = True
-        Me.FTSuplName.VisibleIndex = 11
+        Me.FTSuplName.VisibleIndex = 12
         Me.FTSuplName.Width = 140
         '
         'FNSendSuplState
@@ -1509,7 +1511,7 @@ Partial Class wProdSendSuplTracking
         Me.FNSendSuplState.OptionsColumn.ReadOnly = True
         Me.FNSendSuplState.OptionsColumn.ShowInCustomizationForm = False
         Me.FNSendSuplState.Visible = True
-        Me.FNSendSuplState.VisibleIndex = 15
+        Me.FNSendSuplState.VisibleIndex = 16
         Me.FNSendSuplState.Width = 93
         '
         'FNSendQuantity
@@ -1531,7 +1533,7 @@ Partial Class wProdSendSuplTracking
         Me.FNSendQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.FNSendQuantity.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNSendQuantity", "{0:n0}")})
         Me.FNSendQuantity.Visible = True
-        Me.FNSendQuantity.VisibleIndex = 16
+        Me.FNSendQuantity.VisibleIndex = 17
         Me.FNSendQuantity.Width = 105
         '
         'FNTotalRcvQuantity
@@ -1565,7 +1567,7 @@ Partial Class wProdSendSuplTracking
         Me.FTRcvSuplNo.OptionsColumn.ReadOnly = True
         Me.FTRcvSuplNo.OptionsColumn.ShowInCustomizationForm = False
         Me.FTRcvSuplNo.Visible = True
-        Me.FTRcvSuplNo.VisibleIndex = 17
+        Me.FTRcvSuplNo.VisibleIndex = 18
         Me.FTRcvSuplNo.Width = 117
         '
         'FDRcvSuplDate
@@ -1586,7 +1588,7 @@ Partial Class wProdSendSuplTracking
         Me.FDRcvSuplDate.OptionsColumn.ReadOnly = True
         Me.FDRcvSuplDate.OptionsColumn.ShowInCustomizationForm = False
         Me.FDRcvSuplDate.Visible = True
-        Me.FDRcvSuplDate.VisibleIndex = 19
+        Me.FDRcvSuplDate.VisibleIndex = 20
         Me.FDRcvSuplDate.Width = 93
         '
         'FNRcvQuantity
@@ -1608,7 +1610,7 @@ Partial Class wProdSendSuplTracking
         Me.FNRcvQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.FNRcvQuantity.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNRcvQuantity", "{0:n0}")})
         Me.FNRcvQuantity.Visible = True
-        Me.FNRcvQuantity.VisibleIndex = 20
+        Me.FNRcvQuantity.VisibleIndex = 21
         Me.FNRcvQuantity.Width = 105
         '
         'FNBalRcvSupl
@@ -1630,7 +1632,7 @@ Partial Class wProdSendSuplTracking
         Me.FNBalRcvSupl.OptionsColumn.ShowInCustomizationForm = False
         Me.FNBalRcvSupl.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNBalRcvSupl", "{0:n0}")})
         Me.FNBalRcvSupl.Visible = True
-        Me.FNBalRcvSupl.VisibleIndex = 21
+        Me.FNBalRcvSupl.VisibleIndex = 22
         Me.FNBalRcvSupl.Width = 105
         '
         'FTPORef
@@ -1648,7 +1650,7 @@ Partial Class wProdSendSuplTracking
         Me.FTPORef.OptionsColumn.ReadOnly = True
         Me.FTPORef.OptionsColumn.ShowInCustomizationForm = False
         Me.FTPORef.Visible = True
-        Me.FTPORef.VisibleIndex = 2
+        Me.FTPORef.VisibleIndex = 3
         Me.FTPORef.Width = 87
         '
         'FTRcvSuplBy
@@ -1663,7 +1665,7 @@ Partial Class wProdSendSuplTracking
         Me.FTRcvSuplBy.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTRcvSuplBy.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTRcvSuplBy.Visible = True
-        Me.FTRcvSuplBy.VisibleIndex = 18
+        Me.FTRcvSuplBy.VisibleIndex = 19
         Me.FTRcvSuplBy.Width = 120
         '
         'FTSendSuplBy
@@ -1678,7 +1680,7 @@ Partial Class wProdSendSuplTracking
         Me.FTSendSuplBy.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTSendSuplBy.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTSendSuplBy.Visible = True
-        Me.FTSendSuplBy.VisibleIndex = 13
+        Me.FTSendSuplBy.VisibleIndex = 14
         Me.FTSendSuplBy.Width = 107
         '
         'sFTNikePOLineItem
@@ -1691,7 +1693,7 @@ Partial Class wProdSendSuplTracking
         Me.sFTNikePOLineItem.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.sFTNikePOLineItem.OptionsColumn.ReadOnly = True
         Me.sFTNikePOLineItem.Visible = True
-        Me.sFTNikePOLineItem.VisibleIndex = 3
+        Me.sFTNikePOLineItem.VisibleIndex = 4
         '
         'otpsummarybybundle
         '
@@ -1717,7 +1719,7 @@ Partial Class wProdSendSuplTracking
         '
         'ogvbybundle
         '
-        Me.ogvbybundle.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GFTStyleCode, Me.GFTOrderNo, Me.GFTCmpCode, Me.GFTCmpName, Me.GFTColorway, Me.GFTSizeBreakDown, Me.FNBunbleSeq, Me.FTPOLineItemNo, Me.C3FTOrderProdNo, Me.FTBarcodeBundleNo, Me.FTBarcodeSendSuplNo, Me.GFTSenSuplTypeName, Me.GFTPartName, Me.FTNote, Me.GFNQuantity, Me.GFTSendSuplNo, Me.GFDSendSuplDate, Me.GFTSuplCode, Me.GFTSuplName, Me.GFNSendSuplState, Me.GFNSendQuantity, Me.GFNTotalRcvQuantity, Me.GFTSendApproveBy, Me.GFTSendApproveDate, Me.GFTSendApproveBal, Me.GFTSendApproveQty, Me.GFTRcvSuplNo, Me.GFDRcvSuplDate, Me.FTUnitSectCode, Me.GFNRcvQuantity, Me.GFNBalRcvSupl, Me.FTPORef1, Me.GridColumn1, Me.GridColumn2, Me.GFTRcvApproveBy, Me.GFTRcvApproveDate, Me.GFTRcvApproveQty, Me.GFTRcvApproveBal})
+        Me.ogvbybundle.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GFTStyleCode, Me.GFTOrderNo, Me.GFTCmpCode, Me.GFTCmpName, Me.GFTColorway, Me.GFTSizeBreakDown, Me.FNBunbleSeq, Me.FTPOLineItemNo, Me.C3FTOrderProdNo, Me.FTBarcodeBundleNo, Me.FTBarcodeSendSuplNo, Me.GFTSenSuplTypeName, Me.GFTPartName, Me.FTNote, Me.GFNQuantity, Me.GFTSendSuplNo, Me.GFDSendSuplDate, Me.GFTSuplCode, Me.GFTSuplName, Me.GFNSendSuplState, Me.GFNSendQuantity, Me.GFNTotalRcvQuantity, Me.GFTSendApproveBy, Me.GFTSendApproveDate, Me.GFTSendApproveBal, Me.GFTSendApproveQty, Me.GFTRcvSuplNo, Me.GFDRcvSuplDate, Me.FTUnitSectCode, Me.GFNRcvQuantity, Me.GFNBalRcvSupl, Me.FTPORef1, Me.GridColumn1, Me.GridColumn2, Me.GFTRcvApproveBy, Me.GFTRcvApproveDate, Me.GFTRcvApproveQty, Me.GFTRcvApproveBal, Me.GFDShipDate})
         Me.ogvbybundle.DetailHeight = 431
         Me.ogvbybundle.GridControl = Me.ogcbybundle
         Me.ogvbybundle.Name = "ogvbybundle"
@@ -1789,7 +1791,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTCmpCode.OptionsColumn.ReadOnly = True
         Me.GFTCmpCode.OptionsColumn.ShowInCustomizationForm = False
         Me.GFTCmpCode.Visible = True
-        Me.GFTCmpCode.VisibleIndex = 3
+        Me.GFTCmpCode.VisibleIndex = 4
         Me.GFTCmpCode.Width = 117
         '
         'GFTCmpName
@@ -1807,7 +1809,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTCmpName.OptionsColumn.ReadOnly = True
         Me.GFTCmpName.OptionsColumn.ShowInCustomizationForm = False
         Me.GFTCmpName.Visible = True
-        Me.GFTCmpName.VisibleIndex = 4
+        Me.GFTCmpName.VisibleIndex = 5
         Me.GFTCmpName.Width = 140
         '
         'GFTColorway
@@ -1824,7 +1826,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTColorway.OptionsColumn.ReadOnly = True
         Me.GFTColorway.OptionsColumn.ShowInCustomizationForm = False
         Me.GFTColorway.Visible = True
-        Me.GFTColorway.VisibleIndex = 5
+        Me.GFTColorway.VisibleIndex = 6
         Me.GFTColorway.Width = 93
         '
         'GFTSizeBreakDown
@@ -1841,7 +1843,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTSizeBreakDown.OptionsColumn.ReadOnly = True
         Me.GFTSizeBreakDown.OptionsColumn.ShowInCustomizationForm = False
         Me.GFTSizeBreakDown.Visible = True
-        Me.GFTSizeBreakDown.VisibleIndex = 6
+        Me.GFTSizeBreakDown.VisibleIndex = 7
         Me.GFTSizeBreakDown.Width = 82
         '
         'FNBunbleSeq
@@ -1856,7 +1858,7 @@ Partial Class wProdSendSuplTracking
         Me.FNBunbleSeq.OptionsColumn.ReadOnly = True
         Me.FNBunbleSeq.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "FNBunbleSeq", "{0:n0}")})
         Me.FNBunbleSeq.Visible = True
-        Me.FNBunbleSeq.VisibleIndex = 8
+        Me.FNBunbleSeq.VisibleIndex = 9
         Me.FNBunbleSeq.Width = 65
         '
         'FTPOLineItemNo
@@ -1874,7 +1876,7 @@ Partial Class wProdSendSuplTracking
         Me.FTPOLineItemNo.OptionsColumn.ReadOnly = True
         Me.FTPOLineItemNo.OptionsColumn.ShowInCustomizationForm = False
         Me.FTPOLineItemNo.Visible = True
-        Me.FTPOLineItemNo.VisibleIndex = 7
+        Me.FTPOLineItemNo.VisibleIndex = 8
         Me.FTPOLineItemNo.Width = 87
         '
         'C3FTOrderProdNo
@@ -1888,7 +1890,7 @@ Partial Class wProdSendSuplTracking
         Me.C3FTOrderProdNo.OptionsColumn.AllowEdit = False
         Me.C3FTOrderProdNo.OptionsColumn.ReadOnly = True
         Me.C3FTOrderProdNo.Visible = True
-        Me.C3FTOrderProdNo.VisibleIndex = 9
+        Me.C3FTOrderProdNo.VisibleIndex = 10
         Me.C3FTOrderProdNo.Width = 112
         '
         'FTBarcodeBundleNo
@@ -1912,7 +1914,7 @@ Partial Class wProdSendSuplTracking
         Me.FTBarcodeSendSuplNo.OptionsColumn.AllowEdit = False
         Me.FTBarcodeSendSuplNo.OptionsColumn.ReadOnly = True
         Me.FTBarcodeSendSuplNo.Visible = True
-        Me.FTBarcodeSendSuplNo.VisibleIndex = 10
+        Me.FTBarcodeSendSuplNo.VisibleIndex = 11
         Me.FTBarcodeSendSuplNo.Width = 117
         '
         'GFTSenSuplTypeName
@@ -1929,7 +1931,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTSenSuplTypeName.OptionsColumn.ReadOnly = True
         Me.GFTSenSuplTypeName.OptionsColumn.ShowInCustomizationForm = False
         Me.GFTSenSuplTypeName.Visible = True
-        Me.GFTSenSuplTypeName.VisibleIndex = 11
+        Me.GFTSenSuplTypeName.VisibleIndex = 12
         Me.GFTSenSuplTypeName.Width = 93
         '
         'GFTPartName
@@ -1946,7 +1948,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTPartName.OptionsColumn.ReadOnly = True
         Me.GFTPartName.OptionsColumn.ShowInCustomizationForm = False
         Me.GFTPartName.Visible = True
-        Me.GFTPartName.VisibleIndex = 12
+        Me.GFTPartName.VisibleIndex = 13
         Me.GFTPartName.Width = 93
         '
         'FTNote
@@ -1962,7 +1964,7 @@ Partial Class wProdSendSuplTracking
         Me.FTNote.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTNote.OptionsColumn.ShowInCustomizationForm = False
         Me.FTNote.Visible = True
-        Me.FTNote.VisibleIndex = 13
+        Me.FTNote.VisibleIndex = 14
         Me.FTNote.Width = 233
         '
         'GFNQuantity
@@ -1999,7 +2001,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTSendSuplNo.OptionsColumn.ReadOnly = True
         Me.GFTSendSuplNo.OptionsColumn.ShowInCustomizationForm = False
         Me.GFTSendSuplNo.Visible = True
-        Me.GFTSendSuplNo.VisibleIndex = 16
+        Me.GFTSendSuplNo.VisibleIndex = 17
         Me.GFTSendSuplNo.Width = 117
         '
         'GFDSendSuplDate
@@ -2020,7 +2022,7 @@ Partial Class wProdSendSuplTracking
         Me.GFDSendSuplDate.OptionsColumn.ReadOnly = True
         Me.GFDSendSuplDate.OptionsColumn.ShowInCustomizationForm = False
         Me.GFDSendSuplDate.Visible = True
-        Me.GFDSendSuplDate.VisibleIndex = 18
+        Me.GFDSendSuplDate.VisibleIndex = 19
         Me.GFDSendSuplDate.Width = 93
         '
         'GFTSuplCode
@@ -2039,7 +2041,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTSuplCode.OptionsColumn.ReadOnly = True
         Me.GFTSuplCode.OptionsColumn.ShowInCustomizationForm = False
         Me.GFTSuplCode.Visible = True
-        Me.GFTSuplCode.VisibleIndex = 14
+        Me.GFTSuplCode.VisibleIndex = 15
         Me.GFTSuplCode.Width = 93
         '
         'GFTSuplName
@@ -2056,7 +2058,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTSuplName.OptionsColumn.ReadOnly = True
         Me.GFTSuplName.OptionsColumn.ShowInCustomizationForm = False
         Me.GFTSuplName.Visible = True
-        Me.GFTSuplName.VisibleIndex = 15
+        Me.GFTSuplName.VisibleIndex = 16
         Me.GFTSuplName.Width = 140
         '
         'GFNSendSuplState
@@ -2072,7 +2074,7 @@ Partial Class wProdSendSuplTracking
         Me.GFNSendSuplState.OptionsColumn.ReadOnly = True
         Me.GFNSendSuplState.OptionsColumn.ShowInCustomizationForm = False
         Me.GFNSendSuplState.Visible = True
-        Me.GFNSendSuplState.VisibleIndex = 19
+        Me.GFNSendSuplState.VisibleIndex = 20
         Me.GFNSendSuplState.Width = 93
         '
         'GFNSendQuantity
@@ -2094,7 +2096,7 @@ Partial Class wProdSendSuplTracking
         Me.GFNSendQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.GFNSendQuantity.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNSendQuantity", "{0:n0}")})
         Me.GFNSendQuantity.Visible = True
-        Me.GFNSendQuantity.VisibleIndex = 20
+        Me.GFNSendQuantity.VisibleIndex = 21
         Me.GFNSendQuantity.Width = 105
         '
         'GFNTotalRcvQuantity
@@ -2129,7 +2131,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTSendApproveBy.OptionsColumn.AllowShowHide = False
         Me.GFTSendApproveBy.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GFTSendApproveBy.Visible = True
-        Me.GFTSendApproveBy.VisibleIndex = 21
+        Me.GFTSendApproveBy.VisibleIndex = 22
         Me.GFTSendApproveBy.Width = 136
         '
         'GFTSendApproveDate
@@ -2147,7 +2149,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTSendApproveDate.OptionsColumn.AllowShowHide = False
         Me.GFTSendApproveDate.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GFTSendApproveDate.Visible = True
-        Me.GFTSendApproveDate.VisibleIndex = 22
+        Me.GFTSendApproveDate.VisibleIndex = 23
         Me.GFTSendApproveDate.Width = 140
         '
         'GFTSendApproveBal
@@ -2166,7 +2168,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTSendApproveBal.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GFTSendApproveBal.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FTSendApproveBal", "{0:n0}")})
         Me.GFTSendApproveBal.Visible = True
-        Me.GFTSendApproveBal.VisibleIndex = 24
+        Me.GFTSendApproveBal.VisibleIndex = 25
         Me.GFTSendApproveBal.Width = 140
         '
         'GFTSendApproveQty
@@ -2185,7 +2187,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTSendApproveQty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GFTSendApproveQty.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FTSendApproveQty", "{0:n0}")})
         Me.GFTSendApproveQty.Visible = True
-        Me.GFTSendApproveQty.VisibleIndex = 23
+        Me.GFTSendApproveQty.VisibleIndex = 24
         Me.GFTSendApproveQty.Width = 134
         '
         'GFTRcvSuplNo
@@ -2204,7 +2206,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTRcvSuplNo.OptionsColumn.ReadOnly = True
         Me.GFTRcvSuplNo.OptionsColumn.ShowInCustomizationForm = False
         Me.GFTRcvSuplNo.Visible = True
-        Me.GFTRcvSuplNo.VisibleIndex = 25
+        Me.GFTRcvSuplNo.VisibleIndex = 26
         Me.GFTRcvSuplNo.Width = 117
         '
         'GFDRcvSuplDate
@@ -2225,7 +2227,7 @@ Partial Class wProdSendSuplTracking
         Me.GFDRcvSuplDate.OptionsColumn.ReadOnly = True
         Me.GFDRcvSuplDate.OptionsColumn.ShowInCustomizationForm = False
         Me.GFDRcvSuplDate.Visible = True
-        Me.GFDRcvSuplDate.VisibleIndex = 27
+        Me.GFDRcvSuplDate.VisibleIndex = 28
         Me.GFDRcvSuplDate.Width = 93
         '
         'FTUnitSectCode
@@ -2238,7 +2240,7 @@ Partial Class wProdSendSuplTracking
         Me.FTUnitSectCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.FTUnitSectCode.Visible = True
-        Me.FTUnitSectCode.VisibleIndex = 28
+        Me.FTUnitSectCode.VisibleIndex = 29
         Me.FTUnitSectCode.Width = 87
         '
         'GFNRcvQuantity
@@ -2260,7 +2262,7 @@ Partial Class wProdSendSuplTracking
         Me.GFNRcvQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.GFNRcvQuantity.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNRcvQuantity", "{0:n0}")})
         Me.GFNRcvQuantity.Visible = True
-        Me.GFNRcvQuantity.VisibleIndex = 29
+        Me.GFNRcvQuantity.VisibleIndex = 30
         Me.GFNRcvQuantity.Width = 105
         '
         'GFNBalRcvSupl
@@ -2282,7 +2284,7 @@ Partial Class wProdSendSuplTracking
         Me.GFNBalRcvSupl.OptionsColumn.ShowInCustomizationForm = False
         Me.GFNBalRcvSupl.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNBalRcvSupl", "{0:n0}")})
         Me.GFNBalRcvSupl.Visible = True
-        Me.GFNBalRcvSupl.VisibleIndex = 30
+        Me.GFNBalRcvSupl.VisibleIndex = 31
         Me.GFNBalRcvSupl.Width = 105
         '
         'FTPORef1
@@ -2302,7 +2304,7 @@ Partial Class wProdSendSuplTracking
         Me.FTPORef1.OptionsColumn.ReadOnly = True
         Me.FTPORef1.OptionsColumn.ShowInCustomizationForm = False
         Me.FTPORef1.Visible = True
-        Me.FTPORef1.VisibleIndex = 2
+        Me.FTPORef1.VisibleIndex = 3
         Me.FTPORef1.Width = 87
         '
         'GridColumn1
@@ -2317,7 +2319,7 @@ Partial Class wProdSendSuplTracking
         Me.GridColumn1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn1.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn1.Visible = True
-        Me.GridColumn1.VisibleIndex = 17
+        Me.GridColumn1.VisibleIndex = 18
         Me.GridColumn1.Width = 125
         '
         'GridColumn2
@@ -2332,7 +2334,7 @@ Partial Class wProdSendSuplTracking
         Me.GridColumn2.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridColumn2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn2.Visible = True
-        Me.GridColumn2.VisibleIndex = 26
+        Me.GridColumn2.VisibleIndex = 27
         Me.GridColumn2.Width = 122
         '
         'GFTRcvApproveBy
@@ -2348,7 +2350,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTRcvApproveBy.OptionsColumn.AllowShowHide = False
         Me.GFTRcvApproveBy.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GFTRcvApproveBy.Visible = True
-        Me.GFTRcvApproveBy.VisibleIndex = 32
+        Me.GFTRcvApproveBy.VisibleIndex = 33
         Me.GFTRcvApproveBy.Width = 115
         '
         'GFTRcvApproveDate
@@ -2366,7 +2368,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTRcvApproveDate.OptionsColumn.AllowShowHide = False
         Me.GFTRcvApproveDate.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GFTRcvApproveDate.Visible = True
-        Me.GFTRcvApproveDate.VisibleIndex = 31
+        Me.GFTRcvApproveDate.VisibleIndex = 32
         Me.GFTRcvApproveDate.Width = 134
         '
         'GFTRcvApproveQty
@@ -2385,7 +2387,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTRcvApproveQty.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GFTRcvApproveQty.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FTRcvApproveQty", "{0:n0}")})
         Me.GFTRcvApproveQty.Visible = True
-        Me.GFTRcvApproveQty.VisibleIndex = 33
+        Me.GFTRcvApproveQty.VisibleIndex = 34
         Me.GFTRcvApproveQty.Width = 118
         '
         'GFTRcvApproveBal
@@ -2404,7 +2406,7 @@ Partial Class wProdSendSuplTracking
         Me.GFTRcvApproveBal.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.GFTRcvApproveBal.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FTRcvApproveBal", "{0:n0}")})
         Me.GFTRcvApproveBal.Visible = True
-        Me.GFTRcvApproveBal.VisibleIndex = 34
+        Me.GFTRcvApproveBal.VisibleIndex = 35
         Me.GFTRcvApproveBal.Width = 111
         '
         'oDockManager
@@ -2548,7 +2550,7 @@ Partial Class wProdSendSuplTracking
         Me.ButtonEdit1.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.ButtonEdit1.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.ButtonEdit1.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.ButtonEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "177", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ButtonEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "177", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ButtonEdit1.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.ButtonEdit1.Properties.MaxLength = 30
         Me.ButtonEdit1.Size = New System.Drawing.Size(130, 22)
@@ -2623,7 +2625,7 @@ Partial Class wProdSendSuplTracking
         Me.TextEdit1.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.TextEdit1.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.TextEdit1.Properties.ReadOnly = True
-        Me.TextEdit1.Size = New System.Drawing.Size(713, 23)
+        Me.TextEdit1.Size = New System.Drawing.Size(713, 22)
         Me.TextEdit1.TabIndex = 390
         Me.TextEdit1.TabStop = False
         Me.TextEdit1.Tag = "2|"
@@ -2681,7 +2683,7 @@ Partial Class wProdSendSuplTracking
         Me.TextEdit2.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.TextEdit2.Properties.Appearance.Options.UseBackColor = True
         Me.TextEdit2.Properties.ReadOnly = True
-        Me.TextEdit2.Size = New System.Drawing.Size(714, 23)
+        Me.TextEdit2.Size = New System.Drawing.Size(714, 22)
         Me.TextEdit2.TabIndex = 291
         Me.TextEdit2.Tag = "2|"
         '
@@ -2704,7 +2706,7 @@ Partial Class wProdSendSuplTracking
         Me.ButtonEdit2.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.ButtonEdit2.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.ButtonEdit2.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.ButtonEdit2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "219", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ButtonEdit2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "219", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ButtonEdit2.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.ButtonEdit2.Properties.MaxLength = 30
         Me.ButtonEdit2.Size = New System.Drawing.Size(130, 22)
@@ -2734,7 +2736,7 @@ Partial Class wProdSendSuplTracking
         Me.TextEdit3.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.TextEdit3.Properties.Appearance.Options.UseBackColor = True
         Me.TextEdit3.Properties.ReadOnly = True
-        Me.TextEdit3.Size = New System.Drawing.Size(714, 23)
+        Me.TextEdit3.Size = New System.Drawing.Size(714, 22)
         Me.TextEdit3.TabIndex = 289
         Me.TextEdit3.Tag = "2|"
         '
@@ -2757,7 +2759,7 @@ Partial Class wProdSendSuplTracking
         Me.ButtonEdit3.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.ButtonEdit3.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.ButtonEdit3.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.ButtonEdit3.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "218", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ButtonEdit3.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "218", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ButtonEdit3.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.ButtonEdit3.Properties.MaxLength = 30
         Me.ButtonEdit3.Size = New System.Drawing.Size(130, 22)
@@ -2782,7 +2784,7 @@ Partial Class wProdSendSuplTracking
         '
         Me.ButtonEdit4.Location = New System.Drawing.Point(238, 3)
         Me.ButtonEdit4.Name = "ButtonEdit4"
-        Me.ButtonEdit4.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ButtonEdit4.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ButtonEdit4.Properties.Tag = ""
         Me.ButtonEdit4.Size = New System.Drawing.Size(130, 22)
         Me.ButtonEdit4.TabIndex = 288
@@ -2792,7 +2794,7 @@ Partial Class wProdSendSuplTracking
         '
         Me.ButtonEdit5.Location = New System.Drawing.Point(238, 24)
         Me.ButtonEdit5.Name = "ButtonEdit5"
-        Me.ButtonEdit5.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ButtonEdit5.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ButtonEdit5.Properties.Tag = ""
         Me.ButtonEdit5.Size = New System.Drawing.Size(130, 22)
         Me.ButtonEdit5.TabIndex = 290
@@ -2947,7 +2949,7 @@ Partial Class wProdSendSuplTracking
         Me.ButtonEdit6.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.ButtonEdit6.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.ButtonEdit6.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.ButtonEdit6.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "177", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ButtonEdit6.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "177", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ButtonEdit6.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.ButtonEdit6.Properties.MaxLength = 30
         Me.ButtonEdit6.Size = New System.Drawing.Size(130, 22)
@@ -3022,7 +3024,7 @@ Partial Class wProdSendSuplTracking
         Me.TextEdit4.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.TextEdit4.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.TextEdit4.Properties.ReadOnly = True
-        Me.TextEdit4.Size = New System.Drawing.Size(713, 23)
+        Me.TextEdit4.Size = New System.Drawing.Size(713, 22)
         Me.TextEdit4.TabIndex = 390
         Me.TextEdit4.TabStop = False
         Me.TextEdit4.Tag = "2|"
@@ -3080,7 +3082,7 @@ Partial Class wProdSendSuplTracking
         Me.TextEdit5.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.TextEdit5.Properties.Appearance.Options.UseBackColor = True
         Me.TextEdit5.Properties.ReadOnly = True
-        Me.TextEdit5.Size = New System.Drawing.Size(714, 23)
+        Me.TextEdit5.Size = New System.Drawing.Size(714, 22)
         Me.TextEdit5.TabIndex = 291
         Me.TextEdit5.Tag = "2|"
         '
@@ -3103,7 +3105,7 @@ Partial Class wProdSendSuplTracking
         Me.ButtonEdit7.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.ButtonEdit7.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.ButtonEdit7.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.ButtonEdit7.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "219", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ButtonEdit7.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "219", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ButtonEdit7.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.ButtonEdit7.Properties.MaxLength = 30
         Me.ButtonEdit7.Size = New System.Drawing.Size(130, 22)
@@ -3133,7 +3135,7 @@ Partial Class wProdSendSuplTracking
         Me.TextEdit6.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.TextEdit6.Properties.Appearance.Options.UseBackColor = True
         Me.TextEdit6.Properties.ReadOnly = True
-        Me.TextEdit6.Size = New System.Drawing.Size(714, 23)
+        Me.TextEdit6.Size = New System.Drawing.Size(714, 22)
         Me.TextEdit6.TabIndex = 289
         Me.TextEdit6.Tag = "2|"
         '
@@ -3156,7 +3158,7 @@ Partial Class wProdSendSuplTracking
         Me.ButtonEdit8.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.ButtonEdit8.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.ButtonEdit8.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.ButtonEdit8.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "218", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ButtonEdit8.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "218", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ButtonEdit8.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.ButtonEdit8.Properties.MaxLength = 30
         Me.ButtonEdit8.Size = New System.Drawing.Size(130, 22)
@@ -3181,7 +3183,7 @@ Partial Class wProdSendSuplTracking
         '
         Me.ButtonEdit9.Location = New System.Drawing.Point(238, 3)
         Me.ButtonEdit9.Name = "ButtonEdit9"
-        Me.ButtonEdit9.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ButtonEdit9.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ButtonEdit9.Properties.Tag = ""
         Me.ButtonEdit9.Size = New System.Drawing.Size(130, 22)
         Me.ButtonEdit9.TabIndex = 288
@@ -3191,7 +3193,7 @@ Partial Class wProdSendSuplTracking
         '
         Me.ButtonEdit10.Location = New System.Drawing.Point(238, 24)
         Me.ButtonEdit10.Name = "ButtonEdit10"
-        Me.ButtonEdit10.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ButtonEdit10.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ButtonEdit10.Properties.Tag = ""
         Me.ButtonEdit10.Size = New System.Drawing.Size(130, 22)
         Me.ButtonEdit10.TabIndex = 290
@@ -3223,7 +3225,7 @@ Partial Class wProdSendSuplTracking
         Me.DateEdit9.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.DateEdit9.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.DateEdit9.Properties.NullDate = ""
-        Me.DateEdit9.Size = New System.Drawing.Size(130, 23)
+        Me.DateEdit9.Size = New System.Drawing.Size(130, 22)
         Me.DateEdit9.TabIndex = 270
         Me.DateEdit9.Tag = "2|"
         '
@@ -3253,7 +3255,7 @@ Partial Class wProdSendSuplTracking
         Me.DateEdit10.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.DateEdit10.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.DateEdit10.Properties.NullDate = ""
-        Me.DateEdit10.Size = New System.Drawing.Size(130, 23)
+        Me.DateEdit10.Size = New System.Drawing.Size(130, 22)
         Me.DateEdit10.TabIndex = 268
         Me.DateEdit10.Tag = "2|"
         '
@@ -3271,6 +3273,30 @@ Partial Class wProdSendSuplTracking
         Me.LabelControl20.Tag = "2|"
         Me.LabelControl20.Text = "Start SendSuplDate:"
         '
+        'cFDShipDate
+        '
+        Me.cFDShipDate.Caption = "FDShipDate"
+        Me.cFDShipDate.FieldName = "FDShipDate"
+        Me.cFDShipDate.MinWidth = 25
+        Me.cFDShipDate.Name = "cFDShipDate"
+        Me.cFDShipDate.OptionsColumn.AllowEdit = False
+        Me.cFDShipDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
+        Me.cFDShipDate.Visible = True
+        Me.cFDShipDate.VisibleIndex = 2
+        Me.cFDShipDate.Width = 99
+        '
+        'GFDShipDate
+        '
+        Me.GFDShipDate.Caption = "FDShipDate"
+        Me.GFDShipDate.FieldName = "FDShipDate"
+        Me.GFDShipDate.MinWidth = 25
+        Me.GFDShipDate.Name = "GFDShipDate"
+        Me.GFDShipDate.OptionsColumn.AllowEdit = False
+        Me.GFDShipDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
+        Me.GFDShipDate.Visible = True
+        Me.GFDShipDate.VisibleIndex = 2
+        Me.GFDShipDate.Width = 94
+        '
         'wProdSendSuplTracking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -3283,8 +3309,6 @@ Partial Class wProdSendSuplTracking
         Me.Text = "Production Send Suplier Tracking"
         Me.ogbheader.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
-        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ogbmainprocbutton.ResumeLayout(False)
         CType(Me.otbx, System.ComponentModel.ISupportInitialize).EndInit()
         Me.otbx.ResumeLayout(False)
         Me.otpcompany.ResumeLayout(False)
@@ -3318,6 +3342,8 @@ Partial Class wProdSendSuplTracking
         CType(Me.FTOrderNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysBuyId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysStyleId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ogbmainprocbutton.ResumeLayout(False)
         CType(Me.ogbdetail, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbdetail.ResumeLayout(False)
         CType(Me.ogcdetailcolorsizeline, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3548,4 +3574,6 @@ Partial Class wProdSendSuplTracking
     Friend WithEvents GFTRcvApproveBal As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTNote As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTUnitSectCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cFDShipDate As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GFDShipDate As DevExpress.XtraGrid.Columns.GridColumn
 End Class

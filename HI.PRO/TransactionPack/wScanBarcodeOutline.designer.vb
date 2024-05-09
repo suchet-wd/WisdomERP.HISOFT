@@ -106,7 +106,8 @@ Partial Class wScanBarcodeOutline
         'FNBunbleSeq
         '
         Me.FNBunbleSeq.EnterMoveNextControl = True
-        Me.FNBunbleSeq.Location = New System.Drawing.Point(636, 100)
+        Me.FNBunbleSeq.Location = New System.Drawing.Point(742, 123)
+        Me.FNBunbleSeq.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNBunbleSeq.Name = "FNBunbleSeq"
         Me.FNBunbleSeq.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNBunbleSeq.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -125,7 +126,7 @@ Partial Class wScanBarcodeOutline
         Me.FNBunbleSeq.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNBunbleSeq.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNBunbleSeq.Properties.ReadOnly = True
-        Me.FNBunbleSeq.Size = New System.Drawing.Size(109, 20)
+        Me.FNBunbleSeq.Size = New System.Drawing.Size(127, 22)
         Me.FNBunbleSeq.TabIndex = 318
         Me.FNBunbleSeq.TabStop = False
         Me.FNBunbleSeq.Tag = "2|"
@@ -137,9 +138,10 @@ Partial Class wScanBarcodeOutline
         Me.FTBarcodeBundleNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTBarcodeBundleNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTBarcodeBundleNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBarcodeBundleNo_lbl.Location = New System.Drawing.Point(548, 100)
+        Me.FTBarcodeBundleNo_lbl.Location = New System.Drawing.Point(639, 123)
+        Me.FTBarcodeBundleNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTBarcodeBundleNo_lbl.Name = "FTBarcodeBundleNo_lbl"
-        Me.FTBarcodeBundleNo_lbl.Size = New System.Drawing.Size(87, 19)
+        Me.FTBarcodeBundleNo_lbl.Size = New System.Drawing.Size(101, 23)
         Me.FTBarcodeBundleNo_lbl.TabIndex = 317
         Me.FTBarcodeBundleNo_lbl.Tag = "2|"
         Me.FTBarcodeBundleNo_lbl.Text = "มัดที่ :"
@@ -147,7 +149,8 @@ Partial Class wScanBarcodeOutline
         'FTSizeBreakDown
         '
         Me.FTSizeBreakDown.EnterMoveNextControl = True
-        Me.FTSizeBreakDown.Location = New System.Drawing.Point(420, 99)
+        Me.FTSizeBreakDown.Location = New System.Drawing.Point(490, 122)
+        Me.FTSizeBreakDown.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSizeBreakDown.Name = "FTSizeBreakDown"
         Me.FTSizeBreakDown.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTSizeBreakDown.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -166,7 +169,7 @@ Partial Class wScanBarcodeOutline
         Me.FTSizeBreakDown.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSizeBreakDown.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTSizeBreakDown.Properties.ReadOnly = True
-        Me.FTSizeBreakDown.Size = New System.Drawing.Size(89, 20)
+        Me.FTSizeBreakDown.Size = New System.Drawing.Size(104, 22)
         Me.FTSizeBreakDown.TabIndex = 310
         Me.FTSizeBreakDown.TabStop = False
         Me.FTSizeBreakDown.Tag = "2|"
@@ -178,9 +181,10 @@ Partial Class wScanBarcodeOutline
         Me.FTSizeBreakDown_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSizeBreakDown_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSizeBreakDown_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSizeBreakDown_lbl.Location = New System.Drawing.Point(329, 100)
+        Me.FTSizeBreakDown_lbl.Location = New System.Drawing.Point(384, 123)
+        Me.FTSizeBreakDown_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSizeBreakDown_lbl.Name = "FTSizeBreakDown_lbl"
-        Me.FTSizeBreakDown_lbl.Size = New System.Drawing.Size(90, 19)
+        Me.FTSizeBreakDown_lbl.Size = New System.Drawing.Size(105, 23)
         Me.FTSizeBreakDown_lbl.TabIndex = 309
         Me.FTSizeBreakDown_lbl.Tag = "2|"
         Me.FTSizeBreakDown_lbl.Text = "Size :"
@@ -188,7 +192,8 @@ Partial Class wScanBarcodeOutline
         'FTColorway
         '
         Me.FTColorway.EnterMoveNextControl = True
-        Me.FTColorway.Location = New System.Drawing.Point(172, 99)
+        Me.FTColorway.Location = New System.Drawing.Point(201, 122)
+        Me.FTColorway.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTColorway.Name = "FTColorway"
         Me.FTColorway.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTColorway.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -207,7 +212,7 @@ Partial Class wScanBarcodeOutline
         Me.FTColorway.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTColorway.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTColorway.Properties.ReadOnly = True
-        Me.FTColorway.Size = New System.Drawing.Size(113, 20)
+        Me.FTColorway.Size = New System.Drawing.Size(132, 22)
         Me.FTColorway.TabIndex = 310
         Me.FTColorway.TabStop = False
         Me.FTColorway.Tag = "2|"
@@ -219,9 +224,10 @@ Partial Class wScanBarcodeOutline
         Me.FTColorway_lbl.Appearance.Options.UseTextOptions = True
         Me.FTColorway_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTColorway_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTColorway_lbl.Location = New System.Drawing.Point(62, 99)
+        Me.FTColorway_lbl.Location = New System.Drawing.Point(72, 122)
+        Me.FTColorway_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTColorway_lbl.Name = "FTColorway_lbl"
-        Me.FTColorway_lbl.Size = New System.Drawing.Size(107, 19)
+        Me.FTColorway_lbl.Size = New System.Drawing.Size(125, 23)
         Me.FTColorway_lbl.TabIndex = 309
         Me.FTColorway_lbl.Tag = "2|"
         Me.FTColorway_lbl.Text = "Colorway :"
@@ -233,9 +239,10 @@ Partial Class wScanBarcodeOutline
         Me.FTStyleCode_lbl.Appearance.Options.UseTextOptions = True
         Me.FTStyleCode_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTStyleCode_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTStyleCode_lbl.Location = New System.Drawing.Point(516, 24)
+        Me.FTStyleCode_lbl.Location = New System.Drawing.Point(602, 30)
+        Me.FTStyleCode_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStyleCode_lbl.Name = "FTStyleCode_lbl"
-        Me.FTStyleCode_lbl.Size = New System.Drawing.Size(116, 19)
+        Me.FTStyleCode_lbl.Size = New System.Drawing.Size(135, 23)
         Me.FTStyleCode_lbl.TabIndex = 304
         Me.FTStyleCode_lbl.Tag = "2|"
         Me.FTStyleCode_lbl.Text = "Style Code :"
@@ -243,7 +250,8 @@ Partial Class wScanBarcodeOutline
         'FTStyleCode
         '
         Me.FTStyleCode.EditValue = ""
-        Me.FTStyleCode.Location = New System.Drawing.Point(635, 24)
+        Me.FTStyleCode.Location = New System.Drawing.Point(741, 30)
+        Me.FTStyleCode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStyleCode.Name = "FTStyleCode"
         Me.FTStyleCode.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTStyleCode.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
@@ -264,7 +272,7 @@ Partial Class wScanBarcodeOutline
         Me.FTStyleCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTStyleCode.Properties.MaxLength = 30
         Me.FTStyleCode.Properties.ReadOnly = True
-        Me.FTStyleCode.Size = New System.Drawing.Size(356, 32)
+        Me.FTStyleCode.Size = New System.Drawing.Size(415, 40)
         Me.FTStyleCode.TabIndex = 303
         Me.FTStyleCode.Tag = "2|"
         '
@@ -295,41 +303,44 @@ Partial Class wScanBarcodeOutline
         Me.XtraScrollableControl1.Controls.Add(Me.FTBarcodeNo_lbl)
         Me.XtraScrollableControl1.Controls.Add(Me.FTBarcodeNo)
         Me.XtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 23)
+        Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 28)
+        Me.XtraScrollableControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1006, 121)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1174, 150)
         Me.XtraScrollableControl1.TabIndex = 0
         '
         'FNStateSewPack
         '
-        Me.FNStateSewPack.Location = New System.Drawing.Point(636, 0)
+        Me.FNStateSewPack.Location = New System.Drawing.Point(742, 0)
         Me.FNStateSewPack.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FNStateSewPack.Name = "FNStateSewPack"
         Me.FNStateSewPack.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNStateSewPack.Properties.Tag = "FNStateSewPack"
         Me.FNStateSewPack.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNStateSewPack.Size = New System.Drawing.Size(200, 20)
+        Me.FNStateSewPack.Size = New System.Drawing.Size(233, 22)
         Me.FNStateSewPack.TabIndex = 1000003
         '
         'FTStateDeleteBarcode
         '
         Me.FTStateDeleteBarcode.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTStateDeleteBarcode.Location = New System.Drawing.Point(173, 56)
+        Me.FTStateDeleteBarcode.Location = New System.Drawing.Point(202, 69)
+        Me.FTStateDeleteBarcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStateDeleteBarcode.Name = "FTStateDeleteBarcode"
         Me.FTStateDeleteBarcode.Properties.Caption = "Delete Barcode"
-        Me.FTStateDeleteBarcode.Size = New System.Drawing.Size(621, 20)
+        Me.FTStateDeleteBarcode.Size = New System.Drawing.Size(890, 24)
         Me.FTStateDeleteBarcode.TabIndex = 1000002
         Me.FTStateDeleteBarcode.Tag = "2|"
         '
         'FDDateTrans
         '
         Me.FDDateTrans.EditValue = Nothing
-        Me.FDDateTrans.Location = New System.Drawing.Point(172, 0)
+        Me.FDDateTrans.Location = New System.Drawing.Point(201, 0)
+        Me.FDDateTrans.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDDateTrans.Name = "FDDateTrans"
         Me.FDDateTrans.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FDDateTrans.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.FDDateTrans.Size = New System.Drawing.Size(112, 20)
+        Me.FDDateTrans.Size = New System.Drawing.Size(131, 22)
         Me.FDDateTrans.TabIndex = 1000001
         Me.FDDateTrans.Tag = "2|"
         '
@@ -341,8 +352,9 @@ Partial Class wScanBarcodeOutline
         Me.FDDateTrans_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateTrans_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FDDateTrans_lbl.Location = New System.Drawing.Point(3, 1)
+        Me.FDDateTrans_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDDateTrans_lbl.Name = "FDDateTrans_lbl"
-        Me.FDDateTrans_lbl.Size = New System.Drawing.Size(168, 19)
+        Me.FDDateTrans_lbl.Size = New System.Drawing.Size(196, 23)
         Me.FDDateTrans_lbl.TabIndex = 1000000
         Me.FDDateTrans_lbl.Tag = "2|"
         Me.FDDateTrans_lbl.Text = "Date :"
@@ -350,7 +362,8 @@ Partial Class wScanBarcodeOutline
         'FTOrderNo
         '
         Me.FTOrderNo.EnterMoveNextControl = True
-        Me.FTOrderNo.Location = New System.Drawing.Point(635, 77)
+        Me.FTOrderNo.Location = New System.Drawing.Point(741, 95)
+        Me.FTOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNo.Name = "FTOrderNo"
         Me.FTOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTOrderNo.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -369,7 +382,7 @@ Partial Class wScanBarcodeOutline
         Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTOrderNo.Properties.ReadOnly = True
-        Me.FTOrderNo.Size = New System.Drawing.Size(110, 20)
+        Me.FTOrderNo.Size = New System.Drawing.Size(128, 22)
         Me.FTOrderNo.TabIndex = 324
         Me.FTOrderNo.TabStop = False
         Me.FTOrderNo.Tag = "2|"
@@ -381,9 +394,10 @@ Partial Class wScanBarcodeOutline
         Me.FTOrderNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(514, 76)
+        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(600, 94)
+        Me.FTOrderNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNo_lbl.Name = "FTOrderNo_lbl"
-        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(118, 19)
+        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(138, 23)
         Me.FTOrderNo_lbl.TabIndex = 323
         Me.FTOrderNo_lbl.Tag = "2|"
         Me.FTOrderNo_lbl.Text = "FTOrderNo :"
@@ -391,7 +405,8 @@ Partial Class wScanBarcodeOutline
         'FTPORef
         '
         Me.FTPORef.EnterMoveNextControl = True
-        Me.FTPORef.Location = New System.Drawing.Point(881, 100)
+        Me.FTPORef.Location = New System.Drawing.Point(1028, 123)
+        Me.FTPORef.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTPORef.Name = "FTPORef"
         Me.FTPORef.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTPORef.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -410,7 +425,7 @@ Partial Class wScanBarcodeOutline
         Me.FTPORef.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTPORef.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTPORef.Properties.ReadOnly = True
-        Me.FTPORef.Size = New System.Drawing.Size(110, 20)
+        Me.FTPORef.Size = New System.Drawing.Size(128, 22)
         Me.FTPORef.TabIndex = 324
         Me.FTPORef.TabStop = False
         Me.FTPORef.Tag = "2|"
@@ -422,9 +437,10 @@ Partial Class wScanBarcodeOutline
         Me.FTPORef_lbl.Appearance.Options.UseTextOptions = True
         Me.FTPORef_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTPORef_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTPORef_lbl.Location = New System.Drawing.Point(746, 99)
+        Me.FTPORef_lbl.Location = New System.Drawing.Point(870, 122)
+        Me.FTPORef_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTPORef_lbl.Name = "FTPORef_lbl"
-        Me.FTPORef_lbl.Size = New System.Drawing.Size(131, 19)
+        Me.FTPORef_lbl.Size = New System.Drawing.Size(153, 23)
         Me.FTPORef_lbl.TabIndex = 323
         Me.FTPORef_lbl.Tag = "2|"
         Me.FTPORef_lbl.Text = "FTPORef :"
@@ -432,7 +448,8 @@ Partial Class wScanBarcodeOutline
         'FTSubOrderNo
         '
         Me.FTSubOrderNo.EnterMoveNextControl = True
-        Me.FTSubOrderNo.Location = New System.Drawing.Point(881, 77)
+        Me.FTSubOrderNo.Location = New System.Drawing.Point(1028, 95)
+        Me.FTSubOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSubOrderNo.Name = "FTSubOrderNo"
         Me.FTSubOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTSubOrderNo.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -451,7 +468,7 @@ Partial Class wScanBarcodeOutline
         Me.FTSubOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSubOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTSubOrderNo.Properties.ReadOnly = True
-        Me.FTSubOrderNo.Size = New System.Drawing.Size(110, 20)
+        Me.FTSubOrderNo.Size = New System.Drawing.Size(128, 22)
         Me.FTSubOrderNo.TabIndex = 324
         Me.FTSubOrderNo.TabStop = False
         Me.FTSubOrderNo.Tag = "2|"
@@ -463,21 +480,23 @@ Partial Class wScanBarcodeOutline
         Me.FTSubOrderNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSubOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSubOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSubOrderNo_lbl.Location = New System.Drawing.Point(759, 76)
+        Me.FTSubOrderNo_lbl.Location = New System.Drawing.Point(885, 94)
+        Me.FTSubOrderNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSubOrderNo_lbl.Name = "FTSubOrderNo_lbl"
-        Me.FTSubOrderNo_lbl.Size = New System.Drawing.Size(118, 19)
+        Me.FTSubOrderNo_lbl.Size = New System.Drawing.Size(138, 23)
         Me.FTSubOrderNo_lbl.TabIndex = 323
         Me.FTSubOrderNo_lbl.Tag = "2|"
         Me.FTSubOrderNo_lbl.Text = "Sub FO. No :"
         '
         'FNHSysUnitSectId_None
         '
-        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(287, 76)
+        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(335, 94)
+        Me.FNHSysUnitSectId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId_None.Name = "FNHSysUnitSectId_None"
         Me.FNHSysUnitSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(223, 20)
+        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(260, 22)
         Me.FNHSysUnitSectId_None.TabIndex = 322
         Me.FNHSysUnitSectId_None.Tag = "2|"
         '
@@ -488,20 +507,22 @@ Partial Class wScanBarcodeOutline
         Me.FNHSysUnitSectId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysUnitSectId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysUnitSectId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysUnitSectId_lbl.Location = New System.Drawing.Point(64, 77)
+        Me.FNHSysUnitSectId_lbl.Location = New System.Drawing.Point(75, 95)
+        Me.FNHSysUnitSectId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId_lbl.Name = "FNHSysUnitSectId_lbl"
-        Me.FNHSysUnitSectId_lbl.Size = New System.Drawing.Size(107, 17)
+        Me.FNHSysUnitSectId_lbl.Size = New System.Drawing.Size(125, 21)
         Me.FNHSysUnitSectId_lbl.TabIndex = 321
         Me.FNHSysUnitSectId_lbl.Tag = "2|"
         Me.FNHSysUnitSectId_lbl.Text = "Unit Sect :"
         '
         'FNHSysUnitSectId
         '
-        Me.FNHSysUnitSectId.Location = New System.Drawing.Point(172, 76)
+        Me.FNHSysUnitSectId.Location = New System.Drawing.Point(201, 94)
+        Me.FNHSysUnitSectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
         Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "248", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.Tag = "57"
-        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(113, 20)
+        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(132, 22)
         Me.FNHSysUnitSectId.TabIndex = 1
         Me.FNHSysUnitSectId.TabStop = False
         Me.FNHSysUnitSectId.Tag = "2|"
@@ -513,9 +534,10 @@ Partial Class wScanBarcodeOutline
         Me.FNStateSewPack_lbl.Appearance.Options.UseTextOptions = True
         Me.FNStateSewPack_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNStateSewPack_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNStateSewPack_lbl.Location = New System.Drawing.Point(519, -1)
+        Me.FNStateSewPack_lbl.Location = New System.Drawing.Point(605, -1)
+        Me.FNStateSewPack_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNStateSewPack_lbl.Name = "FNStateSewPack_lbl"
-        Me.FNStateSewPack_lbl.Size = New System.Drawing.Size(116, 19)
+        Me.FNStateSewPack_lbl.Size = New System.Drawing.Size(135, 23)
         Me.FNStateSewPack_lbl.TabIndex = 304
         Me.FNStateSewPack_lbl.Tag = "2|"
         Me.FNStateSewPack_lbl.Text = "FNStateSewPack"
@@ -527,9 +549,10 @@ Partial Class wScanBarcodeOutline
         Me.FTBarcodeNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTBarcodeNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTBarcodeNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBarcodeNo_lbl.Location = New System.Drawing.Point(3, 27)
+        Me.FTBarcodeNo_lbl.Location = New System.Drawing.Point(3, 33)
+        Me.FTBarcodeNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTBarcodeNo_lbl.Name = "FTBarcodeNo_lbl"
-        Me.FTBarcodeNo_lbl.Size = New System.Drawing.Size(165, 19)
+        Me.FTBarcodeNo_lbl.Size = New System.Drawing.Size(192, 23)
         Me.FTBarcodeNo_lbl.TabIndex = 302
         Me.FTBarcodeNo_lbl.Tag = "2|"
         Me.FTBarcodeNo_lbl.Text = "Barcode No :"
@@ -537,7 +560,8 @@ Partial Class wScanBarcodeOutline
         'FTBarcodeNo
         '
         Me.FTBarcodeNo.EditValue = ""
-        Me.FTBarcodeNo.Location = New System.Drawing.Point(172, 23)
+        Me.FTBarcodeNo.Location = New System.Drawing.Point(201, 28)
+        Me.FTBarcodeNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTBarcodeNo.Name = "FTBarcodeNo"
         Me.FTBarcodeNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTBarcodeNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
@@ -557,7 +581,7 @@ Partial Class wScanBarcodeOutline
         Me.FTBarcodeNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTBarcodeNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTBarcodeNo.Properties.MaxLength = 30
-        Me.FTBarcodeNo.Size = New System.Drawing.Size(338, 32)
+        Me.FTBarcodeNo.Size = New System.Drawing.Size(394, 40)
         Me.FTBarcodeNo.TabIndex = 0
         Me.FTBarcodeNo.Tag = "2|"
         '
@@ -566,9 +590,10 @@ Partial Class wScanBarcodeOutline
         Me.ogbbarcodeinfo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogbbarcodeinfo.Controls.Add(Me.XtraScrollableControl1)
-        Me.ogbbarcodeinfo.Location = New System.Drawing.Point(3, 3)
+        Me.ogbbarcodeinfo.Location = New System.Drawing.Point(3, 4)
+        Me.ogbbarcodeinfo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbbarcodeinfo.Name = "ogbbarcodeinfo"
-        Me.ogbbarcodeinfo.Size = New System.Drawing.Size(1010, 146)
+        Me.ogbbarcodeinfo.Size = New System.Drawing.Size(1178, 180)
         Me.ogbbarcodeinfo.TabIndex = 318
         Me.ogbbarcodeinfo.Text = "Barcode Info"
         '
@@ -579,26 +604,29 @@ Partial Class wScanBarcodeOutline
         Me.ogbmainprocbutton.Controls.Add(Me.ocmpreview)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(90, 347)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(105, 427)
+        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(839, 47)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(979, 58)
         Me.ogbmainprocbutton.TabIndex = 319
         Me.ogbmainprocbutton.Tag = "2|"
         '
         'ocmload
         '
         Me.ocmload.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmload.Location = New System.Drawing.Point(601, 11)
+        Me.ocmload.Location = New System.Drawing.Point(701, 14)
+        Me.ocmload.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmload.Name = "ocmload"
-        Me.ocmload.Size = New System.Drawing.Size(109, 23)
+        Me.ocmload.Size = New System.Drawing.Size(127, 28)
         Me.ocmload.TabIndex = 330
         Me.ocmload.Text = "Load Data"
         '
         'ocmpreview
         '
-        Me.ocmpreview.Location = New System.Drawing.Point(313, 11)
+        Me.ocmpreview.Location = New System.Drawing.Point(365, 14)
+        Me.ocmpreview.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmpreview.Name = "ocmpreview"
-        Me.ocmpreview.Size = New System.Drawing.Size(95, 25)
+        Me.ocmpreview.Size = New System.Drawing.Size(111, 31)
         Me.ocmpreview.TabIndex = 97
         Me.ocmpreview.TabStop = False
         Me.ocmpreview.Tag = "2|"
@@ -608,9 +636,10 @@ Partial Class wScanBarcodeOutline
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(726, 11)
+        Me.ocmexit.Location = New System.Drawing.Point(847, 14)
+        Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmexit.Name = "ocmexit"
-        Me.ocmexit.Size = New System.Drawing.Size(95, 25)
+        Me.ocmexit.Size = New System.Drawing.Size(111, 31)
         Me.ocmexit.TabIndex = 96
         Me.ocmexit.TabStop = False
         Me.ocmexit.Tag = "2|"
@@ -618,9 +647,10 @@ Partial Class wScanBarcodeOutline
         '
         'ocmclear
         '
-        Me.ocmclear.Location = New System.Drawing.Point(211, 11)
+        Me.ocmclear.Location = New System.Drawing.Point(246, 14)
+        Me.ocmclear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmclear.Name = "ocmclear"
-        Me.ocmclear.Size = New System.Drawing.Size(95, 25)
+        Me.ocmclear.Size = New System.Drawing.Size(111, 31)
         Me.ocmclear.TabIndex = 95
         Me.ocmclear.TabStop = False
         Me.ocmclear.Tag = "2|"
@@ -636,12 +666,13 @@ Partial Class wScanBarcodeOutline
         Me.FNQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.FNQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNQuantity.FieldName = "FNQuantity"
+        Me.FNQuantity.MinWidth = 23
         Me.FNQuantity.Name = "FNQuantity"
         Me.FNQuantity.OptionsColumn.AllowEdit = False
         Me.FNQuantity.OptionsColumn.ReadOnly = True
         Me.FNQuantity.Visible = True
         Me.FNQuantity.VisibleIndex = 11
-        Me.FNQuantity.Width = 136
+        Me.FNQuantity.Width = 159
         '
         'ogbdetail
         '
@@ -649,9 +680,10 @@ Partial Class wScanBarcodeOutline
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogbdetail.Controls.Add(Me.ogcdetail)
-        Me.ogbdetail.Location = New System.Drawing.Point(2, 153)
+        Me.ogbdetail.Location = New System.Drawing.Point(2, 188)
+        Me.ogbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbdetail.Name = "ogbdetail"
-        Me.ogbdetail.Size = New System.Drawing.Size(1010, 399)
+        Me.ogbdetail.Size = New System.Drawing.Size(1178, 491)
         Me.ogbdetail.TabIndex = 317
         Me.ogbdetail.Text = "Detail"
         '
@@ -660,11 +692,13 @@ Partial Class wScanBarcodeOutline
         Me.ogcdetail.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogcdetail.Location = New System.Drawing.Point(3, 24)
+        Me.ogcdetail.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcdetail.Location = New System.Drawing.Point(3, 30)
         Me.ogcdetail.MainView = Me.ogvdetail
+        Me.ogcdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcdetail.Name = "ogcdetail"
         Me.ogcdetail.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemFNStateSewPack})
-        Me.ogcdetail.Size = New System.Drawing.Size(1006, 370)
+        Me.ogcdetail.Size = New System.Drawing.Size(1174, 455)
         Me.ogcdetail.TabIndex = 300
         Me.ogcdetail.TabStop = False
         Me.ogcdetail.Tag = "2|"
@@ -673,6 +707,7 @@ Partial Class wScanBarcodeOutline
         'ogvdetail
         '
         Me.ogvdetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.CFTBarcodeBundleNo, Me.CFTColorway, Me.CFTNikePOLineItem, Me.CFTSizeBreakDown, Me.CFTOrderNo, Me.CFTUnitSectCode, Me.FNQuantity, Me.cFNBunbleSeq, Me.cFTPORef, Me.cFTStyleCode, Me.FTStyleName, Me.cFNStateSewPack, Me.FDInsDate, Me.FTInsTime, Me.FTInsUser, Me.FDUpdDate, Me.FTUpdTime, Me.FTUpdUser})
+        Me.ogvdetail.DetailHeight = 431
         Me.ogvdetail.GridControl = Me.ogcdetail
         Me.ogvdetail.Name = "ogvdetail"
         Me.ogvdetail.OptionsCustomization.AllowGroup = False
@@ -689,12 +724,13 @@ Partial Class wScanBarcodeOutline
         Me.CFTBarcodeBundleNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CFTBarcodeBundleNo.Caption = "หมายเลข Barcode"
         Me.CFTBarcodeBundleNo.FieldName = "FTBarcodeNo"
+        Me.CFTBarcodeBundleNo.MinWidth = 23
         Me.CFTBarcodeBundleNo.Name = "CFTBarcodeBundleNo"
         Me.CFTBarcodeBundleNo.OptionsColumn.AllowEdit = False
         Me.CFTBarcodeBundleNo.OptionsColumn.ReadOnly = True
         Me.CFTBarcodeBundleNo.Visible = True
         Me.CFTBarcodeBundleNo.VisibleIndex = 0
-        Me.CFTBarcodeBundleNo.Width = 159
+        Me.CFTBarcodeBundleNo.Width = 185
         '
         'CFTColorway
         '
@@ -702,26 +738,26 @@ Partial Class wScanBarcodeOutline
         Me.CFTColorway.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CFTColorway.Caption = "FTColorway"
         Me.CFTColorway.FieldName = "FTColorway"
+        Me.CFTColorway.MinWidth = 23
         Me.CFTColorway.Name = "CFTColorway"
         Me.CFTColorway.OptionsColumn.AllowEdit = False
         Me.CFTColorway.OptionsColumn.ReadOnly = True
         Me.CFTColorway.Visible = True
         Me.CFTColorway.VisibleIndex = 8
-        Me.CFTColorway.Width = 83
+        Me.CFTColorway.Width = 97
         '
         'CFTNikePOLineItem
         '
         Me.CFTNikePOLineItem.Caption = "FTNikePOLineItem"
         Me.CFTNikePOLineItem.FieldName = "FTNikePOLineItem"
+        Me.CFTNikePOLineItem.MinWidth = 23
         Me.CFTNikePOLineItem.Name = "CFTNikePOLineItem"
         Me.CFTNikePOLineItem.OptionsColumn.AllowEdit = False
         Me.CFTNikePOLineItem.OptionsColumn.AllowMove = False
         Me.CFTNikePOLineItem.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.CFTNikePOLineItem.OptionsFilter.AllowAutoFilter = False
-        Me.CFTNikePOLineItem.OptionsFilter.AllowFilter = False
         Me.CFTNikePOLineItem.Visible = True
         Me.CFTNikePOLineItem.VisibleIndex = 4
-        Me.CFTNikePOLineItem.Width = 107
+        Me.CFTNikePOLineItem.Width = 125
         '
         'CFTSizeBreakDown
         '
@@ -729,12 +765,13 @@ Partial Class wScanBarcodeOutline
         Me.CFTSizeBreakDown.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CFTSizeBreakDown.Caption = "FTSizeBreakDown"
         Me.CFTSizeBreakDown.FieldName = "FTSizeBreakDown"
+        Me.CFTSizeBreakDown.MinWidth = 23
         Me.CFTSizeBreakDown.Name = "CFTSizeBreakDown"
         Me.CFTSizeBreakDown.OptionsColumn.AllowEdit = False
         Me.CFTSizeBreakDown.OptionsColumn.ReadOnly = True
         Me.CFTSizeBreakDown.Visible = True
         Me.CFTSizeBreakDown.VisibleIndex = 9
-        Me.CFTSizeBreakDown.Width = 80
+        Me.CFTSizeBreakDown.Width = 93
         '
         'CFTOrderNo
         '
@@ -742,137 +779,154 @@ Partial Class wScanBarcodeOutline
         Me.CFTOrderNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CFTOrderNo.Caption = "FTOrderNo"
         Me.CFTOrderNo.FieldName = "FTOrderNo"
+        Me.CFTOrderNo.MinWidth = 23
         Me.CFTOrderNo.Name = "CFTOrderNo"
         Me.CFTOrderNo.OptionsColumn.AllowEdit = False
         Me.CFTOrderNo.OptionsColumn.ReadOnly = True
         Me.CFTOrderNo.Visible = True
         Me.CFTOrderNo.VisibleIndex = 2
-        Me.CFTOrderNo.Width = 119
+        Me.CFTOrderNo.Width = 139
         '
         'CFTUnitSectCode
         '
         Me.CFTUnitSectCode.Caption = "FTUnitSectCode"
         Me.CFTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.CFTUnitSectCode.MinWidth = 23
         Me.CFTUnitSectCode.Name = "CFTUnitSectCode"
         Me.CFTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.CFTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.CFTUnitSectCode.Visible = True
         Me.CFTUnitSectCode.VisibleIndex = 3
-        Me.CFTUnitSectCode.Width = 100
+        Me.CFTUnitSectCode.Width = 117
         '
         'cFNBunbleSeq
         '
         Me.cFNBunbleSeq.Caption = "FNBunbleSeq"
         Me.cFNBunbleSeq.FieldName = "FNBunbleSeq"
+        Me.cFNBunbleSeq.MinWidth = 23
         Me.cFNBunbleSeq.Name = "cFNBunbleSeq"
         Me.cFNBunbleSeq.OptionsColumn.AllowEdit = False
         Me.cFNBunbleSeq.OptionsColumn.ReadOnly = True
         Me.cFNBunbleSeq.Visible = True
         Me.cFNBunbleSeq.VisibleIndex = 5
+        Me.cFNBunbleSeq.Width = 87
         '
         'cFTPORef
         '
         Me.cFTPORef.Caption = "FTPORef"
         Me.cFTPORef.FieldName = "FTPORef"
+        Me.cFTPORef.MinWidth = 23
         Me.cFTPORef.Name = "cFTPORef"
         Me.cFTPORef.OptionsColumn.AllowEdit = False
         Me.cFTPORef.OptionsColumn.ReadOnly = True
         Me.cFTPORef.Visible = True
         Me.cFTPORef.VisibleIndex = 1
-        Me.cFTPORef.Width = 116
+        Me.cFTPORef.Width = 135
         '
         'cFTStyleCode
         '
         Me.cFTStyleCode.Caption = "FTStyleCode"
         Me.cFTStyleCode.FieldName = "FTStyleCode"
+        Me.cFTStyleCode.MinWidth = 23
         Me.cFTStyleCode.Name = "cFTStyleCode"
         Me.cFTStyleCode.OptionsColumn.AllowEdit = False
         Me.cFTStyleCode.Visible = True
         Me.cFTStyleCode.VisibleIndex = 6
-        Me.cFTStyleCode.Width = 113
+        Me.cFTStyleCode.Width = 132
         '
         'FTStyleName
         '
         Me.FTStyleName.Caption = "FTStyleName"
         Me.FTStyleName.FieldName = "FTStyleName"
+        Me.FTStyleName.MinWidth = 23
         Me.FTStyleName.Name = "FTStyleName"
         Me.FTStyleName.OptionsColumn.AllowEdit = False
         Me.FTStyleName.Visible = True
         Me.FTStyleName.VisibleIndex = 7
-        Me.FTStyleName.Width = 119
+        Me.FTStyleName.Width = 139
         '
         'cFNStateSewPack
         '
         Me.cFNStateSewPack.Caption = "FNStateSewPack"
         Me.cFNStateSewPack.FieldName = "FNStateSewPack"
+        Me.cFNStateSewPack.MinWidth = 23
         Me.cFNStateSewPack.Name = "cFNStateSewPack"
         Me.cFNStateSewPack.OptionsColumn.AllowEdit = False
         Me.cFNStateSewPack.Visible = True
         Me.cFNStateSewPack.VisibleIndex = 10
-        Me.cFNStateSewPack.Width = 111
+        Me.cFNStateSewPack.Width = 129
         '
         'FDInsDate
         '
         Me.FDInsDate.Caption = "FDInsDate"
         Me.FDInsDate.FieldName = "FDInsDate"
+        Me.FDInsDate.MinWidth = 23
         Me.FDInsDate.Name = "FDInsDate"
         Me.FDInsDate.OptionsColumn.AllowEdit = False
         Me.FDInsDate.OptionsColumn.ReadOnly = True
         Me.FDInsDate.Visible = True
         Me.FDInsDate.VisibleIndex = 12
-        Me.FDInsDate.Width = 80
+        Me.FDInsDate.Width = 93
         '
         'FTInsTime
         '
         Me.FTInsTime.Caption = "FTInsTime"
         Me.FTInsTime.FieldName = "FTInsTime"
+        Me.FTInsTime.MinWidth = 23
         Me.FTInsTime.Name = "FTInsTime"
         Me.FTInsTime.OptionsColumn.AllowEdit = False
         Me.FTInsTime.OptionsColumn.ReadOnly = True
         Me.FTInsTime.Visible = True
         Me.FTInsTime.VisibleIndex = 13
-        Me.FTInsTime.Width = 80
+        Me.FTInsTime.Width = 93
         '
         'FTInsUser
         '
         Me.FTInsUser.Caption = "FTInsUser"
         Me.FTInsUser.FieldName = "FTInsUser"
+        Me.FTInsUser.MinWidth = 23
         Me.FTInsUser.Name = "FTInsUser"
         Me.FTInsUser.OptionsColumn.AllowEdit = False
         Me.FTInsUser.OptionsColumn.ReadOnly = True
         Me.FTInsUser.Visible = True
         Me.FTInsUser.VisibleIndex = 14
-        Me.FTInsUser.Width = 80
+        Me.FTInsUser.Width = 93
         '
         'FDUpdDate
         '
         Me.FDUpdDate.Caption = "FDUpdDate"
         Me.FDUpdDate.FieldName = "FDUpdDate"
+        Me.FDUpdDate.MinWidth = 23
         Me.FDUpdDate.Name = "FDUpdDate"
         Me.FDUpdDate.OptionsColumn.AllowEdit = False
         Me.FDUpdDate.OptionsColumn.ReadOnly = True
         Me.FDUpdDate.Visible = True
         Me.FDUpdDate.VisibleIndex = 15
+        Me.FDUpdDate.Width = 87
         '
         'FTUpdTime
         '
         Me.FTUpdTime.Caption = "FTUpdTime"
         Me.FTUpdTime.FieldName = "FTUpdTime"
+        Me.FTUpdTime.MinWidth = 23
         Me.FTUpdTime.Name = "FTUpdTime"
         Me.FTUpdTime.OptionsColumn.AllowEdit = False
         Me.FTUpdTime.OptionsColumn.ReadOnly = True
         Me.FTUpdTime.Visible = True
         Me.FTUpdTime.VisibleIndex = 16
+        Me.FTUpdTime.Width = 87
         '
         'FTUpdUser
         '
         Me.FTUpdUser.Caption = "FTUpdUser"
         Me.FTUpdUser.FieldName = "FTUpdUser"
+        Me.FTUpdUser.MinWidth = 23
         Me.FTUpdUser.Name = "FTUpdUser"
         Me.FTUpdUser.OptionsColumn.AllowEdit = False
         Me.FTUpdUser.OptionsColumn.ReadOnly = True
         Me.FTUpdUser.Visible = True
         Me.FTUpdUser.VisibleIndex = 17
+        Me.FTUpdUser.Width = 87
         '
         'RepositoryItemFNStateSewPack
         '
@@ -883,12 +937,13 @@ Partial Class wScanBarcodeOutline
         '
         'wScanBarcodeOutline
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1014, 556)
+        Me.ClientSize = New System.Drawing.Size(1183, 684)
         Me.Controls.Add(Me.ogbbarcodeinfo)
         Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.ogbdetail)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "wScanBarcodeOutline"
         Me.Text = "wScanBarcodeOutline"
         CType(Me.FNBunbleSeq.Properties, System.ComponentModel.ISupportInitialize).EndInit()

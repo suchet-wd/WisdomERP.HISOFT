@@ -300,17 +300,32 @@ Public Class wPurchaseMaterialTracking
     Private Sub LoadData()
         Dim _Qry As String = ""
         Dim _dt As DataTable
-
-
         StateCal = False
 
         Me.ogdtime.DataSource = Nothing
         Dim _Spls As New HI.TL.SplashScreen("Loading...   Please Wait   ")
 
         Try
+            If FNDataType.SelectedIndex <> 2 Then
+                _Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETDATAPO_MATERIAL_DELAY_PROCESS '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) &
+                "'," & FNListDocumentTrackPIData.SelectedIndex.ToString() & ",'" & HI.UL.ULDate.ConvertEnDB(FTStartPurchaseDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndPurchaseDate.Text) &
+                "','" & HI.UL.ULDate.ConvertEnDB(FTStartDelivery.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndDelivery.Text) & "','',''," & Val(FNHSysSuplId.Properties.Tag.ToString) & "," &
+                Val(FNHSysBuyId.Properties.Tag.ToString) & "," & FNDataType.SelectedIndex & ",'" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text) & "','" &
+                HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "'"
 
-            _Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETDATAPO_MATERIAL_DELAY_PROCESS '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & FNListDocumentTrackPIData.SelectedIndex.ToString() & ",'" & HI.UL.ULDate.ConvertEnDB(FTStartPurchaseDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndPurchaseDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTStartDelivery.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndDelivery.Text) & "','',''," & Val(FNHSysSuplId.Properties.Tag.ToString) & "," & Val(FNHSysBuyId.Properties.Tag.ToString) & "," & FNDataType.SelectedIndex & ",'" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "'"
+            Else
+                '_Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETDATAPO_MATERIAL_DELAY_PROCESS_SAMPLE '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & FNListDocumentTrackPIData.SelectedIndex.ToString() & ",'" & HI.UL.ULDate.ConvertEnDB(FTStartPurchaseDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndPurchaseDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTStartDelivery.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndDelivery.Text) & "','',''," & Val(FNHSysSuplId.Properties.Tag.ToString) & "," & Val(FNHSysBuyId.Properties.Tag.ToString) & "," & FNDataType.SelectedIndex & ",'" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "'"
+                _Qry = "EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETDATAPO_MATERIAL_DELAY_PROCESS_SAMPLE " & vbCrLf
+                _Qry &= "@UserName = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "', @FNDataType = " & FNListDocumentTrackPIData.SelectedIndex.ToString() & vbCrLf
+                _Qry &= ", @FNSSupl = " & Val(FNHSysSuplId.Properties.Tag.ToString) & ", @FNBuy = " & Val(FNHSysBuyId.Properties.Tag.ToString) & ", @DocType = 2" & vbCrLf
+                _Qry &= ", @SDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartPurchaseDate.Text) & "' , @EDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndPurchaseDate.Text) & "'" & vbCrLf
+                _Qry &= ", @SDeliDate= '" & HI.UL.ULDate.ConvertEnDB(FTStartDelivery.Text) & "', @EDeliDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndDelivery.Text) & "' " & vbCrLf
+                _Qry &= ", @OrderSDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text) & "', @OrderEDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "'" & vbCrLf
+                '_Qry &= ", @DevConfirmSDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartDevCFMDate.Text) & "', @DevConfirmEDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndDevCFMDate.Text) & "'"
+                '_Qry &= ", @SRConfirmSDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartSRConfirmDate.Text) & "', @SRConfirmEDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndSRConfirmDate.Text) & "'"
+                ', @SPO = '', @EPO = ''
 
+            End If
             _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PUR)
 
             Me.ogdtime.DataSource = _dt.Copy
@@ -542,11 +557,8 @@ Public Class wPurchaseMaterialTracking
 
             FNDataType.SelectedIndex = Indx
 
-
-
             RepositoryItemGridLookUpEditFTDelayReasonsCode.View.OptionsView.ShowAutoFilterRow = True
             RepositoryItemGridLookUpEditFTFurtherDelayReasonCode.View.OptionsView.ShowAutoFilterRow = True
-
 
             LoadMaster()
 
@@ -982,7 +994,6 @@ Public Class wPurchaseMaterialTracking
 
                     End Try
 
-
                 Next
 
             Next
@@ -1051,7 +1062,6 @@ Public Class wPurchaseMaterialTracking
                     Dim OETCDate As String = .GetRowCellValue(.FocusedRowHandle, "FTOETCDate").ToString()
                     Dim Doctype As Integer = Val(.GetRowCellValue(.FocusedRowHandle, "FNDocType").ToString())
                     Dim cmdstring As String = ""
-
 
                     cmdstring = "  Declare @CountData int = 0 "
                     cmdstring &= vbCrLf & " update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_T1T2  Set "
@@ -1144,7 +1154,6 @@ Public Class wPurchaseMaterialTracking
 
                     Select Case ogvtime.FocusedColumn.FieldName.ToString
                         Case "FTORGOETCDate"
-
                             cmdstring &= vbCrLf & ",'" & HI.UL.ULDate.ConvertEnDB(NewData) & "'"
                             cmdstring &= vbCrLf & ",DATEDIFF(DAY,'" & HI.UL.ULDate.ConvertEnDB(OETCDate) & "','" & HI.UL.ULDate.ConvertEnDB(NewData) & "')"
                             cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
@@ -1152,7 +1161,6 @@ Public Class wPurchaseMaterialTracking
                             cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & ""
 
                         Case "FTFinalOETCDate"
-
                             cmdstring &= vbCrLf & " ,'" & HI.UL.ULDate.ConvertEnDB(NewData) & "'"
                             cmdstring &= vbCrLf & " ,DATEDIFF(DAY,'" & HI.UL.ULDate.ConvertEnDB(OETCDate) & "','" & HI.UL.ULDate.ConvertEnDB(NewData) & "')"
                             cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
@@ -1160,7 +1168,6 @@ Public Class wPurchaseMaterialTracking
                             cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB & ""
 
                         Case "FTSendSMPDate"
-
                             cmdstring &= vbCrLf & " ,'" & HI.UL.ULDate.ConvertEnDB(NewData) & "'"
                             cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                             cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB & ""
@@ -1193,8 +1200,6 @@ Public Class wPurchaseMaterialTracking
                     cmdstring &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(OrderNo) & "'  "
                     cmdstring &= vbCrLf & " AND  FNHSysRawMatId=" & MatId & "  "
 
-
-
                     cmdstring &= vbCrLf & "  Select  Top 1 Case When ISDATE(TR.FTFirstInputDate) = 1 Then Convert(varchar(10),Convert(datetime,TR.FTFirstInputDate) ,103) Else '' END As FTFirstInputDate,TR.FTFirstInputBy  "
                     cmdstring &= vbCrLf & " ,Case When ISDATE(TR.FTLastInputDate) = 1 Then Convert(varchar(10),Convert(datetime,TR.FTLastInputDate) ,103) Else '' END As FTLastInputDate,TR.FTLastInputBy  "
                     cmdstring &= vbCrLf & " ,Case When ISDATE(TR.FTORGOETCDate) = 1 Then Convert(varchar(10),Convert(datetime,TR.FTORGOETCDate) ,103) Else '' END As FTORGOETCDate "
@@ -1204,10 +1209,7 @@ Public Class wPurchaseMaterialTracking
                     cmdstring &= vbCrLf & " ,FNFinalLeadTime"
                     cmdstring &= vbCrLf & " ,FTDelayLangth"
 
-
                     cmdstring &= vbCrLf & " ,'' AS FTSamplePPC"
-
-
 
                     cmdstring &= vbCrLf & "  From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTPurchase_T1T2 AS TR  WITH(NOLOCK)  "
                     cmdstring &= vbCrLf & " WHERE FTPurchaseNo='" & HI.UL.ULF.rpQuoted(OrderNo) & "'  "
@@ -1234,8 +1236,6 @@ Public Class wPurchaseMaterialTracking
                                 Rxd!FNORGLeadTime = Rxp!FNORGLeadTime
                                 Rxd!FNFinalLeadTime = Rxp!FNFinalLeadTime
                                 Rxd!FTDelayLangth = Rxp!FTDelayLangth
-
-
 
                             Next
 
@@ -1434,8 +1434,6 @@ Public Class wPurchaseMaterialTracking
                     Dim mdt As DataTable
                     mdt = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_PUR)
 
-
-
                     Try
                         For Each Rxp As DataRow In mdt.Rows
 
@@ -1449,8 +1447,6 @@ Public Class wPurchaseMaterialTracking
                                     Rxd!FTTrackBy = Rxp!FTTrackBy
                                     Rxd!FTContactName = Rxp!FTContactName
                                     Rxd!FTTrackNote = Rxp!FTNote
-
-
 
                                 Next
 
@@ -1512,13 +1508,9 @@ Public Class wPurchaseMaterialTracking
 
                     Select Case ogvtime.FocusedColumn.FieldName.ToString
                         Case "FTPROCFMNote"
-
                             cmdstring &= vbCrLf & " FTPROCFMNote='" & HI.UL.ULF.rpQuoted(NewData) & "'"
-
                         Case "FTPOCFMNote"
-
                             cmdstring &= vbCrLf & " FTPOCFMNote='" & HI.UL.ULF.rpQuoted(NewData) & "'"
-
                         Case "FTInvoiceNote"
                             cmdstring &= vbCrLf & " FTInvoiceNote='" & HI.UL.ULF.rpQuoted(NewData) & "'"
                         Case "FTSendSMPRemark"
@@ -1546,13 +1538,9 @@ Public Class wPurchaseMaterialTracking
 
                     Select Case ogvtime.FocusedColumn.FieldName.ToString
                         Case "FTPROCFMNote"
-
                             cmdstring &= vbCrLf & " ,FTPROCFMNote"
-
                         Case "FTPOCFMNote"
-
                             cmdstring &= vbCrLf & " ,FTPOCFMNote"
-
                         Case "FTInvoiceNote"
                             cmdstring &= vbCrLf & ", FTInvoiceNote"
                         Case "FTSendSMPRemark"
@@ -1744,6 +1732,74 @@ Public Class wPurchaseMaterialTracking
         If _FormLoad = False Then
             Call HI.UL.AppRegistry.WriteRegistry("ListDoc" & Me.Name, FNListDocumentTrackPIData.SelectedIndex.ToString)
         End If
+
+        Select Case FNListDocumentTrackPIData.SelectedIndex.ToString
+            Case "0"
+                FTStartPurchaseDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-90))
+                FTStartPurchaseDate.Properties.MaxValue = Today()
+                FTEndPurchaseDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-90))
+                FTEndPurchaseDate.Properties.MaxValue = Today()
+
+                FTStartDelivery.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-90))
+                FTStartDelivery.Properties.MaxValue = Today()
+                FTEndDelivery.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-90))
+                FTEndDelivery.Properties.MaxValue = Today()
+
+                FTStartOrderDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-90))
+                FTStartOrderDate.Properties.MaxValue = Today()
+                FTEndOrderDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-90))
+                FTEndOrderDate.Properties.MaxValue = Today()
+
+
+            Case "1"
+                FTStartPurchaseDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-180))
+                FTStartPurchaseDate.Properties.MaxValue = Today()
+                FTEndPurchaseDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-180))
+                FTEndPurchaseDate.Properties.MaxValue = Today()
+
+                FTStartDelivery.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-180))
+                FTStartDelivery.Properties.MaxValue = Today()
+                FTEndDelivery.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-180))
+                FTEndDelivery.Properties.MaxValue = Today()
+
+                FTStartOrderDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-180))
+                FTStartOrderDate.Properties.MaxValue = Today()
+                FTEndOrderDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-180))
+                FTEndOrderDate.Properties.MaxValue = Today()
+
+            Case "2"
+                FTStartPurchaseDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-365))
+                FTStartPurchaseDate.Properties.MaxValue = Today()
+                FTEndPurchaseDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-365))
+                FTEndPurchaseDate.Properties.MaxValue = Today()
+
+                FTStartDelivery.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-365))
+                FTStartDelivery.Properties.MaxValue = Today()
+                FTEndDelivery.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-365))
+                FTEndDelivery.Properties.MaxValue = Today()
+
+                FTStartOrderDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-365))
+                FTStartOrderDate.Properties.MaxValue = Today()
+                FTEndOrderDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-365))
+                FTEndOrderDate.Properties.MaxValue = Today()
+
+            Case "3"
+                FTStartPurchaseDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-730))
+                FTStartPurchaseDate.Properties.MaxValue = Today()
+                FTEndPurchaseDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-730))
+                FTEndPurchaseDate.Properties.MaxValue = Today()
+
+                FTStartDelivery.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-730))
+                FTStartDelivery.Properties.MaxValue = Today()
+                FTEndDelivery.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-730))
+                FTEndDelivery.Properties.MaxValue = Today()
+
+                FTStartOrderDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-730))
+                FTStartOrderDate.Properties.MaxValue = Today()
+                FTEndOrderDate.Properties.MinValue = DateAndTime.DateValue(Today.AddDays(-730))
+                FTEndOrderDate.Properties.MaxValue = Today()
+
+        End Select
     End Sub
 
     Private Sub RepositoryItemCalcQty_Leave(sender As Object, e As EventArgs) Handles RepositoryItemCalcQty.Leave
@@ -2354,8 +2410,6 @@ Public Class wPurchaseMaterialTracking
                                 Rxd!FNFinalLeadTime = Rxp!FNFinalLeadTime
                                 Rxd!FTDelayLangth = Rxp!FTDelayLangth
 
-
-
                             Next
 
                             .AcceptChanges()
@@ -2404,6 +2458,8 @@ Public Class wPurchaseMaterialTracking
         Try
             If Val(e.NewValue.ToString) >= 0 Then
                 e.Cancel = False
+
+                Dim pLT As Integer = Val(e.NewValue.ToString)
 
                 ogvtime.SetFocusedRowCellValue(ogvtime.FocusedColumn.FieldName, Val(e.NewValue.ToString))
 
@@ -2777,6 +2833,31 @@ Public Class wPurchaseMaterialTracking
                 Call HI.UL.AppRegistry.WriteRegistry("ListDDataType" & Me.Name, FNDataType.SelectedIndex.ToString)
             End If
 
+            If FNDataType.SelectedIndex <> 2 Then
+
+                With Me.ogvtime
+                    '.Columns.ColumnByFieldName("FTDevConfirmDate").Visible = False
+                    .Columns.ColumnByFieldName("FTPartCode").Visible = False
+                    .Columns.ColumnByFieldName("FTPartDetail").Visible = False
+                    '.Columns.ColumnByFieldName("FTOrderDate").Visible = False
+                    .Columns.ColumnByFieldName("FNUsedQuantity").Visible = False
+                    .Columns.ColumnByFieldName("FTUsedUnit").Visible = False
+                    '.Columns.ColumnByFieldName("FTSuplCalCode").Visible = False
+                    '.Columns.ColumnByFieldName("FDSupCFMDelDate").Visible = False
+                End With
+            Else
+                With Me.ogvtime
+                    '.Columns.ColumnByFieldName("FTDevConfirmDate").Visible = True
+                    .Columns.ColumnByFieldName("FTPartCode").Visible = True
+                    .Columns.ColumnByFieldName("FTPartDetail").Visible = True
+                    '.Columns.ColumnByFieldName("FTOrderDate").Visible = True
+                    .Columns.ColumnByFieldName("FNUsedQuantity").Visible = True
+                    .Columns.ColumnByFieldName("FTUsedUnit").Visible = True
+                    '.Columns.ColumnByFieldName("FTSuplCalCode").Visible = True
+                    '.Columns.ColumnByFieldName("FDSupCFMDelDate").Visible = True
+                End With
+            End If
+
             ogdtime.DataSource = Nothing
         Catch ex As Exception
 
@@ -2897,5 +2978,23 @@ Public Class wPurchaseMaterialTracking
         End Try
 
 
+    End Sub
+
+    Private Sub FTStartPurchaseDate_EditValueChanged(sender As Object, e As EventArgs) Handles FTStartPurchaseDate.EditValueChanged
+        If FTStartPurchaseDate.Text.ToString <> "" Then
+            FTEndPurchaseDate.Properties.MinValue = FTStartPurchaseDate.EditValue
+        End If
+    End Sub
+
+    Private Sub FTStartDelivery_EditValueChanged(sender As Object, e As EventArgs) Handles FTStartDelivery.EditValueChanged
+        If FTStartDelivery.Text.ToString <> "" Then
+            FTEndDelivery.Properties.MinValue = FTStartDelivery.EditValue
+        End If
+    End Sub
+
+    Private Sub FTStartOrderDate_EditValueChanged(sender As Object, e As EventArgs) Handles FTStartOrderDate.EditValueChanged
+        If FTStartOrderDate.Text.ToString <> "" Then
+            FTEndOrderDate.Properties.MinValue = FTStartOrderDate.EditValue
+        End If
     End Sub
 End Class

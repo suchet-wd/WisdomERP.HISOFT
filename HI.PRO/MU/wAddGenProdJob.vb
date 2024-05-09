@@ -602,6 +602,10 @@ Public Class wAddGenProdJob
                     _Qry = "Exec dbo.SP_GET_MUGroupProdToOrderProd_CREATETableOnly @User='" & HI.ST.UserInfo.UserName & "' , @DocumentNo='" & HI.UL.ULF.rpQuoted(FTOrderProdNo) & "'"
                     HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_PROD)
 
+                    _Qry = "Exec dbo.[SP_GET_MUGroupProdToOrderProd_CREATETableOnly_AVG_Allowance] @User='" & HI.ST.UserInfo.UserName & "' , @DocumentNo='" & HI.UL.ULF.rpQuoted(FTOrderProdNo) & "'"
+                    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_PROD)
+
+
                     _Spls.Close()
                     HI.MG.ShowMsg.mInfo("Save Data Complete !!!", 1404210006, Me.Text, , System.Windows.Forms.MessageBoxIcon.Information)
                 Else
@@ -614,6 +618,15 @@ Public Class wAddGenProdJob
                 If CreateNewJobProducttion() Then
                     _Qry = "Exec dbo.SP_GET_MUGroupProdToOrderProd @User='" & HI.ST.UserInfo.UserName & "' , @DocumentNo='" & HI.UL.ULF.rpQuoted(FTOrderProdNo) & "'"
                     HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_PROD)
+
+
+                    _Qry = "Exec dbo.SP_GET_MUGroupProdToOrderProd_CREATETableOnly @User='" & HI.ST.UserInfo.UserName & "' , @DocumentNo='" & HI.UL.ULF.rpQuoted(FTOrderProdNo) & "'"
+                    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_PROD)
+
+                    _Qry = "Exec dbo.[SP_GET_MUGroupProdToOrderProd_CREATETableOnly_AVG_Allowance] @User='" & HI.ST.UserInfo.UserName & "' , @DocumentNo='" & HI.UL.ULF.rpQuoted(FTOrderProdNo) & "'"
+                    HI.Conn.SQLConn.ExecuteOnly(_Qry, Conn.DB.DataBaseName.DB_PROD)
+
+
                     _Spls.Close()
                     HI.MG.ShowMsg.mInfo("Save Data Complete !!!", 1404210006, Me.Text, , System.Windows.Forms.MessageBoxIcon.Information)
                 Else
@@ -664,13 +677,13 @@ Public Class wAddGenProdJob
                 For Each R As DataRow In .Select("FTSelect='1'")
 
                     Dim _MarkId As Integer = 0
-                    _Qry = "Select top 1   *  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TPRODMMark where FTMarkCode='" & Microsoft.VisualBasic.Left(R!FTMarkCode.ToString, Len(R!FTMarkCode.ToString) - 3) & "'"
+                    _Qry = "Select top 1   *  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TPRODMMark where FTMarkCode='" & Microsoft.VisualBasic.Left(R!FTMarkCode.ToString, Len(R!FTMarkCode.ToString) - 10) & "'"
                     Dim _odt As DataTable = HI.Conn.SQLConn.GetDataTableOnbeginTrans(_Qry)
                     If _odt.Rows.Count > 0 Then
                         _MarkId = Val("0" & _odt.Rows(0).Item("FNHSysMarkId").ToString)
 
 
-                        If (Microsoft.VisualBasic.Left(Microsoft.VisualBasic.Left(R!FTMarkCode.ToString, Len(R!FTMarkCode.ToString) - 3), 1).ToUpper = "A") Then
+                        If (Microsoft.VisualBasic.Left(Microsoft.VisualBasic.Left(R!FTMarkCode.ToString, Len(R!FTMarkCode.ToString) - 10), 1).ToUpper = "A") Then
                             ' MsgBox(Microsoft.VisualBasic.Left(Microsoft.VisualBasic.Left(R!FTMarkCode.ToString, Len(R!FTMarkCode.ToString) - 3), 1).ToUpper)
 
                             _Qry = " select Top 1  *  From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMUTOrderProd_MarkMain T "
@@ -724,15 +737,15 @@ Public Class wAddGenProdJob
                         _Qry = "insert into  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TPRODMMark"
                         _Qry &= vbCrLf & " ( FNHSysMarkId, FTMarkCode, FTMarkNameTH, FTMarkNameEN, FTNote, FTStateMainMark, FTStateActive )"
                         _Qry &= vbCrLf & "Select " & _Id
-                        _Qry &= vbCrLf & ",'" & Microsoft.VisualBasic.Left(R!FTMarkCode.ToString, Len(R!FTMarkCode.ToString) - 3) & "'"
-                        _Qry &= vbCrLf & ",'" & Microsoft.VisualBasic.Left(R!FTMarkCode.ToString, Len(R!FTMarkCode.ToString) - 3) & "'"
-                        _Qry &= vbCrLf & ",'" & Microsoft.VisualBasic.Left(R!FTMarkCode.ToString, Len(R!FTMarkCode.ToString) - 3) & "'"
+                        _Qry &= vbCrLf & ",'" & Microsoft.VisualBasic.Left(R!FTMarkCode.ToString, Len(R!FTMarkCode.ToString) - 10) & "'"
+                        _Qry &= vbCrLf & ",'" & Microsoft.VisualBasic.Left(R!FTMarkCode.ToString, Len(R!FTMarkCode.ToString) - 10) & "'"
+                        _Qry &= vbCrLf & ",'" & Microsoft.VisualBasic.Left(R!FTMarkCode.ToString, Len(R!FTMarkCode.ToString) - 10) & "'"
                         _Qry &= vbCrLf & ",'','','1'"
 
 
                         HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
 
-                        If (Microsoft.VisualBasic.Left(Microsoft.VisualBasic.Left(R!FTMarkCode.ToString, Len(R!FTMarkCode.ToString) - 3), 1).ToUpper.ToString = "A") Then
+                        If (Microsoft.VisualBasic.Left(Microsoft.VisualBasic.Left(R!FTMarkCode.ToString, Len(R!FTMarkCode.ToString) - 10), 1).ToUpper.ToString = "A") Then
 
                             _Qry = "  select top 1 * From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMUTOrderProd_MarkMain T "
                             _Qry &= vbCrLf & " WHERE T.FTOrderProdNo='" & HI.UL.ULF.rpQuoted(_OrderProd) & "'  "
@@ -814,7 +827,7 @@ Public Class wAddGenProdJob
 
                         _Qry = " INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMUTOrderProd_TableCut "
                         _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime,FTOrderProdNo, FNHSysMarkId, FNTableNo, FTNote, FNHSysUnitSectId,FTStateRepair,FNHSysCmpId"
-                        _Qry &= vbCrLf & ", FNFabricFrontSize, FNMarkYRD,FNMarkINC, FNMarkSpare, FNMarkTotal,FTRef,FTStateBundle,FTStateCutchange,FTStatTableScrap  ) "
+                        _Qry &= vbCrLf & ", FNFabricFrontSize, FNMarkYRD,FNMarkINC, FNMarkSpare, FNMarkTotal,FTRef,FTStateBundle,FTStateCutchange,FTStatTableScrap ,FNFabricUseQuantity  ) "
                         _Qry &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                         _Qry &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB & " "
                         _Qry &= vbCrLf & " ," & HI.UL.ULDate.FormatTimeDB & " "
@@ -834,7 +847,7 @@ Public Class wAddGenProdJob
                         _Qry &= vbCrLf & " ,'' "
                         _Qry &= vbCrLf & " ,'' "
                         _Qry &= vbCrLf & " ,'' "
-
+                        _Qry &= vbCrLf & " , " & _layerUse * (Val(R!FNYard.ToString) + CDbl(Format(((Val(R!FNInc.ToString) + Totalent) / 36), "0.00")))
 
                         If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
 
@@ -1121,6 +1134,59 @@ Public Class wAddGenProdJob
             End Try
         Catch ex As Exception
 
+        End Try
+    End Sub
+
+    Private _StateCals As Boolean = False
+    Private Sub RepositoryItemCalcEditFNLayerPerTable_EditValueChanging(sender As Object, e As ChangingEventArgs) Handles RepositoryItemCalcEditFNLayerPerTable.EditValueChanging
+        Try
+            With Me.ogvpart
+                If .RowCount < 0 And .FocusedRowHandle < -1 Then Exit Sub
+                If Not (_StateCals) Then
+                    _StateCals = True
+
+                    Dim _layer As Integer = 0 : Dim _tableTotal As Integer = 0
+                    _layer = .GetRowCellValue(.FocusedRowHandle, "FNLayerQty")
+                    _tableTotal = Math.Ceiling(_layer / e.NewValue)
+
+                    .SetRowCellValue(.FocusedRowHandle, "FNTotalTable", _tableTotal)
+
+                    _StateCals = False
+
+                End If
+
+
+            End With
+
+        Catch ex As Exception
+            _StateCals = False
+        End Try
+    End Sub
+
+
+
+
+    Private Sub RepositoryItemCalcEditFNTotalTable_EditValueChanging(sender As Object, e As ChangingEventArgs) Handles RepositoryItemCalcEditFNTotalTable.EditValueChanging
+        Try
+            With Me.ogvpart
+                If .RowCount < 0 And .FocusedRowHandle < -1 Then Exit Sub
+                If Not (_StateCals) Then
+                    _StateCals = True
+
+                    Dim _layer As Integer = 0 : Dim _tableTotal As Integer = 0
+                    _layer = .GetRowCellValue(.FocusedRowHandle, "FNLayerQty")
+                    _tableTotal = Math.Ceiling(_layer / e.NewValue)
+
+                    .SetRowCellValue(.FocusedRowHandle, "FNLayerPerTable", _tableTotal)
+
+                    _StateCals = False
+
+                End If
+
+
+            End With
+        Catch ex As Exception
+            _StateCals = False
         End Try
     End Sub
 End Class

@@ -2038,7 +2038,7 @@ Public Class wScanPackOrder_New_single
             Dim _Cmd As String = ""
             Dim _oDt As DataTable
             _Cmd = "SELECT     FTBarcodeNo, FNHSysUnitSectId,   sum(FNQuantity) AS FNQuantity"
-            _Cmd &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline  WITH(NOLOCK) "
+            _Cmd &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline_Single  WITH(NOLOCK) "
 
             _Cmd &= vbCrLf & "WHERE  FTBarcodeNo='" & HI.UL.ULF.rpQuoted(BarCodeKey) & "' OR FTBarcodeCustRef='" & HI.UL.ULF.rpQuoted(BarCodeKey) & "' "
 
@@ -2194,7 +2194,7 @@ L0:
                     _Qry &= vbCrLf & " WHERE  (FTBarcodeNo =B.FTBarcodeBundleNo) ),0) AS Qty"
                     _Qry &= vbCrLf & " FROM     (SELECT DISTINCT FTBarcodeNo"
 
-                    _Qry &= vbCrLf & "  FROM      [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline WITH (NOLOCK)"
+                    _Qry &= vbCrLf & "  FROM      [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline_Single WITH (NOLOCK)"
 
                     _Qry &= vbCrLf & "  ) AS A INNER JOIN"
                     _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS B (NOLOCK)  ON A.FTBarcodeNo = B.FTBarcodeBundleNo"
@@ -2226,7 +2226,7 @@ L0:
                     _Qry &= vbCrLf & "  ) AS A"
 
                     '   _Qry &= vbCrLf & "INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline   AS B WITH(NOLOCK)   ON A.FTBarcodeBundleNo = B.FTBarcodeNo "  ' เปลี่ยนจากเช็ค มันงาน เป็น เช็คงานออก ไลน์ผลิต 20170824 Noh
-                    _Qry &= vbCrLf & "INNER JOIN (Select min(FDUpdDate) as FDUpdDate , min(FDInsDate) as FDInsDate , min(FTUpdTime) as FTUpdTime , min(FTInsTime) AS FTInsTime ,  sum(FNQuantity) as  FNQuantity , FTBarcodeNo   from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline  WITH(NOLOCK) group by FTBarcodeNo  )  AS B     ON A.FTBarcodeBundleNo = B.FTBarcodeNo  "
+                    _Qry &= vbCrLf & "INNER JOIN (Select min(FDUpdDate) as FDUpdDate , min(FDInsDate) as FDInsDate , min(FTUpdTime) as FTUpdTime , min(FTInsTime) AS FTInsTime ,  sum(FNQuantity) as  FNQuantity , FTBarcodeNo   from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline_Single  WITH(NOLOCK) group by FTBarcodeNo  )  AS B     ON A.FTBarcodeBundleNo = B.FTBarcodeNo  "
                     If FTStateDeleteBarcode.Checked = False Then
                         '_Qry &= vbCrLf & " WHERE A.FNQuantity > Qty"  ' เปลี่ยนจากเช็ค มันงาน เป็น เช็คงานออก ไลน์ผลิต 20170824 Noh
 
@@ -2299,7 +2299,7 @@ L0:
 
 
             _Qry = "SELECT Top 1  FTBarcodeNo"
-            _Qry &= vbCrLf & "  FROM     (SELECT DISTINCT FTBarcodeNo FROM      [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline WITH (NOLOCK)"
+            _Qry &= vbCrLf & "  FROM     (SELECT DISTINCT FTBarcodeNo FROM      [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline_Single WITH (NOLOCK)"
             _Qry &= vbCrLf & "   ) AS A INNER JOIN"
             _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS B (NOLOCK)  ON A.FTBarcodeNo = B.FTBarcodeBundleNo"
             _Qry &= vbCrLf & " WHERE LEFT(B.FTOrderProdNo," & _FTOrderNo.Length & ") ='" & HI.UL.ULF.rpQuoted(_FTOrderNo) & "'"
@@ -2528,7 +2528,7 @@ L0:
                     _Qry = " Select TOP 1  FTBarcodeNo as FTBarcodeBundleNo ,FNQuantity , FTBarcodeCustRef ,FNQty"
                     _Qry &= vbCrLf & "From (SELECT        B.FTBarcodeNo,  sum(B.FNQuantity) AS FNQuantity , B.FTBarcodeCustRef , C.FTOrderNo , C.FTSubOrderNo , C.FTSizeBreakDown , C.FTColorway "
                     _Qry &= vbCrLf & " ,Isnull(C.FNScanQuantity,0) as  FNQty"
-                    _Qry &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline as B WITH(NOLOCK) "
+                    _Qry &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline_Single as B WITH(NOLOCK) "
                     _Qry &= vbCrLf & "LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Single AS C  WITH(NOLOCK) ON B.FTBarcodeNo = C.FTBarcodeNo "
                     If (_PStateBarCust) Then
                         _Qry &= vbCrLf & " WHERE B.FTBarcodeCustRef='" & HI.UL.ULF.rpQuoted(Me.FTProductBarcodeNo.Text) & "'"
@@ -2593,7 +2593,7 @@ L0:
 
 
 
-            _Cmd = "  EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.SP_GET_CHECKTIME_SCANOUTLINE " & Integer.Parse(Me.FNHSysEmpId.Properties.Tag.ToString) & ""
+            _Cmd = "  EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.[SP_GET_CHECKTIME_SCANOUTLINE_single] " & Integer.Parse(Me.FNHSysEmpId.Properties.Tag.ToString) & ""
             _State = HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_PROD, "") = "1"
 
             Return _State
@@ -3035,18 +3035,43 @@ L0:
 
                 If checkmatching Then
                     Dim dtbarcodeoutline As DataTable
-                    cmdstring = "SELECT FTBarcodeNo,FTOrderNo,FTSubOrderNo,FTColorway,FTSizeBreakDown,FNQuantity,FTTimeRef,FNPackQty,FNQuantity-FNPackQty AS FNBal,0 AS FNQtyCreatePack "
-                    cmdstring &= vbCrLf & " FROM (Select A.FTBarcodeNo, A.FTOrderNo, A.FTSubOrderNo, B.FTColorway, B.FTSizeBreakDown, SUM(A.FNQuantity) As FNQuantity, MAX(A.FDDate + '-'+ A.FTTime) As FTTimeRef, ISNULL "
-                    cmdstring &= vbCrLf & "    ((SELECT SUM(FNScanQuantity) AS Expr1 "
-                    cmdstring &= vbCrLf & "   FROM      [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Detail_Single As X "
-                    cmdstring &= vbCrLf & "  WHERE   (FTBarcodeNo = A.FTBarcodeNo)), 0) AS FNPackQty "
-                    cmdstring &= vbCrLf & " FROM      [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline As A With (NOLOCK) INNER JOIN "
-                    cmdstring &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS B WITH (NOLOCK) ON A.FTBarcodeNo = B.FTBarcodeBundleNo INNER JOIN "
-                    cmdstring &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail As CT WITH (NOLOCK) On A.FTOrderNo = CT.FTOrderNo And A.FTSubOrderNo = CT.FTSubOrderNo And B.FTColorway = CT.FTColorway And B.FTSizeBreakDown = CT.FTSizeBreakDown "
-                    cmdstring &= vbCrLf & "  WHERE  CT.FTPackNo ='" & HI.UL.ULF.rpQuoted(FTPackNo.Text.Trim()) & "' AND CT.FNCartonNo =" & Val(FNCartonNo.Value) & " "
-                    cmdstring &= vbCrLf & " GROUP BY A.FTBarcodeNo, A.FTOrderNo, A.FTSubOrderNo, B.FTColorway, B.FTSizeBreakDown"
-                    cmdstring &= vbCrLf & " ) AS X "
-                    cmdstring &= vbCrLf & " WHERE FNQuantity-FNPackQty> 0 "
+
+                    cmdstring = "Select top  1   * "
+                    cmdstring &= vbCrLf & " from   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMOperationByStyle "
+                    cmdstring &= vbCrLf & " where FNHSysStyleId = " & Val(Me.FNHSysStyleId.Properties.Tag.ToString)
+                    cmdstring &= vbCrLf & " and FNHSysOperationId = 224850001"
+
+                    If HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PROD).Rows.Count > 0 Then
+
+
+                        cmdstring = "SELECT FTBarcodeNo,FTOrderNo,FTSubOrderNo,FTColorway,FTSizeBreakDown,FNQuantity,FTTimeRef,FNPackQty,FNQuantity-FNPackQty AS FNBal,0 AS FNQtyCreatePack "
+                        cmdstring &= vbCrLf & " FROM (Select A.FTBarcodeNo, A.FTOrderNo, A.FTSubOrderNo, B.FTColorway, B.FTSizeBreakDown, SUM(A.FNQuantity) As FNQuantity, MAX(A.FDDate + '-'+ A.FTTime) As FTTimeRef, ISNULL "
+                        cmdstring &= vbCrLf & "    ((SELECT SUM(FNScanQuantity) AS Expr1 "
+                        cmdstring &= vbCrLf & "   FROM      [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Detail_Single As X "
+                        cmdstring &= vbCrLf & "  WHERE   (FTBarcodeNo = A.FTBarcodeNo)), 0) AS FNPackQty "
+                        cmdstring &= vbCrLf & " FROM      [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline_Single As A With (NOLOCK) INNER JOIN "
+                        cmdstring &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS B WITH (NOLOCK) ON A.FTBarcodeNo = B.FTBarcodeBundleNo INNER JOIN "
+                        cmdstring &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail As CT WITH (NOLOCK) On A.FTOrderNo = CT.FTOrderNo And A.FTSubOrderNo = CT.FTSubOrderNo And B.FTColorway = CT.FTColorway And B.FTSizeBreakDown = CT.FTSizeBreakDown "
+                        cmdstring &= vbCrLf & "  WHERE  CT.FTPackNo ='" & HI.UL.ULF.rpQuoted(FTPackNo.Text.Trim()) & "' AND CT.FNCartonNo =" & Val(FNCartonNo.Value) & " "
+                        cmdstring &= vbCrLf & " GROUP BY A.FTBarcodeNo, A.FTOrderNo, A.FTSubOrderNo, B.FTColorway, B.FTSizeBreakDown"
+                        cmdstring &= vbCrLf & " ) AS X "
+                        cmdstring &= vbCrLf & " WHERE FNQuantity-FNPackQty> 0 "
+                    Else
+
+                        cmdstring = "SELECT FTBarcodeNo,FTOrderNo,FTSubOrderNo,FTColorway,FTSizeBreakDown,FNQuantity,FTTimeRef,FNPackQty,FNQuantity-FNPackQty AS FNBal,0 AS FNQtyCreatePack "
+                        cmdstring &= vbCrLf & " FROM (Select A.FTBarcodeNo, A.FTOrderNo, A.FTSubOrderNo, B.FTColorway, B.FTSizeBreakDown, SUM(A.FNQuantity) As FNQuantity, MAX(A.FDDate + '-'+ A.FTTime) As FTTimeRef, ISNULL "
+                        cmdstring &= vbCrLf & "    ((SELECT SUM(FNScanQuantity) AS Expr1 "
+                        cmdstring &= vbCrLf & "   FROM      [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Detail_Single As X "
+                        cmdstring &= vbCrLf & "  WHERE   (FTBarcodeNo = A.FTBarcodeNo)), 0) AS FNPackQty "
+                        cmdstring &= vbCrLf & " FROM      [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline  As A With (NOLOCK) INNER JOIN "
+                        cmdstring &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS B WITH (NOLOCK) ON A.FTBarcodeNo = B.FTBarcodeBundleNo INNER JOIN "
+                        cmdstring &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail As CT WITH (NOLOCK) On A.FTOrderNo = CT.FTOrderNo And A.FTSubOrderNo = CT.FTSubOrderNo And B.FTColorway = CT.FTColorway And B.FTSizeBreakDown = CT.FTSizeBreakDown "
+                        cmdstring &= vbCrLf & "  WHERE  CT.FTPackNo ='" & HI.UL.ULF.rpQuoted(FTPackNo.Text.Trim()) & "' AND CT.FNCartonNo =" & Val(FNCartonNo.Value) & " "
+                        cmdstring &= vbCrLf & " GROUP BY A.FTBarcodeNo, A.FTOrderNo, A.FTSubOrderNo, B.FTColorway, B.FTSizeBreakDown"
+                        cmdstring &= vbCrLf & " ) AS X "
+                        cmdstring &= vbCrLf & " WHERE FNQuantity-FNPackQty> 0 "
+                    End If
+
 
                     dtbarcodeoutline = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PROD)
 
@@ -3934,7 +3959,7 @@ L0:
             _Cmd &= vbCrLf & "    From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Single As X With(NOLOCK)"
             _Cmd &= vbCrLf & "	Where X.FTBarcodeNo = A.FTBarcodeNo"
             _Cmd &= vbCrLf & "	),0) As FNQuantityScan"
-            _Cmd &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline As A WITH(NOLOCK)"
+            _Cmd &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline_Single As A WITH(NOLOCK)"
             _Cmd &= vbCrLf & "Where (FTBarcodeNo = N'" & HI.UL.ULF.rpQuoted(_BarCode) & "')"
             _Cmd &= vbCrLf & "Group By A.FTBarcodeNo"
             _Cmd &= vbCrLf & " ) As X "

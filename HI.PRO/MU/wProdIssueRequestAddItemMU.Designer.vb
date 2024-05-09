@@ -99,7 +99,7 @@ Partial Class wProdIssueRequestAddItemMU
         Me.ockselectalltable.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.ockselectalltable.Properties.ValueChecked = "1"
         Me.ockselectalltable.Properties.ValueUnchecked = "0"
-        Me.ockselectalltable.Size = New System.Drawing.Size(170, 21)
+        Me.ockselectalltable.Size = New System.Drawing.Size(170, 24)
         Me.ockselectalltable.TabIndex = 309
         Me.ockselectalltable.Tag = "2|"
         '
@@ -230,7 +230,7 @@ Partial Class wProdIssueRequestAddItemMU
         '
         Me.RepositoryItemLookUpEdit1.AutoHeight = False
         Me.RepositoryItemLookUpEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemLookUpEdit1.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FTSizeBreakDown", "FTSizeBreakDown"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FNMatSizeSeq", "FNMatSizeSeq", 20, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default])})
+        Me.RepositoryItemLookUpEdit1.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FTSizeBreakDown", "FTSizeBreakDown"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FNMatSizeSeq", "FNMatSizeSeq", 20, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
         Me.RepositoryItemLookUpEdit1.DisplayMember = "FTSizeBreakDown"
         Me.RepositoryItemLookUpEdit1.Name = "RepositoryItemLookUpEdit1"
         Me.RepositoryItemLookUpEdit1.ValueMember = "FTSizeBreakDown"
@@ -253,12 +253,12 @@ Partial Class wProdIssueRequestAddItemMU
         '
         Me.ogcdetail.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcdetail.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcdetail.Location = New System.Drawing.Point(2, 25)
+        Me.ogcdetail.Location = New System.Drawing.Point(2, 28)
         Me.ogcdetail.MainView = Me.ogvdetail
         Me.ogcdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcdetail.Name = "ogcdetail"
         Me.ogcdetail.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.ReposRawmatFTStateSelect, Me.ReposFNIssueQuantity})
-        Me.ogcdetail.Size = New System.Drawing.Size(986, 561)
+        Me.ogcdetail.Size = New System.Drawing.Size(986, 558)
         Me.ogcdetail.TabIndex = 309
         Me.ogcdetail.TabStop = False
         Me.ogcdetail.Tag = "2|"
@@ -522,7 +522,7 @@ Partial Class wProdIssueRequestAddItemMU
         Me.ockselectalldetail.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.ockselectalldetail.Properties.ValueChecked = "1"
         Me.ockselectalldetail.Properties.ValueUnchecked = "0"
-        Me.ockselectalldetail.Size = New System.Drawing.Size(170, 21)
+        Me.ockselectalldetail.Size = New System.Drawing.Size(170, 24)
         Me.ockselectalldetail.TabIndex = 308
         Me.ockselectalldetail.Tag = "2|"
         '
@@ -561,7 +561,7 @@ Partial Class wProdIssueRequestAddItemMU
         Me.ocmload.Tag = "2|"
         Me.ocmload.Text = "โหลดรายการวัตถุดิบ"
         '
-        'wProdIssueRequestAddItem
+        'wProdIssueRequestAddItemMU
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -575,7 +575,7 @@ Partial Class wProdIssueRequestAddItemMU
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "wProdIssueRequestAddItem"
+        Me.Name = "wProdIssueRequestAddItemMU"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Issue Request Add Item"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

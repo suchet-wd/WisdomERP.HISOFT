@@ -143,6 +143,8 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNPackQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.SFNBalPackQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNTableCut = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cFNRcvMiniFGQty = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.CFNIssMiniFGQty = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
         Me.ocmsavelayout = New DevExpress.XtraEditors.SimpleButton()
@@ -209,14 +211,15 @@ Partial Class wProdOrderTrackingByLine
         Me.ogbheader.ID = New System.Guid("77b9346d-8d15-4323-af1e-af82afa9902a")
         Me.ogbheader.ImageOptions.Image = CType(resources.GetObject("ogbheader.ImageOptions.Image"), System.Drawing.Image)
         Me.ogbheader.Location = New System.Drawing.Point(0, 0)
+        Me.ogbheader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbheader.Name = "ogbheader"
         Me.ogbheader.Options.AllowDockBottom = False
         Me.ogbheader.Options.AllowDockFill = False
         Me.ogbheader.Options.FloatOnDblClick = False
         Me.ogbheader.Options.ShowCloseButton = False
         Me.ogbheader.Options.ShowMaximizeButton = False
-        Me.ogbheader.OriginalSize = New System.Drawing.Size(1137, 132)
-        Me.ogbheader.Size = New System.Drawing.Size(1137, 132)
+        Me.ogbheader.OriginalSize = New System.Drawing.Size(1326, 158)
+        Me.ogbheader.Size = New System.Drawing.Size(1326, 158)
         Me.ogbheader.TabStop = False
         Me.ogbheader.Text = "Criteria"
         '
@@ -260,16 +263,18 @@ Partial Class wProdOrderTrackingByLine
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysBuyId)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysStyleId)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysBuyId_lbl)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 26)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 32)
+        Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1131, 102)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1318, 120)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FTESMKDate
         '
         Me.FTESMKDate.EditValue = Nothing
         Me.FTESMKDate.EnterMoveNextControl = True
-        Me.FTESMKDate.Location = New System.Drawing.Point(389, 69)
+        Me.FTESMKDate.Location = New System.Drawing.Point(454, 85)
+        Me.FTESMKDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTESMKDate.Name = "FTESMKDate"
         Me.FTESMKDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTESMKDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -277,7 +282,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTESMKDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTESMKDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTESMKDate.Properties.NullDate = ""
-        Me.FTESMKDate.Size = New System.Drawing.Size(90, 20)
+        Me.FTESMKDate.Size = New System.Drawing.Size(105, 22)
         Me.FTESMKDate.TabIndex = 7
         Me.FTESMKDate.Tag = "2|"
         '
@@ -288,9 +293,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTESMKDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FTESMKDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTESMKDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTESMKDate_lbl.Location = New System.Drawing.Point(257, 69)
+        Me.FTESMKDate_lbl.Location = New System.Drawing.Point(300, 85)
+        Me.FTESMKDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTESMKDate_lbl.Name = "FTESMKDate_lbl"
-        Me.FTESMKDate_lbl.Size = New System.Drawing.Size(130, 19)
+        Me.FTESMKDate_lbl.Size = New System.Drawing.Size(152, 23)
         Me.FTESMKDate_lbl.TabIndex = 395
         Me.FTESMKDate_lbl.Tag = "2|"
         Me.FTESMKDate_lbl.Text = "End Date Supermarket :"
@@ -299,7 +305,8 @@ Partial Class wProdOrderTrackingByLine
         '
         Me.FTERcvSuplDate.EditValue = Nothing
         Me.FTERcvSuplDate.EnterMoveNextControl = True
-        Me.FTERcvSuplDate.Location = New System.Drawing.Point(947, 115)
+        Me.FTERcvSuplDate.Location = New System.Drawing.Point(1105, 142)
+        Me.FTERcvSuplDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTERcvSuplDate.Name = "FTERcvSuplDate"
         Me.FTERcvSuplDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTERcvSuplDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -307,7 +314,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTERcvSuplDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTERcvSuplDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTERcvSuplDate.Properties.NullDate = ""
-        Me.FTERcvSuplDate.Size = New System.Drawing.Size(90, 20)
+        Me.FTERcvSuplDate.Size = New System.Drawing.Size(105, 22)
         Me.FTERcvSuplDate.TabIndex = 393
         Me.FTERcvSuplDate.Tag = "2|"
         Me.FTERcvSuplDate.Visible = False
@@ -316,7 +323,8 @@ Partial Class wProdOrderTrackingByLine
         '
         Me.FTSSMKDate.EditValue = Nothing
         Me.FTSSMKDate.EnterMoveNextControl = True
-        Me.FTSSMKDate.Location = New System.Drawing.Point(167, 69)
+        Me.FTSSMKDate.Location = New System.Drawing.Point(195, 85)
+        Me.FTSSMKDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSSMKDate.Name = "FTSSMKDate"
         Me.FTSSMKDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTSSMKDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -324,7 +332,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTSSMKDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTSSMKDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTSSMKDate.Properties.NullDate = ""
-        Me.FTSSMKDate.Size = New System.Drawing.Size(90, 20)
+        Me.FTSSMKDate.Size = New System.Drawing.Size(105, 22)
         Me.FTSSMKDate.TabIndex = 6
         Me.FTSSMKDate.Tag = "2|"
         '
@@ -335,9 +343,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTERcvSuplDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FTERcvSuplDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTERcvSuplDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTERcvSuplDate_lbl.Location = New System.Drawing.Point(815, 115)
+        Me.FTERcvSuplDate_lbl.Location = New System.Drawing.Point(951, 142)
+        Me.FTERcvSuplDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTERcvSuplDate_lbl.Name = "FTERcvSuplDate_lbl"
-        Me.FTERcvSuplDate_lbl.Size = New System.Drawing.Size(130, 19)
+        Me.FTERcvSuplDate_lbl.Size = New System.Drawing.Size(152, 23)
         Me.FTERcvSuplDate_lbl.TabIndex = 395
         Me.FTERcvSuplDate_lbl.Tag = "2|"
         Me.FTERcvSuplDate_lbl.Text = "End Date Rcv. Supl :"
@@ -350,9 +359,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTSSMKDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSSMKDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSSMKDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSSMKDate_lbl.Location = New System.Drawing.Point(5, 69)
+        Me.FTSSMKDate_lbl.Location = New System.Drawing.Point(6, 85)
+        Me.FTSSMKDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSSMKDate_lbl.Name = "FTSSMKDate_lbl"
-        Me.FTSSMKDate_lbl.Size = New System.Drawing.Size(160, 19)
+        Me.FTSSMKDate_lbl.Size = New System.Drawing.Size(187, 23)
         Me.FTSSMKDate_lbl.TabIndex = 394
         Me.FTSSMKDate_lbl.Tag = "2|"
         Me.FTSSMKDate_lbl.Text = "Start Date Supermarket :"
@@ -361,7 +371,8 @@ Partial Class wProdOrderTrackingByLine
         '
         Me.FTESendSuplDate.EditValue = Nothing
         Me.FTESendSuplDate.EnterMoveNextControl = True
-        Me.FTESendSuplDate.Location = New System.Drawing.Point(440, 115)
+        Me.FTESendSuplDate.Location = New System.Drawing.Point(513, 142)
+        Me.FTESendSuplDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTESendSuplDate.Name = "FTESendSuplDate"
         Me.FTESendSuplDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTESendSuplDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -369,7 +380,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTESendSuplDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTESendSuplDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTESendSuplDate.Properties.NullDate = ""
-        Me.FTESendSuplDate.Size = New System.Drawing.Size(90, 20)
+        Me.FTESendSuplDate.Size = New System.Drawing.Size(105, 22)
         Me.FTESendSuplDate.TabIndex = 393
         Me.FTESendSuplDate.Tag = "2|"
         Me.FTESendSuplDate.Visible = False
@@ -378,7 +389,8 @@ Partial Class wProdOrderTrackingByLine
         '
         Me.FTSRcvSuplDate.EditValue = Nothing
         Me.FTSRcvSuplDate.EnterMoveNextControl = True
-        Me.FTSRcvSuplDate.Location = New System.Drawing.Point(725, 115)
+        Me.FTSRcvSuplDate.Location = New System.Drawing.Point(846, 142)
+        Me.FTSRcvSuplDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSRcvSuplDate.Name = "FTSRcvSuplDate"
         Me.FTSRcvSuplDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTSRcvSuplDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -386,7 +398,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTSRcvSuplDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTSRcvSuplDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTSRcvSuplDate.Properties.NullDate = ""
-        Me.FTSRcvSuplDate.Size = New System.Drawing.Size(90, 20)
+        Me.FTSRcvSuplDate.Size = New System.Drawing.Size(105, 22)
         Me.FTSRcvSuplDate.TabIndex = 392
         Me.FTSRcvSuplDate.Tag = "2|"
         Me.FTSRcvSuplDate.Visible = False
@@ -398,9 +410,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTESendSuplDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FTESendSuplDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTESendSuplDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTESendSuplDate_lbl.Location = New System.Drawing.Point(308, 115)
+        Me.FTESendSuplDate_lbl.Location = New System.Drawing.Point(359, 142)
+        Me.FTESendSuplDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTESendSuplDate_lbl.Name = "FTESendSuplDate_lbl"
-        Me.FTESendSuplDate_lbl.Size = New System.Drawing.Size(130, 19)
+        Me.FTESendSuplDate_lbl.Size = New System.Drawing.Size(152, 23)
         Me.FTESendSuplDate_lbl.TabIndex = 395
         Me.FTESendSuplDate_lbl.Tag = "2|"
         Me.FTESendSuplDate_lbl.Text = "End Date Send Supl:"
@@ -413,9 +426,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTSRcvSuplDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSRcvSuplDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSRcvSuplDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSRcvSuplDate_lbl.Location = New System.Drawing.Point(563, 115)
+        Me.FTSRcvSuplDate_lbl.Location = New System.Drawing.Point(657, 142)
+        Me.FTSRcvSuplDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSRcvSuplDate_lbl.Name = "FTSRcvSuplDate_lbl"
-        Me.FTSRcvSuplDate_lbl.Size = New System.Drawing.Size(160, 19)
+        Me.FTSRcvSuplDate_lbl.Size = New System.Drawing.Size(187, 23)
         Me.FTSRcvSuplDate_lbl.TabIndex = 394
         Me.FTSRcvSuplDate_lbl.Tag = "2|"
         Me.FTSRcvSuplDate_lbl.Text = "Start Date Rcv. Supl :"
@@ -428,9 +442,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTCustomerPOTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTCustomerPOTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTCustomerPOTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTCustomerPOTo_lbl.Location = New System.Drawing.Point(744, 66)
+        Me.FTCustomerPOTo_lbl.Location = New System.Drawing.Point(868, 81)
+        Me.FTCustomerPOTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTCustomerPOTo_lbl.Name = "FTCustomerPOTo_lbl"
-        Me.FTCustomerPOTo_lbl.Size = New System.Drawing.Size(109, 19)
+        Me.FTCustomerPOTo_lbl.Size = New System.Drawing.Size(127, 23)
         Me.FTCustomerPOTo_lbl.TabIndex = 391
         Me.FTCustomerPOTo_lbl.Tag = "2|"
         Me.FTCustomerPOTo_lbl.Text = "FTCustomerPOTo :"
@@ -439,7 +454,8 @@ Partial Class wProdOrderTrackingByLine
         '
         Me.FTSSendSuplDate.EditValue = Nothing
         Me.FTSSendSuplDate.EnterMoveNextControl = True
-        Me.FTSSendSuplDate.Location = New System.Drawing.Point(218, 115)
+        Me.FTSSendSuplDate.Location = New System.Drawing.Point(254, 142)
+        Me.FTSSendSuplDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSSendSuplDate.Name = "FTSSendSuplDate"
         Me.FTSSendSuplDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTSSendSuplDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -447,7 +463,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTSSendSuplDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTSSendSuplDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTSSendSuplDate.Properties.NullDate = ""
-        Me.FTSSendSuplDate.Size = New System.Drawing.Size(90, 20)
+        Me.FTSSendSuplDate.Size = New System.Drawing.Size(105, 22)
         Me.FTSSendSuplDate.TabIndex = 392
         Me.FTSSendSuplDate.Tag = "2|"
         Me.FTSSendSuplDate.Visible = False
@@ -456,7 +472,8 @@ Partial Class wProdOrderTrackingByLine
         '
         Me.FTEndDateScanIn.EditValue = Nothing
         Me.FTEndDateScanIn.EnterMoveNextControl = True
-        Me.FTEndDateScanIn.Location = New System.Drawing.Point(389, 23)
+        Me.FTEndDateScanIn.Location = New System.Drawing.Point(454, 28)
+        Me.FTEndDateScanIn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTEndDateScanIn.Name = "FTEndDateScanIn"
         Me.FTEndDateScanIn.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTEndDateScanIn.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -464,7 +481,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTEndDateScanIn.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndDateScanIn.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndDateScanIn.Properties.NullDate = ""
-        Me.FTEndDateScanIn.Size = New System.Drawing.Size(90, 20)
+        Me.FTEndDateScanIn.Size = New System.Drawing.Size(105, 22)
         Me.FTEndDateScanIn.TabIndex = 3
         Me.FTEndDateScanIn.Tag = "2|"
         '
@@ -475,9 +492,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTSSendSuplDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSSendSuplDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSSendSuplDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSSendSuplDate_lbl.Location = New System.Drawing.Point(56, 115)
+        Me.FTSSendSuplDate_lbl.Location = New System.Drawing.Point(65, 142)
+        Me.FTSSendSuplDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSSendSuplDate_lbl.Name = "FTSSendSuplDate_lbl"
-        Me.FTSSendSuplDate_lbl.Size = New System.Drawing.Size(160, 19)
+        Me.FTSSendSuplDate_lbl.Size = New System.Drawing.Size(187, 23)
         Me.FTSSendSuplDate_lbl.TabIndex = 394
         Me.FTSSendSuplDate_lbl.Tag = "2|"
         Me.FTSSendSuplDate_lbl.Text = "Start Date Send Supl:"
@@ -486,7 +504,8 @@ Partial Class wProdOrderTrackingByLine
         'FTCustomerPOTo
         '
         Me.FTCustomerPOTo.EnterMoveNextControl = True
-        Me.FTCustomerPOTo.Location = New System.Drawing.Point(855, 67)
+        Me.FTCustomerPOTo.Location = New System.Drawing.Point(997, 82)
+        Me.FTCustomerPOTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTCustomerPOTo.Name = "FTCustomerPOTo"
         Me.FTCustomerPOTo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTCustomerPOTo.Properties.Appearance.Options.UseBackColor = True
@@ -505,7 +524,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTCustomerPOTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "340", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTCustomerPOTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTCustomerPOTo.Properties.MaxLength = 30
-        Me.FTCustomerPOTo.Size = New System.Drawing.Size(90, 20)
+        Me.FTCustomerPOTo.Size = New System.Drawing.Size(105, 22)
         Me.FTCustomerPOTo.TabIndex = 13
         Me.FTCustomerPOTo.Tag = "2|"
         '
@@ -513,7 +532,8 @@ Partial Class wProdOrderTrackingByLine
         '
         Me.FTEndDateScan.EditValue = Nothing
         Me.FTEndDateScan.EnterMoveNextControl = True
-        Me.FTEndDateScan.Location = New System.Drawing.Point(389, 45)
+        Me.FTEndDateScan.Location = New System.Drawing.Point(454, 55)
+        Me.FTEndDateScan.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTEndDateScan.Name = "FTEndDateScan"
         Me.FTEndDateScan.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTEndDateScan.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -521,7 +541,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTEndDateScan.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndDateScan.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndDateScan.Properties.NullDate = ""
-        Me.FTEndDateScan.Size = New System.Drawing.Size(90, 20)
+        Me.FTEndDateScan.Size = New System.Drawing.Size(105, 22)
         Me.FTEndDateScan.TabIndex = 5
         Me.FTEndDateScan.Tag = "2|"
         '
@@ -532,9 +552,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTCustomerPO_lbl.Appearance.Options.UseTextOptions = True
         Me.FTCustomerPO_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTCustomerPO_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTCustomerPO_lbl.Location = New System.Drawing.Point(528, 69)
+        Me.FTCustomerPO_lbl.Location = New System.Drawing.Point(616, 85)
+        Me.FTCustomerPO_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTCustomerPO_lbl.Name = "FTCustomerPO_lbl"
-        Me.FTCustomerPO_lbl.Size = New System.Drawing.Size(103, 19)
+        Me.FTCustomerPO_lbl.Size = New System.Drawing.Size(120, 23)
         Me.FTCustomerPO_lbl.TabIndex = 390
         Me.FTCustomerPO_lbl.Tag = "2|"
         Me.FTCustomerPO_lbl.Text = "FTCustomerPO :"
@@ -546,9 +567,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTEndDateScanIn_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEndDateScanIn_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEndDateScanIn_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEndDateScanIn_lbl.Location = New System.Drawing.Point(257, 22)
+        Me.FTEndDateScanIn_lbl.Location = New System.Drawing.Point(300, 27)
+        Me.FTEndDateScanIn_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTEndDateScanIn_lbl.Name = "FTEndDateScanIn_lbl"
-        Me.FTEndDateScanIn_lbl.Size = New System.Drawing.Size(130, 19)
+        Me.FTEndDateScanIn_lbl.Size = New System.Drawing.Size(152, 23)
         Me.FTEndDateScanIn_lbl.TabIndex = 395
         Me.FTEndDateScanIn_lbl.Tag = "2|"
         Me.FTEndDateScanIn_lbl.Text = "End Date Scan In Line:"
@@ -556,7 +578,8 @@ Partial Class wProdOrderTrackingByLine
         'FTCustomerPO
         '
         Me.FTCustomerPO.EnterMoveNextControl = True
-        Me.FTCustomerPO.Location = New System.Drawing.Point(633, 67)
+        Me.FTCustomerPO.Location = New System.Drawing.Point(738, 82)
+        Me.FTCustomerPO.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTCustomerPO.Name = "FTCustomerPO"
         Me.FTCustomerPO.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTCustomerPO.Properties.Appearance.Options.UseBackColor = True
@@ -575,7 +598,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTCustomerPO.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "329", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTCustomerPO.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTCustomerPO.Properties.MaxLength = 30
-        Me.FTCustomerPO.Size = New System.Drawing.Size(90, 20)
+        Me.FTCustomerPO.Size = New System.Drawing.Size(105, 22)
         Me.FTCustomerPO.TabIndex = 12
         Me.FTCustomerPO.Tag = "2|"
         '
@@ -583,7 +606,8 @@ Partial Class wProdOrderTrackingByLine
         '
         Me.FTStartDateScanIn.EditValue = Nothing
         Me.FTStartDateScanIn.EnterMoveNextControl = True
-        Me.FTStartDateScanIn.Location = New System.Drawing.Point(167, 23)
+        Me.FTStartDateScanIn.Location = New System.Drawing.Point(195, 28)
+        Me.FTStartDateScanIn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStartDateScanIn.Name = "FTStartDateScanIn"
         Me.FTStartDateScanIn.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTStartDateScanIn.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -591,7 +615,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTStartDateScanIn.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartDateScanIn.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartDateScanIn.Properties.NullDate = ""
-        Me.FTStartDateScanIn.Size = New System.Drawing.Size(90, 20)
+        Me.FTStartDateScanIn.Size = New System.Drawing.Size(105, 22)
         Me.FTStartDateScanIn.TabIndex = 2
         Me.FTStartDateScanIn.Tag = "2|"
         '
@@ -599,7 +623,8 @@ Partial Class wProdOrderTrackingByLine
         '
         Me.FTEndShipment.EditValue = Nothing
         Me.FTEndShipment.EnterMoveNextControl = True
-        Me.FTEndShipment.Location = New System.Drawing.Point(855, 45)
+        Me.FTEndShipment.Location = New System.Drawing.Point(997, 55)
+        Me.FTEndShipment.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTEndShipment.Name = "FTEndShipment"
         Me.FTEndShipment.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTEndShipment.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -607,7 +632,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTEndShipment.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndShipment.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndShipment.Properties.NullDate = ""
-        Me.FTEndShipment.Size = New System.Drawing.Size(90, 20)
+        Me.FTEndShipment.Size = New System.Drawing.Size(105, 22)
         Me.FTEndShipment.TabIndex = 11
         Me.FTEndShipment.Tag = "2|"
         '
@@ -618,9 +643,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTStartDateScanIn_lbl.Appearance.Options.UseTextOptions = True
         Me.FTStartDateScanIn_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTStartDateScanIn_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTStartDateScanIn_lbl.Location = New System.Drawing.Point(5, 22)
+        Me.FTStartDateScanIn_lbl.Location = New System.Drawing.Point(6, 27)
+        Me.FTStartDateScanIn_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStartDateScanIn_lbl.Name = "FTStartDateScanIn_lbl"
-        Me.FTStartDateScanIn_lbl.Size = New System.Drawing.Size(160, 19)
+        Me.FTStartDateScanIn_lbl.Size = New System.Drawing.Size(187, 23)
         Me.FTStartDateScanIn_lbl.TabIndex = 393
         Me.FTStartDateScanIn_lbl.Tag = "2|"
         Me.FTStartDateScanIn_lbl.Text = "Start Date Scan In Line:"
@@ -632,9 +658,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTEndDateScan_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEndDateScan_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEndDateScan_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEndDateScan_lbl.Location = New System.Drawing.Point(257, 45)
+        Me.FTEndDateScan_lbl.Location = New System.Drawing.Point(300, 55)
+        Me.FTEndDateScan_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTEndDateScan_lbl.Name = "FTEndDateScan_lbl"
-        Me.FTEndDateScan_lbl.Size = New System.Drawing.Size(130, 19)
+        Me.FTEndDateScan_lbl.Size = New System.Drawing.Size(152, 23)
         Me.FTEndDateScan_lbl.TabIndex = 391
         Me.FTEndDateScan_lbl.Tag = "2|"
         Me.FTEndDateScan_lbl.Text = "End Date Scan Out Line:"
@@ -643,7 +670,8 @@ Partial Class wProdOrderTrackingByLine
         '
         Me.FTStartDateScan.EditValue = Nothing
         Me.FTStartDateScan.EnterMoveNextControl = True
-        Me.FTStartDateScan.Location = New System.Drawing.Point(167, 45)
+        Me.FTStartDateScan.Location = New System.Drawing.Point(195, 55)
+        Me.FTStartDateScan.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStartDateScan.Name = "FTStartDateScan"
         Me.FTStartDateScan.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTStartDateScan.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -651,7 +679,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTStartDateScan.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartDateScan.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartDateScan.Properties.NullDate = ""
-        Me.FTStartDateScan.Size = New System.Drawing.Size(90, 20)
+        Me.FTStartDateScan.Size = New System.Drawing.Size(105, 22)
         Me.FTStartDateScan.TabIndex = 4
         Me.FTStartDateScan.Tag = "2|"
         '
@@ -662,9 +690,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTEndShipment_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEndShipment_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEndShipment_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTEndShipment_lbl.Location = New System.Drawing.Point(747, 44)
+        Me.FTEndShipment_lbl.Location = New System.Drawing.Point(871, 54)
+        Me.FTEndShipment_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTEndShipment_lbl.Name = "FTEndShipment_lbl"
-        Me.FTEndShipment_lbl.Size = New System.Drawing.Size(106, 19)
+        Me.FTEndShipment_lbl.Size = New System.Drawing.Size(124, 23)
         Me.FTEndShipment_lbl.TabIndex = 271
         Me.FTEndShipment_lbl.Tag = "2|"
         Me.FTEndShipment_lbl.Text = "End Shipment:"
@@ -676,9 +705,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTStartDateScan_lbl.Appearance.Options.UseTextOptions = True
         Me.FTStartDateScan_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTStartDateScan_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTStartDateScan_lbl.Location = New System.Drawing.Point(5, 45)
+        Me.FTStartDateScan_lbl.Location = New System.Drawing.Point(6, 55)
+        Me.FTStartDateScan_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStartDateScan_lbl.Name = "FTStartDateScan_lbl"
-        Me.FTStartDateScan_lbl.Size = New System.Drawing.Size(160, 19)
+        Me.FTStartDateScan_lbl.Size = New System.Drawing.Size(187, 23)
         Me.FTStartDateScan_lbl.TabIndex = 389
         Me.FTStartDateScan_lbl.Tag = "2|"
         Me.FTStartDateScan_lbl.Text = "Start Date Scan Out Line:"
@@ -687,7 +717,8 @@ Partial Class wProdOrderTrackingByLine
         '
         Me.FTStartShipment.EditValue = Nothing
         Me.FTStartShipment.EnterMoveNextControl = True
-        Me.FTStartShipment.Location = New System.Drawing.Point(633, 45)
+        Me.FTStartShipment.Location = New System.Drawing.Point(738, 55)
+        Me.FTStartShipment.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStartShipment.Name = "FTStartShipment"
         Me.FTStartShipment.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTStartShipment.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -695,7 +726,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTStartShipment.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartShipment.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartShipment.Properties.NullDate = ""
-        Me.FTStartShipment.Size = New System.Drawing.Size(90, 20)
+        Me.FTStartShipment.Size = New System.Drawing.Size(105, 22)
         Me.FTStartShipment.TabIndex = 10
         Me.FTStartShipment.Tag = "2|"
         '
@@ -706,9 +737,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTStartShipment_lbl.Appearance.Options.UseTextOptions = True
         Me.FTStartShipment_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTStartShipment_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTStartShipment_lbl.Location = New System.Drawing.Point(517, 44)
+        Me.FTStartShipment_lbl.Location = New System.Drawing.Point(603, 54)
+        Me.FTStartShipment_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStartShipment_lbl.Name = "FTStartShipment_lbl"
-        Me.FTStartShipment_lbl.Size = New System.Drawing.Size(114, 19)
+        Me.FTStartShipment_lbl.Size = New System.Drawing.Size(133, 23)
         Me.FTStartShipment_lbl.TabIndex = 269
         Me.FTStartShipment_lbl.Tag = "2|"
         Me.FTStartShipment_lbl.Text = "Start Shipment:"
@@ -720,9 +752,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FTOrderNoTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNoTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNoTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNoTo_lbl.Location = New System.Drawing.Point(752, 24)
+        Me.FTOrderNoTo_lbl.Location = New System.Drawing.Point(877, 30)
+        Me.FTOrderNoTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNoTo_lbl.Name = "FTOrderNoTo_lbl"
-        Me.FTOrderNoTo_lbl.Size = New System.Drawing.Size(101, 19)
+        Me.FTOrderNoTo_lbl.Size = New System.Drawing.Size(118, 23)
         Me.FTOrderNoTo_lbl.TabIndex = 287
         Me.FTOrderNoTo_lbl.Tag = "2|"
         Me.FTOrderNoTo_lbl.Text = "To Order No :"
@@ -731,19 +764,21 @@ Partial Class wProdOrderTrackingByLine
         '
         Me.FNHSysStyleId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysStyleId_None.Location = New System.Drawing.Point(764, 3)
+        Me.FNHSysStyleId_None.Location = New System.Drawing.Point(891, 4)
+        Me.FNHSysStyleId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysStyleId_None.Name = "FNHSysStyleId_None"
         Me.FNHSysStyleId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysStyleId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysStyleId_None.Properties.ReadOnly = True
-        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(183, 20)
+        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(400, 22)
         Me.FNHSysStyleId_None.TabIndex = 291
         Me.FNHSysStyleId_None.Tag = "2|"
         '
         'FTOrderNoTo
         '
         Me.FTOrderNoTo.EnterMoveNextControl = True
-        Me.FTOrderNoTo.Location = New System.Drawing.Point(855, 24)
+        Me.FTOrderNoTo.Location = New System.Drawing.Point(997, 30)
+        Me.FTOrderNoTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNoTo.Name = "FTOrderNoTo"
         Me.FTOrderNoTo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTOrderNoTo.Properties.Appearance.Options.UseBackColor = True
@@ -762,7 +797,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTOrderNoTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "219", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOrderNoTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTOrderNoTo.Properties.MaxLength = 30
-        Me.FTOrderNoTo.Size = New System.Drawing.Size(90, 20)
+        Me.FTOrderNoTo.Size = New System.Drawing.Size(105, 22)
         Me.FTOrderNoTo.TabIndex = 9
         Me.FTOrderNoTo.Tag = "2|"
         '
@@ -773,28 +808,31 @@ Partial Class wProdOrderTrackingByLine
         Me.FTOrderNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(517, 23)
+        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(603, 28)
+        Me.FTOrderNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNo_lbl.Name = "FTOrderNo_lbl"
-        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(114, 19)
+        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(133, 23)
         Me.FTOrderNo_lbl.TabIndex = 285
         Me.FTOrderNo_lbl.Tag = "2|"
         Me.FTOrderNo_lbl.Text = "From Order No :"
         '
         'FNHSysBuyId_None
         '
-        Me.FNHSysBuyId_None.Location = New System.Drawing.Point(298, 2)
+        Me.FNHSysBuyId_None.Location = New System.Drawing.Point(348, 2)
+        Me.FNHSysBuyId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysBuyId_None.Name = "FNHSysBuyId_None"
         Me.FNHSysBuyId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysBuyId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysBuyId_None.Properties.ReadOnly = True
-        Me.FNHSysBuyId_None.Size = New System.Drawing.Size(181, 20)
+        Me.FNHSysBuyId_None.Size = New System.Drawing.Size(211, 22)
         Me.FNHSysBuyId_None.TabIndex = 289
         Me.FNHSysBuyId_None.Tag = "2|"
         '
         'FTOrderNo
         '
         Me.FTOrderNo.EnterMoveNextControl = True
-        Me.FTOrderNo.Location = New System.Drawing.Point(633, 24)
+        Me.FTOrderNo.Location = New System.Drawing.Point(738, 30)
+        Me.FTOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNo.Name = "FTOrderNo"
         Me.FTOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTOrderNo.Properties.Appearance.Options.UseBackColor = True
@@ -813,7 +851,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "218", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOrderNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTOrderNo.Properties.MaxLength = 30
-        Me.FTOrderNo.Size = New System.Drawing.Size(90, 20)
+        Me.FTOrderNo.Size = New System.Drawing.Size(105, 22)
         Me.FTOrderNo.TabIndex = 8
         Me.FTOrderNo.Tag = "2|"
         '
@@ -824,30 +862,33 @@ Partial Class wProdOrderTrackingByLine
         Me.FNHSysStyleId_lbl2.Appearance.Options.UseTextOptions = True
         Me.FNHSysStyleId_lbl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysStyleId_lbl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysStyleId_lbl2.Location = New System.Drawing.Point(482, 3)
+        Me.FNHSysStyleId_lbl2.Location = New System.Drawing.Point(562, 4)
+        Me.FNHSysStyleId_lbl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysStyleId_lbl2.Name = "FNHSysStyleId_lbl2"
-        Me.FNHSysStyleId_lbl2.Size = New System.Drawing.Size(145, 20)
+        Me.FNHSysStyleId_lbl2.Size = New System.Drawing.Size(169, 25)
         Me.FNHSysStyleId_lbl2.TabIndex = 293
         Me.FNHSysStyleId_lbl2.Tag = "2|"
         Me.FNHSysStyleId_lbl2.Text = "Style No :"
         '
         'FNHSysBuyId
         '
-        Me.FNHSysBuyId.Location = New System.Drawing.Point(167, 2)
+        Me.FNHSysBuyId.Location = New System.Drawing.Point(195, 2)
+        Me.FNHSysBuyId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysBuyId.Name = "FNHSysBuyId"
         Me.FNHSysBuyId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "113", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysBuyId.Properties.Tag = ""
-        Me.FNHSysBuyId.Size = New System.Drawing.Size(130, 20)
+        Me.FNHSysBuyId.Size = New System.Drawing.Size(152, 22)
         Me.FNHSysBuyId.TabIndex = 0
         Me.FNHSysBuyId.Tag = "2|"
         '
         'FNHSysStyleId
         '
-        Me.FNHSysStyleId.Location = New System.Drawing.Point(633, 3)
+        Me.FNHSysStyleId.Location = New System.Drawing.Point(738, 4)
+        Me.FNHSysStyleId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysStyleId.Name = "FNHSysStyleId"
         Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.Tag = ""
-        Me.FNHSysStyleId.Size = New System.Drawing.Size(130, 20)
+        Me.FNHSysStyleId.Size = New System.Drawing.Size(152, 22)
         Me.FNHSysStyleId.TabIndex = 1
         Me.FNHSysStyleId.Tag = "2|"
         '
@@ -858,9 +899,10 @@ Partial Class wProdOrderTrackingByLine
         Me.FNHSysBuyId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysBuyId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysBuyId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysBuyId_lbl.Location = New System.Drawing.Point(5, 2)
+        Me.FNHSysBuyId_lbl.Location = New System.Drawing.Point(6, 2)
+        Me.FNHSysBuyId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysBuyId_lbl.Name = "FNHSysBuyId_lbl"
-        Me.FNHSysBuyId_lbl.Size = New System.Drawing.Size(156, 20)
+        Me.FNHSysBuyId_lbl.Size = New System.Drawing.Size(182, 25)
         Me.FNHSysBuyId_lbl.TabIndex = 292
         Me.FNHSysBuyId_lbl.Tag = "2|"
         Me.FNHSysBuyId_lbl.Text = "Buy :"
@@ -869,10 +911,11 @@ Partial Class wProdOrderTrackingByLine
         '
         Me.ogbdetail.Controls.Add(Me.ogcdetailcolorsizeline)
         Me.ogbdetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbdetail.Location = New System.Drawing.Point(0, 132)
+        Me.ogbdetail.Location = New System.Drawing.Point(0, 158)
+        Me.ogbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbdetail.Name = "ogbdetail"
         Me.ogbdetail.ShowCaption = False
-        Me.ogbdetail.Size = New System.Drawing.Size(1137, 501)
+        Me.ogbdetail.Size = New System.Drawing.Size(1326, 639)
         Me.ogbdetail.TabIndex = 0
         '
         'ogcdetailcolorsizeline
@@ -882,7 +925,7 @@ Partial Class wProdOrderTrackingByLine
         Me.ogcdetailcolorsizeline.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogcdetailcolorsizeline.Name = "ogcdetailcolorsizeline"
         Me.ogcdetailcolorsizeline.SelectedTabPage = Me.otbdetailcolorsizeline
-        Me.ogcdetailcolorsizeline.Size = New System.Drawing.Size(1133, 497)
+        Me.ogcdetailcolorsizeline.Size = New System.Drawing.Size(1322, 635)
         Me.ogcdetailcolorsizeline.TabIndex = 387
         Me.ogcdetailcolorsizeline.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otbdetailcolorsizeline})
         '
@@ -891,16 +934,18 @@ Partial Class wProdOrderTrackingByLine
         Me.otbdetailcolorsizeline.Controls.Add(Me.ogcdetailcolorsizelineg)
         Me.otbdetailcolorsizeline.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otbdetailcolorsizeline.Name = "otbdetailcolorsizeline"
-        Me.otbdetailcolorsizeline.Size = New System.Drawing.Size(1131, 472)
+        Me.otbdetailcolorsizeline.Size = New System.Drawing.Size(1320, 605)
         Me.otbdetailcolorsizeline.Text = "Detail By Color , Size  And Line"
         '
         'ogcdetailcolorsizelineg
         '
         Me.ogcdetailcolorsizelineg.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcdetailcolorsizelineg.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcdetailcolorsizelineg.Location = New System.Drawing.Point(0, 0)
         Me.ogcdetailcolorsizelineg.MainView = Me.ogvdetailcolorsizelineg
+        Me.ogcdetailcolorsizelineg.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcdetailcolorsizelineg.Name = "ogcdetailcolorsizelineg"
-        Me.ogcdetailcolorsizelineg.Size = New System.Drawing.Size(1131, 472)
+        Me.ogcdetailcolorsizelineg.Size = New System.Drawing.Size(1320, 605)
         Me.ogcdetailcolorsizelineg.TabIndex = 2
         Me.ogcdetailcolorsizelineg.TabStop = False
         Me.ogcdetailcolorsizelineg.Tag = "2|"
@@ -908,7 +953,8 @@ Partial Class wProdOrderTrackingByLine
         '
         'ogvdetailcolorsizelineg
         '
-        Me.ogvdetailcolorsizelineg.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTStyleCode, Me.SFTOrderNo, Me.FTPORef, Me.SFTCmpCode, Me.SFTCmpName, Me.SFDShipDate, Me.SFTPOLineItemNo, Me.SFTColorway, Me.SFTSizeBreakDown, Me.SFNQuantity, Me.SFNQuantityExtra, Me.SFNGarmentQtyTest, Me.SFNGrandQuantity, Me.FTUnitSectCodeCut, Me.SFNCutQuantity, Me.SFNCutBalQuantity, Me.CFNQtyEmbroidery, Me.CFNRcvQtyEmbroidery, Me.FNBalQtyEmbroidery, Me.CFNQtyPrint, Me.CFNRcvQtyPrint, Me.CFNBalQtyPrint, Me.CFNQtyHeat, Me.CFNRcvQtyHeat, Me.CFNBalQtyHeat, Me.CFNQtyLaser, Me.CFNRcvQtyLaser, Me.CFNBalQtyLaser, Me.CFNQtyPadPrint, Me.CFNRcvQtyPadPrint, Me.CFNBalQtyPadPrint, Me.CFNQtyWindow, Me.CFNRcvQtyWindow, Me.CFNBalQtyWindow, Me.SFNSendSuplQuantity, Me.SFNRcvSuplQuantity, Me.SFNBalSuplQuantity, Me.SFNSPMKQuantity, Me.SFNBalCutQuantity, Me.FTUnitSectCodeSew, Me.SFNSewQuantity, Me.CXFNSPMKQuantityBal, Me.SFNSewOutQuantity, Me.SFNBalSewQuantity, Me.SFNPackQuantity, Me.SFNBalPackQuantity, Me.FNTableCut})
+        Me.ogvdetailcolorsizelineg.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTStyleCode, Me.SFTOrderNo, Me.FTPORef, Me.SFTCmpCode, Me.SFTCmpName, Me.SFDShipDate, Me.SFTPOLineItemNo, Me.SFTColorway, Me.SFTSizeBreakDown, Me.SFNQuantity, Me.SFNQuantityExtra, Me.SFNGarmentQtyTest, Me.SFNGrandQuantity, Me.FTUnitSectCodeCut, Me.SFNCutQuantity, Me.SFNCutBalQuantity, Me.CFNQtyEmbroidery, Me.CFNRcvQtyEmbroidery, Me.FNBalQtyEmbroidery, Me.CFNQtyPrint, Me.CFNRcvQtyPrint, Me.CFNBalQtyPrint, Me.CFNQtyHeat, Me.CFNRcvQtyHeat, Me.CFNBalQtyHeat, Me.CFNQtyLaser, Me.CFNRcvQtyLaser, Me.CFNBalQtyLaser, Me.CFNQtyPadPrint, Me.CFNRcvQtyPadPrint, Me.CFNBalQtyPadPrint, Me.CFNQtyWindow, Me.CFNRcvQtyWindow, Me.CFNBalQtyWindow, Me.SFNSendSuplQuantity, Me.SFNRcvSuplQuantity, Me.SFNBalSuplQuantity, Me.SFNSPMKQuantity, Me.SFNBalCutQuantity, Me.FTUnitSectCodeSew, Me.SFNSewQuantity, Me.CXFNSPMKQuantityBal, Me.SFNSewOutQuantity, Me.SFNBalSewQuantity, Me.SFNPackQuantity, Me.SFNBalPackQuantity, Me.FNTableCut, Me.cFNRcvMiniFGQty, Me.CFNIssMiniFGQty})
+        Me.ogvdetailcolorsizelineg.DetailHeight = 431
         Me.ogvdetailcolorsizelineg.GridControl = Me.ogcdetailcolorsizelineg
         Me.ogvdetailcolorsizelineg.Name = "ogvdetailcolorsizelineg"
         Me.ogvdetailcolorsizelineg.OptionsCustomization.AllowQuickHideColumns = False
@@ -924,11 +970,13 @@ Partial Class wProdOrderTrackingByLine
         Me.FTStyleCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTStyleCode.Caption = "FTStyleCode"
         Me.FTStyleCode.FieldName = "FTStyleCode"
+        Me.FTStyleCode.MinWidth = 23
         Me.FTStyleCode.Name = "FTStyleCode"
         Me.FTStyleCode.OptionsColumn.AllowEdit = False
         Me.FTStyleCode.OptionsColumn.ReadOnly = True
         Me.FTStyleCode.Visible = True
         Me.FTStyleCode.VisibleIndex = 0
+        Me.FTStyleCode.Width = 87
         '
         'SFTOrderNo
         '
@@ -936,6 +984,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFTOrderNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.SFTOrderNo.Caption = "FTOrderNo"
         Me.SFTOrderNo.FieldName = "FTOrderNo"
+        Me.SFTOrderNo.MinWidth = 23
         Me.SFTOrderNo.Name = "SFTOrderNo"
         Me.SFTOrderNo.OptionsColumn.AllowEdit = False
         Me.SFTOrderNo.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -945,7 +994,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFTOrderNo.OptionsColumn.ShowInCustomizationForm = False
         Me.SFTOrderNo.Visible = True
         Me.SFTOrderNo.VisibleIndex = 2
-        Me.SFTOrderNo.Width = 127
+        Me.SFTOrderNo.Width = 148
         '
         'FTPORef
         '
@@ -953,6 +1002,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTPORef.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTPORef.Caption = "FTPORef"
         Me.FTPORef.FieldName = "FTPORef"
+        Me.FTPORef.MinWidth = 23
         Me.FTPORef.Name = "FTPORef"
         Me.FTPORef.OptionsColumn.AllowEdit = False
         Me.FTPORef.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -961,7 +1011,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTPORef.OptionsColumn.ReadOnly = True
         Me.FTPORef.Visible = True
         Me.FTPORef.VisibleIndex = 1
-        Me.FTPORef.Width = 110
+        Me.FTPORef.Width = 128
         '
         'SFTCmpCode
         '
@@ -969,6 +1019,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFTCmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.SFTCmpCode.Caption = "FTCmpCode"
         Me.SFTCmpCode.FieldName = "FTCmpCode"
+        Me.SFTCmpCode.MinWidth = 23
         Me.SFTCmpCode.Name = "SFTCmpCode"
         Me.SFTCmpCode.OptionsColumn.AllowEdit = False
         Me.SFTCmpCode.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -978,7 +1029,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFTCmpCode.OptionsColumn.ShowInCustomizationForm = False
         Me.SFTCmpCode.Visible = True
         Me.SFTCmpCode.VisibleIndex = 3
-        Me.SFTCmpCode.Width = 100
+        Me.SFTCmpCode.Width = 117
         '
         'SFTCmpName
         '
@@ -986,6 +1037,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFTCmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.SFTCmpName.Caption = "FTCmpName"
         Me.SFTCmpName.FieldName = "FTCmpName"
+        Me.SFTCmpName.MinWidth = 23
         Me.SFTCmpName.Name = "SFTCmpName"
         Me.SFTCmpName.OptionsColumn.AllowEdit = False
         Me.SFTCmpName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -995,7 +1047,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFTCmpName.OptionsColumn.ShowInCustomizationForm = False
         Me.SFTCmpName.Visible = True
         Me.SFTCmpName.VisibleIndex = 4
-        Me.SFTCmpName.Width = 120
+        Me.SFTCmpName.Width = 140
         '
         'SFDShipDate
         '
@@ -1007,6 +1059,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFDShipDate.DisplayFormat.FormatString = "dd/MM/yyyy"
         Me.SFDShipDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.SFDShipDate.FieldName = "FDShipDate"
+        Me.SFDShipDate.MinWidth = 23
         Me.SFDShipDate.Name = "SFDShipDate"
         Me.SFDShipDate.OptionsColumn.AllowEdit = False
         Me.SFDShipDate.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1016,7 +1069,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFDShipDate.OptionsColumn.ShowInCustomizationForm = False
         Me.SFDShipDate.Visible = True
         Me.SFDShipDate.VisibleIndex = 5
-        Me.SFDShipDate.Width = 80
+        Me.SFDShipDate.Width = 93
         '
         'SFTPOLineItemNo
         '
@@ -1024,6 +1077,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFTPOLineItemNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.SFTPOLineItemNo.Caption = "FTPOLineItemNo"
         Me.SFTPOLineItemNo.FieldName = "FTPOLineItemNo"
+        Me.SFTPOLineItemNo.MinWidth = 23
         Me.SFTPOLineItemNo.Name = "SFTPOLineItemNo"
         Me.SFTPOLineItemNo.OptionsColumn.AllowEdit = False
         Me.SFTPOLineItemNo.OptionsColumn.AllowShowHide = False
@@ -1031,7 +1085,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFTPOLineItemNo.OptionsColumn.ShowInCustomizationForm = False
         Me.SFTPOLineItemNo.Visible = True
         Me.SFTPOLineItemNo.VisibleIndex = 6
-        Me.SFTPOLineItemNo.Width = 80
+        Me.SFTPOLineItemNo.Width = 93
         '
         'SFTColorway
         '
@@ -1039,6 +1093,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFTColorway.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.SFTColorway.Caption = "FTColorway"
         Me.SFTColorway.FieldName = "FTColorway"
+        Me.SFTColorway.MinWidth = 23
         Me.SFTColorway.Name = "SFTColorway"
         Me.SFTColorway.OptionsColumn.AllowEdit = False
         Me.SFTColorway.OptionsColumn.AllowShowHide = False
@@ -1046,7 +1101,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFTColorway.OptionsColumn.ShowInCustomizationForm = False
         Me.SFTColorway.Visible = True
         Me.SFTColorway.VisibleIndex = 7
-        Me.SFTColorway.Width = 80
+        Me.SFTColorway.Width = 93
         '
         'SFTSizeBreakDown
         '
@@ -1054,6 +1109,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFTSizeBreakDown.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.SFTSizeBreakDown.Caption = "FTSizeBreakDown"
         Me.SFTSizeBreakDown.FieldName = "FTSizeBreakDown"
+        Me.SFTSizeBreakDown.MinWidth = 23
         Me.SFTSizeBreakDown.Name = "SFTSizeBreakDown"
         Me.SFTSizeBreakDown.OptionsColumn.AllowEdit = False
         Me.SFTSizeBreakDown.OptionsColumn.AllowShowHide = False
@@ -1061,7 +1117,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFTSizeBreakDown.OptionsColumn.ShowInCustomizationForm = False
         Me.SFTSizeBreakDown.Visible = True
         Me.SFTSizeBreakDown.VisibleIndex = 8
-        Me.SFTSizeBreakDown.Width = 60
+        Me.SFTSizeBreakDown.Width = 70
         '
         'SFNQuantity
         '
@@ -1073,6 +1129,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNQuantity.FieldName = "FNQuantity"
+        Me.SFNQuantity.MinWidth = 23
         Me.SFNQuantity.Name = "SFNQuantity"
         Me.SFNQuantity.OptionsColumn.AllowEdit = False
         Me.SFNQuantity.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1082,7 +1139,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNQuantity.Visible = True
         Me.SFNQuantity.VisibleIndex = 9
-        Me.SFNQuantity.Width = 90
+        Me.SFNQuantity.Width = 105
         '
         'SFNQuantityExtra
         '
@@ -1094,6 +1151,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNQuantityExtra.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNQuantityExtra.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNQuantityExtra.FieldName = "FNQuantityExtra"
+        Me.SFNQuantityExtra.MinWidth = 23
         Me.SFNQuantityExtra.Name = "SFNQuantityExtra"
         Me.SFNQuantityExtra.OptionsColumn.AllowEdit = False
         Me.SFNQuantityExtra.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1103,7 +1161,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNQuantityExtra.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNQuantityExtra.Visible = True
         Me.SFNQuantityExtra.VisibleIndex = 10
-        Me.SFNQuantityExtra.Width = 90
+        Me.SFNQuantityExtra.Width = 105
         '
         'SFNGarmentQtyTest
         '
@@ -1115,6 +1173,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNGarmentQtyTest.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNGarmentQtyTest.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNGarmentQtyTest.FieldName = "FNGarmentQtyTest"
+        Me.SFNGarmentQtyTest.MinWidth = 23
         Me.SFNGarmentQtyTest.Name = "SFNGarmentQtyTest"
         Me.SFNGarmentQtyTest.OptionsColumn.AllowEdit = False
         Me.SFNGarmentQtyTest.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1124,7 +1183,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNGarmentQtyTest.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNGarmentQtyTest.Visible = True
         Me.SFNGarmentQtyTest.VisibleIndex = 11
-        Me.SFNGarmentQtyTest.Width = 90
+        Me.SFNGarmentQtyTest.Width = 105
         '
         'SFNGrandQuantity
         '
@@ -1136,6 +1195,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNGrandQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNGrandQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNGrandQuantity.FieldName = "FNGrandQuantity"
+        Me.SFNGrandQuantity.MinWidth = 23
         Me.SFNGrandQuantity.Name = "SFNGrandQuantity"
         Me.SFNGrandQuantity.OptionsColumn.AllowEdit = False
         Me.SFNGrandQuantity.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1145,7 +1205,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNGrandQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNGrandQuantity.Visible = True
         Me.SFNGrandQuantity.VisibleIndex = 12
-        Me.SFNGrandQuantity.Width = 90
+        Me.SFNGrandQuantity.Width = 105
         '
         'FTUnitSectCodeCut
         '
@@ -1153,6 +1213,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTUnitSectCodeCut.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTUnitSectCodeCut.Caption = "โต๊ะตัด"
         Me.FTUnitSectCodeCut.FieldName = "FTUnitSectCodeCut"
+        Me.FTUnitSectCodeCut.MinWidth = 23
         Me.FTUnitSectCodeCut.Name = "FTUnitSectCodeCut"
         Me.FTUnitSectCodeCut.OptionsColumn.AllowEdit = False
         Me.FTUnitSectCodeCut.OptionsColumn.AllowShowHide = False
@@ -1160,7 +1221,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTUnitSectCodeCut.OptionsColumn.ShowInCustomizationForm = False
         Me.FTUnitSectCodeCut.Visible = True
         Me.FTUnitSectCodeCut.VisibleIndex = 13
-        Me.FTUnitSectCodeCut.Width = 80
+        Me.FTUnitSectCodeCut.Width = 93
         '
         'SFNCutQuantity
         '
@@ -1172,6 +1233,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNCutQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNCutQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNCutQuantity.FieldName = "FNCutQuantity"
+        Me.SFNCutQuantity.MinWidth = 23
         Me.SFNCutQuantity.Name = "SFNCutQuantity"
         Me.SFNCutQuantity.OptionsColumn.AllowEdit = False
         Me.SFNCutQuantity.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1181,7 +1243,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNCutQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNCutQuantity.Visible = True
         Me.SFNCutQuantity.VisibleIndex = 14
-        Me.SFNCutQuantity.Width = 90
+        Me.SFNCutQuantity.Width = 105
         '
         'SFNCutBalQuantity
         '
@@ -1193,6 +1255,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNCutBalQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNCutBalQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNCutBalQuantity.FieldName = "FNCutBalQuantity"
+        Me.SFNCutBalQuantity.MinWidth = 23
         Me.SFNCutBalQuantity.Name = "SFNCutBalQuantity"
         Me.SFNCutBalQuantity.OptionsColumn.AllowEdit = False
         Me.SFNCutBalQuantity.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1202,7 +1265,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNCutBalQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNCutBalQuantity.Visible = True
         Me.SFNCutBalQuantity.VisibleIndex = 15
-        Me.SFNCutBalQuantity.Width = 90
+        Me.SFNCutBalQuantity.Width = 105
         '
         'CFNQtyEmbroidery
         '
@@ -1210,12 +1273,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNQtyEmbroidery.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNQtyEmbroidery.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNQtyEmbroidery.FieldName = "FNQtyEmbroidery"
+        Me.CFNQtyEmbroidery.MinWidth = 23
         Me.CFNQtyEmbroidery.Name = "CFNQtyEmbroidery"
         Me.CFNQtyEmbroidery.OptionsColumn.AllowEdit = False
         Me.CFNQtyEmbroidery.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNQtyEmbroidery.OptionsColumn.ReadOnly = True
         Me.CFNQtyEmbroidery.Visible = True
         Me.CFNQtyEmbroidery.VisibleIndex = 16
+        Me.CFNQtyEmbroidery.Width = 87
         '
         'CFNRcvQtyEmbroidery
         '
@@ -1223,12 +1288,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNRcvQtyEmbroidery.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNRcvQtyEmbroidery.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNRcvQtyEmbroidery.FieldName = "FNRcvQtyEmbroidery"
+        Me.CFNRcvQtyEmbroidery.MinWidth = 23
         Me.CFNRcvQtyEmbroidery.Name = "CFNRcvQtyEmbroidery"
         Me.CFNRcvQtyEmbroidery.OptionsColumn.AllowEdit = False
         Me.CFNRcvQtyEmbroidery.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNRcvQtyEmbroidery.OptionsColumn.ReadOnly = True
         Me.CFNRcvQtyEmbroidery.Visible = True
         Me.CFNRcvQtyEmbroidery.VisibleIndex = 17
+        Me.CFNRcvQtyEmbroidery.Width = 87
         '
         'FNBalQtyEmbroidery
         '
@@ -1236,12 +1303,14 @@ Partial Class wProdOrderTrackingByLine
         Me.FNBalQtyEmbroidery.DisplayFormat.FormatString = "{0:n0}"
         Me.FNBalQtyEmbroidery.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNBalQtyEmbroidery.FieldName = "FNBalQtyEmbroidery"
+        Me.FNBalQtyEmbroidery.MinWidth = 23
         Me.FNBalQtyEmbroidery.Name = "FNBalQtyEmbroidery"
         Me.FNBalQtyEmbroidery.OptionsColumn.AllowEdit = False
         Me.FNBalQtyEmbroidery.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.FNBalQtyEmbroidery.OptionsColumn.ReadOnly = True
         Me.FNBalQtyEmbroidery.Visible = True
         Me.FNBalQtyEmbroidery.VisibleIndex = 18
+        Me.FNBalQtyEmbroidery.Width = 87
         '
         'CFNQtyPrint
         '
@@ -1249,12 +1318,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNQtyPrint.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNQtyPrint.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNQtyPrint.FieldName = "FNQtyPrint"
+        Me.CFNQtyPrint.MinWidth = 23
         Me.CFNQtyPrint.Name = "CFNQtyPrint"
         Me.CFNQtyPrint.OptionsColumn.AllowEdit = False
         Me.CFNQtyPrint.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNQtyPrint.OptionsColumn.ReadOnly = True
         Me.CFNQtyPrint.Visible = True
         Me.CFNQtyPrint.VisibleIndex = 19
+        Me.CFNQtyPrint.Width = 87
         '
         'CFNRcvQtyPrint
         '
@@ -1262,12 +1333,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNRcvQtyPrint.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNRcvQtyPrint.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNRcvQtyPrint.FieldName = "FNRcvQtyPrint"
+        Me.CFNRcvQtyPrint.MinWidth = 23
         Me.CFNRcvQtyPrint.Name = "CFNRcvQtyPrint"
         Me.CFNRcvQtyPrint.OptionsColumn.AllowEdit = False
         Me.CFNRcvQtyPrint.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNRcvQtyPrint.OptionsColumn.ReadOnly = True
         Me.CFNRcvQtyPrint.Visible = True
         Me.CFNRcvQtyPrint.VisibleIndex = 20
+        Me.CFNRcvQtyPrint.Width = 87
         '
         'CFNBalQtyPrint
         '
@@ -1275,12 +1348,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNBalQtyPrint.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNBalQtyPrint.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNBalQtyPrint.FieldName = "FNBalQtyPrint"
+        Me.CFNBalQtyPrint.MinWidth = 23
         Me.CFNBalQtyPrint.Name = "CFNBalQtyPrint"
         Me.CFNBalQtyPrint.OptionsColumn.AllowEdit = False
         Me.CFNBalQtyPrint.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNBalQtyPrint.OptionsColumn.ReadOnly = True
         Me.CFNBalQtyPrint.Visible = True
         Me.CFNBalQtyPrint.VisibleIndex = 21
+        Me.CFNBalQtyPrint.Width = 87
         '
         'CFNQtyHeat
         '
@@ -1288,12 +1363,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNQtyHeat.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNQtyHeat.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNQtyHeat.FieldName = "FNQtyHeat"
+        Me.CFNQtyHeat.MinWidth = 23
         Me.CFNQtyHeat.Name = "CFNQtyHeat"
         Me.CFNQtyHeat.OptionsColumn.AllowEdit = False
         Me.CFNQtyHeat.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNQtyHeat.OptionsColumn.ReadOnly = True
         Me.CFNQtyHeat.Visible = True
         Me.CFNQtyHeat.VisibleIndex = 22
+        Me.CFNQtyHeat.Width = 87
         '
         'CFNRcvQtyHeat
         '
@@ -1301,12 +1378,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNRcvQtyHeat.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNRcvQtyHeat.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNRcvQtyHeat.FieldName = "FNRcvQtyHeat"
+        Me.CFNRcvQtyHeat.MinWidth = 23
         Me.CFNRcvQtyHeat.Name = "CFNRcvQtyHeat"
         Me.CFNRcvQtyHeat.OptionsColumn.AllowEdit = False
         Me.CFNRcvQtyHeat.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNRcvQtyHeat.OptionsColumn.ReadOnly = True
         Me.CFNRcvQtyHeat.Visible = True
         Me.CFNRcvQtyHeat.VisibleIndex = 23
+        Me.CFNRcvQtyHeat.Width = 87
         '
         'CFNBalQtyHeat
         '
@@ -1314,12 +1393,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNBalQtyHeat.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNBalQtyHeat.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNBalQtyHeat.FieldName = "FNBalQtyHeat"
+        Me.CFNBalQtyHeat.MinWidth = 23
         Me.CFNBalQtyHeat.Name = "CFNBalQtyHeat"
         Me.CFNBalQtyHeat.OptionsColumn.AllowEdit = False
         Me.CFNBalQtyHeat.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNBalQtyHeat.OptionsColumn.ReadOnly = True
         Me.CFNBalQtyHeat.Visible = True
         Me.CFNBalQtyHeat.VisibleIndex = 24
+        Me.CFNBalQtyHeat.Width = 87
         '
         'CFNQtyLaser
         '
@@ -1327,12 +1408,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNQtyLaser.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNQtyLaser.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNQtyLaser.FieldName = "FNQtyLaser"
+        Me.CFNQtyLaser.MinWidth = 23
         Me.CFNQtyLaser.Name = "CFNQtyLaser"
         Me.CFNQtyLaser.OptionsColumn.AllowEdit = False
         Me.CFNQtyLaser.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNQtyLaser.OptionsColumn.ReadOnly = True
         Me.CFNQtyLaser.Visible = True
         Me.CFNQtyLaser.VisibleIndex = 25
+        Me.CFNQtyLaser.Width = 87
         '
         'CFNRcvQtyLaser
         '
@@ -1340,12 +1423,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNRcvQtyLaser.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNRcvQtyLaser.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNRcvQtyLaser.FieldName = "FNRcvQtyLaser"
+        Me.CFNRcvQtyLaser.MinWidth = 23
         Me.CFNRcvQtyLaser.Name = "CFNRcvQtyLaser"
         Me.CFNRcvQtyLaser.OptionsColumn.AllowEdit = False
         Me.CFNRcvQtyLaser.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNRcvQtyLaser.OptionsColumn.ReadOnly = True
         Me.CFNRcvQtyLaser.Visible = True
         Me.CFNRcvQtyLaser.VisibleIndex = 26
+        Me.CFNRcvQtyLaser.Width = 87
         '
         'CFNBalQtyLaser
         '
@@ -1353,12 +1438,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNBalQtyLaser.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNBalQtyLaser.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNBalQtyLaser.FieldName = "FNBalQtyLaser"
+        Me.CFNBalQtyLaser.MinWidth = 23
         Me.CFNBalQtyLaser.Name = "CFNBalQtyLaser"
         Me.CFNBalQtyLaser.OptionsColumn.AllowEdit = False
         Me.CFNBalQtyLaser.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNBalQtyLaser.OptionsColumn.ReadOnly = True
         Me.CFNBalQtyLaser.Visible = True
         Me.CFNBalQtyLaser.VisibleIndex = 27
+        Me.CFNBalQtyLaser.Width = 87
         '
         'CFNQtyPadPrint
         '
@@ -1366,12 +1453,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNQtyPadPrint.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNQtyPadPrint.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNQtyPadPrint.FieldName = "FNQtyPadPrint"
+        Me.CFNQtyPadPrint.MinWidth = 23
         Me.CFNQtyPadPrint.Name = "CFNQtyPadPrint"
         Me.CFNQtyPadPrint.OptionsColumn.AllowEdit = False
         Me.CFNQtyPadPrint.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNQtyPadPrint.OptionsColumn.ReadOnly = True
         Me.CFNQtyPadPrint.Visible = True
         Me.CFNQtyPadPrint.VisibleIndex = 28
+        Me.CFNQtyPadPrint.Width = 87
         '
         'CFNRcvQtyPadPrint
         '
@@ -1379,12 +1468,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNRcvQtyPadPrint.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNRcvQtyPadPrint.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNRcvQtyPadPrint.FieldName = "FNRcvQtyPadPrint"
+        Me.CFNRcvQtyPadPrint.MinWidth = 23
         Me.CFNRcvQtyPadPrint.Name = "CFNRcvQtyPadPrint"
         Me.CFNRcvQtyPadPrint.OptionsColumn.AllowEdit = False
         Me.CFNRcvQtyPadPrint.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNRcvQtyPadPrint.OptionsColumn.ReadOnly = True
         Me.CFNRcvQtyPadPrint.Visible = True
         Me.CFNRcvQtyPadPrint.VisibleIndex = 29
+        Me.CFNRcvQtyPadPrint.Width = 87
         '
         'CFNBalQtyPadPrint
         '
@@ -1392,12 +1483,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNBalQtyPadPrint.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNBalQtyPadPrint.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNBalQtyPadPrint.FieldName = "FNBalQtyPadPrint"
+        Me.CFNBalQtyPadPrint.MinWidth = 23
         Me.CFNBalQtyPadPrint.Name = "CFNBalQtyPadPrint"
         Me.CFNBalQtyPadPrint.OptionsColumn.AllowEdit = False
         Me.CFNBalQtyPadPrint.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNBalQtyPadPrint.OptionsColumn.ReadOnly = True
         Me.CFNBalQtyPadPrint.Visible = True
         Me.CFNBalQtyPadPrint.VisibleIndex = 30
+        Me.CFNBalQtyPadPrint.Width = 87
         '
         'CFNQtyWindow
         '
@@ -1405,12 +1498,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNQtyWindow.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNQtyWindow.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNQtyWindow.FieldName = "FNQtyWindow"
+        Me.CFNQtyWindow.MinWidth = 23
         Me.CFNQtyWindow.Name = "CFNQtyWindow"
         Me.CFNQtyWindow.OptionsColumn.AllowEdit = False
         Me.CFNQtyWindow.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNQtyWindow.OptionsColumn.ReadOnly = True
         Me.CFNQtyWindow.Visible = True
         Me.CFNQtyWindow.VisibleIndex = 31
+        Me.CFNQtyWindow.Width = 87
         '
         'CFNRcvQtyWindow
         '
@@ -1418,12 +1513,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNRcvQtyWindow.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNRcvQtyWindow.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNRcvQtyWindow.FieldName = "FNRcvQtyWindow"
+        Me.CFNRcvQtyWindow.MinWidth = 23
         Me.CFNRcvQtyWindow.Name = "CFNRcvQtyWindow"
         Me.CFNRcvQtyWindow.OptionsColumn.AllowEdit = False
         Me.CFNRcvQtyWindow.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNRcvQtyWindow.OptionsColumn.ReadOnly = True
         Me.CFNRcvQtyWindow.Visible = True
         Me.CFNRcvQtyWindow.VisibleIndex = 32
+        Me.CFNRcvQtyWindow.Width = 87
         '
         'CFNBalQtyWindow
         '
@@ -1431,12 +1528,14 @@ Partial Class wProdOrderTrackingByLine
         Me.CFNBalQtyWindow.DisplayFormat.FormatString = "{0:n0}"
         Me.CFNBalQtyWindow.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CFNBalQtyWindow.FieldName = "FNBalQtyWindow"
+        Me.CFNBalQtyWindow.MinWidth = 23
         Me.CFNBalQtyWindow.Name = "CFNBalQtyWindow"
         Me.CFNBalQtyWindow.OptionsColumn.AllowEdit = False
         Me.CFNBalQtyWindow.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.CFNBalQtyWindow.OptionsColumn.ReadOnly = True
         Me.CFNBalQtyWindow.Visible = True
         Me.CFNBalQtyWindow.VisibleIndex = 33
+        Me.CFNBalQtyWindow.Width = 87
         '
         'SFNSendSuplQuantity
         '
@@ -1448,6 +1547,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNSendSuplQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNSendSuplQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNSendSuplQuantity.FieldName = "FNSendSuplQuantity"
+        Me.SFNSendSuplQuantity.MinWidth = 23
         Me.SFNSendSuplQuantity.Name = "SFNSendSuplQuantity"
         Me.SFNSendSuplQuantity.OptionsColumn.AllowEdit = False
         Me.SFNSendSuplQuantity.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1456,7 +1556,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNSendSuplQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNSendSuplQuantity.Visible = True
         Me.SFNSendSuplQuantity.VisibleIndex = 34
-        Me.SFNSendSuplQuantity.Width = 90
+        Me.SFNSendSuplQuantity.Width = 105
         '
         'SFNRcvSuplQuantity
         '
@@ -1468,6 +1568,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNRcvSuplQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNRcvSuplQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNRcvSuplQuantity.FieldName = "FNRcvSuplQuantity"
+        Me.SFNRcvSuplQuantity.MinWidth = 23
         Me.SFNRcvSuplQuantity.Name = "SFNRcvSuplQuantity"
         Me.SFNRcvSuplQuantity.OptionsColumn.AllowEdit = False
         Me.SFNRcvSuplQuantity.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1476,7 +1577,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNRcvSuplQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNRcvSuplQuantity.Visible = True
         Me.SFNRcvSuplQuantity.VisibleIndex = 35
-        Me.SFNRcvSuplQuantity.Width = 90
+        Me.SFNRcvSuplQuantity.Width = 105
         '
         'SFNBalSuplQuantity
         '
@@ -1488,6 +1589,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNBalSuplQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNBalSuplQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNBalSuplQuantity.FieldName = "FNBalSuplQuantity"
+        Me.SFNBalSuplQuantity.MinWidth = 23
         Me.SFNBalSuplQuantity.Name = "SFNBalSuplQuantity"
         Me.SFNBalSuplQuantity.OptionsColumn.AllowEdit = False
         Me.SFNBalSuplQuantity.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1496,7 +1598,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNBalSuplQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNBalSuplQuantity.Visible = True
         Me.SFNBalSuplQuantity.VisibleIndex = 37
-        Me.SFNBalSuplQuantity.Width = 90
+        Me.SFNBalSuplQuantity.Width = 105
         '
         'SFNSPMKQuantity
         '
@@ -1508,6 +1610,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNSPMKQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNSPMKQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNSPMKQuantity.FieldName = "FNSPMKQuantity"
+        Me.SFNSPMKQuantity.MinWidth = 23
         Me.SFNSPMKQuantity.Name = "SFNSPMKQuantity"
         Me.SFNSPMKQuantity.OptionsColumn.AllowEdit = False
         Me.SFNSPMKQuantity.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1517,7 +1620,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNSPMKQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNSPMKQuantity.Visible = True
         Me.SFNSPMKQuantity.VisibleIndex = 36
-        Me.SFNSPMKQuantity.Width = 90
+        Me.SFNSPMKQuantity.Width = 105
         '
         'SFNBalCutQuantity
         '
@@ -1529,6 +1632,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNBalCutQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNBalCutQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNBalCutQuantity.FieldName = "FNBalCutQuantity"
+        Me.SFNBalCutQuantity.MinWidth = 23
         Me.SFNBalCutQuantity.Name = "SFNBalCutQuantity"
         Me.SFNBalCutQuantity.OptionsColumn.AllowEdit = False
         Me.SFNBalCutQuantity.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1538,7 +1642,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNBalCutQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNBalCutQuantity.Visible = True
         Me.SFNBalCutQuantity.VisibleIndex = 38
-        Me.SFNBalCutQuantity.Width = 90
+        Me.SFNBalCutQuantity.Width = 105
         '
         'FTUnitSectCodeSew
         '
@@ -1546,6 +1650,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTUnitSectCodeSew.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTUnitSectCodeSew.Caption = "ไลน์เย็บ"
         Me.FTUnitSectCodeSew.FieldName = "FTUnitSectCodeSew"
+        Me.FTUnitSectCodeSew.MinWidth = 23
         Me.FTUnitSectCodeSew.Name = "FTUnitSectCodeSew"
         Me.FTUnitSectCodeSew.OptionsColumn.AllowEdit = False
         Me.FTUnitSectCodeSew.OptionsColumn.AllowShowHide = False
@@ -1553,7 +1658,7 @@ Partial Class wProdOrderTrackingByLine
         Me.FTUnitSectCodeSew.OptionsColumn.ShowInCustomizationForm = False
         Me.FTUnitSectCodeSew.Visible = True
         Me.FTUnitSectCodeSew.VisibleIndex = 39
-        Me.FTUnitSectCodeSew.Width = 80
+        Me.FTUnitSectCodeSew.Width = 93
         '
         'SFNSewQuantity
         '
@@ -1565,6 +1670,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNSewQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNSewQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNSewQuantity.FieldName = "FNSewQuantity"
+        Me.SFNSewQuantity.MinWidth = 23
         Me.SFNSewQuantity.Name = "SFNSewQuantity"
         Me.SFNSewQuantity.OptionsColumn.AllowEdit = False
         Me.SFNSewQuantity.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1574,7 +1680,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNSewQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNSewQuantity.Visible = True
         Me.SFNSewQuantity.VisibleIndex = 40
-        Me.SFNSewQuantity.Width = 90
+        Me.SFNSewQuantity.Width = 105
         '
         'CXFNSPMKQuantityBal
         '
@@ -1582,11 +1688,13 @@ Partial Class wProdOrderTrackingByLine
         Me.CXFNSPMKQuantityBal.DisplayFormat.FormatString = "{0:n0}"
         Me.CXFNSPMKQuantityBal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.CXFNSPMKQuantityBal.FieldName = "FNSPMKQuantityBal"
+        Me.CXFNSPMKQuantityBal.MinWidth = 23
         Me.CXFNSPMKQuantityBal.Name = "CXFNSPMKQuantityBal"
         Me.CXFNSPMKQuantityBal.OptionsColumn.AllowEdit = False
         Me.CXFNSPMKQuantityBal.OptionsColumn.ReadOnly = True
         Me.CXFNSPMKQuantityBal.Visible = True
         Me.CXFNSPMKQuantityBal.VisibleIndex = 41
+        Me.CXFNSPMKQuantityBal.Width = 87
         '
         'SFNSewOutQuantity
         '
@@ -1598,6 +1706,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNSewOutQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNSewOutQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNSewOutQuantity.FieldName = "FNSewOutQuantity"
+        Me.SFNSewOutQuantity.MinWidth = 23
         Me.SFNSewOutQuantity.Name = "SFNSewOutQuantity"
         Me.SFNSewOutQuantity.OptionsColumn.AllowEdit = False
         Me.SFNSewOutQuantity.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1607,7 +1716,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNSewOutQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNSewOutQuantity.Visible = True
         Me.SFNSewOutQuantity.VisibleIndex = 42
-        Me.SFNSewOutQuantity.Width = 90
+        Me.SFNSewOutQuantity.Width = 105
         '
         'SFNBalSewQuantity
         '
@@ -1619,6 +1728,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNBalSewQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNBalSewQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNBalSewQuantity.FieldName = "FNBalSewQuantity"
+        Me.SFNBalSewQuantity.MinWidth = 23
         Me.SFNBalSewQuantity.Name = "SFNBalSewQuantity"
         Me.SFNBalSewQuantity.OptionsColumn.AllowEdit = False
         Me.SFNBalSewQuantity.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1628,7 +1738,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNBalSewQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNBalSewQuantity.Visible = True
         Me.SFNBalSewQuantity.VisibleIndex = 43
-        Me.SFNBalSewQuantity.Width = 90
+        Me.SFNBalSewQuantity.Width = 105
         '
         'SFNPackQuantity
         '
@@ -1640,6 +1750,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNPackQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNPackQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNPackQuantity.FieldName = "FNPackQuantity"
+        Me.SFNPackQuantity.MinWidth = 23
         Me.SFNPackQuantity.Name = "SFNPackQuantity"
         Me.SFNPackQuantity.OptionsColumn.AllowEdit = False
         Me.SFNPackQuantity.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1648,8 +1759,8 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNPackQuantity.OptionsColumn.ReadOnly = True
         Me.SFNPackQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNPackQuantity.Visible = True
-        Me.SFNPackQuantity.VisibleIndex = 44
-        Me.SFNPackQuantity.Width = 90
+        Me.SFNPackQuantity.VisibleIndex = 45
+        Me.SFNPackQuantity.Width = 105
         '
         'SFNBalPackQuantity
         '
@@ -1661,6 +1772,7 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNBalPackQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.SFNBalPackQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.SFNBalPackQuantity.FieldName = "FNBalPackQuantity"
+        Me.SFNBalPackQuantity.MinWidth = 23
         Me.SFNBalPackQuantity.Name = "SFNBalPackQuantity"
         Me.SFNBalPackQuantity.OptionsColumn.AllowEdit = False
         Me.SFNBalPackQuantity.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
@@ -1669,16 +1781,44 @@ Partial Class wProdOrderTrackingByLine
         Me.SFNBalPackQuantity.OptionsColumn.ReadOnly = True
         Me.SFNBalPackQuantity.OptionsColumn.ShowInCustomizationForm = False
         Me.SFNBalPackQuantity.Visible = True
-        Me.SFNBalPackQuantity.VisibleIndex = 45
-        Me.SFNBalPackQuantity.Width = 90
+        Me.SFNBalPackQuantity.VisibleIndex = 47
+        Me.SFNBalPackQuantity.Width = 105
         '
         'FNTableCut
         '
         Me.FNTableCut.Caption = "FNTableCut"
         Me.FNTableCut.FieldName = "FNTableCut"
+        Me.FNTableCut.MinWidth = 23
         Me.FNTableCut.Name = "FNTableCut"
         Me.FNTableCut.OptionsColumn.AllowShowHide = False
         Me.FNTableCut.OptionsColumn.ShowInCustomizationForm = False
+        Me.FNTableCut.Width = 87
+        '
+        'cFNRcvMiniFGQty
+        '
+        Me.cFNRcvMiniFGQty.Caption = "FNRcvMiniFGQty"
+        Me.cFNRcvMiniFGQty.DisplayFormat.FormatString = "N0"
+        Me.cFNRcvMiniFGQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.cFNRcvMiniFGQty.FieldName = "FNRcvMiniFGQty"
+        Me.cFNRcvMiniFGQty.MinWidth = 25
+        Me.cFNRcvMiniFGQty.Name = "cFNRcvMiniFGQty"
+        Me.cFNRcvMiniFGQty.OptionsColumn.AllowEdit = False
+        Me.cFNRcvMiniFGQty.Visible = True
+        Me.cFNRcvMiniFGQty.VisibleIndex = 44
+        Me.cFNRcvMiniFGQty.Width = 94
+        '
+        'CFNIssMiniFGQty
+        '
+        Me.CFNIssMiniFGQty.Caption = "FNIssMiniFGQty"
+        Me.CFNIssMiniFGQty.DisplayFormat.FormatString = "N0"
+        Me.CFNIssMiniFGQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.CFNIssMiniFGQty.FieldName = "FNIssMiniFGQty"
+        Me.CFNIssMiniFGQty.MinWidth = 25
+        Me.CFNIssMiniFGQty.Name = "CFNIssMiniFGQty"
+        Me.CFNIssMiniFGQty.OptionsColumn.AllowEdit = False
+        Me.CFNIssMiniFGQty.Visible = True
+        Me.CFNIssMiniFGQty.VisibleIndex = 46
+        Me.CFNIssMiniFGQty.Width = 94
         '
         'oDockManager
         '
@@ -1693,26 +1833,29 @@ Partial Class wProdOrderTrackingByLine
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(157, 292)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(183, 359)
+        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(824, 47)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(961, 58)
         Me.ogbmainprocbutton.TabIndex = 387
         Me.ogbmainprocbutton.Tag = "2|"
         '
         'ocmsavelayout
         '
-        Me.ocmsavelayout.Location = New System.Drawing.Point(260, 11)
+        Me.ocmsavelayout.Location = New System.Drawing.Point(303, 14)
+        Me.ocmsavelayout.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmsavelayout.Name = "ocmsavelayout"
-        Me.ocmsavelayout.Size = New System.Drawing.Size(117, 23)
+        Me.ocmsavelayout.Size = New System.Drawing.Size(136, 28)
         Me.ocmsavelayout.TabIndex = 332
         Me.ocmsavelayout.Text = "savelayoutgrid"
         '
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(711, 11)
+        Me.ocmexit.Location = New System.Drawing.Point(829, 14)
+        Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmexit.Name = "ocmexit"
-        Me.ocmexit.Size = New System.Drawing.Size(95, 25)
+        Me.ocmexit.Size = New System.Drawing.Size(111, 31)
         Me.ocmexit.TabIndex = 96
         Me.ocmexit.TabStop = False
         Me.ocmexit.Tag = "2|"
@@ -1720,9 +1863,10 @@ Partial Class wProdOrderTrackingByLine
         '
         'ocmclear
         '
-        Me.ocmclear.Location = New System.Drawing.Point(14, 10)
+        Me.ocmclear.Location = New System.Drawing.Point(16, 12)
+        Me.ocmclear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmclear.Name = "ocmclear"
-        Me.ocmclear.Size = New System.Drawing.Size(95, 25)
+        Me.ocmclear.Size = New System.Drawing.Size(111, 31)
         Me.ocmclear.TabIndex = 95
         Me.ocmclear.TabStop = False
         Me.ocmclear.Tag = "2|"
@@ -1730,20 +1874,22 @@ Partial Class wProdOrderTrackingByLine
         '
         'ocmload
         '
-        Me.ocmload.Location = New System.Drawing.Point(126, 11)
+        Me.ocmload.Location = New System.Drawing.Point(147, 14)
+        Me.ocmload.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmload.Name = "ocmload"
-        Me.ocmload.Size = New System.Drawing.Size(117, 23)
+        Me.ocmload.Size = New System.Drawing.Size(136, 28)
         Me.ocmload.TabIndex = 329
         Me.ocmload.Text = "Load Data"
         '
         'wProdOrderTrackingByLine
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1137, 633)
+        Me.ClientSize = New System.Drawing.Size(1326, 797)
         Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.ogbdetail)
         Me.Controls.Add(Me.ogbheader)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "wProdOrderTrackingByLine"
         Me.Text = "Production Tracking By Line"
         Me.ogbheader.ResumeLayout(False)
@@ -1891,4 +2037,6 @@ Partial Class wProdOrderTrackingByLine
     Friend WithEvents FTSSendSuplDate As DevExpress.XtraEditors.DateEdit
     Friend WithEvents FTSSendSuplDate_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents CXFNSPMKQuantityBal As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cFNRcvMiniFGQty As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents CFNIssMiniFGQty As DevExpress.XtraGrid.Columns.GridColumn
 End Class

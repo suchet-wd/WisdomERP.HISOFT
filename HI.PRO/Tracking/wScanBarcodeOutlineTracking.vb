@@ -427,9 +427,6 @@ Public Class wScanBarcodeOutlineTracking
 
 
 
-
-
-
             '_Qry &= vbCrLf & "  SELECT    A.FNHSysUnitSectId, A.FTBarcodeNo, P.FTOrderNo, US.FTUnitSectCode , B.FTColorway, B.FTSizeBreakDown, SUM(B.FNQuantity) AS FNQuantity"
             '_Qry &= vbCrLf & ",sum(isnull(BO.FNQuantity,0)) AS FNQuantityOut , O.FTPORef , B.FNBunbleSeq"
 

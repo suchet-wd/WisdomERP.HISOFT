@@ -1,5 +1,8 @@
 ﻿
+Imports System.Drawing
 Imports System.Windows.Forms
+Imports DevExpress.XtraGrid.Views.Grid
+
 Public Class wScanBarcodeCustOutline
     Private _DBEnum As HI.Conn.DB.DataBaseName = Conn.DB.DataBaseName.DB_PROD
     Private _Bindgrid As Boolean = False
@@ -373,7 +376,7 @@ Public Class wScanBarcodeCustOutline
             Else
                 _Qry &= vbCrLf & ",max(U.FTUnitSectNameEN) AS FTUnitSectName   , max(TS.FTStyleNameEN) AS FTStyleName  , max(FTNameEN) as FNStateSewPack "
             End If
-
+            _Qry &= vbCrLf & " , isnull(B.FNStateSewPack,0) as FNStateSewPack_Hide "
             _Qry &= vbCrLf & ",Max(ZXI.FDInsDate) AS FDInsDate"
             _Qry &= vbCrLf & ",Max(ZXI.FTInsTime) AS FTInsTime"
             _Qry &= vbCrLf & ",Max(ZXI.FTInsUser) AS FTInsUser"
@@ -977,7 +980,7 @@ Public Class wScanBarcodeCustOutline
                 _Cmd &= vbCrLf & " LEFT OUTER JOIN    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrder_CustBarcode AS C WITH(NOLOCK) ON P.FTOrderNo = C.FTOrderNo and B.FTColorway = C.FTColorway and B.FTSizeBreakDown = C.FTSizeBreakDown and BC.FTSubOrderNo = C.FTSubOrderNo "
 
                 _Cmd &= vbCrLf & "WHERE     (US.FTStateSew = '1') "
-
+                _Cmd &= vbCrLf & " and A.FNHSysOperationId=1405310010"  ' 2023/11/09  ปรับเรื่องสแกนเข้าขั้นตอนอื่น แล้วมาสแกนออกไลน์  พี่ต้น  เคส กัมพูชา  
                 _Cmd &= vbCrLf & "  AND (A.FNHSysUnitSectId=" & Integer.Parse(Val(FNHSysUnitSectId.Properties.Tag.ToString)) & ")"
                 _Cmd &= vbCrLf & "    AND  (c.FTCustBarcodeNo = '" & HI.UL.ULF.rpQuoted(Me.FTCustBarcodeNo.Text) & "'  OR    B.FTBarcodeBundleNo='" & HI.UL.ULF.rpQuoted(Me.FTCustBarcodeNo.Text) & "' ) "
 
@@ -1015,6 +1018,7 @@ Public Class wScanBarcodeCustOutline
                 '_Cmd &= vbCrLf & " Group by FTBarcodeNo,FNHSysUnitSectId   "
                 _Cmd &= vbCrLf & "   ) AS T Group by FTBarcodeNo,FNHSysUnitSectId  ) AS O   ON A.FTBarcodeNo = O.FTBarcodeNo  And A.FNHSysUnitSectId = O.FNHSysUnitSectId"
                 _Cmd &= vbCrLf & "where A.FNQuantity >   ISNULL(O.FNQuantity, 0) "
+
                 If Me.FTOrderNo.Text <> "" Then
                     _Cmd &= vbCrLf & " And A.FTOrderNo ='" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text) & "'"
                     If Me.FTSubOrderNo.Text <> "" Then
@@ -1506,5 +1510,27 @@ Public Class wScanBarcodeCustOutline
         If FNStateSewPack.SelectedIndex > 1 Then
             FNStateSewPack.SelectedIndex = 0
         End If
+    End Sub
+
+    Private Sub ogvdetail_RowStyle(sender As Object, e As RowStyleEventArgs) Handles ogvdetail.RowStyle
+        Try
+            Dim View As GridView = sender
+            If (e.RowHandle >= 0) Then
+                Dim category As String = View.GetRowCellDisplayText(e.RowHandle, View.Columns("FNStateSewPack_Hide"))
+                If category = "1" Then
+                    e.Appearance.BackColor = Color.Salmon
+                    e.Appearance.BackColor2 = Color.SeaShell
+                    e.HighPriority = True
+                End If
+                If category = "2" Then
+                    e.Appearance.BackColor = Color.AliceBlue
+                    e.Appearance.BackColor2 = Color.White
+                    e.HighPriority = True
+                End If
+            End If
+
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

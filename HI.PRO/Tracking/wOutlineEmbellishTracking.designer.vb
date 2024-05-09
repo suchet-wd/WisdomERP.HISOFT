@@ -122,9 +122,10 @@ Partial Class wOutlineEmbellishTracking
         Me.XtraScrollableControl1.Controls.Add(Me.FNHSysUnitSectId_lbl)
         Me.XtraScrollableControl1.Controls.Add(Me.FNHSysUnitSectId)
         Me.XtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 23)
+        Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 28)
+        Me.XtraScrollableControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1348, 112)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1573, 139)
         Me.XtraScrollableControl1.TabIndex = 0
         '
         'FTOrderNoTo_lbl
@@ -134,9 +135,10 @@ Partial Class wOutlineEmbellishTracking
         Me.FTOrderNoTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNoTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNoTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNoTo_lbl.Location = New System.Drawing.Point(316, 74)
+        Me.FTOrderNoTo_lbl.Location = New System.Drawing.Point(369, 91)
+        Me.FTOrderNoTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNoTo_lbl.Name = "FTOrderNoTo_lbl"
-        Me.FTOrderNoTo_lbl.Size = New System.Drawing.Size(176, 19)
+        Me.FTOrderNoTo_lbl.Size = New System.Drawing.Size(205, 23)
         Me.FTOrderNoTo_lbl.TabIndex = 1000014
         Me.FTOrderNoTo_lbl.Tag = "2|"
         Me.FTOrderNoTo_lbl.Text = "To Order No :"
@@ -144,7 +146,8 @@ Partial Class wOutlineEmbellishTracking
         'FTOrderNoTo
         '
         Me.FTOrderNoTo.EnterMoveNextControl = True
-        Me.FTOrderNoTo.Location = New System.Drawing.Point(495, 74)
+        Me.FTOrderNoTo.Location = New System.Drawing.Point(577, 91)
+        Me.FTOrderNoTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNoTo.Name = "FTOrderNoTo"
         Me.FTOrderNoTo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTOrderNoTo.Properties.Appearance.Options.UseBackColor = True
@@ -163,7 +166,7 @@ Partial Class wOutlineEmbellishTracking
         Me.FTOrderNoTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "219", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOrderNoTo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTOrderNoTo.Properties.MaxLength = 30
-        Me.FTOrderNoTo.Size = New System.Drawing.Size(130, 20)
+        Me.FTOrderNoTo.Size = New System.Drawing.Size(152, 22)
         Me.FTOrderNoTo.TabIndex = 1000009
         Me.FTOrderNoTo.Tag = "2|"
         '
@@ -174,9 +177,10 @@ Partial Class wOutlineEmbellishTracking
         Me.FTOrderNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(9, 73)
+        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(10, 90)
+        Me.FTOrderNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNo_lbl.Name = "FTOrderNo_lbl"
-        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(170, 19)
+        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(198, 23)
         Me.FTOrderNo_lbl.TabIndex = 1000013
         Me.FTOrderNo_lbl.Tag = "2|"
         Me.FTOrderNo_lbl.Text = "From Order No :"
@@ -184,7 +188,8 @@ Partial Class wOutlineEmbellishTracking
         'FTOrderNo
         '
         Me.FTOrderNo.EnterMoveNextControl = True
-        Me.FTOrderNo.Location = New System.Drawing.Point(181, 74)
+        Me.FTOrderNo.Location = New System.Drawing.Point(211, 91)
+        Me.FTOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNo.Name = "FTOrderNo"
         Me.FTOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTOrderNo.Properties.Appearance.Options.UseBackColor = True
@@ -203,18 +208,19 @@ Partial Class wOutlineEmbellishTracking
         Me.FTOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "218", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOrderNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTOrderNo.Properties.MaxLength = 30
-        Me.FTOrderNo.Size = New System.Drawing.Size(112, 20)
+        Me.FTOrderNo.Size = New System.Drawing.Size(131, 22)
         Me.FTOrderNo.TabIndex = 1000008
         Me.FTOrderNo.Tag = "2|"
         '
         'FDDateTransTo
         '
         Me.FDDateTransTo.EditValue = Nothing
-        Me.FDDateTransTo.Location = New System.Drawing.Point(465, 5)
+        Me.FDDateTransTo.Location = New System.Drawing.Point(542, 6)
+        Me.FDDateTransTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDDateTransTo.Name = "FDDateTransTo"
         Me.FDDateTransTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FDDateTransTo.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.FDDateTransTo.Size = New System.Drawing.Size(112, 20)
+        Me.FDDateTransTo.Size = New System.Drawing.Size(131, 22)
         Me.FDDateTransTo.TabIndex = 1000006
         Me.FDDateTransTo.Tag = "2|"
         '
@@ -225,9 +231,10 @@ Partial Class wOutlineEmbellishTracking
         Me.FDDateTransTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateTransTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateTransTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateTransTo_lbl.Location = New System.Drawing.Point(297, 5)
+        Me.FDDateTransTo_lbl.Location = New System.Drawing.Point(346, 6)
+        Me.FDDateTransTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDDateTransTo_lbl.Name = "FDDateTransTo_lbl"
-        Me.FDDateTransTo_lbl.Size = New System.Drawing.Size(168, 19)
+        Me.FDDateTransTo_lbl.Size = New System.Drawing.Size(196, 23)
         Me.FDDateTransTo_lbl.TabIndex = 1000012
         Me.FDDateTransTo_lbl.Tag = "2|"
         Me.FDDateTransTo_lbl.Text = "To :"
@@ -236,12 +243,13 @@ Partial Class wOutlineEmbellishTracking
         '
         Me.FNHSysUnitSectIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysUnitSectIdTo_None.Location = New System.Drawing.Point(295, 51)
+        Me.FNHSysUnitSectIdTo_None.Location = New System.Drawing.Point(344, 63)
+        Me.FNHSysUnitSectIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectIdTo_None.Name = "FNHSysUnitSectIdTo_None"
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(680, 20)
+        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(793, 22)
         Me.FNHSysUnitSectIdTo_None.TabIndex = 1000011
         Me.FNHSysUnitSectIdTo_None.Tag = "2|"
         '
@@ -252,20 +260,22 @@ Partial Class wOutlineEmbellishTracking
         Me.FNHSysUnitSectIdTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysUnitSectIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysUnitSectIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysUnitSectIdTo_lbl.Location = New System.Drawing.Point(14, 52)
+        Me.FNHSysUnitSectIdTo_lbl.Location = New System.Drawing.Point(16, 64)
+        Me.FNHSysUnitSectIdTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectIdTo_lbl.Name = "FNHSysUnitSectIdTo_lbl"
-        Me.FNHSysUnitSectIdTo_lbl.Size = New System.Drawing.Size(165, 17)
+        Me.FNHSysUnitSectIdTo_lbl.Size = New System.Drawing.Size(192, 21)
         Me.FNHSysUnitSectIdTo_lbl.TabIndex = 1000010
         Me.FNHSysUnitSectIdTo_lbl.Tag = "2|"
         Me.FNHSysUnitSectIdTo_lbl.Text = "Unit Sect  To :"
         '
         'FNHSysUnitSectIdTo
         '
-        Me.FNHSysUnitSectIdTo.Location = New System.Drawing.Point(180, 51)
+        Me.FNHSysUnitSectIdTo.Location = New System.Drawing.Point(210, 63)
+        Me.FNHSysUnitSectIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectIdTo.Name = "FNHSysUnitSectIdTo"
         Me.FNHSysUnitSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "255", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectIdTo.Properties.Tag = "57"
-        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(113, 20)
+        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(132, 22)
         Me.FNHSysUnitSectIdTo.TabIndex = 1000007
         Me.FNHSysUnitSectIdTo.TabStop = False
         Me.FNHSysUnitSectIdTo.Tag = "2|"
@@ -273,11 +283,12 @@ Partial Class wOutlineEmbellishTracking
         'FDDateTrans
         '
         Me.FDDateTrans.EditValue = Nothing
-        Me.FDDateTrans.Location = New System.Drawing.Point(182, 4)
+        Me.FDDateTrans.Location = New System.Drawing.Point(212, 5)
+        Me.FDDateTrans.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDDateTrans.Name = "FDDateTrans"
         Me.FDDateTrans.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FDDateTrans.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.FDDateTrans.Size = New System.Drawing.Size(112, 20)
+        Me.FDDateTrans.Size = New System.Drawing.Size(131, 22)
         Me.FDDateTrans.TabIndex = 1000001
         Me.FDDateTrans.Tag = "2|"
         '
@@ -288,21 +299,23 @@ Partial Class wOutlineEmbellishTracking
         Me.FDDateTrans_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateTrans_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateTrans_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateTrans_lbl.Location = New System.Drawing.Point(12, 5)
+        Me.FDDateTrans_lbl.Location = New System.Drawing.Point(14, 6)
+        Me.FDDateTrans_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDDateTrans_lbl.Name = "FDDateTrans_lbl"
-        Me.FDDateTrans_lbl.Size = New System.Drawing.Size(168, 19)
+        Me.FDDateTrans_lbl.Size = New System.Drawing.Size(196, 23)
         Me.FDDateTrans_lbl.TabIndex = 1000000
         Me.FDDateTrans_lbl.Tag = "2|"
         Me.FDDateTrans_lbl.Text = "Date :"
         '
         'FNHSysUnitSectId_None
         '
-        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(296, 28)
+        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(345, 34)
+        Me.FNHSysUnitSectId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId_None.Name = "FNHSysUnitSectId_None"
         Me.FNHSysUnitSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(223, 20)
+        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(260, 22)
         Me.FNHSysUnitSectId_None.TabIndex = 322
         Me.FNHSysUnitSectId_None.Tag = "2|"
         '
@@ -313,20 +326,22 @@ Partial Class wOutlineEmbellishTracking
         Me.FNHSysUnitSectId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysUnitSectId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysUnitSectId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysUnitSectId_lbl.Location = New System.Drawing.Point(72, 28)
+        Me.FNHSysUnitSectId_lbl.Location = New System.Drawing.Point(84, 34)
+        Me.FNHSysUnitSectId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId_lbl.Name = "FNHSysUnitSectId_lbl"
-        Me.FNHSysUnitSectId_lbl.Size = New System.Drawing.Size(107, 17)
+        Me.FNHSysUnitSectId_lbl.Size = New System.Drawing.Size(125, 21)
         Me.FNHSysUnitSectId_lbl.TabIndex = 321
         Me.FNHSysUnitSectId_lbl.Tag = "2|"
         Me.FNHSysUnitSectId_lbl.Text = "Unit Sect :"
         '
         'FNHSysUnitSectId
         '
-        Me.FNHSysUnitSectId.Location = New System.Drawing.Point(181, 28)
+        Me.FNHSysUnitSectId.Location = New System.Drawing.Point(211, 34)
+        Me.FNHSysUnitSectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
         Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "248", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.Tag = "57"
-        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(113, 20)
+        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(132, 22)
         Me.FNHSysUnitSectId.TabIndex = 1
         Me.FNHSysUnitSectId.TabStop = False
         Me.FNHSysUnitSectId.Tag = "2|"
@@ -336,8 +351,9 @@ Partial Class wOutlineEmbellishTracking
         Me.ogbbarcodeinfo.Controls.Add(Me.XtraScrollableControl1)
         Me.ogbbarcodeinfo.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbbarcodeinfo.Location = New System.Drawing.Point(0, 0)
+        Me.ogbbarcodeinfo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbbarcodeinfo.Name = "ogbbarcodeinfo"
-        Me.ogbbarcodeinfo.Size = New System.Drawing.Size(1352, 137)
+        Me.ogbbarcodeinfo.Size = New System.Drawing.Size(1577, 169)
         Me.ogbbarcodeinfo.TabIndex = 318
         Me.ogbbarcodeinfo.Text = "Barcode Info"
         '
@@ -346,27 +362,30 @@ Partial Class wOutlineEmbellishTracking
         Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(426, 339)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(497, 417)
+        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(839, 47)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(979, 58)
         Me.ogbmainprocbutton.TabIndex = 319
         Me.ogbmainprocbutton.Tag = "2|"
         '
         'ocmload
         '
         Me.ocmload.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmload.Location = New System.Drawing.Point(601, 11)
+        Me.ocmload.Location = New System.Drawing.Point(701, 14)
+        Me.ocmload.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmload.Name = "ocmload"
-        Me.ocmload.Size = New System.Drawing.Size(109, 23)
+        Me.ocmload.Size = New System.Drawing.Size(127, 28)
         Me.ocmload.TabIndex = 330
         Me.ocmload.Text = "Load Data"
         '
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(726, 11)
+        Me.ocmexit.Location = New System.Drawing.Point(847, 14)
+        Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmexit.Name = "ocmexit"
-        Me.ocmexit.Size = New System.Drawing.Size(95, 25)
+        Me.ocmexit.Size = New System.Drawing.Size(111, 31)
         Me.ocmexit.TabIndex = 96
         Me.ocmexit.TabStop = False
         Me.ocmexit.Tag = "2|"
@@ -382,21 +401,21 @@ Partial Class wOutlineEmbellishTracking
         Me.FNQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.FNQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNQuantity.FieldName = "FNQuantity"
-        Me.FNQuantity.MinWidth = 17
         Me.FNQuantity.Name = "FNQuantity"
         Me.FNQuantity.OptionsColumn.AllowEdit = False
         Me.FNQuantity.OptionsColumn.ReadOnly = True
         Me.FNQuantity.Visible = True
         Me.FNQuantity.VisibleIndex = 14
-        Me.FNQuantity.Width = 117
+        Me.FNQuantity.Width = 136
         '
         'ogbdetail
         '
         Me.ogbdetail.Controls.Add(Me.ogcdetail)
         Me.ogbdetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbdetail.Location = New System.Drawing.Point(0, 137)
+        Me.ogbdetail.Location = New System.Drawing.Point(0, 169)
+        Me.ogbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbdetail.Name = "ogbdetail"
-        Me.ogbdetail.Size = New System.Drawing.Size(1352, 424)
+        Me.ogbdetail.Size = New System.Drawing.Size(1577, 521)
         Me.ogbdetail.TabIndex = 317
         Me.ogbdetail.Text = "Detail"
         '
@@ -405,11 +424,13 @@ Partial Class wOutlineEmbellishTracking
         Me.ogcdetail.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogcdetail.Location = New System.Drawing.Point(3, 24)
+        Me.ogcdetail.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcdetail.Location = New System.Drawing.Point(3, 30)
         Me.ogcdetail.MainView = Me.ogvdetail
+        Me.ogcdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcdetail.Name = "ogcdetail"
         Me.ogcdetail.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemFNStateSewPack})
-        Me.ogcdetail.Size = New System.Drawing.Size(1348, 395)
+        Me.ogcdetail.Size = New System.Drawing.Size(1573, 485)
         Me.ogcdetail.TabIndex = 300
         Me.ogcdetail.TabStop = False
         Me.ogcdetail.Tag = "2|"
@@ -418,7 +439,6 @@ Partial Class wOutlineEmbellishTracking
         'ogvdetail
         '
         Me.ogvdetail.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.CFTBarcodeBundleNo, Me.CFTColorway, Me.CFTNikePOLineItem, Me.CFTSizeBreakDown, Me.CFTOrderNo, Me.CFTUnitSectCode, Me.FNQuantity, Me.cFNBunbleSeq, Me.cFTPORef, Me.cFTStyleCode, Me.FTStyleName, Me.cFNStateSewPack, Me.FDInsDate, Me.FTInsTime, Me.FTInsUser, Me.FDUpdDate, Me.FTUpdTime, Me.FTUpdUser, Me.FTNote, Me.FTPartCode, Me.FTPartName})
-        Me.ogvdetail.DetailHeight = 284
         Me.ogvdetail.GridControl = Me.ogcdetail
         Me.ogvdetail.Name = "ogvdetail"
         Me.ogvdetail.OptionsCustomization.AllowGroup = False
@@ -435,13 +455,12 @@ Partial Class wOutlineEmbellishTracking
         Me.CFTBarcodeBundleNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CFTBarcodeBundleNo.Caption = "หมายเลข Barcode"
         Me.CFTBarcodeBundleNo.FieldName = "FTBarcodeNo"
-        Me.CFTBarcodeBundleNo.MinWidth = 17
         Me.CFTBarcodeBundleNo.Name = "CFTBarcodeBundleNo"
         Me.CFTBarcodeBundleNo.OptionsColumn.AllowEdit = False
         Me.CFTBarcodeBundleNo.OptionsColumn.ReadOnly = True
         Me.CFTBarcodeBundleNo.Visible = True
         Me.CFTBarcodeBundleNo.VisibleIndex = 0
-        Me.CFTBarcodeBundleNo.Width = 136
+        Me.CFTBarcodeBundleNo.Width = 159
         '
         'CFTColorway
         '
@@ -449,19 +468,17 @@ Partial Class wOutlineEmbellishTracking
         Me.CFTColorway.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CFTColorway.Caption = "FTColorway"
         Me.CFTColorway.FieldName = "FTColorway"
-        Me.CFTColorway.MinWidth = 17
         Me.CFTColorway.Name = "CFTColorway"
         Me.CFTColorway.OptionsColumn.AllowEdit = False
         Me.CFTColorway.OptionsColumn.ReadOnly = True
         Me.CFTColorway.Visible = True
         Me.CFTColorway.VisibleIndex = 8
-        Me.CFTColorway.Width = 71
+        Me.CFTColorway.Width = 83
         '
         'CFTNikePOLineItem
         '
         Me.CFTNikePOLineItem.Caption = "FTNikePOLineItem"
         Me.CFTNikePOLineItem.FieldName = "FTNikePOLineItem"
-        Me.CFTNikePOLineItem.MinWidth = 17
         Me.CFTNikePOLineItem.Name = "CFTNikePOLineItem"
         Me.CFTNikePOLineItem.OptionsColumn.AllowEdit = False
         Me.CFTNikePOLineItem.OptionsColumn.AllowMove = False
@@ -470,7 +487,7 @@ Partial Class wOutlineEmbellishTracking
         Me.CFTNikePOLineItem.OptionsFilter.AllowFilter = False
         Me.CFTNikePOLineItem.Visible = True
         Me.CFTNikePOLineItem.VisibleIndex = 4
-        Me.CFTNikePOLineItem.Width = 92
+        Me.CFTNikePOLineItem.Width = 107
         '
         'CFTSizeBreakDown
         '
@@ -478,13 +495,12 @@ Partial Class wOutlineEmbellishTracking
         Me.CFTSizeBreakDown.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CFTSizeBreakDown.Caption = "FTSizeBreakDown"
         Me.CFTSizeBreakDown.FieldName = "FTSizeBreakDown"
-        Me.CFTSizeBreakDown.MinWidth = 17
         Me.CFTSizeBreakDown.Name = "CFTSizeBreakDown"
         Me.CFTSizeBreakDown.OptionsColumn.AllowEdit = False
         Me.CFTSizeBreakDown.OptionsColumn.ReadOnly = True
         Me.CFTSizeBreakDown.Visible = True
         Me.CFTSizeBreakDown.VisibleIndex = 9
-        Me.CFTSizeBreakDown.Width = 69
+        Me.CFTSizeBreakDown.Width = 80
         '
         'CFTOrderNo
         '
@@ -492,187 +508,167 @@ Partial Class wOutlineEmbellishTracking
         Me.CFTOrderNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CFTOrderNo.Caption = "FTOrderNo"
         Me.CFTOrderNo.FieldName = "FTOrderNo"
-        Me.CFTOrderNo.MinWidth = 17
         Me.CFTOrderNo.Name = "CFTOrderNo"
         Me.CFTOrderNo.OptionsColumn.AllowEdit = False
         Me.CFTOrderNo.OptionsColumn.ReadOnly = True
         Me.CFTOrderNo.Visible = True
         Me.CFTOrderNo.VisibleIndex = 2
-        Me.CFTOrderNo.Width = 102
+        Me.CFTOrderNo.Width = 119
         '
         'CFTUnitSectCode
         '
         Me.CFTUnitSectCode.Caption = "FTUnitSectCode"
         Me.CFTUnitSectCode.FieldName = "FTUnitSectCode"
-        Me.CFTUnitSectCode.MinWidth = 17
         Me.CFTUnitSectCode.Name = "CFTUnitSectCode"
         Me.CFTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.CFTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.CFTUnitSectCode.Visible = True
         Me.CFTUnitSectCode.VisibleIndex = 3
-        Me.CFTUnitSectCode.Width = 86
+        Me.CFTUnitSectCode.Width = 100
         '
         'cFNBunbleSeq
         '
         Me.cFNBunbleSeq.Caption = "FNBunbleSeq"
         Me.cFNBunbleSeq.FieldName = "FNBunbleSeq"
-        Me.cFNBunbleSeq.MinWidth = 17
         Me.cFNBunbleSeq.Name = "cFNBunbleSeq"
         Me.cFNBunbleSeq.OptionsColumn.AllowEdit = False
         Me.cFNBunbleSeq.OptionsColumn.ReadOnly = True
         Me.cFNBunbleSeq.Visible = True
         Me.cFNBunbleSeq.VisibleIndex = 5
-        Me.cFNBunbleSeq.Width = 64
         '
         'cFTPORef
         '
         Me.cFTPORef.Caption = "FTPORef"
         Me.cFTPORef.FieldName = "FTPORef"
-        Me.cFTPORef.MinWidth = 17
         Me.cFTPORef.Name = "cFTPORef"
         Me.cFTPORef.OptionsColumn.AllowEdit = False
         Me.cFTPORef.OptionsColumn.ReadOnly = True
         Me.cFTPORef.Visible = True
         Me.cFTPORef.VisibleIndex = 1
-        Me.cFTPORef.Width = 99
+        Me.cFTPORef.Width = 115
         '
         'cFTStyleCode
         '
         Me.cFTStyleCode.Caption = "FTStyleCode"
         Me.cFTStyleCode.FieldName = "FTStyleCode"
-        Me.cFTStyleCode.MinWidth = 17
         Me.cFTStyleCode.Name = "cFTStyleCode"
         Me.cFTStyleCode.OptionsColumn.AllowEdit = False
         Me.cFTStyleCode.Visible = True
         Me.cFTStyleCode.VisibleIndex = 6
-        Me.cFTStyleCode.Width = 97
+        Me.cFTStyleCode.Width = 113
         '
         'FTStyleName
         '
         Me.FTStyleName.Caption = "FTStyleName"
         Me.FTStyleName.FieldName = "FTStyleName"
-        Me.FTStyleName.MinWidth = 17
         Me.FTStyleName.Name = "FTStyleName"
         Me.FTStyleName.OptionsColumn.AllowEdit = False
         Me.FTStyleName.Visible = True
         Me.FTStyleName.VisibleIndex = 7
-        Me.FTStyleName.Width = 102
+        Me.FTStyleName.Width = 119
         '
         'cFNStateSewPack
         '
         Me.cFNStateSewPack.Caption = "FNStateSewPack"
         Me.cFNStateSewPack.FieldName = "FNStateSewPack"
-        Me.cFNStateSewPack.MinWidth = 17
         Me.cFNStateSewPack.Name = "cFNStateSewPack"
         Me.cFNStateSewPack.OptionsColumn.AllowEdit = False
         Me.cFNStateSewPack.Visible = True
         Me.cFNStateSewPack.VisibleIndex = 13
-        Me.cFNStateSewPack.Width = 95
+        Me.cFNStateSewPack.Width = 111
         '
         'FDInsDate
         '
         Me.FDInsDate.Caption = "FDInsDate"
         Me.FDInsDate.FieldName = "FDInsDate"
-        Me.FDInsDate.MinWidth = 17
         Me.FDInsDate.Name = "FDInsDate"
         Me.FDInsDate.OptionsColumn.AllowEdit = False
         Me.FDInsDate.OptionsColumn.ReadOnly = True
         Me.FDInsDate.Visible = True
         Me.FDInsDate.VisibleIndex = 15
-        Me.FDInsDate.Width = 69
+        Me.FDInsDate.Width = 80
         '
         'FTInsTime
         '
         Me.FTInsTime.Caption = "FTInsTime"
         Me.FTInsTime.FieldName = "FTInsTime"
-        Me.FTInsTime.MinWidth = 17
         Me.FTInsTime.Name = "FTInsTime"
         Me.FTInsTime.OptionsColumn.AllowEdit = False
         Me.FTInsTime.OptionsColumn.ReadOnly = True
         Me.FTInsTime.Visible = True
         Me.FTInsTime.VisibleIndex = 16
-        Me.FTInsTime.Width = 69
+        Me.FTInsTime.Width = 80
         '
         'FTInsUser
         '
         Me.FTInsUser.Caption = "FTInsUser"
         Me.FTInsUser.FieldName = "FTInsUser"
-        Me.FTInsUser.MinWidth = 17
         Me.FTInsUser.Name = "FTInsUser"
         Me.FTInsUser.OptionsColumn.AllowEdit = False
         Me.FTInsUser.OptionsColumn.ReadOnly = True
         Me.FTInsUser.Visible = True
         Me.FTInsUser.VisibleIndex = 17
-        Me.FTInsUser.Width = 69
+        Me.FTInsUser.Width = 80
         '
         'FDUpdDate
         '
         Me.FDUpdDate.Caption = "FDUpdDate"
         Me.FDUpdDate.FieldName = "FDUpdDate"
-        Me.FDUpdDate.MinWidth = 17
         Me.FDUpdDate.Name = "FDUpdDate"
         Me.FDUpdDate.OptionsColumn.AllowEdit = False
         Me.FDUpdDate.OptionsColumn.ReadOnly = True
         Me.FDUpdDate.Visible = True
         Me.FDUpdDate.VisibleIndex = 18
-        Me.FDUpdDate.Width = 64
         '
         'FTUpdTime
         '
         Me.FTUpdTime.Caption = "FTUpdTime"
         Me.FTUpdTime.FieldName = "FTUpdTime"
-        Me.FTUpdTime.MinWidth = 17
         Me.FTUpdTime.Name = "FTUpdTime"
         Me.FTUpdTime.OptionsColumn.AllowEdit = False
         Me.FTUpdTime.OptionsColumn.ReadOnly = True
         Me.FTUpdTime.Visible = True
         Me.FTUpdTime.VisibleIndex = 19
-        Me.FTUpdTime.Width = 64
         '
         'FTUpdUser
         '
         Me.FTUpdUser.Caption = "FTUpdUser"
         Me.FTUpdUser.FieldName = "FTUpdUser"
-        Me.FTUpdUser.MinWidth = 17
         Me.FTUpdUser.Name = "FTUpdUser"
         Me.FTUpdUser.OptionsColumn.AllowEdit = False
         Me.FTUpdUser.OptionsColumn.ReadOnly = True
         Me.FTUpdUser.Visible = True
         Me.FTUpdUser.VisibleIndex = 20
-        Me.FTUpdUser.Width = 64
         '
         'FTNote
         '
         Me.FTNote.Caption = "FTNote"
         Me.FTNote.FieldName = "FTNote"
-        Me.FTNote.MinWidth = 17
         Me.FTNote.Name = "FTNote"
         Me.FTNote.OptionsColumn.AllowEdit = False
         Me.FTNote.Visible = True
         Me.FTNote.VisibleIndex = 10
-        Me.FTNote.Width = 65
+        Me.FTNote.Width = 76
         '
         'FTPartCode
         '
         Me.FTPartCode.Caption = "FTPartCode"
         Me.FTPartCode.FieldName = "FTPartCode"
-        Me.FTPartCode.MinWidth = 17
         Me.FTPartCode.Name = "FTPartCode"
         Me.FTPartCode.OptionsColumn.AllowEdit = False
         Me.FTPartCode.Visible = True
         Me.FTPartCode.VisibleIndex = 11
-        Me.FTPartCode.Width = 73
+        Me.FTPartCode.Width = 85
         '
         'FTPartName
         '
         Me.FTPartName.Caption = "FTPartName"
         Me.FTPartName.FieldName = "FTPartName"
-        Me.FTPartName.MinWidth = 17
         Me.FTPartName.Name = "FTPartName"
         Me.FTPartName.OptionsColumn.AllowEdit = False
         Me.FTPartName.Visible = True
         Me.FTPartName.VisibleIndex = 12
-        Me.FTPartName.Width = 117
+        Me.FTPartName.Width = 136
         '
         'RepositoryItemFNStateSewPack
         '
@@ -683,12 +679,13 @@ Partial Class wOutlineEmbellishTracking
         '
         'wOutlineEmbellishTracking
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1352, 561)
+        Me.ClientSize = New System.Drawing.Size(1577, 690)
         Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.ogbdetail)
         Me.Controls.Add(Me.ogbbarcodeinfo)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "wOutlineEmbellishTracking"
         Me.Text = "wOutlineEmbellishTracking"
         Me.XtraScrollableControl1.ResumeLayout(False)

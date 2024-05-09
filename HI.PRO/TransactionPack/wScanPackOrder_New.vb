@@ -2951,11 +2951,18 @@ L0:
 
                     Else
 
-                        Call ProcessBarcodeSet(Me.FTPackNo.Text, FTProductBarcodeNo.Text)
+                        If checkTracksuit(Me.FTPackNo.Text, FTProductBarcodeNo.Text) Then
+                            Call ProcessBarcodeSetTracksuit(Me.FTPackNo.Text, FTProductBarcodeNo.Text)
+                        Else
+                            Call ProcessBarcodeSet(Me.FTPackNo.Text, FTProductBarcodeNo.Text)
+                        End If
+
+
+
 
                     End If
 
-                End If
+                    End If
 
             Else
             End If
@@ -3169,9 +3176,34 @@ L0:
 
     End Sub
 
+    Private Function checkTracksuit(packno As String, barcodesetno As String) As Boolean
+        Try
+            Dim cmdstring As String = ""
+            Dim dtbarset As DataTable
+
+            cmdstring = "select  FTPackNo, FTBarcodeSetNo, FTColorway, FTSizeBreakDown, FNQuantity,0 AS FNPass"
+            cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_BarcodeSet AS X WITH(NOLOCK)"
+            cmdstring &= vbCrLf & " WHERE FTBarcodeSetNo='" & HI.UL.ULF.rpQuoted(barcodesetno) & "'"
+            cmdstring &= vbCrLf & " AND FTPackNo ='" & HI.UL.ULF.rpQuoted(packno) & "'"
+            dtbarset = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PROD)
+            If dtbarset.Rows.Count > 0 Then
+                Return False
+            Else
+                Return True
+            End If
+            Return False
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
     Private Function CheckBarcodeSet(packno As String, barcodesetno As String, ByRef dtbarset As DataTable) As Boolean
 
         Dim cmdstring As String = ""
+
+
+
+
 
         cmdstring = "select  FTPackNo, FTBarcodeSetNo, FTColorway, FTSizeBreakDown, FNQuantity,0 AS FNPass"
         cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_BarcodeSet AS X WITH(NOLOCK)"
@@ -3182,6 +3214,10 @@ L0:
         If dtbarset.Rows.Count > 0 Then
             Return True
         Else
+
+
+
+
             HI.MG.ShowMsg.mInfo("ข้อมูล Barcode Set ไม่ถูกต้องกรุณาทำการตรวจสอบ !!!", 1707091427, Me.Text,, MessageBoxIcon.Warning)
             FTProductBarcodeNo.Focus()
             FTProductBarcodeNo.SelectAll()
@@ -3213,6 +3249,7 @@ L0:
                 cmdstring &= vbCrLf & "  WHERE  A.FTPackNo ='" & HI.UL.ULF.rpQuoted(FTPackNo.Text.Trim()) & "' AND A.FNCartonNo =" & Val(FNCartonNo.Value) & " "
 
                 dtpack = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PROD)
+
 
                 For Each R As DataRow In dtbarset.Rows
 
@@ -3553,6 +3590,24 @@ L0:
                 Dim StateCheckDelete As Boolean = True
                 Dim SetBDQty As Integer = 0
                 Dim RowIdx As Integer = 0
+                Dim _dtpack As New DataTable
+                cmdstring = "SELECT  A.FTPackNo, A.FNCartonNo, A.FTBarCodeCarton, A.FTBarCodeEAN13, B.FTColorway, B.FTSizeBreakDown, B.FNQuantity,B.FTOrderNo, B.FTSubOrderNo, "
+                cmdstring &= vbCrLf & "  C.FNScanQuantity,B.FNQuantity-  ISNULL(C.FNScanQuantity,0) AS FNBal "
+                cmdstring &= vbCrLf & "  From     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Barcode AS A INNER JOIN "
+                cmdstring &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail As B WITH(NOLOCK) On A.FTPackNo = B.FTPackNo And A.FNCartonNo = B.FNCartonNo LEFT OUTER JOIN "
+                cmdstring &= vbCrLf & "	( "
+                cmdstring &= vbCrLf & "	 Select FTPackNo,FNCartonNo,FTOrderNo,FTSubOrderNo,FTColorway, FTSizeBreakDown,SUM(FNScanQuantity) As FNScanQuantity "
+                cmdstring &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Detail AS C  WITH(NOLOCK) "
+                cmdstring &= vbCrLf & "  WHERE  C.FTPackNo ='" & HI.UL.ULF.rpQuoted(FTPackNo.Text.Trim()) & "' AND C.FNCartonNo =" & Val(FNCartonNo.Value) & " "
+                cmdstring &= vbCrLf & "	 GROUP BY FTPackNo,FNCartonNo,FTOrderNo,FTSubOrderNo,FTColorway, FTSizeBreakDown "
+                cmdstring &= vbCrLf & " ) AS C "
+                cmdstring &= vbCrLf & "  On B.FTPackNo = C.FTPackNo And B.FNCartonNo = C.FNCartonNo And B.FTOrderNo = C.FTOrderNo And B.FTSubOrderNo = C.FTSubOrderNo AND B.FTColorway=C.FTColorway AND B.FTSizeBreakDown=C.FTSizeBreakDown "
+                cmdstring &= vbCrLf & "  WHERE  A.FTPackNo ='" & HI.UL.ULF.rpQuoted(FTPackNo.Text.Trim()) & "' AND A.FNCartonNo =" & Val(FNCartonNo.Value) & " "
+
+                _dtpack = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PROD)
+
+
+
                 For Each R As DataRow In dtbarset.Rows
                     SetBDQty = Val(R!FNQuantity.ToString)
                     RowIdx = RowIdx + 1
@@ -3709,6 +3764,492 @@ L0:
         End If
         dtbarset.Dispose()
     End Sub
+
+
+    Private Function CheckBarcodeSetTrack(packno As String, barcodesetno As String, ByRef dtbarset As DataTable) As Boolean
+
+        Dim cmdstring As String = ""
+
+
+
+
+
+        cmdstring = "select  FTPackNo, FTBarcodeSetNo, FTColorway, FTSizeBreakDown, FNQuantity,0 AS FNPass"
+        cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_BarcodeSet AS X WITH(NOLOCK)"
+        cmdstring &= vbCrLf & " WHERE FTBarcodeSetNo='" & HI.UL.ULF.rpQuoted(barcodesetno) & "'"
+        cmdstring &= vbCrLf & " AND FTPackNo ='" & HI.UL.ULF.rpQuoted(packno) & "'"
+        dtbarset = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PROD)
+
+        If dtbarset.Rows.Count > 0 Then
+            Return True
+        Else
+            If Me.FNOrderPackType.SelectedIndex = 1 Then
+                cmdstring = "select top 2  '" & HI.UL.ULF.rpQuoted(packno) & "' FTPackNo, FTCustBarcodeNo FTBarcodeSetNo, x.FTColorway, x. FTSizeBreakDown,1 FNQuantity,0 AS FNPass    , x.FTSubOrderNo"
+                cmdstring &= vbCrLf & " from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrder_CustBarcode AS X WITH(NOLOCK)"
+                cmdstring &= vbCrLf & "  left join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "] .dbo.TPACKOrderPack_Carton_Detail AS C  WITH(NOLOCK)    "
+                cmdstring &= vbCrLf & "  on     x.FTOrderNo = c.FTOrderNo  and x.FTColorway  = c.FTColorway and x.FTSizeBreakDown = c.FTSizeBreakDown and x.FTSubOrderNo = c.FTSubOrderNo "
+                cmdstring &= vbCrLf & " where x.FTCustBarcodeNo='" & HI.UL.ULF.rpQuoted(barcodesetno) & "'"
+                cmdstring &= vbCrLf & "	and   C.FTPackNo ='" & HI.UL.ULF.rpQuoted(FTPackNo.Text.Trim()) & "' AND C.FNCartonNo =" & Val(FNCartonNo.Value) & "   "
+                cmdstring &= vbCrLf & "	   "
+
+                dtbarset = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PROD)
+
+                Return True
+            End If
+
+
+
+            HI.MG.ShowMsg.mInfo("ข้อมูล Barcode Set ไม่ถูกต้องกรุณาทำการตรวจสอบ !!!", 1707091427, Me.Text,, MessageBoxIcon.Warning)
+            FTProductBarcodeNo.Focus()
+            FTProductBarcodeNo.SelectAll()
+            Return False
+        End If
+    End Function
+
+    Private Sub ProcessBarcodeSetTracksuit(packno As String, barcodesetno As String)
+        Dim cmdstring As String = ""
+        Dim dtbarset As New DataTable
+        If (CheckBarcodeSetTrack(packno, barcodesetno, dtbarset)) Then
+
+            If FTStateDeleteBarcode.Checked = False Then
+
+                Dim dtpack As DataTable
+                Dim checkmatching As Boolean = True
+
+                cmdstring = "SELECT  A.FTPackNo, A.FNCartonNo, A.FTBarCodeCarton, A.FTBarCodeEAN13, B.FTColorway, B.FTSizeBreakDown, B.FNQuantity,B.FTOrderNo, B.FTSubOrderNo, "
+                cmdstring &= vbCrLf & "  C.FNScanQuantity,B.FNQuantity-  ISNULL(C.FNScanQuantity,0) AS FNBal "
+                cmdstring &= vbCrLf & "  From     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Barcode AS A INNER JOIN "
+                cmdstring &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail As B WITH(NOLOCK) On A.FTPackNo = B.FTPackNo And A.FNCartonNo = B.FNCartonNo LEFT OUTER JOIN "
+                cmdstring &= vbCrLf & "	( "
+                cmdstring &= vbCrLf & "	 Select FTPackNo,FNCartonNo,FTOrderNo,FTSubOrderNo,FTColorway, FTSizeBreakDown,SUM(FNScanQuantity) As FNScanQuantity "
+                cmdstring &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Detail AS C  WITH(NOLOCK) "
+                cmdstring &= vbCrLf & "  WHERE  C.FTPackNo ='" & HI.UL.ULF.rpQuoted(FTPackNo.Text.Trim()) & "' AND C.FNCartonNo =" & Val(FNCartonNo.Value) & " "
+                cmdstring &= vbCrLf & "	 GROUP BY FTPackNo,FNCartonNo,FTOrderNo,FTSubOrderNo,FTColorway, FTSizeBreakDown "
+                cmdstring &= vbCrLf & " ) AS C "
+                cmdstring &= vbCrLf & "  On B.FTPackNo = C.FTPackNo And B.FNCartonNo = C.FNCartonNo And B.FTOrderNo = C.FTOrderNo And B.FTSubOrderNo = C.FTSubOrderNo AND B.FTColorway=C.FTColorway AND B.FTSizeBreakDown=C.FTSizeBreakDown "
+                cmdstring &= vbCrLf & "  WHERE  A.FTPackNo ='" & HI.UL.ULF.rpQuoted(FTPackNo.Text.Trim()) & "' AND A.FNCartonNo =" & Val(FNCartonNo.Value) & " "
+
+                dtpack = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PROD)
+
+
+                For Each R As DataRow In dtbarset.Rows
+
+                    If dtpack.Select("FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "' AND FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "' and FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "' ").Length > 0 Then
+                        If dtpack.Select("FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "' AND FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "' and FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "' AND FNBal>=" & Val(R!FNQuantity.ToString) & "").Length > 0 Then
+
+                        Else
+                            HI.MG.ShowMsg.mInfo("ข้อมูล จำนวน Barcode Set มากกว่าจำนวนตัวในกล่องที่สามารถทำการ Pack ได้ กรุณาทำการตรวจสอบ !!!", 1707091479, Me.Text, " Colorway : " & R!FTColorway.ToString & " AND Size : " & R!FTSizeBreakDown.ToString & "", MessageBoxIcon.Warning)
+                            FTCartonBarcodeNo.Focus()
+                            FTCartonBarcodeNo.SelectAll()
+                            checkmatching = False
+                            Exit For
+
+                        End If
+                    Else
+
+                        HI.MG.ShowMsg.mInfo("ข้อมูล  Barcode Set ไม่ Match กับรายละเอียดการ Pack ของกล่อง กรุณาทำการตรวจสอบ !!!", 1707091480, Me.Text, " Colorway : " & R!FTColorway.ToString & " AND Size : " & R!FTSizeBreakDown.ToString & "", MessageBoxIcon.Warning)
+                        FTCartonBarcodeNo.Focus()
+                        FTCartonBarcodeNo.SelectAll()
+                        checkmatching = False
+                        Exit For
+
+                    End If
+
+                Next
+
+                If checkmatching Then
+                    Dim dtbarcodeoutline As DataTable
+                    cmdstring = "SELECT FTBarcodeNo,FTOrderNo,FTSubOrderNo,FTColorway,FTSizeBreakDown,FNQuantity,FTTimeRef,FNPackQty,FNQuantity-FNPackQty AS FNBal,0 AS FNQtyCreatePack "
+                    cmdstring &= vbCrLf & " FROM (Select A.FTBarcodeNo, A.FTOrderNo, A.FTSubOrderNo, B.FTColorway, B.FTSizeBreakDown, SUM(A.FNQuantity) As FNQuantity, MAX(A.FDDate + '-'+ A.FTTime) As FTTimeRef, ISNULL "
+                    cmdstring &= vbCrLf & "    ((SELECT SUM(FNScanQuantity) AS Expr1 "
+                    cmdstring &= vbCrLf & "   FROM      [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Detail As X "
+                    cmdstring &= vbCrLf & "  WHERE   (FTBarcodeNo = A.FTBarcodeNo)), 0) AS FNPackQty "
+                    cmdstring &= vbCrLf & " FROM      [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline As A With (NOLOCK) INNER JOIN "
+                    cmdstring &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle AS B WITH (NOLOCK) ON A.FTBarcodeNo = B.FTBarcodeBundleNo INNER JOIN "
+                    cmdstring &= vbCrLf & "           [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail As CT WITH (NOLOCK) On A.FTOrderNo = CT.FTOrderNo And A.FTSubOrderNo = CT.FTSubOrderNo And B.FTColorway = CT.FTColorway And B.FTSizeBreakDown = CT.FTSizeBreakDown "
+                    cmdstring &= vbCrLf & "  WHERE  CT.FTPackNo ='" & HI.UL.ULF.rpQuoted(FTPackNo.Text.Trim()) & "' AND CT.FNCartonNo =" & Val(FNCartonNo.Value) & " "
+                    cmdstring &= vbCrLf & " GROUP BY A.FTBarcodeNo, A.FTOrderNo, A.FTSubOrderNo, B.FTColorway, B.FTSizeBreakDown"
+                    cmdstring &= vbCrLf & " ) AS X "
+                    cmdstring &= vbCrLf & " WHERE FNQuantity-FNPackQty> 0 "
+
+                    dtbarcodeoutline = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PROD)
+
+                    Dim SetBDQty As Integer = 0
+                    For Each R As DataRow In dtbarset.Rows
+                        SetBDQty = Val(R!FNQuantity.ToString)
+
+                        If dtbarcodeoutline.Select("FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "' AND FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "' and FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "' ").Length > 0 Then
+                            If dtbarcodeoutline.Select("FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "' AND FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "' and FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "' AND FNBal>=" & SetBDQty & "").Length > 0 Then
+
+
+                                For Each Rxd As DataRow In dtbarcodeoutline.Select("FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "' AND FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "' and FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "' AND FNBal>=" & SetBDQty & "")
+                                    Rxd!FNQtyCreatePack = Val(R!FNQuantity.ToString)
+                                    Exit For
+                                Next
+
+                            Else
+
+                                Dim checkQty As Integer = SetBDQty
+                                Dim StateLoop As Boolean = True
+                                Do While checkQty > 0 And StateLoop
+
+
+                                    For Each Rxd As DataRow In dtbarcodeoutline.Select("FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "' and FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "' AND FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "' AND FNBal>=1 AND FNQtyCreatePack=0")
+
+                                        If Val(Rxd!FNBal) < checkQty Then
+                                            Rxd!FNQtyCreatePack = Val(Rxd!FNBal)
+
+                                            checkQty = checkQty - Val(Rxd!FNBal)
+                                        Else
+                                            Rxd!FNQtyCreatePack = checkQty
+
+                                            checkQty = 0
+                                        End If
+
+                                        Exit For
+                                    Next
+
+
+                                    If checkQty > 0 Then
+                                        StateLoop = (dtbarcodeoutline.Select("FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "' and FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "' AND FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "' AND FNBal>=1 AND FNQtyCreatePack=0").Length > 0)
+                                    End If
+                                Loop
+
+
+                                If checkQty > 0 Then
+                                    R!FNPass = 1
+                                    HI.MG.ShowMsg.mInfo("ข้อมูล Scan ออกท้ายไลน์ ไม่พอสำหรับการ Pack กรุณาทำการตรวจสอบ !!!", 1707091482, Me.Text, " Colorway : " & R!FTColorway.ToString & " AND Size : " & R!FTSizeBreakDown.ToString & "", MessageBoxIcon.Warning)
+                                    FTProductBarcodeNo.Focus()
+                                    FTProductBarcodeNo.SelectAll()
+
+                                    checkmatching = False
+                                    Exit For
+                                End If
+
+
+                            End If
+                        Else
+                            R!FNPass = 1
+                            HI.MG.ShowMsg.mInfo("ข้อมูล Scan ออกท้ายไลน์ ไม่พอสำหรับการ Pack กรุณาทำการตรวจสอบ !!!", 1707091482, Me.Text, " Colorway : " & R!FTColorway.ToString & " AND Size : " & R!FTSizeBreakDown.ToString & "", MessageBoxIcon.Warning)
+                            FTProductBarcodeNo.Focus()
+                            FTProductBarcodeNo.SelectAll()
+
+                            checkmatching = False
+                            Exit For
+
+                        End If
+
+                    Next
+
+                    If checkmatching And dtbarset.Select("FNPass=1").Length <= 0 Then
+
+                        HI.Conn.DB.ConnectionString(Conn.DB.DataBaseName.DB_SYSTEM)
+                        HI.Conn.SQLConn.SqlConnectionOpen()
+                        HI.Conn.SQLConn.Cmd = HI.Conn.SQLConn.Cnn.CreateCommand
+                        HI.Conn.SQLConn.Tran = HI.Conn.SQLConn.Cnn.BeginTransaction
+
+                        Try
+
+                            For Each R As DataRow In dtbarcodeoutline.Select("FNQtyCreatePack>0")
+
+                                cmdstring = " UPDATE  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan"
+                                cmdstring &= vbCrLf & " SET FTUpdUser ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                cmdstring &= vbCrLf & " , FDUpdDate=" & HI.UL.ULDate.FormatDateDB
+                                cmdstring &= vbCrLf & ",FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                                cmdstring &= vbCrLf & ",FNScanQuantity=FNScanQuantity+" & Val(R!FNQtyCreatePack.ToString)
+                                cmdstring &= vbCrLf & " WHERE  FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
+                                cmdstring &= vbCrLf & "and FNCartonNo=" & CInt("0" & _PFNCartonNo)
+                                cmdstring &= vbCrLf & "and FTOrderNo='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                                cmdstring &= vbCrLf & "and FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+                                cmdstring &= vbCrLf & "and FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                                cmdstring &= vbCrLf & "and FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                                cmdstring &= vbCrLf & "and FNHSysUnitSectId=" & Integer.Parse("0" & Me.FNHSysUnitSectId.Properties.Tag.ToString)
+                                cmdstring &= vbCrLf & "and FTBarcodeNo='" & HI.UL.ULF.rpQuoted(R!FTBarcodeNo.ToString) & "'"
+
+                                If HI.Conn.SQLConn.Execute_Tran(cmdstring, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+
+                                    cmdstring = "INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan"
+                                    cmdstring &= "(FTInsUser, FDInsDate, FTInsTime,   FTPackNo, FNCartonNo, FTOrderNo, FTSubOrderNo, FTColorway, FTSizeBreakDown, FNHSysUnitSectId,FTBarcodeNo, FNScanQuantity)"
+                                    cmdstring &= vbCrLf & "SELECT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                    cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
+                                    cmdstring &= vbCrLf & "," & CInt("0" & _PFNCartonNo)
+                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                                    cmdstring &= vbCrLf & "," & Integer.Parse("0" & Me.FNHSysUnitSectId.Properties.Tag.ToString)
+                                    cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTBarcodeNo.ToString) & "'"
+                                    cmdstring &= vbCrLf & "," & Val(R!FNQtyCreatePack.ToString)
+
+                                    If HI.Conn.SQLConn.Execute_Tran(cmdstring, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                                        HI.Conn.SQLConn.Tran.Rollback()
+                                        HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                                        HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                                        Exit Sub
+                                    End If
+
+                                End If
+
+                                cmdstring = " Declare @Time varchar(5) , @Date varchar(10)"
+                                cmdstring &= vbCrLf & " SELECT @Time =Convert(varchar(5),Getdate(),114) , @Date =" & HI.UL.ULDate.FormatDateDB
+                                cmdstring &= vbCrLf & " Update  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Detail "
+                                cmdstring &= vbCrLf & " Set FNScanQuantity =FNScanQuantity+" & Val(R!FNQtyCreatePack.ToString)
+                                cmdstring &= vbCrLf & " ,FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                cmdstring &= vbCrLf & " ,FDUpdDate=" & HI.UL.ULDate.FormatDateDB
+                                cmdstring &= vbCrLf & " ,FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                                cmdstring &= vbCrLf & " WHERE FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
+                                cmdstring &= vbCrLf & " AND FNCartonNo=" & CInt("0" & _PFNCartonNo)
+                                cmdstring &= vbCrLf & " AND FTOrderNo='" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                                cmdstring &= vbCrLf & " AND FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+                                cmdstring &= vbCrLf & " AND FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                                cmdstring &= vbCrLf & " AND FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                                cmdstring &= vbCrLf & " AND FNHSysUnitSectId=" & Integer.Parse("0" & Me.FNHSysUnitSectId.Properties.Tag.ToString)
+                                cmdstring &= vbCrLf & " AND FTBarcodeNo='" & HI.UL.ULF.rpQuoted(R!FTBarcodeNo.ToString) & "'"
+                                cmdstring &= vbCrLf & " AND FTBarcodeSetNo='" & HI.UL.ULF.rpQuoted(barcodesetno) & "'"
+                                cmdstring &= vbCrLf & " AND FDScanDate=@Date"
+                                cmdstring &= vbCrLf & " AND FDScanTime=@Time"
+                                cmdstring &= vbCrLf & " IF @@ROWCOUNT = 0"
+                                cmdstring &= vbCrLf & "  BEGIN"
+                                cmdstring &= vbCrLf & "  INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Detail (FTInsUser, FDInsDate, FTInsTime,"
+                                cmdstring &= "  FTPackNo, FNCartonNo, FTOrderNo, FTSubOrderNo, FTColorway, FTSizeBreakDown, FNHSysUnitSectId, FTBarcodeNo,  FDScanDate, FDScanTime, FNScanQuantity,FTBarcodeSetNo)"
+                                cmdstring &= vbCrLf & "Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
+                                cmdstring &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
+                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
+                                cmdstring &= vbCrLf & "," & CInt("0" & _PFNCartonNo)
+                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTOrderNo.ToString) & "'"
+                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                                cmdstring &= vbCrLf & "," & Integer.Parse("0" & Me.FNHSysUnitSectId.Properties.Tag.ToString)
+                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(R!FTBarcodeNo.ToString) & "'"
+                                cmdstring &= vbCrLf & ",@Date"
+                                cmdstring &= vbCrLf & ",@Time"
+                                cmdstring &= vbCrLf & "," & Val(R!FNQtyCreatePack.ToString)
+                                cmdstring &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(barcodesetno) & "'"
+                                cmdstring &= vbCrLf & "  END"
+
+                                If HI.Conn.SQLConn.Execute_Tran(cmdstring, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                                    HI.Conn.SQLConn.Tran.Rollback()
+                                    HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                                    HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                                    Exit Sub
+                                End If
+
+
+
+                            Next
+
+
+                            HI.Conn.SQLConn.Tran.Commit()
+                            HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                            HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+
+                            Me._LoadDataScan()
+                            Me.FTProductBarcodeNo.Focus()
+                            Me.FTProductBarcodeNo.SelectAll()
+
+                        Catch ex As Exception
+                            HI.Conn.SQLConn.Tran.Rollback()
+                            HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                            HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+
+                            Exit Sub
+
+                        End Try
+
+                    End If
+
+                    dtbarcodeoutline.Dispose()
+                End If
+
+                dtpack.Dispose()
+            Else
+                Dim dtdelate As New DataTable
+                Dim dtdataCheckdelate As New DataTable
+                Dim StateCheckDelete As Boolean = True
+                Dim SetBDQty As Integer = 0
+                Dim RowIdx As Integer = 0
+                Dim _dtpack As New DataTable
+                cmdstring = "SELECT  A.FTPackNo, A.FNCartonNo, A.FTBarCodeCarton, A.FTBarCodeEAN13, B.FTColorway, B.FTSizeBreakDown, B.FNQuantity,B.FTOrderNo, B.FTSubOrderNo, "
+                cmdstring &= vbCrLf & "  C.FNScanQuantity,B.FNQuantity-  ISNULL(C.FNScanQuantity,0) AS FNBal "
+                cmdstring &= vbCrLf & "  From     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Barcode AS A INNER JOIN "
+                cmdstring &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail As B WITH(NOLOCK) On A.FTPackNo = B.FTPackNo And A.FNCartonNo = B.FNCartonNo LEFT OUTER JOIN "
+                cmdstring &= vbCrLf & "	( "
+                cmdstring &= vbCrLf & "	 Select FTPackNo,FNCartonNo,FTOrderNo,FTSubOrderNo,FTColorway, FTSizeBreakDown,SUM(FNScanQuantity) As FNScanQuantity "
+                cmdstring &= vbCrLf & "    FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Detail AS C  WITH(NOLOCK) "
+                cmdstring &= vbCrLf & "  WHERE  C.FTPackNo ='" & HI.UL.ULF.rpQuoted(FTPackNo.Text.Trim()) & "' AND C.FNCartonNo =" & Val(FNCartonNo.Value) & " "
+                cmdstring &= vbCrLf & "	 GROUP BY FTPackNo,FNCartonNo,FTOrderNo,FTSubOrderNo,FTColorway, FTSizeBreakDown "
+                cmdstring &= vbCrLf & " ) AS C "
+                cmdstring &= vbCrLf & "  On B.FTPackNo = C.FTPackNo And B.FNCartonNo = C.FNCartonNo And B.FTOrderNo = C.FTOrderNo And B.FTSubOrderNo = C.FTSubOrderNo AND B.FTColorway=C.FTColorway AND B.FTSizeBreakDown=C.FTSizeBreakDown "
+                cmdstring &= vbCrLf & "  WHERE  A.FTPackNo ='" & HI.UL.ULF.rpQuoted(FTPackNo.Text.Trim()) & "' AND A.FNCartonNo =" & Val(FNCartonNo.Value) & " "
+
+                _dtpack = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PROD)
+
+
+
+                For Each R As DataRow In dtbarset.Rows
+                    SetBDQty = Val(R!FNQuantity.ToString)
+                    RowIdx = RowIdx + 1
+
+                    cmdstring = " SELECT FTColorway,FTSizeBreakDown,FNHSysUnitSectId,FDScanDate,FDScanTime,FNScanQuantity, 0 AS FNDelete , FTSubOrderNo  "
+                    cmdstring &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Detail  "
+                    cmdstring &= vbCrLf & " WHERE FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
+                    cmdstring &= vbCrLf & " AND FNCartonNo=" & CInt("0" & _PFNCartonNo)
+                    cmdstring &= vbCrLf & " AND FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                    cmdstring &= vbCrLf & " AND FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                    cmdstring &= vbCrLf & " AND FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+                    cmdstring &= vbCrLf & " AND FNHSysUnitSectId=" & Integer.Parse("0" & Me.FNHSysUnitSectId.Properties.Tag.ToString)
+                    cmdstring &= vbCrLf & " and FTBarcodeSetNo='" & HI.UL.ULF.rpQuoted(barcodesetno) & "'"
+                    cmdstring &= vbCrLf & " ORDER BY FDScanDate, FDScanTime "
+
+
+                    dtdataCheckdelate = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_PROD)
+
+                    Dim checkQty As Integer = SetBDQty
+                    Dim StateLoop As Boolean = True
+                    Do While checkQty > 0 And StateLoop
+
+
+                        For Each Rxd As DataRow In dtdataCheckdelate.Select("FNScanQuantity>0  AND FNDelete=0", "FDScanDate,FDScanTime")
+
+                            If Val(Rxd!FNScanQuantity) < checkQty Then
+                                Rxd!FNDelete = Val(Rxd!FNScanQuantity)
+
+                                checkQty = checkQty - Val(Rxd!FNScanQuantity)
+                            Else
+                                Rxd!FNDelete = checkQty
+
+                                checkQty = 0
+                            End If
+
+                            Exit For
+                        Next
+
+                        If checkQty > 0 Then
+                            StateLoop = (dtdataCheckdelate.Select("FNScanQuantity>0  AND FNDelete=0", "FDScanDate,FDScanTime").Length > 0)
+                        End If
+
+                    Loop
+
+
+                    If checkQty > 0 Then
+                        R!FNPass = 1
+
+                        StateCheckDelete = False
+                        Exit For
+                    End If
+
+                    If RowIdx = 1 Then
+                        dtdelate = dtdataCheckdelate.Copy
+                    Else
+                        dtdelate.Merge(dtdataCheckdelate.Copy)
+                    End If
+                Next
+
+                If StateCheckDelete = False Then
+                    dtdelate.Dispose()
+                    dtdataCheckdelate.Dispose()
+                    Exit Sub
+                End If
+
+                HI.Conn.DB.ConnectionString(Conn.DB.DataBaseName.DB_SYSTEM)
+                HI.Conn.SQLConn.SqlConnectionOpen()
+                HI.Conn.SQLConn.Cmd = HI.Conn.SQLConn.Cnn.CreateCommand
+                HI.Conn.SQLConn.Tran = HI.Conn.SQLConn.Cnn.BeginTransaction
+
+                Try
+
+                    For Each R As DataRow In dtdelate.Select("FNDelete>0")
+
+
+                        cmdstring = " UPDATE   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Detail Set FNScanQuantity=FNScanQuantity-" & Val(R!FNDelete.ToString) & " "
+                        cmdstring &= vbCrLf & "WHERE FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
+                        cmdstring &= vbCrLf & " AND FNCartonNo=" & CInt("0" & _PFNCartonNo)
+                        cmdstring &= vbCrLf & " AND FTColorway='" & HI.UL.ULF.rpQuoted(R!FTColorway.ToString) & "'"
+                        cmdstring &= vbCrLf & " AND FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(R!FTSizeBreakDown.ToString) & "'"
+                        cmdstring &= vbCrLf & " AND FNHSysUnitSectId=" & Integer.Parse("0" & Me.FNHSysUnitSectId.Properties.Tag.ToString)
+                        cmdstring &= vbCrLf & " and FTBarcodeSetNo='" & HI.UL.ULF.rpQuoted(barcodesetno) & "'"
+                        cmdstring &= vbCrLf & " and FNScanQuantity =" & Val(R!FNScanQuantity.ToString) & ""
+                        cmdstring &= vbCrLf & " and  FDScanDate='" & HI.UL.ULF.rpQuoted(R!FDScanDate.ToString) & "' "
+                        cmdstring &= vbCrLf & " and FDScanTime='" & HI.UL.ULF.rpQuoted(R!FDScanTime.ToString) & "'"
+                        cmdstring &= vbCrLf & " AND FTSubOrderNo='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+
+
+                        If HI.Conn.SQLConn.Execute_Tran(cmdstring, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                            HI.Conn.SQLConn.Tran.Rollback()
+                            HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                            HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                            Exit Sub
+                        End If
+
+                    Next
+
+                    cmdstring = " UPDATE  A "
+                    cmdstring &= vbCrLf & " SET FTUpdUser ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    cmdstring &= vbCrLf & " , FDUpdDate=" & HI.UL.ULDate.FormatDateDB
+                    cmdstring &= vbCrLf & ",FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
+                    cmdstring &= vbCrLf & ",FNScanQuantity= ISNULL(( "
+                    cmdstring &= vbCrLf & " SELECT SUM(FNScanQuantity) AS FNScanQuantity "
+                    cmdstring &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Detail AS X"
+                    cmdstring &= vbCrLf & " WHERE X.FTPackNo=A.FTPackNo AND X.FNCartonNo =A.FNCartonNo AND X.FTBarcodeNo=A.FTBarcodeNo and X.FTSubOrderNo = A.FTSubOrderNo "
+                    cmdstring &= vbCrLf & " AND FNHSysUnitSectId=" & Integer.Parse("0" & Me.FNHSysUnitSectId.Properties.Tag.ToString)
+                    cmdstring &= vbCrLf & " ),0) "
+                    cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan AS A"
+                    cmdstring &= vbCrLf & " WHERE  FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
+                    cmdstring &= vbCrLf & " and FNCartonNo=" & CInt("0" & _PFNCartonNo)
+                    cmdstring &= vbCrLf & " AND FNHSysUnitSectId=" & Integer.Parse("0" & Me.FNHSysUnitSectId.Properties.Tag.ToString)
+
+                    If HI.Conn.SQLConn.Execute_Tran(cmdstring, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+                        HI.Conn.SQLConn.Tran.Rollback()
+                        HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                        HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+                        Exit Sub
+                    End If
+
+
+                    cmdstring = " DELETE  A "
+                    cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan AS A"
+                    cmdstring &= vbCrLf & " WHERE  FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
+                    cmdstring &= vbCrLf & " and FNCartonNo=" & CInt("0" & _PFNCartonNo)
+                    cmdstring &= vbCrLf & " and FNScanQuantity <=0"
+                    HI.Conn.SQLConn.Execute_Tran(cmdstring, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
+
+                    cmdstring = " DELETE  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Scan_Detail  "
+                    cmdstring &= vbCrLf & " WHERE FTPackNo='" & HI.UL.ULF.rpQuoted(Me.FTPackNo.Text) & "'"
+                    cmdstring &= vbCrLf & "       AND FNCartonNo=" & CInt("0" & _PFNCartonNo)
+                    cmdstring &= vbCrLf & "       AND FTBarcodeSetNo='" & HI.UL.ULF.rpQuoted(barcodesetno) & "'"
+                    cmdstring &= vbCrLf & "       AND FNScanQuantity<=0"
+                    HI.Conn.SQLConn.Execute_Tran(cmdstring, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
+
+
+                    HI.Conn.SQLConn.Tran.Commit()
+                    HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                    HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+
+                    Me._LoadDataScan()
+                    Me.FTProductBarcodeNo.Focus()
+                    Me.FTProductBarcodeNo.SelectAll()
+
+                Catch ex As Exception
+                    HI.Conn.SQLConn.Tran.Rollback()
+                    HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
+                    HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cmd)
+
+                    Exit Sub
+
+                End Try
+
+
+            End If
+
+        End If
+        dtbarset.Dispose()
+    End Sub
+
+
 
     Private Function CheckScanCloseCarton(_FTPackNo As String, _PFNCartonNo As Integer) As Boolean
         Dim _Qry As String = ""
@@ -3949,12 +4490,25 @@ L0:
             _Cmd &= ",'" & HI.UL.ULF.rpQuoted(_PFTSubOrderNo) & "','" & CInt("0") & "','" & HI.UL.ULF.rpQuoted(Me.FTProductBarcodeNo.Text) & "','" & IIf(_PFTAssortState = True, HI.UL.ULF.rpQuoted(_PAFTColorway), HI.UL.ULF.rpQuoted(_PFTColorway)) & "'"
             _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD)
 
-            For Each R As DataRow In _oDt.Rows
-                _QtyScan += +R!Total.ToString
-            Next
-            lblQtyScan.Text = _QtyScan
+            'For Each R As DataRow In _oDt.Rows
+            '    _QtyScan += +R!Total.ToString
+            'Next
+            'lblQtyScan.Text = _QtyScan
             'End If
+            Try
+                _QtyScan = Val(_oDt.Compute("sum(Total)", "Total>0").ToString)
+                'For Each R As DataRow In _oDt.Rows
+                '    _QtyScan += +R!Total.ToString
+                'Next
 
+                lblQtyScan.Text = _QtyScan
+                If Me.FNOrderPackType.SelectedIndex = 1 Then
+                    Me.lblQtyScanSet.Text = (Val(_QtyScan) / Me.FNPackSetValue.Value).ToString
+                End If
+            Catch ex As Exception
+                lblQtyScan.Text = 0
+                Me.lblQtyScanSet.Text = 0
+            End Try
             With Me.ogvScan
                 .OptionsView.ShowAutoFilterRow = False
                 For I As Integer = .Columns.Count - 1 To 0 Step -1
@@ -4033,7 +4587,7 @@ L0:
             For Each R As DataRow In _oDt.Rows
                 _QtyScan += +R!Total.ToString
             Next
-            lblQtyScan.Text = _QtyScan
+            'lblQtyScan.Text = _QtyScan
             'End If
 
             With Me.ogvScanset

@@ -665,10 +665,10 @@ Partial Class wPackOrderGenerateBarcodeCarton
         Me.ogbpackinfo.Controls.Add(Me.ogbcarton)
         Me.ogbpackinfo.Controls.Add(Me.ogdCartonBarcode)
         Me.ogbpackinfo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbpackinfo.Location = New System.Drawing.Point(445, 0)
+        Me.ogbpackinfo.Location = New System.Drawing.Point(356, 0)
         Me.ogbpackinfo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbpackinfo.Name = "ogbpackinfo"
-        Me.ogbpackinfo.Size = New System.Drawing.Size(1035, 739)
+        Me.ogbpackinfo.Size = New System.Drawing.Size(828, 591)
         Me.ogbpackinfo.TabIndex = 146
         Me.ogbpackinfo.Tag = "2|"
         Me.ogbpackinfo.Text = "Pack Info"
@@ -677,10 +677,10 @@ Partial Class wPackOrderGenerateBarcodeCarton
         '
         Me.ogbpackpercarton.Controls.Add(Me.ogcppercarton)
         Me.ogbpackpercarton.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbpackpercarton.Location = New System.Drawing.Point(2, 469)
+        Me.ogbpackpercarton.Location = New System.Drawing.Point(2, 438)
         Me.ogbpackpercarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbpackpercarton.Name = "ogbpackpercarton"
-        Me.ogbpackpercarton.Size = New System.Drawing.Size(1031, 268)
+        Me.ogbpackpercarton.Size = New System.Drawing.Size(824, 151)
         Me.ogbpackpercarton.TabIndex = 307
         Me.ogbpackpercarton.Text = "จำนวนแพ็ค/กล่อง"
         '
@@ -692,7 +692,7 @@ Partial Class wPackOrderGenerateBarcodeCarton
         Me.ogcppercarton.MainView = Me.ogvppercarton
         Me.ogcppercarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcppercarton.Name = "ogcppercarton"
-        Me.ogcppercarton.Size = New System.Drawing.Size(1027, 238)
+        Me.ogcppercarton.Size = New System.Drawing.Size(820, 121)
         Me.ogcppercarton.TabIndex = 305
         Me.ogcppercarton.TabStop = False
         Me.ogcppercarton.Tag = "3|"
@@ -769,10 +769,10 @@ Partial Class wPackOrderGenerateBarcodeCarton
         Me.ogbcarton.Controls.Add(Me.FNHSysCartonId_None)
         Me.ogbcarton.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbcarton.InvertTouchScroll = True
-        Me.ogbcarton.Location = New System.Drawing.Point(2, 211)
+        Me.ogbcarton.Location = New System.Drawing.Point(2, 193)
         Me.ogbcarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbcarton.Name = "ogbcarton"
-        Me.ogbcarton.Size = New System.Drawing.Size(1031, 258)
+        Me.ogbcarton.Size = New System.Drawing.Size(824, 245)
         Me.ogbcarton.TabIndex = 147
         Me.ogbcarton.Tag = "2|"
         Me.ogbcarton.Text = "Carton Info"
@@ -921,7 +921,7 @@ Partial Class wPackOrderGenerateBarcodeCarton
         Me.FNNNW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNNNW.Properties.Precision = 2
         Me.FNNNW.Properties.ReadOnly = True
-        Me.FNNNW.Size = New System.Drawing.Size(635, 22)
+        Me.FNNNW.Size = New System.Drawing.Size(428, 22)
         Me.FNNNW.TabIndex = 294
         Me.FNNNW.Tag = "2|"
         '
@@ -971,7 +971,7 @@ Partial Class wPackOrderGenerateBarcodeCarton
         Me.FNNW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNNW.Properties.Precision = 2
         Me.FNNW.Properties.ReadOnly = True
-        Me.FNNW.Size = New System.Drawing.Size(635, 22)
+        Me.FNNW.Size = New System.Drawing.Size(428, 22)
         Me.FNNW.TabIndex = 292
         Me.FNNW.Tag = "2|"
         '
@@ -1041,7 +1041,7 @@ Partial Class wPackOrderGenerateBarcodeCarton
         Me.FNPackCartonSubType.Properties.ReadOnly = True
         Me.FNPackCartonSubType.Properties.Tag = "FNPackCartonSubType"
         Me.FNPackCartonSubType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNPackCartonSubType.Size = New System.Drawing.Size(889, 22)
+        Me.FNPackCartonSubType.Size = New System.Drawing.Size(682, 22)
         Me.FNPackCartonSubType.TabIndex = 289
         Me.FNPackCartonSubType.Tag = "2|"
         '
@@ -1071,7 +1071,7 @@ Partial Class wPackOrderGenerateBarcodeCarton
         Me.FTDimension.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTDimension.Properties.AutoHeight = False
         Me.FTDimension.Properties.ReadOnly = True
-        Me.FTDimension.Size = New System.Drawing.Size(635, 33)
+        Me.FTDimension.Size = New System.Drawing.Size(428, 33)
         Me.FTDimension.TabIndex = 252
         Me.FTDimension.TabStop = False
         Me.FTDimension.Tag = "2|"
@@ -1155,7 +1155,7 @@ Partial Class wPackOrderGenerateBarcodeCarton
         Me.ogdCartonBarcode.Location = New System.Drawing.Point(2, 28)
         Me.ogdCartonBarcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdCartonBarcode.Name = "ogdCartonBarcode"
-        Me.ogdCartonBarcode.Size = New System.Drawing.Size(1031, 183)
+        Me.ogdCartonBarcode.Size = New System.Drawing.Size(824, 165)
         Me.ogdCartonBarcode.TabIndex = 308
         Me.ogdCartonBarcode.Text = "Carton Barcode"
         '
@@ -1169,7 +1169,7 @@ Partial Class wPackOrderGenerateBarcodeCarton
         Me.FTCartonBarcodeNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 25.0!, System.Drawing.FontStyle.Bold)
         Me.FTCartonBarcodeNo.Properties.Appearance.Options.UseFont = True
         Me.FTCartonBarcodeNo.Properties.AutoHeight = False
-        Me.FTCartonBarcodeNo.Size = New System.Drawing.Size(1027, 153)
+        Me.FTCartonBarcodeNo.Size = New System.Drawing.Size(820, 135)
         Me.FTCartonBarcodeNo.TabIndex = 0
         '
         'otlpack
@@ -1179,7 +1179,7 @@ Partial Class wPackOrderGenerateBarcodeCarton
         Me.otlpack.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otlpack.Name = "otlpack"
         Me.otlpack.SelectImageList = Me.imagepackList
-        Me.otlpack.Size = New System.Drawing.Size(356, 739)
+        Me.otlpack.Size = New System.Drawing.Size(356, 591)
         Me.otlpack.TabIndex = 0
         '
         'imagepackList

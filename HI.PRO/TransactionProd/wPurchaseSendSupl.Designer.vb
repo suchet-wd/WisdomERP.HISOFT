@@ -19,11 +19,21 @@ Partial Class wPurchaseSendSupl
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim EditorButtonImageOptions20 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject77 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject78 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject79 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject80 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions21 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject81 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject82 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject83 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject84 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -104,16 +114,6 @@ Partial Class wPurchaseSendSupl
         Dim SerializableAppearanceObject66 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject67 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject68 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions18 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject69 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject70 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject71 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject72 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions19 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject73 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject74 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject75 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject76 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbdocinfo = New DevExpress.XtraEditors.GroupControl()
         Me.FDPurchaseDate = New DevExpress.XtraEditors.DateEdit()
         Me.FTPurchaseBy = New DevExpress.XtraEditors.TextEdit()
@@ -329,14 +329,14 @@ Partial Class wPurchaseSendSupl
         Me.FDPurchaseDate.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FDPurchaseDate.Properties.AppearanceReadOnly.Options.UseTextOptions = True
         Me.FDPurchaseDate.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FDPurchaseDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FDPurchaseDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions20, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject77, SerializableAppearanceObject78, SerializableAppearanceObject79, SerializableAppearanceObject80, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FDPurchaseDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FDPurchaseDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDPurchaseDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDPurchaseDate.Properties.NullDate = ""
         Me.FDPurchaseDate.Properties.ReadOnly = True
         Me.FDPurchaseDate.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never
-        Me.FDPurchaseDate.Size = New System.Drawing.Size(189, 23)
+        Me.FDPurchaseDate.Size = New System.Drawing.Size(189, 22)
         Me.FDPurchaseDate.TabIndex = 1
         Me.FDPurchaseDate.TabStop = False
         Me.FDPurchaseDate.Tag = "2|"
@@ -366,7 +366,7 @@ Partial Class wPurchaseSendSupl
         Me.FTPurchaseBy.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTPurchaseBy.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTPurchaseBy.Properties.ReadOnly = True
-        Me.FTPurchaseBy.Size = New System.Drawing.Size(189, 23)
+        Me.FTPurchaseBy.Size = New System.Drawing.Size(189, 22)
         Me.FTPurchaseBy.TabIndex = 2
         Me.FTPurchaseBy.TabStop = False
         Me.FTPurchaseBy.Tag = "2|"
@@ -393,25 +393,25 @@ Partial Class wPurchaseSendSupl
         Me.FTPurchaseNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTPurchaseNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTPurchaseNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        SerializableAppearanceObject5.Options.UseTextOptions = True
-        SerializableAppearanceObject5.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject6.Options.UseTextOptions = True
-        SerializableAppearanceObject6.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject7.Options.UseTextOptions = True
-        SerializableAppearanceObject7.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject8.Options.UseTextOptions = True
-        SerializableAppearanceObject8.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject9.Options.UseTextOptions = True
-        SerializableAppearanceObject9.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject10.Options.UseTextOptions = True
-        SerializableAppearanceObject10.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject11.Options.UseTextOptions = True
-        SerializableAppearanceObject11.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject12.Options.UseTextOptions = True
-        SerializableAppearanceObject12.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTPurchaseNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "256", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", 20, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        SerializableAppearanceObject1.Options.UseTextOptions = True
+        SerializableAppearanceObject1.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject2.Options.UseTextOptions = True
+        SerializableAppearanceObject2.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject3.Options.UseTextOptions = True
+        SerializableAppearanceObject3.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject4.Options.UseTextOptions = True
+        SerializableAppearanceObject4.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject81.Options.UseTextOptions = True
+        SerializableAppearanceObject81.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject82.Options.UseTextOptions = True
+        SerializableAppearanceObject82.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject83.Options.UseTextOptions = True
+        SerializableAppearanceObject83.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject84.Options.UseTextOptions = True
+        SerializableAppearanceObject84.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTPurchaseNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "256", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", 20, True, True, False, EditorButtonImageOptions21, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject81, SerializableAppearanceObject82, SerializableAppearanceObject83, SerializableAppearanceObject84, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTPurchaseNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTPurchaseNo.Size = New System.Drawing.Size(189, 23)
+        Me.FTPurchaseNo.Size = New System.Drawing.Size(189, 22)
         Me.FTPurchaseNo.TabIndex = 0
         Me.FTPurchaseNo.TabStop = False
         Me.FTPurchaseNo.Tag = "2|"
@@ -508,7 +508,7 @@ Partial Class wPurchaseSendSupl
         Me.FDDeliveryDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDeliveryDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDDeliveryDate.Properties.NullDate = ""
-        Me.FDDeliveryDate.Size = New System.Drawing.Size(152, 23)
+        Me.FDDeliveryDate.Size = New System.Drawing.Size(152, 22)
         Me.FDDeliveryDate.TabIndex = 470
         Me.FDDeliveryDate.Tag = "2|"
         '
@@ -531,13 +531,13 @@ Partial Class wPurchaseSendSupl
         Me.otpdocsendsupl.Controls.Add(Me.ogcdocref)
         Me.otpdocsendsupl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpdocsendsupl.Name = "otpdocsendsupl"
-        Me.otpdocsendsupl.Size = New System.Drawing.Size(838, 100)
+        Me.otpdocsendsupl.Size = New System.Drawing.Size(846, 106)
         Me.otpdocsendsupl.Text = "เอกสารส่งผู้ขาย"
         '
         'FTSendSuplNo
         '
         Me.FTSendSuplNo.EnterMoveNextControl = True
-        Me.FTSendSuplNo.Location = New System.Drawing.Point(192, 7)
+        Me.FTSendSuplNo.Location = New System.Drawing.Point(154, 5)
         Me.FTSendSuplNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSendSuplNo.Name = "FTSendSuplNo"
         Me.FTSendSuplNo.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -554,17 +554,17 @@ Partial Class wPurchaseSendSupl
         Me.FTSendSuplNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTSendSuplNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSendSuplNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        SerializableAppearanceObject13.Options.UseTextOptions = True
-        SerializableAppearanceObject13.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject14.Options.UseTextOptions = True
-        SerializableAppearanceObject14.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject15.Options.UseTextOptions = True
-        SerializableAppearanceObject15.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject16.Options.UseTextOptions = True
-        SerializableAppearanceObject16.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTSendSuplNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "257", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        SerializableAppearanceObject5.Options.UseTextOptions = True
+        SerializableAppearanceObject5.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject6.Options.UseTextOptions = True
+        SerializableAppearanceObject6.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject7.Options.UseTextOptions = True
+        SerializableAppearanceObject7.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject8.Options.UseTextOptions = True
+        SerializableAppearanceObject8.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTSendSuplNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "257", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTSendSuplNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTSendSuplNo.Size = New System.Drawing.Size(191, 23)
+        Me.FTSendSuplNo.Size = New System.Drawing.Size(228, 22)
         Me.FTSendSuplNo.TabIndex = 2
         Me.FTSendSuplNo.TabStop = False
         Me.FTSendSuplNo.Tag = "2|"
@@ -576,10 +576,10 @@ Partial Class wPurchaseSendSupl
         Me.FTSaleAndTerminateNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSaleAndTerminateNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSaleAndTerminateNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSaleAndTerminateNo_lbl.Location = New System.Drawing.Point(7, 6)
+        Me.FTSaleAndTerminateNo_lbl.Location = New System.Drawing.Point(6, 5)
         Me.FTSaleAndTerminateNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTSaleAndTerminateNo_lbl.Name = "FTSaleAndTerminateNo_lbl"
-        Me.FTSaleAndTerminateNo_lbl.Size = New System.Drawing.Size(184, 23)
+        Me.FTSaleAndTerminateNo_lbl.Size = New System.Drawing.Size(147, 18)
         Me.FTSaleAndTerminateNo_lbl.TabIndex = 452
         Me.FTSaleAndTerminateNo_lbl.Tag = "2|"
         Me.FTSaleAndTerminateNo_lbl.Text = "Document Ref No. :"
@@ -590,7 +590,7 @@ Partial Class wPurchaseSendSupl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogcdocref.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ogcdocref.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcdocref.Location = New System.Drawing.Point(386, 5)
+        Me.ogcdocref.Location = New System.Drawing.Point(387, 5)
         Me.ogcdocref.MainView = Me.ogvdocref
         Me.ogcdocref.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcdocref.Name = "ogcdocref"
@@ -644,13 +644,13 @@ Partial Class wPurchaseSendSupl
         Me.otpdocissue.Controls.Add(Me.ogcdocissref)
         Me.otpdocissue.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpdocissue.Name = "otpdocissue"
-        Me.otpdocissue.Size = New System.Drawing.Size(838, 100)
+        Me.otpdocissue.Size = New System.Drawing.Size(846, 106)
         Me.otpdocissue.Text = "เอกสารจ่ายวัตถุดิบ"
         '
         'FTIssueNo
         '
         Me.FTIssueNo.EnterMoveNextControl = True
-        Me.FTIssueNo.Location = New System.Drawing.Point(192, 7)
+        Me.FTIssueNo.Location = New System.Drawing.Point(154, 5)
         Me.FTIssueNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTIssueNo.Name = "FTIssueNo"
         Me.FTIssueNo.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -667,17 +667,17 @@ Partial Class wPurchaseSendSupl
         Me.FTIssueNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTIssueNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTIssueNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        SerializableAppearanceObject17.Options.UseTextOptions = True
-        SerializableAppearanceObject17.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject18.Options.UseTextOptions = True
-        SerializableAppearanceObject18.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject19.Options.UseTextOptions = True
-        SerializableAppearanceObject19.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        SerializableAppearanceObject20.Options.UseTextOptions = True
-        SerializableAppearanceObject20.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTIssueNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "258", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        SerializableAppearanceObject9.Options.UseTextOptions = True
+        SerializableAppearanceObject9.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject10.Options.UseTextOptions = True
+        SerializableAppearanceObject10.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject11.Options.UseTextOptions = True
+        SerializableAppearanceObject11.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        SerializableAppearanceObject12.Options.UseTextOptions = True
+        SerializableAppearanceObject12.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTIssueNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "258", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTIssueNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTIssueNo.Size = New System.Drawing.Size(191, 23)
+        Me.FTIssueNo.Size = New System.Drawing.Size(228, 22)
         Me.FTIssueNo.TabIndex = 464
         Me.FTIssueNo.TabStop = False
         Me.FTIssueNo.Tag = "2|"
@@ -689,10 +689,10 @@ Partial Class wPurchaseSendSupl
         Me.FTDocIssRefNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTDocIssRefNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTDocIssRefNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTDocIssRefNo_lbl.Location = New System.Drawing.Point(7, 6)
+        Me.FTDocIssRefNo_lbl.Location = New System.Drawing.Point(6, 5)
         Me.FTDocIssRefNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTDocIssRefNo_lbl.Name = "FTDocIssRefNo_lbl"
-        Me.FTDocIssRefNo_lbl.Size = New System.Drawing.Size(184, 23)
+        Me.FTDocIssRefNo_lbl.Size = New System.Drawing.Size(147, 18)
         Me.FTDocIssRefNo_lbl.TabIndex = 465
         Me.FTDocIssRefNo_lbl.Tag = "2|"
         Me.FTDocIssRefNo_lbl.Text = "Document Ref No. :"
@@ -703,7 +703,7 @@ Partial Class wPurchaseSendSupl
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogcdocissref.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ogcdocissref.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogcdocissref.Location = New System.Drawing.Point(386, 5)
+        Me.ogcdocissref.Location = New System.Drawing.Point(387, 5)
         Me.ogcdocissref.MainView = Me.ogvdocissref
         Me.ogcdocissref.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcdocissref.Name = "ogcdocissref"
@@ -807,7 +807,7 @@ Partial Class wPurchaseSendSupl
         Me.FTContactPerson.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTContactPerson.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTContactPerson.Properties.MaxLength = 200
-        Me.FTContactPerson.Size = New System.Drawing.Size(461, 23)
+        Me.FTContactPerson.Size = New System.Drawing.Size(461, 22)
         Me.FTContactPerson.TabIndex = 0
         Me.FTContactPerson.TabStop = False
         Me.FTContactPerson.Tag = "2|"
@@ -866,11 +866,11 @@ Partial Class wPurchaseSendSupl
         Me.FNExchangeRate.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNExchangeRate.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNExchangeRate.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNExchangeRate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNExchangeRate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNExchangeRate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNExchangeRate.Properties.Precision = 5
         Me.FNExchangeRate.Properties.ReadOnly = True
-        Me.FNExchangeRate.Size = New System.Drawing.Size(77, 23)
+        Me.FNExchangeRate.Size = New System.Drawing.Size(77, 22)
         Me.FNExchangeRate.TabIndex = 3
         Me.FNExchangeRate.Tag = "2|"
         '
@@ -909,11 +909,11 @@ Partial Class wPurchaseSendSupl
         Me.FNHSysCurId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCurId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCurId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCurId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, False, False, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "16", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCurId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, False, False, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "16", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCurId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCurId.Properties.MaxLength = 30
         Me.FNHSysCurId.Properties.ReadOnly = True
-        Me.FNHSysCurId.Size = New System.Drawing.Size(115, 23)
+        Me.FNHSysCurId.Size = New System.Drawing.Size(115, 22)
         Me.FNHSysCurId.TabIndex = 2
         Me.FNHSysCurId.Tag = "2|"
         '
@@ -961,10 +961,10 @@ Partial Class wPurchaseSendSupl
         Me.FNCreditDay.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNCreditDay.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNCreditDay.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNCreditDay.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNCreditDay.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNCreditDay.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNCreditDay.Properties.Precision = 0
-        Me.FNCreditDay.Size = New System.Drawing.Size(115, 23)
+        Me.FNCreditDay.Size = New System.Drawing.Size(115, 22)
         Me.FNCreditDay.TabIndex = 4
         Me.FNCreditDay.Tag = "2|"
         '
@@ -1006,7 +1006,7 @@ Partial Class wPurchaseSendSupl
         Me.FNHSysCrTermId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCrTermId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysCrTermId_None.Properties.ReadOnly = True
-        Me.FNHSysCrTermId_None.Size = New System.Drawing.Size(142, 23)
+        Me.FNHSysCrTermId_None.Size = New System.Drawing.Size(142, 22)
         Me.FNHSysCrTermId_None.TabIndex = 254
         Me.FNHSysCrTermId_None.TabStop = False
         Me.FNHSysCrTermId_None.Tag = "2|"
@@ -1031,10 +1031,10 @@ Partial Class wPurchaseSendSupl
         Me.FNHSysCrTermId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCrTermId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCrTermId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCrTermId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "14", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCrTermId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "14", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCrTermId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCrTermId.Properties.MaxLength = 30
-        Me.FNHSysCrTermId.Size = New System.Drawing.Size(115, 23)
+        Me.FNHSysCrTermId.Size = New System.Drawing.Size(115, 22)
         Me.FNHSysCrTermId.TabIndex = 0
         Me.FNHSysCrTermId.Tag = "2|"
         '
@@ -1078,7 +1078,7 @@ Partial Class wPurchaseSendSupl
         Me.FNHSysTermOfPMId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysTermOfPMId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysTermOfPMId_None.Properties.ReadOnly = True
-        Me.FNHSysTermOfPMId_None.Size = New System.Drawing.Size(171, 23)
+        Me.FNHSysTermOfPMId_None.Size = New System.Drawing.Size(171, 22)
         Me.FNHSysTermOfPMId_None.TabIndex = 257
         Me.FNHSysTermOfPMId_None.TabStop = False
         Me.FNHSysTermOfPMId_None.Tag = "2|"
@@ -1118,10 +1118,10 @@ Partial Class wPurchaseSendSupl
         Me.FNHSysTermOfPMId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysTermOfPMId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysTermOfPMId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysTermOfPMId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "103", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysTermOfPMId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "103", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysTermOfPMId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysTermOfPMId.Properties.MaxLength = 30
-        Me.FNHSysTermOfPMId.Size = New System.Drawing.Size(115, 23)
+        Me.FNHSysTermOfPMId.Size = New System.Drawing.Size(115, 22)
         Me.FNHSysTermOfPMId.TabIndex = 1
         Me.FNHSysTermOfPMId.Tag = "2|"
         '
@@ -1145,10 +1145,10 @@ Partial Class wPurchaseSendSupl
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysSuplId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "177", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSuplId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "177", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSuplId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysSuplId.Properties.MaxLength = 30
-        Me.FNHSysSuplId.Size = New System.Drawing.Size(152, 23)
+        Me.FNHSysSuplId.Size = New System.Drawing.Size(152, 22)
         Me.FNHSysSuplId.TabIndex = 464
         Me.FNHSysSuplId.Tag = "2|"
         '
@@ -1192,7 +1192,7 @@ Partial Class wPurchaseSendSupl
         Me.FNHSysSuplId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysSuplId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysSuplId_None.Properties.ReadOnly = True
-        Me.FNHSysSuplId_None.Size = New System.Drawing.Size(458, 23)
+        Me.FNHSysSuplId_None.Size = New System.Drawing.Size(458, 22)
         Me.FNHSysSuplId_None.TabIndex = 466
         Me.FNHSysSuplId_None.TabStop = False
         Me.FNHSysSuplId_None.Tag = "2|"
@@ -1218,7 +1218,7 @@ Partial Class wPurchaseSendSupl
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysCmpId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCmpId.Properties.MaxLength = 30
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(35, 23)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(35, 22)
         Me.FNHSysCmpId.TabIndex = 285
         Me.FNHSysCmpId.Tag = "|"
         Me.FNHSysCmpId.Visible = False
@@ -1239,11 +1239,11 @@ Partial Class wPurchaseSendSupl
         'otbm
         '
         Me.otbm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.otbm.Location = New System.Drawing.Point(2, 27)
+        Me.otbm.Location = New System.Drawing.Point(2, 28)
         Me.otbm.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otbm.Name = "otbm"
         Me.otbm.SelectedTabPage = Me.otpsendsupl
-        Me.otbm.Size = New System.Drawing.Size(1241, 353)
+        Me.otbm.Size = New System.Drawing.Size(1241, 352)
         Me.otbm.TabIndex = 3
         Me.otbm.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpsendsupl, Me.otpissuedetail})
         '
@@ -1252,7 +1252,7 @@ Partial Class wPurchaseSendSupl
         Me.otpsendsupl.Controls.Add(Me.ogcsenddetail)
         Me.otpsendsupl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpsendsupl.Name = "otpsendsupl"
-        Me.otpsendsupl.Size = New System.Drawing.Size(1231, 317)
+        Me.otpsendsupl.Size = New System.Drawing.Size(1239, 322)
         Me.otpsendsupl.Text = "Send Supl Detail"
         '
         'ogcsenddetail
@@ -1264,7 +1264,7 @@ Partial Class wPurchaseSendSupl
         Me.ogcsenddetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsenddetail.Name = "ogcsenddetail"
         Me.ogcsenddetail.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepFNCTN, Me.RepW, Me.RepGFNPrice})
-        Me.ogcsenddetail.Size = New System.Drawing.Size(1231, 317)
+        Me.ogcsenddetail.Size = New System.Drawing.Size(1239, 322)
         Me.ogcsenddetail.TabIndex = 3
         Me.ogcsenddetail.TabStop = False
         Me.ogcsenddetail.Tag = "2|"
@@ -1539,7 +1539,7 @@ Partial Class wPurchaseSendSupl
         Me.otpissuedetail.Controls.Add(Me.ogcdetail)
         Me.otpissuedetail.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpissuedetail.Name = "otpissuedetail"
-        Me.otpissuedetail.Size = New System.Drawing.Size(1231, 317)
+        Me.otpissuedetail.Size = New System.Drawing.Size(1239, 322)
         Me.otpissuedetail.Text = "Issue Detail"
         '
         'ogcdetail
@@ -1550,7 +1550,7 @@ Partial Class wPurchaseSendSupl
         Me.ogcdetail.MainView = Me.ogvdetail
         Me.ogcdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcdetail.Name = "ogcdetail"
-        Me.ogcdetail.Size = New System.Drawing.Size(1231, 317)
+        Me.ogcdetail.Size = New System.Drawing.Size(1239, 322)
         Me.ogcdetail.TabIndex = 2
         Me.ogcdetail.TabStop = False
         Me.ogcdetail.Tag = "2|"
@@ -1806,7 +1806,7 @@ Partial Class wPurchaseSendSupl
         Me.FTPOGrandAmtEN.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTPOGrandAmtEN.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTPOGrandAmtEN.Properties.ReadOnly = True
-        Me.FTPOGrandAmtEN.Size = New System.Drawing.Size(42, 23)
+        Me.FTPOGrandAmtEN.Size = New System.Drawing.Size(42, 22)
         Me.FTPOGrandAmtEN.TabIndex = 283
         Me.FTPOGrandAmtEN.TabStop = False
         Me.FTPOGrandAmtEN.Tag = "2|"
@@ -1837,7 +1837,7 @@ Partial Class wPurchaseSendSupl
         Me.FTPOGrandAmtTH.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTPOGrandAmtTH.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTPOGrandAmtTH.Properties.ReadOnly = True
-        Me.FTPOGrandAmtTH.Size = New System.Drawing.Size(42, 23)
+        Me.FTPOGrandAmtTH.Size = New System.Drawing.Size(42, 22)
         Me.FTPOGrandAmtTH.TabIndex = 282
         Me.FTPOGrandAmtTH.TabStop = False
         Me.FTPOGrandAmtTH.Tag = "2|"
@@ -1876,11 +1876,11 @@ Partial Class wPurchaseSendSupl
         Me.FNPOGrandAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPOGrandAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPOGrandAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPOGrandAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPOGrandAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPOGrandAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPOGrandAmt.Properties.Precision = 2
         Me.FNPOGrandAmt.Properties.ReadOnly = True
-        Me.FNPOGrandAmt.Size = New System.Drawing.Size(204, 23)
+        Me.FNPOGrandAmt.Size = New System.Drawing.Size(204, 22)
         Me.FNPOGrandAmt.TabIndex = 280
         Me.FNPOGrandAmt.Tag = "2|"
         '
@@ -1902,10 +1902,10 @@ Partial Class wPurchaseSendSupl
         Me.FNVatAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNVatAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNVatAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNVatAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNVatAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNVatAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNVatAmt.Properties.Precision = 2
-        Me.FNVatAmt.Size = New System.Drawing.Size(124, 23)
+        Me.FNVatAmt.Size = New System.Drawing.Size(124, 22)
         Me.FNVatAmt.TabIndex = 3
         Me.FNVatAmt.TabStop = False
         Me.FNVatAmt.Tag = "2|"
@@ -1943,11 +1943,11 @@ Partial Class wPurchaseSendSupl
         Me.FNPONetAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPONetAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPONetAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPONetAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPONetAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPONetAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPONetAmt.Properties.Precision = 2
         Me.FNPONetAmt.Properties.ReadOnly = True
-        Me.FNPONetAmt.Size = New System.Drawing.Size(204, 23)
+        Me.FNPONetAmt.Size = New System.Drawing.Size(204, 22)
         Me.FNPONetAmt.TabIndex = 276
         Me.FNPONetAmt.Tag = "2|"
         '
@@ -1969,10 +1969,10 @@ Partial Class wPurchaseSendSupl
         Me.FNDisCountAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNDisCountAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNDisCountAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNDisCountAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNDisCountAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNDisCountAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNDisCountAmt.Properties.Precision = 2
-        Me.FNDisCountAmt.Size = New System.Drawing.Size(124, 23)
+        Me.FNDisCountAmt.Size = New System.Drawing.Size(124, 22)
         Me.FNDisCountAmt.TabIndex = 1
         Me.FNDisCountAmt.TabStop = False
         Me.FNDisCountAmt.Tag = "2|"
@@ -1995,11 +1995,11 @@ Partial Class wPurchaseSendSupl
         Me.FNPoAmt.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNPoAmt.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNPoAmt.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNPoAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNPoAmt.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPoAmt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPoAmt.Properties.Precision = 2
         Me.FNPoAmt.Properties.ReadOnly = True
-        Me.FNPoAmt.Size = New System.Drawing.Size(204, 23)
+        Me.FNPoAmt.Size = New System.Drawing.Size(204, 22)
         Me.FNPoAmt.TabIndex = 273
         Me.FNPoAmt.Tag = "2|"
         '
@@ -2036,14 +2036,14 @@ Partial Class wPurchaseSendSupl
         Me.FNDisCountPer.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNDisCountPer.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNDisCountPer.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNDisCountPer.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions17, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject65, SerializableAppearanceObject66, SerializableAppearanceObject67, SerializableAppearanceObject68, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNDisCountPer.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNDisCountPer.Properties.DisplayFormat.FormatString = "{0:n2}"
         Me.FNDisCountPer.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNDisCountPer.Properties.EditFormat.FormatString = "{0:n2}"
         Me.FNDisCountPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNDisCountPer.Properties.MaxLength = 5
         Me.FNDisCountPer.Properties.Precision = 2
-        Me.FNDisCountPer.Size = New System.Drawing.Size(52, 23)
+        Me.FNDisCountPer.Size = New System.Drawing.Size(52, 22)
         Me.FNDisCountPer.TabIndex = 0
         Me.FNDisCountPer.Tag = "2|"
         '
@@ -2080,10 +2080,10 @@ Partial Class wPurchaseSendSupl
         Me.FNSurcharge.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNSurcharge.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNSurcharge.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNSurcharge.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions18, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject69, SerializableAppearanceObject70, SerializableAppearanceObject71, SerializableAppearanceObject72, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNSurcharge.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNSurcharge.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNSurcharge.Properties.Precision = 2
-        Me.FNSurcharge.Size = New System.Drawing.Size(204, 23)
+        Me.FNSurcharge.Size = New System.Drawing.Size(204, 22)
         Me.FNSurcharge.TabIndex = 4
         Me.FNSurcharge.Tag = "2|"
         '
@@ -2135,14 +2135,14 @@ Partial Class wPurchaseSendSupl
         Me.FNVatPer.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNVatPer.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNVatPer.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNVatPer.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions19, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject73, SerializableAppearanceObject74, SerializableAppearanceObject75, SerializableAppearanceObject76, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNVatPer.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions17, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject65, SerializableAppearanceObject66, SerializableAppearanceObject67, SerializableAppearanceObject68, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNVatPer.Properties.DisplayFormat.FormatString = "{0:n2}"
         Me.FNVatPer.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNVatPer.Properties.EditFormat.FormatString = "{0:n2}"
         Me.FNVatPer.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNVatPer.Properties.MaxLength = 5
         Me.FNVatPer.Properties.Precision = 2
-        Me.FNVatPer.Size = New System.Drawing.Size(51, 23)
+        Me.FNVatPer.Size = New System.Drawing.Size(51, 22)
         Me.FNVatPer.TabIndex = 2
         Me.FNVatPer.Tag = "2|"
         '
@@ -2174,7 +2174,7 @@ Partial Class wPurchaseSendSupl
         Me.FDInvoiceDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDInvoiceDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDInvoiceDate.Properties.NullDate = ""
-        Me.FDInvoiceDate.Size = New System.Drawing.Size(204, 23)
+        Me.FDInvoiceDate.Size = New System.Drawing.Size(204, 22)
         Me.FDInvoiceDate.TabIndex = 472
         Me.FDInvoiceDate.Tag = "2|"
         '
@@ -2216,7 +2216,7 @@ Partial Class wPurchaseSendSupl
         Me.FTInvoiceNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTInvoiceNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTInvoiceNo.Properties.MaxLength = 200
-        Me.FTInvoiceNo.Size = New System.Drawing.Size(204, 23)
+        Me.FTInvoiceNo.Size = New System.Drawing.Size(204, 22)
         Me.FTInvoiceNo.TabIndex = 474
         Me.FTInvoiceNo.TabStop = False
         Me.FTInvoiceNo.Tag = "2|"

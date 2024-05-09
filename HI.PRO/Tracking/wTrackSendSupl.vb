@@ -201,8 +201,8 @@ Public Class wTrackSendSupl
         'End If
 
         '**********************************************************************************************************************************************
-        _Qry = "select  case when isnull(XA.FDInvoiceDate,'')<>'' then convert(varchar(10),convert(datetime,XA.FDInvoiceDate),103) end AS FDInvoiceDate,XA.FTInvoiceNo as POSFTInvoiceNo,Sendsulp.FTSendSuplNo"
-        _Qry &= vbCrLf & ",CASE WHEN ISDATE(Sendsulp.FDSendSuplDate) = 1 THEN CONVERT(VARCHAR(10), CONVERT(DATETIME, Sendsulp.FDSendSuplDate), 103) ELSE '' END AS FDSendSuplDate"
+        _Qry = "select  case when ISDATE(XA.FDInvoiceDate) = 1   then convert(varchar(10),convert(datetime,XA.FDInvoiceDate),103) else XA.FDInvoiceDate  end AS FDInvoiceDate,XA.FTInvoiceNo as POSFTInvoiceNo,Sendsulp.FTSendSuplNo"
+        _Qry &= vbCrLf & ",CASE WHEN ISDATE(Sendsulp.FDSendSuplDate) = 1 THEN CONVERT(VARCHAR(10), CONVERT(DATETIME, Sendsulp.FDSendSuplDate), 103) ELSE Sendsulp.FDSendSuplDate END AS FDSendSuplDate"
         _Qry &= vbCrLf & ",Sendsulp.FTSuplNameTH,Sendsulp.FTSendSuplBy,Sendsulp.FTOrderNo,Sendsulp.FTPORef,Sendsulp.FTStyleCode"
         If ST.Lang.Language = ST.Lang.eLang.TH Then
             _Qry &= vbCrLf & ",Sendsulp.FTPartNameTH AS FTPartName"
@@ -211,7 +211,9 @@ Public Class wTrackSendSupl
             _Qry &= vbCrLf & ",Sendsulp.FTPartNameEN AS FTPartName"
             _Qry &= vbCrLf & ",Sendsulp.FTSuplNameEN AS FTSuplName"
         End If
-        _Qry &= vbCrLf & ",sum(Sendsulp.FNQuantity) AS QtySend,RecSulp.FTRcvSuplNo,RecSulp.FTInvoiceNo,case when isnull(RecSulp.FTInvoiceDate,'')<>'' then convert(varchar(10),convert(datetime,RecSulp.FTInvoiceDate),103) end AS FTInvoiceDate,isnull(sum(RecSulp.FNQuantity),0) AS QtyRcv"
+        _Qry &= vbCrLf & ",sum(Sendsulp.FNQuantity) AS QtySend,RecSulp.FTRcvSuplNo,RecSulp.FTInvoiceNo,case when isdate(RecSulp.FTInvoiceDate ) = 1  then convert(varchar(10),convert(datetime,RecSulp.FTInvoiceDate),103) else RecSulp.FTInvoiceDate  end AS FTInvoiceDate,isnull(sum(RecSulp.FNQuantity),0) AS QtyRcv"
+        '_Qry &= vbCrLf & ",sum(Sendsulp.FNQuantity) AS QtySend,RecSulp.FTRcvSuplNo,RecSulp.FTInvoiceNo, RecSulp.FTInvoiceDate   AS FTInvoiceDate,isnull(sum(RecSulp.FNQuantity),0) AS QtyRcv"
+
         _Qry &= vbCrLf & ",isnull(sum(DefecQty.FNDefectQty),0) AS FNDefectQty,XA.FTPurchaseNo "
         _Qry &= vbCrLf & ",isnull((XA.FNExchangeRate*XA.FNPrice),0) AS FNPrice ,(isnull(sum(RecSulp.FNQuantity),0)-isnull(sum(DefecQty.FNDefectQty),0))*isnull((XA.FNExchangeRate*XA.FNPrice),0) AS Total"
         _Qry &= vbCrLf & "from"

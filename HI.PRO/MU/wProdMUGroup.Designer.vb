@@ -141,6 +141,14 @@ Partial Class wProdMUGroup
         Me.cCREATEBY = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.cCREATEDATE = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.cFTDocumentNo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cFNOnhandQty = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cFTShade = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cFTQCACCEPT = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cFTBATCHNO = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cFBSIZEINCH = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cFBSIZERM = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cFTStateFabricSolid = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
         Me.ocmdelete = New DevExpress.XtraEditors.SimpleButton()
@@ -177,6 +185,7 @@ Partial Class wProdMUGroup
         CType(Me.ogdtime, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvtime, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEditFTSelect, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbmainprocbutton.SuspendLayout()
@@ -812,8 +821,8 @@ Partial Class wProdMUGroup
         Me.ogdtime.MainView = Me.ogvtime
         Me.ogdtime.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdtime.Name = "ogdtime"
-        Me.ogdtime.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEditFTSelect})
-        Me.ogdtime.Size = New System.Drawing.Size(1318, 363)
+        Me.ogdtime.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEditFTSelect, Me.RepositoryItemCheckEdit1})
+        Me.ogdtime.Size = New System.Drawing.Size(1054, 290)
         Me.ogdtime.TabIndex = 0
         Me.ogdtime.TabStop = False
         Me.ogdtime.Tag = "2|"
@@ -821,11 +830,13 @@ Partial Class wProdMUGroup
         '
         'ogvtime
         '
-        Me.ogvtime.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn1, Me.FTCmpCode, Me.FTCmpName, Me.FDShipDate, Me.cFTGroupNo, Me.cFNGroupType, Me.cFTBuyMonth, Me.cFTCustomerPO, Me.cFTPOLine, Me.CFTOrderNo, Me.cFTSubOrderNo, Me.FTStyleCode, Me.cFTSeaSonCode, Me.cFTColorWay, Me.cFTSizeBreakDown, Me.FNQuantity, Me.cFTRawMatCode, Me.cFTColorCode, Me.cFTFabricFrontSize, Me.cFTPartCode, Me.cFTPartName, Me.cFNPurchaseRawmat, Me.cFNReserveRawmat, Me.cFNActualNewPurcchaseOrder, Me.cFNConsumtion, Me.cFNOptiplanYards, Me.cCREATEBY, Me.cCREATEDATE, Me.cFTDocumentNo})
+        Me.ogvtime.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn1, Me.FTCmpCode, Me.FTCmpName, Me.FDShipDate, Me.cFTGroupNo, Me.cFNGroupType, Me.cFTBuyMonth, Me.cFTCustomerPO, Me.cFTPOLine, Me.CFTOrderNo, Me.cFTSubOrderNo, Me.FTStyleCode, Me.cFTSeaSonCode, Me.cFTColorWay, Me.cFTSizeBreakDown, Me.FNQuantity, Me.cFTRawMatCode, Me.cFTColorCode, Me.cFTFabricFrontSize, Me.cFTPartCode, Me.cFTPartName, Me.cFNPurchaseRawmat, Me.cFNReserveRawmat, Me.cFNActualNewPurcchaseOrder, Me.cFNConsumtion, Me.cFNOptiplanYards, Me.cCREATEBY, Me.cCREATEDATE, Me.cFTDocumentNo, Me.cFNOnhandQty, Me.cFTShade, Me.cFTQCACCEPT, Me.cFTBATCHNO, Me.cFBSIZEINCH, Me.cFBSIZERM, Me.cFTStateFabricSolid})
         Me.ogvtime.DetailHeight = 431
         Me.ogvtime.GridControl = Me.ogdtime
+        Me.ogvtime.GroupSummary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Custom, "FNOptiplanYards", Nothing, "N5", "2")})
         Me.ogvtime.Name = "ogvtime"
         Me.ogvtime.OptionsCustomization.AllowQuickHideColumns = False
+        Me.ogvtime.OptionsView.AllowCellMerge = True
         Me.ogvtime.OptionsView.ColumnAutoWidth = False
         Me.ogvtime.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
         Me.ogvtime.OptionsView.ShowFooter = True
@@ -839,6 +850,7 @@ Partial Class wProdMUGroup
         Me.GridColumn1.FieldName = "FTSelect"
         Me.GridColumn1.MinWidth = 25
         Me.GridColumn1.Name = "GridColumn1"
+        Me.GridColumn1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridColumn1.Visible = True
         Me.GridColumn1.VisibleIndex = 0
         Me.GridColumn1.Width = 47
@@ -889,7 +901,7 @@ Partial Class wProdMUGroup
         Me.FDShipDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDShipDate.OptionsColumn.ReadOnly = True
         Me.FDShipDate.Visible = True
-        Me.FDShipDate.VisibleIndex = 6
+        Me.FDShipDate.VisibleIndex = 11
         Me.FDShipDate.Width = 93
         '
         'cFTGroupNo
@@ -899,8 +911,9 @@ Partial Class wProdMUGroup
         Me.cFTGroupNo.MinWidth = 25
         Me.cFTGroupNo.Name = "cFTGroupNo"
         Me.cFTGroupNo.OptionsColumn.AllowEdit = False
+        Me.cFTGroupNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTGroupNo.Visible = True
-        Me.cFTGroupNo.VisibleIndex = 3
+        Me.cFTGroupNo.VisibleIndex = 1
         Me.cFTGroupNo.Width = 147
         '
         'cFNGroupType
@@ -910,8 +923,9 @@ Partial Class wProdMUGroup
         Me.cFNGroupType.MinWidth = 25
         Me.cFNGroupType.Name = "cFNGroupType"
         Me.cFNGroupType.OptionsColumn.AllowEdit = False
+        Me.cFNGroupType.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFNGroupType.Visible = True
-        Me.cFNGroupType.VisibleIndex = 4
+        Me.cFNGroupType.VisibleIndex = 3
         Me.cFNGroupType.Width = 107
         '
         'cFTBuyMonth
@@ -921,8 +935,9 @@ Partial Class wProdMUGroup
         Me.cFTBuyMonth.MinWidth = 25
         Me.cFTBuyMonth.Name = "cFTBuyMonth"
         Me.cFTBuyMonth.OptionsColumn.AllowEdit = False
+        Me.cFTBuyMonth.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTBuyMonth.Visible = True
-        Me.cFTBuyMonth.VisibleIndex = 5
+        Me.cFTBuyMonth.VisibleIndex = 6
         Me.cFTBuyMonth.Width = 156
         '
         'cFTCustomerPO
@@ -932,8 +947,9 @@ Partial Class wProdMUGroup
         Me.cFTCustomerPO.MinWidth = 25
         Me.cFTCustomerPO.Name = "cFTCustomerPO"
         Me.cFTCustomerPO.OptionsColumn.AllowEdit = False
+        Me.cFTCustomerPO.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTCustomerPO.Visible = True
-        Me.cFTCustomerPO.VisibleIndex = 7
+        Me.cFTCustomerPO.VisibleIndex = 9
         Me.cFTCustomerPO.Width = 158
         '
         'cFTPOLine
@@ -943,8 +959,9 @@ Partial Class wProdMUGroup
         Me.cFTPOLine.MinWidth = 25
         Me.cFTPOLine.Name = "cFTPOLine"
         Me.cFTPOLine.OptionsColumn.AllowEdit = False
+        Me.cFTPOLine.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTPOLine.Visible = True
-        Me.cFTPOLine.VisibleIndex = 8
+        Me.cFTPOLine.VisibleIndex = 10
         Me.cFTPOLine.Width = 94
         '
         'CFTOrderNo
@@ -961,7 +978,7 @@ Partial Class wProdMUGroup
         Me.CFTOrderNo.OptionsColumn.ReadOnly = True
         Me.CFTOrderNo.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "FTOrderNo", "{0}")})
         Me.CFTOrderNo.Visible = True
-        Me.CFTOrderNo.VisibleIndex = 9
+        Me.CFTOrderNo.VisibleIndex = 12
         Me.CFTOrderNo.Width = 151
         '
         'cFTSubOrderNo
@@ -971,8 +988,9 @@ Partial Class wProdMUGroup
         Me.cFTSubOrderNo.MinWidth = 25
         Me.cFTSubOrderNo.Name = "cFTSubOrderNo"
         Me.cFTSubOrderNo.OptionsColumn.AllowEdit = False
+        Me.cFTSubOrderNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTSubOrderNo.Visible = True
-        Me.cFTSubOrderNo.VisibleIndex = 10
+        Me.cFTSubOrderNo.VisibleIndex = 13
         Me.cFTSubOrderNo.Width = 111
         '
         'FTStyleCode
@@ -988,7 +1006,7 @@ Partial Class wProdMUGroup
         Me.FTStyleCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTStyleCode.OptionsColumn.ReadOnly = True
         Me.FTStyleCode.Visible = True
-        Me.FTStyleCode.VisibleIndex = 12
+        Me.FTStyleCode.VisibleIndex = 8
         Me.FTStyleCode.Width = 116
         '
         'cFTSeaSonCode
@@ -998,8 +1016,9 @@ Partial Class wProdMUGroup
         Me.cFTSeaSonCode.MinWidth = 25
         Me.cFTSeaSonCode.Name = "cFTSeaSonCode"
         Me.cFTSeaSonCode.OptionsColumn.AllowEdit = False
+        Me.cFTSeaSonCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTSeaSonCode.Visible = True
-        Me.cFTSeaSonCode.VisibleIndex = 13
+        Me.cFTSeaSonCode.VisibleIndex = 7
         Me.cFTSeaSonCode.Width = 94
         '
         'cFTColorWay
@@ -1009,6 +1028,7 @@ Partial Class wProdMUGroup
         Me.cFTColorWay.MinWidth = 25
         Me.cFTColorWay.Name = "cFTColorWay"
         Me.cFTColorWay.OptionsColumn.AllowEdit = False
+        Me.cFTColorWay.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTColorWay.Visible = True
         Me.cFTColorWay.VisibleIndex = 14
         Me.cFTColorWay.Width = 94
@@ -1020,6 +1040,7 @@ Partial Class wProdMUGroup
         Me.cFTSizeBreakDown.MinWidth = 25
         Me.cFTSizeBreakDown.Name = "cFTSizeBreakDown"
         Me.cFTSizeBreakDown.OptionsColumn.AllowEdit = False
+        Me.cFTSizeBreakDown.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTSizeBreakDown.Visible = True
         Me.cFTSizeBreakDown.VisibleIndex = 15
         Me.cFTSizeBreakDown.Width = 94
@@ -1042,7 +1063,7 @@ Partial Class wProdMUGroup
         Me.FNQuantity.OptionsColumn.ReadOnly = True
         Me.FNQuantity.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNQuantity", "{0:N0}")})
         Me.FNQuantity.Visible = True
-        Me.FNQuantity.VisibleIndex = 11
+        Me.FNQuantity.VisibleIndex = 16
         Me.FNQuantity.Width = 133
         '
         'cFTRawMatCode
@@ -1052,8 +1073,9 @@ Partial Class wProdMUGroup
         Me.cFTRawMatCode.MinWidth = 25
         Me.cFTRawMatCode.Name = "cFTRawMatCode"
         Me.cFTRawMatCode.OptionsColumn.AllowEdit = False
+        Me.cFTRawMatCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTRawMatCode.Visible = True
-        Me.cFTRawMatCode.VisibleIndex = 16
+        Me.cFTRawMatCode.VisibleIndex = 20
         Me.cFTRawMatCode.Width = 106
         '
         'cFTColorCode
@@ -1063,8 +1085,9 @@ Partial Class wProdMUGroup
         Me.cFTColorCode.MinWidth = 25
         Me.cFTColorCode.Name = "cFTColorCode"
         Me.cFTColorCode.OptionsColumn.AllowEdit = False
+        Me.cFTColorCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTColorCode.Visible = True
-        Me.cFTColorCode.VisibleIndex = 17
+        Me.cFTColorCode.VisibleIndex = 21
         Me.cFTColorCode.Width = 94
         '
         'cFTFabricFrontSize
@@ -1074,8 +1097,9 @@ Partial Class wProdMUGroup
         Me.cFTFabricFrontSize.MinWidth = 25
         Me.cFTFabricFrontSize.Name = "cFTFabricFrontSize"
         Me.cFTFabricFrontSize.OptionsColumn.AllowEdit = False
+        Me.cFTFabricFrontSize.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTFabricFrontSize.Visible = True
-        Me.cFTFabricFrontSize.VisibleIndex = 18
+        Me.cFTFabricFrontSize.VisibleIndex = 22
         Me.cFTFabricFrontSize.Width = 94
         '
         'cFTPartCode
@@ -1085,8 +1109,9 @@ Partial Class wProdMUGroup
         Me.cFTPartCode.MinWidth = 25
         Me.cFTPartCode.Name = "cFTPartCode"
         Me.cFTPartCode.OptionsColumn.AllowEdit = False
+        Me.cFTPartCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTPartCode.Visible = True
-        Me.cFTPartCode.VisibleIndex = 19
+        Me.cFTPartCode.VisibleIndex = 17
         Me.cFTPartCode.Width = 94
         '
         'cFTPartName
@@ -1096,8 +1121,9 @@ Partial Class wProdMUGroup
         Me.cFTPartName.MinWidth = 25
         Me.cFTPartName.Name = "cFTPartName"
         Me.cFTPartName.OptionsColumn.AllowEdit = False
+        Me.cFTPartName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTPartName.Visible = True
-        Me.cFTPartName.VisibleIndex = 20
+        Me.cFTPartName.VisibleIndex = 18
         Me.cFTPartName.Width = 94
         '
         'cFNPurchaseRawmat
@@ -1109,9 +1135,10 @@ Partial Class wProdMUGroup
         Me.cFNPurchaseRawmat.MinWidth = 25
         Me.cFNPurchaseRawmat.Name = "cFNPurchaseRawmat"
         Me.cFNPurchaseRawmat.OptionsColumn.AllowEdit = False
+        Me.cFNPurchaseRawmat.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.cFNPurchaseRawmat.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNPurchaseRawmat", "{0:N0}")})
         Me.cFNPurchaseRawmat.Visible = True
-        Me.cFNPurchaseRawmat.VisibleIndex = 21
+        Me.cFNPurchaseRawmat.VisibleIndex = 23
         Me.cFNPurchaseRawmat.Width = 94
         '
         'cFNReserveRawmat
@@ -1123,9 +1150,10 @@ Partial Class wProdMUGroup
         Me.cFNReserveRawmat.MinWidth = 25
         Me.cFNReserveRawmat.Name = "cFNReserveRawmat"
         Me.cFNReserveRawmat.OptionsColumn.AllowEdit = False
+        Me.cFNReserveRawmat.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.cFNReserveRawmat.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNReserveRawmat", "{0:N0}")})
         Me.cFNReserveRawmat.Visible = True
-        Me.cFNReserveRawmat.VisibleIndex = 22
+        Me.cFNReserveRawmat.VisibleIndex = 24
         Me.cFNReserveRawmat.Width = 94
         '
         'cFNActualNewPurcchaseOrder
@@ -1137,37 +1165,42 @@ Partial Class wProdMUGroup
         Me.cFNActualNewPurcchaseOrder.MinWidth = 25
         Me.cFNActualNewPurcchaseOrder.Name = "cFNActualNewPurcchaseOrder"
         Me.cFNActualNewPurcchaseOrder.OptionsColumn.AllowEdit = False
+        Me.cFNActualNewPurcchaseOrder.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
         Me.cFNActualNewPurcchaseOrder.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNActualNewPurcchaseOrder", "{0:N0}")})
         Me.cFNActualNewPurcchaseOrder.Visible = True
-        Me.cFNActualNewPurcchaseOrder.VisibleIndex = 23
+        Me.cFNActualNewPurcchaseOrder.VisibleIndex = 25
         Me.cFNActualNewPurcchaseOrder.Width = 94
         '
         'cFNConsumtion
         '
         Me.cFNConsumtion.Caption = "FNConsumtion"
-        Me.cFNConsumtion.DisplayFormat.FormatString = "N0"
+        Me.cFNConsumtion.DisplayFormat.FormatString = "N5"
         Me.cFNConsumtion.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.cFNConsumtion.FieldName = "FNConsumtion"
         Me.cFNConsumtion.MinWidth = 25
         Me.cFNConsumtion.Name = "cFNConsumtion"
         Me.cFNConsumtion.OptionsColumn.AllowEdit = False
+        Me.cFNConsumtion.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFNConsumtion.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNConsumtion", "{0:N0}")})
         Me.cFNConsumtion.Visible = True
-        Me.cFNConsumtion.VisibleIndex = 24
+        Me.cFNConsumtion.VisibleIndex = 26
         Me.cFNConsumtion.Width = 94
         '
         'cFNOptiplanYards
         '
+        Me.cFNOptiplanYards.AppearanceCell.Font = New System.Drawing.Font("Tahoma", 7.8!, System.Drawing.FontStyle.Bold)
+        Me.cFNOptiplanYards.AppearanceCell.Options.UseFont = True
         Me.cFNOptiplanYards.Caption = "FNOptiplanYards"
-        Me.cFNOptiplanYards.DisplayFormat.FormatString = "N0"
+        Me.cFNOptiplanYards.DisplayFormat.FormatString = "N5"
         Me.cFNOptiplanYards.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.cFNOptiplanYards.FieldName = "FNOptiplanYards"
         Me.cFNOptiplanYards.MinWidth = 25
         Me.cFNOptiplanYards.Name = "cFNOptiplanYards"
         Me.cFNOptiplanYards.OptionsColumn.AllowEdit = False
-        Me.cFNOptiplanYards.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FNOptiplanYards", "{0:N0}")})
+        Me.cFNOptiplanYards.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[True]
+        Me.cFNOptiplanYards.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "FNOptiplanYards", "{0:N5}")})
         Me.cFNOptiplanYards.Visible = True
-        Me.cFNOptiplanYards.VisibleIndex = 25
+        Me.cFNOptiplanYards.VisibleIndex = 27
         Me.cFNOptiplanYards.Width = 94
         '
         'cCREATEBY
@@ -1177,8 +1210,9 @@ Partial Class wProdMUGroup
         Me.cCREATEBY.MinWidth = 25
         Me.cCREATEBY.Name = "cCREATEBY"
         Me.cCREATEBY.OptionsColumn.AllowEdit = False
+        Me.cCREATEBY.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cCREATEBY.Visible = True
-        Me.cCREATEBY.VisibleIndex = 2
+        Me.cCREATEBY.VisibleIndex = 4
         Me.cCREATEBY.Width = 102
         '
         'cCREATEDATE
@@ -1188,8 +1222,9 @@ Partial Class wProdMUGroup
         Me.cCREATEDATE.MinWidth = 25
         Me.cCREATEDATE.Name = "cCREATEDATE"
         Me.cCREATEDATE.OptionsColumn.AllowEdit = False
+        Me.cCREATEDATE.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cCREATEDATE.Visible = True
-        Me.cCREATEDATE.VisibleIndex = 1
+        Me.cCREATEDATE.VisibleIndex = 5
         Me.cCREATEDATE.Width = 122
         '
         'cFTDocumentNo
@@ -1199,9 +1234,102 @@ Partial Class wProdMUGroup
         Me.cFTDocumentNo.MinWidth = 25
         Me.cFTDocumentNo.Name = "cFTDocumentNo"
         Me.cFTDocumentNo.OptionsColumn.AllowEdit = False
+        Me.cFTDocumentNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
         Me.cFTDocumentNo.Visible = True
-        Me.cFTDocumentNo.VisibleIndex = 26
-        Me.cFTDocumentNo.Width = 94
+        Me.cFTDocumentNo.VisibleIndex = 2
+        Me.cFTDocumentNo.Width = 134
+        '
+        'cFNOnhandQty
+        '
+        Me.cFNOnhandQty.Caption = "FNOnhandQty"
+        Me.cFNOnhandQty.DisplayFormat.FormatString = "N2"
+        Me.cFNOnhandQty.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.cFNOnhandQty.FieldName = "FNOnhandQty"
+        Me.cFNOnhandQty.MinWidth = 25
+        Me.cFNOnhandQty.Name = "cFNOnhandQty"
+        Me.cFNOnhandQty.OptionsColumn.AllowEdit = False
+        Me.cFNOnhandQty.Visible = True
+        Me.cFNOnhandQty.VisibleIndex = 28
+        Me.cFNOnhandQty.Width = 94
+        '
+        'cFTShade
+        '
+        Me.cFTShade.Caption = "FTShade"
+        Me.cFTShade.FieldName = "FTShade"
+        Me.cFTShade.MinWidth = 25
+        Me.cFTShade.Name = "cFTShade"
+        Me.cFTShade.OptionsColumn.AllowEdit = False
+        Me.cFTShade.Visible = True
+        Me.cFTShade.VisibleIndex = 31
+        Me.cFTShade.Width = 94
+        '
+        'cFTQCACCEPT
+        '
+        Me.cFTQCACCEPT.Caption = "FTQCACCEPT"
+        Me.cFTQCACCEPT.FieldName = "FTQCACCEPT"
+        Me.cFTQCACCEPT.MinWidth = 25
+        Me.cFTQCACCEPT.Name = "cFTQCACCEPT"
+        Me.cFTQCACCEPT.OptionsColumn.AllowEdit = False
+        Me.cFTQCACCEPT.Visible = True
+        Me.cFTQCACCEPT.VisibleIndex = 32
+        Me.cFTQCACCEPT.Width = 94
+        '
+        'cFTBATCHNO
+        '
+        Me.cFTBATCHNO.Caption = "FTBATCHNO"
+        Me.cFTBATCHNO.FieldName = "FTBATCHNO"
+        Me.cFTBATCHNO.MinWidth = 25
+        Me.cFTBATCHNO.Name = "cFTBATCHNO"
+        Me.cFTBATCHNO.OptionsColumn.AllowEdit = False
+        Me.cFTBATCHNO.Visible = True
+        Me.cFTBATCHNO.VisibleIndex = 33
+        Me.cFTBATCHNO.Width = 94
+        '
+        'cFBSIZEINCH
+        '
+        Me.cFBSIZEINCH.Caption = "FBSIZEINCH"
+        Me.cFBSIZEINCH.DisplayFormat.FormatString = "N2"
+        Me.cFBSIZEINCH.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.cFBSIZEINCH.FieldName = "FBSIZEINCH"
+        Me.cFBSIZEINCH.MinWidth = 25
+        Me.cFBSIZEINCH.Name = "cFBSIZEINCH"
+        Me.cFBSIZEINCH.OptionsColumn.AllowEdit = False
+        Me.cFBSIZEINCH.Visible = True
+        Me.cFBSIZEINCH.VisibleIndex = 29
+        Me.cFBSIZEINCH.Width = 94
+        '
+        'cFBSIZERM
+        '
+        Me.cFBSIZERM.Caption = "FBSIZERM"
+        Me.cFBSIZERM.DisplayFormat.FormatString = "N2"
+        Me.cFBSIZERM.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.cFBSIZERM.FieldName = "FBSIZERM"
+        Me.cFBSIZERM.MinWidth = 25
+        Me.cFBSIZERM.Name = "cFBSIZERM"
+        Me.cFBSIZERM.OptionsColumn.AllowEdit = False
+        Me.cFBSIZERM.Visible = True
+        Me.cFBSIZERM.VisibleIndex = 30
+        Me.cFBSIZERM.Width = 94
+        '
+        'cFTStateFabricSolid
+        '
+        Me.cFTStateFabricSolid.Caption = "FTStateFabricSolid"
+        Me.cFTStateFabricSolid.ColumnEdit = Me.RepositoryItemCheckEdit1
+        Me.cFTStateFabricSolid.FieldName = "FTStateFabricSolid"
+        Me.cFTStateFabricSolid.MinWidth = 25
+        Me.cFTStateFabricSolid.Name = "cFTStateFabricSolid"
+        Me.cFTStateFabricSolid.OptionsColumn.AllowEdit = False
+        Me.cFTStateFabricSolid.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.cFTStateFabricSolid.Visible = True
+        Me.cFTStateFabricSolid.VisibleIndex = 19
+        Me.cFTStateFabricSolid.Width = 139
+        '
+        'RepositoryItemCheckEdit1
+        '
+        Me.RepositoryItemCheckEdit1.AutoHeight = False
+        Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
+        Me.RepositoryItemCheckEdit1.ValueChecked = "Y"
+        Me.RepositoryItemCheckEdit1.ValueUnchecked = "N"
         '
         'oDockManager
         '
@@ -1338,6 +1466,7 @@ Partial Class wProdMUGroup
         CType(Me.ogdtime, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogvtime, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEditFTSelect, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbmainprocbutton.ResumeLayout(False)
@@ -1418,4 +1547,12 @@ Partial Class wProdMUGroup
     Friend WithEvents oChkSelectAll As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents FNHSysRawMatColorIdTo As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FNHSysRawMatColorIdTo_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents cFNOnhandQty As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cFTShade As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cFTQCACCEPT As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cFTBATCHNO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cFBSIZEINCH As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cFBSIZERM As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cFTStateFabricSolid As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
 End Class

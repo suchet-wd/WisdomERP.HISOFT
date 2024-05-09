@@ -708,8 +708,8 @@ Public Class wScanBarcodeOutlineEmbellish
             _Cmd &= vbCrLf & "   LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle AS T WITH(NOLOCK) ON O.FNHSysStyleId = T.FNHSysStyleId"
             _Cmd &= vbCrLf & "   LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS SB WITH(NOLOCK) ON "
             _Cmd &= vbCrLf & "  B.FTPOLineItemNo = SB.FTNikePOLineItem AND B.FTSizeBreakDown = SB.FTSizeBreakDown AND B.FTColorway = SB.FTColorway  and P.FTOrderNo = SB.FTOrderNo "
-            _Cmd &= vbCrLf & "WHERE  BS.FTBarcodeSendSuplNo='" & HI.UL.ULF.rpQuoted(_BarcodeKey) & "' and    (US.FTStateSew = '1')   AND O.FNHSysCmpId = " & Val(HI.ST.SysInfo.CmpID) & ""
-
+            _Cmd &= vbCrLf & " WHERE  BS.FTBarcodeSendSuplNo='" & HI.UL.ULF.rpQuoted(_BarcodeKey) & "' and    (US.FTStateSew = '1')   AND O.FNHSysCmpId = " & Val(HI.ST.SysInfo.CmpID) & ""
+            _Cmd &= vbCrLf & " and BS.FNSendSuplType = 6 "
 
             _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD)
             For Each R As DataRow In _oDt.Rows
@@ -739,6 +739,14 @@ Public Class wScanBarcodeOutlineEmbellish
             End If
 
             Dim _Cmd As String = ""
+            Dim _QtyBundle As Integer = 0
+
+            _Cmd = " select top 1  B.FNQuantity   FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcode_SendSupl   s  with(nolock) "
+            _Cmd &= vbCrLf & " left join  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTBundle  b with(nolock) on s.FTBarcodeBundleNo = b.FTBarcodeBundleNo  "
+            _Cmd &= vbCrLf & "WHERE s.FTBarcodeSendSuplNo ='" & HI.UL.ULF.rpQuoted(BarcodeKey) & "'"
+            For Each R As DataRow In HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD).Rows
+                _QtyBundle = Val(R!FNQuantity)
+            Next
 
             HI.Conn.DB.ConnectionString(Conn.DB.DataBaseName.DB_PROD)
             HI.Conn.SQLConn.SqlConnectionOpen()
@@ -751,7 +759,7 @@ Public Class wScanBarcodeOutlineEmbellish
                 _Cmd &= vbCrLf & "Set FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                 _Cmd &= vbCrLf & ",FDUpdDate=" & HI.UL.ULDate.FormatDateDB
                 _Cmd &= vbCrLf & ",FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
-                _Cmd &= vbCrLf & ",FNQuantity=FNQuantity+1"
+                _Cmd &= vbCrLf & ",FNQuantity=" & _QtyBundle
                 _Cmd &= vbCrLf & "WHERE FTBarcodeNo='" & HI.UL.ULF.rpQuoted(BarcodeKey) & "'"
                 _Cmd &= vbCrLf & "And FNHSysUnitSectId=" & Integer.Parse(Me.FNHSysUnitSectId.Properties.Tag)
                 _Cmd &= vbCrLf & "And FDDate =" & HI.UL.ULDate.FormatDateDB
@@ -768,7 +776,7 @@ Public Class wScanBarcodeOutlineEmbellish
                     _Cmd &= vbCrLf & "," & Integer.Parse(Me.FNHSysUnitSectId.Properties.Tag)
                     _Cmd &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
                     _Cmd &= vbCrLf & ",Convert(varchar(5),Getdate(),114)"
-                    _Cmd &= vbCrLf & ",1"
+                    _Cmd &= vbCrLf & "," & _QtyBundle
                     _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTOrderNo.Text) & "'"
                     _Cmd &= vbCrLf & ",'" & HI.UL.ULF.rpQuoted(FTSubOrderNo.Text) & "'"
                     _Cmd &= vbCrLf & "," & Integer.Parse(Me.FNStateSewPack.SelectedIndex)
@@ -794,7 +802,7 @@ Public Class wScanBarcodeOutlineEmbellish
                     _Cmd &= vbCrLf & "Set FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                     _Cmd &= vbCrLf & ",FDUpdDate=" & HI.UL.ULDate.FormatDateDB
                     _Cmd &= vbCrLf & ",FTUpdTime=" & HI.UL.ULDate.FormatTimeDB
-                    _Cmd &= vbCrLf & ",FNQuantity=FNQuantity-1"
+                    _Cmd &= vbCrLf & ",FNQuantity=0"
                     _Cmd &= vbCrLf & "WHERE FTBarcodeNo='" & HI.UL.ULF.rpQuoted(BarcodeKey) & "'"
                     _Cmd &= vbCrLf & "And FNHSysUnitSectId=" & Integer.Parse(Me.FNHSysUnitSectId.Properties.Tag)
                     _Cmd &= vbCrLf & "And isnull(FNStateSewPack,0)=" & Integer.Parse(Me.FNStateSewPack.SelectedIndex)

@@ -455,6 +455,8 @@ Public Class wScanBarcodeSendSupl
 
             _Qry &= vbCrLf & " ,ISNULL(BBXT.FNHSysMarkId,0) AS FNHSysMarkId"
             _Qry &= vbCrLf & " ,ISNULL(BBXT.FTMarkName,'') FTMarkName"
+            _Qry &= vbCrLf & " ,convert(varchar(10) , convert( date , B.FDInsDate) , 103 ) as FDInsDate "
+            _Qry &= vbCrLf & " ,B.FTInsTime  "
 
             _Qry &= vbCrLf & " 	 FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS O WITH (NOLOCK) INNER JOIN"
             _Qry &= vbCrLf & " 	        [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle AS ST WITH (NOLOCK)  ON O.FNHSysStyleId = ST.FNHSysStyleId RIGHT OUTER JOIN"
@@ -1457,6 +1459,8 @@ Public Class wScanBarcodeSendSupl
             _Qry &= vbCrLf & "  ) AS BBXT"
 
             _Qry &= vbCrLf & "   WHERE A.FTBarcodeSendSuplNo='" & HI.UL.ULF.rpQuoted(Key) & "' "
+            _Qry &= vbCrLf & "     and o.FNHSysCmpId = " & Val(HI.ST.SysInfo.CmpID)
+
 
             dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
             FTStyleCode.Text = ""
@@ -1733,7 +1737,19 @@ Public Class wScanBarcodeSendSupl
                 If CheckCreatePurchaseSendSuplier() = False Then Exit Sub
                 If CheckTransferToBranchAccept() = False Then Exit Sub
 
-                Call LoadBarcodeInfo(FTBarcodeNo.Text)
+
+                If FTSendSuplNo.Text <> "" Then
+                    Call LoadBarcodeInfo(FTBarcodeNo.Text)
+                Else
+                    If FTBarcodeNo.Text = "" Then Exit Sub
+                    Dim _Barcode As String = FTBarcodeNo.Text
+                    PROD.DynamicButtone_ButtonClick(Me.FTSendSuplNo)
+                    FTBarcodeNo.Text = _Barcode
+                    Call LoadBarcodeInfo(FTBarcodeNo.Text)
+
+                End If
+
+
         End Select
     End Sub
 
@@ -1884,7 +1900,5 @@ Public Class wScanBarcodeSendSupl
         End Try
     End Sub
 
-    Private Sub FTBarcodeNo_EditValueChanged(sender As Object, e As EventArgs) Handles FTBarcodeNo.EditValueChanged
 
-    End Sub
 End Class

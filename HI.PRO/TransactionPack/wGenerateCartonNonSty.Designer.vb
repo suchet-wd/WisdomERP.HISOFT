@@ -122,7 +122,7 @@ Partial Class wGenerateCartonNonSty
         Me.ogbcarton.Controls.Add(Me.FNHSysCartonId)
         Me.ogbcarton.Controls.Add(Me.FNHSysCartonId_lbl)
         Me.ogbcarton.Controls.Add(Me.FNHSysCartonId_None)
-        Me.ogbcarton.Location = New System.Drawing.Point(1, 255)
+        Me.ogbcarton.Location = New System.Drawing.Point(1, 288)
         Me.ogbcarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbcarton.Name = "ogbcarton"
         Me.ogbcarton.Size = New System.Drawing.Size(885, 98)
@@ -137,7 +137,7 @@ Partial Class wGenerateCartonNonSty
         Me.FNPackCartonScrapType_lbl.Appearance.Options.UseTextOptions = True
         Me.FNPackCartonScrapType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNPackCartonScrapType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNPackCartonScrapType_lbl.Location = New System.Drawing.Point(557, 60)
+        Me.FNPackCartonScrapType_lbl.Location = New System.Drawing.Point(556, 60)
         Me.FNPackCartonScrapType_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNPackCartonScrapType_lbl.Name = "FNPackCartonScrapType_lbl"
         Me.FNPackCartonScrapType_lbl.Size = New System.Drawing.Size(121, 23)
@@ -180,7 +180,7 @@ Partial Class wGenerateCartonNonSty
         Me.FNPackPerCaton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FNPackPerCaton.EnterMoveNextControl = True
-        Me.FNPackPerCaton.Location = New System.Drawing.Point(475, 61)
+        Me.FNPackPerCaton.Location = New System.Drawing.Point(475, 62)
         Me.FNPackPerCaton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNPackPerCaton.Name = "FNPackPerCaton"
         Me.FNPackPerCaton.Properties.Appearance.Options.UseTextOptions = True
@@ -222,7 +222,7 @@ Partial Class wGenerateCartonNonSty
         Me.FNPackCartonSubType_lbl.Appearance.Options.UseTextOptions = True
         Me.FNPackCartonSubType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNPackCartonSubType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNPackCartonSubType_lbl.Location = New System.Drawing.Point(4, 59)
+        Me.FNPackCartonSubType_lbl.Location = New System.Drawing.Point(3, 59)
         Me.FNPackCartonSubType_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNPackCartonSubType_lbl.Name = "FNPackCartonSubType_lbl"
         Me.FNPackCartonSubType_lbl.Size = New System.Drawing.Size(121, 23)
@@ -293,7 +293,7 @@ Partial Class wGenerateCartonNonSty
         'FNHSysCartonId
         '
         Me.FNHSysCartonId.EnterMoveNextControl = True
-        Me.FNHSysCartonId.Location = New System.Drawing.Point(130, 34)
+        Me.FNHSysCartonId.Location = New System.Drawing.Point(129, 34)
         Me.FNHSysCartonId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCartonId.Name = "FNHSysCartonId"
         Me.FNHSysCartonId.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -369,7 +369,7 @@ Partial Class wGenerateCartonNonSty
         Me.ogbsubprod.Location = New System.Drawing.Point(1, 2)
         Me.ogbsubprod.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbsubprod.Name = "ogbsubprod"
-        Me.ogbsubprod.Size = New System.Drawing.Size(885, 249)
+        Me.ogbsubprod.Size = New System.Drawing.Size(885, 282)
         Me.ogbsubprod.TabIndex = 307
         Me.ogbsubprod.Text = "Sub Order Balance Quantity"
         '
@@ -382,7 +382,7 @@ Partial Class wGenerateCartonNonSty
         Me.ogcsubprod.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcsubprod.Name = "ogcsubprod"
         Me.ogcsubprod.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.ReposCaleditWeight, Me.RepositoryItemCheckEditFTSelect})
-        Me.ogcsubprod.Size = New System.Drawing.Size(881, 219)
+        Me.ogcsubprod.Size = New System.Drawing.Size(881, 252)
         Me.ogcsubprod.TabIndex = 306
         Me.ogcsubprod.TabStop = False
         Me.ogcsubprod.Tag = "3|"
@@ -453,7 +453,7 @@ Partial Class wGenerateCartonNonSty
         Me.cwFTSelect.ColumnEdit = Me.RepositoryItemCheckEditFTSelect
         Me.cwFTSelect.FieldName = "FTSelect"
         Me.cwFTSelect.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.cwFTSelect.MinWidth = 25
+        Me.cwFTSelect.MinWidth = 24
         Me.cwFTSelect.Name = "cwFTSelect"
         Me.cwFTSelect.Visible = True
         Me.cwFTSelect.VisibleIndex = 0
@@ -476,7 +476,7 @@ Partial Class wGenerateCartonNonSty
         'ocmcancel
         '
         Me.ocmcancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmcancel.Location = New System.Drawing.Point(675, 580)
+        Me.ocmcancel.Location = New System.Drawing.Point(675, 613)
         Me.ocmcancel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmcancel.Name = "ocmcancel"
         Me.ocmcancel.Size = New System.Drawing.Size(180, 31)
@@ -488,7 +488,7 @@ Partial Class wGenerateCartonNonSty
         'ocmcreate
         '
         Me.ocmcreate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmcreate.Location = New System.Drawing.Point(474, 580)
+        Me.ocmcreate.Location = New System.Drawing.Point(474, 613)
         Me.ocmcreate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmcreate.Name = "ocmcreate"
         Me.ocmcreate.Size = New System.Drawing.Size(180, 31)
@@ -503,7 +503,7 @@ Partial Class wGenerateCartonNonSty
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogbpackcartondetail.Controls.Add(Me.ogcsubprodpackmerge)
         Me.ogbpackcartondetail.Controls.Add(Me.ogcsubprodpack)
-        Me.ogbpackcartondetail.Location = New System.Drawing.Point(1, 359)
+        Me.ogbpackcartondetail.Location = New System.Drawing.Point(1, 393)
         Me.ogbpackcartondetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbpackcartondetail.Name = "ogbpackcartondetail"
         Me.ogbpackcartondetail.Size = New System.Drawing.Size(885, 212)
@@ -662,7 +662,7 @@ Partial Class wGenerateCartonNonSty
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(888, 623)
+        Me.ClientSize = New System.Drawing.Size(888, 656)
         Me.Controls.Add(Me.FTStateMerge)
         Me.Controls.Add(Me.ogbpackcartondetail)
         Me.Controls.Add(Me.ocmcancel)
@@ -670,6 +670,7 @@ Partial Class wGenerateCartonNonSty
         Me.Controls.Add(Me.ogbsubprod)
         Me.Controls.Add(Me.ogbcarton)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "wGenerateCartonNonSty"

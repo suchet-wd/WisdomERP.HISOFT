@@ -79,8 +79,8 @@ Partial Class wScanBarcodeOutlineEmbellish
         Me.FTUpdTime = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTUpdUser = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.cFTNote = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemFNStateSewPack = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
         Me.cFTPartName = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemFNStateSewPack = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
         CType(Me.FNBunbleSeq.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTSizeBreakDown.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTColorway.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -596,7 +596,7 @@ Partial Class wScanBarcodeOutlineEmbellish
         'FTBarcodeNo
         '
         Me.FTBarcodeNo.EditValue = ""
-        Me.FTBarcodeNo.Location = New System.Drawing.Point(212, 33)
+        Me.FTBarcodeNo.Location = New System.Drawing.Point(212, 35)
         Me.FTBarcodeNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTBarcodeNo.Name = "FTBarcodeNo"
         Me.FTBarcodeNo.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -783,8 +783,6 @@ Partial Class wScanBarcodeOutlineEmbellish
         Me.CFTNikePOLineItem.OptionsColumn.AllowEdit = False
         Me.CFTNikePOLineItem.OptionsColumn.AllowMove = False
         Me.CFTNikePOLineItem.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.CFTNikePOLineItem.OptionsFilter.AllowAutoFilter = False
-        Me.CFTNikePOLineItem.OptionsFilter.AllowFilter = False
         Me.CFTNikePOLineItem.Visible = True
         Me.CFTNikePOLineItem.VisibleIndex = 6
         Me.CFTNikePOLineItem.Width = 107
@@ -951,13 +949,6 @@ Partial Class wScanBarcodeOutlineEmbellish
         Me.cFTNote.VisibleIndex = 2
         Me.cFTNote.Width = 187
         '
-        'RepositoryItemFNStateSewPack
-        '
-        Me.RepositoryItemFNStateSewPack.AutoHeight = False
-        Me.RepositoryItemFNStateSewPack.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemFNStateSewPack.Name = "RepositoryItemFNStateSewPack"
-        Me.RepositoryItemFNStateSewPack.Tag = "FNStateSewPack"
-        '
         'cFTPartName
         '
         Me.cFTPartName.Caption = "FTPartName"
@@ -968,6 +959,13 @@ Partial Class wScanBarcodeOutlineEmbellish
         Me.cFTPartName.Visible = True
         Me.cFTPartName.VisibleIndex = 1
         Me.cFTPartName.Width = 177
+        '
+        'RepositoryItemFNStateSewPack
+        '
+        Me.RepositoryItemFNStateSewPack.AutoHeight = False
+        Me.RepositoryItemFNStateSewPack.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemFNStateSewPack.Name = "RepositoryItemFNStateSewPack"
+        Me.RepositoryItemFNStateSewPack.Tag = "FNStateSewPack"
         '
         'wScanBarcodeOutlineEmbellish
         '

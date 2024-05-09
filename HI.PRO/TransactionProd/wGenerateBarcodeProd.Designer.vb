@@ -66,6 +66,7 @@ Partial Class wGenerateBarcodeProd
         Me.G2FTSizeBreakDown = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.G2FNQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTMarkName = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTStateChange = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemCalcEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
         Me.RepositoryItemLookUpEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
         Me.otpbarcodesendsupl = New DevExpress.XtraTab.XtraTabPage()
@@ -130,7 +131,6 @@ Partial Class wGenerateBarcodeProd
         Me.ocmpreviewbarcodewipall = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
-        Me.FTStateChange = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.ogborderinfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogborderinfo.SuspendLayout()
         CType(Me.FDShipDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -197,8 +197,9 @@ Partial Class wGenerateBarcodeProd
         Me.ogborderinfo.Controls.Add(Me.FTOrderNo_lbl)
         Me.ogborderinfo.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogborderinfo.Location = New System.Drawing.Point(0, 0)
+        Me.ogborderinfo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogborderinfo.Name = "ogborderinfo"
-        Me.ogborderinfo.Size = New System.Drawing.Size(948, 99)
+        Me.ogborderinfo.Size = New System.Drawing.Size(1106, 122)
         Me.ogborderinfo.TabIndex = 6
         Me.ogborderinfo.Text = "Order Information"
         '
@@ -209,9 +210,10 @@ Partial Class wGenerateBarcodeProd
         Me.FDShipDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDShipDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDShipDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDShipDate_lbl.Location = New System.Drawing.Point(648, 44)
+        Me.FDShipDate_lbl.Location = New System.Drawing.Point(756, 54)
+        Me.FDShipDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDShipDate_lbl.Name = "FDShipDate_lbl"
-        Me.FDShipDate_lbl.Size = New System.Drawing.Size(105, 19)
+        Me.FDShipDate_lbl.Size = New System.Drawing.Size(122, 23)
         Me.FDShipDate_lbl.TabIndex = 490
         Me.FDShipDate_lbl.Tag = "2|"
         Me.FDShipDate_lbl.Text = "Shipment Date :"
@@ -223,9 +225,10 @@ Partial Class wGenerateBarcodeProd
         Me.FDProDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDProDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDProDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDProDate_lbl.Location = New System.Drawing.Point(459, 45)
+        Me.FDProDate_lbl.Location = New System.Drawing.Point(535, 55)
+        Me.FDProDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDProDate_lbl.Name = "FDProDate_lbl"
-        Me.FDProDate_lbl.Size = New System.Drawing.Size(105, 19)
+        Me.FDProDate_lbl.Size = New System.Drawing.Size(122, 23)
         Me.FDProDate_lbl.TabIndex = 489
         Me.FDProDate_lbl.Tag = "2|"
         Me.FDProDate_lbl.Text = "Cutting Date :"
@@ -237,49 +240,53 @@ Partial Class wGenerateBarcodeProd
         Me.FDOrderDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDOrderDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDOrderDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDOrderDate_lbl.Location = New System.Drawing.Point(271, 44)
+        Me.FDOrderDate_lbl.Location = New System.Drawing.Point(316, 54)
+        Me.FDOrderDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDOrderDate_lbl.Name = "FDOrderDate_lbl"
-        Me.FDOrderDate_lbl.Size = New System.Drawing.Size(105, 19)
+        Me.FDOrderDate_lbl.Size = New System.Drawing.Size(122, 23)
         Me.FDOrderDate_lbl.TabIndex = 488
         Me.FDOrderDate_lbl.Tag = "2|"
         Me.FDOrderDate_lbl.Text = "Order Date :"
         '
         'FDShipDate
         '
-        Me.FDShipDate.Location = New System.Drawing.Point(757, 44)
+        Me.FDShipDate.Location = New System.Drawing.Point(883, 54)
+        Me.FDShipDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDShipDate.Name = "FDShipDate"
         Me.FDShipDate.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FDShipDate.Properties.Appearance.Options.UseBackColor = True
         Me.FDShipDate.Properties.Appearance.Options.UseTextOptions = True
         Me.FDShipDate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FDShipDate.Properties.ReadOnly = True
-        Me.FDShipDate.Size = New System.Drawing.Size(78, 20)
+        Me.FDShipDate.Size = New System.Drawing.Size(91, 22)
         Me.FDShipDate.TabIndex = 487
         Me.FDShipDate.Tag = "2|"
         '
         'FDProDate
         '
-        Me.FDProDate.Location = New System.Drawing.Point(566, 44)
+        Me.FDProDate.Location = New System.Drawing.Point(660, 54)
+        Me.FDProDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDProDate.Name = "FDProDate"
         Me.FDProDate.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FDProDate.Properties.Appearance.Options.UseBackColor = True
         Me.FDProDate.Properties.Appearance.Options.UseTextOptions = True
         Me.FDProDate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FDProDate.Properties.ReadOnly = True
-        Me.FDProDate.Size = New System.Drawing.Size(78, 20)
+        Me.FDProDate.Size = New System.Drawing.Size(91, 22)
         Me.FDProDate.TabIndex = 486
         Me.FDProDate.Tag = "2|"
         '
         'FDOrderDate
         '
-        Me.FDOrderDate.Location = New System.Drawing.Point(378, 44)
+        Me.FDOrderDate.Location = New System.Drawing.Point(441, 54)
+        Me.FDOrderDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FDOrderDate.Name = "FDOrderDate"
         Me.FDOrderDate.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FDOrderDate.Properties.Appearance.Options.UseBackColor = True
         Me.FDOrderDate.Properties.Appearance.Options.UseTextOptions = True
         Me.FDOrderDate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FDOrderDate.Properties.ReadOnly = True
-        Me.FDOrderDate.Size = New System.Drawing.Size(78, 20)
+        Me.FDOrderDate.Size = New System.Drawing.Size(91, 22)
         Me.FDOrderDate.TabIndex = 485
         Me.FDOrderDate.Tag = "2|"
         '
@@ -287,19 +294,21 @@ Partial Class wGenerateBarcodeProd
         '
         Me.otbjobprod.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.otbjobprod.Location = New System.Drawing.Point(2, 66)
+        Me.otbjobprod.Location = New System.Drawing.Point(2, 81)
+        Me.otbjobprod.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otbjobprod.Name = "otbjobprod"
         Me.otbjobprod.ShowTabHeader = DevExpress.Utils.DefaultBoolean.[True]
-        Me.otbjobprod.Size = New System.Drawing.Size(944, 33)
+        Me.otbjobprod.Size = New System.Drawing.Size(1101, 41)
         Me.otbjobprod.TabIndex = 3
         '
         'FTOrderNo
         '
-        Me.FTOrderNo.Location = New System.Drawing.Point(141, 44)
+        Me.FTOrderNo.Location = New System.Drawing.Point(164, 54)
+        Me.FTOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNo.Name = "FTOrderNo"
         Me.FTOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "160", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOrderNo.Properties.Tag = ""
-        Me.FTOrderNo.Size = New System.Drawing.Size(130, 20)
+        Me.FTOrderNo.Size = New System.Drawing.Size(152, 22)
         Me.FTOrderNo.TabIndex = 469
         Me.FTOrderNo.Tag = "2|"
         '
@@ -310,27 +319,30 @@ Partial Class wGenerateBarcodeProd
         Me.FNHSysCmpId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCmpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCmpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCmpId_lbl.Location = New System.Drawing.Point(31, 23)
+        Me.FNHSysCmpId_lbl.Location = New System.Drawing.Point(36, 28)
+        Me.FNHSysCmpId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCmpId_lbl.Name = "FNHSysCmpId_lbl"
-        Me.FNHSysCmpId_lbl.Size = New System.Drawing.Size(107, 17)
+        Me.FNHSysCmpId_lbl.Size = New System.Drawing.Size(125, 21)
         Me.FNHSysCmpId_lbl.TabIndex = 467
         Me.FNHSysCmpId_lbl.Tag = "2|"
         Me.FNHSysCmpId_lbl.Text = "Company :"
         '
         'FNHSysCmpId_None
         '
-        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(273, 23)
+        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(318, 28)
+        Me.FNHSysCmpId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCmpId_None.Name = "FNHSysCmpId_None"
         Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCmpId_None.Properties.ReadOnly = True
-        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(291, 20)
+        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(339, 22)
         Me.FNHSysCmpId_None.TabIndex = 468
         Me.FNHSysCmpId_None.Tag = ""
         '
         'FNHSysCmpId
         '
-        Me.FNHSysCmpId.Location = New System.Drawing.Point(141, 23)
+        Me.FNHSysCmpId.Location = New System.Drawing.Point(164, 28)
+        Me.FNHSysCmpId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCmpId.Name = "FNHSysCmpId"
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
@@ -339,7 +351,7 @@ Partial Class wGenerateBarcodeProd
         Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(130, 20)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(152, 22)
         Me.FNHSysCmpId.TabIndex = 466
         Me.FNHSysCmpId.Tag = ""
         '
@@ -347,19 +359,21 @@ Partial Class wGenerateBarcodeProd
         '
         Me.FNHSysStyleId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysStyleId_None.Location = New System.Drawing.Point(831, 22)
+        Me.FNHSysStyleId_None.Location = New System.Drawing.Point(969, 27)
+        Me.FNHSysStyleId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysStyleId_None.Name = "FNHSysStyleId_None"
         Me.FNHSysStyleId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysStyleId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysStyleId_None.Properties.ReadOnly = True
-        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(112, 20)
+        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(131, 22)
         Me.FNHSysStyleId_None.TabIndex = 441
         Me.FNHSysStyleId_None.Tag = "2|"
         '
         'FNHSysStyleId
         '
         Me.FNHSysStyleId.Enabled = False
-        Me.FNHSysStyleId.Location = New System.Drawing.Point(713, 22)
+        Me.FNHSysStyleId.Location = New System.Drawing.Point(832, 27)
+        Me.FNHSysStyleId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysStyleId.Name = "FNHSysStyleId"
         Me.FNHSysStyleId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysStyleId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
@@ -369,7 +383,7 @@ Partial Class wGenerateBarcodeProd
         Me.FNHSysStyleId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysStyleId.Properties.ReadOnly = True
         Me.FNHSysStyleId.Properties.Tag = ""
-        Me.FNHSysStyleId.Size = New System.Drawing.Size(116, 20)
+        Me.FNHSysStyleId.Size = New System.Drawing.Size(135, 22)
         Me.FNHSysStyleId.TabIndex = 440
         Me.FNHSysStyleId.Tag = "2|"
         '
@@ -380,9 +394,10 @@ Partial Class wGenerateBarcodeProd
         Me.FNHSysStyleId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysStyleId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysStyleId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysStyleId_lbl.Location = New System.Drawing.Point(568, 23)
+        Me.FNHSysStyleId_lbl.Location = New System.Drawing.Point(663, 28)
+        Me.FNHSysStyleId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysStyleId_lbl.Name = "FNHSysStyleId_lbl"
-        Me.FNHSysStyleId_lbl.Size = New System.Drawing.Size(143, 18)
+        Me.FNHSysStyleId_lbl.Size = New System.Drawing.Size(167, 22)
         Me.FNHSysStyleId_lbl.TabIndex = 439
         Me.FNHSysStyleId_lbl.Tag = "2|"
         Me.FNHSysStyleId_lbl.Text = "FNHSysStyleId :"
@@ -394,9 +409,10 @@ Partial Class wGenerateBarcodeProd
         Me.FTOrderNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(12, 44)
+        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(14, 54)
+        Me.FTOrderNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNo_lbl.Name = "FTOrderNo_lbl"
-        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(127, 18)
+        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(148, 22)
         Me.FTOrderNo_lbl.TabIndex = 423
         Me.FTOrderNo_lbl.Tag = "2|"
         Me.FTOrderNo_lbl.Text = "FTOrderNo :"
@@ -409,9 +425,10 @@ Partial Class wGenerateBarcodeProd
         Me.ogbbarcode.Controls.Add(Me.ockselectallbyselection)
         Me.ogbbarcode.Controls.Add(Me.ockselectall)
         Me.ogbbarcode.Controls.Add(Me.otbdetail)
-        Me.ogbbarcode.Location = New System.Drawing.Point(295, 99)
+        Me.ogbbarcode.Location = New System.Drawing.Point(344, 122)
+        Me.ogbbarcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbbarcode.Name = "ogbbarcode"
-        Me.ogbbarcode.Size = New System.Drawing.Size(649, 469)
+        Me.ogbbarcode.Size = New System.Drawing.Size(757, 577)
         Me.ogbbarcode.TabIndex = 431
         Me.ogbbarcode.Text = "ข้อมูล Barcode"
         '
@@ -419,7 +436,8 @@ Partial Class wGenerateBarcodeProd
         '
         Me.ockselectallbyselection.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ockselectallbyselection.EditValue = "0"
-        Me.ockselectallbyselection.Location = New System.Drawing.Point(276, 1)
+        Me.ockselectallbyselection.Location = New System.Drawing.Point(322, 1)
+        Me.ockselectallbyselection.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ockselectallbyselection.Name = "ockselectallbyselection"
         Me.ockselectallbyselection.Properties.Appearance.Options.UseTextOptions = True
         Me.ockselectallbyselection.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -427,14 +445,15 @@ Partial Class wGenerateBarcodeProd
         Me.ockselectallbyselection.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.ockselectallbyselection.Properties.ValueChecked = "1"
         Me.ockselectallbyselection.Properties.ValueUnchecked = "0"
-        Me.ockselectallbyselection.Size = New System.Drawing.Size(180, 20)
+        Me.ockselectallbyselection.Size = New System.Drawing.Size(210, 24)
         Me.ockselectallbyselection.TabIndex = 310
         Me.ockselectallbyselection.Tag = "2|"
         '
         'ockselectall
         '
         Me.ockselectall.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ockselectall.Location = New System.Drawing.Point(462, 2)
+        Me.ockselectall.Location = New System.Drawing.Point(539, 2)
+        Me.ockselectall.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ockselectall.Name = "ockselectall"
         Me.ockselectall.Properties.Appearance.Options.UseTextOptions = True
         Me.ockselectall.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -442,7 +461,7 @@ Partial Class wGenerateBarcodeProd
         Me.ockselectall.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.ockselectall.Properties.ValueChecked = "1"
         Me.ockselectall.Properties.ValueUnchecked = "0"
-        Me.ockselectall.Size = New System.Drawing.Size(180, 20)
+        Me.ockselectall.Size = New System.Drawing.Size(210, 24)
         Me.ockselectall.TabIndex = 309
         Me.ockselectall.Tag = "2|"
         '
@@ -451,28 +470,32 @@ Partial Class wGenerateBarcodeProd
         Me.otbdetail.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.otbdetail.Location = New System.Drawing.Point(4, 22)
+        Me.otbdetail.Location = New System.Drawing.Point(5, 27)
+        Me.otbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otbdetail.Name = "otbdetail"
         Me.otbdetail.SelectedTabPage = Me.otpbarcodebundle
-        Me.otbdetail.Size = New System.Drawing.Size(643, 442)
+        Me.otbdetail.Size = New System.Drawing.Size(750, 544)
         Me.otbdetail.TabIndex = 308
         Me.otbdetail.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpbarcodebundle, Me.otpbarcodesendsupl, Me.otpbarcodeheat})
         '
         'otpbarcodebundle
         '
         Me.otpbarcodebundle.Controls.Add(Me.ogcbarcode)
+        Me.otpbarcodebundle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otpbarcodebundle.Name = "otpbarcodebundle"
-        Me.otpbarcodebundle.Size = New System.Drawing.Size(641, 417)
+        Me.otpbarcodebundle.Size = New System.Drawing.Size(748, 513)
         Me.otpbarcodebundle.Text = "Barcode ใบกำกับมัดงาน"
         '
         'ogcbarcode
         '
         Me.ogcbarcode.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcbarcode.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcbarcode.Location = New System.Drawing.Point(0, 0)
         Me.ogcbarcode.MainView = Me.ogvbarcode
+        Me.ogcbarcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcbarcode.Name = "ogcbarcode"
         Me.ogcbarcode.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit2, Me.RepositoryItemLookUpEdit2, Me.ReposSelectBundle})
-        Me.ogcbarcode.Size = New System.Drawing.Size(641, 417)
+        Me.ogcbarcode.Size = New System.Drawing.Size(748, 513)
         Me.ogcbarcode.TabIndex = 308
         Me.ogcbarcode.TabStop = False
         Me.ogcbarcode.Tag = "3|"
@@ -481,7 +504,6 @@ Partial Class wGenerateBarcodeProd
         'ogvbarcode
         '
         Me.ogvbarcode.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G2FTSelect, Me.G2FTBarcodeBundleNo, Me.GFNBunbleSeq, Me.G2FTColorway, Me.CFTPOLineItemNo, Me.G2FTSizeBreakDown, Me.G2FNQuantity, Me.FTMarkName, Me.FTStateChange})
-        Me.ogvbarcode.DetailHeight = 284
         Me.ogvbarcode.GridControl = Me.ogcbarcode
         Me.ogvbarcode.Name = "ogvbarcode"
         Me.ogvbarcode.OptionsCustomization.AllowGroup = False
@@ -499,7 +521,6 @@ Partial Class wGenerateBarcodeProd
         Me.G2FTSelect.Caption = "FTSelect"
         Me.G2FTSelect.ColumnEdit = Me.ReposSelectBundle
         Me.G2FTSelect.FieldName = "FTSelect"
-        Me.G2FTSelect.MinWidth = 17
         Me.G2FTSelect.Name = "G2FTSelect"
         Me.G2FTSelect.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.G2FTSelect.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -508,7 +529,7 @@ Partial Class wGenerateBarcodeProd
         Me.G2FTSelect.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.G2FTSelect.Visible = True
         Me.G2FTSelect.VisibleIndex = 0
-        Me.G2FTSelect.Width = 35
+        Me.G2FTSelect.Width = 41
         '
         'ReposSelectBundle
         '
@@ -524,13 +545,12 @@ Partial Class wGenerateBarcodeProd
         Me.G2FTBarcodeBundleNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G2FTBarcodeBundleNo.Caption = "FTBarcodeBundleNo"
         Me.G2FTBarcodeBundleNo.FieldName = "FTBarcodeBundleNo"
-        Me.G2FTBarcodeBundleNo.MinWidth = 17
         Me.G2FTBarcodeBundleNo.Name = "G2FTBarcodeBundleNo"
         Me.G2FTBarcodeBundleNo.OptionsColumn.AllowEdit = False
         Me.G2FTBarcodeBundleNo.OptionsColumn.ReadOnly = True
         Me.G2FTBarcodeBundleNo.Visible = True
         Me.G2FTBarcodeBundleNo.VisibleIndex = 1
-        Me.G2FTBarcodeBundleNo.Width = 146
+        Me.G2FTBarcodeBundleNo.Width = 170
         '
         'GFNBunbleSeq
         '
@@ -542,13 +562,12 @@ Partial Class wGenerateBarcodeProd
         Me.GFNBunbleSeq.DisplayFormat.FormatString = "{0:n0}"
         Me.GFNBunbleSeq.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GFNBunbleSeq.FieldName = "FNBunbleSeq"
-        Me.GFNBunbleSeq.MinWidth = 17
         Me.GFNBunbleSeq.Name = "GFNBunbleSeq"
         Me.GFNBunbleSeq.OptionsColumn.AllowEdit = False
         Me.GFNBunbleSeq.OptionsColumn.ReadOnly = True
         Me.GFNBunbleSeq.Visible = True
         Me.GFNBunbleSeq.VisibleIndex = 2
-        Me.GFNBunbleSeq.Width = 83
+        Me.GFNBunbleSeq.Width = 97
         '
         'G2FTColorway
         '
@@ -556,25 +575,21 @@ Partial Class wGenerateBarcodeProd
         Me.G2FTColorway.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G2FTColorway.Caption = "FTColorway"
         Me.G2FTColorway.FieldName = "FTColorway"
-        Me.G2FTColorway.MinWidth = 17
         Me.G2FTColorway.Name = "G2FTColorway"
         Me.G2FTColorway.OptionsColumn.AllowEdit = False
         Me.G2FTColorway.OptionsColumn.ReadOnly = True
         Me.G2FTColorway.Visible = True
         Me.G2FTColorway.VisibleIndex = 3
-        Me.G2FTColorway.Width = 64
         '
         'CFTPOLineItemNo
         '
         Me.CFTPOLineItemNo.Caption = "PO Line No"
         Me.CFTPOLineItemNo.FieldName = "FTPOLineItemNo"
-        Me.CFTPOLineItemNo.MinWidth = 17
         Me.CFTPOLineItemNo.Name = "CFTPOLineItemNo"
         Me.CFTPOLineItemNo.OptionsColumn.AllowEdit = False
         Me.CFTPOLineItemNo.OptionsColumn.ReadOnly = True
         Me.CFTPOLineItemNo.Visible = True
         Me.CFTPOLineItemNo.VisibleIndex = 4
-        Me.CFTPOLineItemNo.Width = 64
         '
         'G2FTSizeBreakDown
         '
@@ -582,13 +597,12 @@ Partial Class wGenerateBarcodeProd
         Me.G2FTSizeBreakDown.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G2FTSizeBreakDown.Caption = "FTSizeBreakDown"
         Me.G2FTSizeBreakDown.FieldName = "FTSizeBreakDown"
-        Me.G2FTSizeBreakDown.MinWidth = 17
         Me.G2FTSizeBreakDown.Name = "G2FTSizeBreakDown"
         Me.G2FTSizeBreakDown.OptionsColumn.AllowEdit = False
         Me.G2FTSizeBreakDown.OptionsColumn.ReadOnly = True
         Me.G2FTSizeBreakDown.Visible = True
         Me.G2FTSizeBreakDown.VisibleIndex = 5
-        Me.G2FTSizeBreakDown.Width = 74
+        Me.G2FTSizeBreakDown.Width = 86
         '
         'G2FNQuantity
         '
@@ -600,25 +614,30 @@ Partial Class wGenerateBarcodeProd
         Me.G2FNQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.G2FNQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.G2FNQuantity.FieldName = "FNQuantity"
-        Me.G2FNQuantity.MinWidth = 17
         Me.G2FNQuantity.Name = "G2FNQuantity"
         Me.G2FNQuantity.OptionsColumn.AllowEdit = False
         Me.G2FNQuantity.OptionsColumn.ReadOnly = True
         Me.G2FNQuantity.Visible = True
         Me.G2FNQuantity.VisibleIndex = 6
-        Me.G2FNQuantity.Width = 88
+        Me.G2FNQuantity.Width = 103
         '
         'FTMarkName
         '
         Me.FTMarkName.Caption = "Mark Name"
         Me.FTMarkName.FieldName = "FTMarkName"
-        Me.FTMarkName.MinWidth = 17
         Me.FTMarkName.Name = "FTMarkName"
         Me.FTMarkName.OptionsColumn.AllowEdit = False
         Me.FTMarkName.OptionsColumn.ReadOnly = True
         Me.FTMarkName.Visible = True
         Me.FTMarkName.VisibleIndex = 7
-        Me.FTMarkName.Width = 111
+        Me.FTMarkName.Width = 129
+        '
+        'FTStateChange
+        '
+        Me.FTStateChange.Caption = "FTStateChange"
+        Me.FTStateChange.FieldName = "FTStateChange"
+        Me.FTStateChange.MinWidth = 23
+        Me.FTStateChange.Name = "FTStateChange"
         '
         'RepositoryItemCalcEdit2
         '
@@ -635,7 +654,7 @@ Partial Class wGenerateBarcodeProd
         '
         Me.RepositoryItemLookUpEdit2.AutoHeight = False
         Me.RepositoryItemLookUpEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemLookUpEdit2.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FTSizeBreakDown", "FTSizeBreakDown", 17, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default]), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FNMatSizeSeq", "FNMatSizeSeq", 17, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
+        Me.RepositoryItemLookUpEdit2.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FTSizeBreakDown", "FTSizeBreakDown"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FNMatSizeSeq", "FNMatSizeSeq", 20, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
         Me.RepositoryItemLookUpEdit2.DisplayMember = "FTSizeBreakDown"
         Me.RepositoryItemLookUpEdit2.Name = "RepositoryItemLookUpEdit2"
         Me.RepositoryItemLookUpEdit2.ValueMember = "FTSizeBreakDown"
@@ -643,8 +662,9 @@ Partial Class wGenerateBarcodeProd
         'otpbarcodesendsupl
         '
         Me.otpbarcodesendsupl.Controls.Add(Me.ogcbrcodesupl)
+        Me.otpbarcodesendsupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otpbarcodesendsupl.Name = "otpbarcodesendsupl"
-        Me.otpbarcodesendsupl.Size = New System.Drawing.Size(641, 417)
+        Me.otpbarcodesendsupl.Size = New System.Drawing.Size(748, 513)
         Me.otpbarcodesendsupl.Text = "Barcode ส่งงานนอก"
         '
         'ogcbrcodesupl
@@ -652,11 +672,13 @@ Partial Class wGenerateBarcodeProd
         Me.ogcbrcodesupl.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogcbrcodesupl.Location = New System.Drawing.Point(2, 3)
+        Me.ogcbrcodesupl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcbrcodesupl.Location = New System.Drawing.Point(2, 4)
         Me.ogcbrcodesupl.MainView = Me.ogvbrcodesupl
+        Me.ogcbrcodesupl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcbrcodesupl.Name = "ogcbrcodesupl"
         Me.ogcbrcodesupl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit3, Me.RepositoryItemLookUpEdit3, Me.RepositoryItemCheckEdit2})
-        Me.ogcbrcodesupl.Size = New System.Drawing.Size(632, 408)
+        Me.ogcbrcodesupl.Size = New System.Drawing.Size(737, 502)
         Me.ogcbrcodesupl.TabIndex = 309
         Me.ogcbrcodesupl.TabStop = False
         Me.ogcbrcodesupl.Tag = "3|"
@@ -665,7 +687,6 @@ Partial Class wGenerateBarcodeProd
         'ogvbrcodesupl
         '
         Me.ogvbrcodesupl.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G3FTSelect, Me.G3FTBarcodeBundleNo, Me.FTBarcodeSendSuplNo, Me.G3FNBunbleSeq, Me.G3FTColorway, Me.C2FTPOLineItemNo, Me.G3FTSizeBreakDown, Me.FTPartCode, Me.FTPartName, Me.G3FNQuantity, Me.FNSendSuplType, Me.FTSendSuplName, Me.FTSuplCode, Me.FTSuplName})
-        Me.ogvbrcodesupl.DetailHeight = 284
         Me.ogvbrcodesupl.GridControl = Me.ogcbrcodesupl
         Me.ogvbrcodesupl.Name = "ogvbrcodesupl"
         Me.ogvbrcodesupl.OptionsCustomization.AllowGroup = False
@@ -683,7 +704,6 @@ Partial Class wGenerateBarcodeProd
         Me.G3FTSelect.Caption = "FTSelect"
         Me.G3FTSelect.ColumnEdit = Me.RepositoryItemCheckEdit2
         Me.G3FTSelect.FieldName = "FTSelect"
-        Me.G3FTSelect.MinWidth = 17
         Me.G3FTSelect.Name = "G3FTSelect"
         Me.G3FTSelect.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.G3FTSelect.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -692,7 +712,7 @@ Partial Class wGenerateBarcodeProd
         Me.G3FTSelect.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.G3FTSelect.Visible = True
         Me.G3FTSelect.VisibleIndex = 0
-        Me.G3FTSelect.Width = 35
+        Me.G3FTSelect.Width = 41
         '
         'RepositoryItemCheckEdit2
         '
@@ -708,11 +728,10 @@ Partial Class wGenerateBarcodeProd
         Me.G3FTBarcodeBundleNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G3FTBarcodeBundleNo.Caption = "FTBarcodeBundleNo"
         Me.G3FTBarcodeBundleNo.FieldName = "FTBarcodeBundleNo"
-        Me.G3FTBarcodeBundleNo.MinWidth = 17
         Me.G3FTBarcodeBundleNo.Name = "G3FTBarcodeBundleNo"
         Me.G3FTBarcodeBundleNo.OptionsColumn.AllowEdit = False
         Me.G3FTBarcodeBundleNo.OptionsColumn.ReadOnly = True
-        Me.G3FTBarcodeBundleNo.Width = 146
+        Me.G3FTBarcodeBundleNo.Width = 170
         '
         'FTBarcodeSendSuplNo
         '
@@ -720,13 +739,12 @@ Partial Class wGenerateBarcodeProd
         Me.FTBarcodeSendSuplNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTBarcodeSendSuplNo.Caption = "FTBarcodeSendSuplNo"
         Me.FTBarcodeSendSuplNo.FieldName = "FTBarcodeSendSuplNo"
-        Me.FTBarcodeSendSuplNo.MinWidth = 17
         Me.FTBarcodeSendSuplNo.Name = "FTBarcodeSendSuplNo"
         Me.FTBarcodeSendSuplNo.OptionsColumn.AllowEdit = False
         Me.FTBarcodeSendSuplNo.OptionsColumn.ReadOnly = True
         Me.FTBarcodeSendSuplNo.Visible = True
         Me.FTBarcodeSendSuplNo.VisibleIndex = 1
-        Me.FTBarcodeSendSuplNo.Width = 121
+        Me.FTBarcodeSendSuplNo.Width = 141
         '
         'G3FNBunbleSeq
         '
@@ -738,13 +756,12 @@ Partial Class wGenerateBarcodeProd
         Me.G3FNBunbleSeq.DisplayFormat.FormatString = "{0:n0}"
         Me.G3FNBunbleSeq.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.G3FNBunbleSeq.FieldName = "FNBunbleSeq"
-        Me.G3FNBunbleSeq.MinWidth = 17
         Me.G3FNBunbleSeq.Name = "G3FNBunbleSeq"
         Me.G3FNBunbleSeq.OptionsColumn.AllowEdit = False
         Me.G3FNBunbleSeq.OptionsColumn.ReadOnly = True
         Me.G3FNBunbleSeq.Visible = True
         Me.G3FNBunbleSeq.VisibleIndex = 2
-        Me.G3FNBunbleSeq.Width = 83
+        Me.G3FNBunbleSeq.Width = 97
         '
         'G3FTColorway
         '
@@ -752,25 +769,21 @@ Partial Class wGenerateBarcodeProd
         Me.G3FTColorway.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G3FTColorway.Caption = "FTColorway"
         Me.G3FTColorway.FieldName = "FTColorway"
-        Me.G3FTColorway.MinWidth = 17
         Me.G3FTColorway.Name = "G3FTColorway"
         Me.G3FTColorway.OptionsColumn.AllowEdit = False
         Me.G3FTColorway.OptionsColumn.ReadOnly = True
         Me.G3FTColorway.Visible = True
         Me.G3FTColorway.VisibleIndex = 3
-        Me.G3FTColorway.Width = 64
         '
         'C2FTPOLineItemNo
         '
         Me.C2FTPOLineItemNo.Caption = "PO Line No"
         Me.C2FTPOLineItemNo.FieldName = "FTPOLineItemNo"
-        Me.C2FTPOLineItemNo.MinWidth = 17
         Me.C2FTPOLineItemNo.Name = "C2FTPOLineItemNo"
         Me.C2FTPOLineItemNo.OptionsColumn.AllowEdit = False
         Me.C2FTPOLineItemNo.OptionsColumn.ReadOnly = True
         Me.C2FTPOLineItemNo.Visible = True
         Me.C2FTPOLineItemNo.VisibleIndex = 4
-        Me.C2FTPOLineItemNo.Width = 64
         '
         'G3FTSizeBreakDown
         '
@@ -778,13 +791,12 @@ Partial Class wGenerateBarcodeProd
         Me.G3FTSizeBreakDown.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G3FTSizeBreakDown.Caption = "FTSizeBreakDown"
         Me.G3FTSizeBreakDown.FieldName = "FTSizeBreakDown"
-        Me.G3FTSizeBreakDown.MinWidth = 17
         Me.G3FTSizeBreakDown.Name = "G3FTSizeBreakDown"
         Me.G3FTSizeBreakDown.OptionsColumn.AllowEdit = False
         Me.G3FTSizeBreakDown.OptionsColumn.ReadOnly = True
         Me.G3FTSizeBreakDown.Visible = True
         Me.G3FTSizeBreakDown.VisibleIndex = 5
-        Me.G3FTSizeBreakDown.Width = 74
+        Me.G3FTSizeBreakDown.Width = 86
         '
         'FTPartCode
         '
@@ -792,13 +804,11 @@ Partial Class wGenerateBarcodeProd
         Me.FTPartCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTPartCode.Caption = "FTPartCode"
         Me.FTPartCode.FieldName = "FTPartCode"
-        Me.FTPartCode.MinWidth = 17
         Me.FTPartCode.Name = "FTPartCode"
         Me.FTPartCode.OptionsColumn.AllowEdit = False
         Me.FTPartCode.OptionsColumn.ReadOnly = True
         Me.FTPartCode.Visible = True
         Me.FTPartCode.VisibleIndex = 6
-        Me.FTPartCode.Width = 64
         '
         'FTPartName
         '
@@ -806,13 +816,12 @@ Partial Class wGenerateBarcodeProd
         Me.FTPartName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTPartName.Caption = "FTPartName"
         Me.FTPartName.FieldName = "FTPartName"
-        Me.FTPartName.MinWidth = 17
         Me.FTPartName.Name = "FTPartName"
         Me.FTPartName.OptionsColumn.AllowEdit = False
         Me.FTPartName.OptionsColumn.ReadOnly = True
         Me.FTPartName.Visible = True
         Me.FTPartName.VisibleIndex = 7
-        Me.FTPartName.Width = 129
+        Me.FTPartName.Width = 150
         '
         'G3FNQuantity
         '
@@ -824,13 +833,12 @@ Partial Class wGenerateBarcodeProd
         Me.G3FNQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.G3FNQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.G3FNQuantity.FieldName = "FNQuantity"
-        Me.G3FNQuantity.MinWidth = 17
         Me.G3FNQuantity.Name = "G3FNQuantity"
         Me.G3FNQuantity.OptionsColumn.AllowEdit = False
         Me.G3FNQuantity.OptionsColumn.ReadOnly = True
         Me.G3FNQuantity.Visible = True
         Me.G3FNQuantity.VisibleIndex = 8
-        Me.G3FNQuantity.Width = 88
+        Me.G3FNQuantity.Width = 103
         '
         'FNSendSuplType
         '
@@ -838,11 +846,9 @@ Partial Class wGenerateBarcodeProd
         Me.FNSendSuplType.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNSendSuplType.Caption = "FNSendSuplType"
         Me.FNSendSuplType.FieldName = "FNSendSuplType"
-        Me.FNSendSuplType.MinWidth = 17
         Me.FNSendSuplType.Name = "FNSendSuplType"
         Me.FNSendSuplType.OptionsColumn.AllowEdit = False
         Me.FNSendSuplType.OptionsColumn.ReadOnly = True
-        Me.FNSendSuplType.Width = 64
         '
         'FTSendSuplName
         '
@@ -850,13 +856,12 @@ Partial Class wGenerateBarcodeProd
         Me.FTSendSuplName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTSendSuplName.Caption = "FTSendSuplName"
         Me.FTSendSuplName.FieldName = "FTSendSuplName"
-        Me.FTSendSuplName.MinWidth = 17
         Me.FTSendSuplName.Name = "FTSendSuplName"
         Me.FTSendSuplName.OptionsColumn.AllowEdit = False
         Me.FTSendSuplName.OptionsColumn.ReadOnly = True
         Me.FTSendSuplName.Visible = True
         Me.FTSendSuplName.VisibleIndex = 9
-        Me.FTSendSuplName.Width = 129
+        Me.FTSendSuplName.Width = 150
         '
         'FTSuplCode
         '
@@ -864,13 +869,11 @@ Partial Class wGenerateBarcodeProd
         Me.FTSuplCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTSuplCode.Caption = "FTSuplCode"
         Me.FTSuplCode.FieldName = "FTSuplCode"
-        Me.FTSuplCode.MinWidth = 17
         Me.FTSuplCode.Name = "FTSuplCode"
         Me.FTSuplCode.OptionsColumn.AllowEdit = False
         Me.FTSuplCode.OptionsColumn.ReadOnly = True
         Me.FTSuplCode.Visible = True
         Me.FTSuplCode.VisibleIndex = 10
-        Me.FTSuplCode.Width = 64
         '
         'FTSuplName
         '
@@ -878,13 +881,12 @@ Partial Class wGenerateBarcodeProd
         Me.FTSuplName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTSuplName.Caption = "FTSuplName"
         Me.FTSuplName.FieldName = "FTSuplName"
-        Me.FTSuplName.MinWidth = 17
         Me.FTSuplName.Name = "FTSuplName"
         Me.FTSuplName.OptionsColumn.AllowEdit = False
         Me.FTSuplName.OptionsColumn.ReadOnly = True
         Me.FTSuplName.Visible = True
         Me.FTSuplName.VisibleIndex = 11
-        Me.FTSuplName.Width = 129
+        Me.FTSuplName.Width = 150
         '
         'RepositoryItemCalcEdit3
         '
@@ -901,7 +903,7 @@ Partial Class wGenerateBarcodeProd
         '
         Me.RepositoryItemLookUpEdit3.AutoHeight = False
         Me.RepositoryItemLookUpEdit3.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemLookUpEdit3.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FTSizeBreakDown", "FTSizeBreakDown", 17, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default]), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FNMatSizeSeq", "FNMatSizeSeq", 17, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
+        Me.RepositoryItemLookUpEdit3.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FTSizeBreakDown", "FTSizeBreakDown"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FNMatSizeSeq", "FNMatSizeSeq", 20, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
         Me.RepositoryItemLookUpEdit3.DisplayMember = "FTSizeBreakDown"
         Me.RepositoryItemLookUpEdit3.Name = "RepositoryItemLookUpEdit3"
         Me.RepositoryItemLookUpEdit3.ValueMember = "FTSizeBreakDown"
@@ -909,8 +911,9 @@ Partial Class wGenerateBarcodeProd
         'otpbarcodeheat
         '
         Me.otpbarcodeheat.Controls.Add(Me.ogcbrcodesingle)
+        Me.otpbarcodeheat.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otpbarcodeheat.Name = "otpbarcodeheat"
-        Me.otpbarcodeheat.Size = New System.Drawing.Size(641, 417)
+        Me.otpbarcodeheat.Size = New System.Drawing.Size(748, 513)
         Me.otpbarcodeheat.Text = "Barcode เหมาเดี่ยว"
         '
         'ogcbrcodesingle
@@ -918,11 +921,13 @@ Partial Class wGenerateBarcodeProd
         Me.ogcbrcodesingle.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogcbrcodesingle.Location = New System.Drawing.Point(2, 3)
+        Me.ogcbrcodesingle.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcbrcodesingle.Location = New System.Drawing.Point(2, 4)
         Me.ogcbrcodesingle.MainView = Me.ogvbrcodesingle
+        Me.ogcbrcodesingle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcbrcodesingle.Name = "ogcbrcodesingle"
         Me.ogcbrcodesingle.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit4, Me.RepositoryItemLookUpEdit4, Me.RepositoryItemCheckEdit3})
-        Me.ogcbrcodesingle.Size = New System.Drawing.Size(632, 408)
+        Me.ogcbrcodesingle.Size = New System.Drawing.Size(737, 502)
         Me.ogcbrcodesingle.TabIndex = 310
         Me.ogcbrcodesingle.TabStop = False
         Me.ogcbrcodesingle.Tag = "3|"
@@ -931,7 +936,6 @@ Partial Class wGenerateBarcodeProd
         'ogvbrcodesingle
         '
         Me.ogvbrcodesingle.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G4FTSelect, Me.G4FTBarcodeBundleNo, Me.FTBarcodeHeatNo, Me.G4FNBunbleSeq, Me.G4FTColorway, Me.C3FTPOLineItemNo, Me.G4FTSizeBreakDown, Me.G4FNQuantity, Me.FNOperationSeq, Me.FTOperationCode, Me.FTOperationName})
-        Me.ogvbrcodesingle.DetailHeight = 284
         Me.ogvbrcodesingle.GridControl = Me.ogcbrcodesingle
         Me.ogvbrcodesingle.Name = "ogvbrcodesingle"
         Me.ogvbrcodesingle.OptionsCustomization.AllowGroup = False
@@ -949,7 +953,6 @@ Partial Class wGenerateBarcodeProd
         Me.G4FTSelect.Caption = "FTSelect"
         Me.G4FTSelect.ColumnEdit = Me.RepositoryItemCheckEdit3
         Me.G4FTSelect.FieldName = "FTSelect"
-        Me.G4FTSelect.MinWidth = 17
         Me.G4FTSelect.Name = "G4FTSelect"
         Me.G4FTSelect.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.G4FTSelect.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -958,7 +961,7 @@ Partial Class wGenerateBarcodeProd
         Me.G4FTSelect.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.G4FTSelect.Visible = True
         Me.G4FTSelect.VisibleIndex = 0
-        Me.G4FTSelect.Width = 35
+        Me.G4FTSelect.Width = 41
         '
         'RepositoryItemCheckEdit3
         '
@@ -974,21 +977,18 @@ Partial Class wGenerateBarcodeProd
         Me.G4FTBarcodeBundleNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G4FTBarcodeBundleNo.Caption = "FTBarcodeBundleNo"
         Me.G4FTBarcodeBundleNo.FieldName = "FTBarcodeBundleNo"
-        Me.G4FTBarcodeBundleNo.MinWidth = 17
         Me.G4FTBarcodeBundleNo.Name = "G4FTBarcodeBundleNo"
         Me.G4FTBarcodeBundleNo.OptionsColumn.AllowEdit = False
-        Me.G4FTBarcodeBundleNo.Width = 146
+        Me.G4FTBarcodeBundleNo.Width = 170
         '
         'FTBarcodeHeatNo
         '
         Me.FTBarcodeHeatNo.Caption = "FTBarcodeHeatNo"
         Me.FTBarcodeHeatNo.FieldName = "FTBarcodeHeatNo"
-        Me.FTBarcodeHeatNo.MinWidth = 17
         Me.FTBarcodeHeatNo.Name = "FTBarcodeHeatNo"
         Me.FTBarcodeHeatNo.OptionsColumn.AllowEdit = False
         Me.FTBarcodeHeatNo.Visible = True
         Me.FTBarcodeHeatNo.VisibleIndex = 1
-        Me.FTBarcodeHeatNo.Width = 64
         '
         'G4FNBunbleSeq
         '
@@ -1000,12 +1000,11 @@ Partial Class wGenerateBarcodeProd
         Me.G4FNBunbleSeq.DisplayFormat.FormatString = "{0:n0}"
         Me.G4FNBunbleSeq.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.G4FNBunbleSeq.FieldName = "FNBunbleSeq"
-        Me.G4FNBunbleSeq.MinWidth = 17
         Me.G4FNBunbleSeq.Name = "G4FNBunbleSeq"
         Me.G4FNBunbleSeq.OptionsColumn.AllowEdit = False
         Me.G4FNBunbleSeq.Visible = True
         Me.G4FNBunbleSeq.VisibleIndex = 2
-        Me.G4FNBunbleSeq.Width = 83
+        Me.G4FNBunbleSeq.Width = 97
         '
         'G4FTColorway
         '
@@ -1013,24 +1012,20 @@ Partial Class wGenerateBarcodeProd
         Me.G4FTColorway.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G4FTColorway.Caption = "FTColorway"
         Me.G4FTColorway.FieldName = "FTColorway"
-        Me.G4FTColorway.MinWidth = 17
         Me.G4FTColorway.Name = "G4FTColorway"
         Me.G4FTColorway.OptionsColumn.AllowEdit = False
         Me.G4FTColorway.Visible = True
         Me.G4FTColorway.VisibleIndex = 3
-        Me.G4FTColorway.Width = 64
         '
         'C3FTPOLineItemNo
         '
         Me.C3FTPOLineItemNo.Caption = "PO Line No"
         Me.C3FTPOLineItemNo.FieldName = "FTPOLineItemNo"
-        Me.C3FTPOLineItemNo.MinWidth = 17
         Me.C3FTPOLineItemNo.Name = "C3FTPOLineItemNo"
         Me.C3FTPOLineItemNo.OptionsColumn.AllowEdit = False
         Me.C3FTPOLineItemNo.OptionsColumn.ReadOnly = True
         Me.C3FTPOLineItemNo.Visible = True
         Me.C3FTPOLineItemNo.VisibleIndex = 4
-        Me.C3FTPOLineItemNo.Width = 64
         '
         'G4FTSizeBreakDown
         '
@@ -1038,12 +1033,11 @@ Partial Class wGenerateBarcodeProd
         Me.G4FTSizeBreakDown.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G4FTSizeBreakDown.Caption = "FTSizeBreakDown"
         Me.G4FTSizeBreakDown.FieldName = "FTSizeBreakDown"
-        Me.G4FTSizeBreakDown.MinWidth = 17
         Me.G4FTSizeBreakDown.Name = "G4FTSizeBreakDown"
         Me.G4FTSizeBreakDown.OptionsColumn.AllowEdit = False
         Me.G4FTSizeBreakDown.Visible = True
         Me.G4FTSizeBreakDown.VisibleIndex = 5
-        Me.G4FTSizeBreakDown.Width = 74
+        Me.G4FTSizeBreakDown.Width = 86
         '
         'G4FNQuantity
         '
@@ -1055,45 +1049,41 @@ Partial Class wGenerateBarcodeProd
         Me.G4FNQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.G4FNQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.G4FNQuantity.FieldName = "FNQuantity"
-        Me.G4FNQuantity.MinWidth = 17
         Me.G4FNQuantity.Name = "G4FNQuantity"
         Me.G4FNQuantity.OptionsColumn.AllowEdit = False
         Me.G4FNQuantity.Visible = True
         Me.G4FNQuantity.VisibleIndex = 6
-        Me.G4FNQuantity.Width = 88
+        Me.G4FNQuantity.Width = 103
         '
         'FNOperationSeq
         '
         Me.FNOperationSeq.Caption = "FNOperationSeq"
         Me.FNOperationSeq.FieldName = "FNOperationSeq"
-        Me.FNOperationSeq.MinWidth = 17
         Me.FNOperationSeq.Name = "FNOperationSeq"
         Me.FNOperationSeq.OptionsColumn.AllowEdit = False
         Me.FNOperationSeq.Visible = True
         Me.FNOperationSeq.VisibleIndex = 7
-        Me.FNOperationSeq.Width = 51
+        Me.FNOperationSeq.Width = 59
         '
         'FTOperationCode
         '
         Me.FTOperationCode.Caption = "FTOperationCode"
         Me.FTOperationCode.FieldName = "FTOperationCode"
-        Me.FTOperationCode.MinWidth = 17
         Me.FTOperationCode.Name = "FTOperationCode"
         Me.FTOperationCode.OptionsColumn.AllowEdit = False
         Me.FTOperationCode.Visible = True
         Me.FTOperationCode.VisibleIndex = 8
-        Me.FTOperationCode.Width = 60
+        Me.FTOperationCode.Width = 70
         '
         'FTOperationName
         '
         Me.FTOperationName.Caption = "FTOperationName"
         Me.FTOperationName.FieldName = "FTOperationName"
-        Me.FTOperationName.MinWidth = 17
         Me.FTOperationName.Name = "FTOperationName"
         Me.FTOperationName.OptionsColumn.AllowEdit = False
         Me.FTOperationName.Visible = True
         Me.FTOperationName.VisibleIndex = 9
-        Me.FTOperationName.Width = 129
+        Me.FTOperationName.Width = 150
         '
         'RepositoryItemCalcEdit4
         '
@@ -1110,7 +1100,7 @@ Partial Class wGenerateBarcodeProd
         '
         Me.RepositoryItemLookUpEdit4.AutoHeight = False
         Me.RepositoryItemLookUpEdit4.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemLookUpEdit4.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FTSizeBreakDown", "FTSizeBreakDown", 17, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default]), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FNMatSizeSeq", "FNMatSizeSeq", 17, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
+        Me.RepositoryItemLookUpEdit4.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FTSizeBreakDown", "FTSizeBreakDown"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FNMatSizeSeq", "FNMatSizeSeq", 20, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
         Me.RepositoryItemLookUpEdit4.DisplayMember = "FTSizeBreakDown"
         Me.RepositoryItemLookUpEdit4.Name = "RepositoryItemLookUpEdit4"
         Me.RepositoryItemLookUpEdit4.ValueMember = "FTSizeBreakDown"
@@ -1121,16 +1111,18 @@ Partial Class wGenerateBarcodeProd
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ogbselecttablecut.Controls.Add(Me.ockselectallbundle)
         Me.ogbselecttablecut.Controls.Add(Me.ogclaycut)
-        Me.ogbselecttablecut.Location = New System.Drawing.Point(1, 100)
+        Me.ogbselecttablecut.Location = New System.Drawing.Point(1, 123)
+        Me.ogbselecttablecut.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbselecttablecut.Name = "ogbselecttablecut"
-        Me.ogbselecttablecut.Size = New System.Drawing.Size(292, 468)
+        Me.ogbselecttablecut.Size = New System.Drawing.Size(341, 576)
         Me.ogbselecttablecut.TabIndex = 430
         Me.ogbselecttablecut.Text = "เลือกมัดงานสำหรับ Generate Barcode"
         '
         'ockselectallbundle
         '
         Me.ockselectallbundle.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ockselectallbundle.Location = New System.Drawing.Point(197, 2)
+        Me.ockselectallbundle.Location = New System.Drawing.Point(230, 2)
+        Me.ockselectallbundle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ockselectallbundle.Name = "ockselectallbundle"
         Me.ockselectallbundle.Properties.Appearance.Options.UseTextOptions = True
         Me.ockselectallbundle.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -1138,7 +1130,7 @@ Partial Class wGenerateBarcodeProd
         Me.ockselectallbundle.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.ockselectallbundle.Properties.ValueChecked = "1"
         Me.ockselectallbundle.Properties.ValueUnchecked = "0"
-        Me.ockselectallbundle.Size = New System.Drawing.Size(93, 20)
+        Me.ockselectallbundle.Size = New System.Drawing.Size(108, 24)
         Me.ockselectallbundle.TabIndex = 308
         Me.ockselectallbundle.Tag = "2|"
         '
@@ -1147,11 +1139,13 @@ Partial Class wGenerateBarcodeProd
         Me.ogclaycut.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogclaycut.Location = New System.Drawing.Point(4, 22)
+        Me.ogclaycut.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogclaycut.Location = New System.Drawing.Point(5, 27)
         Me.ogclaycut.MainView = Me.ogvlaycut
+        Me.ogclaycut.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogclaycut.Name = "ogclaycut"
         Me.ogclaycut.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCalcEdit1, Me.RepositoryItemLookUpEdit1, Me.RepFTSelect})
-        Me.ogclaycut.Size = New System.Drawing.Size(287, 445)
+        Me.ogclaycut.Size = New System.Drawing.Size(335, 548)
         Me.ogclaycut.TabIndex = 307
         Me.ogclaycut.TabStop = False
         Me.ogclaycut.Tag = "3|"
@@ -1160,7 +1154,6 @@ Partial Class wGenerateBarcodeProd
         'ogvlaycut
         '
         Me.ogvlaycut.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTSelect, Me.FTBarcodeBundleNo, Me.FNBunbleSeq, Me.FTColorway, Me.FTSizeBreakDown, Me.FNQuantity})
-        Me.ogvlaycut.DetailHeight = 284
         Me.ogvlaycut.GridControl = Me.ogclaycut
         Me.ogvlaycut.Name = "ogvlaycut"
         Me.ogvlaycut.OptionsCustomization.AllowGroup = False
@@ -1178,7 +1171,6 @@ Partial Class wGenerateBarcodeProd
         Me.FTSelect.Caption = "FTSelect"
         Me.FTSelect.ColumnEdit = Me.RepFTSelect
         Me.FTSelect.FieldName = "FTSelect"
-        Me.FTSelect.MinWidth = 17
         Me.FTSelect.Name = "FTSelect"
         Me.FTSelect.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTSelect.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
@@ -1187,7 +1179,7 @@ Partial Class wGenerateBarcodeProd
         Me.FTSelect.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTSelect.Visible = True
         Me.FTSelect.VisibleIndex = 0
-        Me.FTSelect.Width = 35
+        Me.FTSelect.Width = 41
         '
         'RepFTSelect
         '
@@ -1203,11 +1195,9 @@ Partial Class wGenerateBarcodeProd
         Me.FTBarcodeBundleNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTBarcodeBundleNo.Caption = "FTBarcodeBundleNo"
         Me.FTBarcodeBundleNo.FieldName = "FTBarcodeBundleNo"
-        Me.FTBarcodeBundleNo.MinWidth = 17
         Me.FTBarcodeBundleNo.Name = "FTBarcodeBundleNo"
         Me.FTBarcodeBundleNo.OptionsColumn.AllowEdit = False
         Me.FTBarcodeBundleNo.OptionsColumn.ReadOnly = True
-        Me.FTBarcodeBundleNo.Width = 64
         '
         'FNBunbleSeq
         '
@@ -1219,13 +1209,11 @@ Partial Class wGenerateBarcodeProd
         Me.FNBunbleSeq.DisplayFormat.FormatString = "{0:n0}"
         Me.FNBunbleSeq.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNBunbleSeq.FieldName = "FNBunbleSeq"
-        Me.FNBunbleSeq.MinWidth = 17
         Me.FNBunbleSeq.Name = "FNBunbleSeq"
         Me.FNBunbleSeq.OptionsColumn.AllowEdit = False
         Me.FNBunbleSeq.OptionsColumn.ReadOnly = True
         Me.FNBunbleSeq.Visible = True
         Me.FNBunbleSeq.VisibleIndex = 1
-        Me.FNBunbleSeq.Width = 64
         '
         'FTColorway
         '
@@ -1233,13 +1221,11 @@ Partial Class wGenerateBarcodeProd
         Me.FTColorway.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTColorway.Caption = "FTColorway"
         Me.FTColorway.FieldName = "FTColorway"
-        Me.FTColorway.MinWidth = 17
         Me.FTColorway.Name = "FTColorway"
         Me.FTColorway.OptionsColumn.AllowEdit = False
         Me.FTColorway.OptionsColumn.ReadOnly = True
         Me.FTColorway.Visible = True
         Me.FTColorway.VisibleIndex = 2
-        Me.FTColorway.Width = 64
         '
         'FTSizeBreakDown
         '
@@ -1247,13 +1233,11 @@ Partial Class wGenerateBarcodeProd
         Me.FTSizeBreakDown.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTSizeBreakDown.Caption = "FTSizeBreakDown"
         Me.FTSizeBreakDown.FieldName = "FTSizeBreakDown"
-        Me.FTSizeBreakDown.MinWidth = 17
         Me.FTSizeBreakDown.Name = "FTSizeBreakDown"
         Me.FTSizeBreakDown.OptionsColumn.AllowEdit = False
         Me.FTSizeBreakDown.OptionsColumn.ReadOnly = True
         Me.FTSizeBreakDown.Visible = True
         Me.FTSizeBreakDown.VisibleIndex = 3
-        Me.FTSizeBreakDown.Width = 64
         '
         'FNQuantity
         '
@@ -1265,13 +1249,11 @@ Partial Class wGenerateBarcodeProd
         Me.FNQuantity.DisplayFormat.FormatString = "{0:n0}"
         Me.FNQuantity.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNQuantity.FieldName = "FNQuantity"
-        Me.FNQuantity.MinWidth = 17
         Me.FNQuantity.Name = "FNQuantity"
         Me.FNQuantity.OptionsColumn.AllowEdit = False
         Me.FNQuantity.OptionsColumn.ReadOnly = True
         Me.FNQuantity.Visible = True
         Me.FNQuantity.VisibleIndex = 4
-        Me.FNQuantity.Width = 64
         '
         'RepositoryItemCalcEdit1
         '
@@ -1288,7 +1270,7 @@ Partial Class wGenerateBarcodeProd
         '
         Me.RepositoryItemLookUpEdit1.AutoHeight = False
         Me.RepositoryItemLookUpEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemLookUpEdit1.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FTSizeBreakDown", "FTSizeBreakDown", 17, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default]), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FNMatSizeSeq", "FNMatSizeSeq", 17, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
+        Me.RepositoryItemLookUpEdit1.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FTSizeBreakDown", "FTSizeBreakDown"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("FNMatSizeSeq", "FNMatSizeSeq", 20, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
         Me.RepositoryItemLookUpEdit1.DisplayMember = "FTSizeBreakDown"
         Me.RepositoryItemLookUpEdit1.Name = "RepositoryItemLookUpEdit1"
         Me.RepositoryItemLookUpEdit1.ValueMember = "FTSizeBreakDown"
@@ -1306,17 +1288,19 @@ Partial Class wGenerateBarcodeProd
         Me.ogbmainprocbutton.Controls.Add(Me.ocmpreviewbarcodewipall)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(42, 249)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(49, 306)
+        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(748, 72)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(873, 89)
         Me.ogbmainprocbutton.TabIndex = 432
         Me.ogbmainprocbutton.Tag = "2|"
         '
         'ocmbundlelaypreview
         '
-        Me.ocmbundlelaypreview.Location = New System.Drawing.Point(658, 39)
+        Me.ocmbundlelaypreview.Location = New System.Drawing.Point(768, 48)
+        Me.ocmbundlelaypreview.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmbundlelaypreview.Name = "ocmbundlelaypreview"
-        Me.ocmbundlelaypreview.Size = New System.Drawing.Size(82, 25)
+        Me.ocmbundlelaypreview.Size = New System.Drawing.Size(96, 31)
         Me.ocmbundlelaypreview.TabIndex = 118
         Me.ocmbundlelaypreview.TabStop = False
         Me.ocmbundlelaypreview.Tag = "2|"
@@ -1324,9 +1308,10 @@ Partial Class wGenerateBarcodeProd
         '
         'ocmpreviewpacklist
         '
-        Me.ocmpreviewpacklist.Location = New System.Drawing.Point(524, 39)
+        Me.ocmpreviewpacklist.Location = New System.Drawing.Point(611, 48)
+        Me.ocmpreviewpacklist.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmpreviewpacklist.Name = "ocmpreviewpacklist"
-        Me.ocmpreviewpacklist.Size = New System.Drawing.Size(129, 25)
+        Me.ocmpreviewpacklist.Size = New System.Drawing.Size(150, 31)
         Me.ocmpreviewpacklist.TabIndex = 118
         Me.ocmpreviewpacklist.TabStop = False
         Me.ocmpreviewpacklist.Tag = "2|"
@@ -1334,9 +1319,10 @@ Partial Class wGenerateBarcodeProd
         '
         'ocmpreviewbarcodewipselecta4
         '
-        Me.ocmpreviewbarcodewipselecta4.Location = New System.Drawing.Point(348, 38)
+        Me.ocmpreviewbarcodewipselecta4.Location = New System.Drawing.Point(406, 47)
+        Me.ocmpreviewbarcodewipselecta4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmpreviewbarcodewipselecta4.Name = "ocmpreviewbarcodewipselecta4"
-        Me.ocmpreviewbarcodewipselecta4.Size = New System.Drawing.Size(157, 25)
+        Me.ocmpreviewbarcodewipselecta4.Size = New System.Drawing.Size(183, 31)
         Me.ocmpreviewbarcodewipselecta4.TabIndex = 117
         Me.ocmpreviewbarcodewipselecta4.TabStop = False
         Me.ocmpreviewbarcodewipselecta4.Tag = "2|"
@@ -1344,9 +1330,10 @@ Partial Class wGenerateBarcodeProd
         '
         'ocmpreviewbarcodewipalla4
         '
-        Me.ocmpreviewbarcodewipalla4.Location = New System.Drawing.Point(189, 38)
+        Me.ocmpreviewbarcodewipalla4.Location = New System.Drawing.Point(220, 47)
+        Me.ocmpreviewbarcodewipalla4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmpreviewbarcodewipalla4.Name = "ocmpreviewbarcodewipalla4"
-        Me.ocmpreviewbarcodewipalla4.Size = New System.Drawing.Size(154, 25)
+        Me.ocmpreviewbarcodewipalla4.Size = New System.Drawing.Size(180, 31)
         Me.ocmpreviewbarcodewipalla4.TabIndex = 116
         Me.ocmpreviewbarcodewipalla4.TabStop = False
         Me.ocmpreviewbarcodewipalla4.Tag = "2|"
@@ -1354,9 +1341,10 @@ Partial Class wGenerateBarcodeProd
         '
         'ocmdeletebarcodeprod
         '
-        Me.ocmdeletebarcodeprod.Location = New System.Drawing.Point(477, 7)
+        Me.ocmdeletebarcodeprod.Location = New System.Drawing.Point(556, 9)
+        Me.ocmdeletebarcodeprod.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmdeletebarcodeprod.Name = "ocmdeletebarcodeprod"
-        Me.ocmdeletebarcodeprod.Size = New System.Drawing.Size(95, 25)
+        Me.ocmdeletebarcodeprod.Size = New System.Drawing.Size(111, 31)
         Me.ocmdeletebarcodeprod.TabIndex = 115
         Me.ocmdeletebarcodeprod.TabStop = False
         Me.ocmdeletebarcodeprod.Tag = "2|"
@@ -1364,9 +1352,10 @@ Partial Class wGenerateBarcodeProd
         '
         'ocmpreviewbarcodewipselect
         '
-        Me.ocmpreviewbarcodewipselect.Location = New System.Drawing.Point(99, 38)
+        Me.ocmpreviewbarcodewipselect.Location = New System.Drawing.Point(115, 47)
+        Me.ocmpreviewbarcodewipselect.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmpreviewbarcodewipselect.Name = "ocmpreviewbarcodewipselect"
-        Me.ocmpreviewbarcodewipselect.Size = New System.Drawing.Size(85, 25)
+        Me.ocmpreviewbarcodewipselect.Size = New System.Drawing.Size(99, 31)
         Me.ocmpreviewbarcodewipselect.TabIndex = 114
         Me.ocmpreviewbarcodewipselect.TabStop = False
         Me.ocmpreviewbarcodewipselect.Tag = "2|"
@@ -1374,9 +1363,10 @@ Partial Class wGenerateBarcodeProd
         '
         'ocmrefresh
         '
-        Me.ocmrefresh.Location = New System.Drawing.Point(376, 7)
+        Me.ocmrefresh.Location = New System.Drawing.Point(439, 9)
+        Me.ocmrefresh.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmrefresh.Name = "ocmrefresh"
-        Me.ocmrefresh.Size = New System.Drawing.Size(95, 25)
+        Me.ocmrefresh.Size = New System.Drawing.Size(111, 31)
         Me.ocmrefresh.TabIndex = 113
         Me.ocmrefresh.TabStop = False
         Me.ocmrefresh.Tag = "2|"
@@ -1384,9 +1374,10 @@ Partial Class wGenerateBarcodeProd
         '
         'ocmgeneratebarcodewip
         '
-        Me.ocmgeneratebarcodewip.Location = New System.Drawing.Point(5, 7)
+        Me.ocmgeneratebarcodewip.Location = New System.Drawing.Point(6, 9)
+        Me.ocmgeneratebarcodewip.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmgeneratebarcodewip.Name = "ocmgeneratebarcodewip"
-        Me.ocmgeneratebarcodewip.Size = New System.Drawing.Size(86, 25)
+        Me.ocmgeneratebarcodewip.Size = New System.Drawing.Size(100, 31)
         Me.ocmgeneratebarcodewip.TabIndex = 101
         Me.ocmgeneratebarcodewip.TabStop = False
         Me.ocmgeneratebarcodewip.Tag = "2|"
@@ -1394,9 +1385,10 @@ Partial Class wGenerateBarcodeProd
         '
         'ocmpreviewbarcodewipall
         '
-        Me.ocmpreviewbarcodewipall.Location = New System.Drawing.Point(5, 38)
+        Me.ocmpreviewbarcodewipall.Location = New System.Drawing.Point(6, 47)
+        Me.ocmpreviewbarcodewipall.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmpreviewbarcodewipall.Name = "ocmpreviewbarcodewipall"
-        Me.ocmpreviewbarcodewipall.Size = New System.Drawing.Size(86, 25)
+        Me.ocmpreviewbarcodewipall.Size = New System.Drawing.Size(100, 31)
         Me.ocmpreviewbarcodewipall.TabIndex = 100
         Me.ocmpreviewbarcodewipall.TabStop = False
         Me.ocmpreviewbarcodewipall.Tag = "2|"
@@ -1405,9 +1397,10 @@ Partial Class wGenerateBarcodeProd
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(645, 7)
+        Me.ocmexit.Location = New System.Drawing.Point(752, 9)
+        Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmexit.Name = "ocmexit"
-        Me.ocmexit.Size = New System.Drawing.Size(95, 25)
+        Me.ocmexit.Size = New System.Drawing.Size(111, 31)
         Me.ocmexit.TabIndex = 96
         Me.ocmexit.TabStop = False
         Me.ocmexit.Tag = "2|"
@@ -1415,30 +1408,25 @@ Partial Class wGenerateBarcodeProd
         '
         'ocmclear
         '
-        Me.ocmclear.Location = New System.Drawing.Point(98, 7)
+        Me.ocmclear.Location = New System.Drawing.Point(114, 9)
+        Me.ocmclear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmclear.Name = "ocmclear"
-        Me.ocmclear.Size = New System.Drawing.Size(86, 25)
+        Me.ocmclear.Size = New System.Drawing.Size(100, 31)
         Me.ocmclear.TabIndex = 95
         Me.ocmclear.TabStop = False
         Me.ocmclear.Tag = "2|"
         Me.ocmclear.Text = "CLEAR"
         '
-        'FTStateChange
-        '
-        Me.FTStateChange.Caption = "FTStateChange"
-        Me.FTStateChange.FieldName = "FTStateChange"
-        Me.FTStateChange.Name = "FTStateChange"
-        Me.FTStateChange.Width = 64
-        '
         'wGenerateBarcodeProd
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(948, 571)
+        Me.ClientSize = New System.Drawing.Size(1106, 703)
         Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.ogbbarcode)
         Me.Controls.Add(Me.ogbselecttablecut)
         Me.Controls.Add(Me.ogborderinfo)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "wGenerateBarcodeProd"
         Me.Text = "Generate Barcode"
         CType(Me.ogborderinfo, System.ComponentModel.ISupportInitialize).EndInit()

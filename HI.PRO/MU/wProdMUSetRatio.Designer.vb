@@ -46,9 +46,37 @@ Partial Class wProdMUSetRatio
         Dim SerializableAppearanceObject18 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject19 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject20 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions6 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject21 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject22 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject23 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject24 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions7 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject25 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject26 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject27 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject28 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions8 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject29 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject30 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject31 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject32 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions9 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject33 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject34 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject35 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject36 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbheader = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
+        Me.FNConsAvg = New DevExpress.XtraEditors.CalcEdit()
+        Me.FNMinYard = New DevExpress.XtraEditors.CalcEdit()
+        Me.FNMaxYard = New DevExpress.XtraEditors.CalcEdit()
+        Me.FNMaxLayers = New DevExpress.XtraEditors.CalcEdit()
+        Me.FNMinYard_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FNConsAvg_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FNMaxYard_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTRemark = New DevExpress.XtraEditors.MemoEdit()
+        Me.FNMaxLayers_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.ogcpart = New DevExpress.XtraGrid.GridControl()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.cFTPartCode = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -115,11 +143,16 @@ Partial Class wProdMUSetRatio
         Me.ocmremove = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmadd = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmaddmark = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmcalsratioauto = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcalsratio = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmsave = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmload = New DevExpress.XtraEditors.SimpleButton()
         Me.ogbheader.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
+        CType(Me.FNConsAvg.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FNMinYard.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FNMaxYard.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FNMaxLayers.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTRemark.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogcpart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -171,14 +204,22 @@ Partial Class wProdMUSetRatio
         Me.ogbheader.Options.FloatOnDblClick = False
         Me.ogbheader.Options.ShowCloseButton = False
         Me.ogbheader.Options.ShowMaximizeButton = False
-        Me.ogbheader.OriginalSize = New System.Drawing.Size(1124, 124)
-        Me.ogbheader.Size = New System.Drawing.Size(1124, 124)
+        Me.ogbheader.OriginalSize = New System.Drawing.Size(1124, 154)
+        Me.ogbheader.Size = New System.Drawing.Size(1124, 154)
         Me.ogbheader.TabStop = False
         Me.ogbheader.Text = "Criteria"
         '
         'DockPanel1_Container
         '
+        Me.DockPanel1_Container.Controls.Add(Me.FNConsAvg)
+        Me.DockPanel1_Container.Controls.Add(Me.FNMinYard)
+        Me.DockPanel1_Container.Controls.Add(Me.FNMaxYard)
+        Me.DockPanel1_Container.Controls.Add(Me.FNMaxLayers)
+        Me.DockPanel1_Container.Controls.Add(Me.FNMinYard_lbl)
+        Me.DockPanel1_Container.Controls.Add(Me.FNConsAvg_lbl)
+        Me.DockPanel1_Container.Controls.Add(Me.FNMaxYard_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FTRemark)
+        Me.DockPanel1_Container.Controls.Add(Me.FNMaxLayers_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.ogcpart)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysCmpId_None)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysCmpId_lbl)
@@ -192,8 +233,145 @@ Partial Class wProdMUSetRatio
         Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 32)
         Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1116, 86)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1116, 116)
         Me.DockPanel1_Container.TabIndex = 0
+        '
+        'FNConsAvg
+        '
+        Me.FNConsAvg.EnterMoveNextControl = True
+        Me.FNConsAvg.Location = New System.Drawing.Point(453, 61)
+        Me.FNConsAvg.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNConsAvg.Name = "FNConsAvg"
+        Me.FNConsAvg.Properties.Appearance.Options.UseTextOptions = True
+        Me.FNConsAvg.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNConsAvg.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNConsAvg.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNConsAvg.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNConsAvg.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNConsAvg.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNConsAvg.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNConsAvg.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNConsAvg.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNConsAvg.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNConsAvg.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNConsAvg.Properties.Precision = 3
+        Me.FNConsAvg.Size = New System.Drawing.Size(151, 22)
+        Me.FNConsAvg.TabIndex = 4
+        Me.FNConsAvg.Tag = "2|"
+        '
+        'FNMinYard
+        '
+        Me.FNMinYard.EnterMoveNextControl = True
+        Me.FNMinYard.Location = New System.Drawing.Point(151, 90)
+        Me.FNMinYard.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMinYard.Name = "FNMinYard"
+        Me.FNMinYard.Properties.Appearance.Options.UseTextOptions = True
+        Me.FNMinYard.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNMinYard.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNMinYard.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNMinYard.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNMinYard.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNMinYard.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNMinYard.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNMinYard.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNMinYard.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNMinYard.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNMinYard.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNMinYard.Properties.Precision = 0
+        Me.FNMinYard.Size = New System.Drawing.Size(151, 22)
+        Me.FNMinYard.TabIndex = 5
+        Me.FNMinYard.Tag = "2|"
+        '
+        'FNMaxYard
+        '
+        Me.FNMaxYard.EnterMoveNextControl = True
+        Me.FNMaxYard.Location = New System.Drawing.Point(453, 90)
+        Me.FNMaxYard.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMaxYard.Name = "FNMaxYard"
+        Me.FNMaxYard.Properties.Appearance.Options.UseTextOptions = True
+        Me.FNMaxYard.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNMaxYard.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNMaxYard.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNMaxYard.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNMaxYard.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNMaxYard.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNMaxYard.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNMaxYard.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNMaxYard.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNMaxYard.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNMaxYard.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNMaxYard.Properties.Precision = 0
+        Me.FNMaxYard.Size = New System.Drawing.Size(151, 22)
+        Me.FNMaxYard.TabIndex = 6
+        Me.FNMaxYard.Tag = "2|"
+        '
+        'FNMaxLayers
+        '
+        Me.FNMaxLayers.EnterMoveNextControl = True
+        Me.FNMaxLayers.Location = New System.Drawing.Point(152, 61)
+        Me.FNMaxLayers.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMaxLayers.Name = "FNMaxLayers"
+        Me.FNMaxLayers.Properties.Appearance.Options.UseTextOptions = True
+        Me.FNMaxLayers.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNMaxLayers.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FNMaxLayers.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FNMaxLayers.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FNMaxLayers.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FNMaxLayers.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FNMaxLayers.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FNMaxLayers.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FNMaxLayers.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FNMaxLayers.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNMaxLayers.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.FNMaxLayers.Properties.Precision = 0
+        Me.FNMaxLayers.Size = New System.Drawing.Size(151, 22)
+        Me.FNMaxLayers.TabIndex = 3
+        Me.FNMaxLayers.Tag = "2|"
+        '
+        'FNMinYard_lbl
+        '
+        Me.FNMinYard_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNMinYard_lbl.Appearance.Options.UseForeColor = True
+        Me.FNMinYard_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNMinYard_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNMinYard_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNMinYard_lbl.Location = New System.Drawing.Point(12, 89)
+        Me.FNMinYard_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMinYard_lbl.Name = "FNMinYard_lbl"
+        Me.FNMinYard_lbl.Size = New System.Drawing.Size(135, 23)
+        Me.FNMinYard_lbl.TabIndex = 390
+        Me.FNMinYard_lbl.Tag = "2|"
+        Me.FNMinYard_lbl.Text = "FNMinYard :"
+        '
+        'FNConsAvg_lbl
+        '
+        Me.FNConsAvg_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNConsAvg_lbl.Appearance.Options.UseForeColor = True
+        Me.FNConsAvg_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNConsAvg_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNConsAvg_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNConsAvg_lbl.Location = New System.Drawing.Point(314, 60)
+        Me.FNConsAvg_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNConsAvg_lbl.Name = "FNConsAvg_lbl"
+        Me.FNConsAvg_lbl.Size = New System.Drawing.Size(135, 23)
+        Me.FNConsAvg_lbl.TabIndex = 390
+        Me.FNConsAvg_lbl.Tag = "2|"
+        Me.FNConsAvg_lbl.Text = "FNConsAvg :"
+        '
+        'FNMaxYard_lbl
+        '
+        Me.FNMaxYard_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNMaxYard_lbl.Appearance.Options.UseForeColor = True
+        Me.FNMaxYard_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNMaxYard_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNMaxYard_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNMaxYard_lbl.Location = New System.Drawing.Point(314, 89)
+        Me.FNMaxYard_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMaxYard_lbl.Name = "FNMaxYard_lbl"
+        Me.FNMaxYard_lbl.Size = New System.Drawing.Size(135, 23)
+        Me.FNMaxYard_lbl.TabIndex = 390
+        Me.FNMaxYard_lbl.Tag = "2|"
+        Me.FNMaxYard_lbl.Text = "FNMaxYard :"
         '
         'FTRemark
         '
@@ -204,9 +382,24 @@ Partial Class wProdMUSetRatio
         Me.FTRemark.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTRemark.Name = "FTRemark"
         Me.FTRemark.Properties.MaxLength = 500
-        Me.FTRemark.Size = New System.Drawing.Size(360, 72)
+        Me.FTRemark.Size = New System.Drawing.Size(360, 107)
         Me.FTRemark.TabIndex = 391
         Me.FTRemark.Tag = "2|"
+        '
+        'FNMaxLayers_lbl
+        '
+        Me.FNMaxLayers_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNMaxLayers_lbl.Appearance.Options.UseForeColor = True
+        Me.FNMaxLayers_lbl.Appearance.Options.UseTextOptions = True
+        Me.FNMaxLayers_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNMaxLayers_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FNMaxLayers_lbl.Location = New System.Drawing.Point(13, 60)
+        Me.FNMaxLayers_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNMaxLayers_lbl.Name = "FNMaxLayers_lbl"
+        Me.FNMaxLayers_lbl.Size = New System.Drawing.Size(135, 23)
+        Me.FNMaxLayers_lbl.TabIndex = 390
+        Me.FNMaxLayers_lbl.Tag = "2|"
+        Me.FNMaxLayers_lbl.Text = "FNMaxLayers :"
         '
         'ogcpart
         '
@@ -214,12 +407,12 @@ Partial Class wProdMUSetRatio
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogcpart.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcpart.Enabled = False
-        Me.ogcpart.Location = New System.Drawing.Point(643, 94)
+        Me.ogcpart.Location = New System.Drawing.Point(643, 129)
         Me.ogcpart.MainView = Me.GridView1
         Me.ogcpart.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcpart.Name = "ogcpart"
         Me.ogcpart.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.ogcpart.Size = New System.Drawing.Size(473, 45)
+        Me.ogcpart.Size = New System.Drawing.Size(473, 10)
         Me.ogcpart.TabIndex = 391
         Me.ogcpart.TabStop = False
         Me.ogcpart.Tag = "2|"
@@ -307,7 +500,7 @@ Partial Class wProdMUSetRatio
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
         Me.FNHSysCmpId.Size = New System.Drawing.Size(152, 22)
@@ -320,10 +513,10 @@ Partial Class wProdMUSetRatio
         Me.FTDocumentNo.Location = New System.Drawing.Point(151, 31)
         Me.FTDocumentNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTDocumentNo.Name = "FTDocumentNo"
-        Me.FTDocumentNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "990", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTDocumentNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "990", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTDocumentNo.Properties.Tag = ""
         Me.FTDocumentNo.Size = New System.Drawing.Size(152, 22)
-        Me.FTDocumentNo.TabIndex = 288
+        Me.FTDocumentNo.TabIndex = 0
         Me.FTDocumentNo.Tag = "2|"
         '
         'FTGroupNo
@@ -331,10 +524,10 @@ Partial Class wProdMUSetRatio
         Me.FTGroupNo.Location = New System.Drawing.Point(452, 32)
         Me.FTGroupNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTGroupNo.Name = "FTGroupNo"
-        Me.FTGroupNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "991", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTGroupNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "991", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTGroupNo.Properties.Tag = ""
         Me.FTGroupNo.Size = New System.Drawing.Size(152, 22)
-        Me.FTGroupNo.TabIndex = 288
+        Me.FTGroupNo.TabIndex = 2
         Me.FTGroupNo.Tag = "2|"
         '
         'LabelControl2
@@ -400,11 +593,11 @@ Partial Class wProdMUSetRatio
         '
         Me.ogbdetail.Controls.Add(Me.ogcdetailcolorsizeline)
         Me.ogbdetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbdetail.Location = New System.Drawing.Point(0, 124)
+        Me.ogbdetail.Location = New System.Drawing.Point(0, 154)
         Me.ogbdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbdetail.Name = "ogbdetail"
         Me.ogbdetail.ShowCaption = False
-        Me.ogbdetail.Size = New System.Drawing.Size(1124, 540)
+        Me.ogbdetail.Size = New System.Drawing.Size(1124, 510)
         Me.ogbdetail.TabIndex = 0
         '
         'ogcdetailcolorsizeline
@@ -414,7 +607,7 @@ Partial Class wProdMUSetRatio
         Me.ogcdetailcolorsizeline.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogcdetailcolorsizeline.Name = "ogcdetailcolorsizeline"
         Me.ogcdetailcolorsizeline.SelectedTabPage = Me.otbdetailcolorsize
-        Me.ogcdetailcolorsizeline.Size = New System.Drawing.Size(1120, 536)
+        Me.ogcdetailcolorsizeline.Size = New System.Drawing.Size(1120, 506)
         Me.ogcdetailcolorsizeline.TabIndex = 387
         Me.ogcdetailcolorsizeline.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otbdetailcolorsize, Me.otbsummary})
         '
@@ -423,7 +616,7 @@ Partial Class wProdMUSetRatio
         Me.otbdetailcolorsize.Controls.Add(Me.ogcpackdetail)
         Me.otbdetailcolorsize.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otbdetailcolorsize.Name = "otbdetailcolorsize"
-        Me.otbdetailcolorsize.Size = New System.Drawing.Size(1118, 506)
+        Me.otbdetailcolorsize.Size = New System.Drawing.Size(1118, 476)
         Me.otbdetailcolorsize.Text = "Order Info"
         '
         'ogcpackdetail
@@ -434,7 +627,7 @@ Partial Class wProdMUSetRatio
         Me.ogcpackdetail.MainView = Me.ogvpackdetail
         Me.ogcpackdetail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcpackdetail.Name = "ogcpackdetail"
-        Me.ogcpackdetail.Size = New System.Drawing.Size(1118, 506)
+        Me.ogcpackdetail.Size = New System.Drawing.Size(1118, 476)
         Me.ogcpackdetail.TabIndex = 306
         Me.ogcpackdetail.TabStop = False
         Me.ogcpackdetail.Tag = "3|"
@@ -534,7 +727,7 @@ Partial Class wProdMUSetRatio
         Me.otbsummary.Controls.Add(Me.xtabpart)
         Me.otbsummary.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otbsummary.Name = "otbsummary"
-        Me.otbsummary.Size = New System.Drawing.Size(1118, 506)
+        Me.otbsummary.Size = New System.Drawing.Size(1118, 476)
         Me.otbsummary.Text = "Plan Group Detail"
         '
         'xtabpart
@@ -545,7 +738,7 @@ Partial Class wProdMUSetRatio
         Me.xtabpart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.xtabpart.Name = "xtabpart"
         Me.xtabpart.SelectedTabPage = Me.XtraTabPage1
-        Me.xtabpart.Size = New System.Drawing.Size(1118, 506)
+        Me.xtabpart.Size = New System.Drawing.Size(1118, 476)
         Me.xtabpart.TabIndex = 388
         Me.xtabpart.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage1})
         '
@@ -556,7 +749,7 @@ Partial Class wProdMUSetRatio
         Me.XtraTabPage1.Name = "XtraTabPage1"
         Me.XtraTabPage1.PageEnabled = False
         Me.XtraTabPage1.PageVisible = False
-        Me.XtraTabPage1.Size = New System.Drawing.Size(1116, 476)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(1116, 446)
         Me.XtraTabPage1.Text = "Defualt"
         '
         'ogcratio
@@ -568,7 +761,7 @@ Partial Class wProdMUSetRatio
         Me.ogcratio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcratio.Name = "ogcratio"
         Me.ogcratio.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2, Me.RepositoryItemButtonEdit1, Me.RepositoryItemCalcEdit1})
-        Me.ogcratio.Size = New System.Drawing.Size(1116, 476)
+        Me.ogcratio.Size = New System.Drawing.Size(1116, 446)
         Me.ogcratio.TabIndex = 2
         Me.ogcratio.TabStop = False
         Me.ogcratio.Tag = "2|"
@@ -716,7 +909,7 @@ Partial Class wProdMUSetRatio
         'RepositoryItemCalcEdit1
         '
         Me.RepositoryItemCalcEdit1.AutoHeight = False
-        Me.RepositoryItemCalcEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, False, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryItemCalcEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, False, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryItemCalcEdit1.DisplayFormat.FormatString = "N0"
         Me.RepositoryItemCalcEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.RepositoryItemCalcEdit1.EditFormat.FormatString = "N0"
@@ -792,7 +985,7 @@ Partial Class wProdMUSetRatio
         'RepositoryItemButtonEdit1
         '
         Me.RepositoryItemButtonEdit1.AutoHeight = False
-        Me.RepositoryItemButtonEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "158", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryItemButtonEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "158", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryItemButtonEdit1.Name = "RepositoryItemButtonEdit1"
         '
         'oDockManager
@@ -814,13 +1007,14 @@ Partial Class wProdMUSetRatio
         Me.ogbmainprocbutton.Controls.Add(Me.ocmremove)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmadd)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmaddmark)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmcalsratioauto)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmcalsratio)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmsave)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
         Me.ogbmainprocbutton.Location = New System.Drawing.Point(-40, 353)
         Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(961, 154)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(783, 154)
         Me.ogbmainprocbutton.TabIndex = 387
         Me.ogbmainprocbutton.Tag = "2|"
         '
@@ -847,7 +1041,7 @@ Partial Class wProdMUSetRatio
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(829, 14)
+        Me.ocmexit.Location = New System.Drawing.Point(651, 14)
         Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmexit.Name = "ocmexit"
         Me.ocmexit.Size = New System.Drawing.Size(111, 31)
@@ -921,6 +1115,15 @@ Partial Class wProdMUSetRatio
         Me.ocmaddmark.TabIndex = 329
         Me.ocmaddmark.Text = "add mark"
         '
+        'ocmcalsratioauto
+        '
+        Me.ocmcalsratioauto.Location = New System.Drawing.Point(687, 117)
+        Me.ocmcalsratioauto.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmcalsratioauto.Name = "ocmcalsratioauto"
+        Me.ocmcalsratioauto.Size = New System.Drawing.Size(136, 28)
+        Me.ocmcalsratioauto.TabIndex = 329
+        Me.ocmcalsratioauto.Text = "Cals Ratio"
+        '
         'ocmcalsratio
         '
         Me.ocmcalsratio.Location = New System.Drawing.Point(401, 81)
@@ -961,6 +1164,10 @@ Partial Class wProdMUSetRatio
         Me.Text = "wProdMUSetRatio"
         Me.ogbheader.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
+        CType(Me.FNConsAvg.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNMinYard.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNMaxYard.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNMaxLayers.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTRemark.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogcpart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1064,4 +1271,13 @@ Partial Class wProdMUSetRatio
     Friend WithEvents XtraTabPage1 As DevExpress.XtraTab.XtraTabPage
     Friend WithEvents ocmadd As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ocmremove As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmcalsratioauto As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents FNConsAvg As DevExpress.XtraEditors.CalcEdit
+    Friend WithEvents FNMaxLayers As DevExpress.XtraEditors.CalcEdit
+    Friend WithEvents FNConsAvg_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents FNMaxLayers_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents FNMinYard As DevExpress.XtraEditors.CalcEdit
+    Friend WithEvents FNMaxYard As DevExpress.XtraEditors.CalcEdit
+    Friend WithEvents FNMinYard_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents FNMaxYard_lbl As DevExpress.XtraEditors.LabelControl
 End Class

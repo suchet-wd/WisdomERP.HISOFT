@@ -330,7 +330,7 @@ Public Class wProdSendSuplTracking
                         _Qry &= vbCrLf & ",MAX(NKPO.FTPOref) AS FTPOref,MAX(NKLine.FTNikePOLineItem) AS FTNikePOLineItem "
                         _Qry &= vbCrLf & ",sum(A.FNSendQuantity) AS FNSendQuantity"
                         _Qry &= vbCrLf & ",(ISNULL(sum(B.FNRcvQuantity),0)) AS FNRcvQuantity"
-                        _Qry &= vbCrLf & ",sum(A.FNSendQuantity)-(ISNULL(sum(B.FNRcvQuantity),0)) as FNBalRcvSupl"
+                        _Qry &= vbCrLf & ",sum(A.FNSendQuantity)-(ISNULL(sum(B.FNRcvQuantity),0)) as FNBalRcvSupl ,convert(varchar(10) , convert(date ,  a.FDShipDate) , 103) as FDShipDate  "
 
                         _Qry &= vbCrLf & "from"
                         _Qry &= vbCrLf & "(select AA.FTSendSuplNo,K.FTOrderNo,K.FTBarcodeSendSuplNo,BD.FNQuantity as FNSendQuantity ,  FTSendSuplBy"
@@ -338,7 +338,7 @@ Public Class wProdSendSuplTracking
                         '_Qry &= vbCrLf & ",convert(varchar(10),convert(datetime,RR.FDRcvSuplDate),103) AS FDRcvSuplDate"
                         _Qry &= vbCrLf & ",BD.FTColorway,BD.FTSizeBreakDown,BD.FNBunbleSeq"
                         _Qry &= vbCrLf & ",K.FNHSysPartId,AA.FNSendSuplState,K.FNSendSuplType,AA.FTSuplCode,AA.FNHSysSuplId"
-                        _Qry &= vbCrLf & ",BD.FTBarcodeBundleNo,K.FTStyleCode FROM"
+                        _Qry &= vbCrLf & ",BD.FTBarcodeBundleNo,K.FTStyleCode , k.FDShipDate  FROM"
                         _Qry &= vbCrLf & "(select SB.FTBarcodeSendSuplNo,S.FDSendSuplDate,Supl.FTSuplCode,S.FNHSysSuplId,S.FTSendSuplNo , S.FTSendSuplBy ,S.FNSendSuplState from"
                         _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTSendSupl_Barcode AS SB WITH(NOLOCK)    INNER JOIN"
                         _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTSendSupl AS S WITH(NOLOCK) ON SB.FTSendSuplNo=S.FTSendSuplNo"
@@ -347,12 +347,15 @@ Public Class wProdSendSuplTracking
                         '  _Qry &= vbCrLf & "  WHERE  S.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & ""
 
                         _Qry &= vbCrLf & " ) AS AA LEFT OUTER JOIN"
-                        _Qry &= vbCrLf & "(select p.FTOrderNo,BS.FTBarcodeSendSuplNo,BS.FTBarcodeBundleNo,BS.FNHSysPartId,BS.FNSendSuplType,Sty.FTStyleCode from "
+                        _Qry &= vbCrLf & "(select p.FTOrderNo,BS.FTBarcodeSendSuplNo,BS.FTBarcodeBundleNo,BS.FNHSysPartId,BS.FNSendSuplType,Sty.FTStyleCode, sp.FDShipDate from "
                         _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd AS P WITH(NOLOCK) INNER JOIN"
                         _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcode_SendSupl AS BS WITH(NOLOCK) ON P.FTOrderProdNo=BS.FTOrderProdNo LEFT OUTER JOIN"
                         _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS O WITH(NOLOCK) ON P.FTOrderNo=O.FTOrderNo LEFT OUTER JOIN"
                         _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle as Sty WITH(NOLOCK) ON O.FNHSysStyleId=Sty.FNHSysStyleId LEFT OUtER JOIN"
                         _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMBuy AS Buy WItH(NOLOCK) ON O.FNHSysBuyId=buy.FNHSysBuyId "
+                        _Qry &= vbCrLf & "	outer apply (  select top 1 FDShipDate from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.V_OrderSub_BreakDown_ShipDestination sp "
+                        _Qry &= vbCrLf & " where sp.FTOrderNo = p.FTOrderNo  order by FDShipDate asc  ) as SP"
+
                         _Qry &= vbCrLf & " where O.FNHSysCmpId=" & Val(_FNHSysCmpId) & ""
                         _Qry &= vbCrLf & ") AS K ON AA.FTBarcodeSendSuplNo=K.FTBarcodeSendSuplNo"
                         If Me.cFDRcvSuplDate.Text <> "" Or Me.FDEndRcvSuplDate.Text <> "" Then
@@ -363,7 +366,7 @@ Public Class wProdSendSuplTracking
 
                             ''  _Qry &= vbCrLf & "  WHERE  R.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & ""
 
-                            '_Qry &= vbCrLf & ") AS RR ON AA.FTSendSuplNo=RR.FTSendSuplNo AND K.FTBarcodeSendSuplNo=RR.FTBarcodeSendSuplNo"
+                            '_Qry &= vbCrLf & ") AS RR ON AA.FTSendSuplNo=RR.FTSendSuplNo And K.FTBarcodeSendSuplNo=RR.FTBarcodeSendSuplNo"
 
 
                             _Qry &= vbCrLf & " INNER jOIN (select distinct SB.FTSendSuplNo from"
@@ -511,7 +514,7 @@ Public Class wProdSendSuplTracking
 
                         _Qry &= vbCrLf & "group by A.FTSendSuplNo,A.FTOrderNo,A.FDSendSuplDate,A.FTColorway, A.FTSizeBreakDown"
                         _Qry &= vbCrLf & ",SSm.FNSendSuplState,SST.FTSenSuplTypeName"
-                        _Qry &= vbCrLf & ",B.FDRcvSuplDate,B.FTRcvSuplNo,C.FTCmpCode,S.FTSuplCode,A.FTStyleCode , B.FTRcvSuplBy  , A.FTSendSuplBy"
+                        _Qry &= vbCrLf & ",B.FDRcvSuplDate,B.FTRcvSuplNo,C.FTCmpCode,S.FTSuplCode,A.FTStyleCode , B.FTRcvSuplBy  , A.FTSendSuplBy , a.FDShipDate "
 
                         If ST.Lang.Language = ST.Lang.eLang.TH Then
                             _Qry &= vbCrLf & ",C.FTCmpNameTH,S.FTSuplNameTH,Part.FTPartNameTH"
@@ -672,7 +675,7 @@ Public Class wProdSendSuplTracking
 
                     '' best end add 20231211
 
-
+                    _Qry &= vbCrLf & " ,convert(varchar(10) , convert(date ,  a.FDShipDate) , 103) as FDShipDate  "
 
                     _Qry &= vbCrLf & "from"
                     _Qry &= vbCrLf & "(Select AA.FTSendSuplNo,K.FTOrderNo,K.FTBarcodeSendSuplNo,BD.FNQuantity As FNSendQuantity"
@@ -680,7 +683,7 @@ Public Class wProdSendSuplTracking
                     '_Qry &= vbCrLf & ",convert(varchar(10),convert(datetime,RR.FDRcvSuplDate),103) As FDRcvSuplDate"
                     _Qry &= vbCrLf & ",BD.FTColorway,BD.FTSizeBreakDown,BD.FNBunbleSeq,BD.FTPOLineItemNo"
                     _Qry &= vbCrLf & ",K.FNHSysPartId,AA.FNSendSuplState,K.FNSendSuplType,AA.FTSuplCode,AA.FNHSysSuplId,K.FTOrderProdNo"
-                    _Qry &= vbCrLf & ",BD.FTBarcodeBundleNo,K.FTStyleCode , AA.FTSendSuplBy FROM"
+                    _Qry &= vbCrLf & ",BD.FTBarcodeBundleNo,K.FTStyleCode , AA.FTSendSuplBy  , k.FDShipDate   FROM"
 
                     _Qry &= vbCrLf & "(Select SB.FTBarcodeSendSuplNo,S.FDSendSuplDate,Supl.FTSuplCode,S.FNHSysSuplId,S.FTSendSuplNo,S.FNSendSuplState , S.FTSendSuplBy from"
                     _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTSendSupl_Barcode As SB With(NOLOCK)    INNER JOIN"
@@ -690,13 +693,14 @@ Public Class wProdSendSuplTracking
 
 
                     _Qry &= vbCrLf & " ) As AA LEFT OUTER JOIN"
-                    _Qry &= vbCrLf & "(Select p.FTOrderNo,BS.FTBarcodeSendSuplNo,BS.FTBarcodeBundleNo,BS.FNHSysPartId,BS.FNSendSuplType,P.FTOrderProdNo,STy.FTStyleCode from "
+                    _Qry &= vbCrLf & "(Select p.FTOrderNo,BS.FTBarcodeSendSuplNo,BS.FTBarcodeBundleNo,BS.FNHSysPartId,BS.FNSendSuplType,P.FTOrderProdNo,STy.FTStyleCode  ,sp.FDShipDate  from "
                     _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd As P With(NOLOCK) INNER JOIN"
                     _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcode_SendSupl As BS With(NOLOCK) On P.FTOrderProdNo=BS.FTOrderProdNo LEFT OUTER JOIN"
                     _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder As O With(NOLOCK) On P.FTOrderNo=O.FTOrderNo LEFT OUTER JOIN"
                     _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle As Sty With(NOLOCK) On O.FNHSysStyleId=Sty.FNHSysStyleId LEFT OUtER JOIN"
                     _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMBuy As Buy With(NOLOCK) On O.FNHSysBuyId=buy.FNHSysBuyId "
-
+                    _Qry &= vbCrLf & " outer apply (  select top 1 FDShipDate from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.V_OrderSub_BreakDown_ShipDestination sp 	"
+                    _Qry &= vbCrLf & " where sp.FTOrderNo = p.FTOrderNo  order by FDShipDate asc  ) as SP "
                     _Qry &= vbCrLf & " where O.FNHSysCmpId=" & Val(_FNHSysCmpId) & ""
 
                     _Qry &= vbCrLf & ") As K On AA.FTBarcodeSendSuplNo=K.FTBarcodeSendSuplNo"
@@ -909,7 +913,7 @@ Public Class wProdSendSuplTracking
             '    c.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False
             'Else
             Select Case c.FieldName.ToString
-                Case "FTStyleCode", "FTOrderNo", "FTCmpCode", "FTCmpName", "FTColorway", "FTSizeBreakDown", "FTSenSuplTypeName" _
+                Case "FTStyleCode", "FTOrderNo", "FDShipDate", "FTCmpCode", "FTCmpName", "FTColorway", "FTSizeBreakDown", "FTSenSuplTypeName" _
                     , "FTPartName", "FTSuplCode", "FTSuplName", "FTSendSuplNo", "FDSendSuplDate", "FNSendSuplState", "FTRcvSuplNo", "FDRcvSuplDate", "FTUnitSectCode"
                     c.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True
                     c.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
@@ -1116,7 +1120,22 @@ Public Class wProdSendSuplTracking
 
                         Case "FTStyleCode", "FTSuplCode", "FTSuplName", "FTOrderNo", "FTPORef", "FTCmpCode", "FTCmpName", "FTSenSuplTypeName", "FTPartName", "FTSendSuplNo", "FDSendSuplDate", "FTRcvSuplNo", "FDRcvSuplDate", "FNSendSuplState"
 
+
                             If "" & .GetRowCellValue(e.RowHandle1, e.Column.FieldName).ToString = "" & .GetRowCellValue(e.RowHandle2, e.Column.FieldName).ToString Then
+
+                                e.Merge = (e.CellValue1.ToString = e.CellValue2.ToString)
+                                e.Handled = True
+                                e.Column.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+
+                            Else
+
+                                e.Merge = False
+                                e.Handled = True
+
+                            End If
+                        Case "FDShipDate"
+                            If "" & .GetRowCellValue(e.RowHandle1, e.Column.FieldName).ToString = "" & .GetRowCellValue(e.RowHandle2, e.Column.FieldName).ToString And
+                                  "" & .GetRowCellValue(e.RowHandle1, "FTOrderNo").ToString = "" & .GetRowCellValue(e.RowHandle2, "FTOrderNo").ToString Then
 
                                 e.Merge = (e.CellValue1.ToString = e.CellValue2.ToString)
                                 e.Handled = True
@@ -1309,6 +1328,21 @@ Public Class wProdSendSuplTracking
                                 e.Merge = False
                                 e.Handled = True
                             End If
+                        Case "FDShipDate"
+                            If "" & .GetRowCellValue(e.RowHandle1, e.Column.FieldName).ToString = "" & .GetRowCellValue(e.RowHandle2, e.Column.FieldName).ToString And
+                                  "" & .GetRowCellValue(e.RowHandle1, "FTOrderNo").ToString = "" & .GetRowCellValue(e.RowHandle2, "FTOrderNo").ToString Then
+
+                                e.Merge = (e.CellValue1.ToString = e.CellValue2.ToString)
+                                e.Handled = True
+                                e.Column.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+
+                            Else
+
+                                e.Merge = False
+                                e.Handled = True
+
+                            End If
+
                         Case "FTSendSuplBy"
 
                             If ("" & .GetRowCellValue(e.RowHandle1, "FTSendSuplNo").ToString = "" & .GetRowCellValue(e.RowHandle2, "FTSendSuplNo").ToString) Then

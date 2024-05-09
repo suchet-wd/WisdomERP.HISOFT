@@ -19,7 +19,11 @@ Partial Class wAutoGenerateBarcodeCust
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ocmcancel = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcreate = New DevExpress.XtraEditors.SimpleButton()
         Me.FNGenerateBarcodeCustType_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -54,6 +58,8 @@ Partial Class wAutoGenerateBarcodeCust
         'FNGenerateBarcodeCustType_lbl
         '
         Me.FNGenerateBarcodeCustType_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FNGenerateBarcodeCustType_lbl.Appearance.Options.UseForeColor = True
+        Me.FNGenerateBarcodeCustType_lbl.Appearance.Options.UseTextOptions = True
         Me.FNGenerateBarcodeCustType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNGenerateBarcodeCustType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNGenerateBarcodeCustType_lbl.Location = New System.Drawing.Point(5, 28)
@@ -87,7 +93,7 @@ Partial Class wAutoGenerateBarcodeCust
         Me.FNGenerateBarcodeCustType.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNGenerateBarcodeCustType.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNGenerateBarcodeCustType.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNGenerateBarcodeCustType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", "FNPackCartonSubType", Nothing, True)})
+        Me.FNGenerateBarcodeCustType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "FNPackCartonSubType", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNGenerateBarcodeCustType.Properties.Tag = "FNGenerateBarcodeCustType"
         Me.FNGenerateBarcodeCustType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.FNGenerateBarcodeCustType.Size = New System.Drawing.Size(413, 22)

@@ -553,7 +553,7 @@ Public Class wProdCutOrderTracking
             _Qry &= vbCrLf & " ,(ISNULL(P.FNQuantity,0) -ISNULL(P.FNQuantityBundle,0))  AS FNQuantityBalCut"
 
             _Qry &= vbCrLf & " FROM     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS A WITH(NOLOCK) INNER JOIN "
-            _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTStyle AS ST WITH(NOLOCK) ON A.FNHSysStyleId=ST.FNHSysStyleId INNER JOIN"
+            _Qry &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMStyle AS ST WITH(NOLOCK) ON A.FNHSysStyleId=ST.FNHSysStyleId INNER JOIN"
             _Qry &= vbCrLf & "    ("
             _Qry &= vbCrLf & " 	SELECT FTOrderNo, SUM(FNQuantity) AS FNQuantity, SUM(FNQuantityExtra) AS FNQuantityExtra, SUM(FNGarmentQtyTest) AS FNGarmentQtyTest, SUM(FNGrandQuantity) AS FNGrandQuantity"
             _Qry &= vbCrLf & "     FROM    [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS SBD WITH(NOLOCK)"

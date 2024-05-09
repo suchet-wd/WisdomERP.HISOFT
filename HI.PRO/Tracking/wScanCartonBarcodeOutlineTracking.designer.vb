@@ -19,7 +19,6 @@ Partial Class wScanCartonBarcodeOutlineTracking
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -93,11 +92,11 @@ Partial Class wScanCartonBarcodeOutlineTracking
         Me.cFNQuantityOut = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.cFNCartonScanQty = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.cFNWIPCartonScanQty = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
-        Me.oCriteria = New DevExpress.XtraBars.Docking.DockPanel()
-        Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
         Me.cFTPackNo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.cFNCartonNo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager()
+        Me.oCriteria = New DevExpress.XtraBars.Docking.DockPanel()
+        Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
         CType(Me.ogbbarcodeinfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbbarcodeinfo.SuspendLayout()
         Me.XtraScrollableControl1.SuspendLayout()
@@ -743,6 +742,30 @@ Partial Class wScanCartonBarcodeOutlineTracking
         Me.cFNWIPCartonScanQty.VisibleIndex = 15
         Me.cFNWIPCartonScanQty.Width = 138
         '
+        'cFTPackNo
+        '
+        Me.cFTPackNo.Caption = "FTPackNo"
+        Me.cFTPackNo.FieldName = "FTPackNo"
+        Me.cFTPackNo.MinWidth = 25
+        Me.cFTPackNo.Name = "cFTPackNo"
+        Me.cFTPackNo.OptionsColumn.AllowEdit = False
+        Me.cFTPackNo.Visible = True
+        Me.cFTPackNo.VisibleIndex = 4
+        Me.cFTPackNo.Width = 94
+        '
+        'cFNCartonNo
+        '
+        Me.cFNCartonNo.Caption = "FNCartonNo"
+        Me.cFNCartonNo.DisplayFormat.FormatString = "N0"
+        Me.cFNCartonNo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.cFNCartonNo.FieldName = "FNCartonNo"
+        Me.cFNCartonNo.MinWidth = 25
+        Me.cFNCartonNo.Name = "cFNCartonNo"
+        Me.cFNCartonNo.OptionsColumn.AllowEdit = False
+        Me.cFNCartonNo.Visible = True
+        Me.cFNCartonNo.VisibleIndex = 2
+        Me.cFNCartonNo.Width = 108
+        '
         'DockManager1
         '
         Me.DockManager1.Form = Me
@@ -775,30 +798,6 @@ Partial Class wScanCartonBarcodeOutlineTracking
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
         Me.DockPanel1_Container.Size = New System.Drawing.Size(1175, 175)
         Me.DockPanel1_Container.TabIndex = 0
-        '
-        'cFTPackNo
-        '
-        Me.cFTPackNo.Caption = "FTPackNo"
-        Me.cFTPackNo.FieldName = "FTPackNo"
-        Me.cFTPackNo.MinWidth = 25
-        Me.cFTPackNo.Name = "cFTPackNo"
-        Me.cFTPackNo.OptionsColumn.AllowEdit = False
-        Me.cFTPackNo.Visible = True
-        Me.cFTPackNo.VisibleIndex = 4
-        Me.cFTPackNo.Width = 94
-        '
-        'cFNCartonNo
-        '
-        Me.cFNCartonNo.Caption = "FNCartonNo"
-        Me.cFNCartonNo.DisplayFormat.FormatString = "N0"
-        Me.cFNCartonNo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.cFNCartonNo.FieldName = "FNCartonNo"
-        Me.cFNCartonNo.MinWidth = 25
-        Me.cFNCartonNo.Name = "cFNCartonNo"
-        Me.cFNCartonNo.OptionsColumn.AllowEdit = False
-        Me.cFNCartonNo.Visible = True
-        Me.cFNCartonNo.VisibleIndex = 2
-        Me.cFNCartonNo.Width = 108
         '
         'wScanCartonBarcodeOutlineTracking
         '

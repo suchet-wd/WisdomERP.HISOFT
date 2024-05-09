@@ -19,8 +19,12 @@ Partial Class wProdPurchaseSendSuplTracking
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wEfkaCycleTimeTracking))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wProdPurchaseSendSuplTracking))
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbheader = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
         Me.FNHSysSuplId = New DevExpress.XtraEditors.ButtonEdit()
@@ -86,7 +90,7 @@ Partial Class wProdPurchaseSendSuplTracking
         Me.ogbheader.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top
         Me.ogbheader.DockVertical = DevExpress.Utils.DefaultBoolean.[False]
         Me.ogbheader.ID = New System.Guid("77b9346d-8d15-4323-af1e-af82afa9902a")
-        Me.ogbheader.Image = CType(resources.GetObject("ogbheader.Image"), System.Drawing.Image)
+        Me.ogbheader.ImageOptions.Image = CType(resources.GetObject("ogbheader.ImageOptions.Image"), System.Drawing.Image)
         Me.ogbheader.Location = New System.Drawing.Point(0, 0)
         Me.ogbheader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbheader.Name = "ogbheader"
@@ -109,10 +113,10 @@ Partial Class wProdPurchaseSendSuplTracking
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysSuplId_None)
         Me.DockPanel1_Container.Controls.Add(Me.FTStartPO)
         Me.DockPanel1_Container.Controls.Add(Me.FTStartPO_lbl)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(2, 28)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 32)
         Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1322, 86)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1318, 78)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FNHSysSuplId
@@ -135,7 +139,7 @@ Partial Class wProdPurchaseSendSuplTracking
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysSuplId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysSuplId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", "177", Nothing, True)})
+        Me.FNHSysSuplId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "177", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSuplId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysSuplId.Properties.MaxLength = 30
         Me.FNHSysSuplId.Size = New System.Drawing.Size(152, 22)
@@ -152,9 +156,7 @@ Partial Class wProdPurchaseSendSuplTracking
         Me.FTEndPO.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTEndPO.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FTEndPO.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.FTEndPO.Properties.DisplayFormat.FormatString = "d"
         Me.FTEndPO.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
-        Me.FTEndPO.Properties.EditFormat.FormatString = "d"
         Me.FTEndPO.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTEndPO.Properties.NullDate = ""
         Me.FTEndPO.Size = New System.Drawing.Size(152, 22)
@@ -164,6 +166,8 @@ Partial Class wProdPurchaseSendSuplTracking
         'FNHSysSuplId_lbl
         '
         Me.FNHSysSuplId_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNHSysSuplId_lbl.Appearance.Options.UseForeColor = True
+        Me.FNHSysSuplId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysSuplId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysSuplId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FNHSysSuplId_lbl.Location = New System.Drawing.Point(133, 43)
@@ -177,6 +181,8 @@ Partial Class wProdPurchaseSendSuplTracking
         'FTEndPO_lbl
         '
         Me.FTEndPO_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FTEndPO_lbl.Appearance.Options.UseForeColor = True
+        Me.FTEndPO_lbl.Appearance.Options.UseTextOptions = True
         Me.FTEndPO_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTEndPO_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTEndPO_lbl.Location = New System.Drawing.Point(432, 16)
@@ -212,7 +218,7 @@ Partial Class wProdPurchaseSendSuplTracking
         Me.FNHSysSuplId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysSuplId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysSuplId_None.Properties.ReadOnly = True
-        Me.FNHSysSuplId_None.Size = New System.Drawing.Size(836, 22)
+        Me.FNHSysSuplId_None.Size = New System.Drawing.Size(832, 22)
         Me.FNHSysSuplId_None.TabIndex = 390
         Me.FNHSysSuplId_None.TabStop = False
         Me.FNHSysSuplId_None.Tag = "2|"
@@ -227,9 +233,7 @@ Partial Class wProdPurchaseSendSuplTracking
         Me.FTStartPO.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTStartPO.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FTStartPO.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.FTStartPO.Properties.DisplayFormat.FormatString = "d"
         Me.FTStartPO.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
-        Me.FTStartPO.Properties.EditFormat.FormatString = "d"
         Me.FTStartPO.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FTStartPO.Properties.NullDate = ""
         Me.FTStartPO.Size = New System.Drawing.Size(152, 22)
@@ -239,6 +243,8 @@ Partial Class wProdPurchaseSendSuplTracking
         'FTStartPO_lbl
         '
         Me.FTStartPO_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FTStartPO_lbl.Appearance.Options.UseForeColor = True
+        Me.FTStartPO_lbl.Appearance.Options.UseTextOptions = True
         Me.FTStartPO_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTStartPO_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.FTStartPO_lbl.Location = New System.Drawing.Point(11, 16)
@@ -274,7 +280,7 @@ Partial Class wProdPurchaseSendSuplTracking
         '
         Me.otbsummary.Controls.Add(Me.ogdtime)
         Me.otbsummary.Name = "otbsummary"
-        Me.otbsummary.Size = New System.Drawing.Size(1314, 626)
+        Me.otbsummary.Size = New System.Drawing.Size(1320, 629)
         Me.otbsummary.Text = "Summary"
         '
         'ogdtime
@@ -285,7 +291,7 @@ Partial Class wProdPurchaseSendSuplTracking
         Me.ogdtime.MainView = Me.ogvtime
         Me.ogdtime.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdtime.Name = "ogdtime"
-        Me.ogdtime.Size = New System.Drawing.Size(1314, 626)
+        Me.ogdtime.Size = New System.Drawing.Size(1320, 629)
         Me.ogdtime.TabIndex = 0
         Me.ogdtime.TabStop = False
         Me.ogdtime.Tag = "2|"

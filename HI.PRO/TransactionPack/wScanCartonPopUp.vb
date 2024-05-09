@@ -322,10 +322,76 @@ Public Class wScanCartonPopUp
     Private Function GetOnhandScan() As DataTable
         Try
             Dim _Cmd As String = ""
+            '_Cmd = "SELECT   Isnull(T.FNQuantity ,X.FNQuantity)  AS FNQuantity  ,isnull(T.FTColorway,X.FTColorway) AS FTColorway  , Isnull(T.FTSizeBreakDown , X.FTSizeBreakDown) AS FTSizeBreakDown "
+            '_Cmd &= vbCrLf & ",Isnull(T.FTOrderNo , X.FTOrderNo) AS FTOrderNo ,Isnull(T.FTNikePOLineItem,X.FTNikePOLineItem) AS FTNikePOLineItem  , Isnull(T.FTSubOrderNo,X.FTSubOrderNo) AS FTSubOrderNo"
+            '_Cmd &= vbCrLf & "INTO #Tmp"
+            '_Cmd &= vbCrLf & "From ( SELECT       sum(B.FNQuantity) AS FNQuantity  ,D.FTColorway, D.FTSizeBreakDown ,D.FTOrderNo ,W.FTNikePOLineItem  ,W.FTSubOrderNo"
+            '_Cmd &= vbCrLf & "FROM     (Select TT.FTBarcodeNo , TT.FNQuantity , O.FNHSysUnitSectId "
+            '_Cmd &= vbCrLf & "From ("
+            '_Cmd &= vbCrLf & "Select  sum(FNQuantity) AS FNQuantity , FTBarcodeNo"
+            '_Cmd &= vbCrLf & "From (SELECT  sum(O.FNQuantity) AS FNQuantity ,  O.FTBarcodeNo "
+            '_Cmd &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODBarcodeScanOutline AS O WITH (NOLOCK) LEFT OUTER JOIN"
+            '_Cmd &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle AS A WITH (NOLOCK) ON O.FTBarcodeNo = A.FTBarcodeBundleNo LEFT OUTER JOIN"
+            '_Cmd &= vbCrLf & "[" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd AS P WITH (NOLOCK) ON A.FTOrderProdNo = P.FTOrderProdNo"
+            '_Cmd &= vbCrLf & "Where  P.FTOrderNo ='" & _OrderNo & "'"
+            '_Cmd &= vbCrLf & " and  A.FTColorway in ('" & Replace(_Colorway, ",", "','") & "')"
+            '_Cmd &= vbCrLf & "Group by  O.FTBarcodeNo  "
+            '_Cmd &= vbCrLf & " UNION ALL"
+            '_Cmd &= vbCrLf & "Select  -sum(FNScanQuantity) AS FNQuantity , FTBarcodeNo"
+            '_Cmd &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Scan_Detail WITH(NOLOCK) "
+            '_Cmd &= vbCrLf & "Where  FTOrderNo ='" & _OrderNo & "'"
+            '_Cmd &= vbCrLf & " and  FTColorway  in ('" & Replace(_Colorway, ",", "','") & "')"
+            '_Cmd &= vbCrLf & "group by FTBarcodeNo ) AS T "
+            '_Cmd &= vbCrLf & "group by FTBarcodeNo ) AS TT INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODBarcodeScanOutline AS O WITH(NOLOCK) ON TT.FTBarcodeNo = O.FTBarcodeNo"
+            '_Cmd &= vbCrLf & " Where TT.FNQuantity > 0"
+            '_Cmd &= vbCrLf & "group by TT.FTBarcodeNo , TT.FNQuantity , O.FNHSysUnitSectId) AS B LEFT OUTER JOIN"
+            '_Cmd &= vbCrLf & "(SELECT        H.FTBarcodeBundleNo,  D.FTColorway, D.FTSizeBreakDown, P.FTOrderNo"
+            '_Cmd &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle AS H WITH (NOLOCK) LEFT OUTER JOIN"
+            '_Cmd &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle_Detail AS D WITH (NOLOCK) ON H.FTBarcodeBundleNo = D.FTBarcodeBundleNo LEFT OUTER JOIN"
+            '_Cmd &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd AS P WITH (NOLOCK) ON H.FTOrderProdNo = P.FTOrderProdNo"
+            '_Cmd &= vbCrLf & "Where  P.FTOrderNo ='" & _OrderNo & "'"
+            '_Cmd &= vbCrLf & " and D.FTColorway  in ('" & Replace(_Colorway, ",", "','") & "')"
+            '_Cmd &= vbCrLf & " Group by    H.FTBarcodeBundleNo, D.FTColorway, D.FTSizeBreakDown, P.FTOrderNo"
+            '_Cmd &= vbCrLf & ") AS D ON B.FTBarcodeNo = D.FTBarcodeBundleNo"
+            '_Cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_BreakDown AS W WITH(NOLOCK) ON D.FTOrderNo = W.FTOrderNo and D.FTColorway = W.FTColorway and D.FTSizeBreakDown = W.FTSizeBreakDown"
+            '_Cmd &= vbCrLf & "Where  D.FTOrderNo ='" & _OrderNo & "'"
+            '_Cmd &= vbCrLf & " and D.FTColorway  in ('" & Replace(_Colorway, ",", "','") & "')"
+            '_Cmd &= vbCrLf & "group by D.FTColorway, D.FTSizeBreakDown , D.FTOrderNo ,W.FTNikePOLineItem ,W.FTSubOrderNo ) AS T  "
+
+            '_Cmd &= vbCrLf & "FULL OUTER JOIN (SELECT       0 as FNQuantity, D.FTColorway , D.FTSizeBreakDown , D.FTOrderNo, B.FTNikePOLineItem, D.FTSubOrderNo "
+            '_Cmd &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Detail AS D WITH (NOLOCK) LEFT OUTER JOIN"
+            '_Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown AS B WITH (NOLOCK) ON D.FTOrderNo = B.FTOrderNo AND D.FTSubOrderNo = B.FTSubOrderNo AND D.FTColorway = B.FTColorway AND "
+            '_Cmd &= vbCrLf & "     D.FTSizeBreakDown = B.FTSizeBreakDown"
+            '_Cmd &= vbCrLf & "Where   D.FTPackNo = '" & _PackNo & "'"
+            '_Cmd &= vbCrLf & "and  D.FNCartonNo =" & _CartonNo
+            '_Cmd &= vbCrLf & ") AS X ON T.FTOrderNo = X.FTOrderNo and T.FTSubOrderNo = X.FTSubOrderNo and T.FTColorway = X.FTColorway and T.FTSizeBreakDown  = X.FTSizeBreakDown"
+            '_Cmd &= vbCrLf & "and T.FTNikePOLineItem = X.FTNikePOLineItem"
+
+            '_Cmd &= vbCrLf & "DECLARE @cols AS NVARCHAR(MAX),@sumcols AS NVARCHAR(MAX),@query  AS NVARCHAR(MAX)"
+            '_Cmd &= vbCrLf & "select @cols = STUFF((SELECT ',' + QUOTENAME(FTSizeBreakDown) "
+            '_Cmd &= vbCrLf & "  from #Tmp AS T LEFT OUTER JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMMatSize AS S WITH(NOLOCK) ON T.FTSizeBreakDown = S.FTMatSizeCode"
+            '_Cmd &= vbCrLf & "  group by FTSizeBreakDown ,S.FNMatSizeSeq order by S.FNMatSizeSeq    "
+            '_Cmd &= vbCrLf & "  FOR XML PATH(''), TYPE"
+            '_Cmd &= vbCrLf & "  ).value('.', 'NVARCHAR(MAX)') "
+            '_Cmd &= vbCrLf & " ,1,1,'')"
+            '_Cmd &= vbCrLf & "select @sumcols = STUFF((SELECT '+  Isnull(' + QUOTENAME(FTSizeBreakDown) +',0) ' "
+            '_Cmd &= vbCrLf & "  from #Tmp    group by FTSizeBreakDown  "
+            '_Cmd &= vbCrLf & " FOR XML PATH(''), TYPE"
+            '_Cmd &= vbCrLf & "   ).value('.', 'NVARCHAR(MAX)')"
+            '_Cmd &= vbCrLf & " ,1,1,'')"
+            '_Cmd &= vbCrLf & "Set @query = 'Select FTSubOrderNo, FTColorway,  FTOrderNo ,FTNikePOLineItem ,'+  @cols +',('+@sumcols+') AS Total"
+            '_Cmd &= vbCrLf & " From #Tmp"
+            '_Cmd &= vbCrLf & "PIVOT(Sum(FNQuantity)"
+            '_Cmd &= vbCrLf & "FOR FTSizeBreakDown IN (' + @cols + ')) AS PVTTable'"
+            '_Cmd &= vbCrLf & "EXEC sp_executesql @query"
+            '_Cmd &= vbCrLf & "drop table #Tmp"
+
+
+
             _Cmd = "SELECT   Isnull(T.FNQuantity ,X.FNQuantity)  AS FNQuantity  ,isnull(T.FTColorway,X.FTColorway) AS FTColorway  , Isnull(T.FTSizeBreakDown , X.FTSizeBreakDown) AS FTSizeBreakDown "
             _Cmd &= vbCrLf & ",Isnull(T.FTOrderNo , X.FTOrderNo) AS FTOrderNo ,Isnull(T.FTNikePOLineItem,X.FTNikePOLineItem) AS FTNikePOLineItem  , Isnull(T.FTSubOrderNo,X.FTSubOrderNo) AS FTSubOrderNo"
             _Cmd &= vbCrLf & "INTO #Tmp"
-            _Cmd &= vbCrLf & "From ( SELECT       sum(B.FNQuantity) AS FNQuantity  ,D.FTColorway, D.FTSizeBreakDown ,D.FTOrderNo ,W.FTNikePOLineItem  ,W.FTSubOrderNo"
+            _Cmd &= vbCrLf & "From ( SELECT       sum(B.FNQuantity) AS FNQuantity  ,D.FTColorway, D.FTSizeBreakDown ,D.FTOrderNo ,D.FTNikePOLineItem  ,D.FTSubOrderNo"
             _Cmd &= vbCrLf & "FROM     (Select TT.FTBarcodeNo , TT.FNQuantity , O.FNHSysUnitSectId "
             _Cmd &= vbCrLf & "From ("
             _Cmd &= vbCrLf & "Select  sum(FNQuantity) AS FNQuantity , FTBarcodeNo"
@@ -345,18 +411,33 @@ Public Class wScanCartonPopUp
             _Cmd &= vbCrLf & "group by FTBarcodeNo ) AS TT INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODBarcodeScanOutline AS O WITH(NOLOCK) ON TT.FTBarcodeNo = O.FTBarcodeNo"
             _Cmd &= vbCrLf & " Where TT.FNQuantity > 0"
             _Cmd &= vbCrLf & "group by TT.FTBarcodeNo , TT.FNQuantity , O.FNHSysUnitSectId) AS B LEFT OUTER JOIN"
-            _Cmd &= vbCrLf & "(SELECT        H.FTBarcodeBundleNo,  D.FTColorway, D.FTSizeBreakDown, P.FTOrderNo"
-            _Cmd &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle AS H WITH (NOLOCK) LEFT OUTER JOIN"
-            _Cmd &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle_Detail AS D WITH (NOLOCK) ON H.FTBarcodeBundleNo = D.FTBarcodeBundleNo LEFT OUTER JOIN"
-            _Cmd &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd AS P WITH (NOLOCK) ON H.FTOrderProdNo = P.FTOrderProdNo"
+
+            _Cmd &= vbCrLf & " (SELECT       H.FTPOLineItemNo as FTNikePOLineItem ,   B.FTSubOrderNo ,   H.FTBarcodeBundleNo,   CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END AS  FTColorway, H.FTSizeBreakDown, P.FTOrderNo"
+            _Cmd &= vbCrLf & "FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle AS H WITH (NOLOCK) LEFT OUTER JOIN"
+            '_Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle_Detail AS D WITH (NOLOCK) ON H.FTBarcodeBundleNo = D.FTBarcodeBundleNo LEFT OUTER JOIN"
+            _Cmd &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd_Detail AS P WITH (NOLOCK) ON H.FTOrderProdNo = P.FTOrderProdNo"
+            _Cmd &= vbCrLf & "  LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..V_OrderSub_BreakDown_ShipDestination AS B WITH(NOLOCK) ON P.FTOrderNo = B.FTOrderNo and P.FTSubOrderNo = B.FTSubOrderNo "
+            _Cmd &= vbCrLf & "   And H.FTSizeBreakDown = B.FTSizeBreakDown and CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END = B.FTColorway    " 'and  H.FTPOLineItemNo = B.FTNikePOLineItem"
             _Cmd &= vbCrLf & "Where  P.FTOrderNo ='" & _OrderNo & "'"
-            _Cmd &= vbCrLf & " and D.FTColorway  in ('" & Replace(_Colorway, ",", "','") & "')"
-            _Cmd &= vbCrLf & " Group by    H.FTBarcodeBundleNo, D.FTColorway, D.FTSizeBreakDown, P.FTOrderNo"
-            _Cmd &= vbCrLf & ") AS D ON B.FTBarcodeNo = D.FTBarcodeBundleNo"
-            _Cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_BreakDown AS W WITH(NOLOCK) ON D.FTOrderNo = W.FTOrderNo and D.FTColorway = W.FTColorway and D.FTSizeBreakDown = W.FTSizeBreakDown"
+
+            _Cmd &= vbCrLf & "and CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END in ('" & Replace(_Colorway, ",", "','") & "')"
+
+            _Cmd &= vbCrLf & "Group by    H.FTPOLineItemNo ,  B.FTSubOrderNo ,  H.FTBarcodeBundleNo, CASE WHEN ISNULL(H.FTColorwayNew,'') ='' THEN H.FTColorway ELSE ISNULL(H.FTColorwayNew,'') END , H.FTSizeBreakDown, P.FTOrderNo "
+            _Cmd &= vbCrLf & " ) AS D ON B.FTBarcodeNo = D.FTBarcodeBundleNo"
+
+
+            '_Cmd &= vbCrLf & "(SELECT        H.FTBarcodeBundleNo,  D.FTColorway, D.FTSizeBreakDown, P.FTOrderNo"
+            '_Cmd &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle AS H WITH (NOLOCK) LEFT OUTER JOIN"
+            '_Cmd &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTBundle_Detail AS D WITH (NOLOCK) ON H.FTBarcodeBundleNo = D.FTBarcodeBundleNo LEFT OUTER JOIN"
+            '_Cmd &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd AS P WITH (NOLOCK) ON H.FTOrderProdNo = P.FTOrderProdNo"
+            '_Cmd &= vbCrLf & "Where  P.FTOrderNo ='" & _OrderNo & "'"
+            '_Cmd &= vbCrLf & " and D.FTColorway  in ('" & Replace(_Colorway, ",", "','") & "')"
+            '_Cmd &= vbCrLf & " Group by    H.FTBarcodeBundleNo, D.FTColorway, D.FTSizeBreakDown, P.FTOrderNo"
+            '_Cmd &= vbCrLf & ") AS D ON B.FTBarcodeNo = D.FTBarcodeBundleNo"
+            '_Cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_BreakDown AS W WITH(NOLOCK) ON D.FTOrderNo = W.FTOrderNo and D.FTColorway = W.FTColorway and D.FTSizeBreakDown = W.FTSizeBreakDown"
             _Cmd &= vbCrLf & "Where  D.FTOrderNo ='" & _OrderNo & "'"
             _Cmd &= vbCrLf & " and D.FTColorway  in ('" & Replace(_Colorway, ",", "','") & "')"
-            _Cmd &= vbCrLf & "group by D.FTColorway, D.FTSizeBreakDown , D.FTOrderNo ,W.FTNikePOLineItem ,W.FTSubOrderNo ) AS T  "
+            _Cmd &= vbCrLf & "group by D.FTColorway, D.FTSizeBreakDown , D.FTOrderNo ,D.FTNikePOLineItem ,D.FTSubOrderNo ) AS T  "
 
             _Cmd &= vbCrLf & "FULL OUTER JOIN (SELECT       0 as FNQuantity, D.FTColorway , D.FTSizeBreakDown , D.FTOrderNo, B.FTNikePOLineItem, D.FTSubOrderNo "
             _Cmd &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPACKOrderPack_Carton_Detail AS D WITH (NOLOCK) LEFT OUTER JOIN"
@@ -364,6 +445,7 @@ Public Class wScanCartonPopUp
             _Cmd &= vbCrLf & "     D.FTSizeBreakDown = B.FTSizeBreakDown"
             _Cmd &= vbCrLf & "Where   D.FTPackNo = '" & _PackNo & "'"
             _Cmd &= vbCrLf & "and  D.FNCartonNo =" & _CartonNo
+
             _Cmd &= vbCrLf & ") AS X ON T.FTOrderNo = X.FTOrderNo and T.FTSubOrderNo = X.FTSubOrderNo and T.FTColorway = X.FTColorway and T.FTSizeBreakDown  = X.FTSizeBreakDown"
             _Cmd &= vbCrLf & "and T.FTNikePOLineItem = X.FTNikePOLineItem"
 
@@ -385,6 +467,9 @@ Public Class wScanCartonPopUp
             _Cmd &= vbCrLf & "FOR FTSizeBreakDown IN (' + @cols + ')) AS PVTTable'"
             _Cmd &= vbCrLf & "EXEC sp_executesql @query"
             _Cmd &= vbCrLf & "drop table #Tmp"
+
+
+
 
             Return HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD)
         Catch ex As Exception

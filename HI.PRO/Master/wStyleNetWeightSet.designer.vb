@@ -48,6 +48,7 @@ Partial Class wStyleNetWeightSet
         Me.ocmdoc = New DevExpress.XtraBars.Docking.DockManager()
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
+        Me.oChkSelectAll = New DevExpress.XtraEditors.CheckEdit()
         Me.FNHSysStyleIdTo = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysStyleIdTo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysStyleId = New DevExpress.XtraEditors.ButtonEdit()
@@ -77,7 +78,6 @@ Partial Class wStyleNetWeightSet
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.RepositoryItemButtonFNHSysSuplId = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
         Me.RepositoryItemCalcEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
-        Me.oChkSelectAll = New DevExpress.XtraEditors.CheckEdit()
         CType(Me.ReposFDShipDateTo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReposFDShipDateTo.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemFTSelect, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,6 +85,7 @@ Partial Class wStyleNetWeightSet
         CType(Me.ocmdoc, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DockPanel1.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
+        CType(Me.oChkSelectAll.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysStyleIdTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysStyleId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysStyleIdTo_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,7 +100,6 @@ Partial Class wStyleNetWeightSet
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemButtonFNHSysSuplId, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCalcEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.oChkSelectAll.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ReposFDShipDateTo
@@ -165,6 +165,16 @@ Partial Class wStyleNetWeightSet
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
         Me.DockPanel1_Container.Size = New System.Drawing.Size(1018, 77)
         Me.DockPanel1_Container.TabIndex = 0
+        '
+        'oChkSelectAll
+        '
+        Me.oChkSelectAll.Location = New System.Drawing.Point(8, 57)
+        Me.oChkSelectAll.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.oChkSelectAll.Name = "oChkSelectAll"
+        Me.oChkSelectAll.Properties.AutoHeight = False
+        Me.oChkSelectAll.Properties.Caption = "Select All"
+        Me.oChkSelectAll.Size = New System.Drawing.Size(276, 20)
+        Me.oChkSelectAll.TabIndex = 141
         '
         'FNHSysStyleIdTo
         '
@@ -485,16 +495,6 @@ Partial Class wStyleNetWeightSet
         Me.RepositoryItemCalcEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.RepositoryItemCalcEdit1.Name = "RepositoryItemCalcEdit1"
         '
-        'oChkSelectAll
-        '
-        Me.oChkSelectAll.Location = New System.Drawing.Point(8, 57)
-        Me.oChkSelectAll.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.oChkSelectAll.Name = "oChkSelectAll"
-        Me.oChkSelectAll.Properties.AutoHeight = False
-        Me.oChkSelectAll.Properties.Caption = "Select All"
-        Me.oChkSelectAll.Size = New System.Drawing.Size(276, 20)
-        Me.oChkSelectAll.TabIndex = 141
-        '
         'wStyleNetWeightSet
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -513,6 +513,7 @@ Partial Class wStyleNetWeightSet
         CType(Me.ocmdoc, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DockPanel1.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
+        CType(Me.oChkSelectAll.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysStyleIdTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysStyleId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysStyleIdTo_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -527,7 +528,6 @@ Partial Class wStyleNetWeightSet
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemButtonFNHSysSuplId, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCalcEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.oChkSelectAll.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

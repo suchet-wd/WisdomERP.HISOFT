@@ -306,7 +306,7 @@ Partial Class wScanPackOrder_New
         Me.FDPackDate.Properties.NullDate = ""
         Me.FDPackDate.Properties.ReadOnly = True
         Me.FDPackDate.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never
-        Me.FDPackDate.Size = New System.Drawing.Size(238, 23)
+        Me.FDPackDate.Size = New System.Drawing.Size(238, 22)
         Me.FDPackDate.TabIndex = 1
         Me.FDPackDate.TabStop = False
         Me.FDPackDate.Tag = "2|"
@@ -336,7 +336,7 @@ Partial Class wScanPackOrder_New
         Me.FTPackBy.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTPackBy.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTPackBy.Properties.ReadOnly = True
-        Me.FTPackBy.Size = New System.Drawing.Size(238, 23)
+        Me.FTPackBy.Size = New System.Drawing.Size(238, 22)
         Me.FTPackBy.TabIndex = 2
         Me.FTPackBy.TabStop = False
         Me.FTPackBy.Tag = "2|"
@@ -381,7 +381,7 @@ Partial Class wScanPackOrder_New
         SerializableAppearanceObject12.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTPackNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "...", 15, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "202", Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "New", 20, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F2), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "d", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTPackNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTPackNo.Size = New System.Drawing.Size(238, 23)
+        Me.FTPackNo.Size = New System.Drawing.Size(238, 22)
         Me.FTPackNo.TabIndex = 0
         Me.FTPackNo.TabStop = False
         Me.FTPackNo.Tag = "2|"
@@ -569,7 +569,7 @@ Partial Class wScanPackOrder_New
         Me.FNPackSetValue.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNPackSetValue.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNPackSetValue.Properties.Precision = 0
-        Me.FNPackSetValue.Size = New System.Drawing.Size(98, 23)
+        Me.FNPackSetValue.Size = New System.Drawing.Size(98, 22)
         Me.FNPackSetValue.TabIndex = 292
         Me.FNPackSetValue.TabStop = False
         Me.FNPackSetValue.Tag = "2|"
@@ -601,7 +601,7 @@ Partial Class wScanPackOrder_New
         Me.FNHSysStyleId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysStyleId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysStyleId_None.Properties.ReadOnly = True
-        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(871, 23)
+        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(871, 22)
         Me.FNHSysStyleId_None.TabIndex = 289
         Me.FNHSysStyleId_None.Tag = "2|"
         '
@@ -628,7 +628,7 @@ Partial Class wScanPackOrder_New
         Me.FNHSysStyleId.Name = "FNHSysStyleId"
         Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "157", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.Tag = ""
-        Me.FNHSysStyleId.Size = New System.Drawing.Size(182, 23)
+        Me.FNHSysStyleId.Size = New System.Drawing.Size(182, 22)
         Me.FNHSysStyleId.TabIndex = 288
         Me.FNHSysStyleId.Tag = "2|"
         '
@@ -672,7 +672,7 @@ Partial Class wScanPackOrder_New
         Me.FNOrderPackType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNOrderPackType.Properties.Tag = "FNOrderPackType"
         Me.FNOrderPackType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNOrderPackType.Size = New System.Drawing.Size(182, 23)
+        Me.FNOrderPackType.Size = New System.Drawing.Size(182, 22)
         Me.FNOrderPackType.TabIndex = 285
         Me.FNOrderPackType.Tag = "2|"
         '
@@ -728,7 +728,7 @@ Partial Class wScanPackOrder_New
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysCmpId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCmpId.Properties.MaxLength = 30
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(96, 23)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(96, 22)
         Me.FNHSysCmpId.TabIndex = 284
         Me.FNHSysCmpId.Tag = "|"
         Me.FNHSysCmpId.Visible = False
@@ -750,7 +750,7 @@ Partial Class wScanPackOrder_New
         Me.otppackdetailcarton.Controls.Add(Me.otlpack)
         Me.otppackdetailcarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otppackdetailcarton.Name = "otppackdetailcarton"
-        Me.otppackdetailcarton.Size = New System.Drawing.Size(1693, 795)
+        Me.otppackdetailcarton.Size = New System.Drawing.Size(1701, 801)
         Me.otppackdetailcarton.Text = "Carton Detail"
         '
         'ogbpackinfo
@@ -764,7 +764,7 @@ Partial Class wScanPackOrder_New
         Me.ogbpackinfo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbpackinfo.Name = "ogbpackinfo"
         Me.ogbpackinfo.ShowCaption = False
-        Me.ogbpackinfo.Size = New System.Drawing.Size(1337, 795)
+        Me.ogbpackinfo.Size = New System.Drawing.Size(1345, 801)
         Me.ogbpackinfo.TabIndex = 146
         Me.ogbpackinfo.Tag = "2|"
         Me.ogbpackinfo.Text = "Pack Info"
@@ -773,20 +773,20 @@ Partial Class wScanPackOrder_New
         '
         Me.ogdscanqty.Controls.Add(Me.XtraTabControl2)
         Me.ogdscanqty.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdscanqty.Location = New System.Drawing.Point(2, 551)
+        Me.ogdscanqty.Location = New System.Drawing.Point(2, 538)
         Me.ogdscanqty.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdscanqty.Name = "ogdscanqty"
-        Me.ogdscanqty.Size = New System.Drawing.Size(1333, 242)
+        Me.ogdscanqty.Size = New System.Drawing.Size(1341, 261)
         Me.ogdscanqty.TabIndex = 307
         Me.ogdscanqty.Text = "SCAN Qty"
         '
         'XtraTabControl2
         '
         Me.XtraTabControl2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.XtraTabControl2.Location = New System.Drawing.Point(2, 27)
+        Me.XtraTabControl2.Location = New System.Drawing.Point(2, 28)
         Me.XtraTabControl2.Name = "XtraTabControl2"
         Me.XtraTabControl2.SelectedTabPage = Me.XtraTabPage4
-        Me.XtraTabControl2.Size = New System.Drawing.Size(1329, 213)
+        Me.XtraTabControl2.Size = New System.Drawing.Size(1337, 231)
         Me.XtraTabControl2.TabIndex = 306
         Me.XtraTabControl2.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage3, Me.XtraTabPage4})
         '
@@ -794,7 +794,7 @@ Partial Class wScanPackOrder_New
         '
         Me.XtraTabPage4.Controls.Add(Me.ogcScanset)
         Me.XtraTabPage4.Name = "XtraTabPage4"
-        Me.XtraTabPage4.Size = New System.Drawing.Size(1319, 176)
+        Me.XtraTabPage4.Size = New System.Drawing.Size(1335, 200)
         Me.XtraTabPage4.Text = "เซ็ต"
         '
         'ogcScanset
@@ -805,7 +805,7 @@ Partial Class wScanPackOrder_New
         Me.ogcScanset.MainView = Me.ogvScanset
         Me.ogcScanset.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcScanset.Name = "ogcScanset"
-        Me.ogcScanset.Size = New System.Drawing.Size(1319, 176)
+        Me.ogcScanset.Size = New System.Drawing.Size(1335, 200)
         Me.ogcScanset.TabIndex = 306
         Me.ogcScanset.TabStop = False
         Me.ogcScanset.Tag = "3|"
@@ -900,7 +900,7 @@ Partial Class wScanPackOrder_New
         '
         Me.XtraTabPage3.Controls.Add(Me.ogcScan)
         Me.XtraTabPage3.Name = "XtraTabPage3"
-        Me.XtraTabPage3.Size = New System.Drawing.Size(1327, 172)
+        Me.XtraTabPage3.Size = New System.Drawing.Size(1335, 200)
         Me.XtraTabPage3.Text = "ตัว"
         '
         'ogcScan
@@ -911,7 +911,7 @@ Partial Class wScanPackOrder_New
         Me.ogcScan.MainView = Me.ogvScan
         Me.ogcScan.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcScan.Name = "ogcScan"
-        Me.ogcScan.Size = New System.Drawing.Size(1327, 172)
+        Me.ogcScan.Size = New System.Drawing.Size(1335, 200)
         Me.ogcScan.TabIndex = 305
         Me.ogcScan.TabStop = False
         Me.ogcScan.Tag = "3|"
@@ -1006,20 +1006,22 @@ Partial Class wScanPackOrder_New
         '
         Me.ogbpackpercarton.Controls.Add(Me.XtraTabControl1)
         Me.ogbpackpercarton.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ogbpackpercarton.Location = New System.Drawing.Point(2, 325)
+        Me.ogbpackpercarton.Location = New System.Drawing.Point(2, 327)
         Me.ogbpackpercarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbpackpercarton.MaximumSize = New System.Drawing.Size(0, 211)
+        Me.ogbpackpercarton.MinimumSize = New System.Drawing.Size(0, 211)
         Me.ogbpackpercarton.Name = "ogbpackpercarton"
-        Me.ogbpackpercarton.Size = New System.Drawing.Size(1333, 226)
+        Me.ogbpackpercarton.Size = New System.Drawing.Size(1341, 211)
         Me.ogbpackpercarton.TabIndex = 307
         Me.ogbpackpercarton.Text = "จำนวนแพ็ค/กล่อง"
         '
         'XtraTabControl1
         '
         Me.XtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.XtraTabControl1.Location = New System.Drawing.Point(2, 27)
+        Me.XtraTabControl1.Location = New System.Drawing.Point(2, 28)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.XtraTabPage1
-        Me.XtraTabControl1.Size = New System.Drawing.Size(1329, 197)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(1337, 181)
         Me.XtraTabControl1.TabIndex = 306
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage1, Me.XtraTabPage2})
         '
@@ -1027,7 +1029,7 @@ Partial Class wScanPackOrder_New
         '
         Me.XtraTabPage1.Controls.Add(Me.ogcppercarton)
         Me.XtraTabPage1.Name = "XtraTabPage1"
-        Me.XtraTabPage1.Size = New System.Drawing.Size(1319, 160)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(1335, 150)
         Me.XtraTabPage1.Text = "ตัว"
         '
         'ogcppercarton
@@ -1038,7 +1040,7 @@ Partial Class wScanPackOrder_New
         Me.ogcppercarton.MainView = Me.ogvppercarton
         Me.ogcppercarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcppercarton.Name = "ogcppercarton"
-        Me.ogcppercarton.Size = New System.Drawing.Size(1319, 160)
+        Me.ogcppercarton.Size = New System.Drawing.Size(1335, 150)
         Me.ogcppercarton.TabIndex = 305
         Me.ogcppercarton.TabStop = False
         Me.ogcppercarton.Tag = "3|"
@@ -1111,7 +1113,7 @@ Partial Class wScanPackOrder_New
         '
         Me.XtraTabPage2.Controls.Add(Me.ogcppercartonset)
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(1327, 165)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(1335, 150)
         Me.XtraTabPage2.Text = "เซ็ต"
         '
         'ogcppercartonset
@@ -1122,7 +1124,7 @@ Partial Class wScanPackOrder_New
         Me.ogcppercartonset.MainView = Me.ogvppercartonset
         Me.ogcppercartonset.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcppercartonset.Name = "ogcppercartonset"
-        Me.ogcppercartonset.Size = New System.Drawing.Size(1327, 165)
+        Me.ogcppercartonset.Size = New System.Drawing.Size(1335, 150)
         Me.ogcppercartonset.TabIndex = 306
         Me.ogcppercartonset.TabStop = False
         Me.ogcppercartonset.Tag = "3|"
@@ -1217,10 +1219,12 @@ Partial Class wScanPackOrder_New
         Me.ogbcarton.Controls.Add(Me.FNHSysCartonId_None)
         Me.ogbcarton.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbcarton.InvertTouchScroll = True
-        Me.ogbcarton.Location = New System.Drawing.Point(2, 180)
+        Me.ogbcarton.Location = New System.Drawing.Point(2, 182)
         Me.ogbcarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbcarton.MaximumSize = New System.Drawing.Size(0, 145)
+        Me.ogbcarton.MinimumSize = New System.Drawing.Size(0, 145)
         Me.ogbcarton.Name = "ogbcarton"
-        Me.ogbcarton.Size = New System.Drawing.Size(1333, 145)
+        Me.ogbcarton.Size = New System.Drawing.Size(1341, 145)
         Me.ogbcarton.TabIndex = 147
         Me.ogbcarton.Tag = "2|"
         Me.ogbcarton.Text = "Carton Info"
@@ -1230,7 +1234,7 @@ Partial Class wScanPackOrder_New
         Me.FNHSysUnitSectId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FNHSysUnitSectId_None.EnterMoveNextControl = True
-        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(260, 112)
+        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(280, 114)
         Me.FNHSysUnitSectId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId_None.Name = "FNHSysUnitSectId_None"
         Me.FNHSysUnitSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -1250,7 +1254,7 @@ Partial Class wScanPackOrder_New
         Me.FNHSysUnitSectId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysUnitSectId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysUnitSectId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(1067, 23)
+        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(27823, 22)
         Me.FNHSysUnitSectId_None.TabIndex = 314
         Me.FNHSysUnitSectId_None.TabStop = False
         Me.FNHSysUnitSectId_None.Tag = "2|"
@@ -1261,7 +1265,7 @@ Partial Class wScanPackOrder_New
         Me.FNHSysUnitSectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
         Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "248", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(126, 23)
+        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(126, 22)
         Me.FNHSysUnitSectId.TabIndex = 313
         Me.FNHSysUnitSectId.Tag = "2|"
         '
@@ -1282,7 +1286,7 @@ Partial Class wScanPackOrder_New
         '
         'FNCartonNo3_lbl
         '
-        Me.FNCartonNo3_lbl.Location = New System.Drawing.Point(31, 78)
+        Me.FNCartonNo3_lbl.Location = New System.Drawing.Point(51, 78)
         Me.FNCartonNo3_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNCartonNo3_lbl.Name = "FNCartonNo3_lbl"
         Me.FNCartonNo3_lbl.Size = New System.Drawing.Size(68, 16)
@@ -1292,7 +1296,7 @@ Partial Class wScanPackOrder_New
         '
         'FNCartonNo2_lbl
         '
-        Me.FNCartonNo2_lbl.Location = New System.Drawing.Point(31, 104)
+        Me.FNCartonNo2_lbl.Location = New System.Drawing.Point(51, 104)
         Me.FNCartonNo2_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNCartonNo2_lbl.Name = "FNCartonNo2_lbl"
         Me.FNCartonNo2_lbl.Size = New System.Drawing.Size(27, 16)
@@ -1338,7 +1342,7 @@ Partial Class wScanPackOrder_New
         Me.FNCartonNo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNCartonNo.Properties.Precision = 0
         Me.FNCartonNo.Properties.ReadOnly = True
-        Me.FNCartonNo.Size = New System.Drawing.Size(126, 23)
+        Me.FNCartonNo.Size = New System.Drawing.Size(126, 22)
         Me.FNCartonNo.TabIndex = 303
         Me.FNCartonNo.Tag = "2|"
         '
@@ -1352,7 +1356,7 @@ Partial Class wScanPackOrder_New
         Me.FTBarcodeBundleNo.Appearance.Options.UseTextOptions = True
         Me.FTBarcodeBundleNo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTBarcodeBundleNo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBarcodeBundleNo.Location = New System.Drawing.Point(657, 26)
+        Me.FTBarcodeBundleNo.Location = New System.Drawing.Point(27433, 26)
         Me.FTBarcodeBundleNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTBarcodeBundleNo.Name = "FTBarcodeBundleNo"
         Me.FTBarcodeBundleNo.Size = New System.Drawing.Size(672, 33)
@@ -1439,7 +1443,7 @@ Partial Class wScanPackOrder_New
         Me.FNNNW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNNNW.Properties.Precision = 2
         Me.FNNNW.Properties.ReadOnly = True
-        Me.FNNNW.Size = New System.Drawing.Size(129, 23)
+        Me.FNNNW.Size = New System.Drawing.Size(129, 22)
         Me.FNNNW.TabIndex = 294
         Me.FNNNW.Tag = "2|"
         '
@@ -1463,7 +1467,7 @@ Partial Class wScanPackOrder_New
         Me.FNGW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNGW.Properties.Precision = 2
         Me.FNGW.Properties.ReadOnly = True
-        Me.FNGW.Size = New System.Drawing.Size(134, 23)
+        Me.FNGW.Size = New System.Drawing.Size(134, 22)
         Me.FNGW.TabIndex = 293
         Me.FNGW.Tag = "2|"
         '
@@ -1487,7 +1491,7 @@ Partial Class wScanPackOrder_New
         Me.FNNW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNNW.Properties.Precision = 2
         Me.FNNW.Properties.ReadOnly = True
-        Me.FNNW.Size = New System.Drawing.Size(129, 23)
+        Me.FNNW.Size = New System.Drawing.Size(129, 22)
         Me.FNNW.TabIndex = 292
         Me.FNNW.Tag = "2|"
         '
@@ -1511,7 +1515,7 @@ Partial Class wScanPackOrder_New
         Me.FNCTNW.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNCTNW.Properties.Precision = 2
         Me.FNCTNW.Properties.ReadOnly = True
-        Me.FNCTNW.Size = New System.Drawing.Size(125, 23)
+        Me.FNCTNW.Size = New System.Drawing.Size(125, 22)
         Me.FNCTNW.TabIndex = 291
         Me.FNCTNW.Tag = "2|"
         '
@@ -1536,7 +1540,7 @@ Partial Class wScanPackOrder_New
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FNPackCartonSubType.EditValue = ""
         Me.FNPackCartonSubType.EnterMoveNextControl = True
-        Me.FNPackCartonSubType.Location = New System.Drawing.Point(395, 30)
+        Me.FNPackCartonSubType.Location = New System.Drawing.Point(415, 30)
         Me.FNPackCartonSubType.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNPackCartonSubType.Name = "FNPackCartonSubType"
         Me.FNPackCartonSubType.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -1557,7 +1561,7 @@ Partial Class wScanPackOrder_New
         Me.FNPackCartonSubType.Properties.ReadOnly = True
         Me.FNPackCartonSubType.Properties.Tag = "FNPackCartonSubType"
         Me.FNPackCartonSubType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNPackCartonSubType.Size = New System.Drawing.Size(247, 23)
+        Me.FNPackCartonSubType.Size = New System.Drawing.Size(27003, 22)
         Me.FNPackCartonSubType.TabIndex = 289
         Me.FNPackCartonSubType.Tag = "2|"
         '
@@ -1566,7 +1570,7 @@ Partial Class wScanPackOrder_New
         Me.FTDimension.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTDimension.EnterMoveNextControl = True
-        Me.FTDimension.Location = New System.Drawing.Point(395, 58)
+        Me.FTDimension.Location = New System.Drawing.Point(415, 58)
         Me.FTDimension.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTDimension.Name = "FTDimension"
         Me.FTDimension.Properties.Appearance.BackColor = System.Drawing.Color.White
@@ -1586,7 +1590,7 @@ Partial Class wScanPackOrder_New
         Me.FTDimension.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTDimension.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTDimension.Properties.ReadOnly = True
-        Me.FTDimension.Size = New System.Drawing.Size(246, 23)
+        Me.FTDimension.Size = New System.Drawing.Size(27002, 22)
         Me.FTDimension.TabIndex = 252
         Me.FTDimension.TabStop = False
         Me.FTDimension.Tag = "2|"
@@ -1615,7 +1619,7 @@ Partial Class wScanPackOrder_New
         Me.FNHSysCartonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", 15, True, True, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "220", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCartonId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysCartonId.Properties.MaxLength = 30
-        Me.FNHSysCartonId.Size = New System.Drawing.Size(126, 23)
+        Me.FNHSysCartonId.Size = New System.Drawing.Size(126, 22)
         Me.FNHSysCartonId.TabIndex = 249
         Me.FNHSysCartonId.Tag = "2|"
         '
@@ -1657,7 +1661,7 @@ Partial Class wScanPackOrder_New
         Me.FNHSysCartonId_None.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCartonId_None.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysCartonId_None.Properties.ReadOnly = True
-        Me.FNHSysCartonId_None.Size = New System.Drawing.Size(120, 23)
+        Me.FNHSysCartonId_None.Size = New System.Drawing.Size(120, 22)
         Me.FNHSysCartonId_None.TabIndex = 251
         Me.FNHSysCartonId_None.TabStop = False
         Me.FNHSysCartonId_None.Tag = "2|"
@@ -1671,9 +1675,10 @@ Partial Class wScanPackOrder_New
         Me.ogbb.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbb.Location = New System.Drawing.Point(2, 2)
         Me.ogbb.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbb.MaximumSize = New System.Drawing.Size(0, 180)
         Me.ogbb.Name = "ogbb"
         Me.ogbb.ShowCaption = False
-        Me.ogbb.Size = New System.Drawing.Size(1333, 178)
+        Me.ogbb.Size = New System.Drawing.Size(1341, 180)
         Me.ogbb.TabIndex = 309
         Me.ogbb.Text = "Carton Barcode"
         '
@@ -1685,30 +1690,30 @@ Partial Class wScanPackOrder_New
         Me.ogdProductBarcode.Location = New System.Drawing.Point(2, 88)
         Me.ogdProductBarcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogdProductBarcode.Name = "ogdProductBarcode"
-        Me.ogdProductBarcode.Size = New System.Drawing.Size(858, 88)
+        Me.ogdProductBarcode.Size = New System.Drawing.Size(866, 90)
         Me.ogdProductBarcode.TabIndex = 309
         Me.ogdProductBarcode.Text = "Product Barcode"
         '
         'FTStateDeleteBarcode
         '
         Me.FTStateDeleteBarcode.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTStateDeleteBarcode.Location = New System.Drawing.Point(681, -2)
+        Me.FTStateDeleteBarcode.Location = New System.Drawing.Point(689, -2)
         Me.FTStateDeleteBarcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStateDeleteBarcode.Name = "FTStateDeleteBarcode"
         Me.FTStateDeleteBarcode.Properties.Caption = "Delete Barcode"
-        Me.FTStateDeleteBarcode.Size = New System.Drawing.Size(177, 20)
+        Me.FTStateDeleteBarcode.Size = New System.Drawing.Size(177, 24)
         Me.FTStateDeleteBarcode.TabIndex = 1
         '
         'FTProductBarcodeNo
         '
         Me.FTProductBarcodeNo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FTProductBarcodeNo.EditValue = ""
-        Me.FTProductBarcodeNo.Location = New System.Drawing.Point(2, 27)
+        Me.FTProductBarcodeNo.Location = New System.Drawing.Point(2, 28)
         Me.FTProductBarcodeNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTProductBarcodeNo.Name = "FTProductBarcodeNo"
         Me.FTProductBarcodeNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 26.0!, System.Drawing.FontStyle.Bold)
         Me.FTProductBarcodeNo.Properties.Appearance.Options.UseFont = True
-        Me.FTProductBarcodeNo.Size = New System.Drawing.Size(854, 58)
+        Me.FTProductBarcodeNo.Size = New System.Drawing.Size(862, 58)
         Me.FTProductBarcodeNo.TabIndex = 0
         '
         'ogbbarcodecarton
@@ -1719,40 +1724,40 @@ Partial Class wScanPackOrder_New
         Me.ogbbarcodecarton.Location = New System.Drawing.Point(2, 2)
         Me.ogbbarcodecarton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbbarcodecarton.Name = "ogbbarcodecarton"
-        Me.ogbbarcodecarton.Size = New System.Drawing.Size(858, 86)
+        Me.ogbbarcodecarton.Size = New System.Drawing.Size(866, 86)
         Me.ogbbarcodecarton.TabIndex = 308
         Me.ogbbarcodecarton.Text = "Carton Barcode"
         '
         'ockmanual
         '
         Me.ockmanual.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ockmanual.Location = New System.Drawing.Point(675, 0)
+        Me.ockmanual.Location = New System.Drawing.Point(683, 0)
         Me.ockmanual.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ockmanual.Name = "ockmanual"
         Me.ockmanual.Properties.Caption = "Manual"
-        Me.ockmanual.Size = New System.Drawing.Size(178, 20)
+        Me.ockmanual.Size = New System.Drawing.Size(178, 24)
         Me.ockmanual.TabIndex = 309
         '
         'FTCartonBarcodeNo
         '
         Me.FTCartonBarcodeNo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FTCartonBarcodeNo.EditValue = ""
-        Me.FTCartonBarcodeNo.Location = New System.Drawing.Point(2, 27)
+        Me.FTCartonBarcodeNo.Location = New System.Drawing.Point(2, 28)
         Me.FTCartonBarcodeNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTCartonBarcodeNo.Name = "FTCartonBarcodeNo"
         Me.FTCartonBarcodeNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 26.0!, System.Drawing.FontStyle.Bold)
         Me.FTCartonBarcodeNo.Properties.Appearance.Options.UseFont = True
-        Me.FTCartonBarcodeNo.Size = New System.Drawing.Size(854, 58)
+        Me.FTCartonBarcodeNo.Size = New System.Drawing.Size(862, 58)
         Me.FTCartonBarcodeNo.TabIndex = 1
         '
         'ogrpQtyScan
         '
         Me.ogrpQtyScan.Controls.Add(Me.lblQtyScan)
         Me.ogrpQtyScan.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ogrpQtyScan.Location = New System.Drawing.Point(860, 2)
+        Me.ogrpQtyScan.Location = New System.Drawing.Point(868, 2)
         Me.ogrpQtyScan.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogrpQtyScan.Name = "ogrpQtyScan"
-        Me.ogrpQtyScan.Size = New System.Drawing.Size(227, 174)
+        Me.ogrpQtyScan.Size = New System.Drawing.Size(227, 176)
         Me.ogrpQtyScan.TabIndex = 310
         Me.ogrpQtyScan.Text = "SCAN QTY"
         '
@@ -1766,10 +1771,10 @@ Partial Class wScanPackOrder_New
         Me.lblQtyScan.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.lblQtyScan.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.lblQtyScan.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblQtyScan.Location = New System.Drawing.Point(2, 27)
+        Me.lblQtyScan.Location = New System.Drawing.Point(2, 28)
         Me.lblQtyScan.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblQtyScan.Name = "lblQtyScan"
-        Me.lblQtyScan.Size = New System.Drawing.Size(223, 145)
+        Me.lblQtyScan.Size = New System.Drawing.Size(223, 146)
         Me.lblQtyScan.TabIndex = 309
         Me.lblQtyScan.Tag = "2|"
         Me.lblQtyScan.Text = "000"
@@ -1778,10 +1783,10 @@ Partial Class wScanPackOrder_New
         '
         Me.ogrpQtyScanset.Controls.Add(Me.lblQtyScanSet)
         Me.ogrpQtyScanset.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ogrpQtyScanset.Location = New System.Drawing.Point(1087, 2)
+        Me.ogrpQtyScanset.Location = New System.Drawing.Point(1095, 2)
         Me.ogrpQtyScanset.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogrpQtyScanset.Name = "ogrpQtyScanset"
-        Me.ogrpQtyScanset.Size = New System.Drawing.Size(244, 174)
+        Me.ogrpQtyScanset.Size = New System.Drawing.Size(244, 176)
         Me.ogrpQtyScanset.TabIndex = 311
         Me.ogrpQtyScanset.Text = "SCAN SET QTY"
         '
@@ -1795,10 +1800,10 @@ Partial Class wScanPackOrder_New
         Me.lblQtyScanSet.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.lblQtyScanSet.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.lblQtyScanSet.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblQtyScanSet.Location = New System.Drawing.Point(2, 27)
+        Me.lblQtyScanSet.Location = New System.Drawing.Point(2, 28)
         Me.lblQtyScanSet.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblQtyScanSet.Name = "lblQtyScanSet"
-        Me.lblQtyScanSet.Size = New System.Drawing.Size(240, 145)
+        Me.lblQtyScanSet.Size = New System.Drawing.Size(240, 146)
         Me.lblQtyScanSet.TabIndex = 309
         Me.lblQtyScanSet.Tag = "2|"
         Me.lblQtyScanSet.Text = "000"
@@ -1810,7 +1815,7 @@ Partial Class wScanPackOrder_New
         Me.otlpack.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otlpack.Name = "otlpack"
         Me.otlpack.SelectImageList = Me.imagepackList
-        Me.otlpack.Size = New System.Drawing.Size(356, 795)
+        Me.otlpack.Size = New System.Drawing.Size(356, 801)
         Me.otlpack.TabIndex = 0
         Me.otlpack.TreeLevelWidth = 17
         '

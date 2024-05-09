@@ -492,6 +492,9 @@ Public Class wScanBarcodeReceiveSupl
 
                 _Qry &= vbCrLf & " 	, SSB.FTSendSuplNo "
 
+                _Qry &= vbCrLf & " ,convert(varchar(10) , convert( date , B.FDInsDate) , 103 ) as FDInsDate "
+                _Qry &= vbCrLf & " ,B.FTInsTime  "
+
                 _Qry &= vbCrLf & " 	 FROM   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrder AS O WITH (NOLOCK) INNER JOIN"
                 _Qry &= vbCrLf & " 	        [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle AS ST WITH (NOLOCK)  ON O.FNHSysStyleId = ST.FNHSysStyleId RIGHT OUTER JOIN"
                 _Qry &= vbCrLf & " 	        [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd AS ODP WITH (NOLOCK)  ON O.FTOrderNo = ODP.FTOrderNo RIGHT OUTER JOIN"
@@ -573,6 +576,9 @@ Public Class wScanBarcodeReceiveSupl
                 _Qry &= vbCrLf & " ,ISNULL(BBXT.FNHSysMarkId,0) AS FNHSysMarkId"
 
                 _Qry &= vbCrLf & "	, RCVB.FTRcvSuplNo"
+
+                _Qry &= vbCrLf & " ,convert(varchar(10) , convert( date , RCVB.FDInsDate) , 103 ) as FDInsDate "
+                _Qry &= vbCrLf & " ,RCVB.FTInsTime  "
 
                 _Qry &= vbCrLf & "	From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTSendSuplToBranch_Barcode AS A WITH (NOLOCK)  "
                 _Qry &= vbCrLf & "	LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSupplier AS S WITH (NOLOCK) ON A.FNHSysSuplId = S.FNHSysSuplId"

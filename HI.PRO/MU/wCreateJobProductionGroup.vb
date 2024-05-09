@@ -1964,17 +1964,24 @@ Public Class wCreateJobProductionGroup
 
             Try
 
-                _Qry = " DELETE FROM A	 "
-                _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderStatus AS A"
+                _Qry = " DELETE A FROM 	 "
+                _Qry &= vbCrLf & "      [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderStatus AS A"
                 _Qry &= vbCrLf & "     LEFT OUTER JOIN "
                 _Qry &= vbCrLf & "  ("
-                _Qry &= vbCrLf & "   SELECT FTOrderNo, FTSubOrderNo"
+                _Qry &= vbCrLf & "   SELECT FTOrderNo, FTSubOrderNo ,FTDocumentNo "
                 _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMUTOrderProd_Detail"
-                _Qry &= vbCrLf & "   WHERE (FTOrderNo = N'" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "')"
-                _Qry &= vbCrLf & "   GROUP BY FTOrderNo, FTSubOrderNo"
+                _Qry &= vbCrLf & "   WHERE (FTDocumentNo = N'" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "')"
+                _Qry &= vbCrLf & "   "
                 _Qry &= vbCrLf & "   ) AS B ON A.FTOrderNo = B.FTOrderNo"
                 _Qry &= vbCrLf & "    AND A.FTSubOrderNo = B.FTSubOrderNo"
-                _Qry &= vbCrLf & "    WHERE A.FTOrderNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' AND B.FTOrderNo Is NULL"
+                _Qry &= vbCrLf & "    WHERE B.FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "'  "
+                _Qry &= vbCrLf & " and not   exists (   "
+                _Qry &= vbCrLf & "  SELECT *   "
+                _Qry &= vbCrLf & "   FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd  x with(nolock)  "
+                _Qry &= vbCrLf & "     left join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_Detail d with(nolock)  on x.FTOrderProdNo = d.FTOrderProdNo  "
+                _Qry &= vbCrLf & "    WHERE isnull(FTDocumentNo,'') <> N'" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "'  "
+                _Qry &= vbCrLf & "   and x.FTOrderNo = a.FTOrderNo "
+                _Qry &= vbCrLf & "   and d.FTSubOrderNo = a.FTSubOrderNo   )  "
 
                 HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran)
 
@@ -1982,16 +1989,14 @@ Public Class wCreateJobProductionGroup
 
                 _Qry = " Delete d FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_Detail d "
                 _Qry &= vbCrLf & "   LEFT JOIN   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd p On d.FTOrderProdNo = p.FTOrderProdNo   "
-                _Qry &= vbCrLf & " WHERE p.FTOrderProdNo='" & HI.UL.ULF.rpQuoted(OrderProdKey.ToString) & "' "
-                _Qry &= vbCrLf & " and  p.FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' "
+                _Qry &= vbCrLf & " WHERE p.FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' "
 
                 If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                 End If
 
                 _Qry = " Delete D FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_MarkMain d "
                 _Qry &= vbCrLf & "  LEFT JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd p On d.FTOrderProdNo = p.FTOrderProdNo   "
-                _Qry &= vbCrLf & " WHERE p.FTOrderProdNo='" & HI.UL.ULF.rpQuoted(OrderProdKey.ToString) & "' "
-                _Qry &= vbCrLf & " and  p.FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' "
+                _Qry &= vbCrLf & " WHERE p.FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' "
 
 
                 If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
@@ -1999,13 +2004,12 @@ Public Class wCreateJobProductionGroup
 
                 _Qry = " Delete d  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd_MarkSub d "
                 _Qry &= vbCrLf & "  LEFT JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd p On d.FTOrderProdNo = p.FTOrderProdNo   "
-                _Qry &= vbCrLf & " WHERE p.FTOrderProdNo='" & HI.UL.ULF.rpQuoted(OrderProdKey.ToString) & "' "
-                _Qry &= vbCrLf & " and  p.FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' "
-
-
+                _Qry &= vbCrLf & " WHERE p.FTDocumentNo='" & HI.UL.ULF.rpQuoted(Me.FTDocumentNo.Text) & "' "
 
                 If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                 End If
+
+
 
 
 
@@ -2024,6 +2028,9 @@ Public Class wCreateJobProductionGroup
 
             Catch ex As Exception
             End Try
+
+
+
 
             HI.Conn.SQLConn.Tran.Commit()
             HI.Conn.SQLConn.DisposeSqlTransaction(HI.Conn.SQLConn.Tran)
@@ -2055,7 +2062,7 @@ Public Class wCreateJobProductionGroup
 
             _Qry = " DELETE  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMUTOrderProd_TableCut "
             _Qry &= vbCrLf & " WHERE FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.otbjobprod.SelectedTabPage.Name.ToString) & "' "
-            _Qry &= vbCrLf & " AND  FNHSysMarkId=" & Val(Me.otbmarkcutting.SelectedTabPage.Name.ToString) & " "
+            _Qry &= vbCrLf & " AND ( FNHSysMarkId=" & Val(Me.otbmarkcutting.SelectedTabPage.Name.ToString) & " OR FNHSysMarkId=0) "
 
             If Not (StateAllTable) Then
                 _Qry &= vbCrLf & " AND FNTableNo=" & Integer.Parse(Val(Me.otbtable.SelectedTabPage.Name.ToString)) & " "
@@ -2072,7 +2079,7 @@ Public Class wCreateJobProductionGroup
 
             _Qry = " DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMUTOrderProd_TableCut_Detail "
             _Qry &= vbCrLf & " WHERE FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.otbjobprod.SelectedTabPage.Name.ToString) & "' "
-            _Qry &= vbCrLf & " AND  FNHSysMarkId=" & Val(Me.otbmarkcutting.SelectedTabPage.Name.ToString) & " "
+            _Qry &= vbCrLf & " AND ( FNHSysMarkId=" & Val(Me.otbmarkcutting.SelectedTabPage.Name.ToString) & "  OR FNHSysMarkId=0 ) "
 
             If Not (StateAllTable) Then
                 _Qry &= vbCrLf & " AND FNTableNo=" & Integer.Parse(Val(Me.otbtable.SelectedTabPage.Name.ToString)) & " "
@@ -2080,6 +2087,25 @@ Public Class wCreateJobProductionGroup
 
             If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
             End If
+
+            _Qry = " DELETE X  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd p  "
+            _Qry &= vbCrLf & "  Left Join  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODMUTOrderProd mp with(nolock) ON p.FTDocumentNo = mp.FTOrderNo"
+            _Qry &= vbCrLf & "  Left Join  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd_TableCut_PO_Rawmat x on p.FTOrderProdNo = x.FTOrderProdNo    "
+            _Qry &= vbCrLf & " Left Join  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd_TableCut z on x.FNTableNo = z.FNTableNo And x.FTOrderProdNo  = z.FTOrderProdNo "
+            _Qry &= vbCrLf & "  And x.FNHSysMarkId = z.FNHSysMarkId  "
+
+            _Qry &= vbCrLf & "  Left Join  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "]..TPRODTOrderProd_TableCut_Detail xx on p.FTOrderProdNo = xx.FTOrderProdNo and  z.FNTableNo = xx.FNTableNo    "
+            _Qry &= vbCrLf & "  And z.FNHSysMarkId = xx.FNHSysMarkId  "
+            _Qry &= vbCrLf & " WHERE mp.FTOrderProdNo='" & HI.UL.ULF.rpQuoted(Me.otbjobprod.SelectedTabPage.Name.ToString) & "' "
+            _Qry &= vbCrLf & " AND  x.FNHSysMarkId=" & Val(Me.otbmarkcutting.SelectedTabPage.Name.ToString) & " "
+            If Not (StateAllTable) Then
+                _Qry &= vbCrLf & "   And xx.FNTableNoRef =" & Integer.Parse(Val(Me.otbtable.SelectedTabPage.Name.ToString)) & " "
+            End If
+            If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
+            End If
+
+
+
 
 
             _Qry = " DELETE Z  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODTOrderProd p  "
@@ -2108,6 +2134,10 @@ Public Class wCreateJobProductionGroup
             End If
             If HI.Conn.SQLConn.Execute_Tran(_Qry, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
             End If
+
+
+
+
 
 
 
