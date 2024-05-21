@@ -104,6 +104,7 @@ Partial Class wSMPCreateOrderSampleNew
         Dim SerializableAppearanceObject66 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject67 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject68 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Me.RepositoryItemCheckEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.ogbdocinfo = New DevExpress.XtraEditors.GroupControl()
         Me.FTUserName_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTUserName = New DevExpress.XtraEditors.ButtonEdit()
@@ -228,7 +229,6 @@ Partial Class wSMPCreateOrderSampleNew
         Me.ogcpart = New DevExpress.XtraGrid.GridControl()
         Me.ogvpart = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemCheckEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -345,6 +345,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.GridView5 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridView6 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridView7 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        CType(Me.RepositoryItemCheckEdit4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbdocinfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbdocinfo.SuspendLayout()
         CType(Me.FTUserName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -434,7 +435,6 @@ Partial Class wSMPCreateOrderSampleNew
         Me.PopupFTPositionPartName.SuspendLayout()
         CType(Me.ogcpart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvpart, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCheckEdit4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogcacc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvacc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemFTSelect, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -489,6 +489,14 @@ Partial Class wSMPCreateOrderSampleNew
         CType(Me.GridView6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'RepositoryItemCheckEdit4
+        '
+        Me.RepositoryItemCheckEdit4.AutoHeight = False
+        Me.RepositoryItemCheckEdit4.Caption = "Check"
+        Me.RepositoryItemCheckEdit4.Name = "RepositoryItemCheckEdit4"
+        Me.RepositoryItemCheckEdit4.ValueChecked = "1"
+        Me.RepositoryItemCheckEdit4.ValueUnchecked = "0"
         '
         'ogbdocinfo
         '
@@ -1062,9 +1070,12 @@ Partial Class wSMPCreateOrderSampleNew
         '
         'FDShipDate
         '
+        Me.FDShipDate.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FDShipDate.EditValue = Nothing
         Me.FDShipDate.EnterMoveNextControl = True
         Me.FDShipDate.Location = New System.Drawing.Point(404, 141)
+        Me.FDShipDate.MaximumSize = New System.Drawing.Size(138, 18)
         Me.FDShipDate.Name = "FDShipDate"
         Me.FDShipDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDShipDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -1078,7 +1089,10 @@ Partial Class wSMPCreateOrderSampleNew
         '
         'FTOrderNoRef
         '
+        Me.FTOrderNoRef.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTOrderNoRef.Location = New System.Drawing.Point(404, 163)
+        Me.FTOrderNoRef.MaximumSize = New System.Drawing.Size(139, 18)
         Me.FTOrderNoRef.Name = "FTOrderNoRef"
         Me.FTOrderNoRef.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FTOrderNoRef.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
@@ -1179,6 +1193,8 @@ Partial Class wSMPCreateOrderSampleNew
         '
         'FNHSysBuyId_None
         '
+        Me.FNHSysBuyId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FNHSysBuyId_None.Location = New System.Drawing.Point(237, 97)
         Me.FNHSysBuyId_None.Name = "FNHSysBuyId_None"
         Me.FNHSysBuyId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
@@ -1455,6 +1471,8 @@ Partial Class wSMPCreateOrderSampleNew
         '
         'FNHSysGenderId_None
         '
+        Me.FNHSysGenderId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FNHSysGenderId_None.Location = New System.Drawing.Point(237, 119)
         Me.FNHSysGenderId_None.Name = "FNHSysGenderId_None"
         Me.FNHSysGenderId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
@@ -2308,9 +2326,9 @@ Partial Class wSMPCreateOrderSampleNew
         'PopupFTPositionPartName
         '
         Me.PopupFTPositionPartName.Controls.Add(Me.ogcpart)
-        Me.PopupFTPositionPartName.Location = New System.Drawing.Point(581, 34)
+        Me.PopupFTPositionPartName.Location = New System.Drawing.Point(462, 3)
         Me.PopupFTPositionPartName.Name = "PopupFTPositionPartName"
-        Me.PopupFTPositionPartName.Size = New System.Drawing.Size(301, 313)
+        Me.PopupFTPositionPartName.Size = New System.Drawing.Size(301, 260)
         Me.PopupFTPositionPartName.TabIndex = 529
         '
         'ogcpart
@@ -2321,8 +2339,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.ogcpart.Location = New System.Drawing.Point(3, 3)
         Me.ogcpart.MainView = Me.ogvpart
         Me.ogcpart.Name = "ogcpart"
-        Me.ogcpart.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit4})
-        Me.ogcpart.Size = New System.Drawing.Size(192, 202)
+        Me.ogcpart.Size = New System.Drawing.Size(295, 252)
         Me.ogcpart.TabIndex = 308
         Me.ogcpart.TabStop = False
         Me.ogcpart.Tag = "3|"
@@ -2357,14 +2374,6 @@ Partial Class wSMPCreateOrderSampleNew
         Me.GridColumn6.VisibleIndex = 0
         Me.GridColumn6.Width = 41
         '
-        'RepositoryItemCheckEdit4
-        '
-        Me.RepositoryItemCheckEdit4.AutoHeight = False
-        Me.RepositoryItemCheckEdit4.Caption = "Check"
-        Me.RepositoryItemCheckEdit4.Name = "RepositoryItemCheckEdit4"
-        Me.RepositoryItemCheckEdit4.ValueChecked = "1"
-        Me.RepositoryItemCheckEdit4.ValueUnchecked = "0"
-        '
         'GridColumn7
         '
         Me.GridColumn7.AppearanceHeader.Options.UseTextOptions = True
@@ -2380,7 +2389,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.GridColumn7.OptionsColumn.ReadOnly = True
         Me.GridColumn7.Visible = True
         Me.GridColumn7.VisibleIndex = 1
-        Me.GridColumn7.Width = 142
+        Me.GridColumn7.Width = 987
         '
         'GridColumn8
         '
@@ -2965,7 +2974,7 @@ Partial Class wSMPCreateOrderSampleNew
         '
         Me.otpsetpart.Controls.Add(Me.ogc)
         Me.otpsetpart.Name = "otpsetpart"
-        Me.otpsetpart.Size = New System.Drawing.Size(1238, 272)
+        Me.otpsetpart.Size = New System.Drawing.Size(1238, 267)
         Me.otpsetpart.Text = "Set Part"
         '
         'ogc
@@ -2975,7 +2984,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.ogc.MainView = Me.ogv
         Me.ogc.Name = "ogc"
         Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2, Me.ReposNote})
-        Me.ogc.Size = New System.Drawing.Size(1238, 272)
+        Me.ogc.Size = New System.Drawing.Size(1238, 267)
         Me.ogc.TabIndex = 310
         Me.ogc.TabStop = False
         Me.ogc.Tag = "3|"
@@ -3178,7 +3187,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.otpfile.Controls.Add(Me.ocmAddFile)
         Me.otpfile.Controls.Add(Me.ogcfile)
         Me.otpfile.Name = "otpfile"
-        Me.otpfile.Size = New System.Drawing.Size(1238, 272)
+        Me.otpfile.Size = New System.Drawing.Size(1238, 267)
         Me.otpfile.Text = "File Ref"
         '
         'ocmRemoveFile
@@ -3223,7 +3232,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.ogcfile.MainView = Me.ogvfileref
         Me.ogcfile.Name = "ogcfile"
         Me.ogcfile.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit3, Me.RepositoryItemCalcEdit5, Me.RepositoryItemTextEdit9, Me.RepositoryItemDateEdit3, Me.RepositoryItemTextEdit10, Me.RepositoryItemLookUpEdit3, Me.RepositoryItemTextEdit7, Me.RepositoryItemMemoExEdit2, Me.RepositoryItemTextEdit8, Me.RepositoryItemCalcEdit4, Me.RepositoryItemButtonEdit2})
-        Me.ogcfile.Size = New System.Drawing.Size(988, 199)
+        Me.ogcfile.Size = New System.Drawing.Size(988, 194)
         Me.ogcfile.TabIndex = 529
         Me.ogcfile.Tag = "3|"
         Me.ogcfile.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvfileref})
@@ -3380,7 +3389,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.ogbmainprocbutton.Controls.Add(Me.ocmsave)
         Me.ogbmainprocbutton.Location = New System.Drawing.Point(84, 428)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(1094, 119)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(354, 119)
         Me.ogbmainprocbutton.TabIndex = 139
         Me.ogbmainprocbutton.Tag = "2|"
         '
@@ -3477,7 +3486,7 @@ Partial Class wSMPCreateOrderSampleNew
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(313, 45)
+        Me.ocmexit.Location = New System.Drawing.Point(-427, 45)
         Me.ocmexit.Name = "ocmexit"
         Me.ocmexit.Size = New System.Drawing.Size(95, 25)
         Me.ocmexit.TabIndex = 96
@@ -3561,6 +3570,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.Controls.Add(Me.ogbdocinfo)
         Me.Name = "wSMPCreateOrderSampleNew"
         Me.Text = "Create Order Sample"
+        CType(Me.RepositoryItemCheckEdit4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbdocinfo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbdocinfo.ResumeLayout(False)
         CType(Me.FTUserName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3650,7 +3660,6 @@ Partial Class wSMPCreateOrderSampleNew
         Me.PopupFTPositionPartName.ResumeLayout(False)
         CType(Me.ogcpart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogvpart, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCheckEdit4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogcacc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogvacc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemFTSelect, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3861,7 +3870,6 @@ Partial Class wSMPCreateOrderSampleNew
     Friend WithEvents ogcpart As DevExpress.XtraGrid.GridControl
     Friend WithEvents ogvpart As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents GridColumn6 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents RepositoryItemCheckEdit4 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents GridColumn7 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn8 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn9 As DevExpress.XtraGrid.Columns.GridColumn
@@ -3948,4 +3956,5 @@ Partial Class wSMPCreateOrderSampleNew
     Friend WithEvents ocmtwtobulk As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents FTStateToBulk As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents cFTCFMSendSampleDate As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemCheckEdit4 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
 End Class

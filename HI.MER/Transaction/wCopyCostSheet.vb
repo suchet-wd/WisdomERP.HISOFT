@@ -590,7 +590,7 @@ Public Class wCopyCostSheet
                 _Str &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
                 _Str &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
 
-            _Str &= vbCrLf & "   ,'" & HI.UL.ULF.rpQuoted(_Key) & "'  AS  FTCostSheetNo, FNRevised, FNVersion, FNCostType, FNSeq, FNHSysMainMatId, FNHSysSuplId, FNCostPerPiece, FNExten, FNExtenPer, FNNetExten, FNChinaOrderCost, "
+            _Str &= vbCrLf & "   ,'" & HI.UL.ULF.rpQuoted(_Key) & "'  AS  FTCostSheetNo, FNRevised, " & pxVersion & " As  FNVersion, FNCostType, FNSeq, FNHSysMainMatId, FNHSysSuplId, FNCostPerPiece, FNExten, FNExtenPer, FNNetExten, FNChinaOrderCost, "
             _Str &= vbCrLf & "     FNMalaysiaOrderCost, FNThailandOrderCost, FNJapanOrderCost, FTSize, FTMainMatCode, FTMainMatColorCode, FTMainMatName, FTSuplCode, TTLG, FTUse, FNWeight, FNWidth, FTWidthUnit, FNMarkerEff, FNMarkerUsed, "
                 _Str &= vbCrLf & "    FNAllowancePer, FNTotalUsed, FTRMDSSeason, FNRMDSStatus, FNHSysUnitId, FTUnitCode, FNCostPerUOM, FNCIF, FNUSAGECOST, FNHANDLINGCHARGEPERCENT, FNHANDLINGCHARGECOST, FNIMPORTDUTYPERCENT, "
                 _Str &= vbCrLf & "    FNImportDuty, FTPROCESSSUBTYPE, FNHSysProcessMatId, FNSTANDARDALLOWEDMINUTES, FNEFFICIENCYPERCENT, FNPROFITPERCENT, FNCMPCOST, FTBMCCODE, FTBEMISITEM, FNFULLWIDTH, FNSLITTINGWIDTH, "
@@ -627,7 +627,7 @@ Public Class wCopyCostSheet
             _Str &= vbCrLf & "," & HI.UL.ULDate.FormatDateDB
             _Str &= vbCrLf & "," & HI.UL.ULDate.FormatTimeDB
 
-            _Str &= vbCrLf & "   ,'" & HI.UL.ULF.rpQuoted(_Key) & "'  AS  FTCostSheetNo,  FNRevised, FNVersion, FNSeq, FTMSC, FTSeason, FTStyleCode, FTColorway, FTTeamName, FNBaseFOB, FNAllowancePer, FTItem1, FTProcesssubType1, "
+            _Str &= vbCrLf & "   ,'" & HI.UL.ULF.rpQuoted(_Key) & "'  AS  FTCostSheetNo,  FNRevised, " & pxVersion & " As  FNVersion, FNSeq, FTMSC, FTSeason, FTStyleCode, FTColorway, FTTeamName, FNBaseFOB, FNAllowancePer, FTItem1, FTProcesssubType1, "
             _Str &= vbCrLf & "    FTDescription1, FTSuplCode1, FNUnitPrice1, FNCIF1, FNUSAGECOST1, FNHandlingChargePercent1, FNHandlingChargeCost1, FNTotalCost1, FNImportDutyPecent1, FTItem2, FTProcesssubType2, FTDescription2, FTSuplCode2, "
             _Str &= vbCrLf & "    FNUnitPrice2, FNCIF2, FNUSAGECOST2, FNHandlingChargePercent2, FNHandlingChargeCost2, FNTotalCost2, FNImportDutyPecent2, FTItem3, FTProcesssubType3, FTDescription3, FTSuplCode3, FNUnitPrice3, FNCIF3, "
             _Str &= vbCrLf & "    FNUSAGECOST3, FNHandlingChargePercent3, FNHandlingChargeCost3, FNTotalCost3, FNImportDutyPecent3, FTItem4, FTProcesssubType4, FTDescription4, FTSuplCode4, FNUnitPrice4, FNCIF4, FNUSAGECOST4, "

@@ -1339,7 +1339,7 @@ Partial Class wOrder
         Me.FTStateOrderApp.Properties.Tag = "FTStateOrderApp"
         Me.FTStateOrderApp.Properties.ValueChecked = "1"
         Me.FTStateOrderApp.Properties.ValueUnchecked = "0"
-        Me.FTStateOrderApp.Size = New System.Drawing.Size(130, 20)
+        Me.FTStateOrderApp.Size = New System.Drawing.Size(130, 21)
         Me.FTStateOrderApp.TabIndex = 436
         Me.FTStateOrderApp.TabStop = False
         Me.FTStateOrderApp.Tag = "2|"
@@ -1710,11 +1710,11 @@ Partial Class wOrder
         Me.otab.Dock = System.Windows.Forms.DockStyle.Fill
         Me.otab.HeaderAutoFill = DevExpress.Utils.DefaultBoolean.[False]
         Me.otab.HeaderOrientation = DevExpress.XtraTab.TabOrientation.Horizontal
-        Me.otab.Location = New System.Drawing.Point(0, 201)
+        Me.otab.Location = New System.Drawing.Point(0, 163)
         Me.otab.Name = "otab"
         Me.otab.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.otab.SelectedTabPage = Me.otpOrderBreakdown
-        Me.otab.Size = New System.Drawing.Size(1304, 438)
+        Me.otab.Size = New System.Drawing.Size(1304, 476)
         Me.otab.TabIndex = 432
         Me.otab.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpOrderBreakdown, Me.otpSubOrder, Me.otbSubOrderComponent, Me.otpSubOrderSewInfo, Me.otpSubOrderPackInfo, Me.otpSubOrderPakingCartonInfo, Me.otpSubOrderSizeSpec})
         '
@@ -1725,7 +1725,7 @@ Partial Class wOrder
         Me.otpOrderBreakdown.Controls.Add(Me.ogbColorwaySizeBreakdown)
         Me.otpOrderBreakdown.Controls.Add(Me.ogbCurrencyInfo)
         Me.otpOrderBreakdown.Name = "otpOrderBreakdown"
-        Me.otpOrderBreakdown.Size = New System.Drawing.Size(1302, 413)
+        Me.otpOrderBreakdown.Size = New System.Drawing.Size(1302, 451)
         Me.otpOrderBreakdown.Text = "Order Information"
         '
         'ogbOrder
@@ -1785,7 +1785,7 @@ Partial Class wOrder
         Me.ogbOrder.Controls.Add(Me.FNHSysCustId_lbl)
         Me.ogbOrder.Location = New System.Drawing.Point(0, 0)
         Me.ogbOrder.Name = "ogbOrder"
-        Me.ogbOrder.Size = New System.Drawing.Size(450, 402)
+        Me.ogbOrder.Size = New System.Drawing.Size(450, 440)
         Me.ogbOrder.TabIndex = 0
         Me.ogbOrder.Text = "Order Information"
         '
@@ -1860,7 +1860,7 @@ Partial Class wOrder
         Me.FTStateInfoOrderRevised.Properties.Tag = "FTStateLaser"
         Me.FTStateInfoOrderRevised.Properties.ValueChecked = "1"
         Me.FTStateInfoOrderRevised.Properties.ValueUnchecked = "0"
-        Me.FTStateInfoOrderRevised.Size = New System.Drawing.Size(187, 20)
+        Me.FTStateInfoOrderRevised.Size = New System.Drawing.Size(187, 21)
         Me.FTStateInfoOrderRevised.TabIndex = 548
         Me.FTStateInfoOrderRevised.Tag = ""
         Me.FTStateInfoOrderRevised.Visible = False
@@ -1875,7 +1875,7 @@ Partial Class wOrder
         Me.FTStateInfoOrder.Properties.Tag = "FTStateLaser"
         Me.FTStateInfoOrder.Properties.ValueChecked = "1"
         Me.FTStateInfoOrder.Properties.ValueUnchecked = "0"
-        Me.FTStateInfoOrder.Size = New System.Drawing.Size(187, 20)
+        Me.FTStateInfoOrder.Size = New System.Drawing.Size(187, 21)
         Me.FTStateInfoOrder.TabIndex = 547
         Me.FTStateInfoOrder.Tag = ""
         Me.FTStateInfoOrder.Visible = False
@@ -2545,17 +2545,17 @@ Partial Class wOrder
         Me.ogbColorwaySizeBreakdown.Controls.Add(Me.ogdColorSizeBreakdown)
         Me.ogbColorwaySizeBreakdown.Location = New System.Drawing.Point(452, 130)
         Me.ogbColorwaySizeBreakdown.Name = "ogbColorwaySizeBreakdown"
-        Me.ogbColorwaySizeBreakdown.Size = New System.Drawing.Size(774, 272)
+        Me.ogbColorwaySizeBreakdown.Size = New System.Drawing.Size(774, 310)
         Me.ogbColorwaySizeBreakdown.TabIndex = 469
         Me.ogbColorwaySizeBreakdown.Text = "Colorway / Size Breakdown Information"
         '
         'ogdColorSizeBreakdown
         '
         Me.ogdColorSizeBreakdown.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdColorSizeBreakdown.Location = New System.Drawing.Point(2, 23)
+        Me.ogdColorSizeBreakdown.Location = New System.Drawing.Point(2, 25)
         Me.ogdColorSizeBreakdown.MainView = Me.GridView1
         Me.ogdColorSizeBreakdown.Name = "ogdColorSizeBreakdown"
-        Me.ogdColorSizeBreakdown.Size = New System.Drawing.Size(770, 247)
+        Me.ogdColorSizeBreakdown.Size = New System.Drawing.Size(770, 283)
         Me.ogdColorSizeBreakdown.TabIndex = 0
         Me.ogdColorSizeBreakdown.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -2605,7 +2605,7 @@ Partial Class wOrder
         '
         Me.ogbCurrencyInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ogbCurrencyInfo.Controls.Add(Me.ogdCurrencyBreakdown)
-        Me.ogbCurrencyInfo.Location = New System.Drawing.Point(0, 187)
+        Me.ogbCurrencyInfo.Location = New System.Drawing.Point(0, 225)
         Me.ogbCurrencyInfo.Name = "ogbCurrencyInfo"
         Me.ogbCurrencyInfo.Size = New System.Drawing.Size(447, 27)
         Me.ogbCurrencyInfo.TabIndex = 468
@@ -2615,10 +2615,10 @@ Partial Class wOrder
         'ogdCurrencyBreakdown
         '
         Me.ogdCurrencyBreakdown.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdCurrencyBreakdown.Location = New System.Drawing.Point(2, 23)
+        Me.ogdCurrencyBreakdown.Location = New System.Drawing.Point(2, 25)
         Me.ogdCurrencyBreakdown.MainView = Me.GridView3
         Me.ogdCurrencyBreakdown.Name = "ogdCurrencyBreakdown"
-        Me.ogdCurrencyBreakdown.Size = New System.Drawing.Size(443, 2)
+        Me.ogdCurrencyBreakdown.Size = New System.Drawing.Size(443, 0)
         Me.ogdCurrencyBreakdown.TabIndex = 0
         Me.ogdCurrencyBreakdown.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView3})
         '
@@ -2852,7 +2852,7 @@ Partial Class wOrder
         '
         Me.PanelControl1.Controls.Add(Me.XtraScrollableControl2)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelControl1.Location = New System.Drawing.Point(2, 23)
+        Me.PanelControl1.Location = New System.Drawing.Point(2, 25)
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(1298, 57)
         Me.PanelControl1.TabIndex = 532
@@ -3272,7 +3272,7 @@ Partial Class wOrder
         Me.FTStateSubCombine.Properties.Tag = "FTStateLaser"
         Me.FTStateSubCombine.Properties.ValueChecked = "1"
         Me.FTStateSubCombine.Properties.ValueUnchecked = "0"
-        Me.FTStateSubCombine.Size = New System.Drawing.Size(171, 20)
+        Me.FTStateSubCombine.Size = New System.Drawing.Size(171, 21)
         Me.FTStateSubCombine.TabIndex = 507
         Me.FTStateSubCombine.Tag = "2"
         '
@@ -3387,7 +3387,7 @@ Partial Class wOrder
         Me.FTStateApprovedSubOrderNoRevised.Properties.Tag = "FTStateLaser"
         Me.FTStateApprovedSubOrderNoRevised.Properties.ValueChecked = "1"
         Me.FTStateApprovedSubOrderNoRevised.Properties.ValueUnchecked = "0"
-        Me.FTStateApprovedSubOrderNoRevised.Size = New System.Drawing.Size(179, 20)
+        Me.FTStateApprovedSubOrderNoRevised.Size = New System.Drawing.Size(179, 21)
         Me.FTStateApprovedSubOrderNoRevised.TabIndex = 505
         Me.FTStateApprovedSubOrderNoRevised.Tag = ""
         '
@@ -3401,7 +3401,7 @@ Partial Class wOrder
         Me.FTStateApprovedSubOrderNo.Properties.Tag = "FTStateLaser"
         Me.FTStateApprovedSubOrderNo.Properties.ValueChecked = "1"
         Me.FTStateApprovedSubOrderNo.Properties.ValueUnchecked = "0"
-        Me.FTStateApprovedSubOrderNo.Size = New System.Drawing.Size(179, 20)
+        Me.FTStateApprovedSubOrderNo.Size = New System.Drawing.Size(179, 21)
         Me.FTStateApprovedSubOrderNo.TabIndex = 504
         Me.FTStateApprovedSubOrderNo.Tag = ""
         '
@@ -3415,7 +3415,7 @@ Partial Class wOrder
         Me.FTSubOrderNoDivertRef.Properties.Tag = "FTStateLaser"
         Me.FTSubOrderNoDivertRef.Properties.ValueChecked = "1"
         Me.FTSubOrderNoDivertRef.Properties.ValueUnchecked = "0"
-        Me.FTSubOrderNoDivertRef.Size = New System.Drawing.Size(199, 20)
+        Me.FTSubOrderNoDivertRef.Size = New System.Drawing.Size(199, 21)
         Me.FTSubOrderNoDivertRef.TabIndex = 503
         Me.FTSubOrderNoDivertRef.Tag = "2|"
         Me.FTSubOrderNoDivertRef.Visible = False
@@ -3430,7 +3430,7 @@ Partial Class wOrder
         Me.FTStateSubPacking.Properties.Tag = "FTStateLaser"
         Me.FTStateSubPacking.Properties.ValueChecked = "1"
         Me.FTStateSubPacking.Properties.ValueUnchecked = "0"
-        Me.FTStateSubPacking.Size = New System.Drawing.Size(128, 20)
+        Me.FTStateSubPacking.Size = New System.Drawing.Size(128, 21)
         Me.FTStateSubPacking.TabIndex = 502
         Me.FTStateSubPacking.Tag = "2|"
         '
@@ -3444,7 +3444,7 @@ Partial Class wOrder
         Me.FTStateSubSewing.Properties.Tag = "FTStateLaser"
         Me.FTStateSubSewing.Properties.ValueChecked = "1"
         Me.FTStateSubSewing.Properties.ValueUnchecked = "0"
-        Me.FTStateSubSewing.Size = New System.Drawing.Size(128, 20)
+        Me.FTStateSubSewing.Size = New System.Drawing.Size(128, 21)
         Me.FTStateSubSewing.TabIndex = 501
         Me.FTStateSubSewing.Tag = "2|"
         '
@@ -3458,7 +3458,7 @@ Partial Class wOrder
         Me.FTStateSubCutting.Properties.Tag = "FTStateLaser"
         Me.FTStateSubCutting.Properties.ValueChecked = "1"
         Me.FTStateSubCutting.Properties.ValueUnchecked = "0"
-        Me.FTStateSubCutting.Size = New System.Drawing.Size(128, 20)
+        Me.FTStateSubCutting.Size = New System.Drawing.Size(128, 21)
         Me.FTStateSubCutting.TabIndex = 500
         Me.FTStateSubCutting.Tag = "2|"
         '
@@ -3472,7 +3472,7 @@ Partial Class wOrder
         Me.FTStateSubMRP.Properties.Tag = "FTStateLaser"
         Me.FTStateSubMRP.Properties.ValueChecked = "1"
         Me.FTStateSubMRP.Properties.ValueUnchecked = "0"
-        Me.FTStateSubMRP.Size = New System.Drawing.Size(128, 20)
+        Me.FTStateSubMRP.Size = New System.Drawing.Size(128, 21)
         Me.FTStateSubMRP.TabIndex = 498
         Me.FTStateSubMRP.Tag = "2|"
         '
@@ -3555,9 +3555,9 @@ Partial Class wOrder
         Me.XtraScrollableControl1.Controls.Add(Me.FNHSysCountryId)
         Me.XtraScrollableControl1.Controls.Add(Me.FNHSysCountryId_None)
         Me.XtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 23)
+        Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 25)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1298, 163)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1298, 161)
         Me.XtraScrollableControl1.TabIndex = 497
         '
         'FNHSysAFSId
@@ -3691,7 +3691,7 @@ Partial Class wOrder
         Me.FTStateSewOnly.Properties.Tag = "FTStateLaser"
         Me.FTStateSewOnly.Properties.ValueChecked = "1"
         Me.FTStateSewOnly.Properties.ValueUnchecked = "0"
-        Me.FTStateSewOnly.Size = New System.Drawing.Size(104, 20)
+        Me.FTStateSewOnly.Size = New System.Drawing.Size(104, 21)
         Me.FTStateSewOnly.TabIndex = 506
         Me.FTStateSewOnly.Tag = "2|"
         '
@@ -3841,7 +3841,7 @@ Partial Class wOrder
         Me.FTStateSubProduction.Properties.Tag = "FTStateLaser"
         Me.FTStateSubProduction.Properties.ValueChecked = "1"
         Me.FTStateSubProduction.Properties.ValueUnchecked = "0"
-        Me.FTStateSubProduction.Size = New System.Drawing.Size(61, 20)
+        Me.FTStateSubProduction.Size = New System.Drawing.Size(61, 21)
         Me.FTStateSubProduction.TabIndex = 499
         Me.FTStateSubProduction.Tag = "2|"
         Me.FTStateSubProduction.Visible = False
@@ -4499,7 +4499,7 @@ Partial Class wOrder
         Me.FTStateWindows.Properties.Tag = "FTStateWindows"
         Me.FTStateWindows.Properties.ValueChecked = "1"
         Me.FTStateWindows.Properties.ValueUnchecked = "0"
-        Me.FTStateWindows.Size = New System.Drawing.Size(134, 20)
+        Me.FTStateWindows.Size = New System.Drawing.Size(134, 21)
         Me.FTStateWindows.TabIndex = 474
         Me.FTStateWindows.Tag = "2|"
         '
@@ -4525,7 +4525,7 @@ Partial Class wOrder
         Me.FTStateLaser.Properties.Tag = "FTStateLaser"
         Me.FTStateLaser.Properties.ValueChecked = "1"
         Me.FTStateLaser.Properties.ValueUnchecked = "0"
-        Me.FTStateLaser.Size = New System.Drawing.Size(119, 20)
+        Me.FTStateLaser.Size = New System.Drawing.Size(119, 21)
         Me.FTStateLaser.TabIndex = 473
         Me.FTStateLaser.Tag = "2|"
         '
@@ -4548,7 +4548,7 @@ Partial Class wOrder
         Me.FTStateHeat.Properties.Tag = "FTStateHeat"
         Me.FTStateHeat.Properties.ValueChecked = "1"
         Me.FTStateHeat.Properties.ValueUnchecked = "0"
-        Me.FTStateHeat.Size = New System.Drawing.Size(115, 20)
+        Me.FTStateHeat.Size = New System.Drawing.Size(115, 21)
         Me.FTStateHeat.TabIndex = 472
         Me.FTStateHeat.Tag = "2|"
         '
@@ -4572,7 +4572,7 @@ Partial Class wOrder
         Me.FTStatePrint.Properties.Tag = "FTStatePrint"
         Me.FTStatePrint.Properties.ValueChecked = "1"
         Me.FTStatePrint.Properties.ValueUnchecked = "0"
-        Me.FTStatePrint.Size = New System.Drawing.Size(105, 20)
+        Me.FTStatePrint.Size = New System.Drawing.Size(105, 21)
         Me.FTStatePrint.TabIndex = 471
         Me.FTStatePrint.Tag = "2|"
         '
@@ -4598,7 +4598,7 @@ Partial Class wOrder
         Me.FTStateEmb.Properties.Tag = "FTStateEmb"
         Me.FTStateEmb.Properties.ValueChecked = "1"
         Me.FTStateEmb.Properties.ValueUnchecked = "0"
-        Me.FTStateEmb.Size = New System.Drawing.Size(117, 20)
+        Me.FTStateEmb.Size = New System.Drawing.Size(117, 21)
         Me.FTStateEmb.TabIndex = 470
         Me.FTStateEmb.Tag = "2|"
         '
@@ -4791,11 +4791,11 @@ Partial Class wOrder
         'ogdOrderSubComponent
         '
         Me.ogdOrderSubComponent.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdOrderSubComponent.Location = New System.Drawing.Point(2, 23)
+        Me.ogdOrderSubComponent.Location = New System.Drawing.Point(2, 25)
         Me.ogdOrderSubComponent.MainView = Me.ogvOrderSubComponent
         Me.ogdOrderSubComponent.Name = "ogdOrderSubComponent"
         Me.ogdOrderSubComponent.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemMemoExEditFTMainMatDesc, Me.RepositoryItemMemoEditFTMainMatDescComponent, Me.RepositoryItemMemoEditFTComponent, Me.RepositoryItemMemoEditFTRemarkComponent, Me.RepFNConSmp})
-        Me.ogdOrderSubComponent.Size = New System.Drawing.Size(1298, 388)
+        Me.ogdOrderSubComponent.Size = New System.Drawing.Size(1298, 386)
         Me.ogdOrderSubComponent.TabIndex = 541
         Me.ogdOrderSubComponent.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvOrderSubComponent})
         '
@@ -4993,7 +4993,7 @@ Partial Class wOrder
         Me.FTStateApprovedComponentRevised.Properties.Tag = "FTStateLaser"
         Me.FTStateApprovedComponentRevised.Properties.ValueChecked = "1"
         Me.FTStateApprovedComponentRevised.Properties.ValueUnchecked = "0"
-        Me.FTStateApprovedComponentRevised.Size = New System.Drawing.Size(179, 20)
+        Me.FTStateApprovedComponentRevised.Size = New System.Drawing.Size(179, 21)
         Me.FTStateApprovedComponentRevised.TabIndex = 540
         Me.FTStateApprovedComponentRevised.Tag = ""
         '
@@ -5007,7 +5007,7 @@ Partial Class wOrder
         Me.FTStateApprovedComponent.Properties.Tag = "FTStateLaser"
         Me.FTStateApprovedComponent.Properties.ValueChecked = "1"
         Me.FTStateApprovedComponent.Properties.ValueUnchecked = "0"
-        Me.FTStateApprovedComponent.Size = New System.Drawing.Size(179, 20)
+        Me.FTStateApprovedComponent.Size = New System.Drawing.Size(179, 21)
         Me.FTStateApprovedComponent.TabIndex = 539
         Me.FTStateApprovedComponent.Tag = ""
         '
@@ -5069,7 +5069,7 @@ Partial Class wOrder
         Me.FTStateApprovedSewRevised.Properties.Tag = "FTStateLaser"
         Me.FTStateApprovedSewRevised.Properties.ValueChecked = "1"
         Me.FTStateApprovedSewRevised.Properties.ValueUnchecked = "0"
-        Me.FTStateApprovedSewRevised.Size = New System.Drawing.Size(179, 20)
+        Me.FTStateApprovedSewRevised.Size = New System.Drawing.Size(179, 21)
         Me.FTStateApprovedSewRevised.TabIndex = 539
         Me.FTStateApprovedSewRevised.Tag = ""
         '
@@ -5083,7 +5083,7 @@ Partial Class wOrder
         Me.FTStateApprovedSew.Properties.Tag = "FTStateLaser"
         Me.FTStateApprovedSew.Properties.ValueChecked = "1"
         Me.FTStateApprovedSew.Properties.ValueUnchecked = "0"
-        Me.FTStateApprovedSew.Size = New System.Drawing.Size(179, 20)
+        Me.FTStateApprovedSew.Size = New System.Drawing.Size(179, 21)
         Me.FTStateApprovedSew.TabIndex = 538
         Me.FTStateApprovedSew.Tag = ""
         '
@@ -5388,7 +5388,7 @@ Partial Class wOrder
         Me.FTStateApprovedPackRevised.Properties.Tag = "FTStateLaser"
         Me.FTStateApprovedPackRevised.Properties.ValueChecked = "1"
         Me.FTStateApprovedPackRevised.Properties.ValueUnchecked = "0"
-        Me.FTStateApprovedPackRevised.Size = New System.Drawing.Size(168, 20)
+        Me.FTStateApprovedPackRevised.Size = New System.Drawing.Size(168, 21)
         Me.FTStateApprovedPackRevised.TabIndex = 551
         Me.FTStateApprovedPackRevised.Tag = ""
         Me.FTStateApprovedPackRevised.Visible = False
@@ -5406,7 +5406,7 @@ Partial Class wOrder
         Me.FTStateApprovedPack.Properties.Tag = "FTStateLaser"
         Me.FTStateApprovedPack.Properties.ValueChecked = "1"
         Me.FTStateApprovedPack.Properties.ValueUnchecked = "0"
-        Me.FTStateApprovedPack.Size = New System.Drawing.Size(168, 20)
+        Me.FTStateApprovedPack.Size = New System.Drawing.Size(168, 21)
         Me.FTStateApprovedPack.TabIndex = 550
         Me.FTStateApprovedPack.Tag = ""
         Me.FTStateApprovedPack.Visible = False
@@ -5653,7 +5653,7 @@ Partial Class wOrder
         Me.otpSubOrderPakingCartonInfo.Controls.Add(Me.ogbPackCartonDT)
         Me.otpSubOrderPakingCartonInfo.Controls.Add(Me.ogbPackCartonHD)
         Me.otpSubOrderPakingCartonInfo.Name = "otpSubOrderPakingCartonInfo"
-        Me.otpSubOrderPakingCartonInfo.Size = New System.Drawing.Size(1302, 413)
+        Me.otpSubOrderPakingCartonInfo.Size = New System.Drawing.Size(1302, 451)
         Me.otpSubOrderPakingCartonInfo.Text = "Sub Order Packing Carton Info"
         '
         'ogbPackCartonDT
@@ -5664,17 +5664,17 @@ Partial Class wOrder
         Me.ogbPackCartonDT.Controls.Add(Me.ogdOrderSubPackCarton)
         Me.ogbPackCartonDT.Location = New System.Drawing.Point(0, 55)
         Me.ogbPackCartonDT.Name = "ogbPackCartonDT"
-        Me.ogbPackCartonDT.Size = New System.Drawing.Size(1224, 367)
+        Me.ogbPackCartonDT.Size = New System.Drawing.Size(1224, 405)
         Me.ogbPackCartonDT.TabIndex = 1
         Me.ogbPackCartonDT.Text = "Pack Carton Detail"
         '
         'ogdOrderSubPackCarton
         '
         Me.ogdOrderSubPackCarton.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdOrderSubPackCarton.Location = New System.Drawing.Point(2, 23)
+        Me.ogdOrderSubPackCarton.Location = New System.Drawing.Point(2, 25)
         Me.ogdOrderSubPackCarton.MainView = Me.ogvOrderSubPackCarton
         Me.ogdOrderSubPackCarton.Name = "ogdOrderSubPackCarton"
-        Me.ogdOrderSubPackCarton.Size = New System.Drawing.Size(1220, 342)
+        Me.ogdOrderSubPackCarton.Size = New System.Drawing.Size(1220, 378)
         Me.ogdOrderSubPackCarton.TabIndex = 0
         Me.ogdOrderSubPackCarton.TabStop = False
         Me.ogdOrderSubPackCarton.Tag = "3|"
@@ -5760,7 +5760,7 @@ Partial Class wOrder
         Me.FTStateApprovedPackRatioRevised.Properties.Tag = "FTStateLaser"
         Me.FTStateApprovedPackRatioRevised.Properties.ValueChecked = "1"
         Me.FTStateApprovedPackRatioRevised.Properties.ValueUnchecked = "0"
-        Me.FTStateApprovedPackRatioRevised.Size = New System.Drawing.Size(168, 20)
+        Me.FTStateApprovedPackRatioRevised.Size = New System.Drawing.Size(168, 21)
         Me.FTStateApprovedPackRatioRevised.TabIndex = 550
         Me.FTStateApprovedPackRatioRevised.Tag = ""
         Me.FTStateApprovedPackRatioRevised.Visible = False
@@ -5778,7 +5778,7 @@ Partial Class wOrder
         Me.FTStateApprovedPackRatio.Properties.Tag = "FTStateLaser"
         Me.FTStateApprovedPackRatio.Properties.ValueChecked = "1"
         Me.FTStateApprovedPackRatio.Properties.ValueUnchecked = "0"
-        Me.FTStateApprovedPackRatio.Size = New System.Drawing.Size(168, 20)
+        Me.FTStateApprovedPackRatio.Size = New System.Drawing.Size(168, 21)
         Me.FTStateApprovedPackRatio.TabIndex = 549
         Me.FTStateApprovedPackRatio.Tag = ""
         Me.FTStateApprovedPackRatio.Visible = False
@@ -5889,7 +5889,7 @@ Partial Class wOrder
         Me.FTStateApprovedSizeSpecRevised.Properties.Tag = "FTStateLaser"
         Me.FTStateApprovedSizeSpecRevised.Properties.ValueChecked = "1"
         Me.FTStateApprovedSizeSpecRevised.Properties.ValueUnchecked = "0"
-        Me.FTStateApprovedSizeSpecRevised.Size = New System.Drawing.Size(179, 20)
+        Me.FTStateApprovedSizeSpecRevised.Size = New System.Drawing.Size(179, 21)
         Me.FTStateApprovedSizeSpecRevised.TabIndex = 506
         Me.FTStateApprovedSizeSpecRevised.Tag = ""
         '
@@ -5903,18 +5903,18 @@ Partial Class wOrder
         Me.FTStateApprovedSizeSpec.Properties.Tag = "FTStateLaser"
         Me.FTStateApprovedSizeSpec.Properties.ValueChecked = "1"
         Me.FTStateApprovedSizeSpec.Properties.ValueUnchecked = "0"
-        Me.FTStateApprovedSizeSpec.Size = New System.Drawing.Size(179, 20)
+        Me.FTStateApprovedSizeSpec.Size = New System.Drawing.Size(179, 21)
         Me.FTStateApprovedSizeSpec.TabIndex = 505
         Me.FTStateApprovedSizeSpec.Tag = ""
         '
         'ogdSizeSpec
         '
         Me.ogdSizeSpec.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogdSizeSpec.Location = New System.Drawing.Point(2, 23)
+        Me.ogdSizeSpec.Location = New System.Drawing.Point(2, 25)
         Me.ogdSizeSpec.MainView = Me.ogvSizeSpec
         Me.ogdSizeSpec.Name = "ogdSizeSpec"
         Me.ogdSizeSpec.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemFNHSysMeasId})
-        Me.ogdSizeSpec.Size = New System.Drawing.Size(1298, 388)
+        Me.ogdSizeSpec.Size = New System.Drawing.Size(1298, 386)
         Me.ogdSizeSpec.TabIndex = 0
         Me.ogdSizeSpec.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvSizeSpec})
         '
@@ -6010,7 +6010,7 @@ Partial Class wOrder
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclearclsr)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmRemoveDT)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmAddDT)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(60, 38)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(103, 244)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(1089, 181)
         Me.ogbmainprocbutton.TabIndex = 434
@@ -6302,7 +6302,7 @@ Partial Class wOrder
         Me.FTStateProduction.Properties.Tag = "FTStateLaser"
         Me.FTStateProduction.Properties.ValueChecked = "1"
         Me.FTStateProduction.Properties.ValueUnchecked = "0"
-        Me.FTStateProduction.Size = New System.Drawing.Size(90, 20)
+        Me.FTStateProduction.Size = New System.Drawing.Size(90, 21)
         Me.FTStateProduction.TabIndex = 481
         Me.FTStateProduction.Tag = "2|"
         Me.FTStateProduction.Visible = False
@@ -6316,7 +6316,7 @@ Partial Class wOrder
         Me.FTStateAdjust.Properties.Tag = "FTStateLaser"
         Me.FTStateAdjust.Properties.ValueChecked = "1"
         Me.FTStateAdjust.Properties.ValueUnchecked = "0"
-        Me.FTStateAdjust.Size = New System.Drawing.Size(90, 20)
+        Me.FTStateAdjust.Size = New System.Drawing.Size(90, 21)
         Me.FTStateAdjust.TabIndex = 478
         Me.FTStateAdjust.Tag = "2|"
         Me.FTStateAdjust.Visible = False
@@ -6346,12 +6346,11 @@ Partial Class wOrder
         Me.GroupControl2.Options.ShowCloseButton = False
         Me.GroupControl2.Options.ShowMaximizeButton = False
         Me.GroupControl2.OriginalSize = New System.Drawing.Size(200, 201)
-        Me.GroupControl2.Size = New System.Drawing.Size(1304, 201)
+        Me.GroupControl2.Size = New System.Drawing.Size(1304, 163)
         Me.GroupControl2.Text = "Order Info"
         '
         'DockPanel1_Container
         '
-        Me.DockPanel1_Container.Controls.Add(Me.ogbmainprocbutton)
         Me.DockPanel1_Container.Controls.Add(Me.FTStatePrintBarcode)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysCmpIdCreate)
         Me.DockPanel1_Container.Controls.Add(Me.FTStateOrderAppSub)
@@ -6407,9 +6406,9 @@ Partial Class wOrder
         Me.DockPanel1_Container.Controls.Add(Me.FTOrderBy_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FNOrderType_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysStyleId_None)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 26)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 28)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1298, 171)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1298, 131)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FTStatePrintBarcode
@@ -6422,7 +6421,7 @@ Partial Class wOrder
         Me.FTStatePrintBarcode.Properties.Tag = "FTStateLaser"
         Me.FTStatePrintBarcode.Properties.ValueChecked = "1"
         Me.FTStatePrintBarcode.Properties.ValueUnchecked = "0"
-        Me.FTStatePrintBarcode.Size = New System.Drawing.Size(153, 20)
+        Me.FTStatePrintBarcode.Size = New System.Drawing.Size(153, 21)
         Me.FTStatePrintBarcode.TabIndex = 547
         Me.FTStatePrintBarcode.Tag = "2|"
         '
@@ -6462,7 +6461,7 @@ Partial Class wOrder
         Me.FTStateOrderAppSub.Properties.Tag = "FTStateLaser"
         Me.FTStateOrderAppSub.Properties.ValueChecked = "1"
         Me.FTStateOrderAppSub.Properties.ValueUnchecked = "0"
-        Me.FTStateOrderAppSub.Size = New System.Drawing.Size(187, 20)
+        Me.FTStateOrderAppSub.Size = New System.Drawing.Size(187, 21)
         Me.FTStateOrderAppSub.TabIndex = 542
         Me.FTStateOrderAppSub.Tag = "2"
         '
@@ -6476,7 +6475,7 @@ Partial Class wOrder
         Me.FTStateCombine.Properties.Tag = "FTStateLaser"
         Me.FTStateCombine.Properties.ValueChecked = "1"
         Me.FTStateCombine.Properties.ValueUnchecked = "0"
-        Me.FTStateCombine.Size = New System.Drawing.Size(171, 20)
+        Me.FTStateCombine.Size = New System.Drawing.Size(171, 21)
         Me.FTStateCombine.TabIndex = 507
         Me.FTStateCombine.Tag = "2"
         '
@@ -6490,7 +6489,7 @@ Partial Class wOrder
         Me.FTStateOrderAppSizeSpec.Properties.Tag = "FTStateLaser"
         Me.FTStateOrderAppSizeSpec.Properties.ValueChecked = "1"
         Me.FTStateOrderAppSizeSpec.Properties.ValueUnchecked = "0"
-        Me.FTStateOrderAppSizeSpec.Size = New System.Drawing.Size(159, 20)
+        Me.FTStateOrderAppSizeSpec.Size = New System.Drawing.Size(159, 21)
         Me.FTStateOrderAppSizeSpec.TabIndex = 507
         Me.FTStateOrderAppSizeSpec.Tag = "2"
         '
@@ -6507,7 +6506,7 @@ Partial Class wOrder
         Me.FTStateOrderAppPackRatio.Properties.Tag = "FTStateLaser"
         Me.FTStateOrderAppPackRatio.Properties.ValueChecked = "1"
         Me.FTStateOrderAppPackRatio.Properties.ValueUnchecked = "0"
-        Me.FTStateOrderAppPackRatio.Size = New System.Drawing.Size(158, 20)
+        Me.FTStateOrderAppPackRatio.Size = New System.Drawing.Size(158, 21)
         Me.FTStateOrderAppPackRatio.TabIndex = 551
         Me.FTStateOrderAppPackRatio.Tag = "2"
         '
@@ -6524,7 +6523,7 @@ Partial Class wOrder
         Me.FTStateOrderAppPack.Properties.Tag = "FTStateLaser"
         Me.FTStateOrderAppPack.Properties.ValueChecked = "1"
         Me.FTStateOrderAppPack.Properties.ValueUnchecked = "0"
-        Me.FTStateOrderAppPack.Size = New System.Drawing.Size(150, 20)
+        Me.FTStateOrderAppPack.Size = New System.Drawing.Size(150, 21)
         Me.FTStateOrderAppPack.TabIndex = 552
         Me.FTStateOrderAppPack.Tag = "2"
         '
@@ -6538,7 +6537,7 @@ Partial Class wOrder
         Me.FTStateOrderAppSew.Properties.Tag = "FTStateLaser"
         Me.FTStateOrderAppSew.Properties.ValueChecked = "1"
         Me.FTStateOrderAppSew.Properties.ValueUnchecked = "0"
-        Me.FTStateOrderAppSew.Size = New System.Drawing.Size(144, 20)
+        Me.FTStateOrderAppSew.Size = New System.Drawing.Size(144, 21)
         Me.FTStateOrderAppSew.TabIndex = 540
         Me.FTStateOrderAppSew.Tag = "2"
         '
@@ -6552,7 +6551,7 @@ Partial Class wOrder
         Me.FTStateOrderAppComponent.Properties.Tag = "FTStateLaser"
         Me.FTStateOrderAppComponent.Properties.ValueChecked = "1"
         Me.FTStateOrderAppComponent.Properties.ValueUnchecked = "0"
-        Me.FTStateOrderAppComponent.Size = New System.Drawing.Size(152, 20)
+        Me.FTStateOrderAppComponent.Size = New System.Drawing.Size(152, 21)
         Me.FTStateOrderAppComponent.TabIndex = 541
         Me.FTStateOrderAppComponent.Tag = "2"
         '
@@ -6566,7 +6565,7 @@ Partial Class wOrder
         Me.FTStateTransferWH.Properties.Tag = "FTStateLaser"
         Me.FTStateTransferWH.Properties.ValueChecked = "1"
         Me.FTStateTransferWH.Properties.ValueUnchecked = "0"
-        Me.FTStateTransferWH.Size = New System.Drawing.Size(97, 20)
+        Me.FTStateTransferWH.Size = New System.Drawing.Size(97, 21)
         Me.FTStateTransferWH.TabIndex = 480
         Me.FTStateTransferWH.Tag = "2|"
         '
@@ -6608,7 +6607,7 @@ Partial Class wOrder
         Me.FTStatePacking.Properties.Tag = "FTStateLaser"
         Me.FTStatePacking.Properties.ValueChecked = "1"
         Me.FTStatePacking.Properties.ValueUnchecked = "0"
-        Me.FTStatePacking.Size = New System.Drawing.Size(90, 20)
+        Me.FTStatePacking.Size = New System.Drawing.Size(90, 21)
         Me.FTStatePacking.TabIndex = 546
         Me.FTStatePacking.Tag = "2|"
         '
@@ -6621,7 +6620,7 @@ Partial Class wOrder
         Me.FTStateSewing.Properties.Tag = "FTStateLaser"
         Me.FTStateSewing.Properties.ValueChecked = "1"
         Me.FTStateSewing.Properties.ValueUnchecked = "0"
-        Me.FTStateSewing.Size = New System.Drawing.Size(90, 20)
+        Me.FTStateSewing.Size = New System.Drawing.Size(90, 21)
         Me.FTStateSewing.TabIndex = 545
         Me.FTStateSewing.Tag = "2|"
         '
@@ -6634,7 +6633,7 @@ Partial Class wOrder
         Me.FTStateCutting.Properties.Tag = "FTStateLaser"
         Me.FTStateCutting.Properties.ValueChecked = "1"
         Me.FTStateCutting.Properties.ValueUnchecked = "0"
-        Me.FTStateCutting.Size = New System.Drawing.Size(90, 20)
+        Me.FTStateCutting.Size = New System.Drawing.Size(90, 21)
         Me.FTStateCutting.TabIndex = 544
         Me.FTStateCutting.Tag = "2|"
         '
@@ -6682,7 +6681,7 @@ Partial Class wOrder
         Me.FTStateTransferOut.Properties.Tag = "FTStateLaser"
         Me.FTStateTransferOut.Properties.ValueChecked = "1"
         Me.FTStateTransferOut.Properties.ValueUnchecked = "0"
-        Me.FTStateTransferOut.Size = New System.Drawing.Size(90, 20)
+        Me.FTStateTransferOut.Size = New System.Drawing.Size(90, 21)
         Me.FTStateTransferOut.TabIndex = 480
         Me.FTStateTransferOut.Tag = "2|"
         '
@@ -6695,7 +6694,7 @@ Partial Class wOrder
         Me.FTStateTransferIn.Properties.Tag = "FTStateLaser"
         Me.FTStateTransferIn.Properties.ValueChecked = "1"
         Me.FTStateTransferIn.Properties.ValueUnchecked = "0"
-        Me.FTStateTransferIn.Size = New System.Drawing.Size(90, 20)
+        Me.FTStateTransferIn.Size = New System.Drawing.Size(90, 21)
         Me.FTStateTransferIn.TabIndex = 479
         Me.FTStateTransferIn.Tag = "2|"
         '
@@ -6708,7 +6707,7 @@ Partial Class wOrder
         Me.FTStateReceive.Properties.Tag = "FTStateLaser"
         Me.FTStateReceive.Properties.ValueChecked = "1"
         Me.FTStateReceive.Properties.ValueUnchecked = "0"
-        Me.FTStateReceive.Size = New System.Drawing.Size(90, 20)
+        Me.FTStateReceive.Size = New System.Drawing.Size(90, 21)
         Me.FTStateReceive.TabIndex = 477
         Me.FTStateReceive.Tag = "2|"
         '
@@ -6721,7 +6720,7 @@ Partial Class wOrder
         Me.FTStateSourcing.Properties.Tag = "FTStateLaser"
         Me.FTStateSourcing.Properties.ValueChecked = "1"
         Me.FTStateSourcing.Properties.ValueUnchecked = "0"
-        Me.FTStateSourcing.Size = New System.Drawing.Size(90, 20)
+        Me.FTStateSourcing.Size = New System.Drawing.Size(90, 21)
         Me.FTStateSourcing.TabIndex = 475
         Me.FTStateSourcing.Tag = "2|"
         '
@@ -6734,7 +6733,7 @@ Partial Class wOrder
         Me.FTStatePurchase.Properties.Tag = "FTStateLaser"
         Me.FTStatePurchase.Properties.ValueChecked = "1"
         Me.FTStatePurchase.Properties.ValueUnchecked = "0"
-        Me.FTStatePurchase.Size = New System.Drawing.Size(90, 20)
+        Me.FTStatePurchase.Size = New System.Drawing.Size(90, 21)
         Me.FTStatePurchase.TabIndex = 476
         Me.FTStatePurchase.Tag = "2|"
         '
@@ -6748,7 +6747,7 @@ Partial Class wOrder
         Me.FTStateReserve.Properties.Tag = "FTStateLaser"
         Me.FTStateReserve.Properties.ValueChecked = "1"
         Me.FTStateReserve.Properties.ValueUnchecked = "0"
-        Me.FTStateReserve.Size = New System.Drawing.Size(90, 20)
+        Me.FTStateReserve.Size = New System.Drawing.Size(90, 21)
         Me.FTStateReserve.TabIndex = 475
         Me.FTStateReserve.Tag = "2|"
         '
@@ -6763,7 +6762,7 @@ Partial Class wOrder
         Me.FTStateMRP.Properties.Tag = "FTStateLaser"
         Me.FTStateMRP.Properties.ValueChecked = "1"
         Me.FTStateMRP.Properties.ValueUnchecked = "0"
-        Me.FTStateMRP.Size = New System.Drawing.Size(90, 20)
+        Me.FTStateMRP.Size = New System.Drawing.Size(90, 21)
         Me.FTStateMRP.TabIndex = 474
         Me.FTStateMRP.Tag = "2|"
         '
@@ -6772,6 +6771,7 @@ Partial Class wOrder
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1304, 639)
+        Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.otab)
         Me.Controls.Add(Me.GroupControl2)
         Me.Name = "wOrder"

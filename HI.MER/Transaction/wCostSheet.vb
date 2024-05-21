@@ -1036,9 +1036,12 @@ Public Class wCostSheet
                             End If
 
                             _Key = .Text
+
                         End With
                 End Select
+
             Next
+
         Next
 
         _Str = "Select TOP 1 FTCostSheetNo "
@@ -10823,6 +10826,34 @@ Public Class wCostSheet
 
     End Sub
 
+    Private Sub RepositoryItemCalcEdit69_EditValueChanging(sender As Object, e As ChangingEventArgs) Handles RepositoryItemCalcEdit69.EditValueChanging
+        Try
+
+
+
+            With Me.ogvcmp
+                If .FocusedRowHandle < 0 Or .FocusedRowHandle > .RowCount - 1 Then Exit Sub
+
+                If e.NewValue >= 0 Then
+                    e.Cancel = False
+                    .SetFocusedRowCellValue(.FocusedColumn.FieldName, e.NewValue)
+
+                    Call SumAmt()
+
+                Else
+                    e.Cancel = True
+
+                End If
+
+            End With
+
+
+
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
 End Class
 
 

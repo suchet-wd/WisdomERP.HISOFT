@@ -31,12 +31,14 @@ Partial Class wSMPCreateOrderSampleBomItem
         Me.FNTSysUnitId = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTUnitCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.cxFTItemDataRef = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cxFNHSysSuplId = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cxFTSuplCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTRawMatColorName = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTFabricFrontSize = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ogb = New DevExpress.XtraEditors.GroupControl()
         Me.FTStaReceiveAll = New DevExpress.XtraEditors.CheckEdit()
         Me.ocmcancel = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmreceive = New DevExpress.XtraEditors.SimpleButton()
-        Me.cxFNHSysSuplId = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.cxFTSuplCode = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.ogcrcv, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvrcv, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ResFTStateSelect, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,17 +52,20 @@ Partial Class wSMPCreateOrderSampleBomItem
         Me.ogcrcv.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogcrcv.Location = New System.Drawing.Point(5, 24)
+        Me.ogcrcv.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogcrcv.Location = New System.Drawing.Point(6, 30)
         Me.ogcrcv.MainView = Me.ogvrcv
+        Me.ogcrcv.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcrcv.Name = "ogcrcv"
         Me.ogcrcv.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.ResFTStateSelect})
-        Me.ogcrcv.Size = New System.Drawing.Size(1030, 390)
+        Me.ogcrcv.Size = New System.Drawing.Size(1202, 480)
         Me.ogcrcv.TabIndex = 3
         Me.ogcrcv.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvrcv})
         '
         'ogvrcv
         '
-        Me.ogvrcv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTStateSelect, Me.FNHSysRawMatId, Me.FTRawMatCode, Me.FTMatDesc, Me.FTRawMatColorCode, Me.FTRawMatSizeCode, Me.FNTSysUnitId, Me.FTUnitCode, Me.cxFTItemDataRef, Me.cxFNHSysSuplId, Me.cxFTSuplCode})
+        Me.ogvrcv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTStateSelect, Me.FNHSysRawMatId, Me.FTRawMatCode, Me.FTMatDesc, Me.FTRawMatColorCode, Me.FTRawMatSizeCode, Me.FNTSysUnitId, Me.FTUnitCode, Me.cxFTItemDataRef, Me.cxFNHSysSuplId, Me.cxFTSuplCode, Me.FTRawMatColorName, Me.FTFabricFrontSize})
+        Me.ogvrcv.DetailHeight = 431
         Me.ogvrcv.GridControl = Me.ogcrcv
         Me.ogvrcv.Name = "ogvrcv"
         Me.ogvrcv.OptionsCustomization.AllowGroup = False
@@ -80,13 +85,13 @@ Partial Class wSMPCreateOrderSampleBomItem
         Me.FTStateSelect.Caption = " "
         Me.FTStateSelect.ColumnEdit = Me.ResFTStateSelect
         Me.FTStateSelect.FieldName = "FTSelect"
+        Me.FTStateSelect.MinWidth = 23
         Me.FTStateSelect.Name = "FTStateSelect"
         Me.FTStateSelect.OptionsColumn.AllowMove = False
         Me.FTStateSelect.OptionsColumn.ShowCaption = False
-        Me.FTStateSelect.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
         Me.FTStateSelect.Visible = True
         Me.FTStateSelect.VisibleIndex = 0
-        Me.FTStateSelect.Width = 30
+        Me.FTStateSelect.Width = 35
         '
         'ResFTStateSelect
         '
@@ -100,9 +105,11 @@ Partial Class wSMPCreateOrderSampleBomItem
         '
         Me.FNHSysRawMatId.Caption = "FNHSysRawMatId"
         Me.FNHSysRawMatId.FieldName = "FNHSysRawMatId"
+        Me.FNHSysRawMatId.MinWidth = 23
         Me.FNHSysRawMatId.Name = "FNHSysRawMatId"
         Me.FNHSysRawMatId.OptionsColumn.AllowEdit = False
         Me.FNHSysRawMatId.OptionsColumn.ReadOnly = True
+        Me.FNHSysRawMatId.Width = 87
         '
         'FTRawMatCode
         '
@@ -110,14 +117,14 @@ Partial Class wSMPCreateOrderSampleBomItem
         Me.FTRawMatCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTRawMatCode.Caption = "FTRawMatCode"
         Me.FTRawMatCode.FieldName = "FTRawMatCode"
+        Me.FTRawMatCode.MinWidth = 23
         Me.FTRawMatCode.Name = "FTRawMatCode"
         Me.FTRawMatCode.OptionsColumn.AllowEdit = False
         Me.FTRawMatCode.OptionsColumn.AllowMove = False
         Me.FTRawMatCode.OptionsColumn.ReadOnly = True
-        Me.FTRawMatCode.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
         Me.FTRawMatCode.Visible = True
         Me.FTRawMatCode.VisibleIndex = 1
-        Me.FTRawMatCode.Width = 104
+        Me.FTRawMatCode.Width = 121
         '
         'FTMatDesc
         '
@@ -125,14 +132,14 @@ Partial Class wSMPCreateOrderSampleBomItem
         Me.FTMatDesc.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTMatDesc.Caption = "FTMatDesc"
         Me.FTMatDesc.FieldName = "FTRawMatNameEN"
+        Me.FTMatDesc.MinWidth = 23
         Me.FTMatDesc.Name = "FTMatDesc"
         Me.FTMatDesc.OptionsColumn.AllowEdit = False
         Me.FTMatDesc.OptionsColumn.AllowMove = False
         Me.FTMatDesc.OptionsColumn.ReadOnly = True
-        Me.FTMatDesc.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
         Me.FTMatDesc.Visible = True
         Me.FTMatDesc.VisibleIndex = 2
-        Me.FTMatDesc.Width = 447
+        Me.FTMatDesc.Width = 521
         '
         'FTRawMatColorCode
         '
@@ -140,14 +147,14 @@ Partial Class wSMPCreateOrderSampleBomItem
         Me.FTRawMatColorCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTRawMatColorCode.Caption = "FTRawMatColorCode"
         Me.FTRawMatColorCode.FieldName = "FTRawMatColorCode"
+        Me.FTRawMatColorCode.MinWidth = 23
         Me.FTRawMatColorCode.Name = "FTRawMatColorCode"
         Me.FTRawMatColorCode.OptionsColumn.AllowEdit = False
         Me.FTRawMatColorCode.OptionsColumn.AllowMove = False
         Me.FTRawMatColorCode.OptionsColumn.ReadOnly = True
-        Me.FTRawMatColorCode.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
         Me.FTRawMatColorCode.Visible = True
         Me.FTRawMatColorCode.VisibleIndex = 3
-        Me.FTRawMatColorCode.Width = 104
+        Me.FTRawMatColorCode.Width = 121
         '
         'FTRawMatSizeCode
         '
@@ -155,22 +162,24 @@ Partial Class wSMPCreateOrderSampleBomItem
         Me.FTRawMatSizeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTRawMatSizeCode.Caption = "FTRawMatSizeCode"
         Me.FTRawMatSizeCode.FieldName = "FTRawMatSizeCode"
+        Me.FTRawMatSizeCode.MinWidth = 23
         Me.FTRawMatSizeCode.Name = "FTRawMatSizeCode"
         Me.FTRawMatSizeCode.OptionsColumn.AllowEdit = False
         Me.FTRawMatSizeCode.OptionsColumn.AllowMove = False
         Me.FTRawMatSizeCode.OptionsColumn.ReadOnly = True
-        Me.FTRawMatSizeCode.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
         Me.FTRawMatSizeCode.Visible = True
-        Me.FTRawMatSizeCode.VisibleIndex = 4
-        Me.FTRawMatSizeCode.Width = 94
+        Me.FTRawMatSizeCode.VisibleIndex = 5
+        Me.FTRawMatSizeCode.Width = 110
         '
         'FNTSysUnitId
         '
         Me.FNTSysUnitId.Caption = "FNTSysUnitId"
         Me.FNTSysUnitId.FieldName = "FNHSysUnitId"
+        Me.FNTSysUnitId.MinWidth = 23
         Me.FNTSysUnitId.Name = "FNTSysUnitId"
         Me.FNTSysUnitId.OptionsColumn.AllowEdit = False
         Me.FNTSysUnitId.OptionsColumn.ReadOnly = True
+        Me.FNTSysUnitId.Width = 87
         '
         'FTUnitCode
         '
@@ -180,20 +189,64 @@ Partial Class wSMPCreateOrderSampleBomItem
         Me.FTUnitCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTUnitCode.Caption = "FTUnitCode"
         Me.FTUnitCode.FieldName = "FTUnitCode"
+        Me.FTUnitCode.MinWidth = 23
         Me.FTUnitCode.Name = "FTUnitCode"
         Me.FTUnitCode.OptionsColumn.AllowEdit = False
         Me.FTUnitCode.OptionsColumn.AllowMove = False
         Me.FTUnitCode.OptionsColumn.ReadOnly = True
-        Me.FTUnitCode.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
         Me.FTUnitCode.Visible = True
-        Me.FTUnitCode.VisibleIndex = 5
-        Me.FTUnitCode.Width = 71
+        Me.FTUnitCode.VisibleIndex = 7
+        Me.FTUnitCode.Width = 83
         '
         'cxFTItemDataRef
         '
         Me.cxFTItemDataRef.Caption = "FTItemDataRef"
         Me.cxFTItemDataRef.FieldName = "FTItemDataRef"
+        Me.cxFTItemDataRef.MinWidth = 23
         Me.cxFTItemDataRef.Name = "cxFTItemDataRef"
+        Me.cxFTItemDataRef.Width = 87
+        '
+        'cxFNHSysSuplId
+        '
+        Me.cxFNHSysSuplId.Caption = "FNHSysSuplId"
+        Me.cxFNHSysSuplId.FieldName = "FNHSysSuplId"
+        Me.cxFNHSysSuplId.MinWidth = 23
+        Me.cxFNHSysSuplId.Name = "cxFNHSysSuplId"
+        Me.cxFNHSysSuplId.Width = 87
+        '
+        'cxFTSuplCode
+        '
+        Me.cxFTSuplCode.Caption = "Supplier"
+        Me.cxFTSuplCode.FieldName = "FTSuplCode"
+        Me.cxFTSuplCode.MinWidth = 23
+        Me.cxFTSuplCode.Name = "cxFTSuplCode"
+        Me.cxFTSuplCode.OptionsColumn.AllowEdit = False
+        Me.cxFTSuplCode.OptionsColumn.ReadOnly = True
+        Me.cxFTSuplCode.Visible = True
+        Me.cxFTSuplCode.VisibleIndex = 8
+        Me.cxFTSuplCode.Width = 87
+        '
+        'FTRawMatColorName
+        '
+        Me.FTRawMatColorName.Caption = "FTRawMatColorName"
+        Me.FTRawMatColorName.FieldName = "FTRawMatColorName"
+        Me.FTRawMatColorName.MinWidth = 24
+        Me.FTRawMatColorName.Name = "FTRawMatColorName"
+        Me.FTRawMatColorName.OptionsColumn.AllowEdit = False
+        Me.FTRawMatColorName.Visible = True
+        Me.FTRawMatColorName.VisibleIndex = 4
+        Me.FTRawMatColorName.Width = 159
+        '
+        'FTFabricFrontSize
+        '
+        Me.FTFabricFrontSize.Caption = "FTFabricFrontSize"
+        Me.FTFabricFrontSize.FieldName = "FTFabricFrontSize"
+        Me.FTFabricFrontSize.MinWidth = 24
+        Me.FTFabricFrontSize.Name = "FTFabricFrontSize"
+        Me.FTFabricFrontSize.OptionsColumn.AllowEdit = False
+        Me.FTFabricFrontSize.Visible = True
+        Me.FTFabricFrontSize.VisibleIndex = 6
+        Me.FTFabricFrontSize.Width = 115
         '
         'ogb
         '
@@ -205,15 +258,17 @@ Partial Class wSMPCreateOrderSampleBomItem
         Me.ogb.Controls.Add(Me.ocmreceive)
         Me.ogb.Controls.Add(Me.ogcrcv)
         Me.ogb.Location = New System.Drawing.Point(2, 2)
+        Me.ogb.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogb.Name = "ogb"
-        Me.ogb.Size = New System.Drawing.Size(1040, 419)
+        Me.ogb.Size = New System.Drawing.Size(1213, 516)
         Me.ogb.TabIndex = 6
         Me.ogb.Tag = "2|"
         '
         'FTStaReceiveAll
         '
         Me.FTStaReceiveAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTStaReceiveAll.Location = New System.Drawing.Point(542, 1)
+        Me.FTStaReceiveAll.Location = New System.Drawing.Point(632, 1)
+        Me.FTStaReceiveAll.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTStaReceiveAll.Name = "FTStaReceiveAll"
         Me.FTStaReceiveAll.Properties.Appearance.Options.UseTextOptions = True
         Me.FTStaReceiveAll.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -221,16 +276,17 @@ Partial Class wSMPCreateOrderSampleBomItem
         Me.FTStaReceiveAll.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTStaReceiveAll.Properties.ValueChecked = "1"
         Me.FTStaReceiveAll.Properties.ValueUnchecked = "0"
-        Me.FTStaReceiveAll.Size = New System.Drawing.Size(151, 20)
+        Me.FTStaReceiveAll.Size = New System.Drawing.Size(176, 24)
         Me.FTStaReceiveAll.TabIndex = 102
         Me.FTStaReceiveAll.Tag = "2|"
         '
         'ocmcancel
         '
         Me.ocmcancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmcancel.Location = New System.Drawing.Point(873, 1)
+        Me.ocmcancel.Location = New System.Drawing.Point(1018, 1)
+        Me.ocmcancel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmcancel.Name = "ocmcancel"
-        Me.ocmcancel.Size = New System.Drawing.Size(160, 20)
+        Me.ocmcancel.Size = New System.Drawing.Size(187, 25)
         Me.ocmcancel.TabIndex = 101
         Me.ocmcancel.TabStop = False
         Me.ocmcancel.Tag = "2|"
@@ -239,38 +295,24 @@ Partial Class wSMPCreateOrderSampleBomItem
         'ocmreceive
         '
         Me.ocmreceive.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmreceive.Location = New System.Drawing.Point(705, 1)
+        Me.ocmreceive.Location = New System.Drawing.Point(822, 1)
+        Me.ocmreceive.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmreceive.Name = "ocmreceive"
-        Me.ocmreceive.Size = New System.Drawing.Size(160, 20)
+        Me.ocmreceive.Size = New System.Drawing.Size(187, 25)
         Me.ocmreceive.TabIndex = 100
         Me.ocmreceive.TabStop = False
         Me.ocmreceive.Tag = "2|"
         Me.ocmreceive.Text = "OK"
         '
-        'cxFNHSysSuplId
-        '
-        Me.cxFNHSysSuplId.Caption = "FNHSysSuplId"
-        Me.cxFNHSysSuplId.FieldName = "FNHSysSuplId"
-        Me.cxFNHSysSuplId.Name = "cxFNHSysSuplId"
-        '
-        'cxFTSuplCode
-        '
-        Me.cxFTSuplCode.Caption = "Supplier"
-        Me.cxFTSuplCode.FieldName = "FTSuplCode"
-        Me.cxFTSuplCode.Name = "cxFTSuplCode"
-        Me.cxFTSuplCode.OptionsColumn.AllowEdit = False
-        Me.cxFTSuplCode.OptionsColumn.ReadOnly = True
-        Me.cxFTSuplCode.Visible = True
-        Me.cxFTSuplCode.VisibleIndex = 6
-        '
         'wSMPCreateOrderSampleBomItem
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1043, 424)
+        Me.ClientSize = New System.Drawing.Size(1217, 522)
         Me.ControlBox = False
         Me.Controls.Add(Me.ogb)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "wSMPCreateOrderSampleBomItem"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Select Item From Bom"
@@ -301,4 +343,6 @@ Partial Class wSMPCreateOrderSampleBomItem
     Friend WithEvents cxFTItemDataRef As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents cxFNHSysSuplId As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents cxFTSuplCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTRawMatColorName As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTFabricFrontSize As DevExpress.XtraGrid.Columns.GridColumn
 End Class

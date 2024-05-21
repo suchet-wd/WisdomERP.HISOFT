@@ -50,6 +50,8 @@ namespace HI.Track
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ogcCriteria = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lbRemarkQCRMDS = new DevExpress.XtraEditors.LabelControl();
             this.FNHSysSeasonIdTo_lbl = new DevExpress.XtraEditors.LabelControl();
             this.FNHSysSeasonId_lbl = new DevExpress.XtraEditors.LabelControl();
             this.FNHSysStyleIdTo_lbl = new DevExpress.XtraEditors.LabelControl();
@@ -119,6 +121,8 @@ namespace HI.Track
             // 
             this.ogcCriteria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ogcCriteria.Controls.Add(this.labelControl1);
+            this.ogcCriteria.Controls.Add(this.lbRemarkQCRMDS);
             this.ogcCriteria.Controls.Add(this.FNHSysSeasonIdTo_lbl);
             this.ogcCriteria.Controls.Add(this.FNHSysSeasonId_lbl);
             this.ogcCriteria.Controls.Add(this.FNHSysStyleIdTo_lbl);
@@ -127,12 +131,41 @@ namespace HI.Track
             this.ogcCriteria.Controls.Add(this.FNHSysSeasonId);
             this.ogcCriteria.Controls.Add(this.FNHSysStyleIdTo);
             this.ogcCriteria.Controls.Add(this.FNHSysStyleId);
-            this.ogcCriteria.Location = new System.Drawing.Point(7, 15);
-            this.ogcCriteria.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ogcCriteria.Location = new System.Drawing.Point(6, 12);
             this.ogcCriteria.Name = "ogcCriteria";
-            this.ogcCriteria.Size = new System.Drawing.Size(1717, 86);
+            this.ogcCriteria.Size = new System.Drawing.Size(1472, 95);
             this.ogcCriteria.TabIndex = 0;
             this.ogcCriteria.Text = "Production Leadtime Criteria";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic);
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
+            this.labelControl1.Appearance.Options.UseTextOptions = true;
+            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Location = new System.Drawing.Point(254, 72);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(86, 18);
+            this.labelControl1.TabIndex = 13;
+            this.labelControl1.Text = "(Team Multi = Y)";
+            // 
+            // lbRemarkQCRMDS
+            // 
+            this.lbRemarkQCRMDS.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic);
+            this.lbRemarkQCRMDS.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lbRemarkQCRMDS.Appearance.Options.UseFont = true;
+            this.lbRemarkQCRMDS.Appearance.Options.UseForeColor = true;
+            this.lbRemarkQCRMDS.Appearance.Options.UseTextOptions = true;
+            this.lbRemarkQCRMDS.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.lbRemarkQCRMDS.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lbRemarkQCRMDS.Location = new System.Drawing.Point(25, 72);
+            this.lbRemarkQCRMDS.Name = "lbRemarkQCRMDS";
+            this.lbRemarkQCRMDS.Size = new System.Drawing.Size(288, 18);
+            this.lbRemarkQCRMDS.TabIndex = 12;
+            this.lbRemarkQCRMDS.Text = "*** This report will show only \"Q-CRMDS\" ***";
             // 
             // FNHSysSeasonIdTo_lbl
             // 
@@ -141,10 +174,9 @@ namespace HI.Track
             this.FNHSysSeasonIdTo_lbl.Appearance.Options.UseTextOptions = true;
             this.FNHSysSeasonIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.FNHSysSeasonIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.FNHSysSeasonIdTo_lbl.Location = new System.Drawing.Point(353, 34);
-            this.FNHSysSeasonIdTo_lbl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FNHSysSeasonIdTo_lbl.Location = new System.Drawing.Point(303, 28);
             this.FNHSysSeasonIdTo_lbl.Name = "FNHSysSeasonIdTo_lbl";
-            this.FNHSysSeasonIdTo_lbl.Size = new System.Drawing.Size(125, 16);
+            this.FNHSysSeasonIdTo_lbl.Size = new System.Drawing.Size(107, 13);
             this.FNHSysSeasonIdTo_lbl.TabIndex = 11;
             this.FNHSysSeasonIdTo_lbl.Text = "FNHSysSeasonIdTo";
             // 
@@ -155,10 +187,9 @@ namespace HI.Track
             this.FNHSysSeasonId_lbl.Appearance.Options.UseTextOptions = true;
             this.FNHSysSeasonId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.FNHSysSeasonId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.FNHSysSeasonId_lbl.Location = new System.Drawing.Point(7, 34);
-            this.FNHSysSeasonId_lbl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FNHSysSeasonId_lbl.Location = new System.Drawing.Point(6, 28);
             this.FNHSysSeasonId_lbl.Name = "FNHSysSeasonId_lbl";
-            this.FNHSysSeasonId_lbl.Size = new System.Drawing.Size(125, 16);
+            this.FNHSysSeasonId_lbl.Size = new System.Drawing.Size(107, 13);
             this.FNHSysSeasonId_lbl.TabIndex = 10;
             this.FNHSysSeasonId_lbl.Text = "FNHSysSeasonId";
             // 
@@ -169,10 +200,9 @@ namespace HI.Track
             this.FNHSysStyleIdTo_lbl.Appearance.Options.UseTextOptions = true;
             this.FNHSysStyleIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.FNHSysStyleIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.FNHSysStyleIdTo_lbl.Location = new System.Drawing.Point(353, 64);
-            this.FNHSysStyleIdTo_lbl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FNHSysStyleIdTo_lbl.Location = new System.Drawing.Point(303, 52);
             this.FNHSysStyleIdTo_lbl.Name = "FNHSysStyleIdTo_lbl";
-            this.FNHSysStyleIdTo_lbl.Size = new System.Drawing.Size(125, 16);
+            this.FNHSysStyleIdTo_lbl.Size = new System.Drawing.Size(107, 13);
             this.FNHSysStyleIdTo_lbl.TabIndex = 9;
             this.FNHSysStyleIdTo_lbl.Text = "FNHSysStyleIdTo";
             // 
@@ -183,54 +213,49 @@ namespace HI.Track
             this.FNHSysStyleId_lbl.Appearance.Options.UseTextOptions = true;
             this.FNHSysStyleId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.FNHSysStyleId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.FNHSysStyleId_lbl.Location = new System.Drawing.Point(7, 64);
-            this.FNHSysStyleId_lbl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FNHSysStyleId_lbl.Location = new System.Drawing.Point(6, 52);
             this.FNHSysStyleId_lbl.Name = "FNHSysStyleId_lbl";
-            this.FNHSysStyleId_lbl.Size = new System.Drawing.Size(125, 16);
+            this.FNHSysStyleId_lbl.Size = new System.Drawing.Size(107, 13);
             this.FNHSysStyleId_lbl.TabIndex = 0;
             this.FNHSysStyleId_lbl.Text = "FNHSysStyleId";
             // 
             // FNHSysSeasonIdTo
             // 
-            this.FNHSysSeasonIdTo.Location = new System.Drawing.Point(482, 31);
-            this.FNHSysSeasonIdTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FNHSysSeasonIdTo.Location = new System.Drawing.Point(413, 25);
             this.FNHSysSeasonIdTo.Name = "FNHSysSeasonIdTo";
             this.FNHSysSeasonIdTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", "391", null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.FNHSysSeasonIdTo.Size = new System.Drawing.Size(204, 22);
+            this.FNHSysSeasonIdTo.Size = new System.Drawing.Size(175, 20);
             this.FNHSysSeasonIdTo.TabIndex = 2;
             this.FNHSysSeasonIdTo.Tag = "2|";
             // 
             // FNHSysSeasonId
             // 
-            this.FNHSysSeasonId.Location = new System.Drawing.Point(139, 31);
-            this.FNHSysSeasonId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FNHSysSeasonId.Location = new System.Drawing.Point(119, 25);
             this.FNHSysSeasonId.Name = "FNHSysSeasonId";
             this.FNHSysSeasonId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", "390", null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.FNHSysSeasonId.Size = new System.Drawing.Size(204, 22);
+            this.FNHSysSeasonId.Size = new System.Drawing.Size(175, 20);
             this.FNHSysSeasonId.TabIndex = 1;
             this.FNHSysSeasonId.Tag = "2|";
             // 
             // FNHSysStyleIdTo
             // 
-            this.FNHSysStyleIdTo.Location = new System.Drawing.Point(482, 58);
-            this.FNHSysStyleIdTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FNHSysStyleIdTo.Location = new System.Drawing.Point(413, 47);
             this.FNHSysStyleIdTo.Name = "FNHSysStyleIdTo";
             this.FNHSysStyleIdTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", "393", null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.FNHSysStyleIdTo.Size = new System.Drawing.Size(204, 22);
+            this.FNHSysStyleIdTo.Size = new System.Drawing.Size(175, 20);
             this.FNHSysStyleIdTo.TabIndex = 4;
             this.FNHSysStyleIdTo.Tag = "2|";
             // 
             // FNHSysStyleId
             // 
-            this.FNHSysStyleId.Location = new System.Drawing.Point(139, 58);
-            this.FNHSysStyleId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FNHSysStyleId.Location = new System.Drawing.Point(119, 47);
             this.FNHSysStyleId.Name = "FNHSysStyleId";
             this.FNHSysStyleId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", "392", null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.FNHSysStyleId.Size = new System.Drawing.Size(204, 22);
+            this.FNHSysStyleId.Size = new System.Drawing.Size(175, 20);
             this.FNHSysStyleId.TabIndex = 3;
             this.FNHSysStyleId.Tag = "2|";
             // 
@@ -241,10 +266,9 @@ namespace HI.Track
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ogbDetail.Controls.Add(this.ogbmainprocbutton);
             this.ogbDetail.Controls.Add(this.ogcDetail);
-            this.ogbDetail.Location = new System.Drawing.Point(7, 108);
-            this.ogbDetail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ogbDetail.Location = new System.Drawing.Point(6, 113);
             this.ogbDetail.Name = "ogbDetail";
-            this.ogbDetail.Size = new System.Drawing.Size(1717, 670);
+            this.ogbDetail.Size = new System.Drawing.Size(1472, 519);
             this.ogbDetail.TabIndex = 1;
             this.ogbDetail.Text = "Production Leadtime Detail";
             // 
@@ -253,18 +277,16 @@ namespace HI.Track
             this.ogbmainprocbutton.Controls.Add(this.ocmLoadData);
             this.ogbmainprocbutton.Controls.Add(this.ocmExit);
             this.ogbmainprocbutton.Controls.Add(this.ocmClear);
-            this.ogbmainprocbutton.Location = new System.Drawing.Point(29, 521);
-            this.ogbmainprocbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ogbmainprocbutton.Location = new System.Drawing.Point(25, 367);
             this.ogbmainprocbutton.Name = "ogbmainprocbutton";
-            this.ogbmainprocbutton.Size = new System.Drawing.Size(103, 124);
+            this.ogbmainprocbutton.Size = new System.Drawing.Size(88, 101);
             this.ogbmainprocbutton.TabIndex = 0;
             // 
             // ocmLoadData
             // 
-            this.ocmLoadData.Location = new System.Drawing.Point(7, 7);
-            this.ocmLoadData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ocmLoadData.Location = new System.Drawing.Point(6, 6);
             this.ocmLoadData.Name = "ocmLoadData";
-            this.ocmLoadData.Size = new System.Drawing.Size(87, 28);
+            this.ocmLoadData.Size = new System.Drawing.Size(75, 23);
             this.ocmLoadData.TabIndex = 0;
             this.ocmLoadData.Tag = "2|";
             this.ocmLoadData.Text = "Load Data";
@@ -272,10 +294,9 @@ namespace HI.Track
             // 
             // ocmExit
             // 
-            this.ocmExit.Location = new System.Drawing.Point(6, 79);
-            this.ocmExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ocmExit.Location = new System.Drawing.Point(5, 64);
             this.ocmExit.Name = "ocmExit";
-            this.ocmExit.Size = new System.Drawing.Size(87, 28);
+            this.ocmExit.Size = new System.Drawing.Size(75, 23);
             this.ocmExit.TabIndex = 2;
             this.ocmExit.Tag = "2|";
             this.ocmExit.Text = "Exit";
@@ -283,10 +304,9 @@ namespace HI.Track
             // 
             // ocmClear
             // 
-            this.ocmClear.Location = new System.Drawing.Point(7, 43);
-            this.ocmClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ocmClear.Location = new System.Drawing.Point(6, 35);
             this.ocmClear.Name = "ocmClear";
-            this.ocmClear.Size = new System.Drawing.Size(87, 28);
+            this.ocmClear.Size = new System.Drawing.Size(75, 23);
             this.ocmClear.TabIndex = 1;
             this.ocmClear.Tag = "2|";
             this.ocmClear.Text = "Clear";
@@ -295,12 +315,10 @@ namespace HI.Track
             // ogcDetail
             // 
             this.ogcDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ogcDetail.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ogcDetail.Location = new System.Drawing.Point(2, 28);
+            this.ogcDetail.Location = new System.Drawing.Point(2, 23);
             this.ogcDetail.MainView = this.ogvDetail;
-            this.ogcDetail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ogcDetail.Name = "ogcDetail";
-            this.ogcDetail.Size = new System.Drawing.Size(1713, 640);
+            this.ogcDetail.Size = new System.Drawing.Size(1468, 494);
             this.ogcDetail.TabIndex = 0;
             this.ogcDetail.TabStop = false;
             this.ogcDetail.Tag = "2|";
@@ -348,8 +366,7 @@ namespace HI.Track
             this.FTMSCName,
             this.Seqnum,
             this.FNVersion});
-            this.ogvDetail.CustomizationFormBounds = new System.Drawing.Rectangle(759, 412, 294, 327);
-            this.ogvDetail.DetailHeight = 431;
+            this.ogvDetail.CustomizationFormBounds = new System.Drawing.Rectangle(759, 412, 252, 266);
             this.ogvDetail.GridControl = this.ogcDetail;
             this.ogvDetail.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.ogvDetail.Name = "ogvDetail";
@@ -365,13 +382,12 @@ namespace HI.Track
             this.FTSeason.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.FTSeason.Caption = "FTSeason";
             this.FTSeason.FieldName = "FTSeason";
-            this.FTSeason.MinWidth = 23;
             this.FTSeason.Name = "FTSeason";
             this.FTSeason.OptionsColumn.AllowEdit = false;
             this.FTSeason.OptionsColumn.FixedWidth = true;
             this.FTSeason.Visible = true;
             this.FTSeason.VisibleIndex = 0;
-            this.FTSeason.Width = 100;
+            this.FTSeason.Width = 86;
             // 
             // FTDmndSesn
             // 
@@ -379,25 +395,23 @@ namespace HI.Track
             this.FTDmndSesn.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.FTDmndSesn.Caption = "FTDmndSesn";
             this.FTDmndSesn.FieldName = "FTDmndSesn";
-            this.FTDmndSesn.MinWidth = 23;
             this.FTDmndSesn.Name = "FTDmndSesn";
             this.FTDmndSesn.OptionsColumn.AllowEdit = false;
             this.FTDmndSesn.OptionsColumn.FixedWidth = true;
             this.FTDmndSesn.Visible = true;
             this.FTDmndSesn.VisibleIndex = 1;
-            this.FTDmndSesn.Width = 82;
+            this.FTDmndSesn.Width = 70;
             // 
             // FTProdDesc
             // 
             this.FTProdDesc.Caption = "FTProdDesc";
             this.FTProdDesc.FieldName = "FTProdDesc";
-            this.FTProdDesc.MinWidth = 23;
             this.FTProdDesc.Name = "FTProdDesc";
             this.FTProdDesc.OptionsColumn.AllowEdit = false;
             this.FTProdDesc.OptionsColumn.FixedWidth = true;
             this.FTProdDesc.Visible = true;
             this.FTProdDesc.VisibleIndex = 2;
-            this.FTProdDesc.Width = 360;
+            this.FTProdDesc.Width = 309;
             // 
             // FTStyleCode
             // 
@@ -405,13 +419,12 @@ namespace HI.Track
             this.FTStyleCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.FTStyleCode.Caption = "FTStyleCode";
             this.FTStyleCode.FieldName = "FTStyleCode";
-            this.FTStyleCode.MinWidth = 23;
             this.FTStyleCode.Name = "FTStyleCode";
             this.FTStyleCode.OptionsColumn.AllowEdit = false;
             this.FTStyleCode.OptionsColumn.FixedWidth = true;
             this.FTStyleCode.Visible = true;
             this.FTStyleCode.VisibleIndex = 3;
-            this.FTStyleCode.Width = 89;
+            this.FTStyleCode.Width = 76;
             // 
             // FTMerPLT
             // 
@@ -419,13 +432,12 @@ namespace HI.Track
             this.FTMerPLT.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.FTMerPLT.Caption = "FTMerPLT";
             this.FTMerPLT.FieldName = "FTMerPLT";
-            this.FTMerPLT.MinWidth = 23;
             this.FTMerPLT.Name = "FTMerPLT";
             this.FTMerPLT.OptionsColumn.AllowEdit = false;
             this.FTMerPLT.OptionsColumn.FixedWidth = true;
             this.FTMerPLT.Visible = true;
             this.FTMerPLT.VisibleIndex = 4;
-            this.FTMerPLT.Width = 57;
+            this.FTMerPLT.Width = 49;
             // 
             // FTMfgLT
             // 
@@ -435,13 +447,12 @@ namespace HI.Track
             this.FTMfgLT.DisplayFormat.FormatString = "N0";
             this.FTMfgLT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.FTMfgLT.FieldName = "FTMfgLT";
-            this.FTMfgLT.MinWidth = 23;
             this.FTMfgLT.Name = "FTMfgLT";
             this.FTMfgLT.OptionsColumn.AllowEdit = false;
             this.FTMfgLT.OptionsColumn.FixedWidth = true;
             this.FTMfgLT.Visible = true;
             this.FTMfgLT.VisibleIndex = 5;
-            this.FTMfgLT.Width = 50;
+            this.FTMfgLT.Width = 43;
             // 
             // StyleParent
             // 
@@ -451,12 +462,10 @@ namespace HI.Track
             this.StyleParent.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.StyleParent.Caption = "StyleParent";
             this.StyleParent.FieldName = "StyleParent";
-            this.StyleParent.MinWidth = 23;
             this.StyleParent.Name = "StyleParent";
             this.StyleParent.OptionsColumn.AllowEdit = false;
             this.StyleParent.Visible = true;
             this.StyleParent.VisibleIndex = 7;
-            this.StyleParent.Width = 87;
             // 
             // SeasonParent
             // 
@@ -466,12 +475,10 @@ namespace HI.Track
             this.SeasonParent.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.SeasonParent.Caption = "SeasonParent";
             this.SeasonParent.FieldName = "SeasonParent";
-            this.SeasonParent.MinWidth = 23;
             this.SeasonParent.Name = "SeasonParent";
             this.SeasonParent.OptionsColumn.AllowEdit = false;
             this.SeasonParent.Visible = true;
             this.SeasonParent.VisibleIndex = 6;
-            this.SeasonParent.Width = 87;
             // 
             // FTMSCCode
             // 
@@ -479,12 +486,10 @@ namespace HI.Track
             this.FTMSCCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.FTMSCCode.Caption = "FTMSCCode";
             this.FTMSCCode.FieldName = "FTMSCCode";
-            this.FTMSCCode.MinWidth = 23;
             this.FTMSCCode.Name = "FTMSCCode";
             this.FTMSCCode.OptionsColumn.AllowEdit = false;
             this.FTMSCCode.Visible = true;
             this.FTMSCCode.VisibleIndex = 8;
-            this.FTMSCCode.Width = 87;
             // 
             // CBDQuoteStatus
             // 
@@ -492,13 +497,12 @@ namespace HI.Track
             this.CBDQuoteStatus.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.CBDQuoteStatus.Caption = "CBDQuoteStatus";
             this.CBDQuoteStatus.FieldName = "CBDQuoteStatus";
-            this.CBDQuoteStatus.MinWidth = 23;
             this.CBDQuoteStatus.Name = "CBDQuoteStatus";
             this.CBDQuoteStatus.OptionsColumn.AllowEdit = false;
             this.CBDQuoteStatus.OptionsColumn.FixedWidth = true;
             this.CBDQuoteStatus.Visible = true;
             this.CBDQuoteStatus.VisibleIndex = 12;
-            this.CBDQuoteStatus.Width = 82;
+            this.CBDQuoteStatus.Width = 70;
             // 
             // TeamMulti
             // 
@@ -506,13 +510,12 @@ namespace HI.Track
             this.TeamMulti.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.TeamMulti.Caption = "TeamMulti";
             this.TeamMulti.FieldName = "TeamMulti";
-            this.TeamMulti.MinWidth = 23;
             this.TeamMulti.Name = "TeamMulti";
             this.TeamMulti.OptionsColumn.AllowEdit = false;
             this.TeamMulti.OptionsColumn.FixedWidth = true;
             this.TeamMulti.Visible = true;
             this.TeamMulti.VisibleIndex = 13;
-            this.TeamMulti.Width = 82;
+            this.TeamMulti.Width = 70;
             // 
             // ItemVender
             // 
@@ -521,12 +524,11 @@ namespace HI.Track
             this.ItemVender.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.ItemVender.Caption = "ItemVender";
             this.ItemVender.FieldName = "ItemVender";
-            this.ItemVender.MinWidth = 23;
             this.ItemVender.Name = "ItemVender";
             this.ItemVender.OptionsColumn.AllowEdit = false;
             this.ItemVender.Visible = true;
             this.ItemVender.VisibleIndex = 14;
-            this.ItemVender.Width = 157;
+            this.ItemVender.Width = 135;
             // 
             // Countryoforigin
             // 
@@ -534,13 +536,12 @@ namespace HI.Track
             this.Countryoforigin.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.Countryoforigin.Caption = "Countryoforigin";
             this.Countryoforigin.FieldName = "Countryoforigin";
-            this.Countryoforigin.MinWidth = 23;
             this.Countryoforigin.Name = "Countryoforigin";
             this.Countryoforigin.OptionsColumn.AllowEdit = false;
             this.Countryoforigin.OptionsColumn.FixedWidth = true;
             this.Countryoforigin.Visible = true;
             this.Countryoforigin.VisibleIndex = 15;
-            this.Countryoforigin.Width = 86;
+            this.Countryoforigin.Width = 74;
             // 
             // CMP
             // 
@@ -548,13 +549,12 @@ namespace HI.Track
             this.CMP.DisplayFormat.FormatString = "N2";
             this.CMP.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.CMP.FieldName = "CMP";
-            this.CMP.MinWidth = 23;
             this.CMP.Name = "CMP";
             this.CMP.OptionsColumn.AllowEdit = false;
             this.CMP.OptionsColumn.FixedWidth = true;
             this.CMP.Visible = true;
             this.CMP.VisibleIndex = 16;
-            this.CMP.Width = 55;
+            this.CMP.Width = 47;
             // 
             // MerCode
             // 
@@ -562,12 +562,10 @@ namespace HI.Track
             this.MerCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.MerCode.Caption = "MerCode";
             this.MerCode.FieldName = "MerCode";
-            this.MerCode.MinWidth = 23;
             this.MerCode.Name = "MerCode";
             this.MerCode.OptionsColumn.AllowEdit = false;
             this.MerCode.Visible = true;
             this.MerCode.VisibleIndex = 10;
-            this.MerCode.Width = 87;
             // 
             // FTUserDescription
             // 
@@ -575,13 +573,12 @@ namespace HI.Track
             this.FTUserDescription.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.FTUserDescription.Caption = "FTUserDescription";
             this.FTUserDescription.FieldName = "FTUserDescription";
-            this.FTUserDescription.MinWidth = 23;
             this.FTUserDescription.Name = "FTUserDescription";
             this.FTUserDescription.OptionsColumn.AllowEdit = false;
             this.FTUserDescription.OptionsColumn.FixedWidth = true;
             this.FTUserDescription.Visible = true;
             this.FTUserDescription.VisibleIndex = 11;
-            this.FTUserDescription.Width = 164;
+            this.FTUserDescription.Width = 141;
             // 
             // Factory
             // 
@@ -589,13 +586,12 @@ namespace HI.Track
             this.Factory.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.Factory.Caption = "Factory";
             this.Factory.FieldName = "Factory";
-            this.Factory.MinWidth = 23;
             this.Factory.Name = "Factory";
             this.Factory.OptionsColumn.AllowEdit = false;
             this.Factory.OptionsColumn.FixedWidth = true;
             this.Factory.Visible = true;
             this.Factory.VisibleIndex = 9;
-            this.Factory.Width = 79;
+            this.Factory.Width = 68;
             // 
             // FinalFOB
             // 
@@ -603,12 +599,11 @@ namespace HI.Track
             this.FinalFOB.DisplayFormat.FormatString = "N2";
             this.FinalFOB.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.FinalFOB.FieldName = "FinalFOB";
-            this.FinalFOB.MinWidth = 23;
             this.FinalFOB.Name = "FinalFOB";
             this.FinalFOB.OptionsColumn.AllowEdit = false;
             this.FinalFOB.Visible = true;
             this.FinalFOB.VisibleIndex = 17;
-            this.FinalFOB.Width = 62;
+            this.FinalFOB.Width = 53;
             // 
             // FNExtendedFOB
             // 
@@ -616,13 +611,12 @@ namespace HI.Track
             this.FNExtendedFOB.DisplayFormat.FormatString = "N2";
             this.FNExtendedFOB.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.FNExtendedFOB.FieldName = "FNExtendedFOB";
-            this.FNExtendedFOB.MinWidth = 23;
             this.FNExtendedFOB.Name = "FNExtendedFOB";
             this.FNExtendedFOB.OptionsColumn.AllowEdit = false;
             this.FNExtendedFOB.OptionsColumn.FixedWidth = true;
             this.FNExtendedFOB.Visible = true;
             this.FNExtendedFOB.VisibleIndex = 18;
-            this.FNExtendedFOB.Width = 50;
+            this.FNExtendedFOB.Width = 43;
             // 
             // FNL4Country1
             // 
@@ -632,13 +626,12 @@ namespace HI.Track
             this.FNL4Country1.DisplayFormat.FormatString = "N2";
             this.FNL4Country1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.FNL4Country1.FieldName = "FNL4Country1";
-            this.FNL4Country1.MinWidth = 23;
             this.FNL4Country1.Name = "FNL4Country1";
             this.FNL4Country1.OptionsColumn.AllowEdit = false;
             this.FNL4Country1.OptionsColumn.FixedWidth = true;
             this.FNL4Country1.Visible = true;
             this.FNL4Country1.VisibleIndex = 19;
-            this.FNL4Country1.Width = 63;
+            this.FNL4Country1.Width = 54;
             // 
             // FNL4Country1Exc
             // 
@@ -646,13 +639,12 @@ namespace HI.Track
             this.FNL4Country1Exc.DisplayFormat.FormatString = "N4";
             this.FNL4Country1Exc.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.FNL4Country1Exc.FieldName = "FNL4Country1Exc";
-            this.FNL4Country1Exc.MinWidth = 23;
             this.FNL4Country1Exc.Name = "FNL4Country1Exc";
             this.FNL4Country1Exc.OptionsColumn.AllowEdit = false;
             this.FNL4Country1Exc.OptionsColumn.FixedWidth = true;
             this.FNL4Country1Exc.Visible = true;
             this.FNL4Country1Exc.VisibleIndex = 20;
-            this.FNL4Country1Exc.Width = 71;
+            this.FNL4Country1Exc.Width = 61;
             // 
             // FNL4Country1Final
             // 
@@ -660,13 +652,12 @@ namespace HI.Track
             this.FNL4Country1Final.DisplayFormat.FormatString = "N2";
             this.FNL4Country1Final.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.FNL4Country1Final.FieldName = "FNL4Country1Final";
-            this.FNL4Country1Final.MinWidth = 23;
             this.FNL4Country1Final.Name = "FNL4Country1Final";
             this.FNL4Country1Final.OptionsColumn.AllowEdit = false;
             this.FNL4Country1Final.OptionsColumn.FixedWidth = true;
             this.FNL4Country1Final.Visible = true;
             this.FNL4Country1Final.VisibleIndex = 21;
-            this.FNL4Country1Final.Width = 69;
+            this.FNL4Country1Final.Width = 59;
             // 
             // FNL4Country1Extended
             // 
@@ -674,13 +665,12 @@ namespace HI.Track
             this.FNL4Country1Extended.DisplayFormat.FormatString = "N2";
             this.FNL4Country1Extended.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.FNL4Country1Extended.FieldName = "FNL4Country1Extended";
-            this.FNL4Country1Extended.MinWidth = 23;
             this.FNL4Country1Extended.Name = "FNL4Country1Extended";
             this.FNL4Country1Extended.OptionsColumn.AllowEdit = false;
             this.FNL4Country1Extended.OptionsColumn.FixedWidth = true;
             this.FNL4Country1Extended.Visible = true;
             this.FNL4Country1Extended.VisibleIndex = 22;
-            this.FNL4Country1Extended.Width = 78;
+            this.FNL4Country1Extended.Width = 67;
             // 
             // FNL4Country2
             // 
@@ -688,13 +678,12 @@ namespace HI.Track
             this.FNL4Country2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.FNL4Country2.Caption = "FNL4Country2";
             this.FNL4Country2.FieldName = "FNL4Country2";
-            this.FNL4Country2.MinWidth = 23;
             this.FNL4Country2.Name = "FNL4Country2";
             this.FNL4Country2.OptionsColumn.AllowEdit = false;
             this.FNL4Country2.OptionsColumn.FixedWidth = true;
             this.FNL4Country2.Visible = true;
             this.FNL4Country2.VisibleIndex = 23;
-            this.FNL4Country2.Width = 76;
+            this.FNL4Country2.Width = 65;
             // 
             // FNL4Country2Exc
             // 
@@ -702,12 +691,11 @@ namespace HI.Track
             this.FNL4Country2Exc.DisplayFormat.FormatString = "N4";
             this.FNL4Country2Exc.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.FNL4Country2Exc.FieldName = "FNL4Country2Exc";
-            this.FNL4Country2Exc.MinWidth = 23;
             this.FNL4Country2Exc.Name = "FNL4Country2Exc";
             this.FNL4Country2Exc.OptionsColumn.AllowEdit = false;
             this.FNL4Country2Exc.Visible = true;
             this.FNL4Country2Exc.VisibleIndex = 24;
-            this.FNL4Country2Exc.Width = 79;
+            this.FNL4Country2Exc.Width = 68;
             // 
             // FNL4Country2Final
             // 
@@ -715,13 +703,12 @@ namespace HI.Track
             this.FNL4Country2Final.DisplayFormat.FormatString = "N2";
             this.FNL4Country2Final.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.FNL4Country2Final.FieldName = "FNL4Country2Final";
-            this.FNL4Country2Final.MinWidth = 23;
             this.FNL4Country2Final.Name = "FNL4Country2Final";
             this.FNL4Country2Final.OptionsColumn.AllowEdit = false;
             this.FNL4Country2Final.OptionsColumn.FixedWidth = true;
             this.FNL4Country2Final.Visible = true;
             this.FNL4Country2Final.VisibleIndex = 25;
-            this.FNL4Country2Final.Width = 71;
+            this.FNL4Country2Final.Width = 61;
             // 
             // FNL4Country2Extended
             // 
@@ -729,12 +716,12 @@ namespace HI.Track
             this.FNL4Country2Extended.DisplayFormat.FormatString = "N2";
             this.FNL4Country2Extended.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.FNL4Country2Extended.FieldName = "FNL4Country2Extended";
-            this.FNL4Country2Extended.MinWidth = 23;
             this.FNL4Country2Extended.Name = "FNL4Country2Extended";
             this.FNL4Country2Extended.OptionsColumn.AllowEdit = false;
             this.FNL4Country2Extended.OptionsColumn.FixedWidth = true;
             this.FNL4Country2Extended.Visible = true;
             this.FNL4Country2Extended.VisibleIndex = 26;
+            this.FNL4Country2Extended.Width = 64;
             // 
             // FNL4Country3
             // 
@@ -742,13 +729,12 @@ namespace HI.Track
             this.FNL4Country3.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.FNL4Country3.Caption = "FNL4Country3";
             this.FNL4Country3.FieldName = "FNL4Country3";
-            this.FNL4Country3.MinWidth = 23;
             this.FNL4Country3.Name = "FNL4Country3";
             this.FNL4Country3.OptionsColumn.AllowEdit = false;
             this.FNL4Country3.OptionsColumn.FixedWidth = true;
             this.FNL4Country3.Visible = true;
             this.FNL4Country3.VisibleIndex = 28;
-            this.FNL4Country3.Width = 78;
+            this.FNL4Country3.Width = 67;
             // 
             // FNL4Country3Exc
             // 
@@ -756,13 +742,12 @@ namespace HI.Track
             this.FNL4Country3Exc.DisplayFormat.FormatString = "N4";
             this.FNL4Country3Exc.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.FNL4Country3Exc.FieldName = "FNL4Country3Exc";
-            this.FNL4Country3Exc.MinWidth = 23;
             this.FNL4Country3Exc.Name = "FNL4Country3Exc";
             this.FNL4Country3Exc.OptionsColumn.AllowEdit = false;
             this.FNL4Country3Exc.OptionsColumn.FixedWidth = true;
             this.FNL4Country3Exc.Visible = true;
             this.FNL4Country3Exc.VisibleIndex = 27;
-            this.FNL4Country3Exc.Width = 84;
+            this.FNL4Country3Exc.Width = 72;
             // 
             // FNL4Country3Final
             // 
@@ -770,12 +755,12 @@ namespace HI.Track
             this.FNL4Country3Final.DisplayFormat.FormatString = "N2";
             this.FNL4Country3Final.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.FNL4Country3Final.FieldName = "FNL4Country3Final";
-            this.FNL4Country3Final.MinWidth = 23;
             this.FNL4Country3Final.Name = "FNL4Country3Final";
             this.FNL4Country3Final.OptionsColumn.AllowEdit = false;
             this.FNL4Country3Final.OptionsColumn.FixedWidth = true;
             this.FNL4Country3Final.Visible = true;
             this.FNL4Country3Final.VisibleIndex = 29;
+            this.FNL4Country3Final.Width = 64;
             // 
             // FNL4Country3Extended
             // 
@@ -783,13 +768,12 @@ namespace HI.Track
             this.FNL4Country3Extended.DisplayFormat.FormatString = "N2";
             this.FNL4Country3Extended.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.FNL4Country3Extended.FieldName = "FNL4Country3Extended";
-            this.FNL4Country3Extended.MinWidth = 23;
             this.FNL4Country3Extended.Name = "FNL4Country3Extended";
             this.FNL4Country3Extended.OptionsColumn.AllowEdit = false;
             this.FNL4Country3Extended.OptionsColumn.FixedWidth = true;
             this.FNL4Country3Extended.Visible = true;
             this.FNL4Country3Extended.VisibleIndex = 30;
-            this.FNL4Country3Extended.Width = 77;
+            this.FNL4Country3Extended.Width = 66;
             // 
             // FTCostSheetNo
             // 
@@ -797,10 +781,10 @@ namespace HI.Track
             this.FTCostSheetNo.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.FTCostSheetNo.Caption = "FTCostSheetNo";
             this.FTCostSheetNo.FieldName = "FTCostSheetNo";
-            this.FTCostSheetNo.MinWidth = 23;
             this.FTCostSheetNo.Name = "FTCostSheetNo";
             this.FTCostSheetNo.OptionsColumn.AllowEdit = false;
-            this.FTCostSheetNo.Width = 87;
+            this.FTCostSheetNo.Visible = true;
+            this.FTCostSheetNo.VisibleIndex = 32;
             // 
             // FTMerTeamName
             // 
@@ -808,11 +792,10 @@ namespace HI.Track
             this.FTMerTeamName.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.FTMerTeamName.Caption = "FTMerTeamName";
             this.FTMerTeamName.FieldName = "FTMerTeamName";
-            this.FTMerTeamName.MinWidth = 23;
             this.FTMerTeamName.Name = "FTMerTeamName";
             this.FTMerTeamName.OptionsColumn.AllowEdit = false;
             this.FTMerTeamName.OptionsColumn.FixedWidth = true;
-            this.FTMerTeamName.Width = 140;
+            this.FTMerTeamName.Width = 120;
             // 
             // FTMSCName
             // 
@@ -820,40 +803,42 @@ namespace HI.Track
             this.FTMSCName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.FTMSCName.Caption = "FTMSCName";
             this.FTMSCName.FieldName = "FTMSCName";
-            this.FTMSCName.MinWidth = 23;
             this.FTMSCName.Name = "FTMSCName";
             this.FTMSCName.OptionsColumn.AllowEdit = false;
             this.FTMSCName.OptionsColumn.FixedWidth = true;
-            this.FTMSCName.Width = 82;
+            this.FTMSCName.Width = 70;
             // 
             // Seqnum
             // 
             this.Seqnum.Caption = "Seqnum";
             this.Seqnum.FieldName = "Seqnum";
-            this.Seqnum.MinWidth = 23;
             this.Seqnum.Name = "Seqnum";
             this.Seqnum.OptionsColumn.AllowEdit = false;
-            this.Seqnum.Width = 87;
+            this.Seqnum.OptionsColumn.ReadOnly = true;
+            this.Seqnum.Visible = true;
+            this.Seqnum.VisibleIndex = 33;
             // 
             // FNVersion
             // 
+            this.FNVersion.AppearanceCell.Options.UseTextOptions = true;
+            this.FNVersion.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.FNVersion.AppearanceHeader.Options.UseTextOptions = true;
+            this.FNVersion.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.FNVersion.Caption = "FNVersion";
             this.FNVersion.FieldName = "FNVersion";
-            this.FNVersion.MinWidth = 25;
+            this.FNVersion.MinWidth = 21;
             this.FNVersion.Name = "FNVersion";
             this.FNVersion.OptionsColumn.AllowEdit = false;
             this.FNVersion.Visible = true;
             this.FNVersion.VisibleIndex = 31;
-            this.FNVersion.Width = 87;
             // 
             // wProdLTTracking
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1730, 782);
+            this.ClientSize = new System.Drawing.Size(1483, 635);
             this.Controls.Add(this.ogbDetail);
             this.Controls.Add(this.ogcCriteria);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "wProdLTTracking";
             this.Text = "wProdLTTracking";
             ((System.ComponentModel.ISupportInitialize)(this.ogcCriteria)).EndInit();
@@ -926,5 +911,7 @@ namespace HI.Track
         private DevExpress.XtraGrid.Columns.GridColumn FinalFOB;
         private DevExpress.XtraGrid.Columns.GridColumn Seqnum;
         private DevExpress.XtraGrid.Columns.GridColumn FNVersion;
+        internal DevExpress.XtraEditors.LabelControl lbRemarkQCRMDS;
+        internal DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

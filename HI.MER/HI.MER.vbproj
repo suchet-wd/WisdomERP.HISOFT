@@ -471,6 +471,12 @@
     <Compile Include="SampleRoom\wCloseSMPOrder.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SampleRoom\wSMPCreateOrderSample.Designer.vb">
+      <DependentUpon>wSMPCreateOrderSample.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SampleRoom\wSMPCreateOrderSample.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SampleRoom\wSMPManageOrderAddItemMaster.Designer.vb">
       <DependentUpon>wSMPManageOrderAddItemMaster.vb</DependentUpon>
     </Compile>
@@ -1167,6 +1173,9 @@
     <EmbeddedResource Include="SampleRoom\wCloseSMPOrder.resx">
       <DependentUpon>wCloseSMPOrder.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SampleRoom\wSMPCreateOrderSample.resx">
+      <DependentUpon>wSMPCreateOrderSample.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SampleRoom\wSMPManageOrderAddItemMaster.resx">
       <DependentUpon>wSMPManageOrderAddItemMaster.vb</DependentUpon>
     </EmbeddedResource>
@@ -1511,6 +1520,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Import\BOMDev\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>

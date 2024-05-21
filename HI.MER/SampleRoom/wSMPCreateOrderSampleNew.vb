@@ -6,7 +6,7 @@ Imports System.IO
 
 Public Class wSMPCreateOrderSampleNew
 
-    Private Const _DBEnum As Integer = HI.Conn.DB.DataBaseName.DB_PUR
+    Private Const _DBEnum As Integer = HI.Conn.DB.DataBaseName.DB_SAMPLE
     Private _Bindgrid As Boolean = False
     Private _RowDcng As Boolean = False
     Private _FormHeader As New List(Of HI.TL.DynamicForm)()
@@ -513,19 +513,11 @@ Public Class wSMPCreateOrderSampleNew
                             End With
                         Case ENM.Control.ControlType.ComboBoxEdit
                             With CType(Obj, DevExpress.XtraEditors.ComboBoxEdit)
-                                Try
-                                    ' .SelectedIndex = Val(R.Item(Col).ToString)
-
-                                    If "" & .Properties.Tag.ToString <> "" Then
-                                        .SelectedIndex = HI.TL.CboList.GetIndexByValue(.Properties.Tag.ToString, Val(R.Item(Col).ToString))
-                                    Else
-                                        .SelectedIndex = Val(R.Item(Col).ToString)
-
-                                    End If
-
-                                Catch ex As Exception
+                                If "" & .Properties.Tag.ToString <> "" Then
+                                    .SelectedIndex = HI.TL.CboList.GetIndexByValue(.Properties.Tag.ToString, Val(R.Item(Col).ToString))
+                                Else
                                     .SelectedIndex = -1
-                                End Try
+                                End If
                             End With
                         Case ENM.Control.ControlType.CheckEdit
                             With CType(Obj, DevExpress.XtraEditors.CheckEdit)
@@ -1110,7 +1102,7 @@ Public Class wSMPCreateOrderSampleNew
 
             Dim PTNo As Integer = 0
 
-            cmdstring = "Select  Sum(1) As FNPTNo from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPOrder AS X WITH(NOLOCK) WHERE  FNHSysStyleId =" & Val(FNHSysStyleId.Properties.Tag.ToString) & " ANd FNHSysSeasonId =" & Val(FNHSysSeasonId.Properties.Tag.ToString) & ""
+            cmdstring = "Select  Sum(1) As FNPTNo from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPOrder AS X WITH(NOLOCK) WHERE  FNHSysStyleId =" & Val(FNHSysStyleId.Properties.Tag.ToString) & " ANd FNHSysSeasonId =" & Val(FNHSysSeasonId.Properties.Tag.ToString) & " and FNSMPOrderType=" & HI.TL.CboList.GetListValue(FNSMPOrderType.Properties.Tag.ToString, FNSMPOrderType.SelectedIndex)
 
             PTNo = (Val(HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE, "0")) + 1)
 
@@ -1120,11 +1112,17 @@ Public Class wSMPCreateOrderSampleNew
 
             FNSMPPrototypeNo.Value = PTNo
 
-            Dim pValueSTO As String = HI.TL.CboList.GetListValue(FNSMPOrderType.Properties.Tag.ToString, FNSMPOrderType.SelectedIndex)
-            If Val(pValueSTO) = 29 Then
-                _Key = HI.TL.Document.GetDocumentNo(Me.SysDBName, Me.SysTableName, pValueSTO, False, _CmpH).ToString
-            Else
-                _Key = HI.TL.Document.GetDocumentNo(Me.SysDBName, Me.SysTableName, "", False, _CmpH).ToString
+            'If FNSMPOrderType.SelectedIndex = 29 Then
+            '    _Key = HI.TL.Document.GetDocumentNo(Me.SysDBName, Me.SysTableName, "29", False, _CmpH).ToString
+            'Else
+            '    _Key = HI.TL.Document.GetDocumentNo(Me.SysDBName, Me.SysTableName, "", False, _CmpH).ToString
+            'End If
+
+
+            _Key = HI.TL.Document.GetDocumentNo(HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE), "TSMPOrder", HI.TL.CboList.GetListValue(FNSMPOrderType.Properties.Tag.ToString, FNSMPOrderType.SelectedIndex), False, _CmpH).ToString
+            If _Key = "" Then
+                _Key = HI.TL.Document.GetDocumentNo(HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE), "TSMPOrder", "", False, _CmpH).ToString
+
             End If
 
         End If
@@ -1167,16 +1165,11 @@ Public Class wSMPCreateOrderSampleNew
                                     Case ENM.Control.ControlType.ComboBoxEdit
 
                                         With CType(Obj, DevExpress.XtraEditors.ComboBoxEdit)
-                                            '  _Val = .SelectedIndex.ToString
-
-                                            With CType(Obj, DevExpress.XtraEditors.ComboBoxEdit)
-                                                If "" & .Properties.Tag.ToString <> "" Then
-                                                    _Val = HI.TL.CboList.GetListValue(.Properties.Tag.ToString, .SelectedIndex)
-                                                Else
-                                                    _Val = .SelectedIndex.ToString
-                                                End If
-                                            End With
-
+                                            If "" & .Properties.Tag.ToString <> "" Then
+                                                _Val = HI.TL.CboList.GetListValue(.Properties.Tag.ToString, .SelectedIndex)
+                                            Else
+                                                _Val = .SelectedIndex.ToString
+                                            End If
                                         End With
                                     Case ENM.Control.ControlType.CheckEdit
 
@@ -1605,7 +1598,7 @@ Public Class wSMPCreateOrderSampleNew
                             _Qry = " INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder_SetPart"
                             _Qry &= vbCrLf & " (FTInsUser, FDInsDate, FTInsTime, FTSMPOrderNo, FNHSysPartId, FTStateEmb, FTStatePrint, FTStateHeat, FTStateLaser,FTStateWindows "
                             _Qry &= vbCrLf & ", FTEmbNote, FTPrintNote , FTHeatNote, FTLaserNote"
-                            _Qry &= vbCrLf & ", FTWindowsNote"
+                            _Qry &= vbCrLf & ", FTWindowsNote "
 
 
                             _Qry &= vbCrLf & ")"
@@ -1793,19 +1786,11 @@ Public Class wSMPCreateOrderSampleNew
                             End With
                         Case ENM.Control.ControlType.ComboBoxEdit
                             With CType(Obj, DevExpress.XtraEditors.ComboBoxEdit)
-                                Try
-                                    ' .SelectedIndex = Val(R.Item(Col).ToString)
-
-                                    If "" & .Properties.Tag.ToString <> "" Then
-                                        .SelectedIndex = HI.TL.CboList.GetIndexByValue(.Properties.Tag.ToString, Val(R.Item(Col).ToString))
-                                    Else
-                                        .SelectedIndex = Val(R.Item(Col).ToString)
-
-                                    End If
-
-                                Catch ex As Exception
+                                If "" & .Properties.Tag.ToString <> "" Then
+                                    .SelectedIndex = HI.TL.CboList.GetIndexByValue(.Properties.Tag.ToString, Val(R.Item(Col).ToString))
+                                Else
                                     .SelectedIndex = -1
-                                End Try
+                                End If
                             End With
                         Case ENM.Control.ControlType.CheckEdit
                             With CType(Obj, DevExpress.XtraEditors.CheckEdit)
@@ -2124,49 +2109,77 @@ Public Class wSMPCreateOrderSampleNew
         cmd &= vbCrLf & "Select P.FNHSysPartId,A.FTPartCode"
 
         If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
+
             cmd &= vbCrLf & ",A.FTPartNameTH As FTPartName"
+
         Else
+
             cmd &= vbCrLf & ",A.FTPartNameEN As FTPartName"
+
         End If
 
-        cmd &= vbCrLf & " , P.FNMat, P.FNMatSeq"
+        cmd &= vbCrLf & " ,P.FNMat,P.FNMatSeq"
         cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder_MatPart As P With(NOLOCK) "
-        cmd &= vbCrLf & " INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMPart As A With(NOLOCK) On P.FNHSysPartId= A.FNHSysPartId"
+        cmd &= vbCrLf & "       INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMPart As A With(NOLOCK) On P.FNHSysPartId= A.FNHSysPartId"
         cmd &= vbCrLf & " WHERE P.FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(_DocRefNo) & "' AND P.FNMatSeq > 0"
-        cmd &= vbCrLf & " INSERT INTO @AccPartinfo(FTMat,FNMatSeq, FTPart, FNAllPart)  "
-        cmd &= vbCrLf & " Select FNMat, FNMatSeq "
-        cmd &= vbCrLf & " , ISNULL(( "
-        cmd &= vbCrLf & " Select  STUFF((Select  ',' + FTPartName From ( SELECT Distinct FTPartName From  @MainPart  As XX  "
-        cmd &= vbCrLf & " where (XX.FNMat=A.FNMat) AND XX.FNMatSeq = A.FNMatSeq ) As T  "
-        cmd &= vbCrLf & " For Xml PATH(''), TYPE ).value('.', 'NVARCHAR(MAX)'),1,1,'') ), '') AS FTPart "
-        cmd &= vbCrLf & " , ISNULL(( Select  STUFF((Select  ',' + FNHSysPartId  "
-        cmd &= vbCrLf & " From (SELECT Distinct Convert(varchar(30),FNHSysPartId)  as FNHSysPartId "
-        cmd &= vbCrLf & " From  @MainPart  As XX  "
-        cmd &= vbCrLf & " where (XX.FNMat=A.FNMat) AND XX.FNMatSeq =A.FNMatSeq "
-        cmd &= vbCrLf & " ) As T  "
-        cmd &= vbCrLf & " For Xml PATH(''), TYPE ).value('.', 'NVARCHAR(MAX)'),1,1,'') ),'') AS FNAllPart  "
-        cmd &= vbCrLf & " From @MainPart  AS A "
+        cmd &= vbCrLf & "  INSERT INTO @AccPartinfo(FTMat,FNMatSeq, FTPart, FNAllPart)  "
+        cmd &= vbCrLf & " Select  FNMat,FNMatSeq "
+        cmd &= vbCrLf & " , ISNULL((   "
+        cmd &= vbCrLf & "  Select  STUFF((Select  ',' + FTPartName  "
+        cmd &= vbCrLf & "   From(SELECT      Distinct FTPartName "
+        cmd &= vbCrLf & "   From  @MainPart  As XX    "
+        cmd &= vbCrLf & " where     (XX.FNMat=A.FNMat)  AND XX.FNMatSeq =A.FNMatSeq "
+        cmd &= vbCrLf & "   ) As T  "
+        cmd &= vbCrLf & "	For Xml PATH(''), TYPE ).value('.', 'NVARCHAR(MAX)'),1,1,'')  "
+        cmd &= vbCrLf & "),'')    AS FTPart  "
+        cmd &= vbCrLf & " , ISNULL((   "
+        cmd &= vbCrLf & "  Select  STUFF((Select  ',' + FNHSysPartId  "
+        cmd &= vbCrLf & "   From(SELECT      Distinct Convert(varchar(30),FNHSysPartId)  as FNHSysPartId "
+        cmd &= vbCrLf & "   From  @MainPart  As XX  "
+        cmd &= vbCrLf & "    where     (XX.FNMat=A.FNMat) AND XX.FNMatSeq =A.FNMatSeq "
+        cmd &= vbCrLf & "   ) As T  "
+        cmd &= vbCrLf & "	For Xml PATH(''), TYPE ).value('.', 'NVARCHAR(MAX)'),1,1,'')  "
+        cmd &= vbCrLf & "),'')    AS FNAllPart  "
+        cmd &= vbCrLf & "   From @MainPart  AS A   "
         cmd &= vbCrLf & " GROUP BY FNMat,FNMatSeq "
 
-        cmd &= vbCrLf & " Select  '0' As FTSelect,Row_NUmber() over (Order By X2.FNMatSeq) As FNMatSeq "
-        cmd &= vbCrLf & " , X2.FTMat"
+        cmd &= vbCrLf & "  Select  '0' As FTSelect,Row_NUmber() over (Order By X2.FNMatSeq) As FNMatSeq "
+        cmd &= vbCrLf & "    , X2.FTMat"
         'cmd &= vbCrLf & "    , X2.FTMatName"
-        cmd &= vbCrLf & " , ISNULL(MMX.FTRawMatName,'') AS FTMatName, X2.FTMatColor, X2.FTMatColorName"
-        cmd &= vbCrLf & " , X2.FTMatSize, X2.FNMatQuantity, X2.FNConSump"
-        cmd &= vbCrLf & " , ISNULL(U.FTUnitCode,'') AS FNHSysUnitId, X2.FNHSysUnitId AS FNHSysUnitId_Hide"
-        cmd &= vbCrLf & " , ISNULL(SPL.FTSuplCode,'')  AS FNHSysSuplId, ISNULL(X2.FNHSysSuplId,0)  AS FNHSysSuplId_Hide "
-        cmd &= vbCrLf & " , ISNULL(X2.FTRemark,'') AS FTRemark, ISNULL(Z.FTPart,'') AS FTPart, ISNULL(Z.FNAllPart,'')  AS FNAllPart "
-        cmd &= vbCrLf & " , MMX.FTItemDataRef AS FTItemDataRef, X2.FNHSysRawmatId  AS FNHSysRawmatId_Hide,X2.FTColorway,X2.FTMatPart "
+        cmd &= vbCrLf & "    ,  ISNULL(MMX.FTRawMatName,'') AS FTMatName"
+
+        cmd &= vbCrLf & "    , X2.FTMatColor"
+        cmd &= vbCrLf & "    , X2.FTMatColorName"
+        cmd &= vbCrLf & "    , X2.FTMatSize"
+        cmd &= vbCrLf & "    , X2.FNMatQuantity,X2.FNConSump"
+        cmd &= vbCrLf & "    , ISNULL(U.FTUnitCode,'') AS FNHSysUnitId"
+        cmd &= vbCrLf & "    , X2.FNHSysUnitId AS FNHSysUnitId_Hide"
+
+        cmd &= vbCrLf & "    , ISNULL(SPL.FTSuplCode,'')  AS FNHSysSuplId "
+        cmd &= vbCrLf & "    , ISNULL(X2.FNHSysSuplId,0)  AS FNHSysSuplId_Hide "
+
+        cmd &= vbCrLf & "    , ISNULL(X2.FTRemark,'') AS FTRemark "
+
+        cmd &= vbCrLf & "    , ISNULL(Z.FTPart,'') AS FTPart "
+        cmd &= vbCrLf & "    , ISNULL(Z.FNAllPart,'')  AS FNAllPart "
+
+        cmd &= vbCrLf & "    , MMX.FTItemDataRef AS FTItemDataRef "
+        cmd &= vbCrLf & "    , X2.FNHSysRawmatId  AS FNHSysRawmatId_Hide,X2.FTColorway,X2.FTMatPart"
+        cmd &= vbCrLf & "    , ISNULL(SC.FTFabricFrontSize,'') AS 'FabricWidth'"
 
         cmd &= vbCrLf & " FROM  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPOrder_MatList AS X2 WITH(NOLOCK)"
         cmd &= vbCrLf & " LEFT Outer join " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TCNMUnit AS U WITH(NOLOCK)  ON X2.FNHSysUnitId = U.FNHSysUnitId "
-        cmd &= vbCrLf & " LEFT Outer join  @AccPartinfo as Z ON X2.FTMat = Z.FTMat   AND X2.FNMatSeq=Z.FNMatSeq    "
-        cmd &= vbCrLf & " LEFT Outer join  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TCNMSupplier AS SPL WITH(NOLOCK)  ON X2.FNHSysSuplId = SPL.FNHSysSuplId "
+        cmd &= vbCrLf & "  LEFT Outer join  @AccPartinfo as Z ON X2.FTMat = Z.FTMat   AND X2.FNMatSeq=Z.FNMatSeq    "
+        cmd &= vbCrLf & "  LEFT Outer join  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TCNMSupplier AS SPL WITH(NOLOCK)  ON X2.FNHSysSuplId = SPL.FNHSysSuplId "
         cmd &= vbCrLf & " OUTER APPLY (Select  TOP 1   H.FTRawMatNameEN AS FTRawMatName ,  H.FTRawMatCode + '|'+  ISNULL(C.FTRawMatColorCode,'') +'|' + ISNULL(S.FTRawMatSizeCode,'') AS FTItemDataRef "
-        cmd &= vbCrLf & " From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMaterial As H With (NOLOCK) LEFT OUTER Join"
-        cmd &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMatSize AS S WITH (NOLOCK) ON H.FNHSysRawMatSizeId = S.FNHSysRawMatSizeId LEFT OUTER Join"
-        cmd &= vbCrLf & " [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMatColor As C With (NOLOCK) On H.FNHSysRawMatColorId = C.FNHSysRawMatColorId "
-        cmd &= vbCrLf & " WHERE  H.FNHSysRawMatId =  X2.FNHSysRawmatId  ) AS MMX "
+        cmd &= vbCrLf & "  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMaterial As H With (NOLOCK) LEFT OUTER Join"
+        cmd &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMatSize AS S WITH (NOLOCK) ON H.FNHSysRawMatSizeId = S.FNHSysRawMatSizeId LEFT OUTER Join"
+        cmd &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMatColor As C With (NOLOCK) On H.FNHSysRawMatColorId = C.FNHSysRawMatColorId "
+        cmd &= vbCrLf & "  WHERE  H.FNHSysRawMatId =  X2.FNHSysRawmatId  ) AS MMX "
+
+        cmd &= vbCrLf & "  OUTER APPLY(SELECT SC.FTFabricFrontSize FROM HITECH_PURCHASE.dbo.TPURTOrder_Sourcing AS SC WITH(NOLOCK) "
+        cmd &= vbCrLf & "  WHERE SC.FTOrderNo = X2.FTSMPOrderNo And SC.FNHSysRawMatId = X2.FNHSysRawmatId) AS SC "
+
         cmd &= vbCrLf & " Where X2.FTSMPOrderNo ='" & HI.UL.ULF.rpQuoted(_DocRefNo) & "'"
 
         cmd &= vbCrLf & " ORDER BY X2.FNMatSeq "
@@ -3495,7 +3508,8 @@ Public Class wSMPCreateOrderSampleNew
                 Try
 
                     For Each R As DataRow In dt.Select("FTSelect='1'")
-                        .Rows.Add("0", .Rows.Count + 1, R!FTRawMatCode.ToString, R!FTRawMatNameEN.ToString, R!FTRawMatColorCode.ToString, "", R!FTRawMatSizeCode.ToString, 0, 0, R!FTUnitCode.ToString, Val(R!FNHSysUnitId.ToString), R!FTSuplCode.ToString, Val(R!FNHSysSuplId.ToString), "", "", "", R!FTItemDataRef.ToString, Val(R!FNHSysRawmatId.ToString()), "", "")
+                        'Dim colorname As String = getColorName(R!FTRawMatColorCode.ToString)
+                        .Rows.Add("0", .Rows.Count + 1, R!FTRawMatCode.ToString, R!FTRawMatNameEN.ToString, R!FTRawMatColorCode.ToString, R!FTRawMatColorName.ToString, R!FTRawMatSizeCode.ToString, 0, 0, R!FTUnitCode.ToString, Val(R!FNHSysUnitId.ToString), R!FTSuplCode.ToString, Val(R!FNHSysSuplId.ToString), "", "", "", R!FTItemDataRef.ToString, Val(R!FNHSysRawmatId.ToString()), "", "")
 
                     Next
 
@@ -3514,6 +3528,28 @@ Public Class wSMPCreateOrderSampleNew
         End If
 
     End Sub
+    Private Function getColorName(colorcode As String) As String
+        Try
+            Dim _Cmd As String = ""
+            _Cmd = "select top 1  B.FTRawMatColorName  from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TINVENMMatColor a  with(nolock)"
+            _Cmd &= vbCrLf & " outer apply ( select top 1   "
+            If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
+                _Cmd &= vbCrLf & " , B.FTRawMatColorNameTH AS FTRawMatColorName"
+            Else
+                _Cmd &= vbCrLf & " , B.FTRawMatColorNameEN As FTRawMatColorName "
+            End If
+
+
+            _Cmd &= vbCrLf & "  from   " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTOrder_Mat_Color b with(nolock) "
+
+            _Cmd &= vbCrLf & " where  b.FNHSysRawMatColorId = a.FNHSysRawMatColorId and b.FTOrderNo='" & HI.UL.ULF.rpQuoted(Me.FTSMPOrderNo.Text) & "' ) as B "
+            _Cmd &= vbCrLf & " where a.FTRawMatColorCode='" & colorcode & "'"
+
+            Return HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_MASTER, "")
+        Catch ex As Exception
+            Return ""
+        End Try
+    End Function
 
     Private Sub ocmcalc_Click(sender As Object, e As EventArgs) Handles ocmcalc.Click
         If CheckOwner() = False Then Exit Sub
@@ -3571,7 +3607,7 @@ Public Class wSMPCreateOrderSampleNew
         FTMRP.Text = mMRPInfo
     End Sub
 
-    Private Sub RepositoryItemCheckEdit4_EditValueChanging(sender As Object, e As ChangingEventArgs) Handles RepositoryItemCheckEdit4.EditValueChanging
+    Private Sub RepositoryItemCheckEdit4_EditValueChanging(sender As Object, e As ChangingEventArgs) 
         Try
             Dim mState As String = "0"
 

@@ -1271,7 +1271,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStateApp.Properties.Tag = "FTStateLaser"
         Me.FTStateApp.Properties.ValueChecked = "1"
         Me.FTStateApp.Properties.ValueUnchecked = "0"
-        Me.FTStateApp.Size = New System.Drawing.Size(156, 20)
+        Me.FTStateApp.Size = New System.Drawing.Size(156, 21)
         Me.FTStateApp.TabIndex = 551
         Me.FTStateApp.Tag = "2|"
         '
@@ -1284,7 +1284,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStateWindows.Properties.Tag = "FTStateWindows"
         Me.FTStateWindows.Properties.ValueChecked = "1"
         Me.FTStateWindows.Properties.ValueUnchecked = "0"
-        Me.FTStateWindows.Size = New System.Drawing.Size(134, 20)
+        Me.FTStateWindows.Size = New System.Drawing.Size(134, 21)
         Me.FTStateWindows.TabIndex = 551
         Me.FTStateWindows.Tag = "2|"
         '
@@ -1322,7 +1322,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStateLaser.Properties.Tag = "FTStateLaser"
         Me.FTStateLaser.Properties.ValueChecked = "1"
         Me.FTStateLaser.Properties.ValueUnchecked = "0"
-        Me.FTStateLaser.Size = New System.Drawing.Size(140, 20)
+        Me.FTStateLaser.Size = New System.Drawing.Size(140, 21)
         Me.FTStateLaser.TabIndex = 550
         Me.FTStateLaser.Tag = "2|"
         '
@@ -1345,7 +1345,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStateHeat.Properties.Tag = "FTStateHeat"
         Me.FTStateHeat.Properties.ValueChecked = "1"
         Me.FTStateHeat.Properties.ValueUnchecked = "0"
-        Me.FTStateHeat.Size = New System.Drawing.Size(134, 20)
+        Me.FTStateHeat.Size = New System.Drawing.Size(134, 21)
         Me.FTStateHeat.TabIndex = 549
         Me.FTStateHeat.Tag = "2|"
         '
@@ -1386,7 +1386,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStatePrint.Properties.Tag = "FTStatePrint"
         Me.FTStatePrint.Properties.ValueChecked = "1"
         Me.FTStatePrint.Properties.ValueUnchecked = "0"
-        Me.FTStatePrint.Size = New System.Drawing.Size(140, 20)
+        Me.FTStatePrint.Size = New System.Drawing.Size(140, 21)
         Me.FTStatePrint.TabIndex = 548
         Me.FTStatePrint.Tag = "2|"
         '
@@ -1410,7 +1410,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStateEmb.Properties.Tag = "FTStateEmb"
         Me.FTStateEmb.Properties.ValueChecked = "1"
         Me.FTStateEmb.Properties.ValueUnchecked = "0"
-        Me.FTStateEmb.Size = New System.Drawing.Size(122, 20)
+        Me.FTStateEmb.Size = New System.Drawing.Size(122, 21)
         Me.FTStateEmb.TabIndex = 547
         Me.FTStateEmb.Tag = "2|"
         '
@@ -1735,7 +1735,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStateSam.Properties.Tag = "FTStatePrint"
         Me.FTStateSam.Properties.ValueChecked = "1"
         Me.FTStateSam.Properties.ValueUnchecked = "0"
-        Me.FTStateSam.Size = New System.Drawing.Size(140, 20)
+        Me.FTStateSam.Size = New System.Drawing.Size(140, 21)
         Me.FTStateSam.TabIndex = 561
         Me.FTStateSam.Tag = "2|"
         '
@@ -1759,7 +1759,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStatePatternOthers.Properties.Tag = "FTStatePrint"
         Me.FTStatePatternOthers.Properties.ValueChecked = "1"
         Me.FTStatePatternOthers.Properties.ValueUnchecked = "0"
-        Me.FTStatePatternOthers.Size = New System.Drawing.Size(140, 20)
+        Me.FTStatePatternOthers.Size = New System.Drawing.Size(140, 21)
         Me.FTStatePatternOthers.TabIndex = 555
         Me.FTStatePatternOthers.Tag = "2|"
         '
@@ -1772,7 +1772,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStatePatternOptiplan.Properties.Tag = "FTStatePrint"
         Me.FTStatePatternOptiplan.Properties.ValueChecked = "1"
         Me.FTStatePatternOptiplan.Properties.ValueUnchecked = "0"
-        Me.FTStatePatternOptiplan.Size = New System.Drawing.Size(140, 20)
+        Me.FTStatePatternOptiplan.Size = New System.Drawing.Size(140, 21)
         Me.FTStatePatternOptiplan.TabIndex = 554
         Me.FTStatePatternOptiplan.Tag = "2|"
         '
@@ -1785,7 +1785,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStatePattern3D.Properties.Tag = "FTStatePrint"
         Me.FTStatePattern3D.Properties.ValueChecked = "1"
         Me.FTStatePattern3D.Properties.ValueUnchecked = "0"
-        Me.FTStatePattern3D.Size = New System.Drawing.Size(140, 20)
+        Me.FTStatePattern3D.Size = New System.Drawing.Size(140, 21)
         Me.FTStatePattern3D.TabIndex = 553
         Me.FTStatePattern3D.Tag = "2|"
         '
@@ -1798,7 +1798,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStatePatternGradelogo.Properties.Tag = "FTStatePrint"
         Me.FTStatePatternGradelogo.Properties.ValueChecked = "1"
         Me.FTStatePatternGradelogo.Properties.ValueUnchecked = "0"
-        Me.FTStatePatternGradelogo.Size = New System.Drawing.Size(140, 20)
+        Me.FTStatePatternGradelogo.Size = New System.Drawing.Size(140, 21)
         Me.FTStatePatternGradelogo.TabIndex = 552
         Me.FTStatePatternGradelogo.Tag = "2|"
         '
@@ -1811,7 +1811,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStatePatternGrandenest.Properties.Tag = "FTStatePrint"
         Me.FTStatePatternGrandenest.Properties.ValueChecked = "1"
         Me.FTStatePatternGrandenest.Properties.ValueUnchecked = "0"
-        Me.FTStatePatternGrandenest.Size = New System.Drawing.Size(140, 20)
+        Me.FTStatePatternGrandenest.Size = New System.Drawing.Size(140, 21)
         Me.FTStatePatternGrandenest.TabIndex = 551
         Me.FTStatePatternGrandenest.Tag = "2|"
         '
@@ -1824,7 +1824,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStatePatternEPT.Properties.Tag = "FTStatePrint"
         Me.FTStatePatternEPT.Properties.ValueChecked = "1"
         Me.FTStatePatternEPT.Properties.ValueUnchecked = "0"
-        Me.FTStatePatternEPT.Size = New System.Drawing.Size(140, 20)
+        Me.FTStatePatternEPT.Size = New System.Drawing.Size(140, 21)
         Me.FTStatePatternEPT.TabIndex = 550
         Me.FTStatePatternEPT.Tag = "2|"
         '
@@ -1837,7 +1837,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStatePatternHard.Properties.Tag = "FTStatePrint"
         Me.FTStatePatternHard.Properties.ValueChecked = "1"
         Me.FTStatePatternHard.Properties.ValueUnchecked = "0"
-        Me.FTStatePatternHard.Size = New System.Drawing.Size(140, 20)
+        Me.FTStatePatternHard.Size = New System.Drawing.Size(140, 21)
         Me.FTStatePatternHard.TabIndex = 549
         Me.FTStatePatternHard.Tag = "2|"
         '
@@ -2064,7 +2064,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTStateReceipt.Properties.Tag = "FTStateLaser"
         Me.FTStateReceipt.Properties.ValueChecked = "1"
         Me.FTStateReceipt.Properties.ValueUnchecked = "0"
-        Me.FTStateReceipt.Size = New System.Drawing.Size(193, 20)
+        Me.FTStateReceipt.Size = New System.Drawing.Size(193, 21)
         Me.FTStateReceipt.TabIndex = 552
         Me.FTStateReceipt.Tag = "2|"
         '
@@ -2352,10 +2352,10 @@ Partial Class wSMPCreateOrderSample
         'otbdetail
         '
         Me.otbdetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.otbdetail.Location = New System.Drawing.Point(2, 23)
+        Me.otbdetail.Location = New System.Drawing.Point(2, 25)
         Me.otbdetail.Name = "otbdetail"
         Me.otbdetail.SelectedTabPage = Me.otpbreakdown
-        Me.otbdetail.Size = New System.Drawing.Size(1240, 342)
+        Me.otbdetail.Size = New System.Drawing.Size(1240, 340)
         Me.otbdetail.TabIndex = 529
         Me.otbdetail.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpbreakdown, Me.otpfabric, Me.otpacc, Me.otpsetpart, Me.otpfile})
         Me.otbdetail.TabPageWidth = 150
@@ -2365,7 +2365,7 @@ Partial Class wSMPCreateOrderSample
         Me.otpbreakdown.Controls.Add(Me.ogdBreakdown)
         Me.otpbreakdown.Controls.Add(Me.MemoEdit1)
         Me.otpbreakdown.Name = "otpbreakdown"
-        Me.otpbreakdown.Size = New System.Drawing.Size(1238, 317)
+        Me.otpbreakdown.Size = New System.Drawing.Size(1238, 315)
         Me.otpbreakdown.Text = "Breakdown"
         '
         'ogdBreakdown
@@ -2386,7 +2386,7 @@ Partial Class wSMPCreateOrderSample
         Me.ogdBreakdown.MainView = Me.ogvBreakdown
         Me.ogdBreakdown.Name = "ogdBreakdown"
         Me.ogdBreakdown.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepFTSelect, Me.RepFNQuantity, Me.RepFTColorway, Me.RepFTDeliveryDate, Me.RepFTRemark, Me.RepositoryFTSizeBreakDown, Me.RePrice})
-        Me.ogdBreakdown.Size = New System.Drawing.Size(1238, 317)
+        Me.ogdBreakdown.Size = New System.Drawing.Size(1238, 315)
         Me.ogdBreakdown.TabIndex = 527
         Me.ogdBreakdown.UseEmbeddedNavigator = True
         Me.ogdBreakdown.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvBreakdown})
@@ -2719,7 +2719,7 @@ Partial Class wSMPCreateOrderSample
         Me.MemoEdit1.Location = New System.Drawing.Point(0, 0)
         Me.MemoEdit1.Name = "MemoEdit1"
         Me.MemoEdit1.Properties.MaxLength = 500
-        Me.MemoEdit1.Size = New System.Drawing.Size(1238, 317)
+        Me.MemoEdit1.Size = New System.Drawing.Size(1238, 315)
         Me.MemoEdit1.TabIndex = 497
         Me.MemoEdit1.Tag = "2|"
         '
@@ -2728,7 +2728,7 @@ Partial Class wSMPCreateOrderSample
         Me.otpfabric.Controls.Add(Me.oxtb)
         Me.otpfabric.Controls.Add(Me.MemoEdit2)
         Me.otpfabric.Name = "otpfabric"
-        Me.otpfabric.Size = New System.Drawing.Size(1238, 317)
+        Me.otpfabric.Size = New System.Drawing.Size(1238, 315)
         Me.otpfabric.Text = "Fabric"
         '
         'oxtb
@@ -2737,7 +2737,7 @@ Partial Class wSMPCreateOrderSample
         Me.oxtb.Location = New System.Drawing.Point(0, 0)
         Me.oxtb.Name = "oxtb"
         Me.oxtb.SelectedTabPage = Me.otpfabrica
-        Me.oxtb.Size = New System.Drawing.Size(1238, 317)
+        Me.oxtb.Size = New System.Drawing.Size(1238, 315)
         Me.oxtb.TabIndex = 0
         Me.oxtb.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpfabrica, Me.otpfabricb, Me.otpfabricc, Me.otpfabricd, Me.otpfabrice, Me.otpfabricf, Me.otpfabricg, Me.otpfabrich, Me.otpfabrici})
         Me.oxtb.TabPageWidth = 100
@@ -2746,7 +2746,7 @@ Partial Class wSMPCreateOrderSample
         '
         Me.otpfabrica.Controls.Add(Me.GroupControl1)
         Me.otpfabrica.Name = "otpfabrica"
-        Me.otpfabrica.Size = New System.Drawing.Size(1236, 292)
+        Me.otpfabrica.Size = New System.Drawing.Size(1236, 289)
         Me.otpfabrica.Text = "ผ้า A#"
         '
         'GroupControl1
@@ -2776,7 +2776,7 @@ Partial Class wSMPCreateOrderSample
         Me.GroupControl1.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl1.Name = "GroupControl1"
         Me.GroupControl1.ShowCaption = False
-        Me.GroupControl1.Size = New System.Drawing.Size(1236, 292)
+        Me.GroupControl1.Size = New System.Drawing.Size(1236, 289)
         Me.GroupControl1.TabIndex = 498
         Me.GroupControl1.Tag = "2|"
         Me.GroupControl1.Text = "Doccument Info"
@@ -2837,7 +2837,7 @@ Partial Class wSMPCreateOrderSample
         Me.ogcpartmata.MainView = Me.ogvpartmata
         Me.ogcpartmata.Name = "ogcpartmata"
         Me.ogcpartmata.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit5})
-        Me.ogcpartmata.Size = New System.Drawing.Size(331, 259)
+        Me.ogcpartmata.Size = New System.Drawing.Size(331, 256)
         Me.ogcpartmata.TabIndex = 498
         Me.ogcpartmata.TabStop = False
         Me.ogcpartmata.Tag = "3|"
@@ -2901,7 +2901,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTFabticA.Location = New System.Drawing.Point(4, 103)
         Me.FTFabticA.Name = "FTFabticA"
         Me.FTFabticA.Properties.MaxLength = 500
-        Me.FTFabticA.Size = New System.Drawing.Size(892, 184)
+        Me.FTFabticA.Size = New System.Drawing.Size(892, 181)
         Me.FTFabticA.TabIndex = 497
         Me.FTFabticA.Tag = "2|"
         '
@@ -3243,7 +3243,7 @@ Partial Class wSMPCreateOrderSample
         '
         Me.otpfabricb.Controls.Add(Me.GroupControl3)
         Me.otpfabricb.Name = "otpfabricb"
-        Me.otpfabricb.Size = New System.Drawing.Size(1236, 292)
+        Me.otpfabricb.Size = New System.Drawing.Size(1236, 289)
         Me.otpfabricb.Text = "ผ้า B#"
         '
         'GroupControl3
@@ -3273,7 +3273,7 @@ Partial Class wSMPCreateOrderSample
         Me.GroupControl3.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl3.Name = "GroupControl3"
         Me.GroupControl3.ShowCaption = False
-        Me.GroupControl3.Size = New System.Drawing.Size(1236, 292)
+        Me.GroupControl3.Size = New System.Drawing.Size(1236, 289)
         Me.GroupControl3.TabIndex = 499
         Me.GroupControl3.Tag = "2|"
         Me.GroupControl3.Text = "Doccument Info"
@@ -3449,7 +3449,7 @@ Partial Class wSMPCreateOrderSample
         Me.ogcpartmatb.MainView = Me.ogvpartmatb
         Me.ogcpartmatb.Name = "ogcpartmatb"
         Me.ogcpartmatb.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit6})
-        Me.ogcpartmatb.Size = New System.Drawing.Size(331, 259)
+        Me.ogcpartmatb.Size = New System.Drawing.Size(331, 256)
         Me.ogcpartmatb.TabIndex = 503
         Me.ogcpartmatb.TabStop = False
         Me.ogcpartmatb.Tag = "3|"
@@ -3535,7 +3535,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTFabticB.Location = New System.Drawing.Point(4, 101)
         Me.FTFabticB.Name = "FTFabticB"
         Me.FTFabticB.Properties.MaxLength = 500
-        Me.FTFabticB.Size = New System.Drawing.Size(892, 186)
+        Me.FTFabticB.Size = New System.Drawing.Size(892, 183)
         Me.FTFabticB.TabIndex = 498
         Me.FTFabticB.Tag = "2|"
         '
@@ -3728,7 +3728,7 @@ Partial Class wSMPCreateOrderSample
         Me.otpfabricc.Controls.Add(Me.GroupControl4)
         Me.otpfabricc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpfabricc.Name = "otpfabricc"
-        Me.otpfabricc.Size = New System.Drawing.Size(1236, 292)
+        Me.otpfabricc.Size = New System.Drawing.Size(1236, 289)
         Me.otpfabricc.Text = "ผ้า C#"
         '
         'GroupControl4
@@ -3758,7 +3758,7 @@ Partial Class wSMPCreateOrderSample
         Me.GroupControl4.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl4.Name = "GroupControl4"
         Me.GroupControl4.ShowCaption = False
-        Me.GroupControl4.Size = New System.Drawing.Size(1236, 292)
+        Me.GroupControl4.Size = New System.Drawing.Size(1236, 289)
         Me.GroupControl4.TabIndex = 499
         Me.GroupControl4.Tag = "2|"
         Me.GroupControl4.Text = "Doccument Info"
@@ -3934,7 +3934,7 @@ Partial Class wSMPCreateOrderSample
         Me.ogcpartmatc.MainView = Me.ogvpartmatc
         Me.ogcpartmatc.Name = "ogcpartmatc"
         Me.ogcpartmatc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit7})
-        Me.ogcpartmatc.Size = New System.Drawing.Size(331, 259)
+        Me.ogcpartmatc.Size = New System.Drawing.Size(331, 256)
         Me.ogcpartmatc.TabIndex = 503
         Me.ogcpartmatc.TabStop = False
         Me.ogcpartmatc.Tag = "3|"
@@ -4020,7 +4020,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTFabticC.Location = New System.Drawing.Point(4, 104)
         Me.FTFabticC.Name = "FTFabticC"
         Me.FTFabticC.Properties.MaxLength = 500
-        Me.FTFabticC.Size = New System.Drawing.Size(892, 185)
+        Me.FTFabticC.Size = New System.Drawing.Size(892, 182)
         Me.FTFabticC.TabIndex = 498
         Me.FTFabticC.Tag = "2|"
         '
@@ -4213,7 +4213,7 @@ Partial Class wSMPCreateOrderSample
         Me.otpfabricd.Controls.Add(Me.GroupControl5)
         Me.otpfabricd.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpfabricd.Name = "otpfabricd"
-        Me.otpfabricd.Size = New System.Drawing.Size(1236, 292)
+        Me.otpfabricd.Size = New System.Drawing.Size(1236, 289)
         Me.otpfabricd.Text = "ผ้า D#"
         '
         'GroupControl5
@@ -4243,7 +4243,7 @@ Partial Class wSMPCreateOrderSample
         Me.GroupControl5.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl5.Name = "GroupControl5"
         Me.GroupControl5.ShowCaption = False
-        Me.GroupControl5.Size = New System.Drawing.Size(1236, 292)
+        Me.GroupControl5.Size = New System.Drawing.Size(1236, 289)
         Me.GroupControl5.TabIndex = 499
         Me.GroupControl5.Tag = "2|"
         Me.GroupControl5.Text = "Doccument Info"
@@ -4394,7 +4394,7 @@ Partial Class wSMPCreateOrderSample
         Me.ogcpartmatd.MainView = Me.ogvpartmatd
         Me.ogcpartmatd.Name = "ogcpartmatd"
         Me.ogcpartmatd.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit8})
-        Me.ogcpartmatd.Size = New System.Drawing.Size(331, 259)
+        Me.ogcpartmatd.Size = New System.Drawing.Size(331, 256)
         Me.ogcpartmatd.TabIndex = 506
         Me.ogcpartmatd.TabStop = False
         Me.ogcpartmatd.Tag = "3|"
@@ -4505,7 +4505,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTFabticD.Location = New System.Drawing.Point(3, 101)
         Me.FTFabticD.Name = "FTFabticD"
         Me.FTFabticD.Properties.MaxLength = 500
-        Me.FTFabticD.Size = New System.Drawing.Size(893, 186)
+        Me.FTFabticD.Size = New System.Drawing.Size(893, 183)
         Me.FTFabticD.TabIndex = 498
         Me.FTFabticD.Tag = "2|"
         '
@@ -4698,7 +4698,7 @@ Partial Class wSMPCreateOrderSample
         Me.otpfabrice.Controls.Add(Me.GroupControl6)
         Me.otpfabrice.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpfabrice.Name = "otpfabrice"
-        Me.otpfabrice.Size = New System.Drawing.Size(1236, 292)
+        Me.otpfabrice.Size = New System.Drawing.Size(1236, 289)
         Me.otpfabrice.Text = "ผ้า E#"
         '
         'GroupControl6
@@ -4728,7 +4728,7 @@ Partial Class wSMPCreateOrderSample
         Me.GroupControl6.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl6.Name = "GroupControl6"
         Me.GroupControl6.ShowCaption = False
-        Me.GroupControl6.Size = New System.Drawing.Size(1236, 292)
+        Me.GroupControl6.Size = New System.Drawing.Size(1236, 289)
         Me.GroupControl6.TabIndex = 499
         Me.GroupControl6.Tag = "2|"
         Me.GroupControl6.Text = "Doccument Info"
@@ -4904,7 +4904,7 @@ Partial Class wSMPCreateOrderSample
         Me.ogcpartmate.MainView = Me.ogvpartmate
         Me.ogcpartmate.Name = "ogcpartmate"
         Me.ogcpartmate.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit9})
-        Me.ogcpartmate.Size = New System.Drawing.Size(331, 259)
+        Me.ogcpartmate.Size = New System.Drawing.Size(331, 256)
         Me.ogcpartmate.TabIndex = 503
         Me.ogcpartmate.TabStop = False
         Me.ogcpartmate.Tag = "3|"
@@ -4990,7 +4990,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTFabticE.Location = New System.Drawing.Point(1, 98)
         Me.FTFabticE.Name = "FTFabticE"
         Me.FTFabticE.Properties.MaxLength = 500
-        Me.FTFabticE.Size = New System.Drawing.Size(895, 191)
+        Me.FTFabticE.Size = New System.Drawing.Size(895, 188)
         Me.FTFabticE.TabIndex = 499
         Me.FTFabticE.Tag = "2|"
         '
@@ -5183,7 +5183,7 @@ Partial Class wSMPCreateOrderSample
         Me.otpfabricf.Controls.Add(Me.GroupControl7)
         Me.otpfabricf.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpfabricf.Name = "otpfabricf"
-        Me.otpfabricf.Size = New System.Drawing.Size(1236, 292)
+        Me.otpfabricf.Size = New System.Drawing.Size(1236, 289)
         Me.otpfabricf.Text = "ผ้า F#"
         '
         'GroupControl7
@@ -5213,7 +5213,7 @@ Partial Class wSMPCreateOrderSample
         Me.GroupControl7.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl7.Name = "GroupControl7"
         Me.GroupControl7.ShowCaption = False
-        Me.GroupControl7.Size = New System.Drawing.Size(1236, 292)
+        Me.GroupControl7.Size = New System.Drawing.Size(1236, 289)
         Me.GroupControl7.TabIndex = 499
         Me.GroupControl7.Tag = "2|"
         Me.GroupControl7.Text = "Doccument Info"
@@ -5388,7 +5388,7 @@ Partial Class wSMPCreateOrderSample
         Me.ogcpartmatf.Location = New System.Drawing.Point(900, 31)
         Me.ogcpartmatf.MainView = Me.ogvpartmatf
         Me.ogcpartmatf.Name = "ogcpartmatf"
-        Me.ogcpartmatf.Size = New System.Drawing.Size(331, 259)
+        Me.ogcpartmatf.Size = New System.Drawing.Size(331, 256)
         Me.ogcpartmatf.TabIndex = 503
         Me.ogcpartmatf.TabStop = False
         Me.ogcpartmatf.Tag = "3|"
@@ -5466,7 +5466,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTFabticF.Location = New System.Drawing.Point(7, 102)
         Me.FTFabticF.Name = "FTFabticF"
         Me.FTFabticF.Properties.MaxLength = 500
-        Me.FTFabticF.Size = New System.Drawing.Size(889, 185)
+        Me.FTFabticF.Size = New System.Drawing.Size(889, 182)
         Me.FTFabticF.TabIndex = 499
         Me.FTFabticF.Tag = "2|"
         '
@@ -5659,7 +5659,7 @@ Partial Class wSMPCreateOrderSample
         Me.otpfabricg.Controls.Add(Me.GroupControl8)
         Me.otpfabricg.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpfabricg.Name = "otpfabricg"
-        Me.otpfabricg.Size = New System.Drawing.Size(1236, 292)
+        Me.otpfabricg.Size = New System.Drawing.Size(1236, 289)
         Me.otpfabricg.Text = "ผ้า G#"
         '
         'GroupControl8
@@ -5689,7 +5689,7 @@ Partial Class wSMPCreateOrderSample
         Me.GroupControl8.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl8.Name = "GroupControl8"
         Me.GroupControl8.ShowCaption = False
-        Me.GroupControl8.Size = New System.Drawing.Size(1236, 292)
+        Me.GroupControl8.Size = New System.Drawing.Size(1236, 289)
         Me.GroupControl8.TabIndex = 499
         Me.GroupControl8.Tag = "2|"
         Me.GroupControl8.Text = "Doccument Info"
@@ -5865,7 +5865,7 @@ Partial Class wSMPCreateOrderSample
         Me.ogcpartmatg.MainView = Me.ogvpartmatg
         Me.ogcpartmatg.Name = "ogcpartmatg"
         Me.ogcpartmatg.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit11})
-        Me.ogcpartmatg.Size = New System.Drawing.Size(331, 259)
+        Me.ogcpartmatg.Size = New System.Drawing.Size(331, 256)
         Me.ogcpartmatg.TabIndex = 503
         Me.ogcpartmatg.TabStop = False
         Me.ogcpartmatg.Tag = "3|"
@@ -5951,7 +5951,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTFabticG.Location = New System.Drawing.Point(4, 102)
         Me.FTFabticG.Name = "FTFabticG"
         Me.FTFabticG.Properties.MaxLength = 500
-        Me.FTFabticG.Size = New System.Drawing.Size(894, 185)
+        Me.FTFabticG.Size = New System.Drawing.Size(894, 182)
         Me.FTFabticG.TabIndex = 499
         Me.FTFabticG.Tag = "2|"
         '
@@ -6156,7 +6156,7 @@ Partial Class wSMPCreateOrderSample
         Me.otpfabrich.Controls.Add(Me.GroupControl9)
         Me.otpfabrich.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpfabrich.Name = "otpfabrich"
-        Me.otpfabrich.Size = New System.Drawing.Size(1236, 292)
+        Me.otpfabrich.Size = New System.Drawing.Size(1236, 289)
         Me.otpfabrich.Text = "ผ้า H#"
         '
         'GroupControl9
@@ -6186,7 +6186,7 @@ Partial Class wSMPCreateOrderSample
         Me.GroupControl9.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl9.Name = "GroupControl9"
         Me.GroupControl9.ShowCaption = False
-        Me.GroupControl9.Size = New System.Drawing.Size(1236, 292)
+        Me.GroupControl9.Size = New System.Drawing.Size(1236, 289)
         Me.GroupControl9.TabIndex = 499
         Me.GroupControl9.Tag = "2|"
         Me.GroupControl9.Text = "Doccument Info"
@@ -6362,7 +6362,7 @@ Partial Class wSMPCreateOrderSample
         Me.ogcpartmath.MainView = Me.ogvpartmath
         Me.ogcpartmath.Name = "ogcpartmath"
         Me.ogcpartmath.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit12})
-        Me.ogcpartmath.Size = New System.Drawing.Size(331, 259)
+        Me.ogcpartmath.Size = New System.Drawing.Size(331, 256)
         Me.ogcpartmath.TabIndex = 504
         Me.ogcpartmath.TabStop = False
         Me.ogcpartmath.Tag = "3|"
@@ -6448,7 +6448,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTFabticH.Location = New System.Drawing.Point(5, 101)
         Me.FTFabticH.Name = "FTFabticH"
         Me.FTFabticH.Properties.MaxLength = 500
-        Me.FTFabticH.Size = New System.Drawing.Size(891, 186)
+        Me.FTFabticH.Size = New System.Drawing.Size(891, 183)
         Me.FTFabticH.TabIndex = 499
         Me.FTFabticH.Tag = "2|"
         '
@@ -6654,7 +6654,7 @@ Partial Class wSMPCreateOrderSample
         Me.otpfabrici.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpfabrici.Name = "otpfabrici"
         Me.otpfabrici.PageVisible = False
-        Me.otpfabrici.Size = New System.Drawing.Size(1236, 292)
+        Me.otpfabrici.Size = New System.Drawing.Size(1236, 289)
         Me.otpfabrici.Text = "ผ้า I#"
         '
         'GroupControl17
@@ -6684,7 +6684,7 @@ Partial Class wSMPCreateOrderSample
         Me.GroupControl17.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl17.Name = "GroupControl17"
         Me.GroupControl17.ShowCaption = False
-        Me.GroupControl17.Size = New System.Drawing.Size(1236, 292)
+        Me.GroupControl17.Size = New System.Drawing.Size(1236, 289)
         Me.GroupControl17.TabIndex = 500
         Me.GroupControl17.Tag = "2|"
         Me.GroupControl17.Text = "Doccument Info"
@@ -6860,7 +6860,7 @@ Partial Class wSMPCreateOrderSample
         Me.ogcpartmati.MainView = Me.ogvpartmati
         Me.ogcpartmati.Name = "ogcpartmati"
         Me.ogcpartmati.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit13})
-        Me.ogcpartmati.Size = New System.Drawing.Size(331, 259)
+        Me.ogcpartmati.Size = New System.Drawing.Size(331, 256)
         Me.ogcpartmati.TabIndex = 504
         Me.ogcpartmati.TabStop = False
         Me.ogcpartmati.Tag = "3|"
@@ -6946,7 +6946,7 @@ Partial Class wSMPCreateOrderSample
         Me.FTFabticI.Location = New System.Drawing.Point(7, 103)
         Me.FTFabticI.Name = "FTFabticI"
         Me.FTFabticI.Properties.MaxLength = 500
-        Me.FTFabticI.Size = New System.Drawing.Size(889, 184)
+        Me.FTFabticI.Size = New System.Drawing.Size(889, 181)
         Me.FTFabticI.TabIndex = 499
         Me.FTFabticI.Tag = "2|"
         '
@@ -7153,7 +7153,7 @@ Partial Class wSMPCreateOrderSample
         Me.MemoEdit2.Location = New System.Drawing.Point(0, 0)
         Me.MemoEdit2.Name = "MemoEdit2"
         Me.MemoEdit2.Properties.MaxLength = 500
-        Me.MemoEdit2.Size = New System.Drawing.Size(1238, 317)
+        Me.MemoEdit2.Size = New System.Drawing.Size(1238, 315)
         Me.MemoEdit2.TabIndex = 498
         Me.MemoEdit2.Tag = "2|"
         '
@@ -7163,7 +7163,7 @@ Partial Class wSMPCreateOrderSample
         Me.otpacc.Controls.Add(Me.ogcacc)
         Me.otpacc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpacc.Name = "otpacc"
-        Me.otpacc.Size = New System.Drawing.Size(1238, 317)
+        Me.otpacc.Size = New System.Drawing.Size(1238, 315)
         Me.otpacc.Text = "Accessory"
         '
         'PopupFTPositionPartName
@@ -7273,7 +7273,7 @@ Partial Class wSMPCreateOrderSample
         Me.ogcacc.MainView = Me.ogvacc
         Me.ogcacc.Name = "ogcacc"
         Me.ogcacc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemCalcEdit1, Me.RepositoryItemTextEdit1, Me.RepositoryItemDateEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemLookUpEdit1, Me.ReposCode, Me.Reposmatdesc, Me.ReposFTMatColorName, Me.ReposFNMatQuantity, Me.ReposFNHSysUnitId, Me.RepPart, Me.RepFNHSysSuplId, Me.RepositoryFNHSysRawmatId, Me.RepositoryFTSelect})
-        Me.ogcacc.Size = New System.Drawing.Size(1238, 317)
+        Me.ogcacc.Size = New System.Drawing.Size(1238, 315)
         Me.ogcacc.TabIndex = 528
         Me.ogcacc.Tag = "3|"
         Me.ogcacc.UseEmbeddedNavigator = True
@@ -7732,7 +7732,7 @@ Partial Class wSMPCreateOrderSample
         '
         Me.otpsetpart.Controls.Add(Me.ogc)
         Me.otpsetpart.Name = "otpsetpart"
-        Me.otpsetpart.Size = New System.Drawing.Size(1238, 317)
+        Me.otpsetpart.Size = New System.Drawing.Size(1238, 315)
         Me.otpsetpart.Text = "Set Part"
         '
         'ogc
@@ -7742,7 +7742,7 @@ Partial Class wSMPCreateOrderSample
         Me.ogc.MainView = Me.ogv
         Me.ogc.Name = "ogc"
         Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2, Me.ReposNote})
-        Me.ogc.Size = New System.Drawing.Size(1238, 317)
+        Me.ogc.Size = New System.Drawing.Size(1238, 315)
         Me.ogc.TabIndex = 310
         Me.ogc.TabStop = False
         Me.ogc.Tag = "3|"
@@ -7945,7 +7945,7 @@ Partial Class wSMPCreateOrderSample
         Me.otpfile.Controls.Add(Me.ocmAddFile)
         Me.otpfile.Controls.Add(Me.ogcfile)
         Me.otpfile.Name = "otpfile"
-        Me.otpfile.Size = New System.Drawing.Size(1238, 317)
+        Me.otpfile.Size = New System.Drawing.Size(1238, 315)
         Me.otpfile.Text = "File Ref"
         '
         'ocmRemoveFile

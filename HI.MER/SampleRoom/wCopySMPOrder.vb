@@ -108,8 +108,11 @@ Public Class wCopySMPOrder
                 Dim _CmpH As String = HI.Conn.SQLConn.GetField("SELECT TOP 1 FTDocRun FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TCNMCmp WHERE FNHSysCmpId=" & Val(FNHSysCmpId.Properties.Tag.ToString()) & " ", Conn.DB.DataBaseName.DB_SYSTEM, "")
 
 
-                _tFTOrderNoDest = HI.TL.Document.GetDocumentNo(HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE), "TSMPOrder", "", False, _CmpH).ToString
+                _tFTOrderNoDest = HI.TL.Document.GetDocumentNo(HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE), "TSMPOrder", HI.TL.CboList.GetListValue(FNSMPOrderType.Properties.Tag.ToString, FNSMPOrderType.SelectedIndex), False, _CmpH).ToString
+                If _tFTOrderNoDest = "" Then
+                    _tFTOrderNoDest = HI.TL.Document.GetDocumentNo(HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE), "TSMPOrder", "", False, _CmpH).ToString
 
+                End If
                 HI.Conn.SQLConn._ConnString = HI.Conn.DB.ConnectionString(Conn.DB.DataBaseName.DB_MERCHAN)
                 HI.Conn.SQLConn.SqlConnectionOpen()
                 HI.Conn.SQLConn.Cmd = HI.Conn.SQLConn.Cnn.CreateCommand

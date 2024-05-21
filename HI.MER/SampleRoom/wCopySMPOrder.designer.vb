@@ -19,9 +19,21 @@ Partial Class wCopySMPOrder
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbCopyOrderHeader = New DevExpress.XtraEditors.GroupControl()
         Me.FNOrderSampleType = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.FNOrderSampleType_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -71,9 +83,10 @@ Partial Class wCopySMPOrder
         Me.ogbCopyOrderHeader.Controls.Add(Me.FNHSysCmpId_None)
         Me.ogbCopyOrderHeader.Controls.Add(Me.FNHSysCmpId)
         Me.ogbCopyOrderHeader.Controls.Add(Me.FNHSysCmpId_lbl)
-        Me.ogbCopyOrderHeader.Location = New System.Drawing.Point(4, 4)
+        Me.ogbCopyOrderHeader.Location = New System.Drawing.Point(5, 5)
+        Me.ogbCopyOrderHeader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbCopyOrderHeader.Name = "ogbCopyOrderHeader"
-        Me.ogbCopyOrderHeader.Size = New System.Drawing.Size(644, 161)
+        Me.ogbCopyOrderHeader.Size = New System.Drawing.Size(751, 198)
         Me.ogbCopyOrderHeader.TabIndex = 288
         Me.ogbCopyOrderHeader.Text = "Source Factory Order No."
         '
@@ -81,7 +94,8 @@ Partial Class wCopySMPOrder
         '
         Me.FNOrderSampleType.EditValue = ""
         Me.FNOrderSampleType.EnterMoveNextControl = True
-        Me.FNOrderSampleType.Location = New System.Drawing.Point(422, 120)
+        Me.FNOrderSampleType.Location = New System.Drawing.Point(492, 148)
+        Me.FNOrderSampleType.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNOrderSampleType.Name = "FNOrderSampleType"
         Me.FNOrderSampleType.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNOrderSampleType.Properties.Appearance.Options.UseBackColor = True
@@ -100,7 +114,7 @@ Partial Class wCopySMPOrder
         Me.FNOrderSampleType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNOrderSampleType.Properties.Tag = "FNOrderSampleType"
         Me.FNOrderSampleType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNOrderSampleType.Size = New System.Drawing.Size(110, 20)
+        Me.FNOrderSampleType.Size = New System.Drawing.Size(128, 22)
         Me.FNOrderSampleType.TabIndex = 559
         Me.FNOrderSampleType.Tag = "2|"
         '
@@ -111,9 +125,10 @@ Partial Class wCopySMPOrder
         Me.FNOrderSampleType_lbl.Appearance.Options.UseTextOptions = True
         Me.FNOrderSampleType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNOrderSampleType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNOrderSampleType_lbl.Location = New System.Drawing.Point(337, 120)
+        Me.FNOrderSampleType_lbl.Location = New System.Drawing.Point(393, 148)
+        Me.FNOrderSampleType_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNOrderSampleType_lbl.Name = "FNOrderSampleType_lbl"
-        Me.FNOrderSampleType_lbl.Size = New System.Drawing.Size(80, 18)
+        Me.FNOrderSampleType_lbl.Size = New System.Drawing.Size(93, 22)
         Me.FNOrderSampleType_lbl.TabIndex = 560
         Me.FNOrderSampleType_lbl.Tag = "2|"
         Me.FNOrderSampleType_lbl.Text = "ประเภท :"
@@ -121,7 +136,8 @@ Partial Class wCopySMPOrder
         'FNSMPPrototypeNo
         '
         Me.FNSMPPrototypeNo.EnterMoveNextControl = True
-        Me.FNSMPPrototypeNo.Location = New System.Drawing.Point(278, 120)
+        Me.FNSMPPrototypeNo.Location = New System.Drawing.Point(324, 148)
+        Me.FNSMPPrototypeNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNSMPPrototypeNo.Name = "FNSMPPrototypeNo"
         Me.FNSMPPrototypeNo.Properties.Appearance.Options.UseTextOptions = True
         Me.FNSMPPrototypeNo.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -133,13 +149,13 @@ Partial Class wCopySMPOrder
         Me.FNSMPPrototypeNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNSMPPrototypeNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNSMPPrototypeNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNSMPPrototypeNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
+        Me.FNSMPPrototypeNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNSMPPrototypeNo.Properties.DisplayFormat.FormatString = "{0:n0}"
         Me.FNSMPPrototypeNo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNSMPPrototypeNo.Properties.EditFormat.FormatString = "{0:n0}"
         Me.FNSMPPrototypeNo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNSMPPrototypeNo.Properties.Precision = 0
-        Me.FNSMPPrototypeNo.Size = New System.Drawing.Size(53, 20)
+        Me.FNSMPPrototypeNo.Size = New System.Drawing.Size(62, 22)
         Me.FNSMPPrototypeNo.TabIndex = 558
         Me.FNSMPPrototypeNo.Tag = "2|"
         '
@@ -147,7 +163,8 @@ Partial Class wCopySMPOrder
         '
         Me.FNSMPOrderType.EditValue = ""
         Me.FNSMPOrderType.EnterMoveNextControl = True
-        Me.FNSMPOrderType.Location = New System.Drawing.Point(139, 120)
+        Me.FNSMPOrderType.Location = New System.Drawing.Point(162, 148)
+        Me.FNSMPOrderType.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNSMPOrderType.Name = "FNSMPOrderType"
         Me.FNSMPOrderType.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNSMPOrderType.Properties.Appearance.Options.UseBackColor = True
@@ -166,7 +183,7 @@ Partial Class wCopySMPOrder
         Me.FNSMPOrderType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNSMPOrderType.Properties.Tag = "FNSMPOrderType"
         Me.FNSMPOrderType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNSMPOrderType.Size = New System.Drawing.Size(135, 20)
+        Me.FNSMPOrderType.Size = New System.Drawing.Size(157, 22)
         Me.FNSMPOrderType.TabIndex = 556
         Me.FNSMPOrderType.Tag = "2|"
         '
@@ -177,21 +194,23 @@ Partial Class wCopySMPOrder
         Me.FNOrderType_lbl.Appearance.Options.UseTextOptions = True
         Me.FNOrderType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNOrderType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNOrderType_lbl.Location = New System.Drawing.Point(13, 121)
+        Me.FNOrderType_lbl.Location = New System.Drawing.Point(15, 149)
+        Me.FNOrderType_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNOrderType_lbl.Name = "FNOrderType_lbl"
-        Me.FNOrderType_lbl.Size = New System.Drawing.Size(123, 18)
+        Me.FNOrderType_lbl.Size = New System.Drawing.Size(143, 22)
         Me.FNOrderType_lbl.TabIndex = 557
         Me.FNOrderType_lbl.Tag = "2|"
         Me.FNOrderType_lbl.Text = "FNSMPOrderType :"
         '
         'FTOrderNo
         '
-        Me.FTOrderNo.Location = New System.Drawing.Point(140, 23)
+        Me.FTOrderNo.Location = New System.Drawing.Point(163, 28)
+        Me.FTOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNo.Name = "FTOrderNo"
         Me.FTOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTOrderNo.Properties.Appearance.Options.UseBackColor = True
         Me.FTOrderNo.Properties.ReadOnly = True
-        Me.FTOrderNo.Size = New System.Drawing.Size(133, 20)
+        Me.FTOrderNo.Size = New System.Drawing.Size(155, 22)
         Me.FTOrderNo.TabIndex = 528
         Me.FTOrderNo.TabStop = False
         Me.FTOrderNo.Tag = ""
@@ -203,9 +222,10 @@ Partial Class wCopySMPOrder
         Me.FTOrderNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(6, 23)
+        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(7, 28)
+        Me.FTOrderNo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FTOrderNo_lbl.Name = "FTOrderNo_lbl"
-        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(128, 17)
+        Me.FTOrderNo_lbl.Size = New System.Drawing.Size(149, 21)
         Me.FTOrderNo_lbl.TabIndex = 527
         Me.FTOrderNo_lbl.Tag = "2|"
         Me.FTOrderNo_lbl.Text = "Source Factory Order No :"
@@ -214,28 +234,30 @@ Partial Class wCopySMPOrder
         '
         Me.FNHSysStyleId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysStyleId_None.Location = New System.Drawing.Point(273, 46)
+        Me.FNHSysStyleId_None.Location = New System.Drawing.Point(318, 57)
+        Me.FNHSysStyleId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysStyleId_None.Name = "FNHSysStyleId_None"
         Me.FNHSysStyleId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysStyleId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysStyleId_None.Properties.ReadOnly = True
-        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(342, 20)
+        Me.FNHSysStyleId_None.Size = New System.Drawing.Size(399, 22)
         Me.FNHSysStyleId_None.TabIndex = 5
         Me.FNHSysStyleId_None.Tag = ""
         '
         'FNHSysStyleId
         '
-        Me.FNHSysStyleId.Location = New System.Drawing.Point(140, 46)
+        Me.FNHSysStyleId.Location = New System.Drawing.Point(163, 57)
+        Me.FNHSysStyleId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysStyleId.Name = "FNHSysStyleId"
         Me.FNHSysStyleId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysStyleId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysStyleId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysStyleId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", "89", Nothing, True)})
+        Me.FNHSysStyleId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "89", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleId.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FNHSysStyleId.Properties.ReadOnly = True
         Me.FNHSysStyleId.Properties.Tag = ""
-        Me.FNHSysStyleId.Size = New System.Drawing.Size(133, 20)
+        Me.FNHSysStyleId.Size = New System.Drawing.Size(155, 22)
         Me.FNHSysStyleId.TabIndex = 4
         Me.FNHSysStyleId.Tag = ""
         '
@@ -246,9 +268,10 @@ Partial Class wCopySMPOrder
         Me.FNHSysStyleId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysStyleId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysStyleId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysStyleId_lbl.Location = New System.Drawing.Point(6, 47)
+        Me.FNHSysStyleId_lbl.Location = New System.Drawing.Point(7, 58)
+        Me.FNHSysStyleId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysStyleId_lbl.Name = "FNHSysStyleId_lbl"
-        Me.FNHSysStyleId_lbl.Size = New System.Drawing.Size(128, 17)
+        Me.FNHSysStyleId_lbl.Size = New System.Drawing.Size(149, 21)
         Me.FNHSysStyleId_lbl.TabIndex = 439
         Me.FNHSysStyleId_lbl.Tag = "2|"
         Me.FNHSysStyleId_lbl.Text = "FNHSysStyleId :"
@@ -257,22 +280,24 @@ Partial Class wCopySMPOrder
         '
         Me.FNHSysCmpId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(273, 94)
+        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(318, 116)
+        Me.FNHSysCmpId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCmpId_None.Name = "FNHSysCmpId_None"
         Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCmpId_None.Properties.ReadOnly = True
-        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(342, 20)
+        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(399, 22)
         Me.FNHSysCmpId_None.TabIndex = 1
         Me.FNHSysCmpId_None.Tag = "2|"
         '
         'FNHSysCmpId
         '
-        Me.FNHSysCmpId.Location = New System.Drawing.Point(139, 94)
+        Me.FNHSysCmpId.Location = New System.Drawing.Point(162, 116)
+        Me.FNHSysCmpId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCmpId.Name = "FNHSysCmpId"
-        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, "", "11", Nothing, True)})
+        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.Tag = ""
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(133, 20)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(155, 22)
         Me.FNHSysCmpId.TabIndex = 0
         Me.FNHSysCmpId.Tag = "2|"
         '
@@ -283,9 +308,10 @@ Partial Class wCopySMPOrder
         Me.FNHSysCmpId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCmpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCmpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCmpId_lbl.Location = New System.Drawing.Point(5, 94)
+        Me.FNHSysCmpId_lbl.Location = New System.Drawing.Point(6, 116)
+        Me.FNHSysCmpId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FNHSysCmpId_lbl.Name = "FNHSysCmpId_lbl"
-        Me.FNHSysCmpId_lbl.Size = New System.Drawing.Size(128, 17)
+        Me.FNHSysCmpId_lbl.Size = New System.Drawing.Size(149, 21)
         Me.FNHSysCmpId_lbl.TabIndex = 282
         Me.FNHSysCmpId_lbl.Tag = "2|"
         Me.FNHSysCmpId_lbl.Text = "FNHSysCmpId  :"
@@ -296,19 +322,21 @@ Partial Class wCopySMPOrder
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogbCopyOrderNoConfirm.Controls.Add(Me.ocmcancel)
         Me.ogbCopyOrderNoConfirm.Controls.Add(Me.ocmok)
-        Me.ogbCopyOrderNoConfirm.Location = New System.Drawing.Point(4, 170)
+        Me.ogbCopyOrderNoConfirm.Location = New System.Drawing.Point(5, 209)
+        Me.ogbCopyOrderNoConfirm.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbCopyOrderNoConfirm.Name = "ogbCopyOrderNoConfirm"
         Me.ogbCopyOrderNoConfirm.ShowCaption = False
-        Me.ogbCopyOrderNoConfirm.Size = New System.Drawing.Size(644, 41)
+        Me.ogbCopyOrderNoConfirm.Size = New System.Drawing.Size(751, 50)
         Me.ogbCopyOrderNoConfirm.TabIndex = 289
         Me.ogbCopyOrderNoConfirm.Text = "GroupControl2"
         '
         'ocmcancel
         '
         Me.ocmcancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmcancel.Location = New System.Drawing.Point(367, 9)
+        Me.ocmcancel.Location = New System.Drawing.Point(428, 11)
+        Me.ocmcancel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmcancel.Name = "ocmcancel"
-        Me.ocmcancel.Size = New System.Drawing.Size(145, 25)
+        Me.ocmcancel.Size = New System.Drawing.Size(169, 31)
         Me.ocmcancel.TabIndex = 1
         Me.ocmcancel.TabStop = False
         Me.ocmcancel.Tag = "2|"
@@ -316,9 +344,10 @@ Partial Class wCopySMPOrder
         '
         'ocmok
         '
-        Me.ocmok.Location = New System.Drawing.Point(133, 9)
+        Me.ocmok.Location = New System.Drawing.Point(155, 11)
+        Me.ocmok.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ocmok.Name = "ocmok"
-        Me.ocmok.Size = New System.Drawing.Size(133, 25)
+        Me.ocmok.Size = New System.Drawing.Size(155, 31)
         Me.ocmok.TabIndex = 0
         Me.ocmok.TabStop = False
         Me.ocmok.Tag = "2|"
@@ -326,13 +355,14 @@ Partial Class wCopySMPOrder
         '
         'wCopySMPOrder
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(652, 217)
+        Me.ClientSize = New System.Drawing.Size(761, 267)
         Me.ControlBox = False
         Me.Controls.Add(Me.ogbCopyOrderNoConfirm)
         Me.Controls.Add(Me.ogbCopyOrderHeader)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "wCopySMPOrder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Copy Order"

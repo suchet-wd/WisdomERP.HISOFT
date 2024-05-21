@@ -10,6 +10,8 @@ namespace HI.Track
         public wProdLTTracking()
         {
             InitializeComponent();
+            this.lbRemarkQCRMDS.Text = ((HI.ST.Lang.Language).ToString() == "TH") ?
+                "*** รายงานนี้แสดงข้อมูลเฉพาะ \"Q-CRMDS\" เท่านั้น ***" : "*** This report will show only \"Q-CRMDS\" ***";
         }
 
         private void ocmExit_Click(object sender, EventArgs e)
@@ -218,184 +220,189 @@ namespace HI.Track
                     _Qry += ", @LangShow = '" + (HI.ST.Lang.Language).ToString() + "'";
 
                     DataTable dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_ACCOUNT);
-                    DataTable dtResult = new DataTable();
+                    //DataTable dtResult = new DataTable();
 
-                    String _style = "";
-                    int _FTMerPLT = 0;
+                    //String _style = "";
+                    //int _FTMerPLT = 0;
 
-                    //Delete Cost sheet old version
-                    for (int i = 0; i < dt.Rows.Count - 1; i++)
-                    {
-                        if (string.Compare(dt.Rows[i]["FTDmndSesn"].ToString(), dt.Rows[i + 1]["FTDmndSesn"].ToString()) == 0 &&
-                            string.Compare(dt.Rows[i]["FTSeason"].ToString(), dt.Rows[i + 1]["FTSeason"].ToString()) == 0)
-                        {
-                            if (dt.Rows[i]["TeamMulti"].ToString() == "N")
-                            {
-                                if (DateTime.Parse(dt.Rows[i]["DateCostSheet"].ToString()) > DateTime.Parse(dt.Rows[i + 1]["DateCostSheet"].ToString()))
-                                {
-                                    dt.Rows[i + 1].Delete();
-                                    i++;
-                                }
-                                else if (DateTime.Parse(dt.Rows[i]["DateCostSheet"].ToString()) < DateTime.Parse(dt.Rows[i + 1]["DateCostSheet"].ToString()))
-                                {
-                                    dt.Rows[i].Delete();
-                                }
-                                else
-                                {
-                                    i++;
-                                }
-                            }
-                        }
-                    }
-                    dt.AcceptChanges();
-                    //End Delete Cost sheet old version
-
-                    //ArrayList iv = new ArrayList();
-                    //String _itemVender = "";
-
-                    //foreach (DataRow dr1 in dt.Select("Seqnum <> 0"))
+                    ///*
+                    ////Delete Cost sheet old version
+                    //for (int i = 0; i < dt.Rows.Count - 1; i++)
                     //{
-
-                    //    //foreach (DataRow dr2 in dt.Select("Seqnum = 0 AND FTMerPLT = '" + dr1["FTMerPLT"].ToString() + "'"))
-                    //    //{
-                    //    //    //dtResult.ImportRow(dr2);
-                    //    //    Console.WriteLine(dr2["ItemVender"].ToString());
-                    //    //}
-                    //    //iv.Add(dr["ItemVender"].ToString());
-                    //    //string s = dr["FTMerPLT"].ToString();
-                    //}
-
-                    //foreach (DataRow dr1 in dt.Select("Seqnum = 1"))
-                    //{
-                    //    foreach (DataRow dr2 in dt.Select("Seqnum > 1 AND FTMerPLT = '" + dr1["FTMerPLT"].ToString() + "'"))
+                    //    if (string.Compare(dt.Rows[i]["FTDmndSesn"].ToString(), dt.Rows[i + 1]["FTDmndSesn"].ToString()) == 0 &&
+                    //        string.Compare(dt.Rows[i]["FTSeason"].ToString(), dt.Rows[i + 1]["FTSeason"].ToString()) == 0)
                     //    {
-                    //        dtResult.ImportRow(dr2);
-                    //        //Console.WriteLine(dr2["ItemVender"].ToString());
+                    //        if (dt.Rows[i]["TeamMulti"].ToString() == "N")
+                    //        {
+                    //            if (DateTime.Parse(dt.Rows[i]["DateCostSheet"].ToString()) > DateTime.Parse(dt.Rows[i + 1]["DateCostSheet"].ToString()))
+                    //            {
+                    //                dt.Rows[i + 1].Delete();
+                    //                i++;
+                    //            }
+                    //            else if (DateTime.Parse(dt.Rows[i]["DateCostSheet"].ToString()) < DateTime.Parse(dt.Rows[i + 1]["DateCostSheet"].ToString()))
+                    //            {
+                    //                dt.Rows[i].Delete();
+                    //            }
+                    //            else
+                    //            {
+                    //                i++;
+                    //            }
+                    //        }
                     //    }
-                    //    //iv.Add(dr["ItemVender"].ToString());
-                    //    //string s = dr["FTMerPLT"].ToString();
                     //}
+                    //dt.AcceptChanges();
+                    ////End Delete Cost sheet old version
+                    //*/
 
-                    int _i = 0;
-                    //int _j = 0;
-                    ArrayList iv = new ArrayList();
-                    ArrayList ivChild = new ArrayList();
-                    ArrayList styleChild = new ArrayList();
-                    String _itemVender = "";
-                    String _itemVenderChild = "";
+                    ////ArrayList iv = new ArrayList();
+                    ////String _itemVender = "";
 
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
+                    ////foreach (DataRow dr1 in dt.Select("Seqnum <> 0"))
+                    ////{
 
-                        if ((dt.Rows[i]["Seqnum"].ToString()) != "1" && (dt.Rows[i]["Seqnum"].ToString()) != "0")
-                        {
-                            if (_style == dt.Rows[i]["StyleParent"].ToString())
-                            {
-                                if (_FTMerPLT > int.Parse(dt.Rows[i]["FTMerPLT"].ToString())) // Delete Leadtime < 
-                                {
-                                    dt.Rows[i].Delete();
-                                }
-                                else // Filter only Max Leadtime
-                                {
-                                    if (dt.Rows[i]["ItemVender"].ToString() != _itemVender)
-                                    {
-                                        bool isDuplicate = false;
-                                        foreach (String _iv in iv)
-                                        {
-                                            if (_iv == dt.Rows[i]["ItemVender"].ToString())
-                                            {
-                                                if (dt.Rows[i]["StyleParent"].ToString() == dt.Rows[i]["FTStyleCode"].ToString())
-                                                {
-                                                    _itemVenderChild += "/" + dt.Rows[i]["ItemVender"];
-                                                }
-                                                isDuplicate = true;
-                                                break;
-                                            }
-                                        }
-                                        if (isDuplicate == false)
-                                        {
-                                            iv.Add(dt.Rows[i]["ItemVender"].ToString());
-                                            dt.Rows[_i]["ItemVender"] = (dt.Rows[_i]["ItemVender"] + "/" + dt.Rows[i]["ItemVender"]);
-                                            dt.Rows[i].Delete();
-                                        }
-                                        else
-                                        {
-                                            dt.Rows[i].Delete();
-                                        }
-                                    }
-                                    else
-                                    {
-                                        if (dt.Rows[i]["TeamMulti"].ToString() == "Y")
-                                        {
-                                            if (dt.Rows[i]["StyleParent"].ToString() == dt.Rows[i]["FTStyleCode"].ToString())
-                                            {
-                                                //dt.Rows[i]["StyleParent"] = "";
-                                                //dt.Rows[i].Delete();
-                                            }
-                                            else
-                                            {
-                                                bool isNewChild = true;
-                                                foreach (string s in styleChild)
-                                                {
-                                                    if (s == dt.Rows[i]["FTStyleCode"].ToString())
-                                                    {
-                                                        isNewChild = false;
-                                                        break;
-                                                    }
-                                                }
+                    ////    //foreach (DataRow dr2 in dt.Select("Seqnum = 0 AND FTMerPLT = '" + dr1["FTMerPLT"].ToString() + "'"))
+                    ////    //{
+                    ////    //    //dtResult.ImportRow(dr2);
+                    ////    //    Console.WriteLine(dr2["ItemVender"].ToString());
+                    ////    //}
+                    ////    //iv.Add(dr["ItemVender"].ToString());
+                    ////    //string s = dr["FTMerPLT"].ToString();
+                    ////}
 
-                                                if (isNewChild)// (ivChild.Count == 0)
-                                                {
-                                                    ivChild.Add(dt.Rows[i]["ItemVender"]);
-                                                    dt.Rows[i]["ItemVender"] = dt.Rows[_i]["ItemVender"];
-                                                }
-                                                else
-                                                {
-                                                    foreach (String _iv in ivChild)
-                                                    {
-                                                        if (_iv == dt.Rows[i]["ItemVender"].ToString())
-                                                        {
-                                                            dt.Rows[i].Delete();
-                                                            break;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        else
-                                        {
-                                            dt.Rows[i].Delete();
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if ((dt.Rows[i]["Seqnum"].ToString()) == "1")
-                            {
-                                ivChild.Clear();
-                                iv.Clear();
-                                iv.Add(dt.Rows[i]["ItemVender"].ToString());
-                                styleChild.Clear();
-                                styleChild.Add(dt.Rows[i]["FTStyleCode"]);
-                                _i = i;
-                                _itemVender = dt.Rows[i]["ItemVender"].ToString();
-                                _itemVenderChild = dt.Rows[i]["ItemVender"].ToString();
-                                _style = dt.Rows[i]["StyleParent"].ToString();
-                                _FTMerPLT = int.Parse(dt.Rows[i]["FTMerPLT"].ToString());
-                                if ((dt.Rows[i]["TeamMulti"].ToString()) == "Y" && dt.Rows[i]["StyleParent"] == dt.Rows[i]["FTStyleCode"])
-                                {
-                                    dt.Rows[i]["StyleParent"] = "";
-                                }
-                            }
-                        }
-                    }
-                    dt.AcceptChanges();
+                    ////foreach (DataRow dr1 in dt.Select("Seqnum = 1"))
+                    ////{
+                    ////    foreach (DataRow dr2 in dt.Select("Seqnum > 1 AND FTMerPLT = '" + dr1["FTMerPLT"].ToString() + "'"))
+                    ////    {
+                    ////        dtResult.ImportRow(dr2);
+                    ////        //Console.WriteLine(dr2["ItemVender"].ToString());
+                    ////    }
+                    ////    //iv.Add(dr["ItemVender"].ToString());
+                    ////    //string s = dr["FTMerPLT"].ToString();
+                    ////}
 
+                    ////-----------------------------------------------------------------------------------
+
+                    //int _i = 0;
+                    ////int _j = 0;
+                    //ArrayList iv = new ArrayList();
+                    //ArrayList ivChild = new ArrayList();
+                    //ArrayList styleChild = new ArrayList();
+                    //String _itemVender = "";
+                    //String _itemVenderChild = "";
+
+                    //for (int i = 0; i < dt.Rows.Count; i++)
+                    //{
+
+                    //    if ((dt.Rows[i]["Seqnum"].ToString()) != "1" && (dt.Rows[i]["Seqnum"].ToString()) != "0")
+                    //    {
+                    //        if (_style == dt.Rows[i]["StyleParent"].ToString())
+                    //        {
+                    //            if (_FTMerPLT > int.Parse(dt.Rows[i]["FTMerPLT"].ToString())) // Delete Leadtime < 
+                    //            {
+                    //                dt.Rows[i].Delete();
+                    //            }
+                    //            else // Filter only Max Leadtime
+                    //            {
+                    //                if (dt.Rows[i]["ItemVender"].ToString() != _itemVender)
+                    //                {
+                    //                    bool isDuplicate = false;
+                    //                    foreach (String _iv in iv)
+                    //                    {
+                    //                        if (_iv == dt.Rows[i]["ItemVender"].ToString())
+                    //                        {
+                    //                            if (dt.Rows[i]["StyleParent"].ToString() == dt.Rows[i]["FTStyleCode"].ToString())
+                    //                            {
+                    //                                _itemVenderChild += "/" + dt.Rows[i]["ItemVender"];
+                    //                            }
+                    //                            isDuplicate = true;
+                    //                            break;
+                    //                        }
+                    //                    }
+                    //                    if (isDuplicate == false)
+                    //                    {
+                    //                        iv.Add(dt.Rows[i]["ItemVender"].ToString());
+                    //                        dt.Rows[_i]["ItemVender"] = (dt.Rows[_i]["ItemVender"] + "/" + dt.Rows[i]["ItemVender"]);
+                    //                        dt.Rows[i].Delete();
+                    //                    }
+                    //                    else
+                    //                    {
+                    //                        dt.Rows[i].Delete();
+                    //                    }
+                    //                }
+                    //                else
+                    //                {
+                    //                    if (dt.Rows[i]["TeamMulti"].ToString() == "Y")
+                    //                    {
+                    //                        if (dt.Rows[i]["StyleParent"].ToString() == dt.Rows[i]["FTStyleCode"].ToString())
+                    //                        {
+                    //                            //dt.Rows[i]["StyleParent"] = "";
+                    //                            //dt.Rows[i].Delete();
+                    //                        }
+                    //                        else
+                    //                        {
+                    //                            bool isNewChild = true;
+                    //                            foreach (string s in styleChild)
+                    //                            {
+                    //                                if (s == dt.Rows[i]["FTStyleCode"].ToString())
+                    //                                {
+                    //                                    isNewChild = false;
+                    //                                    break;
+                    //                                }
+                    //                            }
+
+                    //                            if (isNewChild)// (ivChild.Count == 0)
+                    //                            {
+                    //                                ivChild.Add(dt.Rows[i]["ItemVender"]);
+                    //                                dt.Rows[i]["ItemVender"] = dt.Rows[_i]["ItemVender"];
+                    //                            }
+                    //                            else
+                    //                            {
+                    //                                foreach (String _iv in ivChild)
+                    //                                {
+                    //                                    if (_iv == dt.Rows[i]["ItemVender"].ToString())
+                    //                                    {
+                    //                                        dt.Rows[i].Delete();
+                    //                                        break;
+                    //                                    }
+                    //                                }
+                    //                            }
+                    //                        }
+                    //                    }
+                    //                    else
+                    //                    {
+                    //                        dt.Rows[i].Delete();
+                    //                    }
+                    //                }
+                    //            }
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        if ((dt.Rows[i]["Seqnum"].ToString()) == "1")
+                    //        {
+                    //            ivChild.Clear();
+                    //            iv.Clear();
+                    //            iv.Add(dt.Rows[i]["ItemVender"].ToString());
+                    //            styleChild.Clear();
+                    //            styleChild.Add(dt.Rows[i]["FTStyleCode"]);
+                    //            _i = i;
+                    //            _itemVender = dt.Rows[i]["ItemVender"].ToString();
+                    //            _itemVenderChild = dt.Rows[i]["ItemVender"].ToString();
+                    //            _style = dt.Rows[i]["StyleParent"].ToString();
+                    //            _FTMerPLT = int.Parse(dt.Rows[i]["FTMerPLT"].ToString());
+                    //            if ((dt.Rows[i]["TeamMulti"].ToString()) == "Y" && dt.Rows[i]["StyleParent"] == dt.Rows[i]["FTStyleCode"])
+                    //            {
+                    //                dt.Rows[i]["StyleParent"] = "";
+                    //            }
+                    //        }
+                    //    }
+                    //}
+                    //dt.AcceptChanges();
+                    
+                    //-----------------------------------------------------------------------------------------------
 
                     // Load Data to Grid
-                    ogcDetail.DataSource = dtResult; // dt;
+                    ogcDetail.DataSource = dt; // dtResult; // dt;
 
                 }
                 catch (Exception ex)
@@ -449,7 +456,7 @@ namespace HI.Track
         {
             try
             {
-                if (ogvDetail.GetRowCellValue(e.RowHandle, "Seqnum").ToString() == "0")
+                if (ogvDetail.GetRowCellValue(e.RowHandle, "StyleParent").ToString() == "")
                 {
                     e.Appearance.BackColor = System.Drawing.Color.LightGray;
                 }
