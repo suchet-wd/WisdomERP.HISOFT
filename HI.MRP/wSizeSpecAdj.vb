@@ -62,7 +62,7 @@ Public Class wSizeSpecAdj
             Dim _Cmd As String = ""
             Dim _oDt As DataTable
             Dim _colcount As Integer = 0
-            Dim SeasonCodeData As String = "" 'Me.FTSeasonCode.Text
+            Dim SeasonCodeData As String = Me.FTSeasonCode.Text
 
             _Cmd = "Exec SP_GETIMPORT_SIZESPEC '" & HI.UL.ULF.rpQuoted(Me.FNHSysStyleSSPId.Text) & "','" & HI.UL.ULF.rpQuoted(SeasonCodeData) & "','" & HI.UL.ULDate.ConvertEnDB(Me.FTDate.Text) & "','" & HI.UL.ULF.rpQuoted(Me.FTExpCode.Text) & "'"
             _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_MERCHAN)

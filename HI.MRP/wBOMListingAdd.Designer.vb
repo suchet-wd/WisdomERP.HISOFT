@@ -21,26 +21,26 @@ Partial Class wBOMListingAdd
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wBOMListingAdd))
-        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim WindowsUIButtonImageOptions1 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions2 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions3 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions4 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions5 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions6 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions7 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions8 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions9 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions10 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions11 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions12 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions13 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions14 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
-        Dim WindowsUIButtonImageOptions15 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim WindowsUIButtonImageOptions16 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions17 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions18 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions19 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions20 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions21 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions22 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions23 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions24 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions25 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions26 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions27 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions28 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions29 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
+        Dim WindowsUIButtonImageOptions30 As DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions = New DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions()
         Me.RepFTSelectOrder = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.ogbdetail = New DevExpress.XtraEditors.GroupControl()
         Me.otb = New DevExpress.XtraTab.XtraTabControl()
@@ -476,7 +476,7 @@ Partial Class wBOMListingAdd
         Me.otpmaterial.Controls.Add(Me.PopupFTPositionPartName)
         Me.otpmaterial.Controls.Add(Me.ogcmat)
         Me.otpmaterial.Name = "otpmaterial"
-        Me.otpmaterial.Size = New System.Drawing.Size(1425, 467)
+        Me.otpmaterial.Size = New System.Drawing.Size(1431, 472)
         Me.otpmaterial.Text = "Material"
         '
         'PopupSubOrderNo
@@ -498,7 +498,7 @@ Partial Class wBOMListingAdd
         Me.ocksubjobselectall.Properties.Tag = ""
         Me.ocksubjobselectall.Properties.ValueChecked = "1"
         Me.ocksubjobselectall.Properties.ValueUnchecked = "0"
-        Me.ocksubjobselectall.Size = New System.Drawing.Size(122, 20)
+        Me.ocksubjobselectall.Size = New System.Drawing.Size(122, 21)
         Me.ocksubjobselectall.TabIndex = 550
         Me.ocksubjobselectall.Tag = "2|"
         '
@@ -607,7 +607,7 @@ Partial Class wBOMListingAdd
         Me.ockselectorderall.Properties.Tag = ""
         Me.ockselectorderall.Properties.ValueChecked = "1"
         Me.ockselectorderall.Properties.ValueUnchecked = "0"
-        Me.ockselectorderall.Size = New System.Drawing.Size(122, 20)
+        Me.ockselectorderall.Size = New System.Drawing.Size(122, 21)
         Me.ockselectorderall.TabIndex = 549
         Me.ockselectorderall.Tag = "2|"
         '
@@ -793,7 +793,7 @@ Partial Class wBOMListingAdd
         Me.ogcmat.MainView = Me.ogvmat
         Me.ogcmat.Name = "ogcmat"
         Me.ogcmat.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTStateActive, Me.RepositoryFTStateCombination, Me.RepositoryFTStateNominate, Me.RepositoryItemNumEdit, Me.RepositoryFTStateMainMaterial, Me.ReposFNMerMatSeq, Me.RepositoryPriceCalcEdit, Me.RepositoryFNPackPerCarton, Me.RepositoryItemMemoExFTDTMNote, Me.RepositoryItemPopupOrder, Me.RepositoryItemPopupSubOrderNo, Me.RepositoryItemPopupPositionPart, Me.RepositoryItemGridLookUpEditMainMatCode, Me.RepositoryFNOrderSetType, Me.RepositoryItemLookUpEditFTUnitCode, Me.RepositoryItemGridLookUpEditFTUnitCode, Me.RepositoryItemGridLookUpEditFTCurCode, Me.RepositoryItemGridLookUpEditFTSuplCode, Me.RepositoryItemMemoExEditFTComponent, Me.RepositoryItemCalcEditFNRepeatLengthCM, Me.RepositoryItemCalcEditFNConSmp, Me.RepositoryItemCalcEditFNConSmpPlus, Me.RepositoryItemSelect})
-        Me.ogcmat.Size = New System.Drawing.Size(1425, 467)
+        Me.ogcmat.Size = New System.Drawing.Size(1431, 472)
         Me.ogcmat.TabIndex = 4
         Me.ogcmat.TabStop = False
         Me.ogcmat.Tag = "2|"
@@ -2258,7 +2258,7 @@ Partial Class wBOMListingAdd
         '
         Me.otpMaterialColor.Controls.Add(Me.ogcmatcolor)
         Me.otpMaterialColor.Name = "otpMaterialColor"
-        Me.otpMaterialColor.Size = New System.Drawing.Size(1431, 467)
+        Me.otpMaterialColor.Size = New System.Drawing.Size(1431, 473)
         Me.otpMaterialColor.Text = "Material Color"
         '
         'ogcmatcolor
@@ -2268,7 +2268,7 @@ Partial Class wBOMListingAdd
         Me.ogcmatcolor.MainView = Me.ogvmatcolor
         Me.ogcmatcolor.Name = "ogcmatcolor"
         Me.ogcmatcolor.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepCheckEdit, Me.RepositoryFNOrderSetType2, Me.RepositoryItemGridLookUpEditRMColor})
-        Me.ogcmatcolor.Size = New System.Drawing.Size(1431, 467)
+        Me.ogcmatcolor.Size = New System.Drawing.Size(1431, 473)
         Me.ogcmatcolor.TabIndex = 4
         Me.ogcmatcolor.TabStop = False
         Me.ogcmatcolor.Tag = "2|"
@@ -2605,7 +2605,7 @@ Partial Class wBOMListingAdd
         '
         Me.otpMaterialSize.Controls.Add(Me.ogcmatsize)
         Me.otpMaterialSize.Name = "otpMaterialSize"
-        Me.otpMaterialSize.Size = New System.Drawing.Size(1431, 467)
+        Me.otpMaterialSize.Size = New System.Drawing.Size(1431, 473)
         Me.otpMaterialSize.Text = "Material Size"
         '
         'ogcmatsize
@@ -2615,7 +2615,7 @@ Partial Class wBOMListingAdd
         Me.ogcmatsize.MainView = Me.ogvmatsize
         Me.ogcmatsize.Name = "ogcmatsize"
         Me.ogcmatsize.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemNumEdit2, Me.RepFTRunSize, Me.Repos3FNOrderSetType, Me.RepositoryFNOrderSetType3, Me.RepositoryItemGridLookUpEditRMSize})
-        Me.ogcmatsize.Size = New System.Drawing.Size(1431, 467)
+        Me.ogcmatsize.Size = New System.Drawing.Size(1431, 473)
         Me.ogcmatsize.TabIndex = 4
         Me.ogcmatsize.TabStop = False
         Me.ogcmatsize.Tag = "2|"
@@ -2930,7 +2930,7 @@ Partial Class wBOMListingAdd
         '
         Me.otpMaterialColorNote.Controls.Add(Me.ogcmatcolornote)
         Me.otpMaterialColorNote.Name = "otpMaterialColorNote"
-        Me.otpMaterialColorNote.Size = New System.Drawing.Size(1431, 467)
+        Me.otpMaterialColorNote.Size = New System.Drawing.Size(1431, 473)
         Me.otpMaterialColorNote.Text = "Material Color Note"
         '
         'ogcmatcolornote
@@ -2940,7 +2940,7 @@ Partial Class wBOMListingAdd
         Me.ogcmatcolornote.MainView = Me.ogvmatcolornote
         Me.ogcmatcolornote.Name = "ogcmatcolornote"
         Me.ogcmatcolornote.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2, Me.RepositoryFNOrderSetType4, Me.RepositoryItemTextEditColorNote})
-        Me.ogcmatcolornote.Size = New System.Drawing.Size(1431, 467)
+        Me.ogcmatcolornote.Size = New System.Drawing.Size(1431, 473)
         Me.ogcmatcolornote.TabIndex = 5
         Me.ogcmatcolornote.TabStop = False
         Me.ogcmatcolornote.Tag = "2|"
@@ -3174,7 +3174,7 @@ Partial Class wBOMListingAdd
         Me.otpmaterialsilk.Controls.Add(Me.PopupSilkColor)
         Me.otpmaterialsilk.Controls.Add(Me.ogcmatsilkcolor)
         Me.otpmaterialsilk.Name = "otpmaterialsilk"
-        Me.otpmaterialsilk.Size = New System.Drawing.Size(1431, 467)
+        Me.otpmaterialsilk.Size = New System.Drawing.Size(1431, 473)
         Me.otpmaterialsilk.Text = "Material Silk Color"
         '
         'PopupSilkColor
@@ -3318,7 +3318,7 @@ Partial Class wBOMListingAdd
         Me.ogcmatsilkcolor.MainView = Me.ogvmatsilkcolor
         Me.ogcmatsilkcolor.Name = "ogcmatsilkcolor"
         Me.ogcmatsilkcolor.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit3, Me.RepositoryFNOrderSetType5, Me.RepositoryItemTextEditFTSilkName, Me.RepositoryItemPopupContainerEditSilkColor})
-        Me.ogcmatsilkcolor.Size = New System.Drawing.Size(1431, 467)
+        Me.ogcmatsilkcolor.Size = New System.Drawing.Size(1431, 473)
         Me.ogcmatsilkcolor.TabIndex = 5
         Me.ogcmatsilkcolor.TabStop = False
         Me.ogcmatsilkcolor.Tag = "2|"
@@ -3731,14 +3731,14 @@ Partial Class wBOMListingAdd
         '
         Me.xFTSatetConfirm.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.xFTSatetConfirm.EditValue = "0"
-        Me.xFTSatetConfirm.Location = New System.Drawing.Point(1308, 29)
+        Me.xFTSatetConfirm.Location = New System.Drawing.Point(1306, 55)
         Me.xFTSatetConfirm.Name = "xFTSatetConfirm"
         Me.xFTSatetConfirm.Properties.Caption = "Confirm"
         Me.xFTSatetConfirm.Properties.ReadOnly = True
         Me.xFTSatetConfirm.Properties.Tag = ""
         Me.xFTSatetConfirm.Properties.ValueChecked = "1"
         Me.xFTSatetConfirm.Properties.ValueUnchecked = "0"
-        Me.xFTSatetConfirm.Size = New System.Drawing.Size(122, 20)
+        Me.xFTSatetConfirm.Size = New System.Drawing.Size(122, 21)
         Me.xFTSatetConfirm.TabIndex = 551
         Me.xFTSatetConfirm.Tag = "2|"
         '
@@ -3746,14 +3746,14 @@ Partial Class wBOMListingAdd
         '
         Me.FTStateStyleSet.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTStateStyleSet.EditValue = "0"
-        Me.FTStateStyleSet.Location = New System.Drawing.Point(1308, 81)
+        Me.FTStateStyleSet.Location = New System.Drawing.Point(1306, 107)
         Me.FTStateStyleSet.Name = "FTStateStyleSet"
         Me.FTStateStyleSet.Properties.Caption = "Tag Suite"
         Me.FTStateStyleSet.Properties.ReadOnly = True
         Me.FTStateStyleSet.Properties.Tag = ""
         Me.FTStateStyleSet.Properties.ValueChecked = "1"
         Me.FTStateStyleSet.Properties.ValueUnchecked = "0"
-        Me.FTStateStyleSet.Size = New System.Drawing.Size(122, 20)
+        Me.FTStateStyleSet.Size = New System.Drawing.Size(122, 21)
         Me.FTStateStyleSet.TabIndex = 550
         Me.FTStateStyleSet.Tag = "2|"
         '
@@ -3761,14 +3761,14 @@ Partial Class wBOMListingAdd
         '
         Me.FTStateGameDays.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTStateGameDays.EditValue = "0"
-        Me.FTStateGameDays.Location = New System.Drawing.Point(1308, 56)
+        Me.FTStateGameDays.Location = New System.Drawing.Point(1306, 82)
         Me.FTStateGameDays.Name = "FTStateGameDays"
         Me.FTStateGameDays.Properties.Caption = "Game Days"
         Me.FTStateGameDays.Properties.ReadOnly = True
         Me.FTStateGameDays.Properties.Tag = ""
         Me.FTStateGameDays.Properties.ValueChecked = "1"
         Me.FTStateGameDays.Properties.ValueUnchecked = "0"
-        Me.FTStateGameDays.Size = New System.Drawing.Size(122, 20)
+        Me.FTStateGameDays.Size = New System.Drawing.Size(122, 21)
         Me.FTStateGameDays.TabIndex = 549
         Me.FTStateGameDays.Tag = "2|"
         '
@@ -3776,13 +3776,13 @@ Partial Class wBOMListingAdd
         '
         Me.FTStateActive.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTStateActive.EditValue = "0"
-        Me.FTStateActive.Location = New System.Drawing.Point(1308, 2)
+        Me.FTStateActive.Location = New System.Drawing.Point(1306, 28)
         Me.FTStateActive.Name = "FTStateActive"
         Me.FTStateActive.Properties.Caption = "Active"
         Me.FTStateActive.Properties.Tag = ""
         Me.FTStateActive.Properties.ValueChecked = "1"
         Me.FTStateActive.Properties.ValueUnchecked = "0"
-        Me.FTStateActive.Size = New System.Drawing.Size(122, 20)
+        Me.FTStateActive.Size = New System.Drawing.Size(122, 21)
         Me.FTStateActive.TabIndex = 548
         Me.FTStateActive.Tag = "2|"
         '
@@ -3980,7 +3980,7 @@ Partial Class wBOMListingAdd
         Me.FNVersion.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNVersion.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNVersion.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNVersion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNVersion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNVersion.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNVersion.Properties.Precision = 0
         Me.FNVersion.Properties.ReadOnly = True
@@ -4127,22 +4127,22 @@ Partial Class wBOMListingAdd
         Me.UIButtonPanel.AppearanceButton.Pressed.Options.UseFont = True
         Me.UIButtonPanel.AppearanceButton.Pressed.Options.UseForeColor = True
         Me.UIButtonPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(63, Byte), Integer), CType(CType(63, Byte), Integer))
-        WindowsUIButtonImageOptions1.Image = CType(resources.GetObject("WindowsUIButtonImageOptions1.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions2.Image = CType(resources.GetObject("WindowsUIButtonImageOptions2.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions3.Image = CType(resources.GetObject("WindowsUIButtonImageOptions3.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions4.Image = CType(resources.GetObject("WindowsUIButtonImageOptions4.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions5.Image = CType(resources.GetObject("WindowsUIButtonImageOptions5.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions6.Image = CType(resources.GetObject("WindowsUIButtonImageOptions6.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions7.Image = CType(resources.GetObject("WindowsUIButtonImageOptions7.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions8.Image = CType(resources.GetObject("WindowsUIButtonImageOptions8.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions9.Image = CType(resources.GetObject("WindowsUIButtonImageOptions9.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions10.Image = CType(resources.GetObject("WindowsUIButtonImageOptions10.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions11.Image = CType(resources.GetObject("WindowsUIButtonImageOptions11.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions12.Image = CType(resources.GetObject("WindowsUIButtonImageOptions12.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions13.Image = CType(resources.GetObject("WindowsUIButtonImageOptions13.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions14.Image = CType(resources.GetObject("WindowsUIButtonImageOptions14.Image"), System.Drawing.Image)
-        WindowsUIButtonImageOptions15.Image = CType(resources.GetObject("WindowsUIButtonImageOptions15.Image"), System.Drawing.Image)
-        Me.UIButtonPanel.Buttons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraBars.Docking2010.WindowsUIButton("Re Load Master", True, WindowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "reloadmaster", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Calculate & Optiplan", True, WindowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "calculate", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUISeparator(), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Add Material (Ctrl+M)", True, WindowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "add", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Add Mat. Part (Alt+A)", True, WindowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "diff", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Insert Mat. (Ctrl+I)", True, WindowsUIButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "insert", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Inter Change.", True, WindowsUIButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "interchange", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Import Color Size From Order (Alt+I)", True, WindowsUIButtonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "import", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("New Colorway (Shift+A)", True, WindowsUIButtonImageOptions8, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "newcolor", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Change Colorway (Alt+C)", True, WindowsUIButtonImageOptions9, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "changecolor", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("New Sizebreakdown (Shift+A)", True, WindowsUIButtonImageOptions10, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "newsize", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Change Color Desc. (Shift+C)", True, WindowsUIButtonImageOptions11, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "changecolordesc", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUISeparator(), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Remove Material (Ctrl+Z)", True, WindowsUIButtonImageOptions12, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "remove", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Remove Colorway (Shift+D)", True, WindowsUIButtonImageOptions13, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "deletecolor", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Remove Sizebreakdown (Shift+D)", True, WindowsUIButtonImageOptions14, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "deletesize", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUISeparator(), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Exit", True, WindowsUIButtonImageOptions15, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "exit", -1, False)})
+        WindowsUIButtonImageOptions16.Image = CType(resources.GetObject("WindowsUIButtonImageOptions16.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions17.Image = CType(resources.GetObject("WindowsUIButtonImageOptions17.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions18.Image = CType(resources.GetObject("WindowsUIButtonImageOptions18.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions19.Image = CType(resources.GetObject("WindowsUIButtonImageOptions19.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions20.Image = CType(resources.GetObject("WindowsUIButtonImageOptions20.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions21.Image = CType(resources.GetObject("WindowsUIButtonImageOptions21.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions22.Image = CType(resources.GetObject("WindowsUIButtonImageOptions22.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions23.Image = CType(resources.GetObject("WindowsUIButtonImageOptions23.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions24.Image = CType(resources.GetObject("WindowsUIButtonImageOptions24.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions25.Image = CType(resources.GetObject("WindowsUIButtonImageOptions25.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions26.Image = CType(resources.GetObject("WindowsUIButtonImageOptions26.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions27.Image = CType(resources.GetObject("WindowsUIButtonImageOptions27.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions28.Image = CType(resources.GetObject("WindowsUIButtonImageOptions28.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions29.Image = CType(resources.GetObject("WindowsUIButtonImageOptions29.Image"), System.Drawing.Image)
+        WindowsUIButtonImageOptions30.Image = CType(resources.GetObject("WindowsUIButtonImageOptions30.Image"), System.Drawing.Image)
+        Me.UIButtonPanel.Buttons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraBars.Docking2010.WindowsUIButton("Re Load Master", True, WindowsUIButtonImageOptions16, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "reloadmaster", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Calculate & Optiplan", True, WindowsUIButtonImageOptions17, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "calculate", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUISeparator(), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Add Material (Ctrl+M)", True, WindowsUIButtonImageOptions18, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "add", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Add Mat. Part (Alt+A)", True, WindowsUIButtonImageOptions19, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "diff", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Insert Mat. (Ctrl+I)", True, WindowsUIButtonImageOptions20, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "insert", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Inter Change.", True, WindowsUIButtonImageOptions21, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "interchange", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Import Color Size From Order (Alt+I)", True, WindowsUIButtonImageOptions22, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "import", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("New Colorway (Shift+A)", True, WindowsUIButtonImageOptions23, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "newcolor", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Change Colorway (Alt+C)", True, WindowsUIButtonImageOptions24, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "changecolor", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("New Sizebreakdown (Shift+A)", True, WindowsUIButtonImageOptions25, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "newsize", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Change Color Desc. (Shift+C)", True, WindowsUIButtonImageOptions26, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "changecolordesc", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUISeparator(), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Remove Material (Ctrl+Z)", True, WindowsUIButtonImageOptions27, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "remove", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Remove Colorway (Shift+D)", True, WindowsUIButtonImageOptions28, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "deletecolor", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Remove Sizebreakdown (Shift+D)", True, WindowsUIButtonImageOptions29, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "deletesize", -1, False), New DevExpress.XtraBars.Docking2010.WindowsUISeparator(), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Exit", True, WindowsUIButtonImageOptions30, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, True, Nothing, True, False, True, "exit", -1, False)})
         Me.UIButtonPanel.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.UIButtonPanel.EnableImageTransparency = True
         Me.UIButtonPanel.Font = New System.Drawing.Font("Tahoma", 10.0!)

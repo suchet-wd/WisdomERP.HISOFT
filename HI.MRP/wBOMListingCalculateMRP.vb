@@ -647,6 +647,45 @@ Public Class wBOMListingCalculateMRP
             'Filter = Filter.Replace("[", "[A.")
             'Filter = Filter.Replace("[", "").Replace("]", "")
 
+
+            cmdstring &= vbCrLf & " INSERT INTO  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_LOG) & "].[dbo].TMERTMPR_History (  FTUserLogin, FTDateCreate, FNCaltype,FTStyleCode, FTSeasonCode, FTOrderNo, FTMainMatCode, FTRawMatColorCode, FTRawMatColorNameEN, FTRawMatColorNameTH"
+            cmdstring &= vbCrLf & "  , FTRawMatSizeCode,  FNQuantity, FNHSysRawMatId, FNHSysStyleId, FNHSysSeasonId,FTFilterItem ,FTCalTypeName,FTCalDate,FTCalTime,FNRowSeq"
+            cmdstring &= vbCrLf & "  , FTSubOrderNo,FNUsedQuantity,FNUsedPlusQuantity,FNPRQuantity,FDShipDate,FDOGacDate,FTBOmRef)"
+            cmdstring &= vbCrLf & "   Select '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "',Getdate(),44, ST.FTStyleCode "
+            cmdstring &= vbCrLf & "  , SS.FTSeasonCode  "
+            cmdstring &= vbCrLf & "  , A.FTOrderNo "
+            cmdstring &= vbCrLf & "  , A.FTMainMatCode "
+            cmdstring &= vbCrLf & "  , A.FTRawMatColorCode "
+            cmdstring &= vbCrLf & "  , A.FTRawMatColorNameEN"
+            cmdstring &= vbCrLf & "  , A.FTRawMatColorNameTH"
+            cmdstring &= vbCrLf & " , A.FTRawMatSizeCode"
+            cmdstring &= vbCrLf & " , SUM(A.FNPRQuantity) AS FNQuantity	"
+            cmdstring &= vbCrLf & " , A.FNHSysRawMatId "
+            cmdstring &= vbCrLf & " , A.FNHSysStyleId "
+            cmdstring &= vbCrLf & " , A.FNHSysSeasonId	"
+            cmdstring &= vbCrLf & " , '" & HI.UL.ULF.rpQuoted(Filter) & "'	"
+            cmdstring &= vbCrLf & " , 'Delete Auto Before Calculate'	"
+            cmdstring &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB & "	"
+            cmdstring &= vbCrLf & " ," & HI.UL.ULDate.FormatTimeDB & "	"
+
+            cmdstring &= vbCrLf & " ,Row_Number() Over (Partition by A.FTOrderNo,A.FTMainMatCode,A.FTRawMatColorCode,A.FTRawMatSizeCode Order by A.FTSubOrderNo,A.FTMainMatCode,A.FTRawMatColorCode ) AS FNRowSeq	"
+            cmdstring &= vbCrLf & "  ,A.FTSubOrderNo,SUM(A.FNUsedQuantity) AS FNUsedQuantity,SUM(A.FNUsedPlusQuantity) AS FNUsedPlusQuantity,SUM(A.FNPRQuantity) AS FNPRQuantity "
+            cmdstring &= vbCrLf & "  , MAX(ISNULL(Sub.FDShipDate,'') ) AS FDShipDate "
+            cmdstring &= vbCrLf & "  , MAX(ISNULL(Sub.FDShipDateOrginal,'') ) AS FDOGacDate "
+            cmdstring &= vbCrLf & "  ,'" & HI.UL.ULF.rpQuoted(FNHSysStyleId.Text.Trim & "-" & FNHSysSeasonId.Text.Trim & "-" & FNBomDevType.Text & " V." & FNVersion.Text) & "'"
+
+            cmdstring &= vbCrLf & " From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].TMERTMPR_TMP AS A WITH(NOLOCK) "
+            cmdstring &= vbCrLf & " 	    INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].TMERTMPR AS B  WITH(NOLOCK) ON A.FNHSysMerMatId =B.FNHSysMerMatId AND  A.FTOrderNo=B.FTOrderNo "
+            cmdstring &= vbCrLf & "       Outer Apply(SELECT TOP 1 ST.FTStyleCode  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].[dbo].TMERMStyle AS ST WITH(NOLOCK) WHERE ST.FNHSysStyleId =A.FNHSysStyleId ) AS ST  "
+            cmdstring &= vbCrLf & "       Outer Apply(SELECT TOP 1 SS.FTSeasonCode  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].[dbo].TMERMSeason  AS SS WITH(NOLOCK) WHERE SS.FNHSysSeasonId =A.FNHSysSeasonId ) AS SS "
+            cmdstring &= vbCrLf & "       Outer Apply(SELECT TOP 1 Sub.FDShipDate,Sub.FDShipDateOrginal  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].TMERTOrderSub  AS Sub WITH(NOLOCK) WHERE Sub.FTSubOrderNo =A.FTSubOrderNo ) AS Sub "
+            cmdstring &= vbCrLf & " 	  WHERE A.FTUserLogIn  ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'   "
+
+            cmdstring &= vbCrLf & "   GROUP BY ST.FTStyleCode  "
+            cmdstring &= vbCrLf & "	 ,SS.FTSeasonCode "
+            cmdstring &= vbCrLf & " ,A.FTOrderNo ,A.FTSubOrderNo"
+            cmdstring &= vbCrLf & " ,A.FTRawMatColorCode, A.FTRawMatSizeCode, A.FTRawMatColorNameEN, A.FTRawMatColorNameTH, A.FTMainMatCode, A.FNHSysRawMatId, A.FNHSysStyleId, A.FNHSysSeasonId "
+
             cmdstring &= vbCrLf & " DELETE A "
             cmdstring &= vbCrLf & " 	From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[TMERTMPR] AS A INNER JOIN [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].TMERTMPR_TMP AS B  ON A.FNHSysMerMatId=B.FNHSysMerMatId AND A.FTOrderNo = B.FTOrderNo "
             cmdstring &= vbCrLf & " 	WHERE	B.FTUserLogIn ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
@@ -677,8 +716,6 @@ Public Class wBOMListingCalculateMRP
             cmdstring &= vbCrLf & " 	 From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].TMERTMPR_TMP As A With(NOLOCK) "
             cmdstring &= vbCrLf & " 	  WHERE A.FTUserLogIn  ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  And A.FNHSysRawMatId > 0 "
 
-
-
             cmdstring &= vbCrLf & "   Declare @TMERTOrder_MatColor AS TABLE( "
             cmdstring &= vbCrLf & "   [FNHSysStyleId] [Int] Not NULL, "
             cmdstring &= vbCrLf & "    [FTOrderNo] [nvarchar](30) Not NULL, "
@@ -688,10 +725,7 @@ Public Class wBOMListingCalculateMRP
             cmdstring &= vbCrLf & "    [FTRawMatColorNameEN] [nvarchar](200) NULL,[FNRowSeq] [int] NULL, "
 
             cmdstring &= vbCrLf & "   UNIQUE  NONCLUSTERED(FNHSysStyleId, FTOrderNo, FNHSysMainMatId, FNHSysRawMatColorId, [FNRowSeq]) "
-
             cmdstring &= vbCrLf & "  	) "
-
-
             cmdstring &= vbCrLf & "    INSERT INTO  @TMERTOrder_MatColor([FNHSysStyleId] , [FTOrderNo], [FNHSysMainMatId], [FNHSysRawMatColorId], [FTRawMatColorNameTH], [FTRawMatColorNameEN],FNRowSeq )"
             cmdstring &= vbCrLf & "  	Select  FNHSysStyleId "
             cmdstring &= vbCrLf & "  	,FTOrderNo"
@@ -714,8 +748,7 @@ Public Class wBOMListingCalculateMRP
             cmdstring &= vbCrLf & "    DELETE From BBD "
             cmdstring &= vbCrLf & "    From     @TMERTOrder_MatColor As MMD  INNER Join"
             cmdstring &= vbCrLf & "             [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].TMERTOrder_Mat_Color AS BBD "
-            cmdstring &= vbCrLf & "    On MMD.FNHSysStyleId = BBD.FNHSysStyleId "
-            cmdstring &= vbCrLf & "    And MMD.FTOrderNo = BBD.FTOrderNo "
+            cmdstring &= vbCrLf & "    On  MMD.FTOrderNo = BBD.FTOrderNo "
 
             cmdstring &= vbCrLf & "    And MMD.FNHSysMainMatId = BBD.FNHSysMainMatId"
 
@@ -1462,11 +1495,10 @@ Public Class wBOMListingCalculateMRP
                         cmdstring &= vbCrLf & " , FDStateLastExportOptiplanDate=CASE WHEN ISNULL(FTStateFirstExportOptiplanUser,'') <>'' THEN " & HI.UL.ULDate.FormatDateDB & " ELSE  '' END  "
                         cmdstring &= vbCrLf & " , FTStateLastExportOptiplanTime=CASE WHEN ISNULL(FTStateFirstExportOptiplanUser,'') <>'' THEN " & HI.UL.ULDate.FormatTimeDB & " ELSE  '' END  "
                         cmdstring &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTBOM_Mat AS BM "
-                        cmdstring &= vbCrLf & "   WHERE     BM.FNHSysBomId = " & BOMID & " And BM.FTStateActive ='1' AND BM.FTStateMatConfirm ='1' AND BM.FTStateExportOptiplan <>'1'  AND BM.FTRunColor ='1'  AND  BM.FTPart <>'' AND ISNULL(BM.FTStateHemNotOptiplan,'') <>'1' "
+                        cmdstring &= vbCrLf & "   WHERE     BM.FNHSysBomId = " & BOMID & " And BM.FTStateActive ='1' AND BM.FTStateMatConfirm ='1' AND ISNULL(BM.FTStateExportOptiplan,'') <>'1'  AND BM.FTRunColor ='1'  AND  BM.FTPart <>'' AND ISNULL(BM.FTStateHemNotOptiplan,'') <>'1' "
 
 
                         HI.Conn.SQLConn.ExecuteNonQuery(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
-
 
                         ' HI.MG.ShowMsg.mInfo("Export Data Complete..", 1406120400, Me.Text, , MessageBoxIcon.Information)
 
@@ -1679,6 +1711,7 @@ Public Class wBOMListingCalculateMRP
                 .ReportName = strReportName
                 .AddParameter("FTStateSplitFabric", "0")
                 .Formular = strFoumalar
+                .ReportTitle = "PR-" & FNHSysStyleId.Text.Trim & "-" & FNHSysSeasonId.Text.Trim
                 .Preview()
             End With
         Catch ex As Exception

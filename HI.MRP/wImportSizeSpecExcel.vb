@@ -85,7 +85,7 @@ Public Class wImportSizeSpecExcel
             '    Return False
             'End If
 
-            Call SaveImportData(_StyleCode, "", _Exp, _Date)
+            Call SaveImportData(_StyleCode, _SeasonCode, _Exp, _Date)
 
             Dim row As Integer = 8 : Dim _Meas As String = "" : Dim _GarmentSpec As String = "" : Dim _PomDesc As String = "" : Dim _MedPattern As String = ""
             Dim _Tol As String = "" : Dim _Grads1 As String = "" : Dim _Grand2 As String = "" : Dim _Description As String = ""
@@ -121,7 +121,7 @@ Public Class wImportSizeSpecExcel
                                     'End If
                                     'Call SaveImportData_MEAS(_GarmentSpec, _PomDesc, _MedPattern, _Tol, _Grads1, _Grand2, _StyleCode, _SeasonCode, _Meas, _Seq)
 
-                                    Call SaveImportData_MEAS(_GarmentSpec, _PomDesc, _MedPattern, _Tol, _Grads1, _Grand2, _StyleCode, "", _Meas, _Seq)
+                                    Call SaveImportData_MEAS(_GarmentSpec, _PomDesc, _MedPattern, _Tol, _Grads1, _Grand2, _StyleCode, _SeasonCode, _Meas, _Seq)
 
                                     _MeasHold = _Meas
 
@@ -587,7 +587,7 @@ Public Class wImportSizeSpecExcel
 
             For Each r As DataRow In _oDt.Rows
                 _SizeCode = IIf(r!SizeCodeMap.ToString <> "", r!SizeCodeMap.ToString, GetSize(r!SizeCode.ToString))
-                SeasonCode = "" 'r!SeasonCode.ToString
+                SeasonCode = r!SeasonCode.ToString
 
                 _Cmd = "Update [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTMPRImportSizeSpec_Size"
                 _Cmd &= vbCrLf & " Set  FTUpdUser='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"

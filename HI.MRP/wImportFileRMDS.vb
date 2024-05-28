@@ -82,7 +82,7 @@ Public Class wImportFileRMDS
                         Dim FixQuotesUSDPrice As Decimal = 0
                         Dim TotalProceQuoteCurr As Decimal = 0
                         Dim PriceSTDUnit As String = ""
-
+                        Dim PriceSTDUnit2 As String = ""
                         Dim PriceSTD As Decimal = 0
 
 
@@ -112,7 +112,8 @@ Public Class wImportFileRMDS
                         Dim FTUOMDesc As String = ""
                         Dim FTRMDSSESNCD As String = ""
                         Dim FTSMState, FTSMStatus, pFTMatColor As String
-
+                        Dim FTMCO As String = ""
+                        Dim pMCO As String = ""
                         Dim FTParentFactory, FTFcty, FTSupplierLocationName, FTLocatedinCountry As String
 
                         For Each R As DataRow In oDBdtExcel.Rows
@@ -120,7 +121,7 @@ Public Class wImportFileRMDS
 
                             If RowSeq > 1 Then
 
-
+                                FTMCO = ""
                                 FTParentFactory = ""
                                 FTFcty = ""
                                 FTSupplierLocationName = ""
@@ -173,7 +174,7 @@ Public Class wImportFileRMDS
                                 FixQuotesPrice = Val(R!F18.ToString().Trim())
                                 FixQuotesUSDPrice = Val(R!F19.ToString().Trim())
                                 TotalProceQuoteCurr = Val(R!F20.ToString().Trim())
-                                PriceSTDUnit = R!F21.ToString().Trim()
+
                                 PriceSTD = Val(R!F22.ToString().Trim())
 
                                 FNPurchasingLT = Val(R!F26.ToString().Trim())
@@ -185,7 +186,14 @@ Public Class wImportFileRMDS
                                 FTLTAdHoc = R!F31.ToString().Trim()
                                 FTLTComments = R!F32.ToString().Trim()
 
-                                PriceSTDUnit = R!F33.ToString().Trim()
+
+                                'PriceSTDUnit = R!F33.ToString().Trim() ' AG To V Chenge 2023-09-06  Request By User
+                                PriceSTDUnit = R!F21.ToString().Trim() ' V FROm AG Chenge 2023-09-06  Request By User
+
+                                ' Chage from V TO AG 2023-10-25 Mail from Suraphan Limpakornkul  Mail Date 2023-10-19 13.41
+                                PriceSTDUnit2 = R!F33.ToString().Trim()
+                                ' Chage from V TO AG 2023-10-25 Mail from Suraphan Limpakornkul  Mail Date 2023-10-19 13.41
+
                                 FNProdMinQTY = Val(R!F34.ToString().Trim())
                                 FNProdMinColorQTY = Val(R!F35.ToString().Trim())
 
@@ -225,6 +233,8 @@ Public Class wImportFileRMDS
                                     FTRMDSEFFEndDt = ""
                                 End Try
 
+
+
                                 If IMCode = "" Then
                                     Exit For
 
@@ -233,14 +243,21 @@ Public Class wImportFileRMDS
                                     If FTRMDSEFFStartDt <> "" And FTRMDSEFFEndDt <> "" Then
 
                                     End If
-                                    If IMCode <> IMCodeBF Then
-                                        IMCodeBF = IMCode
+
+                                    If IMCode & pFTMatColor & SuplCode <> IMCodeBF Then
+                                        IMCodeBF = IMCode & pFTMatColor & SuplCode
 
                                         'cmdstring = " delete from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.THITRMDSMasterFile where FTMat='" & HI.UL.ULF.rpQuoted(IMCode) & "' AND FTFileDataDateRef <>'" & HI.UL.ULF.rpQuoted(FTFileDataDate) & "'  AND FTRMDSEFFStartDt='" & FTRMDSEFFStartDt & "' AND FTRMDSEFFEndDt='" & FTRMDSEFFEndDt & "'  "
-                                        cmdstring = " delete from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.THITRMDSMasterFile where FTMat='" & HI.UL.ULF.rpQuoted(IMCode) & "' AND FTRMDSEFFStartDt='" & FTRMDSEFFStartDt & "' AND FTRMDSEFFEndDt='" & FTRMDSEFFEndDt & "'  "
+                                        cmdstring = " delete from  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.THITRMDSMasterFile where FTMat='" & HI.UL.ULF.rpQuoted(IMCode) & "' AND FTRMDSEFFStartDt='" & FTRMDSEFFStartDt & "' AND FTRMDSEFFEndDt='" & FTRMDSEFFEndDt & "' AND FTMatColor='" & HI.UL.ULF.rpQuoted(pFTMatColor) & "'  AND FTSupplierLocationCode='" & HI.UL.ULF.rpQuoted(SuplCode) & "' "
                                         HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
 
                                     End If
+
+                                    pMCO = (FTMANUFACTURINGCRTYOFORIGIN.ToString().Split(",")(0)).ToString.Trim
+
+                                    cmdstring = "select top 1 FTCOFOCode FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMCOFO  AS X WITH(NOLOCK) WHERE FTCOFONameEN ='" & HI.UL.ULF.rpQuoted(pMCO) & "'"
+
+                                    FTMCO = HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_MASTER, "")
 
                                     Seq = Seq + 1
 
@@ -249,8 +266,7 @@ Public Class wImportFileRMDS
                                     cmdstring &= vbCrLf & "  FTSupplierLocationCode, FTParentFactory, FTFcty, FTSupplierLocationName, FTLocatedinCountry, FTRMDSSESNCD, FTRMDSEFFStartDt, FTRMDSEFFEndDt, FTMinStatus, FTMINUOM, FNProdMinQTY, FNProdMinColorQTY,"
                                     cmdstring &= vbCrLf & " FNSampleMinQTY, FNSampleMinColorQTY, FTLTStatus, FNPurchasingLT, FNDyeFinishPackLT, FNKnitWeaveLT, FNYarnLT, FNSalesSampleLT, FTPricingStatus, FTSellingUOM, FNQty, FTUOMDesc, FTRMDSComments,"
                                     cmdstring &= vbCrLf & " FTPriceGroup, FTColorsAssigned, FTQuotedCrncy, FNQuotedVarPRC, FNUSDVARPRC,FTRMDSCur,FNRMDSPrice, FNUSDLY, FNQuotedFixedPRC, FNUSDFixedPRC, FTSurchargeDesc, FTSurchargeOther, FNSurchargeAMT, FTSurchargeType, FNWeightGM,"
-                                    cmdstring &= vbCrLf & " FNWidthCM,FNTOTALPRICEQUOTEDCURRENCY, FTPRICINGSTARDARDUOM,FTLTAdHoc,FTLTComments,FTMATERIALTYPE,FTSUPPLIEDMATERIALYARNDESCRIPTION,FTMANUFACTURINGCRTYOFORIGIN,FNSTDPrice,FTMatColor)"
-
+                                    cmdstring &= vbCrLf & " FNWidthCM,FNTOTALPRICEQUOTEDCURRENCY, FTPRICINGSTARDARDUOM,FTLTAdHoc,FTLTComments,FTMATERIALTYPE,FTSUPPLIEDMATERIALYARNDESCRIPTION,FTMANUFACTURINGCRTYOFORIGIN,FNSTDPrice,FTMatColor,FTMCO,FTPRICINGSTARDARDUOM2)"
                                     cmdstring &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(FTFileDataDate) & "'"
                                     cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                                     cmdstring &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB & ""
@@ -326,14 +342,108 @@ Public Class wImportFileRMDS
                                     cmdstring &= vbCrLf & " ," & TotalProceQuoteCurr & ""
                                     cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(PriceSTDUnit) & "'"
                                     cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTLTAdHoc) & "'"
-                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTLTComments) & "'"
+                                    cmdstring &= vbCrLf & " ,LEFT('" & HI.UL.ULF.rpQuoted(FTLTComments) & "',1000)"
 
                                     cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTMATERIALTYPE) & "'"
-                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTSUPPLIEDMATERIALYARNDESCRIPTION) & "'"
+                                    cmdstring &= vbCrLf & " ,LEFT('" & HI.UL.ULF.rpQuoted(FTSUPPLIEDMATERIALYARNDESCRIPTION) & "',2500)"
                                     cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTMANUFACTURINGCRTYOFORIGIN) & "'"
                                     cmdstring &= vbCrLf & " ," & Val(PriceSTD) & ""
                                     cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(pFTMatColor) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTMCO) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(PriceSTDUnit2) & "'"
 
+                                    cmdstring &= vbCrLf & " insert into  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.THITRMDSMasterFile_History (  FTFileDataDateRef,FTDataDate, FTImportUser, FTImportDate, FTImportTime, FNDataSeq, FTMat, FTClass, FTSM, FTMaterialDescription, FTSMState, FTSMStatus"
+                                    cmdstring &= vbCrLf & " , FTRMDSUpdated, FTQuotedExchangeRate, FTEuroExchangeRate, FTLiaisonOfficeCode, "
+                                    cmdstring &= vbCrLf & "  FTSupplierLocationCode, FTParentFactory, FTFcty, FTSupplierLocationName, FTLocatedinCountry, FTRMDSSESNCD, FTRMDSEFFStartDt, FTRMDSEFFEndDt, FTMinStatus, FTMINUOM, FNProdMinQTY, FNProdMinColorQTY,"
+                                    cmdstring &= vbCrLf & " FNSampleMinQTY, FNSampleMinColorQTY, FTLTStatus, FNPurchasingLT, FNDyeFinishPackLT, FNKnitWeaveLT, FNYarnLT, FNSalesSampleLT, FTPricingStatus, FTSellingUOM, FNQty, FTUOMDesc, FTRMDSComments,"
+                                    cmdstring &= vbCrLf & " FTPriceGroup, FTColorsAssigned, FTQuotedCrncy, FNQuotedVarPRC, FNUSDVARPRC,FTRMDSCur,FNRMDSPrice, FNUSDLY, FNQuotedFixedPRC, FNUSDFixedPRC, FTSurchargeDesc, FTSurchargeOther, FNSurchargeAMT, FTSurchargeType, FNWeightGM,"
+                                    cmdstring &= vbCrLf & " FNWidthCM,FNTOTALPRICEQUOTEDCURRENCY, FTPRICINGSTARDARDUOM,FTLTAdHoc,FTLTComments,FTMATERIALTYPE,FTSUPPLIEDMATERIALYARNDESCRIPTION,FTMANUFACTURINGCRTYOFORIGIN,FNSTDPrice,FTMatColor,FTMCO,FTPRICINGSTARDARDUOM2)"
+
+                                    cmdstring &= vbCrLf & " SELECT '" & HI.UL.ULF.rpQuoted(FTFileDataDate) & "'"
+                                    cmdstring &= vbCrLf & " ,convert(varchar(10),Getdate(),111) + '-' + convert(varchar(20),Getdate(),114)"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                    cmdstring &= vbCrLf & " ," & HI.UL.ULDate.FormatDateDB & ""
+                                    cmdstring &= vbCrLf & " ," & HI.UL.ULDate.FormatTimeDB & ""
+                                    cmdstring &= vbCrLf & " ," & Seq & ""
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(IMCode) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted("") & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted("") & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(MatDes) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTSMState) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTSMStatus) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & FTRMDSUpdated & "'"  'Dattetime
+                                    cmdstring &= vbCrLf & " ,'" & ExcRate & "'"
+                                    cmdstring &= vbCrLf & " ,'" & ExcRate & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(SuplLocation) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(SuplCode) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTParentFactory) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTFcty) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTSupplierLocationName) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTLocatedinCountry) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(Season) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & FTRMDSEFFStartDt & "'"  'Dattetime
+                                    cmdstring &= vbCrLf & " ,'" & FTRMDSEFFEndDt & "'"  'Dattetime
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted("") & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTMINUOM) & "'"
+                                    cmdstring &= vbCrLf & " ," & Val(FNProdMinQTY) & ""
+                                    cmdstring &= vbCrLf & " ," & Val(FNProdMinColorQTY) & ""
+                                    cmdstring &= vbCrLf & " ," & Val(FNSampleMinQTY) & ""
+                                    cmdstring &= vbCrLf & " ," & Val(FNSampleMinColorQTY) & ""
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted("") & "'"
+                                    cmdstring &= vbCrLf & " ," & FNPurchasingLT & ""
+                                    cmdstring &= vbCrLf & " ," & FNDyeFinishPackLT & ""
+                                    cmdstring &= vbCrLf & " ," & FNKnitWeaveLT & ""
+                                    cmdstring &= vbCrLf & " ," & FNYarnLT & ""
+                                    cmdstring &= vbCrLf & " ," & FNSalesSampleLT & ""
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted("") & "'"
+
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(SellingUnit) & "'"
+                                    cmdstring &= vbCrLf & " ," & SellingQty & ""
+
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTUOMDesc) & "'"
+
+
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted("") & "'"
+
+
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTPriceGroup) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTColorsAssigned) & "'"
+
+
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(RMDSCur) & "'"
+
+
+                                    cmdstring &= vbCrLf & " ," & Val("") & ""
+                                    cmdstring &= vbCrLf & " ," & Val("") & ""
+
+
+                                    cmdstring &= vbCrLf & " ,'" & RMDSCur & "'"
+                                    cmdstring &= vbCrLf & " ," & Val(Price) & ""
+                                    cmdstring &= vbCrLf & " ," & Val(PriceUsd) & ""
+
+                                    cmdstring &= vbCrLf & " ," & Val(FixQuotesPrice) & ""
+                                    cmdstring &= vbCrLf & " ," & Val(FixQuotesUSDPrice) & ""
+
+
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted("") & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted("") & "'"
+                                    cmdstring &= vbCrLf & " ," & Val(0) & ""
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted("") & "'"
+                                    cmdstring &= vbCrLf & " ," & Val("") & ""
+                                    cmdstring &= vbCrLf & " ," & Val("") & ""
+
+                                    cmdstring &= vbCrLf & " ," & TotalProceQuoteCurr & ""
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(PriceSTDUnit) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTLTAdHoc) & "'"
+                                    cmdstring &= vbCrLf & " ,LEFT('" & HI.UL.ULF.rpQuoted(FTLTComments) & "',1000)"
+
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTMATERIALTYPE) & "'"
+                                    cmdstring &= vbCrLf & " ,LEFT('" & HI.UL.ULF.rpQuoted(FTSUPPLIEDMATERIALYARNDESCRIPTION) & "',2500)"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTMANUFACTURINGCRTYOFORIGIN) & "'"
+                                    cmdstring &= vbCrLf & " ," & Val(PriceSTD) & ""
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(pFTMatColor) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(FTMCO) & "'"
+                                    cmdstring &= vbCrLf & " ,'" & HI.UL.ULF.rpQuoted(PriceSTDUnit2) & "'"
 
                                     HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
 

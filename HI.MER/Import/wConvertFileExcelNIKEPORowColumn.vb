@@ -217,51 +217,84 @@ Public Class wConvertFileExcelNIKEPORowColumn
 
 
 
-            For CIdx As Integer = 0 To opshet.ActiveWorksheet.GetUsedRange().ColumnCount - 1
+            'For CIdx As Integer = 0 To opshet.ActiveWorksheet.GetUsedRange().ColumnCount - 1
+            '    Try
+            '        'If opshet.ActiveWorksheet.Columns(CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.DateTime Then
+            '        'Else
+            '        '    If opshet.ActiveWorksheet.Columns(CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.Numeric Then
+            '        '        opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
+            '        '    End If
+            '        'End If
+
+
+
+            '        If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.DateTime Then
+
+            '        Else
+
+            '            If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.Numeric AndAlso opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper <> "UPC".ToUpper Then
+            '                opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
+
+            '            Else
+
+            '                Select Case opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper
+            '                    Case "Purchase Order Number".ToUpper, "Trading Co PO Number".ToUpper, "PO Line Item Number".ToUpper
+            '                        opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
+            '                    Case "UPC".ToUpper
+
+            '                        If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.None Then
+            '                            opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "0"
+            '                        End If
+
+
+            '                End Select
+
+            '            End If
+
+            '        End If
+
+            '    Catch ex As Exception
+
+            '    End Try
+
+
+            'Next
+
+
+            opshet.BeginUpdate()
+            For CIdx As Integer = opshet.ActiveWorksheet.GetUsedRange().ColumnCount - 1 To 0 Step -1 ' opshet.ActiveWorksheet.GetUsedRange().ColumnCount - 1
                 Try
-                    'If opshet.ActiveWorksheet.Columns(CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.DateTime Then
-                    'Else
-                    '    If opshet.ActiveWorksheet.Columns(CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.Numeric Then
-                    '        opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
-                    '    End If
-                    'End If
 
-
-
-                    If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.DateTime Then
-
-                    Else
-
-                        If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.Numeric AndAlso opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper <> "UPC".ToUpper Then
+                    Select Case opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper
+                        Case "Purchase Order Number".ToUpper, "Trading Co PO Number".ToUpper, "PO Line Item Number".ToUpper, "Ship To Customer Number".ToUpper, "UPC".ToUpper
                             opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
+                        Case "UPC".ToUpper
 
-                        Else
+                            If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.None Then
+                                opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "0"
+                            End If
 
-                            Select Case opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper
-                                Case "Purchase Order Number".ToUpper, "Trading Co PO Number".ToUpper, "PO Line Item Number".ToUpper
+                        Case Else
+                            If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.DateTime Then
+
+                            Else
+
+                                If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.Numeric AndAlso opshet.ActiveWorksheet.Cells(0, CIdx).Value.ToString.ToUpper <> "UPC".ToUpper Then
+
                                     opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "@"
-                                Case "UPC".ToUpper
 
-                                    If opshet.ActiveWorksheet.Cells(1, CIdx).Value.Type = DevExpress.Spreadsheet.CellValueType.None Then
-                                        opshet.ActiveWorksheet.Columns(CIdx).NumberFormat = "0"
-                                    End If
+                                Else
 
+                                End If
 
-                            End Select
-
-                        End If
-
-                    End If
-
+                            End If
+                    End Select
                 Catch ex As Exception
-
                 End Try
-
 
             Next
 
-
-
+            opshet.EndUpdate()
 
             Dim msgshow As String = ""
 

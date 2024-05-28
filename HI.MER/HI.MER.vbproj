@@ -1520,7 +1520,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Import\BOMDev\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>

@@ -345,6 +345,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.GridView5 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridView6 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridView7 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.FNFabricWidth = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.RepositoryItemCheckEdit4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbdocinfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbdocinfo.SuspendLayout()
@@ -2431,7 +2432,7 @@ Partial Class wSMPCreateOrderSampleNew
         '
         Me.ogvacc.Appearance.EvenRow.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ogvacc.Appearance.EvenRow.Options.UseBackColor = True
-        Me.ogvacc.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.cxFTSelect, Me.CFNMatSeq, Me.FNHSysRawmatId, Me.CFTMat, Me.CFTMatName, Me.CFTMatColor, Me.FTMatColorName, Me.CFTMatSize, Me.CXFTColorway, Me.cxcFTMatPart, Me.FNMatQuantityConsmp, Me.CFNMatQuantity, Me.FNHSysUnitId, Me.FNHSysUnitId_Hide, Me.CxFNHSysSuplId, Me.CXFNHSysSuplId_Hide, Me.CDFTRemark, Me.CFTPart, Me.CFNPart, Me.FNHSysRawmatId_Hide})
+        Me.ogvacc.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.cxFTSelect, Me.CFNMatSeq, Me.FNHSysRawmatId, Me.CFTMat, Me.CFTMatName, Me.CFTMatColor, Me.FTMatColorName, Me.CFTMatSize, Me.CXFTColorway, Me.FNFabricWidth, Me.cxcFTMatPart, Me.FNMatQuantityConsmp, Me.CFNMatQuantity, Me.FNHSysUnitId, Me.FNHSysUnitId_Hide, Me.CxFNHSysSuplId, Me.CXFNHSysSuplId_Hide, Me.CDFTRemark, Me.CFTPart, Me.CFNPart, Me.FNHSysRawmatId_Hide})
         Me.ogvacc.GridControl = Me.ogcacc
         Me.ogvacc.Name = "ogvacc"
         Me.ogvacc.OptionsView.ColumnAutoWidth = False
@@ -2770,7 +2771,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.cxcFTMatPart.FieldName = "FTMatPart"
         Me.cxcFTMatPart.Name = "cxcFTMatPart"
         Me.cxcFTMatPart.Visible = True
-        Me.cxcFTMatPart.VisibleIndex = 10
+        Me.cxcFTMatPart.VisibleIndex = 11
         '
         'RepositoryItemFTMatPart
         '
@@ -2788,7 +2789,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.FNMatQuantityConsmp.FieldName = "FNConSump"
         Me.FNMatQuantityConsmp.Name = "FNMatQuantityConsmp"
         Me.FNMatQuantityConsmp.Visible = True
-        Me.FNMatQuantityConsmp.VisibleIndex = 8
+        Me.FNMatQuantityConsmp.VisibleIndex = 9
         '
         'RepFNMatQuantityConsmp
         '
@@ -2813,7 +2814,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.CFNMatQuantity.OptionsColumn.AllowShowHide = False
         Me.CFNMatQuantity.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CFNMatQuantity.Visible = True
-        Me.CFNMatQuantity.VisibleIndex = 9
+        Me.CFNMatQuantity.VisibleIndex = 10
         Me.CFNMatQuantity.Width = 130
         '
         'ReposFNMatQuantity
@@ -2837,7 +2838,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.FNHSysUnitId.OptionsColumn.AllowShowHide = False
         Me.FNHSysUnitId.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.FNHSysUnitId.Visible = True
-        Me.FNHSysUnitId.VisibleIndex = 11
+        Me.FNHSysUnitId.VisibleIndex = 12
         '
         'ReposFNHSysUnitId
         '
@@ -2858,7 +2859,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.CxFNHSysSuplId.FieldName = "FNHSysSuplId"
         Me.CxFNHSysSuplId.Name = "CxFNHSysSuplId"
         Me.CxFNHSysSuplId.Visible = True
-        Me.CxFNHSysSuplId.VisibleIndex = 12
+        Me.CxFNHSysSuplId.VisibleIndex = 13
         '
         'RepFNHSysSuplId
         '
@@ -2882,7 +2883,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.CDFTRemark.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CDFTRemark.OptionsColumn.ShowInCustomizationForm = False
         Me.CDFTRemark.Visible = True
-        Me.CDFTRemark.VisibleIndex = 13
+        Me.CDFTRemark.VisibleIndex = 14
         '
         'CFTPart
         '
@@ -2895,7 +2896,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.CFTPart.OptionsColumn.AllowShowHide = False
         Me.CFTPart.OptionsColumn.ShowInCustomizationForm = False
         Me.CFTPart.Visible = True
-        Me.CFTPart.VisibleIndex = 14
+        Me.CFTPart.VisibleIndex = 15
         Me.CFTPart.Width = 150
         '
         'RepPart
@@ -3559,6 +3560,16 @@ Partial Class wSMPCreateOrderSampleNew
         '
         Me.GridView7.Name = "GridView7"
         '
+        'FNFabricWidth
+        '
+        Me.FNFabricWidth.Caption = "FNFabricWidth"
+        Me.FNFabricWidth.FieldName = "FNFabricWidth"
+        Me.FNFabricWidth.Name = "FNFabricWidth"
+        Me.FNFabricWidth.OptionsColumn.AllowEdit = False
+        Me.FNFabricWidth.OptionsColumn.ReadOnly = True
+        Me.FNFabricWidth.Visible = True
+        Me.FNFabricWidth.VisibleIndex = 8
+        '
         'wSMPCreateOrderSampleNew
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3957,4 +3968,5 @@ Partial Class wSMPCreateOrderSampleNew
     Friend WithEvents FTStateToBulk As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents cFTCFMSendSampleDate As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCheckEdit4 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents FNFabricWidth As DevExpress.XtraGrid.Columns.GridColumn
 End Class

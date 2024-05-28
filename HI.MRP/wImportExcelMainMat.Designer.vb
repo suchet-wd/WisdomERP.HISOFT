@@ -71,7 +71,7 @@ Partial Class wImportExcelMainMat
         Me.FTFilePath.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTFilePath.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTFilePath.Properties.ReadOnly = True
-        Me.FTFilePath.Size = New System.Drawing.Size(1079, 20)
+        Me.FTFilePath.Size = New System.Drawing.Size(1079, 21)
         Me.FTFilePath.TabIndex = 1
         Me.FTFilePath.Tag = "2|"
         '
@@ -84,7 +84,7 @@ Partial Class wImportExcelMainMat
         Me.otb.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otb.Name = "otb"
         Me.otb.SelectedTabPage = Me.otpnormal
-        Me.otb.Size = New System.Drawing.Size(1130, 503)
+        Me.otb.Size = New System.Drawing.Size(1130, 511)
         Me.otb.TabIndex = 392
         Me.otb.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpnormal})
         '
@@ -93,7 +93,7 @@ Partial Class wImportExcelMainMat
         Me.otpnormal.Controls.Add(Me.opshet)
         Me.otpnormal.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpnormal.Name = "otpnormal"
-        Me.otpnormal.Size = New System.Drawing.Size(1128, 478)
+        Me.otpnormal.Size = New System.Drawing.Size(1122, 480)
         Me.otpnormal.Text = "Excel Detail"
         '
         'opshet
@@ -103,7 +103,7 @@ Partial Class wImportExcelMainMat
         Me.opshet.Name = "opshet"
         Me.opshet.Options.Behavior.Column.Resize = DevExpress.XtraSpreadsheet.DocumentCapability.Enabled
         Me.opshet.ReadOnly = True
-        Me.opshet.Size = New System.Drawing.Size(1128, 478)
+        Me.opshet.Size = New System.Drawing.Size(1122, 480)
         Me.opshet.TabIndex = 2
         '
         'ogbmainprocbutton
@@ -147,11 +147,11 @@ Partial Class wImportExcelMainMat
         Me.ocmclear.Tag = "2|"
         Me.ocmclear.Text = "CLEAR"
         '
-        'wImportExcelBOM
+        'wImportExcelMainMat
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1133, 571)
+        Me.ClientSize = New System.Drawing.Size(1133, 579)
         Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.otb)
         Me.Controls.Add(Me.ogbselectfile)

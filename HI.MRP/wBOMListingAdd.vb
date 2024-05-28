@@ -215,11 +215,7 @@ Public Class wBOMListingAdd
             .Items.AddRange(New System.Windows.Forms.ToolStripItem() {_ExportToExcel, _ExportToExcelData, _ExportToCsv, _ExportToPDF, _ExportToText, _ClearLayout})
         End With
 
-
-
-
     End Sub
-
 
     Public Sub ClearLayout_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
@@ -417,7 +413,7 @@ Public Class wBOMListingAdd
         _Qry &= vbCrLf & "         [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TFINMCurrency As C WITH(NOLOCK) On A.FNHSysCurId = C.FNHSysCurId LEFT OUTER Join "
         _Qry &= vbCrLf & "     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit As U WITH(NOLOCK) On A.FNHSysUnitId = U.FNHSysUnitId LEFT OUTER Join "
         _Qry &= vbCrLf & "     [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSupplier As S WITH(NOLOCK) On A.FNHSysSuplId = S.FNHSysSuplId "
-        _Qry &= vbCrLf & "  Where A.FTStateActive ='1' "
+        _Qry &= vbCrLf & "  Where A.FTStateActive ='1' AND ISNULL(A.FNDataMatType,0) IN (0,2) "
         _Qry &= vbCrLf & "  ORDER BY A.FTMainMatCode  "
 
 
@@ -438,7 +434,6 @@ Public Class wBOMListingAdd
 
         _Qry = " SELECT         A.FNHSysSuplId,A.FTSuplCode ,A.FNHSysCurId,C.FTCurCode "
 
-
         If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
             _Qry &= vbCrLf & "  , A.FTSuplNameTH As FTSuplName"
         Else
@@ -449,7 +444,6 @@ Public Class wBOMListingAdd
         _Qry &= vbCrLf & "   LEFT OUTER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TFINMCurrency As C WITH(NOLOCK) ON A.FNHSysCurId = C.FNHSysCurId "
         _Qry &= vbCrLf & "  Where A.FTStateActive ='1'  "
         _Qry &= vbCrLf & "  ORDER BY A.FTSuplCode  "
-
 
         Dim dt As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
 
@@ -469,7 +463,6 @@ Public Class wBOMListingAdd
         _Qry &= vbCrLf & "   From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TFINMCurrency As A WITH(NOLOCK) "
         _Qry &= vbCrLf & "  Where A.FTStateActive ='1'  "
         _Qry &= vbCrLf & "  ORDER BY A.FTCurCode  "
-
 
         Dim dt As DataTable = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
 
@@ -629,6 +622,8 @@ Public Class wBOMListingAdd
 
         StateLoad = False
 
+
+        FTStateActive.Enabled = StateEdit
 
         With Me.ogvmat
 
@@ -835,6 +830,12 @@ Public Class wBOMListingAdd
 
 
         If BOMSysID > 0 Then
+
+            If StateEdit Then
+
+                'Call ImportColorSizeFromOrder(0, 0, "", 0, "", 0,, True)
+
+            End If
 
             Call LoadBOMDetaiil(BOMSysID)
 
@@ -1727,6 +1728,8 @@ Public Class wBOMListingAdd
                 pNameEN = .GetRowCellValue(.FocusedRowHandle, ColColorFieldEN).ToString
 
                 Dim pSeq As Integer = Val(.GetFocusedRowCellValue("FNSeq").ToString)
+                Dim MatSeq As Decimal = 0
+
 
                 Dim _Qry As String = ""
                 Dim _ItemCode As String = "" & .GetRowCellValue(.FocusedRowHandle, "FTMainMatCode").ToString
@@ -1777,7 +1780,7 @@ Public Class wBOMListingAdd
                         pBOM.FieldDataType = BOMDataType.DataInteger
                         pBOMListUpdate.Add(pBOM)
 
-                        If UpdateBOMColor(BOMSysID, pSeq, pColorWay, pBOMListUpdate, True) = False Then
+                        If UpdateBOMColor(BOMSysID, MatSeq, "", pSeq, pColorWay, pBOMListUpdate, True) = False Then
 
 
 
@@ -1973,7 +1976,7 @@ Public Class wBOMListingAdd
         Dim cmdstring As String = ""
 
         cmdstring = "  EXEC " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.USP_GETBOMGARMENT_INTERCHANGE '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & BOMSysID & " "
-
+        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
         Call LoadBOMDetaiil(BOMSysID)
 
     End Sub
@@ -2034,7 +2037,7 @@ Public Class wBOMListingAdd
 
         dt.Dispose()
     End Sub
-    Private Function ImportColorSizeFromOrder(pLoadType As Integer, pColorID As Integer, pColor As String, pSizeID As Integer, pSize As String, pState As Integer, Optional pOldColor As String = "") As Boolean
+    Private Function ImportColorSizeFromOrder(pLoadType As Integer, pColorID As Integer, pColor As String, pSizeID As Integer, pSize As String, pState As Integer, Optional pOldColor As String = "", Optional StateLoadForm As Boolean = False) As Boolean
 
         Dim CountProc As Integer = 0
         Dim Spls As New HI.TL.SplashScreen("Processing... Color Size Breakdown. Please wait.")
@@ -2044,7 +2047,7 @@ Public Class wBOMListingAdd
         CountProc = Val(HI.Conn.SQLConn.GetField(CmdString, Conn.DB.DataBaseName.DB_MERCHAN, "0"))
 
         Try
-            If CountProc > 0 Then
+            If CountProc > 0 And StateLoadForm = False Then
 
                 If pState = 0 Or pOldColor <> "" Then
 
@@ -2067,9 +2070,7 @@ Public Class wBOMListingAdd
 
         Dim Spls As New HI.TL.SplashScreen("Differentting Material Part ... Please wait.")
 
-
         Dim CmdString As String = "EXEC " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.USP_GETBOMGARMENT_DIFFPART '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & BOMSysID & "," & pMatId & "," & pSeq & "," & pMatSeq & ""
-
 
 
         Dim dt As DataTable = HI.Conn.SQLConn.GetDataTable(CmdString, Conn.DB.DataBaseName.DB_MERCHAN)
@@ -2577,6 +2578,7 @@ Public Class wBOMListingAdd
                 cmdstring &= vbCrLf & ", FTUpdTime=" & HI.UL.ULDate.FormatTimeDB & ""
                 cmdstring &= vbCrLf & " ,FTPart ='" & HI.UL.ULF.rpQuoted(Me.FTPart.Text.Trim) & "' "
                 cmdstring &= vbCrLf & " ,FTComponent = CASE WHEN ISNULL(FTComponent,'') ='' THEN   '" & HI.UL.ULF.rpQuoted(_PartName) & "' ELSE FTComponent END "
+                cmdstring &= vbCrLf & " ,FTPositionPartName = '" & HI.UL.ULF.rpQuoted(_PartName) & "'"
                 cmdstring &= vbCrLf & " WHERE FNHSysBomId=" & BOMSysID & " "
                 cmdstring &= vbCrLf & " AND  FNSeq=" & pSeq & "  "
                 cmdstring &= vbCrLf & " SET @Rec = @@ROWCOUNT  "
@@ -3965,7 +3967,7 @@ Public Class wBOMListingAdd
     End Function
 
 
-    Private Function UpdateBOMColor(pBomID As Integer, BomSeq As Integer, pColorWay As String, pData As List(Of BOMData), Optional StateUpdateColorName As Boolean = False) As Boolean
+    Private Function UpdateBOMColor(pBomID As Integer, MatSeq As Decimal, OrderNo As String, BomSeq As Integer, pColorWay As String, pData As List(Of BOMData), Optional StateUpdateColorName As Boolean = False) As Boolean
         Dim cmdstring As String = ""
 
 
@@ -4019,6 +4021,43 @@ Public Class wBOMListingAdd
 
 
             cmdstring &= vbCrLf & " SET @Rec = @@ROWCOUNT  "
+
+            If MatSeq > 0 Then
+
+                If OrderNo.Trim.ToUpper = "ALL" Or OrderNo.Trim.ToUpper = "" Then
+
+                    cmdstring &= vbCrLf & " UPDATE  TR   SET  FTStateMatConfirm='0',FTStateCalMRP='0' "
+                    cmdstring &= vbCrLf & "  From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Mat  AS TR  "
+
+                    cmdstring &= vbCrLf & " WHERE   TR.FNHSysBomId=" & pBomID & " "
+                    cmdstring &= vbCrLf & " AND  TR.FNMatSeq=" & MatSeq & " AND TR.FTStateMatConfirm='1'  "
+
+                    cmdstring &= vbCrLf & " UPDATE  TR   SET  FTStateMatConfirm='0',FTStateCalMRP='0' "
+                    cmdstring &= vbCrLf & "  From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TTEMPBOMGARMENT  AS TR  "
+                    cmdstring &= vbCrLf & " WHERE FTUsername='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' AND FNHSysBomId=" & pBomID & " "
+                    cmdstring &= vbCrLf & " AND  FNMatSeq=" & MatSeq & " AND FTStateMatConfirm='1'  "
+
+                Else
+
+                    cmdstring &= vbCrLf & " UPDATE  TR   SET  FTStateMatConfirm='0',FTStateCalMRP='0' "
+                    cmdstring &= vbCrLf & "  From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Mat  AS TR  "
+                    cmdstring &= vbCrLf & "  INNER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Order  AS TR2 ON TR.FNHSysBomId = TR2.FNHSysBomId AND TR.FNSeq =TR2.FNSeq  "
+                    cmdstring &= vbCrLf & "  INNER JOIN  (select distinct xc.FTOrderNo from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Order  as xc with (nolock) where xc.FNHSysBomId=" & pBomID & " AND XC.FNSeq=" & BomSeq & ") AS C on TR2.FTOrderNo=C.FTOrderNo"
+                    cmdstring &= vbCrLf & " WHERE  TR.FNHSysBomId=" & pBomID & " "
+                    cmdstring &= vbCrLf & " AND  TR.FNMatSeq=" & MatSeq & " AND TR.FTStateMatConfirm='1'  "
+
+                    cmdstring &= vbCrLf & " UPDATE  TR   SET  FTStateMatConfirm='0',FTStateCalMRP='0' "
+                    cmdstring &= vbCrLf & "  From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TTEMPBOMGARMENT  AS TR  "
+                    cmdstring &= vbCrLf & "  INNER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Order  AS TR2 ON TR.FNHSysBomId = TR2.FNHSysBomId AND TR.FNSeq =TR2.FNSeq  "
+                    cmdstring &= vbCrLf & "  INNER JOIN  (select distinct xc.FTOrderNo from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Order  as xc with (nolock) where xc.FNHSysBomId=" & pBomID & " AND XC.FNSeq=" & BomSeq & ") AS C on TR2.FTOrderNo=C.FTOrderNo"
+                    cmdstring &= vbCrLf & " WHERE TR.FTUsername='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' AND TR.FNHSysBomId=" & pBomID & " "
+                    cmdstring &= vbCrLf & " AND  TR.FNMatSeq=" & MatSeq & "   AND TR.FTStateMatConfirm='1'  "
+
+                End If
+
+
+            End If
+
             cmdstring &= vbCrLf & "  Select  Top 1   @Rec AS FNState "
 
             cmdstring &= vbCrLf & "  From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Colorway  AS TR  WITH(NOLOCK)  "
@@ -4036,6 +4075,25 @@ Public Class wBOMListingAdd
             If mdt.Rows.Count > 0 Then
 
                 If Val(mdt.Rows(0)!FNState.ToString) > 0 Then
+
+                    If MatSeq > 0 Then
+                        'With CType(ogcmat.DataSource, DataTable)
+                        '    .AcceptChanges()
+                        '    For Each R As DataRow In .Select("FNMatSeq=" & MatSeq & " AND FTOrderNo='" & HI.UL.ULF.rpQuoted(OrderNo) & "'")
+                        '        R!FTStateMatConfirm = "0"
+                        '        R!FTStateCalMRP = "0"
+                        '    Next
+                        '    .AcceptChanges()
+                        'End With
+
+                        cmdstring = "SELECT   * "
+                        cmdstring &= vbCrLf & " FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TTEMPBOMGARMENT AS A WITH(NOLOCK)  "
+                        cmdstring &= vbCrLf & " WHERE A.FTUsername = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                        cmdstring &= vbCrLf & "  ORDER BY A.FNMatSeq,A.FNPart "
+
+
+                        ogcmat.DataSource = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN).Copy
+                    End If
 
 
                     Return True
@@ -4055,7 +4113,7 @@ Public Class wBOMListingAdd
 
     End Function
 
-    Private Function UpdateBOMSize(pBomID As Integer, BomSeq As Integer, pSizeBD As String, pData As List(Of BOMData)) As Boolean
+    Private Function UpdateBOMSize(pBomID As Integer, MatSeq As Decimal, OrderNo As String, BomSeq As Integer, pSizeBD As String, pData As List(Of BOMData)) As Boolean
         Dim cmdstring As String = ""
 
 
@@ -4079,9 +4137,7 @@ Public Class wBOMListingAdd
 
                 Select Case pData(I).FieldName
 
-
                     Case "FNHSysRawMatSizeId"
-
 
                     Case "FTSizeNote"
                         cmdstring &= vbCrLf & ", FTSizeNoteUpdUser ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
@@ -4099,6 +4155,42 @@ Public Class wBOMListingAdd
             cmdstring &= vbCrLf & " AND  BOM.FTSizeBreakDown='" & HI.UL.ULF.rpQuoted(pSizeBD) & "'  "
 
             cmdstring &= vbCrLf & " SET @Rec = @@ROWCOUNT  "
+
+            If MatSeq > 0 Then
+
+                If OrderNo.Trim.ToUpper = "ALL" Or OrderNo.Trim.ToUpper = "" Then
+
+                    cmdstring &= vbCrLf & " UPDATE  TR   SET  FTStateMatConfirm='0',FTStateCalMRP='0' "
+                    cmdstring &= vbCrLf & "  From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Mat  AS TR  "
+
+                    cmdstring &= vbCrLf & " WHERE   TR.FNHSysBomId=" & pBomID & " "
+                    cmdstring &= vbCrLf & " AND  TR.FNMatSeq=" & MatSeq & " AND TR.FTStateMatConfirm='1'  "
+
+                    cmdstring &= vbCrLf & " UPDATE  TR   SET  FTStateMatConfirm='0',FTStateCalMRP='0' "
+                    cmdstring &= vbCrLf & "  From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TTEMPBOMGARMENT  AS TR  "
+                    cmdstring &= vbCrLf & " WHERE FTUsername='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' AND FNHSysBomId=" & pBomID & " "
+                    cmdstring &= vbCrLf & " AND  FNMatSeq=" & MatSeq & " AND FTStateMatConfirm='1'  "
+
+                Else
+
+                    cmdstring &= vbCrLf & " UPDATE  TR   SET  FTStateMatConfirm='0',FTStateCalMRP='0' "
+                    cmdstring &= vbCrLf & "  From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Mat  AS TR  "
+                    cmdstring &= vbCrLf & "  INNER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Order  AS TR2 ON TR.FNHSysBomId = TR2.FNHSysBomId AND TR.FNSeq =TR2.FNSeq  "
+                    cmdstring &= vbCrLf & "  INNER JOIN  (select distinct xc.FTOrderNo from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Order  as xc with (nolock) where xc.FNHSysBomId=" & pBomID & " AND XC.FNSeq=" & BomSeq & ") AS C on TR2.FTOrderNo=C.FTOrderNo"
+                    cmdstring &= vbCrLf & " WHERE  TR.FNHSysBomId=" & pBomID & " "
+                    cmdstring &= vbCrLf & " AND  TR.FNMatSeq=" & MatSeq & " AND TR.FTStateMatConfirm='1'  "
+
+                    cmdstring &= vbCrLf & " UPDATE  TR   SET  FTStateMatConfirm='0',FTStateCalMRP='0' "
+                    cmdstring &= vbCrLf & "  From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TTEMPBOMGARMENT  AS TR  "
+                    cmdstring &= vbCrLf & "  INNER JOIN " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Order  AS TR2 ON TR.FNHSysBomId = TR2.FNHSysBomId AND TR.FNSeq =TR2.FNSeq  "
+                    cmdstring &= vbCrLf & "  INNER JOIN  (select distinct xc.FTOrderNo from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Order  as xc with (nolock) where xc.FNHSysBomId=" & pBomID & " AND XC.FNSeq=" & BomSeq & ") AS C on TR2.FTOrderNo=C.FTOrderNo"
+                    cmdstring &= vbCrLf & " WHERE TR.FTUsername='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' AND TR.FNHSysBomId=" & pBomID & " "
+                    cmdstring &= vbCrLf & " AND  TR.FNMatSeq=" & MatSeq & "   AND TR.FTStateMatConfirm='1'  "
+
+                End If
+
+            End If
+
             cmdstring &= vbCrLf & "  Select  Top 1   @Rec AS FNState "
 
             cmdstring &= vbCrLf & "  From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Sizebreakdown  AS TR  WITH(NOLOCK)  "
@@ -4113,6 +4205,24 @@ Public Class wBOMListingAdd
 
                 If Val(mdt.Rows(0)!FNState.ToString) > 0 Then
 
+                    If MatSeq > 0 Then
+                        'With CType(ogcmat.DataSource, DataTable)
+                        '    .AcceptChanges()
+                        '    For Each R As DataRow In .Select("FNMatSeq=" & MatSeq & " AND FTOrderNo='" & HI.UL.ULF.rpQuoted(OrderNo) & "'")
+                        '        R!FTStateMatConfirm = "0"
+                        '        R!FTStateCalMRP = "0"
+                        '    Next
+                        '    .AcceptChanges()
+                        'End With
+
+                        cmdstring = "SELECT   * "
+                        cmdstring &= vbCrLf & " FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TTEMPBOMGARMENT AS A WITH(NOLOCK)  "
+                        cmdstring &= vbCrLf & " WHERE A.FTUsername = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                        cmdstring &= vbCrLf & "  ORDER BY A.FNMatSeq,A.FNPart "
+
+                        ogcmat.DataSource = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN).Copy
+
+                    End If
 
                     Return True
                 Else
@@ -4120,22 +4230,16 @@ Public Class wBOMListingAdd
                     Return False
                 End If
 
-
             Else
                 mdt.Dispose()
                 Return False
             End If
-
-
-
 
         Catch ex As Exception
             Return False
         End Try
 
     End Function
-
-
 
     Private Sub ogvmat_ShowingEditor(sender As Object, e As CancelEventArgs) Handles ogvmat.ShowingEditor
         Try
@@ -4405,9 +4509,7 @@ Public Class wBOMListingAdd
     End Sub
 
     Private Sub RepositoryItemGridLookUpEditMainMatCode_EditValueChanging(sender As Object, e As ChangingEventArgs) Handles RepositoryItemGridLookUpEditMainMatCode.EditValueChanging
-
         Try
-
             With Me.ogvmat
                 If .FocusedRowHandle < 0 Then Exit Sub
 
@@ -4420,15 +4522,10 @@ Public Class wBOMListingAdd
                         e.Cancel = True
 
                     Else
-
                         'Try
-
                         '    ' RepositoryItemGridLookUpEditMainMatCode_EditValueChanged(sender, New EventArgs)
-
                         'Catch ex As Exception
                         'End Try
-
-
 
                         Try
                             Dim MatCode As String = ""
@@ -4543,10 +4640,7 @@ Public Class wBOMListingAdd
                                 Dim mPart As Integer = Val(.GetFocusedRowCellValue("FNPart").ToString)
                                 Dim mMatSeq As Decimal = Decimal.Parse(Format(Val(.GetFocusedRowCellValue("FNMatSeq").ToString), "0.00"))
 
-
-
                                 If Val(.GetFocusedRowCellValue("FNSeq").ToString) = 0 Then
-
 
                                     cmdstring = " Declare @Seq int = 0 "
                                     cmdstring &= vbCrLf & " Declare @Rec int = 0 "
@@ -4571,19 +4665,16 @@ Public Class wBOMListingAdd
                                     cmdstring &= vbCrLf & " ," & mPrice & ""
                                     cmdstring &= vbCrLf & ", '" & mStateActive & "' "
                                     cmdstring &= vbCrLf & ", '" & mMainMaterial & "' "
-
-
                                     cmdstring &= vbCrLf & ",0 FNConSmp,0 FNConSmpPlus"
                                     cmdstring &= vbCrLf & " ,  0  FNOrderSetType,'" & mMainMaterial & "' FTStateCombination,'' FTPart,'' FTComponent,'0' FTStateFree,'0' FTStateHemNotOptiplan,0 FNRepeatLengthCM,0 FNRepeatConvert"
                                     cmdstring &= vbCrLf & " ,0 FNPackPerCarton,0 FNConSmpSplit,'0' FTStateDTM, '' FTDTMNote,'' FTNote,'0' FTStateMatConfirm,'1','1' "
-
-
 
                                     If pStateSilk = "1" Then
                                         cmdstring &= vbCrLf & ", '" & HI.UL.ULF.rpQuoted(Microsoft.VisualBasic.Left(pMatName, 500)) & "','1' "
                                     Else
                                         cmdstring &= vbCrLf & ", '','0' "
                                     End If
+
                                     cmdstring &= vbCrLf & ",'0','0' "
                                     cmdstring &= vbCrLf & " SET @Rec = @@ROWCOUNT  "
 
@@ -4597,32 +4688,26 @@ Public Class wBOMListingAdd
                                     'cmdstring &= vbCrLf & " AND  FNSeq=@Seq  "
 
 
-
-
                                 Else
-
-
 
                                     cmdstring = " Declare @Seq int = " & Val(.GetFocusedRowCellValue("FNSeq").ToString) & " "
                                     cmdstring &= vbCrLf & " Declare @Rec int = 0 "
-
                                     cmdstring &= vbCrLf & " UPDATE  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Mat   SET  "
                                     cmdstring &= vbCrLf & " FTUpdUser ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                                     cmdstring &= vbCrLf & " , FDUpdDate=" & HI.UL.ULDate.FormatDateDB & ""
                                     cmdstring &= vbCrLf & ", FTUpdTime=" & HI.UL.ULDate.FormatTimeDB & ""
-
                                     cmdstring &= vbCrLf & " ,FNMatSeq=" & mMatSeq & ""
                                     cmdstring &= vbCrLf & " ,FNHSysMainMatId=" & mMatId & ""
                                     cmdstring &= vbCrLf & ",FTFabricFrontSize= '" & HI.UL.ULF.rpQuoted(mFrontSize) & "' "
-
                                     cmdstring &= vbCrLf & " ,FNHSysSuplId=" & mSuplId & ""
                                     cmdstring &= vbCrLf & ", FTStateNominate='" & mNominate & "' "
                                     cmdstring &= vbCrLf & " ,FNHSysUnitId=" & mUnitId & ""
                                     cmdstring &= vbCrLf & " ,FNHSysCurId=" & mCurId & ""
                                     cmdstring &= vbCrLf & " ,FNPrice=" & mPrice & ""
                                     cmdstring &= vbCrLf & ", FTStateMainMaterial='" & mMainMaterial & "' "
-                                    cmdstring &= vbCrLf & ",FTStateMatConfirm='0'"
+                                    cmdstring &= vbCrLf & ", FTStateCombination='" & mMainMaterial & "' "
 
+                                    cmdstring &= vbCrLf & ",FTStateMatConfirm='0'"
 
                                     If pStateSilk = "1" Then
                                         cmdstring &= vbCrLf & ",FTSilkName= '" & HI.UL.ULF.rpQuoted(Microsoft.VisualBasic.Left(pMatName, 500)) & "' "
@@ -4634,27 +4719,18 @@ Public Class wBOMListingAdd
 
                                     cmdstring &= vbCrLf & ", FTStateCalMRP='0' "
                                     cmdstring &= vbCrLf & ", FTStateExportOptiplan='0' "
-
-
                                     cmdstring &= vbCrLf & " WHERE FNHSysBomId=" & BOMSysID & " "
                                     cmdstring &= vbCrLf & " AND  FNSeq=@Seq  "
-
                                     cmdstring &= vbCrLf & " SET @Rec = @@ROWCOUNT  "
-
                                     cmdstring &= vbCrLf & " EXEC  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.USP_GETBOMGARMENT_CHECKDEFUALT '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & BOMSysID & ",@Seq,'" & pStateDefualtBOMColorByColorway & "','" & pStateDefualtBOMSizeBySizeBreakdown & "','" & pStateSilk & "'," & mdefaultcolor & "," & mdefaultsize & ",'2' "
-
-
 
                                 End If
 
-
-                                cmdstring &= vbCrLf & "  Select  Top 1 @Rec  AS FNState ,FNSeq,FTInsUser, FDInsDate, FTInsTime,FNMatSeq ,FTUpdUser, FDUpdDate, FTUpdTime,FTStateMatConfirm,FTStateSilk ,FTStateCalMRP,FTStateExportOptiplan "
-
+                                cmdstring &= vbCrLf & "  Select  Top 1 @Rec  AS FNState ,FNSeq,FTInsUser, FDInsDate, FTInsTime,FNMatSeq ,FTUpdUser, FDUpdDate, FTUpdTime,FTStateMatConfirm,FTStateSilk ,FTStateCalMRP,FTStateExportOptiplan,FTStateCombination "
 
                                 cmdstring &= vbCrLf & "  From " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & ".dbo.TMERTBOM_Mat  AS TR  WITH(NOLOCK)  "
                                 cmdstring &= vbCrLf & " WHERE FNHSysBomId=" & BOMSysID & " "
                                 cmdstring &= vbCrLf & " AND  FNSeq=@Seq  "
-
 
 
                                 Dim mdt As DataTable
@@ -4696,7 +4772,7 @@ Public Class wBOMListingAdd
                                             .SetFocusedRowCellValue("FTStateCalMRP", Rxp!FTStateCalMRP.ToString)
                                             .SetFocusedRowCellValue("FTStateExportOptiplan", Rxp!FTStateExportOptiplan.ToString)
 
-
+                                            .SetFocusedRowCellValue("FTStateCombination", Rxp!FTStateCombination.ToString)
                                         Next
                                         Me.ogvmat.FocusedColumn = Me.ogvmat.Columns.ColumnByFieldName("FTMainMatName")
 
@@ -4953,18 +5029,22 @@ Public Class wBOMListingAdd
     End Sub
 
     Private Sub RepFTSelectOrder_EditValueChanging(sender As Object, e As ChangingEventArgs) Handles RepFTSelectOrder.EditValueChanging
+
         Try
+
             Dim xState As String = "0"
 
             If e.NewValue.ToString = "1" Then
                 xState = "1"
             End If
+
             With Me.ogvlistorder
                 .SetFocusedRowCellValue(.FocusedColumn.FieldName, xState)
             End With
-        Catch ex As Exception
 
+        Catch ex As Exception
         End Try
+
     End Sub
 
     Private Sub RepFTSelectSubOrder_EditValueChanging(sender As Object, e As ChangingEventArgs) Handles RepFTSelectSubOrder.EditValueChanging
@@ -5349,8 +5429,9 @@ Public Class wBOMListingAdd
 
 
                 Dim pSeq As Integer = Val(.GetFocusedRowCellValue("FNSeq").ToString)
-
+                Dim MatSeq As Decimal = Val(.GetFocusedRowCellValue("FNMatSeq").ToString)
                 Dim pMainMatId As Integer = Val(.GetFocusedRowCellValue("FNHSysMainMatId").ToString)
+                Dim OrderNo As String = .GetFocusedRowCellValue("FTOrderNo").ToString
 
                 If (OldValue) <> mlId.ToString And pSeq > 0 And (pText = "" Or (pText <> "" And pCode <> "")) Then
 
@@ -5384,7 +5465,7 @@ Public Class wBOMListingAdd
                     pBOM.FieldDataType = BOMDataType.DataInteger
                     pBOMListUpdate.Add(pBOM)
 
-                    If UpdateBOMColor(BOMSysID, pSeq, pColorWay, pBOMListUpdate) = False Then
+                    If UpdateBOMColor(BOMSysID, MatSeq, OrderNo, pSeq, pColorWay, pBOMListUpdate) = False Then
 
                         .SetFocusedRowCellValue(.FocusedColumn.FieldName, OldValue)
 
@@ -5469,8 +5550,9 @@ Public Class wBOMListingAdd
             With CType(sender, DevExpress.XtraEditors.TextEdit)
                 Dim pValue As String = .Text
                 Dim pSeq As Integer = Val(Me.ogvmatcolornote.GetFocusedRowCellValue("FNSeq").ToString)
-
+                Dim MatSeq As Decimal = 0
                 Dim pColorWay As String = Me.ogvmatcolornote.FocusedColumn.Caption.Trim()
+
 
                 If (OldValue) <> pValue And pSeq > 0 Then
 
@@ -5482,7 +5564,7 @@ Public Class wBOMListingAdd
                     pBOM.FieldDataType = BOMDataType.DataString
                     pBOMListUpdate.Add(pBOM)
 
-                    If UpdateBOMColor(BOMSysID, pSeq, pColorWay, pBOMListUpdate) = False Then
+                    If UpdateBOMColor(BOMSysID, MatSeq, "", pSeq, pColorWay, pBOMListUpdate) = False Then
 
                         Me.ogvmatcolornote.SetFocusedRowCellValue(Me.ogvmatcolornote.FocusedColumn.FieldName, (OldValue))
 
@@ -5534,6 +5616,9 @@ Public Class wBOMListingAdd
                 End With
 
                 Dim pSeq As Integer = Val(.GetFocusedRowCellValue("FNSeq").ToString)
+                Dim MatSeq As Decimal = Val(.GetFocusedRowCellValue("FNMatSeq").ToString)
+
+                Dim OrderNo As String = .GetFocusedRowCellValue("FTOrderNo").ToString
 
                 If (OldValue) <> mlId.ToString And pSeq > 0 And (pText = "" Or (pText <> "" And pCode <> "")) Then
 
@@ -5545,7 +5630,7 @@ Public Class wBOMListingAdd
                     pBOM.FieldDataType = BOMDataType.DataInteger
                     pBOMListUpdate.Add(pBOM)
 
-                    If UpdateBOMSize(BOMSysID, pSeq, pSizeBD, pBOMListUpdate) = False Then
+                    If UpdateBOMSize(BOMSysID, MatSeq, OrderNo, pSeq, pSizeBD, pBOMListUpdate) = False Then
 
                         .SetFocusedRowCellValue(.FocusedColumn.FieldName, OldValue)
 
@@ -6819,9 +6904,7 @@ Public Class wBOMListingAdd
 
             Case "changecolor"
 
-
                 If StateEdit Then
-
 
                     ChangeColorWay()
 
@@ -6831,7 +6914,6 @@ Public Class wBOMListingAdd
 
                 If StateEdit = False Then Exit Sub
                 AddNewSizeBreakdown()
-
 
             Case "deletesize"
 
@@ -6845,18 +6927,24 @@ Public Class wBOMListingAdd
                 spls.Close()
 
             Case "interchange"
+
                 If StateEdit = False Then Exit Sub
 
                 If HI.MG.ShowMsg.mConfirmProcess("คุณต้องการทำการ Check BOM interchange ใช่หรือไม่ ?", 1406034277) Then
+
                     Dim spls As New HI.TL.SplashScreen("BOM Checking interchange....")
+
                     InterchangeChart()
+
                     spls.Close()
+
                 End If
 
-
-
             Case "exit"
+
+
                 Me.Close()
+
         End Select
 
     End Sub
@@ -7018,6 +7106,8 @@ Public Class wBOMListingAdd
                     Case Keys.F9
 
                         Dim pSeq As Integer = Val(.GetFocusedRowCellValue("FNSeq").ToString)
+                        Dim MatSeq As Decimal = Val(.GetFocusedRowCellValue("FNMatSeq").ToString)
+                        Dim OrderNo As String = .GetFocusedRowCellValue("FTOrderNo").ToString
 
                         Dim mState As Integer = 1  ' Update by Code
                         Dim _ColorInt As Integer = .GetFocusedRowCellValue(.FocusedColumn.FieldName).ToString
@@ -7057,7 +7147,7 @@ Public Class wBOMListingAdd
                                                 pBOM.FieldDataType = BOMDataType.DataInteger
                                                 pBOMListUpdate.Add(pBOM)
 
-                                                If UpdateBOMColor(BOMSysID, pSeq, pColorWay, pBOMListUpdate) = False Then
+                                                If UpdateBOMColor(BOMSysID, MatSeq, OrderNo, pSeq, pColorWay, pBOMListUpdate) = False Then
 
 
 
@@ -7127,9 +7217,13 @@ Public Class wBOMListingAdd
                             If _ColorInt <> 0 Then
 
                                 Dim pSeq As Integer
+                                Dim MatSeq As Decimal
+                                Dim OrderNo As String = ""
 
                                 For Ridx As Integer = .FocusedRowHandle To .RowCount - 1
                                     pSeq = Integer.Parse(Val(.GetRowCellValue(Ridx, "FNSeq").ToString))
+                                    MatSeq = Val(.GetRowCellValue(Ridx, "FNMatSeq").ToString)
+                                    OrderNo = .GetRowCellValue(Ridx, "FTOrderNo").ToString
 
                                     If pSeq > 0 Then
                                         pBOMListUpdate.Clear()
@@ -7143,7 +7237,7 @@ Public Class wBOMListingAdd
                                         pBOM.FieldDataType = BOMDataType.DataInteger
                                         pBOMListUpdate.Add(pBOM)
 
-                                        If UpdateBOMColor(BOMSysID, pSeq, pColorWay, pBOMListUpdate) = False Then
+                                        If UpdateBOMColor(BOMSysID, MatSeq, OrderNo, pSeq, pColorWay, pBOMListUpdate) = False Then
 
 
 
@@ -7173,6 +7267,9 @@ Public Class wBOMListingAdd
 
                         Dim pSeq As Integer = Val(.GetFocusedRowCellValue("FNSeq").ToString)
 
+                        Dim MatSeq As Decimal = Val(.GetFocusedRowCellValue("FNMatSeq").ToString)
+                        Dim OrderNo As String = .GetFocusedRowCellValue("FTOrderNo").ToString
+
                         Dim mState As Integer = 1  ' Update by Code
                         Dim _ColorInt As Integer = 0
                         Dim mColorCode As String = .GetFocusedRowCellDisplayText(.FocusedColumn.FieldName)
@@ -7195,7 +7292,7 @@ Public Class wBOMListingAdd
                         pBOM.FieldDataType = BOMDataType.DataInteger
                         pBOMListUpdate.Add(pBOM)
 
-                        If UpdateBOMColor(BOMSysID, pSeq, pColorWay, pBOMListUpdate) = False Then
+                        If UpdateBOMColor(BOMSysID, MatSeq, OrderNo, pSeq, pColorWay, pBOMListUpdate) = False Then
 
 
 
@@ -7223,6 +7320,8 @@ Public Class wBOMListingAdd
                     Case Keys.F9
 
                         Dim pSeq As Integer = Val(.GetFocusedRowCellValue("FNSeq").ToString)
+                        Dim MatSeq As Decimal = Val(.GetFocusedRowCellValue("FNMatSeq").ToString)
+                        Dim OrderNo As String = .GetFocusedRowCellValue("FTOrderNo").ToString
 
                         Dim mState As Integer = 1  ' Update by Code
                         Dim _SizeInt As Integer = .GetFocusedRowCellValue(.FocusedColumn.FieldName).ToString
@@ -7258,7 +7357,7 @@ Public Class wBOMListingAdd
                                                 pBOM.FieldDataType = BOMDataType.DataInteger
                                                 pBOMListUpdate.Add(pBOM)
 
-                                                If UpdateBOMSize(BOMSysID, pSeq, pSizeBD, pBOMListUpdate) = False Then
+                                                If UpdateBOMSize(BOMSysID, MatSeq, OrderNo, pSeq, pSizeBD, pBOMListUpdate) = False Then
 
 
                                                 Else
@@ -7322,9 +7421,14 @@ Public Class wBOMListingAdd
                             dtMatColor.Dispose()
                             If _SizeInt <> 0 Then
                                 Dim pSeq As Integer
+                                Dim MatSeq As Decimal
+
+                                Dim OrderNo As String = ""
 
                                 For Ridx As Integer = .FocusedRowHandle To .RowCount - 1
                                     pSeq = Integer.Parse(Val(.GetRowCellValue(Ridx, "FNSeq").ToString))
+                                    MatSeq = Val(.GetRowCellValue(Ridx, "FNMatSeq").ToString)
+                                    OrderNo = .GetRowCellValue(Ridx, "FTOrderNo").ToString
 
                                     If pSeq > 0 Then
                                         pBOMListUpdate.Clear()
@@ -7337,7 +7441,7 @@ Public Class wBOMListingAdd
                                         pBOM.FieldDataType = BOMDataType.DataInteger
                                         pBOMListUpdate.Add(pBOM)
 
-                                        If UpdateBOMSize(BOMSysID, pSeq, pSize, pBOMListUpdate) = False Then
+                                        If UpdateBOMSize(BOMSysID, MatSeq, OrderNo, pSeq, pSize, pBOMListUpdate) = False Then
 
 
 
@@ -7364,6 +7468,8 @@ Public Class wBOMListingAdd
                         Spls.Close()
                     Case Keys.Delete
                         Dim pSeq As Integer = Val(.GetFocusedRowCellValue("FNSeq").ToString)
+                        Dim MatSeq As Decimal = Val(.GetFocusedRowCellValue("FNMatSeq").ToString)
+                        Dim OrderNo As String = .GetFocusedRowCellValue("FTOrderNo").ToString
 
                         Dim mState As Integer = 1  ' Update by Code
                         Dim _SizeInt As Integer = 0
@@ -7386,7 +7492,7 @@ Public Class wBOMListingAdd
                             pBOM.FieldDataType = BOMDataType.DataInteger
                             pBOMListUpdate.Add(pBOM)
 
-                            If UpdateBOMSize(BOMSysID, pSeq, pSizeBD, pBOMListUpdate) = False Then
+                            If UpdateBOMSize(BOMSysID, MatSeq, OrderNo, pSeq, pSizeBD, pBOMListUpdate) = False Then
 
 
                             Else
@@ -7946,5 +8052,9 @@ Public Class wBOMListingAdd
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub xFTSatetConfirm_CheckedChanged(sender As Object, e As EventArgs) Handles xFTSatetConfirm.CheckedChanged
+
     End Sub
 End Class

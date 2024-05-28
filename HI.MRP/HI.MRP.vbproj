@@ -211,12 +211,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="wImportExcelBOMDev.Designer.vb">
-      <DependentUpon>wImportExcelBOMDev.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wImportExcelBOMDev.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="wFileBOMPDFTracking.Designer.vb">
       <DependentUpon>wFileBOMPDFTracking.vb</DependentUpon>
     </Compile>
@@ -492,9 +486,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="wImportExcelBOMDev.resx">
-      <DependentUpon>wImportExcelBOMDev.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="wFileBOMPDFTracking.resx">
       <DependentUpon>wFileBOMPDFTracking.vb</DependentUpon>
     </EmbeddedResource>
@@ -708,9 +699,6 @@
       <Project>{e9d7341b-e2d4-4a59-b328-79e51f3c0138}</Project>
       <Name>HI.UL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BOMDev\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

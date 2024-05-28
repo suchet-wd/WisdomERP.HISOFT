@@ -214,7 +214,6 @@ Public Class wImportOptiplan
         '        Me.opshet.Visible = False
         '        opt2.Visible = True
         '    End Try
-
         'End If
     End Sub
 
@@ -224,24 +223,32 @@ Public Class wImportOptiplan
 
     Private Sub ocmclear_Click(sender As Object, e As EventArgs) Handles ocmclear.Click
         Me.FTFilePath.Text = ""
+
         Dim I As Integer = 0
+
         Try
+
             opshet.Document.Worksheets.Insert(0)
+
             For Each wk As DevExpress.Spreadsheet.Worksheet In opshet.Document.Worksheets
+
                 If I = 0 Then
                 Else
                     opshet.Document.Worksheets.Remove(wk)
                 End If
+
                 I = I + 1
+
             Next
+
         Catch ex As Exception
         End Try
 
         Try
             opshet.Document.Worksheets(0).Name = "Sheet1"
         Catch ex As Exception
-
         End Try
+
         Me.FNHSysUnitId.Text = "M"
     End Sub
 
@@ -458,10 +465,14 @@ Public Class wImportOptiplan
                                         End Try
 
                                         If R!F1.ToString.Split("-").Length > 2 Then
-                                            Try
-                                                RawMatCode = RawMatCode & "-" & R!F1.ToString.Split("-")(2)
-                                            Catch ex As Exception
-                                            End Try
+
+                                            For i As Integer = 2 To R!F1.ToString.Split("-").Length - 1
+                                                Try
+                                                    RawMatCode = RawMatCode & "-" & R!F1.ToString.Split("-")(i)
+                                                Catch ex As Exception
+                                                End Try
+                                            Next
+
                                         End If
 
                                         ColorWay = R!F3.ToString.Split("-")(0)

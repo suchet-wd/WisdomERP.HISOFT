@@ -2165,7 +2165,7 @@ Public Class wSMPCreateOrderSampleNew
 
         cmd &= vbCrLf & "    , MMX.FTItemDataRef AS FTItemDataRef "
         cmd &= vbCrLf & "    , X2.FNHSysRawmatId  AS FNHSysRawmatId_Hide,X2.FTColorway,X2.FTMatPart"
-        cmd &= vbCrLf & "    , ISNULL(SC.FTFabricFrontSize,'') AS 'FabricWidth'"
+        cmd &= vbCrLf & "    , ISNULL(SC.FTFabricFrontSize,'') AS 'FNFabricWidth' "
 
         cmd &= vbCrLf & " FROM  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & ".dbo.TSMPOrder_MatList AS X2 WITH(NOLOCK)"
         cmd &= vbCrLf & " LEFT Outer join " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & ".dbo.TCNMUnit AS U WITH(NOLOCK)  ON X2.FNHSysUnitId = U.FNHSysUnitId "
@@ -2176,8 +2176,7 @@ Public Class wSMPCreateOrderSampleNew
         cmd &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMatSize AS S WITH (NOLOCK) ON H.FNHSysRawMatSizeId = S.FNHSysRawMatSizeId LEFT OUTER Join"
         cmd &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMatColor As C With (NOLOCK) On H.FNHSysRawMatColorId = C.FNHSysRawMatColorId "
         cmd &= vbCrLf & "  WHERE  H.FNHSysRawMatId =  X2.FNHSysRawmatId  ) AS MMX "
-
-        cmd &= vbCrLf & "  OUTER APPLY(SELECT SC.FTFabricFrontSize FROM HITECH_PURCHASE.dbo.TPURTOrder_Sourcing AS SC WITH(NOLOCK) "
+        cmd &= vbCrLf & "  OUTER APPLY(SELECT SC.FTFabricFrontSize FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.TPURTOrder_Sourcing AS SC WITH(NOLOCK) "
         cmd &= vbCrLf & "  WHERE SC.FTOrderNo = X2.FTSMPOrderNo And SC.FNHSysRawMatId = X2.FNHSysRawmatId) AS SC "
 
         cmd &= vbCrLf & " Where X2.FTSMPOrderNo ='" & HI.UL.ULF.rpQuoted(_DocRefNo) & "'"

@@ -7286,5 +7286,7 @@ Public Class wGenerateStyleDevelop
         End Try
     End Sub
 
+    Private Sub ogccolor_Click(sender As Object, e As EventArgs) Handles ogccolor.Click
 
+    End Sub
 End Class

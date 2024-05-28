@@ -181,11 +181,34 @@ Public Class wImportExcelMainMat
                 Dim FileName As String = PathFileExcel & "\Mat" & HI.ST.UserInfo.UserName & ".xlsx"
                 opshet.SaveDocument(PathFileExcel & "\Mat" & HI.ST.UserInfo.UserName & ".xlsx")
 
+                Dim dts As New DataSet
 
                 Splsx.UpdateInformation("Importing Data From Excel....")
                 cmdstring = "  EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.USP_IMPORTFILEEXCELMAINMAT  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(FileName) & "'"
 
-                StateImport = (HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_MASTER, "") = "1")
+
+                HI.Conn.SQLConn.GetDataSet(cmdstring, Conn.DB.DataBaseName.DB_MASTER, dts)
+
+                StateImport = False '(HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_MASTER, "") = "1")
+
+                If dts.Tables.Count > 1 Then
+
+                    StateImport = (dts.Tables(1).Rows(0)!FTStetInsert.ToString = "1")
+                    msgshow = dts.Tables(1).Rows(0)!FTMessage.ToString
+
+                Else
+
+                    Try
+
+                        StateImport = (dts.Tables(0).Rows(0)!FTStetInsert.ToString = "1")
+                        msgshow = dts.Tables(0).Rows(0)!FTMessage.ToString
+
+                    Catch ex As Exception
+                        msgshow = "ข้อมูล Format File Excel ไม่ถูกต้องกรุณาทำการตรวจสอบ !!!"
+                    End Try
+
+                End If
+
 
                 Try
                     System.IO.File.Delete(FileName)
