@@ -8,7 +8,7 @@ Public Class wQCSendSupl
     Private _Static As Boolean = False
     Private _StateSave As Boolean = True
     Private _wAccept As wQCSendSupllist
-
+    Private _HyperActive As Boolean = IsHyperActive()
 
     Sub New()
 
@@ -494,6 +494,19 @@ Public Class wQCSendSupl
                     Return False
                 End If
             End If
+
+            ' Set Data for HyperActive
+            If _HyperActive Then
+                _Cmd = "EXEC " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PROD) & ".[dbo].[SP_CREATE_QADATA_FOR_HYPERACTIVE] "
+                _Cmd &= vbCrLf & "@FTBarcodeSendSuplNo = '" & HI.UL.ULF.rpQuoted(Me.FTBarcodeNo.Text) & "'"
+                _Cmd &= vbCrLf & ", @FNDefectQty = " & Double.Parse(Me.FNQCActualQty.Value)
+                _Cmd &= vbCrLf & ", @User = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                If HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_PROD) = False Then
+                    Return False
+                End If
+            End If
+            ' End Set Data for HyperActive
+
             Return True
         Catch ex As Exception
             Return False
@@ -816,7 +829,17 @@ Public Class wQCSendSupl
         End Try
     End Function
 
-    Private Sub FTBarcodeNo_EditValueChanged(sender As Object, e As EventArgs) Handles FTBarcodeNo.EditValueChanged
+    Private Function IsHyperActive() As Boolean
+        Try
+            Dim _Cmd As String = ""
+            _Cmd = "SELECT Top 1  FTCfgData "
+            _Cmd &= vbCrLf & " FROM  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & ".dbo.TSESystemConfig WITH(NOLOCK) "
+            _Cmd &= vbCrLf & " WHERE FTCfgName ='HyperActive' AND FTCfgData = '1'"
 
-    End Sub
+            Return HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD).Rows.Count > 0
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
 End Class

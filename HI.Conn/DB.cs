@@ -28,7 +28,7 @@ namespace HI.Conn
         private static string[] _PasswordName = new string[30];
         private static string[] _DBAPILink = new string[30];
 
-        private static string[] _SystemDBName = { "DB_TEMPDB", "DB_SECURITY", "DB_HR", "DB_SYSTEM", "DB_MASTER", "DB_MER", "DB_PUR", "DB_INVEN", "DB_PROD", "DB_ACCOUNT", "DB_LANG", "DB_LOG", "DB_MAIL", "DB_HR_PAYROLL", "DB_MEDC", "DB_FG", "DB_PLANNING", "DB_DOC", "DB_FIXED", "DB_SAMPLE", "DB_TIME", "DB_FHS" };
+        private static string[] _SystemDBName = { "DB_TEMPDB", "DB_SECURITY", "DB_HR", "DB_SYSTEM", "DB_MASTER", "DB_MER", "DB_PUR", "DB_INVEN", "DB_PROD", "DB_ACCOUNT", "DB_LANG", "DB_LOG", "DB_MAIL", "DB_HR_PAYROLL", "DB_MEDC", "DB_FG", "DB_PLANNING", "DB_DOC", "DB_FIXED", "DB_SAMPLE", "DB_TIME", "DB_FHS", "DB_HYPERACTIVE" };
         public enum DataBaseName : int
         {
             DB_TEMPDB = 0,
@@ -52,7 +52,8 @@ namespace HI.Conn
             DB_FIXED =18,
             DB_SAMPLE = 19,
             DB_TIME = 20,
-            DB_FHS = 21
+            DB_FHS = 21,
+            DB_HYPERACTIVE = 22
 
         }
 
