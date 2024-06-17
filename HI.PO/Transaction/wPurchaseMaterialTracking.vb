@@ -314,16 +314,33 @@ Public Class wPurchaseMaterialTracking
                 HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "'"
 
             Else
-                '_Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETDATAPO_MATERIAL_DELAY_PROCESS_SAMPLE '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & FNListDocumentTrackPIData.SelectedIndex.ToString() & ",'" & HI.UL.ULDate.ConvertEnDB(FTStartPurchaseDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndPurchaseDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTStartDelivery.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndDelivery.Text) & "','',''," & Val(FNHSysSuplId.Properties.Tag.ToString) & "," & Val(FNHSysBuyId.Properties.Tag.ToString) & "," & FNDataType.SelectedIndex & ",'" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "'"
+                ''_Qry = " EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETDATAPO_MATERIAL_DELAY_PROCESS_SAMPLE '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & FNListDocumentTrackPIData.SelectedIndex.ToString() & ",'" & HI.UL.ULDate.ConvertEnDB(FTStartPurchaseDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndPurchaseDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTStartDelivery.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndDelivery.Text) & "','',''," & Val(FNHSysSuplId.Properties.Tag.ToString) & "," & Val(FNHSysBuyId.Properties.Tag.ToString) & "," & FNDataType.SelectedIndex & ",'" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text) & "','" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "'"
+                '_Qry = "EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETDATAPO_MATERIAL_DELAY_PROCESS_SAMPLE " & vbCrLf
+                '_Qry &= "@UserName = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "', @FNDataType = " & FNListDocumentTrackPIData.SelectedIndex.ToString() & vbCrLf
+                '_Qry &= ", @FNSSupl = " & Val(FNHSysSuplId.Properties.Tag.ToString) & ", @FNBuy = " & Val(FNHSysBuyId.Properties.Tag.ToString) & ", @DocType = 2" & vbCrLf
+                '_Qry &= ", @SDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartPurchaseDate.Text) & "' , @EDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndPurchaseDate.Text) & "'" & vbCrLf
+                '_Qry &= ", @SDeliDate= '" & HI.UL.ULDate.ConvertEnDB(FTStartDelivery.Text) & "', @EDeliDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndDelivery.Text) & "' " & vbCrLf
+                '_Qry &= ", @OrderSDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text) & "', @OrderEDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "'" & vbCrLf
+                ''_Qry &= ", @DevConfirmSDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartDevCFMDate.Text) & "', @DevConfirmEDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndDevCFMDate.Text) & "'"
+                ''_Qry &= ", @SRConfirmSDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartSRConfirmDate.Text) & "', @SRConfirmEDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndSRConfirmDate.Text) & "'"
+                '', @SPO = '', @EPO = ''
+
                 _Qry = "EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PUR) & "].dbo.USP_GETDATAPO_MATERIAL_DELAY_PROCESS_SAMPLE " & vbCrLf
                 _Qry &= "@UserName = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "', @FNDataType = " & FNListDocumentTrackPIData.SelectedIndex.ToString() & vbCrLf
                 _Qry &= ", @FNSSupl = " & Val(FNHSysSuplId.Properties.Tag.ToString) & ", @FNBuy = " & Val(FNHSysBuyId.Properties.Tag.ToString) & ", @DocType = 2" & vbCrLf
-                _Qry &= ", @SDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartPurchaseDate.Text) & "' , @EDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndPurchaseDate.Text) & "'" & vbCrLf
-                _Qry &= ", @SDeliDate= '" & HI.UL.ULDate.ConvertEnDB(FTStartDelivery.Text) & "', @EDeliDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndDelivery.Text) & "' " & vbCrLf
-                _Qry &= ", @OrderSDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text) & "', @OrderEDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "'" & vbCrLf
-                '_Qry &= ", @DevConfirmSDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartDevCFMDate.Text) & "', @DevConfirmEDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndDevCFMDate.Text) & "'"
-                '_Qry &= ", @SRConfirmSDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartSRConfirmDate.Text) & "', @SRConfirmEDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndSRConfirmDate.Text) & "'"
-                ', @SPO = '', @EPO = ''
+                If HI.UL.ULDate.ConvertEnDB(FTStartPurchaseDate.Text) <> "" And HI.UL.ULDate.ConvertEnDB(FTEndPurchaseDate.Text) <> "" Then
+                    _Qry &= ", @SDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartPurchaseDate.Text) & "' , @EDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndPurchaseDate.Text) & "'" & vbCrLf
+                End If
+                If HI.UL.ULDate.ConvertEnDB(FTStartDelivery.Text) <> "" And HI.UL.ULDate.ConvertEnDB(FTEndDelivery.Text) <> "" Then
+                    _Qry &= ", @SDeliDate= '" & HI.UL.ULDate.ConvertEnDB(FTStartDelivery.Text) & "', @EDeliDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndDelivery.Text) & "' " & vbCrLf
+
+                End If
+                If HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text) <> "" And HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) <> "" Then
+                    _Qry &= ", @OrderSDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartOrderDate.Text) & "', @OrderEDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndOrderDate.Text) & "'" & vbCrLf
+                End If
+                If HI.UL.ULDate.ConvertEnDB(FTStartDevCFMDate.Text) <> "" And HI.UL.ULDate.ConvertEnDB(FTEndDevCFMDate.Text) <> "" Then
+                    _Qry &= ", @DevConfirmSDate = '" & HI.UL.ULDate.ConvertEnDB(FTStartDevCFMDate.Text) & "', @DevConfirmEDate = '" & HI.UL.ULDate.ConvertEnDB(FTEndDevCFMDate.Text) & "'"
+                End If
 
             End If
             _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PUR)

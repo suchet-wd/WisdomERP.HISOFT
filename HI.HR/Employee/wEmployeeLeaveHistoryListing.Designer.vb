@@ -20,6 +20,11 @@ Partial Class wEmployeeLeaveHistoryListing
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim EditorButtonImageOptions13 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject49 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject50 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject51 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject52 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -75,11 +80,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Dim SerializableAppearanceObject42 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject43 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject44 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions12 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject45 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject46 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject47 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject48 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(wEmployeeLeaveHistoryListing))
         Me.FNHSysCmpId_None = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysCmpId_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -119,19 +119,19 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNHSysSectId = New DevExpress.XtraEditors.ButtonEdit()
         Me.ogbemployee = New DevExpress.XtraEditors.GroupControl()
         Me.otb = New DevExpress.XtraTab.XtraTabControl()
-        Me.otp17 = New DevExpress.XtraTab.XtraTabPage()
-        Me.ogc17 = New DevExpress.XtraGrid.GridControl()
-        Me.ogv17 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.GridColumn14 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn15 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn16 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn17 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn18 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn19 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn20 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn21 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn22 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn23 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.otp18 = New DevExpress.XtraTab.XtraTabPage()
+        Me.ogc18 = New DevExpress.XtraGrid.GridControl()
+        Me.ogv18 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn34 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn35 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn36 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn37 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn38 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn39 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn40 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn41 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn42 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn43 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.otpsummary = New DevExpress.XtraTab.XtraTabPage()
         Me.ogc = New DevExpress.XtraGrid.GridControl()
         Me.ogv = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -158,6 +158,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNLateTime = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNAbsentTime = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNL17Time = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNL24Time = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FNTotal = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryFTSelect = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.RepositoryFTApproveState = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
@@ -382,6 +383,45 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G2FTUnitSectCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.G2FNL02Time = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.G2FTL02Date = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.otp17 = New DevExpress.XtraTab.XtraTabPage()
+        Me.ogc17 = New DevExpress.XtraGrid.GridControl()
+        Me.ogv17 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn14 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn15 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn16 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn17 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn18 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn19 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn20 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn21 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn22 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn23 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.otp3 = New DevExpress.XtraTab.XtraTabPage()
+        Me.ogc3 = New DevExpress.XtraGrid.GridControl()
+        Me.ogv3 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn24 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn25 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn26 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn27 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn28 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn29 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn30 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn31 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn32 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn33 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.otp19 = New DevExpress.XtraTab.XtraTabPage()
+        Me.ogc24 = New DevExpress.XtraGrid.GridControl()
+        Me.ogv24 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.FNHSysEmpID24 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTEmpCode24 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTEmpName24 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTEmpTypeCode24 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTDeptCode24 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTDivisonCode24 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSectCode24 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTUnitSectCode24 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNL24Time24 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTL24Date24 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
         Me.ocmvacationpreview = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmexporttoexcel = New DevExpress.XtraEditors.SimpleButton()
@@ -397,32 +437,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FDEndDate_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FDStartDate = New DevExpress.XtraEditors.DateEdit()
         Me.FTDateRequest_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.otp3 = New DevExpress.XtraTab.XtraTabPage()
-        Me.otp18 = New DevExpress.XtraTab.XtraTabPage()
-        Me.ogc3 = New DevExpress.XtraGrid.GridControl()
-        Me.ogv3 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.GridColumn24 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn25 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn26 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn27 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn28 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn29 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn30 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn31 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn32 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn33 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.ogc18 = New DevExpress.XtraGrid.GridControl()
-        Me.ogv18 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.GridColumn34 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn35 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn36 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn37 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn38 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn39 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn40 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn41 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn42 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn43 = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.FNHSysCmpId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysCmpId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysEmpTypeId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -451,9 +465,9 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.ogbemployee.SuspendLayout()
         CType(Me.otb, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.otb.SuspendLayout()
-        Me.otp17.SuspendLayout()
-        CType(Me.ogc17, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogv17, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.otp18.SuspendLayout()
+        CType(Me.ogc18, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ogv18, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.otpsummary.SuspendLayout()
         CType(Me.ogc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogv, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -530,6 +544,15 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.otp02.SuspendLayout()
         CType(Me.ogc2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogv2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.otp17.SuspendLayout()
+        CType(Me.ogc17, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ogv17, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.otp3.SuspendLayout()
+        CType(Me.ogc3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ogv3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.otp19.SuspendLayout()
+        CType(Me.ogc24, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ogv24, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbmainprocbutton.SuspendLayout()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -539,25 +562,16 @@ Partial Class wEmployeeLeaveHistoryListing
         CType(Me.FDEndDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FDStartDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FDStartDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.otp3.SuspendLayout()
-        Me.otp18.SuspendLayout()
-        CType(Me.ogc3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogv3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogc18, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogv18, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FNHSysCmpId_None
         '
-        Me.FNHSysCmpId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(271, 4)
-        Me.FNHSysCmpId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpId_None.Location = New System.Drawing.Point(232, 3)
         Me.FNHSysCmpId_None.Name = "FNHSysCmpId_None"
         Me.FNHSysCmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCmpId_None.Properties.ReadOnly = True
-        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(1135, 22)
+        Me.FNHSysCmpId_None.Size = New System.Drawing.Size(220, 20)
         Me.FNHSysCmpId_None.TabIndex = 465
         Me.FNHSysCmpId_None.Tag = ""
         '
@@ -568,38 +582,35 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNHSysCmpId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCmpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCmpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCmpId_lbl.Location = New System.Drawing.Point(9, 4)
-        Me.FNHSysCmpId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpId_lbl.Location = New System.Drawing.Point(8, 3)
         Me.FNHSysCmpId_lbl.Name = "FNHSysCmpId_lbl"
-        Me.FNHSysCmpId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysCmpId_lbl.Size = New System.Drawing.Size(107, 17)
         Me.FNHSysCmpId_lbl.TabIndex = 464
         Me.FNHSysCmpId_lbl.Tag = "2|"
         Me.FNHSysCmpId_lbl.Text = "Company :"
         '
         'FNHSysCmpId
         '
-        Me.FNHSysCmpId.Location = New System.Drawing.Point(138, 4)
-        Me.FNHSysCmpId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysCmpId.Location = New System.Drawing.Point(118, 3)
         Me.FNHSysCmpId.Name = "FNHSysCmpId"
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
-        Me.FNHSysCmpId.Size = New System.Drawing.Size(132, 22)
+        Me.FNHSysCmpId.Size = New System.Drawing.Size(113, 20)
         Me.FNHSysCmpId.TabIndex = 463
         Me.FNHSysCmpId.Tag = ""
         '
         'FNHSysEmpTypeId
         '
-        Me.FNHSysEmpTypeId.Location = New System.Drawing.Point(139, 31)
-        Me.FNHSysEmpTypeId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpTypeId.Location = New System.Drawing.Point(119, 25)
         Me.FNHSysEmpTypeId.Name = "FNHSysEmpTypeId"
-        Me.FNHSysEmpTypeId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "42", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysEmpTypeId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "42", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpTypeId.Properties.Tag = ""
-        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(131, 22)
+        Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysEmpTypeId.TabIndex = 0
         Me.FNHSysEmpTypeId.Tag = "2|"
         '
@@ -610,51 +621,43 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNHSysEmpTypeId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysEmpTypeId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysEmpTypeId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysEmpTypeId_lbl.Location = New System.Drawing.Point(14, 31)
-        Me.FNHSysEmpTypeId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpTypeId_lbl.Location = New System.Drawing.Point(12, 25)
         Me.FNHSysEmpTypeId_lbl.Name = "FNHSysEmpTypeId_lbl"
-        Me.FNHSysEmpTypeId_lbl.Size = New System.Drawing.Size(125, 21)
+        Me.FNHSysEmpTypeId_lbl.Size = New System.Drawing.Size(107, 17)
         Me.FNHSysEmpTypeId_lbl.TabIndex = 418
         Me.FNHSysEmpTypeId_lbl.Tag = "2|"
         Me.FNHSysEmpTypeId_lbl.Text = "Employee Type :"
         '
         'FNHSysEmpTypeId_None
         '
-        Me.FNHSysEmpTypeId_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysEmpTypeId_None.Location = New System.Drawing.Point(271, 31)
-        Me.FNHSysEmpTypeId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpTypeId_None.Location = New System.Drawing.Point(232, 25)
         Me.FNHSysEmpTypeId_None.Name = "FNHSysEmpTypeId_None"
         Me.FNHSysEmpTypeId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpTypeId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpTypeId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(932, 22)
+        Me.FNHSysEmpTypeId_None.Size = New System.Drawing.Size(220, 20)
         Me.FNHSysEmpTypeId_None.TabIndex = 419
         Me.FNHSysEmpTypeId_None.Tag = "2|"
         '
         'FNHSysEmpIdTo_None
         '
-        Me.FNHSysEmpIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysEmpIdTo_None.Location = New System.Drawing.Point(698, 161)
-        Me.FNHSysEmpIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpIdTo_None.Location = New System.Drawing.Point(669, 131)
         Me.FNHSysEmpIdTo_None.Name = "FNHSysEmpIdTo_None"
         Me.FNHSysEmpIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysEmpIdTo_None.Size = New System.Drawing.Size(708, 22)
+        Me.FNHSysEmpIdTo_None.Size = New System.Drawing.Size(220, 20)
         Me.FNHSysEmpIdTo_None.TabIndex = 416
         Me.FNHSysEmpIdTo_None.Tag = "2|"
         '
         'FNHSysEmpId_None
         '
-        Me.FNHSysEmpId_None.Location = New System.Drawing.Point(271, 160)
-        Me.FNHSysEmpId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpId_None.Location = New System.Drawing.Point(232, 130)
         Me.FNHSysEmpId_None.Name = "FNHSysEmpId_None"
         Me.FNHSysEmpId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysEmpId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysEmpId_None.Properties.ReadOnly = True
-        Me.FNHSysEmpId_None.Size = New System.Drawing.Size(163, 22)
+        Me.FNHSysEmpId_None.Size = New System.Drawing.Size(220, 20)
         Me.FNHSysEmpId_None.TabIndex = 413
         Me.FNHSysEmpId_None.Tag = "2|"
         '
@@ -663,10 +666,9 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNHSysEmpIdTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysEmpIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysEmpIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysEmpIdTo_lbl.Location = New System.Drawing.Point(437, 161)
-        Me.FNHSysEmpIdTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpIdTo_lbl.Location = New System.Drawing.Point(458, 131)
         Me.FNHSysEmpIdTo_lbl.Name = "FNHSysEmpIdTo_lbl"
-        Me.FNHSysEmpIdTo_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysEmpIdTo_lbl.Size = New System.Drawing.Size(95, 20)
         Me.FNHSysEmpIdTo_lbl.TabIndex = 415
         Me.FNHSysEmpIdTo_lbl.Tag = "2|"
         Me.FNHSysEmpIdTo_lbl.Text = "End Employee :"
@@ -676,25 +678,21 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNHSysEmpId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysEmpId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysEmpId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysEmpId_lbl.Location = New System.Drawing.Point(13, 160)
-        Me.FNHSysEmpId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpId_lbl.Location = New System.Drawing.Point(11, 130)
         Me.FNHSysEmpId_lbl.Name = "FNHSysEmpId_lbl"
-        Me.FNHSysEmpId_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysEmpId_lbl.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysEmpId_lbl.TabIndex = 412
         Me.FNHSysEmpId_lbl.Tag = "2|"
         Me.FNHSysEmpId_lbl.Text = "Start Employee :"
         '
         'FNHSysDeptIdTo_None
         '
-        Me.FNHSysDeptIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysDeptIdTo_None.Location = New System.Drawing.Point(698, 57)
-        Me.FNHSysDeptIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptIdTo_None.Location = New System.Drawing.Point(669, 46)
         Me.FNHSysDeptIdTo_None.Name = "FNHSysDeptIdTo_None"
         Me.FNHSysDeptIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysDeptIdTo_None.Size = New System.Drawing.Size(708, 22)
+        Me.FNHSysDeptIdTo_None.Size = New System.Drawing.Size(220, 20)
         Me.FNHSysDeptIdTo_None.TabIndex = 401
         Me.FNHSysDeptIdTo_None.Tag = "2|"
         '
@@ -703,89 +701,81 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNHSysSectIdTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysSectIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysSectIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysSectIdTo_lbl.Location = New System.Drawing.Point(437, 110)
-        Me.FNHSysSectIdTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectIdTo_lbl.Location = New System.Drawing.Point(458, 89)
         Me.FNHSysSectIdTo_lbl.Name = "FNHSysSectIdTo_lbl"
-        Me.FNHSysSectIdTo_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysSectIdTo_lbl.Size = New System.Drawing.Size(95, 20)
         Me.FNHSysSectIdTo_lbl.TabIndex = 406
         Me.FNHSysSectIdTo_lbl.Tag = "2|"
         Me.FNHSysSectIdTo_lbl.Text = "End Sect :"
         '
         'FNHSysEmpId
         '
-        Me.FNHSysEmpId.Location = New System.Drawing.Point(139, 160)
-        Me.FNHSysEmpId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpId.Location = New System.Drawing.Point(119, 130)
         Me.FNHSysEmpId.Name = "FNHSysEmpId"
-        Me.FNHSysEmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "58", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysEmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "58", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpId.Properties.Tag = "57"
-        Me.FNHSysEmpId.Size = New System.Drawing.Size(131, 22)
+        Me.FNHSysEmpId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysEmpId.TabIndex = 9
         Me.FNHSysEmpId.Tag = "2|"
         '
         'FNHSysEmpIdTo
         '
-        Me.FNHSysEmpIdTo.Location = New System.Drawing.Point(565, 161)
-        Me.FNHSysEmpIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysEmpIdTo.Location = New System.Drawing.Point(555, 131)
         Me.FNHSysEmpIdTo.Name = "FNHSysEmpIdTo"
-        Me.FNHSysEmpIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "63", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysEmpIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "63", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpIdTo.Properties.Tag = "57"
-        Me.FNHSysEmpIdTo.Size = New System.Drawing.Size(131, 22)
+        Me.FNHSysEmpIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysEmpIdTo.TabIndex = 10
         Me.FNHSysEmpIdTo.Tag = "2|"
         '
         'FNHSysSectIdTo
         '
-        Me.FNHSysSectIdTo.Location = New System.Drawing.Point(565, 110)
-        Me.FNHSysSectIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectIdTo.Location = New System.Drawing.Point(555, 89)
         Me.FNHSysSectIdTo.Name = "FNHSysSectIdTo"
-        Me.FNHSysSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "61", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "61", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectIdTo.Properties.Tag = "55"
-        Me.FNHSysSectIdTo.Size = New System.Drawing.Size(131, 22)
+        Me.FNHSysSectIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysSectIdTo.TabIndex = 6
         Me.FNHSysSectIdTo.Tag = "2|"
         '
         'FNHSysDeptId_None
         '
-        Me.FNHSysDeptId_None.Location = New System.Drawing.Point(271, 57)
-        Me.FNHSysDeptId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptId_None.Location = New System.Drawing.Point(232, 46)
         Me.FNHSysDeptId_None.Name = "FNHSysDeptId_None"
         Me.FNHSysDeptId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDeptId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDeptId_None.Properties.ReadOnly = True
-        Me.FNHSysDeptId_None.Size = New System.Drawing.Size(163, 22)
+        Me.FNHSysDeptId_None.Size = New System.Drawing.Size(220, 20)
         Me.FNHSysDeptId_None.TabIndex = 392
         Me.FNHSysDeptId_None.Tag = "2|"
         '
         'FNHSysDeptIdTo
         '
-        Me.FNHSysDeptIdTo.Location = New System.Drawing.Point(565, 57)
-        Me.FNHSysDeptIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptIdTo.Location = New System.Drawing.Point(555, 46)
         Me.FNHSysDeptIdTo.Name = "FNHSysDeptIdTo"
-        Me.FNHSysDeptIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "59", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDeptIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "59", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptIdTo.Properties.Tag = "23"
-        Me.FNHSysDeptIdTo.Size = New System.Drawing.Size(131, 22)
+        Me.FNHSysDeptIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysDeptIdTo.TabIndex = 2
         Me.FNHSysDeptIdTo.Tag = "2|"
         '
         'FNHSysDeptId
         '
-        Me.FNHSysDeptId.Location = New System.Drawing.Point(139, 57)
-        Me.FNHSysDeptId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptId.Location = New System.Drawing.Point(119, 46)
         Me.FNHSysDeptId.Name = "FNHSysDeptId"
-        Me.FNHSysDeptId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "23", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDeptId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "23", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptId.Properties.Tag = "23"
-        Me.FNHSysDeptId.Size = New System.Drawing.Size(131, 22)
+        Me.FNHSysDeptId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysDeptId.TabIndex = 1
         Me.FNHSysDeptId.Tag = "2|"
         '
         'FNHSysUnitSectIdTo
         '
-        Me.FNHSysUnitSectIdTo.Location = New System.Drawing.Point(565, 135)
-        Me.FNHSysUnitSectIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectIdTo.Location = New System.Drawing.Point(555, 110)
         Me.FNHSysUnitSectIdTo.Name = "FNHSysUnitSectIdTo"
-        Me.FNHSysUnitSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "62", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysUnitSectIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "62", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectIdTo.Properties.Tag = "57"
-        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(131, 22)
+        Me.FNHSysUnitSectIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysUnitSectIdTo.TabIndex = 8
         Me.FNHSysUnitSectIdTo.Tag = "2|"
         '
@@ -794,10 +784,9 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.LabelControl2.Appearance.Options.UseTextOptions = True
         Me.LabelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl2.Location = New System.Drawing.Point(14, 57)
-        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl2.Location = New System.Drawing.Point(12, 46)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(125, 25)
+        Me.LabelControl2.Size = New System.Drawing.Size(107, 20)
         Me.LabelControl2.TabIndex = 391
         Me.LabelControl2.Tag = "2|"
         Me.LabelControl2.Text = "Start Department :"
@@ -807,63 +796,54 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNHSysDeptIdTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysDeptIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysDeptIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysDeptIdTo_lbl.Location = New System.Drawing.Point(437, 57)
-        Me.FNHSysDeptIdTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDeptIdTo_lbl.Location = New System.Drawing.Point(458, 46)
         Me.FNHSysDeptIdTo_lbl.Name = "FNHSysDeptIdTo_lbl"
-        Me.FNHSysDeptIdTo_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysDeptIdTo_lbl.Size = New System.Drawing.Size(95, 20)
         Me.FNHSysDeptIdTo_lbl.TabIndex = 400
         Me.FNHSysDeptIdTo_lbl.Tag = "2|"
         Me.FNHSysDeptIdTo_lbl.Text = "End Department :"
         '
         'FNHSysDivisonId_None
         '
-        Me.FNHSysDivisonId_None.Location = New System.Drawing.Point(271, 82)
-        Me.FNHSysDivisonId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonId_None.Location = New System.Drawing.Point(232, 67)
         Me.FNHSysDivisonId_None.Name = "FNHSysDivisonId_None"
         Me.FNHSysDivisonId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonId_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonId_None.Size = New System.Drawing.Size(163, 22)
+        Me.FNHSysDivisonId_None.Size = New System.Drawing.Size(220, 20)
         Me.FNHSysDivisonId_None.TabIndex = 394
         Me.FNHSysDivisonId_None.Tag = "2|"
         '
         'FNHSysSectIdTo_None
         '
-        Me.FNHSysSectIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysSectIdTo_None.Location = New System.Drawing.Point(698, 110)
-        Me.FNHSysSectIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectIdTo_None.Location = New System.Drawing.Point(669, 89)
         Me.FNHSysSectIdTo_None.Name = "FNHSysSectIdTo_None"
         Me.FNHSysSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysSectIdTo_None.Size = New System.Drawing.Size(708, 22)
+        Me.FNHSysSectIdTo_None.Size = New System.Drawing.Size(220, 20)
         Me.FNHSysSectIdTo_None.TabIndex = 407
         Me.FNHSysSectIdTo_None.Tag = "2|"
         '
         'FNHSysUnitSectId_None
         '
-        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(271, 134)
-        Me.FNHSysUnitSectId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectId_None.Location = New System.Drawing.Point(232, 109)
         Me.FNHSysUnitSectId_None.Name = "FNHSysUnitSectId_None"
         Me.FNHSysUnitSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(163, 22)
+        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(220, 20)
         Me.FNHSysUnitSectId_None.TabIndex = 398
         Me.FNHSysUnitSectId_None.Tag = "2|"
         '
         'FNHSysDivisonIdTo_None
         '
-        Me.FNHSysDivisonIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysDivisonIdTo_None.Location = New System.Drawing.Point(698, 84)
-        Me.FNHSysDivisonIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonIdTo_None.Location = New System.Drawing.Point(669, 68)
         Me.FNHSysDivisonIdTo_None.Name = "FNHSysDivisonIdTo_None"
         Me.FNHSysDivisonIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysDivisonIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysDivisonIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysDivisonIdTo_None.Size = New System.Drawing.Size(708, 22)
+        Me.FNHSysDivisonIdTo_None.Size = New System.Drawing.Size(220, 20)
         Me.FNHSysDivisonIdTo_None.TabIndex = 404
         Me.FNHSysDivisonIdTo_None.Tag = "2|"
         '
@@ -872,10 +852,9 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNHSysUnitSectId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysUnitSectId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysUnitSectId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysUnitSectId_lbl.Location = New System.Drawing.Point(13, 134)
-        Me.FNHSysUnitSectId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectId_lbl.Location = New System.Drawing.Point(11, 109)
         Me.FNHSysUnitSectId_lbl.Name = "FNHSysUnitSectId_lbl"
-        Me.FNHSysUnitSectId_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysUnitSectId_lbl.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysUnitSectId_lbl.TabIndex = 397
         Me.FNHSysUnitSectId_lbl.Tag = "2|"
         Me.FNHSysUnitSectId_lbl.Text = "Start Unit Sect :"
@@ -885,58 +864,51 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNHSysUnitSectIdTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysUnitSectIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysUnitSectIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysUnitSectIdTo_lbl.Location = New System.Drawing.Point(437, 135)
-        Me.FNHSysUnitSectIdTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectIdTo_lbl.Location = New System.Drawing.Point(458, 110)
         Me.FNHSysUnitSectIdTo_lbl.Name = "FNHSysUnitSectIdTo_lbl"
-        Me.FNHSysUnitSectIdTo_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysUnitSectIdTo_lbl.Size = New System.Drawing.Size(95, 20)
         Me.FNHSysUnitSectIdTo_lbl.TabIndex = 409
         Me.FNHSysUnitSectIdTo_lbl.Tag = "2|"
         Me.FNHSysUnitSectIdTo_lbl.Text = "End Unit Sect :"
         '
         'FNHSysDivisonId
         '
-        Me.FNHSysDivisonId.Location = New System.Drawing.Point(139, 82)
-        Me.FNHSysDivisonId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonId.Location = New System.Drawing.Point(119, 67)
         Me.FNHSysDivisonId.Name = "FNHSysDivisonId"
-        Me.FNHSysDivisonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "46", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDivisonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "46", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonId.Properties.Tag = "46"
-        Me.FNHSysDivisonId.Size = New System.Drawing.Size(131, 22)
+        Me.FNHSysDivisonId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysDivisonId.TabIndex = 3
         Me.FNHSysDivisonId.Tag = "2|"
         '
         'FNHSysDivisonIdTo
         '
-        Me.FNHSysDivisonIdTo.Location = New System.Drawing.Point(565, 84)
-        Me.FNHSysDivisonIdTo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonIdTo.Location = New System.Drawing.Point(555, 68)
         Me.FNHSysDivisonIdTo.Name = "FNHSysDivisonIdTo"
-        Me.FNHSysDivisonIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "60", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDivisonIdTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "60", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonIdTo.Properties.Tag = "46"
-        Me.FNHSysDivisonIdTo.Size = New System.Drawing.Size(131, 22)
+        Me.FNHSysDivisonIdTo.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysDivisonIdTo.TabIndex = 4
         Me.FNHSysDivisonIdTo.Tag = "2|"
         '
         'FNHSysUnitSectId
         '
-        Me.FNHSysUnitSectId.Location = New System.Drawing.Point(139, 134)
-        Me.FNHSysUnitSectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectId.Location = New System.Drawing.Point(119, 109)
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
-        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "57", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "57", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.Tag = "57"
-        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(131, 22)
+        Me.FNHSysUnitSectId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysUnitSectId.TabIndex = 7
         Me.FNHSysUnitSectId.Tag = "2|"
         '
         'FNHSysUnitSectIdTo_None
         '
-        Me.FNHSysUnitSectIdTo_None.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FNHSysUnitSectIdTo_None.Location = New System.Drawing.Point(698, 135)
-        Me.FNHSysUnitSectIdTo_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysUnitSectIdTo_None.Location = New System.Drawing.Point(669, 110)
         Me.FNHSysUnitSectIdTo_None.Name = "FNHSysUnitSectIdTo_None"
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectIdTo_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectIdTo_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(708, 22)
+        Me.FNHSysUnitSectIdTo_None.Size = New System.Drawing.Size(220, 20)
         Me.FNHSysUnitSectIdTo_None.TabIndex = 410
         Me.FNHSysUnitSectIdTo_None.Tag = "2|"
         '
@@ -945,10 +917,9 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNHSysDivisonId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysDivisonId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysDivisonId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysDivisonId_lbl.Location = New System.Drawing.Point(13, 82)
-        Me.FNHSysDivisonId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonId_lbl.Location = New System.Drawing.Point(11, 67)
         Me.FNHSysDivisonId_lbl.Name = "FNHSysDivisonId_lbl"
-        Me.FNHSysDivisonId_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysDivisonId_lbl.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysDivisonId_lbl.TabIndex = 393
         Me.FNHSysDivisonId_lbl.Tag = "2|"
         Me.FNHSysDivisonId_lbl.Text = "Start Devision :"
@@ -958,23 +929,21 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNHSysDivisonIdTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysDivisonIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysDivisonIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysDivisonIdTo_lbl.Location = New System.Drawing.Point(437, 84)
-        Me.FNHSysDivisonIdTo_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysDivisonIdTo_lbl.Location = New System.Drawing.Point(458, 68)
         Me.FNHSysDivisonIdTo_lbl.Name = "FNHSysDivisonIdTo_lbl"
-        Me.FNHSysDivisonIdTo_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysDivisonIdTo_lbl.Size = New System.Drawing.Size(95, 20)
         Me.FNHSysDivisonIdTo_lbl.TabIndex = 403
         Me.FNHSysDivisonIdTo_lbl.Tag = "2|"
         Me.FNHSysDivisonIdTo_lbl.Text = "End Devision :"
         '
         'FNHSysSectId_None
         '
-        Me.FNHSysSectId_None.Location = New System.Drawing.Point(271, 108)
-        Me.FNHSysSectId_None.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectId_None.Location = New System.Drawing.Point(232, 88)
         Me.FNHSysSectId_None.Name = "FNHSysSectId_None"
         Me.FNHSysSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectId_None.Properties.ReadOnly = True
-        Me.FNHSysSectId_None.Size = New System.Drawing.Size(163, 22)
+        Me.FNHSysSectId_None.Size = New System.Drawing.Size(220, 20)
         Me.FNHSysSectId_None.TabIndex = 396
         Me.FNHSysSectId_None.Tag = "2|"
         '
@@ -983,22 +952,20 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNHSysSectId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysSectId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysSectId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysSectId_lbl.Location = New System.Drawing.Point(13, 108)
-        Me.FNHSysSectId_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectId_lbl.Location = New System.Drawing.Point(11, 88)
         Me.FNHSysSectId_lbl.Name = "FNHSysSectId_lbl"
-        Me.FNHSysSectId_lbl.Size = New System.Drawing.Size(125, 25)
+        Me.FNHSysSectId_lbl.Size = New System.Drawing.Size(107, 20)
         Me.FNHSysSectId_lbl.TabIndex = 395
         Me.FNHSysSectId_lbl.Tag = "2|"
         Me.FNHSysSectId_lbl.Text = "Start Sect :"
         '
         'FNHSysSectId
         '
-        Me.FNHSysSectId.Location = New System.Drawing.Point(139, 108)
-        Me.FNHSysSectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FNHSysSectId.Location = New System.Drawing.Point(119, 88)
         Me.FNHSysSectId.Name = "FNHSysSectId"
-        Me.FNHSysSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", "55", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", "55", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectId.Properties.Tag = "55"
-        Me.FNHSysSectId.Size = New System.Drawing.Size(131, 22)
+        Me.FNHSysSectId.Size = New System.Drawing.Size(112, 20)
         Me.FNHSysSectId.TabIndex = 5
         Me.FNHSysSectId.Tag = "2|"
         '
@@ -1009,202 +976,212 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.ogbemployee.Controls.Add(Me.otb)
         Me.ogbemployee.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbemployee.Location = New System.Drawing.Point(0, 205)
-        Me.ogbemployee.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbemployee.Name = "ogbemployee"
-        Me.ogbemployee.Size = New System.Drawing.Size(1301, 499)
+        Me.ogbemployee.Size = New System.Drawing.Size(1115, 367)
         Me.ogbemployee.TabIndex = 6
         Me.ogbemployee.Text = "พนักงาน"
         '
         'otb
         '
         Me.otb.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.otb.Location = New System.Drawing.Point(2, 28)
-        Me.otb.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.otb.Location = New System.Drawing.Point(2, 23)
         Me.otb.Name = "otb"
         Me.otb.SelectedTabPage = Me.otp18
-        Me.otb.Size = New System.Drawing.Size(1297, 469)
+        Me.otb.Size = New System.Drawing.Size(1111, 342)
         Me.otb.TabIndex = 390
-        Me.otb.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpsummary, Me.otp00, Me.otp01, Me.otp04, Me.otp05, Me.otp06, Me.otp07, Me.otp08, Me.otp09, Me.otp16, Me.otp97, Me.otp98, Me.otp99, Me.otplate, Me.otpabsent, Me.otp02, Me.otp17, Me.otp3, Me.otp18})
+        Me.otb.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpsummary, Me.otp00, Me.otp01, Me.otp04, Me.otp05, Me.otp06, Me.otp07, Me.otp08, Me.otp09, Me.otp16, Me.otp97, Me.otp98, Me.otp99, Me.otplate, Me.otpabsent, Me.otp02, Me.otp17, Me.otp3, Me.otp18, Me.otp19})
         '
-        'otp17
+        'otp18
         '
-        Me.otp17.Controls.Add(Me.ogc17)
-        Me.otp17.Name = "otp17"
-        Me.otp17.Size = New System.Drawing.Size(1295, 438)
-        Me.otp17.Text = "กักตัว 14 วันเชื้อไวรัส Covic 19 จ่าย"
+        Me.otp18.Controls.Add(Me.ogc18)
+        Me.otp18.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.otp18.Name = "otp18"
+        Me.otp18.Size = New System.Drawing.Size(1109, 317)
+        Me.otp18.Text = "ลากักตัว 14 วัน COVID-19"
         '
-        'ogc17
+        'ogc18
         '
-        Me.ogc17.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc17.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogc17.Location = New System.Drawing.Point(0, 0)
-        Me.ogc17.MainView = Me.ogv17
-        Me.ogc17.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogc17.Name = "ogc17"
-        Me.ogc17.Size = New System.Drawing.Size(1295, 438)
-        Me.ogc17.TabIndex = 392
-        Me.ogc17.TabStop = False
-        Me.ogc17.Tag = "2|"
-        Me.ogc17.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogv17})
+        Me.ogc18.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc18.Location = New System.Drawing.Point(0, 0)
+        Me.ogc18.MainView = Me.ogv18
+        Me.ogc18.Name = "ogc18"
+        Me.ogc18.Size = New System.Drawing.Size(1109, 317)
+        Me.ogc18.TabIndex = 393
+        Me.ogc18.TabStop = False
+        Me.ogc18.Tag = "2|"
+        Me.ogc18.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogv18})
         '
-        'ogv17
+        'ogv18
         '
-        Me.ogv17.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17, Me.GridColumn18, Me.GridColumn19, Me.GridColumn20, Me.GridColumn21, Me.GridColumn22, Me.GridColumn23})
-        Me.ogv17.GridControl = Me.ogc17
-        Me.ogv17.Name = "ogv17"
-        Me.ogv17.OptionsCustomization.AllowGroup = False
-        Me.ogv17.OptionsCustomization.AllowQuickHideColumns = False
-        Me.ogv17.OptionsView.ColumnAutoWidth = False
-        Me.ogv17.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
-        Me.ogv17.OptionsView.ShowGroupPanel = False
-        Me.ogv17.Tag = "2|"
+        Me.ogv18.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn34, Me.GridColumn35, Me.GridColumn36, Me.GridColumn37, Me.GridColumn38, Me.GridColumn39, Me.GridColumn40, Me.GridColumn41, Me.GridColumn42, Me.GridColumn43})
+        Me.ogv18.DetailHeight = 284
+        Me.ogv18.GridControl = Me.ogc18
+        Me.ogv18.Name = "ogv18"
+        Me.ogv18.OptionsCustomization.AllowGroup = False
+        Me.ogv18.OptionsCustomization.AllowQuickHideColumns = False
+        Me.ogv18.OptionsView.ColumnAutoWidth = False
+        Me.ogv18.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
+        Me.ogv18.OptionsView.ShowGroupPanel = False
+        Me.ogv18.Tag = "2|"
         '
-        'GridColumn14
+        'GridColumn34
         '
-        Me.GridColumn14.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn14.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn14.Caption = "FNHSysEmpID"
-        Me.GridColumn14.FieldName = "FNHSysEmpID"
-        Me.GridColumn14.Name = "GridColumn14"
-        Me.GridColumn14.OptionsColumn.AllowEdit = False
-        Me.GridColumn14.OptionsColumn.AllowMove = False
-        Me.GridColumn14.OptionsColumn.ReadOnly = True
-        Me.GridColumn14.OptionsColumn.TabStop = False
+        Me.GridColumn34.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn34.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn34.Caption = "FNHSysEmpID"
+        Me.GridColumn34.FieldName = "FNHSysEmpID"
+        Me.GridColumn34.MinWidth = 17
+        Me.GridColumn34.Name = "GridColumn34"
+        Me.GridColumn34.OptionsColumn.AllowEdit = False
+        Me.GridColumn34.OptionsColumn.AllowMove = False
+        Me.GridColumn34.OptionsColumn.ReadOnly = True
+        Me.GridColumn34.OptionsColumn.TabStop = False
+        Me.GridColumn34.Width = 64
         '
-        'GridColumn15
+        'GridColumn35
         '
-        Me.GridColumn15.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn15.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn15.Caption = "FTEmpCode"
-        Me.GridColumn15.FieldName = "FTEmpCode"
-        Me.GridColumn15.Name = "GridColumn15"
-        Me.GridColumn15.OptionsColumn.AllowEdit = False
-        Me.GridColumn15.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn15.OptionsColumn.ReadOnly = True
-        Me.GridColumn15.OptionsColumn.TabStop = False
-        Me.GridColumn15.Visible = True
-        Me.GridColumn15.VisibleIndex = 0
-        Me.GridColumn15.Width = 88
+        Me.GridColumn35.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn35.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn35.Caption = "FTEmpCode"
+        Me.GridColumn35.FieldName = "FTEmpCode"
+        Me.GridColumn35.MinWidth = 17
+        Me.GridColumn35.Name = "GridColumn35"
+        Me.GridColumn35.OptionsColumn.AllowEdit = False
+        Me.GridColumn35.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridColumn35.OptionsColumn.ReadOnly = True
+        Me.GridColumn35.OptionsColumn.TabStop = False
+        Me.GridColumn35.Visible = True
+        Me.GridColumn35.VisibleIndex = 0
         '
-        'GridColumn16
+        'GridColumn36
         '
-        Me.GridColumn16.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn16.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn16.Caption = "FTEmpName"
-        Me.GridColumn16.FieldName = "FTEmpName"
-        Me.GridColumn16.Name = "GridColumn16"
-        Me.GridColumn16.OptionsColumn.AllowEdit = False
-        Me.GridColumn16.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn16.OptionsColumn.ReadOnly = True
-        Me.GridColumn16.OptionsColumn.TabStop = False
-        Me.GridColumn16.Visible = True
-        Me.GridColumn16.VisibleIndex = 1
-        Me.GridColumn16.Width = 171
+        Me.GridColumn36.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn36.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn36.Caption = "FTEmpName"
+        Me.GridColumn36.FieldName = "FTEmpName"
+        Me.GridColumn36.MinWidth = 17
+        Me.GridColumn36.Name = "GridColumn36"
+        Me.GridColumn36.OptionsColumn.AllowEdit = False
+        Me.GridColumn36.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridColumn36.OptionsColumn.ReadOnly = True
+        Me.GridColumn36.OptionsColumn.TabStop = False
+        Me.GridColumn36.Visible = True
+        Me.GridColumn36.VisibleIndex = 1
+        Me.GridColumn36.Width = 147
         '
-        'GridColumn17
+        'GridColumn37
         '
-        Me.GridColumn17.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn17.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn17.Caption = "FTEmpTypeCode"
-        Me.GridColumn17.FieldName = "FTEmpTypeCode"
-        Me.GridColumn17.Name = "GridColumn17"
-        Me.GridColumn17.OptionsColumn.AllowEdit = False
-        Me.GridColumn17.OptionsColumn.ReadOnly = True
-        Me.GridColumn17.Visible = True
-        Me.GridColumn17.VisibleIndex = 2
+        Me.GridColumn37.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn37.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn37.Caption = "FTEmpTypeCode"
+        Me.GridColumn37.FieldName = "FTEmpTypeCode"
+        Me.GridColumn37.MinWidth = 17
+        Me.GridColumn37.Name = "GridColumn37"
+        Me.GridColumn37.OptionsColumn.AllowEdit = False
+        Me.GridColumn37.OptionsColumn.ReadOnly = True
+        Me.GridColumn37.Visible = True
+        Me.GridColumn37.VisibleIndex = 2
+        Me.GridColumn37.Width = 64
         '
-        'GridColumn18
+        'GridColumn38
         '
-        Me.GridColumn18.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn18.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn18.Caption = "FTDeptCode"
-        Me.GridColumn18.FieldName = "FTDeptCode"
-        Me.GridColumn18.Name = "GridColumn18"
-        Me.GridColumn18.OptionsColumn.AllowEdit = False
-        Me.GridColumn18.OptionsColumn.ReadOnly = True
-        Me.GridColumn18.Visible = True
-        Me.GridColumn18.VisibleIndex = 4
+        Me.GridColumn38.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn38.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn38.Caption = "FTDeptCode"
+        Me.GridColumn38.FieldName = "FTDeptCode"
+        Me.GridColumn38.MinWidth = 17
+        Me.GridColumn38.Name = "GridColumn38"
+        Me.GridColumn38.OptionsColumn.AllowEdit = False
+        Me.GridColumn38.OptionsColumn.ReadOnly = True
+        Me.GridColumn38.Visible = True
+        Me.GridColumn38.VisibleIndex = 4
+        Me.GridColumn38.Width = 64
         '
-        'GridColumn19
+        'GridColumn39
         '
-        Me.GridColumn19.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn19.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn19.Caption = "FTDivisonCode"
-        Me.GridColumn19.FieldName = "FTDivisonCode"
-        Me.GridColumn19.Name = "GridColumn19"
-        Me.GridColumn19.OptionsColumn.AllowEdit = False
-        Me.GridColumn19.OptionsColumn.ReadOnly = True
-        Me.GridColumn19.Visible = True
-        Me.GridColumn19.VisibleIndex = 3
+        Me.GridColumn39.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn39.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn39.Caption = "FTDivisonCode"
+        Me.GridColumn39.FieldName = "FTDivisonCode"
+        Me.GridColumn39.MinWidth = 17
+        Me.GridColumn39.Name = "GridColumn39"
+        Me.GridColumn39.OptionsColumn.AllowEdit = False
+        Me.GridColumn39.OptionsColumn.ReadOnly = True
+        Me.GridColumn39.Visible = True
+        Me.GridColumn39.VisibleIndex = 3
+        Me.GridColumn39.Width = 64
         '
-        'GridColumn20
+        'GridColumn40
         '
-        Me.GridColumn20.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn20.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn20.Caption = "FTSectCode"
-        Me.GridColumn20.FieldName = "FTSectCode"
-        Me.GridColumn20.Name = "GridColumn20"
-        Me.GridColumn20.OptionsColumn.AllowEdit = False
-        Me.GridColumn20.OptionsColumn.ReadOnly = True
-        Me.GridColumn20.Visible = True
-        Me.GridColumn20.VisibleIndex = 5
+        Me.GridColumn40.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn40.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn40.Caption = "FTSectCode"
+        Me.GridColumn40.FieldName = "FTSectCode"
+        Me.GridColumn40.MinWidth = 17
+        Me.GridColumn40.Name = "GridColumn40"
+        Me.GridColumn40.OptionsColumn.AllowEdit = False
+        Me.GridColumn40.OptionsColumn.ReadOnly = True
+        Me.GridColumn40.Visible = True
+        Me.GridColumn40.VisibleIndex = 5
+        Me.GridColumn40.Width = 64
         '
-        'GridColumn21
+        'GridColumn41
         '
-        Me.GridColumn21.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn21.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn21.Caption = "FTUnitSectCode"
-        Me.GridColumn21.FieldName = "FTUnitSectCode"
-        Me.GridColumn21.Name = "GridColumn21"
-        Me.GridColumn21.OptionsColumn.AllowEdit = False
-        Me.GridColumn21.OptionsColumn.ReadOnly = True
-        Me.GridColumn21.Visible = True
-        Me.GridColumn21.VisibleIndex = 6
+        Me.GridColumn41.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn41.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn41.Caption = "FTUnitSectCode"
+        Me.GridColumn41.FieldName = "FTUnitSectCode"
+        Me.GridColumn41.MinWidth = 17
+        Me.GridColumn41.Name = "GridColumn41"
+        Me.GridColumn41.OptionsColumn.AllowEdit = False
+        Me.GridColumn41.OptionsColumn.ReadOnly = True
+        Me.GridColumn41.Visible = True
+        Me.GridColumn41.VisibleIndex = 6
+        Me.GridColumn41.Width = 64
         '
-        'GridColumn22
+        'GridColumn42
         '
-        Me.GridColumn22.AppearanceCell.Options.UseTextOptions = True
-        Me.GridColumn22.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.GridColumn22.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn22.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn22.Caption = "กักตัว 14 วันเชื้อไวรัส Covic 19"
-        Me.GridColumn22.FieldName = "FNL17Time"
-        Me.GridColumn22.Name = "GridColumn22"
-        Me.GridColumn22.OptionsColumn.AllowEdit = False
-        Me.GridColumn22.OptionsColumn.ReadOnly = True
-        Me.GridColumn22.Visible = True
-        Me.GridColumn22.VisibleIndex = 7
-        Me.GridColumn22.Width = 80
+        Me.GridColumn42.AppearanceCell.Options.UseTextOptions = True
+        Me.GridColumn42.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.GridColumn42.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn42.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn42.Caption = "กักตัว 14 วันเชื้อไวรัส Covic 19"
+        Me.GridColumn42.FieldName = "FNL18Time"
+        Me.GridColumn42.MinWidth = 17
+        Me.GridColumn42.Name = "GridColumn42"
+        Me.GridColumn42.OptionsColumn.AllowEdit = False
+        Me.GridColumn42.OptionsColumn.ReadOnly = True
+        Me.GridColumn42.Visible = True
+        Me.GridColumn42.VisibleIndex = 7
+        Me.GridColumn42.Width = 69
         '
-        'GridColumn23
+        'GridColumn43
         '
-        Me.GridColumn23.Caption = "วันที่"
-        Me.GridColumn23.FieldName = "FTL17Date"
-        Me.GridColumn23.Name = "GridColumn23"
-        Me.GridColumn23.OptionsColumn.AllowEdit = False
-        Me.GridColumn23.OptionsColumn.ReadOnly = True
-        Me.GridColumn23.Visible = True
-        Me.GridColumn23.VisibleIndex = 8
-        Me.GridColumn23.Width = 200
+        Me.GridColumn43.Caption = "วันที่"
+        Me.GridColumn43.FieldName = "FTL18Date"
+        Me.GridColumn43.MinWidth = 17
+        Me.GridColumn43.Name = "GridColumn43"
+        Me.GridColumn43.OptionsColumn.AllowEdit = False
+        Me.GridColumn43.OptionsColumn.ReadOnly = True
+        Me.GridColumn43.Visible = True
+        Me.GridColumn43.VisibleIndex = 8
+        Me.GridColumn43.Width = 171
         '
         'otpsummary
         '
         Me.otpsummary.Controls.Add(Me.ogc)
-        Me.otpsummary.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otpsummary.Name = "otpsummary"
-        Me.otpsummary.Size = New System.Drawing.Size(1295, 438)
+        Me.otpsummary.Size = New System.Drawing.Size(1109, 317)
         Me.otpsummary.Text = "Leeave Summary"
         '
         'ogc
         '
         Me.ogc.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Location = New System.Drawing.Point(0, 0)
         Me.ogc.MainView = Me.ogv
-        Me.ogc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc.Name = "ogc"
         Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSelect, Me.RepositoryFTApproveState})
-        Me.ogc.Size = New System.Drawing.Size(1295, 438)
+        Me.ogc.Size = New System.Drawing.Size(1109, 317)
         Me.ogc.TabIndex = 388
         Me.ogc.TabStop = False
         Me.ogc.Tag = "2|"
@@ -1212,7 +1189,8 @@ Partial Class wEmployeeLeaveHistoryListing
         '
         'ogv
         '
-        Me.ogv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFNHSysEmpID, Me.FTEmpCode, Me.FTEmpName, Me.FTEmpTypeCode, Me.FTDeptCode, Me.FTDivisonCode, Me.FTSectCode, Me.FTUnitSectCode, Me.FNL00Time, Me.FNL01Time, Me.FNL02Time, Me.FNL04Time, Me.FNL05Time, Me.FNL06Time, Me.FNL07Time, Me.FNL08Time, Me.FNL09Time, Me.FNL97Time, Me.FNL98Time, Me.FNL99Time, Me.FNLateTime, Me.FNAbsentTime, Me.FNL17Time, Me.FNTotal})
+        Me.ogv.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColFNHSysEmpID, Me.FTEmpCode, Me.FTEmpName, Me.FTEmpTypeCode, Me.FTDeptCode, Me.FTDivisonCode, Me.FTSectCode, Me.FTUnitSectCode, Me.FNL00Time, Me.FNL01Time, Me.FNL02Time, Me.FNL04Time, Me.FNL05Time, Me.FNL06Time, Me.FNL07Time, Me.FNL08Time, Me.FNL09Time, Me.FNL97Time, Me.FNL98Time, Me.FNL99Time, Me.FNLateTime, Me.FNAbsentTime, Me.FNL17Time, Me.FNL24Time, Me.FNTotal})
+        Me.ogv.DetailHeight = 284
         Me.ogv.GridControl = Me.ogc
         Me.ogv.Name = "ogv"
         Me.ogv.OptionsCustomization.AllowGroup = False
@@ -1228,11 +1206,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.ColFNHSysEmpID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ColFNHSysEmpID.Caption = "FNHSysEmpID"
         Me.ColFNHSysEmpID.FieldName = "FNHSysEmpID"
+        Me.ColFNHSysEmpID.MinWidth = 17
         Me.ColFNHSysEmpID.Name = "ColFNHSysEmpID"
         Me.ColFNHSysEmpID.OptionsColumn.AllowEdit = False
         Me.ColFNHSysEmpID.OptionsColumn.AllowMove = False
         Me.ColFNHSysEmpID.OptionsColumn.ReadOnly = True
         Me.ColFNHSysEmpID.OptionsColumn.TabStop = False
+        Me.ColFNHSysEmpID.Width = 64
         '
         'FTEmpCode
         '
@@ -1240,6 +1220,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTEmpCode.Caption = "FTEmpCode"
         Me.FTEmpCode.FieldName = "FTEmpCode"
+        Me.FTEmpCode.MinWidth = 17
         Me.FTEmpCode.Name = "FTEmpCode"
         Me.FTEmpCode.OptionsColumn.AllowEdit = False
         Me.FTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -1247,7 +1228,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FTEmpCode.OptionsColumn.TabStop = False
         Me.FTEmpCode.Visible = True
         Me.FTEmpCode.VisibleIndex = 0
-        Me.FTEmpCode.Width = 88
         '
         'FTEmpName
         '
@@ -1255,6 +1235,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTEmpName.Caption = "FTEmpName"
         Me.FTEmpName.FieldName = "FTEmpName"
+        Me.FTEmpName.MinWidth = 17
         Me.FTEmpName.Name = "FTEmpName"
         Me.FTEmpName.OptionsColumn.AllowEdit = False
         Me.FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -1262,7 +1243,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FTEmpName.OptionsColumn.TabStop = False
         Me.FTEmpName.Visible = True
         Me.FTEmpName.VisibleIndex = 1
-        Me.FTEmpName.Width = 171
+        Me.FTEmpName.Width = 147
         '
         'FTEmpTypeCode
         '
@@ -1270,11 +1251,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.FTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.FTEmpTypeCode.MinWidth = 17
         Me.FTEmpTypeCode.Name = "FTEmpTypeCode"
         Me.FTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.FTEmpTypeCode.Visible = True
         Me.FTEmpTypeCode.VisibleIndex = 2
+        Me.FTEmpTypeCode.Width = 64
         '
         'FTDeptCode
         '
@@ -1282,11 +1265,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTDeptCode.Caption = "FTDeptCode"
         Me.FTDeptCode.FieldName = "FTDeptCode"
+        Me.FTDeptCode.MinWidth = 17
         Me.FTDeptCode.Name = "FTDeptCode"
         Me.FTDeptCode.OptionsColumn.AllowEdit = False
         Me.FTDeptCode.OptionsColumn.ReadOnly = True
         Me.FTDeptCode.Visible = True
         Me.FTDeptCode.VisibleIndex = 4
+        Me.FTDeptCode.Width = 64
         '
         'FTDivisonCode
         '
@@ -1294,11 +1279,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTDivisonCode.Caption = "FTDivisonCode"
         Me.FTDivisonCode.FieldName = "FTDivisonCode"
+        Me.FTDivisonCode.MinWidth = 17
         Me.FTDivisonCode.Name = "FTDivisonCode"
         Me.FTDivisonCode.OptionsColumn.AllowEdit = False
         Me.FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.FTDivisonCode.Visible = True
         Me.FTDivisonCode.VisibleIndex = 3
+        Me.FTDivisonCode.Width = 64
         '
         'FTSectCode
         '
@@ -1306,11 +1293,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTSectCode.Caption = "FTSectCode"
         Me.FTSectCode.FieldName = "FTSectCode"
+        Me.FTSectCode.MinWidth = 17
         Me.FTSectCode.Name = "FTSectCode"
         Me.FTSectCode.OptionsColumn.AllowEdit = False
         Me.FTSectCode.OptionsColumn.ReadOnly = True
         Me.FTSectCode.Visible = True
         Me.FTSectCode.VisibleIndex = 5
+        Me.FTSectCode.Width = 64
         '
         'FTUnitSectCode
         '
@@ -1318,11 +1307,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTUnitSectCode.Caption = "FTUnitSectCode"
         Me.FTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.FTUnitSectCode.MinWidth = 17
         Me.FTUnitSectCode.Name = "FTUnitSectCode"
         Me.FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.FTUnitSectCode.Visible = True
         Me.FTUnitSectCode.VisibleIndex = 6
+        Me.FTUnitSectCode.Width = 64
         '
         'FNL00Time
         '
@@ -1332,12 +1323,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNL00Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNL00Time.Caption = "ล่าป่วย"
         Me.FNL00Time.FieldName = "FNL00Time"
+        Me.FNL00Time.MinWidth = 17
         Me.FNL00Time.Name = "FNL00Time"
         Me.FNL00Time.OptionsColumn.AllowEdit = False
         Me.FNL00Time.OptionsColumn.ReadOnly = True
         Me.FNL00Time.Visible = True
         Me.FNL00Time.VisibleIndex = 7
-        Me.FNL00Time.Width = 80
+        Me.FNL00Time.Width = 69
         '
         'FNL01Time
         '
@@ -1347,12 +1339,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNL01Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNL01Time.Caption = "ล่ากิจ"
         Me.FNL01Time.FieldName = "FNL01Time"
+        Me.FNL01Time.MinWidth = 17
         Me.FNL01Time.Name = "FNL01Time"
         Me.FNL01Time.OptionsColumn.AllowEdit = False
         Me.FNL01Time.OptionsColumn.ReadOnly = True
         Me.FNL01Time.Visible = True
         Me.FNL01Time.VisibleIndex = 8
-        Me.FNL01Time.Width = 80
+        Me.FNL01Time.Width = 69
         '
         'FNL02Time
         '
@@ -1361,11 +1354,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNL02Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNL02Time.Caption = "ลากิจธุระอันจำเป็น"
         Me.FNL02Time.FieldName = "FNL02Time"
+        Me.FNL02Time.MinWidth = 17
         Me.FNL02Time.Name = "FNL02Time"
         Me.FNL02Time.OptionsColumn.AllowEdit = False
         Me.FNL02Time.OptionsColumn.ReadOnly = True
         Me.FNL02Time.Visible = True
         Me.FNL02Time.VisibleIndex = 9
+        Me.FNL02Time.Width = 64
         '
         'FNL04Time
         '
@@ -1375,12 +1370,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNL04Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNL04Time.Caption = "ลาบวช"
         Me.FNL04Time.FieldName = "FNL04Time"
+        Me.FNL04Time.MinWidth = 17
         Me.FNL04Time.Name = "FNL04Time"
         Me.FNL04Time.OptionsColumn.AllowEdit = False
         Me.FNL04Time.OptionsColumn.ReadOnly = True
         Me.FNL04Time.Visible = True
         Me.FNL04Time.VisibleIndex = 10
-        Me.FNL04Time.Width = 80
+        Me.FNL04Time.Width = 69
         '
         'FNL05Time
         '
@@ -1390,12 +1386,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNL05Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNL05Time.Caption = "ลาแต่งงาน"
         Me.FNL05Time.FieldName = "FNL05Time"
+        Me.FNL05Time.MinWidth = 17
         Me.FNL05Time.Name = "FNL05Time"
         Me.FNL05Time.OptionsColumn.AllowEdit = False
         Me.FNL05Time.OptionsColumn.ReadOnly = True
         Me.FNL05Time.Visible = True
         Me.FNL05Time.VisibleIndex = 11
-        Me.FNL05Time.Width = 80
+        Me.FNL05Time.Width = 69
         '
         'FNL06Time
         '
@@ -1405,12 +1402,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNL06Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNL06Time.Caption = "ลาไม่รับค่าจ้าง"
         Me.FNL06Time.FieldName = "FNL06Time"
+        Me.FNL06Time.MinWidth = 17
         Me.FNL06Time.Name = "FNL06Time"
         Me.FNL06Time.OptionsColumn.AllowEdit = False
         Me.FNL06Time.OptionsColumn.ReadOnly = True
         Me.FNL06Time.Visible = True
         Me.FNL06Time.VisibleIndex = 12
-        Me.FNL06Time.Width = 80
+        Me.FNL06Time.Width = 69
         '
         'FNL07Time
         '
@@ -1420,12 +1418,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNL07Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNL07Time.Caption = "ลาทหารเรียกพลกองเกิน"
         Me.FNL07Time.FieldName = "FNL07Time"
+        Me.FNL07Time.MinWidth = 17
         Me.FNL07Time.Name = "FNL07Time"
         Me.FNL07Time.OptionsColumn.AllowEdit = False
         Me.FNL07Time.OptionsColumn.ReadOnly = True
         Me.FNL07Time.Visible = True
         Me.FNL07Time.VisibleIndex = 13
-        Me.FNL07Time.Width = 80
+        Me.FNL07Time.Width = 69
         '
         'FNL08Time
         '
@@ -1435,12 +1434,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNL08Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNL08Time.Caption = "ลาทำหมัน"
         Me.FNL08Time.FieldName = "FNL08Time"
+        Me.FNL08Time.MinWidth = 17
         Me.FNL08Time.Name = "FNL08Time"
         Me.FNL08Time.OptionsColumn.AllowEdit = False
         Me.FNL08Time.OptionsColumn.ReadOnly = True
         Me.FNL08Time.Visible = True
         Me.FNL08Time.VisibleIndex = 14
-        Me.FNL08Time.Width = 80
+        Me.FNL08Time.Width = 69
         '
         'FNL09Time
         '
@@ -1450,12 +1450,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNL09Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNL09Time.Caption = "ลา อื่นๆ"
         Me.FNL09Time.FieldName = "FNL09Time"
+        Me.FNL09Time.MinWidth = 17
         Me.FNL09Time.Name = "FNL09Time"
         Me.FNL09Time.OptionsColumn.AllowEdit = False
         Me.FNL09Time.OptionsColumn.ReadOnly = True
         Me.FNL09Time.Visible = True
         Me.FNL09Time.VisibleIndex = 15
-        Me.FNL09Time.Width = 80
+        Me.FNL09Time.Width = 69
         '
         'FNL97Time
         '
@@ -1465,12 +1466,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNL97Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNL97Time.Caption = "ลาคลอด"
         Me.FNL97Time.FieldName = "FNL97Time"
+        Me.FNL97Time.MinWidth = 17
         Me.FNL97Time.Name = "FNL97Time"
         Me.FNL97Time.OptionsColumn.AllowEdit = False
         Me.FNL97Time.OptionsColumn.ReadOnly = True
         Me.FNL97Time.Visible = True
         Me.FNL97Time.VisibleIndex = 16
-        Me.FNL97Time.Width = 80
+        Me.FNL97Time.Width = 69
         '
         'FNL98Time
         '
@@ -1480,12 +1482,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNL98Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNL98Time.Caption = "ลาพักร้อน"
         Me.FNL98Time.FieldName = "FNL98Time"
+        Me.FNL98Time.MinWidth = 17
         Me.FNL98Time.Name = "FNL98Time"
         Me.FNL98Time.OptionsColumn.AllowEdit = False
         Me.FNL98Time.OptionsColumn.ReadOnly = True
         Me.FNL98Time.Visible = True
         Me.FNL98Time.VisibleIndex = 17
-        Me.FNL98Time.Width = 80
+        Me.FNL98Time.Width = 69
         '
         'FNL99Time
         '
@@ -1495,12 +1498,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNL99Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNL99Time.Caption = "พักงาน"
         Me.FNL99Time.FieldName = "FNL99Time"
+        Me.FNL99Time.MinWidth = 17
         Me.FNL99Time.Name = "FNL99Time"
         Me.FNL99Time.OptionsColumn.AllowEdit = False
         Me.FNL99Time.OptionsColumn.ReadOnly = True
         Me.FNL99Time.Visible = True
         Me.FNL99Time.VisibleIndex = 18
-        Me.FNL99Time.Width = 80
+        Me.FNL99Time.Width = 69
         '
         'FNLateTime
         '
@@ -1510,12 +1514,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNLateTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNLateTime.Caption = "สาย"
         Me.FNLateTime.FieldName = "FNLateTime"
+        Me.FNLateTime.MinWidth = 17
         Me.FNLateTime.Name = "FNLateTime"
         Me.FNLateTime.OptionsColumn.AllowEdit = False
         Me.FNLateTime.OptionsColumn.ReadOnly = True
         Me.FNLateTime.Visible = True
         Me.FNLateTime.VisibleIndex = 20
-        Me.FNLateTime.Width = 80
+        Me.FNLateTime.Width = 69
         '
         'FNAbsentTime
         '
@@ -1525,28 +1530,43 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FNAbsentTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FNAbsentTime.Caption = "ขาดงาน"
         Me.FNAbsentTime.FieldName = "FNAbsentTime"
+        Me.FNAbsentTime.MinWidth = 17
         Me.FNAbsentTime.Name = "FNAbsentTime"
         Me.FNAbsentTime.OptionsColumn.AllowEdit = False
         Me.FNAbsentTime.OptionsColumn.ReadOnly = True
         Me.FNAbsentTime.Visible = True
         Me.FNAbsentTime.VisibleIndex = 19
-        Me.FNAbsentTime.Width = 80
+        Me.FNAbsentTime.Width = 69
         '
         'FNL17Time
         '
         Me.FNL17Time.Caption = "กักตัว 14 วันเชื้อไวรัส Covic 19"
         Me.FNL17Time.FieldName = "FNL17Time"
+        Me.FNL17Time.MinWidth = 17
         Me.FNL17Time.Name = "FNL17Time"
         Me.FNL17Time.OptionsColumn.AllowEdit = False
         Me.FNL17Time.OptionsColumn.ReadOnly = True
         Me.FNL17Time.Visible = True
         Me.FNL17Time.VisibleIndex = 21
+        Me.FNL17Time.Width = 64
+        '
+        'FNL24Time
+        '
+        Me.FNL24Time.Caption = "ลาปฏิบัติหน้าที่บิดาระหว่างภรรยาคลอดบุตร"
+        Me.FNL24Time.FieldName = "FNL24Time"
+        Me.FNL24Time.Name = "FNL24Time"
+        Me.FNL24Time.OptionsColumn.AllowEdit = False
+        Me.FNL24Time.OptionsColumn.ReadOnly = True
+        Me.FNL24Time.Visible = True
+        Me.FNL24Time.VisibleIndex = 22
         '
         'FNTotal
         '
         Me.FNTotal.Caption = "FNTotal"
         Me.FNTotal.FieldName = "FNTotal"
+        Me.FNTotal.MinWidth = 17
         Me.FNTotal.Name = "FNTotal"
+        Me.FNTotal.Width = 64
         '
         'RepositoryFTSelect
         '
@@ -1567,21 +1587,18 @@ Partial Class wEmployeeLeaveHistoryListing
         'otp00
         '
         Me.otp00.Controls.Add(Me.ogc00)
-        Me.otp00.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otp00.Name = "otp00"
-        Me.otp00.Size = New System.Drawing.Size(1295, 438)
+        Me.otp00.Size = New System.Drawing.Size(1109, 317)
         Me.otp00.Text = "ลาป่วย"
         '
         'ogc00
         '
         Me.ogc00.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc00.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc00.Location = New System.Drawing.Point(0, 0)
         Me.ogc00.MainView = Me.ogv00
-        Me.ogc00.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc00.Name = "ogc00"
         Me.ogc00.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemCheckEdit2})
-        Me.ogc00.Size = New System.Drawing.Size(1295, 438)
+        Me.ogc00.Size = New System.Drawing.Size(1109, 317)
         Me.ogc00.TabIndex = 389
         Me.ogc00.TabStop = False
         Me.ogc00.Tag = "2|"
@@ -1590,6 +1607,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogv00
         '
         Me.ogv00.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G0FNHSysEmpID, Me.G0FTEmpCode, Me.G0FTEmpName, Me.G0FTEmpTypeCode, Me.G0FTDeptCode, Me.G0FTDivisonCode, Me.G0FTSectCode, Me.G0FTUnitSectCode, Me.G0FNL00Time, Me.G0FTL00Date})
+        Me.ogv00.DetailHeight = 284
         Me.ogv00.GridControl = Me.ogc00
         Me.ogv00.Name = "ogv00"
         Me.ogv00.OptionsCustomization.AllowGroup = False
@@ -1605,11 +1623,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G0FNHSysEmpID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G0FNHSysEmpID.Caption = "FNHSysEmpID"
         Me.G0FNHSysEmpID.FieldName = "FNHSysEmpID"
+        Me.G0FNHSysEmpID.MinWidth = 17
         Me.G0FNHSysEmpID.Name = "G0FNHSysEmpID"
         Me.G0FNHSysEmpID.OptionsColumn.AllowEdit = False
         Me.G0FNHSysEmpID.OptionsColumn.AllowMove = False
         Me.G0FNHSysEmpID.OptionsColumn.ReadOnly = True
         Me.G0FNHSysEmpID.OptionsColumn.TabStop = False
+        Me.G0FNHSysEmpID.Width = 64
         '
         'G0FTEmpCode
         '
@@ -1617,6 +1637,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G0FTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G0FTEmpCode.Caption = "FTEmpCode"
         Me.G0FTEmpCode.FieldName = "FTEmpCode"
+        Me.G0FTEmpCode.MinWidth = 17
         Me.G0FTEmpCode.Name = "G0FTEmpCode"
         Me.G0FTEmpCode.OptionsColumn.AllowEdit = False
         Me.G0FTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -1624,7 +1645,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G0FTEmpCode.OptionsColumn.TabStop = False
         Me.G0FTEmpCode.Visible = True
         Me.G0FTEmpCode.VisibleIndex = 0
-        Me.G0FTEmpCode.Width = 88
         '
         'G0FTEmpName
         '
@@ -1632,6 +1652,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G0FTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G0FTEmpName.Caption = "FTEmpName"
         Me.G0FTEmpName.FieldName = "FTEmpName"
+        Me.G0FTEmpName.MinWidth = 17
         Me.G0FTEmpName.Name = "G0FTEmpName"
         Me.G0FTEmpName.OptionsColumn.AllowEdit = False
         Me.G0FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -1639,7 +1660,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G0FTEmpName.OptionsColumn.TabStop = False
         Me.G0FTEmpName.Visible = True
         Me.G0FTEmpName.VisibleIndex = 1
-        Me.G0FTEmpName.Width = 171
+        Me.G0FTEmpName.Width = 147
         '
         'G0FTEmpTypeCode
         '
@@ -1647,11 +1668,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G0FTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G0FTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.G0FTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.G0FTEmpTypeCode.MinWidth = 17
         Me.G0FTEmpTypeCode.Name = "G0FTEmpTypeCode"
         Me.G0FTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.G0FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.G0FTEmpTypeCode.Visible = True
         Me.G0FTEmpTypeCode.VisibleIndex = 2
+        Me.G0FTEmpTypeCode.Width = 64
         '
         'G0FTDeptCode
         '
@@ -1659,11 +1682,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G0FTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G0FTDeptCode.Caption = "FTDeptCode"
         Me.G0FTDeptCode.FieldName = "FTDeptCode"
+        Me.G0FTDeptCode.MinWidth = 17
         Me.G0FTDeptCode.Name = "G0FTDeptCode"
         Me.G0FTDeptCode.OptionsColumn.AllowEdit = False
         Me.G0FTDeptCode.OptionsColumn.ReadOnly = True
         Me.G0FTDeptCode.Visible = True
         Me.G0FTDeptCode.VisibleIndex = 4
+        Me.G0FTDeptCode.Width = 64
         '
         'G0FTDivisonCode
         '
@@ -1671,11 +1696,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G0FTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G0FTDivisonCode.Caption = "FTDivisonCode"
         Me.G0FTDivisonCode.FieldName = "FTDivisonCode"
+        Me.G0FTDivisonCode.MinWidth = 17
         Me.G0FTDivisonCode.Name = "G0FTDivisonCode"
         Me.G0FTDivisonCode.OptionsColumn.AllowEdit = False
         Me.G0FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.G0FTDivisonCode.Visible = True
         Me.G0FTDivisonCode.VisibleIndex = 3
+        Me.G0FTDivisonCode.Width = 64
         '
         'G0FTSectCode
         '
@@ -1683,11 +1710,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G0FTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G0FTSectCode.Caption = "FTSectCode"
         Me.G0FTSectCode.FieldName = "FTSectCode"
+        Me.G0FTSectCode.MinWidth = 17
         Me.G0FTSectCode.Name = "G0FTSectCode"
         Me.G0FTSectCode.OptionsColumn.AllowEdit = False
         Me.G0FTSectCode.OptionsColumn.ReadOnly = True
         Me.G0FTSectCode.Visible = True
         Me.G0FTSectCode.VisibleIndex = 5
+        Me.G0FTSectCode.Width = 64
         '
         'G0FTUnitSectCode
         '
@@ -1695,11 +1724,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G0FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G0FTUnitSectCode.Caption = "FTUnitSectCode"
         Me.G0FTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.G0FTUnitSectCode.MinWidth = 17
         Me.G0FTUnitSectCode.Name = "G0FTUnitSectCode"
         Me.G0FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.G0FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.G0FTUnitSectCode.Visible = True
         Me.G0FTUnitSectCode.VisibleIndex = 6
+        Me.G0FTUnitSectCode.Width = 64
         '
         'G0FNL00Time
         '
@@ -1709,23 +1740,25 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G0FNL00Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G0FNL00Time.Caption = "ลาป่วย"
         Me.G0FNL00Time.FieldName = "FNL00Time"
+        Me.G0FNL00Time.MinWidth = 17
         Me.G0FNL00Time.Name = "G0FNL00Time"
         Me.G0FNL00Time.OptionsColumn.AllowEdit = False
         Me.G0FNL00Time.OptionsColumn.ReadOnly = True
         Me.G0FNL00Time.Visible = True
         Me.G0FNL00Time.VisibleIndex = 7
-        Me.G0FNL00Time.Width = 80
+        Me.G0FNL00Time.Width = 69
         '
         'G0FTL00Date
         '
         Me.G0FTL00Date.Caption = "วันที่"
         Me.G0FTL00Date.FieldName = "FTL00Date"
+        Me.G0FTL00Date.MinWidth = 17
         Me.G0FTL00Date.Name = "G0FTL00Date"
         Me.G0FTL00Date.OptionsColumn.AllowEdit = False
         Me.G0FTL00Date.OptionsColumn.ReadOnly = True
         Me.G0FTL00Date.Visible = True
         Me.G0FTL00Date.VisibleIndex = 8
-        Me.G0FTL00Date.Width = 200
+        Me.G0FTL00Date.Width = 171
         '
         'RepositoryItemCheckEdit1
         '
@@ -1746,21 +1779,18 @@ Partial Class wEmployeeLeaveHistoryListing
         'otp01
         '
         Me.otp01.Controls.Add(Me.ogc1)
-        Me.otp01.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otp01.Name = "otp01"
-        Me.otp01.Size = New System.Drawing.Size(1295, 438)
+        Me.otp01.Size = New System.Drawing.Size(1109, 317)
         Me.otp01.Text = "ลากิจ"
         '
         'ogc1
         '
         Me.ogc1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc1.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc1.Location = New System.Drawing.Point(0, 0)
         Me.ogc1.MainView = Me.ogv1
-        Me.ogc1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc1.Name = "ogc1"
         Me.ogc1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit3, Me.RepositoryItemCheckEdit4})
-        Me.ogc1.Size = New System.Drawing.Size(1295, 438)
+        Me.ogc1.Size = New System.Drawing.Size(1109, 317)
         Me.ogc1.TabIndex = 390
         Me.ogc1.TabStop = False
         Me.ogc1.Tag = "2|"
@@ -1769,6 +1799,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogv1
         '
         Me.ogv1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G1FNHSysEmpID, Me.G1FTEmpCode, Me.G1FTEmpName, Me.G1FTEmpTypeCode, Me.G1FTDeptCode, Me.G1FTDivisonCode, Me.G1FTSectCode, Me.G1FTUnitSectCode, Me.G1FNL01Time, Me.G1FTL01Date})
+        Me.ogv1.DetailHeight = 284
         Me.ogv1.GridControl = Me.ogc1
         Me.ogv1.Name = "ogv1"
         Me.ogv1.OptionsCustomization.AllowGroup = False
@@ -1784,11 +1815,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G1FNHSysEmpID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G1FNHSysEmpID.Caption = "FNHSysEmpID"
         Me.G1FNHSysEmpID.FieldName = "FNHSysEmpID"
+        Me.G1FNHSysEmpID.MinWidth = 17
         Me.G1FNHSysEmpID.Name = "G1FNHSysEmpID"
         Me.G1FNHSysEmpID.OptionsColumn.AllowEdit = False
         Me.G1FNHSysEmpID.OptionsColumn.AllowMove = False
         Me.G1FNHSysEmpID.OptionsColumn.ReadOnly = True
         Me.G1FNHSysEmpID.OptionsColumn.TabStop = False
+        Me.G1FNHSysEmpID.Width = 64
         '
         'G1FTEmpCode
         '
@@ -1796,6 +1829,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G1FTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G1FTEmpCode.Caption = "FTEmpCode"
         Me.G1FTEmpCode.FieldName = "FTEmpCode"
+        Me.G1FTEmpCode.MinWidth = 17
         Me.G1FTEmpCode.Name = "G1FTEmpCode"
         Me.G1FTEmpCode.OptionsColumn.AllowEdit = False
         Me.G1FTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -1803,7 +1837,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G1FTEmpCode.OptionsColumn.TabStop = False
         Me.G1FTEmpCode.Visible = True
         Me.G1FTEmpCode.VisibleIndex = 0
-        Me.G1FTEmpCode.Width = 88
         '
         'G1FTEmpName
         '
@@ -1811,6 +1844,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G1FTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G1FTEmpName.Caption = "FTEmpName"
         Me.G1FTEmpName.FieldName = "FTEmpName"
+        Me.G1FTEmpName.MinWidth = 17
         Me.G1FTEmpName.Name = "G1FTEmpName"
         Me.G1FTEmpName.OptionsColumn.AllowEdit = False
         Me.G1FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -1818,7 +1852,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G1FTEmpName.OptionsColumn.TabStop = False
         Me.G1FTEmpName.Visible = True
         Me.G1FTEmpName.VisibleIndex = 1
-        Me.G1FTEmpName.Width = 171
+        Me.G1FTEmpName.Width = 147
         '
         'G1FTEmpTypeCode
         '
@@ -1826,11 +1860,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G1FTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G1FTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.G1FTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.G1FTEmpTypeCode.MinWidth = 17
         Me.G1FTEmpTypeCode.Name = "G1FTEmpTypeCode"
         Me.G1FTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.G1FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.G1FTEmpTypeCode.Visible = True
         Me.G1FTEmpTypeCode.VisibleIndex = 2
+        Me.G1FTEmpTypeCode.Width = 64
         '
         'G1FTDeptCode
         '
@@ -1838,11 +1874,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G1FTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G1FTDeptCode.Caption = "FTDeptCode"
         Me.G1FTDeptCode.FieldName = "FTDeptCode"
+        Me.G1FTDeptCode.MinWidth = 17
         Me.G1FTDeptCode.Name = "G1FTDeptCode"
         Me.G1FTDeptCode.OptionsColumn.AllowEdit = False
         Me.G1FTDeptCode.OptionsColumn.ReadOnly = True
         Me.G1FTDeptCode.Visible = True
         Me.G1FTDeptCode.VisibleIndex = 4
+        Me.G1FTDeptCode.Width = 64
         '
         'G1FTDivisonCode
         '
@@ -1850,11 +1888,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G1FTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G1FTDivisonCode.Caption = "FTDivisonCode"
         Me.G1FTDivisonCode.FieldName = "FTDivisonCode"
+        Me.G1FTDivisonCode.MinWidth = 17
         Me.G1FTDivisonCode.Name = "G1FTDivisonCode"
         Me.G1FTDivisonCode.OptionsColumn.AllowEdit = False
         Me.G1FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.G1FTDivisonCode.Visible = True
         Me.G1FTDivisonCode.VisibleIndex = 3
+        Me.G1FTDivisonCode.Width = 64
         '
         'G1FTSectCode
         '
@@ -1862,11 +1902,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G1FTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G1FTSectCode.Caption = "FTSectCode"
         Me.G1FTSectCode.FieldName = "FTSectCode"
+        Me.G1FTSectCode.MinWidth = 17
         Me.G1FTSectCode.Name = "G1FTSectCode"
         Me.G1FTSectCode.OptionsColumn.AllowEdit = False
         Me.G1FTSectCode.OptionsColumn.ReadOnly = True
         Me.G1FTSectCode.Visible = True
         Me.G1FTSectCode.VisibleIndex = 5
+        Me.G1FTSectCode.Width = 64
         '
         'G1FTUnitSectCode
         '
@@ -1874,11 +1916,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G1FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G1FTUnitSectCode.Caption = "FTUnitSectCode"
         Me.G1FTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.G1FTUnitSectCode.MinWidth = 17
         Me.G1FTUnitSectCode.Name = "G1FTUnitSectCode"
         Me.G1FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.G1FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.G1FTUnitSectCode.Visible = True
         Me.G1FTUnitSectCode.VisibleIndex = 6
+        Me.G1FTUnitSectCode.Width = 64
         '
         'G1FNL01Time
         '
@@ -1888,23 +1932,25 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G1FNL01Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G1FNL01Time.Caption = "ลากิจ"
         Me.G1FNL01Time.FieldName = "FNL01Time"
+        Me.G1FNL01Time.MinWidth = 17
         Me.G1FNL01Time.Name = "G1FNL01Time"
         Me.G1FNL01Time.OptionsColumn.AllowEdit = False
         Me.G1FNL01Time.OptionsColumn.ReadOnly = True
         Me.G1FNL01Time.Visible = True
         Me.G1FNL01Time.VisibleIndex = 7
-        Me.G1FNL01Time.Width = 80
+        Me.G1FNL01Time.Width = 69
         '
         'G1FTL01Date
         '
         Me.G1FTL01Date.Caption = "วันที่"
         Me.G1FTL01Date.FieldName = "FTL01Date"
+        Me.G1FTL01Date.MinWidth = 17
         Me.G1FTL01Date.Name = "G1FTL01Date"
         Me.G1FTL01Date.OptionsColumn.AllowEdit = False
         Me.G1FTL01Date.OptionsColumn.ReadOnly = True
         Me.G1FTL01Date.Visible = True
         Me.G1FTL01Date.VisibleIndex = 8
-        Me.G1FTL01Date.Width = 200
+        Me.G1FTL01Date.Width = 171
         '
         'RepositoryItemCheckEdit3
         '
@@ -1925,20 +1971,17 @@ Partial Class wEmployeeLeaveHistoryListing
         'otp04
         '
         Me.otp04.Controls.Add(Me.ogc4)
-        Me.otp04.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otp04.Name = "otp04"
-        Me.otp04.Size = New System.Drawing.Size(1295, 438)
+        Me.otp04.Size = New System.Drawing.Size(1109, 317)
         Me.otp04.Text = "ลาบวช"
         '
         'ogc4
         '
         Me.ogc4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc4.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc4.Location = New System.Drawing.Point(0, 0)
         Me.ogc4.MainView = Me.ogv4
-        Me.ogc4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc4.Name = "ogc4"
-        Me.ogc4.Size = New System.Drawing.Size(1295, 438)
+        Me.ogc4.Size = New System.Drawing.Size(1109, 317)
         Me.ogc4.TabIndex = 390
         Me.ogc4.TabStop = False
         Me.ogc4.Tag = "2|"
@@ -1947,6 +1990,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogv4
         '
         Me.ogv4.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G4FNHSysEmpID, Me.G4FTEmpCode, Me.G4FTEmpName, Me.G4FTEmpTypeCode, Me.G4FTDeptCode, Me.G4FTDivisonCode, Me.G4FTSectCode, Me.G4FTUnitSectCode, Me.G4FNL04Time, Me.G4FTL04Date})
+        Me.ogv4.DetailHeight = 284
         Me.ogv4.GridControl = Me.ogc4
         Me.ogv4.Name = "ogv4"
         Me.ogv4.OptionsCustomization.AllowGroup = False
@@ -1962,11 +2006,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G4FNHSysEmpID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G4FNHSysEmpID.Caption = "FNHSysEmpID"
         Me.G4FNHSysEmpID.FieldName = "FNHSysEmpID"
+        Me.G4FNHSysEmpID.MinWidth = 17
         Me.G4FNHSysEmpID.Name = "G4FNHSysEmpID"
         Me.G4FNHSysEmpID.OptionsColumn.AllowEdit = False
         Me.G4FNHSysEmpID.OptionsColumn.AllowMove = False
         Me.G4FNHSysEmpID.OptionsColumn.ReadOnly = True
         Me.G4FNHSysEmpID.OptionsColumn.TabStop = False
+        Me.G4FNHSysEmpID.Width = 64
         '
         'G4FTEmpCode
         '
@@ -1974,6 +2020,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G4FTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G4FTEmpCode.Caption = "FTEmpCode"
         Me.G4FTEmpCode.FieldName = "FTEmpCode"
+        Me.G4FTEmpCode.MinWidth = 17
         Me.G4FTEmpCode.Name = "G4FTEmpCode"
         Me.G4FTEmpCode.OptionsColumn.AllowEdit = False
         Me.G4FTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -1981,7 +2028,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G4FTEmpCode.OptionsColumn.TabStop = False
         Me.G4FTEmpCode.Visible = True
         Me.G4FTEmpCode.VisibleIndex = 0
-        Me.G4FTEmpCode.Width = 88
         '
         'G4FTEmpName
         '
@@ -1989,6 +2035,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G4FTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G4FTEmpName.Caption = "FTEmpName"
         Me.G4FTEmpName.FieldName = "FTEmpName"
+        Me.G4FTEmpName.MinWidth = 17
         Me.G4FTEmpName.Name = "G4FTEmpName"
         Me.G4FTEmpName.OptionsColumn.AllowEdit = False
         Me.G4FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -1996,7 +2043,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G4FTEmpName.OptionsColumn.TabStop = False
         Me.G4FTEmpName.Visible = True
         Me.G4FTEmpName.VisibleIndex = 1
-        Me.G4FTEmpName.Width = 171
+        Me.G4FTEmpName.Width = 147
         '
         'G4FTEmpTypeCode
         '
@@ -2004,11 +2051,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G4FTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G4FTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.G4FTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.G4FTEmpTypeCode.MinWidth = 17
         Me.G4FTEmpTypeCode.Name = "G4FTEmpTypeCode"
         Me.G4FTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.G4FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.G4FTEmpTypeCode.Visible = True
         Me.G4FTEmpTypeCode.VisibleIndex = 2
+        Me.G4FTEmpTypeCode.Width = 64
         '
         'G4FTDeptCode
         '
@@ -2016,11 +2065,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G4FTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G4FTDeptCode.Caption = "FTDeptCode"
         Me.G4FTDeptCode.FieldName = "FTDeptCode"
+        Me.G4FTDeptCode.MinWidth = 17
         Me.G4FTDeptCode.Name = "G4FTDeptCode"
         Me.G4FTDeptCode.OptionsColumn.AllowEdit = False
         Me.G4FTDeptCode.OptionsColumn.ReadOnly = True
         Me.G4FTDeptCode.Visible = True
         Me.G4FTDeptCode.VisibleIndex = 4
+        Me.G4FTDeptCode.Width = 64
         '
         'G4FTDivisonCode
         '
@@ -2028,11 +2079,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G4FTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G4FTDivisonCode.Caption = "FTDivisonCode"
         Me.G4FTDivisonCode.FieldName = "FTDivisonCode"
+        Me.G4FTDivisonCode.MinWidth = 17
         Me.G4FTDivisonCode.Name = "G4FTDivisonCode"
         Me.G4FTDivisonCode.OptionsColumn.AllowEdit = False
         Me.G4FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.G4FTDivisonCode.Visible = True
         Me.G4FTDivisonCode.VisibleIndex = 3
+        Me.G4FTDivisonCode.Width = 64
         '
         'G4FTSectCode
         '
@@ -2040,11 +2093,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G4FTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G4FTSectCode.Caption = "FTSectCode"
         Me.G4FTSectCode.FieldName = "FTSectCode"
+        Me.G4FTSectCode.MinWidth = 17
         Me.G4FTSectCode.Name = "G4FTSectCode"
         Me.G4FTSectCode.OptionsColumn.AllowEdit = False
         Me.G4FTSectCode.OptionsColumn.ReadOnly = True
         Me.G4FTSectCode.Visible = True
         Me.G4FTSectCode.VisibleIndex = 5
+        Me.G4FTSectCode.Width = 64
         '
         'G4FTUnitSectCode
         '
@@ -2052,11 +2107,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G4FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G4FTUnitSectCode.Caption = "FTUnitSectCode"
         Me.G4FTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.G4FTUnitSectCode.MinWidth = 17
         Me.G4FTUnitSectCode.Name = "G4FTUnitSectCode"
         Me.G4FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.G4FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.G4FTUnitSectCode.Visible = True
         Me.G4FTUnitSectCode.VisibleIndex = 6
+        Me.G4FTUnitSectCode.Width = 64
         '
         'G4FNL04Time
         '
@@ -2066,42 +2123,41 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G4FNL04Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G4FNL04Time.Caption = "ลาบวช"
         Me.G4FNL04Time.FieldName = "FNL04Time"
+        Me.G4FNL04Time.MinWidth = 17
         Me.G4FNL04Time.Name = "G4FNL04Time"
         Me.G4FNL04Time.OptionsColumn.AllowEdit = False
         Me.G4FNL04Time.OptionsColumn.ReadOnly = True
         Me.G4FNL04Time.Visible = True
         Me.G4FNL04Time.VisibleIndex = 7
-        Me.G4FNL04Time.Width = 80
+        Me.G4FNL04Time.Width = 69
         '
         'G4FTL04Date
         '
         Me.G4FTL04Date.Caption = "วันที่"
         Me.G4FTL04Date.FieldName = "FTL04Date"
+        Me.G4FTL04Date.MinWidth = 17
         Me.G4FTL04Date.Name = "G4FTL04Date"
         Me.G4FTL04Date.OptionsColumn.AllowEdit = False
         Me.G4FTL04Date.OptionsColumn.ReadOnly = True
         Me.G4FTL04Date.Visible = True
         Me.G4FTL04Date.VisibleIndex = 8
-        Me.G4FTL04Date.Width = 200
+        Me.G4FTL04Date.Width = 171
         '
         'otp05
         '
         Me.otp05.Controls.Add(Me.ogc5)
-        Me.otp05.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otp05.Name = "otp05"
-        Me.otp05.Size = New System.Drawing.Size(1295, 438)
+        Me.otp05.Size = New System.Drawing.Size(1109, 317)
         Me.otp05.Text = "ลาแต่งงาน"
         '
         'ogc5
         '
         Me.ogc5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc5.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc5.Location = New System.Drawing.Point(0, 0)
         Me.ogc5.MainView = Me.ogv5
-        Me.ogc5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc5.Name = "ogc5"
         Me.ogc5.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit7, Me.RepositoryItemCheckEdit8})
-        Me.ogc5.Size = New System.Drawing.Size(1295, 438)
+        Me.ogc5.Size = New System.Drawing.Size(1109, 317)
         Me.ogc5.TabIndex = 390
         Me.ogc5.TabStop = False
         Me.ogc5.Tag = "2|"
@@ -2110,6 +2166,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogv5
         '
         Me.ogv5.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G5FNHSysEmpID, Me.G5FTEmpCode, Me.G5FTEmpName, Me.G5FTEmpTypeCode, Me.G5FTDeptCode, Me.G5FTDivisonCode, Me.G5FTSectCode, Me.G5FTUnitSectCode, Me.G5FNL05Time, Me.G5FTL05Date})
+        Me.ogv5.DetailHeight = 284
         Me.ogv5.GridControl = Me.ogc5
         Me.ogv5.Name = "ogv5"
         Me.ogv5.OptionsCustomization.AllowGroup = False
@@ -2125,11 +2182,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G5FNHSysEmpID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G5FNHSysEmpID.Caption = "FNHSysEmpID"
         Me.G5FNHSysEmpID.FieldName = "FNHSysEmpID"
+        Me.G5FNHSysEmpID.MinWidth = 17
         Me.G5FNHSysEmpID.Name = "G5FNHSysEmpID"
         Me.G5FNHSysEmpID.OptionsColumn.AllowEdit = False
         Me.G5FNHSysEmpID.OptionsColumn.AllowMove = False
         Me.G5FNHSysEmpID.OptionsColumn.ReadOnly = True
         Me.G5FNHSysEmpID.OptionsColumn.TabStop = False
+        Me.G5FNHSysEmpID.Width = 64
         '
         'G5FTEmpCode
         '
@@ -2137,6 +2196,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G5FTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G5FTEmpCode.Caption = "FTEmpCode"
         Me.G5FTEmpCode.FieldName = "FTEmpCode"
+        Me.G5FTEmpCode.MinWidth = 17
         Me.G5FTEmpCode.Name = "G5FTEmpCode"
         Me.G5FTEmpCode.OptionsColumn.AllowEdit = False
         Me.G5FTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -2144,7 +2204,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G5FTEmpCode.OptionsColumn.TabStop = False
         Me.G5FTEmpCode.Visible = True
         Me.G5FTEmpCode.VisibleIndex = 0
-        Me.G5FTEmpCode.Width = 88
         '
         'G5FTEmpName
         '
@@ -2152,6 +2211,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G5FTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G5FTEmpName.Caption = "FTEmpName"
         Me.G5FTEmpName.FieldName = "FTEmpName"
+        Me.G5FTEmpName.MinWidth = 17
         Me.G5FTEmpName.Name = "G5FTEmpName"
         Me.G5FTEmpName.OptionsColumn.AllowEdit = False
         Me.G5FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -2159,7 +2219,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G5FTEmpName.OptionsColumn.TabStop = False
         Me.G5FTEmpName.Visible = True
         Me.G5FTEmpName.VisibleIndex = 1
-        Me.G5FTEmpName.Width = 171
+        Me.G5FTEmpName.Width = 147
         '
         'G5FTEmpTypeCode
         '
@@ -2167,11 +2227,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G5FTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G5FTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.G5FTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.G5FTEmpTypeCode.MinWidth = 17
         Me.G5FTEmpTypeCode.Name = "G5FTEmpTypeCode"
         Me.G5FTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.G5FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.G5FTEmpTypeCode.Visible = True
         Me.G5FTEmpTypeCode.VisibleIndex = 2
+        Me.G5FTEmpTypeCode.Width = 64
         '
         'G5FTDeptCode
         '
@@ -2179,11 +2241,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G5FTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G5FTDeptCode.Caption = "FTDeptCode"
         Me.G5FTDeptCode.FieldName = "FTDeptCode"
+        Me.G5FTDeptCode.MinWidth = 17
         Me.G5FTDeptCode.Name = "G5FTDeptCode"
         Me.G5FTDeptCode.OptionsColumn.AllowEdit = False
         Me.G5FTDeptCode.OptionsColumn.ReadOnly = True
         Me.G5FTDeptCode.Visible = True
         Me.G5FTDeptCode.VisibleIndex = 4
+        Me.G5FTDeptCode.Width = 64
         '
         'G5FTDivisonCode
         '
@@ -2191,11 +2255,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G5FTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G5FTDivisonCode.Caption = "FTDivisonCode"
         Me.G5FTDivisonCode.FieldName = "FTDivisonCode"
+        Me.G5FTDivisonCode.MinWidth = 17
         Me.G5FTDivisonCode.Name = "G5FTDivisonCode"
         Me.G5FTDivisonCode.OptionsColumn.AllowEdit = False
         Me.G5FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.G5FTDivisonCode.Visible = True
         Me.G5FTDivisonCode.VisibleIndex = 3
+        Me.G5FTDivisonCode.Width = 64
         '
         'G5FTSectCode
         '
@@ -2203,11 +2269,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G5FTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G5FTSectCode.Caption = "FTSectCode"
         Me.G5FTSectCode.FieldName = "FTSectCode"
+        Me.G5FTSectCode.MinWidth = 17
         Me.G5FTSectCode.Name = "G5FTSectCode"
         Me.G5FTSectCode.OptionsColumn.AllowEdit = False
         Me.G5FTSectCode.OptionsColumn.ReadOnly = True
         Me.G5FTSectCode.Visible = True
         Me.G5FTSectCode.VisibleIndex = 5
+        Me.G5FTSectCode.Width = 64
         '
         'G5FTUnitSectCode
         '
@@ -2215,11 +2283,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G5FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G5FTUnitSectCode.Caption = "FTUnitSectCode"
         Me.G5FTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.G5FTUnitSectCode.MinWidth = 17
         Me.G5FTUnitSectCode.Name = "G5FTUnitSectCode"
         Me.G5FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.G5FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.G5FTUnitSectCode.Visible = True
         Me.G5FTUnitSectCode.VisibleIndex = 6
+        Me.G5FTUnitSectCode.Width = 64
         '
         'G5FNL05Time
         '
@@ -2229,23 +2299,25 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G5FNL05Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G5FNL05Time.Caption = "ลาแต่งงาน"
         Me.G5FNL05Time.FieldName = "FNL05Time"
+        Me.G5FNL05Time.MinWidth = 17
         Me.G5FNL05Time.Name = "G5FNL05Time"
         Me.G5FNL05Time.OptionsColumn.AllowEdit = False
         Me.G5FNL05Time.OptionsColumn.ReadOnly = True
         Me.G5FNL05Time.Visible = True
         Me.G5FNL05Time.VisibleIndex = 7
-        Me.G5FNL05Time.Width = 80
+        Me.G5FNL05Time.Width = 69
         '
         'G5FTL05Date
         '
         Me.G5FTL05Date.Caption = "วันที่"
         Me.G5FTL05Date.FieldName = "FTL05Date"
+        Me.G5FTL05Date.MinWidth = 17
         Me.G5FTL05Date.Name = "G5FTL05Date"
         Me.G5FTL05Date.OptionsColumn.AllowEdit = False
         Me.G5FTL05Date.OptionsColumn.ReadOnly = True
         Me.G5FTL05Date.Visible = True
         Me.G5FTL05Date.VisibleIndex = 8
-        Me.G5FTL05Date.Width = 200
+        Me.G5FTL05Date.Width = 171
         '
         'RepositoryItemCheckEdit7
         '
@@ -2266,21 +2338,18 @@ Partial Class wEmployeeLeaveHistoryListing
         'otp06
         '
         Me.otp06.Controls.Add(Me.ogc6)
-        Me.otp06.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otp06.Name = "otp06"
-        Me.otp06.Size = New System.Drawing.Size(1295, 438)
+        Me.otp06.Size = New System.Drawing.Size(1109, 317)
         Me.otp06.Text = "ลาไม่รับค่าจ้าง"
         '
         'ogc6
         '
         Me.ogc6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc6.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc6.Location = New System.Drawing.Point(0, 0)
         Me.ogc6.MainView = Me.ogv6
-        Me.ogc6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc6.Name = "ogc6"
         Me.ogc6.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit9, Me.RepositoryItemCheckEdit10})
-        Me.ogc6.Size = New System.Drawing.Size(1295, 438)
+        Me.ogc6.Size = New System.Drawing.Size(1109, 317)
         Me.ogc6.TabIndex = 390
         Me.ogc6.TabStop = False
         Me.ogc6.Tag = "2|"
@@ -2289,6 +2358,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogv6
         '
         Me.ogv6.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G6FNHSysEmpID, Me.G6FTEmpCode, Me.G6FTEmpName, Me.G6FTEmpTypeCode, Me.G6FTDeptCode, Me.G6FTDivisonCode, Me.G6FTSectCode, Me.G6FTUnitSectCode, Me.G6FNL06Time, Me.G6FTL06Date})
+        Me.ogv6.DetailHeight = 284
         Me.ogv6.GridControl = Me.ogc6
         Me.ogv6.Name = "ogv6"
         Me.ogv6.OptionsCustomization.AllowGroup = False
@@ -2304,11 +2374,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G6FNHSysEmpID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G6FNHSysEmpID.Caption = "FNHSysEmpID"
         Me.G6FNHSysEmpID.FieldName = "FNHSysEmpID"
+        Me.G6FNHSysEmpID.MinWidth = 17
         Me.G6FNHSysEmpID.Name = "G6FNHSysEmpID"
         Me.G6FNHSysEmpID.OptionsColumn.AllowEdit = False
         Me.G6FNHSysEmpID.OptionsColumn.AllowMove = False
         Me.G6FNHSysEmpID.OptionsColumn.ReadOnly = True
         Me.G6FNHSysEmpID.OptionsColumn.TabStop = False
+        Me.G6FNHSysEmpID.Width = 64
         '
         'G6FTEmpCode
         '
@@ -2316,6 +2388,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G6FTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G6FTEmpCode.Caption = "FTEmpCode"
         Me.G6FTEmpCode.FieldName = "FTEmpCode"
+        Me.G6FTEmpCode.MinWidth = 17
         Me.G6FTEmpCode.Name = "G6FTEmpCode"
         Me.G6FTEmpCode.OptionsColumn.AllowEdit = False
         Me.G6FTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -2323,7 +2396,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G6FTEmpCode.OptionsColumn.TabStop = False
         Me.G6FTEmpCode.Visible = True
         Me.G6FTEmpCode.VisibleIndex = 0
-        Me.G6FTEmpCode.Width = 88
         '
         'G6FTEmpName
         '
@@ -2331,6 +2403,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G6FTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G6FTEmpName.Caption = "FTEmpName"
         Me.G6FTEmpName.FieldName = "FTEmpName"
+        Me.G6FTEmpName.MinWidth = 17
         Me.G6FTEmpName.Name = "G6FTEmpName"
         Me.G6FTEmpName.OptionsColumn.AllowEdit = False
         Me.G6FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -2338,7 +2411,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G6FTEmpName.OptionsColumn.TabStop = False
         Me.G6FTEmpName.Visible = True
         Me.G6FTEmpName.VisibleIndex = 1
-        Me.G6FTEmpName.Width = 171
+        Me.G6FTEmpName.Width = 147
         '
         'G6FTEmpTypeCode
         '
@@ -2346,11 +2419,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G6FTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G6FTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.G6FTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.G6FTEmpTypeCode.MinWidth = 17
         Me.G6FTEmpTypeCode.Name = "G6FTEmpTypeCode"
         Me.G6FTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.G6FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.G6FTEmpTypeCode.Visible = True
         Me.G6FTEmpTypeCode.VisibleIndex = 2
+        Me.G6FTEmpTypeCode.Width = 64
         '
         'G6FTDeptCode
         '
@@ -2358,11 +2433,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G6FTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G6FTDeptCode.Caption = "FTDeptCode"
         Me.G6FTDeptCode.FieldName = "FTDeptCode"
+        Me.G6FTDeptCode.MinWidth = 17
         Me.G6FTDeptCode.Name = "G6FTDeptCode"
         Me.G6FTDeptCode.OptionsColumn.AllowEdit = False
         Me.G6FTDeptCode.OptionsColumn.ReadOnly = True
         Me.G6FTDeptCode.Visible = True
         Me.G6FTDeptCode.VisibleIndex = 4
+        Me.G6FTDeptCode.Width = 64
         '
         'G6FTDivisonCode
         '
@@ -2370,11 +2447,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G6FTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G6FTDivisonCode.Caption = "FTDivisonCode"
         Me.G6FTDivisonCode.FieldName = "FTDivisonCode"
+        Me.G6FTDivisonCode.MinWidth = 17
         Me.G6FTDivisonCode.Name = "G6FTDivisonCode"
         Me.G6FTDivisonCode.OptionsColumn.AllowEdit = False
         Me.G6FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.G6FTDivisonCode.Visible = True
         Me.G6FTDivisonCode.VisibleIndex = 3
+        Me.G6FTDivisonCode.Width = 64
         '
         'G6FTSectCode
         '
@@ -2382,11 +2461,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G6FTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G6FTSectCode.Caption = "FTSectCode"
         Me.G6FTSectCode.FieldName = "FTSectCode"
+        Me.G6FTSectCode.MinWidth = 17
         Me.G6FTSectCode.Name = "G6FTSectCode"
         Me.G6FTSectCode.OptionsColumn.AllowEdit = False
         Me.G6FTSectCode.OptionsColumn.ReadOnly = True
         Me.G6FTSectCode.Visible = True
         Me.G6FTSectCode.VisibleIndex = 5
+        Me.G6FTSectCode.Width = 64
         '
         'G6FTUnitSectCode
         '
@@ -2394,11 +2475,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G6FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G6FTUnitSectCode.Caption = "FTUnitSectCode"
         Me.G6FTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.G6FTUnitSectCode.MinWidth = 17
         Me.G6FTUnitSectCode.Name = "G6FTUnitSectCode"
         Me.G6FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.G6FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.G6FTUnitSectCode.Visible = True
         Me.G6FTUnitSectCode.VisibleIndex = 6
+        Me.G6FTUnitSectCode.Width = 64
         '
         'G6FNL06Time
         '
@@ -2408,23 +2491,25 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G6FNL06Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G6FNL06Time.Caption = "ลาไม่รับค่าจ้าง"
         Me.G6FNL06Time.FieldName = "FNL06Time"
+        Me.G6FNL06Time.MinWidth = 17
         Me.G6FNL06Time.Name = "G6FNL06Time"
         Me.G6FNL06Time.OptionsColumn.AllowEdit = False
         Me.G6FNL06Time.OptionsColumn.ReadOnly = True
         Me.G6FNL06Time.Visible = True
         Me.G6FNL06Time.VisibleIndex = 7
-        Me.G6FNL06Time.Width = 80
+        Me.G6FNL06Time.Width = 69
         '
         'G6FTL06Date
         '
         Me.G6FTL06Date.Caption = "วันที่"
         Me.G6FTL06Date.FieldName = "FTL06Date"
+        Me.G6FTL06Date.MinWidth = 17
         Me.G6FTL06Date.Name = "G6FTL06Date"
         Me.G6FTL06Date.OptionsColumn.AllowEdit = False
         Me.G6FTL06Date.OptionsColumn.ReadOnly = True
         Me.G6FTL06Date.Visible = True
         Me.G6FTL06Date.VisibleIndex = 8
-        Me.G6FTL06Date.Width = 200
+        Me.G6FTL06Date.Width = 171
         '
         'RepositoryItemCheckEdit9
         '
@@ -2445,21 +2530,18 @@ Partial Class wEmployeeLeaveHistoryListing
         'otp07
         '
         Me.otp07.Controls.Add(Me.ogc7)
-        Me.otp07.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otp07.Name = "otp07"
-        Me.otp07.Size = New System.Drawing.Size(1295, 438)
+        Me.otp07.Size = New System.Drawing.Size(1109, 317)
         Me.otp07.Text = "ลาทหารเรียกพลกองเกิน"
         '
         'ogc7
         '
         Me.ogc7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc7.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc7.Location = New System.Drawing.Point(0, 0)
         Me.ogc7.MainView = Me.ogv7
-        Me.ogc7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc7.Name = "ogc7"
         Me.ogc7.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit11, Me.RepositoryItemCheckEdit12})
-        Me.ogc7.Size = New System.Drawing.Size(1295, 438)
+        Me.ogc7.Size = New System.Drawing.Size(1109, 317)
         Me.ogc7.TabIndex = 390
         Me.ogc7.TabStop = False
         Me.ogc7.Tag = "2|"
@@ -2468,6 +2550,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogv7
         '
         Me.ogv7.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G7FNHSysEmpID, Me.G7FTEmpCode, Me.G7FTEmpName, Me.G7FTEmpTypeCode, Me.G7FTDeptCode, Me.G7FTDivisonCode, Me.G7FTSectCode, Me.G7FTUnitSectCode, Me.G7FNL07Time, Me.G7FTL07Date})
+        Me.ogv7.DetailHeight = 284
         Me.ogv7.GridControl = Me.ogc7
         Me.ogv7.Name = "ogv7"
         Me.ogv7.OptionsCustomization.AllowGroup = False
@@ -2483,11 +2566,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G7FNHSysEmpID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G7FNHSysEmpID.Caption = "FNHSysEmpID"
         Me.G7FNHSysEmpID.FieldName = "FNHSysEmpID"
+        Me.G7FNHSysEmpID.MinWidth = 17
         Me.G7FNHSysEmpID.Name = "G7FNHSysEmpID"
         Me.G7FNHSysEmpID.OptionsColumn.AllowEdit = False
         Me.G7FNHSysEmpID.OptionsColumn.AllowMove = False
         Me.G7FNHSysEmpID.OptionsColumn.ReadOnly = True
         Me.G7FNHSysEmpID.OptionsColumn.TabStop = False
+        Me.G7FNHSysEmpID.Width = 64
         '
         'G7FTEmpCode
         '
@@ -2495,6 +2580,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G7FTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G7FTEmpCode.Caption = "FTEmpCode"
         Me.G7FTEmpCode.FieldName = "FTEmpCode"
+        Me.G7FTEmpCode.MinWidth = 17
         Me.G7FTEmpCode.Name = "G7FTEmpCode"
         Me.G7FTEmpCode.OptionsColumn.AllowEdit = False
         Me.G7FTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -2502,7 +2588,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G7FTEmpCode.OptionsColumn.TabStop = False
         Me.G7FTEmpCode.Visible = True
         Me.G7FTEmpCode.VisibleIndex = 0
-        Me.G7FTEmpCode.Width = 88
         '
         'G7FTEmpName
         '
@@ -2510,6 +2595,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G7FTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G7FTEmpName.Caption = "FTEmpName"
         Me.G7FTEmpName.FieldName = "FTEmpName"
+        Me.G7FTEmpName.MinWidth = 17
         Me.G7FTEmpName.Name = "G7FTEmpName"
         Me.G7FTEmpName.OptionsColumn.AllowEdit = False
         Me.G7FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -2517,7 +2603,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G7FTEmpName.OptionsColumn.TabStop = False
         Me.G7FTEmpName.Visible = True
         Me.G7FTEmpName.VisibleIndex = 1
-        Me.G7FTEmpName.Width = 171
+        Me.G7FTEmpName.Width = 147
         '
         'G7FTEmpTypeCode
         '
@@ -2525,11 +2611,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G7FTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G7FTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.G7FTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.G7FTEmpTypeCode.MinWidth = 17
         Me.G7FTEmpTypeCode.Name = "G7FTEmpTypeCode"
         Me.G7FTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.G7FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.G7FTEmpTypeCode.Visible = True
         Me.G7FTEmpTypeCode.VisibleIndex = 2
+        Me.G7FTEmpTypeCode.Width = 64
         '
         'G7FTDeptCode
         '
@@ -2537,11 +2625,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G7FTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G7FTDeptCode.Caption = "FTDeptCode"
         Me.G7FTDeptCode.FieldName = "FTDeptCode"
+        Me.G7FTDeptCode.MinWidth = 17
         Me.G7FTDeptCode.Name = "G7FTDeptCode"
         Me.G7FTDeptCode.OptionsColumn.AllowEdit = False
         Me.G7FTDeptCode.OptionsColumn.ReadOnly = True
         Me.G7FTDeptCode.Visible = True
         Me.G7FTDeptCode.VisibleIndex = 3
+        Me.G7FTDeptCode.Width = 64
         '
         'G7FTDivisonCode
         '
@@ -2549,11 +2639,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G7FTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G7FTDivisonCode.Caption = "FTDivisonCode"
         Me.G7FTDivisonCode.FieldName = "FTDivisonCode"
+        Me.G7FTDivisonCode.MinWidth = 17
         Me.G7FTDivisonCode.Name = "G7FTDivisonCode"
         Me.G7FTDivisonCode.OptionsColumn.AllowEdit = False
         Me.G7FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.G7FTDivisonCode.Visible = True
         Me.G7FTDivisonCode.VisibleIndex = 4
+        Me.G7FTDivisonCode.Width = 64
         '
         'G7FTSectCode
         '
@@ -2561,11 +2653,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G7FTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G7FTSectCode.Caption = "FTSectCode"
         Me.G7FTSectCode.FieldName = "FTSectCode"
+        Me.G7FTSectCode.MinWidth = 17
         Me.G7FTSectCode.Name = "G7FTSectCode"
         Me.G7FTSectCode.OptionsColumn.AllowEdit = False
         Me.G7FTSectCode.OptionsColumn.ReadOnly = True
         Me.G7FTSectCode.Visible = True
         Me.G7FTSectCode.VisibleIndex = 5
+        Me.G7FTSectCode.Width = 64
         '
         'G7FTUnitSectCode
         '
@@ -2573,11 +2667,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G7FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G7FTUnitSectCode.Caption = "FTUnitSectCode"
         Me.G7FTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.G7FTUnitSectCode.MinWidth = 17
         Me.G7FTUnitSectCode.Name = "G7FTUnitSectCode"
         Me.G7FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.G7FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.G7FTUnitSectCode.Visible = True
         Me.G7FTUnitSectCode.VisibleIndex = 6
+        Me.G7FTUnitSectCode.Width = 64
         '
         'G7FNL07Time
         '
@@ -2587,23 +2683,25 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G7FNL07Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G7FNL07Time.Caption = "ลาเรียกพล"
         Me.G7FNL07Time.FieldName = "FNL07Time"
+        Me.G7FNL07Time.MinWidth = 17
         Me.G7FNL07Time.Name = "G7FNL07Time"
         Me.G7FNL07Time.OptionsColumn.AllowEdit = False
         Me.G7FNL07Time.OptionsColumn.ReadOnly = True
         Me.G7FNL07Time.Visible = True
         Me.G7FNL07Time.VisibleIndex = 7
-        Me.G7FNL07Time.Width = 80
+        Me.G7FNL07Time.Width = 69
         '
         'G7FTL07Date
         '
         Me.G7FTL07Date.Caption = "วันที่"
         Me.G7FTL07Date.FieldName = "FTL07Date"
+        Me.G7FTL07Date.MinWidth = 17
         Me.G7FTL07Date.Name = "G7FTL07Date"
         Me.G7FTL07Date.OptionsColumn.AllowEdit = False
         Me.G7FTL07Date.OptionsColumn.ReadOnly = True
         Me.G7FTL07Date.Visible = True
         Me.G7FTL07Date.VisibleIndex = 8
-        Me.G7FTL07Date.Width = 200
+        Me.G7FTL07Date.Width = 171
         '
         'RepositoryItemCheckEdit11
         '
@@ -2624,21 +2722,18 @@ Partial Class wEmployeeLeaveHistoryListing
         'otp08
         '
         Me.otp08.Controls.Add(Me.ogc8)
-        Me.otp08.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otp08.Name = "otp08"
-        Me.otp08.Size = New System.Drawing.Size(1295, 438)
+        Me.otp08.Size = New System.Drawing.Size(1109, 317)
         Me.otp08.Text = "ลาทำหมัน"
         '
         'ogc8
         '
         Me.ogc8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc8.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc8.Location = New System.Drawing.Point(0, 0)
         Me.ogc8.MainView = Me.ogv8
-        Me.ogc8.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc8.Name = "ogc8"
         Me.ogc8.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit13, Me.RepositoryItemCheckEdit14})
-        Me.ogc8.Size = New System.Drawing.Size(1295, 438)
+        Me.ogc8.Size = New System.Drawing.Size(1109, 317)
         Me.ogc8.TabIndex = 390
         Me.ogc8.TabStop = False
         Me.ogc8.Tag = "2|"
@@ -2647,6 +2742,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogv8
         '
         Me.ogv8.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G8FNHSysEmpID, Me.G8FTEmpCode, Me.G8FTEmpName, Me.G8FTEmpTypeCode, Me.G8FTDeptCode, Me.G8FTDivisonCode, Me.G8FTSectCode, Me.G8FTUnitSectCode, Me.G8FNL08Time, Me.G8FTL08Date})
+        Me.ogv8.DetailHeight = 284
         Me.ogv8.GridControl = Me.ogc8
         Me.ogv8.Name = "ogv8"
         Me.ogv8.OptionsCustomization.AllowGroup = False
@@ -2662,11 +2758,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G8FNHSysEmpID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G8FNHSysEmpID.Caption = "FNHSysEmpID"
         Me.G8FNHSysEmpID.FieldName = "FNHSysEmpID"
+        Me.G8FNHSysEmpID.MinWidth = 17
         Me.G8FNHSysEmpID.Name = "G8FNHSysEmpID"
         Me.G8FNHSysEmpID.OptionsColumn.AllowEdit = False
         Me.G8FNHSysEmpID.OptionsColumn.AllowMove = False
         Me.G8FNHSysEmpID.OptionsColumn.ReadOnly = True
         Me.G8FNHSysEmpID.OptionsColumn.TabStop = False
+        Me.G8FNHSysEmpID.Width = 64
         '
         'G8FTEmpCode
         '
@@ -2674,6 +2772,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G8FTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G8FTEmpCode.Caption = "FTEmpCode"
         Me.G8FTEmpCode.FieldName = "FTEmpCode"
+        Me.G8FTEmpCode.MinWidth = 17
         Me.G8FTEmpCode.Name = "G8FTEmpCode"
         Me.G8FTEmpCode.OptionsColumn.AllowEdit = False
         Me.G8FTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -2681,7 +2780,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G8FTEmpCode.OptionsColumn.TabStop = False
         Me.G8FTEmpCode.Visible = True
         Me.G8FTEmpCode.VisibleIndex = 0
-        Me.G8FTEmpCode.Width = 88
         '
         'G8FTEmpName
         '
@@ -2689,6 +2787,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G8FTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G8FTEmpName.Caption = "FTEmpName"
         Me.G8FTEmpName.FieldName = "FTEmpName"
+        Me.G8FTEmpName.MinWidth = 17
         Me.G8FTEmpName.Name = "G8FTEmpName"
         Me.G8FTEmpName.OptionsColumn.AllowEdit = False
         Me.G8FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -2696,7 +2795,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G8FTEmpName.OptionsColumn.TabStop = False
         Me.G8FTEmpName.Visible = True
         Me.G8FTEmpName.VisibleIndex = 1
-        Me.G8FTEmpName.Width = 171
+        Me.G8FTEmpName.Width = 147
         '
         'G8FTEmpTypeCode
         '
@@ -2704,11 +2803,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G8FTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G8FTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.G8FTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.G8FTEmpTypeCode.MinWidth = 17
         Me.G8FTEmpTypeCode.Name = "G8FTEmpTypeCode"
         Me.G8FTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.G8FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.G8FTEmpTypeCode.Visible = True
         Me.G8FTEmpTypeCode.VisibleIndex = 2
+        Me.G8FTEmpTypeCode.Width = 64
         '
         'G8FTDeptCode
         '
@@ -2716,11 +2817,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G8FTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G8FTDeptCode.Caption = "FTDeptCode"
         Me.G8FTDeptCode.FieldName = "FTDeptCode"
+        Me.G8FTDeptCode.MinWidth = 17
         Me.G8FTDeptCode.Name = "G8FTDeptCode"
         Me.G8FTDeptCode.OptionsColumn.AllowEdit = False
         Me.G8FTDeptCode.OptionsColumn.ReadOnly = True
         Me.G8FTDeptCode.Visible = True
         Me.G8FTDeptCode.VisibleIndex = 4
+        Me.G8FTDeptCode.Width = 64
         '
         'G8FTDivisonCode
         '
@@ -2728,11 +2831,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G8FTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G8FTDivisonCode.Caption = "FTDivisonCode"
         Me.G8FTDivisonCode.FieldName = "FTDivisonCode"
+        Me.G8FTDivisonCode.MinWidth = 17
         Me.G8FTDivisonCode.Name = "G8FTDivisonCode"
         Me.G8FTDivisonCode.OptionsColumn.AllowEdit = False
         Me.G8FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.G8FTDivisonCode.Visible = True
         Me.G8FTDivisonCode.VisibleIndex = 3
+        Me.G8FTDivisonCode.Width = 64
         '
         'G8FTSectCode
         '
@@ -2740,11 +2845,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G8FTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G8FTSectCode.Caption = "FTSectCode"
         Me.G8FTSectCode.FieldName = "FTSectCode"
+        Me.G8FTSectCode.MinWidth = 17
         Me.G8FTSectCode.Name = "G8FTSectCode"
         Me.G8FTSectCode.OptionsColumn.AllowEdit = False
         Me.G8FTSectCode.OptionsColumn.ReadOnly = True
         Me.G8FTSectCode.Visible = True
         Me.G8FTSectCode.VisibleIndex = 5
+        Me.G8FTSectCode.Width = 64
         '
         'G8FTUnitSectCode
         '
@@ -2752,11 +2859,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G8FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G8FTUnitSectCode.Caption = "FTUnitSectCode"
         Me.G8FTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.G8FTUnitSectCode.MinWidth = 17
         Me.G8FTUnitSectCode.Name = "G8FTUnitSectCode"
         Me.G8FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.G8FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.G8FTUnitSectCode.Visible = True
         Me.G8FTUnitSectCode.VisibleIndex = 6
+        Me.G8FTUnitSectCode.Width = 64
         '
         'G8FNL08Time
         '
@@ -2766,23 +2875,25 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G8FNL08Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G8FNL08Time.Caption = "ลาทำหมัน"
         Me.G8FNL08Time.FieldName = "FNL08Time"
+        Me.G8FNL08Time.MinWidth = 17
         Me.G8FNL08Time.Name = "G8FNL08Time"
         Me.G8FNL08Time.OptionsColumn.AllowEdit = False
         Me.G8FNL08Time.OptionsColumn.ReadOnly = True
         Me.G8FNL08Time.Visible = True
         Me.G8FNL08Time.VisibleIndex = 7
-        Me.G8FNL08Time.Width = 80
+        Me.G8FNL08Time.Width = 69
         '
         'G8FTL08Date
         '
         Me.G8FTL08Date.Caption = "วันที่"
         Me.G8FTL08Date.FieldName = "FTL08Date"
+        Me.G8FTL08Date.MinWidth = 17
         Me.G8FTL08Date.Name = "G8FTL08Date"
         Me.G8FTL08Date.OptionsColumn.AllowEdit = False
         Me.G8FTL08Date.OptionsColumn.ReadOnly = True
         Me.G8FTL08Date.Visible = True
         Me.G8FTL08Date.VisibleIndex = 8
-        Me.G8FTL08Date.Width = 200
+        Me.G8FTL08Date.Width = 171
         '
         'RepositoryItemCheckEdit13
         '
@@ -2803,21 +2914,18 @@ Partial Class wEmployeeLeaveHistoryListing
         'otp09
         '
         Me.otp09.Controls.Add(Me.ogc9)
-        Me.otp09.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otp09.Name = "otp09"
-        Me.otp09.Size = New System.Drawing.Size(1295, 438)
+        Me.otp09.Size = New System.Drawing.Size(1109, 317)
         Me.otp09.Text = "ลา อื่นๆ"
         '
         'ogc9
         '
         Me.ogc9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc9.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc9.Location = New System.Drawing.Point(0, 0)
         Me.ogc9.MainView = Me.ogv9
-        Me.ogc9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc9.Name = "ogc9"
         Me.ogc9.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit15, Me.RepositoryItemCheckEdit16})
-        Me.ogc9.Size = New System.Drawing.Size(1295, 438)
+        Me.ogc9.Size = New System.Drawing.Size(1109, 317)
         Me.ogc9.TabIndex = 390
         Me.ogc9.TabStop = False
         Me.ogc9.Tag = "2|"
@@ -2826,6 +2934,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogv9
         '
         Me.ogv9.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G9FNHSysEmpID, Me.G9FTEmpCode, Me.G9FTEmpName, Me.G9FTEmpTypeCode, Me.G9FTDeptCode, Me.G9FTDivisonCode, Me.G9FTSectCode, Me.G9FTUnitSectCode, Me.G9FNL09Time, Me.G9FTL09Date})
+        Me.ogv9.DetailHeight = 284
         Me.ogv9.GridControl = Me.ogc9
         Me.ogv9.Name = "ogv9"
         Me.ogv9.OptionsCustomization.AllowGroup = False
@@ -2841,11 +2950,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G9FNHSysEmpID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G9FNHSysEmpID.Caption = "FNHSysEmpID"
         Me.G9FNHSysEmpID.FieldName = "FNHSysEmpID"
+        Me.G9FNHSysEmpID.MinWidth = 17
         Me.G9FNHSysEmpID.Name = "G9FNHSysEmpID"
         Me.G9FNHSysEmpID.OptionsColumn.AllowEdit = False
         Me.G9FNHSysEmpID.OptionsColumn.AllowMove = False
         Me.G9FNHSysEmpID.OptionsColumn.ReadOnly = True
         Me.G9FNHSysEmpID.OptionsColumn.TabStop = False
+        Me.G9FNHSysEmpID.Width = 64
         '
         'G9FTEmpCode
         '
@@ -2853,6 +2964,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G9FTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G9FTEmpCode.Caption = "FTEmpCode"
         Me.G9FTEmpCode.FieldName = "FTEmpCode"
+        Me.G9FTEmpCode.MinWidth = 17
         Me.G9FTEmpCode.Name = "G9FTEmpCode"
         Me.G9FTEmpCode.OptionsColumn.AllowEdit = False
         Me.G9FTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -2860,7 +2972,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G9FTEmpCode.OptionsColumn.TabStop = False
         Me.G9FTEmpCode.Visible = True
         Me.G9FTEmpCode.VisibleIndex = 0
-        Me.G9FTEmpCode.Width = 88
         '
         'G9FTEmpName
         '
@@ -2868,6 +2979,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G9FTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G9FTEmpName.Caption = "FTEmpName"
         Me.G9FTEmpName.FieldName = "FTEmpName"
+        Me.G9FTEmpName.MinWidth = 17
         Me.G9FTEmpName.Name = "G9FTEmpName"
         Me.G9FTEmpName.OptionsColumn.AllowEdit = False
         Me.G9FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -2875,7 +2987,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G9FTEmpName.OptionsColumn.TabStop = False
         Me.G9FTEmpName.Visible = True
         Me.G9FTEmpName.VisibleIndex = 1
-        Me.G9FTEmpName.Width = 171
+        Me.G9FTEmpName.Width = 147
         '
         'G9FTEmpTypeCode
         '
@@ -2883,11 +2995,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G9FTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G9FTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.G9FTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.G9FTEmpTypeCode.MinWidth = 17
         Me.G9FTEmpTypeCode.Name = "G9FTEmpTypeCode"
         Me.G9FTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.G9FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.G9FTEmpTypeCode.Visible = True
         Me.G9FTEmpTypeCode.VisibleIndex = 2
+        Me.G9FTEmpTypeCode.Width = 64
         '
         'G9FTDeptCode
         '
@@ -2895,11 +3009,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G9FTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G9FTDeptCode.Caption = "FTDeptCode"
         Me.G9FTDeptCode.FieldName = "FTDeptCode"
+        Me.G9FTDeptCode.MinWidth = 17
         Me.G9FTDeptCode.Name = "G9FTDeptCode"
         Me.G9FTDeptCode.OptionsColumn.AllowEdit = False
         Me.G9FTDeptCode.OptionsColumn.ReadOnly = True
         Me.G9FTDeptCode.Visible = True
         Me.G9FTDeptCode.VisibleIndex = 4
+        Me.G9FTDeptCode.Width = 64
         '
         'G9FTDivisonCode
         '
@@ -2907,11 +3023,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G9FTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G9FTDivisonCode.Caption = "FTDivisonCode"
         Me.G9FTDivisonCode.FieldName = "FTDivisonCode"
+        Me.G9FTDivisonCode.MinWidth = 17
         Me.G9FTDivisonCode.Name = "G9FTDivisonCode"
         Me.G9FTDivisonCode.OptionsColumn.AllowEdit = False
         Me.G9FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.G9FTDivisonCode.Visible = True
         Me.G9FTDivisonCode.VisibleIndex = 3
+        Me.G9FTDivisonCode.Width = 64
         '
         'G9FTSectCode
         '
@@ -2919,11 +3037,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G9FTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G9FTSectCode.Caption = "FTSectCode"
         Me.G9FTSectCode.FieldName = "FTSectCode"
+        Me.G9FTSectCode.MinWidth = 17
         Me.G9FTSectCode.Name = "G9FTSectCode"
         Me.G9FTSectCode.OptionsColumn.AllowEdit = False
         Me.G9FTSectCode.OptionsColumn.ReadOnly = True
         Me.G9FTSectCode.Visible = True
         Me.G9FTSectCode.VisibleIndex = 5
+        Me.G9FTSectCode.Width = 64
         '
         'G9FTUnitSectCode
         '
@@ -2931,11 +3051,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G9FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G9FTUnitSectCode.Caption = "FTUnitSectCode"
         Me.G9FTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.G9FTUnitSectCode.MinWidth = 17
         Me.G9FTUnitSectCode.Name = "G9FTUnitSectCode"
         Me.G9FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.G9FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.G9FTUnitSectCode.Visible = True
         Me.G9FTUnitSectCode.VisibleIndex = 6
+        Me.G9FTUnitSectCode.Width = 64
         '
         'G9FNL09Time
         '
@@ -2945,23 +3067,25 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G9FNL09Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G9FNL09Time.Caption = "ลาอื่นๆ"
         Me.G9FNL09Time.FieldName = "FNL09Time"
+        Me.G9FNL09Time.MinWidth = 17
         Me.G9FNL09Time.Name = "G9FNL09Time"
         Me.G9FNL09Time.OptionsColumn.AllowEdit = False
         Me.G9FNL09Time.OptionsColumn.ReadOnly = True
         Me.G9FNL09Time.Visible = True
         Me.G9FNL09Time.VisibleIndex = 7
-        Me.G9FNL09Time.Width = 80
+        Me.G9FNL09Time.Width = 69
         '
         'G9FTL09Date
         '
         Me.G9FTL09Date.Caption = "วันที่"
         Me.G9FTL09Date.FieldName = "FTL09Date"
+        Me.G9FTL09Date.MinWidth = 17
         Me.G9FTL09Date.Name = "G9FTL09Date"
         Me.G9FTL09Date.OptionsColumn.AllowEdit = False
         Me.G9FTL09Date.OptionsColumn.ReadOnly = True
         Me.G9FTL09Date.Visible = True
         Me.G9FTL09Date.VisibleIndex = 8
-        Me.G9FTL09Date.Width = 200
+        Me.G9FTL09Date.Width = 171
         '
         'RepositoryItemCheckEdit15
         '
@@ -2982,20 +3106,19 @@ Partial Class wEmployeeLeaveHistoryListing
         'otp16
         '
         Me.otp16.Controls.Add(Me.ogc16)
+        Me.otp16.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otp16.Name = "otp16"
-        Me.otp16.Size = New System.Drawing.Size(1295, 438)
+        Me.otp16.Size = New System.Drawing.Size(1109, 317)
         Me.otp16.Text = "ลาเนื่องจากเกิดอุบัติเหตุในงาน"
         '
         'ogc16
         '
         Me.ogc16.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc16.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc16.Location = New System.Drawing.Point(0, 0)
         Me.ogc16.MainView = Me.ogv16
-        Me.ogc16.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc16.Name = "ogc16"
         Me.ogc16.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit25, Me.RepositoryItemCheckEdit26})
-        Me.ogc16.Size = New System.Drawing.Size(1295, 438)
+        Me.ogc16.Size = New System.Drawing.Size(1109, 317)
         Me.ogc16.TabIndex = 391
         Me.ogc16.TabStop = False
         Me.ogc16.Tag = "2|"
@@ -3004,6 +3127,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogv16
         '
         Me.ogv16.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn2, Me.GridColumn3, Me.GridColumn4, Me.GridColumn5, Me.GridColumn6, Me.GridColumn7, Me.GridColumn8, Me.GridColumn9, Me.GridColumn10, Me.GridColumn12})
+        Me.ogv16.DetailHeight = 284
         Me.ogv16.GridControl = Me.ogc16
         Me.ogv16.Name = "ogv16"
         Me.ogv16.OptionsCustomization.AllowGroup = False
@@ -3019,11 +3143,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn2.Caption = "FNHSysEmpID"
         Me.GridColumn2.FieldName = "FNHSysEmpID"
+        Me.GridColumn2.MinWidth = 17
         Me.GridColumn2.Name = "GridColumn2"
         Me.GridColumn2.OptionsColumn.AllowEdit = False
         Me.GridColumn2.OptionsColumn.AllowMove = False
         Me.GridColumn2.OptionsColumn.ReadOnly = True
         Me.GridColumn2.OptionsColumn.TabStop = False
+        Me.GridColumn2.Width = 64
         '
         'GridColumn3
         '
@@ -3031,6 +3157,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn3.Caption = "FTEmpCode"
         Me.GridColumn3.FieldName = "FTEmpCode"
+        Me.GridColumn3.MinWidth = 17
         Me.GridColumn3.Name = "GridColumn3"
         Me.GridColumn3.OptionsColumn.AllowEdit = False
         Me.GridColumn3.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -3038,7 +3165,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GridColumn3.OptionsColumn.TabStop = False
         Me.GridColumn3.Visible = True
         Me.GridColumn3.VisibleIndex = 0
-        Me.GridColumn3.Width = 88
         '
         'GridColumn4
         '
@@ -3046,6 +3172,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn4.Caption = "FTEmpName"
         Me.GridColumn4.FieldName = "FTEmpName"
+        Me.GridColumn4.MinWidth = 17
         Me.GridColumn4.Name = "GridColumn4"
         Me.GridColumn4.OptionsColumn.AllowEdit = False
         Me.GridColumn4.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -3053,7 +3180,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GridColumn4.OptionsColumn.TabStop = False
         Me.GridColumn4.Visible = True
         Me.GridColumn4.VisibleIndex = 1
-        Me.GridColumn4.Width = 171
+        Me.GridColumn4.Width = 147
         '
         'GridColumn5
         '
@@ -3061,11 +3188,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn5.Caption = "FTEmpTypeCode"
         Me.GridColumn5.FieldName = "FTEmpTypeCode"
+        Me.GridColumn5.MinWidth = 17
         Me.GridColumn5.Name = "GridColumn5"
         Me.GridColumn5.OptionsColumn.AllowEdit = False
         Me.GridColumn5.OptionsColumn.ReadOnly = True
         Me.GridColumn5.Visible = True
         Me.GridColumn5.VisibleIndex = 2
+        Me.GridColumn5.Width = 64
         '
         'GridColumn6
         '
@@ -3073,11 +3202,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn6.Caption = "FTDeptCode"
         Me.GridColumn6.FieldName = "FTDeptCode"
+        Me.GridColumn6.MinWidth = 17
         Me.GridColumn6.Name = "GridColumn6"
         Me.GridColumn6.OptionsColumn.AllowEdit = False
         Me.GridColumn6.OptionsColumn.ReadOnly = True
         Me.GridColumn6.Visible = True
         Me.GridColumn6.VisibleIndex = 4
+        Me.GridColumn6.Width = 64
         '
         'GridColumn7
         '
@@ -3085,11 +3216,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn7.Caption = "FTDivisonCode"
         Me.GridColumn7.FieldName = "FTDivisonCode"
+        Me.GridColumn7.MinWidth = 17
         Me.GridColumn7.Name = "GridColumn7"
         Me.GridColumn7.OptionsColumn.AllowEdit = False
         Me.GridColumn7.OptionsColumn.ReadOnly = True
         Me.GridColumn7.Visible = True
         Me.GridColumn7.VisibleIndex = 3
+        Me.GridColumn7.Width = 64
         '
         'GridColumn8
         '
@@ -3097,11 +3230,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn8.Caption = "FTSectCode"
         Me.GridColumn8.FieldName = "FTSectCode"
+        Me.GridColumn8.MinWidth = 17
         Me.GridColumn8.Name = "GridColumn8"
         Me.GridColumn8.OptionsColumn.AllowEdit = False
         Me.GridColumn8.OptionsColumn.ReadOnly = True
         Me.GridColumn8.Visible = True
         Me.GridColumn8.VisibleIndex = 5
+        Me.GridColumn8.Width = 64
         '
         'GridColumn9
         '
@@ -3109,11 +3244,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn9.Caption = "FTUnitSectCode"
         Me.GridColumn9.FieldName = "FTUnitSectCode"
+        Me.GridColumn9.MinWidth = 17
         Me.GridColumn9.Name = "GridColumn9"
         Me.GridColumn9.OptionsColumn.AllowEdit = False
         Me.GridColumn9.OptionsColumn.ReadOnly = True
         Me.GridColumn9.Visible = True
         Me.GridColumn9.VisibleIndex = 6
+        Me.GridColumn9.Width = 64
         '
         'GridColumn10
         '
@@ -3123,23 +3260,25 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn10.Caption = "ลาเนื่องจากเกิดอุบัติเหตุในงาน"
         Me.GridColumn10.FieldName = "FNL16Time"
+        Me.GridColumn10.MinWidth = 17
         Me.GridColumn10.Name = "GridColumn10"
         Me.GridColumn10.OptionsColumn.AllowEdit = False
         Me.GridColumn10.OptionsColumn.ReadOnly = True
         Me.GridColumn10.Visible = True
         Me.GridColumn10.VisibleIndex = 7
-        Me.GridColumn10.Width = 80
+        Me.GridColumn10.Width = 69
         '
         'GridColumn12
         '
         Me.GridColumn12.Caption = "วันที่"
         Me.GridColumn12.FieldName = "FTL16Date"
+        Me.GridColumn12.MinWidth = 17
         Me.GridColumn12.Name = "GridColumn12"
         Me.GridColumn12.OptionsColumn.AllowEdit = False
         Me.GridColumn12.OptionsColumn.ReadOnly = True
         Me.GridColumn12.Visible = True
         Me.GridColumn12.VisibleIndex = 8
-        Me.GridColumn12.Width = 200
+        Me.GridColumn12.Width = 171
         '
         'RepositoryItemCheckEdit25
         '
@@ -3160,21 +3299,18 @@ Partial Class wEmployeeLeaveHistoryListing
         'otp97
         '
         Me.otp97.Controls.Add(Me.ogc97)
-        Me.otp97.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otp97.Name = "otp97"
-        Me.otp97.Size = New System.Drawing.Size(1295, 438)
+        Me.otp97.Size = New System.Drawing.Size(1109, 317)
         Me.otp97.Text = "ลาคลอด"
         '
         'ogc97
         '
         Me.ogc97.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc97.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc97.Location = New System.Drawing.Point(0, 0)
         Me.ogc97.MainView = Me.ogv97
-        Me.ogc97.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc97.Name = "ogc97"
         Me.ogc97.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit17, Me.RepositoryItemCheckEdit18})
-        Me.ogc97.Size = New System.Drawing.Size(1295, 438)
+        Me.ogc97.Size = New System.Drawing.Size(1109, 317)
         Me.ogc97.TabIndex = 390
         Me.ogc97.TabStop = False
         Me.ogc97.Tag = "2|"
@@ -3183,6 +3319,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogv97
         '
         Me.ogv97.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G97FNHSysEmpID, Me.G97FTEmpCode, Me.G97FTEmpName, Me.G97FTEmpTypeCode, Me.G97FTDeptCode, Me.G97FTDivisonCode, Me.G97FTSectCode, Me.G97FTUnitSectCode, Me.G97FNL97Time, Me.G97FTL97Date})
+        Me.ogv97.DetailHeight = 284
         Me.ogv97.GridControl = Me.ogc97
         Me.ogv97.Name = "ogv97"
         Me.ogv97.OptionsCustomization.AllowGroup = False
@@ -3198,11 +3335,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G97FNHSysEmpID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G97FNHSysEmpID.Caption = "FNHSysEmpID"
         Me.G97FNHSysEmpID.FieldName = "FNHSysEmpID"
+        Me.G97FNHSysEmpID.MinWidth = 17
         Me.G97FNHSysEmpID.Name = "G97FNHSysEmpID"
         Me.G97FNHSysEmpID.OptionsColumn.AllowEdit = False
         Me.G97FNHSysEmpID.OptionsColumn.AllowMove = False
         Me.G97FNHSysEmpID.OptionsColumn.ReadOnly = True
         Me.G97FNHSysEmpID.OptionsColumn.TabStop = False
+        Me.G97FNHSysEmpID.Width = 64
         '
         'G97FTEmpCode
         '
@@ -3210,6 +3349,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G97FTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G97FTEmpCode.Caption = "FTEmpCode"
         Me.G97FTEmpCode.FieldName = "FTEmpCode"
+        Me.G97FTEmpCode.MinWidth = 17
         Me.G97FTEmpCode.Name = "G97FTEmpCode"
         Me.G97FTEmpCode.OptionsColumn.AllowEdit = False
         Me.G97FTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -3217,7 +3357,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G97FTEmpCode.OptionsColumn.TabStop = False
         Me.G97FTEmpCode.Visible = True
         Me.G97FTEmpCode.VisibleIndex = 0
-        Me.G97FTEmpCode.Width = 88
         '
         'G97FTEmpName
         '
@@ -3225,6 +3364,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G97FTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G97FTEmpName.Caption = "FTEmpName"
         Me.G97FTEmpName.FieldName = "FTEmpName"
+        Me.G97FTEmpName.MinWidth = 17
         Me.G97FTEmpName.Name = "G97FTEmpName"
         Me.G97FTEmpName.OptionsColumn.AllowEdit = False
         Me.G97FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -3232,7 +3372,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G97FTEmpName.OptionsColumn.TabStop = False
         Me.G97FTEmpName.Visible = True
         Me.G97FTEmpName.VisibleIndex = 1
-        Me.G97FTEmpName.Width = 171
+        Me.G97FTEmpName.Width = 147
         '
         'G97FTEmpTypeCode
         '
@@ -3240,11 +3380,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G97FTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G97FTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.G97FTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.G97FTEmpTypeCode.MinWidth = 17
         Me.G97FTEmpTypeCode.Name = "G97FTEmpTypeCode"
         Me.G97FTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.G97FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.G97FTEmpTypeCode.Visible = True
         Me.G97FTEmpTypeCode.VisibleIndex = 2
+        Me.G97FTEmpTypeCode.Width = 64
         '
         'G97FTDeptCode
         '
@@ -3252,11 +3394,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G97FTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G97FTDeptCode.Caption = "FTDeptCode"
         Me.G97FTDeptCode.FieldName = "FTDeptCode"
+        Me.G97FTDeptCode.MinWidth = 17
         Me.G97FTDeptCode.Name = "G97FTDeptCode"
         Me.G97FTDeptCode.OptionsColumn.AllowEdit = False
         Me.G97FTDeptCode.OptionsColumn.ReadOnly = True
         Me.G97FTDeptCode.Visible = True
         Me.G97FTDeptCode.VisibleIndex = 4
+        Me.G97FTDeptCode.Width = 64
         '
         'G97FTDivisonCode
         '
@@ -3264,11 +3408,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G97FTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G97FTDivisonCode.Caption = "FTDivisonCode"
         Me.G97FTDivisonCode.FieldName = "FTDivisonCode"
+        Me.G97FTDivisonCode.MinWidth = 17
         Me.G97FTDivisonCode.Name = "G97FTDivisonCode"
         Me.G97FTDivisonCode.OptionsColumn.AllowEdit = False
         Me.G97FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.G97FTDivisonCode.Visible = True
         Me.G97FTDivisonCode.VisibleIndex = 3
+        Me.G97FTDivisonCode.Width = 64
         '
         'G97FTSectCode
         '
@@ -3276,11 +3422,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G97FTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G97FTSectCode.Caption = "FTSectCode"
         Me.G97FTSectCode.FieldName = "FTSectCode"
+        Me.G97FTSectCode.MinWidth = 17
         Me.G97FTSectCode.Name = "G97FTSectCode"
         Me.G97FTSectCode.OptionsColumn.AllowEdit = False
         Me.G97FTSectCode.OptionsColumn.ReadOnly = True
         Me.G97FTSectCode.Visible = True
         Me.G97FTSectCode.VisibleIndex = 5
+        Me.G97FTSectCode.Width = 64
         '
         'G97FTUnitSectCode
         '
@@ -3288,11 +3436,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G97FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G97FTUnitSectCode.Caption = "FTUnitSectCode"
         Me.G97FTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.G97FTUnitSectCode.MinWidth = 17
         Me.G97FTUnitSectCode.Name = "G97FTUnitSectCode"
         Me.G97FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.G97FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.G97FTUnitSectCode.Visible = True
         Me.G97FTUnitSectCode.VisibleIndex = 6
+        Me.G97FTUnitSectCode.Width = 64
         '
         'G97FNL97Time
         '
@@ -3302,23 +3452,25 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G97FNL97Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G97FNL97Time.Caption = "ลาคลอด"
         Me.G97FNL97Time.FieldName = "FNL97Time"
+        Me.G97FNL97Time.MinWidth = 17
         Me.G97FNL97Time.Name = "G97FNL97Time"
         Me.G97FNL97Time.OptionsColumn.AllowEdit = False
         Me.G97FNL97Time.OptionsColumn.ReadOnly = True
         Me.G97FNL97Time.Visible = True
         Me.G97FNL97Time.VisibleIndex = 7
-        Me.G97FNL97Time.Width = 80
+        Me.G97FNL97Time.Width = 69
         '
         'G97FTL97Date
         '
         Me.G97FTL97Date.Caption = "วันที่"
         Me.G97FTL97Date.FieldName = "FTL97Date"
+        Me.G97FTL97Date.MinWidth = 17
         Me.G97FTL97Date.Name = "G97FTL97Date"
         Me.G97FTL97Date.OptionsColumn.AllowEdit = False
         Me.G97FTL97Date.OptionsColumn.ReadOnly = True
         Me.G97FTL97Date.Visible = True
         Me.G97FTL97Date.VisibleIndex = 8
-        Me.G97FTL97Date.Width = 200
+        Me.G97FTL97Date.Width = 171
         '
         'RepositoryItemCheckEdit17
         '
@@ -3339,21 +3491,18 @@ Partial Class wEmployeeLeaveHistoryListing
         'otp98
         '
         Me.otp98.Controls.Add(Me.ogc98)
-        Me.otp98.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otp98.Name = "otp98"
-        Me.otp98.Size = New System.Drawing.Size(1295, 438)
+        Me.otp98.Size = New System.Drawing.Size(1109, 317)
         Me.otp98.Text = "ลาพักร้อน"
         '
         'ogc98
         '
         Me.ogc98.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc98.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc98.Location = New System.Drawing.Point(0, 0)
         Me.ogc98.MainView = Me.ogv98
-        Me.ogc98.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc98.Name = "ogc98"
         Me.ogc98.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit19, Me.RepositoryItemCheckEdit20})
-        Me.ogc98.Size = New System.Drawing.Size(1295, 438)
+        Me.ogc98.Size = New System.Drawing.Size(1109, 317)
         Me.ogc98.TabIndex = 390
         Me.ogc98.TabStop = False
         Me.ogc98.Tag = "2|"
@@ -3362,6 +3511,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogv98
         '
         Me.ogv98.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G98FNHSysEmpID, Me.G98FTEmpCode, Me.G98FTEmpName, Me.G98FTEmpTypeCode, Me.G98FTDeptCode, Me.G98FTDivisonCode, Me.G98FTSectCode, Me.G98FTUnitSectCode, Me.G98FNL98Time, Me.G98FTL98Date})
+        Me.ogv98.DetailHeight = 284
         Me.ogv98.GridControl = Me.ogc98
         Me.ogv98.Name = "ogv98"
         Me.ogv98.OptionsCustomization.AllowGroup = False
@@ -3377,11 +3527,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G98FNHSysEmpID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G98FNHSysEmpID.Caption = "FNHSysEmpID"
         Me.G98FNHSysEmpID.FieldName = "FNHSysEmpID"
+        Me.G98FNHSysEmpID.MinWidth = 17
         Me.G98FNHSysEmpID.Name = "G98FNHSysEmpID"
         Me.G98FNHSysEmpID.OptionsColumn.AllowEdit = False
         Me.G98FNHSysEmpID.OptionsColumn.AllowMove = False
         Me.G98FNHSysEmpID.OptionsColumn.ReadOnly = True
         Me.G98FNHSysEmpID.OptionsColumn.TabStop = False
+        Me.G98FNHSysEmpID.Width = 64
         '
         'G98FTEmpCode
         '
@@ -3389,6 +3541,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G98FTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G98FTEmpCode.Caption = "FTEmpCode"
         Me.G98FTEmpCode.FieldName = "FTEmpCode"
+        Me.G98FTEmpCode.MinWidth = 17
         Me.G98FTEmpCode.Name = "G98FTEmpCode"
         Me.G98FTEmpCode.OptionsColumn.AllowEdit = False
         Me.G98FTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -3396,7 +3549,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G98FTEmpCode.OptionsColumn.TabStop = False
         Me.G98FTEmpCode.Visible = True
         Me.G98FTEmpCode.VisibleIndex = 0
-        Me.G98FTEmpCode.Width = 88
         '
         'G98FTEmpName
         '
@@ -3404,6 +3556,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G98FTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G98FTEmpName.Caption = "FTEmpName"
         Me.G98FTEmpName.FieldName = "FTEmpName"
+        Me.G98FTEmpName.MinWidth = 17
         Me.G98FTEmpName.Name = "G98FTEmpName"
         Me.G98FTEmpName.OptionsColumn.AllowEdit = False
         Me.G98FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -3411,7 +3564,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G98FTEmpName.OptionsColumn.TabStop = False
         Me.G98FTEmpName.Visible = True
         Me.G98FTEmpName.VisibleIndex = 1
-        Me.G98FTEmpName.Width = 171
+        Me.G98FTEmpName.Width = 147
         '
         'G98FTEmpTypeCode
         '
@@ -3419,11 +3572,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G98FTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G98FTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.G98FTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.G98FTEmpTypeCode.MinWidth = 17
         Me.G98FTEmpTypeCode.Name = "G98FTEmpTypeCode"
         Me.G98FTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.G98FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.G98FTEmpTypeCode.Visible = True
         Me.G98FTEmpTypeCode.VisibleIndex = 2
+        Me.G98FTEmpTypeCode.Width = 64
         '
         'G98FTDeptCode
         '
@@ -3431,11 +3586,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G98FTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G98FTDeptCode.Caption = "FTDeptCode"
         Me.G98FTDeptCode.FieldName = "FTDeptCode"
+        Me.G98FTDeptCode.MinWidth = 17
         Me.G98FTDeptCode.Name = "G98FTDeptCode"
         Me.G98FTDeptCode.OptionsColumn.AllowEdit = False
         Me.G98FTDeptCode.OptionsColumn.ReadOnly = True
         Me.G98FTDeptCode.Visible = True
         Me.G98FTDeptCode.VisibleIndex = 4
+        Me.G98FTDeptCode.Width = 64
         '
         'G98FTDivisonCode
         '
@@ -3443,11 +3600,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G98FTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G98FTDivisonCode.Caption = "FTDivisonCode"
         Me.G98FTDivisonCode.FieldName = "FTDivisonCode"
+        Me.G98FTDivisonCode.MinWidth = 17
         Me.G98FTDivisonCode.Name = "G98FTDivisonCode"
         Me.G98FTDivisonCode.OptionsColumn.AllowEdit = False
         Me.G98FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.G98FTDivisonCode.Visible = True
         Me.G98FTDivisonCode.VisibleIndex = 3
+        Me.G98FTDivisonCode.Width = 64
         '
         'G98FTSectCode
         '
@@ -3455,11 +3614,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G98FTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G98FTSectCode.Caption = "FTSectCode"
         Me.G98FTSectCode.FieldName = "FTSectCode"
+        Me.G98FTSectCode.MinWidth = 17
         Me.G98FTSectCode.Name = "G98FTSectCode"
         Me.G98FTSectCode.OptionsColumn.AllowEdit = False
         Me.G98FTSectCode.OptionsColumn.ReadOnly = True
         Me.G98FTSectCode.Visible = True
         Me.G98FTSectCode.VisibleIndex = 5
+        Me.G98FTSectCode.Width = 64
         '
         'G98FTUnitSectCode
         '
@@ -3467,11 +3628,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G98FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G98FTUnitSectCode.Caption = "FTUnitSectCode"
         Me.G98FTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.G98FTUnitSectCode.MinWidth = 17
         Me.G98FTUnitSectCode.Name = "G98FTUnitSectCode"
         Me.G98FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.G98FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.G98FTUnitSectCode.Visible = True
         Me.G98FTUnitSectCode.VisibleIndex = 6
+        Me.G98FTUnitSectCode.Width = 64
         '
         'G98FNL98Time
         '
@@ -3481,23 +3644,25 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G98FNL98Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G98FNL98Time.Caption = "พักร้อน"
         Me.G98FNL98Time.FieldName = "FNL98Time"
+        Me.G98FNL98Time.MinWidth = 17
         Me.G98FNL98Time.Name = "G98FNL98Time"
         Me.G98FNL98Time.OptionsColumn.AllowEdit = False
         Me.G98FNL98Time.OptionsColumn.ReadOnly = True
         Me.G98FNL98Time.Visible = True
         Me.G98FNL98Time.VisibleIndex = 7
-        Me.G98FNL98Time.Width = 80
+        Me.G98FNL98Time.Width = 69
         '
         'G98FTL98Date
         '
         Me.G98FTL98Date.Caption = "วันที่"
         Me.G98FTL98Date.FieldName = "FTL98Date"
+        Me.G98FTL98Date.MinWidth = 17
         Me.G98FTL98Date.Name = "G98FTL98Date"
         Me.G98FTL98Date.OptionsColumn.AllowEdit = False
         Me.G98FTL98Date.OptionsColumn.ReadOnly = True
         Me.G98FTL98Date.Visible = True
         Me.G98FTL98Date.VisibleIndex = 8
-        Me.G98FTL98Date.Width = 200
+        Me.G98FTL98Date.Width = 171
         '
         'RepositoryItemCheckEdit19
         '
@@ -3518,21 +3683,18 @@ Partial Class wEmployeeLeaveHistoryListing
         'otp99
         '
         Me.otp99.Controls.Add(Me.ogc99)
-        Me.otp99.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otp99.Name = "otp99"
-        Me.otp99.Size = New System.Drawing.Size(1295, 438)
+        Me.otp99.Size = New System.Drawing.Size(1109, 317)
         Me.otp99.Text = "พักงาน"
         '
         'ogc99
         '
         Me.ogc99.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc99.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc99.Location = New System.Drawing.Point(0, 0)
         Me.ogc99.MainView = Me.ogv99
-        Me.ogc99.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc99.Name = "ogc99"
         Me.ogc99.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit21, Me.RepositoryItemCheckEdit22})
-        Me.ogc99.Size = New System.Drawing.Size(1295, 438)
+        Me.ogc99.Size = New System.Drawing.Size(1109, 317)
         Me.ogc99.TabIndex = 390
         Me.ogc99.TabStop = False
         Me.ogc99.Tag = "2|"
@@ -3541,6 +3703,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogv99
         '
         Me.ogv99.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.G99FNHSysEmpID, Me.G99FTEmpCode, Me.G99FTEmpName, Me.G99FTEmpTypeCode, Me.G99FTDeptCode, Me.G99FTDivisonCode, Me.G99FTSectCode, Me.G99FTUnitSectCode, Me.G99FNL00Time, Me.G99FTL99Date})
+        Me.ogv99.DetailHeight = 284
         Me.ogv99.GridControl = Me.ogc99
         Me.ogv99.Name = "ogv99"
         Me.ogv99.OptionsCustomization.AllowGroup = False
@@ -3556,11 +3719,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G99FNHSysEmpID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G99FNHSysEmpID.Caption = "FNHSysEmpID"
         Me.G99FNHSysEmpID.FieldName = "FNHSysEmpID"
+        Me.G99FNHSysEmpID.MinWidth = 17
         Me.G99FNHSysEmpID.Name = "G99FNHSysEmpID"
         Me.G99FNHSysEmpID.OptionsColumn.AllowEdit = False
         Me.G99FNHSysEmpID.OptionsColumn.AllowMove = False
         Me.G99FNHSysEmpID.OptionsColumn.ReadOnly = True
         Me.G99FNHSysEmpID.OptionsColumn.TabStop = False
+        Me.G99FNHSysEmpID.Width = 64
         '
         'G99FTEmpCode
         '
@@ -3568,6 +3733,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G99FTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G99FTEmpCode.Caption = "FTEmpCode"
         Me.G99FTEmpCode.FieldName = "FTEmpCode"
+        Me.G99FTEmpCode.MinWidth = 17
         Me.G99FTEmpCode.Name = "G99FTEmpCode"
         Me.G99FTEmpCode.OptionsColumn.AllowEdit = False
         Me.G99FTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -3575,7 +3741,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G99FTEmpCode.OptionsColumn.TabStop = False
         Me.G99FTEmpCode.Visible = True
         Me.G99FTEmpCode.VisibleIndex = 0
-        Me.G99FTEmpCode.Width = 88
         '
         'G99FTEmpName
         '
@@ -3583,6 +3748,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G99FTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G99FTEmpName.Caption = "FTEmpName"
         Me.G99FTEmpName.FieldName = "FTEmpName"
+        Me.G99FTEmpName.MinWidth = 17
         Me.G99FTEmpName.Name = "G99FTEmpName"
         Me.G99FTEmpName.OptionsColumn.AllowEdit = False
         Me.G99FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -3590,7 +3756,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G99FTEmpName.OptionsColumn.TabStop = False
         Me.G99FTEmpName.Visible = True
         Me.G99FTEmpName.VisibleIndex = 1
-        Me.G99FTEmpName.Width = 171
+        Me.G99FTEmpName.Width = 147
         '
         'G99FTEmpTypeCode
         '
@@ -3598,11 +3764,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G99FTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G99FTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.G99FTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.G99FTEmpTypeCode.MinWidth = 17
         Me.G99FTEmpTypeCode.Name = "G99FTEmpTypeCode"
         Me.G99FTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.G99FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.G99FTEmpTypeCode.Visible = True
         Me.G99FTEmpTypeCode.VisibleIndex = 2
+        Me.G99FTEmpTypeCode.Width = 64
         '
         'G99FTDeptCode
         '
@@ -3610,11 +3778,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G99FTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G99FTDeptCode.Caption = "FTDeptCode"
         Me.G99FTDeptCode.FieldName = "FTDeptCode"
+        Me.G99FTDeptCode.MinWidth = 17
         Me.G99FTDeptCode.Name = "G99FTDeptCode"
         Me.G99FTDeptCode.OptionsColumn.AllowEdit = False
         Me.G99FTDeptCode.OptionsColumn.ReadOnly = True
         Me.G99FTDeptCode.Visible = True
         Me.G99FTDeptCode.VisibleIndex = 4
+        Me.G99FTDeptCode.Width = 64
         '
         'G99FTDivisonCode
         '
@@ -3622,11 +3792,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G99FTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G99FTDivisonCode.Caption = "FTDivisonCode"
         Me.G99FTDivisonCode.FieldName = "FTDivisonCode"
+        Me.G99FTDivisonCode.MinWidth = 17
         Me.G99FTDivisonCode.Name = "G99FTDivisonCode"
         Me.G99FTDivisonCode.OptionsColumn.AllowEdit = False
         Me.G99FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.G99FTDivisonCode.Visible = True
         Me.G99FTDivisonCode.VisibleIndex = 3
+        Me.G99FTDivisonCode.Width = 64
         '
         'G99FTSectCode
         '
@@ -3634,11 +3806,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G99FTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G99FTSectCode.Caption = "FTSectCode"
         Me.G99FTSectCode.FieldName = "FTSectCode"
+        Me.G99FTSectCode.MinWidth = 17
         Me.G99FTSectCode.Name = "G99FTSectCode"
         Me.G99FTSectCode.OptionsColumn.AllowEdit = False
         Me.G99FTSectCode.OptionsColumn.ReadOnly = True
         Me.G99FTSectCode.Visible = True
         Me.G99FTSectCode.VisibleIndex = 5
+        Me.G99FTSectCode.Width = 64
         '
         'G99FTUnitSectCode
         '
@@ -3646,11 +3820,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G99FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G99FTUnitSectCode.Caption = "FTUnitSectCode"
         Me.G99FTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.G99FTUnitSectCode.MinWidth = 17
         Me.G99FTUnitSectCode.Name = "G99FTUnitSectCode"
         Me.G99FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.G99FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.G99FTUnitSectCode.Visible = True
         Me.G99FTUnitSectCode.VisibleIndex = 6
+        Me.G99FTUnitSectCode.Width = 64
         '
         'G99FNL00Time
         '
@@ -3660,23 +3836,25 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G99FNL00Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G99FNL00Time.Caption = "พักงาน"
         Me.G99FNL00Time.FieldName = "FNL99Time"
+        Me.G99FNL00Time.MinWidth = 17
         Me.G99FNL00Time.Name = "G99FNL00Time"
         Me.G99FNL00Time.OptionsColumn.AllowEdit = False
         Me.G99FNL00Time.OptionsColumn.ReadOnly = True
         Me.G99FNL00Time.Visible = True
         Me.G99FNL00Time.VisibleIndex = 7
-        Me.G99FNL00Time.Width = 80
+        Me.G99FNL00Time.Width = 69
         '
         'G99FTL99Date
         '
         Me.G99FTL99Date.Caption = "วันที่"
         Me.G99FTL99Date.FieldName = "FTL99Date"
+        Me.G99FTL99Date.MinWidth = 17
         Me.G99FTL99Date.Name = "G99FTL99Date"
         Me.G99FTL99Date.OptionsColumn.AllowEdit = False
         Me.G99FTL99Date.OptionsColumn.ReadOnly = True
         Me.G99FTL99Date.Visible = True
         Me.G99FTL99Date.VisibleIndex = 8
-        Me.G99FTL99Date.Width = 200
+        Me.G99FTL99Date.Width = 171
         '
         'RepositoryItemCheckEdit21
         '
@@ -3697,21 +3875,18 @@ Partial Class wEmployeeLeaveHistoryListing
         'otplate
         '
         Me.otplate.Controls.Add(Me.ogclate)
-        Me.otplate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otplate.Name = "otplate"
-        Me.otplate.Size = New System.Drawing.Size(1295, 438)
+        Me.otplate.Size = New System.Drawing.Size(1109, 317)
         Me.otplate.Text = "สาย"
         '
         'ogclate
         '
         Me.ogclate.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogclate.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogclate.Location = New System.Drawing.Point(0, 0)
         Me.ogclate.MainView = Me.ogvlate
-        Me.ogclate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogclate.Name = "ogclate"
         Me.ogclate.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit5, Me.RepositoryItemCheckEdit6})
-        Me.ogclate.Size = New System.Drawing.Size(1295, 438)
+        Me.ogclate.Size = New System.Drawing.Size(1109, 317)
         Me.ogclate.TabIndex = 391
         Me.ogclate.TabStop = False
         Me.ogclate.Tag = "2|"
@@ -3720,6 +3895,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogvlate
         '
         Me.ogvlate.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn1, Me.GLFTEmpCode, Me.GLFTEmpName, Me.GLFTEmpTypeCode, Me.GLFTDeptCode, Me.GLFTDivisonCode, Me.GLFTSectCode, Me.GLFTUnitSectCode, Me.GLFNLateTime, Me.GLFNLateDate})
+        Me.ogvlate.DetailHeight = 284
         Me.ogvlate.GridControl = Me.ogclate
         Me.ogvlate.Name = "ogvlate"
         Me.ogvlate.OptionsCustomization.AllowGroup = False
@@ -3735,11 +3911,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn1.Caption = "FNHSysEmpID"
         Me.GridColumn1.FieldName = "FNHSysEmpID"
+        Me.GridColumn1.MinWidth = 17
         Me.GridColumn1.Name = "GridColumn1"
         Me.GridColumn1.OptionsColumn.AllowEdit = False
         Me.GridColumn1.OptionsColumn.AllowMove = False
         Me.GridColumn1.OptionsColumn.ReadOnly = True
         Me.GridColumn1.OptionsColumn.TabStop = False
+        Me.GridColumn1.Width = 64
         '
         'GLFTEmpCode
         '
@@ -3747,6 +3925,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GLFTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GLFTEmpCode.Caption = "FTEmpCode"
         Me.GLFTEmpCode.FieldName = "FTEmpCode"
+        Me.GLFTEmpCode.MinWidth = 17
         Me.GLFTEmpCode.Name = "GLFTEmpCode"
         Me.GLFTEmpCode.OptionsColumn.AllowEdit = False
         Me.GLFTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -3754,7 +3933,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GLFTEmpCode.OptionsColumn.TabStop = False
         Me.GLFTEmpCode.Visible = True
         Me.GLFTEmpCode.VisibleIndex = 0
-        Me.GLFTEmpCode.Width = 88
         '
         'GLFTEmpName
         '
@@ -3762,6 +3940,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GLFTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GLFTEmpName.Caption = "FTEmpName"
         Me.GLFTEmpName.FieldName = "FTEmpName"
+        Me.GLFTEmpName.MinWidth = 17
         Me.GLFTEmpName.Name = "GLFTEmpName"
         Me.GLFTEmpName.OptionsColumn.AllowEdit = False
         Me.GLFTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -3769,7 +3948,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GLFTEmpName.OptionsColumn.TabStop = False
         Me.GLFTEmpName.Visible = True
         Me.GLFTEmpName.VisibleIndex = 1
-        Me.GLFTEmpName.Width = 171
+        Me.GLFTEmpName.Width = 147
         '
         'GLFTEmpTypeCode
         '
@@ -3777,11 +3956,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GLFTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GLFTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.GLFTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.GLFTEmpTypeCode.MinWidth = 17
         Me.GLFTEmpTypeCode.Name = "GLFTEmpTypeCode"
         Me.GLFTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.GLFTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.GLFTEmpTypeCode.Visible = True
         Me.GLFTEmpTypeCode.VisibleIndex = 2
+        Me.GLFTEmpTypeCode.Width = 64
         '
         'GLFTDeptCode
         '
@@ -3789,11 +3970,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GLFTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GLFTDeptCode.Caption = "FTDeptCode"
         Me.GLFTDeptCode.FieldName = "FTDeptCode"
+        Me.GLFTDeptCode.MinWidth = 17
         Me.GLFTDeptCode.Name = "GLFTDeptCode"
         Me.GLFTDeptCode.OptionsColumn.AllowEdit = False
         Me.GLFTDeptCode.OptionsColumn.ReadOnly = True
         Me.GLFTDeptCode.Visible = True
         Me.GLFTDeptCode.VisibleIndex = 4
+        Me.GLFTDeptCode.Width = 64
         '
         'GLFTDivisonCode
         '
@@ -3801,11 +3984,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GLFTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GLFTDivisonCode.Caption = "FTDivisonCode"
         Me.GLFTDivisonCode.FieldName = "FTDivisonCode"
+        Me.GLFTDivisonCode.MinWidth = 17
         Me.GLFTDivisonCode.Name = "GLFTDivisonCode"
         Me.GLFTDivisonCode.OptionsColumn.AllowEdit = False
         Me.GLFTDivisonCode.OptionsColumn.ReadOnly = True
         Me.GLFTDivisonCode.Visible = True
         Me.GLFTDivisonCode.VisibleIndex = 3
+        Me.GLFTDivisonCode.Width = 64
         '
         'GLFTSectCode
         '
@@ -3813,11 +3998,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GLFTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GLFTSectCode.Caption = "FTSectCode"
         Me.GLFTSectCode.FieldName = "FTSectCode"
+        Me.GLFTSectCode.MinWidth = 17
         Me.GLFTSectCode.Name = "GLFTSectCode"
         Me.GLFTSectCode.OptionsColumn.AllowEdit = False
         Me.GLFTSectCode.OptionsColumn.ReadOnly = True
         Me.GLFTSectCode.Visible = True
         Me.GLFTSectCode.VisibleIndex = 5
+        Me.GLFTSectCode.Width = 64
         '
         'GLFTUnitSectCode
         '
@@ -3825,11 +4012,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GLFTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GLFTUnitSectCode.Caption = "FTUnitSectCode"
         Me.GLFTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.GLFTUnitSectCode.MinWidth = 17
         Me.GLFTUnitSectCode.Name = "GLFTUnitSectCode"
         Me.GLFTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.GLFTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.GLFTUnitSectCode.Visible = True
         Me.GLFTUnitSectCode.VisibleIndex = 6
+        Me.GLFTUnitSectCode.Width = 64
         '
         'GLFNLateTime
         '
@@ -3839,23 +4028,25 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GLFNLateTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GLFNLateTime.Caption = "สาย"
         Me.GLFNLateTime.FieldName = "FNLateTime"
+        Me.GLFNLateTime.MinWidth = 17
         Me.GLFNLateTime.Name = "GLFNLateTime"
         Me.GLFNLateTime.OptionsColumn.AllowEdit = False
         Me.GLFNLateTime.OptionsColumn.ReadOnly = True
         Me.GLFNLateTime.Visible = True
         Me.GLFNLateTime.VisibleIndex = 7
-        Me.GLFNLateTime.Width = 80
+        Me.GLFNLateTime.Width = 69
         '
         'GLFNLateDate
         '
         Me.GLFNLateDate.Caption = "วันที่"
         Me.GLFNLateDate.FieldName = "FNLateDate"
+        Me.GLFNLateDate.MinWidth = 17
         Me.GLFNLateDate.Name = "GLFNLateDate"
         Me.GLFNLateDate.OptionsColumn.AllowEdit = False
         Me.GLFNLateDate.OptionsColumn.ReadOnly = True
         Me.GLFNLateDate.Visible = True
         Me.GLFNLateDate.VisibleIndex = 8
-        Me.GLFNLateDate.Width = 200
+        Me.GLFNLateDate.Width = 171
         '
         'RepositoryItemCheckEdit5
         '
@@ -3876,21 +4067,18 @@ Partial Class wEmployeeLeaveHistoryListing
         'otpabsent
         '
         Me.otpabsent.Controls.Add(Me.ogcabsent)
-        Me.otpabsent.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.otpabsent.Name = "otpabsent"
-        Me.otpabsent.Size = New System.Drawing.Size(1295, 438)
+        Me.otpabsent.Size = New System.Drawing.Size(1109, 317)
         Me.otpabsent.Text = "ขาดงาน"
         '
         'ogcabsent
         '
         Me.ogcabsent.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogcabsent.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcabsent.Location = New System.Drawing.Point(0, 0)
         Me.ogcabsent.MainView = Me.ogvabsent
-        Me.ogcabsent.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogcabsent.Name = "ogcabsent"
         Me.ogcabsent.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit23, Me.RepositoryItemCheckEdit24})
-        Me.ogcabsent.Size = New System.Drawing.Size(1295, 438)
+        Me.ogcabsent.Size = New System.Drawing.Size(1109, 317)
         Me.ogcabsent.TabIndex = 391
         Me.ogcabsent.TabStop = False
         Me.ogcabsent.Tag = "2|"
@@ -3899,6 +4087,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogvabsent
         '
         Me.ogvabsent.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn11, Me.GAFTEmpCode, Me.GAFTEmpName, Me.GAFTEmpTypeCode, Me.GAFTDeptCode, Me.GAFTDivisonCode, Me.GAFTSectCode, Me.GAFTUnitSectCode, Me.GAFNAbsentTime, Me.GAFNAbsentDate})
+        Me.ogvabsent.DetailHeight = 284
         Me.ogvabsent.GridControl = Me.ogcabsent
         Me.ogvabsent.Name = "ogvabsent"
         Me.ogvabsent.OptionsCustomization.AllowGroup = False
@@ -3914,11 +4103,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn11.Caption = "FNHSysEmpID"
         Me.GridColumn11.FieldName = "FNHSysEmpID"
+        Me.GridColumn11.MinWidth = 17
         Me.GridColumn11.Name = "GridColumn11"
         Me.GridColumn11.OptionsColumn.AllowEdit = False
         Me.GridColumn11.OptionsColumn.AllowMove = False
         Me.GridColumn11.OptionsColumn.ReadOnly = True
         Me.GridColumn11.OptionsColumn.TabStop = False
+        Me.GridColumn11.Width = 64
         '
         'GAFTEmpCode
         '
@@ -3926,6 +4117,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GAFTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GAFTEmpCode.Caption = "FTEmpCode"
         Me.GAFTEmpCode.FieldName = "FTEmpCode"
+        Me.GAFTEmpCode.MinWidth = 17
         Me.GAFTEmpCode.Name = "GAFTEmpCode"
         Me.GAFTEmpCode.OptionsColumn.AllowEdit = False
         Me.GAFTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -3933,7 +4125,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GAFTEmpCode.OptionsColumn.TabStop = False
         Me.GAFTEmpCode.Visible = True
         Me.GAFTEmpCode.VisibleIndex = 0
-        Me.GAFTEmpCode.Width = 88
         '
         'GAFTEmpName
         '
@@ -3941,6 +4132,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GAFTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GAFTEmpName.Caption = "FTEmpName"
         Me.GAFTEmpName.FieldName = "FTEmpName"
+        Me.GAFTEmpName.MinWidth = 17
         Me.GAFTEmpName.Name = "GAFTEmpName"
         Me.GAFTEmpName.OptionsColumn.AllowEdit = False
         Me.GAFTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -3948,7 +4140,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GAFTEmpName.OptionsColumn.TabStop = False
         Me.GAFTEmpName.Visible = True
         Me.GAFTEmpName.VisibleIndex = 1
-        Me.GAFTEmpName.Width = 171
+        Me.GAFTEmpName.Width = 147
         '
         'GAFTEmpTypeCode
         '
@@ -3956,11 +4148,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GAFTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GAFTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.GAFTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.GAFTEmpTypeCode.MinWidth = 17
         Me.GAFTEmpTypeCode.Name = "GAFTEmpTypeCode"
         Me.GAFTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.GAFTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.GAFTEmpTypeCode.Visible = True
         Me.GAFTEmpTypeCode.VisibleIndex = 2
+        Me.GAFTEmpTypeCode.Width = 64
         '
         'GAFTDeptCode
         '
@@ -3968,11 +4162,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GAFTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GAFTDeptCode.Caption = "FTDeptCode"
         Me.GAFTDeptCode.FieldName = "FTDeptCode"
+        Me.GAFTDeptCode.MinWidth = 17
         Me.GAFTDeptCode.Name = "GAFTDeptCode"
         Me.GAFTDeptCode.OptionsColumn.AllowEdit = False
         Me.GAFTDeptCode.OptionsColumn.ReadOnly = True
         Me.GAFTDeptCode.Visible = True
         Me.GAFTDeptCode.VisibleIndex = 4
+        Me.GAFTDeptCode.Width = 64
         '
         'GAFTDivisonCode
         '
@@ -3980,11 +4176,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GAFTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GAFTDivisonCode.Caption = "FTDivisonCode"
         Me.GAFTDivisonCode.FieldName = "FTDivisonCode"
+        Me.GAFTDivisonCode.MinWidth = 17
         Me.GAFTDivisonCode.Name = "GAFTDivisonCode"
         Me.GAFTDivisonCode.OptionsColumn.AllowEdit = False
         Me.GAFTDivisonCode.OptionsColumn.ReadOnly = True
         Me.GAFTDivisonCode.Visible = True
         Me.GAFTDivisonCode.VisibleIndex = 3
+        Me.GAFTDivisonCode.Width = 64
         '
         'GAFTSectCode
         '
@@ -3992,11 +4190,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GAFTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GAFTSectCode.Caption = "FTSectCode"
         Me.GAFTSectCode.FieldName = "FTSectCode"
+        Me.GAFTSectCode.MinWidth = 17
         Me.GAFTSectCode.Name = "GAFTSectCode"
         Me.GAFTSectCode.OptionsColumn.AllowEdit = False
         Me.GAFTSectCode.OptionsColumn.ReadOnly = True
         Me.GAFTSectCode.Visible = True
         Me.GAFTSectCode.VisibleIndex = 5
+        Me.GAFTSectCode.Width = 64
         '
         'GAFTUnitSectCode
         '
@@ -4004,11 +4204,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GAFTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GAFTUnitSectCode.Caption = "FTUnitSectCode"
         Me.GAFTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.GAFTUnitSectCode.MinWidth = 17
         Me.GAFTUnitSectCode.Name = "GAFTUnitSectCode"
         Me.GAFTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.GAFTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.GAFTUnitSectCode.Visible = True
         Me.GAFTUnitSectCode.VisibleIndex = 6
+        Me.GAFTUnitSectCode.Width = 64
         '
         'GAFNAbsentTime
         '
@@ -4018,23 +4220,25 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GAFNAbsentTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GAFNAbsentTime.Caption = "ขาดงาน"
         Me.GAFNAbsentTime.FieldName = "FNAbsentTime"
+        Me.GAFNAbsentTime.MinWidth = 17
         Me.GAFNAbsentTime.Name = "GAFNAbsentTime"
         Me.GAFNAbsentTime.OptionsColumn.AllowEdit = False
         Me.GAFNAbsentTime.OptionsColumn.ReadOnly = True
         Me.GAFNAbsentTime.Visible = True
         Me.GAFNAbsentTime.VisibleIndex = 7
-        Me.GAFNAbsentTime.Width = 80
+        Me.GAFNAbsentTime.Width = 69
         '
         'GAFNAbsentDate
         '
         Me.GAFNAbsentDate.Caption = "วันที่"
         Me.GAFNAbsentDate.FieldName = "FNAbsentDate"
+        Me.GAFNAbsentDate.MinWidth = 17
         Me.GAFNAbsentDate.Name = "GAFNAbsentDate"
         Me.GAFNAbsentDate.OptionsColumn.AllowEdit = False
         Me.GAFNAbsentDate.OptionsColumn.ReadOnly = True
         Me.GAFNAbsentDate.Visible = True
         Me.GAFNAbsentDate.VisibleIndex = 8
-        Me.GAFNAbsentDate.Width = 200
+        Me.GAFNAbsentDate.Width = 171
         '
         'RepositoryItemCheckEdit23
         '
@@ -4055,19 +4259,18 @@ Partial Class wEmployeeLeaveHistoryListing
         'otp02
         '
         Me.otp02.Controls.Add(Me.ogc2)
+        Me.otp02.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otp02.Name = "otp02"
-        Me.otp02.Size = New System.Drawing.Size(1295, 438)
+        Me.otp02.Size = New System.Drawing.Size(1109, 317)
         Me.otp02.Text = "ลากิจธุรอันจำเป็น"
         '
         'ogc2
         '
         Me.ogc2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc2.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc2.Location = New System.Drawing.Point(0, 0)
         Me.ogc2.MainView = Me.ogv2
-        Me.ogc2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogc2.Name = "ogc2"
-        Me.ogc2.Size = New System.Drawing.Size(1295, 438)
+        Me.ogc2.Size = New System.Drawing.Size(1109, 317)
         Me.ogc2.TabIndex = 391
         Me.ogc2.TabStop = False
         Me.ogc2.Tag = "2|"
@@ -4076,6 +4279,7 @@ Partial Class wEmployeeLeaveHistoryListing
         'ogv2
         '
         Me.ogv2.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn13, Me.G2FTEmpCode, Me.G2FTEmpName, Me.G2FTEmpTypeCode, Me.G2FTDeptCode, Me.G2FTDivisonCode, Me.G2FTSectCode, Me.G2FTUnitSectCode, Me.G2FNL02Time, Me.G2FTL02Date})
+        Me.ogv2.DetailHeight = 284
         Me.ogv2.GridControl = Me.ogc2
         Me.ogv2.Name = "ogv2"
         Me.ogv2.OptionsCustomization.AllowGroup = False
@@ -4091,11 +4295,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.GridColumn13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn13.Caption = "FNHSysEmpID"
         Me.GridColumn13.FieldName = "FNHSysEmpID"
+        Me.GridColumn13.MinWidth = 17
         Me.GridColumn13.Name = "GridColumn13"
         Me.GridColumn13.OptionsColumn.AllowEdit = False
         Me.GridColumn13.OptionsColumn.AllowMove = False
         Me.GridColumn13.OptionsColumn.ReadOnly = True
         Me.GridColumn13.OptionsColumn.TabStop = False
+        Me.GridColumn13.Width = 64
         '
         'G2FTEmpCode
         '
@@ -4103,6 +4309,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G2FTEmpCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G2FTEmpCode.Caption = "FTEmpCode"
         Me.G2FTEmpCode.FieldName = "FTEmpCode"
+        Me.G2FTEmpCode.MinWidth = 17
         Me.G2FTEmpCode.Name = "G2FTEmpCode"
         Me.G2FTEmpCode.OptionsColumn.AllowEdit = False
         Me.G2FTEmpCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -4110,7 +4317,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G2FTEmpCode.OptionsColumn.TabStop = False
         Me.G2FTEmpCode.Visible = True
         Me.G2FTEmpCode.VisibleIndex = 0
-        Me.G2FTEmpCode.Width = 88
         '
         'G2FTEmpName
         '
@@ -4118,6 +4324,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G2FTEmpName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G2FTEmpName.Caption = "FTEmpName"
         Me.G2FTEmpName.FieldName = "FTEmpName"
+        Me.G2FTEmpName.MinWidth = 17
         Me.G2FTEmpName.Name = "G2FTEmpName"
         Me.G2FTEmpName.OptionsColumn.AllowEdit = False
         Me.G2FTEmpName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
@@ -4125,7 +4332,7 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G2FTEmpName.OptionsColumn.TabStop = False
         Me.G2FTEmpName.Visible = True
         Me.G2FTEmpName.VisibleIndex = 1
-        Me.G2FTEmpName.Width = 171
+        Me.G2FTEmpName.Width = 147
         '
         'G2FTEmpTypeCode
         '
@@ -4133,11 +4340,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G2FTEmpTypeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G2FTEmpTypeCode.Caption = "FTEmpTypeCode"
         Me.G2FTEmpTypeCode.FieldName = "FTEmpTypeCode"
+        Me.G2FTEmpTypeCode.MinWidth = 17
         Me.G2FTEmpTypeCode.Name = "G2FTEmpTypeCode"
         Me.G2FTEmpTypeCode.OptionsColumn.AllowEdit = False
         Me.G2FTEmpTypeCode.OptionsColumn.ReadOnly = True
         Me.G2FTEmpTypeCode.Visible = True
         Me.G2FTEmpTypeCode.VisibleIndex = 2
+        Me.G2FTEmpTypeCode.Width = 64
         '
         'G2FTDeptCode
         '
@@ -4145,11 +4354,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G2FTDeptCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G2FTDeptCode.Caption = "FTDeptCode"
         Me.G2FTDeptCode.FieldName = "FTDeptCode"
+        Me.G2FTDeptCode.MinWidth = 17
         Me.G2FTDeptCode.Name = "G2FTDeptCode"
         Me.G2FTDeptCode.OptionsColumn.AllowEdit = False
         Me.G2FTDeptCode.OptionsColumn.ReadOnly = True
         Me.G2FTDeptCode.Visible = True
         Me.G2FTDeptCode.VisibleIndex = 4
+        Me.G2FTDeptCode.Width = 64
         '
         'G2FTDivisonCode
         '
@@ -4157,11 +4368,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G2FTDivisonCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G2FTDivisonCode.Caption = "FTDivisonCode"
         Me.G2FTDivisonCode.FieldName = "FTDivisonCode"
+        Me.G2FTDivisonCode.MinWidth = 17
         Me.G2FTDivisonCode.Name = "G2FTDivisonCode"
         Me.G2FTDivisonCode.OptionsColumn.AllowEdit = False
         Me.G2FTDivisonCode.OptionsColumn.ReadOnly = True
         Me.G2FTDivisonCode.Visible = True
         Me.G2FTDivisonCode.VisibleIndex = 3
+        Me.G2FTDivisonCode.Width = 64
         '
         'G2FTSectCode
         '
@@ -4169,11 +4382,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G2FTSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G2FTSectCode.Caption = "FTSectCode"
         Me.G2FTSectCode.FieldName = "FTSectCode"
+        Me.G2FTSectCode.MinWidth = 17
         Me.G2FTSectCode.Name = "G2FTSectCode"
         Me.G2FTSectCode.OptionsColumn.AllowEdit = False
         Me.G2FTSectCode.OptionsColumn.ReadOnly = True
         Me.G2FTSectCode.Visible = True
         Me.G2FTSectCode.VisibleIndex = 5
+        Me.G2FTSectCode.Width = 64
         '
         'G2FTUnitSectCode
         '
@@ -4181,11 +4396,13 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G2FTUnitSectCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G2FTUnitSectCode.Caption = "FTUnitSectCode"
         Me.G2FTUnitSectCode.FieldName = "FTUnitSectCode"
+        Me.G2FTUnitSectCode.MinWidth = 17
         Me.G2FTUnitSectCode.Name = "G2FTUnitSectCode"
         Me.G2FTUnitSectCode.OptionsColumn.AllowEdit = False
         Me.G2FTUnitSectCode.OptionsColumn.ReadOnly = True
         Me.G2FTUnitSectCode.Visible = True
         Me.G2FTUnitSectCode.VisibleIndex = 6
+        Me.G2FTUnitSectCode.Width = 64
         '
         'G2FNL02Time
         '
@@ -4195,23 +4412,552 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.G2FNL02Time.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.G2FNL02Time.Caption = "ลากิจ"
         Me.G2FNL02Time.FieldName = "FNL02Time"
+        Me.G2FNL02Time.MinWidth = 17
         Me.G2FNL02Time.Name = "G2FNL02Time"
         Me.G2FNL02Time.OptionsColumn.AllowEdit = False
         Me.G2FNL02Time.OptionsColumn.ReadOnly = True
         Me.G2FNL02Time.Visible = True
         Me.G2FNL02Time.VisibleIndex = 7
-        Me.G2FNL02Time.Width = 80
+        Me.G2FNL02Time.Width = 69
         '
         'G2FTL02Date
         '
         Me.G2FTL02Date.Caption = "วันที่"
         Me.G2FTL02Date.FieldName = "FTL02Date"
+        Me.G2FTL02Date.MinWidth = 17
         Me.G2FTL02Date.Name = "G2FTL02Date"
         Me.G2FTL02Date.OptionsColumn.AllowEdit = False
         Me.G2FTL02Date.OptionsColumn.ReadOnly = True
         Me.G2FTL02Date.Visible = True
         Me.G2FTL02Date.VisibleIndex = 8
-        Me.G2FTL02Date.Width = 200
+        Me.G2FTL02Date.Width = 171
+        '
+        'otp17
+        '
+        Me.otp17.Controls.Add(Me.ogc17)
+        Me.otp17.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.otp17.Name = "otp17"
+        Me.otp17.Size = New System.Drawing.Size(1109, 317)
+        Me.otp17.Text = "กักตัว 14 วันเชื้อไวรัส Covic 19 จ่าย"
+        '
+        'ogc17
+        '
+        Me.ogc17.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc17.Location = New System.Drawing.Point(0, 0)
+        Me.ogc17.MainView = Me.ogv17
+        Me.ogc17.Name = "ogc17"
+        Me.ogc17.Size = New System.Drawing.Size(1109, 317)
+        Me.ogc17.TabIndex = 392
+        Me.ogc17.TabStop = False
+        Me.ogc17.Tag = "2|"
+        Me.ogc17.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogv17})
+        '
+        'ogv17
+        '
+        Me.ogv17.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17, Me.GridColumn18, Me.GridColumn19, Me.GridColumn20, Me.GridColumn21, Me.GridColumn22, Me.GridColumn23})
+        Me.ogv17.DetailHeight = 284
+        Me.ogv17.GridControl = Me.ogc17
+        Me.ogv17.Name = "ogv17"
+        Me.ogv17.OptionsCustomization.AllowGroup = False
+        Me.ogv17.OptionsCustomization.AllowQuickHideColumns = False
+        Me.ogv17.OptionsView.ColumnAutoWidth = False
+        Me.ogv17.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
+        Me.ogv17.OptionsView.ShowGroupPanel = False
+        Me.ogv17.Tag = "2|"
+        '
+        'GridColumn14
+        '
+        Me.GridColumn14.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn14.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn14.Caption = "FNHSysEmpID"
+        Me.GridColumn14.FieldName = "FNHSysEmpID"
+        Me.GridColumn14.MinWidth = 17
+        Me.GridColumn14.Name = "GridColumn14"
+        Me.GridColumn14.OptionsColumn.AllowEdit = False
+        Me.GridColumn14.OptionsColumn.AllowMove = False
+        Me.GridColumn14.OptionsColumn.ReadOnly = True
+        Me.GridColumn14.OptionsColumn.TabStop = False
+        Me.GridColumn14.Width = 64
+        '
+        'GridColumn15
+        '
+        Me.GridColumn15.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn15.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn15.Caption = "FTEmpCode"
+        Me.GridColumn15.FieldName = "FTEmpCode"
+        Me.GridColumn15.MinWidth = 17
+        Me.GridColumn15.Name = "GridColumn15"
+        Me.GridColumn15.OptionsColumn.AllowEdit = False
+        Me.GridColumn15.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridColumn15.OptionsColumn.ReadOnly = True
+        Me.GridColumn15.OptionsColumn.TabStop = False
+        Me.GridColumn15.Visible = True
+        Me.GridColumn15.VisibleIndex = 0
+        '
+        'GridColumn16
+        '
+        Me.GridColumn16.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn16.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn16.Caption = "FTEmpName"
+        Me.GridColumn16.FieldName = "FTEmpName"
+        Me.GridColumn16.MinWidth = 17
+        Me.GridColumn16.Name = "GridColumn16"
+        Me.GridColumn16.OptionsColumn.AllowEdit = False
+        Me.GridColumn16.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridColumn16.OptionsColumn.ReadOnly = True
+        Me.GridColumn16.OptionsColumn.TabStop = False
+        Me.GridColumn16.Visible = True
+        Me.GridColumn16.VisibleIndex = 1
+        Me.GridColumn16.Width = 147
+        '
+        'GridColumn17
+        '
+        Me.GridColumn17.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn17.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn17.Caption = "FTEmpTypeCode"
+        Me.GridColumn17.FieldName = "FTEmpTypeCode"
+        Me.GridColumn17.MinWidth = 17
+        Me.GridColumn17.Name = "GridColumn17"
+        Me.GridColumn17.OptionsColumn.AllowEdit = False
+        Me.GridColumn17.OptionsColumn.ReadOnly = True
+        Me.GridColumn17.Visible = True
+        Me.GridColumn17.VisibleIndex = 2
+        Me.GridColumn17.Width = 64
+        '
+        'GridColumn18
+        '
+        Me.GridColumn18.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn18.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn18.Caption = "FTDeptCode"
+        Me.GridColumn18.FieldName = "FTDeptCode"
+        Me.GridColumn18.MinWidth = 17
+        Me.GridColumn18.Name = "GridColumn18"
+        Me.GridColumn18.OptionsColumn.AllowEdit = False
+        Me.GridColumn18.OptionsColumn.ReadOnly = True
+        Me.GridColumn18.Visible = True
+        Me.GridColumn18.VisibleIndex = 4
+        Me.GridColumn18.Width = 64
+        '
+        'GridColumn19
+        '
+        Me.GridColumn19.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn19.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn19.Caption = "FTDivisonCode"
+        Me.GridColumn19.FieldName = "FTDivisonCode"
+        Me.GridColumn19.MinWidth = 17
+        Me.GridColumn19.Name = "GridColumn19"
+        Me.GridColumn19.OptionsColumn.AllowEdit = False
+        Me.GridColumn19.OptionsColumn.ReadOnly = True
+        Me.GridColumn19.Visible = True
+        Me.GridColumn19.VisibleIndex = 3
+        Me.GridColumn19.Width = 64
+        '
+        'GridColumn20
+        '
+        Me.GridColumn20.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn20.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn20.Caption = "FTSectCode"
+        Me.GridColumn20.FieldName = "FTSectCode"
+        Me.GridColumn20.MinWidth = 17
+        Me.GridColumn20.Name = "GridColumn20"
+        Me.GridColumn20.OptionsColumn.AllowEdit = False
+        Me.GridColumn20.OptionsColumn.ReadOnly = True
+        Me.GridColumn20.Visible = True
+        Me.GridColumn20.VisibleIndex = 5
+        Me.GridColumn20.Width = 64
+        '
+        'GridColumn21
+        '
+        Me.GridColumn21.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn21.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn21.Caption = "FTUnitSectCode"
+        Me.GridColumn21.FieldName = "FTUnitSectCode"
+        Me.GridColumn21.MinWidth = 17
+        Me.GridColumn21.Name = "GridColumn21"
+        Me.GridColumn21.OptionsColumn.AllowEdit = False
+        Me.GridColumn21.OptionsColumn.ReadOnly = True
+        Me.GridColumn21.Visible = True
+        Me.GridColumn21.VisibleIndex = 6
+        Me.GridColumn21.Width = 64
+        '
+        'GridColumn22
+        '
+        Me.GridColumn22.AppearanceCell.Options.UseTextOptions = True
+        Me.GridColumn22.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.GridColumn22.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn22.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn22.Caption = "กักตัว 14 วันเชื้อไวรัส Covic 19"
+        Me.GridColumn22.FieldName = "FNL17Time"
+        Me.GridColumn22.MinWidth = 17
+        Me.GridColumn22.Name = "GridColumn22"
+        Me.GridColumn22.OptionsColumn.AllowEdit = False
+        Me.GridColumn22.OptionsColumn.ReadOnly = True
+        Me.GridColumn22.Visible = True
+        Me.GridColumn22.VisibleIndex = 7
+        Me.GridColumn22.Width = 69
+        '
+        'GridColumn23
+        '
+        Me.GridColumn23.Caption = "วันที่"
+        Me.GridColumn23.FieldName = "FTL17Date"
+        Me.GridColumn23.MinWidth = 17
+        Me.GridColumn23.Name = "GridColumn23"
+        Me.GridColumn23.OptionsColumn.AllowEdit = False
+        Me.GridColumn23.OptionsColumn.ReadOnly = True
+        Me.GridColumn23.Visible = True
+        Me.GridColumn23.VisibleIndex = 8
+        Me.GridColumn23.Width = 171
+        '
+        'otp3
+        '
+        Me.otp3.Controls.Add(Me.ogc3)
+        Me.otp3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.otp3.Name = "otp3"
+        Me.otp3.Size = New System.Drawing.Size(1109, 317)
+        Me.otp3.Text = "ลากิจธุระอันจำเป็น (covid)"
+        '
+        'ogc3
+        '
+        Me.ogc3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc3.Location = New System.Drawing.Point(0, 0)
+        Me.ogc3.MainView = Me.ogv3
+        Me.ogc3.Name = "ogc3"
+        Me.ogc3.Size = New System.Drawing.Size(1109, 317)
+        Me.ogc3.TabIndex = 393
+        Me.ogc3.TabStop = False
+        Me.ogc3.Tag = "2|"
+        Me.ogc3.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogv3})
+        '
+        'ogv3
+        '
+        Me.ogv3.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn24, Me.GridColumn25, Me.GridColumn26, Me.GridColumn27, Me.GridColumn28, Me.GridColumn29, Me.GridColumn30, Me.GridColumn31, Me.GridColumn32, Me.GridColumn33})
+        Me.ogv3.DetailHeight = 284
+        Me.ogv3.GridControl = Me.ogc3
+        Me.ogv3.Name = "ogv3"
+        Me.ogv3.OptionsCustomization.AllowGroup = False
+        Me.ogv3.OptionsCustomization.AllowQuickHideColumns = False
+        Me.ogv3.OptionsView.ColumnAutoWidth = False
+        Me.ogv3.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
+        Me.ogv3.OptionsView.ShowGroupPanel = False
+        Me.ogv3.Tag = "2|"
+        '
+        'GridColumn24
+        '
+        Me.GridColumn24.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn24.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn24.Caption = "FNHSysEmpID"
+        Me.GridColumn24.FieldName = "FNHSysEmpID"
+        Me.GridColumn24.MinWidth = 17
+        Me.GridColumn24.Name = "GridColumn24"
+        Me.GridColumn24.OptionsColumn.AllowEdit = False
+        Me.GridColumn24.OptionsColumn.AllowMove = False
+        Me.GridColumn24.OptionsColumn.ReadOnly = True
+        Me.GridColumn24.OptionsColumn.TabStop = False
+        Me.GridColumn24.Width = 64
+        '
+        'GridColumn25
+        '
+        Me.GridColumn25.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn25.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn25.Caption = "FTEmpCode"
+        Me.GridColumn25.FieldName = "FTEmpCode"
+        Me.GridColumn25.MinWidth = 17
+        Me.GridColumn25.Name = "GridColumn25"
+        Me.GridColumn25.OptionsColumn.AllowEdit = False
+        Me.GridColumn25.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridColumn25.OptionsColumn.ReadOnly = True
+        Me.GridColumn25.OptionsColumn.TabStop = False
+        Me.GridColumn25.Visible = True
+        Me.GridColumn25.VisibleIndex = 0
+        '
+        'GridColumn26
+        '
+        Me.GridColumn26.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn26.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn26.Caption = "FTEmpName"
+        Me.GridColumn26.FieldName = "FTEmpName"
+        Me.GridColumn26.MinWidth = 17
+        Me.GridColumn26.Name = "GridColumn26"
+        Me.GridColumn26.OptionsColumn.AllowEdit = False
+        Me.GridColumn26.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridColumn26.OptionsColumn.ReadOnly = True
+        Me.GridColumn26.OptionsColumn.TabStop = False
+        Me.GridColumn26.Visible = True
+        Me.GridColumn26.VisibleIndex = 1
+        Me.GridColumn26.Width = 147
+        '
+        'GridColumn27
+        '
+        Me.GridColumn27.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn27.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn27.Caption = "FTEmpTypeCode"
+        Me.GridColumn27.FieldName = "FTEmpTypeCode"
+        Me.GridColumn27.MinWidth = 17
+        Me.GridColumn27.Name = "GridColumn27"
+        Me.GridColumn27.OptionsColumn.AllowEdit = False
+        Me.GridColumn27.OptionsColumn.ReadOnly = True
+        Me.GridColumn27.Visible = True
+        Me.GridColumn27.VisibleIndex = 2
+        Me.GridColumn27.Width = 64
+        '
+        'GridColumn28
+        '
+        Me.GridColumn28.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn28.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn28.Caption = "FTDeptCode"
+        Me.GridColumn28.FieldName = "FTDeptCode"
+        Me.GridColumn28.MinWidth = 17
+        Me.GridColumn28.Name = "GridColumn28"
+        Me.GridColumn28.OptionsColumn.AllowEdit = False
+        Me.GridColumn28.OptionsColumn.ReadOnly = True
+        Me.GridColumn28.Visible = True
+        Me.GridColumn28.VisibleIndex = 4
+        Me.GridColumn28.Width = 64
+        '
+        'GridColumn29
+        '
+        Me.GridColumn29.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn29.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn29.Caption = "FTDivisonCode"
+        Me.GridColumn29.FieldName = "FTDivisonCode"
+        Me.GridColumn29.MinWidth = 17
+        Me.GridColumn29.Name = "GridColumn29"
+        Me.GridColumn29.OptionsColumn.AllowEdit = False
+        Me.GridColumn29.OptionsColumn.ReadOnly = True
+        Me.GridColumn29.Visible = True
+        Me.GridColumn29.VisibleIndex = 3
+        Me.GridColumn29.Width = 64
+        '
+        'GridColumn30
+        '
+        Me.GridColumn30.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn30.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn30.Caption = "FTSectCode"
+        Me.GridColumn30.FieldName = "FTSectCode"
+        Me.GridColumn30.MinWidth = 17
+        Me.GridColumn30.Name = "GridColumn30"
+        Me.GridColumn30.OptionsColumn.AllowEdit = False
+        Me.GridColumn30.OptionsColumn.ReadOnly = True
+        Me.GridColumn30.Visible = True
+        Me.GridColumn30.VisibleIndex = 5
+        Me.GridColumn30.Width = 64
+        '
+        'GridColumn31
+        '
+        Me.GridColumn31.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn31.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn31.Caption = "FTUnitSectCode"
+        Me.GridColumn31.FieldName = "FTUnitSectCode"
+        Me.GridColumn31.MinWidth = 17
+        Me.GridColumn31.Name = "GridColumn31"
+        Me.GridColumn31.OptionsColumn.AllowEdit = False
+        Me.GridColumn31.OptionsColumn.ReadOnly = True
+        Me.GridColumn31.Visible = True
+        Me.GridColumn31.VisibleIndex = 6
+        Me.GridColumn31.Width = 64
+        '
+        'GridColumn32
+        '
+        Me.GridColumn32.AppearanceCell.Options.UseTextOptions = True
+        Me.GridColumn32.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.GridColumn32.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn32.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn32.Caption = "ลากิจธุระอันจำเป็น (covid)"
+        Me.GridColumn32.FieldName = "FNL03Time"
+        Me.GridColumn32.MinWidth = 17
+        Me.GridColumn32.Name = "GridColumn32"
+        Me.GridColumn32.OptionsColumn.AllowEdit = False
+        Me.GridColumn32.OptionsColumn.ReadOnly = True
+        Me.GridColumn32.Visible = True
+        Me.GridColumn32.VisibleIndex = 7
+        Me.GridColumn32.Width = 69
+        '
+        'GridColumn33
+        '
+        Me.GridColumn33.Caption = "วันที่"
+        Me.GridColumn33.FieldName = "FTL03Date"
+        Me.GridColumn33.MinWidth = 17
+        Me.GridColumn33.Name = "GridColumn33"
+        Me.GridColumn33.OptionsColumn.AllowEdit = False
+        Me.GridColumn33.OptionsColumn.ReadOnly = True
+        Me.GridColumn33.Visible = True
+        Me.GridColumn33.VisibleIndex = 8
+        Me.GridColumn33.Width = 171
+        '
+        'otp19
+        '
+        Me.otp19.Controls.Add(Me.ogc24)
+        Me.otp19.Name = "otp19"
+        Me.otp19.Size = New System.Drawing.Size(1109, 317)
+        Me.otp19.Text = "ลาปฏิบัติหน้าที่บิดาระหว่างภรรยาคลอดบุตร"
+        '
+        'ogc24
+        '
+        Me.ogc24.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogc24.Location = New System.Drawing.Point(0, 0)
+        Me.ogc24.MainView = Me.ogv24
+        Me.ogc24.Name = "ogc24"
+        Me.ogc24.Size = New System.Drawing.Size(1109, 317)
+        Me.ogc24.TabIndex = 394
+        Me.ogc24.TabStop = False
+        Me.ogc24.Tag = "2|"
+        Me.ogc24.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogv24})
+        '
+        'ogv24
+        '
+        Me.ogv24.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNHSysEmpID24, Me.FTEmpCode24, Me.FTEmpName24, Me.FTEmpTypeCode24, Me.FTDeptCode24, Me.FTDivisonCode24, Me.FTSectCode24, Me.FTUnitSectCode24, Me.FNL24Time24, Me.FTL24Date24})
+        Me.ogv24.DetailHeight = 284
+        Me.ogv24.GridControl = Me.ogc24
+        Me.ogv24.Name = "ogv24"
+        Me.ogv24.OptionsCustomization.AllowGroup = False
+        Me.ogv24.OptionsCustomization.AllowQuickHideColumns = False
+        Me.ogv24.OptionsView.ColumnAutoWidth = False
+        Me.ogv24.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
+        Me.ogv24.OptionsView.ShowGroupPanel = False
+        Me.ogv24.Tag = "2|"
+        '
+        'FNHSysEmpID24
+        '
+        Me.FNHSysEmpID24.AppearanceHeader.Options.UseTextOptions = True
+        Me.FNHSysEmpID24.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FNHSysEmpID24.Caption = "FNHSysEmpID"
+        Me.FNHSysEmpID24.FieldName = "FNHSysEmpID"
+        Me.FNHSysEmpID24.MinWidth = 17
+        Me.FNHSysEmpID24.Name = "FNHSysEmpID24"
+        Me.FNHSysEmpID24.OptionsColumn.AllowEdit = False
+        Me.FNHSysEmpID24.OptionsColumn.AllowMove = False
+        Me.FNHSysEmpID24.OptionsColumn.ReadOnly = True
+        Me.FNHSysEmpID24.OptionsColumn.TabStop = False
+        Me.FNHSysEmpID24.Width = 64
+        '
+        'FTEmpCode24
+        '
+        Me.FTEmpCode24.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTEmpCode24.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTEmpCode24.Caption = "FTEmpCode"
+        Me.FTEmpCode24.FieldName = "FTEmpCode"
+        Me.FTEmpCode24.MinWidth = 17
+        Me.FTEmpCode24.Name = "FTEmpCode24"
+        Me.FTEmpCode24.OptionsColumn.AllowEdit = False
+        Me.FTEmpCode24.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTEmpCode24.OptionsColumn.ReadOnly = True
+        Me.FTEmpCode24.OptionsColumn.TabStop = False
+        Me.FTEmpCode24.Visible = True
+        Me.FTEmpCode24.VisibleIndex = 0
+        '
+        'FTEmpName24
+        '
+        Me.FTEmpName24.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTEmpName24.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTEmpName24.Caption = "FTEmpName"
+        Me.FTEmpName24.FieldName = "FTEmpName"
+        Me.FTEmpName24.MinWidth = 17
+        Me.FTEmpName24.Name = "FTEmpName24"
+        Me.FTEmpName24.OptionsColumn.AllowEdit = False
+        Me.FTEmpName24.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTEmpName24.OptionsColumn.ReadOnly = True
+        Me.FTEmpName24.OptionsColumn.TabStop = False
+        Me.FTEmpName24.Visible = True
+        Me.FTEmpName24.VisibleIndex = 1
+        Me.FTEmpName24.Width = 213
+        '
+        'FTEmpTypeCode24
+        '
+        Me.FTEmpTypeCode24.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTEmpTypeCode24.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTEmpTypeCode24.Caption = "FTEmpTypeCode"
+        Me.FTEmpTypeCode24.FieldName = "FTEmpTypeCode"
+        Me.FTEmpTypeCode24.MinWidth = 17
+        Me.FTEmpTypeCode24.Name = "FTEmpTypeCode24"
+        Me.FTEmpTypeCode24.OptionsColumn.AllowEdit = False
+        Me.FTEmpTypeCode24.OptionsColumn.ReadOnly = True
+        Me.FTEmpTypeCode24.Visible = True
+        Me.FTEmpTypeCode24.VisibleIndex = 2
+        Me.FTEmpTypeCode24.Width = 64
+        '
+        'FTDeptCode24
+        '
+        Me.FTDeptCode24.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTDeptCode24.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTDeptCode24.Caption = "FTDeptCode"
+        Me.FTDeptCode24.FieldName = "FTDeptCode"
+        Me.FTDeptCode24.MinWidth = 17
+        Me.FTDeptCode24.Name = "FTDeptCode24"
+        Me.FTDeptCode24.OptionsColumn.AllowEdit = False
+        Me.FTDeptCode24.OptionsColumn.ReadOnly = True
+        Me.FTDeptCode24.Visible = True
+        Me.FTDeptCode24.VisibleIndex = 4
+        Me.FTDeptCode24.Width = 64
+        '
+        'FTDivisonCode24
+        '
+        Me.FTDivisonCode24.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTDivisonCode24.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTDivisonCode24.Caption = "FTDivisonCode"
+        Me.FTDivisonCode24.FieldName = "FTDivisonCode"
+        Me.FTDivisonCode24.MinWidth = 17
+        Me.FTDivisonCode24.Name = "FTDivisonCode24"
+        Me.FTDivisonCode24.OptionsColumn.AllowEdit = False
+        Me.FTDivisonCode24.OptionsColumn.ReadOnly = True
+        Me.FTDivisonCode24.Visible = True
+        Me.FTDivisonCode24.VisibleIndex = 3
+        Me.FTDivisonCode24.Width = 64
+        '
+        'FTSectCode24
+        '
+        Me.FTSectCode24.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTSectCode24.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTSectCode24.Caption = "FTSectCode"
+        Me.FTSectCode24.FieldName = "FTSectCode"
+        Me.FTSectCode24.MinWidth = 17
+        Me.FTSectCode24.Name = "FTSectCode24"
+        Me.FTSectCode24.OptionsColumn.AllowEdit = False
+        Me.FTSectCode24.OptionsColumn.ReadOnly = True
+        Me.FTSectCode24.Visible = True
+        Me.FTSectCode24.VisibleIndex = 5
+        Me.FTSectCode24.Width = 64
+        '
+        'FTUnitSectCode24
+        '
+        Me.FTUnitSectCode24.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTUnitSectCode24.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTUnitSectCode24.Caption = "FTUnitSectCode"
+        Me.FTUnitSectCode24.FieldName = "FTUnitSectCode"
+        Me.FTUnitSectCode24.MinWidth = 17
+        Me.FTUnitSectCode24.Name = "FTUnitSectCode24"
+        Me.FTUnitSectCode24.OptionsColumn.AllowEdit = False
+        Me.FTUnitSectCode24.OptionsColumn.ReadOnly = True
+        Me.FTUnitSectCode24.Visible = True
+        Me.FTUnitSectCode24.VisibleIndex = 6
+        Me.FTUnitSectCode24.Width = 64
+        '
+        'FNL24Time24
+        '
+        Me.FNL24Time24.AppearanceCell.Options.UseTextOptions = True
+        Me.FNL24Time24.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FNL24Time24.AppearanceHeader.Options.UseTextOptions = True
+        Me.FNL24Time24.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FNL24Time24.Caption = "ลาปฏิบัติหน้าที่บิดาระหว่างภรรยาคลอดบุตร"
+        Me.FNL24Time24.FieldName = "FNL24Time"
+        Me.FNL24Time24.MinWidth = 17
+        Me.FNL24Time24.Name = "FNL24Time24"
+        Me.FNL24Time24.OptionsColumn.AllowEdit = False
+        Me.FNL24Time24.OptionsColumn.ReadOnly = True
+        Me.FNL24Time24.Visible = True
+        Me.FNL24Time24.VisibleIndex = 7
+        Me.FNL24Time24.Width = 69
+        '
+        'FTL24Date24
+        '
+        Me.FTL24Date24.Caption = "วันที่"
+        Me.FTL24Date24.FieldName = "FTL24Date"
+        Me.FTL24Date24.MinWidth = 17
+        Me.FTL24Date24.Name = "FTL24Date24"
+        Me.FTL24Date24.OptionsColumn.AllowEdit = False
+        Me.FTL24Date24.OptionsColumn.ReadOnly = True
+        Me.FTL24Date24.Visible = True
+        Me.FTL24Date24.VisibleIndex = 8
+        Me.FTL24Date24.Width = 353
         '
         'ogbmainprocbutton
         '
@@ -4222,55 +4968,49 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(33, 7)
-        Me.ogbmainprocbutton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(868, 6)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(736, 181)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(232, 147)
         Me.ogbmainprocbutton.TabIndex = 389
         '
         'ocmvacationpreview
         '
-        Me.ocmvacationpreview.Location = New System.Drawing.Point(366, 66)
-        Me.ocmvacationpreview.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmvacationpreview.Location = New System.Drawing.Point(106, 99)
         Me.ocmvacationpreview.Name = "ocmvacationpreview"
-        Me.ocmvacationpreview.Size = New System.Drawing.Size(87, 28)
+        Me.ocmvacationpreview.Size = New System.Drawing.Size(116, 25)
         Me.ocmvacationpreview.TabIndex = 335
         Me.ocmvacationpreview.Text = "PREVIEWVACATION"
         '
         'ocmexporttoexcel
         '
-        Me.ocmexporttoexcel.Location = New System.Drawing.Point(208, 65)
-        Me.ocmexporttoexcel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmexporttoexcel.Location = New System.Drawing.Point(106, 68)
         Me.ocmexporttoexcel.Name = "ocmexporttoexcel"
-        Me.ocmexporttoexcel.Size = New System.Drawing.Size(136, 28)
+        Me.ocmexporttoexcel.Size = New System.Drawing.Size(116, 25)
         Me.ocmexporttoexcel.TabIndex = 333
         Me.ocmexporttoexcel.Text = "Export to Excel"
         '
         'ocmsavelayout
         '
-        Me.ocmsavelayout.Location = New System.Drawing.Point(42, 66)
-        Me.ocmsavelayout.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmsavelayout.Location = New System.Drawing.Point(106, 6)
         Me.ocmsavelayout.Name = "ocmsavelayout"
-        Me.ocmsavelayout.Size = New System.Drawing.Size(136, 28)
+        Me.ocmsavelayout.Size = New System.Drawing.Size(116, 25)
         Me.ocmsavelayout.TabIndex = 332
         Me.ocmsavelayout.Text = "savelayoutgrid"
         '
         'ocmloadempleaveonly
         '
-        Me.ocmloadempleaveonly.Location = New System.Drawing.Point(253, 26)
-        Me.ocmloadempleaveonly.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmloadempleaveonly.Location = New System.Drawing.Point(106, 37)
         Me.ocmloadempleaveonly.Name = "ocmloadempleaveonly"
-        Me.ocmloadempleaveonly.Size = New System.Drawing.Size(136, 28)
+        Me.ocmloadempleaveonly.Size = New System.Drawing.Size(116, 25)
         Me.ocmloadempleaveonly.TabIndex = 331
         Me.ocmloadempleaveonly.Text = "Load Data Error"
         '
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(492, 64)
-        Me.ocmexit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmexit.Location = New System.Drawing.Point(5, 68)
         Me.ocmexit.Name = "ocmexit"
-        Me.ocmexit.Size = New System.Drawing.Size(111, 31)
+        Me.ocmexit.Size = New System.Drawing.Size(95, 25)
         Me.ocmexit.TabIndex = 96
         Me.ocmexit.TabStop = False
         Me.ocmexit.Tag = "2|"
@@ -4278,10 +5018,9 @@ Partial Class wEmployeeLeaveHistoryListing
         '
         'ocmload
         '
-        Me.ocmload.Location = New System.Drawing.Point(6, 26)
-        Me.ocmload.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmload.Location = New System.Drawing.Point(5, 5)
         Me.ocmload.Name = "ocmload"
-        Me.ocmload.Size = New System.Drawing.Size(111, 31)
+        Me.ocmload.Size = New System.Drawing.Size(95, 26)
         Me.ocmload.TabIndex = 93
         Me.ocmload.TabStop = False
         Me.ocmload.Tag = "2|"
@@ -4289,10 +5028,9 @@ Partial Class wEmployeeLeaveHistoryListing
         '
         'ocmclear
         '
-        Me.ocmclear.Location = New System.Drawing.Point(124, 26)
-        Me.ocmclear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.ocmclear.Location = New System.Drawing.Point(5, 37)
         Me.ocmclear.Name = "ocmclear"
-        Me.ocmclear.Size = New System.Drawing.Size(111, 31)
+        Me.ocmclear.Size = New System.Drawing.Size(95, 25)
         Me.ocmclear.TabIndex = 95
         Me.ocmclear.TabStop = False
         Me.ocmclear.Tag = "2|"
@@ -4311,7 +5049,6 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.ogbheader.ID = New System.Guid("df9946e2-1dfc-4963-959e-edb4d1b386bf")
         Me.ogbheader.ImageOptions.Image = CType(resources.GetObject("ogbheader.ImageOptions.Image"), System.Drawing.Image)
         Me.ogbheader.Location = New System.Drawing.Point(0, 0)
-        Me.ogbheader.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ogbheader.Name = "ogbheader"
         Me.ogbheader.Options.AllowDockAsTabbedDocument = False
         Me.ogbheader.Options.AllowDockBottom = False
@@ -4323,10 +5060,11 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.ogbheader.Options.ShowCloseButton = False
         Me.ogbheader.Options.ShowMaximizeButton = False
         Me.ogbheader.OriginalSize = New System.Drawing.Size(200, 205)
-        Me.ogbheader.Size = New System.Drawing.Size(1301, 205)
+        Me.ogbheader.Size = New System.Drawing.Size(1115, 205)
         '
         'DockPanel1_Container
         '
+        Me.DockPanel1_Container.Controls.Add(Me.ogbmainprocbutton)
         Me.DockPanel1_Container.Controls.Add(Me.FDEndDate)
         Me.DockPanel1_Container.Controls.Add(Me.FDEndDate_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysCmpId_None)
@@ -4367,18 +5105,16 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysDeptId)
         Me.DockPanel1_Container.Controls.Add(Me.LabelControl2)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysUnitSectIdTo)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 32)
-        Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1293, 167)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1109, 175)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FDEndDate
         '
         Me.FDEndDate.EditValue = Nothing
         Me.FDEndDate.EnterMoveNextControl = True
-        Me.FDEndDate.Location = New System.Drawing.Point(565, 187)
-        Me.FDEndDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDEndDate.Location = New System.Drawing.Point(555, 152)
         Me.FDEndDate.Name = "FDEndDate"
         Me.FDEndDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDEndDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -4386,8 +5122,8 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FDEndDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDEndDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDEndDate.Properties.NullDate = ""
-        Me.FDEndDate.Size = New System.Drawing.Size(131, 22)
-        Me.FDEndDate.TabIndex = 284
+        Me.FDEndDate.Size = New System.Drawing.Size(112, 20)
+        Me.FDEndDate.TabIndex = 12
         Me.FDEndDate.Tag = "2|"
         '
         'FDEndDate_lbl
@@ -4397,10 +5133,9 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FDEndDate_lbl.Appearance.Options.UseTextOptions = True
         Me.FDEndDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDEndDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDEndDate_lbl.Location = New System.Drawing.Point(440, 190)
-        Me.FDEndDate_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDEndDate_lbl.Location = New System.Drawing.Point(448, 154)
         Me.FDEndDate_lbl.Name = "FDEndDate_lbl"
-        Me.FDEndDate_lbl.Size = New System.Drawing.Size(122, 23)
+        Me.FDEndDate_lbl.Size = New System.Drawing.Size(105, 19)
         Me.FDEndDate_lbl.TabIndex = 286
         Me.FDEndDate_lbl.Tag = "2|"
         Me.FDEndDate_lbl.Text = "To Date :"
@@ -4409,8 +5144,7 @@ Partial Class wEmployeeLeaveHistoryListing
         '
         Me.FDStartDate.EditValue = Nothing
         Me.FDStartDate.EnterMoveNextControl = True
-        Me.FDStartDate.Location = New System.Drawing.Point(139, 186)
-        Me.FDStartDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FDStartDate.Location = New System.Drawing.Point(119, 151)
         Me.FDStartDate.Name = "FDStartDate"
         Me.FDStartDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FDStartDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -4418,8 +5152,8 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FDStartDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDStartDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
         Me.FDStartDate.Properties.NullDate = ""
-        Me.FDStartDate.Size = New System.Drawing.Size(131, 22)
-        Me.FDStartDate.TabIndex = 283
+        Me.FDStartDate.Size = New System.Drawing.Size(112, 20)
+        Me.FDStartDate.TabIndex = 11
         Me.FDStartDate.Tag = "2|"
         '
         'FTDateRequest_lbl
@@ -4429,345 +5163,20 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.FTDateRequest_lbl.Appearance.Options.UseTextOptions = True
         Me.FTDateRequest_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTDateRequest_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTDateRequest_lbl.Location = New System.Drawing.Point(13, 185)
-        Me.FTDateRequest_lbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.FTDateRequest_lbl.Location = New System.Drawing.Point(11, 150)
         Me.FTDateRequest_lbl.Name = "FTDateRequest_lbl"
-        Me.FTDateRequest_lbl.Size = New System.Drawing.Size(122, 23)
+        Me.FTDateRequest_lbl.Size = New System.Drawing.Size(105, 19)
         Me.FTDateRequest_lbl.TabIndex = 285
         Me.FTDateRequest_lbl.Tag = "2|"
         Me.FTDateRequest_lbl.Text = "Date :"
         '
-        'otp3
-        '
-        Me.otp3.Controls.Add(Me.ogc3)
-        Me.otp3.Name = "otp3"
-        Me.otp3.Size = New System.Drawing.Size(1295, 438)
-        Me.otp3.Text = "ลากิจธุระอันจำเป็น (covid)"
-        '
-        'otp18
-        '
-        Me.otp18.Controls.Add(Me.ogc18)
-        Me.otp18.Name = "otp18"
-        Me.otp18.Size = New System.Drawing.Size(1295, 438)
-        Me.otp18.Text = "ลากักตัว 14 วัน COVID-19"
-        '
-        'ogc3
-        '
-        Me.ogc3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc3.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogc3.Location = New System.Drawing.Point(0, 0)
-        Me.ogc3.MainView = Me.ogv3
-        Me.ogc3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogc3.Name = "ogc3"
-        Me.ogc3.Size = New System.Drawing.Size(1295, 438)
-        Me.ogc3.TabIndex = 393
-        Me.ogc3.TabStop = False
-        Me.ogc3.Tag = "2|"
-        Me.ogc3.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogv3})
-        '
-        'ogv3
-        '
-        Me.ogv3.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn24, Me.GridColumn25, Me.GridColumn26, Me.GridColumn27, Me.GridColumn28, Me.GridColumn29, Me.GridColumn30, Me.GridColumn31, Me.GridColumn32, Me.GridColumn33})
-        Me.ogv3.GridControl = Me.ogc3
-        Me.ogv3.Name = "ogv3"
-        Me.ogv3.OptionsCustomization.AllowGroup = False
-        Me.ogv3.OptionsCustomization.AllowQuickHideColumns = False
-        Me.ogv3.OptionsView.ColumnAutoWidth = False
-        Me.ogv3.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
-        Me.ogv3.OptionsView.ShowGroupPanel = False
-        Me.ogv3.Tag = "2|"
-        '
-        'GridColumn24
-        '
-        Me.GridColumn24.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn24.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn24.Caption = "FNHSysEmpID"
-        Me.GridColumn24.FieldName = "FNHSysEmpID"
-        Me.GridColumn24.Name = "GridColumn24"
-        Me.GridColumn24.OptionsColumn.AllowEdit = False
-        Me.GridColumn24.OptionsColumn.AllowMove = False
-        Me.GridColumn24.OptionsColumn.ReadOnly = True
-        Me.GridColumn24.OptionsColumn.TabStop = False
-        '
-        'GridColumn25
-        '
-        Me.GridColumn25.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn25.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn25.Caption = "FTEmpCode"
-        Me.GridColumn25.FieldName = "FTEmpCode"
-        Me.GridColumn25.Name = "GridColumn25"
-        Me.GridColumn25.OptionsColumn.AllowEdit = False
-        Me.GridColumn25.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn25.OptionsColumn.ReadOnly = True
-        Me.GridColumn25.OptionsColumn.TabStop = False
-        Me.GridColumn25.Visible = True
-        Me.GridColumn25.VisibleIndex = 0
-        Me.GridColumn25.Width = 88
-        '
-        'GridColumn26
-        '
-        Me.GridColumn26.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn26.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn26.Caption = "FTEmpName"
-        Me.GridColumn26.FieldName = "FTEmpName"
-        Me.GridColumn26.Name = "GridColumn26"
-        Me.GridColumn26.OptionsColumn.AllowEdit = False
-        Me.GridColumn26.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn26.OptionsColumn.ReadOnly = True
-        Me.GridColumn26.OptionsColumn.TabStop = False
-        Me.GridColumn26.Visible = True
-        Me.GridColumn26.VisibleIndex = 1
-        Me.GridColumn26.Width = 171
-        '
-        'GridColumn27
-        '
-        Me.GridColumn27.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn27.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn27.Caption = "FTEmpTypeCode"
-        Me.GridColumn27.FieldName = "FTEmpTypeCode"
-        Me.GridColumn27.Name = "GridColumn27"
-        Me.GridColumn27.OptionsColumn.AllowEdit = False
-        Me.GridColumn27.OptionsColumn.ReadOnly = True
-        Me.GridColumn27.Visible = True
-        Me.GridColumn27.VisibleIndex = 2
-        '
-        'GridColumn28
-        '
-        Me.GridColumn28.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn28.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn28.Caption = "FTDeptCode"
-        Me.GridColumn28.FieldName = "FTDeptCode"
-        Me.GridColumn28.Name = "GridColumn28"
-        Me.GridColumn28.OptionsColumn.AllowEdit = False
-        Me.GridColumn28.OptionsColumn.ReadOnly = True
-        Me.GridColumn28.Visible = True
-        Me.GridColumn28.VisibleIndex = 4
-        '
-        'GridColumn29
-        '
-        Me.GridColumn29.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn29.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn29.Caption = "FTDivisonCode"
-        Me.GridColumn29.FieldName = "FTDivisonCode"
-        Me.GridColumn29.Name = "GridColumn29"
-        Me.GridColumn29.OptionsColumn.AllowEdit = False
-        Me.GridColumn29.OptionsColumn.ReadOnly = True
-        Me.GridColumn29.Visible = True
-        Me.GridColumn29.VisibleIndex = 3
-        '
-        'GridColumn30
-        '
-        Me.GridColumn30.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn30.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn30.Caption = "FTSectCode"
-        Me.GridColumn30.FieldName = "FTSectCode"
-        Me.GridColumn30.Name = "GridColumn30"
-        Me.GridColumn30.OptionsColumn.AllowEdit = False
-        Me.GridColumn30.OptionsColumn.ReadOnly = True
-        Me.GridColumn30.Visible = True
-        Me.GridColumn30.VisibleIndex = 5
-        '
-        'GridColumn31
-        '
-        Me.GridColumn31.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn31.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn31.Caption = "FTUnitSectCode"
-        Me.GridColumn31.FieldName = "FTUnitSectCode"
-        Me.GridColumn31.Name = "GridColumn31"
-        Me.GridColumn31.OptionsColumn.AllowEdit = False
-        Me.GridColumn31.OptionsColumn.ReadOnly = True
-        Me.GridColumn31.Visible = True
-        Me.GridColumn31.VisibleIndex = 6
-        '
-        'GridColumn32
-        '
-        Me.GridColumn32.AppearanceCell.Options.UseTextOptions = True
-        Me.GridColumn32.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.GridColumn32.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn32.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn32.Caption = "ลากิจธุระอันจำเป็น (covid)"
-        Me.GridColumn32.FieldName = "FNL03Time"
-        Me.GridColumn32.Name = "GridColumn32"
-        Me.GridColumn32.OptionsColumn.AllowEdit = False
-        Me.GridColumn32.OptionsColumn.ReadOnly = True
-        Me.GridColumn32.Visible = True
-        Me.GridColumn32.VisibleIndex = 7
-        Me.GridColumn32.Width = 80
-        '
-        'GridColumn33
-        '
-        Me.GridColumn33.Caption = "วันที่"
-        Me.GridColumn33.FieldName = "FTL03Date"
-        Me.GridColumn33.Name = "GridColumn33"
-        Me.GridColumn33.OptionsColumn.AllowEdit = False
-        Me.GridColumn33.OptionsColumn.ReadOnly = True
-        Me.GridColumn33.Visible = True
-        Me.GridColumn33.VisibleIndex = 8
-        Me.GridColumn33.Width = 200
-        '
-        'ogc18
-        '
-        Me.ogc18.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogc18.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogc18.Location = New System.Drawing.Point(0, 0)
-        Me.ogc18.MainView = Me.ogv18
-        Me.ogc18.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ogc18.Name = "ogc18"
-        Me.ogc18.Size = New System.Drawing.Size(1295, 438)
-        Me.ogc18.TabIndex = 393
-        Me.ogc18.TabStop = False
-        Me.ogc18.Tag = "2|"
-        Me.ogc18.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogv18})
-        '
-        'ogv18
-        '
-        Me.ogv18.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn34, Me.GridColumn35, Me.GridColumn36, Me.GridColumn37, Me.GridColumn38, Me.GridColumn39, Me.GridColumn40, Me.GridColumn41, Me.GridColumn42, Me.GridColumn43})
-        Me.ogv18.GridControl = Me.ogc18
-        Me.ogv18.Name = "ogv18"
-        Me.ogv18.OptionsCustomization.AllowGroup = False
-        Me.ogv18.OptionsCustomization.AllowQuickHideColumns = False
-        Me.ogv18.OptionsView.ColumnAutoWidth = False
-        Me.ogv18.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
-        Me.ogv18.OptionsView.ShowGroupPanel = False
-        Me.ogv18.Tag = "2|"
-        '
-        'GridColumn34
-        '
-        Me.GridColumn34.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn34.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn34.Caption = "FNHSysEmpID"
-        Me.GridColumn34.FieldName = "FNHSysEmpID"
-        Me.GridColumn34.Name = "GridColumn34"
-        Me.GridColumn34.OptionsColumn.AllowEdit = False
-        Me.GridColumn34.OptionsColumn.AllowMove = False
-        Me.GridColumn34.OptionsColumn.ReadOnly = True
-        Me.GridColumn34.OptionsColumn.TabStop = False
-        '
-        'GridColumn35
-        '
-        Me.GridColumn35.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn35.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn35.Caption = "FTEmpCode"
-        Me.GridColumn35.FieldName = "FTEmpCode"
-        Me.GridColumn35.Name = "GridColumn35"
-        Me.GridColumn35.OptionsColumn.AllowEdit = False
-        Me.GridColumn35.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn35.OptionsColumn.ReadOnly = True
-        Me.GridColumn35.OptionsColumn.TabStop = False
-        Me.GridColumn35.Visible = True
-        Me.GridColumn35.VisibleIndex = 0
-        Me.GridColumn35.Width = 88
-        '
-        'GridColumn36
-        '
-        Me.GridColumn36.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn36.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn36.Caption = "FTEmpName"
-        Me.GridColumn36.FieldName = "FTEmpName"
-        Me.GridColumn36.Name = "GridColumn36"
-        Me.GridColumn36.OptionsColumn.AllowEdit = False
-        Me.GridColumn36.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridColumn36.OptionsColumn.ReadOnly = True
-        Me.GridColumn36.OptionsColumn.TabStop = False
-        Me.GridColumn36.Visible = True
-        Me.GridColumn36.VisibleIndex = 1
-        Me.GridColumn36.Width = 171
-        '
-        'GridColumn37
-        '
-        Me.GridColumn37.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn37.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn37.Caption = "FTEmpTypeCode"
-        Me.GridColumn37.FieldName = "FTEmpTypeCode"
-        Me.GridColumn37.Name = "GridColumn37"
-        Me.GridColumn37.OptionsColumn.AllowEdit = False
-        Me.GridColumn37.OptionsColumn.ReadOnly = True
-        Me.GridColumn37.Visible = True
-        Me.GridColumn37.VisibleIndex = 2
-        '
-        'GridColumn38
-        '
-        Me.GridColumn38.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn38.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn38.Caption = "FTDeptCode"
-        Me.GridColumn38.FieldName = "FTDeptCode"
-        Me.GridColumn38.Name = "GridColumn38"
-        Me.GridColumn38.OptionsColumn.AllowEdit = False
-        Me.GridColumn38.OptionsColumn.ReadOnly = True
-        Me.GridColumn38.Visible = True
-        Me.GridColumn38.VisibleIndex = 4
-        '
-        'GridColumn39
-        '
-        Me.GridColumn39.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn39.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn39.Caption = "FTDivisonCode"
-        Me.GridColumn39.FieldName = "FTDivisonCode"
-        Me.GridColumn39.Name = "GridColumn39"
-        Me.GridColumn39.OptionsColumn.AllowEdit = False
-        Me.GridColumn39.OptionsColumn.ReadOnly = True
-        Me.GridColumn39.Visible = True
-        Me.GridColumn39.VisibleIndex = 3
-        '
-        'GridColumn40
-        '
-        Me.GridColumn40.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn40.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn40.Caption = "FTSectCode"
-        Me.GridColumn40.FieldName = "FTSectCode"
-        Me.GridColumn40.Name = "GridColumn40"
-        Me.GridColumn40.OptionsColumn.AllowEdit = False
-        Me.GridColumn40.OptionsColumn.ReadOnly = True
-        Me.GridColumn40.Visible = True
-        Me.GridColumn40.VisibleIndex = 5
-        '
-        'GridColumn41
-        '
-        Me.GridColumn41.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn41.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn41.Caption = "FTUnitSectCode"
-        Me.GridColumn41.FieldName = "FTUnitSectCode"
-        Me.GridColumn41.Name = "GridColumn41"
-        Me.GridColumn41.OptionsColumn.AllowEdit = False
-        Me.GridColumn41.OptionsColumn.ReadOnly = True
-        Me.GridColumn41.Visible = True
-        Me.GridColumn41.VisibleIndex = 6
-        '
-        'GridColumn42
-        '
-        Me.GridColumn42.AppearanceCell.Options.UseTextOptions = True
-        Me.GridColumn42.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.GridColumn42.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn42.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn42.Caption = "กักตัว 14 วันเชื้อไวรัส Covic 19"
-        Me.GridColumn42.FieldName = "FNL18Time"
-        Me.GridColumn42.Name = "GridColumn42"
-        Me.GridColumn42.OptionsColumn.AllowEdit = False
-        Me.GridColumn42.OptionsColumn.ReadOnly = True
-        Me.GridColumn42.Visible = True
-        Me.GridColumn42.VisibleIndex = 7
-        Me.GridColumn42.Width = 80
-        '
-        'GridColumn43
-        '
-        Me.GridColumn43.Caption = "วันที่"
-        Me.GridColumn43.FieldName = "FTL18Date"
-        Me.GridColumn43.Name = "GridColumn43"
-        Me.GridColumn43.OptionsColumn.AllowEdit = False
-        Me.GridColumn43.OptionsColumn.ReadOnly = True
-        Me.GridColumn43.Visible = True
-        Me.GridColumn43.VisibleIndex = 8
-        Me.GridColumn43.Width = 200
-        '
         'wEmployeeLeaveHistoryListing
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1301, 704)
-        Me.Controls.Add(Me.ogbmainprocbutton)
+        Me.ClientSize = New System.Drawing.Size(1115, 572)
         Me.Controls.Add(Me.ogbemployee)
         Me.Controls.Add(Me.ogbheader)
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "wEmployeeLeaveHistoryListing"
         Me.Text = "กำหนดวันหยุดประจำสัปดาห์"
         CType(Me.FNHSysCmpId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -4798,9 +5207,9 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.ogbemployee.ResumeLayout(False)
         CType(Me.otb, System.ComponentModel.ISupportInitialize).EndInit()
         Me.otb.ResumeLayout(False)
-        Me.otp17.ResumeLayout(False)
-        CType(Me.ogc17, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogv17, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.otp18.ResumeLayout(False)
+        CType(Me.ogc18, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogv18, System.ComponentModel.ISupportInitialize).EndInit()
         Me.otpsummary.ResumeLayout(False)
         CType(Me.ogc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogv, System.ComponentModel.ISupportInitialize).EndInit()
@@ -4877,6 +5286,15 @@ Partial Class wEmployeeLeaveHistoryListing
         Me.otp02.ResumeLayout(False)
         CType(Me.ogc2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogv2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.otp17.ResumeLayout(False)
+        CType(Me.ogc17, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogv17, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.otp3.ResumeLayout(False)
+        CType(Me.ogc3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogv3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.otp19.ResumeLayout(False)
+        CType(Me.ogc24, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ogv24, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbmainprocbutton.ResumeLayout(False)
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).EndInit()
@@ -4886,12 +5304,6 @@ Partial Class wEmployeeLeaveHistoryListing
         CType(Me.FDEndDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FDStartDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FDStartDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.otp3.ResumeLayout(False)
-        Me.otp18.ResumeLayout(False)
-        CType(Me.ogc3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogv3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogc18, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogv18, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -5237,4 +5649,18 @@ Partial Class wEmployeeLeaveHistoryListing
     Friend WithEvents GridColumn31 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn32 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn33 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents otp19 As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents ogc24 As DevExpress.XtraGrid.GridControl
+    Friend WithEvents ogv24 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents FNHSysEmpID24 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTEmpCode24 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTEmpName24 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTEmpTypeCode24 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTDeptCode24 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTDivisonCode24 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSectCode24 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTUnitSectCode24 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNL24Time24 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTL24Date24 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FNL24Time As DevExpress.XtraGrid.Columns.GridColumn
 End Class

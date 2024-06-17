@@ -453,6 +453,12 @@
     <Compile Include="Tracking\wProdGradeActual.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Tracking\wProdCartonScanPackTracking.Designer.vb">
+      <DependentUpon>wProdCartonScanPackTracking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wProdCartonScanPackTracking.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Tracking\wProdOrderTrackingByLineBysub.Designer.vb">
       <DependentUpon>wProdOrderTrackingByLineBysub.vb</DependentUpon>
     </Compile>
@@ -763,6 +769,12 @@
       <DependentUpon>wPurchaseSendSupl_CVN.vb</DependentUpon>
     </Compile>
     <Compile Include="TransactionProd\wPurchaseSendSupl_CVN.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransactionProd\wQCSendSuplRfid.designer.vb">
+      <DependentUpon>wQCSendSuplRfid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionProd\wQCSendSuplRfid.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TransactionProd\wQCSendSupllist.Designer.vb">
@@ -1088,6 +1100,9 @@
     <EmbeddedResource Include="Tracking\wProdGradeActual.resx">
       <DependentUpon>wProdGradeActual.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wProdCartonScanPackTracking.resx">
+      <DependentUpon>wProdCartonScanPackTracking.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tracking\wProdOrderTrackingByLineBysub.resx">
       <DependentUpon>wProdOrderTrackingByLineBysub.vb</DependentUpon>
     </EmbeddedResource>
@@ -1244,6 +1259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransactionProd\wPurchaseSendSupl_CVN.resx">
       <DependentUpon>wPurchaseSendSupl_CVN.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransactionProd\wQCSendSuplRfid.resx">
+      <DependentUpon>wQCSendSuplRfid.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransactionProd\wQCSendSupllist.resx">
       <DependentUpon>wQCSendSupllist.vb</DependentUpon>

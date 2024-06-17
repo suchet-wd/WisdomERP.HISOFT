@@ -386,10 +386,10 @@
     <Content Include="24.ico" />
     <Content Include="6-10-2556 14-38-01.ico" />
     <Content Include="96.ico" />
-    <Content Include="bin\Debug\DatabaseWSMCENTER.xml" />
+    <Content Include="bin\Debug\DatabaseCenter.xml" />
     <Content Include="bin\Debug\DatabaseMer.xml" />
-    <Content Include="bin\Debug\Database91.xml" />
-    <Content Include="bin\Debug\DatabaseChet.xml" />
+    <Content Include="bin\Debug\Database.xml" />
+    <Content Include="bin\Debug\DatabaseCHET.xml" />
     <Content Include="bin\Debug\DatabaseWisdom.xml" />
     <Content Include="bin\Debug\NikeFileInvoice.xml" />
     <Content Include="Wisdom.ico" />

@@ -134,9 +134,6 @@ Public Class wEmployeeLeaveHistoryListing
 #End Region
 #Region "MAIN PROC"
 
-
-
-
     Private Sub ProcessClear(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmclear.Click
 
         Me.ogc.DataSource = Nothing
@@ -144,8 +141,6 @@ Public Class wEmployeeLeaveHistoryListing
 
     End Sub
 
-    Private Sub ProcessPreview(ByVal sender As System.Object, ByVal e As System.EventArgs)
-    End Sub
 
     Private Sub ProcessClose(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmexit.Click
         Me.Close()
@@ -167,7 +162,7 @@ Public Class wEmployeeLeaveHistoryListing
         _Qry = "DELETE FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTempEmpLeaveHistory  WHERE  UserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
         HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_HR)
 
-        _Qry = " SELECT     M.FNHSysEmpID, M.FTEmpCode"
+        _Qry = "SELECT M.FNHSysEmpID, M.FTEmpCode"
         _Qry &= vbCrLf & " FROM        [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) INNER JOIN"
         _Qry &= vbCrLf & "     [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMPrename AS P WITH (NOLOCK) ON M.FNHSysPreNameId = P.FNHSysPreNameId INNER JOIN"
         _Qry &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMTimeShift AS SH WITH (NOLOCK) ON M.FNHSysShiftID = SH.FNHSysShiftID "
@@ -251,53 +246,57 @@ Public Class wEmployeeLeaveHistoryListing
 
         Next
 
-        _Qry = " SELECT       M.FNHSysEmpID, M.FTEmpCode"
+        _Qry = "SELECT M.FNHSysEmpID, M.FTEmpCode"
 
         If HI.ST.Lang.Language = HI.ST.SysInfo.LanguageLocal  Then
-            _Qry &= vbCrLf & "  ,P.FTPreNameNameTH + ' ' + M.FTEmpNameTH + '  ' + M.FTEmpSurnameTH AS FTEmpName"
-            _Qry &= vbCrLf & "  ,ET.FTEmpTypeNameTH  AS FTEmpTypeName "
-            _Qry &= vbCrLf & "  ,Dept.FTDeptDescTH  AS FTDeptName "
-            _Qry &= vbCrLf & "  ,DI.FTDivisonNameTH  AS FTDivisonName "
-            _Qry &= vbCrLf & "  ,ST.FTSectNameTH  AS FTSectName "
-            _Qry &= vbCrLf & "  ,US.FTUnitSectNameTH  AS FTUnitSectName "
-            _Qry &= vbCrLf & "  ,OrgPosit.FTPositNameTH  AS FTPositName "
+            _Qry &= vbCrLf & ", P.FTPreNameNameTH + ' ' + M.FTEmpNameTH + '  ' + M.FTEmpSurnameTH AS FTEmpName"
+            _Qry &= vbCrLf & ", ET.FTEmpTypeNameTH  AS FTEmpTypeName "
+            _Qry &= vbCrLf & ", Dept.FTDeptDescTH  AS FTDeptName "
+            _Qry &= vbCrLf & ", DI.FTDivisonNameTH  AS FTDivisonName "
+            _Qry &= vbCrLf & ", ST.FTSectNameTH  AS FTSectName "
+            _Qry &= vbCrLf & ", US.FTUnitSectNameTH  AS FTUnitSectName "
+            _Qry &= vbCrLf & ", OrgPosit.FTPositNameTH  AS FTPositName "
         Else
-            _Qry &= vbCrLf & "  ,P.FTPreNameNameEN + ' ' + M.FTEmpNameEN + '  ' + M.FTEmpSurnameEN AS FTEmpName"
-            _Qry &= vbCrLf & "  ,ET.FTEmpTypeNameEN  AS FTEmpTypeName "
-            _Qry &= vbCrLf & "  ,Dept.FTDeptDescEN  AS FTDeptName "
-            _Qry &= vbCrLf & "  ,DI.FTDivisonNameEN  AS FTDivisonName "
-            _Qry &= vbCrLf & "  ,ST.FTSectNameEN  AS FTSectName "
-            _Qry &= vbCrLf & "  ,US.FTUnitSectNameEN  AS FTUnitSectName "
-            _Qry &= vbCrLf & "  ,OrgPosit.FTPositNameEN  AS FTPositName "
+            _Qry &= vbCrLf & ", P.FTPreNameNameEN + ' ' + M.FTEmpNameEN + '  ' + M.FTEmpSurnameEN AS FTEmpName"
+            _Qry &= vbCrLf & ", ET.FTEmpTypeNameEN  AS FTEmpTypeName "
+            _Qry &= vbCrLf & ", Dept.FTDeptDescEN  AS FTDeptName "
+            _Qry &= vbCrLf & ", DI.FTDivisonNameEN  AS FTDivisonName "
+            _Qry &= vbCrLf & ", ST.FTSectNameEN  AS FTSectName "
+            _Qry &= vbCrLf & ", US.FTUnitSectNameEN  AS FTUnitSectName "
+            _Qry &= vbCrLf & ", OrgPosit.FTPositNameEN  AS FTPositName "
         End If
 
-        _Qry &= vbCrLf & " , ISNULL(ET.FTEmpTypeCode,'') AS FTEmpTypeCode "
-        _Qry &= vbCrLf & " , ISNULL(Dept.FTDeptCode,'') AS FTDeptCode, ISNULL(DI.FTDivisonCode,'') AS FTDivisonCode"
-        _Qry &= vbCrLf & " , ISNULL(ST.FTSectCode,'') AS FTSectCode,ISNULL(US.FTUnitSectCode,'') AS FTUnitSectCode"
-        _Qry &= vbCrLf & " , OrgPosit.FTPositCode "
+        _Qry &= vbCrLf & ", ISNULL(ET.FTEmpTypeCode,'') AS FTEmpTypeCode "
+        _Qry &= vbCrLf & ", ISNULL(Dept.FTDeptCode,'') AS FTDeptCode, ISNULL(DI.FTDivisonCode,'') AS FTDivisonCode"
+        _Qry &= vbCrLf & ", ISNULL(ST.FTSectCode,'') AS FTSectCode,ISNULL(US.FTUnitSectCode,'') AS FTUnitSectCode"
+        _Qry &= vbCrLf & ", OrgPosit.FTPositCode "
 
-        _Qry &= vbCrLf & " ,TT.FNL00Min, TT.FNL00Time, TT.FNL01Min, TT.FNL01Time, TT.FNL04Min, TT.FNL04Time"
-        _Qry &= vbCrLf & " , TT.FNL05Min, TT.FNL05Time, TT.FNL06Min, TT.FNL06Time, TT.FNL07Min, TT.FNL07Time, TT.FNL08Min, TT.FNL08Time"
-        _Qry &= vbCrLf & " ,TT.FNL09Min, TT.FNL09Time, TT.FNL97Min, TT.FNL97Time, TT.FNL98Min, TT.FNL98Time, TT.FNL99Min, TT.FNL99Time, TT.FNL16Min, TT.FNL16Time, TT.FNL02Min, TT.FNL02Time, TT.FNL17Min, TT.FNL17Time, TT.FNL03Min, TT.FNL03Time, TT.FNL18Min, TT.FNL18Time,TT.FNTotal"
-        _Qry &= vbCrLf & " ,TT.FTL00Date, TT.FTL01Date, TT.FTL04Date, TT.FTL05Date, TT.FTL06Date"
-        _Qry &= vbCrLf & " , TT.FTL07Date, TT.FTL08Date, TT.FTL09Date, TT.FTL97Date, TT.FTL98Date, TT.FTL99Date, TT.FTL16Date, TT.FTL02Date, TT.FTL17Date , TT.FTL03Date, TT.FTL18Date "
+        _Qry &= vbCrLf & ", TT.FNL00Min, TT.FNL00Time, TT.FNL01Min, TT.FNL01Time, TT.FNL04Min, TT.FNL04Time"
+        _Qry &= vbCrLf & ", TT.FNL05Min, TT.FNL05Time, TT.FNL06Min, TT.FNL06Time, TT.FNL07Min, TT.FNL07Time"
+        _Qry &= vbCrLf & ", TT.FNL08Min, TT.FNL08Time, TT.FNL09Min, TT.FNL09Time, TT.FNL97Min, TT.FNL97Time"
+        _Qry &= vbCrLf & ", TT.FNL98Min, TT.FNL98Time, TT.FNL99Min, TT.FNL99Time, TT.FNL16Min, TT.FNL16Time"
+        _Qry &= vbCrLf & ", TT.FNL02Min, TT.FNL02Time, TT.FNL17Min, TT.FNL17Time, TT.FNL03Min, TT.FNL03Time"
+        _Qry &= vbCrLf & ", TT.FNL18Min, TT.FNL18Time, TT.FNL24Min, TT.FNL24Time, TT.FNTotal"
+        _Qry &= vbCrLf & ", TT.FTL00Date, TT.FTL01Date, TT.FTL04Date, TT.FTL05Date, TT.FTL06Date, TT.FTL07Date"
+        _Qry &= vbCrLf & ", TT.FTL08Date, TT.FTL09Date, TT.FTL97Date, TT.FTL98Date, TT.FTL99Date, TT.FTL16Date"
+        _Qry &= vbCrLf & ", TT.FTL02Date, TT.FTL17Date, TT.FTL03Date, TT.FTL18Date, TT.FTL24Date "
 
-        _Qry &= vbCrLf & " ,TT.FNLateMin, TT.FNLateTime, TT.FNLateDate, TT.FNAbsentMin, TT.FNAbsentTime, TT.FNAbsentDate"
-        _Qry &= vbCrLf & "  FROM            [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) INNER JOIN"
-        _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMPrename AS P WITH (NOLOCK) ON M.FNHSysPreNameId = P.FNHSysPreNameId INNER JOIN"
-        _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType AS ET WITH (NOLOCK) ON M.FNHSysEmpTypeId = ET.FNHSysEmpTypeId LEFT OUTER JOIN"
-        _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMDepartment AS Dept WITH (Nolock) ON M.FNHSysDeptId = Dept.FNHSysDeptId LEFT OUTER JOIN"
-        _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMDivision AS DI WITH (NOLOCK) ON M.FNHSysDivisonId = DI.FNHSysDivisonId LEFT OUTER JOIN"
-        _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSect AS ST WITH (NOLOCK) ON M.FNHSysSectId = ST.FNHSysSectId LEFT OUTER JOIN"
-        _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect AS US WITH (NOLOCK) ON M.FNHSysUnitSectId = US.FNHSysUnitSectId LEFT OUTER JOIN"
-        _Qry &= vbCrLf & "  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMPosition AS OrgPosit WITH (NOLOCK) ON M.FNHSysPositId = OrgPosit.FNHSysPositId "
-        _Qry &= vbCrLf & "  INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTempEmpLeaveHistory AS TT WITH(NOLOCK)"
-        _Qry &= vbCrLf & "  ON  M.FNHSysEmpID = TT.FNHSysEmpID "
-        _Qry &= vbCrLf & "  WHERE  TT.UserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  AND   M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & "  "
+        _Qry &= vbCrLf & ", TT.FNLateMin, TT.FNLateTime, TT.FNLateDate, TT.FNAbsentMin, TT.FNAbsentTime, TT.FNAbsentDate"
+        _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRMEmployee AS M WITH (NOLOCK) "
+        _Qry &= vbCrLf & "INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMPrename AS P WITH (NOLOCK) ON M.FNHSysPreNameId = P.FNHSysPreNameId "
+        _Qry &= vbCrLf & "INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.THRMEmpType AS ET WITH (NOLOCK) ON M.FNHSysEmpTypeId = ET.FNHSysEmpTypeId "
+        _Qry &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMDepartment AS Dept WITH (Nolock) ON M.FNHSysDeptId = Dept.FNHSysDeptId "
+        _Qry &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMDivision AS DI WITH (NOLOCK) ON M.FNHSysDivisonId = DI.FNHSysDivisonId "
+        _Qry &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMSect AS ST WITH (NOLOCK) ON M.FNHSysSectId = ST.FNHSysSectId "
+        _Qry &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnitSect AS US WITH (NOLOCK) ON M.FNHSysUnitSectId = US.FNHSysUnitSectId "
+        _Qry &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMPosition AS OrgPosit WITH (NOLOCK) ON M.FNHSysPositId = OrgPosit.FNHSysPositId "
+        _Qry &= vbCrLf & "INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_HR) & "].dbo.THRTTempEmpLeaveHistory AS TT WITH(NOLOCK) ON  M.FNHSysEmpID = TT.FNHSysEmpID"
+        '_Qry &= vbCrLf & "   "
+        _Qry &= vbCrLf & "WHERE TT.UserLogin='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' AND M.FNHSysCmpId =" & HI.ST.SysInfo.CmpID & "  "
 
 
         If (StateLeaveOnly) Then
-            _Qry &= vbCrLf & "  AND TT.FNTotal > 0  "
+            _Qry &= vbCrLf & " AND TT.FNTotal > 0  "
         End If
 
         _Dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
@@ -370,7 +369,6 @@ Public Class wEmployeeLeaveHistoryListing
             _Dt.Select("FNL16Min>0").CopyToDataTable(tmpdt, LoadOption.Upsert)
             Me.ogc16.DataSource = tmpdt.Copy
 
-
             tmpdt.Rows.Clear()
             _Dt.Select("FNL17Min>0").CopyToDataTable(tmpdt, LoadOption.Upsert)
             Me.ogc17.DataSource = tmpdt.Copy
@@ -387,6 +385,9 @@ Public Class wEmployeeLeaveHistoryListing
             _Dt.Select("FNL18Min>0").CopyToDataTable(tmpdt, LoadOption.Upsert)
             Me.ogc18.DataSource = tmpdt.Copy
 
+            tmpdt.Rows.Clear()
+            _Dt.Select("FNL24Min>0").CopyToDataTable(tmpdt, LoadOption.Upsert)
+            Me.ogc24.DataSource = tmpdt.Copy
 
         Catch ex As Exception
 
@@ -413,9 +414,9 @@ Public Class wEmployeeLeaveHistoryListing
         End If
     End Sub
 
-    Private Sub wEmployeeWeekly_BackgroundImageLayoutChanged(sender As Object, e As System.EventArgs) Handles Me.BackgroundImageLayoutChanged
+    'Private Sub wEmployeeWeekly_BackgroundImageLayoutChanged(sender As Object, e As System.EventArgs) Handles Me.BackgroundImageLayoutChanged
 
-    End Sub
+    'End Sub
 
     Private Sub wEmployeeWeekly_Load(sender As Object, e As System.EventArgs) Handles Me.Load
         Me.FNHSysCmpId.Text = HI.ST.SysInfo.CmpCode
@@ -432,7 +433,6 @@ Public Class wEmployeeLeaveHistoryListing
                 End If
             Catch ex As Exception
             End Try
-
 
         End With
     End Sub
@@ -520,6 +520,10 @@ Public Class wEmployeeLeaveHistoryListing
 
     Private Sub ogv18_RowCountChanged(sender As Object, e As EventArgs) Handles ogv18.RowCountChanged
         Me.otp18.PageVisible = (ogv18.RowCount > 0)
+    End Sub
+
+    Private Sub ogv24_RowCountChanged(sender As Object, e As EventArgs) Handles ogv24.RowCountChanged
+        Me.otp19.PageVisible = (ogv24.RowCount > 0)
     End Sub
 
     Private Sub ocmexporttoexcel_Click(sender As Object, e As EventArgs) Handles ocmexporttoexcel.Click
@@ -941,6 +945,6 @@ Public Class wEmployeeLeaveHistoryListing
             FDEndDate.Focus()
         End If
 
-             
     End Sub
+
 End Class

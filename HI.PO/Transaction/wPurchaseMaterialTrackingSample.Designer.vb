@@ -2225,8 +2225,6 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FNDocType.FieldName = "FNDocType"
         Me.FNDocType.Name = "FNDocType"
         Me.FNDocType.OptionsColumn.AllowEdit = False
-        Me.FNDocType.Visible = True
-        Me.FNDocType.VisibleIndex = 77
         '
         'RepositoryItemMemoExEditTrackNote
         '
