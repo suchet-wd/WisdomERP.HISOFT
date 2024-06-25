@@ -86,19 +86,32 @@ Partial Class wProdCartonScanPackTracking
         Me.ogbdetail = New DevExpress.XtraEditors.GroupControl()
         Me.ogcdetailcolorsizeline = New DevExpress.XtraTab.XtraTabControl()
         Me.otbdetailcolorsize = New DevExpress.XtraTab.XtraTabPage()
+        Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
+        Me.ocmsavelayout = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmload = New DevExpress.XtraEditors.SimpleButton()
         Me.ogcdetailcolorsize = New DevExpress.XtraGrid.GridControl()
         Me.ogvdetailcolorsize = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.CFDInsDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTScanByClose = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTScanDateClose = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTScanTimeClose = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTScanByStart = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTScanDateStart = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTScanTimeStart = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTScanByEnd = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTScanDateEnd = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTScanTimeEnd = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CDFTOrderNo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CDFTSubOrderNo = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.CFTStyleCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CFTCustomerPO = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CDFTPackNo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CDFNCartonNo = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.CDFTColorway = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.CDFTPOLine = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.CDFTSizeBreakDown = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CDFNScanQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.CDFTSizeBreakDown = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.CFTStyleCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.CDFTPOLine = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.CDFTColorway = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.otbsummary = New DevExpress.XtraTab.XtraTabPage()
         Me.ogdtime = New DevExpress.XtraGrid.GridControl()
         Me.ogvtime = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -113,11 +126,7 @@ Partial Class wProdCartonScanPackTracking
         Me.CXFNTotalScarpCartonQty = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CXFNTotalScanQuantity = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
-        Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
-        Me.ocmsavelayout = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmload = New DevExpress.XtraEditors.SimpleButton()
+        Me.chkShow = New DevExpress.XtraEditors.CheckEdit()
         Me.ogbheader.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
         CType(Me.FDDateTo.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -137,14 +146,15 @@ Partial Class wProdCartonScanPackTracking
         CType(Me.ogcdetailcolorsizeline, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogcdetailcolorsizeline.SuspendLayout()
         Me.otbdetailcolorsize.SuspendLayout()
+        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ogbmainprocbutton.SuspendLayout()
         CType(Me.ogcdetailcolorsize, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvdetailcolorsize, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.otbsummary.SuspendLayout()
         CType(Me.ogdtime, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvtime, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbmainprocbutton.SuspendLayout()
+        CType(Me.chkShow.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ogbheader
@@ -167,13 +177,14 @@ Partial Class wProdCartonScanPackTracking
         Me.ogbheader.Options.FloatOnDblClick = False
         Me.ogbheader.Options.ShowCloseButton = False
         Me.ogbheader.Options.ShowMaximizeButton = False
-        Me.ogbheader.OriginalSize = New System.Drawing.Size(1326, 170)
-        Me.ogbheader.Size = New System.Drawing.Size(1137, 138)
+        Me.ogbheader.OriginalSize = New System.Drawing.Size(1137, 136)
+        Me.ogbheader.Size = New System.Drawing.Size(1137, 136)
         Me.ogbheader.TabStop = False
         Me.ogbheader.Text = "Criteria"
         '
         'DockPanel1_Container
         '
+        Me.DockPanel1_Container.Controls.Add(Me.chkShow)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysPOIDToTo_lbl)
         Me.DockPanel1_Container.Controls.Add(Me.FDDateTo)
         Me.DockPanel1_Container.Controls.Add(Me.FNHSysStyleIdTo_lbl)
@@ -196,7 +207,7 @@ Partial Class wProdCartonScanPackTracking
         Me.DockPanel1_Container.Controls.Add(Me.FTSubOrderNo_lbl)
         Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(1131, 108)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(1131, 106)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FNHSysPOIDToTo_lbl
@@ -206,9 +217,9 @@ Partial Class wProdCartonScanPackTracking
         Me.FNHSysPOIDToTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysPOIDToTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysPOIDToTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysPOIDToTo_lbl.Location = New System.Drawing.Point(321, 110)
+        Me.FNHSysPOIDToTo_lbl.Location = New System.Drawing.Point(332, 81)
         Me.FNHSysPOIDToTo_lbl.Name = "FNHSysPOIDToTo_lbl"
-        Me.FNHSysPOIDToTo_lbl.Size = New System.Drawing.Size(56, 19)
+        Me.FNHSysPOIDToTo_lbl.Size = New System.Drawing.Size(144, 19)
         Me.FNHSysPOIDToTo_lbl.TabIndex = 408
         Me.FNHSysPOIDToTo_lbl.Tag = "2|"
         Me.FNHSysPOIDToTo_lbl.Text = "To  :"
@@ -216,7 +227,7 @@ Partial Class wProdCartonScanPackTracking
         'FDDateTo
         '
         Me.FDDateTo.EditValue = Nothing
-        Me.FDDateTo.Location = New System.Drawing.Point(383, 2)
+        Me.FDDateTo.Location = New System.Drawing.Point(482, 3)
         Me.FDDateTo.Name = "FDDateTo"
         Me.FDDateTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FDDateTo.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -230,12 +241,13 @@ Partial Class wProdCartonScanPackTracking
         Me.FNHSysStyleIdTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysStyleIdTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysStyleIdTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysStyleIdTo_lbl.Location = New System.Drawing.Point(321, 81)
+        Me.FNHSysStyleIdTo_lbl.Location = New System.Drawing.Point(935, 6)
         Me.FNHSysStyleIdTo_lbl.Name = "FNHSysStyleIdTo_lbl"
-        Me.FNHSysStyleIdTo_lbl.Size = New System.Drawing.Size(56, 19)
+        Me.FNHSysStyleIdTo_lbl.Size = New System.Drawing.Size(98, 19)
         Me.FNHSysStyleIdTo_lbl.TabIndex = 407
         Me.FNHSysStyleIdTo_lbl.Tag = "2|"
         Me.FNHSysStyleIdTo_lbl.Text = "To  :"
+        Me.FNHSysStyleIdTo_lbl.Visible = False
         '
         'FDDateS_lbl
         '
@@ -244,12 +256,12 @@ Partial Class wProdCartonScanPackTracking
         Me.FDDateS_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateS_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateS_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateS_lbl.Location = New System.Drawing.Point(9, 3)
+        Me.FDDateS_lbl.Location = New System.Drawing.Point(3, 3)
         Me.FDDateS_lbl.Name = "FDDateS_lbl"
         Me.FDDateS_lbl.Size = New System.Drawing.Size(128, 19)
         Me.FDDateS_lbl.TabIndex = 399
         Me.FDDateS_lbl.Tag = "2|"
-        Me.FDDateS_lbl.Text = "Start Date :"
+        Me.FDDateS_lbl.Text = "Start Close Box Date :"
         '
         'FTSubOrderNoTo_lbl
         '
@@ -258,9 +270,9 @@ Partial Class wProdCartonScanPackTracking
         Me.FTSubOrderNoTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSubOrderNoTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSubOrderNoTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSubOrderNoTo_lbl.Location = New System.Drawing.Point(321, 55)
+        Me.FTSubOrderNoTo_lbl.Location = New System.Drawing.Point(332, 55)
         Me.FTSubOrderNoTo_lbl.Name = "FTSubOrderNoTo_lbl"
-        Me.FTSubOrderNoTo_lbl.Size = New System.Drawing.Size(56, 19)
+        Me.FTSubOrderNoTo_lbl.Size = New System.Drawing.Size(144, 19)
         Me.FTSubOrderNoTo_lbl.TabIndex = 406
         Me.FTSubOrderNoTo_lbl.Tag = "2|"
         Me.FTSubOrderNoTo_lbl.Text = "To  :"
@@ -272,12 +284,12 @@ Partial Class wProdCartonScanPackTracking
         Me.FDDateE_lbl.Appearance.Options.UseTextOptions = True
         Me.FDDateE_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FDDateE_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FDDateE_lbl.Location = New System.Drawing.Point(326, 3)
+        Me.FDDateE_lbl.Location = New System.Drawing.Point(321, 3)
         Me.FDDateE_lbl.Name = "FDDateE_lbl"
-        Me.FDDateE_lbl.Size = New System.Drawing.Size(51, 19)
+        Me.FDDateE_lbl.Size = New System.Drawing.Size(155, 19)
         Me.FDDateE_lbl.TabIndex = 400
         Me.FDDateE_lbl.Tag = "2|"
-        Me.FDDateE_lbl.Text = "To :"
+        Me.FDDateE_lbl.Text = "To  :"
         '
         'FTOrderNoTo_lbl
         '
@@ -286,9 +298,9 @@ Partial Class wProdCartonScanPackTracking
         Me.FTOrderNoTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNoTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNoTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNoTo_lbl.Location = New System.Drawing.Point(321, 28)
+        Me.FTOrderNoTo_lbl.Location = New System.Drawing.Point(321, 29)
         Me.FTOrderNoTo_lbl.Name = "FTOrderNoTo_lbl"
-        Me.FTOrderNoTo_lbl.Size = New System.Drawing.Size(56, 19)
+        Me.FTOrderNoTo_lbl.Size = New System.Drawing.Size(155, 19)
         Me.FTOrderNoTo_lbl.TabIndex = 405
         Me.FTOrderNoTo_lbl.Tag = "2|"
         Me.FTOrderNoTo_lbl.Text = "To  :"
@@ -296,7 +308,7 @@ Partial Class wProdCartonScanPackTracking
         'FDDate
         '
         Me.FDDate.EditValue = Nothing
-        Me.FDDate.Location = New System.Drawing.Point(143, 3)
+        Me.FDDate.Location = New System.Drawing.Point(137, 3)
         Me.FDDate.Name = "FDDate"
         Me.FDDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FDDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -306,7 +318,7 @@ Partial Class wProdCartonScanPackTracking
         'FNHSysPOIDTo
         '
         Me.FNHSysPOIDTo.EnterMoveNextControl = True
-        Me.FNHSysPOIDTo.Location = New System.Drawing.Point(383, 107)
+        Me.FNHSysPOIDTo.Location = New System.Drawing.Point(482, 81)
         Me.FNHSysPOIDTo.Name = "FNHSysPOIDTo"
         Me.FNHSysPOIDTo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNHSysPOIDTo.Properties.Appearance.Options.UseBackColor = True
@@ -332,7 +344,7 @@ Partial Class wProdCartonScanPackTracking
         'FTOrderNo
         '
         Me.FTOrderNo.EnterMoveNextControl = True
-        Me.FTOrderNo.Location = New System.Drawing.Point(143, 29)
+        Me.FTOrderNo.Location = New System.Drawing.Point(137, 29)
         Me.FTOrderNo.Name = "FTOrderNo"
         Me.FTOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTOrderNo.Properties.Appearance.Options.UseBackColor = True
@@ -362,7 +374,7 @@ Partial Class wProdCartonScanPackTracking
         Me.FNHSysPOIDTo_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysPOIDTo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysPOIDTo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysPOIDTo_lbl.Location = New System.Drawing.Point(9, 110)
+        Me.FNHSysPOIDTo_lbl.Location = New System.Drawing.Point(3, 81)
         Me.FNHSysPOIDTo_lbl.Name = "FNHSysPOIDTo_lbl"
         Me.FNHSysPOIDTo_lbl.Size = New System.Drawing.Size(128, 19)
         Me.FNHSysPOIDTo_lbl.TabIndex = 402
@@ -376,7 +388,7 @@ Partial Class wProdCartonScanPackTracking
         Me.FTOrderNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(9, 29)
+        Me.FTOrderNo_lbl.Location = New System.Drawing.Point(3, 29)
         Me.FTOrderNo_lbl.Name = "FTOrderNo_lbl"
         Me.FTOrderNo_lbl.Size = New System.Drawing.Size(128, 19)
         Me.FTOrderNo_lbl.TabIndex = 403
@@ -386,7 +398,7 @@ Partial Class wProdCartonScanPackTracking
         'FNHSysStyleIdTo
         '
         Me.FNHSysStyleIdTo.EnterMoveNextControl = True
-        Me.FNHSysStyleIdTo.Location = New System.Drawing.Point(383, 81)
+        Me.FNHSysStyleIdTo.Location = New System.Drawing.Point(1039, 6)
         Me.FNHSysStyleIdTo.Name = "FNHSysStyleIdTo"
         Me.FNHSysStyleIdTo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNHSysStyleIdTo.Properties.Appearance.Options.UseBackColor = True
@@ -408,11 +420,12 @@ Partial Class wProdCartonScanPackTracking
         Me.FNHSysStyleIdTo.Size = New System.Drawing.Size(172, 20)
         Me.FNHSysStyleIdTo.TabIndex = 396
         Me.FNHSysStyleIdTo.Tag = "2|"
+        Me.FNHSysStyleIdTo.Visible = False
         '
         'FTSubOrderNo
         '
         Me.FTSubOrderNo.EnterMoveNextControl = True
-        Me.FTSubOrderNo.Location = New System.Drawing.Point(143, 55)
+        Me.FTSubOrderNo.Location = New System.Drawing.Point(137, 55)
         Me.FTSubOrderNo.Name = "FTSubOrderNo"
         Me.FTSubOrderNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTSubOrderNo.Properties.Appearance.Options.UseBackColor = True
@@ -443,17 +456,18 @@ Partial Class wProdCartonScanPackTracking
         Me.FNHSysStyleId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysStyleId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysStyleId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysStyleId_lbl.Location = New System.Drawing.Point(9, 82)
+        Me.FNHSysStyleId_lbl.Location = New System.Drawing.Point(623, 7)
         Me.FNHSysStyleId_lbl.Name = "FNHSysStyleId_lbl"
         Me.FNHSysStyleId_lbl.Size = New System.Drawing.Size(128, 19)
         Me.FNHSysStyleId_lbl.TabIndex = 401
         Me.FNHSysStyleId_lbl.Tag = "2|"
         Me.FNHSysStyleId_lbl.Text = "FNHSysStyleId :"
+        Me.FNHSysStyleId_lbl.Visible = False
         '
         'FTOrderNoTo
         '
         Me.FTOrderNoTo.EnterMoveNextControl = True
-        Me.FTOrderNoTo.Location = New System.Drawing.Point(383, 29)
+        Me.FTOrderNoTo.Location = New System.Drawing.Point(482, 29)
         Me.FTOrderNoTo.Name = "FTOrderNoTo"
         Me.FTOrderNoTo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTOrderNoTo.Properties.Appearance.Options.UseBackColor = True
@@ -479,7 +493,7 @@ Partial Class wProdCartonScanPackTracking
         'FTSubOrderNoTo
         '
         Me.FTSubOrderNoTo.EnterMoveNextControl = True
-        Me.FTSubOrderNoTo.Location = New System.Drawing.Point(383, 55)
+        Me.FTSubOrderNoTo.Location = New System.Drawing.Point(482, 55)
         Me.FTSubOrderNoTo.Name = "FTSubOrderNoTo"
         Me.FTSubOrderNoTo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTSubOrderNoTo.Properties.Appearance.Options.UseBackColor = True
@@ -505,7 +519,7 @@ Partial Class wProdCartonScanPackTracking
         'FNHSysStyleId
         '
         Me.FNHSysStyleId.EnterMoveNextControl = True
-        Me.FNHSysStyleId.Location = New System.Drawing.Point(143, 81)
+        Me.FNHSysStyleId.Location = New System.Drawing.Point(757, 6)
         Me.FNHSysStyleId.Name = "FNHSysStyleId"
         Me.FNHSysStyleId.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNHSysStyleId.Properties.Appearance.Options.UseBackColor = True
@@ -527,11 +541,12 @@ Partial Class wProdCartonScanPackTracking
         Me.FNHSysStyleId.Size = New System.Drawing.Size(172, 20)
         Me.FNHSysStyleId.TabIndex = 395
         Me.FNHSysStyleId.Tag = "2|"
+        Me.FNHSysStyleId.Visible = False
         '
         'FNHSysPOID
         '
         Me.FNHSysPOID.EnterMoveNextControl = True
-        Me.FNHSysPOID.Location = New System.Drawing.Point(143, 107)
+        Me.FNHSysPOID.Location = New System.Drawing.Point(137, 81)
         Me.FNHSysPOID.Name = "FNHSysPOID"
         Me.FNHSysPOID.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNHSysPOID.Properties.Appearance.Options.UseBackColor = True
@@ -561,7 +576,7 @@ Partial Class wProdCartonScanPackTracking
         Me.FTSubOrderNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSubOrderNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSubOrderNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSubOrderNo_lbl.Location = New System.Drawing.Point(9, 55)
+        Me.FTSubOrderNo_lbl.Location = New System.Drawing.Point(3, 55)
         Me.FTSubOrderNo_lbl.Name = "FTSubOrderNo_lbl"
         Me.FTSubOrderNo_lbl.Size = New System.Drawing.Size(128, 19)
         Me.FTSubOrderNo_lbl.TabIndex = 404
@@ -572,10 +587,10 @@ Partial Class wProdCartonScanPackTracking
         '
         Me.ogbdetail.Controls.Add(Me.ogcdetailcolorsizeline)
         Me.ogbdetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbdetail.Location = New System.Drawing.Point(0, 138)
+        Me.ogbdetail.Location = New System.Drawing.Point(0, 136)
         Me.ogbdetail.Name = "ogbdetail"
         Me.ogbdetail.ShowCaption = False
-        Me.ogbdetail.Size = New System.Drawing.Size(1137, 495)
+        Me.ogbdetail.Size = New System.Drawing.Size(1137, 497)
         Me.ogbdetail.TabIndex = 0
         '
         'ogcdetailcolorsizeline
@@ -585,17 +600,68 @@ Partial Class wProdCartonScanPackTracking
         Me.ogcdetailcolorsizeline.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ogcdetailcolorsizeline.Name = "ogcdetailcolorsizeline"
         Me.ogcdetailcolorsizeline.SelectedTabPage = Me.otbdetailcolorsize
-        Me.ogcdetailcolorsizeline.Size = New System.Drawing.Size(1133, 491)
+        Me.ogcdetailcolorsizeline.Size = New System.Drawing.Size(1133, 493)
         Me.ogcdetailcolorsizeline.TabIndex = 387
         Me.ogcdetailcolorsizeline.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otbdetailcolorsize, Me.otbsummary})
         '
         'otbdetailcolorsize
         '
+        Me.otbdetailcolorsize.Controls.Add(Me.ogbmainprocbutton)
         Me.otbdetailcolorsize.Controls.Add(Me.ogcdetailcolorsize)
         Me.otbdetailcolorsize.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otbdetailcolorsize.Name = "otbdetailcolorsize"
-        Me.otbdetailcolorsize.Size = New System.Drawing.Size(1131, 466)
-        Me.otbdetailcolorsize.Text = "Detail By Color And Size"
+        Me.otbdetailcolorsize.Size = New System.Drawing.Size(1131, 468)
+        Me.otbdetailcolorsize.Text = "Detail"
+        '
+        'ogbmainprocbutton
+        '
+        Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmsavelayout)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(21, 242)
+        Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(106, 149)
+        Me.ogbmainprocbutton.TabIndex = 387
+        Me.ogbmainprocbutton.Tag = "2|"
+        '
+        'ocmsavelayout
+        '
+        Me.ocmsavelayout.Location = New System.Drawing.Point(5, 41)
+        Me.ocmsavelayout.Name = "ocmsavelayout"
+        Me.ocmsavelayout.Size = New System.Drawing.Size(95, 23)
+        Me.ocmsavelayout.TabIndex = 332
+        Me.ocmsavelayout.Text = "savelayoutgrid"
+        '
+        'ocmexit
+        '
+        Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmexit.Location = New System.Drawing.Point(6, 99)
+        Me.ocmexit.Name = "ocmexit"
+        Me.ocmexit.Size = New System.Drawing.Size(95, 25)
+        Me.ocmexit.TabIndex = 96
+        Me.ocmexit.TabStop = False
+        Me.ocmexit.Tag = "2|"
+        Me.ocmexit.Text = "EXIT"
+        '
+        'ocmclear
+        '
+        Me.ocmclear.Location = New System.Drawing.Point(5, 10)
+        Me.ocmclear.Name = "ocmclear"
+        Me.ocmclear.Size = New System.Drawing.Size(95, 25)
+        Me.ocmclear.TabIndex = 95
+        Me.ocmclear.TabStop = False
+        Me.ocmclear.Tag = "2|"
+        Me.ocmclear.Text = "CLEAR"
+        '
+        'ocmload
+        '
+        Me.ocmload.Location = New System.Drawing.Point(5, 70)
+        Me.ocmload.Name = "ocmload"
+        Me.ocmload.Size = New System.Drawing.Size(95, 23)
+        Me.ocmload.TabIndex = 329
+        Me.ocmload.Text = "Load Data"
         '
         'ogcdetailcolorsize
         '
@@ -603,7 +669,7 @@ Partial Class wProdCartonScanPackTracking
         Me.ogcdetailcolorsize.Location = New System.Drawing.Point(0, 0)
         Me.ogcdetailcolorsize.MainView = Me.ogvdetailcolorsize
         Me.ogcdetailcolorsize.Name = "ogcdetailcolorsize"
-        Me.ogcdetailcolorsize.Size = New System.Drawing.Size(1131, 466)
+        Me.ogcdetailcolorsize.Size = New System.Drawing.Size(1131, 468)
         Me.ogcdetailcolorsize.TabIndex = 1
         Me.ogcdetailcolorsize.TabStop = False
         Me.ogcdetailcolorsize.Tag = "2|"
@@ -611,7 +677,7 @@ Partial Class wProdCartonScanPackTracking
         '
         'ogvdetailcolorsize
         '
-        Me.ogvdetailcolorsize.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.CFDInsDate, Me.CDFTOrderNo, Me.CDFTSubOrderNo, Me.CFTStyleCode, Me.CFTCustomerPO, Me.CDFTPackNo, Me.CDFNCartonNo, Me.CDFTColorway, Me.CDFTPOLine, Me.CDFTSizeBreakDown, Me.CDFNScanQuantity})
+        Me.ogvdetailcolorsize.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTScanByClose, Me.FTScanDateClose, Me.FTScanTimeClose, Me.FTScanByStart, Me.FTScanDateStart, Me.FTScanTimeStart, Me.FTScanByEnd, Me.FTScanDateEnd, Me.FTScanTimeEnd, Me.CDFTOrderNo, Me.CDFTSubOrderNo, Me.CFTCustomerPO, Me.CDFTPackNo, Me.CDFNCartonNo, Me.CDFNScanQuantity, Me.CDFTSizeBreakDown, Me.CFTStyleCode, Me.CDFTPOLine, Me.CDFTColorway})
         Me.ogvdetailcolorsize.GridControl = Me.ogcdetailcolorsize
         Me.ogvdetailcolorsize.Name = "ogvdetailcolorsize"
         Me.ogvdetailcolorsize.OptionsCustomization.AllowQuickHideColumns = False
@@ -620,73 +686,200 @@ Partial Class wProdCartonScanPackTracking
         Me.ogvdetailcolorsize.OptionsView.ShowGroupPanel = False
         Me.ogvdetailcolorsize.Tag = "2|"
         '
-        'CFDInsDate
+        'FTScanByClose
         '
-        Me.CFDInsDate.Caption = "Scan Date"
-        Me.CFDInsDate.DisplayFormat.FormatString = "dd/MM/yyyy"
-        Me.CFDInsDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.CFDInsDate.FieldName = "FDInsDate"
-        Me.CFDInsDate.Name = "CFDInsDate"
-        Me.CFDInsDate.OptionsColumn.AllowEdit = False
-        Me.CFDInsDate.OptionsColumn.ReadOnly = True
-        Me.CFDInsDate.Visible = True
-        Me.CFDInsDate.VisibleIndex = 0
-        Me.CFDInsDate.Width = 96
+        Me.FTScanByClose.AppearanceCell.Options.UseTextOptions = True
+        Me.FTScanByClose.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanByClose.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTScanByClose.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanByClose.Caption = "Scan Close User"
+        Me.FTScanByClose.FieldName = "FTScanByClose"
+        Me.FTScanByClose.Name = "FTScanByClose"
+        Me.FTScanByClose.OptionsColumn.AllowEdit = False
+        Me.FTScanByClose.OptionsColumn.ReadOnly = True
+        Me.FTScanByClose.Visible = True
+        Me.FTScanByClose.VisibleIndex = 0
+        Me.FTScanByClose.Width = 94
+        '
+        'FTScanDateClose
+        '
+        Me.FTScanDateClose.AppearanceCell.Options.UseTextOptions = True
+        Me.FTScanDateClose.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanDateClose.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTScanDateClose.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanDateClose.Caption = "Scan Close Date"
+        Me.FTScanDateClose.FieldName = "FTScanDateClose"
+        Me.FTScanDateClose.Name = "FTScanDateClose"
+        Me.FTScanDateClose.OptionsColumn.AllowEdit = False
+        Me.FTScanDateClose.OptionsColumn.ReadOnly = True
+        Me.FTScanDateClose.Visible = True
+        Me.FTScanDateClose.VisibleIndex = 1
+        Me.FTScanDateClose.Width = 100
+        '
+        'FTScanTimeClose
+        '
+        Me.FTScanTimeClose.AppearanceCell.Options.UseTextOptions = True
+        Me.FTScanTimeClose.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanTimeClose.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTScanTimeClose.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanTimeClose.Caption = "Scan Close Time"
+        Me.FTScanTimeClose.FieldName = "FTScanTimeClose"
+        Me.FTScanTimeClose.Name = "FTScanTimeClose"
+        Me.FTScanTimeClose.OptionsColumn.AllowEdit = False
+        Me.FTScanTimeClose.OptionsColumn.ReadOnly = True
+        Me.FTScanTimeClose.Visible = True
+        Me.FTScanTimeClose.VisibleIndex = 2
+        Me.FTScanTimeClose.Width = 95
+        '
+        'FTScanByStart
+        '
+        Me.FTScanByStart.AppearanceCell.Options.UseTextOptions = True
+        Me.FTScanByStart.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanByStart.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTScanByStart.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanByStart.Caption = "Scan Start User"
+        Me.FTScanByStart.FieldName = "FTScanByStart"
+        Me.FTScanByStart.Name = "FTScanByStart"
+        Me.FTScanByStart.OptionsColumn.AllowEdit = False
+        Me.FTScanByStart.OptionsColumn.ReadOnly = True
+        Me.FTScanByStart.Visible = True
+        Me.FTScanByStart.VisibleIndex = 3
+        Me.FTScanByStart.Width = 93
+        '
+        'FTScanDateStart
+        '
+        Me.FTScanDateStart.AppearanceCell.Options.UseTextOptions = True
+        Me.FTScanDateStart.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanDateStart.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTScanDateStart.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanDateStart.Caption = "Scan Start Date"
+        Me.FTScanDateStart.DisplayFormat.FormatString = "dd/MM/yyyy"
+        Me.FTScanDateStart.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.FTScanDateStart.FieldName = "FTScanDateStart"
+        Me.FTScanDateStart.Name = "FTScanDateStart"
+        Me.FTScanDateStart.OptionsColumn.AllowEdit = False
+        Me.FTScanDateStart.OptionsColumn.ReadOnly = True
+        Me.FTScanDateStart.Visible = True
+        Me.FTScanDateStart.VisibleIndex = 5
+        Me.FTScanDateStart.Width = 116
+        '
+        'FTScanTimeStart
+        '
+        Me.FTScanTimeStart.AppearanceCell.Options.UseTextOptions = True
+        Me.FTScanTimeStart.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanTimeStart.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTScanTimeStart.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanTimeStart.Caption = "Scan Start Time"
+        Me.FTScanTimeStart.FieldName = "FTScanTimeStart"
+        Me.FTScanTimeStart.Name = "FTScanTimeStart"
+        Me.FTScanTimeStart.OptionsColumn.AllowEdit = False
+        Me.FTScanTimeStart.OptionsColumn.ReadOnly = True
+        Me.FTScanTimeStart.Visible = True
+        Me.FTScanTimeStart.VisibleIndex = 4
+        Me.FTScanTimeStart.Width = 93
+        '
+        'FTScanByEnd
+        '
+        Me.FTScanByEnd.AppearanceCell.Options.UseTextOptions = True
+        Me.FTScanByEnd.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanByEnd.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTScanByEnd.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanByEnd.Caption = "Scan End User"
+        Me.FTScanByEnd.FieldName = "FTScanByEnd"
+        Me.FTScanByEnd.Name = "FTScanByEnd"
+        Me.FTScanByEnd.OptionsColumn.AllowEdit = False
+        Me.FTScanByEnd.OptionsColumn.ReadOnly = True
+        Me.FTScanByEnd.Visible = True
+        Me.FTScanByEnd.VisibleIndex = 6
+        Me.FTScanByEnd.Width = 99
+        '
+        'FTScanDateEnd
+        '
+        Me.FTScanDateEnd.AppearanceCell.Options.UseTextOptions = True
+        Me.FTScanDateEnd.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanDateEnd.Caption = "Scan End Date"
+        Me.FTScanDateEnd.DisplayFormat.FormatString = "dd/MM/yyyy"
+        Me.FTScanDateEnd.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.FTScanDateEnd.FieldName = "FTScanDateEnd"
+        Me.FTScanDateEnd.Name = "FTScanDateEnd"
+        Me.FTScanDateEnd.OptionsColumn.AllowEdit = False
+        Me.FTScanDateEnd.OptionsColumn.ReadOnly = True
+        Me.FTScanDateEnd.Visible = True
+        Me.FTScanDateEnd.VisibleIndex = 7
+        Me.FTScanDateEnd.Width = 108
+        '
+        'FTScanTimeEnd
+        '
+        Me.FTScanTimeEnd.AppearanceCell.Options.UseTextOptions = True
+        Me.FTScanTimeEnd.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTScanTimeEnd.Caption = "Scan End Time"
+        Me.FTScanTimeEnd.FieldName = "FTScanTimeEnd"
+        Me.FTScanTimeEnd.Name = "FTScanTimeEnd"
+        Me.FTScanTimeEnd.OptionsColumn.AllowEdit = False
+        Me.FTScanTimeEnd.OptionsColumn.ReadOnly = True
+        Me.FTScanTimeEnd.Visible = True
+        Me.FTScanTimeEnd.VisibleIndex = 8
+        Me.FTScanTimeEnd.Width = 101
         '
         'CDFTOrderNo
         '
+        Me.CDFTOrderNo.AppearanceCell.Options.UseTextOptions = True
+        Me.CDFTOrderNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.CDFTOrderNo.AppearanceHeader.Options.UseTextOptions = True
+        Me.CDFTOrderNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CDFTOrderNo.Caption = "Order No"
         Me.CDFTOrderNo.FieldName = "FTOrderNo"
         Me.CDFTOrderNo.Name = "CDFTOrderNo"
         Me.CDFTOrderNo.OptionsColumn.AllowEdit = False
         Me.CDFTOrderNo.OptionsColumn.ReadOnly = True
         Me.CDFTOrderNo.Visible = True
-        Me.CDFTOrderNo.VisibleIndex = 1
-        Me.CDFTOrderNo.Width = 111
+        Me.CDFTOrderNo.VisibleIndex = 9
+        Me.CDFTOrderNo.Width = 139
         '
         'CDFTSubOrderNo
         '
+        Me.CDFTSubOrderNo.AppearanceCell.Options.UseTextOptions = True
+        Me.CDFTSubOrderNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.CDFTSubOrderNo.AppearanceHeader.Options.UseTextOptions = True
+        Me.CDFTSubOrderNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CDFTSubOrderNo.Caption = "SubOrder No"
         Me.CDFTSubOrderNo.FieldName = "FTSubOrderNo"
         Me.CDFTSubOrderNo.Name = "CDFTSubOrderNo"
         Me.CDFTSubOrderNo.OptionsColumn.AllowEdit = False
         Me.CDFTSubOrderNo.OptionsColumn.ReadOnly = True
         Me.CDFTSubOrderNo.Visible = True
-        Me.CDFTSubOrderNo.VisibleIndex = 2
-        Me.CDFTSubOrderNo.Width = 106
-        '
-        'CFTStyleCode
-        '
-        Me.CFTStyleCode.Caption = "Style No"
-        Me.CFTStyleCode.FieldName = "FTStyleCode"
-        Me.CFTStyleCode.Name = "CFTStyleCode"
-        Me.CFTStyleCode.OptionsColumn.AllowEdit = False
-        Me.CFTStyleCode.OptionsColumn.ReadOnly = True
-        Me.CFTStyleCode.Visible = True
-        Me.CFTStyleCode.VisibleIndex = 3
-        Me.CFTStyleCode.Width = 116
+        Me.CDFTSubOrderNo.VisibleIndex = 10
+        Me.CDFTSubOrderNo.Width = 128
         '
         'CFTCustomerPO
         '
+        Me.CFTCustomerPO.AppearanceCell.Options.UseTextOptions = True
+        Me.CFTCustomerPO.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.CFTCustomerPO.AppearanceHeader.Options.UseTextOptions = True
+        Me.CFTCustomerPO.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CFTCustomerPO.Caption = "Customer PO"
         Me.CFTCustomerPO.FieldName = "FTCustomerPO"
         Me.CFTCustomerPO.Name = "CFTCustomerPO"
         Me.CFTCustomerPO.OptionsColumn.AllowEdit = False
         Me.CFTCustomerPO.OptionsColumn.ReadOnly = True
         Me.CFTCustomerPO.Visible = True
-        Me.CFTCustomerPO.VisibleIndex = 4
-        Me.CFTCustomerPO.Width = 136
+        Me.CFTCustomerPO.VisibleIndex = 11
+        Me.CFTCustomerPO.Width = 155
         '
         'CDFTPackNo
         '
+        Me.CDFTPackNo.AppearanceCell.Options.UseTextOptions = True
+        Me.CDFTPackNo.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.CDFTPackNo.AppearanceHeader.Options.UseTextOptions = True
+        Me.CDFTPackNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CDFTPackNo.Caption = "Pack No"
         Me.CDFTPackNo.FieldName = "FTPackNo"
         Me.CDFTPackNo.Name = "CDFTPackNo"
         Me.CDFTPackNo.OptionsColumn.AllowEdit = False
         Me.CDFTPackNo.OptionsColumn.ReadOnly = True
         Me.CDFTPackNo.Visible = True
-        Me.CDFTPackNo.VisibleIndex = 5
-        Me.CDFTPackNo.Width = 135
+        Me.CDFTPackNo.VisibleIndex = 12
+        Me.CDFTPackNo.Width = 154
         '
         'CDFNCartonNo
         '
@@ -696,40 +889,8 @@ Partial Class wProdCartonScanPackTracking
         Me.CDFNCartonNo.OptionsColumn.AllowEdit = False
         Me.CDFNCartonNo.OptionsColumn.ReadOnly = True
         Me.CDFNCartonNo.Visible = True
-        Me.CDFNCartonNo.VisibleIndex = 6
-        Me.CDFNCartonNo.Width = 108
-        '
-        'CDFTColorway
-        '
-        Me.CDFTColorway.Caption = "Colorway"
-        Me.CDFTColorway.FieldName = "FTColorway"
-        Me.CDFTColorway.Name = "CDFTColorway"
-        Me.CDFTColorway.OptionsColumn.AllowEdit = False
-        Me.CDFTColorway.OptionsColumn.ReadOnly = True
-        Me.CDFTColorway.Visible = True
-        Me.CDFTColorway.VisibleIndex = 7
-        Me.CDFTColorway.Width = 113
-        '
-        'CDFTPOLine
-        '
-        Me.CDFTPOLine.Caption = "PO Line"
-        Me.CDFTPOLine.FieldName = "FTPOLine"
-        Me.CDFTPOLine.Name = "CDFTPOLine"
-        Me.CDFTPOLine.OptionsColumn.AllowEdit = False
-        Me.CDFTPOLine.OptionsColumn.ReadOnly = True
-        Me.CDFTPOLine.Visible = True
-        Me.CDFTPOLine.VisibleIndex = 8
-        Me.CDFTPOLine.Width = 91
-        '
-        'CDFTSizeBreakDown
-        '
-        Me.CDFTSizeBreakDown.Caption = "SizeBreakDown"
-        Me.CDFTSizeBreakDown.FieldName = "FTSizeBreakDown"
-        Me.CDFTSizeBreakDown.Name = "CDFTSizeBreakDown"
-        Me.CDFTSizeBreakDown.OptionsColumn.AllowEdit = False
-        Me.CDFTSizeBreakDown.OptionsColumn.ReadOnly = True
-        Me.CDFTSizeBreakDown.Visible = True
-        Me.CDFTSizeBreakDown.VisibleIndex = 9
+        Me.CDFNCartonNo.VisibleIndex = 13
+        Me.CDFNCartonNo.Width = 82
         '
         'CDFNScanQuantity
         '
@@ -741,15 +902,51 @@ Partial Class wProdCartonScanPackTracking
         Me.CDFNScanQuantity.OptionsColumn.AllowEdit = False
         Me.CDFNScanQuantity.OptionsColumn.ReadOnly = True
         Me.CDFNScanQuantity.Visible = True
-        Me.CDFNScanQuantity.VisibleIndex = 10
-        Me.CDFNScanQuantity.Width = 124
+        Me.CDFNScanQuantity.VisibleIndex = 14
+        Me.CDFNScanQuantity.Width = 111
+        '
+        'CDFTSizeBreakDown
+        '
+        Me.CDFTSizeBreakDown.Caption = "SizeBreakDown"
+        Me.CDFTSizeBreakDown.FieldName = "FTSizeBreakDown"
+        Me.CDFTSizeBreakDown.Name = "CDFTSizeBreakDown"
+        Me.CDFTSizeBreakDown.OptionsColumn.AllowEdit = False
+        Me.CDFTSizeBreakDown.OptionsColumn.ReadOnly = True
+        '
+        'CFTStyleCode
+        '
+        Me.CFTStyleCode.Caption = "Style No"
+        Me.CFTStyleCode.FieldName = "FTStyleCode"
+        Me.CFTStyleCode.Name = "CFTStyleCode"
+        Me.CFTStyleCode.OptionsColumn.AllowEdit = False
+        Me.CFTStyleCode.OptionsColumn.ReadOnly = True
+        Me.CFTStyleCode.Width = 116
+        '
+        'CDFTPOLine
+        '
+        Me.CDFTPOLine.Caption = "PO Line"
+        Me.CDFTPOLine.FieldName = "FTPOLine"
+        Me.CDFTPOLine.Name = "CDFTPOLine"
+        Me.CDFTPOLine.OptionsColumn.AllowEdit = False
+        Me.CDFTPOLine.OptionsColumn.ReadOnly = True
+        Me.CDFTPOLine.Width = 91
+        '
+        'CDFTColorway
+        '
+        Me.CDFTColorway.Caption = "Colorway"
+        Me.CDFTColorway.FieldName = "FTColorway"
+        Me.CDFTColorway.Name = "CDFTColorway"
+        Me.CDFTColorway.OptionsColumn.AllowEdit = False
+        Me.CDFTColorway.OptionsColumn.ReadOnly = True
+        Me.CDFTColorway.Width = 113
         '
         'otbsummary
         '
         Me.otbsummary.Controls.Add(Me.ogdtime)
         Me.otbsummary.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otbsummary.Name = "otbsummary"
-        Me.otbsummary.Size = New System.Drawing.Size(1131, 475)
+        Me.otbsummary.PageVisible = False
+        Me.otbsummary.Size = New System.Drawing.Size(1131, 468)
         Me.otbsummary.Text = "Summary"
         '
         'ogdtime
@@ -758,11 +955,12 @@ Partial Class wProdCartonScanPackTracking
         Me.ogdtime.Location = New System.Drawing.Point(0, 0)
         Me.ogdtime.MainView = Me.ogvtime
         Me.ogdtime.Name = "ogdtime"
-        Me.ogdtime.Size = New System.Drawing.Size(1131, 475)
+        Me.ogdtime.Size = New System.Drawing.Size(1131, 468)
         Me.ogdtime.TabIndex = 0
         Me.ogdtime.TabStop = False
         Me.ogdtime.Tag = "2|"
         Me.ogdtime.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvtime})
+        Me.ogdtime.Visible = False
         '
         'ogvtime
         '
@@ -905,62 +1103,23 @@ Partial Class wProdCartonScanPackTracking
         Me.oDockManager.RootPanels.AddRange(New DevExpress.XtraBars.Docking.DockPanel() {Me.ogbheader})
         Me.oDockManager.TopZIndexControls.AddRange(New String() {"DevExpress.XtraBars.BarDockControl", "DevExpress.XtraBars.StandaloneBarDockControl", "System.Windows.Forms.StatusBar", "DevExpress.XtraBars.Ribbon.RibbonStatusBar", "DevExpress.XtraBars.Ribbon.RibbonControl"})
         '
-        'ogbmainprocbutton
+        'chkShow
         '
-        Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmsavelayout)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmload)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(157, 292)
-        Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(824, 47)
-        Me.ogbmainprocbutton.TabIndex = 387
-        Me.ogbmainprocbutton.Tag = "2|"
-        '
-        'ocmsavelayout
-        '
-        Me.ocmsavelayout.Location = New System.Drawing.Point(371, 12)
-        Me.ocmsavelayout.Name = "ocmsavelayout"
-        Me.ocmsavelayout.Size = New System.Drawing.Size(117, 23)
-        Me.ocmsavelayout.TabIndex = 332
-        Me.ocmsavelayout.Text = "savelayoutgrid"
-        '
-        'ocmexit
-        '
-        Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(711, 11)
-        Me.ocmexit.Name = "ocmexit"
-        Me.ocmexit.Size = New System.Drawing.Size(95, 25)
-        Me.ocmexit.TabIndex = 96
-        Me.ocmexit.TabStop = False
-        Me.ocmexit.Tag = "2|"
-        Me.ocmexit.Text = "EXIT"
-        '
-        'ocmclear
-        '
-        Me.ocmclear.Location = New System.Drawing.Point(14, 10)
-        Me.ocmclear.Name = "ocmclear"
-        Me.ocmclear.Size = New System.Drawing.Size(95, 25)
-        Me.ocmclear.TabIndex = 95
-        Me.ocmclear.TabStop = False
-        Me.ocmclear.Tag = "2|"
-        Me.ocmclear.Text = "CLEAR"
-        '
-        'ocmload
-        '
-        Me.ocmload.Location = New System.Drawing.Point(114, 14)
-        Me.ocmload.Name = "ocmload"
-        Me.ocmload.Size = New System.Drawing.Size(117, 23)
-        Me.ocmload.TabIndex = 329
-        Me.ocmload.Text = "Load Data"
+        Me.chkShow.EditValue = True
+        Me.chkShow.Location = New System.Drawing.Point(1009, 32)
+        Me.chkShow.Name = "chkShow"
+        Me.chkShow.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.chkShow.Properties.Appearance.Options.UseForeColor = True
+        Me.chkShow.Properties.Caption = "Show Only Closed"
+        Me.chkShow.Size = New System.Drawing.Size(113, 20)
+        Me.chkShow.TabIndex = 409
+        Me.chkShow.Visible = False
         '
         'wProdCartonScanPackTracking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1137, 633)
-        Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.ogbdetail)
         Me.Controls.Add(Me.ogbheader)
         Me.Name = "wProdCartonScanPackTracking"
@@ -984,14 +1143,15 @@ Partial Class wProdCartonScanPackTracking
         CType(Me.ogcdetailcolorsizeline, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogcdetailcolorsizeline.ResumeLayout(False)
         Me.otbdetailcolorsize.ResumeLayout(False)
+        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ogbmainprocbutton.ResumeLayout(False)
         CType(Me.ogcdetailcolorsize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogvdetailcolorsize, System.ComponentModel.ISupportInitialize).EndInit()
         Me.otbsummary.ResumeLayout(False)
         CType(Me.ogdtime, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogvtime, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ogbmainprocbutton.ResumeLayout(False)
+        CType(Me.chkShow.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1031,7 +1191,7 @@ Partial Class wProdCartonScanPackTracking
     Friend WithEvents FNHSysStyleId As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FNHSysPOID As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FTSubOrderNo_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents CFDInsDate As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTScanDateStart As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CDFTOrderNo As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CDFTSubOrderNo As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CFTStyleCode As DevExpress.XtraGrid.Columns.GridColumn
@@ -1052,4 +1212,13 @@ Partial Class wProdCartonScanPackTracking
     Friend WithEvents CXFNTotalScarpCartonQty As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CXFNTotalScanQuantity As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CDFTSizeBreakDown As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTScanByStart As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTScanTimeStart As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTScanByEnd As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTScanDateEnd As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTScanTimeEnd As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTScanByClose As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTScanDateClose As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTScanTimeClose As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents chkShow As DevExpress.XtraEditors.CheckEdit
 End Class

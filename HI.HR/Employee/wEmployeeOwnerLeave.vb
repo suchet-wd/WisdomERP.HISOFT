@@ -1827,6 +1827,9 @@ Public Class wEmployeeOwnerLeave
         _Qry &= vbCrLf & "  Left Outer Join (SELECt * FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS LD WITH(NOLOCK)  WHERE FTListName='FNLeaveDay' ) As C ON A.FTStaLeaveDay = Convert(varchar(50),C.FNListIndex) "
         _Qry &= vbCrLf & "  WHERE FNHSysEmpID = " & Val(FNHSysEmpId.Properties.Tag.ToString) & ""
 
+        ' Add Year Filter By Chet 2024-06-21
+        _Qry &= vbCrLf & "AND A.FTStartDate BETWEEN '" & FTPayYear.Text & "/01/01' AND '" & FTPayYear.Text & "/12/31'"
+
         _Qry &= vbCrLf & "ORDER BY A.FTStartDate DESC"
         'FNLeaveSickType'
         _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_HR)
@@ -3413,5 +3416,10 @@ Public Class wEmployeeOwnerLeave
 
     Private _picdata As Byte()
 
+    Private Sub FTPayYear_EditValueChanged(sender As Object, e As EventArgs) Handles FTPayYear.EditValueChanged
+
+        Call LoadDataEmployeeLeaveHistory()
+
+    End Sub
 
 End Class

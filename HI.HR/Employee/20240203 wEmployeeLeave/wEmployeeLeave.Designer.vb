@@ -19,6 +19,26 @@ Partial Class wEmployeeLeave
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim EditorButtonImageOptions20 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject77 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject78 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject79 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject80 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions21 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject81 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject82 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject83 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject84 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions22 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject85 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject86 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject87 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject88 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions23 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject89 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject90 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject91 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject92 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -109,26 +129,6 @@ Partial Class wEmployeeLeave
         Dim SerializableAppearanceObject70 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject71 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject72 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions19 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject73 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject74 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject75 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject76 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions20 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject77 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject78 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject79 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject80 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions21 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject81 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject82 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject83 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject84 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions22 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject85 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject86 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject87 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject88 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbheader = New DevExpress.XtraEditors.GroupControl()
         Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
@@ -253,8 +253,8 @@ Partial Class wEmployeeLeave
         Me.otabpage2 = New DevExpress.XtraTab.XtraTabPage()
         Me.oGrpdetail = New DevExpress.XtraEditors.GroupControl()
         Me.FTLeavePic = New DevExpress.XtraEditors.PictureEdit()
-        Me.lblFTYear = New DevExpress.XtraEditors.LabelControl()
         Me.FTPayYear = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.lblFTYear = New DevExpress.XtraEditors.LabelControl()
         CType(Me.ogbheader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbheader.SuspendLayout()
         CType(Me.FTStateDeductVacation.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -415,7 +415,7 @@ Partial Class wEmployeeLeave
         Me.ogbheader.Location = New System.Drawing.Point(0, 0)
         Me.ogbheader.Name = "ogbheader"
         Me.ogbheader.ShowCaption = False
-        Me.ogbheader.Size = New System.Drawing.Size(1099, 306)
+        Me.ogbheader.Size = New System.Drawing.Size(1103, 270)
         Me.ogbheader.TabIndex = 4
         '
         'LabelControl10
@@ -489,7 +489,7 @@ Partial Class wEmployeeLeave
         Me.FNEmpSex_lbl.Appearance.Options.UseTextOptions = True
         Me.FNEmpSex_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNEmpSex_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNEmpSex_lbl.Location = New System.Drawing.Point(781, 10)
+        Me.FNEmpSex_lbl.Location = New System.Drawing.Point(785, 10)
         Me.FNEmpSex_lbl.Name = "FNEmpSex_lbl"
         Me.FNEmpSex_lbl.Size = New System.Drawing.Size(100, 19)
         Me.FNEmpSex_lbl.TabIndex = 446
@@ -501,7 +501,7 @@ Partial Class wEmployeeLeave
         Me.FNReportname.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FNReportname.EditValue = ""
         Me.FNReportname.EnterMoveNextControl = True
-        Me.FNReportname.Location = New System.Drawing.Point(888, 10)
+        Me.FNReportname.Location = New System.Drawing.Point(892, 10)
         Me.FNReportname.Name = "FNReportname"
         Me.FNReportname.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNReportname.Properties.Appearance.Options.UseBackColor = True
@@ -545,7 +545,7 @@ Partial Class wEmployeeLeave
         Me.FNHSysPositId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysPositId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysPositId_None.Properties.ReadOnly = True
-        Me.FNHSysPositId_None.Size = New System.Drawing.Size(433, 20)
+        Me.FNHSysPositId_None.Size = New System.Drawing.Size(436, 20)
         Me.FNHSysPositId_None.TabIndex = 443
         Me.FNHSysPositId_None.Tag = "2|"
         '
@@ -569,7 +569,7 @@ Partial Class wEmployeeLeave
         Me.FNHSysPositId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysPositId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysPositId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysPositId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "50", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysPositId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions20, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject77, SerializableAppearanceObject78, SerializableAppearanceObject79, SerializableAppearanceObject80, "", "50", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysPositId.Properties.ReadOnly = True
         Me.FNHSysPositId.Properties.Tag = "50"
         Me.FNHSysPositId.Size = New System.Drawing.Size(88, 20)
@@ -584,7 +584,7 @@ Partial Class wEmployeeLeave
         Me.FNHSysEmpTypeId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysEmpTypeId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysEmpTypeId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysEmpTypeId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "42", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysEmpTypeId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions21, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject81, SerializableAppearanceObject82, SerializableAppearanceObject83, SerializableAppearanceObject84, "", "42", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpTypeId.Properties.ReadOnly = True
         Me.FNHSysEmpTypeId.Properties.Tag = "42"
         Me.FNHSysEmpTypeId.Size = New System.Drawing.Size(87, 20)
@@ -600,7 +600,7 @@ Partial Class wEmployeeLeave
         Me.FNHSysUnitSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysUnitSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysUnitSectId_None.Properties.ReadOnly = True
-        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(433, 20)
+        Me.FNHSysUnitSectId_None.Size = New System.Drawing.Size(436, 20)
         Me.FNHSysUnitSectId_None.TabIndex = 441
         Me.FNHSysUnitSectId_None.Tag = "2|"
         '
@@ -647,7 +647,7 @@ Partial Class wEmployeeLeave
         Me.FNHSysUnitSectId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysUnitSectId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysUnitSectId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "57", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions22, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject85, SerializableAppearanceObject86, SerializableAppearanceObject87, SerializableAppearanceObject88, "", "57", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.ReadOnly = True
         Me.FNHSysUnitSectId.Properties.Tag = "57"
         Me.FNHSysUnitSectId.Size = New System.Drawing.Size(88, 20)
@@ -662,7 +662,7 @@ Partial Class wEmployeeLeave
         Me.FNHSysDeptId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysDeptId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysDeptId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysDeptId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "23", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDeptId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions23, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject89, SerializableAppearanceObject90, SerializableAppearanceObject91, SerializableAppearanceObject92, "", "23", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDeptId.Properties.ReadOnly = True
         Me.FNHSysDeptId.Properties.Tag = "23"
         Me.FNHSysDeptId.Size = New System.Drawing.Size(87, 20)
@@ -678,7 +678,7 @@ Partial Class wEmployeeLeave
         Me.FNHSysSectId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSectId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysSectId_None.Properties.ReadOnly = True
-        Me.FNHSysSectId_None.Size = New System.Drawing.Size(433, 20)
+        Me.FNHSysSectId_None.Size = New System.Drawing.Size(436, 20)
         Me.FNHSysSectId_None.TabIndex = 439
         Me.FNHSysSectId_None.Tag = "2|"
         '
@@ -725,7 +725,7 @@ Partial Class wEmployeeLeave
         Me.FNHSysSectId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysSectId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysSectId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", "55", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "55", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSectId.Properties.ReadOnly = True
         Me.FNHSysSectId.Properties.Tag = "55"
         Me.FNHSysSectId.Size = New System.Drawing.Size(88, 20)
@@ -740,7 +740,7 @@ Partial Class wEmployeeLeave
         Me.FNHSysDivisonId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysDivisonId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysDivisonId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysDivisonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", "46", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysDivisonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "46", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysDivisonId.Properties.ReadOnly = True
         Me.FNHSysDivisonId.Properties.Tag = "46"
         Me.FNHSysDivisonId.Size = New System.Drawing.Size(87, 20)
@@ -792,7 +792,7 @@ Partial Class wEmployeeLeave
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmdelete)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmsave)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(157, 227)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(160, 227)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(900, 47)
         Me.ogbmainprocbutton.TabIndex = 411
@@ -901,7 +901,7 @@ Partial Class wEmployeeLeave
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysCmpId.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, False, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "11", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCmpId.Properties.ReadOnly = True
         Me.FNHSysCmpId.Properties.Tag = ""
         Me.FNHSysCmpId.Size = New System.Drawing.Size(120, 20)
@@ -927,7 +927,7 @@ Partial Class wEmployeeLeave
         Me.FNHSysShiftID.Location = New System.Drawing.Point(815, 137)
         Me.FNHSysShiftID.Name = "FNHSysShiftID"
         Me.FNHSysShiftID.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FNHSysShiftID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysShiftID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysShiftID.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FNHSysShiftID.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FNHSysShiftID.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -984,7 +984,7 @@ Partial Class wEmployeeLeave
         Me.FTOut2M.Location = New System.Drawing.Point(738, 141)
         Me.FTOut2M.Name = "FTOut2M"
         Me.FTOut2M.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTOut2M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTOut2M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions5, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject17, SerializableAppearanceObject18, SerializableAppearanceObject19, SerializableAppearanceObject20, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOut2M.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTOut2M.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTOut2M.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -1004,7 +1004,7 @@ Partial Class wEmployeeLeave
         Me.FTIn2M.Location = New System.Drawing.Point(717, 141)
         Me.FTIn2M.Name = "FTIn2M"
         Me.FTIn2M.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTIn2M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTIn2M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions6, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject21, SerializableAppearanceObject22, SerializableAppearanceObject23, SerializableAppearanceObject24, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTIn2M.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTIn2M.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTIn2M.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -1024,7 +1024,7 @@ Partial Class wEmployeeLeave
         Me.FTOut1M.Location = New System.Drawing.Point(695, 141)
         Me.FTOut1M.Name = "FTOut1M"
         Me.FTOut1M.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTOut1M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTOut1M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOut1M.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTOut1M.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTOut1M.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -1044,7 +1044,7 @@ Partial Class wEmployeeLeave
         Me.FTIn1M.Location = New System.Drawing.Point(674, 141)
         Me.FTIn1M.Name = "FTIn1M"
         Me.FTIn1M.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTIn1M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTIn1M.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTIn1M.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTIn1M.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTIn1M.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -1080,7 +1080,7 @@ Partial Class wEmployeeLeave
         Me.FTRemark.Location = New System.Drawing.Point(218, 207)
         Me.FTRemark.Name = "FTRemark"
         Me.FTRemark.Properties.MaxLength = 500
-        Me.FTRemark.Size = New System.Drawing.Size(867, 72)
+        Me.FTRemark.Size = New System.Drawing.Size(871, 59)
         Me.FTRemark.TabIndex = 6
         Me.FTRemark.Tag = "2|"
         '
@@ -1127,7 +1127,7 @@ Partial Class wEmployeeLeave
         Me.FTNetDay.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTNetDay.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTNetDay.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTNetDay.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTNetDay.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTNetDay.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FTNetDay.Properties.Precision = 4
         Me.FTNetDay.Properties.ReadOnly = True
@@ -1178,7 +1178,7 @@ Partial Class wEmployeeLeave
         Me.FNNetTime.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FNNetTime.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNNetTime.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FNNetTime.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNNetTime.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNNetTime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.FNNetTime.Properties.Precision = 4
         Me.FNNetTime.Properties.ReadOnly = True
@@ -1201,7 +1201,7 @@ Partial Class wEmployeeLeave
         Me.ocetotaltime.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.ocetotaltime.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.ocetotaltime.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.ocetotaltime.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ocetotaltime.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions11, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject41, SerializableAppearanceObject42, SerializableAppearanceObject43, SerializableAppearanceObject44, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ocetotaltime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.ocetotaltime.Properties.Precision = 4
         Me.ocetotaltime.Properties.ReadOnly = True
@@ -1217,7 +1217,7 @@ Partial Class wEmployeeLeave
         Me.FTOut2.Location = New System.Drawing.Point(739, 119)
         Me.FTOut2.Name = "FTOut2"
         Me.FTOut2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTOut2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTOut2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions12, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject45, SerializableAppearanceObject46, SerializableAppearanceObject47, SerializableAppearanceObject48, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOut2.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTOut2.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTOut2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -1237,7 +1237,7 @@ Partial Class wEmployeeLeave
         Me.FTIn2.Location = New System.Drawing.Point(718, 119)
         Me.FTIn2.Name = "FTIn2"
         Me.FTIn2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTIn2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions17, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject65, SerializableAppearanceObject66, SerializableAppearanceObject67, SerializableAppearanceObject68, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTIn2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions13, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject49, SerializableAppearanceObject50, SerializableAppearanceObject51, SerializableAppearanceObject52, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTIn2.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTIn2.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTIn2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -1257,7 +1257,7 @@ Partial Class wEmployeeLeave
         Me.FTOut1.Location = New System.Drawing.Point(696, 119)
         Me.FTOut1.Name = "FTOut1"
         Me.FTOut1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTOut1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions18, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject69, SerializableAppearanceObject70, SerializableAppearanceObject71, SerializableAppearanceObject72, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTOut1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOut1.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTOut1.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTOut1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -1277,7 +1277,7 @@ Partial Class wEmployeeLeave
         Me.FTIn1.Location = New System.Drawing.Point(674, 119)
         Me.FTIn1.Name = "FTIn1"
         Me.FTIn1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTIn1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions19, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject73, SerializableAppearanceObject74, SerializableAppearanceObject75, SerializableAppearanceObject76, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTIn1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTIn1.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTIn1.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTIn1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -1329,7 +1329,7 @@ Partial Class wEmployeeLeave
         Me.FTETime.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTETime.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTETime.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTETime.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions20, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject77, SerializableAppearanceObject78, SerializableAppearanceObject79, SerializableAppearanceObject80, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTETime.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTETime.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTETime.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTETime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -1352,7 +1352,7 @@ Partial Class wEmployeeLeave
         Me.FTSTime.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTSTime.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSTime.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTSTime.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions21, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject81, SerializableAppearanceObject82, SerializableAppearanceObject83, SerializableAppearanceObject84, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSTime.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, True, False, False, EditorButtonImageOptions17, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject65, SerializableAppearanceObject66, SerializableAppearanceObject67, SerializableAppearanceObject68, "", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTSTime.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTSTime.Properties.DisplayFormat.FormatString = "HH:mm"
         Me.FTSTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
@@ -1557,7 +1557,7 @@ Partial Class wEmployeeLeave
         '
         Me.FNHSysEmpId.Location = New System.Drawing.Point(218, 31)
         Me.FNHSysEmpId.Name = "FNHSysEmpId"
-        Me.FNHSysEmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions22, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject85, SerializableAppearanceObject86, SerializableAppearanceObject87, SerializableAppearanceObject88, "", "70", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysEmpId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions18, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject69, SerializableAppearanceObject70, SerializableAppearanceObject71, SerializableAppearanceObject72, "", "70", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysEmpId.Properties.Tag = "57"
         Me.FNHSysEmpId.Size = New System.Drawing.Size(119, 20)
         Me.FNHSysEmpId.TabIndex = 0
@@ -1569,9 +1569,9 @@ Partial Class wEmployeeLeave
         Me.ogbemployee.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.ogbemployee.Controls.Add(Me.otab)
         Me.ogbemployee.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbemployee.Location = New System.Drawing.Point(0, 306)
+        Me.ogbemployee.Location = New System.Drawing.Point(0, 270)
         Me.ogbemployee.Name = "ogbemployee"
-        Me.ogbemployee.Size = New System.Drawing.Size(1099, 410)
+        Me.ogbemployee.Size = New System.Drawing.Size(1103, 598)
         Me.ogbemployee.TabIndex = 5
         Me.ogbemployee.Text = "Leave Detail"
         '
@@ -1581,7 +1581,7 @@ Partial Class wEmployeeLeave
         Me.otab.Location = New System.Drawing.Point(2, 23)
         Me.otab.Name = "otab"
         Me.otab.SelectedTabPage = Me.otabpage1
-        Me.otab.Size = New System.Drawing.Size(1095, 385)
+        Me.otab.Size = New System.Drawing.Size(1099, 573)
         Me.otab.TabIndex = 100
         Me.otab.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otabpage1, Me.otabpage2})
         '
@@ -1589,7 +1589,7 @@ Partial Class wEmployeeLeave
         '
         Me.otabpage1.Controls.Add(Me.ogc)
         Me.otabpage1.Name = "otabpage1"
-        Me.otabpage1.Size = New System.Drawing.Size(1093, 360)
+        Me.otabpage1.Size = New System.Drawing.Size(1097, 548)
         Me.otabpage1.Text = "leave"
         '
         'ogc
@@ -1599,7 +1599,7 @@ Partial Class wEmployeeLeave
         Me.ogc.MainView = Me.ogv
         Me.ogc.Name = "ogc"
         Me.ogc.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTSelect, Me.RepositoryFTApproveState, Me.RepColFTLeavePay, Me.RepColFTHoliday, Me.RepFTStaCalSSO, Me.RepFTApproveState, Me.RepFTLeavePay, Me.RepositoryItemCheckEditFTMngApproveState, Me.RepositoryItemCheckEditFTDirApproveState})
-        Me.ogc.Size = New System.Drawing.Size(1093, 360)
+        Me.ogc.Size = New System.Drawing.Size(1097, 548)
         Me.ogc.TabIndex = 6
         Me.ogc.TabStop = False
         Me.ogc.Tag = "2|"
@@ -1814,7 +1814,7 @@ Partial Class wEmployeeLeave
         Me.FTApproveState.OptionsColumn.AllowMove = False
         Me.FTApproveState.OptionsColumn.ReadOnly = True
         Me.FTApproveState.Visible = True
-        Me.FTApproveState.VisibleIndex = 13
+        Me.FTApproveState.VisibleIndex = 12
         Me.FTApproveState.Width = 64
         '
         'RepFTApproveState
@@ -1864,8 +1864,6 @@ Partial Class wEmployeeLeave
         Me.FTLeaveNote.Caption = "FTLeaveNote"
         Me.FTLeaveNote.FieldName = "FTLeaveNote"
         Me.FTLeaveNote.Name = "FTLeaveNote"
-        Me.FTLeaveNote.Visible = True
-        Me.FTLeaveNote.VisibleIndex = 11
         '
         'ColFTStateMedicalCertificate
         '
@@ -1876,8 +1874,7 @@ Partial Class wEmployeeLeave
         Me.ColFTStateMedicalCertificate.OptionsColumn.AllowEdit = False
         Me.ColFTStateMedicalCertificate.OptionsColumn.ReadOnly = True
         Me.ColFTStateMedicalCertificate.Visible = True
-        Me.ColFTStateMedicalCertificate.VisibleIndex = 12
-        Me.ColFTStateMedicalCertificate.Width = 89
+        Me.ColFTStateMedicalCertificate.VisibleIndex = 11
         '
         'ColFTMedicalCertificateName
         '
@@ -1893,7 +1890,7 @@ Partial Class wEmployeeLeave
         Me.CFTInsUser.OptionsColumn.AllowEdit = False
         Me.CFTInsUser.OptionsColumn.ReadOnly = True
         Me.CFTInsUser.Visible = True
-        Me.CFTInsUser.VisibleIndex = 14
+        Me.CFTInsUser.VisibleIndex = 13
         '
         'CFTInsDate
         '
@@ -1905,7 +1902,7 @@ Partial Class wEmployeeLeave
         Me.CFTInsDate.OptionsColumn.AllowEdit = False
         Me.CFTInsDate.OptionsColumn.ReadOnly = True
         Me.CFTInsDate.Visible = True
-        Me.CFTInsDate.VisibleIndex = 15
+        Me.CFTInsDate.VisibleIndex = 14
         '
         'CFTInsTime
         '
@@ -1915,7 +1912,7 @@ Partial Class wEmployeeLeave
         Me.CFTInsTime.OptionsColumn.AllowEdit = False
         Me.CFTInsTime.OptionsColumn.ReadOnly = True
         Me.CFTInsTime.Visible = True
-        Me.CFTInsTime.VisibleIndex = 16
+        Me.CFTInsTime.VisibleIndex = 15
         '
         'CFTStateDeductVacation
         '
@@ -1929,7 +1926,7 @@ Partial Class wEmployeeLeave
         Me.CFTStateDeductVacation.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.CFTStateDeductVacation.OptionsColumn.ReadOnly = True
         Me.CFTStateDeductVacation.Visible = True
-        Me.CFTStateDeductVacation.VisibleIndex = 17
+        Me.CFTStateDeductVacation.VisibleIndex = 16
         '
         'FTMngApproveState
         '
@@ -1940,7 +1937,7 @@ Partial Class wEmployeeLeave
         Me.FTMngApproveState.OptionsColumn.AllowEdit = False
         Me.FTMngApproveState.OptionsColumn.ReadOnly = True
         Me.FTMngApproveState.Visible = True
-        Me.FTMngApproveState.VisibleIndex = 18
+        Me.FTMngApproveState.VisibleIndex = 17
         Me.FTMngApproveState.Width = 90
         '
         'RepositoryItemCheckEditFTMngApproveState
@@ -1958,7 +1955,7 @@ Partial Class wEmployeeLeave
         Me.FDMngApproveDate.OptionsColumn.AllowEdit = False
         Me.FDMngApproveDate.OptionsColumn.ReadOnly = True
         Me.FDMngApproveDate.Visible = True
-        Me.FDMngApproveDate.VisibleIndex = 20
+        Me.FDMngApproveDate.VisibleIndex = 19
         '
         'FTMngApproveTime
         '
@@ -1968,7 +1965,7 @@ Partial Class wEmployeeLeave
         Me.FTMngApproveTime.OptionsColumn.AllowEdit = False
         Me.FTMngApproveTime.OptionsColumn.ReadOnly = True
         Me.FTMngApproveTime.Visible = True
-        Me.FTMngApproveTime.VisibleIndex = 21
+        Me.FTMngApproveTime.VisibleIndex = 20
         '
         'FTMngApproveBy
         '
@@ -1978,7 +1975,7 @@ Partial Class wEmployeeLeave
         Me.FTMngApproveBy.OptionsColumn.AllowEdit = False
         Me.FTMngApproveBy.OptionsColumn.ReadOnly = True
         Me.FTMngApproveBy.Visible = True
-        Me.FTMngApproveBy.VisibleIndex = 19
+        Me.FTMngApproveBy.VisibleIndex = 18
         '
         'FTDirApproveState
         '
@@ -1989,7 +1986,7 @@ Partial Class wEmployeeLeave
         Me.FTDirApproveState.OptionsColumn.AllowEdit = False
         Me.FTDirApproveState.OptionsColumn.ReadOnly = True
         Me.FTDirApproveState.Visible = True
-        Me.FTDirApproveState.VisibleIndex = 22
+        Me.FTDirApproveState.VisibleIndex = 21
         Me.FTDirApproveState.Width = 68
         '
         'RepositoryItemCheckEditFTDirApproveState
@@ -2007,7 +2004,7 @@ Partial Class wEmployeeLeave
         Me.FDDirApproveDate.OptionsColumn.AllowEdit = False
         Me.FDDirApproveDate.OptionsColumn.ReadOnly = True
         Me.FDDirApproveDate.Visible = True
-        Me.FDDirApproveDate.VisibleIndex = 24
+        Me.FDDirApproveDate.VisibleIndex = 23
         '
         'FTDirApproveTime
         '
@@ -2017,7 +2014,7 @@ Partial Class wEmployeeLeave
         Me.FTDirApproveTime.OptionsColumn.AllowEdit = False
         Me.FTDirApproveTime.OptionsColumn.ReadOnly = True
         Me.FTDirApproveTime.Visible = True
-        Me.FTDirApproveTime.VisibleIndex = 25
+        Me.FTDirApproveTime.VisibleIndex = 24
         '
         'FTDirApproveBy
         '
@@ -2027,7 +2024,7 @@ Partial Class wEmployeeLeave
         Me.FTDirApproveBy.OptionsColumn.AllowEdit = False
         Me.FTDirApproveBy.OptionsColumn.ReadOnly = True
         Me.FTDirApproveBy.Visible = True
-        Me.FTDirApproveBy.VisibleIndex = 23
+        Me.FTDirApproveBy.VisibleIndex = 22
         Me.FTDirApproveBy.Width = 123
         '
         'RepositoryFTSelect
@@ -2058,7 +2055,7 @@ Partial Class wEmployeeLeave
         '
         Me.otabpage2.Controls.Add(Me.oGrpdetail)
         Me.otabpage2.Name = "otabpage2"
-        Me.otabpage2.Size = New System.Drawing.Size(796, 362)
+        Me.otabpage2.Size = New System.Drawing.Size(1097, 548)
         Me.otabpage2.Text = "file"
         '
         'oGrpdetail
@@ -2067,7 +2064,7 @@ Partial Class wEmployeeLeave
         Me.oGrpdetail.Dock = System.Windows.Forms.DockStyle.Fill
         Me.oGrpdetail.Location = New System.Drawing.Point(0, 0)
         Me.oGrpdetail.Name = "oGrpdetail"
-        Me.oGrpdetail.Size = New System.Drawing.Size(796, 362)
+        Me.oGrpdetail.Size = New System.Drawing.Size(1097, 548)
         Me.oGrpdetail.TabIndex = 6
         '
         'FTLeavePic
@@ -2084,28 +2081,14 @@ Partial Class wEmployeeLeave
         Me.FTLeavePic.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTLeavePic.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
         Me.FTLeavePic.Properties.ZoomingOperationMode = DevExpress.XtraEditors.Repository.ZoomingOperationMode.MouseWheel
-        Me.FTLeavePic.Size = New System.Drawing.Size(792, 337)
+        Me.FTLeavePic.Size = New System.Drawing.Size(1093, 523)
         Me.FTLeavePic.TabIndex = 0
-        '
-        'lblFTYear
-        '
-        Me.lblFTYear.Appearance.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.lblFTYear.Appearance.Options.UseForeColor = True
-        Me.lblFTYear.Appearance.Options.UseTextOptions = True
-        Me.lblFTYear.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.lblFTYear.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.lblFTYear.Location = New System.Drawing.Point(674, 10)
-        Me.lblFTYear.Name = "lblFTYear"
-        Me.lblFTYear.Size = New System.Drawing.Size(63, 19)
-        Me.lblFTYear.TabIndex = 595
-        Me.lblFTYear.Tag = "2|"
-        Me.lblFTYear.Text = "Year :"
         '
         'FTPayYear
         '
         Me.FTPayYear.EditValue = ""
         Me.FTPayYear.EnterMoveNextControl = True
-        Me.FTPayYear.Location = New System.Drawing.Point(743, 9)
+        Me.FTPayYear.Location = New System.Drawing.Point(743, 10)
         Me.FTPayYear.Name = "FTPayYear"
         Me.FTPayYear.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTPayYear.Properties.Appearance.Options.UseBackColor = True
@@ -2125,14 +2108,28 @@ Partial Class wEmployeeLeave
         Me.FTPayYear.Properties.Tag = "FNPayYear"
         Me.FTPayYear.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.FTPayYear.Size = New System.Drawing.Size(87, 20)
-        Me.FTPayYear.TabIndex = 594
+        Me.FTPayYear.TabIndex = 454
         Me.FTPayYear.Tag = "2|"
+        '
+        'lblFTYear
+        '
+        Me.lblFTYear.Appearance.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.lblFTYear.Appearance.Options.UseForeColor = True
+        Me.lblFTYear.Appearance.Options.UseTextOptions = True
+        Me.lblFTYear.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.lblFTYear.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.lblFTYear.Location = New System.Drawing.Point(671, 10)
+        Me.lblFTYear.Name = "lblFTYear"
+        Me.lblFTYear.Size = New System.Drawing.Size(63, 19)
+        Me.lblFTYear.TabIndex = 593
+        Me.lblFTYear.Tag = "2|"
+        Me.lblFTYear.Text = "Year :"
         '
         'wEmployeeLeave
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1099, 716)
+        Me.ClientSize = New System.Drawing.Size(1103, 868)
         Me.Controls.Add(Me.ogbemployee)
         Me.Controls.Add(Me.ogbheader)
         Me.Name = "wEmployeeLeave"
@@ -2346,6 +2343,6 @@ Partial Class wEmployeeLeave
     Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl10 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents lblFTYear As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTPayYear As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents lblFTYear As DevExpress.XtraEditors.LabelControl
 End Class

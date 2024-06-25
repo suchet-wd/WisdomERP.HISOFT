@@ -109,6 +109,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FNHSysDeliveryID = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CXFTCmpCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTBuyCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTRemark = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTPartCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTPartDetail = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTRawMatCode = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -543,7 +544,7 @@ Partial Class wPurchaseMaterialTrackingSample
         '
         'FNListDocumentTrackPIData_lbl
         '
-        Me.FNListDocumentTrackPIData_lbl.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.FNListDocumentTrackPIData_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
         Me.FNListDocumentTrackPIData_lbl.Appearance.Options.UseForeColor = True
         Me.FNListDocumentTrackPIData_lbl.Appearance.Options.UseTextOptions = True
         Me.FNListDocumentTrackPIData_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -1014,7 +1015,7 @@ Partial Class wPurchaseMaterialTrackingSample
         '
         'ogvtime
         '
-        Me.ogvtime.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTSelect, Me.xFTFirstInputDate, Me.FTFirstInputBy, Me.FTLastInputDate, Me.FTLastInputBy, Me.CFTPurchaseNo, Me.FDPurchaseDate, Me.FTPurchaseBy, Me.xFTPINo, Me.FTSuplCode, Me.FTSuplName, Me.FTSuplCalCode, Me.xFTNikeVenderCode, Me.xFTCOFOCode, Me.xFTCurCode, Me.FDDeliveryDate, Me.FDCFMDeliveryDate, Me.cxFTPOCustPO, Me.xFTPOOrderNo, Me.FTOrderDate, Me.FTDevConfirmDate, Me.xFTPOStyleCode, Me.FNHSysDeliveryID, Me.CXFTCmpCode, Me.FTBuyCode, Me.FTPartCode, Me.FTPartDetail, Me.FTRawMatCode, Me.xFTMainMatName, Me.xFTRawMatColorCode, Me.xFTRawMatSizeCode, Me.FTStateSuperVisorApp, Me.FTStateManagerApp, Me.FTStateSendMail, Me.FTSendMailBy, Me.FTSendMailDate, Me.FTSendMailTime, Me.xFTLastSendMailBy, Me.xFTLastSendMailDate, Me.xFTLastSendMailTime, Me.xxFNLeadTime, Me.FDSupCFMDelDate, Me.xFTOETCDate, Me.xFTORGOETCDate, Me.FTORGOETCInputBy, Me.FTORGOETCInputDate, Me.FTORGOETCInputTime, Me.FTFinalOETCDate, Me.FTFinalOETCInputBy, Me.FTFinalOETCInputDate, Me.FTFinalOETCInputTime, Me.xFNORGLeadTime, Me.FNFinalLeadTime, Me.FTDelayLangth, Me.FNPOQuantity, Me.FNUsedQuantity, Me.FTUsedUnit, Me.FNPOCFMQuantity, Me.xFTPOCFMNote, Me.xFNPROCFMQuantity, Me.xFTPROCFMNote, Me.xFNPOBALQuantity, Me.FTUnitCode, Me.xFTDelayReasonsCode, Me.FTDelayReasonsName, Me.FTFurtherDelayReasonCode, Me.FTFurtherDelayReasonName, Me.FNTrackSeq, Me.FTTrackDate, Me.FTTrackBy, Me.FTContactName, Me.xFTNote, Me.xFNHSysRawMatId, Me.xFNDocType, Me.xFTInvoiceNo, Me.xFTInvoiceNote, Me.xFTReserveNo, Me.xFTSendSMPDate, Me.xFTSendSMPStatus, Me.xFTSendSMPRemark, Me.xFTSendSMPAWB, Me.xFTSendSMPPayType, Me.xFTSamplePPC, Me.FTStatePDF, Me.FTStatePDFWaitPrice, Me.xFTStateCancel, Me.xFTStateHold, Me.xFTHoldReason, Me.FNDocType})
+        Me.ogvtime.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTSelect, Me.xFTFirstInputDate, Me.FTFirstInputBy, Me.FTLastInputDate, Me.FTLastInputBy, Me.CFTPurchaseNo, Me.FDPurchaseDate, Me.FTPurchaseBy, Me.xFTPINo, Me.FTSuplCode, Me.FTSuplName, Me.FTSuplCalCode, Me.xFTNikeVenderCode, Me.xFTCOFOCode, Me.xFTCurCode, Me.FDDeliveryDate, Me.FDCFMDeliveryDate, Me.cxFTPOCustPO, Me.xFTPOOrderNo, Me.FTOrderDate, Me.FTDevConfirmDate, Me.xFTPOStyleCode, Me.FNHSysDeliveryID, Me.CXFTCmpCode, Me.FTBuyCode, Me.FTRemark, Me.FTPartCode, Me.FTPartDetail, Me.FTRawMatCode, Me.xFTMainMatName, Me.xFTRawMatColorCode, Me.xFTRawMatSizeCode, Me.FTStateSuperVisorApp, Me.FTStateManagerApp, Me.FTStateSendMail, Me.FTSendMailBy, Me.FTSendMailDate, Me.FTSendMailTime, Me.xFTLastSendMailBy, Me.xFTLastSendMailDate, Me.xFTLastSendMailTime, Me.xxFNLeadTime, Me.FDSupCFMDelDate, Me.xFTOETCDate, Me.xFTORGOETCDate, Me.FTORGOETCInputBy, Me.FTORGOETCInputDate, Me.FTORGOETCInputTime, Me.FTFinalOETCDate, Me.FTFinalOETCInputBy, Me.FTFinalOETCInputDate, Me.FTFinalOETCInputTime, Me.xFNORGLeadTime, Me.FNFinalLeadTime, Me.FTDelayLangth, Me.FNPOQuantity, Me.FNUsedQuantity, Me.FTUsedUnit, Me.FNPOCFMQuantity, Me.xFTPOCFMNote, Me.xFNPROCFMQuantity, Me.xFTPROCFMNote, Me.xFNPOBALQuantity, Me.FTUnitCode, Me.xFTDelayReasonsCode, Me.FTDelayReasonsName, Me.FTFurtherDelayReasonCode, Me.FTFurtherDelayReasonName, Me.FNTrackSeq, Me.FTTrackDate, Me.FTTrackBy, Me.FTContactName, Me.xFTNote, Me.xFNHSysRawMatId, Me.xFNDocType, Me.xFTInvoiceNo, Me.xFTInvoiceNote, Me.xFTReserveNo, Me.xFTSendSMPDate, Me.xFTSendSMPStatus, Me.xFTSendSMPRemark, Me.xFTSendSMPAWB, Me.xFTSendSMPPayType, Me.xFTSamplePPC, Me.FTStatePDF, Me.FTStatePDFWaitPrice, Me.xFTStateCancel, Me.xFTStateHold, Me.xFTHoldReason, Me.FNDocType})
         Me.ogvtime.GridControl = Me.ogdtime
         Me.ogvtime.Name = "ogvtime"
         Me.ogvtime.OptionsCustomization.AllowQuickHideColumns = False
@@ -1360,19 +1361,25 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTBuyCode.Visible = True
         Me.FTBuyCode.VisibleIndex = 23
         '
+        'FTRemark
+        '
+        Me.FTRemark.Caption = "FTRemark"
+        Me.FTRemark.FieldName = "FTRemark"
+        Me.FTRemark.Name = "FTRemark"
+        Me.FTRemark.OptionsColumn.AllowEdit = False
+        Me.FTRemark.OptionsColumn.ReadOnly = True
+        Me.FTRemark.Visible = True
+        Me.FTRemark.VisibleIndex = 24
+        '
         'FTPartCode
         '
-        Me.FTPartCode.AppearanceCell.Options.UseTextOptions = True
-        Me.FTPartCode.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.FTPartCode.AppearanceHeader.Options.UseTextOptions = True
-        Me.FTPartCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTPartCode.Caption = "FTPartCode"
-        Me.FTPartCode.FieldName = "FTPartCode"
+        Me.FTPartCode.FieldName = "FTPartName"
         Me.FTPartCode.Name = "FTPartCode"
         Me.FTPartCode.OptionsColumn.AllowEdit = False
         Me.FTPartCode.OptionsColumn.ReadOnly = True
         Me.FTPartCode.Visible = True
-        Me.FTPartCode.VisibleIndex = 24
+        Me.FTPartCode.VisibleIndex = 25
         '
         'FTPartDetail
         '
@@ -1381,12 +1388,12 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTPartDetail.AppearanceHeader.Options.UseTextOptions = True
         Me.FTPartDetail.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.FTPartDetail.Caption = "Part Details"
-        Me.FTPartDetail.FieldName = "FTPartDetail"
+        Me.FTPartDetail.FieldName = "FTPart"
         Me.FTPartDetail.Name = "FTPartDetail"
         Me.FTPartDetail.OptionsColumn.AllowEdit = False
         Me.FTPartDetail.OptionsColumn.ReadOnly = True
         Me.FTPartDetail.Visible = True
-        Me.FTPartDetail.VisibleIndex = 25
+        Me.FTPartDetail.VisibleIndex = 26
         Me.FTPartDetail.Width = 50
         '
         'FTRawMatCode
@@ -1397,7 +1404,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTRawMatCode.OptionsColumn.AllowEdit = False
         Me.FTRawMatCode.OptionsColumn.ReadOnly = True
         Me.FTRawMatCode.Visible = True
-        Me.FTRawMatCode.VisibleIndex = 26
+        Me.FTRawMatCode.VisibleIndex = 27
         Me.FTRawMatCode.Width = 120
         '
         'xFTMainMatName
@@ -1408,7 +1415,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTMainMatName.OptionsColumn.AllowEdit = False
         Me.xFTMainMatName.OptionsColumn.ReadOnly = True
         Me.xFTMainMatName.Visible = True
-        Me.xFTMainMatName.VisibleIndex = 27
+        Me.xFTMainMatName.VisibleIndex = 28
         Me.xFTMainMatName.Width = 200
         '
         'xFTRawMatColorCode
@@ -1419,7 +1426,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTRawMatColorCode.OptionsColumn.AllowEdit = False
         Me.xFTRawMatColorCode.OptionsColumn.ReadOnly = True
         Me.xFTRawMatColorCode.Visible = True
-        Me.xFTRawMatColorCode.VisibleIndex = 28
+        Me.xFTRawMatColorCode.VisibleIndex = 29
         '
         'xFTRawMatSizeCode
         '
@@ -1429,7 +1436,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTRawMatSizeCode.OptionsColumn.AllowEdit = False
         Me.xFTRawMatSizeCode.OptionsColumn.ReadOnly = True
         Me.xFTRawMatSizeCode.Visible = True
-        Me.xFTRawMatSizeCode.VisibleIndex = 29
+        Me.xFTRawMatSizeCode.VisibleIndex = 30
         '
         'FTStateSuperVisorApp
         '
@@ -1442,7 +1449,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTStateSuperVisorApp.OptionsColumn.AllowEdit = False
         Me.FTStateSuperVisorApp.OptionsColumn.ReadOnly = True
         Me.FTStateSuperVisorApp.Visible = True
-        Me.FTStateSuperVisorApp.VisibleIndex = 30
+        Me.FTStateSuperVisorApp.VisibleIndex = 31
         '
         'FTStateManagerApp
         '
@@ -1455,7 +1462,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTStateManagerApp.OptionsColumn.AllowEdit = False
         Me.FTStateManagerApp.OptionsColumn.ReadOnly = True
         Me.FTStateManagerApp.Visible = True
-        Me.FTStateManagerApp.VisibleIndex = 31
+        Me.FTStateManagerApp.VisibleIndex = 32
         '
         'FTStateSendMail
         '
@@ -1468,7 +1475,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTStateSendMail.OptionsColumn.AllowEdit = False
         Me.FTStateSendMail.OptionsColumn.ReadOnly = True
         Me.FTStateSendMail.Visible = True
-        Me.FTStateSendMail.VisibleIndex = 32
+        Me.FTStateSendMail.VisibleIndex = 33
         '
         'FTSendMailBy
         '
@@ -1480,7 +1487,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTSendMailBy.OptionsColumn.AllowEdit = False
         Me.FTSendMailBy.OptionsColumn.ReadOnly = True
         Me.FTSendMailBy.Visible = True
-        Me.FTSendMailBy.VisibleIndex = 33
+        Me.FTSendMailBy.VisibleIndex = 34
         '
         'FTSendMailDate
         '
@@ -1492,7 +1499,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTSendMailDate.OptionsColumn.AllowEdit = False
         Me.FTSendMailDate.OptionsColumn.ReadOnly = True
         Me.FTSendMailDate.Visible = True
-        Me.FTSendMailDate.VisibleIndex = 34
+        Me.FTSendMailDate.VisibleIndex = 35
         '
         'FTSendMailTime
         '
@@ -1504,7 +1511,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTSendMailTime.OptionsColumn.AllowEdit = False
         Me.FTSendMailTime.OptionsColumn.ReadOnly = True
         Me.FTSendMailTime.Visible = True
-        Me.FTSendMailTime.VisibleIndex = 35
+        Me.FTSendMailTime.VisibleIndex = 36
         '
         'xFTLastSendMailBy
         '
@@ -1515,7 +1522,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTLastSendMailBy.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.xFTLastSendMailBy.OptionsColumn.ReadOnly = True
         Me.xFTLastSendMailBy.Visible = True
-        Me.xFTLastSendMailBy.VisibleIndex = 36
+        Me.xFTLastSendMailBy.VisibleIndex = 37
         '
         'xFTLastSendMailDate
         '
@@ -1528,7 +1535,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTLastSendMailDate.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.xFTLastSendMailDate.OptionsColumn.ReadOnly = True
         Me.xFTLastSendMailDate.Visible = True
-        Me.xFTLastSendMailDate.VisibleIndex = 37
+        Me.xFTLastSendMailDate.VisibleIndex = 38
         '
         'xFTLastSendMailTime
         '
@@ -1541,7 +1548,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTLastSendMailTime.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
         Me.xFTLastSendMailTime.OptionsColumn.ReadOnly = True
         Me.xFTLastSendMailTime.Visible = True
-        Me.xFTLastSendMailTime.VisibleIndex = 38
+        Me.xFTLastSendMailTime.VisibleIndex = 39
         '
         'xxFNLeadTime
         '
@@ -1554,7 +1561,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xxFNLeadTime.OptionsColumn.AllowEdit = False
         Me.xxFNLeadTime.OptionsColumn.ReadOnly = True
         Me.xxFNLeadTime.Visible = True
-        Me.xxFNLeadTime.VisibleIndex = 39
+        Me.xxFNLeadTime.VisibleIndex = 40
         '
         'RepositoryItemCalcEditFNLeadTime
         '
@@ -1578,7 +1585,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FDSupCFMDelDate.OptionsColumn.AllowEdit = False
         Me.FDSupCFMDelDate.OptionsColumn.ReadOnly = True
         Me.FDSupCFMDelDate.Visible = True
-        Me.FDSupCFMDelDate.VisibleIndex = 40
+        Me.FDSupCFMDelDate.VisibleIndex = 41
         '
         'xFTOETCDate
         '
@@ -1590,7 +1597,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTOETCDate.OptionsColumn.AllowEdit = False
         Me.xFTOETCDate.OptionsColumn.ReadOnly = True
         Me.xFTOETCDate.Visible = True
-        Me.xFTOETCDate.VisibleIndex = 41
+        Me.xFTOETCDate.VisibleIndex = 42
         Me.xFTOETCDate.Width = 80
         '
         'xFTORGOETCDate
@@ -1604,7 +1611,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTORGOETCDate.OptionsColumn.AllowEdit = False
         Me.xFTORGOETCDate.OptionsColumn.ReadOnly = True
         Me.xFTORGOETCDate.Visible = True
-        Me.xFTORGOETCDate.VisibleIndex = 42
+        Me.xFTORGOETCDate.VisibleIndex = 43
         '
         'RepositoryItemDateEdit1
         '
@@ -1653,7 +1660,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTFinalOETCDate.OptionsColumn.AllowEdit = False
         Me.FTFinalOETCDate.OptionsColumn.ReadOnly = True
         Me.FTFinalOETCDate.Visible = True
-        Me.FTFinalOETCDate.VisibleIndex = 43
+        Me.FTFinalOETCDate.VisibleIndex = 44
         '
         'FTFinalOETCInputBy
         '
@@ -1687,7 +1694,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFNORGLeadTime.OptionsColumn.AllowEdit = False
         Me.xFNORGLeadTime.OptionsColumn.ReadOnly = True
         Me.xFNORGLeadTime.Visible = True
-        Me.xFNORGLeadTime.VisibleIndex = 44
+        Me.xFNORGLeadTime.VisibleIndex = 45
         '
         'FNFinalLeadTime
         '
@@ -1697,7 +1704,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FNFinalLeadTime.OptionsColumn.AllowEdit = False
         Me.FNFinalLeadTime.OptionsColumn.ReadOnly = True
         Me.FNFinalLeadTime.Visible = True
-        Me.FNFinalLeadTime.VisibleIndex = 45
+        Me.FNFinalLeadTime.VisibleIndex = 46
         '
         'FTDelayLangth
         '
@@ -1707,7 +1714,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTDelayLangth.OptionsColumn.AllowEdit = False
         Me.FTDelayLangth.OptionsColumn.ReadOnly = True
         Me.FTDelayLangth.Visible = True
-        Me.FTDelayLangth.VisibleIndex = 46
+        Me.FTDelayLangth.VisibleIndex = 47
         '
         'FNPOQuantity
         '
@@ -1723,7 +1730,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FNPOQuantity.OptionsColumn.AllowEdit = False
         Me.FNPOQuantity.OptionsColumn.ReadOnly = True
         Me.FNPOQuantity.Visible = True
-        Me.FNPOQuantity.VisibleIndex = 47
+        Me.FNPOQuantity.VisibleIndex = 48
         Me.FNPOQuantity.Width = 80
         '
         'FNUsedQuantity
@@ -1734,7 +1741,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FNUsedQuantity.OptionsColumn.AllowEdit = False
         Me.FNUsedQuantity.OptionsColumn.ReadOnly = True
         Me.FNUsedQuantity.Visible = True
-        Me.FNUsedQuantity.VisibleIndex = 48
+        Me.FNUsedQuantity.VisibleIndex = 49
         '
         'FTUsedUnit
         '
@@ -1748,7 +1755,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTUsedUnit.OptionsColumn.AllowEdit = False
         Me.FTUsedUnit.OptionsColumn.ReadOnly = True
         Me.FTUsedUnit.Visible = True
-        Me.FTUsedUnit.VisibleIndex = 49
+        Me.FTUsedUnit.VisibleIndex = 50
         '
         'FNPOCFMQuantity
         '
@@ -1761,7 +1768,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FNPOCFMQuantity.OptionsColumn.AllowEdit = False
         Me.FNPOCFMQuantity.OptionsColumn.ReadOnly = True
         Me.FNPOCFMQuantity.Visible = True
-        Me.FNPOCFMQuantity.VisibleIndex = 50
+        Me.FNPOCFMQuantity.VisibleIndex = 51
         '
         'RepositoryItemCalcQty
         '
@@ -1784,7 +1791,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTPOCFMNote.OptionsColumn.AllowEdit = False
         Me.xFTPOCFMNote.OptionsColumn.ReadOnly = True
         Me.xFTPOCFMNote.Visible = True
-        Me.xFTPOCFMNote.VisibleIndex = 51
+        Me.xFTPOCFMNote.VisibleIndex = 52
         '
         'RepositoryItemMemoExFTNote
         '
@@ -1803,7 +1810,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFNPROCFMQuantity.OptionsColumn.AllowEdit = False
         Me.xFNPROCFMQuantity.OptionsColumn.ReadOnly = True
         Me.xFNPROCFMQuantity.Visible = True
-        Me.xFNPROCFMQuantity.VisibleIndex = 52
+        Me.xFNPROCFMQuantity.VisibleIndex = 53
         '
         'xFTPROCFMNote
         '
@@ -1814,7 +1821,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTPROCFMNote.OptionsColumn.AllowEdit = False
         Me.xFTPROCFMNote.OptionsColumn.ReadOnly = True
         Me.xFTPROCFMNote.Visible = True
-        Me.xFTPROCFMNote.VisibleIndex = 53
+        Me.xFTPROCFMNote.VisibleIndex = 54
         '
         'xFNPOBALQuantity
         '
@@ -1827,7 +1834,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFNPOBALQuantity.OptionsColumn.AllowFocus = False
         Me.xFNPOBALQuantity.OptionsColumn.ReadOnly = True
         Me.xFNPOBALQuantity.Visible = True
-        Me.xFNPOBALQuantity.VisibleIndex = 54
+        Me.xFNPOBALQuantity.VisibleIndex = 55
         '
         'FTUnitCode
         '
@@ -1841,7 +1848,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTUnitCode.OptionsColumn.AllowEdit = False
         Me.FTUnitCode.OptionsColumn.ReadOnly = True
         Me.FTUnitCode.Visible = True
-        Me.FTUnitCode.VisibleIndex = 55
+        Me.FTUnitCode.VisibleIndex = 56
         Me.FTUnitCode.Width = 70
         '
         'xFTDelayReasonsCode
@@ -1853,7 +1860,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTDelayReasonsCode.OptionsColumn.AllowEdit = False
         Me.xFTDelayReasonsCode.OptionsColumn.ReadOnly = True
         Me.xFTDelayReasonsCode.Visible = True
-        Me.xFTDelayReasonsCode.VisibleIndex = 56
+        Me.xFTDelayReasonsCode.VisibleIndex = 57
         '
         'RepositoryItemGridLookUpEditFTDelayReasonsCode
         '
@@ -1907,7 +1914,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTDelayReasonsName.OptionsColumn.AllowEdit = False
         Me.FTDelayReasonsName.OptionsColumn.ReadOnly = True
         Me.FTDelayReasonsName.Visible = True
-        Me.FTDelayReasonsName.VisibleIndex = 57
+        Me.FTDelayReasonsName.VisibleIndex = 58
         '
         'FTFurtherDelayReasonCode
         '
@@ -1918,7 +1925,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTFurtherDelayReasonCode.OptionsColumn.AllowEdit = False
         Me.FTFurtherDelayReasonCode.OptionsColumn.ReadOnly = True
         Me.FTFurtherDelayReasonCode.Visible = True
-        Me.FTFurtherDelayReasonCode.VisibleIndex = 58
+        Me.FTFurtherDelayReasonCode.VisibleIndex = 59
         '
         'RepositoryItemGridLookUpEditFTFurtherDelayReasonCode
         '
@@ -1972,7 +1979,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTFurtherDelayReasonName.OptionsColumn.AllowEdit = False
         Me.FTFurtherDelayReasonName.OptionsColumn.ReadOnly = True
         Me.FTFurtherDelayReasonName.Visible = True
-        Me.FTFurtherDelayReasonName.VisibleIndex = 59
+        Me.FTFurtherDelayReasonName.VisibleIndex = 60
         '
         'FNTrackSeq
         '
@@ -1982,7 +1989,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FNTrackSeq.OptionsColumn.AllowEdit = False
         Me.FNTrackSeq.OptionsColumn.ReadOnly = True
         Me.FNTrackSeq.Visible = True
-        Me.FNTrackSeq.VisibleIndex = 60
+        Me.FNTrackSeq.VisibleIndex = 61
         '
         'FTTrackDate
         '
@@ -1994,7 +2001,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTTrackDate.OptionsColumn.AllowEdit = False
         Me.FTTrackDate.OptionsColumn.ReadOnly = True
         Me.FTTrackDate.Visible = True
-        Me.FTTrackDate.VisibleIndex = 61
+        Me.FTTrackDate.VisibleIndex = 62
         '
         'FTTrackBy
         '
@@ -2006,7 +2013,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTTrackBy.OptionsColumn.AllowEdit = False
         Me.FTTrackBy.OptionsColumn.ReadOnly = True
         Me.FTTrackBy.Visible = True
-        Me.FTTrackBy.VisibleIndex = 62
+        Me.FTTrackBy.VisibleIndex = 63
         '
         'FTContactName
         '
@@ -2016,7 +2023,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.FTContactName.OptionsColumn.AllowEdit = False
         Me.FTContactName.OptionsColumn.ReadOnly = True
         Me.FTContactName.Visible = True
-        Me.FTContactName.VisibleIndex = 63
+        Me.FTContactName.VisibleIndex = 64
         '
         'xFTNote
         '
@@ -2027,7 +2034,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTNote.OptionsColumn.AllowEdit = False
         Me.xFTNote.OptionsColumn.ReadOnly = True
         Me.xFTNote.Visible = True
-        Me.xFTNote.VisibleIndex = 64
+        Me.xFTNote.VisibleIndex = 65
         Me.xFTNote.Width = 200
         '
         'RepositoryItemPopupContainerTrackNote
@@ -2058,7 +2065,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTInvoiceNo.OptionsColumn.AllowEdit = False
         Me.xFTInvoiceNo.OptionsColumn.ReadOnly = True
         Me.xFTInvoiceNo.Visible = True
-        Me.xFTInvoiceNo.VisibleIndex = 65
+        Me.xFTInvoiceNo.VisibleIndex = 66
         '
         'RepositoryItemTextFTInvoiceNo
         '
@@ -2085,7 +2092,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTReserveNo.OptionsColumn.AllowEdit = False
         Me.xFTReserveNo.OptionsColumn.ReadOnly = True
         Me.xFTReserveNo.Visible = True
-        Me.xFTReserveNo.VisibleIndex = 66
+        Me.xFTReserveNo.VisibleIndex = 68
         '
         'xFTSendSMPDate
         '
@@ -2096,7 +2103,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTSendSMPDate.OptionsColumn.AllowEdit = False
         Me.xFTSendSMPDate.OptionsColumn.ReadOnly = True
         Me.xFTSendSMPDate.Visible = True
-        Me.xFTSendSMPDate.VisibleIndex = 68
+        Me.xFTSendSMPDate.VisibleIndex = 69
         '
         'xFTSendSMPStatus
         '
@@ -2107,7 +2114,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTSendSMPStatus.OptionsColumn.AllowEdit = False
         Me.xFTSendSMPStatus.OptionsColumn.ReadOnly = True
         Me.xFTSendSMPStatus.Visible = True
-        Me.xFTSendSMPStatus.VisibleIndex = 69
+        Me.xFTSendSMPStatus.VisibleIndex = 70
         '
         'RepositoryItemTextEditFTSendSMPStatus
         '
@@ -2124,7 +2131,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTSendSMPRemark.OptionsColumn.AllowEdit = False
         Me.xFTSendSMPRemark.OptionsColumn.ReadOnly = True
         Me.xFTSendSMPRemark.Visible = True
-        Me.xFTSendSMPRemark.VisibleIndex = 70
+        Me.xFTSendSMPRemark.VisibleIndex = 71
         '
         'xFTSendSMPAWB
         '
@@ -2135,7 +2142,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTSendSMPAWB.OptionsColumn.AllowEdit = False
         Me.xFTSendSMPAWB.OptionsColumn.ReadOnly = True
         Me.xFTSendSMPAWB.Visible = True
-        Me.xFTSendSMPAWB.VisibleIndex = 71
+        Me.xFTSendSMPAWB.VisibleIndex = 72
         '
         'xFTSendSMPPayType
         '
@@ -2146,7 +2153,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTSendSMPPayType.OptionsColumn.AllowEdit = False
         Me.xFTSendSMPPayType.OptionsColumn.ReadOnly = True
         Me.xFTSendSMPPayType.Visible = True
-        Me.xFTSendSMPPayType.VisibleIndex = 72
+        Me.xFTSendSMPPayType.VisibleIndex = 73
         '
         'xFTSamplePPC
         '
@@ -2156,7 +2163,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTSamplePPC.OptionsColumn.AllowEdit = False
         Me.xFTSamplePPC.OptionsColumn.ReadOnly = True
         Me.xFTSamplePPC.Visible = True
-        Me.xFTSamplePPC.VisibleIndex = 73
+        Me.xFTSamplePPC.VisibleIndex = 74
         Me.xFTSamplePPC.Width = 200
         '
         'FTStatePDF
@@ -2187,7 +2194,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTStateCancel.OptionsColumn.AllowEdit = False
         Me.xFTStateCancel.OptionsColumn.ReadOnly = True
         Me.xFTStateCancel.Visible = True
-        Me.xFTStateCancel.VisibleIndex = 74
+        Me.xFTStateCancel.VisibleIndex = 75
         Me.xFTStateCancel.Width = 83
         '
         'xFTStateHold
@@ -2202,7 +2209,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTStateHold.OptionsColumn.AllowEdit = False
         Me.xFTStateHold.OptionsColumn.ReadOnly = True
         Me.xFTStateHold.Visible = True
-        Me.xFTStateHold.VisibleIndex = 75
+        Me.xFTStateHold.VisibleIndex = 76
         Me.xFTStateHold.Width = 83
         '
         'xFTHoldReason
@@ -2216,7 +2223,7 @@ Partial Class wPurchaseMaterialTrackingSample
         Me.xFTHoldReason.OptionsColumn.AllowEdit = False
         Me.xFTHoldReason.OptionsColumn.ReadOnly = True
         Me.xFTHoldReason.Visible = True
-        Me.xFTHoldReason.VisibleIndex = 76
+        Me.xFTHoldReason.VisibleIndex = 77
         Me.xFTHoldReason.Width = 250
         '
         'FNDocType
@@ -2462,6 +2469,7 @@ Partial Class wPurchaseMaterialTrackingSample
     Friend WithEvents FDSupCFMDelDate As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTUsedUnit As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTSuplCalCode As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FTPartCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FNDocType As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTRemark As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTPartCode As DevExpress.XtraGrid.Columns.GridColumn
 End Class

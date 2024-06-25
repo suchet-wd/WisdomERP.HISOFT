@@ -784,7 +784,7 @@ namespace HI.Track
             this.FTCostSheetNo.Name = "FTCostSheetNo";
             this.FTCostSheetNo.OptionsColumn.AllowEdit = false;
             this.FTCostSheetNo.Visible = true;
-            this.FTCostSheetNo.VisibleIndex = 32;
+            this.FTCostSheetNo.VisibleIndex = 31;
             // 
             // FTMerTeamName
             // 
@@ -815,8 +815,6 @@ namespace HI.Track
             this.Seqnum.Name = "Seqnum";
             this.Seqnum.OptionsColumn.AllowEdit = false;
             this.Seqnum.OptionsColumn.ReadOnly = true;
-            this.Seqnum.Visible = true;
-            this.Seqnum.VisibleIndex = 33;
             // 
             // FNVersion
             // 
@@ -829,8 +827,6 @@ namespace HI.Track
             this.FNVersion.MinWidth = 21;
             this.FNVersion.Name = "FNVersion";
             this.FNVersion.OptionsColumn.AllowEdit = false;
-            this.FNVersion.Visible = true;
-            this.FNVersion.VisibleIndex = 31;
             // 
             // wProdLTTracking
             // 

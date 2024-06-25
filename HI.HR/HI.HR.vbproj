@@ -256,10 +256,16 @@
     <Compile Include="Employee\wEmployeeIncentiveHeader.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee\wEmployeeLeave.Designer.vb">
+    <Compile Include="Employee\wEmployeeLeave.designer.vb">
       <DependentUpon>wEmployeeLeave.vb</DependentUpon>
     </Compile>
     <Compile Include="Employee\wEmployeeLeave.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\wEmployeeLeave_20240203.Designer.vb">
+      <DependentUpon>wEmployeeLeave_20240203.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\wEmployeeLeave_20240203.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Employee\wEmployeeLeave_CVN.Designer.vb">
@@ -1452,6 +1458,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employee\wEmployeeLeave.resx">
       <DependentUpon>wEmployeeLeave.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\wEmployeeLeave_20240203.resx">
+      <DependentUpon>wEmployeeLeave_20240203.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employee\wEmployeeLeave_CVN.resx">
       <DependentUpon>wEmployeeLeave_CVN.vb</DependentUpon>

@@ -4,7 +4,6 @@ Imports DevExpress.XtraGrid.Columns
 
 Public Class wProdCartonScanPackTracking
 
-
     Sub New()
 
         ' This call is required by the designer.
@@ -337,46 +336,89 @@ Public Class wProdCartonScanPackTracking
         Dim _dt As DataTable
         ogcdetailcolorsize.DataSource = Nothing
         Try
-            _Qry = "Select   Case When ISDATE(op.FDInsDate) = 1 Then   Convert(DateTime,op.FDInsDate)  Else NULL End As 'FDInsDate' "
-            _Qry &= vbCrLf & ", op.FTPackNo, opd.FNCartonNo, op.FTCustomerPO, S.FTStyleCode, opd.FTOrderNo "
-            _Qry &= vbCrLf & ", opd.FTSubOrderNo, opd.FTColorway, opd.FTSizeBreakDown, opd.FTPOLine, ISNULL(opd.FNQuantity,0) As FNScanQuantity "
+            _Qry = "Select ISNULL(pc.FTUpdUser, pc.FTInsUser) AS 'FTScanByClose' "
+            _Qry &= vbCrLf & ", CASE WHEN ISDATE(pc.FDInsDate) = 1 Then Convert(Date,pc.FDInsDate)  ELSE NULL END AS 'FTScanDateClose' "
+            _Qry &= vbCrLf & ", pc.FTInsTime AS 'FTScanTimeClose' "
+            _Qry &= vbCrLf & ", ISNULL(csd.FTInsUser, '') AS 'FTScanByStart' "
+            _Qry &= vbCrLf & ", CASE WHEN ISDATE(csd.MnIns) = 1 Then Convert(Date,csd.MnIns) ELSE NULL END AS 'FTScanDateStart' "
+            _Qry &= vbCrLf & ", CASE WHEN ISDATE(csd.MnIns) = 1 Then Convert(Time,csd.MnIns) ELSE NULL END AS 'FTScanTimeStart' "
+            _Qry &= vbCrLf & ", csd2.MXUser AS 'FTScanByEnd' "
+            _Qry &= vbCrLf & ", CASE WHEN ISDATE(ISNULL(csd.MxUpd,csd.MxIns)) = 1 Then Convert(Date,ISNULL(csd.MxUpd,csd.MxIns)) ELSE NULL END AS 'FTScanDateEnd' "
+            _Qry &= vbCrLf & ", CASE WHEN ISDATE(ISNULL(csd.MxUpd,csd.MxIns)) = 1 Then Convert(Time,ISNULL(csd.MxUpd,csd.MxIns)) ELSE NULL END AS 'FTScanTimeEnd' "
+            _Qry &= vbCrLf & ", cs.FTPackNo AS 'FTPackNo' "
+            _Qry &= vbCrLf & ", cs.FNCartonNo AS 'FNCartonNo' "
+            _Qry &= vbCrLf & ", op.FTCustomerPO AS 'FTCustomerPO' "
+            _Qry &= vbCrLf & ", cs.FTOrderNo AS 'FTOrderNo' "
+            _Qry &= vbCrLf & ", cs.FTSubOrderNo AS 'FTSubOrderNo' "
+            _Qry &= vbCrLf & ", cs.Qty AS 'FNScanQuantity' "
 
-            _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack AS op WITH (NOLOCK)"
             _Qry &= vbCrLf
-            _Qry &= vbCrLf & "OUTER APPLY(SELECT * FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPACKOrderPack_Carton_Detail AS opd  WITH (NOLOCK)"
-            _Qry &= vbCrLf & "WHERE opd.FTPackNo = op.FTPackNo) AS opd "
+            _Qry &= vbCrLf & "From [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) + "].dbo.TPACKOrderPack AS op WITH (NOLOCK) "
             _Qry &= vbCrLf
-            _Qry &= vbCrLf & "OUTER APPLY(SELECT TOP 1 S.FTStyleCode, S.FTStyleNameEN, S.FTStyleNameTH  "
-            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle AS S  WITH (NOLOCK) "
-            _Qry &= vbCrLf & "WHERE S.FNHSysStyleId = op.FNHSysStyleId) AS S"
+            _Qry &= vbCrLf & "OUTER APPLY(SELECT cs.FTOrderNo, cs.FTSubOrderNo "
+            _Qry &= vbCrLf & ", cs.FTPackNo, cs.FNCartonNo, SUM(cs.FNScanQuantity) AS Qty "
+
+            _Qry &= vbCrLf & "FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) + "].dbo.TPACKOrderPack_Carton_Scan AS cs  With (NOLOCK) "
+            _Qry &= vbCrLf & "WHERE cs.FTPackNo = op.FTPackNo "
+            _Qry &= vbCrLf & "GROUP BY cs.FTOrderNo, cs.FTSubOrderNo , cs.FTPackNo, cs.FNCartonNo "
+            _Qry &= vbCrLf & ") AS cs "
             _Qry &= vbCrLf
-            _Qry &= vbCrLf & "WHERE "
-            _Qry &= vbCrLf & "(op.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & ") "
-            '_Qry &= vbCrLf & "AND (op.FTPackNo BETWEEN 'C2PAC-1807250002' AND 'C2PAC-1807250008') "
+            _Qry &= vbCrLf & "OUTER APPLY(SELECT TOP 1 pc.FDInsDate, pc.FTInsTime, pc.FTInsUser, pc.FTUpdUser "
+            _Qry &= vbCrLf & "FROM [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) + "].dbo.TPACKCarton AS pc  With (NOLOCK)"
+            _Qry &= vbCrLf & "WHERE(pc.FTPackNo = cs.FTPackNo) And (pc.FNCartonNo = cs.FNCartonNo) And pc.FTState = '1') AS pc "
+            _Qry &= vbCrLf
+            _Qry &= vbCrLf & "OUTER APPLY(SELECT DISTINCT csd.FTInsUser "
+            _Qry &= vbCrLf & ", MIN(csd.FDInsDate + ' ' + csd.FTInsTime) AS MnIns "
+            _Qry &= vbCrLf & ", MAX(csd.FDInsDate + ' ' + csd.FTInsTime) AS MxIns "
+            _Qry &= vbCrLf & ", MIN(csd.FDUpdDate + ' ' + csd.FTUpdTime) AS MnUpd "
+            _Qry &= vbCrLf & ", MAX(csd.FDUpdDate + ' ' + csd.FTUpdTime) AS MxUpd "
+            _Qry &= vbCrLf & "From [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) + "].dbo.TPACKOrderPack_Carton_Scan_Detail AS csd  With (NOLOCK) "
+            _Qry &= vbCrLf & "Where csd.FTPackNo = cs.FTPackNo And csd.FNCartonNo = cs.FNCartonNo "
+            _Qry &= vbCrLf & " GROUP BY csd.FTInsUser  ) AS csd "
+            _Qry &= vbCrLf
+            _Qry &= vbCrLf & "OUTER APPLY(SELECT DISTINCT ISNULL(csd2.FTUpdUser,csd2.FTInsUser)  AS MXUser "
+            _Qry &= vbCrLf & "From [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) + "].dbo.TPACKOrderPack_Carton_Scan_Detail AS csd2  With (NOLOCK) "
+            _Qry &= vbCrLf & "Where csd2.FTPackNo = cs.FTPackNo And csd2.FNCartonNo = cs.FNCartonNo "
+            _Qry &= vbCrLf & "And (ISNULL(csd.MxUpd, csd.MnIns) = ISNULL((csd2.FDUpdDate + ' ' + csd2.FTUpdTime), (csd2.FDInsDate + ' ' + csd2.FTInsTime))) ) AS csd2 "
+            '_Qry &= vbCrLf & "OUTER APPLY(SELECT  MAX(ISNULL(csd.FDUpdDate + ' '+ csd.FTUpdTime, csd.FDInsDate + ' '+ csd.FTInsTime)) AS 'Mx' "
+            '_Qry &= vbCrLf & ", MIN(csd.FDInsDate + ' ' + csd.FTInsTime) AS 'Mn' "
+            '_Qry &= vbCrLf & ", csd.FTPackNo, csd.FNCartonNo "
+            '_Qry &= vbCrLf & "From [" + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) + "].dbo.TPACKOrderPack_Carton_Scan_Detail AS csd  With (NOLOCK) "
+            '_Qry &= vbCrLf & "Where csd.FTPackNo = cs.FTPackNo And csd.FNCartonNo = cs.FNCartonNo "
+            '_Qry &= vbCrLf
+            '_Qry &= vbCrLf & "GROUP BY csd.FTPackNo, csd.FNCartonNo"
+            '_Qry &= vbCrLf & ") AS csd  "
+
+            _Qry &= vbCrLf
+            _Qry &= vbCrLf & "WHERE (op.FNHSysCmpId = " & HI.ST.SysInfo.CmpID & ") AND (pc.FTInsUser <> '') "
+
+            'If chkShow.Checked = True Then            '    _Qry &= vbCrLf & ""            'End If
 
             If FTOrderNo.Text <> "" And FTOrderNoTo.Text <> "" Then
-                _Qry &= vbCrLf & "AND (opd.FTOrderNo BETWEEN '" & HI.UL.ULF.rpQuoted(FTOrderNo.Text) & "' AND '" & HI.UL.ULF.rpQuoted(FTOrderNoTo.Text) & "') "
+                _Qry &= vbCrLf & "AND (cs.FTOrderNo BETWEEN '" & HI.UL.ULF.rpQuoted(FTOrderNo.Text) & "' AND '" & HI.UL.ULF.rpQuoted(FTOrderNoTo.Text) & "') "
             End If
 
             If FTSubOrderNo.Text <> "" And FTSubOrderNoTo.Text <> "" Then
-                _Qry &= vbCrLf & "AND (opd.FTSubOrderNo BETWEEN '" & HI.UL.ULF.rpQuoted(FTSubOrderNo.Text) & "' AND '" & HI.UL.ULF.rpQuoted(FTSubOrderNoTo.Text) & "') "
+                _Qry &= vbCrLf & "AND (cs.FTSubOrderNo BETWEEN '" & HI.UL.ULF.rpQuoted(FTSubOrderNo.Text) & "' AND '" & HI.UL.ULF.rpQuoted(FTSubOrderNoTo.Text) & "') "
             End If
 
             If FDDate.Text <> "" And FDDateTo.Text <> "" Then
-                _Qry &= vbCrLf & "AND (op.FDPackDate BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateTo.Text) & "') "
+                _Qry &= vbCrLf & "AND (pc.FDInsDate BETWEEN '" & HI.UL.ULDate.ConvertEnDB(FDDate.Text) & "' AND '" & HI.UL.ULDate.ConvertEnDB(FDDateTo.Text) & "') "
             End If
 
-            If FNHSysStyleId.Text <> "" And FNHSysStyleIdTo.Text <> "" Then
-                _Qry &= vbCrLf & "AND (op.FNHSysStyleId BETWEEN '" & HI.UL.ULF.rpQuoted(FNHSysStyleId.Text) & "' AND '" & HI.UL.ULF.rpQuoted(FNHSysStyleIdTo.Text) & "') "
-            End If
+            'If FNHSysStyleId.Text <> "" And FNHSysStyleIdTo.Text <> "" Then
+            '    _Qry &= vbCrLf & "AND (S.FTStyleCode BETWEEN '" & HI.UL.ULF.rpQuoted(FNHSysStyleId.Text) & "' AND '" & HI.UL.ULF.rpQuoted(FNHSysStyleIdTo.Text) & "') "
+            'End If
 
             If FNHSysPOID.Text <> "" And FNHSysPOIDTo.Text <> "" Then
                 _Qry &= vbCrLf & "AND(op.FTCustomerPO BETWEEN '" & HI.UL.ULF.rpQuoted(FNHSysPOID.Text) & "' AND '" & HI.UL.ULF.rpQuoted(FNHSysPOIDTo.Text) & "') "
             End If
 
-            '_Qry &= vbCrLf & "GROUP BY op.FTPackNo, opd.FNCartonNo, opd.FTSubOrderNo,opd.FTColorway, opd.FTSizeBreakDown, opd.FTPOLine "
-            '_Qry &= vbCrLf & ", op.FDInsDate, op.FTCustomerPO, S.FTStyleCode, opd.FTOrderNo "
-            _Qry &= vbCrLf & "ORDER BY op.FDInsDate, op.FTPackNo, opd.FTColorway, opd.FTSizeBreakDown, opd.FTPOLine "
+            '_Qry &= vbCrLf & "GROUP BY pc.FTInsUser, pc.FTUpdUser, pc.FDInsDate, pc.FTInsTime, cs.FTInsUser "
+            '_Qry &= vbCrLf & ", cs.FTUpdUser, cs.FTPackNo, cs.FNCartonNo, op.FTCustomerPO "
+            '_Qry &= vbCrLf & ", cs.FTOrderNo, cs.FTSubOrderNo, csd.Mn, csd.Mx "
+            _Qry &= vbCrLf
+            _Qry &= vbCrLf & "ORDER BY cs.FTOrderNo, cs.FTSubOrderNo, cs.FTPackNo, cs.FNCartonNo "
 
             _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_PROD)
 
@@ -390,47 +432,27 @@ Public Class wProdCartonScanPackTracking
     Private Function VerifyData() As Boolean
         Dim _Pass As Boolean = False
 
-        If Me.FDDate.Text <> "" Then
+        If Me.FDDate.Text <> "" And Me.FDDateTo.Text <> "" Then
             _Pass = True
         End If
 
-        If Me.FDDateTo.Text <> "" Then
+        If (Me.FNHSysStyleId.Text <> "" And FNHSysStyleId.Properties.Tag.ToString <> "") _
+            And (Me.FNHSysStyleIdTo.Text <> "" And FNHSysStyleIdTo.Properties.Tag.ToString <> "") Then
             _Pass = True
         End If
 
-        If Me.FNHSysStyleId.Text <> "" And FNHSysStyleId.Properties.Tag.ToString <> "" Then
+        If (Me.FTOrderNo.Text <> "" And FTOrderNo.Properties.Tag.ToString <> "") _
+            And (Me.FTOrderNoTo.Text <> "" And FTOrderNoTo.Properties.Tag.ToString <> "") Then
             _Pass = True
         End If
 
-
-        If Me.FNHSysStyleIdTo.Text <> "" And FNHSysStyleIdTo.Properties.Tag.ToString <> "" Then
+        If (Me.FTSubOrderNo.Text <> "" And FTSubOrderNo.Properties.Tag.ToString <> "") _
+            And (Me.FTSubOrderNoTo.Text <> "" And FTSubOrderNoTo.Properties.Tag.ToString <> "") Then
             _Pass = True
         End If
 
-
-        If Me.FTOrderNo.Text <> "" And FTOrderNo.Properties.Tag.ToString <> "" Then
-            _Pass = True
-        End If
-
-        If Me.FTOrderNoTo.Text <> "" And FTOrderNoTo.Properties.Tag.ToString <> "" Then
-            _Pass = True
-        End If
-
-
-        If Me.FTSubOrderNo.Text <> "" And FTSubOrderNo.Properties.Tag.ToString <> "" Then
-            _Pass = True
-        End If
-
-        If Me.FTSubOrderNoTo.Text <> "" And FTSubOrderNoTo.Properties.Tag.ToString <> "" Then
-            _Pass = True
-        End If
-
-
-        If Me.FNHSysPOID.Text <> "" And FNHSysPOID.Properties.Tag.ToString <> "" Then
-            _Pass = True
-        End If
-
-        If Me.FNHSysPOIDTo.Text <> "" And FNHSysPOIDTo.Properties.Tag.ToString <> "" Then
+        If (Me.FNHSysPOID.Text <> "" And FNHSysPOID.Properties.Tag.ToString <> "") _
+            And (Me.FNHSysPOIDTo.Text <> "" And FNHSysPOIDTo.Properties.Tag.ToString <> "") Then
             _Pass = True
         End If
 

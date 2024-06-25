@@ -2,19 +2,19 @@
 
 Public Class wEmployeeLeaveNotAppTracking
 
-    Private _wEmployeeLeave As wEmployeeLeave
+    Private _wEmployeeLeave As wEmployeeLeave_20240203
     Private _StateCheckWaitting As Boolean
-    Private _WformEmpLeave As wEmployeeLeave
+    Private _WformEmpLeave As wEmployeeLeave_20240203
     Sub New()
 
         _ProcPrepare = True
         ' This call is required by the designer.
         InitializeComponent()
-        _wEmployeeLeave = New wEmployeeLeave
+        _wEmployeeLeave = New wEmployeeLeave_20240203
         HI.TL.HandlerControl.AddHandlerObj(_wEmployeeLeave)
         ' Add any initialization after the InitializeComponent() call.
 
-        _WformEmpLeave = New wEmployeeLeave
+        _WformEmpLeave = New wEmployeeLeave_20240203
         HI.TL.HandlerControl.AddHandlerObj(_WformEmpLeave)
 
         Dim _Qry As String = ""
@@ -972,7 +972,7 @@ Public Class wEmployeeLeaveNotAppTracking
 
 
 
-                _wEmployeeLeave = New wEmployeeLeave
+                _wEmployeeLeave = New wEmployeeLeave_20240203
                 Call HI.TL.HandlerControl.AddHandlerObj(_wEmployeeLeave)
             End If
 

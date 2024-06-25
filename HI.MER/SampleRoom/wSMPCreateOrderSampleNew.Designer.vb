@@ -264,6 +264,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.RepositoryItemGridLookFTColorway = New DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit()
         Me.GridView9 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.cxxFTColorway = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FNFabricWidth = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.cxcFTMatPart = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemFTMatPart = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.FNMatQuantityConsmp = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -345,7 +346,6 @@ Partial Class wSMPCreateOrderSampleNew
         Me.GridView5 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridView6 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridView7 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.FNFabricWidth = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.RepositoryItemCheckEdit4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbdocinfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbdocinfo.SuspendLayout()
@@ -2764,6 +2764,16 @@ Partial Class wSMPCreateOrderSampleNew
         Me.cxxFTColorway.VisibleIndex = 0
         Me.cxxFTColorway.Width = 150
         '
+        'FNFabricWidth
+        '
+        Me.FNFabricWidth.Caption = "FNFabricWidth"
+        Me.FNFabricWidth.FieldName = "FNFabricWidth"
+        Me.FNFabricWidth.Name = "FNFabricWidth"
+        Me.FNFabricWidth.OptionsColumn.AllowEdit = False
+        Me.FNFabricWidth.OptionsColumn.ReadOnly = True
+        Me.FNFabricWidth.Visible = True
+        Me.FNFabricWidth.VisibleIndex = 8
+        '
         'cxcFTMatPart
         '
         Me.cxcFTMatPart.Caption = "Part"
@@ -3390,7 +3400,7 @@ Partial Class wSMPCreateOrderSampleNew
         Me.ogbmainprocbutton.Controls.Add(Me.ocmsave)
         Me.ogbmainprocbutton.Location = New System.Drawing.Point(84, 428)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(354, 119)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(424, 119)
         Me.ogbmainprocbutton.TabIndex = 139
         Me.ogbmainprocbutton.Tag = "2|"
         '
@@ -3416,7 +3426,7 @@ Partial Class wSMPCreateOrderSampleNew
         '
         'ocmimportcomponentfrombom
         '
-        Me.ocmimportcomponentfrombom.Location = New System.Drawing.Point(467, 52)
+        Me.ocmimportcomponentfrombom.Location = New System.Drawing.Point(110, 77)
         Me.ocmimportcomponentfrombom.Name = "ocmimportcomponentfrombom"
         Me.ocmimportcomponentfrombom.Size = New System.Drawing.Size(161, 25)
         Me.ocmimportcomponentfrombom.TabIndex = 122
@@ -3426,7 +3436,7 @@ Partial Class wSMPCreateOrderSampleNew
         '
         'ocmrefresh
         '
-        Me.ocmrefresh.Location = New System.Drawing.Point(423, 11)
+        Me.ocmrefresh.Location = New System.Drawing.Point(313, 46)
         Me.ocmrefresh.Name = "ocmrefresh"
         Me.ocmrefresh.Size = New System.Drawing.Size(95, 25)
         Me.ocmrefresh.TabIndex = 121
@@ -3487,7 +3497,7 @@ Partial Class wSMPCreateOrderSampleNew
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(-427, 45)
+        Me.ocmexit.Location = New System.Drawing.Point(-357, 45)
         Me.ocmexit.Name = "ocmexit"
         Me.ocmexit.Size = New System.Drawing.Size(95, 25)
         Me.ocmexit.TabIndex = 96
@@ -3559,16 +3569,6 @@ Partial Class wSMPCreateOrderSampleNew
         'GridView7
         '
         Me.GridView7.Name = "GridView7"
-        '
-        'FNFabricWidth
-        '
-        Me.FNFabricWidth.Caption = "FNFabricWidth"
-        Me.FNFabricWidth.FieldName = "FNFabricWidth"
-        Me.FNFabricWidth.Name = "FNFabricWidth"
-        Me.FNFabricWidth.OptionsColumn.AllowEdit = False
-        Me.FNFabricWidth.OptionsColumn.ReadOnly = True
-        Me.FNFabricWidth.Visible = True
-        Me.FNFabricWidth.VisibleIndex = 8
         '
         'wSMPCreateOrderSampleNew
         '
