@@ -176,66 +176,21 @@ Public Class wImportExcelBOMDev
                 HI.MG.ShowMsg.mInfo("ไม่สามารถเข้าถึงที่เก็บ File สำหรับ Import BOM Dev. ได้ !!!!", 1909270019, Me.Text)
             End If
 
-
             Dim Splsx As New HI.TL.SplashScreen("Reading Data BOM Dev. From Excel....")
             Try
-                'Dim mdt As DataTable
-
-                ' Try
-
-                '    Dim worksheet As DevExpress.Spreadsheet.Worksheet = opshet.Document.Worksheets.ActiveWorksheet
-                '    Dim range As DevExpress.Spreadsheet.Range = worksheet.GetUsedRange
-                '    Dim rangeHasHeaders As Boolean = True
-
-                '    ' Create a data table with column names obtained from the first row in a range if it has headers.
-                '    ' Column data types are obtained from cell value types of cells in the first data row of the worksheet range.
-                '    Dim dataTable As DataTable = worksheet.CreateDataTable(range, rangeHasHeaders)
-
-                '    'Validate cell value types. If cell value types in a column are different, the column values are exported as text.
-                '    For col As Integer = 0 To range.ColumnCount - 1
-                '        Dim cellType As CellValueType = range(0, col).Value.Type
-                '        For r As Integer = 1 To range.RowCount - 1
-                '            If cellType <> range(r, col).Value.Type Then
-                '                dataTable.Columns(col).DataType = GetType(String)
-                '                Exit For
-                '            End If
-                '        Next r
-                '    Next col
-
-                '    ' Create the exporter that obtains data from the specified range, 
-                '    ' skips the header row (if required) and populates the previously created data table. 
-                '    Dim exporter As DataTableExporter = worksheet.CreateDataTableExporter(range, dataTable, rangeHasHeaders)
-                '    ' Handle value conversion errors.
-                '    AddHandler exporter.CellValueConversionError, AddressOf exporter_CellValueConversionError
-
-                '    ' Perform the export.
-
-                '    exporter.Export()
-
-                '    mdt = dataTable.Copy
-
-                'Catch ex As Exception
-                '    mdt = Nothing
-                'End Try
-
-                'If mdt Is Nothing Then
-                '    Splsx.Close()
-                '    msgshow = "ข้อมูล File Excel ไม่ถูกต้องกรุณาทำการตรวจสอบ !!!"
-                'Else
-
-
-                'If mdt.Rows.Count > 0 And mdt.Columns.Count = 51 Then
-                '        StateImport = ImportDataToTemp(mdt, Splsx)
-
                 Dim FileName As String = PathFileExcel & "\" & HI.ST.UserInfo.UserName & ".xlsx"
                 opshet.SaveDocument(PathFileExcel & "\" & HI.ST.UserInfo.UserName & ".xlsx")
+                'Dim FileName As String = FTFilePath.Text
 
-                cmdstring = "  EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.USP_IMPORTFILEEXCEL_BOM  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(FileName) & "'"
+                cmdstring = "EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.USP_IMPORTFILEEXCEL_BOMORIGINAL  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(FileName) & "'"
+
+                Dim dtimportOriginal As DataTable = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_FHS)
+
+                cmdstring = "EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.USP_IMPORTFILEEXCEL_BOM  '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "','" & HI.UL.ULF.rpQuoted(FileName) & "'"
 
                 ' StateImport = (HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_FHS, "") = "1")
 
                 Dim dtimport As DataTable = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_FHS)
-
 
                 Try
                     If HI.ST.SysInfo.Admin Then
@@ -260,7 +215,7 @@ Public Class wImportExcelBOMDev
                         cmdstring = " Select  STYLE_NBR,STYLE_NM,SEASON_CD,SEASON_YR,FTSeason,FTStatus,ISNULL(SST.FTStateReplace,'0') AS FTStateReplace,ISNULL(SST.FNHSysStyleDevId,0) AS FNHSysStyleDevId,ISNULL(SST2.FNHSysStyleDevId2,0) AS FNHSysStyleDevId2 ,ISNULL(SST.FTStatePost,'0') AS FTStatePost,ISNULL(SST2.FNVersion,0) AS FNVersion"
                         cmdstring &= vbCrLf & " , CASE WHEN ISNULL(SST.FTStateReplace,'0') ='1' THEN '0' ELSE '1' END AS FTStateImport "
                         cmdstring &= vbCrLf & " FROM (Select STYLE_NBR, STYLE_NM, SEASON_CD, SEASON_YR, SEASON_CD + Right(SEASON_YR, 2) As FTSeason, MIN(A.Seq) As Seq,A.[STATUS] AS FTStatus,MAX(ISNULL(BType.FNListIndex,0)) AS FNListIndex"
-                        cmdstring &= vbCrLf & " From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.TTMPImportBomDevExcel As A WITH(NOLOCK)"
+                        cmdstring &= vbCrLf & " From  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.TTMPImportBomExcel As A WITH(NOLOCK)"
                         cmdstring &= vbCrLf & " Outer Apply(SELECT TOP 1 BType.FNListIndex FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS BType WITH(NOLOCK) WHERE BType.FTListName ='FNBomDevType' AND BType.FTNameEN  = A.[STATUS]) AS BType "
                         cmdstring &= vbCrLf & " Where (FTUserLogIn ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "')"
                         cmdstring &= vbCrLf & " Group By STYLE_NBR, STYLE_NM, SEASON_CD, SEASON_YR, SEASON_CD + Right(SEASON_YR, 2),[STATUS]) AS A"
@@ -363,12 +318,21 @@ Public Class wImportExcelBOMDev
 
                                         End If
 
-                                        cmdstring = "  EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.USP_IMPORTBOMDEVEXCEL '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," & DevID & ",'" & HI.UL.ULF.rpQuoted(R!STYLE_NBR.ToString) & "','" & HI.UL.ULF.rpQuoted(R!FTSeason.ToString) & "','" & HI.UL.ULF.rpQuoted(R!SEASON_CD.ToString) & "','" & HI.UL.ULF.rpQuoted(R!SEASON_YR.ToString) & "'," & Version & ",'" & HI.UL.ULF.rpQuoted(R!FTStatus.ToString) & "'," & Val(FNHSysCustId.Properties.Tag.ToString) & " "
+                                        cmdstring = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) &
+                                            "].dbo.USP_IMPORTBOMDEVEXCEL '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) &
+                                            "'," & DevID & ",'" & HI.UL.ULF.rpQuoted(R!STYLE_NBR.ToString) & "','" &
+                                            HI.UL.ULF.rpQuoted(R!FTSeason.ToString) & "','" &
+                                            HI.UL.ULF.rpQuoted(R!SEASON_CD.ToString) & "','" &
+                                            HI.UL.ULF.rpQuoted(R!SEASON_YR.ToString) & "'," & Version & ",'" &
+                                            HI.UL.ULF.rpQuoted(R!FTStatus.ToString) & "'," &
+                                            Val(FNHSysCustId.Properties.Tag.ToString) & " "
                                         HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_FHS)
 
                                     Next
 
-                                    cmdstring = "  EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.USP_MOVE_IMPORTBOMDEVEXCEL '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                    cmdstring = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) &
+                                        "].dbo.USP_MOVE_IMPORTBOMDEVEXCEL '" &
+                                        HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                                     HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_FHS)
 
                                     Splsx2.Close()
@@ -526,14 +490,14 @@ Public Class wImportExcelBOMDev
 
                 If HI.Conn.SQLConn.ExecuteNonQuery(cmdstring, Conn.DB.DataBaseName.DB_FHS) = False Then
 
-                    cmdstring = "delete from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.TTMPImportBomDevExcel where FTUserLogIn='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                    cmdstring = "delete from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.TTMPImportBomDevExcel_Original where FTUserLogIn='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                     HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_FHS)
 
                     Return False
                 End If
 
             Catch ex As Exception
-                cmdstring = "delete from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.TTMPImportBomDevExcel where FTUserLogIn='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                cmdstring = "delete from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.TTMPImportBomDevExcel_Original where FTUserLogIn='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                 HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_FHS)
                 Return False
             End Try
@@ -544,7 +508,7 @@ Public Class wImportExcelBOMDev
 
         If StateCheckImport = False Then
 
-            cmdstring = "delete from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.TTMPImportBomDevExcel where FTUserLogIn='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+            cmdstring = "delete from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.TTMPImportBomDevExcel_Original where FTUserLogIn='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
             HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_FHS)
             Return False
         End If
@@ -566,7 +530,7 @@ Public Class wImportExcelBOMDev
             Dim _dtstyledetail As DataTable
 
             cmdstring = "SEELCT STYLE_NBR, STYLE_NM, SEASON_CD, SEASON_YR,SEASON_CD + RIGHT(SEASON_YR,2) AS FTSeason,MSC_CODE, MSC_LEVEL_1, MSC_LEVEL_2, MSC_LEVEL_3, SILHOUETTE,MAX(DEVELOPER) As DEVELOPER  "
-            cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.TTMPImportBomDevExcel WITH(NOLOCK) "
+            cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.TTMPImportBomDevExcel_Original WITH(NOLOCK) "
             cmdstring &= vbCrLf & " where FTUserLogIn='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
             cmdstring &= vbCrLf & " GROUP Byte STYLE_NBR, STYLE_NM, SEASON_CD, SEASON_YR,SEASON_CD + RIGHT(SEASON_YR,2) AS FTSeason,MSC_CODE, MSC_LEVEL_1, MSC_LEVEL_2, MSC_LEVEL_3, SILHOUETTE "
             cmdstring &= vbCrLf & " ORDER Byte STYLE_NBR,SEASON_YR,SEASON_CD "
@@ -648,7 +612,7 @@ Public Class wImportExcelBOMDev
                     cmdstring = "  Select BOM_ROW_NBR, MSC_CODE, MSC_LEVEL_1, MSC_LEVEL_2, MSC_LEVEL_3, SILHOUETTE, SEASON_CD, SEASON_YR, STYLE_NM, STYLE_NBR, STYLE_CW_CD, PLUG_CW_CD, PRMRY, SCNDY, TRTRY,  "
                     cmdstring &= vbCrLf & " LOGO, ADDENDUM, COMPONENT_ORD, [USE], DESCRIPTION, ITEM_TYPE_1, ITEM_TYPE_2, ITEM_TYPE_3, ITEM_TYPE_4, [IS], IT, ITEM_NBR, ITEM_COLOR_ORD, GCW, GCW_ORD, GCW_ART_DESCRIPTION,"
                     cmdstring &= vbCrLf & " ITEM_COLOR_CD, ITEM_COLOR_NM, ITEM_COLOR_ABRV, VEND_CD, VEND_LO, VEND_NM, QTY, UOM"
-                    cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.TTMPImportBomDevExcel WITH(NOLOCK) "
+                    cmdstring &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.TTMPImportBomDevExcel_Original WITH(NOLOCK) "
                     cmdstring &= vbCrLf & " where FTUserLogIn='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
                     cmdstring &= vbCrLf & " AND STYLE_NBR='" & HI.UL.ULF.rpQuoted(_StyleCode) & "'"
                     cmdstring &= vbCrLf & " AND SEASON_CD='" & HI.UL.ULF.rpQuoted(pSeason) & "'"

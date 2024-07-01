@@ -5,8 +5,6 @@ Imports Microsoft.Office.Interop
 Imports System.ComponentModel
 Imports System.IO
 Imports System.Windows.Forms
-Imports DevExpress.DataAccess.ConnectionParameters
-Imports DevExpress.DataAccess.Sql
 
 Public Class wPurchaseMaterialTracking
 

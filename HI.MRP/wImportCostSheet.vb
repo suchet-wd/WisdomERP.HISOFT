@@ -280,14 +280,14 @@ Public Class wImportCostSheet
                 Return True
             Else
 
-                HI.MG.ShowMsg.mInfo("ข้อมูลใน Sheet ไม่ถูกต้องกรุณาทำการตรวจสอบ !!!", 1602149077, Me.Text, , Windows.Forms.MessageBoxIcon.Warning)
+                HI.MG.ShowMsg.mInfo("ข้อมูลใน Sheet ไม่ถูกต้องกรุณาทำการตรวจสอบ !!!", 1602149077, Me.Text, , System.Windows.Forms.MessageBoxIcon.Warning)
                 Return False
 
             End If
 
         Else
 
-            HI.MG.ShowMsg.mInfo("กรุณาทำการเลือก File !!!", 1606140078, Me.Text, , Windows.Forms.MessageBoxIcon.Warning)
+            HI.MG.ShowMsg.mInfo("กรุณาทำการเลือก File !!!", 1606140078, Me.Text, , System.Windows.Forms.MessageBoxIcon.Warning)
             Return False
 
         End If
@@ -298,7 +298,7 @@ Public Class wImportCostSheet
         If ImportData() Then
 
             opshet_ActiveSheetChanging(opshet, New DevExpress.Spreadsheet.ActiveSheetChangingEventArgs(0, opshet.ActiveWorksheet.Name))
-            HI.MG.ShowMsg.mInfo("Save Data Complete !!!", 1602110547, Me.Text, , Windows.Forms.MessageBoxIcon.Information)
+            HI.MG.ShowMsg.mInfo("Save Data Complete !!!", 1602110547, Me.Text, , System.Windows.Forms.MessageBoxIcon.Information)
 
         End If
 
