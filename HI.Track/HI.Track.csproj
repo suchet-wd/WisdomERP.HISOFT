@@ -45,12 +45,15 @@
     <Reference Include="DevExpress.Utils.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpo.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v20.1.UI, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPdfViewer.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraSpreadsheet.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="HI.Auditor">
       <HintPath>..\HI.Auditor\bin\Debug\HI.Auditor.dll</HintPath>
     </Reference>
@@ -69,14 +72,28 @@
     <Reference Include="HI.MG">
       <HintPath>..\HI.MG\bin\Debug\HI.MG.dll</HintPath>
     </Reference>
+    <Reference Include="HI.PO">
+      <HintPath>..\HI.PO\bin\Debug\HI.PO.dll</HintPath>
+    </Reference>
     <Reference Include="HI.RP">
       <HintPath>..\HI.RP\bin\Debug\HI.RP.dll</HintPath>
+    </Reference>
+    <Reference Include="HI.SE, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\HI.SE\bin\Debug\HI.SE.dll</HintPath>
     </Reference>
     <Reference Include="HI.ST">
       <HintPath>..\HI.ST\bin\Debug\HI.ST.dll</HintPath>
     </Reference>
     <Reference Include="HI.TL">
       <HintPath>..\HI.TL\bin\Debug\HI.TL.dll</HintPath>
+    </Reference>
+    <Reference Include="HI.TLF">
+      <HintPath>..\HI.TLF\bin\Debug\HI.TLF.dll</HintPath>
+    </Reference>
+    <Reference Include="HI.UCTR, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\HI.UCTR\bin\Debug\HI.UCTR.dll</HintPath>
     </Reference>
     <Reference Include="HI.UL">
       <HintPath>..\HI.UL\bin\Debug\HI.UL.dll</HintPath>
@@ -127,6 +144,12 @@
     <Compile Include="Tracking\wEmpListingTracking.Designer.cs">
       <DependentUpon>wEmpListingTracking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tracking\wBomDevImportTracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wBomDevImportTracking.Designer.cs">
+      <DependentUpon>wBomDevImportTracking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tracking\wProdLTTracking.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +192,10 @@
       <Project>{C8F227BA-FABB-464F-B083-F6BB5971D095}</Project>
       <Name>HI.MER</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HI.PRO\HI.PRO.vbproj">
+      <Project>{E80AA644-B95F-47FE-AE6C-43DE16B808BC}</Project>
+      <Name>HI.PRO</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -178,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tracking\wEmpListingTracking.resx">
       <DependentUpon>wEmpListingTracking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wBomDevImportTracking.resx">
+      <DependentUpon>wBomDevImportTracking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tracking\wProdLTTracking.resx">
       <DependentUpon>wProdLTTracking.cs</DependentUpon>

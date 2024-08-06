@@ -150,10 +150,10 @@ Public Class wImportExcelBOM
 
     Private Sub ocmclear_Click(sender As Object, e As EventArgs) Handles ocmclear.Click
         HI.TL.HandlerControl.ClearControl(Me)
-
-
+        For i As Int32 = 1 To opshet.Document.Worksheets.Count
+            opshet.Document.Worksheets.RemoveAt(0)
+        Next i
     End Sub
-
 
     Private Sub Form_Load(sender As Object, e As EventArgs) Handles Me.Load
 
@@ -163,7 +163,6 @@ Public Class wImportExcelBOM
     Private Function CheckWriteFile() As Boolean
 
         Try
-
             If (Not System.IO.Directory.Exists(PathFileExcel)) Then
                 System.IO.Directory.CreateDirectory(PathFileExcel)
             End If
@@ -173,12 +172,10 @@ Public Class wImportExcelBOM
             End If
             System.IO.Directory.Delete(PathFileExcel & "\TestExcel")
 
-
             Return True
         Catch ex As Exception
             Return False
         End Try
-
 
     End Function
 
@@ -195,14 +192,11 @@ Public Class wImportExcelBOM
         End If
         If FTFilePath.Text <> "" Then
 
-
-
             PathFileExcel = HI.Conn.SQLConn.GetField("SELECT TOP 1  FTCfgData FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSESystemConfig AS X WITH(NOLOCK) WHERE X.FTCfgName='ImportBomExcel'", Conn.DB.DataBaseName.DB_SYSTEM)
 
             If CheckWriteFile() = False Then
                 HI.MG.ShowMsg.mInfo("ไม่สามารถเข้าถึงที่เก็บ File สำหรับ Import ได้ !!!!", 1909270019, Me.Text)
             End If
-
 
             Dim Splsx As New HI.TL.SplashScreen("Reading Data From Excel....")
             Try

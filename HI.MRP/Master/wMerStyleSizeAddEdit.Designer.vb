@@ -19,7 +19,7 @@ Partial Class wMerStyleSizeAddEdit
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ocmsavelayuot = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmsavelayout = New DevExpress.XtraEditors.SimpleButton()
         Me.sbCustomization = New DevExpress.XtraEditors.SimpleButton()
         Me.ogbbutton = New DevExpress.XtraEditors.PanelControl()
         Me.ocmdeletelayout = New DevExpress.XtraEditors.SimpleButton()
@@ -33,7 +33,7 @@ Partial Class wMerStyleSizeAddEdit
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.ogcSize = New DevExpress.XtraGrid.GridControl()
         Me.ogvSize = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.cxFTSelect = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTSelect = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.FNSeq = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTSize = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -61,15 +61,15 @@ Partial Class wMerStyleSizeAddEdit
         CType(Me.RepositoryItemGridLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'ocmsavelayuot
+        'ocmsavelayout
         '
-        Me.ocmsavelayuot.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmsavelayuot.Location = New System.Drawing.Point(552, 4)
-        Me.ocmsavelayuot.Name = "ocmsavelayuot"
-        Me.ocmsavelayuot.Size = New System.Drawing.Size(46, 38)
-        Me.ocmsavelayuot.TabIndex = 1
-        Me.ocmsavelayuot.TabStop = False
-        Me.ocmsavelayuot.Text = "Save" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Layout"
+        Me.ocmsavelayout.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmsavelayout.Location = New System.Drawing.Point(552, 4)
+        Me.ocmsavelayout.Name = "ocmsavelayout"
+        Me.ocmsavelayout.Size = New System.Drawing.Size(46, 38)
+        Me.ocmsavelayout.TabIndex = 1
+        Me.ocmsavelayout.TabStop = False
+        Me.ocmsavelayout.Text = "Save" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Layout"
         '
         'sbCustomization
         '
@@ -84,7 +84,7 @@ Partial Class wMerStyleSizeAddEdit
         'ogbbutton
         '
         Me.ogbbutton.Controls.Add(Me.ocmdeletelayout)
-        Me.ogbbutton.Controls.Add(Me.ocmsavelayuot)
+        Me.ogbbutton.Controls.Add(Me.ocmsavelayout)
         Me.ogbbutton.Controls.Add(Me.ocmedit)
         Me.ogbbutton.Controls.Add(Me.sbCustomization)
         Me.ogbbutton.Controls.Add(Me.ocmexit)
@@ -208,23 +208,23 @@ Partial Class wMerStyleSizeAddEdit
         '
         Me.ogvSize.Appearance.EvenRow.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ogvSize.Appearance.EvenRow.Options.UseBackColor = True
-        Me.ogvSize.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.cxFTSelect, Me.FNSeq, Me.FTSize})
+        Me.ogvSize.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTSelect, Me.FNSeq, Me.FTSize})
         Me.ogvSize.GridControl = Me.ogcSize
         Me.ogvSize.Name = "ogvSize"
         Me.ogvSize.OptionsView.ColumnAutoWidth = False
         Me.ogvSize.OptionsView.ShowGroupPanel = False
         Me.ogvSize.Tag = "3|"
         '
-        'cxFTSelect
+        'FTSelect
         '
-        Me.cxFTSelect.Caption = "Select"
-        Me.cxFTSelect.ColumnEdit = Me.RepositoryItemCheckEdit1
-        Me.cxFTSelect.FieldName = "FTSelect"
-        Me.cxFTSelect.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
-        Me.cxFTSelect.Name = "cxFTSelect"
-        Me.cxFTSelect.Visible = True
-        Me.cxFTSelect.VisibleIndex = 0
-        Me.cxFTSelect.Width = 50
+        Me.FTSelect.Caption = "Select"
+        Me.FTSelect.ColumnEdit = Me.RepositoryItemCheckEdit1
+        Me.FTSelect.FieldName = "FTSelect"
+        Me.FTSelect.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.FTSelect.Name = "FTSelect"
+        Me.FTSelect.Visible = True
+        Me.FTSelect.VisibleIndex = 0
+        Me.FTSelect.Width = 50
         '
         'RepositoryItemCheckEdit1
         '
@@ -354,7 +354,7 @@ Partial Class wMerStyleSizeAddEdit
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "wMerStyleSizeAddEdit"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Style Master Add / Edit"
+        Me.Text = "Style Master Size [Add / Edit]"
         CType(Me.ogbbutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbbutton.ResumeLayout(False)
         CType(Me.olymain, System.ComponentModel.ISupportInitialize).EndInit()
@@ -372,7 +372,7 @@ Partial Class wMerStyleSizeAddEdit
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents ocmsavelayuot As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmsavelayout As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents sbCustomization As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ogbbutton As DevExpress.XtraEditors.PanelControl
     Friend WithEvents ocmexit As DevExpress.XtraEditors.SimpleButton
@@ -387,7 +387,7 @@ Partial Class wMerStyleSizeAddEdit
     Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents ogcSize As DevExpress.XtraGrid.GridControl
     Friend WithEvents ogvSize As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents cxFTSelect As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTSelect As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FNSeq As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTSize As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryFNHSysRawmatId As DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit

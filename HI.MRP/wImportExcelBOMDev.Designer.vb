@@ -36,6 +36,7 @@ Partial Class wImportExcelBOMDev
         Me.ocmimportbimpdf = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
+        Me.FTBOMFile_lbl = New DevExpress.XtraEditors.LabelControl()
         CType(Me.ogbselectfile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbselectfile.SuspendLayout()
         CType(Me.FNHSysCustId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,6 +53,7 @@ Partial Class wImportExcelBOMDev
         '
         Me.ogbselectfile.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbselectfile.Controls.Add(Me.FTBOMFile_lbl)
         Me.ogbselectfile.Controls.Add(Me.FNHSysCustId_None)
         Me.ogbselectfile.Controls.Add(Me.FNHSysCustId)
         Me.ogbselectfile.Controls.Add(Me.FNHSysCustId_lbl)
@@ -69,7 +71,7 @@ Partial Class wImportExcelBOMDev
         Me.FNHSysCustId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCustId_None.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysCustId_None.Properties.ReadOnly = True
-        Me.FNHSysCustId_None.Size = New System.Drawing.Size(188, 20)
+        Me.FNHSysCustId_None.Size = New System.Drawing.Size(229, 20)
         Me.FNHSysCustId_None.TabIndex = 440
         Me.FNHSysCustId_None.Tag = "2|"
         '
@@ -91,9 +93,9 @@ Partial Class wImportExcelBOMDev
         Me.FNHSysCustId_lbl.Appearance.Options.UseTextOptions = True
         Me.FNHSysCustId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNHSysCustId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNHSysCustId_lbl.Location = New System.Drawing.Point(36, 26)
+        Me.FNHSysCustId_lbl.Location = New System.Drawing.Point(9, 26)
         Me.FNHSysCustId_lbl.Name = "FNHSysCustId_lbl"
-        Me.FNHSysCustId_lbl.Size = New System.Drawing.Size(128, 19)
+        Me.FNHSysCustId_lbl.Size = New System.Drawing.Size(151, 19)
         Me.FNHSysCustId_lbl.TabIndex = 441
         Me.FNHSysCustId_lbl.Tag = "2|"
         Me.FNHSysCustId_lbl.Text = "FNHSysCustId :"
@@ -102,7 +104,7 @@ Partial Class wImportExcelBOMDev
         '
         Me.FTFilePath.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FTFilePath.Location = New System.Drawing.Point(37, 52)
+        Me.FTFilePath.Location = New System.Drawing.Point(166, 52)
         Me.FTFilePath.Name = "FTFilePath"
         Me.FTFilePath.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTFilePath.Properties.Appearance.Options.UseBackColor = True
@@ -120,7 +122,7 @@ Partial Class wImportExcelBOMDev
         Me.FTFilePath.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTFilePath.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTFilePath.Properties.ReadOnly = True
-        Me.FTFilePath.Size = New System.Drawing.Size(1079, 20)
+        Me.FTFilePath.Size = New System.Drawing.Size(950, 20)
         Me.FTFilePath.TabIndex = 1
         Me.FTFilePath.Tag = "2|"
         '
@@ -196,6 +198,20 @@ Partial Class wImportExcelBOMDev
         Me.ocmclear.Tag = "2|"
         Me.ocmclear.Text = "CLEAR"
         '
+        'FTBOMFile_lbl
+        '
+        Me.FTBOMFile_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTBOMFile_lbl.Appearance.Options.UseForeColor = True
+        Me.FTBOMFile_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTBOMFile_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTBOMFile_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTBOMFile_lbl.Location = New System.Drawing.Point(9, 51)
+        Me.FTBOMFile_lbl.Name = "FTBOMFile_lbl"
+        Me.FTBOMFile_lbl.Size = New System.Drawing.Size(151, 19)
+        Me.FTBOMFile_lbl.TabIndex = 442
+        Me.FTBOMFile_lbl.Tag = "2|"
+        Me.FTBOMFile_lbl.Text = "BOM Excel File :"
+        '
         'wImportExcelBOMDev
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -231,4 +247,5 @@ Partial Class wImportExcelBOMDev
     Friend WithEvents FNHSysCustId_None As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FNHSysCustId As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FNHSysCustId_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents FTBOMFile_lbl As DevExpress.XtraEditors.LabelControl
 End Class

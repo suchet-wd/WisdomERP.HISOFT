@@ -176,7 +176,7 @@ Partial Class wQCSendSuplRfid
         Me.FTRfidNo_lbl.Size = New System.Drawing.Size(104, 19)
         Me.FTRfidNo_lbl.TabIndex = 324
         Me.FTRfidNo_lbl.Tag = "2|"
-        Me.FTRfidNo_lbl.Text = "RFID No :"
+        Me.FTRfidNo_lbl.Text = "Box No :"
         '
         'FTRfidNo
         '
@@ -266,7 +266,7 @@ Partial Class wQCSendSuplRfid
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTRemark.Location = New System.Drawing.Point(635, 82)
         Me.FTRemark.Name = "FTRemark"
-        Me.FTRemark.Size = New System.Drawing.Size(1104, 35)
+        Me.FTRemark.Size = New System.Drawing.Size(1344, 39)
         Me.FTRemark.TabIndex = 3
         Me.FTRemark.Tag = "2|"
         '
@@ -526,7 +526,7 @@ Partial Class wQCSendSuplRfid
         Me.FNHSysMarkId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysMarkId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysMarkId.Properties.ReadOnly = True
-        Me.FNHSysMarkId.Size = New System.Drawing.Size(680, 20)
+        Me.FNHSysMarkId.Size = New System.Drawing.Size(920, 20)
         Me.FNHSysMarkId.TabIndex = 314
         Me.FNHSysMarkId.TabStop = False
         Me.FNHSysMarkId.Tag = "2|"
@@ -569,7 +569,7 @@ Partial Class wQCSendSuplRfid
         Me.FNHSysOperationId.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FNHSysOperationId.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FNHSysOperationId.Properties.ReadOnly = True
-        Me.FNHSysOperationId.Size = New System.Drawing.Size(680, 20)
+        Me.FNHSysOperationId.Size = New System.Drawing.Size(920, 20)
         Me.FNHSysOperationId.TabIndex = 312
         Me.FNHSysOperationId.TabStop = False
         Me.FNHSysOperationId.Tag = "2|"

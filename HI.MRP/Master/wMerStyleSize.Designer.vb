@@ -165,14 +165,14 @@ Partial Class wMerStyleSize
         Me.ogvdetail.OptionsView.ShowGroupPanel = False
         Me.ogvdetail.Tag = "2|"
         '
-        'wDynamicMasterAddEditDynamic
+        'wMerStyleSize
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(802, 576)
         Me.Controls.Add(Me.ogbdetail)
         Me.Name = "wMerStyleSize"
-        Me.Text = "Style Master"
+        Me.Text = "Style Master Size [Main]"
         CType(Me.ogbdetail, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbdetail.ResumeLayout(False)
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()

@@ -301,7 +301,7 @@ namespace HI.Track
             this.ogcCriteria.Dock = System.Windows.Forms.DockStyle.Top;
             this.ogcCriteria.Location = new System.Drawing.Point(0, 0);
             this.ogcCriteria.Name = "ogcCriteria";
-            this.ogcCriteria.Size = new System.Drawing.Size(1050, 194);
+            this.ogcCriteria.Size = new System.Drawing.Size(1259, 194);
             this.ogcCriteria.TabIndex = 0;
             this.ogcCriteria.Text = "Criteria";
             // 
@@ -380,7 +380,7 @@ namespace HI.Track
             this.FNHSysEmpIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
             this.FNHSysEmpIdTo_None.Properties.Appearance.Options.UseBackColor = true;
             this.FNHSysEmpIdTo_None.Properties.ReadOnly = true;
-            this.FNHSysEmpIdTo_None.Size = new System.Drawing.Size(361, 20);
+            this.FNHSysEmpIdTo_None.Size = new System.Drawing.Size(570, 20);
             this.FNHSysEmpIdTo_None.TabIndex = 430;
             this.FNHSysEmpIdTo_None.Tag = "2|";
             // 
@@ -393,7 +393,7 @@ namespace HI.Track
             this.FNHSysUnitSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
             this.FNHSysUnitSectIdTo_None.Properties.Appearance.Options.UseBackColor = true;
             this.FNHSysUnitSectIdTo_None.Properties.ReadOnly = true;
-            this.FNHSysUnitSectIdTo_None.Size = new System.Drawing.Size(361, 20);
+            this.FNHSysUnitSectIdTo_None.Size = new System.Drawing.Size(570, 20);
             this.FNHSysUnitSectIdTo_None.TabIndex = 429;
             this.FNHSysUnitSectIdTo_None.Tag = "2|";
             // 
@@ -406,7 +406,7 @@ namespace HI.Track
             this.FNHSysSectIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
             this.FNHSysSectIdTo_None.Properties.Appearance.Options.UseBackColor = true;
             this.FNHSysSectIdTo_None.Properties.ReadOnly = true;
-            this.FNHSysSectIdTo_None.Size = new System.Drawing.Size(361, 20);
+            this.FNHSysSectIdTo_None.Size = new System.Drawing.Size(570, 20);
             this.FNHSysSectIdTo_None.TabIndex = 428;
             this.FNHSysSectIdTo_None.Tag = "2|";
             // 
@@ -419,7 +419,7 @@ namespace HI.Track
             this.FNHSysDivisonIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
             this.FNHSysDivisonIdTo_None.Properties.Appearance.Options.UseBackColor = true;
             this.FNHSysDivisonIdTo_None.Properties.ReadOnly = true;
-            this.FNHSysDivisonIdTo_None.Size = new System.Drawing.Size(361, 20);
+            this.FNHSysDivisonIdTo_None.Size = new System.Drawing.Size(570, 20);
             this.FNHSysDivisonIdTo_None.TabIndex = 427;
             this.FNHSysDivisonIdTo_None.Tag = "2|";
             // 
@@ -432,7 +432,7 @@ namespace HI.Track
             this.FNHSysDeptIdTo_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan;
             this.FNHSysDeptIdTo_None.Properties.Appearance.Options.UseBackColor = true;
             this.FNHSysDeptIdTo_None.Properties.ReadOnly = true;
-            this.FNHSysDeptIdTo_None.Size = new System.Drawing.Size(361, 20);
+            this.FNHSysDeptIdTo_None.Size = new System.Drawing.Size(570, 20);
             this.FNHSysDeptIdTo_None.TabIndex = 426;
             this.FNHSysDeptIdTo_None.Tag = "2|";
             // 
@@ -867,7 +867,7 @@ namespace HI.Track
             this.GroupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GroupControl1.Location = new System.Drawing.Point(0, 194);
             this.GroupControl1.Name = "GroupControl1";
-            this.GroupControl1.Size = new System.Drawing.Size(1050, 425);
+            this.GroupControl1.Size = new System.Drawing.Size(1259, 425);
             this.GroupControl1.TabIndex = 390;
             this.GroupControl1.Text = "Employee";
             // 
@@ -886,7 +886,7 @@ namespace HI.Track
             this.ReposFTStateEmployeeAccept,
             this.ReposFTStateHRSent,
             this.ReposFTStateHRAccept});
-            this.ogc.Size = new System.Drawing.Size(1046, 400);
+            this.ogc.Size = new System.Drawing.Size(1255, 400);
             this.ogc.TabIndex = 4;
             this.ogc.TabStop = false;
             this.ogc.Tag = "2|";
@@ -2165,7 +2165,7 @@ namespace HI.Track
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 619);
+            this.ClientSize = new System.Drawing.Size(1259, 619);
             this.Controls.Add(this.GroupControl1);
             this.Controls.Add(this.ogcCriteria);
             this.Name = "wPayrollListingMonthly";

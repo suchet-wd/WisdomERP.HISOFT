@@ -31,8 +31,8 @@ Public Class wMerStyleSize
         Me.Name = "wMerStyle"
         Me.SysFormName = SysFormName
         Me.AssemblyPath = AssemblyPath
-        Me.Text = "Style Master"
-        Me.ogbdetail.Text = "Style Master"
+        Me.Text = "Style Master - Size"
+        Me.ogbdetail.Text = "Style Master - Size"
 
         _SystemKeyFiled.Clear()
         _ValidateFiled.Clear()
@@ -695,7 +695,7 @@ Public Class wMerStyleSize
             _SortField = _dt.Rows(0)!FTSortField.ToString
 
 
-            _Qry = " SELECT       FNDynamicFormCommandObject, FTCommandObjectName, FTStaActive"
+            _Qry = "SELECT FNDynamicFormCommandObject, FTCommandObjectName, FTStaActive"
             _Qry &= vbCrLf & "  FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysDynamicFormCommandObject WITH(NOLOCK)"
             _Qry &= vbCrLf & "  WHERE FNDynamicFormCommandObject=" & Val(_ObjectCmdID) & " AND ISNULL(FTStaActive,'1') = '1' "
 

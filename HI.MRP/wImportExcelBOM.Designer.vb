@@ -142,7 +142,7 @@ Partial Class wImportExcelBOM
         Me.otpnormal.Controls.Add(Me.opshet)
         Me.otpnormal.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpnormal.Name = "otpnormal"
-        Me.otpnormal.Size = New System.Drawing.Size(1122, 452)
+        Me.otpnormal.Size = New System.Drawing.Size(1128, 457)
         Me.otpnormal.Text = "Excel Detail"
         '
         'opshet
@@ -152,7 +152,7 @@ Partial Class wImportExcelBOM
         Me.opshet.Name = "opshet"
         Me.opshet.Options.Behavior.Column.Resize = DevExpress.XtraSpreadsheet.DocumentCapability.Enabled
         Me.opshet.ReadOnly = True
-        Me.opshet.Size = New System.Drawing.Size(1122, 452)
+        Me.opshet.Size = New System.Drawing.Size(1128, 457)
         Me.opshet.TabIndex = 2
         '
         'ogbmainprocbutton
@@ -162,14 +162,14 @@ Partial Class wImportExcelBOM
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
         Me.ogbmainprocbutton.Location = New System.Drawing.Point(77, 268)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(736, 114)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(127, 117)
         Me.ogbmainprocbutton.TabIndex = 393
         '
         'ocmimportbimpdf
         '
-        Me.ocmimportbimpdf.Location = New System.Drawing.Point(213, 45)
+        Me.ocmimportbimpdf.Location = New System.Drawing.Point(5, 38)
         Me.ocmimportbimpdf.Name = "ocmimportbimpdf"
-        Me.ocmimportbimpdf.Size = New System.Drawing.Size(203, 25)
+        Me.ocmimportbimpdf.Size = New System.Drawing.Size(116, 25)
         Me.ocmimportbimpdf.TabIndex = 336
         Me.ocmimportbimpdf.TabStop = False
         Me.ocmimportbimpdf.Tag = "2|"
@@ -178,9 +178,9 @@ Partial Class wImportExcelBOM
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(673, 3)
+        Me.ocmexit.Location = New System.Drawing.Point(6, 5)
         Me.ocmexit.Name = "ocmexit"
-        Me.ocmexit.Size = New System.Drawing.Size(55, 25)
+        Me.ocmexit.Size = New System.Drawing.Size(116, 25)
         Me.ocmexit.TabIndex = 96
         Me.ocmexit.TabStop = False
         Me.ocmexit.Tag = "2|"
@@ -188,9 +188,9 @@ Partial Class wImportExcelBOM
         '
         'ocmclear
         '
-        Me.ocmclear.Location = New System.Drawing.Point(86, 5)
+        Me.ocmclear.Location = New System.Drawing.Point(5, 69)
         Me.ocmclear.Name = "ocmclear"
-        Me.ocmclear.Size = New System.Drawing.Size(72, 25)
+        Me.ocmclear.Size = New System.Drawing.Size(116, 25)
         Me.ocmclear.TabIndex = 95
         Me.ocmclear.TabStop = False
         Me.ocmclear.Tag = "2|"

@@ -51,38 +51,55 @@
                                     Dim _dtPackType As DataTable
                                     Dim _dtChkBreakDown As DataTable
 
-                                    _Qry = "  SELECT ISNULL(FNPackCartonSubType,0) AS 'FNPackCartonSubType'"
-                                    _Qry &= vbCrLf & "  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub AS X WITH(NOLOCK)"
-                                    _Qry &= vbCrLf & " WHERE  (FTOrderNo = N'" & HI.UL.ULF.rpQuoted(FTOrderNo.Text.Trim()) & "')"
-                                    _Qry &= vbCrLf & " AND FTSubOrderNo>='" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Text.Trim()) & "'"
-                                    _Qry &= vbCrLf & " AND FTSubOrderNo<='" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNoTo.Text.Trim()) & "'"
+                                    _Qry = "SELECT DISTINCT FNPackCartonSubType AS 'FNPackCartonSubType'"
+                                    _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub AS X WITH(NOLOCK)"
+                                    _Qry &= vbCrLf & "WHERE FTOrderNo = '" & HI.UL.ULF.rpQuoted(FTOrderNo.Text.Trim()) & "' "
+                                    _Qry &= vbCrLf & "AND (FTSubOrderNo >= '" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Text.Trim()) & "' "
+                                    _Qry &= vbCrLf & "AND FTSubOrderNo <= '" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNoTo.Text.Trim()) & "' AND FNPackCartonSubType IS NOT NULL)"
+                                    _Qry &= vbCrLf & "OR (FTSubOrderNo = '" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNoSource.Text.Trim()) & "' AND FNPackCartonSubType IS NOT NULL)"
+
+
                                     _dtPackType = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MERCHAN)
 
-                                    If (_dtPackType.DefaultView.ToTable(True, "FNPackCartonSubType")).Rows.Count <> 1 Then
+                                    If (_dtPackType.DefaultView.ToTable(True, "FNPackCartonSubType")).Rows.Count() <> 1 Then
                                         HI.MG.ShowMsg.mInfo("Please checking Pack Type !!!", 1000000005, "Please checking Pack Type !!!")
                                         Exit Sub
                                     Else
                                         For Each Rp As DataRow In (_dtPackType.DefaultView.ToTable(True, "FNPackCartonSubType")).Rows
                                             If Rp!FNPackCartonSubType.ToString <> "0" Then
-
                                                 _Qry = "SELECT FTSubOrderNo, FTColorway, FTSizeBreakDown  "
                                                 _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub_BreakDown  With(NOLOCK) "
                                                 _Qry &= vbCrLf & "WHERE FTOrderNo = '" & HI.UL.ULF.rpQuoted(FTOrderNo.Text.Trim()) & "'"
+                                                _Qry &= vbCrLf & "ORDER BY FTSubOrderNo, FTColorway, FTSizeBreakDown"
                                                 _dtChkBreakDown = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MERCHAN)
                                                 For Each R As DataRow In _dtChkBreakDown.Select("FTSubOrderNo = '" & Me.FTSubOrderNoSource.Text.Trim() & "'")
                                                     For Each Rc As DataRow In _dt.Rows
-                                                        If (_dtChkBreakDown.Select("FTSubOrderNo = '" & Rc!FTSubOrderNo.ToString & "'").Count = 0) Then
+                                                        Dim DestinationQty As Integer = _dtChkBreakDown.Select("FTSubOrderNo = '" & Rc!FTSubOrderNo.ToString & "'").Count
+                                                        Dim OriginalQty As Integer = _dtChkBreakDown.Select("FTSubOrderNo = '" & Me.FTSubOrderNoSource.Text.Trim() & "'").Count
+                                                        If (DestinationQty = 0) Then
                                                             HI.MG.ShowMsg.mInfo("Please checking Suborder Breakdown !!!", 1000000005, "Please checking Suborder Breakdown !!!")
                                                             Exit Sub
+                                                        ElseIf (DestinationQty <> OriginalQty) Then
+                                                            HI.MG.ShowMsg.mInfo("Please checking Suborder Breakdown !!! [Original = " + OriginalQty.ToString + " / Destination = " +
+                                                                                DestinationQty.ToString + "]", 1000000005, "Please checking Suborder Breakdown !!! [Original = " +
+                                                                                OriginalQty.ToString + " / Destination = " + DestinationQty.ToString + "]")
+                                                            Exit Sub
                                                         Else
-                                                            For Each RR As DataRow In _dtChkBreakDown.Select("FTSubOrderNo = '" & Rc!FTSubOrderNo.ToString & "'")
-                                                                If R!FTColorway.ToString <> RR!FTColorway.ToString Then
-                                                                    HI.MG.ShowMsg.mInfo("Please checking Colorway !!!", 1000000005, "Please checking Colorway !!!")
+                                                            For Each RR As DataRow In _dtChkBreakDown.Select("FTSubOrderNo = '" & Rc!FTSubOrderNo.ToString & "'" & " AND FTColorway = '" & R!FTColorway.ToString & "' AND FTSizeBreakDown = '" & R!FTSizeBreakDown.ToString & "'")
+                                                                'If R!FTColorway.ToString <> RR!FTColorway.ToString Then
+                                                                '    HI.MG.ShowMsg.mInfo("Please checking Colorway !!!", 1000000005, "Please checking Colorway !!!")
+                                                                '    Exit Sub
+                                                                'End If
+                                                                'If R!FTSizeBreakDown.ToString <> RR!FTSizeBreakDown.ToString Then
+                                                                '    HI.MG.ShowMsg.mInfo("Please checking SizeBreakDown !!!", 1000000005, "Please checking SizeBreakDown !!!")
+                                                                '    Exit Sub
+                                                                'End If
+                                                                If RR!FTColorway.ToString = "" And RR!FTSizeBreakDown.ToString = "" Then
                                                                     Exit Sub
                                                                 End If
-                                                                If R!FTSizeBreakDown.ToString <> RR!FTSizeBreakDown.ToString Then
-                                                                    HI.MG.ShowMsg.mInfo("Please checking SizeBreakDown !!!", 1000000005, "Please checking SizeBreakDown !!!")
-                                                                    Exit Sub
+                                                                If (R!FTColorway.ToString = RR!FTColorway.ToString) And
+                                                                    (R!FTSizeBreakDown.ToString = RR!FTSizeBreakDown.ToString) Then
+                                                                    Exit For
                                                                 End If
                                                             Next
                                                         End If
@@ -91,8 +108,8 @@
                                             End If
                                         Next
                                     End If
-                                    _dtPackType.Dispose()
-                                    _dtChkBreakDown.Dispose()
+                                    '_dtPackType.Dispose()
+                                    '_dtChkBreakDown.Dispose()
                                 End If
                                 ' End Add Check Pack Ratio Information By Chet [22 Jan 2024]
 
@@ -190,9 +207,9 @@
                                         _Qry &= vbCrLf & "  AND (A.FNHSysMatSizeId IN  (SELECT A.FNHSysMatSizeId"
                                         _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "]..TMERMMatSize AS A WITH(NOLOCK)"
                                         _Qry &= vbCrLf & " WHERE  EXISTS (SELECT 'T'"
-                                        _Qry &= vbCrLf & "              FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_BreakDown AS L1 WITH(NOLOCK)"
-                                        _Qry &= vbCrLf & "              WHERE  L1.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
-                                        _Qry &= vbCrLf & "                   AND L1.FNHSysMatSizeId = A.FNHSysMatSizeId)))"
+                                        _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub_BreakDown AS L1 WITH(NOLOCK)"
+                                        _Qry &= vbCrLf & " WHERE  L1.FTSubOrderNo = N'" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "'"
+                                        _Qry &= vbCrLf & " AND L1.FNHSysMatSizeId = A.FNHSysMatSizeId)))"
 
 
                                         tSqlRevised &= Environment.NewLine & "UPDATE A"
@@ -219,9 +236,13 @@
                                         _Qry &= vbCrLf & " WHERE FTSubOrderNo = '" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNoSource.Text.Trim()) & "'"
 
                                         tSqlRevised &= Environment.NewLine & "UPDATE A"
-                                        tSqlRevised &= Environment.NewLine & "SET A.FNPackPerCarton = (SELECT FNPackPerCarton FROM  HITECH_MERCHAN.dbo.TMERTOrderSub "
+                                        tSqlRevised &= Environment.NewLine & "SET A.FNPackPerCarton = (SELECT FNPackPerCarton FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub "
                                         tSqlRevised &= Environment.NewLine & "WHERE FTSubOrderNo = '" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNoSource.Text.Trim()) & "') "
-                                        tSqlRevised &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "]..TMERTOrderSub AS A"
+
+                                        tSqlRevised &= Environment.NewLine & ", A.FNPackCartonSubType = (SELECT FNPackCartonSubType FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub "
+                                        tSqlRevised &= Environment.NewLine & "WHERE FTSubOrderNo = '" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNoSource.Text.Trim()) & "') "
+
+                                        tSqlRevised &= Environment.NewLine & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTOrderSub AS A"
                                         tSqlRevised &= Environment.NewLine & "WHERE A.FTOrderNo = '" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text.Trim) & "'"
                                         tSqlRevised &= Environment.NewLine & " AND A.FTSubOrderNo ='" & HI.UL.ULF.rpQuoted(R!FTSubOrderNo.ToString) & "' ;"
 

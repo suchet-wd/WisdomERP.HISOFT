@@ -609,6 +609,12 @@
     <Compile Include="TransactionPack\wPopUpBarcodeCarton.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="TransactionPack\wScanBarcodeCustOutlineHyper.designer.vb">
+      <DependentUpon>wScanBarcodeCustOutlineHyper.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionPack\wScanBarcodeCustOutlineHyper.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TransactionPack\wScanBarcodeCustOutlineHeat.designer.vb">
       <DependentUpon>wScanBarcodeCustOutlineHeat.vb</DependentUpon>
     </Compile>
@@ -1177,6 +1183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransactionPack\wPopUpBarcodeCarton.resx">
       <DependentUpon>wPopUpBarcodeCarton.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransactionPack\wScanBarcodeCustOutlineHyper.resx">
+      <DependentUpon>wScanBarcodeCustOutlineHyper.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransactionPack\wScanBarcodeCustOutlineHeat.resx">
       <DependentUpon>wScanBarcodeCustOutlineHeat.vb</DependentUpon>

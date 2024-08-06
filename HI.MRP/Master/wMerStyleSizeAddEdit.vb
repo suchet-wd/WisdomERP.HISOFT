@@ -50,7 +50,7 @@ Public Class wMerStyleSizeAddEdit
         Me.FormObjID = ObjId
         Me.InitFormControl()
 
-        Me.ocmsavelayuot.Visible = HI.ST.SysInfo.DevelopMode
+        Me.ocmsavelayout.Visible = HI.ST.SysInfo.DevelopMode
         Me.sbCustomization.Visible = HI.ST.SysInfo.DevelopMode
         Me.ocmdeletelayout.Visible = HI.ST.SysInfo.DevelopMode
         Me.olymain.AllowCustomizationMenu = HI.ST.SysInfo.DevelopMode
@@ -1734,7 +1734,9 @@ Public Class wMerStyleSizeAddEdit
                 End If
             Next
 
-            Dim _Qry As String = "SELECT '0' AS FTSelect, SS.FNSeq, SS.FTSize FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.[TMERMStyle_Size] AS SS WITH (NOLOCK) " & _QryWhere
+            Dim _Qry As String = "SELECT '0' AS FTSelect, SS.FNSeq, SS.FTSize "
+            _Qry &= "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.[TMERMStyle_Size] As SS With (NOLOCK) "
+            _Qry &= _QryWhere
 
             dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
             ogcSize.DataSource = dt
@@ -2062,7 +2064,7 @@ Public Class wMerStyleSizeAddEdit
         Me.olymain.ShowCustomizationForm()
     End Sub
 
-    Private Sub ocmsavelayuot_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmsavelayuot.Click
+    Private Sub ocmsavelayout_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmsavelayout.Click
 
         Dim _Qry As String = ""
 
@@ -2749,7 +2751,7 @@ Public Class wMerStyleSizeAddEdit
                             End If
                         Next
 
-                        _Qry = "If (SELECT Case WHEN (SELECT COUNT(SS.FNSeq) FROM [HITECH_MASTER].dbo.TMERMStyle_Size  AS SS WITH (NOLOCK) WHERE "
+                        _Qry = "If (SELECT Case WHEN (SELECT COUNT(SS.FNSeq) FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_Size  AS SS WITH (NOLOCK) WHERE "
                         _Qry &= vbCrLf & _QryWhere
                         _Qry &= vbCrLf & ") = " & .Select().Count & " THEN 'TRUE' END ) = 'TRUE'"
                         _Qry &= vbCrLf & "BEGIN"
