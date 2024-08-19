@@ -226,39 +226,22 @@ Public Class wQCSendSuplReportSR
             Dim _Cmd As String = ""
             Dim _oDt As DataTable
 
-            _Cmd = "SELECT DISTINCT "
-            _Cmd &= vbCrLf & " isnull(M.FNSendSuplType , (Select top 1 case when O.FTOperationCode LIKE 'EM%' Then 0 "
-            _Cmd &= vbCrLf & " when O.FTOperationCode LIKE 'PR%' Then 1 "
-            _Cmd &= vbCrLf & " when O.FTOperationCode LIKE '%HEATS%' Then 2 "
-            _Cmd &= vbCrLf & " when O.FTOperationCode LIKE 'LS%' Then 3 ELSE 4 End"
-
-            _Cmd &= vbCrLf & " From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcode_SendSupl AS S WITH(NOLOCK) "
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl AS A WITH(NOLOCK) ON  S.FTSendSuplRef = A.FTSendSuplRef"
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TPRODMOperation AS O WITH(NOLOCK) ON A.FNHSysOperationId = O.FNHSysOperationId"
-            _Cmd &= vbCrLf & " where S.FTBarcodeSendSuplNo = Q.FTBarcodeSendSuplNo"
-            _Cmd &= vbCrLf & " ) )  as FNSendSuplType "
+            _Cmd = "SELECT  distinct   "
+            _Cmd &= vbCrLf & " ISNULL(M.FNSendSuplType , S.FNSendSuplType) AS 'FNSendSuplType' "
 
             If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
                 _Cmd &= vbCrLf & ", T.FTNameTH AS FTSendSuplTypeName "
             Else
                 _Cmd &= vbCrLf & ", T.FTNameEN AS FTSendSuplTypeName"
             End If
-            _Cmd &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTSendSuplDefect AS Q WITH (NOLOCK) "
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTSendSuplDefect_Detail AS D WITH (NOLOCK) ON Q.FTBarcodeSendSuplNo = D.FTBarcodeSendSuplNo "
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TQAMQCSuplDetail AS M WITH (NOLOCK) ON D.FNHSysQCSuplDetailId = M.FNHSysQCSuplDetailId"
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN (SELECT FTListName, FNListIndex, FTNameTH, FTNameEN"
-            _Cmd &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "]..HSysListData WITH(NOLOCK) "
-            _Cmd &= vbCrLf & " WHERE (FTListName = N'FNSendSuplType')) AS T ON  "
+            _Cmd &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPROSendSuplDefect AS Q WITH (NOLOCK) "
+            _Cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPROSendSuplDefect_Detail AS D WITH (NOLOCK) ON Q.FTBarcodeSendSuplNo = D.FTBarcodeSendSuplNo "
+            _Cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcode_SendSupl AS S WITH (NOLOCK) ON S.FTBarcodeSendSuplNo = Q.FTBarcodeSendSuplNo "
+            _Cmd &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TQAMQCSuplDetail AS M WITH (NOLOCK) ON D.FNHSysQCSuplDetailId = M.FNHSysQCSuplDetailId"
+            _Cmd &= vbCrLf & "LEFT OUTER JOIN (SELECT FTListName, FNListIndex, FTNameTH, FTNameEN "
+            _Cmd &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData WITH(NOLOCK) "
+            _Cmd &= vbCrLf & "WHERE (FTListName = N'FNSendSuplType')) AS T ON ISNULL(M.FNSendSuplType , S.FNSendSuplType) = T.FNListIndex "
 
-            _Cmd &= vbCrLf & " isnull(M.FNSendSuplType , (Select top 1 case when O.FTOperationCode LIKE 'EM%' Then 0 "
-            _Cmd &= vbCrLf & " when O.FTOperationCode LIKE 'PR%' Then 1 "
-            _Cmd &= vbCrLf & " when O.FTOperationCode LIKE '%HEATS%' Then 2 "
-            _Cmd &= vbCrLf & " when O.FTOperationCode LIKE 'LS%' Then 3 ELSE 4 End"
-            _Cmd &= vbCrLf & " From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcode_SendSupl AS S WITH(NOLOCK) "
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl AS A WITH(NOLOCK) ON  S.FTSendSuplRef = A.FTSendSuplRef"
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TPRODMOperation AS O WITH(NOLOCK) ON A.FNHSysOperationId = O.FNHSysOperationId"
-            _Cmd &= vbCrLf & " where S.FTBarcodeSendSuplNo = Q.FTBarcodeSendSuplNo"
-            _Cmd &= vbCrLf & " 	) )   = T.FNListIndex  "
             If Me.SFTDateTrans.Text <> "" And Me.EFTDateTrans.Text <> "" Then
                 _Cmd &= vbCrLf & "Where  ((Q.FDInsDate >= '" & HI.UL.ULDate.ConvertEnDB(Me.SFTDateTrans.Text) & "' "
 
@@ -274,17 +257,8 @@ Public Class wQCSendSuplReportSR
             End If
 
             _Cmd &= vbCrLf & " ))"
-
-            _Cmd &= vbCrLf & " and  isnull(M.FNSendSuplType , (Select top 1 case when O.FTOperationCode LIKE 'EM%' Then 0 "
-            _Cmd &= vbCrLf & " when O.FTOperationCode LIKE 'PR%' Then 1 "
-            _Cmd &= vbCrLf & " when O.FTOperationCode LIKE '%HEATS%' Then 2 "
-            _Cmd &= vbCrLf & " when O.FTOperationCode LIKE 'LS%' Then 3 ELSE 4 End"
-            _Cmd &= vbCrLf & " From [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTBarcode_SendSupl AS S WITH(NOLOCK) "
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPTOrderProd_SendSupl AS A WITH(NOLOCK) ON  S.FTSendSuplRef = A.FTSendSuplRef"
-            _Cmd &= vbCrLf & " LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TPRODMOperation AS O WITH(NOLOCK) ON A.FNHSysOperationId = O.FNHSysOperationId"
-            _Cmd &= vbCrLf & " where S.FTBarcodeSendSuplNo = Q.FTBarcodeSendSuplNo"
-            _Cmd &= vbCrLf & " ) ) is not null  "
-
+            _Cmd &= vbCrLf & "AND ISNULL(M.FNSendSuplType , S.FNSendSuplType) is not null "
+            _Cmd &= vbCrLf & "AND ISNULL(M.FNSendSuplType , S.FNSendSuplType) <> '6' " ' Remove Semi Part #6
 
 
             _oDt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_SAMPLE)
@@ -363,7 +337,7 @@ Public Class wQCSendSuplReportSR
                     .OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
                     .OptionsView.ShowColumnHeaders = False
                     .OptionsView.ShowGroupPanel = False
-                    .OptionsView.ColumnAutoWidth = False
+                    .OptionsView.ColumnAutoWidth = True
                     .OptionsView.ShowAutoFilterRow = True
 
                 End With
@@ -937,13 +911,6 @@ Public Class wQCSendSuplReportSR
         End Try
     End Sub
 
-    Private Sub oCriteria_Click(sender As Object, e As EventArgs) Handles oCriteria.Click
-
-    End Sub
-
-    Private Sub ocmclear_Click(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub ocmclear_Click_1(sender As Object, e As EventArgs) Handles ocmclear.Click
         Me.otabDetail.TabPages.Clear()

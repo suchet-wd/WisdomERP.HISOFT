@@ -138,6 +138,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Tracking\wBomDevTracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wBomDevTracking.Designer.cs">
+      <DependentUpon>wBomDevTracking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tracking\wBomOriginalImportTracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tracking\wBomOriginalImportTracking.Designer.cs">
+      <DependentUpon>wBomOriginalImportTracking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tracking\wEmpListingTracking.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +214,12 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wBomDevTracking.resx">
+      <DependentUpon>wBomDevTracking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tracking\wBomOriginalImportTracking.resx">
+      <DependentUpon>wBomOriginalImportTracking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tracking\wEmpListingTracking.resx">
       <DependentUpon>wEmpListingTracking.cs</DependentUpon>

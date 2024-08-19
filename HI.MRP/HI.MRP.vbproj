@@ -211,6 +211,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Master\wMasterSizeRange.Designer.vb">
+      <DependentUpon>wMasterSizeRange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wMasterSizeRange.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\wMasterSizeRangeAddEdit.Designer.vb">
+      <DependentUpon>wMasterSizeRangeAddEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\wMasterSizeRangeAddEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Master\wMerStyleSizeAddEdit.Designer.vb">
       <DependentUpon>wMerStyleSizeAddEdit.vb</DependentUpon>
     </Compile>
@@ -534,6 +546,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Master\wMasterSizeRange.resx">
+      <DependentUpon>wMasterSizeRange.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\wMasterSizeRangeAddEdit.resx">
+      <DependentUpon>wMasterSizeRangeAddEdit.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Master\wMerStyleSizeAddEdit.resx">
       <DependentUpon>wMerStyleSizeAddEdit.vb</DependentUpon>
     </EmbeddedResource>
@@ -774,7 +792,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BOMDev\" />
     <Folder Include="Tracking\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

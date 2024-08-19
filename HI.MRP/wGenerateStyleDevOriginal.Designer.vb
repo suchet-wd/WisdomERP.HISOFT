@@ -20,6 +20,11 @@ Partial Class wGenerateStyleDevOriginal
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim EditorButtonImageOptions7 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject25 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject26 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject27 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject28 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions8 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject29 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject30 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -30,41 +35,36 @@ Partial Class wGenerateStyleDevOriginal
         Dim SerializableAppearanceObject34 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject35 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject36 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions10 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject37 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject38 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject39 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject40 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions19 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject73 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject74 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject75 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject76 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions20 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject77 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject78 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject79 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject80 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions21 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject81 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject82 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject83 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject84 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions18 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject69 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject70 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject71 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject72 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions14 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject53 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject54 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject55 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject56 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions23 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject89 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject90 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject91 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject92 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions24 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject93 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject94 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject95 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject96 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions25 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject97 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject98 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject99 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject100 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions22 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject85 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject86 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject87 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject88 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions18 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject69 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject70 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject71 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject72 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions26 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject101 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject102 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject103 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject104 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.FTNote = New DevExpress.XtraEditors.MemoEdit()
         Me.FNHSysStyleDevId_None = New DevExpress.XtraEditors.TextEdit()
         Me.FTStyleDevNameEN = New DevExpress.XtraEditors.TextEdit()
@@ -80,25 +80,6 @@ Partial Class wGenerateStyleDevOriginal
         Me.FTUpdUser = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysStyleDevId_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysStyleDevId = New DevExpress.XtraEditors.ButtonEdit()
-        Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
-        Me.ocmcopy = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmbomdiffpart = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmbomchangecolorway = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmposttobomsheet = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmchangematcolordes = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmbomdeletesize = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmbomnewsize = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmrefresh = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmpreview = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmclearclsr = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmdelete = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmsave = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmdeletecolorway = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmbomnewcolorway = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmbomdeleterow = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmbominsertrow = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmbomaddnew = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
         Me.otb = New DevExpress.XtraTab.XtraTabControl()
         Me.otpmatcode = New DevExpress.XtraTab.XtraTabPage()
         Me.PopupFTPositionPartName = New DevExpress.XtraEditors.PopupContainerControl()
@@ -268,6 +249,25 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNBomDevType_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNBomDevType = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.ogbdetail = New DevExpress.XtraEditors.GroupControl()
+        Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmbomaddnew = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmbominsertrow = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmbomdeleterow = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmbomnewcolorway = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmdeletecolorway = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmsave = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmdelete = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmclearclsr = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmpreview = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmrefresh = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmbomnewsize = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmbomdeletesize = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmchangematcolordes = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmposttobomsheet = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmbomchangecolorway = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmbomdiffpart = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmcopy = New DevExpress.XtraEditors.SimpleButton()
+        Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
         CType(Me.FTNote.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysStyleDevId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStyleDevNameEN.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -278,8 +278,6 @@ Partial Class wGenerateStyleDevOriginal
         CType(Me.FDUpdDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTUpdUser.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysStyleDevId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ogbmainprocbutton.SuspendLayout()
         CType(Me.otb, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.otb.SuspendLayout()
         Me.otpmatcode.SuspendLayout()
@@ -365,6 +363,8 @@ Partial Class wGenerateStyleDevOriginal
         CType(Me.FNBomDevType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbdetail, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbdetail.SuspendLayout()
+        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ogbmainprocbutton.SuspendLayout()
         Me.SuspendLayout()
         '
         'FTNote
@@ -449,7 +449,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNHSysCustId.Enabled = False
         Me.FNHSysCustId.Location = New System.Drawing.Point(92, 27)
         Me.FNHSysCustId.Name = "FNHSysCustId"
-        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCustId.Properties.Tag = ""
         Me.FNHSysCustId.Size = New System.Drawing.Size(140, 20)
         Me.FNHSysCustId.TabIndex = 4
@@ -546,258 +546,11 @@ Partial Class wGenerateStyleDevOriginal
         '
         Me.FNHSysStyleDevId.Location = New System.Drawing.Point(95, 27)
         Me.FNHSysStyleDevId.Name = "FNHSysStyleDevId"
-        Me.FNHSysStyleDevId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "703", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleDevId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "703", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleDevId.Properties.Tag = ""
         Me.FNHSysStyleDevId.Size = New System.Drawing.Size(140, 20)
         Me.FNHSysStyleDevId.TabIndex = 0
         Me.FNHSysStyleDevId.Tag = "2|"
-        '
-        'ogbmainprocbutton
-        '
-        Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmcopy)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomdiffpart)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomchangecolorway)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmposttobomsheet)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmchangematcolordes)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomdeletesize)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomnewsize)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmrefresh)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmpreview)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmclearclsr)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmdelete)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmsave)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmdeletecolorway)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomnewcolorway)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomdeleterow)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmbominsertrow)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomaddnew)
-        Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(414, 38)
-        Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(385, 213)
-        Me.ogbmainprocbutton.TabIndex = 137
-        Me.ogbmainprocbutton.Tag = "2|"
-        '
-        'ocmcopy
-        '
-        Me.ocmcopy.Enabled = False
-        Me.ocmcopy.Location = New System.Drawing.Point(12, 46)
-        Me.ocmcopy.Name = "ocmcopy"
-        Me.ocmcopy.Size = New System.Drawing.Size(100, 25)
-        Me.ocmcopy.TabIndex = 117
-        Me.ocmcopy.TabStop = False
-        Me.ocmcopy.Tag = "2|"
-        Me.ocmcopy.Text = "copy"
-        Me.ocmcopy.Visible = False
-        '
-        'ocmbomdiffpart
-        '
-        Me.ocmbomdiffpart.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmbomdiffpart.Enabled = False
-        Me.ocmbomdiffpart.Location = New System.Drawing.Point(231, 15)
-        Me.ocmbomdiffpart.Name = "ocmbomdiffpart"
-        Me.ocmbomdiffpart.Size = New System.Drawing.Size(142, 25)
-        Me.ocmbomdiffpart.TabIndex = 116
-        Me.ocmbomdiffpart.TabStop = False
-        Me.ocmbomdiffpart.Tag = "2|"
-        Me.ocmbomdiffpart.Text = "DiffPart"
-        Me.ocmbomdiffpart.Visible = False
-        '
-        'ocmbomchangecolorway
-        '
-        Me.ocmbomchangecolorway.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmbomchangecolorway.Enabled = False
-        Me.ocmbomchangecolorway.Location = New System.Drawing.Point(231, 46)
-        Me.ocmbomchangecolorway.Name = "ocmbomchangecolorway"
-        Me.ocmbomchangecolorway.Size = New System.Drawing.Size(142, 25)
-        Me.ocmbomchangecolorway.TabIndex = 115
-        Me.ocmbomchangecolorway.TabStop = False
-        Me.ocmbomchangecolorway.Tag = "2|"
-        Me.ocmbomchangecolorway.Text = "Change Color Way"
-        Me.ocmbomchangecolorway.Visible = False
-        '
-        'ocmposttobomsheet
-        '
-        Me.ocmposttobomsheet.Enabled = False
-        Me.ocmposttobomsheet.Location = New System.Drawing.Point(231, 77)
-        Me.ocmposttobomsheet.Name = "ocmposttobomsheet"
-        Me.ocmposttobomsheet.Size = New System.Drawing.Size(142, 25)
-        Me.ocmposttobomsheet.TabIndex = 114
-        Me.ocmposttobomsheet.TabStop = False
-        Me.ocmposttobomsheet.Tag = "2|"
-        Me.ocmposttobomsheet.Text = "Post To Bom Sheet"
-        Me.ocmposttobomsheet.Visible = False
-        '
-        'ocmchangematcolordes
-        '
-        Me.ocmchangematcolordes.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmchangematcolordes.Enabled = False
-        Me.ocmchangematcolordes.Location = New System.Drawing.Point(231, 108)
-        Me.ocmchangematcolordes.Name = "ocmchangematcolordes"
-        Me.ocmchangematcolordes.Size = New System.Drawing.Size(142, 25)
-        Me.ocmchangematcolordes.TabIndex = 113
-        Me.ocmchangematcolordes.TabStop = False
-        Me.ocmchangematcolordes.Tag = "2|"
-        Me.ocmchangematcolordes.Text = "Change Corlor Description"
-        Me.ocmchangematcolordes.Visible = False
-        '
-        'ocmbomdeletesize
-        '
-        Me.ocmbomdeletesize.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmbomdeletesize.Enabled = False
-        Me.ocmbomdeletesize.Location = New System.Drawing.Point(125, 139)
-        Me.ocmbomdeletesize.Name = "ocmbomdeletesize"
-        Me.ocmbomdeletesize.Size = New System.Drawing.Size(100, 25)
-        Me.ocmbomdeletesize.TabIndex = 112
-        Me.ocmbomdeletesize.TabStop = False
-        Me.ocmbomdeletesize.Tag = "2|"
-        Me.ocmbomdeletesize.Text = "Delete Size"
-        Me.ocmbomdeletesize.Visible = False
-        '
-        'ocmbomnewsize
-        '
-        Me.ocmbomnewsize.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmbomnewsize.Enabled = False
-        Me.ocmbomnewsize.Location = New System.Drawing.Point(125, 108)
-        Me.ocmbomnewsize.Name = "ocmbomnewsize"
-        Me.ocmbomnewsize.Size = New System.Drawing.Size(100, 25)
-        Me.ocmbomnewsize.TabIndex = 111
-        Me.ocmbomnewsize.TabStop = False
-        Me.ocmbomnewsize.Tag = "2|"
-        Me.ocmbomnewsize.Text = "New Size"
-        Me.ocmbomnewsize.Visible = False
-        '
-        'ocmrefresh
-        '
-        Me.ocmrefresh.Location = New System.Drawing.Point(12, 15)
-        Me.ocmrefresh.Name = "ocmrefresh"
-        Me.ocmrefresh.Size = New System.Drawing.Size(100, 25)
-        Me.ocmrefresh.TabIndex = 110
-        Me.ocmrefresh.TabStop = False
-        Me.ocmrefresh.Tag = "2|"
-        Me.ocmrefresh.Text = "REFRESH"
-        '
-        'ocmpreview
-        '
-        Me.ocmpreview.Location = New System.Drawing.Point(12, 170)
-        Me.ocmpreview.Name = "ocmpreview"
-        Me.ocmpreview.Size = New System.Drawing.Size(100, 25)
-        Me.ocmpreview.TabIndex = 108
-        Me.ocmpreview.TabStop = False
-        Me.ocmpreview.Tag = "2|"
-        Me.ocmpreview.Text = "PREVIEW"
-        Me.ocmpreview.Visible = False
-        '
-        'ocmclearclsr
-        '
-        Me.ocmclearclsr.Location = New System.Drawing.Point(12, 139)
-        Me.ocmclearclsr.Name = "ocmclearclsr"
-        Me.ocmclearclsr.Size = New System.Drawing.Size(100, 25)
-        Me.ocmclearclsr.TabIndex = 107
-        Me.ocmclearclsr.TabStop = False
-        Me.ocmclearclsr.Tag = "2|"
-        Me.ocmclearclsr.Text = "CLEAR"
-        '
-        'ocmdelete
-        '
-        Me.ocmdelete.Enabled = False
-        Me.ocmdelete.Location = New System.Drawing.Point(12, 108)
-        Me.ocmdelete.Name = "ocmdelete"
-        Me.ocmdelete.Size = New System.Drawing.Size(100, 25)
-        Me.ocmdelete.TabIndex = 106
-        Me.ocmdelete.TabStop = False
-        Me.ocmdelete.Tag = "2|"
-        Me.ocmdelete.Text = "DELETE"
-        Me.ocmdelete.Visible = False
-        '
-        'ocmsave
-        '
-        Me.ocmsave.Enabled = False
-        Me.ocmsave.Location = New System.Drawing.Point(12, 77)
-        Me.ocmsave.Name = "ocmsave"
-        Me.ocmsave.Size = New System.Drawing.Size(100, 25)
-        Me.ocmsave.TabIndex = 105
-        Me.ocmsave.TabStop = False
-        Me.ocmsave.Tag = "2|"
-        Me.ocmsave.Text = "SAVE"
-        Me.ocmsave.Visible = False
-        '
-        'ocmdeletecolorway
-        '
-        Me.ocmdeletecolorway.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmdeletecolorway.Enabled = False
-        Me.ocmdeletecolorway.Location = New System.Drawing.Point(231, 139)
-        Me.ocmdeletecolorway.Name = "ocmdeletecolorway"
-        Me.ocmdeletecolorway.Size = New System.Drawing.Size(142, 25)
-        Me.ocmdeletecolorway.TabIndex = 102
-        Me.ocmdeletecolorway.TabStop = False
-        Me.ocmdeletecolorway.Tag = "2|"
-        Me.ocmdeletecolorway.Text = "DeleteColorWay"
-        Me.ocmdeletecolorway.Visible = False
-        '
-        'ocmbomnewcolorway
-        '
-        Me.ocmbomnewcolorway.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmbomnewcolorway.Enabled = False
-        Me.ocmbomnewcolorway.Location = New System.Drawing.Point(125, 170)
-        Me.ocmbomnewcolorway.Name = "ocmbomnewcolorway"
-        Me.ocmbomnewcolorway.Size = New System.Drawing.Size(100, 25)
-        Me.ocmbomnewcolorway.TabIndex = 101
-        Me.ocmbomnewcolorway.TabStop = False
-        Me.ocmbomnewcolorway.Tag = "2|"
-        Me.ocmbomnewcolorway.Text = "NewColorWay"
-        Me.ocmbomnewcolorway.Visible = False
-        '
-        'ocmbomdeleterow
-        '
-        Me.ocmbomdeleterow.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmbomdeleterow.Enabled = False
-        Me.ocmbomdeleterow.Location = New System.Drawing.Point(125, 77)
-        Me.ocmbomdeleterow.Name = "ocmbomdeleterow"
-        Me.ocmbomdeleterow.Size = New System.Drawing.Size(100, 25)
-        Me.ocmbomdeleterow.TabIndex = 99
-        Me.ocmbomdeleterow.TabStop = False
-        Me.ocmbomdeleterow.Tag = "2|"
-        Me.ocmbomdeleterow.Text = "DeleteRow"
-        Me.ocmbomdeleterow.Visible = False
-        '
-        'ocmbominsertrow
-        '
-        Me.ocmbominsertrow.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmbominsertrow.Enabled = False
-        Me.ocmbominsertrow.Location = New System.Drawing.Point(125, 46)
-        Me.ocmbominsertrow.Name = "ocmbominsertrow"
-        Me.ocmbominsertrow.Size = New System.Drawing.Size(100, 25)
-        Me.ocmbominsertrow.TabIndex = 98
-        Me.ocmbominsertrow.TabStop = False
-        Me.ocmbominsertrow.Tag = "2|"
-        Me.ocmbominsertrow.Text = "InsertRow"
-        Me.ocmbominsertrow.Visible = False
-        '
-        'ocmbomaddnew
-        '
-        Me.ocmbomaddnew.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmbomaddnew.Enabled = False
-        Me.ocmbomaddnew.Location = New System.Drawing.Point(125, 15)
-        Me.ocmbomaddnew.Name = "ocmbomaddnew"
-        Me.ocmbomaddnew.Size = New System.Drawing.Size(100, 25)
-        Me.ocmbomaddnew.TabIndex = 97
-        Me.ocmbomaddnew.TabStop = False
-        Me.ocmbomaddnew.Tag = "2|"
-        Me.ocmbomaddnew.Text = "NewRow"
-        Me.ocmbomaddnew.Visible = False
-        '
-        'ocmexit
-        '
-        Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(231, 170)
-        Me.ocmexit.Name = "ocmexit"
-        Me.ocmexit.Size = New System.Drawing.Size(142, 25)
-        Me.ocmexit.TabIndex = 96
-        Me.ocmexit.TabStop = False
-        Me.ocmexit.Tag = "2|"
-        Me.ocmexit.Text = "EXIT"
         '
         'otb
         '
@@ -814,7 +567,6 @@ Partial Class wGenerateStyleDevOriginal
         '
         'otpmatcode
         '
-        Me.otpmatcode.Controls.Add(Me.ogbmainprocbutton)
         Me.otpmatcode.Controls.Add(Me.PopupFTPositionPartName)
         Me.otpmatcode.Controls.Add(Me.ogcmat)
         Me.otpmatcode.Name = "otpmatcode"
@@ -1086,7 +838,7 @@ Partial Class wGenerateStyleDevOriginal
         'RepositoryFTUnitCode
         '
         Me.RepositoryFTUnitCode.AutoHeight = False
-        Me.RepositoryFTUnitCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "101", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryFTUnitCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "101", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryFTUnitCode.Name = "RepositoryFTUnitCode"
         '
         'FTSuplCode
@@ -1109,7 +861,7 @@ Partial Class wGenerateStyleDevOriginal
         'RepositoryFNHSysSuplId
         '
         Me.RepositoryFNHSysSuplId.AutoHeight = False
-        Me.RepositoryFNHSysSuplId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions19, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject73, SerializableAppearanceObject74, SerializableAppearanceObject75, SerializableAppearanceObject76, "", "104", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryFNHSysSuplId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions23, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject89, SerializableAppearanceObject90, SerializableAppearanceObject91, SerializableAppearanceObject92, "", "104", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryFNHSysSuplId.Name = "RepositoryFNHSysSuplId"
         '
         'FTCurCode
@@ -1131,7 +883,7 @@ Partial Class wGenerateStyleDevOriginal
         'RepositoryFNHSysCurId
         '
         Me.RepositoryFNHSysCurId.AutoHeight = False
-        Me.RepositoryFNHSysCurId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions20, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject77, SerializableAppearanceObject78, SerializableAppearanceObject79, SerializableAppearanceObject80, "", "107", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryFNHSysCurId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions24, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject93, SerializableAppearanceObject94, SerializableAppearanceObject95, SerializableAppearanceObject96, "", "107", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryFNHSysCurId.Name = "RepositoryFNHSysCurId"
         '
         'FNPrice
@@ -1650,7 +1402,7 @@ Partial Class wGenerateStyleDevOriginal
         'RepositoryFTMainMatCode
         '
         Me.RepositoryFTMainMatCode.AutoHeight = False
-        Me.RepositoryFTMainMatCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions21, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject81, SerializableAppearanceObject82, SerializableAppearanceObject83, SerializableAppearanceObject84, "", "108", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryFTMainMatCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions25, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject97, SerializableAppearanceObject98, SerializableAppearanceObject99, SerializableAppearanceObject100, "", "108", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryFTMainMatCode.Name = "RepositoryFTMainMatCode"
         Me.RepositoryFTMainMatCode.Tag = ""
         '
@@ -1669,7 +1421,7 @@ Partial Class wGenerateStyleDevOriginal
         '
         Me.otpmatcolor.Controls.Add(Me.ogccolor)
         Me.otpmatcolor.Name = "otpmatcolor"
-        Me.otpmatcolor.Size = New System.Drawing.Size(1328, 345)
+        Me.otpmatcolor.Size = New System.Drawing.Size(1328, 303)
         Me.otpmatcolor.Text = "Color Detail"
         '
         'ogccolor
@@ -1679,7 +1431,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.ogccolor.MainView = Me.ogvcolor
         Me.ogccolor.Name = "ogccolor"
         Me.ogccolor.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemNumEdit1, Me.RepCheckEdit, Me.RepRawMatIDCaledit, Me.RepositoryItemMemoEdit1, Me.RepositoryItemFNOrderSetType4})
-        Me.ogccolor.Size = New System.Drawing.Size(1328, 345)
+        Me.ogccolor.Size = New System.Drawing.Size(1328, 303)
         Me.ogccolor.TabIndex = 3
         Me.ogccolor.TabStop = False
         Me.ogccolor.Tag = "2|"
@@ -1902,7 +1654,7 @@ Partial Class wGenerateStyleDevOriginal
         '
         Me.otpmatsize.Controls.Add(Me.ogcsize)
         Me.otpmatsize.Name = "otpmatsize"
-        Me.otpmatsize.Size = New System.Drawing.Size(1328, 345)
+        Me.otpmatsize.Size = New System.Drawing.Size(1328, 303)
         Me.otpmatsize.Text = "Size Detail"
         '
         'ogcsize
@@ -1912,7 +1664,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.ogcsize.MainView = Me.ogvsize
         Me.ogcsize.Name = "ogcsize"
         Me.ogcsize.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemNumEdit2, Me.RepFTRunSize, Me.RepositoryFNOrderSetType3})
-        Me.ogcsize.Size = New System.Drawing.Size(1328, 345)
+        Me.ogcsize.Size = New System.Drawing.Size(1328, 303)
         Me.ogcsize.TabIndex = 3
         Me.ogcsize.TabStop = False
         Me.ogcsize.Tag = "2|"
@@ -2344,7 +2096,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNHSysSeasonId.Enabled = False
         Me.FNHSysSeasonId.Location = New System.Drawing.Point(689, 100)
         Me.FNHSysSeasonId.Name = "FNHSysSeasonId"
-        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions18, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject69, SerializableAppearanceObject70, SerializableAppearanceObject71, SerializableAppearanceObject72, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions22, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject85, SerializableAppearanceObject86, SerializableAppearanceObject87, SerializableAppearanceObject88, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSeasonId.Properties.Tag = ""
         Me.FNHSysSeasonId.Size = New System.Drawing.Size(121, 20)
         Me.FNHSysSeasonId.TabIndex = 492
@@ -2466,7 +2218,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNHSysMSCId.Enabled = False
         Me.FNHSysMSCId.Location = New System.Drawing.Point(92, 76)
         Me.FNHSysMSCId.Name = "FNHSysMSCId"
-        Me.FNHSysMSCId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", "975", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysMSCId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions18, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject69, SerializableAppearanceObject70, SerializableAppearanceObject71, SerializableAppearanceObject72, "", "975", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysMSCId.Properties.Tag = ""
         Me.FNHSysMSCId.Size = New System.Drawing.Size(140, 20)
         Me.FNHSysMSCId.TabIndex = 303
@@ -2671,7 +2423,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNHSysVenderPramId.Enabled = False
         Me.FNHSysVenderPramId.Location = New System.Drawing.Point(95, 50)
         Me.FNHSysVenderPramId.Name = "FNHSysVenderPramId"
-        Me.FNHSysVenderPramId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions22, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject85, SerializableAppearanceObject86, SerializableAppearanceObject87, SerializableAppearanceObject88, "", "168", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysVenderPramId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions26, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject101, SerializableAppearanceObject102, SerializableAppearanceObject103, SerializableAppearanceObject104, "", "168", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysVenderPramId.Properties.Tag = ""
         Me.FNHSysVenderPramId.Size = New System.Drawing.Size(140, 20)
         Me.FNHSysVenderPramId.TabIndex = 314
@@ -2786,6 +2538,7 @@ Partial Class wGenerateStyleDevOriginal
         '
         'ogbdetail
         '
+        Me.ogbdetail.Controls.Add(Me.ogbmainprocbutton)
         Me.ogbdetail.Controls.Add(Me.olbfunction)
         Me.ogbdetail.Controls.Add(Me.otb)
         Me.ogbdetail.Dock = System.Windows.Forms.DockStyle.Fill
@@ -2793,6 +2546,253 @@ Partial Class wGenerateStyleDevOriginal
         Me.ogbdetail.Name = "ogbdetail"
         Me.ogbdetail.Size = New System.Drawing.Size(1334, 353)
         Me.ogbdetail.TabIndex = 6
+        '
+        'ocmexit
+        '
+        Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmexit.Location = New System.Drawing.Point(530, 170)
+        Me.ocmexit.Name = "ocmexit"
+        Me.ocmexit.Size = New System.Drawing.Size(142, 25)
+        Me.ocmexit.TabIndex = 96
+        Me.ocmexit.TabStop = False
+        Me.ocmexit.Tag = "2|"
+        Me.ocmexit.Text = "EXIT"
+        '
+        'ocmbomaddnew
+        '
+        Me.ocmbomaddnew.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmbomaddnew.Enabled = False
+        Me.ocmbomaddnew.Location = New System.Drawing.Point(424, 15)
+        Me.ocmbomaddnew.Name = "ocmbomaddnew"
+        Me.ocmbomaddnew.Size = New System.Drawing.Size(100, 25)
+        Me.ocmbomaddnew.TabIndex = 97
+        Me.ocmbomaddnew.TabStop = False
+        Me.ocmbomaddnew.Tag = "2|"
+        Me.ocmbomaddnew.Text = "NewRow"
+        Me.ocmbomaddnew.Visible = False
+        '
+        'ocmbominsertrow
+        '
+        Me.ocmbominsertrow.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmbominsertrow.Enabled = False
+        Me.ocmbominsertrow.Location = New System.Drawing.Point(424, 46)
+        Me.ocmbominsertrow.Name = "ocmbominsertrow"
+        Me.ocmbominsertrow.Size = New System.Drawing.Size(100, 25)
+        Me.ocmbominsertrow.TabIndex = 98
+        Me.ocmbominsertrow.TabStop = False
+        Me.ocmbominsertrow.Tag = "2|"
+        Me.ocmbominsertrow.Text = "InsertRow"
+        Me.ocmbominsertrow.Visible = False
+        '
+        'ocmbomdeleterow
+        '
+        Me.ocmbomdeleterow.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmbomdeleterow.Enabled = False
+        Me.ocmbomdeleterow.Location = New System.Drawing.Point(424, 77)
+        Me.ocmbomdeleterow.Name = "ocmbomdeleterow"
+        Me.ocmbomdeleterow.Size = New System.Drawing.Size(100, 25)
+        Me.ocmbomdeleterow.TabIndex = 99
+        Me.ocmbomdeleterow.TabStop = False
+        Me.ocmbomdeleterow.Tag = "2|"
+        Me.ocmbomdeleterow.Text = "DeleteRow"
+        Me.ocmbomdeleterow.Visible = False
+        '
+        'ocmbomnewcolorway
+        '
+        Me.ocmbomnewcolorway.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmbomnewcolorway.Enabled = False
+        Me.ocmbomnewcolorway.Location = New System.Drawing.Point(424, 170)
+        Me.ocmbomnewcolorway.Name = "ocmbomnewcolorway"
+        Me.ocmbomnewcolorway.Size = New System.Drawing.Size(100, 25)
+        Me.ocmbomnewcolorway.TabIndex = 101
+        Me.ocmbomnewcolorway.TabStop = False
+        Me.ocmbomnewcolorway.Tag = "2|"
+        Me.ocmbomnewcolorway.Text = "NewColorWay"
+        Me.ocmbomnewcolorway.Visible = False
+        '
+        'ocmdeletecolorway
+        '
+        Me.ocmdeletecolorway.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmdeletecolorway.Enabled = False
+        Me.ocmdeletecolorway.Location = New System.Drawing.Point(530, 139)
+        Me.ocmdeletecolorway.Name = "ocmdeletecolorway"
+        Me.ocmdeletecolorway.Size = New System.Drawing.Size(142, 25)
+        Me.ocmdeletecolorway.TabIndex = 102
+        Me.ocmdeletecolorway.TabStop = False
+        Me.ocmdeletecolorway.Tag = "2|"
+        Me.ocmdeletecolorway.Text = "DeleteColorWay"
+        Me.ocmdeletecolorway.Visible = False
+        '
+        'ocmsave
+        '
+        Me.ocmsave.Enabled = False
+        Me.ocmsave.Location = New System.Drawing.Point(12, 77)
+        Me.ocmsave.Name = "ocmsave"
+        Me.ocmsave.Size = New System.Drawing.Size(100, 25)
+        Me.ocmsave.TabIndex = 105
+        Me.ocmsave.TabStop = False
+        Me.ocmsave.Tag = "2|"
+        Me.ocmsave.Text = "SAVE"
+        Me.ocmsave.Visible = False
+        '
+        'ocmdelete
+        '
+        Me.ocmdelete.Enabled = False
+        Me.ocmdelete.Location = New System.Drawing.Point(12, 108)
+        Me.ocmdelete.Name = "ocmdelete"
+        Me.ocmdelete.Size = New System.Drawing.Size(100, 25)
+        Me.ocmdelete.TabIndex = 106
+        Me.ocmdelete.TabStop = False
+        Me.ocmdelete.Tag = "2|"
+        Me.ocmdelete.Text = "DELETE"
+        Me.ocmdelete.Visible = False
+        '
+        'ocmclearclsr
+        '
+        Me.ocmclearclsr.Location = New System.Drawing.Point(12, 139)
+        Me.ocmclearclsr.Name = "ocmclearclsr"
+        Me.ocmclearclsr.Size = New System.Drawing.Size(100, 25)
+        Me.ocmclearclsr.TabIndex = 107
+        Me.ocmclearclsr.TabStop = False
+        Me.ocmclearclsr.Tag = "2|"
+        Me.ocmclearclsr.Text = "CLEAR"
+        '
+        'ocmpreview
+        '
+        Me.ocmpreview.Location = New System.Drawing.Point(12, 170)
+        Me.ocmpreview.Name = "ocmpreview"
+        Me.ocmpreview.Size = New System.Drawing.Size(100, 25)
+        Me.ocmpreview.TabIndex = 108
+        Me.ocmpreview.TabStop = False
+        Me.ocmpreview.Tag = "2|"
+        Me.ocmpreview.Text = "PREVIEW"
+        Me.ocmpreview.Visible = False
+        '
+        'ocmrefresh
+        '
+        Me.ocmrefresh.Location = New System.Drawing.Point(12, 15)
+        Me.ocmrefresh.Name = "ocmrefresh"
+        Me.ocmrefresh.Size = New System.Drawing.Size(100, 25)
+        Me.ocmrefresh.TabIndex = 110
+        Me.ocmrefresh.TabStop = False
+        Me.ocmrefresh.Tag = "2|"
+        Me.ocmrefresh.Text = "REFRESH"
+        '
+        'ocmbomnewsize
+        '
+        Me.ocmbomnewsize.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmbomnewsize.Enabled = False
+        Me.ocmbomnewsize.Location = New System.Drawing.Point(424, 108)
+        Me.ocmbomnewsize.Name = "ocmbomnewsize"
+        Me.ocmbomnewsize.Size = New System.Drawing.Size(100, 25)
+        Me.ocmbomnewsize.TabIndex = 111
+        Me.ocmbomnewsize.TabStop = False
+        Me.ocmbomnewsize.Tag = "2|"
+        Me.ocmbomnewsize.Text = "New Size"
+        Me.ocmbomnewsize.Visible = False
+        '
+        'ocmbomdeletesize
+        '
+        Me.ocmbomdeletesize.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmbomdeletesize.Enabled = False
+        Me.ocmbomdeletesize.Location = New System.Drawing.Point(424, 139)
+        Me.ocmbomdeletesize.Name = "ocmbomdeletesize"
+        Me.ocmbomdeletesize.Size = New System.Drawing.Size(100, 25)
+        Me.ocmbomdeletesize.TabIndex = 112
+        Me.ocmbomdeletesize.TabStop = False
+        Me.ocmbomdeletesize.Tag = "2|"
+        Me.ocmbomdeletesize.Text = "Delete Size"
+        Me.ocmbomdeletesize.Visible = False
+        '
+        'ocmchangematcolordes
+        '
+        Me.ocmchangematcolordes.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmchangematcolordes.Enabled = False
+        Me.ocmchangematcolordes.Location = New System.Drawing.Point(530, 108)
+        Me.ocmchangematcolordes.Name = "ocmchangematcolordes"
+        Me.ocmchangematcolordes.Size = New System.Drawing.Size(142, 25)
+        Me.ocmchangematcolordes.TabIndex = 113
+        Me.ocmchangematcolordes.TabStop = False
+        Me.ocmchangematcolordes.Tag = "2|"
+        Me.ocmchangematcolordes.Text = "Change Corlor Description"
+        Me.ocmchangematcolordes.Visible = False
+        '
+        'ocmposttobomsheet
+        '
+        Me.ocmposttobomsheet.Enabled = False
+        Me.ocmposttobomsheet.Location = New System.Drawing.Point(231, 77)
+        Me.ocmposttobomsheet.Name = "ocmposttobomsheet"
+        Me.ocmposttobomsheet.Size = New System.Drawing.Size(142, 25)
+        Me.ocmposttobomsheet.TabIndex = 114
+        Me.ocmposttobomsheet.TabStop = False
+        Me.ocmposttobomsheet.Tag = "2|"
+        Me.ocmposttobomsheet.Text = "Post To Bom Sheet"
+        Me.ocmposttobomsheet.Visible = False
+        '
+        'ocmbomchangecolorway
+        '
+        Me.ocmbomchangecolorway.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmbomchangecolorway.Enabled = False
+        Me.ocmbomchangecolorway.Location = New System.Drawing.Point(530, 46)
+        Me.ocmbomchangecolorway.Name = "ocmbomchangecolorway"
+        Me.ocmbomchangecolorway.Size = New System.Drawing.Size(142, 25)
+        Me.ocmbomchangecolorway.TabIndex = 115
+        Me.ocmbomchangecolorway.TabStop = False
+        Me.ocmbomchangecolorway.Tag = "2|"
+        Me.ocmbomchangecolorway.Text = "Change Color Way"
+        Me.ocmbomchangecolorway.Visible = False
+        '
+        'ocmbomdiffpart
+        '
+        Me.ocmbomdiffpart.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ocmbomdiffpart.Enabled = False
+        Me.ocmbomdiffpart.Location = New System.Drawing.Point(530, 15)
+        Me.ocmbomdiffpart.Name = "ocmbomdiffpart"
+        Me.ocmbomdiffpart.Size = New System.Drawing.Size(142, 25)
+        Me.ocmbomdiffpart.TabIndex = 116
+        Me.ocmbomdiffpart.TabStop = False
+        Me.ocmbomdiffpart.Tag = "2|"
+        Me.ocmbomdiffpart.Text = "DiffPart"
+        Me.ocmbomdiffpart.Visible = False
+        '
+        'ocmcopy
+        '
+        Me.ocmcopy.Enabled = False
+        Me.ocmcopy.Location = New System.Drawing.Point(12, 46)
+        Me.ocmcopy.Name = "ocmcopy"
+        Me.ocmcopy.Size = New System.Drawing.Size(100, 25)
+        Me.ocmcopy.TabIndex = 117
+        Me.ocmcopy.TabStop = False
+        Me.ocmcopy.Tag = "2|"
+        Me.ocmcopy.Text = "copy"
+        Me.ocmcopy.Visible = False
+        '
+        'ogbmainprocbutton
+        '
+        Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmcopy)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomdiffpart)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomchangecolorway)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmposttobomsheet)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmchangematcolordes)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomdeletesize)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomnewsize)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmrefresh)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmpreview)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmclearclsr)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmdelete)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmsave)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmdeletecolorway)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomnewcolorway)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomdeleterow)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmbominsertrow)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmbomaddnew)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(521, 6)
+        Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(684, 295)
+        Me.ogbmainprocbutton.TabIndex = 137
+        Me.ogbmainprocbutton.Tag = "2|"
         '
         'wGenerateStyleDevOriginal
         '
@@ -2814,8 +2814,6 @@ Partial Class wGenerateStyleDevOriginal
         CType(Me.FDUpdDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTUpdUser.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysStyleDevId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ogbmainprocbutton.ResumeLayout(False)
         CType(Me.otb, System.ComponentModel.ISupportInitialize).EndInit()
         Me.otb.ResumeLayout(False)
         Me.otpmatcode.ResumeLayout(False)
@@ -2901,6 +2899,8 @@ Partial Class wGenerateStyleDevOriginal
         CType(Me.FNBomDevType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbdetail, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbdetail.ResumeLayout(False)
+        CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ogbmainprocbutton.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -2926,17 +2926,6 @@ Partial Class wGenerateStyleDevOriginal
     Friend WithEvents FTUpdUser_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FDUpdDate As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FTUpdUser As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents ogbmainprocbutton As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents ocmexit As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents ocmdeletecolorway As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents ocmbomnewcolorway As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents ocmbomdeleterow As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents ocmbominsertrow As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents ocmbomaddnew As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents ocmpreview As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents ocmclearclsr As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents ocmdelete As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents ocmsave As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents FTSeason_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FNHSysCustId_None As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FNHSysCustId_lbl As DevExpress.XtraEditors.LabelControl
@@ -2985,20 +2974,16 @@ Partial Class wGenerateStyleDevOriginal
     Friend WithEvents FNConSmp_S As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FNConSmpPlus_S As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemNumEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
-    Friend WithEvents ocmrefresh As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents CFIXFNMerMatSeq_C As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FNMerMatSeq_S As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepFTPositionPartName As DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit
-    Friend WithEvents ocmbomnewsize As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents FNHSysStyleDevId_None As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FTStyleDevNameEN As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FTNote As DevExpress.XtraEditors.MemoEdit
-    Friend WithEvents ocmbomdeletesize As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents RepCheckEdit As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents RepFTRunSize As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents FTComponent As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepRawMatIDCaledit As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
-    Friend WithEvents ocmchangematcolordes As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ReposFNMerMatSeq As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
     Friend WithEvents oDockManager As DevExpress.XtraBars.Docking.DockManager
     Friend WithEvents RepFTComponent3 As DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit
@@ -3021,13 +3006,10 @@ Partial Class wGenerateStyleDevOriginal
     Friend WithEvents FTPostDate_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTPostBy_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTStatePost As DevExpress.XtraEditors.CheckEdit
-    Friend WithEvents ocmposttobomsheet As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents FTPart As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepFTPart As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
-    Friend WithEvents ocmbomchangecolorway As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents FTDevelopDate_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTDevelopDate As DevExpress.XtraEditors.DateEdit
-    Friend WithEvents ocmbomdiffpart As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents RepositoryItemPopupContainerEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit
     Friend WithEvents RepositoryItemMemoEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit
     Friend WithEvents PopupFTPositionPartName As DevExpress.XtraEditors.PopupContainerControl
@@ -3061,7 +3043,6 @@ Partial Class wGenerateStyleDevOriginal
     Friend WithEvents cxFTUnitCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents cxFNHSysCurId As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents cxFTCurCode As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents ocmcopy As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ogbStyleHeader As DevExpress.XtraEditors.GroupControl
     Friend WithEvents otx As DevExpress.XtraTab.XtraTabControl
     Friend WithEvents otpstyleinfo As DevExpress.XtraTab.XtraTabPage
@@ -3107,4 +3088,23 @@ Partial Class wGenerateStyleDevOriginal
     Friend WithEvents FNHSysSeasonId As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FTSeason As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FTBomDevStyleCode As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents ogbmainprocbutton As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents ocmcopy As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmbomdiffpart As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmbomchangecolorway As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmposttobomsheet As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmchangematcolordes As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmbomdeletesize As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmbomnewsize As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmrefresh As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmpreview As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmclearclsr As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmdelete As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmsave As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmdeletecolorway As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmbomnewcolorway As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmbomdeleterow As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmbominsertrow As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmbomaddnew As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents ocmexit As DevExpress.XtraEditors.SimpleButton
 End Class

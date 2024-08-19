@@ -223,6 +223,11 @@ Partial Class wGenerateStyleDevelopNew
         Me.RepFTRunSize = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.cx3FNOrderSetType = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryFNOrderSetType3 = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
+        Me.otpfileref = New DevExpress.XtraTab.XtraTabPage()
+        Me.ogcfile = New DevExpress.XtraGrid.GridControl()
+        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.FNSeqFile = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTFileName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.FTNikeDeveloperName = New DevExpress.XtraEditors.TextEdit()
         Me.FTNikeDeveloperName_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -275,6 +280,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNBomDevType_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNBomDevType = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.ogbdetail = New DevExpress.XtraEditors.GroupControl()
+        Me.ocmcompare = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.FTNote.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysStyleDevId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStyleDevNameEN.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -339,6 +345,9 @@ Partial Class wGenerateStyleDevelopNew
         CType(Me.RepositoryItemNumEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepFTRunSize, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryFNOrderSetType3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.otpfileref.SuspendLayout()
+        CType(Me.ogcfile, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTNikeDeveloperName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTDevelopDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -558,6 +567,7 @@ Partial Class wGenerateStyleDevelopNew
         'ogbmainprocbutton
         '
         Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmcompare)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmcopy)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmbomdiffpart)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmbomchangecolorway)
@@ -576,9 +586,9 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogbmainprocbutton.Controls.Add(Me.ocmbominsertrow)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmbomaddnew)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(493, 28)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(789, 23)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
-        Me.ogbmainprocbutton.Size = New System.Drawing.Size(366, 221)
+        Me.ogbmainprocbutton.Size = New System.Drawing.Size(366, 250)
         Me.ogbmainprocbutton.TabIndex = 137
         Me.ogbmainprocbutton.Tag = "2|"
         '
@@ -782,18 +792,17 @@ Partial Class wGenerateStyleDevelopNew
         Me.otb.Location = New System.Drawing.Point(2, 23)
         Me.otb.Name = "otb"
         Me.otb.SelectedTabPage = Me.otpmatcode
-        Me.otb.Size = New System.Drawing.Size(1330, 305)
+        Me.otb.Size = New System.Drawing.Size(1282, 305)
         Me.otb.TabIndex = 3
-        Me.otb.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpmatcode, Me.otpmatcolor, Me.otpmatsize})
+        Me.otb.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpmatcode, Me.otpmatcolor, Me.otpmatsize, Me.otpfileref})
         Me.otb.TabPageWidth = 150
         '
         'otpmatcode
         '
-        Me.otpmatcode.Controls.Add(Me.ogbmainprocbutton)
         Me.otpmatcode.Controls.Add(Me.PopupFTPositionPartName)
         Me.otpmatcode.Controls.Add(Me.ogcmat)
         Me.otpmatcode.Name = "otpmatcode"
-        Me.otpmatcode.Size = New System.Drawing.Size(1328, 280)
+        Me.otpmatcode.Size = New System.Drawing.Size(1280, 280)
         Me.otpmatcode.Text = "Item Detail"
         '
         'PopupFTPositionPartName
@@ -905,7 +914,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogcmat.MainView = Me.ogvmat
         Me.ogcmat.Name = "ogcmat"
         Me.ogcmat.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTStateActive, Me.RepositoryFTStateCombination, Me.RepositoryFTStateNominate, Me.RepositoryFTMainMatCode, Me.RepositoryFNHSysSuplId, Me.RepositoryFNHSysCurId, Me.RepositoryItemNumEdit, Me.RepositoryFTUnitCode, Me.RepositoryFTStateMainMaterial, Me.RepFTPositionPartName, Me.ReposFNMerMatSeq, Me.RepFTComponent3, Me.RepositoryPriceCalcEdit, Me.RepositoryConsmCalcEdit, Me.RepositoryConsPlusCalcEdit, Me.ReposFTPartNameEN, Me.ReposFTPartNameTH, Me.ReposFTItemNo, Me.ReposItemDesc, Me.RepFTPart, Me.RepositoryItemPopupContainerEdit1, Me.RepFTStateNotShowBomSheet, Me.RepositoryItemFNOrderSetType, Me.RepositoryIteFTItemREfNo, Me.RepositoryItemCalFNPackPerCarton, Me.RepositoryItemCalcFNRepeatLengthCM})
-        Me.ogcmat.Size = New System.Drawing.Size(1328, 280)
+        Me.ogcmat.Size = New System.Drawing.Size(1280, 280)
         Me.ogcmat.TabIndex = 3
         Me.ogcmat.TabStop = False
         Me.ogcmat.Tag = "2|"
@@ -1590,7 +1599,7 @@ Partial Class wGenerateStyleDevelopNew
         '
         Me.otpmatcolor.Controls.Add(Me.ogccolor)
         Me.otpmatcolor.Name = "otpmatcolor"
-        Me.otpmatcolor.Size = New System.Drawing.Size(1328, 280)
+        Me.otpmatcolor.Size = New System.Drawing.Size(1280, 280)
         Me.otpmatcolor.Text = "Color Detail"
         '
         'ogccolor
@@ -1600,7 +1609,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogccolor.MainView = Me.ogvcolor
         Me.ogccolor.Name = "ogccolor"
         Me.ogccolor.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemNumEdit1, Me.RepCheckEdit, Me.RepRawMatIDCaledit, Me.RepositoryItemMemoEdit1, Me.RepositoryItemFNOrderSetType4})
-        Me.ogccolor.Size = New System.Drawing.Size(1328, 280)
+        Me.ogccolor.Size = New System.Drawing.Size(1280, 280)
         Me.ogccolor.TabIndex = 3
         Me.ogccolor.TabStop = False
         Me.ogccolor.Tag = "2|"
@@ -1821,7 +1830,7 @@ Partial Class wGenerateStyleDevelopNew
         '
         Me.otpmatsize.Controls.Add(Me.ogcsize)
         Me.otpmatsize.Name = "otpmatsize"
-        Me.otpmatsize.Size = New System.Drawing.Size(1328, 280)
+        Me.otpmatsize.Size = New System.Drawing.Size(1280, 280)
         Me.otpmatsize.Text = "Size Detail"
         '
         'ogcsize
@@ -1831,7 +1840,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogcsize.MainView = Me.ogvsize
         Me.ogcsize.Name = "ogcsize"
         Me.ogcsize.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemNumEdit2, Me.RepFTRunSize, Me.RepositoryFNOrderSetType3})
-        Me.ogcsize.Size = New System.Drawing.Size(1328, 280)
+        Me.ogcsize.Size = New System.Drawing.Size(1280, 280)
         Me.ogcsize.TabIndex = 3
         Me.ogcsize.TabStop = False
         Me.ogcsize.Tag = "2|"
@@ -2023,6 +2032,47 @@ Partial Class wGenerateStyleDevelopNew
         Me.RepositoryFNOrderSetType3.NullText = ""
         Me.RepositoryFNOrderSetType3.ValueMember = "FNIndex"
         '
+        'otpfileref
+        '
+        Me.otpfileref.Controls.Add(Me.ogcfile)
+        Me.otpfileref.Name = "otpfileref"
+        Me.otpfileref.Size = New System.Drawing.Size(1280, 280)
+        Me.otpfileref.Text = "File Ref."
+        '
+        'ogcfile
+        '
+        Me.ogcfile.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ogcfile.Location = New System.Drawing.Point(0, 0)
+        Me.ogcfile.MainView = Me.GridView2
+        Me.ogcfile.Name = "ogcfile"
+        Me.ogcfile.Size = New System.Drawing.Size(1280, 280)
+        Me.ogcfile.TabIndex = 0
+        Me.ogcfile.UseEmbeddedNavigator = True
+        Me.ogcfile.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView2})
+        '
+        'GridView2
+        '
+        Me.GridView2.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FNSeqFile, Me.FTFileName})
+        Me.GridView2.GridControl = Me.ogcfile
+        Me.GridView2.Name = "GridView2"
+        '
+        'FNSeqFile
+        '
+        Me.FNSeqFile.Caption = "FNSeqFile"
+        Me.FNSeqFile.FieldName = "FNSeqFile"
+        Me.FNSeqFile.Name = "FNSeqFile"
+        Me.FNSeqFile.Visible = True
+        Me.FNSeqFile.VisibleIndex = 0
+        Me.FNSeqFile.Width = 137
+        '
+        'FTFileName
+        '
+        Me.FTFileName.Caption = "FTFileName"
+        Me.FTFileName.Name = "FTFileName"
+        Me.FTFileName.Visible = True
+        Me.FTFileName.VisibleIndex = 1
+        Me.FTFileName.Width = 1118
+        '
         'oDockManager
         '
         Me.oDockManager.Form = Me
@@ -2209,7 +2259,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.olbfunction.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
         Me.olbfunction.Location = New System.Drawing.Point(7, 2)
         Me.olbfunction.Name = "olbfunction"
-        Me.olbfunction.Size = New System.Drawing.Size(1085, 23)
+        Me.olbfunction.Size = New System.Drawing.Size(1037, 23)
         Me.olbfunction.TabIndex = 284
         Me.olbfunction.Tag = "2|"
         Me.olbfunction.Text = "  F9 = Default Select Data  ,F10 = Default N/R  , F11 = Clear Blank ,  F12 =  Def" &
@@ -2222,7 +2272,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.otx.Location = New System.Drawing.Point(2, 81)
         Me.otx.Name = "otx"
         Me.otx.SelectedTabPage = Me.otpstyleinfo
-        Me.otx.Size = New System.Drawing.Size(1330, 164)
+        Me.otx.Size = New System.Drawing.Size(1282, 164)
         Me.otx.TabIndex = 303
         Me.otx.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpstyleinfo, Me.otpremark})
         Me.otx.TabStop = False
@@ -2265,7 +2315,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.otpstyleinfo.Controls.Add(Me.FTUpdUser)
         Me.otpstyleinfo.Controls.Add(Me.FDUpdDate)
         Me.otpstyleinfo.Name = "otpstyleinfo"
-        Me.otpstyleinfo.Size = New System.Drawing.Size(1328, 139)
+        Me.otpstyleinfo.Size = New System.Drawing.Size(1280, 139)
         Me.otpstyleinfo.Text = "Style Info"
         '
         'ButtonEdit1
@@ -2447,7 +2497,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.otpremark.Controls.Add(Me.FTMSCLevel1_lbl)
         Me.otpremark.Controls.Add(Me.FTNote)
         Me.otpremark.Name = "otpremark"
-        Me.otpremark.Size = New System.Drawing.Size(1328, 139)
+        Me.otpremark.Size = New System.Drawing.Size(1280, 139)
         Me.otpremark.Text = "MSC && Remark"
         '
         'FTNote_lbl
@@ -2577,7 +2627,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogbStyleHeader.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbStyleHeader.Location = New System.Drawing.Point(0, 0)
         Me.ogbStyleHeader.Name = "ogbStyleHeader"
-        Me.ogbStyleHeader.Size = New System.Drawing.Size(1334, 247)
+        Me.ogbStyleHeader.Size = New System.Drawing.Size(1286, 247)
         Me.ogbStyleHeader.TabIndex = 5
         Me.ogbStyleHeader.Text = "Style Info"
         '
@@ -2711,20 +2761,31 @@ Partial Class wGenerateStyleDevelopNew
         '
         'ogbdetail
         '
+        Me.ogbdetail.Controls.Add(Me.ogbmainprocbutton)
         Me.ogbdetail.Controls.Add(Me.olbfunction)
         Me.ogbdetail.Controls.Add(Me.otb)
         Me.ogbdetail.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogbdetail.Location = New System.Drawing.Point(0, 247)
         Me.ogbdetail.Name = "ogbdetail"
-        Me.ogbdetail.Size = New System.Drawing.Size(1334, 330)
+        Me.ogbdetail.Size = New System.Drawing.Size(1286, 330)
         Me.ogbdetail.TabIndex = 6
+        '
+        'ocmcompare
+        '
+        Me.ocmcompare.Location = New System.Drawing.Point(5, 197)
+        Me.ocmcompare.Name = "ocmcompare"
+        Me.ocmcompare.Size = New System.Drawing.Size(115, 25)
+        Me.ocmcompare.TabIndex = 118
+        Me.ocmcompare.TabStop = False
+        Me.ocmcompare.Tag = "2|"
+        Me.ocmcompare.Text = "BOM Compare"
         '
         'wGenerateStyleDevelopNew
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1334, 577)
+        Me.ClientSize = New System.Drawing.Size(1286, 577)
         Me.Controls.Add(Me.ogbdetail)
         Me.Controls.Add(Me.ogbStyleHeader)
         Me.Name = "wGenerateStyleDevelopNew"
@@ -2793,6 +2854,9 @@ Partial Class wGenerateStyleDevelopNew
         CType(Me.RepositoryItemNumEdit2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepFTRunSize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryFNOrderSetType3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.otpfileref.ResumeLayout(False)
+        CType(Me.ogcfile, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTNikeDeveloperName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTDevelopDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3036,4 +3100,10 @@ Partial Class wGenerateStyleDevelopNew
     Friend WithEvents FNHSysVenderPramId As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FTBomDevStyleCode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents ButtonEdit1 As DevExpress.XtraEditors.ButtonEdit
+    Friend WithEvents otpfileref As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents ogcfile As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents FNSeqFile As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTFileName As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ocmcompare As DevExpress.XtraEditors.SimpleButton
 End Class

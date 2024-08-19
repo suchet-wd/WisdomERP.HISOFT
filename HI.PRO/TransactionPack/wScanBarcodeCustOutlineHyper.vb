@@ -382,7 +382,10 @@ Public Class wScanBarcodeCustOutlineHyper
             _Qry &= vbCrLf & ", Max(ZX.FDUpdDate) AS FDUpdDate"
             _Qry &= vbCrLf & ", Max(ZX.FTUpdTime) AS  FTUpdTime"
             _Qry &= vbCrLf & ", Max(ZX.FTUpdUser) AS  FTUpdUser"
+            _Qry &= vbCrLf & If(_HyperActive, ", B.FTBoxHyperBarcode, B.FTStateExport ", "")
+
             _Qry &= vbCrLf & ", isnull((Select Sum(X.FNQuantity) AS FNQuantity "
+
             _Qry &= vbCrLf
             _Qry &= vbCrLf & "From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "].dbo.TPRODBarcodeScanOutline As X With(NOLOCK)"
             _Qry &= vbCrLf & "Where X.FTBarcodeNo = B.FTBarcodeNo And X.FNHSysUnitSectId = B.FNHSysUnitSectId ),0) As FNScanByBundleNoQty "
@@ -428,7 +431,9 @@ Public Class wScanBarcodeCustOutlineHyper
                 '_Qry &= vbCrLf & "And U.FTUnitSectCode ='" & HI.UL.ULF.rpQuoted(Me.FNHSysUnitSectId.Text) & "'"
                 _Qry &= vbCrLf & "And B.FNHSysUnitSectId=" & Val(Me.FNHSysUnitSectId.Properties.Tag.ToString()) & ""
             End If
-            _Qry &= vbCrLf & "Group by  B.FTBarcodeNo, B.FNHSysUnitSectId,   U.FTUnitSectCode,   D.FTSizeBreakDown, P.FTOrderNo , ODRS.FTPORef , D.FNBunbleSeq ,B.FDDate , B.FTBarcodeCustRef  ,TS.FTStyleCode  , isnull(B.FNStateSewPack,0)"
+            _Qry &= vbCrLf & "Group by  B.FTBarcodeNo, B.FNHSysUnitSectId"
+            _Qry &= vbCrLf & If(_HyperActive, ", B.FTBoxHyperBarcode, B.FTStateExport ", "")
+            _Qry &= vbCrLf & ", U.FTUnitSectCode,   D.FTSizeBreakDown, P.FTOrderNo , ODRS.FTPORef , D.FNBunbleSeq ,B.FDDate , B.FTBarcodeCustRef  ,TS.FTStyleCode  , isnull(B.FNStateSewPack,0)"
 
             _Qry &= vbCrLf & ",CASE WHEN Isnull( D.FTChangeToLineItemNo, '') <>'' THEN  Isnull( D.FTChangeToLineItemNo, '')   ELSE Isnull( D.FTPOLineItemNo, '') END  "
 
@@ -1161,7 +1166,6 @@ Public Class wScanBarcodeCustOutlineHyper
                     _Cmd &= vbCrLf & ", " & HI.UL.ULDate.FormatDateDB
                     _Cmd &= vbCrLf & ", Convert(varchar(5),Getdate(),114)"
                     _Cmd &= vbCrLf & ", 1"
-                    _Cmd &= vbCrLf & If(_HyperActive, ("," & FTHyperBoxNo.Text & ", 0"), "")
 
                     If StateBarcodeBundle Then
                         _Cmd &= vbCrLf & ", ''"
@@ -1172,6 +1176,7 @@ Public Class wScanBarcodeCustOutlineHyper
                     _Cmd &= vbCrLf & ", '" & HI.UL.ULF.rpQuoted(Me.FTOrderNo.Text) & "'"
                     _Cmd &= vbCrLf & ", '" & HI.UL.ULF.rpQuoted(Me.FTSubOrderNo.Text) & "'"
                     _Cmd &= vbCrLf & ", " & Integer.Parse(Me.FNStateSewPack.SelectedIndex)
+                    _Cmd &= vbCrLf & If(_HyperActive, (",'" & FTHyperBoxNo.Text & "', 0"), "")
 
                     If HI.Conn.SQLConn.Execute_Tran(_Cmd, HI.Conn.SQLConn.Cmd, HI.Conn.SQLConn.Tran) <= 0 Then
                         HI.Conn.SQLConn.Tran.Rollback()

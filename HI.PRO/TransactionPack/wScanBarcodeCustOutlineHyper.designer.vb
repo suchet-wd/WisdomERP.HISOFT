@@ -19,6 +19,11 @@ Partial Class wScanBarcodeCustOutlineHyper
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject13 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -29,11 +34,6 @@ Partial Class wScanBarcodeCustOutlineHyper
         Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.FNBunbleSeq = New DevExpress.XtraEditors.TextEdit()
         Me.FTBarcodeBundleNo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTSizeBreakDown = New DevExpress.XtraEditors.TextEdit()
@@ -43,6 +43,8 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FTStyleCode_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTStyleCode = New DevExpress.XtraEditors.TextEdit()
         Me.XtraScrollableControl1 = New DevExpress.XtraEditors.XtraScrollableControl()
+        Me.FTBoxHyperNo_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FTHyperBoxNo = New DevExpress.XtraEditors.TextEdit()
         Me.FNStateSewPack = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.FNStateSewPack_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.ogrpQtyScan = New DevExpress.XtraEditors.GroupControl()
@@ -94,15 +96,14 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FTUpdTime = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTUpdUser = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemFNStateSewPack = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
-        Me.FTHyperBoxNo = New DevExpress.XtraEditors.TextEdit()
-        Me.FTBoxHyperNo_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTBoxHyperBarcode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemFNStateSewPack = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox()
         CType(Me.FNBunbleSeq.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTSizeBreakDown.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTColorway.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStyleCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.XtraScrollableControl1.SuspendLayout()
+        CType(Me.FTHyperBoxNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNStateSewPack.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogrpQtyScan, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogrpQtyScan.SuspendLayout()
@@ -125,7 +126,6 @@ Partial Class wScanBarcodeCustOutlineHyper
         CType(Me.ogcdetail, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvdetail, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemFNStateSewPack, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTHyperBoxNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FNBunbleSeq
@@ -162,9 +162,9 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FTBarcodeBundleNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTBarcodeBundleNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTBarcodeBundleNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBarcodeBundleNo_lbl.Location = New System.Drawing.Point(471, 133)
+        Me.FTBarcodeBundleNo_lbl.Location = New System.Drawing.Point(510, 133)
         Me.FTBarcodeBundleNo_lbl.Name = "FTBarcodeBundleNo_lbl"
-        Me.FTBarcodeBundleNo_lbl.Size = New System.Drawing.Size(84, 19)
+        Me.FTBarcodeBundleNo_lbl.Size = New System.Drawing.Size(45, 19)
         Me.FTBarcodeBundleNo_lbl.TabIndex = 317
         Me.FTBarcodeBundleNo_lbl.Tag = "2|"
         Me.FTBarcodeBundleNo_lbl.Text = "มัดที่ :"
@@ -191,7 +191,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FTSizeBreakDown.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSizeBreakDown.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTSizeBreakDown.Properties.ReadOnly = True
-        Me.FTSizeBreakDown.Size = New System.Drawing.Size(72, 20)
+        Me.FTSizeBreakDown.Size = New System.Drawing.Size(114, 20)
         Me.FTSizeBreakDown.TabIndex = 310
         Me.FTSizeBreakDown.TabStop = False
         Me.FTSizeBreakDown.Tag = "2|"
@@ -258,9 +258,9 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FTStyleCode_lbl.Appearance.Options.UseTextOptions = True
         Me.FTStyleCode_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTStyleCode_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTStyleCode_lbl.Location = New System.Drawing.Point(444, 61)
+        Me.FTStyleCode_lbl.Location = New System.Drawing.Point(395, 61)
         Me.FTStyleCode_lbl.Name = "FTStyleCode_lbl"
-        Me.FTStyleCode_lbl.Size = New System.Drawing.Size(111, 19)
+        Me.FTStyleCode_lbl.Size = New System.Drawing.Size(100, 19)
         Me.FTStyleCode_lbl.TabIndex = 304
         Me.FTStyleCode_lbl.Tag = "2|"
         Me.FTStyleCode_lbl.Text = "Style Code :"
@@ -270,7 +270,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FTStyleCode.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTStyleCode.EditValue = ""
-        Me.FTStyleCode.Location = New System.Drawing.Point(561, 63)
+        Me.FTStyleCode.Location = New System.Drawing.Point(501, 63)
         Me.FTStyleCode.Name = "FTStyleCode"
         Me.FTStyleCode.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTStyleCode.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 7.8!, System.Drawing.FontStyle.Bold)
@@ -291,7 +291,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FTStyleCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTStyleCode.Properties.MaxLength = 30
         Me.FTStyleCode.Properties.ReadOnly = True
-        Me.FTStyleCode.Size = New System.Drawing.Size(474, 18)
+        Me.FTStyleCode.Size = New System.Drawing.Size(601, 18)
         Me.FTStyleCode.TabIndex = 303
         Me.FTStyleCode.Tag = "2|"
         '
@@ -329,12 +329,53 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.XtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.XtraScrollableControl1.Location = New System.Drawing.Point(2, 23)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1318, 156)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(1470, 156)
         Me.XtraScrollableControl1.TabIndex = 0
+        '
+        'FTBoxHyperNo_lbl
+        '
+        Me.FTBoxHyperNo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTBoxHyperNo_lbl.Appearance.Options.UseForeColor = True
+        Me.FTBoxHyperNo_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTBoxHyperNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTBoxHyperNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTBoxHyperNo_lbl.Location = New System.Drawing.Point(3, 28)
+        Me.FTBoxHyperNo_lbl.Name = "FTBoxHyperNo_lbl"
+        Me.FTBoxHyperNo_lbl.Size = New System.Drawing.Size(126, 19)
+        Me.FTBoxHyperNo_lbl.TabIndex = 1000007
+        Me.FTBoxHyperNo_lbl.Tag = "2|"
+        Me.FTBoxHyperNo_lbl.Text = "Box HyperActive No :"
+        '
+        'FTHyperBoxNo
+        '
+        Me.FTHyperBoxNo.EditValue = ""
+        Me.FTHyperBoxNo.Location = New System.Drawing.Point(135, 27)
+        Me.FTHyperBoxNo.Name = "FTHyperBoxNo"
+        Me.FTHyperBoxNo.Properties.Appearance.BackColor = System.Drawing.Color.Aquamarine
+        Me.FTHyperBoxNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.FTHyperBoxNo.Properties.Appearance.Options.UseBackColor = True
+        Me.FTHyperBoxNo.Properties.Appearance.Options.UseFont = True
+        Me.FTHyperBoxNo.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
+        Me.FTHyperBoxNo.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
+        Me.FTHyperBoxNo.Properties.AppearanceDisabled.Options.UseBackColor = True
+        Me.FTHyperBoxNo.Properties.AppearanceDisabled.Options.UseForeColor = True
+        Me.FTHyperBoxNo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
+        Me.FTHyperBoxNo.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
+        Me.FTHyperBoxNo.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.FTHyperBoxNo.Properties.AppearanceFocused.Options.UseForeColor = True
+        Me.FTHyperBoxNo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTHyperBoxNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FTHyperBoxNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTHyperBoxNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FTHyperBoxNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.FTHyperBoxNo.Properties.MaxLength = 30
+        Me.FTHyperBoxNo.Size = New System.Drawing.Size(255, 32)
+        Me.FTHyperBoxNo.TabIndex = 5
+        Me.FTHyperBoxNo.Tag = "2|"
         '
         'FNStateSewPack
         '
-        Me.FNStateSewPack.Location = New System.Drawing.Point(561, 2)
+        Me.FNStateSewPack.Location = New System.Drawing.Point(501, 2)
         Me.FNStateSewPack.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.FNStateSewPack.Name = "FNStateSewPack"
         Me.FNStateSewPack.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -350,9 +391,9 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FNStateSewPack_lbl.Appearance.Options.UseTextOptions = True
         Me.FNStateSewPack_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNStateSewPack_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNStateSewPack_lbl.Location = New System.Drawing.Point(440, 2)
+        Me.FNStateSewPack_lbl.Location = New System.Drawing.Point(395, 2)
         Me.FNStateSewPack_lbl.Name = "FNStateSewPack_lbl"
-        Me.FNStateSewPack_lbl.Size = New System.Drawing.Size(115, 19)
+        Me.FNStateSewPack_lbl.Size = New System.Drawing.Size(100, 19)
         Me.FNStateSewPack_lbl.TabIndex = 1000004
         Me.FNStateSewPack_lbl.Tag = "2|"
         Me.FNStateSewPack_lbl.Text = "FNStateSewPack"
@@ -361,9 +402,9 @@ Partial Class wScanBarcodeCustOutlineHyper
         '
         Me.ogrpQtyScan.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ogrpQtyScan.Controls.Add(Me.lblQtyScan)
-        Me.ogrpQtyScan.Location = New System.Drawing.Point(1040, 0)
+        Me.ogrpQtyScan.Location = New System.Drawing.Point(1106, 0)
         Me.ogrpQtyScan.Name = "ogrpQtyScan"
-        Me.ogrpQtyScan.Size = New System.Drawing.Size(278, 127)
+        Me.ogrpQtyScan.Size = New System.Drawing.Size(364, 127)
         Me.ogrpQtyScan.TabIndex = 1000003
         Me.ogrpQtyScan.Text = "SCAN QTY"
         '
@@ -379,7 +420,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.lblQtyScan.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblQtyScan.Location = New System.Drawing.Point(2, 23)
         Me.lblQtyScan.Name = "lblQtyScan"
-        Me.lblQtyScan.Size = New System.Drawing.Size(274, 102)
+        Me.lblQtyScan.Size = New System.Drawing.Size(360, 102)
         Me.lblQtyScan.TabIndex = 309
         Me.lblQtyScan.Tag = "2|"
         Me.lblQtyScan.Text = "000"
@@ -456,7 +497,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FTPORef.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTPORef.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTPORef.Properties.ReadOnly = True
-        Me.FTPORef.Size = New System.Drawing.Size(419, 20)
+        Me.FTPORef.Size = New System.Drawing.Size(571, 20)
         Me.FTPORef.TabIndex = 324
         Me.FTPORef.TabStop = False
         Me.FTPORef.Tag = "2|"
@@ -518,7 +559,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         '
         Me.FNHSysUnitSectId.Location = New System.Drawing.Point(135, 81)
         Me.FNHSysUnitSectId.Name = "FNHSysUnitSectId"
-        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "248", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysUnitSectId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "", "248", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysUnitSectId.Properties.Tag = "57"
         Me.FNHSysUnitSectId.Size = New System.Drawing.Size(114, 20)
         Me.FNHSysUnitSectId.TabIndex = 2
@@ -532,7 +573,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.LabelControl1.Appearance.Options.UseTextOptions = True
         Me.LabelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl1.Location = New System.Drawing.Point(807, 28)
+        Me.LabelControl1.Location = New System.Drawing.Point(738, 28)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(102, 19)
         Me.LabelControl1.TabIndex = 302
@@ -546,9 +587,9 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FTBarcodeNo_lbl.Appearance.Options.UseTextOptions = True
         Me.FTBarcodeNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTBarcodeNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBarcodeNo_lbl.Location = New System.Drawing.Point(429, 28)
+        Me.FTBarcodeNo_lbl.Location = New System.Drawing.Point(395, 28)
         Me.FTBarcodeNo_lbl.Name = "FTBarcodeNo_lbl"
-        Me.FTBarcodeNo_lbl.Size = New System.Drawing.Size(126, 19)
+        Me.FTBarcodeNo_lbl.Size = New System.Drawing.Size(100, 19)
         Me.FTBarcodeNo_lbl.TabIndex = 302
         Me.FTBarcodeNo_lbl.Tag = "2|"
         Me.FTBarcodeNo_lbl.Text = "Barcode UPC No :"
@@ -558,7 +599,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FTBarcodeBundleNo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FTBarcodeBundleNo.EditValue = ""
-        Me.FTBarcodeBundleNo.Location = New System.Drawing.Point(915, 27)
+        Me.FTBarcodeBundleNo.Location = New System.Drawing.Point(846, 27)
         Me.FTBarcodeBundleNo.Name = "FTBarcodeBundleNo"
         Me.FTBarcodeBundleNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTBarcodeBundleNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
@@ -578,14 +619,14 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FTBarcodeBundleNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTBarcodeBundleNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.FTBarcodeBundleNo.Properties.MaxLength = 30
-        Me.FTBarcodeBundleNo.Size = New System.Drawing.Size(120, 32)
+        Me.FTBarcodeBundleNo.Size = New System.Drawing.Size(256, 32)
         Me.FTBarcodeBundleNo.TabIndex = 6
         Me.FTBarcodeBundleNo.Tag = "2|"
         '
         'FTCustBarcodeNo
         '
         Me.FTCustBarcodeNo.EditValue = ""
-        Me.FTCustBarcodeNo.Location = New System.Drawing.Point(561, 27)
+        Me.FTCustBarcodeNo.Location = New System.Drawing.Point(501, 27)
         Me.FTCustBarcodeNo.Name = "FTCustBarcodeNo"
         Me.FTCustBarcodeNo.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FTCustBarcodeNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
@@ -629,7 +670,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FTOrderNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "365", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "365", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTOrderNo.Size = New System.Drawing.Size(114, 20)
         Me.FTOrderNo.TabIndex = 3
         Me.FTOrderNo.TabStop = False
@@ -655,7 +696,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FTSubOrderNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTSubOrderNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSubOrderNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTSubOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "", "366", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FTSubOrderNo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "366", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FTSubOrderNo.Size = New System.Drawing.Size(114, 20)
         Me.FTSubOrderNo.TabIndex = 4
         Me.FTSubOrderNo.TabStop = False
@@ -668,7 +709,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.ogbbarcodeinfo.Controls.Add(Me.XtraScrollableControl1)
         Me.ogbbarcodeinfo.Location = New System.Drawing.Point(3, 3)
         Me.ogbbarcodeinfo.Name = "ogbbarcodeinfo"
-        Me.ogbbarcodeinfo.Size = New System.Drawing.Size(1322, 181)
+        Me.ogbbarcodeinfo.Size = New System.Drawing.Size(1474, 181)
         Me.ogbbarcodeinfo.TabIndex = 318
         Me.ogbbarcodeinfo.Text = "Barcode Info"
         '
@@ -680,7 +721,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.ogbmainprocbutton.Controls.Add(Me.ocmexit)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmdelete)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmclear)
-        Me.ogbmainprocbutton.Location = New System.Drawing.Point(403, 335)
+        Me.ogbmainprocbutton.Location = New System.Drawing.Point(555, 335)
         Me.ogbmainprocbutton.Name = "ogbmainprocbutton"
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(111, 164)
         Me.ogbmainprocbutton.TabIndex = 319
@@ -764,7 +805,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.ogbdetail.Controls.Add(Me.ogcdetail)
         Me.ogbdetail.Location = New System.Drawing.Point(2, 190)
         Me.ogbdetail.Name = "ogbdetail"
-        Me.ogbdetail.Size = New System.Drawing.Size(1322, 384)
+        Me.ogbdetail.Size = New System.Drawing.Size(1474, 384)
         Me.ogbdetail.TabIndex = 317
         Me.ogbdetail.Text = "Detail"
         '
@@ -775,7 +816,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.ogcdetail.MainView = Me.ogvdetail
         Me.ogcdetail.Name = "ogcdetail"
         Me.ogcdetail.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemFNStateSewPack})
-        Me.ogcdetail.Size = New System.Drawing.Size(1318, 359)
+        Me.ogcdetail.Size = New System.Drawing.Size(1470, 359)
         Me.ogcdetail.TabIndex = 300
         Me.ogcdetail.TabStop = False
         Me.ogcdetail.Tag = "2|"
@@ -1035,54 +1076,6 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.GridColumn1.Name = "GridColumn1"
         Me.GridColumn1.Width = 64
         '
-        'RepositoryItemFNStateSewPack
-        '
-        Me.RepositoryItemFNStateSewPack.AutoHeight = False
-        Me.RepositoryItemFNStateSewPack.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.RepositoryItemFNStateSewPack.Name = "RepositoryItemFNStateSewPack"
-        Me.RepositoryItemFNStateSewPack.Tag = "FNStateSewPack"
-        '
-        'FTHyperBoxNo
-        '
-        Me.FTHyperBoxNo.EditValue = ""
-        Me.FTHyperBoxNo.Location = New System.Drawing.Point(135, 27)
-        Me.FTHyperBoxNo.Name = "FTHyperBoxNo"
-        Me.FTHyperBoxNo.Properties.Appearance.BackColor = System.Drawing.Color.Aquamarine
-        Me.FTHyperBoxNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.FTHyperBoxNo.Properties.Appearance.Options.UseBackColor = True
-        Me.FTHyperBoxNo.Properties.Appearance.Options.UseFont = True
-        Me.FTHyperBoxNo.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
-        Me.FTHyperBoxNo.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
-        Me.FTHyperBoxNo.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.FTHyperBoxNo.Properties.AppearanceDisabled.Options.UseForeColor = True
-        Me.FTHyperBoxNo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.GreenYellow
-        Me.FTHyperBoxNo.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Blue
-        Me.FTHyperBoxNo.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.FTHyperBoxNo.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.FTHyperBoxNo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FTHyperBoxNo.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FTHyperBoxNo.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FTHyperBoxNo.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTHyperBoxNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTHyperBoxNo.Properties.MaxLength = 30
-        Me.FTHyperBoxNo.Size = New System.Drawing.Size(300, 32)
-        Me.FTHyperBoxNo.TabIndex = 5
-        Me.FTHyperBoxNo.Tag = "2|"
-        '
-        'FTBoxHyperNo_lbl
-        '
-        Me.FTBoxHyperNo_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTBoxHyperNo_lbl.Appearance.Options.UseForeColor = True
-        Me.FTBoxHyperNo_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTBoxHyperNo_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTBoxHyperNo_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBoxHyperNo_lbl.Location = New System.Drawing.Point(3, 28)
-        Me.FTBoxHyperNo_lbl.Name = "FTBoxHyperNo_lbl"
-        Me.FTBoxHyperNo_lbl.Size = New System.Drawing.Size(126, 19)
-        Me.FTBoxHyperNo_lbl.TabIndex = 1000007
-        Me.FTBoxHyperNo_lbl.Tag = "2|"
-        Me.FTBoxHyperNo_lbl.Text = "Box HyperActive No :"
-        '
         'FTBoxHyperBarcode
         '
         Me.FTBoxHyperBarcode.Caption = "FTBoxHyperBarcode"
@@ -1094,11 +1087,18 @@ Partial Class wScanBarcodeCustOutlineHyper
         Me.FTBoxHyperBarcode.VisibleIndex = 20
         Me.FTBoxHyperBarcode.Width = 64
         '
+        'RepositoryItemFNStateSewPack
+        '
+        Me.RepositoryItemFNStateSewPack.AutoHeight = False
+        Me.RepositoryItemFNStateSewPack.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemFNStateSewPack.Name = "RepositoryItemFNStateSewPack"
+        Me.RepositoryItemFNStateSewPack.Tag = "FNStateSewPack"
+        '
         'wScanBarcodeCustOutlineHyper
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1327, 578)
+        Me.ClientSize = New System.Drawing.Size(1479, 578)
         Me.Controls.Add(Me.ogbbarcodeinfo)
         Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.ogbdetail)
@@ -1109,6 +1109,7 @@ Partial Class wScanBarcodeCustOutlineHyper
         CType(Me.FTColorway.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStyleCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.XtraScrollableControl1.ResumeLayout(False)
+        CType(Me.FTHyperBoxNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNStateSewPack.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogrpQtyScan, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogrpQtyScan.ResumeLayout(False)
@@ -1131,7 +1132,6 @@ Partial Class wScanBarcodeCustOutlineHyper
         CType(Me.ogcdetail, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogvdetail, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemFNStateSewPack, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTHyperBoxNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
