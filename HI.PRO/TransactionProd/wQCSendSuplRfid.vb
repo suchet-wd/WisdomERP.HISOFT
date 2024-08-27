@@ -8,8 +8,10 @@ Public Class wQCSendSuplRfid
     Private _Static As Boolean = False
     Private _StateSave As Boolean = True
     Private _wAccept As wQCSendSupllist
-    Private _HyperActive As Boolean = IsHyperActive()   ' State 1 = For HyperActive
-    Private _TypeQCScan As String = IsTypeQCScan()      ' TypeQCScan = 1 for BoxBarcode / 2 For RFID
+    Private _HyperActive As String = IsHyperActive()
+    ' State 0 = Non HyperActive / 1 = For HyperActive / 2 = For HyperActive No Box Required
+    Private _TypeQCScan As String = IsTypeQCScan()
+    ' TypeQCScan = 1 for BoxBarcode / 2 For RFID / 
 
     Sub New()
 
@@ -64,35 +66,46 @@ Public Class wQCSendSuplRfid
         End Try
     End Sub
 
-    Private Sub FTRfidNo_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles FTRfidNo.KeyDown
-        Try
-            Select Case e.KeyCode
-                Case Keys.Enter
-                    If (FTRfidNo.Text <> "") Then
-                        If (isBarcodeSendSupl(FTRfidNo.Text)) Then
-                            'HI.MG.ShowMsg.mInfo("Please check Barcode!!!", 1609161057, Me.Text, "", MessageBoxIcon.Information)
-                            FTBarcodeNo.Text = FTRfidNo.Text
-                            FTRfidNo.Text = ""
-                        End If
-                    End If
-                    'If Me.FTRfidNo.Text = "" Then
-                    '    HI.MG.ShowMsg.mInfo("บาร์โค๊ด RFID ยังไม่มีการรับ..", 2010061452, Me.Text, , MessageBoxIcon.Error)
-                    '    Me.FTRfidNo.Focus()
-                    '    Exit Sub
-                    'End If
-            End Select
-        Catch ex As Exception
-        End Try
-    End Sub
+    'Private Sub FTRfidNo_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles FTRfidNo.KeyDown
+    '    Try
+    '        Select Case e.KeyCode
+    '            Case Keys.Enter
+    '                'If (FTRfidNo.Text <> "") Then
+    '                '    If (isBarcodeSendSupl(FTRfidNo.Text)) Then
+    '                '        'HI.MG.ShowMsg.mInfo("Please check Barcode!!!", 1609161057, Me.Text, "", MessageBoxIcon.Information)
+    '                '        FTBarcodeNo.Text = FTRfidNo.Text
+    '                '        FTRfidNo.Text = ""
+    '                '    End If
+    '                'End If
+    '                'If Me.FTRfidNo.Text = "" Then
+    '                '    HI.MG.ShowMsg.mInfo("บาร์โค๊ด RFID ยังไม่มีการรับ..", 2010061452, Me.Text, , MessageBoxIcon.Error)
+    '                '    Me.FTRfidNo.Focus()
+    '                '    Exit Sub
+    '                'End If
+    '        End Select
+    '    Catch ex As Exception
+    '    End Try
+    'End Sub
 
     Private Sub FTRfidNo_EditValueChanged(sender As Object, e As EventArgs) Handles FTRfidNo.EditValueChanged
-        If (FTRfidNo.Text <> "") Then
-            If (isBarcodeSendSupl(FTRfidNo.Text)) Then
-                'HI.MG.ShowMsg.mInfo("Please check Barcode!!!", 1609161057, Me.Text, "", MessageBoxIcon.Information)
-                FTBarcodeNo.Text = FTRfidNo.Text
-                FTRfidNo.Text = ""
-            End If
-        End If
+        Try
+            'Dim _Box As String = FTRfidNo.Text
+            'Select Case e.KeyCode
+            '    Case Keys.Enter
+            If (_HyperActive = "1" And FTRfidNo.Text <> "") Then
+                        ClearForm()
+                        FTBarcodeNo.Text = ""
+                        'FTRfidNo.Text = _Box
+
+                        'If (isBarcodeSendSupl(FTRfidNo.Text)) Then
+                        '    'HI.MG.ShowMsg.mInfo("Please check Barcode!!!", 1609161057, Me.Text, "", MessageBoxIcon.Information)
+                        '    FTBarcodeNo.Text = FTRfidNo.Text
+                        '    FTRfidNo.Text = ""
+                        'End If
+                    End If
+            'End Select
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Function isBarcodeSendSupl(_BarcodeNo As String) As String
@@ -128,7 +141,7 @@ Public Class wQCSendSuplRfid
     Private Function checkBarcodeReceive(_BarcodeNo As String) As Boolean
         Try
             Dim _Cmd As String = ""
-            _Cmd = "Select * from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "..fn_check_rcvsupl('" & _BarcodeNo & "') "
+            _Cmd = "Select * from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.fn_check_rcvsupl('" & _BarcodeNo & "') "
             Return HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD).Rows.Count > 0
         Catch ex As Exception
             Return False
@@ -137,7 +150,7 @@ Public Class wQCSendSuplRfid
     Private Function checkBarcodeSendSupl(_BarcodeNo As String) As Boolean
         Try
             Dim _Cmd As String = ""
-            _Cmd = "Select * from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & "..fn_checksendsupl('" & _BarcodeNo & "') "
+            _Cmd = "Select * from " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.fn_checksendsupl('" & _BarcodeNo & "') "
             Return HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD).Rows.Count > 0
         Catch ex As Exception
             Return False
@@ -549,23 +562,26 @@ Public Class wQCSendSuplRfid
             End If
 
             ' Set Data for HyperActive For API6 & API10
-            If _HyperActive And _TypeQCScan <> "" Then
-                If (checkColorWaySize(HI.UL.ULF.rpQuoted(Me.FTRfidNo.Text), HI.UL.ULF.rpQuoted(Me.FTBarcodeNo.Text))) Then
-                    _Cmd = "EXEC " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PROD) & ".[dbo].[SP_CREATE_QADATA_FOR_HYPERACTIVE] "
+            '_HyperActive = 0 Is Non Hyper / 1 Hyper Required BoxBarcode / 2 Hyper Not Required BoxBarcode 
+            If _HyperActive = "1" And _TypeQCScan <> "" Then
+                'If (checkColorWaySize(HI.UL.ULF.rpQuoted(Me.FTRfidNo.Text), HI.UL.ULF.rpQuoted(Me.FTBarcodeNo.Text))) Then
+                _Cmd = "EXEC " & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_PROD) & ".[dbo].[SP_CREATE_QADATA_FOR_HYPERACTIVE] "
                     _Cmd &= vbCrLf & "@FTBarcodeSendSuplNo = '" & HI.UL.ULF.rpQuoted(Me.FTBarcodeNo.Text) & "'"
                     _Cmd &= vbCrLf & ", @FNDefectQty = " & Double.Parse(Me.FNQCActualQty.Value)
                     _Cmd &= vbCrLf & ", @User = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                     If _TypeQCScan = "1" Then ' Scan BoxNo get RFID Form API4
-                        _Cmd &= vbCrLf & ", @FTRFIDNo = '" & GetRFIDNoByBoxNo(HI.UL.ULF.rpQuoted(Me.FTRfidNo.Text)) & "'"
+                        '_Cmd &= vbCrLf & ", @FTRFIDNo = '" & GetRFIDNoByBoxNo(HI.UL.ULF.rpQuoted(Me.FTRfidNo.Text)) & "'"
+                        _Cmd &= vbCrLf & ", @FTRFIDNo = ''"
                         _Cmd &= vbCrLf & ", @BoxNo = '" & HI.UL.ULF.rpQuoted(Me.FTRfidNo.Text) & "'"
                     ElseIf _TypeQCScan = "2" Then 'Scan RFID get BoxNo From API4
                         _Cmd &= vbCrLf & ", @FTRFIDNo = '" & HI.UL.ULF.rpQuoted(Me.FTRfidNo.Text) & "'"
-                        _Cmd &= vbCrLf & ", @BoxNo = '" & GetBoxNoByRFID(HI.UL.ULF.rpQuoted(Me.FTRfidNo.Text)) & "'"
+                        _Cmd &= vbCrLf & ", @BoxNo = ''"
+                        '_Cmd &= vbCrLf & ", @BoxNo = '" & GetBoxNoByRFID(HI.UL.ULF.rpQuoted(Me.FTRfidNo.Text)) & "'"
                     End If
                     If HI.Conn.SQLConn.ExecuteOnly(_Cmd, Conn.DB.DataBaseName.DB_PROD) = False Then
                         Return False
                     End If
-                End If
+                'End If
             End If
             ' End Set Data for HyperActive
             Return True
@@ -689,11 +705,14 @@ Public Class wQCSendSuplRfid
         Try
             Dim _Cmd As String = ""
             Dim IsMatch As Boolean = False
-            _Cmd = "SELECT DISTINCT bd.FTColorway, bd.FTSizeBreakDown "
+            _Cmd = "Declare @Date8M varchar(10) = Convert(varchar(10), Getdate() - 250, 111) "
+            _Cmd &= vbCrLf & "SELECT DISTINCT bd.FTColorway, bd.FTSizeBreakDown "
             _Cmd &= vbCrLf & "FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.TPROSendSuplDefect AS d WITH (NOLOCK)"
 
             _Cmd &= vbCrLf & "OUTER APPLY(SELECT b.FTBarcodeBundleNo FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.TPRODBarcode_SendSupl AS b WITH (NOLOCK)"
-            _Cmd &= vbCrLf & "WHERE b.FTBarcodeSendSuplNo = d.FTBarcodeSendSuplNo) AS b"
+            _Cmd &= vbCrLf & "WHERE b.FTBarcodeSendSuplNo = d.FTBarcodeSendSuplNo "
+            _Cmd &= vbCrLf & "And b.FDInsDate >= @Date8M "
+            _Cmd &= vbCrLf & ") AS b"
 
             _Cmd &= vbCrLf & "OUTER APPLY(SELECT bd.FTColorway, bd.FTSizeBreakDown FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.TPRODTBundle As bd With (NOLOCK)"
             _Cmd &= vbCrLf & "WHERE b.FTBarcodeBundleNo = bd.FTBarcodeBundleNo) AS bd"
@@ -703,7 +722,7 @@ Public Class wQCSendSuplRfid
             _Cmd &= vbCrLf
             _Cmd &= vbCrLf & "UNION"
             _Cmd &= vbCrLf
-            _Cmd &= vbCrLf & "Select DISTINCT bd.FTColorway, bd.FTSizeBreakDown "
+            _Cmd &= vbCrLf & "Select DISTINCT TOP 1 bd.FTColorway, bd.FTSizeBreakDown "
 
             _Cmd &= vbCrLf & "FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.TPRODBarcode_SendSupl AS b WITH (NOLOCK)"
 
@@ -937,15 +956,16 @@ Public Class wQCSendSuplRfid
         End Try
     End Function
 
-    Private Function IsHyperActive() As Boolean
+    Private Function IsHyperActive() As String
         Try
             Dim _Cmd As String = ""
-
+            'Dim _dt As DataTable()
             _Cmd = "SELECT Top 1  FTCfgData "
             _Cmd &= vbCrLf & "FROM  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & ".dbo.TSESystemConfig WITH(NOLOCK) "
-            _Cmd &= vbCrLf & "WHERE FTCfgName ='HyperActive' AND FTCfgData = '1'"
-
-            Return HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD).Rows.Count > 0
+            _Cmd &= vbCrLf & "WHERE FTCfgName ='HyperActive'"
+            '_dt = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD)
+            Return HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_PROD, "0")
+            'Return .Rows.Count > 0
         Catch ex As Exception
             Return False
         End Try
@@ -966,32 +986,33 @@ Public Class wQCSendSuplRfid
         End Try
     End Function
 
-    Private Function GetRFIDNoByBoxNo(_BoxNo As String) As String
-        Try
-            Dim _Cmd As String = ""
-            'Dim _TypeQCScan As String = ""
-            _Cmd = "SELECT Top 1 a.FTBoxRfId "
+    ' Cancelled 23-Aug-2024 Because Too much Load
+    'Private Function GetRFIDNoByBoxNo(_BoxNo As String) As String
+    '    Try
+    '        Dim _Cmd As String = ""
+    '        'Dim _TypeQCScan As String = ""
+    '        _Cmd = "SELECT Top 1 a.FTBoxRfId "
 
-            _Cmd &= vbCrLf & "FROM  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HYPERACTIVE) & ".dbo.TSMGtoWisdom_Staging AS a  WITH (NOLOCK)"
-            _Cmd &= vbCrLf & "WHERE a.FTBoxBarCode = '" & _BoxNo & "'"
-            Return HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_HYPERACTIVE, "0")
-        Catch ex As Exception
-            Return ""
-        End Try
-    End Function
+    '        _Cmd &= vbCrLf & "FROM  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HYPERACTIVE) & ".dbo.TSMGtoWisdom_Staging AS a  WITH (NOLOCK)"
+    '        _Cmd &= vbCrLf & "WHERE a.FTBoxBarCode = '" & _BoxNo & "'"
+    '        Return HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_HYPERACTIVE, "0")
+    '    Catch ex As Exception
+    '        Return ""
+    '    End Try
+    'End Function
 
-    Private Function GetBoxNoByRFID(_RFIDNo As String) As String
-        Try
-            Dim _Cmd As String = ""
-            'Dim _TypeQCScan As String = ""
-            _Cmd = "SELECT Top 1 a.FTBoxBarCode "
-            _Cmd &= vbCrLf & "FROM  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HYPERACTIVE) & ".dbo.TSMGtoWisdom_Staging AS a  WITH (NOLOCK)"
-            _Cmd &= vbCrLf & "WHERE a.FTBoxRfId = '" & _RFIDNo & "'"
-            Return HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_HYPERACTIVE, "0")
-        Catch ex As Exception
-            Return ""
-        End Try
-    End Function
+    'Private Function GetBoxNoByRFID(_RFIDNo As String) As String
+    '    Try
+    '        Dim _Cmd As String = ""
+    '        'Dim _TypeQCScan As String = ""
+    '        _Cmd = "SELECT Top 1 a.FTBoxBarCode "
+    '        _Cmd &= vbCrLf & "FROM  " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_HYPERACTIVE) & ".dbo.TSMGtoWisdom_Staging AS a  WITH (NOLOCK)"
+    '        _Cmd &= vbCrLf & "WHERE a.FTBoxRfId = '" & _RFIDNo & "'"
+    '        Return HI.Conn.SQLConn.GetField(_Cmd, Conn.DB.DataBaseName.DB_HYPERACTIVE, "0")
+    '    Catch ex As Exception
+    '        Return ""
+    '    End Try
+    'End Function
 
 
     Private Function ClearForm() As String
@@ -1005,8 +1026,5 @@ Public Class wQCSendSuplRfid
         End Try
         Return ""
     End Function
-
-
-
 
 End Class

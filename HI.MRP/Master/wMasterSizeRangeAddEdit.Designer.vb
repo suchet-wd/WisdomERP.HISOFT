@@ -35,9 +35,12 @@ Partial Class wMasterSizeRangeAddEdit
         Me.ogvSize = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.FTSelect = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
-        Me.FNSeq = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.FTSize = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.FTGroupRangeCode = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTGroupRangeNameEN = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTGroupRangeNameTH = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTStateActive = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.rpState = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
+        Me.FNHSysMatSizeId = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
         Me.RepositoryFNHSysRawmatId = New DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit()
         Me.RepositoryItemGridLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -45,6 +48,8 @@ Partial Class wMasterSizeRangeAddEdit
         Me.CSFTDescription = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CSFTRawMatColorCode = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.CSFTRawMatColorName = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.FTUsed = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemCheckEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         CType(Me.ogbbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbbutton.SuspendLayout()
         CType(Me.olymain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,17 +59,18 @@ Partial Class wMasterSizeRangeAddEdit
         CType(Me.ogcSize, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvSize, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.rpState, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl2.SuspendLayout()
         CType(Me.RepositoryFNHSysRawmatId, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemGridLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ocmsavelayout
         '
         Me.ocmsavelayout.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmsavelayout.Location = New System.Drawing.Point(552, 4)
+        Me.ocmsavelayout.Location = New System.Drawing.Point(566, 4)
         Me.ocmsavelayout.Name = "ocmsavelayout"
         Me.ocmsavelayout.Size = New System.Drawing.Size(46, 38)
         Me.ocmsavelayout.TabIndex = 1
@@ -74,7 +80,7 @@ Partial Class wMasterSizeRangeAddEdit
         'sbCustomization
         '
         Me.sbCustomization.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.sbCustomization.Location = New System.Drawing.Point(497, 4)
+        Me.sbCustomization.Location = New System.Drawing.Point(511, 4)
         Me.sbCustomization.Name = "sbCustomization"
         Me.sbCustomization.Size = New System.Drawing.Size(53, 38)
         Me.sbCustomization.TabIndex = 0
@@ -92,15 +98,15 @@ Partial Class wMasterSizeRangeAddEdit
         Me.ogbbutton.Controls.Add(Me.ocmdelete)
         Me.ogbbutton.Controls.Add(Me.ocmaddnew)
         Me.ogbbutton.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ogbbutton.Location = New System.Drawing.Point(0, 527)
+        Me.ogbbutton.Location = New System.Drawing.Point(0, 590)
         Me.ogbbutton.Name = "ogbbutton"
-        Me.ogbbutton.Size = New System.Drawing.Size(756, 43)
+        Me.ogbbutton.Size = New System.Drawing.Size(770, 39)
         Me.ogbbutton.TabIndex = 4
         '
         'ocmdeletelayout
         '
         Me.ocmdeletelayout.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmdeletelayout.Location = New System.Drawing.Point(601, 4)
+        Me.ocmdeletelayout.Location = New System.Drawing.Point(615, 4)
         Me.ocmdeletelayout.Name = "ocmdeletelayout"
         Me.ocmdeletelayout.Size = New System.Drawing.Size(46, 38)
         Me.ocmdeletelayout.TabIndex = 102
@@ -119,7 +125,7 @@ Partial Class wMasterSizeRangeAddEdit
         'ocmexit
         '
         Me.ocmexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmexit.Location = New System.Drawing.Point(649, 10)
+        Me.ocmexit.Location = New System.Drawing.Point(663, 10)
         Me.ocmexit.Name = "ocmexit"
         Me.ocmexit.Size = New System.Drawing.Size(95, 25)
         Me.ocmexit.TabIndex = 100
@@ -143,6 +149,7 @@ Partial Class wMasterSizeRangeAddEdit
         Me.ocmdelete.TabIndex = 1003
         Me.ocmdelete.Tag = "2|"
         Me.ocmdelete.Text = "DELETE"
+        Me.ocmdelete.Visible = False
         '
         'ocmaddnew
         '
@@ -175,9 +182,9 @@ Partial Class wMasterSizeRangeAddEdit
         '
         Me.PanelControl1.Controls.Add(Me.ogcSize)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl1.Location = New System.Drawing.Point(0, 338)
+        Me.PanelControl1.Location = New System.Drawing.Point(0, 401)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(756, 189)
+        Me.PanelControl1.Size = New System.Drawing.Size(770, 189)
         Me.PanelControl1.TabIndex = 7
         '
         'ogcSize
@@ -197,8 +204,8 @@ Partial Class wMasterSizeRangeAddEdit
         Me.ogcSize.Location = New System.Drawing.Point(2, 2)
         Me.ogcSize.MainView = Me.ogvSize
         Me.ogcSize.Name = "ogcSize"
-        Me.ogcSize.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemTextEdit1})
-        Me.ogcSize.Size = New System.Drawing.Size(752, 185)
+        Me.ogcSize.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.rpState, Me.RepositoryItemCheckEdit1, Me.RepositoryItemCheckEdit2})
+        Me.ogcSize.Size = New System.Drawing.Size(766, 185)
         Me.ogcSize.TabIndex = 529
         Me.ogcSize.Tag = "3|"
         Me.ogcSize.UseEmbeddedNavigator = True
@@ -208,7 +215,8 @@ Partial Class wMasterSizeRangeAddEdit
         '
         Me.ogvSize.Appearance.EvenRow.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ogvSize.Appearance.EvenRow.Options.UseBackColor = True
-        Me.ogvSize.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTSelect, Me.FNSeq, Me.FTSize})
+        Me.ogvSize.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.FTSelect, Me.FTGroupRangeCode, Me.FTGroupRangeNameEN, Me.FTGroupRangeNameTH, Me.FTStateActive, Me.FTUsed, Me.FNHSysMatSizeId})
+        Me.ogvSize.DetailHeight = 406
         Me.ogvSize.GridControl = Me.ogcSize
         Me.ogvSize.Name = "ogvSize"
         Me.ogvSize.OptionsView.ColumnAutoWidth = False
@@ -217,14 +225,17 @@ Partial Class wMasterSizeRangeAddEdit
         '
         'FTSelect
         '
-        Me.FTSelect.Caption = "Select"
+        Me.FTSelect.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTSelect.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTSelect.Caption = "FTSelect"
         Me.FTSelect.ColumnEdit = Me.RepositoryItemCheckEdit1
         Me.FTSelect.FieldName = "FTSelect"
-        Me.FTSelect.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        Me.FTSelect.MinWidth = 21
         Me.FTSelect.Name = "FTSelect"
+        Me.FTSelect.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
         Me.FTSelect.Visible = True
         Me.FTSelect.VisibleIndex = 0
-        Me.FTSelect.Width = 50
+        Me.FTSelect.Width = 81
         '
         'RepositoryItemCheckEdit1
         '
@@ -232,39 +243,89 @@ Partial Class wMasterSizeRangeAddEdit
         Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
         Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
         Me.RepositoryItemCheckEdit1.ValueChecked = "1"
+        Me.RepositoryItemCheckEdit1.ValueUnchecked = "0"
         '
-        'FNSeq
+        'FTGroupRangeCode
         '
-        Me.FNSeq.Caption = "ลำดับที่"
-        Me.FNSeq.FieldName = "FNSeq"
-        Me.FNSeq.Name = "FNSeq"
-        Me.FNSeq.OptionsColumn.AllowEdit = False
-        Me.FNSeq.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FNSeq.OptionsColumn.AllowMove = False
-        Me.FNSeq.OptionsColumn.AllowShowHide = False
-        Me.FNSeq.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FNSeq.OptionsColumn.ReadOnly = True
-        Me.FNSeq.OptionsColumn.ShowInCustomizationForm = False
-        Me.FNSeq.Visible = True
-        Me.FNSeq.VisibleIndex = 1
-        Me.FNSeq.Width = 106
+        Me.FTGroupRangeCode.AppearanceHeader.ForeColor = System.Drawing.Color.Blue
+        Me.FTGroupRangeCode.AppearanceHeader.Options.UseForeColor = True
+        Me.FTGroupRangeCode.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTGroupRangeCode.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTGroupRangeCode.Caption = "FTGroupRangeCode"
+        Me.FTGroupRangeCode.FieldName = "FTMatSizeCode"
+        Me.FTGroupRangeCode.Name = "FTGroupRangeCode"
+        Me.FTGroupRangeCode.OptionsColumn.AllowEdit = False
+        Me.FTGroupRangeCode.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTGroupRangeCode.OptionsColumn.AllowMove = False
+        Me.FTGroupRangeCode.OptionsColumn.AllowShowHide = False
+        Me.FTGroupRangeCode.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.[False]
+        Me.FTGroupRangeCode.OptionsColumn.ReadOnly = True
+        Me.FTGroupRangeCode.OptionsColumn.ShowInCustomizationForm = False
+        Me.FTGroupRangeCode.Visible = True
+        Me.FTGroupRangeCode.VisibleIndex = 1
+        Me.FTGroupRangeCode.Width = 116
         '
-        'FTSize
+        'FTGroupRangeNameEN
         '
-        Me.FTSize.AppearanceHeader.ForeColor = System.Drawing.Color.Blue
-        Me.FTSize.AppearanceHeader.Options.UseForeColor = True
-        Me.FTSize.Caption = "Size"
-        Me.FTSize.ColumnEdit = Me.RepositoryItemTextEdit1
-        Me.FTSize.FieldName = "FTSize"
-        Me.FTSize.Name = "FTSize"
-        Me.FTSize.Visible = True
-        Me.FTSize.VisibleIndex = 2
-        Me.FTSize.Width = 561
+        Me.FTGroupRangeNameEN.AppearanceHeader.ForeColor = System.Drawing.Color.Blue
+        Me.FTGroupRangeNameEN.AppearanceHeader.Options.UseForeColor = True
+        Me.FTGroupRangeNameEN.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTGroupRangeNameEN.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTGroupRangeNameEN.Caption = "FTGroupRangeNameEN"
+        Me.FTGroupRangeNameEN.FieldName = "FTMatSizeNameEN"
+        Me.FTGroupRangeNameEN.Name = "FTGroupRangeNameEN"
+        Me.FTGroupRangeNameEN.OptionsColumn.AllowEdit = False
+        Me.FTGroupRangeNameEN.OptionsColumn.ReadOnly = True
+        Me.FTGroupRangeNameEN.Visible = True
+        Me.FTGroupRangeNameEN.VisibleIndex = 2
+        Me.FTGroupRangeNameEN.Width = 184
         '
-        'RepositoryItemTextEdit1
+        'FTGroupRangeNameTH
         '
-        Me.RepositoryItemTextEdit1.AutoHeight = False
-        Me.RepositoryItemTextEdit1.Name = "RepositoryItemTextEdit1"
+        Me.FTGroupRangeNameTH.AppearanceHeader.ForeColor = System.Drawing.Color.Blue
+        Me.FTGroupRangeNameTH.AppearanceHeader.Options.UseForeColor = True
+        Me.FTGroupRangeNameTH.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTGroupRangeNameTH.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTGroupRangeNameTH.Caption = "FTGroupRangeNameTH"
+        Me.FTGroupRangeNameTH.FieldName = "FTMatSizeNameTH"
+        Me.FTGroupRangeNameTH.MinWidth = 21
+        Me.FTGroupRangeNameTH.Name = "FTGroupRangeNameTH"
+        Me.FTGroupRangeNameTH.OptionsColumn.AllowEdit = False
+        Me.FTGroupRangeNameTH.OptionsColumn.ReadOnly = True
+        Me.FTGroupRangeNameTH.Visible = True
+        Me.FTGroupRangeNameTH.VisibleIndex = 3
+        Me.FTGroupRangeNameTH.Width = 184
+        '
+        'FTStateActive
+        '
+        Me.FTStateActive.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTStateActive.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTStateActive.Caption = "FTStateActive"
+        Me.FTStateActive.ColumnEdit = Me.rpState
+        Me.FTStateActive.FieldName = "FTStateActive"
+        Me.FTStateActive.MinWidth = 21
+        Me.FTStateActive.Name = "FTStateActive"
+        Me.FTStateActive.OptionsColumn.AllowEdit = False
+        Me.FTStateActive.OptionsColumn.ReadOnly = True
+        Me.FTStateActive.Visible = True
+        Me.FTStateActive.VisibleIndex = 4
+        Me.FTStateActive.Width = 51
+        '
+        'rpState
+        '
+        Me.rpState.AutoHeight = False
+        Me.rpState.Name = "rpState"
+        Me.rpState.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        Me.rpState.ValueChecked = "1"
+        Me.rpState.ValueUnchecked = "0"
+        '
+        'FNHSysMatSizeId
+        '
+        Me.FNHSysMatSizeId.Caption = "FNHSysMatSizeId"
+        Me.FNHSysMatSizeId.FieldName = "FNHSysMatSizeId"
+        Me.FNHSysMatSizeId.MinWidth = 21
+        Me.FNHSysMatSizeId.Name = "FNHSysMatSizeId"
+        Me.FNHSysMatSizeId.Width = 81
         '
         'PanelControl2
         '
@@ -272,7 +333,7 @@ Partial Class wMasterSizeRangeAddEdit
         Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelControl2.Location = New System.Drawing.Point(0, 0)
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(756, 338)
+        Me.PanelControl2.Size = New System.Drawing.Size(770, 401)
         Me.PanelControl2.TabIndex = 8
         '
         'RepositoryFNHSysRawmatId
@@ -342,11 +403,31 @@ Partial Class wMasterSizeRangeAddEdit
         Me.CSFTRawMatColorName.OptionsColumn.ReadOnly = True
         Me.CSFTRawMatColorName.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains
         '
+        'FTUsed
+        '
+        Me.FTUsed.AppearanceHeader.Options.UseTextOptions = True
+        Me.FTUsed.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.FTUsed.Caption = "FTUsed"
+        Me.FTUsed.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.FTUsed.FieldName = "FTUsed"
+        Me.FTUsed.Name = "FTUsed"
+        Me.FTUsed.OptionsColumn.AllowEdit = False
+        Me.FTUsed.OptionsColumn.ReadOnly = True
+        Me.FTUsed.Visible = True
+        Me.FTUsed.VisibleIndex = 5
+        '
+        'RepositoryItemCheckEdit2
+        '
+        Me.RepositoryItemCheckEdit2.AutoHeight = False
+        Me.RepositoryItemCheckEdit2.Name = "RepositoryItemCheckEdit2"
+        Me.RepositoryItemCheckEdit2.ValueChecked = "1"
+        Me.RepositoryItemCheckEdit2.ValueUnchecked = "0"
+        '
         'wMasterSizeRangeAddEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(756, 570)
+        Me.ClientSize = New System.Drawing.Size(770, 629)
         Me.ControlBox = False
         Me.Controls.Add(Me.PanelControl2)
         Me.Controls.Add(Me.PanelControl1)
@@ -364,11 +445,12 @@ Partial Class wMasterSizeRangeAddEdit
         CType(Me.ogcSize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogvSize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.rpState, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl2.ResumeLayout(False)
         CType(Me.RepositoryFNHSysRawmatId, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemGridLookUpEdit1View, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -387,15 +469,20 @@ Partial Class wMasterSizeRangeAddEdit
     Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents ogcSize As DevExpress.XtraGrid.GridControl
     Friend WithEvents ogvSize As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents FTSelect As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FNSeq As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FTSize As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTGroupRangeCode As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTGroupRangeNameEN As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryFNHSysRawmatId As DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit
     Friend WithEvents RepositoryItemGridLookUpEdit1View As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents CXFTRawMatCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CSFTDescription As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CSFTRawMatColorCode As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CSFTRawMatColorName As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTGroupRangeNameTH As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTStateActive As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents rpState As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents FTSelect As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-    Friend WithEvents RepositoryItemTextEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+    Friend WithEvents FNHSysMatSizeId As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents FTUsed As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemCheckEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
 End Class

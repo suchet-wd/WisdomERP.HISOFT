@@ -28,11 +28,11 @@ Public Class wMerStyleSize
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        Me.Name = "wMerStyle"
+        Me.Name = "wMerStyleSize"
         Me.SysFormName = SysFormName
         Me.AssemblyPath = AssemblyPath
-        Me.Text = "Style Master - Size"
-        Me.ogbdetail.Text = "Style Master - Size"
+        Me.Text = "Style Master - Group Size"
+        Me.ogbdetail.Text = "Style Master - Group Size"
 
         _SystemKeyFiled.Clear()
         _ValidateFiled.Clear()
@@ -311,7 +311,6 @@ Public Class wMerStyleSize
             End With
         End With
     End Sub
-
 
     Private Sub Proc_Close(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmexit.Click
         Me.Close()

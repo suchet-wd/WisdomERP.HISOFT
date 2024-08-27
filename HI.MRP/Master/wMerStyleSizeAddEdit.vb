@@ -288,7 +288,7 @@ Public Class wMerStyleSizeAddEdit
         If Me.Query = "" Then Exit Sub
         _DataInfo = HI.Conn.SQLConn.GetDataTable(Me.Query, _DBEnum,, False)
 
-        LoadSize()
+        LoadGroupSize()
     End Sub
 
     Private Sub InitFormControl()
@@ -1722,21 +1722,24 @@ Public Class wMerStyleSizeAddEdit
         Catch ex As Exception
         End Try
     End Sub
-    Private Sub LoadSize()
+    Private Sub LoadGroupSize()
         Try
             Dim dt As DataTable
             Dim _QryWhere As String = ""
             For I As Integer = 0 To _KeyFiled.ToArray.Count - 1
                 If _QryWhere = "" Then
-                    _QryWhere = "WHERE SS.FNHSysStyleId = '" & HI.UL.ULF.rpQuoted(_KeyFiled(I).FiledValue.ToString) & "' "
+                    _QryWhere = "AND SS.FNHSysStyleId = '" & HI.UL.ULF.rpQuoted(_KeyFiled(I).FiledValue.ToString) & "' "
                 Else
-                    _QryWhere &= "WHERE SS.FNHSysStyleId = '" & HI.UL.ULF.rpQuoted(_KeyFiled(I).FiledValue.ToString) & "' "
+                    _QryWhere &= "AND SS.FNHSysStyleId = '" & HI.UL.ULF.rpQuoted(_KeyFiled(I).FiledValue.ToString) & "' "
                 End If
             Next
 
-            Dim _Qry As String = "SELECT '0' AS FTSelect, SS.FNSeq, SS.FTSize "
-            _Qry &= "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.[TMERMStyle_Size] As SS With (NOLOCK) "
-            _Qry &= _QryWhere
+            Dim _Qry As String = "SELECT S.FNHSysSizeRangeId, S.FTSizeRangeCode, S.FTSizeRangeNameEN, S.FTSizeRangeNameTH, S.FTRemark, S.FTStateActive "
+            _Qry &= vbCrLf & ", CASE WHEN ISNULL(SS.FNHSysSizeRangeId,'') = '' THEN '0' ELSE '1' END AS 'FTSelect' "
+            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMSizeRange As S With (NOLOCK) "
+            _Qry &= vbCrLf & "OUTER APPLY(SELECT SS.FNHSysSizeRangeId FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_GroupSize As SS With (NOLOCK) "
+            _Qry &= vbCrLf & "WHERE S.FNHSysSizeRangeId = SS.FNHSysSizeRangeId " & _QryWhere
+            _Qry &= vbCrLf & ") AS SS "
 
             dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
             ogcSize.DataSource = dt
@@ -1749,7 +1752,7 @@ Public Class wMerStyleSizeAddEdit
         Dim _Qry As String = ""
 
         For I As Integer = 0 To _CheckDelFiled.ToArray.Count - 1
-            _Qry = _CheckDelFiled.Item(I).Query & "'" & HI.UL.ULF.rpQuoted(Key) & "' "
+            _Qry = _CheckDelFiled.Item(I).Query & " '" & HI.UL.ULF.rpQuoted(Key) & "' "
 
             If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SYSTEM, "") <> "" Then
                 HI.MG.ShowMsg.mProcessError(1301180001, "", Me.Text, MessageBoxIcon.Warning)
@@ -2315,6 +2318,8 @@ Public Class wMerStyleSizeAddEdit
                 Me.ProcComplete = True
                 Call UpdateImage(_Key)
 
+                Call SaveGridDataSize(_Key)
+
                 If Me.FTProcSave <> "" Then
                     Call ProcessSaveData()
                 End If
@@ -2391,6 +2396,7 @@ Public Class wMerStyleSizeAddEdit
 
     Private Sub ocmclear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmclear.Click
         HI.TL.HandlerControl.ClearControl(Me)
+        LoadGroupSize()
     End Sub
 
     Private Sub ocmedit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmedit.Click
@@ -2514,15 +2520,11 @@ Public Class wMerStyleSizeAddEdit
                                     Case "FR"
                                         _Values &= _FieldName & "='" & _Val & "'"
                                     Case Else
-
                                         _Values &= _FieldName & "=N'" & HI.UL.ULF.rpQuoted(_Val) & "'"
-
                                 End Select
                         End Select
 
                 End Select
-
-
             Next
 
             _Qry = " Update  " & Me.TableName & " Set " & _Values & "   " & _QryWhere
@@ -2548,7 +2550,7 @@ Public Class wMerStyleSizeAddEdit
 
         End If
 
-
+        LoadGroupSize()
 
     End Sub
 
@@ -2737,63 +2739,59 @@ Public Class wMerStyleSizeAddEdit
     Private Sub SaveGridDataSize(ByVal _ID As String)
         Try
             If Not (Me.ogcSize.DataSource Is Nothing) Then
+
                 With CType(Me.ogcSize.DataSource, DataTable)
                     .AcceptChanges()
                     Dim _Qry As String = ""
-                    Dim _QryWhere As String = ""
+                    'Dim _QryWhere As String = ""
+                    _Qry = "Declare @Date varchar(10) = Convert(varchar(10), Getdate(), 111) "
+                    _Qry &= vbCrLf & "Declare @Time varchar(10) = Convert(varchar(8), Getdate(), 114) "
+                    _Qry &= vbCrLf & "If (SELECT COUNT(SS.FNHSysStyleId) FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_GroupSize  AS SS WITH (NOLOCK) "
+                    _Qry &= "   WHERE SS.FNHSysStyleId = '" & _ID & "'"
+                    _Qry &= ") > 0 "
+                    _Qry &= vbCrLf & "BEGIN"
+                    _Qry &= vbCrLf & "   Print 'FOUND (Delete Old)'"
+                    _Qry &= vbCrLf & "   DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_GroupSize "
+                    _Qry &= "   WHERE FNHSysStyleId = '" & _ID & "' "
+                    _Qry &= vbCrLf
+                    _Qry &= vbCrLf & "End"
 
-                    If .Select().Count > 0 Then
-                        For Each R As DataRow In .Select()
-                            If _QryWhere = "" Then
-                                _QryWhere &= vbCrLf & "(SS.FNHSysStyleId = '" & _ID & "' AND SS.FNSeq = " & R!FNSeq & " AND SS.FTSize = '" & R!FTSize & "')"
-                            Else
-                                _QryWhere &= vbCrLf & " OR (SS.FNHSysStyleId = '" & _ID & "' AND SS.FNSeq = " & R!FNSeq & " AND SS.FTSize = '" & R!FTSize & "')"
-                            End If
-                        Next
+                    If .Select("FTSelect = '1'").Count > 0 Then
+                        'For Each R As DataRow In .Select()
+                        '    If _QryWhere = "" Then
+                        '        '_QryWhere &= vbCrLf & "(SS.FNHSysStyleId = '" & _ID & "' AND SS.FNSeq = " & R!FNSeq & " AND SS.FTSize = '" & R!FTSize & "')"
+                        '        _QryWhere &= vbCrLf & "   WHERE SS.FNHSysStyleId = '" & _ID & "'"
+                        '    Else
+                        '        '_QryWhere &= vbCrLf & " OR (SS.FNHSysStyleId = '" & _ID & "' AND SS.FNSeq = " & R!FNSeq & " AND SS.FTSize = '" & R!FTSize & "')"
+                        '        _QryWhere &= vbCrLf & "   OR SS.FNHSysStyleId = '" & _ID & "'"
+                        '    End If
+                        'Next
 
-                        _Qry = "If (SELECT Case WHEN (SELECT COUNT(SS.FNSeq) FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_Size  AS SS WITH (NOLOCK) WHERE "
-                        _Qry &= vbCrLf & _QryWhere
-                        _Qry &= vbCrLf & ") = " & .Select().Count & " THEN 'TRUE' END ) = 'TRUE'"
-                        _Qry &= vbCrLf & "BEGIN"
-                        _Qry &= vbCrLf & "   Print 'MATCH (Don''t do anything...)'"
-                        _Qry &= vbCrLf & "End"
-                        _Qry &= vbCrLf
-                        _Qry &= vbCrLf & "Else"
-                        _Qry &= vbCrLf
-                        _Qry &= vbCrLf & "BEGIN"
-                        _Qry &= vbCrLf & "   Print 'NOT MATCH !!!'"
-                        _Qry &= vbCrLf & "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_Size "
-                        _Qry &= vbCrLf & "WHERE FNHSysStyleId = '" & _ID & "' "
-                        _Qry &= vbCrLf
 
-                        For Each R As DataRow In .Select()
-                            _Qry &= vbCrLf & "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_Size "
-                            _Qry &= vbCrLf & "(FNHSysStyleId, FNSeq, FTSize, FTStateActive) VALUES(" & _ID & "," & R!FNSeq & ",'" & R!FTSize & "',1) "
+
+                        For Each R As DataRow In .Select("FTSelect = '1'")
+                            _Qry &= vbCrLf & "   INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_GroupSize "
+                            _Qry &= vbCrLf & "   (FTInsUser, FDInsDate, FTInsTime,FNHSysStyleId, FNHSysSizeRangeId, FTStateActive) "
+                            _Qry &= vbCrLf & "   VALUES('" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "', @Date, @Time ," & _ID & "," & R!FNHSysSizeRangeId & ",1) "
                             _Qry &= vbCrLf
                         Next
 
-                        _Qry &= vbCrLf & "End"
+                        'HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_SYSTEM)
 
-                        HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_SYSTEM)
-
-                    Else
-                        _Qry = "If EXISTS(SELECT TOP 1 * FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_Size AS SS WITH (NOLOCK) "
-                        _Qry &= vbCrLf & "WHERE SS.FNHSysStyleId = '" & _ID & "' )"
-                        _Qry &= vbCrLf
-                        _Qry &= vbCrLf & "BEGIN"
-                        _Qry &= vbCrLf & "   Print 'FOUND'"
-                        _Qry &= vbCrLf & "   DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_Size "
-                        _Qry &= vbCrLf & "   WHERE FNHSysStyleId = '" & _ID & "' "
-                        _Qry &= vbCrLf & "End"
-                        _Qry &= vbCrLf
-                        _Qry &= vbCrLf & "Else"
-                        _Qry &= vbCrLf
-                        _Qry &= vbCrLf & "BEGIN"
-                        _Qry &= vbCrLf & "   Print 'NOT FOUND!!!'"
-                        _Qry &= vbCrLf & "End"
-                        HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_SYSTEM)
+                        'Else
+                        '    _Qry = "If EXISTS(SELECT TOP 1 * FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_GroupSize AS SS WITH (NOLOCK) "
+                        '    _Qry &= vbCrLf & "WHERE SS.FNHSysStyleId = '" & _ID & "' )"
+                        '    _Qry &= vbCrLf
+                        '    _Qry &= vbCrLf & "BEGIN"
+                        '    _Qry &= vbCrLf & "   Print 'FOUND'"
+                        '    _Qry &= vbCrLf & "   DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_GroupSize "
+                        '    _Qry &= vbCrLf & "   WHERE FNHSysStyleId = '" & _ID & "' "
+                        '    _Qry &= vbCrLf & "End"
+                        '    HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_SYSTEM)
 
                     End If
+
+                    HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_SYSTEM)
 
                 End With
 

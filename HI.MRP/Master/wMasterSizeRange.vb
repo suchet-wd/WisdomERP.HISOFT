@@ -30,11 +30,11 @@ Public Class wMasterSizeRange
 
         ' Add any initialization after the InitializeComponent() call.
         'Me.Name = "wMerStyle"
-        Me.Name = "wMerSizeRange"
+        Me.Name = "wMasterSizeRange"
         Me.SysFormName = SysFormName
         Me.AssemblyPath = AssemblyPath
-        Me.Text = "Size Range Master"
-        Me.ogbdetail.Text = "Size Range Master"
+        Me.Text = "Group Size Range Master"
+        Me.ogbdetail.Text = "Group Size Range Master"
 
         _SystemKeyFiled.Clear()
         _ValidateFiled.Clear()

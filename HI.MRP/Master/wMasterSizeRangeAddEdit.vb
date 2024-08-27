@@ -288,7 +288,7 @@ Public Class wMasterSizeRangeAddEdit
         If Me.Query = "" Then Exit Sub
         _DataInfo = HI.Conn.SQLConn.GetDataTable(Me.Query, _DBEnum,, False)
 
-        'LoadSize()
+        LoadGroupRange()
     End Sub
 
     Private Sub InitFormControl()
@@ -1722,21 +1722,25 @@ Public Class wMasterSizeRangeAddEdit
         Catch ex As Exception
         End Try
     End Sub
-    Private Sub LoadSize()
+    Private Sub LoadGroupRange()
         Try
             Dim dt As DataTable
             Dim _QryWhere As String = ""
             For I As Integer = 0 To _KeyFiled.ToArray.Count - 1
                 If _QryWhere = "" Then
-                    _QryWhere = "WHERE sr.FNHSysSizeRangeId  = '" & HI.UL.ULF.rpQuoted(_KeyFiled(I).FiledValue.ToString) & "' "
+                    _QryWhere = "AND sd.FNHSysSizeRangeId = '" & HI.UL.ULF.rpQuoted(_KeyFiled(I).FiledValue.ToString) & "' "
                 Else
-                    _QryWhere &= "WHERE sr.FNHSysSizeRangeId = '" & HI.UL.ULF.rpQuoted(_KeyFiled(I).FiledValue.ToString) & "' "
+                    _QryWhere &= "AND sd.FNHSysSizeRangeId = '" & HI.UL.ULF.rpQuoted(_KeyFiled(I).FiledValue.ToString) & "' "
                 End If
             Next
 
-            Dim _Qry As String = "SELECT sr.* "
-            _Qry &= "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMSizeRange As sr With (NOLOCK) "
-            _Qry &= _QryWhere
+            Dim _Qry As String = "SELECT CASE WHEN ISNULL(sd.FNHSysMatSizeId,'0') <> '0' THEN '1' ELSE '0' END AS 'FTSelect'"
+            _Qry &= vbCrLf & ", s.FTMatSizeCode, s.FTMatSizeNameEN, s.FTMatSizeNameTH, s.FTStateActive, s.FNHSysMatSizeId "
+
+            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMatSize As s With (NOLOCK) "
+            _Qry &= vbCrLf & "OUTER APPLY (SELECT sd.* FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMSizeRangeDetail As sd With (NOLOCK) "
+            _Qry &= vbCrLf & "WHERE sd.FNHSysMatSizeId = s.FNHSysMatSizeId " & _QryWhere & ") AS sd "
+
 
             dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
             ogcSize.DataSource = dt
@@ -2070,7 +2074,6 @@ Public Class wMasterSizeRangeAddEdit
 
         If (HI.ST.SysInfo.DevelopMode) Then
 
-
             _Qry = " SELECT  TOP 1  FNGrpObjID, FTLayOutStream  FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysLayOut With(NOLOCK) WHERE FNGrpObjID =" & Val(Me.FormObjID.ToString) & " "
 
             If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SYSTEM, "") = "" Then
@@ -2138,6 +2141,8 @@ Public Class wMasterSizeRangeAddEdit
     End Sub
 
     Private Sub ocmexit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmexit.Click
+        HI.TL.HandlerControl.ClearControl(Me)
+        ogcSize.Refresh()
         Me.Close()
     End Sub
 
@@ -2315,6 +2320,8 @@ Public Class wMasterSizeRangeAddEdit
                 Me.ProcComplete = True
                 Call UpdateImage(_Key)
 
+                Call SaveGridDataSize(_Key)
+
                 If Me.FTProcSave <> "" Then
                     Call ProcessSaveData()
                 End If
@@ -2386,16 +2393,20 @@ Public Class wMasterSizeRangeAddEdit
             Else
                 HI.MG.ShowMsg.mProcessNotComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
             End If
+
+            LoadGroupRange()
+
         End If
     End Sub
 
     Private Sub ocmclear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmclear.Click
+        Me.Preform()
         HI.TL.HandlerControl.ClearControl(Me)
+        LoadGroupRange()
     End Sub
 
     Private Sub ocmedit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmedit.Click
         If VerifyData() Then
-
 
             Dim _FieldName As String
             Dim _Fields As String = ""
@@ -2525,6 +2536,7 @@ Public Class wMasterSizeRangeAddEdit
 
             Next
 
+
             _Qry = " Update  " & Me.TableName & " Set " & _Values & "   " & _QryWhere
 
             If HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_SYSTEM) Then
@@ -2542,13 +2554,14 @@ Public Class wMasterSizeRangeAddEdit
                 HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
                 Me.Close()
 
+                LoadGroupRange()
+
             Else
                 HI.MG.ShowMsg.mProcessNotComplete(MG.ShowMsg.ProcessType.mSave, Me.Text)
             End If
 
+
         End If
-
-
 
     End Sub
 
@@ -2743,17 +2756,21 @@ Public Class wMasterSizeRangeAddEdit
                     Dim _QryWhere As String = ""
 
                     If .Select().Count > 0 Then
-                        For Each R As DataRow In .Select()
-                            If _QryWhere = "" Then
-                                _QryWhere &= vbCrLf & "(SS.FNHSysStyleId = '" & _ID & "' AND SS.FNSeq = " & R!FNSeq & " AND SS.FTSize = '" & R!FTSize & "')"
-                            Else
-                                _QryWhere &= vbCrLf & " OR (SS.FNHSysStyleId = '" & _ID & "' AND SS.FNSeq = " & R!FNSeq & " AND SS.FTSize = '" & R!FTSize & "')"
-                            End If
-                        Next
-
-                        _Qry = "If (SELECT Case WHEN (SELECT COUNT(SS.FNSeq) FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_Size  AS SS WITH (NOLOCK) WHERE "
-                        _Qry &= vbCrLf & _QryWhere
+                        'For Each R As DataRow In .Select()
+                        '    If _QryWhere = "" Then
+                        '        _QryWhere &= vbCrLf & "(sd.FNHSysSizeRangeId = '" & _ID & "' AND sd.FNHSysMatSizeId = '" & R!FNHSysMatSizeId & "')"
+                        '    Else
+                        '        _QryWhere &= vbCrLf & " OR (sd.FNHSysSizeRangeId = '" & _ID & "' AND sd.FNHSysMatSizeId = '" & R!FNHSysMatSizeId & "')"
+                        '    End If
+                        'Next
+                        _Qry = "Declare @Date varchar(10) = Convert(varchar(10), Getdate(), 111) "
+                        _Qry &= vbCrLf & "Declare @Time varchar(10) = Convert(varchar(8), Getdate(), 114) "
+                        _Qry &= vbCrLf
+                        _Qry &= vbCrLf & "If (SELECT Case WHEN (SELECT COUNT(sd.FNHSysMatSizeId) FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMSizeRangeDetail  AS sd WITH (NOLOCK) WHERE "
+                        '_Qry &= vbCrLf & _QryWhere
+                        _Qry &= vbCrLf & " sd.FNHSysSizeRangeId = '" & _ID & "'"
                         _Qry &= vbCrLf & ") = " & .Select().Count & " THEN 'TRUE' END ) = 'TRUE'"
+                        _Qry &= vbCrLf
                         _Qry &= vbCrLf & "BEGIN"
                         _Qry &= vbCrLf & "   Print 'MATCH (Don''t do anything...)'"
                         _Qry &= vbCrLf & "End"
@@ -2762,13 +2779,13 @@ Public Class wMasterSizeRangeAddEdit
                         _Qry &= vbCrLf
                         _Qry &= vbCrLf & "BEGIN"
                         _Qry &= vbCrLf & "   Print 'NOT MATCH !!!'"
-                        _Qry &= vbCrLf & "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_Size "
-                        _Qry &= vbCrLf & "WHERE FNHSysStyleId = '" & _ID & "' "
+                        _Qry &= vbCrLf & "DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMSizeRangeDetail "
+                        _Qry &= vbCrLf & "WHERE FNHSysSizeRangeId = '" & _ID & "' "
                         _Qry &= vbCrLf
 
-                        For Each R As DataRow In .Select()
-                            _Qry &= vbCrLf & "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_Size "
-                            _Qry &= vbCrLf & "(FNHSysStyleId, FNSeq, FTSize, FTStateActive) VALUES(" & _ID & "," & R!FNSeq & ",'" & R!FTSize & "',1) "
+                        For Each R As DataRow In .Select("FTSelect = '1'")
+                            _Qry &= vbCrLf & "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMSizeRangeDetail "
+                            _Qry &= vbCrLf & "(FNHSysSizeRangeId, FNHSysMatSizeId,  FDInsDate, FTInsTime, FTInsUser) VALUES(" & _ID & "," & R!FNHSysMatSizeId & ",@Date , @Time,'" & HI.ST.UserInfo.UserName & "') "
                             _Qry &= vbCrLf
                         Next
 
@@ -2777,13 +2794,16 @@ Public Class wMasterSizeRangeAddEdit
                         HI.Conn.SQLConn.ExecuteNonQuery(_Qry, Conn.DB.DataBaseName.DB_SYSTEM)
 
                     Else
-                        _Qry = "If EXISTS(SELECT TOP 1 * FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_Size AS SS WITH (NOLOCK) "
+                        _Qry = "Declare @Date varchar(10) = Convert(varchar(10), Getdate(), 111) "
+                        _Qry &= vbCrLf & "Declare @Time varchar(10) = Convert(varchar(8), Getdate(), 114) "
+                        _Qry &= vbCrLf
+                        _Qry &= vbCrLf & "If EXISTS(SELECT TOP 1 * FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_Size AS SS WITH (NOLOCK) "
                         _Qry &= vbCrLf & "WHERE SS.FNHSysStyleId = '" & _ID & "' )"
                         _Qry &= vbCrLf
                         _Qry &= vbCrLf & "BEGIN"
                         _Qry &= vbCrLf & "   Print 'FOUND'"
-                        _Qry &= vbCrLf & "   DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle_Size "
-                        _Qry &= vbCrLf & "   WHERE FNHSysStyleId = '" & _ID & "' "
+                        _Qry &= vbCrLf & "   DELETE FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMSizeRangeDetail "
+                        _Qry &= vbCrLf & "   WHERE FNHSysSizeRangeId = '" & _ID & "' "
                         _Qry &= vbCrLf & "End"
                         _Qry &= vbCrLf
                         _Qry &= vbCrLf & "Else"
