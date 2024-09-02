@@ -47,20 +47,30 @@ Public Class wQCSendSuplRfid
                     Else
                         If checkBarcodeSendSupl(FTBarcodeNo.Text) Then
                             If Not (checkBarcodeReceive(FTBarcodeNo.Text)) Then
+                                Me.FTBarcodeNo.Text = ""
                                 HI.MG.ShowMsg.mInfo("บาร์โค๊ดยังไม่มีการรับ..", 2010061452, Me.Text, , MessageBoxIcon.Error)
                                 Exit Sub
                             End If
-                        End If
-                        Call LoadBarcodeInfo(FTBarcodeNo.Text)
-                    End If
-                    'End If
-                    If _HyperActive And _TypeQCScan <> "" And FTRfidNo.Text <> "" Then
-                        If Not (checkColorWaySize(HI.UL.ULF.rpQuoted(Me.FTRfidNo.Text), HI.UL.ULF.rpQuoted(Me.FTBarcodeNo.Text))) Then
-                            HI.MG.ShowMsg.mInfo("ColorWay and Size Not Match..", 2010061453, Me.Text, , MessageBoxIcon.Error)
-                            ClearForm()
+                        Else
+                            Me.FTBarcodeNo.Text = ""
+                            HI.MG.ShowMsg.mInfo("บาร์โค๊ดยังไม่มี..", 2010061452, Me.Text, , MessageBoxIcon.Error)
                             Exit Sub
                         End If
                     End If
+                    ' ------------------ For HyperActive ------------------
+                    If _HyperActive And _TypeQCScan <> "" And FTRfidNo.Text <> "" Then
+                        If (checkColorWaySize(HI.UL.ULF.rpQuoted(Me.FTRfidNo.Text), HI.UL.ULF.rpQuoted(Me.FTBarcodeNo.Text)) = False) Then
+                            Me.FTBarcodeNo.Text = ""
+                            HI.MG.ShowMsg.mInfo("ColorWay and Size Not Match..", 2010061453, Me.Text, , MessageBoxIcon.Error)
+                            'ClearForm()
+                            Exit Sub
+                        End If
+                    End If
+                    ' ------------------ For HyperActive ------------------
+
+                    Call LoadBarcodeInfo(FTBarcodeNo.Text)
+                    'End If
+
             End Select
         Catch ex As Exception
         End Try
@@ -87,26 +97,26 @@ Public Class wQCSendSuplRfid
     '    End Try
     'End Sub
 
-    Private Sub FTRfidNo_EditValueChanged(sender As Object, e As EventArgs) Handles FTRfidNo.EditValueChanged
-        Try
-            'Dim _Box As String = FTRfidNo.Text
-            'Select Case e.KeyCode
-            '    Case Keys.Enter
-            If (_HyperActive = "1" And FTRfidNo.Text <> "") Then
-                        ClearForm()
-                        FTBarcodeNo.Text = ""
-                        'FTRfidNo.Text = _Box
+    'Private Sub FTRfidNo_EditValueChanged(sender As Object, e As EventArgs) Handles FTRfidNo.EditValueChanged
+    '    Try
+    '        'Dim _Box As String = FTRfidNo.Text
+    '        'Select Case e.KeyCode
+    '        '    Case Keys.Enter
+    '        If (_HyperActive = "1" And FTRfidNo.Text <> "") Then
+    '                    ClearForm()
+    '                    FTBarcodeNo.Text = ""
+    '                    'FTRfidNo.Text = _Box
 
-                        'If (isBarcodeSendSupl(FTRfidNo.Text)) Then
-                        '    'HI.MG.ShowMsg.mInfo("Please check Barcode!!!", 1609161057, Me.Text, "", MessageBoxIcon.Information)
-                        '    FTBarcodeNo.Text = FTRfidNo.Text
-                        '    FTRfidNo.Text = ""
-                        'End If
-                    End If
-            'End Select
-        Catch ex As Exception
-        End Try
-    End Sub
+    '                    'If (isBarcodeSendSupl(FTRfidNo.Text)) Then
+    '                    '    'HI.MG.ShowMsg.mInfo("Please check Barcode!!!", 1609161057, Me.Text, "", MessageBoxIcon.Information)
+    '                    '    FTBarcodeNo.Text = FTRfidNo.Text
+    '                    '    FTRfidNo.Text = ""
+    '                    'End If
+    '                End If
+    '        'End Select
+    '    Catch ex As Exception
+    '    End Try
+    'End Sub
 
     Private Function isBarcodeSendSupl(_BarcodeNo As String) As String
         Try
@@ -706,7 +716,7 @@ Public Class wQCSendSuplRfid
             Dim _Cmd As String = ""
             Dim IsMatch As Boolean = False
             _Cmd = "Declare @Date8M varchar(10) = Convert(varchar(10), Getdate() - 250, 111) "
-            _Cmd &= vbCrLf & "SELECT DISTINCT bd.FTColorway, bd.FTSizeBreakDown "
+            _Cmd &= vbCrLf & "SELECT DISTINCT ISNULL(bd.FTColorway,'-') AS 'FTColorway', ISNULL(bd.FTSizeBreakDown,'-') AS 'FTSizeBreakDown'  "
             _Cmd &= vbCrLf & "FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.TPROSendSuplDefect AS d WITH (NOLOCK)"
 
             _Cmd &= vbCrLf & "OUTER APPLY(SELECT b.FTBarcodeBundleNo FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.TPRODBarcode_SendSupl AS b WITH (NOLOCK)"
@@ -722,7 +732,7 @@ Public Class wQCSendSuplRfid
             _Cmd &= vbCrLf
             _Cmd &= vbCrLf & "UNION"
             _Cmd &= vbCrLf
-            _Cmd &= vbCrLf & "Select DISTINCT TOP 1 bd.FTColorway, bd.FTSizeBreakDown "
+            _Cmd &= vbCrLf & "Select DISTINCT TOP 1 ISNULL(bd.FTColorway,'_') AS 'FTColorway', ISNULL(bd.FTSizeBreakDown,'_') AS 'FTSizeBreakDown'  "
 
             _Cmd &= vbCrLf & "FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.TPRODBarcode_SendSupl AS b WITH (NOLOCK)"
 
@@ -730,14 +740,15 @@ Public Class wQCSendSuplRfid
             _Cmd &= vbCrLf & "FROM " & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_PROD) & ".dbo.TPRODTBundle AS bd WITH (NOLOCK)"
             _Cmd &= vbCrLf & "WHERE b.FTBarcodeBundleNo =  bd.FTBarcodeBundleNo) AS bd"
 
-            _Cmd &= vbCrLf & "WHERE b.FTBarcodeSendSuplNo =  '" & _BarCodeNo & "'"
+            _Cmd &= vbCrLf & "WHERE b.FTBarcodeSendSuplNo <>'' AND b.FTBarcodeSendSuplNo =  '" & _BarCodeNo & "'"
             '_Cmd &= vbCrLf & "WHERE b.FTBarcodeBundleNo =  '" & _BarCodeNo & "'"
             Dim _dt As DataTable = HI.Conn.SQLConn.GetDataTable(_Cmd, Conn.DB.DataBaseName.DB_PROD)
             If (_dt.Rows.Count <= 1) Then
                 IsMatch = True
             Else
-                HI.MG.ShowMsg.mInfo("Color Way & Size Not Match..", 2010061453, Me.Text, , MessageBoxIcon.Error)
-                ClearForm()
+                IsMatch = False
+                'HI.MG.ShowMsg.mInfo("Color Way & Size Not Match..", 2010061453, Me.Text, , MessageBoxIcon.Error)
+                'ClearForm()
             End If
             Return IsMatch
         Catch ex As Exception
@@ -1027,4 +1038,24 @@ Public Class wQCSendSuplRfid
         Return ""
     End Function
 
+    Private Sub FTRfidNo_KeyDown(sender As Object, e As KeyEventArgs) Handles FTRfidNo.KeyDown
+        Try
+            'Dim _Box As String = FTRfidNo.Text
+            Select Case e.KeyCode
+                Case Keys.Enter
+                    If (_HyperActive = "1" And FTRfidNo.Text <> "") Then
+                        ClearForm()
+                        'FTBarcodeNo.Text = ""
+                        'FTRfidNo.Text = _Box
+
+                        'If (isBarcodeSendSupl(FTRfidNo.Text)) Then
+                        '    'HI.MG.ShowMsg.mInfo("Please check Barcode!!!", 1609161057, Me.Text, "", MessageBoxIcon.Information)
+                        '    FTBarcodeNo.Text = FTRfidNo.Text
+                        '    FTRfidNo.Text = ""
+                        'End If
+                    End If
+            End Select
+        Catch ex As Exception
+        End Try
+    End Sub
 End Class

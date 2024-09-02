@@ -48,6 +48,11 @@ Public Class wGenerateStyleDevOriginal
         SizeBreakdown = 2
     End Enum
 
+    Public Sub LoadBOMInfo(ByVal Key As String)
+        '...call by another form name zzz...
+        FNHSysStyleDevId.Text = Key
+    End Sub
+
 #Region "Property"
 
     Private _CallMenuName As String = ""

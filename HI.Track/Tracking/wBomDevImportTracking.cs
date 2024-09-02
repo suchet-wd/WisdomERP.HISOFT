@@ -10,6 +10,21 @@ namespace HI.Track
             InitializeComponent();
         }
 
+        public string CallMethodName
+        {
+            get; set;
+        }
+
+        public string CallMenuName
+        {
+            get; set;
+        }
+
+        public string CallMethodParm
+        {
+            get; set;
+        }
+
         private void ocmExit_Click(object sender, EventArgs e)
         {
             this.Close();

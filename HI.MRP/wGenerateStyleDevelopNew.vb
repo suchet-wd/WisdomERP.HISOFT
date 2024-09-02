@@ -40,6 +40,10 @@ Public Class wGenerateStyleDevelopNew
         SizeBreakdown = 2
     End Enum
 
+    Public Sub LoadBOMInfo(ByVal Key As String)
+        '...call by another form name zzz...
+        FNHSysStyleDevId.Text = Key
+    End Sub
 
 
 #Region "Property"
@@ -1238,6 +1242,7 @@ Public Class wGenerateStyleDevelopNew
         _Str &= vbCrLf & "WHERE(MS.FNHSysStyleDevId  =" & Val(_FNHSysStyleDevId) & ")"
         _Str &= vbCrLf
         _Str &= vbCrLf & "ORDER BY MS.FNHSysStyleDevId"
+        '--------------------------------------- Load Header ---------------------------------------
         _dt = HI.Conn.SQLConn.GetDataTable(_Str, Conn.DB.DataBaseName.DB_MERCHAN)
 
         If _dt.Rows.Count > 0 Then

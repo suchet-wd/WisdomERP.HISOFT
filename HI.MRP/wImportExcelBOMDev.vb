@@ -374,7 +374,7 @@ Public Class wImportExcelBOMDev
                                     Dim DevID As Integer = 0
                                     For Each R As DataRow In dtstyledevimportOriginal.Rows
                                         CountBom = CountBom + 1
-                                        Splsx2.UpdateInformation("Importing Boma.... Style  " & R!STYLE_NBR.ToString & " (" & R!FTSeason.ToString & ")" & "  Status " & R!FTStatus.ToString & "    Row " & CountBom & " of  " & TotalBom)
+                                        Splsx2.UpdateInformation("Importing Original Boma.... Style  " & R!STYLE_NBR.ToString & " (" & R!FTSeason.ToString & ")" & "  Status " & R!FTStatus.ToString & "    Row " & CountBom & " of  " & TotalBom)
                                         DevID = Val(R!FNHSysStyleDevId.ToString)
                                         Version = Val(R!FNVersion.ToString) + 1
                                         If R!FTStatePost.ToString = "1" Then
@@ -387,7 +387,7 @@ Public Class wImportExcelBOMDev
                                                 DevID = HI.TL.RunID.GetRunNoID("TMERTDevelopStyle", "FNHSysStyleDevId", Conn.DB.DataBaseName.DB_MERCHAN)
                                             End If
                                         End If
-                                        cmdstring = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.USP_IMPORTBOMDEVEXCEL '" &
+                                        cmdstring = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.USP_IMPORTBOMEXCEL_ORIGINAL '" &
                                             HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," &
                                             DevID & ",'" &
                                             HI.UL.ULF.rpQuoted(R!STYLE_NBR.ToString) & "','" &
