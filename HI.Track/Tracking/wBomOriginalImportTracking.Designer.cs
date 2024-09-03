@@ -80,6 +80,8 @@ namespace HI.Track
             this.FTCustSeason = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTCustYear = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FNHSysStyleDevId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTDimension = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FTProgram = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ogcCriteria)).BeginInit();
             this.ogcCriteria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chBOMDev.Properties)).BeginInit();
@@ -147,6 +149,7 @@ namespace HI.Track
             this.chBOMOriginal.Properties.Appearance.ForeColor = System.Drawing.Color.Fuchsia;
             this.chBOMOriginal.Properties.Appearance.Options.UseForeColor = true;
             this.chBOMOriginal.Properties.Caption = "BOM Original";
+            this.chBOMOriginal.Properties.ReadOnly = true;
             this.chBOMOriginal.Size = new System.Drawing.Size(160, 20);
             this.chBOMOriginal.TabIndex = 1;
             // 
@@ -307,7 +310,9 @@ namespace HI.Track
             this.FNHSysMSCId,
             this.FTCustSeason,
             this.FTCustYear,
-            this.FNHSysStyleDevId});
+            this.FNHSysStyleDevId,
+            this.FTDimension,
+            this.FTProgram});
             this.ogvDetail.CustomizationFormBounds = new System.Drawing.Rectangle(759, 412, 252, 266);
             this.ogvDetail.GridControl = this.ogcDetail;
             this.ogvDetail.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
@@ -808,6 +813,26 @@ namespace HI.Track
             this.FNHSysStyleDevId.OptionsColumn.AllowEdit = false;
             this.FNHSysStyleDevId.OptionsColumn.ReadOnly = true;
             // 
+            // FTDimension
+            // 
+            this.FTDimension.Caption = "FTDimension";
+            this.FTDimension.FieldName = "FTDimension";
+            this.FTDimension.Name = "FTDimension";
+            this.FTDimension.OptionsColumn.AllowEdit = false;
+            this.FTDimension.OptionsColumn.ReadOnly = true;
+            this.FTDimension.Visible = true;
+            this.FTDimension.VisibleIndex = 34;
+            // 
+            // FTProgram
+            // 
+            this.FTProgram.Caption = "FTProgram";
+            this.FTProgram.FieldName = "FTProgram";
+            this.FTProgram.Name = "FTProgram";
+            this.FTProgram.OptionsColumn.AllowEdit = false;
+            this.FTProgram.OptionsColumn.ReadOnly = true;
+            this.FTProgram.Visible = true;
+            this.FTProgram.VisibleIndex = 35;
+            // 
             // wBomOriginalImportTracking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -889,5 +914,7 @@ namespace HI.Track
         private DevExpress.XtraGrid.Columns.GridColumn FTBomDevStyleCode;
         private DevExpress.XtraGrid.Columns.GridColumn BOMType;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit rpStatePost;
+        private DevExpress.XtraGrid.Columns.GridColumn FTDimension;
+        private DevExpress.XtraGrid.Columns.GridColumn FTProgram;
     }
 }

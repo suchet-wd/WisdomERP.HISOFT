@@ -25,6 +25,7 @@ Partial Class wImportExcelBOMDev
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.ogbselectfile = New DevExpress.XtraEditors.GroupControl()
+        Me.FTBOMFile_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysCustId_None = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysCustId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysCustId_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -36,7 +37,6 @@ Partial Class wImportExcelBOMDev
         Me.ocmimportbimpdf = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmclear = New DevExpress.XtraEditors.SimpleButton()
-        Me.FTBOMFile_lbl = New DevExpress.XtraEditors.LabelControl()
         CType(Me.ogbselectfile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbselectfile.SuspendLayout()
         CType(Me.FNHSysCustId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,9 +60,23 @@ Partial Class wImportExcelBOMDev
         Me.ogbselectfile.Controls.Add(Me.FTFilePath)
         Me.ogbselectfile.Location = New System.Drawing.Point(3, 3)
         Me.ogbselectfile.Name = "ogbselectfile"
-        Me.ogbselectfile.Size = New System.Drawing.Size(1130, 79)
+        Me.ogbselectfile.Size = New System.Drawing.Size(1269, 79)
         Me.ogbselectfile.TabIndex = 2
         Me.ogbselectfile.Text = "Select File (BOM Develope Excel)"
+        '
+        'FTBOMFile_lbl
+        '
+        Me.FTBOMFile_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTBOMFile_lbl.Appearance.Options.UseForeColor = True
+        Me.FTBOMFile_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTBOMFile_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTBOMFile_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTBOMFile_lbl.Location = New System.Drawing.Point(9, 51)
+        Me.FTBOMFile_lbl.Name = "FTBOMFile_lbl"
+        Me.FTBOMFile_lbl.Size = New System.Drawing.Size(151, 19)
+        Me.FTBOMFile_lbl.TabIndex = 442
+        Me.FTBOMFile_lbl.Tag = "2|"
+        Me.FTBOMFile_lbl.Text = "BOM Excel File :"
         '
         'FNHSysCustId_None
         '
@@ -122,7 +136,7 @@ Partial Class wImportExcelBOMDev
         Me.FTFilePath.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTFilePath.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FTFilePath.Properties.ReadOnly = True
-        Me.FTFilePath.Size = New System.Drawing.Size(950, 20)
+        Me.FTFilePath.Size = New System.Drawing.Size(1089, 20)
         Me.FTFilePath.TabIndex = 1
         Me.FTFilePath.Tag = "2|"
         '
@@ -135,7 +149,7 @@ Partial Class wImportExcelBOMDev
         Me.otb.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otb.Name = "otb"
         Me.otb.SelectedTabPage = Me.otpnormal
-        Me.otb.Size = New System.Drawing.Size(1130, 482)
+        Me.otb.Size = New System.Drawing.Size(1269, 556)
         Me.otb.TabIndex = 392
         Me.otb.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpnormal})
         '
@@ -144,7 +158,7 @@ Partial Class wImportExcelBOMDev
         Me.otpnormal.Controls.Add(Me.opshet)
         Me.otpnormal.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.otpnormal.Name = "otpnormal"
-        Me.otpnormal.Size = New System.Drawing.Size(1128, 457)
+        Me.otpnormal.Size = New System.Drawing.Size(1267, 531)
         Me.otpnormal.Text = "BOM Dev Excel Detail"
         '
         'opshet
@@ -153,8 +167,9 @@ Partial Class wImportExcelBOMDev
         Me.opshet.Location = New System.Drawing.Point(0, 0)
         Me.opshet.Name = "opshet"
         Me.opshet.Options.Behavior.Column.Resize = DevExpress.XtraSpreadsheet.DocumentCapability.Enabled
+        Me.opshet.Options.Culture = New System.Globalization.CultureInfo("en-US")
         Me.opshet.ReadOnly = True
-        Me.opshet.Size = New System.Drawing.Size(1128, 457)
+        Me.opshet.Size = New System.Drawing.Size(1267, 531)
         Me.opshet.TabIndex = 2
         '
         'ogbmainprocbutton
@@ -198,25 +213,11 @@ Partial Class wImportExcelBOMDev
         Me.ocmclear.Tag = "2|"
         Me.ocmclear.Text = "CLEAR"
         '
-        'FTBOMFile_lbl
-        '
-        Me.FTBOMFile_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTBOMFile_lbl.Appearance.Options.UseForeColor = True
-        Me.FTBOMFile_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTBOMFile_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTBOMFile_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTBOMFile_lbl.Location = New System.Drawing.Point(9, 51)
-        Me.FTBOMFile_lbl.Name = "FTBOMFile_lbl"
-        Me.FTBOMFile_lbl.Size = New System.Drawing.Size(151, 19)
-        Me.FTBOMFile_lbl.TabIndex = 442
-        Me.FTBOMFile_lbl.Tag = "2|"
-        Me.FTBOMFile_lbl.Text = "BOM Excel File :"
-        '
         'wImportExcelBOMDev
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1133, 571)
+        Me.ClientSize = New System.Drawing.Size(1272, 645)
         Me.Controls.Add(Me.ogbmainprocbutton)
         Me.Controls.Add(Me.otb)
         Me.Controls.Add(Me.ogbselectfile)

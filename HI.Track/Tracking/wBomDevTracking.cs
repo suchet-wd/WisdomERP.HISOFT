@@ -40,7 +40,7 @@ namespace HI.Track
                 //    _Qry += "@GetData = 'originalonly' ";
                 //}
                 //else
-                if (!chBOMOriginal.Checked && chBOMDev.Checked)
+                if (chBOMDev.Checked)
                 {
                     _Qry += "@GetData = 'devonly' ";
                 }

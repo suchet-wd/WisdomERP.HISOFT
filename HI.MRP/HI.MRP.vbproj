@@ -271,12 +271,6 @@
     <Compile Include="wImportCostSheet.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="wImportExcelBOMOriginal.Designer.vb">
-      <DependentUpon>wImportExcelBOMOriginal.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wImportExcelBOMOriginal.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="wImportExcelBOMDev.Designer.vb">
       <DependentUpon>wImportExcelBOMDev.vb</DependentUpon>
     </Compile>
@@ -581,9 +575,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="wImportCostSheet.resx">
       <DependentUpon>wImportCostSheet.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wImportExcelBOMOriginal.resx">
-      <DependentUpon>wImportExcelBOMOriginal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wImportExcelBOMDev.resx">
       <DependentUpon>wImportExcelBOMDev.vb</DependentUpon>

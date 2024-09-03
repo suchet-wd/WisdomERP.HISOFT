@@ -324,6 +324,8 @@ Public Class wGenerateStyleDevelopNew
                     ogccolor.Refresh()
                     ogcsize.DataSource = Nothing
                     ogcsize.Refresh()
+                    FTDimension.Text = Nothing
+                    FTProgram.Text = Nothing
                 End If
 
                 sFNHSysStyleDevId = FNHSysStyleDevId.Text
@@ -1227,6 +1229,7 @@ Public Class wGenerateStyleDevelopNew
         _Str &= vbCrLf & ", CONVERT(VARCHAR(10), CONVERT(DATETIME, MS.FDInsDate, 120), 103) AS FTUploadDate"
         _Str &= vbCrLf & ", MS.FTInsUser AS FTOwner, FTVenderPramCode, MS.FTSeason, m.FTMerTeamCode "
         _Str &= vbCrLf & ", MS.FTStatePost, MS.FTPostBy, MS.FTPostDate, MS.FTPostTime "
+        _Str &= vbCrLf & ", MS.FTDimension, MS.FTProgram "
         _Str &= vbCrLf
         _Str &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle AS MS WITH(NOLOCK)  "
         _Str &= vbCrLf
@@ -1264,6 +1267,15 @@ Public Class wGenerateStyleDevelopNew
                 FNHSysVenderPramId.Text = R!FTVenderPramCode.ToString
                 FTSeason.Text = R!FTSeason.ToString
                 FNVersion.Text = R!FNVersion.ToString
+                FTProgram.Text = R!FTProgram.ToString
+                FTDimension.Text = R!FTDimension.ToString
+                FTNote.Text = R!FTNote.ToString
+                FNBomDevType.SelectedIndex = Val(R!FNBomDevType.ToString)
+                FTMSCLevel1.Text = R!FTMSCLevel1.ToString
+                FTMSCLevel2.Text = R!FTMSCLevel2.ToString
+                FTMSCLevel3.Text = R!FTMSCLevel3.ToString
+                FTSilhouette.Text = R!FTSilhouette.ToString
+                FTNikeDeveloperName.Text = R!FTNikeDeveloperName.ToString
 
                 Try
                     FTDevelopDate.DateTime = R!FTDevelopDate.ToString
@@ -1272,13 +1284,6 @@ Public Class wGenerateStyleDevelopNew
                     FTDevelopDate.Text = ""
                 End Try
 
-                FTNote.Text = R!FTNote.ToString
-                FNBomDevType.SelectedIndex = Val(R!FNBomDevType.ToString)
-                FTMSCLevel1.Text = R!FTMSCLevel1.ToString
-                FTMSCLevel2.Text = R!FTMSCLevel2.ToString
-                FTMSCLevel3.Text = R!FTMSCLevel3.ToString
-                FTSilhouette.Text = R!FTSilhouette.ToString
-                FTNikeDeveloperName.Text = R!FTNikeDeveloperName.ToString
             Next
 
         Else
@@ -1376,6 +1381,7 @@ Public Class wGenerateStyleDevelopNew
         _Str &= vbCrLf & ", ISNULL(T2.FTStateNotShowBomSheet,'0') AS FTStateNotShowBomSheet,ISNULL(T2.FTStateLabel,'0') AS FTStateLabel,ISNULL(T2.FTUsed,'') As FTUsed ,ISNULL(T2.FNOrderSetType,0) As FNOrderSetType,T2.FTItemREfNo"
         _Str &= vbCrLf & ", ISNULL(T2.FTStateDTM,'0') AS FTStateDTM, T2.FTDTMNote, ISNULL( T2.FTStateHemNotOptiplan,'0') AS FTStateHemNotOptiplan, ISNULL(T2.FNRepeatLengthCM,0) AS FNRepeatLengthCM "
         _Str &= vbCrLf & ", ISNULL(T2.FNRepeatConvert,0) AS FNRepeatConvert, ISNULL(T2.FNPackPerCarton,0) AS FNPackPerCarton, ISNULL(T2.FNConSmpSplit,0) AS FNConSmpSplit, T2.FTBOMExcelSuplName "
+        _Str &= vbCrLf
         _Str &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[TMERTDevelopStyle] AS T1 WITH(NOLOCK) "
         _Str &= vbCrLf & "INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[TMERTDevelopStyle_Mat] AS T2 WITH(NOLOCK) ON T1.FNHSysStyleDevId = T2.FNHSysStyleDevId "
         _Str &= vbCrLf & "LEFT OUTER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TFINMCurrency AS T6 WITH(NOLOCK) ON T2.FNHSysCurId = T6.FNHSysCurId "
@@ -1713,6 +1719,8 @@ Public Class wGenerateStyleDevelopNew
         FTNikeDeveloperName.Text = ""
         FTSeason.Text = ""
         FTUploadDate.Text = ""
+        FTDimension.Text = ""
+        FTProgram.Text = ""
 
         Dim xCol As Integer = 0
         Dim Idx As Integer = 0
@@ -2011,7 +2019,7 @@ Public Class wGenerateStyleDevelopNew
             Dim sqlCmd As New SqlCommand
             sqlCmd.Connection = HI.Conn.SQLConn.Cnn
             sqlCmd.CommandType = CommandType.StoredProcedure
-            sqlCmd.CommandText = "[" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[SP_GET_STYLE_COLORWAY_DEVELOP]"
+            sqlCmd.CommandText = "[" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[SP_GET_STYLE_COLORWAY_DEVELOP_V2]"
             sqlCmd.Parameters.AddWithValue("@FNHSysStyleDevId", Val(FNHSysStyleDevId.Properties.Tag.ToString))
             sqlCmd.Parameters.AddWithValue("@LANGID", HI.ST.Lang.Language.ToString())
 
@@ -2282,7 +2290,9 @@ Public Class wGenerateStyleDevelopNew
 
             Dim StrSql As String = ""
 
-            StrSql = " EXEC [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[SP_GET_STYLE_SIZEBREAKDOWN_DEVELOP] " & Val(FNHSysStyleDevId.Properties.Tag.ToString) & ",'" & HI.ST.Lang.Language.ToString() & "' "
+            StrSql = " EXEC [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) &
+                "].[dbo].[SP_GET_STYLE_SIZEBREAKDOWN_DEVELOP] " & Val(FNHSysStyleDevId.Properties.Tag.ToString) &
+                ",'" & HI.ST.Lang.Language.ToString() & "' "
             dtStyleDetail = HI.Conn.SQLConn.GetDataTable(StrSql, Conn.DB.DataBaseName.DB_MERCHAN)
 
             '' Initial data to dynamic column
@@ -2312,7 +2322,8 @@ Public Class wGenerateStyleDevelopNew
                 'If FNSeqCurr > 0 And FNSeqLast < FNSeqCurr Then
 
                 dc = New DataColumn("FTRawMatSizeCode" & r!FTSizeBreakDown.ToString, System.Type.GetType("System.String"))
-                dc1 = New DataColumn("FNHSysRawMatSizeId" & "FTRawMatSizeCode" & r!FTSizeBreakDown.ToString, System.Type.GetType("System.String"))
+                dc1 = New DataColumn("FNHSysRawMatSizeId" & "FTRawMatSizeCode" & r!FTSizeBreakDown.ToString,
+                                     System.Type.GetType("System.String"))
                 dc.Caption = r!FTSizeBreakDown.ToString
                 dc1.Caption = "FNHSysRawMatSizeId"
 
@@ -2379,7 +2390,7 @@ Public Class wGenerateStyleDevelopNew
 
             Dim dtSize As DataTable = New DataTable()
             'oleDbDataAdapter2.Fill(dtSize)
-            StrSql = " EXEC [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[SP_GET_STYLE_SIZEBREAKDOWNINFO_DEVELOP] " & Val(FNHSysStyleDevId.Properties.Tag.ToString) & ",'" & HI.ST.Lang.Language.ToString() & "' "
+            StrSql = " EXEC [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[SP_GET_STYLE_SIZEBREAKDOWNINFO_DEVELOP_V2] " & Val(FNHSysStyleDevId.Properties.Tag.ToString) & ",'" & HI.ST.Lang.Language.ToString() & "' "
             dtSize = HI.Conn.SQLConn.GetDataTable(StrSql, Conn.DB.DataBaseName.DB_MERCHAN)
 
             '' Fill data to new datatable

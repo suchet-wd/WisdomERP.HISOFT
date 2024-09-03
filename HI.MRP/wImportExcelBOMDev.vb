@@ -7,6 +7,8 @@ Public Class wImportExcelBOMDev
 
     Private WBOMReplace As wListBomExelReplace
     Private WBOMFinish As wListBomExelImportFinish
+    'Private WBOMReplaceOriginal As wListBomExelReplace
+    'Private WBOMFinishOriginal As wListBomExelImportFinish
     Private PathFileExcel As String = ""
 
     Sub New()
@@ -15,6 +17,8 @@ Public Class wImportExcelBOMDev
 
         WBOMReplace = New wListBomExelReplace
         HI.TL.HandlerControl.AddHandlerObj(WBOMReplace)
+        'WBOMReplaceOriginal = New wListBomExelReplace
+        'HI.TL.HandlerControl.AddHandlerObj(WBOMReplaceOriginal)
 
         Dim oSysLang As New HI.ST.SysLanguage
 
@@ -22,15 +26,26 @@ Public Class wImportExcelBOMDev
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleID, WBOMReplace.Name.ToString.Trim, WBOMReplace)
         Catch ex As Exception
         End Try
+        'Try
+        '    Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleID, WBOMReplaceOriginal.Name.ToString.Trim, WBOMReplaceOriginal)
+        'Catch ex As Exception
+        'End Try
 
 
         WBOMFinish = New wListBomExelImportFinish
         HI.TL.HandlerControl.AddHandlerObj(WBOMFinish)
+        'WBOMFinishOriginal = New wListBomExelImportFinish
+        'HI.TL.HandlerControl.AddHandlerObj(WBOMFinishOriginal)
 
         Try
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleID, WBOMFinish.Name.ToString.Trim, WBOMFinish)
         Catch ex As Exception
         End Try
+
+        'Try
+        '    Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleID, WBOMFinishOriginal.Name.ToString.Trim, WBOMFinishOriginal)
+        'Catch ex As Exception
+        'End Try
 
     End Sub
 
@@ -201,6 +216,147 @@ Public Class wImportExcelBOMDev
                 Catch ex As Exception
                 End Try
 
+                If dtimportOriginal.Rows.Count > 0 Then
+                    StateImport = (dtimportOriginal.Rows(0)!FTStetInsert.ToString = "1")
+                    Dim msgerror As String = ""
+                    Try
+                        msgerror = dtimportOriginal.Rows(0)!FTMessage.ToString
+                    Catch ex As Exception
+                    End Try
+
+                    If StateImport Then
+
+
+                        cmdstring = "Select STYLE_NBR, STYLE_NM, SEASON_CD, SEASON_YR, FTSeason, FTStatus, ISNULL(SST.FTStateReplace,'0') AS FTStateReplace "
+                        cmdstring &= vbCrLf & ", ISNULL(SST.FNHSysStyleDevId,0) AS FNHSysStyleDevId, ISNULL(SST2.FNHSysStyleDevId2,0) AS FNHSysStyleDevId2 "
+                        cmdstring &= vbCrLf & ", ISNULL(SST.FTStatePost,'0') AS FTStatePost, ISNULL(SST2.FNVersion,0) AS FNVersion"
+                        cmdstring &= vbCrLf & ", CASE WHEN ISNULL(SST.FTStateReplace,'0') ='1' THEN '0' ELSE '1' END AS FTStateImport "
+                        cmdstring &= vbCrLf
+                        cmdstring &= vbCrLf & "FROM (Select STYLE_NBR, STYLE_NM, SEASON_CD, SEASON_YR"
+                        cmdstring &= vbCrLf & "   , SEASON_CD + Right(SEASON_YR, 2) As FTSeason, MIN(A.Seq) As Seq "
+                        cmdstring &= vbCrLf & "   , A.[STATUS] AS FTStatus, MAX(ISNULL(BType.FNListIndex,0)) AS FNListIndex"
+                        cmdstring &= vbCrLf
+                        cmdstring &= vbCrLf & "   From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.TTMPImportBomExcel_Original As A WITH(NOLOCK)"
+                        cmdstring &= vbCrLf
+                        cmdstring &= vbCrLf & "   Outer Apply ( SELECT TOP 1 BType.FNListIndex FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS BType WITH(NOLOCK) WHERE BType.FTListName ='FNBomDevType' AND BType.FTNameEN  = A.[STATUS]) AS BType "
+                        cmdstring &= vbCrLf & "      Where (FTUserLogIn ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "')"
+                        cmdstring &= vbCrLf & "      Group By STYLE_NBR, STYLE_NM, SEASON_CD, SEASON_YR, SEASON_CD + Right(SEASON_YR, 2),[STATUS]) AS A"
+                        cmdstring &= vbCrLf
+                        cmdstring &= vbCrLf & "   OUTER APPLY ( Select TOP 1  '1' AS FTStateReplace, X2.FNHSysStyleDevId, X2.FTStatePost "
+                        cmdstring &= vbCrLf & "      From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyleOriginal AS X2 WITH(NOLOCK)"
+                        cmdstring &= vbCrLf & "      Where X2.FTStyleDevCode = A.STYLE_NBR And X2.FTSeason = A.FTSeason  And ISNULL(X2.FNBomDevType,0) = ISNULL(A.FNListIndex,0)  AND ISNULL(X2.FNVersion,0) = 0"
+                        cmdstring &= vbCrLf & ") AS SST "
+                        cmdstring &= vbCrLf
+                        cmdstring &= vbCrLf & "OUTER APPLY ( Select TOP 1 '1' AS FTStateReplace2, MAX(X2.FNHSysStyleDevId) AS FNHSysStyleDevId2, "
+                        cmdstring &= vbCrLf & "   X2.FTStatePost AS FTStatePost2, MAX(X2.FNVersion) AS FNVersion  "
+                        cmdstring &= vbCrLf
+                        cmdstring &= vbCrLf & "   From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyleOriginal AS X2 WITH(NOLOCK)"
+                        cmdstring &= vbCrLf & "   Where X2.FTStyleDevCode = A.STYLE_NBR And X2.FTSeason = A.FTSeason  And ISNULL(X2.FNBomDevType,0) = ISNULL(A.FNListIndex,0)   And ISNULL(X2.FNVersion,0) > 0"
+                        cmdstring &= vbCrLf & "   GROUP BY X2.FTStatePost "
+                        cmdstring &= vbCrLf & ") AS SST2 "
+                        cmdstring &= vbCrLf
+                        cmdstring &= vbCrLf & "ORDER BY Seq"
+                        Dim dtstyledevOriginal As DataTable = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_FHS)
+
+                        Dim dtstyledevimportOriginal As DataTable = dtstyledevOriginal.Clone
+
+
+                        If dtstyledevOriginal.Select("FTStateImport='1'").Length > 0 Then
+                            dtstyledevimportOriginal.Merge(dtstyledevOriginal.Select("FTStateImport='1'").CopyToDataTable)
+                        End If
+
+                        Dim dtstyledevreplace As DataTable
+
+                        Splsx.Close()
+
+                        If dtstyledevimportOriginal.Select("FTStateReplace='1'").Length > 0 Then
+                            dtstyledevreplace = dtstyledevimportOriginal.Select("FTStateReplace='1'").CopyToDataTable
+                            'With WBOMReplaceOriginal
+                            '    .ogclist.DataSource = dtstyledevreplace.Copy
+                            '    .ocmexit.Enabled = True
+                            '    .ocmsave.Enabled = True
+                            '    .StateOK = False
+                            '    .ShowDialog()
+                            '    If .StateOK = True Then
+                            '        With CType(.ogclist.DataSource, DataTable)
+                            '            .AcceptChanges()
+                            '            dtstyledevreplace = .Copy
+                            '            If dtstyledevreplace.Select("FTStateImport='1'").Length > 0 Then
+                            '                dtstyledevimportOriginal.Merge(dtstyledevreplace.Select("FTStateImport='1'").CopyToDataTable)
+                            '            End If
+                            '            dtstyledevreplace.Dispose()
+                            '        End With
+                            '    End If
+                            'End With
+                        End If
+                        dtstyledevimportOriginal.Dispose()
+
+
+                        '----------------- Start Import Original BOM -----------------
+                        Try
+                            If dtstyledevimportOriginal.Rows.Count > 0 Then
+                                Dim TotalBom As Integer = dtstyledevimportOriginal.Rows.Count
+                                Dim CountBom As Integer = 0
+                                Dim Version As Integer = 0
+                                Dim Splsx2 As New HI.TL.SplashScreen("Importing Bom Original Total....")
+                                Try
+                                    Dim DevID As Integer = 0
+                                    For Each R As DataRow In dtstyledevimportOriginal.Rows
+                                        CountBom = CountBom + 1
+                                        Splsx2.UpdateInformation("Importing Original Boma.... Style  " & R!STYLE_NBR.ToString & " (" & R!FTSeason.ToString & ")" & "  Status " & R!FTStatus.ToString & "    Row " & CountBom & " of  " & TotalBom)
+                                        DevID = Val(R!FNHSysStyleDevId.ToString)
+                                        Version = Val(R!FNVersion.ToString) + 1
+                                        If R!FTStatePost.ToString = "1" Then
+                                            DevID = Val(R!FNHSysStyleDevId2.ToString)
+                                            If DevID = 0 Then
+                                                DevID = HI.TL.RunID.GetRunNoID("TMERTDevelopStyleOriginal", "FNHSysStyleDevId", Conn.DB.DataBaseName.DB_MERCHAN)
+                                            End If
+                                        Else
+                                            If DevID = 0 Then
+                                                DevID = HI.TL.RunID.GetRunNoID("TMERTDevelopStyleOriginal", "FNHSysStyleDevId", Conn.DB.DataBaseName.DB_MERCHAN)
+                                            End If
+                                        End If
+                                        cmdstring = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.USP_IMPORTBOMEXCEL_ORIGINAL " &
+                                            "@User='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," &
+                                            "@DevId=" & DevID & "," &
+                                            "@StyleNo='" & HI.UL.ULF.rpQuoted(R!STYLE_NBR.ToString) & "'," &
+                                            "@Season='" & HI.UL.ULF.rpQuoted(R!FTSeason.ToString) & "'," &
+                                            "@pSeason='" & HI.UL.ULF.rpQuoted(R!SEASON_CD.ToString) & "'," &
+                                            "@pYear='" & HI.UL.ULF.rpQuoted(R!SEASON_YR.ToString) & "'," &
+                                            "@Version=" & Version & "," &
+                                            "@pType='" & HI.UL.ULF.rpQuoted(R!FTStatus.ToString) & "'," &
+                                            "@CustID=" & Val(FNHSysCustId.Properties.Tag.ToString) & " "
+                                        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_FHS)
+                                    Next
+
+                                    cmdstring = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.USP_MOVE_IMPORTBOMDEVEXCEL_Original '" &
+                                        HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
+                                    HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_FHS)
+                                    Splsx2.Close()
+                                    HI.MG.ShowMsg.mInfo("Import Data Bom Original Complete !!!", 1099154872, Me.Text, " Total  " & TotalBom.ToString, MessageBoxIcon.Information)
+                                    'With WBOMFinishOriginal
+                                    '    .ogclist.DataSource = dtstyledevimportOriginal.Copy
+                                    '    .ocmexit.Enabled = True
+                                    '    .ShowDialog()
+                                    'End With
+                                Catch ex As Exception
+                                    Splsx2.Close()
+                                End Try
+                            End If
+                        Catch ex As Exception
+                        End Try
+                        '----------------- End Import Original BOM -----------------
+                    Else
+                        Splsx.Close()
+                        msgshow = msgerror
+                    End If
+
+                Else
+                    Splsx.Close()
+                    msgshow = "ข้อมูล Format File Excel ไม่ถูกต้องกรุณาทำการตรวจสอบ !!!"
+                End If
+
+
                 If dtimport.Rows.Count > 0 Then
                     StateImport = (dtimport.Rows(0)!FTStetInsert.ToString = "1")
                     Dim msgerror As String = ""
@@ -238,46 +394,10 @@ Public Class wImportExcelBOMDev
                         cmdstring &= vbCrLf & "ORDER BY Seq"
                         Dim dtstyledev As DataTable = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_FHS)
 
-                        cmdstring = "Select STYLE_NBR, STYLE_NM, SEASON_CD, SEASON_YR, FTSeason, FTStatus, ISNULL(SST.FTStateReplace,'0') AS FTStateReplace "
-                        cmdstring &= vbCrLf & ", ISNULL(SST.FNHSysStyleDevId,0) AS FNHSysStyleDevId, ISNULL(SST2.FNHSysStyleDevId2,0) AS FNHSysStyleDevId2 "
-                        cmdstring &= vbCrLf & ", ISNULL(SST.FTStatePost,'0') AS FTStatePost, ISNULL(SST2.FNVersion,0) AS FNVersion"
-                        cmdstring &= vbCrLf & ", CASE WHEN ISNULL(SST.FTStateReplace,'0') ='1' THEN '0' ELSE '1' END AS FTStateImport "
-                        cmdstring &= vbCrLf
-                        cmdstring &= vbCrLf & "FROM (Select STYLE_NBR, STYLE_NM, SEASON_CD, SEASON_YR"
-                        cmdstring &= vbCrLf & "   , SEASON_CD + Right(SEASON_YR, 2) As FTSeason, MIN(A.Seq) As Seq "
-                        cmdstring &= vbCrLf & "   , A.[STATUS] AS FTStatus, MAX(ISNULL(BType.FNListIndex,0)) AS FNListIndex"
-                        cmdstring &= vbCrLf
-                        cmdstring &= vbCrLf & "   From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.TTMPImportBomExcel_Original As A WITH(NOLOCK)"
-                        cmdstring &= vbCrLf
-                        cmdstring &= vbCrLf & "   Outer Apply ( SELECT TOP 1 BType.FNListIndex FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SYSTEM) & "].dbo.HSysListData AS BType WITH(NOLOCK) WHERE BType.FTListName ='FNBomDevType' AND BType.FTNameEN  = A.[STATUS]) AS BType "
-                        cmdstring &= vbCrLf & "      Where (FTUserLogIn ='" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "')"
-                        cmdstring &= vbCrLf & "      Group By STYLE_NBR, STYLE_NM, SEASON_CD, SEASON_YR, SEASON_CD + Right(SEASON_YR, 2),[STATUS]) AS A"
-                        cmdstring &= vbCrLf
-                        cmdstring &= vbCrLf & "   OUTER APPLY ( Select TOP 1  '1' AS FTStateReplace, X2.FNHSysStyleDevId, X2.FTStatePost "
-                        cmdstring &= vbCrLf & "      From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyleOriginal AS X2 WITH(NOLOCK)"
-                        cmdstring &= vbCrLf & "      Where X2.FTStyleDevCode = A.STYLE_NBR And X2.FTSeason = A.FTSeason  And ISNULL(X2.FNBomDevType,0) = ISNULL(A.FNListIndex,0)  AND ISNULL(X2.FNVersion,0) = 0"
-                        cmdstring &= vbCrLf & ") AS SST "
-                        cmdstring &= vbCrLf
-                        cmdstring &= vbCrLf & "OUTER APPLY ( Select TOP 1 '1' AS FTStateReplace2, MAX(X2.FNHSysStyleDevId) AS FNHSysStyleDevId2, "
-                        cmdstring &= vbCrLf & "   X2.FTStatePost AS FTStatePost2, MAX(X2.FNVersion) AS FNVersion  "
-                        cmdstring &= vbCrLf
-                        cmdstring &= vbCrLf & "   From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyleOriginal AS X2 WITH(NOLOCK)"
-                        cmdstring &= vbCrLf & "   Where X2.FTStyleDevCode = A.STYLE_NBR And X2.FTSeason = A.FTSeason  And ISNULL(X2.FNBomDevType,0) = ISNULL(A.FNListIndex,0)   And ISNULL(X2.FNVersion,0) > 0"
-                        cmdstring &= vbCrLf & "   GROUP BY X2.FTStatePost "
-                        cmdstring &= vbCrLf & ") AS SST2 "
-                        cmdstring &= vbCrLf
-                        cmdstring &= vbCrLf & "ORDER BY Seq"
-                        Dim dtstyledevOriginal As DataTable = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_FHS)
-
                         Dim dtstyledevimport As DataTable = dtstyledev.Clone
-                        Dim dtstyledevimportOriginal As DataTable = dtstyledevOriginal.Clone
 
                         If dtstyledev.Select("FTStateImport='1'").Length > 0 Then
                             dtstyledevimport.Merge(dtstyledev.Select("FTStateImport='1'").CopyToDataTable)
-                        End If
-
-                        If dtstyledevOriginal.Select("FTStateImport='1'").Length > 0 Then
-                            dtstyledevimportOriginal.Merge(dtstyledevOriginal.Select("FTStateImport='1'").CopyToDataTable)
                         End If
 
                         Dim dtstyledevreplace As DataTable
@@ -308,6 +428,26 @@ Public Class wImportExcelBOMDev
 
                         '----------------- Start Import Normal BOM -----------------
                         Try
+                            With WBOMFinish
+                                .ogclist.DataSource = dtstyledevimport.Copy
+                                .ocmexit.Enabled = True
+
+                                .ShowDialog()
+                                'If .StateOK = True Then
+                                With CType(.ogclist.DataSource, DataTable)
+                                        .AcceptChanges()
+                                    dtstyledevimport = .Copy
+                                    If dtstyledevimport.Select("FTStateImport='1'").Length > 0 Then
+                                        dtstyledevimport = dtstyledevimport.Select("FTStateImport='1'").CopyToDataTable
+                                        'dtstyledevimport.Merge(dtstyledevreplace.Select("FTStateImport='1'").CopyToDataTable)
+                                    Else
+                                        dtstyledevimport = Nothing
+                                    End If
+                                    'dtstyledevreplace.Dispose()
+                                End With
+                                'End If
+                            End With
+
                             If dtstyledevimport.Rows.Count > 0 Then
                                 Dim TotalBom As Integer = dtstyledevimport.Rows.Count
                                 Dim CountBom As Integer = 0
@@ -315,6 +455,8 @@ Public Class wImportExcelBOMDev
                                 Dim Splsx2 As New HI.TL.SplashScreen("Importing Bom Total....")
 
                                 Try
+
+
                                     Dim DevID As Integer = 0
                                     For Each R As DataRow In dtstyledevimport.Rows
                                         CountBom = CountBom + 1
@@ -348,13 +490,9 @@ Public Class wImportExcelBOMDev
                                         HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
                                     HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_FHS)
                                     Splsx2.Close()
-                                    HI.MG.ShowMsg.mInfo("Import Data Bom Complete !!!", 1099154871, Me.Text, " Total  " & TotalBom.ToString, MessageBoxIcon.Information)
+                                    'HI.MG.ShowMsg.mInfo("Import Data Bom Complete !!!", 1099154871, Me.Text, " Total  " & TotalBom.ToString, MessageBoxIcon.Information)
 
-                                    With WBOMFinish
-                                        .ogclist.DataSource = dtstyledevimport.Copy
-                                        .ocmexit.Enabled = True
-                                        .ShowDialog()
-                                    End With
+
                                 Catch ex As Exception
                                     Splsx2.Close()
                                 End Try
@@ -363,59 +501,6 @@ Public Class wImportExcelBOMDev
                         End Try
                         '----------------- End Import Normal BOM -----------------
 
-                        '----------------- Start Import Original BOM -----------------
-                        Try
-                            If dtstyledevimportOriginal.Rows.Count > 0 Then
-                                Dim TotalBom As Integer = dtstyledevimportOriginal.Rows.Count
-                                Dim CountBom As Integer = 0
-                                Dim Version As Integer = 0
-                                Dim Splsx2 As New HI.TL.SplashScreen("Importing Bom Original Total....")
-                                Try
-                                    Dim DevID As Integer = 0
-                                    For Each R As DataRow In dtstyledevimportOriginal.Rows
-                                        CountBom = CountBom + 1
-                                        Splsx2.UpdateInformation("Importing Original Boma.... Style  " & R!STYLE_NBR.ToString & " (" & R!FTSeason.ToString & ")" & "  Status " & R!FTStatus.ToString & "    Row " & CountBom & " of  " & TotalBom)
-                                        DevID = Val(R!FNHSysStyleDevId.ToString)
-                                        Version = Val(R!FNVersion.ToString) + 1
-                                        If R!FTStatePost.ToString = "1" Then
-                                            DevID = Val(R!FNHSysStyleDevId2.ToString)
-                                            If DevID = 0 Then
-                                                DevID = HI.TL.RunID.GetRunNoID("TMERTDevelopStyle", "FNHSysStyleDevId", Conn.DB.DataBaseName.DB_MERCHAN)
-                                            End If
-                                        Else
-                                            If DevID = 0 Then
-                                                DevID = HI.TL.RunID.GetRunNoID("TMERTDevelopStyle", "FNHSysStyleDevId", Conn.DB.DataBaseName.DB_MERCHAN)
-                                            End If
-                                        End If
-                                        cmdstring = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.USP_IMPORTBOMEXCEL_ORIGINAL '" &
-                                            HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'," &
-                                            DevID & ",'" &
-                                            HI.UL.ULF.rpQuoted(R!STYLE_NBR.ToString) & "','" &
-                                            HI.UL.ULF.rpQuoted(R!FTSeason.ToString) & "','" &
-                                            HI.UL.ULF.rpQuoted(R!SEASON_CD.ToString) & "','" &
-                                            HI.UL.ULF.rpQuoted(R!SEASON_YR.ToString) & "'," &
-                                            Version & ",'" &
-                                            HI.UL.ULF.rpQuoted(R!FTStatus.ToString) & "'," &
-                                            Val(FNHSysCustId.Properties.Tag.ToString) & " "
-                                        HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_FHS)
-                                    Next
-                                    cmdstring = "EXEC  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_FHS) & "].dbo.USP_MOVE_IMPORTBOMDEVEXCEL_Original '" &
-                                        HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'"
-                                    HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_FHS)
-                                    Splsx2.Close()
-                                    HI.MG.ShowMsg.mInfo("Import Data Bom Original Complete !!!", 1099154871, Me.Text, " Total  " & TotalBom.ToString, MessageBoxIcon.Information)
-                                    With WBOMFinish
-                                        .ogclist.DataSource = dtstyledevimport.Copy
-                                        .ocmexit.Enabled = True
-                                        .ShowDialog()
-                                    End With
-                                Catch ex As Exception
-                                    Splsx2.Close()
-                                End Try
-                            End If
-                        Catch ex As Exception
-                        End Try
-                        '----------------- End Import Original BOM -----------------
                     Else
                         Splsx.Close()
                         msgshow = msgerror

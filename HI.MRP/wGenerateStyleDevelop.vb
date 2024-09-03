@@ -2325,7 +2325,9 @@ Public Class wGenerateStyleDevelop
 
             Dim StrSql As String = ""
 
-            StrSql = " EXEC [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[SP_GET_STYLE_SIZEBREAKDOWN_DEVELOP] " & Val(FNHSysStyleDevId.Properties.Tag.ToString) & ",'" & HI.ST.Lang.Language.ToString() & "' "
+            StrSql = " EXEC [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) &
+                "].[dbo].[SP_GET_STYLE_SIZEBREAKDOWN_DEVELOP] " & Val(FNHSysStyleDevId.Properties.Tag.ToString) &
+                ",'" & HI.ST.Lang.Language.ToString() & "' "
             dtStyleDetail = HI.Conn.SQLConn.GetDataTable(StrSql, Conn.DB.DataBaseName.DB_MERCHAN)
 
             '' Initial data to dynamic column
@@ -2355,7 +2357,8 @@ Public Class wGenerateStyleDevelop
                 'If FNSeqCurr > 0 And FNSeqLast < FNSeqCurr Then
 
                 dc = New DataColumn("FTRawMatSizeCode" & r!FTSizeBreakDown.ToString, System.Type.GetType("System.String"))
-                dc1 = New DataColumn("FNHSysRawMatSizeId" & "FTRawMatSizeCode" & r!FTSizeBreakDown.ToString, System.Type.GetType("System.String"))
+                dc1 = New DataColumn("FNHSysRawMatSizeId" & "FTRawMatSizeCode" &
+                                     r!FTSizeBreakDown.ToString, System.Type.GetType("System.String"))
                 dc.Caption = r!FTSizeBreakDown.ToString
                 dc1.Caption = "FNHSysRawMatSizeId"
 
@@ -2422,7 +2425,9 @@ Public Class wGenerateStyleDevelop
 
             Dim dtSize As DataTable = New DataTable()
             'oleDbDataAdapter2.Fill(dtSize)
-            StrSql = " EXEC [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[SP_GET_STYLE_SIZEBREAKDOWNINFO_DEVELOP] " & Val(FNHSysStyleDevId.Properties.Tag.ToString) & ",'" & HI.ST.Lang.Language.ToString() & "' "
+            StrSql = " EXEC [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) &
+                "].[dbo].[SP_GET_STYLE_SIZEBREAKDOWNINFO_DEVELOP] " & Val(FNHSysStyleDevId.Properties.Tag.ToString) &
+                ",'" & HI.ST.Lang.Language.ToString() & "' "
             dtSize = HI.Conn.SQLConn.GetDataTable(StrSql, Conn.DB.DataBaseName.DB_MERCHAN)
 
             '' Fill data to new datatable

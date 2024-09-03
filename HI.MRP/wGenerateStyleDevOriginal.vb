@@ -1517,7 +1517,8 @@ Public Class wGenerateStyleDevOriginal
                 If Me.ogvcolor.Columns.ColumnByFieldName("FTRawMatColorCode" & _NewColorWay) Is Nothing Then
 
                     dc = New DataColumn("FTRawMatColorCode" & _NewColorWay, System.Type.GetType("System.String"))
-                    dc1 = New DataColumn("FNHSysRawMatColorId" & "FTRawMatColorCode" & _NewColorWay, System.Type.GetType("System.String"))
+                    dc1 = New DataColumn("FNHSysRawMatColorId" & "FTRawMatColorCode" &
+                                         _NewColorWay, System.Type.GetType("System.String"))
                     dc3 = New DataColumn("FTRawMatColorNameTH" & _NewColorWay, System.Type.GetType("System.String"))
                     dc4 = New DataColumn("FTRawMatColorNameEN" & _NewColorWay, System.Type.GetType("System.String"))
 
@@ -1722,7 +1723,10 @@ Public Class wGenerateStyleDevOriginal
 
             If FNHSysStyleDevId.Text <> "" Then
 
-                Dim _Str As String = "SELECT TOP 1 FNHSysStyleDevId FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyleOriginal WITH(NOLOCK) WHERE FTStyleDevCode ='" & HI.UL.ULF.rpQuoted(FNHSysStyleDevId.Text) & "' "
+                Dim _Str As String = "SELECT TOP 1 FNHSysStyleDevId FROM [" &
+                    HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) &
+                    "].dbo.TMERTDevelopStyleOriginal WITH(NOLOCK) WHERE FTStyleDevCode ='" &
+                    HI.UL.ULF.rpQuoted(FNHSysStyleDevId.Text) & "' "
                 FNHSysStyleDevId.Properties.Tag = HI.Conn.SQLConn.GetField(_Str, Conn.DB.DataBaseName.DB_MERCHAN, "")
 
                 If (FNHSysStyleDevId.Properties.Tag.ToString <> "") Then
@@ -1950,7 +1954,8 @@ Public Class wGenerateStyleDevOriginal
             Dim sqlCmd As New SqlCommand
             sqlCmd.Connection = HI.Conn.SQLConn.Cnn
             sqlCmd.CommandType = CommandType.StoredProcedure
-            sqlCmd.CommandText = "[" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[SP_GET_STYLE_COLORWAY_DEVELOP]"
+            sqlCmd.CommandText = "[" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) &
+                "].[dbo].[SP_GET_STYLE_COLORWAY_DEVELOP_ORIGINAL]"
             sqlCmd.Parameters.AddWithValue("@FNHSysStyleDevId", Val(FNHSysStyleDevId.Properties.Tag.ToString))
             sqlCmd.Parameters.AddWithValue("@LANGID", HI.ST.Lang.Language.ToString())
 
@@ -1988,7 +1993,8 @@ Public Class wGenerateStyleDevOriginal
                 'If FNSeqCurr > 0 And FNSeqLast < FNSeqCurr Then
 
                 dc = New DataColumn("FTRawMatColorCode" & r!FTColorWay.ToString, System.Type.GetType("System.String"))
-                dc1 = New DataColumn("FNHSysRawMatColorId" & "FTRawMatColorCode" & r!FTColorWay.ToString, System.Type.GetType("System.String"))
+                dc1 = New DataColumn("FNHSysRawMatColorId" & "FTRawMatColorCode" &
+                                     r!FTColorWay.ToString, System.Type.GetType("System.String"))
                 dc3 = New DataColumn("FTRawMatColorNameTH" & r!FTColorWay.ToString, System.Type.GetType("System.String"))
                 dc4 = New DataColumn("FTRawMatColorNameEN" & r!FTColorWay.ToString, System.Type.GetType("System.String"))
 
@@ -2085,7 +2091,8 @@ Public Class wGenerateStyleDevOriginal
             sqlCmd = New SqlCommand
             sqlCmd.Connection = HI.Conn.SQLConn.Cnn
             sqlCmd.CommandType = CommandType.StoredProcedure
-            sqlCmd.CommandText = "[" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[SP_GET_STYLE_COLORWAY_DEVELOP_INFO]"
+            sqlCmd.CommandText = "[" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) &
+                "].[dbo].[SP_GET_STYLE_COLORWAY_DEVELOP_INFO]"
             sqlCmd.Parameters.AddWithValue("@FNHSysStyleDevId", Val(FNHSysStyleDevId.Properties.Tag.ToString))
             sqlCmd.Parameters.AddWithValue("@LANGID", HI.ST.Lang.Language.ToString())
 
@@ -2220,7 +2227,9 @@ Public Class wGenerateStyleDevOriginal
 
             Dim StrSql As String = ""
 
-            StrSql = " EXEC [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.SP_GET_STYLE_SIZEBREAKDOWN_DEVELOP " & Val(FNHSysStyleDevId.Properties.Tag.ToString) & ",'" & HI.ST.Lang.Language.ToString() & "' "
+            StrSql = " EXEC [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) &
+                "].dbo.SP_GET_STYLE_SIZEBREAKDOWN_DEVELOP_ORIGINAL " & Val(FNHSysStyleDevId.Properties.Tag.ToString) &
+                ",'" & HI.ST.Lang.Language.ToString() & "' "
             dtStyleDetail = HI.Conn.SQLConn.GetDataTable(StrSql, Conn.DB.DataBaseName.DB_MERCHAN)
 
             '' Initial data to dynamic column
@@ -2250,7 +2259,8 @@ Public Class wGenerateStyleDevOriginal
                 'If FNSeqCurr > 0 And FNSeqLast < FNSeqCurr Then
 
                 dc = New DataColumn("FTRawMatSizeCode" & r!FTSizeBreakDown.ToString, System.Type.GetType("System.String"))
-                dc1 = New DataColumn("FNHSysRawMatSizeId" & "FTRawMatSizeCode" & r!FTSizeBreakDown.ToString, System.Type.GetType("System.String"))
+                dc1 = New DataColumn("FNHSysRawMatSizeId" & "FTRawMatSizeCode" &
+                                     r!FTSizeBreakDown.ToString, System.Type.GetType("System.String"))
                 dc.Caption = r!FTSizeBreakDown.ToString
                 dc1.Caption = "FNHSysRawMatSizeId"
 
@@ -2317,7 +2327,9 @@ Public Class wGenerateStyleDevOriginal
 
             Dim dtSize As DataTable = New DataTable()
             'oleDbDataAdapter2.Fill(dtSize)
-            StrSql = " EXEC [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.SP_GET_STYLE_SIZEBREAKDOWNINFO_DEVELOP " & Val(FNHSysStyleDevId.Properties.Tag.ToString) & ",'" & HI.ST.Lang.Language.ToString() & "' "
+            StrSql = " EXEC [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) &
+                "].dbo.SP_GET_STYLE_SIZEBREAKDOWNINFO_DEVELOP_ORIGINAL " & Val(FNHSysStyleDevId.Properties.Tag.ToString) &
+                ",'" & HI.ST.Lang.Language.ToString() & "' "
             dtSize = HI.Conn.SQLConn.GetDataTable(StrSql, Conn.DB.DataBaseName.DB_MERCHAN)
 
             '' Fill data to new datatable
@@ -2869,7 +2881,7 @@ Public Class wGenerateStyleDevOriginal
 
             '_FNHSysStyleDevId = Integer.Parse(HI.Conn.SQLConn.GetField(_Str, Conn.DB.DataBaseName.DB_MERCHAN, "0"))
             If _FNHSysStyleDevId <= 0 Then
-                _FNHSysStyleDevId = HI.SE.RunID.GetRunNoID("TMERTDevelopStyle", "FNHSysStyleDevId", Conn.DB.DataBaseName.DB_MERCHAN)
+                _FNHSysStyleDevId = HI.SE.RunID.GetRunNoID("TMERTDevelopStyleOriginal", "FNHSysStyleDevId", Conn.DB.DataBaseName.DB_MERCHAN)
                 _StateNew = True
             End If
 
