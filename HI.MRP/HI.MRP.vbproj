@@ -259,6 +259,12 @@
     <Compile Include="wGenerateStyleDevelop.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="wGenerateStyleDevelopNew.Designer.vb">
+      <DependentUpon>wGenerateStyleDevelopNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wGenerateStyleDevelopNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="wGenerateStyleDevOriginal.Designer.vb">
       <DependentUpon>wGenerateStyleDevOriginal.vb</DependentUpon>
     </Compile>
@@ -421,12 +427,6 @@
     <Compile Include="wNewColorwayDevelop.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="wGenerateStyleDevelopNew.Designer.vb">
-      <DependentUpon>wGenerateStyleDevelopNew.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wGenerateStyleDevelopNew.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="wChangeColorDesc.Designer.vb">
       <DependentUpon>wChangeColorDesc.vb</DependentUpon>
     </Compile>
@@ -570,6 +570,9 @@
     <EmbeddedResource Include="wGenerateStyleDevelop.resx">
       <DependentUpon>wGenerateStyleDevelop.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="wGenerateStyleDevelopNew.resx">
+      <DependentUpon>wGenerateStyleDevelopNew.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="wGenerateStyleDevOriginal.resx">
       <DependentUpon>wGenerateStyleDevOriginal.vb</DependentUpon>
     </EmbeddedResource>
@@ -650,9 +653,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="wNewColorwayDevelop.resx">
       <DependentUpon>wNewColorwayDevelop.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wGenerateStyleDevelopNew.resx">
-      <DependentUpon>wGenerateStyleDevelopNew.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wChangeColorDesc.resx">
       <DependentUpon>wChangeColorDesc.vb</DependentUpon>
