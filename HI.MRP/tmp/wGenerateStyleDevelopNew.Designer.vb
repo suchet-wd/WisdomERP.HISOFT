@@ -60,16 +60,11 @@ Partial Class wGenerateStyleDevelopNew
         Dim SerializableAppearanceObject34 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject35 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject36 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions10 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject37 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject38 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject39 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject40 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions7 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject25 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject26 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject27 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject28 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions15 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject57 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject58 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject59 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject60 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.FTNote = New DevExpress.XtraEditors.MemoEdit()
         Me.FNHSysStyleDevId_None = New DevExpress.XtraEditors.TextEdit()
         Me.FTStyleDevNameEN = New DevExpress.XtraEditors.TextEdit()
@@ -78,13 +73,9 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNHSysCustId_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysCustId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FTStyleDevNameTH = New DevExpress.XtraEditors.TextEdit()
-        Me.FTUpdTime = New DevExpress.XtraEditors.TextEdit()
-        Me.FDUpdDate = New DevExpress.XtraEditors.TextEdit()
-        Me.FTUpdUser = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysStyleDevId_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysStyleDevId = New DevExpress.XtraEditors.ButtonEdit()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
-        Me.ocmcompare = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcopy = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmbomdiffpart = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmbomchangecolorway = New DevExpress.XtraEditors.SimpleButton()
@@ -228,47 +219,17 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNSeqFile = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FTFileName = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.oDockManager = New DevExpress.XtraBars.Docking.DockManager(Me.components)
-        Me.FTNikeDeveloperName = New DevExpress.XtraEditors.TextEdit()
-        Me.FTNikeDeveloperName_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTDevelopDate = New DevExpress.XtraEditors.DateEdit()
         Me.FTStyleDevNameEN_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTStyleDevNameTH_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTSeason = New DevExpress.XtraEditors.TextEdit()
         Me.olbfunction = New DevExpress.XtraEditors.LabelControl()
         Me.otx = New DevExpress.XtraTab.XtraTabControl()
         Me.otpstyleinfo = New DevExpress.XtraTab.XtraTabPage()
-        Me.FTProductDev = New DevExpress.XtraEditors.TextEdit()
-        Me.FTProductDev_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.FTImportTime = New DevExpress.XtraEditors.TextEdit()
-        Me.FTPccDate = New DevExpress.XtraEditors.TextEdit()
-        Me.FTPccTime = New DevExpress.XtraEditors.TextEdit()
-        Me.FTPccDate_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTImportBy = New DevExpress.XtraEditors.TextEdit()
-        Me.FTStyleSeniorDev = New DevExpress.XtraEditors.TextEdit()
-        Me.FTStyleSeniorDev_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FDImportDate = New DevExpress.XtraEditors.TextEdit()
-        Me.FTStateConfirmed = New DevExpress.XtraEditors.CheckEdit()
-        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
-        Me.FTConfirmedDate = New DevExpress.XtraEditors.TextEdit()
-        Me.FTPcc = New DevExpress.XtraEditors.TextEdit()
-        Me.FTConfirmedTime = New DevExpress.XtraEditors.TextEdit()
-        Me.FTConfirmedBy = New DevExpress.XtraEditors.TextEdit()
-        Me.FTConfirmedDate_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysParentBOMId_None = New DevExpress.XtraEditors.TextEdit()
-        Me.ButtonEdit1 = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysParentBOMId = New DevExpress.XtraEditors.ButtonEdit()
         Me.TextEdit7 = New DevExpress.XtraEditors.TextEdit()
         Me.FTChassis_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.TextEdit6 = New DevExpress.XtraEditors.TextEdit()
-        Me.FTFty = New DevExpress.XtraEditors.TextEdit()
-        Me.TextEdit5 = New DevExpress.XtraEditors.TextEdit()
         Me.FTParentBOM_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTOwner = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysMSCId_None = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysMSCId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNHSysMSCId_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -283,35 +244,29 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTMSCLevel1 = New DevExpress.XtraEditors.TextEdit()
         Me.FTMSCLevel1_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.ogbStyleHeader = New DevExpress.XtraEditors.GroupControl()
-        Me.XtraScrollableControl3 = New DevExpress.XtraEditors.XtraScrollableControl()
-        Me.FTImage1 = New DevExpress.XtraEditors.PictureEdit()
-        Me.FTImage2 = New DevExpress.XtraEditors.PictureEdit()
-        Me.FTImage4 = New DevExpress.XtraEditors.PictureEdit()
-        Me.FTImage3 = New DevExpress.XtraEditors.PictureEdit()
-        Me.FTStateProduction = New DevExpress.XtraEditors.CheckEdit()
-        Me.FTStateAdjust = New DevExpress.XtraEditors.CheckEdit()
         Me.FTProgram = New DevExpress.XtraEditors.TextEdit()
         Me.FTProgram_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTDimension = New DevExpress.XtraEditors.TextEdit()
         Me.FTDimension_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTBomDevStyleCode = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysVenderPramId = New DevExpress.XtraEditors.ButtonEdit()
-        Me.FTUploadDate = New DevExpress.XtraEditors.TextEdit()
         Me.FTFty_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNVersion = New DevExpress.XtraEditors.TextEdit()
         Me.FTVersion_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNBomDevType_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNBomDevType = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.ogbdetail = New DevExpress.XtraEditors.GroupControl()
+        Me.FNHSysParentBOMId_None = New DevExpress.XtraEditors.TextEdit()
+        Me.FTDimension = New DevExpress.XtraEditors.TextEdit()
+        Me.FTDimension_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FTProgram = New DevExpress.XtraEditors.TextEdit()
+        Me.FTProgram_lbl = New DevExpress.XtraEditors.LabelControl()
         CType(Me.FTNote.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysStyleDevId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStyleDevNameEN.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysCustId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysCustId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStyleDevNameTH.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTUpdTime.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDUpdDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTUpdUser.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysStyleDevId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbmainprocbutton.SuspendLayout()
@@ -371,33 +326,13 @@ Partial Class wGenerateStyleDevelopNew
         CType(Me.ogcfile, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTNikeDeveloperName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTDevelopDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTDevelopDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTSeason.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.otx, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.otx.SuspendLayout()
         Me.otpstyleinfo.SuspendLayout()
-        CType(Me.FTProductDev.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTImportTime.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTPccDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTPccTime.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTImportBy.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStyleSeniorDev.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FDImportDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateConfirmed.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTConfirmedDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTPcc.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTConfirmedTime.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTConfirmedBy.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysParentBOMId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ButtonEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysParentBOMId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEdit7.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit6.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTFty.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit5.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTOwner.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysMSCId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysMSCId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.otpremark.SuspendLayout()
@@ -407,22 +342,17 @@ Partial Class wGenerateStyleDevelopNew
         CType(Me.FTMSCLevel1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbStyleHeader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbStyleHeader.SuspendLayout()
-        Me.XtraScrollableControl3.SuspendLayout()
-        CType(Me.FTImage1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTImage2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTImage4.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTImage3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateProduction.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStateAdjust.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTProgram.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTDimension.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTBomDevStyleCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysVenderPramId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTUploadDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNVersion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNBomDevType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbdetail, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbdetail.SuspendLayout()
+        CType(Me.FNHSysParentBOMId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FTDimension.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FTProgram.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FTNote
@@ -457,7 +387,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTStyleDevNameEN.Location = New System.Drawing.Point(608, 4)
         Me.FTStyleDevNameEN.Name = "FTStyleDevNameEN"
         Me.FTStyleDevNameEN.Properties.MaxLength = 200
-        Me.FTStyleDevNameEN.Size = New System.Drawing.Size(340, 20)
+        Me.FTStyleDevNameEN.Size = New System.Drawing.Size(258, 20)
         Me.FTStyleDevNameEN.TabIndex = 3
         Me.FTStyleDevNameEN.Tag = "2|"
         '
@@ -468,7 +398,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTSeason_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSeason_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSeason_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSeason_lbl.Location = New System.Drawing.Point(560, 30)
+        Me.FTSeason_lbl.Location = New System.Drawing.Point(227, 56)
         Me.FTSeason_lbl.Name = "FTSeason_lbl"
         Me.FTSeason_lbl.Size = New System.Drawing.Size(91, 17)
         Me.FTSeason_lbl.TabIndex = 296
@@ -477,7 +407,7 @@ Partial Class wGenerateStyleDevelopNew
         '
         'FNHSysCustId_None
         '
-        Me.FNHSysCustId_None.Location = New System.Drawing.Point(261, 30)
+        Me.FNHSysCustId_None.Location = New System.Drawing.Point(260, 30)
         Me.FNHSysCustId_None.Name = "FNHSysCustId_None"
         Me.FNHSysCustId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysCustId_None.Properties.Appearance.Options.UseBackColor = True
@@ -506,7 +436,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNHSysCustId.Name = "FNHSysCustId"
         Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCustId.Properties.Tag = ""
-        Me.FNHSysCustId.Size = New System.Drawing.Size(125, 20)
+        Me.FNHSysCustId.Size = New System.Drawing.Size(126, 20)
         Me.FNHSysCustId.TabIndex = 4
         Me.FNHSysCustId.Tag = "2|"
         '
@@ -515,42 +445,9 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTStyleDevNameTH.Location = New System.Drawing.Point(128, 4)
         Me.FTStyleDevNameTH.Name = "FTStyleDevNameTH"
         Me.FTStyleDevNameTH.Properties.MaxLength = 200
-        Me.FTStyleDevNameTH.Size = New System.Drawing.Size(340, 20)
+        Me.FTStyleDevNameTH.Size = New System.Drawing.Size(339, 20)
         Me.FTStyleDevNameTH.TabIndex = 2
         Me.FTStyleDevNameTH.Tag = "2|"
-        '
-        'FTUpdTime
-        '
-        Me.FTUpdTime.Location = New System.Drawing.Point(402, 134)
-        Me.FTUpdTime.Name = "FTUpdTime"
-        Me.FTUpdTime.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTUpdTime.Properties.Appearance.Options.UseBackColor = True
-        Me.FTUpdTime.Properties.ReadOnly = True
-        Me.FTUpdTime.Size = New System.Drawing.Size(68, 20)
-        Me.FTUpdTime.TabIndex = 10
-        Me.FTUpdTime.Tag = "2|"
-        '
-        'FDUpdDate
-        '
-        Me.FDUpdDate.Location = New System.Drawing.Point(328, 134)
-        Me.FDUpdDate.Name = "FDUpdDate"
-        Me.FDUpdDate.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FDUpdDate.Properties.Appearance.Options.UseBackColor = True
-        Me.FDUpdDate.Properties.ReadOnly = True
-        Me.FDUpdDate.Size = New System.Drawing.Size(68, 20)
-        Me.FDUpdDate.TabIndex = 9
-        Me.FDUpdDate.Tag = "2|"
-        '
-        'FTUpdUser
-        '
-        Me.FTUpdUser.Location = New System.Drawing.Point(129, 134)
-        Me.FTUpdUser.Name = "FTUpdUser"
-        Me.FTUpdUser.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTUpdUser.Properties.Appearance.Options.UseBackColor = True
-        Me.FTUpdUser.Properties.ReadOnly = True
-        Me.FTUpdUser.Size = New System.Drawing.Size(124, 20)
-        Me.FTUpdUser.TabIndex = 8
-        Me.FTUpdUser.Tag = "2|"
         '
         'FNHSysStyleDevId_lbl
         '
@@ -570,7 +467,7 @@ Partial Class wGenerateStyleDevelopNew
         '
         Me.FNHSysStyleDevId.Location = New System.Drawing.Point(95, 29)
         Me.FNHSysStyleDevId.Name = "FNHSysStyleDevId"
-        Me.FNHSysStyleDevId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "703", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleDevId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "703", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleDevId.Properties.Tag = ""
         Me.FNHSysStyleDevId.Size = New System.Drawing.Size(126, 20)
         Me.FNHSysStyleDevId.TabIndex = 0
@@ -603,16 +500,6 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(366, 250)
         Me.ogbmainprocbutton.TabIndex = 137
         Me.ogbmainprocbutton.Tag = "2|"
-        '
-        'ocmcompare
-        '
-        Me.ocmcompare.Location = New System.Drawing.Point(5, 197)
-        Me.ocmcompare.Name = "ocmcompare"
-        Me.ocmcompare.Size = New System.Drawing.Size(115, 25)
-        Me.ocmcompare.TabIndex = 118
-        Me.ocmcompare.TabStop = False
-        Me.ocmcompare.Tag = "2|"
-        Me.ocmcompare.Text = "BOM Compare"
         '
         'ocmcopy
         '
@@ -814,7 +701,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.otb.Location = New System.Drawing.Point(2, 23)
         Me.otb.Name = "otb"
         Me.otb.SelectedTabPage = Me.otpmatcode
-        Me.otb.Size = New System.Drawing.Size(1282, 226)
+        Me.otb.Size = New System.Drawing.Size(1282, 279)
         Me.otb.TabIndex = 3
         Me.otb.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpmatcode, Me.otpmatcolor, Me.otpmatsize, Me.otpfileref})
         Me.otb.TabPageWidth = 150
@@ -824,7 +711,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.otpmatcode.Controls.Add(Me.PopupFTPositionPartName)
         Me.otpmatcode.Controls.Add(Me.ogcmat)
         Me.otpmatcode.Name = "otpmatcode"
-        Me.otpmatcode.Size = New System.Drawing.Size(1280, 201)
+        Me.otpmatcode.Size = New System.Drawing.Size(1280, 254)
         Me.otpmatcode.Text = "Item Detail"
         '
         'PopupFTPositionPartName
@@ -936,7 +823,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogcmat.MainView = Me.ogvmat
         Me.ogcmat.Name = "ogcmat"
         Me.ogcmat.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryFTStateActive, Me.RepositoryFTStateCombination, Me.RepositoryFTStateNominate, Me.RepositoryFTMainMatCode, Me.RepositoryFNHSysSuplId, Me.RepositoryFNHSysCurId, Me.RepositoryItemNumEdit, Me.RepositoryFTUnitCode, Me.RepositoryFTStateMainMaterial, Me.RepFTPositionPartName, Me.ReposFNMerMatSeq, Me.RepFTComponent3, Me.RepositoryPriceCalcEdit, Me.RepositoryConsmCalcEdit, Me.RepositoryConsPlusCalcEdit, Me.ReposFTPartNameEN, Me.ReposFTPartNameTH, Me.ReposFTItemNo, Me.ReposItemDesc, Me.RepFTPart, Me.RepositoryItemPopupContainerEdit1, Me.RepFTStateNotShowBomSheet, Me.RepositoryItemFNOrderSetType, Me.RepositoryIteFTItemREfNo, Me.RepositoryItemCalFNPackPerCarton, Me.RepositoryItemCalcFNRepeatLengthCM})
-        Me.ogcmat.Size = New System.Drawing.Size(1280, 201)
+        Me.ogcmat.Size = New System.Drawing.Size(1280, 254)
         Me.ogcmat.TabIndex = 3
         Me.ogcmat.TabStop = False
         Me.ogcmat.Tag = "2|"
@@ -1621,7 +1508,7 @@ Partial Class wGenerateStyleDevelopNew
         '
         Me.otpmatcolor.Controls.Add(Me.ogccolor)
         Me.otpmatcolor.Name = "otpmatcolor"
-        Me.otpmatcolor.Size = New System.Drawing.Size(1280, 201)
+        Me.otpmatcolor.Size = New System.Drawing.Size(1280, 254)
         Me.otpmatcolor.Text = "Color Detail"
         '
         'ogccolor
@@ -1631,7 +1518,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogccolor.MainView = Me.ogvcolor
         Me.ogccolor.Name = "ogccolor"
         Me.ogccolor.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemNumEdit1, Me.RepCheckEdit, Me.RepRawMatIDCaledit, Me.RepositoryItemMemoEdit1, Me.RepositoryItemFNOrderSetType4})
-        Me.ogccolor.Size = New System.Drawing.Size(1280, 201)
+        Me.ogccolor.Size = New System.Drawing.Size(1280, 254)
         Me.ogccolor.TabIndex = 3
         Me.ogccolor.TabStop = False
         Me.ogccolor.Tag = "2|"
@@ -1852,7 +1739,7 @@ Partial Class wGenerateStyleDevelopNew
         '
         Me.otpmatsize.Controls.Add(Me.ogcsize)
         Me.otpmatsize.Name = "otpmatsize"
-        Me.otpmatsize.Size = New System.Drawing.Size(1280, 201)
+        Me.otpmatsize.Size = New System.Drawing.Size(1280, 254)
         Me.otpmatsize.Text = "Size Detail"
         '
         'ogcsize
@@ -1862,7 +1749,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogcsize.MainView = Me.ogvsize
         Me.ogcsize.Name = "ogcsize"
         Me.ogcsize.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemNumEdit2, Me.RepFTRunSize, Me.RepositoryFNOrderSetType3})
-        Me.ogcsize.Size = New System.Drawing.Size(1280, 201)
+        Me.ogcsize.Size = New System.Drawing.Size(1280, 254)
         Me.ogcsize.TabIndex = 3
         Me.ogcsize.TabStop = False
         Me.ogcsize.Tag = "2|"
@@ -2058,7 +1945,7 @@ Partial Class wGenerateStyleDevelopNew
         '
         Me.otpfileref.Controls.Add(Me.ogcfile)
         Me.otpfileref.Name = "otpfileref"
-        Me.otpfileref.Size = New System.Drawing.Size(1280, 201)
+        Me.otpfileref.Size = New System.Drawing.Size(1280, 254)
         Me.otpfileref.Text = "File Ref."
         '
         'ogcfile
@@ -2067,7 +1954,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogcfile.Location = New System.Drawing.Point(0, 0)
         Me.ogcfile.MainView = Me.GridView2
         Me.ogcfile.Name = "ogcfile"
-        Me.ogcfile.Size = New System.Drawing.Size(1280, 201)
+        Me.ogcfile.Size = New System.Drawing.Size(1280, 254)
         Me.ogcfile.TabIndex = 0
         Me.ogcfile.UseEmbeddedNavigator = True
         Me.ogcfile.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView2})
@@ -2100,47 +1987,6 @@ Partial Class wGenerateStyleDevelopNew
         Me.oDockManager.Form = Me
         Me.oDockManager.TopZIndexControls.AddRange(New String() {"DevExpress.XtraBars.BarDockControl", "DevExpress.XtraBars.StandaloneBarDockControl", "System.Windows.Forms.StatusBar", "DevExpress.XtraBars.Ribbon.RibbonStatusBar", "DevExpress.XtraBars.Ribbon.RibbonControl"})
         '
-        'FTNikeDeveloperName
-        '
-        Me.FTNikeDeveloperName.Location = New System.Drawing.Point(976, 105)
-        Me.FTNikeDeveloperName.Name = "FTNikeDeveloperName"
-        Me.FTNikeDeveloperName.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTNikeDeveloperName.Properties.Appearance.Options.UseBackColor = True
-        Me.FTNikeDeveloperName.Properties.ReadOnly = True
-        Me.FTNikeDeveloperName.Size = New System.Drawing.Size(121, 20)
-        Me.FTNikeDeveloperName.TabIndex = 286
-        Me.FTNikeDeveloperName.Tag = "2|"
-        '
-        'FTNikeDeveloperName_lbl
-        '
-        Me.FTNikeDeveloperName_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTNikeDeveloperName_lbl.Appearance.Options.UseForeColor = True
-        Me.FTNikeDeveloperName_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTNikeDeveloperName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTNikeDeveloperName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTNikeDeveloperName_lbl.Location = New System.Drawing.Point(968, 124)
-        Me.FTNikeDeveloperName_lbl.Name = "FTNikeDeveloperName_lbl"
-        Me.FTNikeDeveloperName_lbl.Size = New System.Drawing.Size(129, 17)
-        Me.FTNikeDeveloperName_lbl.TabIndex = 287
-        Me.FTNikeDeveloperName_lbl.Tag = "2|"
-        Me.FTNikeDeveloperName_lbl.Text = "PCC :"
-        '
-        'FTDevelopDate
-        '
-        Me.FTDevelopDate.EditValue = Nothing
-        Me.FTDevelopDate.EnterMoveNextControl = True
-        Me.FTDevelopDate.Location = New System.Drawing.Point(1100, 131)
-        Me.FTDevelopDate.Name = "FTDevelopDate"
-        Me.FTDevelopDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.FTDevelopDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.FTDevelopDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.FTDevelopDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom
-        Me.FTDevelopDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom
-        Me.FTDevelopDate.Properties.NullDate = ""
-        Me.FTDevelopDate.Size = New System.Drawing.Size(121, 20)
-        Me.FTDevelopDate.TabIndex = 5
-        Me.FTDevelopDate.Tag = "2|"
-        '
         'FTStyleDevNameEN_lbl
         '
         Me.FTStyleDevNameEN_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
@@ -2171,7 +2017,7 @@ Partial Class wGenerateStyleDevelopNew
         '
         'FTSeason
         '
-        Me.FTSeason.Location = New System.Drawing.Point(657, 29)
+        Me.FTSeason.Location = New System.Drawing.Point(324, 55)
         Me.FTSeason.Name = "FTSeason"
         Me.FTSeason.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FTSeason.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
@@ -2203,369 +2049,41 @@ Partial Class wGenerateStyleDevelopNew
         '
         Me.otx.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.otx.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Bottom
-        Me.otx.Location = New System.Drawing.Point(2, 133)
+        Me.otx.Location = New System.Drawing.Point(2, 107)
         Me.otx.Name = "otx"
         Me.otx.SelectedTabPage = Me.otpstyleinfo
-        Me.otx.Size = New System.Drawing.Size(1282, 191)
+        Me.otx.Size = New System.Drawing.Size(1282, 184)
         Me.otx.TabIndex = 303
         Me.otx.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.otpstyleinfo, Me.otpremark})
         Me.otx.TabStop = False
         '
         'otpstyleinfo
         '
-        Me.otpstyleinfo.Controls.Add(Me.FTProductDev)
-        Me.otpstyleinfo.Controls.Add(Me.FTProductDev_lbl)
-        Me.otpstyleinfo.Controls.Add(Me.LabelControl1)
-        Me.otpstyleinfo.Controls.Add(Me.FTImportTime)
-        Me.otpstyleinfo.Controls.Add(Me.FTPccDate)
-        Me.otpstyleinfo.Controls.Add(Me.FTPccTime)
-        Me.otpstyleinfo.Controls.Add(Me.FTPccDate_lbl)
-        Me.otpstyleinfo.Controls.Add(Me.FTImportBy)
-        Me.otpstyleinfo.Controls.Add(Me.FTStyleSeniorDev)
-        Me.otpstyleinfo.Controls.Add(Me.FTStyleSeniorDev_lbl)
-        Me.otpstyleinfo.Controls.Add(Me.FDImportDate)
-        Me.otpstyleinfo.Controls.Add(Me.FTStateConfirmed)
-        Me.otpstyleinfo.Controls.Add(Me.LabelControl3)
-        Me.otpstyleinfo.Controls.Add(Me.FTConfirmedDate)
-        Me.otpstyleinfo.Controls.Add(Me.FTPcc)
-        Me.otpstyleinfo.Controls.Add(Me.FTConfirmedTime)
-        Me.otpstyleinfo.Controls.Add(Me.FTConfirmedBy)
-        Me.otpstyleinfo.Controls.Add(Me.FTConfirmedDate_lbl)
-        Me.otpstyleinfo.Controls.Add(Me.LabelControl4)
-        Me.otpstyleinfo.Controls.Add(Me.LabelControl5)
-        Me.otpstyleinfo.Controls.Add(Me.LabelControl6)
-        Me.otpstyleinfo.Controls.Add(Me.LabelControl7)
         Me.otpstyleinfo.Controls.Add(Me.FNHSysParentBOMId_None)
         Me.otpstyleinfo.Controls.Add(Me.ButtonEdit1)
         Me.otpstyleinfo.Controls.Add(Me.FNHSysParentBOMId)
         Me.otpstyleinfo.Controls.Add(Me.TextEdit7)
         Me.otpstyleinfo.Controls.Add(Me.FTChassis_lbl)
-        Me.otpstyleinfo.Controls.Add(Me.TextEdit6)
-        Me.otpstyleinfo.Controls.Add(Me.FTFty)
-        Me.otpstyleinfo.Controls.Add(Me.TextEdit5)
         Me.otpstyleinfo.Controls.Add(Me.FTParentBOM_lbl)
-        Me.otpstyleinfo.Controls.Add(Me.FTOwner)
         Me.otpstyleinfo.Controls.Add(Me.FNHSysMSCId_None)
         Me.otpstyleinfo.Controls.Add(Me.FNHSysMSCId)
         Me.otpstyleinfo.Controls.Add(Me.FNHSysMSCId_lbl)
         Me.otpstyleinfo.Controls.Add(Me.FTStyleDevNameEN)
         Me.otpstyleinfo.Controls.Add(Me.FTStyleDevNameTH)
-        Me.otpstyleinfo.Controls.Add(Me.FTNikeDeveloperName)
-        Me.otpstyleinfo.Controls.Add(Me.FTNikeDeveloperName_lbl)
         Me.otpstyleinfo.Controls.Add(Me.FTStyleDevNameTH_lbl)
-        Me.otpstyleinfo.Controls.Add(Me.FTDevelopDate)
         Me.otpstyleinfo.Controls.Add(Me.FTStyleDevNameEN_lbl)
         Me.otpstyleinfo.Controls.Add(Me.FNHSysCustId)
         Me.otpstyleinfo.Controls.Add(Me.FNHSysCustId_lbl)
         Me.otpstyleinfo.Controls.Add(Me.FNHSysCustId_None)
-        Me.otpstyleinfo.Controls.Add(Me.FTUpdTime)
-        Me.otpstyleinfo.Controls.Add(Me.FTUpdUser)
-        Me.otpstyleinfo.Controls.Add(Me.FDUpdDate)
         Me.otpstyleinfo.Name = "otpstyleinfo"
-        Me.otpstyleinfo.Size = New System.Drawing.Size(1280, 166)
+        Me.otpstyleinfo.Size = New System.Drawing.Size(1280, 159)
         Me.otpstyleinfo.Text = "Style Info"
-        '
-        'FTProductDev
-        '
-        Me.FTProductDev.Enabled = False
-        Me.FTProductDev.Location = New System.Drawing.Point(608, 30)
-        Me.FTProductDev.Name = "FTProductDev"
-        Me.FTProductDev.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FTProductDev.Properties.Appearance.Options.UseBackColor = True
-        Me.FTProductDev.Properties.MaxLength = 200
-        Me.FTProductDev.Size = New System.Drawing.Size(340, 20)
-        Me.FTProductDev.TabIndex = 533
-        Me.FTProductDev.Tag = "2|"
-        '
-        'FTProductDev_lbl
-        '
-        Me.FTProductDev_lbl.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FTProductDev_lbl.Appearance.Options.UseForeColor = True
-        Me.FTProductDev_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTProductDev_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTProductDev_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTProductDev_lbl.Location = New System.Drawing.Point(499, 31)
-        Me.FTProductDev_lbl.Name = "FTProductDev_lbl"
-        Me.FTProductDev_lbl.Size = New System.Drawing.Size(103, 16)
-        Me.FTProductDev_lbl.TabIndex = 534
-        Me.FTProductDev_lbl.Tag = "2|"
-        Me.FTProductDev_lbl.Text = "Product Developer :"
-        '
-        'LabelControl1
-        '
-        Me.LabelControl1.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.LabelControl1.Appearance.Options.UseForeColor = True
-        Me.LabelControl1.Appearance.Options.UseTextOptions = True
-        Me.LabelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.LabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl1.Location = New System.Drawing.Point(261, 109)
-        Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(60, 16)
-        Me.LabelControl1.TabIndex = 532
-        Me.LabelControl1.Tag = "2|"
-        Me.LabelControl1.Text = "Date :"
-        '
-        'FTImportTime
-        '
-        Me.FTImportTime.Enabled = False
-        Me.FTImportTime.Location = New System.Drawing.Point(402, 108)
-        Me.FTImportTime.Name = "FTImportTime"
-        Me.FTImportTime.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTImportTime.Properties.Appearance.Options.UseBackColor = True
-        Me.FTImportTime.Properties.ReadOnly = True
-        Me.FTImportTime.Size = New System.Drawing.Size(66, 20)
-        Me.FTImportTime.TabIndex = 531
-        Me.FTImportTime.Tag = "2|"
-        '
-        'FTPccDate
-        '
-        Me.FTPccDate.Enabled = False
-        Me.FTPccDate.Location = New System.Drawing.Point(808, 108)
-        Me.FTPccDate.Name = "FTPccDate"
-        Me.FTPccDate.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTPccDate.Properties.Appearance.Options.UseBackColor = True
-        Me.FTPccDate.Properties.ReadOnly = True
-        Me.FTPccDate.Size = New System.Drawing.Size(68, 20)
-        Me.FTPccDate.TabIndex = 528
-        Me.FTPccDate.Tag = "2|"
-        '
-        'FTPccTime
-        '
-        Me.FTPccTime.Enabled = False
-        Me.FTPccTime.Location = New System.Drawing.Point(882, 108)
-        Me.FTPccTime.Name = "FTPccTime"
-        Me.FTPccTime.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTPccTime.Properties.Appearance.Options.UseBackColor = True
-        Me.FTPccTime.Properties.ReadOnly = True
-        Me.FTPccTime.Size = New System.Drawing.Size(66, 20)
-        Me.FTPccTime.TabIndex = 529
-        Me.FTPccTime.Tag = "2|"
-        '
-        'FTPccDate_lbl
-        '
-        Me.FTPccDate_lbl.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FTPccDate_lbl.Appearance.Options.UseForeColor = True
-        Me.FTPccDate_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTPccDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTPccDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTPccDate_lbl.Location = New System.Drawing.Point(739, 109)
-        Me.FTPccDate_lbl.Name = "FTPccDate_lbl"
-        Me.FTPccDate_lbl.Size = New System.Drawing.Size(60, 16)
-        Me.FTPccDate_lbl.TabIndex = 530
-        Me.FTPccDate_lbl.Tag = "2|"
-        Me.FTPccDate_lbl.Text = "Date :"
-        '
-        'FTImportBy
-        '
-        Me.FTImportBy.Enabled = False
-        Me.FTImportBy.Location = New System.Drawing.Point(128, 108)
-        Me.FTImportBy.Name = "FTImportBy"
-        Me.FTImportBy.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTImportBy.Properties.Appearance.Options.UseBackColor = True
-        Me.FTImportBy.Properties.ReadOnly = True
-        Me.FTImportBy.Size = New System.Drawing.Size(125, 20)
-        Me.FTImportBy.TabIndex = 527
-        Me.FTImportBy.Tag = "2|"
-        '
-        'FTStyleSeniorDev
-        '
-        Me.FTStyleSeniorDev.Enabled = False
-        Me.FTStyleSeniorDev.Location = New System.Drawing.Point(608, 56)
-        Me.FTStyleSeniorDev.Name = "FTStyleSeniorDev"
-        Me.FTStyleSeniorDev.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FTStyleSeniorDev.Properties.Appearance.Options.UseBackColor = True
-        Me.FTStyleSeniorDev.Properties.MaxLength = 200
-        Me.FTStyleSeniorDev.Size = New System.Drawing.Size(340, 20)
-        Me.FTStyleSeniorDev.TabIndex = 525
-        Me.FTStyleSeniorDev.Tag = "2|"
-        '
-        'FTStyleSeniorDev_lbl
-        '
-        Me.FTStyleSeniorDev_lbl.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FTStyleSeniorDev_lbl.Appearance.Options.UseForeColor = True
-        Me.FTStyleSeniorDev_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTStyleSeniorDev_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTStyleSeniorDev_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTStyleSeniorDev_lbl.Location = New System.Drawing.Point(493, 57)
-        Me.FTStyleSeniorDev_lbl.Name = "FTStyleSeniorDev_lbl"
-        Me.FTStyleSeniorDev_lbl.Size = New System.Drawing.Size(109, 16)
-        Me.FTStyleSeniorDev_lbl.TabIndex = 526
-        Me.FTStyleSeniorDev_lbl.Tag = "2|"
-        Me.FTStyleSeniorDev_lbl.Text = "Senior Developer :"
-        '
-        'FDImportDate
-        '
-        Me.FDImportDate.Enabled = False
-        Me.FDImportDate.Location = New System.Drawing.Point(328, 108)
-        Me.FDImportDate.Name = "FDImportDate"
-        Me.FDImportDate.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FDImportDate.Properties.Appearance.Options.UseBackColor = True
-        Me.FDImportDate.Properties.ReadOnly = True
-        Me.FDImportDate.Size = New System.Drawing.Size(68, 20)
-        Me.FDImportDate.TabIndex = 523
-        Me.FDImportDate.Tag = "2|"
-        '
-        'FTStateConfirmed
-        '
-        Me.FTStateConfirmed.EditValue = "0"
-        Me.FTStateConfirmed.Enabled = False
-        Me.FTStateConfirmed.Location = New System.Drawing.Point(954, 134)
-        Me.FTStateConfirmed.Name = "FTStateConfirmed"
-        Me.FTStateConfirmed.Properties.Caption = "Confirm Bom to BOM Prod."
-        Me.FTStateConfirmed.Properties.ReadOnly = True
-        Me.FTStateConfirmed.Properties.ValueChecked = "1"
-        Me.FTStateConfirmed.Properties.ValueUnchecked = "0"
-        Me.FTStateConfirmed.Size = New System.Drawing.Size(165, 20)
-        Me.FTStateConfirmed.TabIndex = 513
-        Me.FTStateConfirmed.Tag = "2|"
-        '
-        'LabelControl3
-        '
-        Me.LabelControl3.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.LabelControl3.Appearance.Options.UseForeColor = True
-        Me.LabelControl3.Appearance.Options.UseTextOptions = True
-        Me.LabelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.LabelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl3.Location = New System.Drawing.Point(38, 109)
-        Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(84, 17)
-        Me.LabelControl3.TabIndex = 524
-        Me.LabelControl3.Tag = "2|"
-        Me.LabelControl3.Text = "Import By :"
-        '
-        'FTConfirmedDate
-        '
-        Me.FTConfirmedDate.Location = New System.Drawing.Point(808, 134)
-        Me.FTConfirmedDate.Name = "FTConfirmedDate"
-        Me.FTConfirmedDate.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTConfirmedDate.Properties.Appearance.Options.UseBackColor = True
-        Me.FTConfirmedDate.Properties.ReadOnly = True
-        Me.FTConfirmedDate.Size = New System.Drawing.Size(68, 20)
-        Me.FTConfirmedDate.TabIndex = 518
-        Me.FTConfirmedDate.Tag = "2|"
-        '
-        'FTPcc
-        '
-        Me.FTPcc.Enabled = False
-        Me.FTPcc.Location = New System.Drawing.Point(608, 108)
-        Me.FTPcc.Name = "FTPcc"
-        Me.FTPcc.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTPcc.Properties.Appearance.Options.UseBackColor = True
-        Me.FTPcc.Properties.ReadOnly = True
-        Me.FTPcc.Size = New System.Drawing.Size(125, 20)
-        Me.FTPcc.TabIndex = 520
-        Me.FTPcc.Tag = "2|"
-        '
-        'FTConfirmedTime
-        '
-        Me.FTConfirmedTime.Enabled = False
-        Me.FTConfirmedTime.Location = New System.Drawing.Point(882, 134)
-        Me.FTConfirmedTime.Name = "FTConfirmedTime"
-        Me.FTConfirmedTime.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTConfirmedTime.Properties.Appearance.Options.UseBackColor = True
-        Me.FTConfirmedTime.Properties.ReadOnly = True
-        Me.FTConfirmedTime.Size = New System.Drawing.Size(66, 20)
-        Me.FTConfirmedTime.TabIndex = 519
-        Me.FTConfirmedTime.Tag = "2|"
-        '
-        'FTConfirmedBy
-        '
-        Me.FTConfirmedBy.Enabled = False
-        Me.FTConfirmedBy.Location = New System.Drawing.Point(608, 134)
-        Me.FTConfirmedBy.Name = "FTConfirmedBy"
-        Me.FTConfirmedBy.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTConfirmedBy.Properties.Appearance.Options.UseBackColor = True
-        Me.FTConfirmedBy.Properties.ReadOnly = True
-        Me.FTConfirmedBy.Size = New System.Drawing.Size(125, 20)
-        Me.FTConfirmedBy.TabIndex = 516
-        Me.FTConfirmedBy.Tag = "2|"
-        '
-        'FTConfirmedDate_lbl
-        '
-        Me.FTConfirmedDate_lbl.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.FTConfirmedDate_lbl.Appearance.Options.UseForeColor = True
-        Me.FTConfirmedDate_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTConfirmedDate_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTConfirmedDate_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTConfirmedDate_lbl.Location = New System.Drawing.Point(739, 135)
-        Me.FTConfirmedDate_lbl.Name = "FTConfirmedDate_lbl"
-        Me.FTConfirmedDate_lbl.Size = New System.Drawing.Size(60, 16)
-        Me.FTConfirmedDate_lbl.TabIndex = 521
-        Me.FTConfirmedDate_lbl.Tag = "2|"
-        Me.FTConfirmedDate_lbl.Text = "Date :"
-        '
-        'LabelControl4
-        '
-        Me.LabelControl4.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.LabelControl4.Appearance.Options.UseForeColor = True
-        Me.LabelControl4.Appearance.Options.UseTextOptions = True
-        Me.LabelControl4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.LabelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl4.Location = New System.Drawing.Point(520, 135)
-        Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(82, 17)
-        Me.LabelControl4.TabIndex = 517
-        Me.LabelControl4.Tag = "2|"
-        Me.LabelControl4.Text = "Confirmed By :"
-        '
-        'LabelControl5
-        '
-        Me.LabelControl5.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.LabelControl5.Appearance.Options.UseForeColor = True
-        Me.LabelControl5.Appearance.Options.UseTextOptions = True
-        Me.LabelControl5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.LabelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl5.Location = New System.Drawing.Point(493, 109)
-        Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(109, 16)
-        Me.LabelControl5.TabIndex = 522
-        Me.LabelControl5.Tag = "2|"
-        Me.LabelControl5.Text = "BOM Update by PCC :"
-        '
-        'LabelControl6
-        '
-        Me.LabelControl6.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.LabelControl6.Appearance.Options.UseForeColor = True
-        Me.LabelControl6.Appearance.Options.UseTextOptions = True
-        Me.LabelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.LabelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl6.Location = New System.Drawing.Point(261, 135)
-        Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(60, 16)
-        Me.LabelControl6.TabIndex = 515
-        Me.LabelControl6.Tag = "2|"
-        Me.LabelControl6.Text = "Date :"
-        '
-        'LabelControl7
-        '
-        Me.LabelControl7.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.LabelControl7.Appearance.Options.UseForeColor = True
-        Me.LabelControl7.Appearance.Options.UseTextOptions = True
-        Me.LabelControl7.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.LabelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl7.Location = New System.Drawing.Point(39, 133)
-        Me.LabelControl7.Name = "LabelControl7"
-        Me.LabelControl7.Size = New System.Drawing.Size(84, 21)
-        Me.LabelControl7.TabIndex = 514
-        Me.LabelControl7.Tag = "2|"
-        Me.LabelControl7.Text = "Last Update By :"
         '
         'FNHSysParentBOMId_None
         '
-        Me.FNHSysParentBOMId_None.Location = New System.Drawing.Point(261, 56)
-        Me.FNHSysParentBOMId_None.Name = "FNHSysParentBOMId_None"
-        Me.FNHSysParentBOMId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FNHSysParentBOMId_None.Properties.Appearance.Options.UseBackColor = True
-        Me.FNHSysParentBOMId_None.Properties.ReadOnly = True
-        Me.FNHSysParentBOMId_None.Size = New System.Drawing.Size(207, 20)
-        Me.FNHSysParentBOMId_None.TabIndex = 496
-        Me.FNHSysParentBOMId_None.Tag = "2|"
-        '
-        'ButtonEdit1
-        '
-        Me.ButtonEdit1.Location = New System.Drawing.Point(1100, 105)
+        Me.ButtonEdit1.Location = New System.Drawing.Point(777, 102)
         Me.ButtonEdit1.Name = "ButtonEdit1"
-        Me.ButtonEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "277", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.ButtonEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "277", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.ButtonEdit1.Properties.Tag = ""
         Me.ButtonEdit1.Size = New System.Drawing.Size(121, 20)
         Me.ButtonEdit1.TabIndex = 495
@@ -2576,13 +2094,13 @@ Partial Class wGenerateStyleDevelopNew
         '
         Me.FNHSysParentBOMId.Location = New System.Drawing.Point(128, 56)
         Me.FNHSysParentBOMId.Name = "FNHSysParentBOMId"
-        Me.FNHSysParentBOMId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "705", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
-        Me.FNHSysParentBOMId.Size = New System.Drawing.Size(125, 20)
+        Me.FNHSysParentBOMId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "705", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysParentBOMId.Size = New System.Drawing.Size(131, 20)
         Me.FNHSysParentBOMId.TabIndex = 494
         '
         'TextEdit7
         '
-        Me.TextEdit7.Location = New System.Drawing.Point(1083, 53)
+        Me.TextEdit7.Location = New System.Drawing.Point(994, 30)
         Me.TextEdit7.Name = "TextEdit7"
         Me.TextEdit7.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.TextEdit7.Properties.Appearance.Options.UseBackColor = True
@@ -2598,46 +2116,12 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTChassis_lbl.Appearance.Options.UseTextOptions = True
         Me.FTChassis_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTChassis_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTChassis_lbl.Location = New System.Drawing.Point(997, 54)
+        Me.FTChassis_lbl.Location = New System.Drawing.Point(907, 31)
         Me.FTChassis_lbl.Name = "FTChassis_lbl"
         Me.FTChassis_lbl.Size = New System.Drawing.Size(80, 17)
         Me.FTChassis_lbl.TabIndex = 313
         Me.FTChassis_lbl.Tag = "2|"
         Me.FTChassis_lbl.Text = "Chassis block :"
-        '
-        'TextEdit6
-        '
-        Me.TextEdit6.Location = New System.Drawing.Point(1100, 26)
-        Me.TextEdit6.Name = "TextEdit6"
-        Me.TextEdit6.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.TextEdit6.Properties.Appearance.Options.UseBackColor = True
-        Me.TextEdit6.Properties.ReadOnly = True
-        Me.TextEdit6.Size = New System.Drawing.Size(121, 20)
-        Me.TextEdit6.TabIndex = 310
-        Me.TextEdit6.Tag = "2|"
-        '
-        'FTFty
-        '
-        Me.FTFty.Location = New System.Drawing.Point(1175, 78)
-        Me.FTFty.Name = "FTFty"
-        Me.FTFty.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTFty.Properties.Appearance.Options.UseBackColor = True
-        Me.FTFty.Properties.ReadOnly = True
-        Me.FTFty.Size = New System.Drawing.Size(46, 20)
-        Me.FTFty.TabIndex = 491
-        Me.FTFty.Tag = "2|"
-        Me.FTFty.Visible = False
-        '
-        'TextEdit5
-        '
-        Me.TextEdit5.Location = New System.Drawing.Point(1038, 79)
-        Me.TextEdit5.Name = "TextEdit5"
-        Me.TextEdit5.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.TextEdit5.Properties.Appearance.Options.UseBackColor = True
-        Me.TextEdit5.Properties.ReadOnly = True
-        Me.TextEdit5.Size = New System.Drawing.Size(131, 20)
-        Me.TextEdit5.TabIndex = 308
-        Me.TextEdit5.Tag = "2|"
         '
         'FTParentBOM_lbl
         '
@@ -2646,27 +2130,16 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTParentBOM_lbl.Appearance.Options.UseTextOptions = True
         Me.FTParentBOM_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTParentBOM_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTParentBOM_lbl.Location = New System.Drawing.Point(9, 57)
+        Me.FTParentBOM_lbl.Location = New System.Drawing.Point(9, 54)
         Me.FTParentBOM_lbl.Name = "FTParentBOM_lbl"
         Me.FTParentBOM_lbl.Size = New System.Drawing.Size(113, 17)
         Me.FTParentBOM_lbl.TabIndex = 309
         Me.FTParentBOM_lbl.Tag = "2|"
         Me.FTParentBOM_lbl.Text = "Parent BOM :"
         '
-        'FTOwner
-        '
-        Me.FTOwner.Location = New System.Drawing.Point(1100, 4)
-        Me.FTOwner.Name = "FTOwner"
-        Me.FTOwner.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTOwner.Properties.Appearance.Options.UseBackColor = True
-        Me.FTOwner.Properties.ReadOnly = True
-        Me.FTOwner.Size = New System.Drawing.Size(121, 20)
-        Me.FTOwner.TabIndex = 306
-        Me.FTOwner.Tag = "2|"
-        '
         'FNHSysMSCId_None
         '
-        Me.FNHSysMSCId_None.Location = New System.Drawing.Point(261, 82)
+        Me.FNHSysMSCId_None.Location = New System.Drawing.Point(260, 82)
         Me.FNHSysMSCId_None.Name = "FNHSysMSCId_None"
         Me.FNHSysMSCId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysMSCId_None.Properties.Appearance.Options.UseBackColor = True
@@ -2681,7 +2154,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNHSysMSCId.Name = "FNHSysMSCId"
         Me.FNHSysMSCId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "975", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysMSCId.Properties.Tag = ""
-        Me.FNHSysMSCId.Size = New System.Drawing.Size(125, 20)
+        Me.FNHSysMSCId.Size = New System.Drawing.Size(126, 20)
         Me.FNHSysMSCId.TabIndex = 303
         Me.FNHSysMSCId.Tag = "2|"
         '
@@ -2712,7 +2185,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.otpremark.Controls.Add(Me.FTMSCLevel1_lbl)
         Me.otpremark.Controls.Add(Me.FTNote)
         Me.otpremark.Name = "otpremark"
-        Me.otpremark.Size = New System.Drawing.Size(1280, 166)
+        Me.otpremark.Size = New System.Drawing.Size(1280, 159)
         Me.otpremark.Text = "MSC && Remark"
         '
         'FTNote_lbl
@@ -2823,14 +2296,12 @@ Partial Class wGenerateStyleDevelopNew
         '
         'ogbStyleHeader
         '
-        Me.ogbStyleHeader.Controls.Add(Me.XtraScrollableControl3)
         Me.ogbStyleHeader.Controls.Add(Me.FTProgram)
         Me.ogbStyleHeader.Controls.Add(Me.FTProgram_lbl)
         Me.ogbStyleHeader.Controls.Add(Me.FTDimension)
         Me.ogbStyleHeader.Controls.Add(Me.FTDimension_lbl)
         Me.ogbStyleHeader.Controls.Add(Me.FTBomDevStyleCode)
         Me.ogbStyleHeader.Controls.Add(Me.FNHSysVenderPramId)
-        Me.ogbStyleHeader.Controls.Add(Me.FTUploadDate)
         Me.ogbStyleHeader.Controls.Add(Me.FTFty_lbl)
         Me.ogbStyleHeader.Controls.Add(Me.FNVersion)
         Me.ogbStyleHeader.Controls.Add(Me.FTVersion_lbl)
@@ -2845,96 +2316,9 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogbStyleHeader.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbStyleHeader.Location = New System.Drawing.Point(0, 0)
         Me.ogbStyleHeader.Name = "ogbStyleHeader"
-        Me.ogbStyleHeader.Size = New System.Drawing.Size(1286, 326)
+        Me.ogbStyleHeader.Size = New System.Drawing.Size(1286, 273)
         Me.ogbStyleHeader.TabIndex = 5
         Me.ogbStyleHeader.Text = "Style Info"
-        '
-        'XtraScrollableControl3
-        '
-        Me.XtraScrollableControl3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.XtraScrollableControl3.Controls.Add(Me.FTImage1)
-        Me.XtraScrollableControl3.Controls.Add(Me.FTImage2)
-        Me.XtraScrollableControl3.Controls.Add(Me.FTImage4)
-        Me.XtraScrollableControl3.Controls.Add(Me.FTImage3)
-        Me.XtraScrollableControl3.Controls.Add(Me.FTStateProduction)
-        Me.XtraScrollableControl3.Controls.Add(Me.FTStateAdjust)
-        Me.XtraScrollableControl3.Location = New System.Drawing.Point(575, 56)
-        Me.XtraScrollableControl3.Name = "XtraScrollableControl3"
-        Me.XtraScrollableControl3.Size = New System.Drawing.Size(536, 71)
-        Me.XtraScrollableControl3.TabIndex = 510
-        '
-        'FTImage1
-        '
-        Me.FTImage1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.FTImage1.Location = New System.Drawing.Point(4, 3)
-        Me.FTImage1.Name = "FTImage1"
-        Me.FTImage1.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTImage1.Properties.Appearance.Options.UseBackColor = True
-        Me.FTImage1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.FTImage1.Size = New System.Drawing.Size(85, 65)
-        Me.FTImage1.TabIndex = 441
-        '
-        'FTImage2
-        '
-        Me.FTImage2.Cursor = System.Windows.Forms.Cursors.Default
-        Me.FTImage2.Location = New System.Drawing.Point(100, 3)
-        Me.FTImage2.Name = "FTImage2"
-        Me.FTImage2.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTImage2.Properties.Appearance.Options.UseBackColor = True
-        Me.FTImage2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.FTImage2.Size = New System.Drawing.Size(85, 65)
-        Me.FTImage2.TabIndex = 442
-        '
-        'FTImage4
-        '
-        Me.FTImage4.Cursor = System.Windows.Forms.Cursors.Default
-        Me.FTImage4.Location = New System.Drawing.Point(291, 3)
-        Me.FTImage4.Name = "FTImage4"
-        Me.FTImage4.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTImage4.Properties.Appearance.Options.UseBackColor = True
-        Me.FTImage4.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.FTImage4.Size = New System.Drawing.Size(85, 65)
-        Me.FTImage4.TabIndex = 444
-        '
-        'FTImage3
-        '
-        Me.FTImage3.Cursor = System.Windows.Forms.Cursors.Default
-        Me.FTImage3.Location = New System.Drawing.Point(196, 3)
-        Me.FTImage3.Name = "FTImage3"
-        Me.FTImage3.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTImage3.Properties.Appearance.Options.UseBackColor = True
-        Me.FTImage3.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.FTImage3.Size = New System.Drawing.Size(85, 65)
-        Me.FTImage3.TabIndex = 443
-        '
-        'FTStateProduction
-        '
-        Me.FTStateProduction.Location = New System.Drawing.Point(391, 29)
-        Me.FTStateProduction.Name = "FTStateProduction"
-        Me.FTStateProduction.Properties.Caption = "Production"
-        Me.FTStateProduction.Properties.ReadOnly = True
-        Me.FTStateProduction.Properties.Tag = "FTStateLaser"
-        Me.FTStateProduction.Properties.ValueChecked = "1"
-        Me.FTStateProduction.Properties.ValueUnchecked = "0"
-        Me.FTStateProduction.Size = New System.Drawing.Size(90, 20)
-        Me.FTStateProduction.TabIndex = 481
-        Me.FTStateProduction.Tag = "2|"
-        Me.FTStateProduction.Visible = False
-        '
-        'FTStateAdjust
-        '
-        Me.FTStateAdjust.Location = New System.Drawing.Point(391, 3)
-        Me.FTStateAdjust.Name = "FTStateAdjust"
-        Me.FTStateAdjust.Properties.Caption = "Adjust"
-        Me.FTStateAdjust.Properties.ReadOnly = True
-        Me.FTStateAdjust.Properties.Tag = "FTStateLaser"
-        Me.FTStateAdjust.Properties.ValueChecked = "1"
-        Me.FTStateAdjust.Properties.ValueUnchecked = "0"
-        Me.FTStateAdjust.Size = New System.Drawing.Size(90, 20)
-        Me.FTStateAdjust.TabIndex = 478
-        Me.FTStateAdjust.Tag = "2|"
-        Me.FTStateAdjust.Visible = False
         '
         'FTProgram
         '
@@ -2952,7 +2336,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTProgram_lbl.Appearance.Options.UseTextOptions = True
         Me.FTProgram_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTProgram_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTProgram_lbl.Location = New System.Drawing.Point(12, 108)
+        Me.FTProgram_lbl.Location = New System.Drawing.Point(12, 105)
         Me.FTProgram_lbl.Name = "FTProgram_lbl"
         Me.FTProgram_lbl.Size = New System.Drawing.Size(77, 16)
         Me.FTProgram_lbl.TabIndex = 504
@@ -3004,17 +2388,6 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNHSysVenderPramId.TabIndex = 497
         Me.FNHSysVenderPramId.Tag = "2|"
         '
-        'FTUploadDate
-        '
-        Me.FTUploadDate.Location = New System.Drawing.Point(347, 55)
-        Me.FTUploadDate.Name = "FTUploadDate"
-        Me.FTUploadDate.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTUploadDate.Properties.Appearance.Options.UseBackColor = True
-        Me.FTUploadDate.Properties.ReadOnly = True
-        Me.FTUploadDate.Size = New System.Drawing.Size(75, 20)
-        Me.FTUploadDate.TabIndex = 495
-        Me.FTUploadDate.Tag = "2|"
-        '
         'FTFty_lbl
         '
         Me.FTFty_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
@@ -3032,7 +2405,7 @@ Partial Class wGenerateStyleDevelopNew
         'FNVersion
         '
         Me.FNVersion.EditValue = ""
-        Me.FNVersion.Location = New System.Drawing.Point(979, 29)
+        Me.FNVersion.Location = New System.Drawing.Point(620, 29)
         Me.FNVersion.Name = "FNVersion"
         Me.FNVersion.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNVersion.Properties.Appearance.Options.UseBackColor = True
@@ -3048,7 +2421,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTVersion_lbl.Appearance.Options.UseTextOptions = True
         Me.FTVersion_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTVersion_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTVersion_lbl.Location = New System.Drawing.Point(919, 30)
+        Me.FTVersion_lbl.Location = New System.Drawing.Point(560, 30)
         Me.FTVersion_lbl.Name = "FTVersion_lbl"
         Me.FTVersion_lbl.Size = New System.Drawing.Size(54, 17)
         Me.FTVersion_lbl.TabIndex = 490
@@ -3062,7 +2435,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNBomDevType_lbl.Appearance.Options.UseTextOptions = True
         Me.FNBomDevType_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FNBomDevType_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FNBomDevType_lbl.Location = New System.Drawing.Point(747, 30)
+        Me.FNBomDevType_lbl.Location = New System.Drawing.Point(406, 56)
         Me.FNBomDevType_lbl.Name = "FNBomDevType_lbl"
         Me.FNBomDevType_lbl.Size = New System.Drawing.Size(75, 17)
         Me.FNBomDevType_lbl.TabIndex = 488
@@ -3073,7 +2446,7 @@ Partial Class wGenerateStyleDevelopNew
         '
         Me.FNBomDevType.EditValue = ""
         Me.FNBomDevType.EnterMoveNextControl = True
-        Me.FNBomDevType.Location = New System.Drawing.Point(828, 29)
+        Me.FNBomDevType.Location = New System.Drawing.Point(487, 55)
         Me.FNBomDevType.Name = "FNBomDevType"
         Me.FNBomDevType.Properties.Appearance.BackColor = System.Drawing.Color.White
         Me.FNBomDevType.Properties.Appearance.Options.UseBackColor = True
@@ -3092,7 +2465,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNBomDevType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FNBomDevType.Properties.Tag = "FNBomDevType"
         Me.FNBomDevType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.FNBomDevType.Size = New System.Drawing.Size(75, 20)
+        Me.FNBomDevType.Size = New System.Drawing.Size(67, 20)
         Me.FNBomDevType.TabIndex = 487
         Me.FNBomDevType.Tag = "2|"
         '
@@ -3102,10 +2475,67 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogbdetail.Controls.Add(Me.olbfunction)
         Me.ogbdetail.Controls.Add(Me.otb)
         Me.ogbdetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ogbdetail.Location = New System.Drawing.Point(0, 326)
+        Me.ogbdetail.Location = New System.Drawing.Point(0, 273)
         Me.ogbdetail.Name = "ogbdetail"
-        Me.ogbdetail.Size = New System.Drawing.Size(1286, 251)
+        Me.ogbdetail.Size = New System.Drawing.Size(1286, 304)
         Me.ogbdetail.TabIndex = 6
+        '
+        'FNHSysParentBOMId_None
+        '
+        Me.FNHSysParentBOMId_None.Location = New System.Drawing.Point(962, 27)
+        Me.FNHSysParentBOMId_None.Name = "FNHSysParentBOMId_None"
+        Me.FNHSysParentBOMId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysParentBOMId_None.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysParentBOMId_None.Properties.ReadOnly = True
+        Me.FNHSysParentBOMId_None.Size = New System.Drawing.Size(207, 20)
+        Me.FNHSysParentBOMId_None.TabIndex = 496
+        Me.FNHSysParentBOMId_None.Tag = "2|"
+        '
+        'FTDimension
+        '
+        Me.FTDimension.Location = New System.Drawing.Point(95, 78)
+        Me.FTDimension.Name = "FTDimension"
+        Me.FTDimension.Properties.MaxLength = 200
+        Me.FTDimension.Size = New System.Drawing.Size(459, 20)
+        Me.FTDimension.TabIndex = 501
+        Me.FTDimension.Tag = "2|"
+        '
+        'FTDimension_lbl
+        '
+        Me.FTDimension_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTDimension_lbl.Appearance.Options.UseForeColor = True
+        Me.FTDimension_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTDimension_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTDimension_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTDimension_lbl.Location = New System.Drawing.Point(12, 79)
+        Me.FTDimension_lbl.Name = "FTDimension_lbl"
+        Me.FTDimension_lbl.Size = New System.Drawing.Size(77, 16)
+        Me.FTDimension_lbl.TabIndex = 502
+        Me.FTDimension_lbl.Tag = "2|"
+        Me.FTDimension_lbl.Text = "Dimension :"
+        '
+        'FTProgram
+        '
+        Me.FTProgram.Location = New System.Drawing.Point(657, 78)
+        Me.FTProgram.Name = "FTProgram"
+        Me.FTProgram.Properties.MaxLength = 200
+        Me.FTProgram.Size = New System.Drawing.Size(459, 20)
+        Me.FTProgram.TabIndex = 503
+        Me.FTProgram.Tag = "2|"
+        '
+        'FTProgram_lbl
+        '
+        Me.FTProgram_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTProgram_lbl.Appearance.Options.UseForeColor = True
+        Me.FTProgram_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTProgram_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTProgram_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTProgram_lbl.Location = New System.Drawing.Point(574, 79)
+        Me.FTProgram_lbl.Name = "FTProgram_lbl"
+        Me.FTProgram_lbl.Size = New System.Drawing.Size(77, 16)
+        Me.FTProgram_lbl.TabIndex = 504
+        Me.FTProgram_lbl.Tag = "2|"
+        Me.FTProgram_lbl.Text = "Program :"
         '
         'wGenerateStyleDevelopNew
         '
@@ -3123,9 +2553,6 @@ Partial Class wGenerateStyleDevelopNew
         CType(Me.FNHSysCustId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysCustId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStyleDevNameTH.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTUpdTime.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDUpdDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTUpdUser.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysStyleDevId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbmainprocbutton.ResumeLayout(False)
@@ -3185,33 +2612,13 @@ Partial Class wGenerateStyleDevelopNew
         CType(Me.ogcfile, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.oDockManager, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTNikeDeveloperName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTDevelopDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTDevelopDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTSeason.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.otx, System.ComponentModel.ISupportInitialize).EndInit()
         Me.otx.ResumeLayout(False)
         Me.otpstyleinfo.ResumeLayout(False)
-        CType(Me.FTProductDev.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTImportTime.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTPccDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTPccTime.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTImportBy.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStyleSeniorDev.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FDImportDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateConfirmed.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTConfirmedDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTPcc.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTConfirmedTime.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTConfirmedBy.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysParentBOMId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ButtonEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysParentBOMId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEdit7.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit6.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTFty.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit5.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTOwner.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysMSCId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysMSCId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.otpremark.ResumeLayout(False)
@@ -3221,22 +2628,17 @@ Partial Class wGenerateStyleDevelopNew
         CType(Me.FTMSCLevel1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbStyleHeader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbStyleHeader.ResumeLayout(False)
-        Me.XtraScrollableControl3.ResumeLayout(False)
-        CType(Me.FTImage1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTImage2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTImage4.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTImage3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateProduction.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStateAdjust.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTProgram.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTDimension.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTBomDevStyleCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysVenderPramId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTUploadDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNVersion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNBomDevType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbdetail, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbdetail.ResumeLayout(False)
+        CType(Me.FNHSysParentBOMId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTDimension.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTProgram.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -3257,9 +2659,6 @@ Partial Class wGenerateStyleDevelopNew
     Friend WithEvents FNSeq_S As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FNHSysStyleId_S As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTRunSize As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FTUpdTime As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FDUpdDate As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTUpdUser As DevExpress.XtraEditors.TextEdit
     Friend WithEvents ogbmainprocbutton As DevExpress.XtraEditors.PanelControl
     Friend WithEvents ocmexit As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ocmdeletecolorway As DevExpress.XtraEditors.SimpleButton
@@ -3354,7 +2753,6 @@ Partial Class wGenerateStyleDevelopNew
     Friend WithEvents FTPart As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepFTPart As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents ocmbomchangecolorway As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents FTDevelopDate As DevExpress.XtraEditors.DateEdit
     Friend WithEvents ocmbomdiffpart As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents RepositoryItemPopupContainerEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemPopupContainerEdit
     Friend WithEvents RepositoryItemMemoEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit
@@ -3370,8 +2768,6 @@ Partial Class wGenerateStyleDevelopNew
     Friend WithEvents FTPositionPartId As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents FTStateNotShowBomSheet As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepFTStateNotShowBomSheet As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-    Friend WithEvents FTNikeDeveloperName As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTNikeDeveloperName_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents cxFTStateLabel As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents cxFTUsed As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents cxFNOrderSetType As DevExpress.XtraGrid.Columns.GridColumn
@@ -3418,21 +2814,15 @@ Partial Class wGenerateStyleDevelopNew
     Friend WithEvents CFIXFTItemREfNo2 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CFIXFNHSysCurId As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents FTFty As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FTFty_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTVersion_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTUploadDate As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TextEdit7 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FTChassis_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents TextEdit6 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents TextEdit5 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FTParentBOM_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTOwner As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FNVersion As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FNHSysParentBOMId As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FNHSysVenderPramId As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FTBomDevStyleCode As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents ButtonEdit1 As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents otpfileref As DevExpress.XtraTab.XtraTabPage
     Friend WithEvents ogcfile As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
@@ -3444,33 +2834,4 @@ Partial Class wGenerateStyleDevelopNew
     Friend WithEvents FTDimension_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTProgram As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FTProgram_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents XtraScrollableControl3 As DevExpress.XtraEditors.XtraScrollableControl
-    Friend WithEvents FTImage1 As DevExpress.XtraEditors.PictureEdit
-    Friend WithEvents FTImage2 As DevExpress.XtraEditors.PictureEdit
-    Friend WithEvents FTImage4 As DevExpress.XtraEditors.PictureEdit
-    Friend WithEvents FTImage3 As DevExpress.XtraEditors.PictureEdit
-    Friend WithEvents FTStateProduction As DevExpress.XtraEditors.CheckEdit
-    Friend WithEvents FTStateAdjust As DevExpress.XtraEditors.CheckEdit
-    Friend WithEvents FTProductDev As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTProductDev_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTImportTime As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTPccDate As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTPccTime As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTImportBy As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTStyleSeniorDev As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTStyleSeniorDev_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FDImportDate As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTStateConfirmed As DevExpress.XtraEditors.CheckEdit
-    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTConfirmedDate As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTPcc As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTConfirmedTime As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTConfirmedBy As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTConfirmedDate_lbl As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents FTPccDate_lbl As DevExpress.XtraEditors.LabelControl
 End Class
