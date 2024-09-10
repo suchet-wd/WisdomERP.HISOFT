@@ -1230,93 +1230,39 @@ Public Class wGenerateStyleDevelopNew
     Private Sub LoadStyleInfo(ByVal _FNHSysStyleDevId As String, Optional _DefaultTab As Boolean = False)
 
         Call ClearMergeCtrlData()
-
-        FTNikeDeveloperName.Text = ""
-        Dim _dt As DataTable
-        Dim _Str As String = ""
-        _Str = "SELECT MS.FNHSysStyleDevId, MS.FTStyleDevCode, MS.FTStyleDevNameTH, MS.FTStyleDevNameEN "
-        _Str &= vbCrLf & ", MS.FNHSysCustId,  MS.FTUpdUser, CONVERT(VARCHAR(10)"
-        _Str &= vbCrLf & ", CONVERT(DATETIME, MS.FDUpdDate, 120), 103) AS FDUpdDate, MS.FTUpdTime,msc.FTMSCCode "
-        _Str &= vbCrLf & ", T8.FTCustCode, T8.FTCustNameEN, MS.FTDevelopDate, MS.FTNote, MS.FTNikeDeveloperName "
-        _Str &= vbCrLf & ", MS.FNVersion, MS.FTMSCLevel1, MS.FTMSCLevel2, MS.FTMSCLevel3, MS.FTSilhouette, MS.FNBomDevType"
-        _Str &= vbCrLf & ", CONVERT(VARCHAR(10), CONVERT(DATETIME, MS.FDInsDate, 120), 103) AS FDInsDate"
-        _Str &= vbCrLf & ", MS.FTInsUser AS FTImportBy, FTVenderPramCode, MS.FTSeason, m.FTMerTeamCode "
-        _Str &= vbCrLf & ", MS.FTStatePost, MS.FTPostBy, MS.FTPostDate, MS.FTPostTime "
-        _Str &= vbCrLf & ", MS.FTDimension, MS.FTProgram, MS.FTSeniordeveloper, MS.FTProductDev,MS.FTPCCDate, MS.FTPCCTime "
-        _Str &= vbCrLf & ", MS.FTBOMState, MS.FTImportDate, MS.FTImportTime "
-        _Str &= vbCrLf
-        _Str &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle AS MS WITH(NOLOCK)  "
-        _Str &= vbCrLf
-        _Str &= vbCrLf & "LEFT JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCustomer T8 WITH(NOLOCK) ON MS.FNHSysCustId = T8.FNHSysCustId"
-        _Str &= vbCrLf
-        _Str &= vbCrLf & "OUTER APPLY (SELECT TOP 1 u.FNHSysMerTeamId FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSEUserLogin AS u WHERE u.FTUserName = MS.FTInsUser) AS u "
-        _Str &= vbCrLf
-        _Str &= vbCrLf & "OUTER APPLY (SELECT TOP 1 m.FTMerTeamCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMerTeam AS m WHERE m.FNHSysMerTeamId = u.FNHSysMerTeamId) AS m "
-        _Str &= vbCrLf
-        _Str &= vbCrLf & "OUTER APPLY (SELECT TOP 1 v.FTVenderPramCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMVenderPram AS v WHERE v.FNHSysVenderPramId = MS.FNHSysVenderPramId) AS v "
-        _Str &= vbCrLf
-        _Str &= vbCrLf & "OUTER APPLY (select top 1 FTMSCCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMSC X where X.FNHSysMSCId = MS.FNHSysMSCId ) As msc "
-        _Str &= vbCrLf & "WHERE(MS.FNHSysStyleDevId  =" & Val(_FNHSysStyleDevId) & ")"
-        _Str &= vbCrLf & "AND ISNULL(MS.FTBOMState,0) =  1"
-        _Str &= vbCrLf
-        _Str &= vbCrLf & "ORDER BY MS.FNHSysStyleDevId"
-        '--------------------------------------- Load Header ---------------------------------------
-        _dt = HI.Conn.SQLConn.GetDataTable(_Str, Conn.DB.DataBaseName.DB_MERCHAN)
-
-        If _dt.Rows.Count > 0 Then
-            For Each R As DataRow In _dt.Rows
-
-                'FNHSysStyleDevId_None.Text = R!FTStyleNameTH.ToString
-                FTStyleDevNameTH.Text = R!FTStyleDevNameTH.ToString
-                FTStyleDevNameEN.Text = R!FTStyleDevNameEN.ToString
-                FNHSysCustId.Text = R!FTCustCode.ToString
-                FNHSysCustId_None.Text = R!FTCustNameEN.ToString
-                FTUpdUser.Text = R!FTUpdUser.ToString
-                FDUpdDate.Text = R!FDUpdDate.ToString
-                FTUpdTime.Text = R!FTUpdTime.ToString
-                FNHSysMSCId.Text = R!FTMSCCode.ToString
-                FNVersion.Text = R!FNVersion.ToString
-                FDImportDate.Text = R!FDImportDate.ToString
-                FTImportTime.Text = R!FTImportTime.ToString
-                FTImportBy.Text = R!FTImportBy.ToString
-                'FTFty.Text = R!FTVenderPramCode.ToString
-                FNHSysVenderPramId.Text = R!FTVenderPramCode.ToString
-                FTSeason.Text = R!FTSeason.ToString
-                FNVersion.Text = R!FNVersion.ToString
-                FTProgram.Text = R!FTProgram.ToString
-                FTDimension.Text = R!FTDimension.ToString
-                FTNote.Text = R!FTNote.ToString
-                FNBomDevType.SelectedIndex = Val(R!FNBomDevType.ToString)
-                FTMSCLevel1.Text = R!FTMSCLevel1.ToString
-                FTMSCLevel2.Text = R!FTMSCLevel2.ToString
-                FTMSCLevel3.Text = R!FTMSCLevel3.ToString
-                FTSilhouette.Text = R!FTSilhouette.ToString
-                FTNikeDeveloperName.Text = R!FTNikeDeveloperName.ToString
-                FTStyleSeniorDev.Text = R!FTSeniordeveloper.ToString
-                FTProductDev.Text = R!FTProductDev.ToString
-
-            Next
-
-        Else
-
-            _Str = "SELECT TOP 1 MS.FNHSysStyleDevId, MS.FTStyleDevCode, MS.FTStyleDevNameTH, MS.FTStyleDevNameEN "
-            _Str &= vbCrLf & ", MS.FNHSysCustId,  MS.FTUpdUser, CONVERT(VARCHAR(10) "
-            _Str &= vbCrLf & ", CONVERT(DATETIME, MS.FDUpdDate, 120), 103) AS FDUpdDate, MS.FTUpdTime, msc.FTMSCCode"
-            _Str &= vbCrLf & ", T8.FTCustCode, T8.FTCustNameEN,MS.FTNote,MS.FTNikeDeveloperName,MS.FNVersion,MS.FTMSCLevel1,MS.FTMSCLevel2,MS.FTMSCLevel3,MS.FTSilhouette,MS.FNBomDevType"
+        If (FNHSysStyleDevId.Text <> "") Then
+            Dim _dt As DataTable
+            Dim _Str As String = ""
+            _Str = "SELECT MS.FNHSysStyleDevId, MS.FTStyleDevCode, MS.FTStyleDevNameTH, MS.FTStyleDevNameEN "
+            _Str &= vbCrLf & ", MS.FNHSysCustId,  MS.FTUpdUser, CONVERT(VARCHAR(10)"
+            _Str &= vbCrLf & ", CONVERT(DATETIME, MS.FDUpdDate, 120), 103) AS FDUpdDate, MS.FTUpdTime,msc.FTMSCCode "
+            _Str &= vbCrLf & ", T8.FTCustCode, T8.FTCustNameEN, MS.FTDevelopDate, MS.FTNote, MS.FTNikeDeveloperName "
+            _Str &= vbCrLf & ", MS.FNVersion, MS.FTMSCLevel1, MS.FTMSCLevel2, MS.FTMSCLevel3, MS.FTSilhouette, MS.FNBomDevType"
+            _Str &= vbCrLf & ", CONVERT(VARCHAR(10), CONVERT(DATETIME, MS.FDInsDate, 120), 103) AS FDInsDate"
+            _Str &= vbCrLf & ", MS.FTInsUser AS FTImportBy, FTVenderPramCode, MS.FTSeason, m.FTMerTeamCode "
+            _Str &= vbCrLf & ", MS.FTStatePost, MS.FTPostBy, MS.FTPostDate, MS.FTPostTime "
+            _Str &= vbCrLf & ", MS.FTDimension, MS.FTProgram, MS.FTSeniordeveloper, MS.FTProductDev,MS.FTPCCDate, MS.FTPCCTime "
+            _Str &= vbCrLf & ", MS.FTBOMState, MS.FTImportDate, MS.FTImportTime "
+            _Str &= vbCrLf
             _Str &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle AS MS WITH(NOLOCK)  "
             _Str &= vbCrLf
             _Str &= vbCrLf & "LEFT JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCustomer T8 WITH(NOLOCK) ON MS.FNHSysCustId = T8.FNHSysCustId"
             _Str &= vbCrLf
-            _Str &= vbCrLf & "OUTER APPLY (select top 1 FTMSCCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMSC X where X.FNHSysMSCId = MS.FNHSysMSCId ) As msc "
-            _Str &= vbCrLf & "WHERE(MS.FNHSysStyleDevId =" & Val(_FNHSysStyleDevId) & ")"
-            '_Str &= vbCrLf & " WHERE( MS.FTStyleDevCode ='" & HI.UL.ULF.rpQuoted(FNHSysStyleDevId.Text.Trim()) & "')"
+            _Str &= vbCrLf & "OUTER APPLY (SELECT TOP 1 u.FNHSysMerTeamId FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.TSEUserLogin AS u WHERE u.FTUserName = MS.FTInsUser) AS u "
             _Str &= vbCrLf
-            _Str &= vbCrLf & " ORDER BY MS.FNHSysStyleDevId"
-
+            _Str &= vbCrLf & "OUTER APPLY (SELECT TOP 1 m.FTMerTeamCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMerTeam AS m WHERE m.FNHSysMerTeamId = u.FNHSysMerTeamId) AS m "
+            _Str &= vbCrLf
+            _Str &= vbCrLf & "OUTER APPLY (SELECT TOP 1 v.FTVenderPramCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMVenderPram AS v WHERE v.FNHSysVenderPramId = MS.FNHSysVenderPramId) AS v "
+            _Str &= vbCrLf
+            _Str &= vbCrLf & "OUTER APPLY (select top 1 FTMSCCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMSC X where X.FNHSysMSCId = MS.FNHSysMSCId ) As msc "
+            _Str &= vbCrLf & "WHERE(MS.FNHSysStyleDevId  =" & Val(_FNHSysStyleDevId) & ")"
+            _Str &= vbCrLf & "AND ISNULL(MS.FTBOMState,0) =  1"
+            _Str &= vbCrLf
+            _Str &= vbCrLf & "ORDER BY MS.FNHSysStyleDevId"
+            '--------------------------------------- Load Header ---------------------------------------
             _dt = HI.Conn.SQLConn.GetDataTable(_Str, Conn.DB.DataBaseName.DB_MERCHAN)
 
             If _dt.Rows.Count > 0 Then
-
                 For Each R As DataRow In _dt.Rows
 
                     'FNHSysStyleDevId_None.Text = R!FTStyleNameTH.ToString
@@ -1324,57 +1270,112 @@ Public Class wGenerateStyleDevelopNew
                     FTStyleDevNameEN.Text = R!FTStyleDevNameEN.ToString
                     FNHSysCustId.Text = R!FTCustCode.ToString
                     FNHSysCustId_None.Text = R!FTCustNameEN.ToString
+                    FTUpdUser.Text = R!FTUpdUser.ToString
+                    FDUpdDate.Text = R!FDUpdDate.ToString
+                    FTUpdTime.Text = R!FTUpdTime.ToString
                     FNHSysMSCId.Text = R!FTMSCCode.ToString
-                    FNVersion.Text = 1 'Val(R!FNVersion.ToString)
-                    FTUpdUser.Text = ""
-                    FDUpdDate.Text = "??/??/????"
-                    FTUpdTime.Text = "??:??:??"
-                    FDImportDate.Text = "??/??/????"
-                    FTImportTime.Text = "??:??:??"
-                    FTPccDate.Text = "??/??/????"
-                    FTPccTime.Text = "??:??:??"
-                    FTConfirmedDate.Text = "??/??/????"
-                    FTConfirmedTime.Text = "??:??:??"
+                    FNVersion.Text = R!FNVersion.ToString
+                    FDImportDate.Text = R!FDInsDate.ToString
+                    FTImportTime.Text = R!FTImportTime.ToString
+                    FTImportBy.Text = R!FTImportBy.ToString
+                    'FTFty.Text = R!FTVenderPramCode.ToString
+                    FNHSysVenderPramId.Text = R!FTVenderPramCode.ToString
+                    FTSeason.Text = R!FTSeason.ToString
+                    FNVersion.Text = R!FNVersion.ToString
+                    FTProgram.Text = R!FTProgram.ToString
+                    FTDimension.Text = R!FTDimension.ToString
                     FTNote.Text = R!FTNote.ToString
-                    FTNikeDeveloperName.Text = R!FTNikeDeveloperName.ToString
-                    'FNBomDevType.SelectedIndex = Val(R!FNBomDevType.ToString)
+                    FNBomDevType.SelectedIndex = Val(R!FNBomDevType.ToString)
                     FTMSCLevel1.Text = R!FTMSCLevel1.ToString
                     FTMSCLevel2.Text = R!FTMSCLevel2.ToString
                     FTMSCLevel3.Text = R!FTMSCLevel3.ToString
                     FTSilhouette.Text = R!FTSilhouette.ToString
+                    FTNikeDeveloperName.Text = R!FTNikeDeveloperName.ToString
+                    FTStyleSeniorDev.Text = R!FTSeniordeveloper.ToString
+                    FTProductDev.Text = R!FTProductDev.ToString
+
                 Next
+
             Else
-                'FNHSysStyleDevId_None.Text = ""
-                FTStyleDevNameTH.Text = ""
-                FTStyleDevNameEN.Text = ""
-                FNHSysCustId.Text = ""
-                FNHSysCustId_None.Text = ""
-                FNHSysMSCId.Text = ""
-                FTUpdUser.Text = ""
-                FDUpdDate.Text = ""
-                FTUpdTime.Text = ""
-                FTNote.Text = ""
-                FTNikeDeveloperName.Text = ""
-                FNVersion.Text = 1
-                FTMSCLevel1.Text = ""
-                FTMSCLevel2.Text = ""
-                FTMSCLevel3.Text = ""
-                FTSilhouette.Text = ""
 
+                _Str = "SELECT TOP 1 MS.FNHSysStyleDevId, MS.FTStyleDevCode, MS.FTStyleDevNameTH, MS.FTStyleDevNameEN "
+                _Str &= vbCrLf & ", MS.FNHSysCustId,  MS.FTUpdUser, CONVERT(VARCHAR(10) "
+                _Str &= vbCrLf & ", CONVERT(DATETIME, MS.FDUpdDate, 120), 103) AS FDUpdDate, MS.FTUpdTime, msc.FTMSCCode"
+                _Str &= vbCrLf & ", T8.FTCustCode, T8.FTCustNameEN,MS.FTNote,MS.FTNikeDeveloperName,MS.FNVersion,MS.FTMSCLevel1,MS.FTMSCLevel2,MS.FTMSCLevel3,MS.FTSilhouette,MS.FNBomDevType"
+                _Str &= vbCrLf & "FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle AS MS WITH(NOLOCK)  "
+                _Str &= vbCrLf
+                _Str &= vbCrLf & "LEFT JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMCustomer T8 WITH(NOLOCK) ON MS.FNHSysCustId = T8.FNHSysCustId"
+                _Str &= vbCrLf
+                _Str &= vbCrLf & "OUTER APPLY (select top 1 FTMSCCode FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMSC X where X.FNHSysMSCId = MS.FNHSysMSCId ) As msc "
+                _Str &= vbCrLf & "WHERE(MS.FNHSysStyleDevId =" & Val(_FNHSysStyleDevId) & ")"
+                '_Str &= vbCrLf & " WHERE( MS.FTStyleDevCode ='" & HI.UL.ULF.rpQuoted(FNHSysStyleDevId.Text.Trim()) & "')"
+                _Str &= vbCrLf
+                _Str &= vbCrLf & " ORDER BY MS.FNHSysStyleDevId"
+
+                _dt = HI.Conn.SQLConn.GetDataTable(_Str, Conn.DB.DataBaseName.DB_MERCHAN)
+
+                If _dt.Rows.Count > 0 Then
+
+                    For Each R As DataRow In _dt.Rows
+
+                        'FNHSysStyleDevId_None.Text = R!FTStyleNameTH.ToString
+                        FTStyleDevNameTH.Text = R!FTStyleDevNameTH.ToString
+                        FTStyleDevNameEN.Text = R!FTStyleDevNameEN.ToString
+                        FNHSysCustId.Text = R!FTCustCode.ToString
+                        FNHSysCustId_None.Text = R!FTCustNameEN.ToString
+                        FNHSysMSCId.Text = R!FTMSCCode.ToString
+                        FNVersion.Text = 1 'Val(R!FNVersion.ToString)
+                        FTUpdUser.Text = ""
+                        FDUpdDate.Text = "??/??/????"
+                        FTUpdTime.Text = "??:??:??"
+                        FDImportDate.Text = "??/??/????"
+                        FTImportTime.Text = "??:??:??"
+                        FTPccDate.Text = "??/??/????"
+                        FTPccTime.Text = "??:??:??"
+                        FTConfirmedDate.Text = "??/??/????"
+                        FTConfirmedTime.Text = "??:??:??"
+                        FTNote.Text = R!FTNote.ToString
+                        FTNikeDeveloperName.Text = R!FTNikeDeveloperName.ToString
+                        'FNBomDevType.SelectedIndex = Val(R!FNBomDevType.ToString)
+                        FTMSCLevel1.Text = R!FTMSCLevel1.ToString
+                        FTMSCLevel2.Text = R!FTMSCLevel2.ToString
+                        FTMSCLevel3.Text = R!FTMSCLevel3.ToString
+                        FTSilhouette.Text = R!FTSilhouette.ToString
+                    Next
+                Else
+                    'FNHSysStyleDevId_None.Text = ""
+                    FTStyleDevNameTH.Text = ""
+                    FTStyleDevNameEN.Text = ""
+                    FNHSysCustId.Text = ""
+                    FNHSysCustId_None.Text = ""
+                    FNHSysMSCId.Text = ""
+                    FTUpdUser.Text = ""
+                    FDUpdDate.Text = ""
+                    FTUpdTime.Text = ""
+                    FTNote.Text = ""
+                    FTNikeDeveloperName.Text = ""
+                    FNVersion.Text = 1
+                    FTMSCLevel1.Text = ""
+                    FTMSCLevel2.Text = ""
+                    FTMSCLevel3.Text = ""
+                    FTSilhouette.Text = ""
+
+                End If
             End If
+
+            'Me.otb.SelectedTabPageIndex = 0
+            If (_FNHSysStyleDevId <> "") Then
+                Call LoadStyleDetail(_FNHSysStyleDevId)
+                Call LoadColorwaySize(_FNHSysStyleDevId)
+            End If
+
+            If (_DefaultTab) Then
+                Me.otb.SelectedTabPageIndex = 0
+            End If
+
+            Call LoadStylePostInfo()
         End If
 
-        'Me.otb.SelectedTabPageIndex = 0
-        If (_FNHSysStyleDevId <> "") Then
-            Call LoadStyleDetail(_FNHSysStyleDevId)
-            Call LoadColorwaySize(_FNHSysStyleDevId)
-        End If
-
-        If (_DefaultTab) Then
-            Me.otb.SelectedTabPageIndex = 0
-        End If
-
-        Call LoadStylePostInfo()
     End Sub
 
     Private Sub LoadStyleDetail(ByVal FNHSysStyleDevId As String)
@@ -1739,6 +1740,14 @@ Public Class wGenerateStyleDevelopNew
         FTDimension.Text = ""
         FTProgram.Text = ""
         FTStyleSeniorDev.Text = ""
+        FDUpdDate.Text = "??/??/????"
+        FTUpdTime.Text = "??:??:??"
+        FDImportDate.Text = "??/??/????"
+        FTImportTime.Text = "??:??:??"
+        FTPccDate.Text = "??/??/????"
+        FTPccTime.Text = "??:??:??"
+        FTConfirmedDate.Text = "??/??/????"
+        FTConfirmedTime.Text = "??:??:??"
 
         Dim xCol As Integer = 0
         Dim Idx As Integer = 0
@@ -1858,7 +1867,6 @@ Public Class wGenerateStyleDevelopNew
                 dr.Item("FTStateLabel") = "0"
                 dr.Item("FTUsed") = ""
                 dr.Item("FTItemREfNo") = ""
-
 
                 dtStyleDetail.Rows.Add(dr)
 
@@ -6728,7 +6736,7 @@ Public Class wGenerateStyleDevelopNew
                 If (FNHSysStyleDevId.Text <> "") Then
                     Dim _Str As String = "SELECT TOP 1 FNHSysStyleDevId FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle  WITH(NOLOCK) WHERE FTStyleDevCode ='" & HI.UL.ULF.rpQuoted(FNHSysStyleDevId.Text) & "' AND FTSeason='" & HI.UL.ULF.rpQuoted(FTSeason.Text) & "'  AND ISNULL(FNVersion,0)=" & FNVersion.Text & "  AND FNBomDevType =" & FNBomDevType.SelectedIndex & " "
                     FNHSysStyleDevId.Properties.Tag = HI.Conn.SQLConn.GetField(_Str, Conn.DB.DataBaseName.DB_MERCHAN, "")
-                    Call LoadStyleInfo(FNHSysStyleDevId.Properties.Tag.ToString, True)
+                    'Call LoadStyleInfo(FNHSysStyleDevId.Properties.Tag.ToString, True)
                 End If
             End If
         Catch ex As Exception
@@ -7177,7 +7185,7 @@ Public Class wGenerateStyleDevelopNew
                     _Str &= "WHERE FTStyleDevCode ='" & HI.UL.ULF.rpQuoted(FNHSysStyleDevId.Text) & "' AND FTSeason='" & HI.UL.ULF.rpQuoted(FTSeason.Text) & "' "
                     _Str &= "And ISNULL(FNVersion,0)=" & FNVersion.Text & " And FNBomDevType =" & FNBomDevType.SelectedIndex & " "
                     FNHSysStyleDevId.Properties.Tag = HI.Conn.SQLConn.GetField(_Str, Conn.DB.DataBaseName.DB_MERCHAN, "")
-                    Call LoadStyleInfo(FNHSysStyleDevId.Properties.Tag.ToString, True)
+                    'Call LoadStyleInfo(FNHSysStyleDevId.Properties.Tag.ToString, True)
                 End If
             End If
         Catch ex As Exception
