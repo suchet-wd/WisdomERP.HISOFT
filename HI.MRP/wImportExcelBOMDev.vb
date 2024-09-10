@@ -229,7 +229,7 @@ Public Class wImportExcelBOMDev
 
                         cmdstring = "Select STYLE_NBR, STYLE_NM, SEASON_CD, SEASON_YR, FTSeason, FTStatus, ISNULL(SST.FTStateReplace,'0') AS FTStateReplace "
                         cmdstring &= vbCrLf & ", ISNULL(SST.FNHSysStyleDevId,0) AS FNHSysStyleDevId, ISNULL(SST2.FNHSysStyleDevId2,0) AS FNHSysStyleDevId2 "
-                        cmdstring &= vbCrLf & ", ISNULL(SST.FTStatePost,'0') AS FTStatePost, ISNULL(SST2.FNVersion,0) AS FNVersion"
+                        cmdstring &= vbCrLf & ", ISNULL(SST.FTStatePost,'0') AS FTStatePost, ISNULL(SST2.FNVersion,1) AS FNVersion"
                         cmdstring &= vbCrLf & ", CASE WHEN ISNULL(SST.FTStateReplace,'0') ='1' THEN '0' ELSE '1' END AS FTStateImport "
                         cmdstring &= vbCrLf
                         cmdstring &= vbCrLf & "FROM (Select STYLE_NBR, STYLE_NM, SEASON_CD, SEASON_YR"
