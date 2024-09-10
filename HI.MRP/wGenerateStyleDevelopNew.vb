@@ -7135,6 +7135,7 @@ Public Class wGenerateStyleDevelopNew
     End Sub
 
     Private Sub ocmcopy_Click(sender As Object, e As EventArgs) Handles ocmcopy.Click
+        'Dim _FNHSysStyleDevId As Integer = Integer.Parse(Val(FNHSysStyleDevId.Properties.Tag.ToString))
 
         If Me.FNHSysStyleDevId.Text <> "" Then
             If "" & Me.FNHSysStyleDevId.Properties.Tag.ToString <> "" Then
@@ -7155,7 +7156,6 @@ Public Class wGenerateStyleDevelopNew
 
                         If (.ProcComplete) Then
                             Me.otb.SelectedTabPage = otpmatcode
-
                         End If
 
                     End With
@@ -7296,6 +7296,14 @@ Public Class wGenerateStyleDevelopNew
 
         Catch ex As Exception
         End Try
+
+    End Sub
+
+    Private Sub ocmcompare_Click(sender As Object, e As EventArgs) Handles ocmcompare.Click
+
+    End Sub
+
+    Private Sub ocmmanualbom_Click(sender As Object, e As EventArgs) Handles ocmmanualbom.Click
 
     End Sub
 End Class
