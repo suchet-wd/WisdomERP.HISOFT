@@ -241,6 +241,18 @@
     <Compile Include="wCMPriceStyleBySeason.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="wCompareBOM.Designer.vb">
+      <DependentUpon>wCompareBOM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wCompareBOM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wCreateBomDev.Designer.vb">
+      <DependentUpon>wCreateBomDev.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wCreateBomDev.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="wFileBOMPDFTracking.Designer.vb">
       <DependentUpon>wFileBOMPDFTracking.vb</DependentUpon>
     </Compile>
@@ -560,6 +572,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="wCMPriceStyleBySeason.resx">
       <DependentUpon>wCMPriceStyleBySeason.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wCompareBOM.resx">
+      <DependentUpon>wCompareBOM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wCreateBomDev.resx">
+      <DependentUpon>wCreateBomDev.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wFileBOMPDFTracking.resx">
       <DependentUpon>wFileBOMPDFTracking.vb</DependentUpon>
