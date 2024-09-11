@@ -35,11 +35,6 @@ Partial Class wGenerateStyleDevOriginal
         Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions15 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject57 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject58 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject59 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject60 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions16 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject61 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject62 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
@@ -50,21 +45,31 @@ Partial Class wGenerateStyleDevOriginal
         Dim SerializableAppearanceObject66 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject67 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject68 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions14 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject53 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject54 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject55 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject56 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim EditorButtonImageOptions7 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject25 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject26 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject27 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject28 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions18 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject69 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject70 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject71 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SerializableAppearanceObject72 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions7 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject25 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject26 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject27 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject28 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions15 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject57 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject58 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject59 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject60 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions19 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject73 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject74 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject75 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject76 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions14 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject53 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject54 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject55 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject56 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.FTNote = New DevExpress.XtraEditors.MemoEdit()
         Me.FNHSysStyleDevId_None = New DevExpress.XtraEditors.TextEdit()
         Me.FTStyleDevNameEN = New DevExpress.XtraEditors.TextEdit()
@@ -214,6 +219,8 @@ Partial Class wGenerateStyleDevOriginal
         Me.olbfunction = New DevExpress.XtraEditors.LabelControl()
         Me.otx = New DevExpress.XtraTab.XtraTabControl()
         Me.otpstyleinfo = New DevExpress.XtraTab.XtraTabPage()
+        Me.FTNikeDeveloperName = New DevExpress.XtraEditors.TextEdit()
+        Me.FTNikeDeveloperName_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTProductDev = New DevExpress.XtraEditors.TextEdit()
         Me.FTProductDev_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
@@ -284,8 +291,8 @@ Partial Class wGenerateStyleDevOriginal
         Me.ocmbominsertrow = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmbomaddnew = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmexit = New DevExpress.XtraEditors.SimpleButton()
-        Me.FTNikeDeveloperName = New DevExpress.XtraEditors.TextEdit()
-        Me.FTNikeDeveloperName_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FNHSysParentBOMId = New DevExpress.XtraEditors.ButtonEdit()
+        Me.FNHSysParentBOMId_None = New DevExpress.XtraEditors.TextEdit()
         CType(Me.FTNote.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysStyleDevId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStyleDevNameEN.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -359,6 +366,7 @@ Partial Class wGenerateStyleDevOriginal
         CType(Me.otx, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.otx.SuspendLayout()
         Me.otpstyleinfo.SuspendLayout()
+        CType(Me.FTNikeDeveloperName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTProductDev.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTImportTime.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTPccDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -396,7 +404,8 @@ Partial Class wGenerateStyleDevOriginal
         Me.ogbdetail.SuspendLayout()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbmainprocbutton.SuspendLayout()
-        CType(Me.FTNikeDeveloperName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FNHSysParentBOMId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FNHSysParentBOMId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FTNote
@@ -588,7 +597,7 @@ Partial Class wGenerateStyleDevOriginal
         '
         Me.FNHSysStyleDevId.Location = New System.Drawing.Point(95, 27)
         Me.FNHSysStyleDevId.Name = "FNHSysStyleDevId"
-        Me.FNHSysStyleDevId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "704", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleDevId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions10, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject37, SerializableAppearanceObject38, SerializableAppearanceObject39, SerializableAppearanceObject40, "", "707", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleDevId.Properties.Tag = ""
         Me.FNHSysStyleDevId.Size = New System.Drawing.Size(140, 20)
         Me.FNHSysStyleDevId.TabIndex = 0
@@ -903,7 +912,7 @@ Partial Class wGenerateStyleDevOriginal
         'RepositoryFNHSysSuplId
         '
         Me.RepositoryFNHSysSuplId.AutoHeight = False
-        Me.RepositoryFNHSysSuplId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", "104", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryFNHSysSuplId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", "104", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryFNHSysSuplId.Name = "RepositoryFNHSysSuplId"
         '
         'FTCurCode
@@ -925,7 +934,7 @@ Partial Class wGenerateStyleDevOriginal
         'RepositoryFNHSysCurId
         '
         Me.RepositoryFNHSysCurId.AutoHeight = False
-        Me.RepositoryFNHSysCurId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions16, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject61, SerializableAppearanceObject62, SerializableAppearanceObject63, SerializableAppearanceObject64, "", "107", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryFNHSysCurId.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions17, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject65, SerializableAppearanceObject66, SerializableAppearanceObject67, SerializableAppearanceObject68, "", "107", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryFNHSysCurId.Name = "RepositoryFNHSysCurId"
         '
         'FNPrice
@@ -1444,7 +1453,7 @@ Partial Class wGenerateStyleDevOriginal
         'RepositoryFTMainMatCode
         '
         Me.RepositoryFTMainMatCode.AutoHeight = False
-        Me.RepositoryFTMainMatCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions17, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject65, SerializableAppearanceObject66, SerializableAppearanceObject67, SerializableAppearanceObject68, "", "108", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.RepositoryFTMainMatCode.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions18, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject69, SerializableAppearanceObject70, SerializableAppearanceObject71, SerializableAppearanceObject72, "", "108", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryFTMainMatCode.Name = "RepositoryFTMainMatCode"
         Me.RepositoryFTMainMatCode.Tag = ""
         '
@@ -2087,6 +2096,8 @@ Partial Class wGenerateStyleDevOriginal
         '
         'otpstyleinfo
         '
+        Me.otpstyleinfo.Controls.Add(Me.FNHSysParentBOMId_None)
+        Me.otpstyleinfo.Controls.Add(Me.FNHSysParentBOMId)
         Me.otpstyleinfo.Controls.Add(Me.FTNikeDeveloperName)
         Me.otpstyleinfo.Controls.Add(Me.FTNikeDeveloperName_lbl)
         Me.otpstyleinfo.Controls.Add(Me.FTProductDev)
@@ -2133,6 +2144,32 @@ Partial Class wGenerateStyleDevOriginal
         Me.otpstyleinfo.Name = "otpstyleinfo"
         Me.otpstyleinfo.Size = New System.Drawing.Size(1328, 168)
         Me.otpstyleinfo.Text = "Style Info"
+        '
+        'FTNikeDeveloperName
+        '
+        Me.FTNikeDeveloperName.Enabled = False
+        Me.FTNikeDeveloperName.Location = New System.Drawing.Point(550, 82)
+        Me.FTNikeDeveloperName.Name = "FTNikeDeveloperName"
+        Me.FTNikeDeveloperName.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
+        Me.FTNikeDeveloperName.Properties.Appearance.Options.UseBackColor = True
+        Me.FTNikeDeveloperName.Properties.ReadOnly = True
+        Me.FTNikeDeveloperName.Size = New System.Drawing.Size(340, 20)
+        Me.FTNikeDeveloperName.TabIndex = 510
+        Me.FTNikeDeveloperName.Tag = "2|"
+        '
+        'FTNikeDeveloperName_lbl
+        '
+        Me.FTNikeDeveloperName_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTNikeDeveloperName_lbl.Appearance.Options.UseForeColor = True
+        Me.FTNikeDeveloperName_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTNikeDeveloperName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTNikeDeveloperName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTNikeDeveloperName_lbl.Location = New System.Drawing.Point(469, 80)
+        Me.FTNikeDeveloperName_lbl.Name = "FTNikeDeveloperName_lbl"
+        Me.FTNikeDeveloperName_lbl.Size = New System.Drawing.Size(76, 17)
+        Me.FTNikeDeveloperName_lbl.TabIndex = 511
+        Me.FTNikeDeveloperName_lbl.Tag = "2|"
+        Me.FTNikeDeveloperName_lbl.Text = "PCC :"
         '
         'FTProductDev
         '
@@ -2269,7 +2306,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNHSysSeasonId.Name = "FNHSysSeasonId"
         Me.FNHSysSeasonId.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSeasonId.Properties.Appearance.Options.UseBackColor = True
-        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysSeasonId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "94", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysSeasonId.Properties.Tag = ""
         Me.FNHSysSeasonId.Size = New System.Drawing.Size(121, 20)
         Me.FNHSysSeasonId.TabIndex = 492
@@ -2304,7 +2341,7 @@ Partial Class wGenerateStyleDevOriginal
         'TextEdit5
         '
         Me.TextEdit5.Enabled = False
-        Me.TextEdit5.Location = New System.Drawing.Point(91, 54)
+        Me.TextEdit5.Location = New System.Drawing.Point(1062, 50)
         Me.TextEdit5.Name = "TextEdit5"
         Me.TextEdit5.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.TextEdit5.Properties.Appearance.Options.UseBackColor = True
@@ -2372,7 +2409,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNHSysMSCId.Name = "FNHSysMSCId"
         Me.FNHSysMSCId.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysMSCId.Properties.Appearance.Options.UseBackColor = True
-        Me.FNHSysMSCId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "975", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysMSCId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions15, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject57, SerializableAppearanceObject58, SerializableAppearanceObject59, SerializableAppearanceObject60, "", "975", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysMSCId.Properties.Tag = ""
         Me.FNHSysMSCId.Size = New System.Drawing.Size(140, 20)
         Me.FNHSysMSCId.TabIndex = 303
@@ -2733,7 +2770,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNHSysVenderPramId.Name = "FNHSysVenderPramId"
         Me.FNHSysVenderPramId.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysVenderPramId.Properties.Appearance.Options.UseBackColor = True
-        Me.FNHSysVenderPramId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions18, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject69, SerializableAppearanceObject70, SerializableAppearanceObject71, SerializableAppearanceObject72, "", "168", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysVenderPramId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions19, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject73, SerializableAppearanceObject74, SerializableAppearanceObject75, SerializableAppearanceObject76, "", "168", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysVenderPramId.Properties.Tag = ""
         Me.FNHSysVenderPramId.Size = New System.Drawing.Size(140, 20)
         Me.FNHSysVenderPramId.TabIndex = 314
@@ -3080,31 +3117,27 @@ Partial Class wGenerateStyleDevOriginal
         Me.ocmexit.Tag = "2|"
         Me.ocmexit.Text = "EXIT"
         '
-        'FTNikeDeveloperName
+        'FNHSysParentBOMId
         '
-        Me.FTNikeDeveloperName.Enabled = False
-        Me.FTNikeDeveloperName.Location = New System.Drawing.Point(550, 82)
-        Me.FTNikeDeveloperName.Name = "FTNikeDeveloperName"
-        Me.FTNikeDeveloperName.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTNikeDeveloperName.Properties.Appearance.Options.UseBackColor = True
-        Me.FTNikeDeveloperName.Properties.ReadOnly = True
-        Me.FTNikeDeveloperName.Size = New System.Drawing.Size(340, 20)
-        Me.FTNikeDeveloperName.TabIndex = 510
-        Me.FTNikeDeveloperName.Tag = "2|"
+        Me.FNHSysParentBOMId.Enabled = False
+        Me.FNHSysParentBOMId.Location = New System.Drawing.Point(91, 54)
+        Me.FNHSysParentBOMId.Name = "FNHSysParentBOMId"
+        Me.FNHSysParentBOMId.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysParentBOMId.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysParentBOMId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions14, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject53, SerializableAppearanceObject54, SerializableAppearanceObject55, SerializableAppearanceObject56, "", "708", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysParentBOMId.Size = New System.Drawing.Size(140, 20)
+        Me.FNHSysParentBOMId.TabIndex = 512
         '
-        'FTNikeDeveloperName_lbl
+        'FNHSysParentBOMId_None
         '
-        Me.FTNikeDeveloperName_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTNikeDeveloperName_lbl.Appearance.Options.UseForeColor = True
-        Me.FTNikeDeveloperName_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTNikeDeveloperName_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTNikeDeveloperName_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTNikeDeveloperName_lbl.Location = New System.Drawing.Point(469, 80)
-        Me.FTNikeDeveloperName_lbl.Name = "FTNikeDeveloperName_lbl"
-        Me.FTNikeDeveloperName_lbl.Size = New System.Drawing.Size(76, 17)
-        Me.FTNikeDeveloperName_lbl.TabIndex = 511
-        Me.FTNikeDeveloperName_lbl.Tag = "2|"
-        Me.FTNikeDeveloperName_lbl.Text = "PCC :"
+        Me.FNHSysParentBOMId_None.Location = New System.Drawing.Point(237, 54)
+        Me.FNHSysParentBOMId_None.Name = "FNHSysParentBOMId_None"
+        Me.FNHSysParentBOMId_None.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
+        Me.FNHSysParentBOMId_None.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysParentBOMId_None.Properties.ReadOnly = True
+        Me.FNHSysParentBOMId_None.Size = New System.Drawing.Size(193, 20)
+        Me.FNHSysParentBOMId_None.TabIndex = 513
+        Me.FNHSysParentBOMId_None.Tag = "2|"
         '
         'wGenerateStyleDevOriginal
         '
@@ -3189,6 +3222,7 @@ Partial Class wGenerateStyleDevOriginal
         CType(Me.otx, System.ComponentModel.ISupportInitialize).EndInit()
         Me.otx.ResumeLayout(False)
         Me.otpstyleinfo.ResumeLayout(False)
+        CType(Me.FTNikeDeveloperName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTProductDev.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTImportTime.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTPccDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3226,7 +3260,8 @@ Partial Class wGenerateStyleDevOriginal
         Me.ogbdetail.ResumeLayout(False)
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbmainprocbutton.ResumeLayout(False)
-        CType(Me.FTNikeDeveloperName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNHSysParentBOMId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FNHSysParentBOMId_None.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -3451,4 +3486,6 @@ Partial Class wGenerateStyleDevOriginal
     Friend WithEvents FTProductDev_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTNikeDeveloperName As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FTNikeDeveloperName_lbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents FNHSysParentBOMId As DevExpress.XtraEditors.ButtonEdit
+    Friend WithEvents FNHSysParentBOMId_None As DevExpress.XtraEditors.TextEdit
 End Class

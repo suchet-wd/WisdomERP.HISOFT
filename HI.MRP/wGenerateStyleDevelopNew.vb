@@ -2600,6 +2600,8 @@ Public Class wGenerateStyleDevelopNew
 
             Dim _Spls As New HI.TL.SplashScreen("Saving.... ,Please Wait.")
             Dim _FNHSysStyleDevId As Integer = Integer.Parse(Val(FNHSysStyleDevId.Properties.Tag.ToString))
+            HI.MG.ShowMsg.mProcessComplete(MG.ShowMsg.ProcessType.mSave, _FNHSysStyleDevId)
+
             If Me.SaveData(_FNHSysStyleDevId) Then
                 '' Update order information.
                 Me.FNHSysStyleDevId.Focus()
@@ -7184,7 +7186,7 @@ Public Class wGenerateStyleDevelopNew
                     _Str &= "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle WITH(NOLOCK) "
                     _Str &= "WHERE FTStyleDevCode ='" & HI.UL.ULF.rpQuoted(FNHSysStyleDevId.Text) & "' AND FTSeason='" & HI.UL.ULF.rpQuoted(FTSeason.Text) & "' "
                     _Str &= "And ISNULL(FNVersion,0)=" & FNVersion.Text & " And FNBomDevType =" & FNBomDevType.SelectedIndex & " "
-                    FNHSysStyleDevId.Properties.Tag = HI.Conn.SQLConn.GetField(_Str, Conn.DB.DataBaseName.DB_MERCHAN, "")
+                    'FNHSysStyleDevId.Properties.Tag = HI.Conn.SQLConn.GetField(_Str, Conn.DB.DataBaseName.DB_MERCHAN, "")
                     'Call LoadStyleInfo(FNHSysStyleDevId.Properties.Tag.ToString, True)
                 End If
             End If

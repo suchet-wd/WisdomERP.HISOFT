@@ -79,6 +79,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNHSysStyleDevId_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysStyleDevId = New DevExpress.XtraEditors.ButtonEdit()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
+        Me.ocmmanualbom = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcompare = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcopy = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmbomdiffpart = New DevExpress.XtraEditors.SimpleButton()
@@ -217,6 +218,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.RepFTRunSize = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.cx3FNOrderSetType = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.RepositoryFNOrderSetType3 = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
+        Me.otpemb = New DevExpress.XtraTab.XtraTabPage()
         Me.otpfileref = New DevExpress.XtraTab.XtraTabPage()
         Me.ogcfile = New DevExpress.XtraGrid.GridControl()
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -294,8 +296,6 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNBomDevType_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNBomDevType = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.ogbdetail = New DevExpress.XtraEditors.GroupControl()
-        Me.otpemb = New DevExpress.XtraTab.XtraTabPage()
-        Me.ocmmanualbom = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.FTNote.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysStyleDevId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStyleDevNameEN.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -558,7 +558,7 @@ Partial Class wGenerateStyleDevelopNew
         '
         Me.FNHSysStyleDevId.Location = New System.Drawing.Point(95, 29)
         Me.FNHSysStyleDevId.Name = "FNHSysStyleDevId"
-        Me.FNHSysStyleDevId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "703", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleDevId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "706", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleDevId.Properties.Tag = ""
         Me.FNHSysStyleDevId.Size = New System.Drawing.Size(142, 20)
         Me.FNHSysStyleDevId.TabIndex = 0
@@ -592,6 +592,16 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(366, 250)
         Me.ogbmainprocbutton.TabIndex = 137
         Me.ogbmainprocbutton.Tag = "2|"
+        '
+        'ocmmanualbom
+        '
+        Me.ocmmanualbom.Location = New System.Drawing.Point(133, 197)
+        Me.ocmmanualbom.Name = "ocmmanualbom"
+        Me.ocmmanualbom.Size = New System.Drawing.Size(140, 25)
+        Me.ocmmanualbom.TabIndex = 119
+        Me.ocmmanualbom.TabStop = False
+        Me.ocmmanualbom.Tag = "2|"
+        Me.ocmmanualbom.Text = "Manual BOM"
         '
         'ocmcompare
         '
@@ -2043,6 +2053,12 @@ Partial Class wGenerateStyleDevelopNew
         Me.RepositoryFNOrderSetType3.NullText = ""
         Me.RepositoryFNOrderSetType3.ValueMember = "FNIndex"
         '
+        'otpemb
+        '
+        Me.otpemb.Name = "otpemb"
+        Me.otpemb.Size = New System.Drawing.Size(1280, 201)
+        Me.otpemb.Text = "Embllishment"
+        '
         'otpfileref
         '
         Me.otpfileref.Controls.Add(Me.ogcfile)
@@ -2544,7 +2560,7 @@ Partial Class wGenerateStyleDevelopNew
         '
         Me.FNHSysParentBOMId.Location = New System.Drawing.Point(128, 56)
         Me.FNHSysParentBOMId.Name = "FNHSysParentBOMId"
-        Me.FNHSysParentBOMId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "705", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysParentBOMId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "708", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysParentBOMId.Size = New System.Drawing.Size(125, 20)
         Me.FNHSysParentBOMId.TabIndex = 494
         '
@@ -3038,22 +3054,6 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogbdetail.Name = "ogbdetail"
         Me.ogbdetail.Size = New System.Drawing.Size(1286, 251)
         Me.ogbdetail.TabIndex = 6
-        '
-        'otpemb
-        '
-        Me.otpemb.Name = "otpemb"
-        Me.otpemb.Size = New System.Drawing.Size(0, 0)
-        Me.otpemb.Text = "XtraTabPage1"
-        '
-        'ocmmanualbom
-        '
-        Me.ocmmanualbom.Location = New System.Drawing.Point(133, 197)
-        Me.ocmmanualbom.Name = "ocmmanualbom"
-        Me.ocmmanualbom.Size = New System.Drawing.Size(140, 25)
-        Me.ocmmanualbom.TabIndex = 119
-        Me.ocmmanualbom.TabStop = False
-        Me.ocmmanualbom.Tag = "2|"
-        Me.ocmmanualbom.Text = "Manual BOM"
         '
         'wGenerateStyleDevelopNew
         '
