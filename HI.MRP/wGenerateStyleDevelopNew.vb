@@ -1706,7 +1706,7 @@ Public Class wGenerateStyleDevelopNew
         Me.ogcsize.DataSource = Nothing
 
         FNHSysMSCId.Text = ""
-        FNVersion.Text = 1
+        FNVersion.Text = "##"
         FNBomDevType.Text = ""
         FNHSysVenderPramId.Text = ""
         FTStyleDevNameTH.Text = ""
@@ -2974,7 +2974,12 @@ Public Class wGenerateStyleDevelopNew
 
                     If cnt = 0 Then
 
-                        mVersion = 1
+                        If FNVersion.Text <> "" Then
+                            mVersion = Val(FNVersion.Text)
+                        Else
+                            mVersion = 1
+                        End If
+
                         _Str = "INSERT INTO [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[TMERTDevelopStyle] "
                         _Str &= vbCrLf & " (FNHSysStyleDevId, FTStyleDevCode, FTStyleDevNameTH, FTStyleDevNameEN, FTSeason, FTNote, FNHSysCustId, "
                         _Str &= vbCrLf & "FTInsUser, FDInsDate, FTInsTime, FTUpdUser, FDUpdDate, FTUpdTime, FNHSysMSCId, FNVersion"
@@ -7344,7 +7349,32 @@ Public Class wGenerateStyleDevelopNew
             .ShowDialog()
 
             If (.ProcComplete) Then
+                Dim _version As Integer = 1
+                Dim _Qry As String = ""
+                'b.FNHSysStyleDevId  , b.FTStyleDevCode, b.FTSeason , b.FNBomDevType ,
+                _Qry = "SELECT TOP 1  ISNULL(MAX(b.FNVersion),0) + 1  "
+                _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle AS b WITH(NOLOCK) "
+                _Qry &= vbCrLf & "WHERE b.FTStyleDevCode = '" & .FTStyle.Text & "' "
+                _Qry &= vbCrLf & "AND b.FTSeason = '" & .FTSeason.Text & "' "
+                _Qry &= vbCrLf & "AND b.FNBomDevType = '" & Val(.FNBomDevType.SelectedIndex) & "'"
+
+                _version = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "")
+
                 Me.otb.SelectedTabPage = otpmatcode
+                Me.FTBomDevStyleCode.Text = .FTStyle.Text
+                Me.FNHSysStyleDevId_None.Text = .FTStyleDetail.Text
+                Me.FNBomDevType.Text = .FNBomDevType.Text
+                Me.FTSeason.Text = .FTSeason.Text
+                Me.FNHSysStyleDevId.Text = .FTStyle.Text + "-" + .FTSeason.Text + "-" + Format(_version, "0#") + "-" + .FNBomDevType.Text
+                Me.FNVersion.Text = _version
+
+
+                'If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "") Then
+                '    '    Return True
+                '    'Else
+                '    '    HI.MG.ShowMsg.mProcessError(1411200101, "คุณไม่มีสิทธิ์ทำการลบหรือแก้ไข Style นี้ ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
+                '    '    Return False
+                'End If
             End If
 
         End With

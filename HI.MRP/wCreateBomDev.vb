@@ -44,19 +44,9 @@ Public Class wCreateBomDev
 
     Private Sub ocmok_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmok.Click
         If Verify() Then
-            Dim _Qry As String = ""
-            _Qry = "SELECT TOP 1  b.FNHSysStyleDevId  , b.FTStyleDevCode, b.FTSeason , b.FNBomDevType  "
-            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle AS b WITH(NOLOCK) "
-            _Qry &= vbCrLf & "WHERE b.FTStyleDevCode = '" & FTStyle.Text & "' "
-            _Qry &= vbCrLf & "AND b.FTSeason = '" & FTSeason.Text & "' "
-            _Qry &= vbCrLf & "AND b.FNBomDevType = '" & FNBomDevType.Text & "'"
+            Me.ProcComplete = True
+            Me.Close()
 
-            If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "") Then
-                '    Return True
-                'Else
-                '    HI.MG.ShowMsg.mProcessError(1411200101, "คุณไม่มีสิทธิ์ทำการลบหรือแก้ไข Style นี้ ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
-                '    Return False
-            End If
         End If
 
         'Dim ExistingStyle As String = ""
@@ -127,22 +117,28 @@ Public Class wCreateBomDev
             HI.MG.ShowMsg.mProcessError(1411200101, "กรุณาใส่ข้อมูล Style ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
             Return False
         Else
-            If (FTSeason.Text = "") Then
-                FTSeason.Focus()
-                HI.MG.ShowMsg.mProcessError(1411200101, "กรุณาใส่ข้อมูล Season ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
+            If (FTStyleDetail.Text = "") Then
+                FTStyleDetail.Focus()
+                HI.MG.ShowMsg.mProcessError(1411200101, "กรุณาใส่ข้อมูลรายละเอียด Style ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
                 Return False
             Else
-                If (FNBomDevType.Text = "") Then
-                    FNBomDevType.Focus()
+                If (FTSeason.Text = "") Then
+                    FTSeason.Focus()
                     HI.MG.ShowMsg.mProcessError(1411200101, "กรุณาเลือก BOM Type ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
                     Return False
                 Else
-                    'If (FTVersion.Text = "") Then
-                    '    HI.MG.ShowMsg.mProcessError(1411200101, "กรุณาเลือก BOM Type ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
-                    '    Return False
-                    'Else
-                    Return True
-                    'End If
+                    If (FNBomDevType.Text = "") Then
+                        FNBomDevType.Focus()
+                        HI.MG.ShowMsg.mProcessError(1411200101, "กรุณาเลือก BOM Type ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
+                        Return False
+                    Else
+                        'If (FTVersion.Text = "") Then
+                        '    HI.MG.ShowMsg.mProcessError(1411200101, "กรุณาเลือก BOM Type ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
+                        '    Return False
+                        'Else
+                        Return True
+                        'End If
+                    End If
                 End If
             End If
         End If

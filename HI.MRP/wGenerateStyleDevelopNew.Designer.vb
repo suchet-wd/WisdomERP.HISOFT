@@ -426,7 +426,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTNote.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTNote.Properties.MaxLength = 500
         Me.FTNote.Size = New System.Drawing.Size(541, 132)
-        Me.FTNote.TabIndex = 5
+        Me.FTNote.TabIndex = 24
         Me.FTNote.Tag = "2|"
         '
         'FNHSysStyleDevId_None
@@ -446,7 +446,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTStyleDevNameEN.Name = "FTStyleDevNameEN"
         Me.FTStyleDevNameEN.Properties.MaxLength = 200
         Me.FTStyleDevNameEN.Size = New System.Drawing.Size(340, 20)
-        Me.FTStyleDevNameEN.TabIndex = 3
+        Me.FTStyleDevNameEN.TabIndex = 5
         Me.FTStyleDevNameEN.Tag = "2|"
         '
         'FTSeason_lbl
@@ -495,7 +495,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNHSysCustId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "83", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysCustId.Properties.Tag = ""
         Me.FNHSysCustId.Size = New System.Drawing.Size(125, 20)
-        Me.FNHSysCustId.TabIndex = 4
+        Me.FNHSysCustId.TabIndex = 6
         Me.FNHSysCustId.Tag = "2|"
         '
         'FTStyleDevNameTH
@@ -504,7 +504,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTStyleDevNameTH.Name = "FTStyleDevNameTH"
         Me.FTStyleDevNameTH.Properties.MaxLength = 200
         Me.FTStyleDevNameTH.Size = New System.Drawing.Size(340, 20)
-        Me.FTStyleDevNameTH.TabIndex = 2
+        Me.FTStyleDevNameTH.TabIndex = 4
         Me.FTStyleDevNameTH.Tag = "2|"
         '
         'FTUpdTime
@@ -2113,7 +2113,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTNikeDeveloperName.Properties.Appearance.Options.UseBackColor = True
         Me.FTNikeDeveloperName.Properties.ReadOnly = True
         Me.FTNikeDeveloperName.Size = New System.Drawing.Size(340, 20)
-        Me.FTNikeDeveloperName.TabIndex = 286
+        Me.FTNikeDeveloperName.TabIndex = 11
         Me.FTNikeDeveloperName.Tag = "2|"
         '
         'FTNikeDeveloperName_lbl
@@ -2160,8 +2160,11 @@ Partial Class wGenerateStyleDevelopNew
         '
         'FTSeason
         '
+        Me.FTSeason.Enabled = False
         Me.FTSeason.Location = New System.Drawing.Point(340, 55)
         Me.FTSeason.Name = "FTSeason"
+        Me.FTSeason.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
+        Me.FTSeason.Properties.Appearance.Options.UseBackColor = True
         Me.FTSeason.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
         Me.FTSeason.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
         Me.FTSeason.Properties.AppearanceReadOnly.Options.UseBackColor = True
@@ -2258,7 +2261,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTProductDev.Properties.Appearance.Options.UseBackColor = True
         Me.FTProductDev.Properties.MaxLength = 200
         Me.FTProductDev.Size = New System.Drawing.Size(340, 20)
-        Me.FTProductDev.TabIndex = 533
+        Me.FTProductDev.TabIndex = 9
         Me.FTProductDev.Tag = "2|"
         '
         'FTProductDev_lbl
@@ -2370,7 +2373,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTStyleSeniorDev.Properties.Appearance.Options.UseBackColor = True
         Me.FTStyleSeniorDev.Properties.MaxLength = 200
         Me.FTStyleSeniorDev.Size = New System.Drawing.Size(340, 20)
-        Me.FTStyleSeniorDev.TabIndex = 525
+        Me.FTStyleSeniorDev.TabIndex = 10
         Me.FTStyleSeniorDev.Tag = "2|"
         '
         'FTStyleSeniorDev_lbl
@@ -2410,7 +2413,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTStateConfirmed.Properties.ValueChecked = "1"
         Me.FTStateConfirmed.Properties.ValueUnchecked = "0"
         Me.FTStateConfirmed.Size = New System.Drawing.Size(165, 20)
-        Me.FTStateConfirmed.TabIndex = 513
+        Me.FTStateConfirmed.TabIndex = 12
         Me.FTStateConfirmed.Tag = "2|"
         '
         'LabelControl3
@@ -2561,7 +2564,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNHSysParentBOMId.Name = "FNHSysParentBOMId"
         Me.FNHSysParentBOMId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions8, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject29, SerializableAppearanceObject30, SerializableAppearanceObject31, SerializableAppearanceObject32, "", "708", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysParentBOMId.Size = New System.Drawing.Size(125, 20)
-        Me.FNHSysParentBOMId.TabIndex = 494
+        Me.FNHSysParentBOMId.TabIndex = 7
         '
         'TextEdit7
         '
@@ -2631,7 +2634,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNHSysMSCId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions9, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject33, SerializableAppearanceObject34, SerializableAppearanceObject35, SerializableAppearanceObject36, "", "975", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysMSCId.Properties.Tag = ""
         Me.FNHSysMSCId.Size = New System.Drawing.Size(125, 20)
-        Me.FNHSysMSCId.TabIndex = 303
+        Me.FNHSysMSCId.TabIndex = 8
         Me.FNHSysMSCId.Tag = "2|"
         '
         'FNHSysMSCId_lbl
@@ -2684,7 +2687,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTSilhouette.Name = "FTSilhouette"
         Me.FTSilhouette.Properties.MaxLength = 200
         Me.FTSilhouette.Size = New System.Drawing.Size(313, 20)
-        Me.FTSilhouette.TabIndex = 309
+        Me.FTSilhouette.TabIndex = 23
         Me.FTSilhouette.Tag = "2|"
         '
         'FTSilhouette_lbl
@@ -2707,7 +2710,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTMSCLevel3.Name = "FTMSCLevel3"
         Me.FTMSCLevel3.Properties.MaxLength = 200
         Me.FTMSCLevel3.Size = New System.Drawing.Size(313, 20)
-        Me.FTMSCLevel3.TabIndex = 307
+        Me.FTMSCLevel3.TabIndex = 22
         Me.FTMSCLevel3.Tag = "2|"
         '
         'FTMSCLevel3_lbl
@@ -2730,7 +2733,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTMSCLevel2.Name = "FTMSCLevel2"
         Me.FTMSCLevel2.Properties.MaxLength = 200
         Me.FTMSCLevel2.Size = New System.Drawing.Size(313, 20)
-        Me.FTMSCLevel2.TabIndex = 305
+        Me.FTMSCLevel2.TabIndex = 21
         Me.FTMSCLevel2.Tag = "2|"
         '
         'FTMSCLevel2_lbl
@@ -2753,7 +2756,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTMSCLevel1.Name = "FTMSCLevel1"
         Me.FTMSCLevel1.Properties.MaxLength = 200
         Me.FTMSCLevel1.Size = New System.Drawing.Size(314, 20)
-        Me.FTMSCLevel1.TabIndex = 303
+        Me.FTMSCLevel1.TabIndex = 20
         Me.FTMSCLevel1.Tag = "2|"
         '
         'FTMSCLevel1_lbl
@@ -2903,7 +2906,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTProgram.Name = "FTProgram"
         Me.FTProgram.Properties.MaxLength = 200
         Me.FTProgram.Size = New System.Drawing.Size(474, 20)
-        Me.FTProgram.TabIndex = 503
+        Me.FTProgram.TabIndex = 3
         Me.FTProgram.Tag = "2|"
         '
         'FTProgram_lbl
@@ -2926,7 +2929,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FTDimension.Name = "FTDimension"
         Me.FTDimension.Properties.MaxLength = 200
         Me.FTDimension.Size = New System.Drawing.Size(474, 20)
-        Me.FTDimension.TabIndex = 501
+        Me.FTDimension.TabIndex = 2
         Me.FTDimension.Tag = "2|"
         '
         'FTDimension_lbl
@@ -2961,7 +2964,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNHSysVenderPramId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "168", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysVenderPramId.Properties.Tag = ""
         Me.FNHSysVenderPramId.Size = New System.Drawing.Size(142, 20)
-        Me.FNHSysVenderPramId.TabIndex = 497
+        Me.FNHSysVenderPramId.TabIndex = 1
         Me.FNHSysVenderPramId.Tag = "2|"
         '
         'FTFty_lbl
@@ -3021,10 +3024,11 @@ Partial Class wGenerateStyleDevelopNew
         'FNBomDevType
         '
         Me.FNBomDevType.EditValue = ""
+        Me.FNBomDevType.Enabled = False
         Me.FNBomDevType.EnterMoveNextControl = True
         Me.FNBomDevType.Location = New System.Drawing.Point(503, 55)
         Me.FNBomDevType.Name = "FNBomDevType"
-        Me.FNBomDevType.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FNBomDevType.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNBomDevType.Properties.Appearance.Options.UseBackColor = True
         Me.FNBomDevType.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.LightCyan
         Me.FNBomDevType.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Blue
