@@ -18,7 +18,7 @@ Public Class wGenerateStyleDevelopNew
     Dim View As GridView
     Dim RowsIndex As Double
     Dim TopVisibleIndex As Int32
-    Private sFNHSysStyleDevId As String
+    'Private sFNHSysStyleDevId As String
     Private ViewColor As GridView
     Private ViewSize As GridView
     Private _wNewColorway As wNewColorwayDevelop
@@ -257,8 +257,8 @@ Public Class wGenerateStyleDevelopNew
             FTPccTime.Text = "??:??:??"
             FTConfirmedDate.Text = "??/??/????"
             FTConfirmedTime.Text = "??:??:??"
-
-            sFNHSysStyleDevId = ""
+            FNHSysStyleDevId_Hide.Text = ""
+            'sFNHSysStyleDevId = ""
 
             ViewColor = Me.ogccolor.Views(0)
             ViewSize = Me.ogcsize.Views(0)
@@ -1440,7 +1440,7 @@ Public Class wGenerateStyleDevelopNew
         If CheckOwner() = False Then
             Exit Sub
         End If
-        If sFNHSysStyleDevId = "" Then Return
+        'If sFNHSysStyleDevId = "" Then Return
         Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
 
@@ -1459,7 +1459,7 @@ Public Class wGenerateStyleDevelopNew
         Dim crRow As Double, nxRow As String, nwRow As String
         Dim RowCount As Integer = 0
         View = Me.ogcmat.Views(0)
-        If sFNHSysStyleDevId = "" Then Return
+        'If sFNHSysStyleDevId = "" Then Return
         Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
         If (Not IsDBNull(View)) Then
@@ -1514,7 +1514,7 @@ Public Class wGenerateStyleDevelopNew
             Exit Sub
         End If
 
-        If sFNHSysStyleDevId = "" Then Return
+        'If sFNHSysStyleDevId = "" Then Return
         'InitNewRow(CType(ogcstylecolor.DataSource, DataTable), TabIndexs.Colorway)
         Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
@@ -1696,7 +1696,8 @@ Public Class wGenerateStyleDevelopNew
         End Try
     End Sub
 
-    Private Sub ocmclear_Click(sender As System.Object, e As System.EventArgs) Handles ocmclearclsr.Click
+
+    Private Sub ClearForm()
         Call ClearMergeCtrlData()
         HI.TL.HandlerControl.ClearControl(Me)
         Me.ogcmat.DataSource = Nothing
@@ -1704,7 +1705,7 @@ Public Class wGenerateStyleDevelopNew
         Me.ogcsize.DataSource = Nothing
 
         FNHSysMSCId.Text = ""
-        FNVersion.Text = "##"
+        FNVersion.Text = ""
         FNBomDevType.Text = ""
         FNHSysVenderPramId.Text = ""
         FTStyleDevNameTH.Text = ""
@@ -1756,7 +1757,10 @@ Public Class wGenerateStyleDevelopNew
 
         End Try
         Call LoadItemMaster()
+    End Sub
 
+    Private Sub ocmclear_Click(sender As System.Object, e As System.EventArgs) Handles ocmclearclsr.Click
+        Call ClearForm()
     End Sub
 
     Private Sub ocmrefresh_Click(sender As System.Object, e As System.EventArgs) Handles ocmrefresh.Click
@@ -1955,7 +1959,7 @@ Public Class wGenerateStyleDevelopNew
             Exit Sub
         End If
 
-        If sFNHSysStyleDevId = "" Then Return
+        'If sFNHSysStyleDevId = "" Then Return
         Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
         With Me.ogvcolor
@@ -2639,7 +2643,7 @@ Public Class wGenerateStyleDevelopNew
         Dim crRow As Double, nxRow As String, nwRow As String
         Dim RowCount As Integer = 0
         View = Me.ogcmat.Views(0)
-        If sFNHSysStyleDevId = "" Then Return
+        'If sFNHSysStyleDevId = "" Then Return
         Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
         If (Not IsDBNull(View)) Then
@@ -4488,7 +4492,7 @@ Public Class wGenerateStyleDevelopNew
             Exit Sub
         End If
 
-        If sFNHSysStyleDevId = "" Then Return
+        'If sFNHSysStyleDevId = "" Then Return
         'InitNewRow(CType(ogcstylecolor.DataSource, DataTable), TabIndexs.Colorway)
         Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
@@ -4573,7 +4577,7 @@ Public Class wGenerateStyleDevelopNew
             Exit Sub
         End If
 
-        If sFNHSysStyleDevId = "" Then Return
+        'If sFNHSysStyleDevId = "" Then Return
         Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
         With Me.ogvsize
@@ -6092,7 +6096,7 @@ Public Class wGenerateStyleDevelopNew
                 Exit Sub
             End If
 
-            If sFNHSysStyleDevId = "" Then Return
+            'If sFNHSysStyleDevId = "" Then Return
             Call LoadStylePostInfo()
             If CheckPostDataToBomSheet() = False Then Exit Sub
             With Me.ogvcolor
@@ -6771,7 +6775,7 @@ Public Class wGenerateStyleDevelopNew
                 Exit Sub
             End If
 
-            If sFNHSysStyleDevId = "" Then Return
+            'If sFNHSysStyleDevId = "" Then Return
             Call LoadStylePostInfo()
             If CheckPostDataToBomSheet() = False Then Exit Sub
 
@@ -7267,6 +7271,7 @@ Public Class wGenerateStyleDevelopNew
     End Sub
 
     Private Sub ocmmanualbom_Click(sender As Object, e As EventArgs) Handles ocmmanualbom.Click
+        Call ClearForm()
 
         Call HI.ST.Lang.SP_SETxLanguage(_CreateBomDev)
 
@@ -7295,12 +7300,12 @@ Public Class wGenerateStyleDevelopNew
 
                 Me.otb.SelectedTabPage = otpmatcode
                 Me.FTBomDevStyleCode.Text = .FTStyle.Text
-                Me.FNHSysStyleDevId_None.Text = .FTStyleDetail.Text
+                Me.FNHSysStyleDevId.Text = .FTStyleDetail.Text
+                Me.FNHSysStyleDevId_None.Text = .FTStyle.Text + "-" + .FTSeason.Text + "-" + Format(_version, "0#") + "-" + .FNBomDevType.Text
                 Me.FNBomDevType.Text = .FNBomDevType.Text
                 Me.FTSeason.Text = .FTSeason.Text
-                Me.FNHSysStyleDevId.Text = .FTStyle.Text + "-" + .FTSeason.Text + "-" + Format(_version, "0#") + "-" + .FNBomDevType.Text
                 Me.FNVersion.Text = _version
-
+                Me.FNHSysStyleDevId_Hide.Text = HI.SE.RunID.GetRunNoID("TMERTDevelopStyle", "FNHSysStyleDevId", Conn.DB.DataBaseName.DB_MERCHAN)
 
                 'If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "") Then
                 '    '    Return True
@@ -7318,17 +7323,17 @@ Public Class wGenerateStyleDevelopNew
         Dim _Spls As New HI.TL.SplashScreen("Loading Data to BOM Sheet.... ,Please Wait.")
 
         'Dim _FNHSysStyleDevId As Integer = Integer.Parse(Val(FNHSysStyleDevId.Properties.Tag.ToString))
-        Dim _FNHSysStyleDevId As Integer = Integer.Parse(Val(FNHSysStyleDevId_Hide.Text.ToString))
+        'Dim _FNHSysStyleDevId As Integer = Integer.Parse(Val(FNHSysStyleDevId_Hide.Text.ToString))
 
         Try
 
-            If _FNHSysStyleDevId <> 0 Then
+            If FNHSysStyleDevId_Hide.Text <> "" Then
 
-                Call LoadStyleInfo(_FNHSysStyleDevId, True)
+                Call LoadStyleInfo(FNHSysStyleDevId_Hide.Text, True)
                 ' Call LoadStyleDetail(FNHSysStyleDevId.Properties.Tag.ToString)
-                Call LoadImangeStyle(_FNHSysStyleDevId)
+                Call LoadImangeStyle(FNHSysStyleDevId_Hide.Text)
                 Call LoadStylePostInfo()
-                Call LoadFileRef(_FNHSysStyleDevId)
+                Call LoadFileRef(FNHSysStyleDevId_Hide.Text)
 
             Else
                 FNHSysCustId.Text = Nothing
@@ -7347,7 +7352,7 @@ Public Class wGenerateStyleDevelopNew
                 ogcsize.Refresh()
             End If
 
-            sFNHSysStyleDevId = FNHSysStyleDevId.Properties.ToString()
+            'sFNHSysStyleDevId = FNHSysStyleDevId.Properties.ToString()
             'Else
             '    ogcmat.DataSource = Nothing
             '    ogcmat.Refresh()
@@ -7363,9 +7368,54 @@ Public Class wGenerateStyleDevelopNew
         End Try
     End Sub
 
+    Private Sub LoadFileRef(ByVal _DocRefNo As String)
+
+        Dim cmd As String = ""
+        cmd = "SELECT FNFileSeq, FTFileName"
+        cmd &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle_File  WITH(NOLOCK)"
+        cmd &= vbCrLf & " Where FNHSysStyleDevId ='" & HI.UL.ULF.rpQuoted(_DocRefNo) & "'"
+        cmd &= vbCrLf & " ORDER BY FNFileSeq "
+
+        ogcfile.DataSource = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_MERCHAN)
+
+    End Sub
+
+    Private Sub ocmRemoveFile_Click(sender As Object, e As EventArgs) Handles ocmRemoveFile.Click
+        Try
+
+            'If CheckOwner() = False Then Exit Sub
+            Dim cmdstring As String = ""
+            Dim AddFileName As String = ""
+            Dim AddFileType As Integer = 0
+            Dim FileSeq As Integer = 0
+            'cmdstring = "select top 1 FTSMPOrderNo from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder AS x with(nolock) where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "'"
+            'Dim orderno As String = HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE, "")
 
 
-    Private Sub ocmReadDocumentfile_Click(sender As Object, e As EventArgs) Handles ocmAddFile.Click
+            If (FNHSysStyleDevId.Text <> "") And (FNHSysStyleDevId_Hide.Text <> "") Then
+                With Me.ogvfileref
+                    FileSeq = Val(.GetFocusedRowCellValue("FNFileSeq").ToString())
+                    AddFileName = .GetFocusedRowCellValue("FTFileName").ToString()
+                End With
+
+
+                If HI.MG.ShowMsg.mConfirmProcessDefaultNo("คุณต้องการทำการลบ File ใช่หรือมไม่ ?", 1907025478, AddFileName) Then
+
+                    cmdstring = " Delete from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle_File where FNHSysStyleDevId='" & HI.UL.ULF.rpQuoted(FNHSysStyleDevId_Hide.Text) & "' AND FNFileSeq =" & FileSeq & ""
+                    cmdstring &= " Update A SET FNFileSeq = FNFileSeq -1  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle_File AS A  where FNHSysStyleDevId='" & HI.UL.ULF.rpQuoted(FNHSysStyleDevId_Hide.Text) & "' AND FNFileSeq >" & FileSeq & ""
+
+                    If HI.Conn.SQLConn.ExecuteNonQuery(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN) Then
+                        LoadFileRef(FNHSysStyleDevId_Hide.Text.Trim())
+                    End If
+                End If
+
+            End If
+
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub ocmAddFile_Click(sender As Object, e As EventArgs) Handles ocmAddFile.Click
         Try
             'If CheckOwner() = False Then Exit Sub
             Dim cmdstring As String = ""
@@ -7377,7 +7427,7 @@ Public Class wGenerateStyleDevelopNew
             'Dim orderno As String = HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE, "")
 
 
-            If FNHSysStyleDevId.Text <> "" Then
+            If (FNHSysStyleDevId.Text <> "") And (FNHSysStyleDevId_Hide.Text <> "") Then
 
                 With _AddFile
                     .AddFileState = False
@@ -7420,9 +7470,9 @@ Public Class wGenerateStyleDevelopNew
                         Dim br As New BinaryReader(New FileStream(_FilePath, FileMode.Open, FileAccess.Read))
                         data = br.ReadBytes(CInt(New FileInfo(_FilePath).Length))
 
-                        cmdstring = "insert into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle_File"
-                        cmdstring &= " (FTInsUser, FDInsDate, FTInsTime, FNHSysStyleDevId, FNFileSeq, FTFileName, FTFileType,FTFileExten, FBFile)"
-                        cmdstring &= " VALUES (@FTInsUser, @FDInsDate, @FTInsTime, @FNHSysStyleDevId, @FNFileSeq, @FTFileName, @FTFileType,@FTFileExten, @FBFile)"
+                        cmdstring = "insert into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle_File "
+                        cmdstring &= " (FTInsUser, FDInsDate, FTInsTime, FNHSysStyleDevId, FNFileSeq, FTFileName, FTFileType,FTFileExten, FBFile) "
+                        cmdstring &= " VALUES (@FTInsUser, @FDInsDate, @FTInsTime, @FNHSysStyleDevId, @FNFileSeq, @FTFileName, @FTFileType,@FTFileExten, @FBFile) "
 
                         HI.Conn.SQLConn._ConnString = HI.Conn.DB.ConnectionString(HI.Conn.DB.DataBaseName.DB_MERCHAN)
                         HI.Conn.SQLConn.SqlConnectionOpen()
@@ -7457,58 +7507,59 @@ Public Class wGenerateStyleDevelopNew
         End Try
     End Sub
 
-    Private Sub LoadFileRef(ByVal _DocRefNo As String)
-
-        Dim cmd As String = ""
-        Dim dt As DataTable
-
-        cmd = "SELECT FNFileSeq, FTFileName"
-        cmd &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle_File  WITH(NOLOCK)"
-        cmd &= vbCrLf & " Where FNHSysStyleDevId ='" & HI.UL.ULF.rpQuoted(_DocRefNo) & "'"
-        cmd &= vbCrLf & " ORDER BY FNFileSeq "
-
-        dt = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_MERCHAN)
-
-        ogcfile.DataSource = dt.Copy
-
-        dt.Dispose()
-
-    End Sub
-
-    Private Sub ocmRemoveFile_Click(sender As Object, e As EventArgs) Handles ocmRemoveFile.Click
-
+    Private Sub ogvfileref_DoubleClick(sender As Object, e As EventArgs)
         Try
 
-            'If CheckOwner() = False Then Exit Sub
-            'Dim cmdstring As String = ""
-            'Dim AddFileName As String = ""
-            'Dim AddFileType As Integer = 0
-            'Dim FileSeq As Integer = 0
-            'cmdstring = "select top 1 FTSMPOrderNo from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder AS x with(nolock) where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "'"
+            Dim cmdstring As String = ""
+            Dim AddFileName As String = ""
+            Dim AddFileType As Integer = 0
+            Dim FileSeq As Integer = 0
+            Dim FileExt As String = ""
+
+            'cmdstring = "select top 1 FNHSysStyleDevId from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder AS x with(nolock) where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "'"
             'Dim orderno As String = HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE, "")
 
+            If (FNHSysStyleDevId.Text <> "") And (FNHSysStyleDevId_Hide.Text <> "") Then
 
-            'If FNHSysStyleDevId.Text <> "" Then
-            '    With Me.ogvfileref
-            '        FileSeq = Val(.GetFocusedRowCellValue("FNFileSeq").ToString())
-            '        AddFileName = .GetFocusedRowCellValue("FTFileName").ToString()
-            '    End With
+                With Me.ogvfileref
+                    FileSeq = Val(.GetFocusedRowCellValue("FNFileSeq").ToString())
+                    AddFileName = .GetFocusedRowCellValue("FTFileName").ToString()
 
+                End With
 
-            '    If HI.MG.ShowMsg.mConfirmProcessDefaultNo("คุณต้องการทำการลบ File ใช่หรือมไม่ ?", 1907025478, AddFileName) Then
+                Dim dt As DataTable
+                Dim dttabyte() As Byte
+                cmdstring = " select top 1 *  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle_File where FNHSysStyleDevId='" & HI.UL.ULF.rpQuoted(FNHSysStyleDevId_Hide.Text) & "' AND FNFileSeq =" & FileSeq & ""
+                dt = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
 
-            '        cmdstring = " Delete from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TMERTDevelopStyle_File where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "' AND FNFileSeq =" & FileSeq & ""
-            '        cmdstring &= " Update A SET FNFileSeq = FNFileSeq -1  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TMERTDevelopStyle_File AS A  where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "' AND FNFileSeq >" & FileSeq & ""
+                For Each R As DataRow In dt.Rows
+                    AddFileType = Val(R!FTFileType.ToString())
+                    FileExt = R!FTFileExten.ToString
+                    dttabyte = CType(R!FBFile, Byte())
+                Next
 
-            '        If HI.Conn.SQLConn.ExecuteNonQuery(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE) Then
-            '            LoadFileRef(FTSMPOrderNo.Text.Trim())
-            '        End If
-            '    End If
+                dt.Dispose()
 
-            'End If
+                With _AddFile
 
+                    .AddFileState = False
+                    .ocmReadDocumentfile.Visible = False
+                    .ocmok.Visible = False
+                    .FTFileName.Properties.ReadOnly = True
+                    .FNFileType.Properties.ReadOnly = True
+                    .FNFileType.SelectedIndex = AddFileType
+                    .oGrpdetail.Controls.Clear()
+
+                    .ShowFile(AddFileType, AddFileName, dttabyte, FileExt)
+
+                    .WindowState = FormWindowState.Maximized
+                    .ShowDialog()
+
+                End With
+
+            End If
         Catch ex As Exception
-        End Try
 
+        End Try
     End Sub
 End Class

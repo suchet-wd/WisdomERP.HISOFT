@@ -20,7 +20,7 @@ Imports DevExpress.XtraEditors.Controls
 Public Class wGenerateStyleDevOriginal
 
     Private _dtpart As New List(Of DataTable)
-    Private sFNHSysStyleDevId As String
+    'Private sFNHSysStyleDevId As String
     Private ViewColor As GridView
     Private ViewSize As GridView
     Private _wNewColorway As wNewColorwayDevelop
@@ -226,7 +226,7 @@ Public Class wGenerateStyleDevOriginal
             FDUpdDate.Text = "??/??/????"
             FTUpdTime.Text = "??:??:??"
 
-            sFNHSysStyleDevId = ""
+            FNHSysStyleDevId_Hide.Text = ""
 
             ViewColor = Me.ogccolor.Views(0)
             ViewSize = Me.ogcsize.Views(0)
@@ -278,37 +278,10 @@ Public Class wGenerateStyleDevOriginal
         End If
     End Function
 
-    Private Sub FNHSysStyleDevId_EditValueChanged(sender As System.Object, e As System.EventArgs) Handles FNHSysStyleDevId.EditValueChanged
-        Dim _FNHSysStyleDevId As Integer = Integer.Parse(Val(FNHSysStyleDevId.Properties.Tag.ToString))
+    'Private Sub FNHSysStyleDevId_EditValueChanged(sender As System.Object, e As System.EventArgs) Handles FNHSysStyleDevId.EditValueChanged
 
-        If _FNHSysStyleDevId <> 0 Then
-            Try
-                If Me.InvokeRequired Then
-                    Me.Invoke(New HI.Delegate.Dele.ButtonEdit_ValueChanged(AddressOf FNHSysStyleDevId_EditValueChanged), New Object() {sender, e})
-                Else
-                    Call LoadStyleInfo(_FNHSysStyleDevId, True)
-                    Call LoadStyleDetail(_FNHSysStyleDevId)
-                    Call LoadImangeStyle(_FNHSysStyleDevId)
-                    'Call LoadStylePostInfo()
-                    sFNHSysStyleDevId = FNHSysStyleDevId.Text
-                End If
-            Catch ex As Exception
-            End Try
-        Else
-            FNHSysCustId.Text = Nothing
-            FNHSysCustId_None.Text = Nothing
-            FTUpdUser.Text = Nothing
-            FDUpdDate.Text = Nothing
-            FTUpdTime.Text = Nothing
-            ogcmat.DataSource = Nothing
-            ogcmat.Refresh()
-            ogccolor.DataSource = Nothing
-            ogccolor.Refresh()
-            ogcsize.DataSource = Nothing
-            ogcsize.Refresh()
-        End If
 
-    End Sub
+    'End Sub
 
     Private Function CheckPostDataToBomSheet() As Boolean
         'If FTStatePost.Checked Then
@@ -1415,7 +1388,7 @@ Public Class wGenerateStyleDevOriginal
         If CheckOwner() = False Then
             Exit Sub
         End If
-        'If sFNHSysStyleDevId = "" Then Return
+        If FNHSysStyleDevId_Hide.Text = "" Then Return
         'Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
 
@@ -1434,7 +1407,7 @@ Public Class wGenerateStyleDevOriginal
         Dim crRow As Double, nxRow As String, nwRow As String
         Dim RowCount As Integer = 0
         View = Me.ogcmat.Views(0)
-        'If sFNHSysStyleDevId = "" Then Return
+        If FNHSysStyleDevId_Hide.Text = "" Then Return
         'Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
         If (Not IsDBNull(View)) Then
@@ -1485,7 +1458,7 @@ Public Class wGenerateStyleDevOriginal
             Exit Sub
         End If
 
-        If sFNHSysStyleDevId = "" Then Return
+        If FNHSysStyleDevId_Hide.Text = "" Then Return
         'InitNewRow(CType(ogcstylecolor.DataSource, DataTable), TabIndexs.Colorway)
         'Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
@@ -1892,7 +1865,7 @@ Public Class wGenerateStyleDevOriginal
             Exit Sub
         End If
 
-        'If sFNHSysStyleDevId = "" Then Return
+        If FNHSysStyleDevId_Hide.Text = "" Then Return
         'Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
         With Me.ogvcolor
@@ -2576,7 +2549,7 @@ Public Class wGenerateStyleDevOriginal
         Dim crRow As Double, nxRow As String, nwRow As String
         Dim RowCount As Integer = 0
         View = Me.ogcmat.Views(0)
-        'If sFNHSysStyleDevId = "" Then Return
+        If FNHSysStyleDevId_Hide.Text = "" Then Return
         'Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
         If (Not IsDBNull(View)) Then
@@ -4479,7 +4452,7 @@ Public Class wGenerateStyleDevOriginal
             Exit Sub
         End If
 
-        If sFNHSysStyleDevId = "" Then Return
+        If FNHSysStyleDevId_Hide.Text = "" Then Return
         'InitNewRow(CType(ogcstylecolor.DataSource, DataTable), TabIndexs.Colorway)
         'Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
@@ -4561,7 +4534,7 @@ Public Class wGenerateStyleDevOriginal
             Exit Sub
         End If
 
-        'If sFNHSysStyleDevId = "" Then Return
+        If FNHSysStyleDevId_Hide.Text = "" Then Return
         'Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
         With Me.ogvsize
@@ -6080,7 +6053,7 @@ Public Class wGenerateStyleDevOriginal
                 Exit Sub
             End If
 
-            'If sFNHSysStyleDevId = "" Then Return
+            If FNHSysStyleDevId_Hide.Text = "" Then Return
             'Call LoadStylePostInfo()
             If CheckPostDataToBomSheet() = False Then Exit Sub
             With Me.ogvcolor
@@ -6696,4 +6669,34 @@ Public Class wGenerateStyleDevOriginal
 
     End Sub
 
+    Private Sub FNHSysStyleDevId_Hide_TextChanged(sender As Object, e As EventArgs) Handles FNHSysStyleDevId_Hide.TextChanged
+        'Dim _FNHSysStyleDevId As Integer = Integer.Parse(Val(FNHSysStyleDevId.Properties.Tag.ToString))
+
+        If FNHSysStyleDevId_Hide.Text <> "" Then
+            'Try
+            '    If Me.InvokeRequired Then
+            '        Me.Invoke(New HI.Delegate.Dele.ButtonEdit_ValueChanged(AddressOf FNHSysStyleDevId_EditValueChanged), New Object() {sender, e})
+            '    Else
+            Call LoadStyleInfo(FNHSysStyleDevId_Hide.Text, True)
+                    Call LoadStyleDetail(FNHSysStyleDevId_Hide.Text)
+                    Call LoadImangeStyle(FNHSysStyleDevId_Hide.Text)
+            'Call LoadStylePostInfo()
+            'sFNHSysStyleDevId = FNHSysStyleDevId.Text
+            '    End If
+            'Catch ex As Exception
+            'End Try
+        Else
+            FNHSysCustId.Text = Nothing
+            FNHSysCustId_None.Text = Nothing
+            FTUpdUser.Text = Nothing
+            FDUpdDate.Text = Nothing
+            FTUpdTime.Text = Nothing
+            ogcmat.DataSource = Nothing
+            ogcmat.Refresh()
+            ogccolor.DataSource = Nothing
+            ogccolor.Refresh()
+            ogcsize.DataSource = Nothing
+            ogcsize.Refresh()
+        End If
+    End Sub
 End Class

@@ -158,4 +158,15 @@ Public Class wCreateBomDev
         FNBomDevType.Text = ""
     End Function
 
+    Private Sub FTStyle_Leave(sender As Object, e As EventArgs) Handles FTStyle.Leave
+        If FTStyle.Text <> "" Then
+            Dim _Qry As String = ""
+            _Qry = "SELECT ISNULL(s.FTStyleNameEN,'')  "
+            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle AS s WITH (NOLOCK) "
+            _Qry &= vbCrLf & "   WHERE s.FTStyleCode = '" & HI.UL.ULF.rpQuoted(FTStyle.Text) & "' "
+
+            FTStyleDetail.Text = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "")
+
+        End If
+    End Sub
 End Class

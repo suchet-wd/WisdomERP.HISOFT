@@ -84,6 +84,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.FNHSysStyleDevId_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNHSysStyleDevId = New DevExpress.XtraEditors.ButtonEdit()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
+        Me.ocmManualImport = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmmanualbom = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcompare = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcopy = New DevExpress.XtraEditors.SimpleButton()
@@ -300,8 +301,7 @@ Partial Class wGenerateStyleDevelopNew
         Me.RepositoryFNOrderSetType3 = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
         Me.otpemb = New DevExpress.XtraTab.XtraTabPage()
         Me.otpfile = New DevExpress.XtraTab.XtraTabPage()
-        Me.ocmRemoveFile = New DevExpress.XtraEditors.SimpleButton()
-        Me.ocmAddFile = New DevExpress.XtraEditors.SimpleButton()
+        Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
         Me.ogcfile = New DevExpress.XtraGrid.GridControl()
         Me.ogvfileref = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridColumn10 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -317,6 +317,8 @@ Partial Class wGenerateStyleDevelopNew
         Me.RepositoryItemTextEdit8 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.RepositoryItemCalcEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit()
         Me.RepositoryItemButtonEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.ocmRemoveFile = New DevExpress.XtraEditors.SimpleButton()
+        Me.ocmAddFile = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.FTNote.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysStyleDevId_None.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStyleDevNameEN.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -433,6 +435,8 @@ Partial Class wGenerateStyleDevelopNew
         CType(Me.RepFTRunSize, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryFNOrderSetType3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.otpfile.SuspendLayout()
+        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl1.SuspendLayout()
         CType(Me.ogcfile, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogvfileref, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -603,6 +607,7 @@ Partial Class wGenerateStyleDevelopNew
         'ogbmainprocbutton
         '
         Me.ogbmainprocbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogbmainprocbutton.Controls.Add(Me.ocmManualImport)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmmanualbom)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmcompare)
         Me.ogbmainprocbutton.Controls.Add(Me.ocmcopy)
@@ -628,6 +633,16 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogbmainprocbutton.Size = New System.Drawing.Size(313, 250)
         Me.ogbmainprocbutton.TabIndex = 137
         Me.ogbmainprocbutton.Tag = "2|"
+        '
+        'ocmManualImport
+        '
+        Me.ocmManualImport.Location = New System.Drawing.Point(231, 195)
+        Me.ocmManualImport.Name = "ocmManualImport"
+        Me.ocmManualImport.Size = New System.Drawing.Size(77, 25)
+        Me.ocmManualImport.TabIndex = 120
+        Me.ocmManualImport.TabStop = False
+        Me.ocmManualImport.Tag = "2|"
+        Me.ocmManualImport.Text = "Manual Import BOM"
         '
         'ocmmanualbom
         '
@@ -1522,13 +1537,12 @@ Partial Class wGenerateStyleDevelopNew
         '
         Me.FNHSysStyleDevId_Hide.Location = New System.Drawing.Point(696, 29)
         Me.FNHSysStyleDevId_Hide.Name = "FNHSysStyleDevId_Hide"
-        Me.FNHSysStyleDevId_Hide.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.FNHSysStyleDevId_Hide.Properties.Appearance.BackColor = System.Drawing.Color.Gold
         Me.FNHSysStyleDevId_Hide.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysStyleDevId_Hide.Properties.ReadOnly = True
-        Me.FNHSysStyleDevId_Hide.Size = New System.Drawing.Size(20, 20)
+        Me.FNHSysStyleDevId_Hide.Size = New System.Drawing.Size(106, 20)
         Me.FNHSysStyleDevId_Hide.TabIndex = 306
         Me.FNHSysStyleDevId_Hide.Tag = "2|"
-        Me.FNHSysStyleDevId_Hide.Visible = False
         '
         'ogbStyleHeader
         '
@@ -3072,40 +3086,25 @@ Partial Class wGenerateStyleDevelopNew
         '
         'otpfile
         '
-        Me.otpfile.Controls.Add(Me.ocmRemoveFile)
-        Me.otpfile.Controls.Add(Me.ocmAddFile)
-        Me.otpfile.Controls.Add(Me.ogcfile)
+        Me.otpfile.Controls.Add(Me.GroupControl1)
         Me.otpfile.Name = "otpfile"
         Me.otpfile.Size = New System.Drawing.Size(1280, 201)
         Me.otpfile.Text = "File Ref"
         '
-        'ocmRemoveFile
+        'GroupControl1
         '
-        Me.ocmRemoveFile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmRemoveFile.Location = New System.Drawing.Point(100, 3)
-        Me.ocmRemoveFile.Name = "ocmRemoveFile"
-        Me.ocmRemoveFile.Size = New System.Drawing.Size(88, 17)
-        Me.ocmRemoveFile.TabIndex = 530
-        Me.ocmRemoveFile.TabStop = False
-        Me.ocmRemoveFile.Tag = "2|"
-        Me.ocmRemoveFile.Text = "Remove File"
-        '
-        'ocmAddFile
-        '
-        Me.ocmAddFile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmAddFile.Location = New System.Drawing.Point(3, 3)
-        Me.ocmAddFile.Name = "ocmAddFile"
-        Me.ocmAddFile.Size = New System.Drawing.Size(91, 17)
-        Me.ocmAddFile.TabIndex = 121
-        Me.ocmAddFile.TabStop = False
-        Me.ocmAddFile.Tag = "2|"
-        Me.ocmAddFile.Text = "Add File"
+        Me.GroupControl1.Controls.Add(Me.ogcfile)
+        Me.GroupControl1.Controls.Add(Me.ocmRemoveFile)
+        Me.GroupControl1.Controls.Add(Me.ocmAddFile)
+        Me.GroupControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupControl1.Location = New System.Drawing.Point(0, 0)
+        Me.GroupControl1.Name = "GroupControl1"
+        Me.GroupControl1.Size = New System.Drawing.Size(1280, 201)
+        Me.GroupControl1.TabIndex = 531
         '
         'ogcfile
         '
-        Me.ogcfile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ogcfile.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ogcfile.EmbeddedNavigator.Buttons.CancelEdit.Visible = False
         Me.ogcfile.EmbeddedNavigator.Buttons.Edit.Visible = False
         Me.ogcfile.EmbeddedNavigator.Buttons.EndEdit.Visible = False
@@ -3117,12 +3116,12 @@ Partial Class wGenerateStyleDevelopNew
         Me.ogcfile.EmbeddedNavigator.Buttons.PrevPage.Visible = False
         Me.ogcfile.EmbeddedNavigator.TextLocation = DevExpress.XtraEditors.NavigatorButtonsTextLocation.None
         Me.ogcfile.EmbeddedNavigator.TextStringFormat = ""
-        Me.ogcfile.Location = New System.Drawing.Point(0, 26)
+        Me.ogcfile.Location = New System.Drawing.Point(2, 23)
         Me.ogcfile.MainView = Me.ogvfileref
         Me.ogcfile.Name = "ogcfile"
         Me.ogcfile.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit3, Me.RepositoryItemCalcEdit5, Me.RepositoryItemTextEdit9, Me.RepositoryItemDateEdit3, Me.RepositoryItemTextEdit10, Me.RepositoryItemLookUpEdit3, Me.RepositoryItemTextEdit7, Me.RepositoryItemMemoExEdit2, Me.RepositoryItemTextEdit8, Me.RepositoryItemCalcEdit4, Me.RepositoryItemButtonEdit2})
-        Me.ogcfile.Size = New System.Drawing.Size(1030, 128)
-        Me.ogcfile.TabIndex = 529
+        Me.ogcfile.Size = New System.Drawing.Size(1276, 176)
+        Me.ogcfile.TabIndex = 531
         Me.ogcfile.Tag = "3|"
         Me.ogcfile.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ogvfileref})
         '
@@ -3260,6 +3259,30 @@ Partial Class wGenerateStyleDevelopNew
         Me.RepositoryItemButtonEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "5", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.RepositoryItemButtonEdit2.Name = "RepositoryItemButtonEdit2"
         '
+        'ocmRemoveFile
+        '
+        Me.ocmRemoveFile.AppearanceHovered.ForeColor = System.Drawing.Color.Red
+        Me.ocmRemoveFile.AppearanceHovered.Options.UseForeColor = True
+        Me.ocmRemoveFile.Location = New System.Drawing.Point(92, 2)
+        Me.ocmRemoveFile.Name = "ocmRemoveFile"
+        Me.ocmRemoveFile.Size = New System.Drawing.Size(80, 20)
+        Me.ocmRemoveFile.TabIndex = 530
+        Me.ocmRemoveFile.TabStop = False
+        Me.ocmRemoveFile.Tag = "2|"
+        Me.ocmRemoveFile.Text = "Remove File"
+        '
+        'ocmAddFile
+        '
+        Me.ocmAddFile.AppearanceHovered.ForeColor = System.Drawing.Color.Green
+        Me.ocmAddFile.AppearanceHovered.Options.UseForeColor = True
+        Me.ocmAddFile.Location = New System.Drawing.Point(6, 2)
+        Me.ocmAddFile.Name = "ocmAddFile"
+        Me.ocmAddFile.Size = New System.Drawing.Size(80, 20)
+        Me.ocmAddFile.TabIndex = 121
+        Me.ocmAddFile.TabStop = False
+        Me.ocmAddFile.Tag = "2|"
+        Me.ocmAddFile.Text = "Add File"
+        '
         'wGenerateStyleDevelopNew
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3386,6 +3409,8 @@ Partial Class wGenerateStyleDevelopNew
         CType(Me.RepFTRunSize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryFNOrderSetType3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.otpfile.ResumeLayout(False)
+        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl1.ResumeLayout(False)
         CType(Me.ogcfile, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogvfileref, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3629,9 +3654,13 @@ Partial Class wGenerateStyleDevelopNew
     Friend WithEvents cx3FNOrderSetType As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryFNOrderSetType3 As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
     Friend WithEvents otpemb As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridView3 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridView4 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents otpfile As DevExpress.XtraTab.XtraTabPage
     Friend WithEvents ocmRemoveFile As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ocmAddFile As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents GroupControl1 As DevExpress.XtraEditors.GroupControl
     Friend WithEvents ogcfile As DevExpress.XtraGrid.GridControl
     Friend WithEvents ogvfileref As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents GridColumn10 As DevExpress.XtraGrid.Columns.GridColumn
@@ -3647,7 +3676,5 @@ Partial Class wGenerateStyleDevelopNew
     Friend WithEvents RepositoryItemTextEdit8 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents RepositoryItemCalcEdit4 As DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit
     Friend WithEvents RepositoryItemButtonEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
-    Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents GridView3 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents GridView4 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents ocmManualImport As DevExpress.XtraEditors.SimpleButton
 End Class
