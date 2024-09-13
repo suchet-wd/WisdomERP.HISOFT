@@ -7431,107 +7431,111 @@ Public Class wGenerateStyleDevelopNew
     Private Sub ocmReadDocumentfile_Click(sender As Object, e As EventArgs) Handles ocmAddFile.Click
         Try
             'If CheckOwner() = False Then Exit Sub
-            'Dim cmdstring As String = ""
-            'Dim AddFileName As String = ""
-            'Dim AddFileType As Integer = 0
-            'Dim FileSeq As Integer = 0
+            Dim cmdstring As String = ""
+            Dim AddFileName As String = ""
+            Dim AddFileType As Integer = 0
+            Dim FileSeq As Integer = 0
 
             'cmdstring = "select top 1 FTSMPOrderNo from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder AS x with(nolock) where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "'"
             'Dim orderno As String = HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE, "")
 
 
-            'If orderno <> "" Then
+            If FNHSysStyleDevId.Text <> "" Then
 
-            '    With _AddFile
-            '        .AddFileState = False
-            '        .ocmReadDocumentfile.Visible = True
-            '        .ocmok.Visible = True
-            '        .FTFileName.Properties.ReadOnly = False
-            '        .FNFileType.Properties.ReadOnly = False
-            '        .FTFileName.Text = ""
-            '        .FNFileType.SelectedIndex = 0
-            '        .oGrpdetail.Controls.Clear()
-            '        .WindowState = FormWindowState.Maximized
-            '        .ShowDialog()
+                With _AddFile
+                    .AddFileState = False
+                    .ocmReadDocumentfile.Visible = True
+                    .ocmok.Visible = True
+                    .FTFileName.Properties.ReadOnly = False
+                    .FNFileType.Properties.ReadOnly = False
+                    .FTFileName.Text = ""
+                    .FNFileType.SelectedIndex = 0
+                    .oGrpdetail.Controls.Clear()
+                    .WindowState = FormWindowState.Maximized
+                    .ShowDialog()
 
-            '        If .AddFileState Then
+                    If .AddFileState Then
 
-            '            Dim datadate As String = ""
-            '            Dim datatime As String = ""
-            '            Dim dFTFileExten As String = .FileExt.ToString
-            '            Dim _FilePath As String = .DataFilePath
-            '            Dim dttime As DataTable
+                        Dim datadate As String = ""
+                        Dim datatime As String = ""
+                        Dim dFTFileExten As String = .FileExt.ToString
+                        Dim _FilePath As String = .DataFilePath
+                        Dim dttime As DataTable
 
-            '            cmdstring = " select top 1 " & HI.UL.ULDate.FormatDateDB & " AS FTDate," & HI.UL.ULDate.FormatTimeDB & " AS FTTime"
-            '            dttime = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_SYSTEM)
+                        cmdstring = " select top 1 " & HI.UL.ULDate.FormatDateDB & " AS FTDate," & HI.UL.ULDate.FormatTimeDB & " AS FTTime"
+                        dttime = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_SYSTEM)
 
-            '            For Each r As DataRow In dttime.Rows
-            '                datadate = r!FTDate.ToString
-            '                datatime = r!FTTime.ToString
-            '            Next
-            '            dttime.Dispose()
+                        For Each r As DataRow In dttime.Rows
+                            datadate = r!FTDate.ToString
+                            datatime = r!FTTime.ToString
+                        Next
+                        dttime.Dispose()
 
-            '            cmdstring = "select MAX( FNFileSeq) AS FNFileSeq "
-            '            cmdstring &= " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder_File AS x with(nolock) where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "'"
+                        cmdstring = "select MAX( FNFileSeq) AS FNFileSeq "
+                        cmdstring &= " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle_File AS x with(nolock) where FNHSysStyleDevId='" & HI.UL.ULF.rpQuoted(FNHSysStyleDevId.Text) & "'"
 
-            '            FileSeq = Val(HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE, "0")) + 1
+                        FileSeq = Val(HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN, "0")) + 1
 
-            '            AddFileType = .FNFileType.SelectedIndex
-            '            AddFileName = .FTFileName.Text.Trim()
-            '            Dim data() As Byte
+                        AddFileType = .FNFileType.SelectedIndex
+                        AddFileName = .FTFileName.Text.Trim()
+                        Dim data() As Byte
 
-            '            Dim br As New BinaryReader(New FileStream(_FilePath, FileMode.Open, FileAccess.Read))
-            '            data = br.ReadBytes(CInt(New FileInfo(_FilePath).Length))
+                        'Dim br As New BinaryReader(New FileStream(_FilePath, FileMode.Open, FileAccess.Read))
+                        'data = br.ReadBytes(CInt(New FileInfo(_FilePath).Length))
 
-            '            'Select Case dFTFileExten
-            '            '    Case "Text", "DOC", "DOCX"
-            '            '        data = System.IO.File.ReadAllBytes(_FilePath)
-            '            '    Case Else
-            '            '        Dim br As New BinaryReader(New FileStream(_FilePath, FileMode.Open, FileAccess.Read))
-            '            '        data = br.ReadBytes(CInt(New FileInfo(_FilePath).Length))
-            '            'End Select
+                        cmdstring = "insert into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle_File"
+                        cmdstring &= " (FTInsUser, FDInsDate, FTInsTime, FNHSysStyleDevId, FNFileSeq, FTFileName, FTFileType,FTFileExten, FBFile)"
+                        cmdstring &= " VALUES (@FTInsUser, @FDInsDate, @FTInsTime, @FTSMPOrderNo, @FNFileSeq, @FTFileName, @FTFileType,@FTFileExten, @FBFile)"
 
+                        HI.Conn.SQLConn._ConnString = HI.Conn.DB.ConnectionString(HI.Conn.DB.DataBaseName.DB_MERCHAN)
+                        HI.Conn.SQLConn.SqlConnectionOpen()
 
-            '            'Dim br As New BinaryReader(New FileStream(_FilePath, FileMode.Open, FileAccess.Read))
-            '            'data = br.ReadBytes(CInt(New FileInfo(_FilePath).Length))
-            '            'data = System.IO.File.ReadAllBytes(_FilePath)
+                        Dim cmd As New Data.SqlClient.SqlCommand(cmdstring, HI.Conn.SQLConn.Cnn)
+                        cmd.Parameters.AddWithValue("@FTInsUser", HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName))
+                        cmd.Parameters.AddWithValue("@FDInsDate", datadate)
+                        cmd.Parameters.AddWithValue("@FTInsTime", datatime)
+                        cmd.Parameters.AddWithValue("@FTSMPOrderNo", HI.UL.ULF.rpQuoted(FNHSysStyleDevId.Text.Trim()))
+                        cmd.Parameters.AddWithValue("@FNFileSeq", FileSeq)
+                        cmd.Parameters.AddWithValue("@FTFileName", HI.UL.ULF.rpQuoted(AddFileName))
+                        cmd.Parameters.AddWithValue("@FTFileType", AddFileType)
+                        cmd.Parameters.AddWithValue("@FTFileExten", dFTFileExten)
 
+                        Dim p1 As New Data.SqlClient.SqlParameter("@FBFile", SqlDbType.Image)
+                        p1.Value = data
+                        cmd.Parameters.Add(p1)
 
-            '            cmdstring = "insert into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder_File"
-            '            cmdstring &= " (FTInsUser, FDInsDate, FTInsTime, FTSMPOrderNo, FNFileSeq, FTFileName, FTFileType,FTFileExten, FBFile)"
-            '            cmdstring &= " VALUES (@FTInsUser, @FDInsDate, @FTInsTime, @FTSMPOrderNo, @FNFileSeq, @FTFileName, @FTFileType,@FTFileExten, @FBFile)"
+                        cmd.ExecuteNonQuery()
+                        cmd.Parameters.Clear()
+                        HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cnn)
 
-            '            HI.Conn.SQLConn._ConnString = HI.Conn.DB.ConnectionString(HI.Conn.DB.DataBaseName.DB_SAMPLE)
-            '            HI.Conn.SQLConn.SqlConnectionOpen()
+                        LoadFileRef(FNHSysStyleDevId.Text.Trim())
+                    End If
 
-            '            Dim cmd As New Data.SqlClient.SqlCommand(cmdstring, HI.Conn.SQLConn.Cnn)
-            '            cmd.Parameters.AddWithValue("@FTInsUser", HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName))
-            '            cmd.Parameters.AddWithValue("@FDInsDate", datadate)
-            '            cmd.Parameters.AddWithValue("@FTInsTime", datatime)
-            '            cmd.Parameters.AddWithValue("@FTSMPOrderNo", HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text.Trim()))
-            '            cmd.Parameters.AddWithValue("@FNFileSeq", FileSeq)
-            '            cmd.Parameters.AddWithValue("@FTFileName", HI.UL.ULF.rpQuoted(AddFileName))
-            '            cmd.Parameters.AddWithValue("@FTFileType", AddFileType)
-            '            cmd.Parameters.AddWithValue("@FTFileExten", dFTFileExten)
-
-            '            Dim p1 As New Data.SqlClient.SqlParameter("@FBFile", SqlDbType.Image)
-            '            p1.Value = data
-            '            cmd.Parameters.Add(p1)
-
-            '            cmd.ExecuteNonQuery()
-            '            cmd.Parameters.Clear()
-            '            HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cnn)
-
-            '            LoadFileRef(FTSMPOrderNo.Text.Trim())
-            '        End If
-
-            '    End With
-            'Else
-            '    HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text)
-            'End If
+                End With
+            Else
+                HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text)
+            End If
 
         Catch ex As Exception
         End Try
+    End Sub
+
+    Private Sub LoadFileRef(ByVal _DocRefNo As String)
+
+        Dim cmd As String = ""
+        Dim dt As DataTable
+
+        cmd = "SELECT FNFileSeq, FTFileName"
+        cmd &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle_File  WITH(NOLOCK)"
+        cmd &= vbCrLf & " Where FNHSysStyleDevId ='" & HI.UL.ULF.rpQuoted(_DocRefNo) & "'"
+        cmd &= vbCrLf & " ORDER BY FNFileSeq "
+
+        dt = HI.Conn.SQLConn.GetDataTable(cmd, Conn.DB.DataBaseName.DB_MERCHAN)
+
+        ogcfile.DataSource = dt.Copy
+
+        dt.Dispose()
+
     End Sub
 
     Private Sub ocmRemoveFile_Click(sender As Object, e As EventArgs) Handles ocmRemoveFile.Click
@@ -7556,8 +7560,8 @@ Public Class wGenerateStyleDevelopNew
 
             '    If HI.MG.ShowMsg.mConfirmProcessDefaultNo("คุณต้องการทำการลบ File ใช่หรือมไม่ ?", 1907025478, AddFileName) Then
 
-            '        cmdstring = " Delete from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder_File where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "' AND FNFileSeq =" & FileSeq & ""
-            '        cmdstring &= " Update A SET FNFileSeq = FNFileSeq -1  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder_File AS A  where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "' AND FNFileSeq >" & FileSeq & ""
+            '        cmdstring = " Delete from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TMERTDevelopStyle_File where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "' AND FNFileSeq =" & FileSeq & ""
+            '        cmdstring &= " Update A SET FNFileSeq = FNFileSeq -1  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TMERTDevelopStyle_File AS A  where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "' AND FNFileSeq >" & FileSeq & ""
 
             '        If HI.Conn.SQLConn.ExecuteNonQuery(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE) Then
             '            LoadFileRef(FTSMPOrderNo.Text.Trim())
