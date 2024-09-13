@@ -9,6 +9,7 @@ Imports System.Reflection
 Imports DevExpress.Utils
 Imports DevExpress.XtraGrid.Views.Base
 Imports DevExpress.XtraEditors.Controls
+Imports System.IO
 
 Public Class wGenerateStyleDevelopNew
 
@@ -3248,34 +3249,6 @@ Public Class wGenerateStyleDevelopNew
                 If cnt = 0 Then
                     If r.Item("FTItemNo").ToString <> "" Then
 
-                        'InsertCMD.Parameters.AddWithValue("@FNHSysStyleDevId", _FNHSysStyleDevId)
-                        'InsertCMD.Parameters.AddWithValue("@FNSeq", Val(r.Item("FNSeq").ToString))
-                        'InsertCMD.Parameters.AddWithValue("@FNMerMatSeq", Val(r.Item("FNMerMatSeq").ToString))
-                        'InsertCMD.Parameters.AddWithValue("@FTItemNo", HI.UL.ULF.rpQuoted(r.Item("FTItemNo").ToString))
-                        'InsertCMD.Parameters.AddWithValue("@FNPart", Val(r.Item("FNPart").ToString))
-                        'InsertCMD.Parameters.AddWithValue("@FTItemDesc", HI.UL.ULF.rpQuoted(r.Item("FNHSysMerMatId_None").ToString))
-                        'InsertCMD.Parameters.AddWithValue("@FTPartNameEN", HI.UL.ULF.rpQuoted(r.Item("FTPartNameEN").ToString))
-                        'InsertCMD.Parameters.AddWithValue("@FTPartNameTH", HI.UL.ULF.rpQuoted(r.Item("FTPartNameTH").ToString))
-                        'InsertCMD.Parameters.AddWithValue("@FTSuplCode", HI.UL.ULF.rpQuoted(r.Item("FTSuplCode").ToString))
-                        'InsertCMD.Parameters.AddWithValue("@FTStateNominate", r.Item("FTStateNominate").ToString)
-                        'InsertCMD.Parameters.AddWithValue("@FTUnitCode", HI.UL.ULF.rpQuoted(r.Item("FTUnitCode").ToString))
-                        'InsertCMD.Parameters.AddWithValue("@FNPrice", Val(r.Item("FNPrice").ToString))
-                        'InsertCMD.Parameters.AddWithValue("@FNHSysCurId", Val(r.Item("FNHSysCurId").ToString))
-                        'InsertCMD.Parameters.AddWithValue("@FNConSmp", Val(r.Item("FNConSmp").ToString))
-                        'InsertCMD.Parameters.AddWithValue("@FNConSmpPlus", Val(r.Item("FNConSmpPlus").ToString))
-                        'InsertCMD.Parameters.AddWithValue("@FTStateActive", r.Item("FTStateActive").ToString)
-                        'InsertCMD.Parameters.AddWithValue("@FTStateCombination", r.Item("FTStateCombination").ToString)
-                        'InsertCMD.Parameters.AddWithValue("@FTStateMainMaterial", r.Item("FTStateMainMaterial").ToString)
-                        'InsertCMD.Parameters.AddWithValue("@FTInsUser", HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName))
-                        'InsertCMD.Parameters.AddWithValue("@FDInsDate", UpdateDate)
-                        'InsertCMD.Parameters.AddWithValue("@FTInsTime", UpdateTime)
-                        'InsertCMD.Parameters.AddWithValue("@FTUpdUser", HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName))
-                        'InsertCMD.Parameters.AddWithValue("@FDUpdDate", UpdateDate)
-                        'InsertCMD.Parameters.AddWithValue("@FTUpdTime", UpdateTime)
-                        'InsertCMD.Parameters.AddWithValue("@FTComponent", r.Item("FTComponent").ToString)
-                        'InsertCMD.Parameters.AddWithValue("@FTStateFree", r.Item("FTStateFree").ToString)
-                        'InsertCMD.Parameters.AddWithValue("@FTPart", r.Item("FTPart").ToString)
-
                         InsertCMD.Parameters.AddWithValue("@FNHSysStyleDevId", _FNHSysStyleDevId)
                         InsertCMD.Parameters.AddWithValue("@FNSeq", Val(r.Item("FNSeq").ToString))
                         InsertCMD.Parameters.AddWithValue("@FNMerMatSeq", Val(r.Item("FNMerMatSeq").ToString))
@@ -3351,8 +3324,6 @@ Public Class wGenerateStyleDevelopNew
 
                         End If
 
-
-
                         InsertCMD.CommandType = CommandType.Text
                         InsertCMD.ExecuteNonQuery()
                         InsertCMD.Parameters.Clear()
@@ -3360,34 +3331,6 @@ Public Class wGenerateStyleDevelopNew
                     End If
 
                 Else
-
-                    'UpdateCmd.Parameters.AddWithValue("@FNHSysStyleDevId", _FNHSysStyleDevId)
-                    'UpdateCmd.Parameters.AddWithValue("@FNSeq", Val(r.Item("FNSeq").ToString))
-                    'UpdateCmd.Parameters.AddWithValue("@FNMerMatSeq", Val(r.Item("FNMerMatSeq").ToString))
-                    'UpdateCmd.Parameters.AddWithValue("@FTItemNo", HI.UL.ULF.rpQuoted(r.Item("FTItemNo").ToString))
-                    'UpdateCmd.Parameters.AddWithValue("@FNPart", Val(r.Item("FNPart").ToString))
-                    'UpdateCmd.Parameters.AddWithValue("@FTItemDesc", HI.UL.ULF.rpQuoted(r.Item("FNHSysMerMatId_None").ToString))
-                    'UpdateCmd.Parameters.AddWithValue("@FTPartNameEN", HI.UL.ULF.rpQuoted(r.Item("FTPartNameEN").ToString))
-                    'UpdateCmd.Parameters.AddWithValue("@FTPartNameTH", HI.UL.ULF.rpQuoted(r.Item("FTPartNameTH").ToString))
-                    'UpdateCmd.Parameters.AddWithValue("@FTSuplCode", HI.UL.ULF.rpQuoted(r.Item("FTSuplCode").ToString))
-                    'UpdateCmd.Parameters.AddWithValue("@FTStateNominate", r.Item("FTStateNominate").ToString)
-                    'UpdateCmd.Parameters.AddWithValue("@FTUnitCode", HI.UL.ULF.rpQuoted(r.Item("FTUnitCode").ToString))
-                    'UpdateCmd.Parameters.AddWithValue("@FNPrice", Val(r.Item("FNPrice").ToString))
-                    'UpdateCmd.Parameters.AddWithValue("@FNHSysCurId", Val(r.Item("FNHSysCurId").ToString))
-                    'UpdateCmd.Parameters.AddWithValue("@FNConSmp", Val(r.Item("FNConSmp").ToString))
-                    'UpdateCmd.Parameters.AddWithValue("@FNConSmpPlus", Val(r.Item("FNConSmpPlus").ToString))
-                    'UpdateCmd.Parameters.AddWithValue("@FTStateActive", r.Item("FTStateActive").ToString)
-                    'UpdateCmd.Parameters.AddWithValue("@FTStateCombination", r.Item("FTStateCombination").ToString)
-                    'UpdateCmd.Parameters.AddWithValue("@FTStateMainMaterial", r.Item("FTStateMainMaterial").ToString)
-                    'UpdateCmd.Parameters.AddWithValue("@FTInsUser", HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName))
-                    'UpdateCmd.Parameters.AddWithValue("@FDInsDate", UpdateDate)
-                    'UpdateCmd.Parameters.AddWithValue("@FTInsTime", UpdateTime)
-                    'UpdateCmd.Parameters.AddWithValue("@FTUpdUser", HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName))
-                    'UpdateCmd.Parameters.AddWithValue("@FDUpdDate", UpdateDate)
-                    'UpdateCmd.Parameters.AddWithValue("@FTUpdTime", UpdateTime)
-                    'UpdateCmd.Parameters.AddWithValue("@FTComponent", r.Item("FTComponent").ToString)
-                    'UpdateCmd.Parameters.AddWithValue("@FTStateFree", r.Item("FTStateFree").ToString)
-                    'UpdateCmd.Parameters.AddWithValue("@FTPart", r.Item("FTPart").ToString)
                     UpdateCmd.Parameters.AddWithValue("@FNHSysStyleDevId", _FNHSysStyleDevId)
                     UpdateCmd.Parameters.AddWithValue("@FNSeq", Val(r.Item("FNSeq").ToString))
                     UpdateCmd.Parameters.AddWithValue("@FNMerMatSeq", Val(r.Item("FNMerMatSeq").ToString))
@@ -3454,16 +3397,10 @@ Public Class wGenerateStyleDevelopNew
 
 
                     If Val((((r.Item("FNOrderSetType").ToString))).ToString) = 3 Then
-
                         UpdateCmd.Parameters.AddWithValue("@FNConSmpSplit", Decimal.Parse(Format(Val(r.Item("FNConSmp").ToString) / 2.0, "0.0000")))
-
                     Else
-
                         UpdateCmd.Parameters.AddWithValue("@FNConSmpSplit", Val((((r.Item("FNConSmp").ToString))).ToString))
-
-
                     End If
-
 
                     UpdateCmd.CommandType = CommandType.Text
                     UpdateCmd.ExecuteNonQuery()
@@ -3612,7 +3549,6 @@ Public Class wGenerateStyleDevelopNew
                                 End If
                             End If
                     End Select
-
 
                 Next
 
@@ -7392,6 +7328,7 @@ Public Class wGenerateStyleDevelopNew
                 ' Call LoadStyleDetail(FNHSysStyleDevId.Properties.Tag.ToString)
                 Call LoadImangeStyle(_FNHSysStyleDevId)
                 Call LoadStylePostInfo()
+                Call LoadFileRef(_FNHSysStyleDevId)
 
             Else
                 FNHSysCustId.Text = Nothing
@@ -7399,18 +7336,18 @@ Public Class wGenerateStyleDevelopNew
                 FTUpdUser.Text = Nothing
                 FDUpdDate.Text = Nothing
                 FTUpdTime.Text = Nothing
-                ogcmat.DataSource = Nothing
-                ogcmat.Refresh()
-                ogccolor.DataSource = Nothing
-                ogccolor.Refresh()
-                ogcsize.DataSource = Nothing
-                ogcsize.Refresh()
                 FTDimension.Text = Nothing
                 FTProgram.Text = Nothing
                 FNHSysParentBOMId.Text = Nothing
+                ogcmat.DataSource = Nothing
+                ogccolor.DataSource = Nothing
+                ogcsize.DataSource = Nothing
+                ogcmat.Refresh()
+                ogccolor.Refresh()
+                ogcsize.Refresh()
             End If
 
-            sFNHSysStyleDevId = FNHSysStyleDevId.Text
+            sFNHSysStyleDevId = FNHSysStyleDevId.Properties.ToString()
             'Else
             '    ogcmat.DataSource = Nothing
             '    ogcmat.Refresh()
@@ -7472,7 +7409,7 @@ Public Class wGenerateStyleDevelopNew
                         dttime.Dispose()
 
                         cmdstring = "select MAX( FNFileSeq) AS FNFileSeq "
-                        cmdstring &= " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle_File AS x with(nolock) where FNHSysStyleDevId='" & HI.UL.ULF.rpQuoted(FNHSysStyleDevId.Text) & "'"
+                        cmdstring &= " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle_File AS x with(nolock) where FNHSysStyleDevId='" & HI.UL.ULF.rpQuoted(FNHSysStyleDevId_Hide.Text) & "'"
 
                         FileSeq = Val(HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN, "0")) + 1
 
@@ -7480,12 +7417,12 @@ Public Class wGenerateStyleDevelopNew
                         AddFileName = .FTFileName.Text.Trim()
                         Dim data() As Byte
 
-                        'Dim br As New BinaryReader(New FileStream(_FilePath, FileMode.Open, FileAccess.Read))
-                        'data = br.ReadBytes(CInt(New FileInfo(_FilePath).Length))
+                        Dim br As New BinaryReader(New FileStream(_FilePath, FileMode.Open, FileAccess.Read))
+                        data = br.ReadBytes(CInt(New FileInfo(_FilePath).Length))
 
                         cmdstring = "insert into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle_File"
                         cmdstring &= " (FTInsUser, FDInsDate, FTInsTime, FNHSysStyleDevId, FNFileSeq, FTFileName, FTFileType,FTFileExten, FBFile)"
-                        cmdstring &= " VALUES (@FTInsUser, @FDInsDate, @FTInsTime, @FTSMPOrderNo, @FNFileSeq, @FTFileName, @FTFileType,@FTFileExten, @FBFile)"
+                        cmdstring &= " VALUES (@FTInsUser, @FDInsDate, @FTInsTime, @FNHSysStyleDevId, @FNFileSeq, @FTFileName, @FTFileType,@FTFileExten, @FBFile)"
 
                         HI.Conn.SQLConn._ConnString = HI.Conn.DB.ConnectionString(HI.Conn.DB.DataBaseName.DB_MERCHAN)
                         HI.Conn.SQLConn.SqlConnectionOpen()
@@ -7494,7 +7431,7 @@ Public Class wGenerateStyleDevelopNew
                         cmd.Parameters.AddWithValue("@FTInsUser", HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName))
                         cmd.Parameters.AddWithValue("@FDInsDate", datadate)
                         cmd.Parameters.AddWithValue("@FTInsTime", datatime)
-                        cmd.Parameters.AddWithValue("@FTSMPOrderNo", HI.UL.ULF.rpQuoted(FNHSysStyleDevId.Text.Trim()))
+                        cmd.Parameters.AddWithValue("@FNHSysStyleDevId", HI.UL.ULF.rpQuoted(FNHSysStyleDevId_Hide.Text.Trim()))
                         cmd.Parameters.AddWithValue("@FNFileSeq", FileSeq)
                         cmd.Parameters.AddWithValue("@FTFileName", HI.UL.ULF.rpQuoted(AddFileName))
                         cmd.Parameters.AddWithValue("@FTFileType", AddFileType)
@@ -7508,7 +7445,7 @@ Public Class wGenerateStyleDevelopNew
                         cmd.Parameters.Clear()
                         HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cnn)
 
-                        LoadFileRef(FNHSysStyleDevId.Text.Trim())
+                        LoadFileRef(FNHSysStyleDevId_Hide.Text.Trim())
                     End If
 
                 End With
