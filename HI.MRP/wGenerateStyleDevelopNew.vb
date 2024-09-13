@@ -28,6 +28,7 @@ Public Class wGenerateStyleDevelopNew
     Private _CopyStyle As wCopyDevStyle
     Private _CreateBomDev As wCreateBomDev
     Private _CompareBom As wCompareBOM
+    Private _AddFile As wBomDevAddFile
 
     Dim oleDbDataAdapter1 As DbDataAdapter
     Dim oleDbDataAdapter2 As DbDataAdapter
@@ -97,27 +98,36 @@ Public Class wGenerateStyleDevelopNew
         Dim oSysLang As New HI.ST.SysLanguage
         'Call HI.ST.Lang.InsertLanguage(_CopyStyle)
 
-
         _wNewColorway = New wNewColorwayDevelop
+        _AddFile = New wBomDevAddFile
+        _CopyStyle = New wCopyDevStyle
+        _CreateBomDev = New wCreateBomDev
+        _CompareBom = New wCompareBOM
+        _wChangeColorway = New wNewChangeColorwayDevelop
+        _wNewSize = New wNewSize
+        _wGenNewMaterial = New wGenerateNewItem
+        _wChangeDesc = New wChangeColorDesc
+
         HI.TL.HandlerControl.AddHandlerObj(_wNewColorway)
+        HI.TL.HandlerControl.AddHandlerObj(_AddFile)
+        HI.TL.HandlerControl.AddHandlerObj(_CopyStyle)
+        HI.TL.HandlerControl.AddHandlerObj(_CreateBomDev)
+        HI.TL.HandlerControl.AddHandlerObj(_CopyStyle)
+        HI.TL.HandlerControl.AddHandlerObj(_wChangeColorway)
+        HI.TL.HandlerControl.AddHandlerObj(_wNewSize)
+        HI.TL.HandlerControl.AddHandlerObj(_wGenNewMaterial)
+        HI.TL.HandlerControl.AddHandlerObj(_wChangeDesc)
+
+        Try
+            Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleID, _AddFile.Name.ToString.Trim, _AddFile)
+        Catch ex As Exception
+        End Try
 
         Try
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleName, _wNewColorway.Name.ToString.Trim, _wNewColorway)
         Catch ex As Exception
         Finally
         End Try
-        Call HI.ST.Lang.SP_SETxLanguage(_wNewColorway)
-
-
-
-        _CopyStyle = New wCopyDevStyle
-        HI.TL.HandlerControl.AddHandlerObj(_CopyStyle)
-
-        _CreateBomDev = New wCreateBomDev
-        HI.TL.HandlerControl.AddHandlerObj(_CreateBomDev)
-
-        _CompareBom = New wCompareBOM
-        HI.TL.HandlerControl.AddHandlerObj(_CopyStyle)
 
         Try
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleID, _CopyStyle.Name.ToString.Trim, _CopyStyle)
@@ -137,45 +147,34 @@ Public Class wGenerateStyleDevelopNew
         Finally
         End Try
 
-        _wChangeColorway = New wNewChangeColorwayDevelop
-        HI.TL.HandlerControl.AddHandlerObj(_wChangeColorway)
-
         Try
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleName, _wChangeColorway.Name.ToString.Trim, _wChangeColorway)
         Catch ex As Exception
         Finally
         End Try
-        Call HI.ST.Lang.SP_SETxLanguage(_wChangeColorway)
-
-
-        _wNewSize = New wNewSize
-        HI.TL.HandlerControl.AddHandlerObj(_wNewSize)
 
         Try
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleName, _wNewSize.Name.ToString.Trim, _wNewSize)
         Catch ex As Exception
         Finally
         End Try
-        Call HI.ST.Lang.SP_SETxLanguage(_wNewSize)
-
-        _wChangeDesc = New wChangeColorDesc
-        HI.TL.HandlerControl.AddHandlerObj(_wChangeDesc)
 
         Try
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleName, _wChangeDesc.Name.ToString.Trim, _wChangeDesc)
         Catch ex As Exception
         Finally
         End Try
-        Call HI.ST.Lang.SP_SETxLanguage(_wChangeDesc)
-
-        _wGenNewMaterial = New wGenerateNewItem
-        HI.TL.HandlerControl.AddHandlerObj(_wGenNewMaterial)
 
         Try
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleName, _wGenNewMaterial.Name.ToString.Trim, _wGenNewMaterial)
         Catch ex As Exception
         Finally
         End Try
+
+        Call HI.ST.Lang.SP_SETxLanguage(_wNewColorway)
+        Call HI.ST.Lang.SP_SETxLanguage(_wChangeColorway)
+        Call HI.ST.Lang.SP_SETxLanguage(_wNewSize)
+        Call HI.ST.Lang.SP_SETxLanguage(_wChangeDesc)
         Call HI.ST.Lang.SP_SETxLanguage(_wNewColorway)
 
         With RepositoryFTUnitCode
@@ -202,9 +201,7 @@ Public Class wGenerateStyleDevelopNew
 
         Try
             Call LoadPartMaster()
-
             Me.ogcpart.DataSource = _dtpart(0).Copy
-
             Call LoadSetPart()
             Call LoadItemMaster()
         Catch ex As Exception
@@ -7427,5 +7424,150 @@ Public Class wGenerateStyleDevelopNew
         Catch ex As Exception
             _Spls.Close()
         End Try
+    End Sub
+
+
+
+    Private Sub ocmReadDocumentfile_Click(sender As Object, e As EventArgs) Handles ocmAddFile.Click
+        Try
+            'If CheckOwner() = False Then Exit Sub
+            'Dim cmdstring As String = ""
+            'Dim AddFileName As String = ""
+            'Dim AddFileType As Integer = 0
+            'Dim FileSeq As Integer = 0
+
+            'cmdstring = "select top 1 FTSMPOrderNo from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder AS x with(nolock) where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "'"
+            'Dim orderno As String = HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE, "")
+
+
+            'If orderno <> "" Then
+
+            '    With _AddFile
+            '        .AddFileState = False
+            '        .ocmReadDocumentfile.Visible = True
+            '        .ocmok.Visible = True
+            '        .FTFileName.Properties.ReadOnly = False
+            '        .FNFileType.Properties.ReadOnly = False
+            '        .FTFileName.Text = ""
+            '        .FNFileType.SelectedIndex = 0
+            '        .oGrpdetail.Controls.Clear()
+            '        .WindowState = FormWindowState.Maximized
+            '        .ShowDialog()
+
+            '        If .AddFileState Then
+
+            '            Dim datadate As String = ""
+            '            Dim datatime As String = ""
+            '            Dim dFTFileExten As String = .FileExt.ToString
+            '            Dim _FilePath As String = .DataFilePath
+            '            Dim dttime As DataTable
+
+            '            cmdstring = " select top 1 " & HI.UL.ULDate.FormatDateDB & " AS FTDate," & HI.UL.ULDate.FormatTimeDB & " AS FTTime"
+            '            dttime = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_SYSTEM)
+
+            '            For Each r As DataRow In dttime.Rows
+            '                datadate = r!FTDate.ToString
+            '                datatime = r!FTTime.ToString
+            '            Next
+            '            dttime.Dispose()
+
+            '            cmdstring = "select MAX( FNFileSeq) AS FNFileSeq "
+            '            cmdstring &= " from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder_File AS x with(nolock) where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "'"
+
+            '            FileSeq = Val(HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE, "0")) + 1
+
+            '            AddFileType = .FNFileType.SelectedIndex
+            '            AddFileName = .FTFileName.Text.Trim()
+            '            Dim data() As Byte
+
+            '            Dim br As New BinaryReader(New FileStream(_FilePath, FileMode.Open, FileAccess.Read))
+            '            data = br.ReadBytes(CInt(New FileInfo(_FilePath).Length))
+
+            '            'Select Case dFTFileExten
+            '            '    Case "Text", "DOC", "DOCX"
+            '            '        data = System.IO.File.ReadAllBytes(_FilePath)
+            '            '    Case Else
+            '            '        Dim br As New BinaryReader(New FileStream(_FilePath, FileMode.Open, FileAccess.Read))
+            '            '        data = br.ReadBytes(CInt(New FileInfo(_FilePath).Length))
+            '            'End Select
+
+
+            '            'Dim br As New BinaryReader(New FileStream(_FilePath, FileMode.Open, FileAccess.Read))
+            '            'data = br.ReadBytes(CInt(New FileInfo(_FilePath).Length))
+            '            'data = System.IO.File.ReadAllBytes(_FilePath)
+
+
+            '            cmdstring = "insert into [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder_File"
+            '            cmdstring &= " (FTInsUser, FDInsDate, FTInsTime, FTSMPOrderNo, FNFileSeq, FTFileName, FTFileType,FTFileExten, FBFile)"
+            '            cmdstring &= " VALUES (@FTInsUser, @FDInsDate, @FTInsTime, @FTSMPOrderNo, @FNFileSeq, @FTFileName, @FTFileType,@FTFileExten, @FBFile)"
+
+            '            HI.Conn.SQLConn._ConnString = HI.Conn.DB.ConnectionString(HI.Conn.DB.DataBaseName.DB_SAMPLE)
+            '            HI.Conn.SQLConn.SqlConnectionOpen()
+
+            '            Dim cmd As New Data.SqlClient.SqlCommand(cmdstring, HI.Conn.SQLConn.Cnn)
+            '            cmd.Parameters.AddWithValue("@FTInsUser", HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName))
+            '            cmd.Parameters.AddWithValue("@FDInsDate", datadate)
+            '            cmd.Parameters.AddWithValue("@FTInsTime", datatime)
+            '            cmd.Parameters.AddWithValue("@FTSMPOrderNo", HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text.Trim()))
+            '            cmd.Parameters.AddWithValue("@FNFileSeq", FileSeq)
+            '            cmd.Parameters.AddWithValue("@FTFileName", HI.UL.ULF.rpQuoted(AddFileName))
+            '            cmd.Parameters.AddWithValue("@FTFileType", AddFileType)
+            '            cmd.Parameters.AddWithValue("@FTFileExten", dFTFileExten)
+
+            '            Dim p1 As New Data.SqlClient.SqlParameter("@FBFile", SqlDbType.Image)
+            '            p1.Value = data
+            '            cmd.Parameters.Add(p1)
+
+            '            cmd.ExecuteNonQuery()
+            '            cmd.Parameters.Clear()
+            '            HI.Conn.SQLConn.DisposeSqlConnection(HI.Conn.SQLConn.Cnn)
+
+            '            LoadFileRef(FTSMPOrderNo.Text.Trim())
+            '        End If
+
+            '    End With
+            'Else
+            '    HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.InputData, Me.Text)
+            'End If
+
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub ocmRemoveFile_Click(sender As Object, e As EventArgs) Handles ocmRemoveFile.Click
+
+        Try
+
+            'If CheckOwner() = False Then Exit Sub
+            'Dim cmdstring As String = ""
+            'Dim AddFileName As String = ""
+            'Dim AddFileType As Integer = 0
+            'Dim FileSeq As Integer = 0
+            'cmdstring = "select top 1 FTSMPOrderNo from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder AS x with(nolock) where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "'"
+            'Dim orderno As String = HI.Conn.SQLConn.GetField(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE, "")
+
+
+            'If FNHSysStyleDevId.Text <> "" Then
+            '    With Me.ogvfileref
+            '        FileSeq = Val(.GetFocusedRowCellValue("FNFileSeq").ToString())
+            '        AddFileName = .GetFocusedRowCellValue("FTFileName").ToString()
+            '    End With
+
+
+            '    If HI.MG.ShowMsg.mConfirmProcessDefaultNo("คุณต้องการทำการลบ File ใช่หรือมไม่ ?", 1907025478, AddFileName) Then
+
+            '        cmdstring = " Delete from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder_File where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "' AND FNFileSeq =" & FileSeq & ""
+            '        cmdstring &= " Update A SET FNFileSeq = FNFileSeq -1  from [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SAMPLE) & "].dbo.TSMPOrder_File AS A  where FTSMPOrderNo='" & HI.UL.ULF.rpQuoted(FTSMPOrderNo.Text) & "' AND FNFileSeq >" & FileSeq & ""
+
+            '        If HI.Conn.SQLConn.ExecuteNonQuery(cmdstring, Conn.DB.DataBaseName.DB_SAMPLE) Then
+            '            LoadFileRef(FTSMPOrderNo.Text.Trim())
+            '        End If
+            '    End If
+
+            'End If
+
+        Catch ex As Exception
+        End Try
+
     End Sub
 End Class

@@ -20,6 +20,7 @@ Partial Class wCreateBomDev
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
+        Me.FTStyleDetail = New DevExpress.XtraEditors.TextEdit()
         Me.FTStyle = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.FNBomDevType_lbl = New DevExpress.XtraEditors.LabelControl()
@@ -28,18 +29,18 @@ Partial Class wCreateBomDev
         Me.FTSeason = New DevExpress.XtraEditors.TextEdit()
         Me.FTStateMergeData = New DevExpress.XtraEditors.CheckEdit()
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
+        Me.ocmClear = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcancel = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmok = New DevExpress.XtraEditors.SimpleButton()
-        Me.FTStyleDetail = New DevExpress.XtraEditors.TextEdit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
+        CType(Me.FTStyleDetail.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStyle.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNBomDevType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTSeason.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStateMergeData.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
-        CType(Me.FTStyleDetail.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupControl1
@@ -60,6 +61,19 @@ Partial Class wCreateBomDev
         Me.GroupControl1.Size = New System.Drawing.Size(435, 105)
         Me.GroupControl1.TabIndex = 287
         Me.GroupControl1.Text = "Style"
+        '
+        'FTStyleDetail
+        '
+        Me.FTStyleDetail.Location = New System.Drawing.Point(201, 29)
+        Me.FTStyleDetail.Name = "FTStyleDetail"
+        Me.FTStyleDetail.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
+        Me.FTStyleDetail.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
+        Me.FTStyleDetail.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.FTStyleDetail.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.FTStyleDetail.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.FTStyleDetail.Size = New System.Drawing.Size(210, 20)
+        Me.FTStyleDetail.TabIndex = 2
+        Me.FTStyleDetail.Tag = "2|"
         '
         'FTStyle
         '
@@ -174,6 +188,7 @@ Partial Class wCreateBomDev
         '
         Me.GroupControl2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupControl2.Controls.Add(Me.ocmClear)
         Me.GroupControl2.Controls.Add(Me.ocmcancel)
         Me.GroupControl2.Controls.Add(Me.ocmok)
         Me.GroupControl2.Location = New System.Drawing.Point(3, 114)
@@ -182,6 +197,16 @@ Partial Class wCreateBomDev
         Me.GroupControl2.Size = New System.Drawing.Size(435, 41)
         Me.GroupControl2.TabIndex = 288
         Me.GroupControl2.Text = "GroupControl2"
+        '
+        'ocmClear
+        '
+        Me.ocmClear.Location = New System.Drawing.Point(148, 9)
+        Me.ocmClear.Name = "ocmClear"
+        Me.ocmClear.Size = New System.Drawing.Size(128, 25)
+        Me.ocmClear.TabIndex = 108
+        Me.ocmClear.TabStop = False
+        Me.ocmClear.Tag = "2|"
+        Me.ocmClear.Text = "Clear"
         '
         'ocmcancel
         '
@@ -204,19 +229,6 @@ Partial Class wCreateBomDev
         Me.ocmok.Tag = "2|"
         Me.ocmok.Text = "OK"
         '
-        'FTStyleDetail
-        '
-        Me.FTStyleDetail.Location = New System.Drawing.Point(201, 29)
-        Me.FTStyleDetail.Name = "FTStyleDetail"
-        Me.FTStyleDetail.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.LightCyan
-        Me.FTStyleDetail.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Blue
-        Me.FTStyleDetail.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.FTStyleDetail.Properties.AppearanceReadOnly.Options.UseForeColor = True
-        Me.FTStyleDetail.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTStyleDetail.Size = New System.Drawing.Size(210, 20)
-        Me.FTStyleDetail.TabIndex = 2
-        Me.FTStyleDetail.Tag = "2|"
-        '
         'wCreateBomDev
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -231,13 +243,13 @@ Partial Class wCreateBomDev
         Me.Text = "Create BOM Develop Style"
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
+        CType(Me.FTStyleDetail.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStyle.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNBomDevType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTSeason.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStateMergeData.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl2.ResumeLayout(False)
-        CType(Me.FTStyleDetail.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -253,4 +265,5 @@ Partial Class wCreateBomDev
     Friend WithEvents FTStateMergeData As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents FTStyle As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FTStyleDetail As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents ocmClear As DevExpress.XtraEditors.SimpleButton
 End Class

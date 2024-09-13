@@ -235,6 +235,12 @@
     <Compile Include="Master\wMerStyleSize.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="wBomDevAddFile.designer.vb">
+      <DependentUpon>wBomDevAddFile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wBomDevAddFile.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="wCMPriceStyleBySeason.Designer.vb">
       <DependentUpon>wCMPriceStyleBySeason.vb</DependentUpon>
     </Compile>
@@ -569,6 +575,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Master\wMerStyleSize.resx">
       <DependentUpon>wMerStyleSize.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wBomDevAddFile.resx">
+      <DependentUpon>wBomDevAddFile.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wCMPriceStyleBySeason.resx">
       <DependentUpon>wCMPriceStyleBySeason.vb</DependentUpon>

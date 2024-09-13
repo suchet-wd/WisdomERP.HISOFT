@@ -144,4 +144,18 @@ Public Class wCreateBomDev
         End If
     End Function
 
+    Private Sub ocmClear_Click(sender As Object, e As EventArgs) Handles ocmClear.Click
+        ClearForm()
+    End Sub
+
+    Private Sub wCreateBomDev_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ClearForm()
+    End Sub
+    Private Function ClearForm()
+        FTSeason.Text = ""
+        FTStyle.Text = ""
+        FTStyleDetail.Text = ""
+        FNBomDevType.Text = ""
+    End Function
+
 End Class
