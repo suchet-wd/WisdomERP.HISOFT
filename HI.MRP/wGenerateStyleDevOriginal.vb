@@ -6678,8 +6678,8 @@ Public Class wGenerateStyleDevOriginal
             '        Me.Invoke(New HI.Delegate.Dele.ButtonEdit_ValueChanged(AddressOf FNHSysStyleDevId_EditValueChanged), New Object() {sender, e})
             '    Else
             Call LoadStyleInfo(FNHSysStyleDevId_Hide.Text, True)
-                    Call LoadStyleDetail(FNHSysStyleDevId_Hide.Text)
-                    Call LoadImangeStyle(FNHSysStyleDevId_Hide.Text)
+            Call LoadStyleDetail(FNHSysStyleDevId_Hide.Text)
+            Call LoadImangeStyle(FNHSysStyleDevId_Hide.Text)
             'Call LoadStylePostInfo()
             'sFNHSysStyleDevId = FNHSysStyleDevId.Text
             '    End If

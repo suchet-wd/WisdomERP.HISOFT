@@ -24,10 +24,8 @@ Public Class wMerStyleSize
     Private _SysImgPath As String = Application.StartupPath & IIf(Microsoft.VisualBasic.Right(Application.StartupPath, 1) = "\", "", "\") & "Images"
 
     Sub New()
-        ' This call is required by the designer.
         InitializeComponent()
 
-        ' Add any initialization after the InitializeComponent() call.
         Me.Name = "wMerStyleSize"
         Me.SysFormName = SysFormName
         Me.AssemblyPath = AssemblyPath
@@ -40,7 +38,6 @@ Public Class wMerStyleSize
         _ValidateDeleteFiled.Clear()
 
         Me.InitForm()
-
         Me.ogbmainprocbutton.Width = 0
 
 
@@ -56,9 +53,6 @@ Public Class wMerStyleSize
         Catch ex As Exception
         Finally
         End Try
-
-
-
 
     End Sub
 

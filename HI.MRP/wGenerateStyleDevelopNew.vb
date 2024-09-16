@@ -7241,7 +7241,7 @@ Public Class wGenerateStyleDevelopNew
                     Call HI.ST.Lang.SP_SETxLanguage(_CompareBom)
 
                     With _CompareBom
-                        '.FNHSysStyleIdF.Text = Me.FNHSysStyleDevId.Text
+                        .FNHSysStyleDevId = Me.FNHSysStyleDevId_Hide.Text
                         '.FNHSysSeasonIdF.Text = FTSeason.Text.Trim
                         '.FNHSysStyleIdF_None.Text = FTStyleDevNameEN.Text
                         '.FNHSysStyleIdF.Properties.Tag = FNHSysStyleDevId.Properties.Tag.ToString
