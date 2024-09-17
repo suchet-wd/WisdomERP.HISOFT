@@ -460,7 +460,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FTSeason_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSeason_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSeason_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSeason_lbl.Location = New System.Drawing.Point(241, 54)
+        Me.FTSeason_lbl.Location = New System.Drawing.Point(221, 54)
         Me.FTSeason_lbl.Name = "FTSeason_lbl"
         Me.FTSeason_lbl.Size = New System.Drawing.Size(77, 17)
         Me.FTSeason_lbl.TabIndex = 296
@@ -601,7 +601,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNHSysStyleDevId.Name = "FNHSysStyleDevId"
         Me.FNHSysStyleDevId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "707", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleDevId.Properties.Tag = ""
-        Me.FNHSysStyleDevId.Size = New System.Drawing.Size(140, 20)
+        Me.FNHSysStyleDevId.Size = New System.Drawing.Size(120, 20)
         Me.FNHSysStyleDevId.TabIndex = 0
         Me.FNHSysStyleDevId.Tag = "2|"
         '
@@ -2624,7 +2624,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNHSysStyleDevId_Hide.Properties.Appearance.BackColor = System.Drawing.Color.Gold
         Me.FNHSysStyleDevId_Hide.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysStyleDevId_Hide.Properties.ReadOnly = True
-        Me.FNHSysStyleDevId_Hide.Size = New System.Drawing.Size(106, 20)
+        Me.FNHSysStyleDevId_Hide.Size = New System.Drawing.Size(29, 20)
         Me.FNHSysStyleDevId_Hide.TabIndex = 510
         Me.FNHSysStyleDevId_Hide.Tag = "2|"
         Me.FNHSysStyleDevId_Hide.Visible = False
@@ -2773,21 +2773,21 @@ Partial Class wGenerateStyleDevOriginal
         'FTBomDevStyleCode
         '
         Me.FTBomDevStyleCode.Enabled = False
-        Me.FTBomDevStyleCode.Location = New System.Drawing.Point(241, 27)
+        Me.FTBomDevStyleCode.Location = New System.Drawing.Point(221, 27)
         Me.FTBomDevStyleCode.Name = "FTBomDevStyleCode"
         Me.FTBomDevStyleCode.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTBomDevStyleCode.Properties.Appearance.ForeColor = System.Drawing.Color.Blue
         Me.FTBomDevStyleCode.Properties.Appearance.Options.UseBackColor = True
         Me.FTBomDevStyleCode.Properties.Appearance.Options.UseForeColor = True
         Me.FTBomDevStyleCode.Properties.ReadOnly = True
-        Me.FTBomDevStyleCode.Size = New System.Drawing.Size(111, 20)
+        Me.FTBomDevStyleCode.Size = New System.Drawing.Size(131, 20)
         Me.FTBomDevStyleCode.TabIndex = 499
         Me.FTBomDevStyleCode.Tag = "2|"
         '
         'FTSeason
         '
         Me.FTSeason.Enabled = False
-        Me.FTSeason.Location = New System.Drawing.Point(324, 53)
+        Me.FTSeason.Location = New System.Drawing.Point(304, 53)
         Me.FTSeason.Name = "FTSeason"
         Me.FTSeason.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTSeason.Properties.Appearance.Options.UseBackColor = True
@@ -2796,7 +2796,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FTSeason.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.FTSeason.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.FTSeason.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.FTSeason.Size = New System.Drawing.Size(76, 20)
+        Me.FTSeason.Size = New System.Drawing.Size(96, 20)
         Me.FTSeason.TabIndex = 498
         Me.FTSeason.Tag = "2|"
         '
@@ -2809,7 +2809,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNHSysVenderPramId.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysVenderPramId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "168", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysVenderPramId.Properties.Tag = ""
-        Me.FNHSysVenderPramId.Size = New System.Drawing.Size(140, 20)
+        Me.FNHSysVenderPramId.Size = New System.Drawing.Size(120, 20)
         Me.FNHSysVenderPramId.TabIndex = 314
         Me.FNHSysVenderPramId.Tag = "2|"
         '

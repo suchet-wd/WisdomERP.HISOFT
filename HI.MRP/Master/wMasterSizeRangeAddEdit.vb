@@ -1734,6 +1734,10 @@ Public Class wMasterSizeRangeAddEdit
                 End If
             Next
 
+            If _KeyFiled.Count = 0 And _QryWhere = "" Then
+                _QryWhere = "AND sd.FNHSysSizeRangeId = '' "
+            End If
+
             Dim _Qry As String = "SELECT CASE WHEN ISNULL(sd.FNHSysMatSizeId,'0') <> '0' THEN '1' ELSE '0' END AS 'FTSelect'"
             _Qry &= vbCrLf & ", s.FTMatSizeCode, s.FTMatSizeNameEN, s.FTMatSizeNameTH, s.FTStateActive, s.FNHSysMatSizeId "
 
@@ -2400,6 +2404,7 @@ Public Class wMasterSizeRangeAddEdit
     End Sub
 
     Private Sub ocmclear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmclear.Click
+        _KeyFiled.Clear()
         Me.Preform()
         HI.TL.HandlerControl.ClearControl(Me)
         LoadGroupRange()

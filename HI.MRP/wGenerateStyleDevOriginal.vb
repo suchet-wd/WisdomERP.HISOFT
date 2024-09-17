@@ -49,7 +49,8 @@ Public Class wGenerateStyleDevOriginal
     End Enum
 
     Public Sub LoadBOMInfo(ByVal Key As String)
-        FNHSysStyleDevId.Text = Key
+        FNHSysStyleDevId_Hide.Text = Key
+        FNHSysStyleDevId.Properties.Tag = Key
     End Sub
 
 #Region "Property"
@@ -1172,7 +1173,8 @@ Public Class wGenerateStyleDevOriginal
         _Str &= vbCrLf & ", CONVERT(VARCHAR(10), CONVERT(DATETIME, MS.FDInsDate, 120), 103) AS FTUploadDate "
         _Str &= vbCrLf & ", MS.FTInsUser AS FTOwner, v.FTVenderPramCode , MS.FTSeason, m.FTMerTeamCode "
         _Str &= vbCrLf & ", MS.FTStatePost, MS.FTPostBy, MS.FTPostDate, MS.FTPostTime "
-        _Str &= vbCrLf & ", MS.FTDimension, MS.FTProgram "
+        _Str &= vbCrLf & ", MS.FTDimension, MS.FTProgram, MS.FTSeniordeveloper, MS.FTProductDev, MS.FTPCCDate, MS.FTPCCTime "
+        _Str &= vbCrLf & ", CONVERT(VARCHAR(10), CONVERT(DATETIME, MS.FTImportDate, 120), 103) AS FTImportDate, MS.FTImportTime  "
         _Str &= vbCrLf
         _Str &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyleOriginal AS MS WITH(NOLOCK) "
         _Str &= vbCrLf
@@ -1209,6 +1211,7 @@ Public Class wGenerateStyleDevOriginal
                 FNHSysSeasonId.Text = R!FTSeason.ToString
                 FTProgram.Text = R!FTProgram.ToString
                 FTDimension.Text = R!FTDimension.ToString
+
                 'FTStyleSeniorDev.Text = R!FTStyleSeniorDev.ToString
 
                 'Try
@@ -6413,15 +6416,8 @@ Public Class wGenerateStyleDevOriginal
 
     End Sub
 
-    Private Sub FNHSysStyleDevId_KeyPress(sender As Object, e As KeyPressEventArgs) Handles FNHSysStyleDevId.KeyPress
-        Dim CharInt As Integer = 0
-        ' CharInt = Asc(e.KeyChar)
-        Select Case Asc(e.KeyChar)
-            Case 32, 39, 34, 37
-                e.Handled = True
-            Case Else
-                e.Handled = False
-        End Select
+    Private Sub FNHSysStyleDevId_KeyPress(sender As Object, e As KeyPressEventArgs)
+
     End Sub
 
 

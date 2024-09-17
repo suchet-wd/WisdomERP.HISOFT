@@ -32,8 +32,6 @@ namespace HI.Track
 
         private void ocmLoadData_Click(object sender, EventArgs e)
         {
-            //if (VerifyField())
-            //{
             String _Qry = "";
             var _Spls = new HI.TL.SplashScreen("Loading...Data Please wait.");
             try
@@ -42,19 +40,6 @@ namespace HI.Track
 
                 _Qry = "EXEC " + HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) + ".[dbo].[Get_BOM_Dev_Import_Original_Tracking] ";
 
-                //if (FNHSysSeasonId.Text != "" && FNHSysSeasonIdTo.Text != "" && FNHSysStyleId.Text != "" && FNHSysStyleIdTo.Text != "")
-                //{
-                //    _Qry += ", ";
-                //}
-                //if (chBOMOriginal.Checked && chBOMDev.Checked)
-                //{
-                //    _Qry += "@GetData = 'all' ";
-                //}
-                //else if (chBOMOriginal.Checked && !chBOMDev.Checked)
-                //{
-                //    _Qry += "@GetData = 'originalonly' ";
-                //}
-                //else
                 if (chBOMDev.Checked)
                 {
                     _Qry += "@GetData = 'devonly' ";
@@ -63,6 +48,18 @@ namespace HI.Track
                 if (FDDateStart.Text != "" && FDDateEnd.Text != "")
                 {
                     _Qry += ",@FDDateStart = '" + UL.ULDate.ConvertEnDB(FDDateStart.Text) + "', @FDDateEnd = '" + UL.ULDate.ConvertEnDB(FDDateEnd.Text) + "'";
+                }
+
+                if (cFTSeason.Text.Trim() != "")
+                {
+                    _Qry += ",@Season = '" + cFTSeason.Text + "'";
+                    _Qry += ",@SeasonTo = '" + cFTSeason.Text + "'";
+                }
+
+                if (cFTStyle.Text.Trim() != "")
+                {
+                    _Qry += ",@Style = '" + cFTStyle.Text + "'";
+                    _Qry += ",@StyleTo = '" + cFTStyle.Text + "'";
                 }
 
                 _Qry += ", @LangShow = '" + (HI.ST.Lang.Language).ToString() + "'";
@@ -75,16 +72,12 @@ namespace HI.Track
                 Console.WriteLine(ex.Message);
             }
             _Spls.Close();
-            //}
-            //else
-            //{
-            //    HI.MG.ShowMsg.mInfo("กรุณาทำการเลือกเงื่อนไข อย่างน้อย 1 รายการ !!!", 1406170001, this.Text, "", System.Windows.Forms.MessageBoxIcon.Warning);
-            //}
+            CheckFormatDate();
         }
 
         private void ocmClear_Click(object sender, EventArgs e)
         {
-            HI.TL.HandlerControl.ClearControl(this);
+            ClearForm();
         } // End ocmClear_Click
 
         private bool VerifyField()
@@ -120,6 +113,27 @@ namespace HI.Track
                 Console.WriteLine(ex.Message);
             }
         } // End ogvDetail_RowStyle
+
+        private void CheckFormatDate()
+        {
+            if (FDDateStart.Text == "01-01-0001")
+            {
+                FDDateStart.Text = "";
+            }
+            if (FDDateEnd.Text == "01-01-0001")
+            {
+                FDDateEnd.Text = "";
+            }
+        } // End VerifyField
+
+        private void ClearForm()
+        {
+            HI.TL.HandlerControl.ClearControl(this);
+            FDDateStart.Text = "";
+            FDDateEnd.Text = "";
+            cFTSeason.Text = "";
+            cFTStyle.Text = "";
+        } // End ClearForm
 
     } // End Class
 } // End namespace HI.Track

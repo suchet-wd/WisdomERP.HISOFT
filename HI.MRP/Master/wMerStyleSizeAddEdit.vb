@@ -1734,6 +1734,10 @@ Public Class wMerStyleSizeAddEdit
                 End If
             Next
 
+            If _KeyFiled.Count = 0 And _QryWhere = "" Then
+                _QryWhere = "AND SS.FNHSysStyleId = '' "
+            End If
+
             Dim _Qry As String = "SELECT S.FNHSysSizeRangeId, S.FTSizeRangeCode, S.FTSizeRangeNameEN, S.FTSizeRangeNameTH, S.FTRemark, S.FTStateActive "
             _Qry &= vbCrLf & ", CASE WHEN ISNULL(SS.FNHSysSizeRangeId,'') = '' THEN '0' ELSE '1' END AS 'FTSelect' "
             _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMSizeRange As S With (NOLOCK) "
@@ -2395,6 +2399,7 @@ Public Class wMerStyleSizeAddEdit
     End Sub
 
     Private Sub ocmclear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmclear.Click
+        _KeyFiled.Clear()
         HI.TL.HandlerControl.ClearControl(Me)
         LoadGroupSize()
     End Sub

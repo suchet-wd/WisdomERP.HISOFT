@@ -30,6 +30,10 @@ namespace HI.Track
         private void InitializeComponent()
         {
             this.ogcCriteria = new DevExpress.XtraEditors.GroupControl();
+            this.cFTStyle = new DevExpress.XtraEditors.TextEdit();
+            this.cFTSeason = new DevExpress.XtraEditors.TextEdit();
+            this.FTSeason_lbl = new DevExpress.XtraEditors.LabelControl();
+            this.FNHSysStyleId_lbl = new DevExpress.XtraEditors.LabelControl();
             this.chBOMDev = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.chBOMOriginal = new DevExpress.XtraEditors.CheckEdit();
@@ -84,6 +88,8 @@ namespace HI.Track
             this.FTProgram = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ogcCriteria)).BeginInit();
             this.ogcCriteria.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cFTStyle.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cFTSeason.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chBOMDev.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chBOMOriginal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FDDateEnd.Properties.CalendarTimeProperties)).BeginInit();
@@ -103,6 +109,10 @@ namespace HI.Track
             // 
             this.ogcCriteria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ogcCriteria.Controls.Add(this.cFTStyle);
+            this.ogcCriteria.Controls.Add(this.cFTSeason);
+            this.ogcCriteria.Controls.Add(this.FTSeason_lbl);
+            this.ogcCriteria.Controls.Add(this.FNHSysStyleId_lbl);
             this.ogcCriteria.Controls.Add(this.chBOMDev);
             this.ogcCriteria.Controls.Add(this.labelControl1);
             this.ogcCriteria.Controls.Add(this.chBOMOriginal);
@@ -112,14 +122,54 @@ namespace HI.Track
             this.ogcCriteria.Controls.Add(this.lbStartImpDate);
             this.ogcCriteria.Location = new System.Drawing.Point(6, 12);
             this.ogcCriteria.Name = "ogcCriteria";
-            this.ogcCriteria.Size = new System.Drawing.Size(1059, 74);
+            this.ogcCriteria.Size = new System.Drawing.Size(1059, 108);
             this.ogcCriteria.TabIndex = 0;
             this.ogcCriteria.Text = "Bom Original Import Criteria";
+            // 
+            // cFTStyle
+            // 
+            this.cFTStyle.Location = new System.Drawing.Point(129, 56);
+            this.cFTStyle.Name = "cFTStyle";
+            this.cFTStyle.Size = new System.Drawing.Size(120, 20);
+            this.cFTStyle.TabIndex = 2;
+            // 
+            // cFTSeason
+            // 
+            this.cFTSeason.Location = new System.Drawing.Point(129, 30);
+            this.cFTSeason.Name = "cFTSeason";
+            this.cFTSeason.Size = new System.Drawing.Size(120, 20);
+            this.cFTSeason.TabIndex = 1;
+            // 
+            // FTSeason_lbl
+            // 
+            this.FTSeason_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.FTSeason_lbl.Appearance.Options.UseForeColor = true;
+            this.FTSeason_lbl.Appearance.Options.UseTextOptions = true;
+            this.FTSeason_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FTSeason_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FTSeason_lbl.Location = new System.Drawing.Point(16, 33);
+            this.FTSeason_lbl.Name = "FTSeason_lbl";
+            this.FTSeason_lbl.Size = new System.Drawing.Size(107, 13);
+            this.FTSeason_lbl.TabIndex = 18;
+            this.FTSeason_lbl.Text = "Season :";
+            // 
+            // FNHSysStyleId_lbl
+            // 
+            this.FNHSysStyleId_lbl.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.FNHSysStyleId_lbl.Appearance.Options.UseForeColor = true;
+            this.FNHSysStyleId_lbl.Appearance.Options.UseTextOptions = true;
+            this.FNHSysStyleId_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.FNHSysStyleId_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.FNHSysStyleId_lbl.Location = new System.Drawing.Point(16, 59);
+            this.FNHSysStyleId_lbl.Name = "FNHSysStyleId_lbl";
+            this.FNHSysStyleId_lbl.Size = new System.Drawing.Size(107, 13);
+            this.FNHSysStyleId_lbl.TabIndex = 12;
+            this.FNHSysStyleId_lbl.Text = "Style :";
             // 
             // chBOMDev
             // 
             this.chBOMDev.EditValue = true;
-            this.chBOMDev.Location = new System.Drawing.Point(278, 26);
+            this.chBOMDev.Location = new System.Drawing.Point(894, 26);
             this.chBOMDev.Name = "chBOMDev";
             this.chBOMDev.Properties.Appearance.ForeColor = System.Drawing.Color.Transparent;
             this.chBOMDev.Properties.Appearance.Options.UseForeColor = true;
@@ -135,16 +185,17 @@ namespace HI.Track
             this.labelControl1.Appearance.Options.UseTextOptions = true;
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(6, 29);
+            this.labelControl1.Location = new System.Drawing.Point(952, 52);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(100, 13);
             this.labelControl1.TabIndex = 5;
             this.labelControl1.Text = "Show :";
+            this.labelControl1.Visible = false;
             // 
             // chBOMOriginal
             // 
             this.chBOMOriginal.EditValue = true;
-            this.chBOMOriginal.Location = new System.Drawing.Point(112, 26);
+            this.chBOMOriginal.Location = new System.Drawing.Point(897, 78);
             this.chBOMOriginal.Name = "chBOMOriginal";
             this.chBOMOriginal.Properties.Appearance.ForeColor = System.Drawing.Color.Fuchsia;
             this.chBOMOriginal.Properties.Appearance.Options.UseForeColor = true;
@@ -152,18 +203,20 @@ namespace HI.Track
             this.chBOMOriginal.Properties.ReadOnly = true;
             this.chBOMOriginal.Size = new System.Drawing.Size(160, 20);
             this.chBOMOriginal.TabIndex = 1;
+            this.chBOMOriginal.Visible = false;
             // 
             // FDDateEnd
             // 
             this.FDDateEnd.EditValue = null;
-            this.FDDateEnd.Location = new System.Drawing.Point(364, 49);
+            this.FDDateEnd.Location = new System.Drawing.Point(361, 82);
             this.FDDateEnd.Name = "FDDateEnd";
             this.FDDateEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.FDDateEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.FDDateEnd.Size = new System.Drawing.Size(120, 20);
-            this.FDDateEnd.TabIndex = 4;
+            this.FDDateEnd.TabIndex = 51;
+            this.FDDateEnd.TabStop = false;
             // 
             // lbEndImpDate
             // 
@@ -172,7 +225,7 @@ namespace HI.Track
             this.lbEndImpDate.Appearance.Options.UseTextOptions = true;
             this.lbEndImpDate.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lbEndImpDate.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lbEndImpDate.Location = new System.Drawing.Point(258, 52);
+            this.lbEndImpDate.Location = new System.Drawing.Point(255, 85);
             this.lbEndImpDate.Name = "lbEndImpDate";
             this.lbEndImpDate.Size = new System.Drawing.Size(100, 13);
             this.lbEndImpDate.TabIndex = 2;
@@ -181,14 +234,15 @@ namespace HI.Track
             // FDDateStart
             // 
             this.FDDateStart.EditValue = null;
-            this.FDDateStart.Location = new System.Drawing.Point(112, 49);
+            this.FDDateStart.Location = new System.Drawing.Point(129, 82);
             this.FDDateStart.Name = "FDDateStart";
             this.FDDateStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.FDDateStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.FDDateStart.Size = new System.Drawing.Size(120, 20);
-            this.FDDateStart.TabIndex = 3;
+            this.FDDateStart.TabIndex = 50;
+            this.FDDateStart.TabStop = false;
             // 
             // lbStartImpDate
             // 
@@ -197,7 +251,7 @@ namespace HI.Track
             this.lbStartImpDate.Appearance.Options.UseTextOptions = true;
             this.lbStartImpDate.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lbStartImpDate.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lbStartImpDate.Location = new System.Drawing.Point(6, 52);
+            this.lbStartImpDate.Location = new System.Drawing.Point(25, 85);
             this.lbStartImpDate.Name = "lbStartImpDate";
             this.lbStartImpDate.Size = new System.Drawing.Size(100, 13);
             this.lbStartImpDate.TabIndex = 0;
@@ -210,9 +264,9 @@ namespace HI.Track
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ogbDetail.Controls.Add(this.ogbmainprocbutton);
             this.ogbDetail.Controls.Add(this.ogcDetail);
-            this.ogbDetail.Location = new System.Drawing.Point(6, 92);
+            this.ogbDetail.Location = new System.Drawing.Point(6, 126);
             this.ogbDetail.Name = "ogbDetail";
-            this.ogbDetail.Size = new System.Drawing.Size(1059, 540);
+            this.ogbDetail.Size = new System.Drawing.Size(1059, 506);
             this.ogbDetail.TabIndex = 1;
             this.ogbDetail.Text = "BOM Original Import Detail";
             // 
@@ -264,7 +318,7 @@ namespace HI.Track
             this.ogcDetail.Name = "ogcDetail";
             this.ogcDetail.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rpStatePost});
-            this.ogcDetail.Size = new System.Drawing.Size(1055, 515);
+            this.ogcDetail.Size = new System.Drawing.Size(1055, 481);
             this.ogcDetail.TabIndex = 0;
             this.ogcDetail.TabStop = false;
             this.ogcDetail.Tag = "2|";
@@ -844,6 +898,8 @@ namespace HI.Track
             this.Text = "BOM Original  Import Tracking";
             ((System.ComponentModel.ISupportInitialize)(this.ogcCriteria)).EndInit();
             this.ogcCriteria.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cFTStyle.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cFTSeason.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chBOMDev.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chBOMOriginal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FDDateEnd.Properties.CalendarTimeProperties)).EndInit();
@@ -916,5 +972,9 @@ namespace HI.Track
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit rpStatePost;
         private DevExpress.XtraGrid.Columns.GridColumn FTDimension;
         private DevExpress.XtraGrid.Columns.GridColumn FTProgram;
+        internal DevExpress.XtraEditors.LabelControl FTSeason_lbl;
+        internal DevExpress.XtraEditors.LabelControl FNHSysStyleId_lbl;
+        private DevExpress.XtraEditors.TextEdit cFTStyle;
+        private DevExpress.XtraEditors.TextEdit cFTSeason;
     }
 }

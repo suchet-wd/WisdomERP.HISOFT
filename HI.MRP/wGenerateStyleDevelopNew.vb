@@ -28,6 +28,7 @@ Public Class wGenerateStyleDevelopNew
     Private _wGenNewMaterial As wGenerateNewItem
     Private _CopyStyle As wCopyDevStyle
     Private _CreateBomDev As wCreateBomDev
+    Private _CreateBomDevImport As wCreateBomDevByBomOriginal
     Private _CompareBom As wCompareBOM
     Private _AddFile As wBomDevAddFile
 
@@ -48,7 +49,7 @@ Public Class wGenerateStyleDevelopNew
 
     Public Sub LoadBOMInfo(ByVal Key As String)
         '...call by another form name zzz...
-        FNHSysStyleDevId.Text = Key
+        FNHSysStyleDevId_Hide.Text = Key
     End Sub
 
 
@@ -91,10 +92,7 @@ Public Class wGenerateStyleDevelopNew
 
     Sub New()
 
-        ' This call is required by the designer.
         InitializeComponent()
-        ' Add any initialization after the InitializeComponent() call.
-
 
         Dim oSysLang As New HI.ST.SysLanguage
         'Call HI.ST.Lang.InsertLanguage(_CopyStyle)
@@ -108,16 +106,19 @@ Public Class wGenerateStyleDevelopNew
         _wNewSize = New wNewSize
         _wGenNewMaterial = New wGenerateNewItem
         _wChangeDesc = New wChangeColorDesc
+        _CreateBomDevImport = New wCreateBomDevByBomOriginal
 
         HI.TL.HandlerControl.AddHandlerObj(_wNewColorway)
         HI.TL.HandlerControl.AddHandlerObj(_AddFile)
         HI.TL.HandlerControl.AddHandlerObj(_CopyStyle)
         HI.TL.HandlerControl.AddHandlerObj(_CreateBomDev)
+        HI.TL.HandlerControl.AddHandlerObj(_CreateBomDevImport)
         HI.TL.HandlerControl.AddHandlerObj(_CopyStyle)
         HI.TL.HandlerControl.AddHandlerObj(_wChangeColorway)
         HI.TL.HandlerControl.AddHandlerObj(_wNewSize)
         HI.TL.HandlerControl.AddHandlerObj(_wGenNewMaterial)
         HI.TL.HandlerControl.AddHandlerObj(_wChangeDesc)
+        HI.TL.HandlerControl.AddHandlerObj(_CompareBom)
 
         Try
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleID, _AddFile.Name.ToString.Trim, _AddFile)
@@ -138,6 +139,12 @@ Public Class wGenerateStyleDevelopNew
 
         Try
             Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleID, _CreateBomDev.Name.ToString.Trim, _CreateBomDev)
+        Catch ex As Exception
+        Finally
+        End Try
+
+        Try
+            Call oSysLang.LoadObjectLanguage(HI.ST.SysInfo.ModuleID, _CreateBomDevImport.Name.ToString.Trim, _CreateBomDevImport)
         Catch ex As Exception
         Finally
         End Try
@@ -6649,17 +6656,6 @@ Public Class wGenerateStyleDevelopNew
         End Select
     End Sub
 
-    Private Sub FNHSysStyleDevId_KeyPress(sender As Object, e As KeyPressEventArgs) Handles FNHSysStyleDevId.KeyPress
-        Dim CharInt As Integer = 0
-        ' CharInt = Asc(e.KeyChar)
-        Select Case Asc(e.KeyChar)
-            Case 32, 39, 34, 37
-                e.Handled = True
-            Case Else
-                e.Handled = False
-        End Select
-    End Sub
-
     'Private Sub FTSeason_EditValueChanged(sender As Object, e As EventArgs) Handles FTSeason.EditValueChanged
 
     '    Try
@@ -7251,9 +7247,9 @@ Public Class wGenerateStyleDevelopNew
                         '.ProcComplete = False
                         .ShowDialog()
 
-                        If (.ProcComplete) Then
-                            Me.otb.SelectedTabPage = otpmatcode
-                        End If
+                        'If (.ProcComplete) Then
+                        '    Me.otb.SelectedTabPage = otpmatcode
+                        'End If
 
                     End With
 
@@ -7561,5 +7557,53 @@ Public Class wGenerateStyleDevelopNew
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub ocmManualImport_Click(sender As Object, e As EventArgs) Handles ocmManualImport.Click
+        Call ClearForm()
+
+        Call HI.ST.Lang.SP_SETxLanguage(_CreateBomDevImport)
+
+        With _CreateBomDevImport
+            '.FNHSysStyleIdF.Text = Me.FNHSysStyleDevId.Text
+            '.FNHSysSeasonIdF.Text = FTSeason.Text.Trim
+            '.FNHSysStyleIdF_None.Text = FTStyleDevNameEN.Text
+            '.FNHSysStyleIdF.Properties.Tag = FNHSysStyleDevId.Properties.Tag.ToString
+            '.FNHSysStyleDevId.Text = ""
+            '.FTSeason.Text = ""
+            '.FNVersion.Value = 0
+            '.ProcComplete = False
+            .ShowDialog()
+
+            'If (.ProcComplete) Then
+            '    Dim _version As Integer = 1
+            '    Dim _Qry As String = ""
+            '    'b.FNHSysStyleDevId  , b.FTStyleDevCode, b.FTSeason , b.FNBomDevType ,
+            '    _Qry = "SELECT TOP 1  ISNULL(MAX(b.FNVersion),0) + 1  "
+            '    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle AS b WITH(NOLOCK) "
+            '    _Qry &= vbCrLf & "WHERE b.FTStyleDevCode = '" & .FTStyle.Text & "' "
+            '    _Qry &= vbCrLf & "AND b.FTSeason = '" & .FTSeason.Text & "' "
+            '    _Qry &= vbCrLf & "AND b.FNBomDevType = '" & Val(.FNBomDevType.SelectedIndex) & "'"
+
+            '    _version = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "")
+
+            '    Me.otb.SelectedTabPage = otpmatcode
+            '    Me.FTBomDevStyleCode.Text = .FTStyle.Text
+            '    Me.FNHSysStyleDevId.Text = .FTStyleDetail.Text
+            '    Me.FNHSysStyleDevId_None.Text = .FTStyle.Text + "-" + .FTSeason.Text + "-" + Format(_version, "0#") + "-" + .FNBomDevType.Text
+            '    Me.FNBomDevType.Text = .FNBomDevType.Text
+            '    Me.FTSeason.Text = .FTSeason.Text
+            '    Me.FNVersion.Text = _version
+            '    Me.FNHSysStyleDevId_Hide.Text = HI.SE.RunID.GetRunNoID("TMERTDevelopStyle", "FNHSysStyleDevId", Conn.DB.DataBaseName.DB_MERCHAN)
+
+            '    'If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "") Then
+            '    '    '    Return True
+            '    '    'Else
+            '    '    '    HI.MG.ShowMsg.mProcessError(1411200101, "คุณไม่มีสิทธิ์ทำการลบหรือแก้ไข Style นี้ ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
+            '    '    '    Return False
+            '    'End If
+            'End If
+
+        End With
     End Sub
 End Class
