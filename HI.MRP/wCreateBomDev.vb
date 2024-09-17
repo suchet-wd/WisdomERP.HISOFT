@@ -1,5 +1,4 @@
-﻿Imports System.Data.SqlClient
-
+﻿
 Public Class wCreateBomDev
 
     Private _ProcComplete As Boolean = False
@@ -17,31 +16,6 @@ Public Class wCreateBomDev
         Me.Close()
     End Sub
 
-    Private Function CheckOwner(FTUpdUser As String) As Boolean
-        'If (HI.ST.UserInfo.UserName.ToUpper = FTUpdUser.ToUpper) Or (HI.ST.SysInfo.Admin) Or FTUpdUser.ToUpper = "" Then
-        '    Return True
-        'Else
-
-        'Dim _Qry As String = ""
-        'Dim _Qry2 As String = ""
-        '_Qry = "SELECT TOP 1  FNHSysMerTeamId  "
-        '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.[TSEUserLogin] AS A WITH(NOLOCK) "
-        '_Qry &= vbCrLf & "   WHERE  FTUserName = '" & HI.UL.ULF.rpQuoted(FTUpdUser) & "' "
-
-        '_Qry2 = "SELECT TOP 1  FNHSysMerTeamId  "
-        '_Qry2 &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.[TSEUserLogin] AS A WITH(NOLOCK) "
-        '_Qry2 &= vbCrLf & "   WHERE  FTUserName = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  "
-
-        'If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "") = HI.Conn.SQLConn.GetField(_Qry2, Conn.DB.DataBaseName.DB_SECURITY, "") Then
-        '    Return True
-        'Else
-        '    HI.MG.ShowMsg.mProcessError(1411200101, "คุณไม่มีสิทธิ์ทำการลบหรือแก้ไข Style นี้ ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
-        '    Return False
-        'End If
-
-        'End If
-    End Function
-
     Private Sub ocmok_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmok.Click
         If Verify() Then
             Me.ProcComplete = True
@@ -49,66 +23,6 @@ Public Class wCreateBomDev
 
         End If
 
-        'Dim ExistingStyle As String = ""
-
-        'If FNHSysStyleDevId.Text = "" Or FNHSysSeasonIdF.Text = "" Or FNHSysStyleIdF.Text = "" Or FTSeason.Text = "" Then
-        '    Exit Sub
-        'End If
-
-        'Dim _Str As String
-        'Dim _FTUpdUser As String = ""
-
-        '_Str = "SELECT TOP 1"
-        '_Str &= vbCrLf & "  	ISNULL(FTUpdUser,FTInsUser) AS FTUpdUser"
-        '_Str &= vbCrLf & "     FROM  [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle AS X WITH(NOLOCK)"
-        '_Str &= vbCrLf & " WHERE (X.FNHSysStyleDevId  =" & Val(FNHSysStyleDevId.Properties.Tag.ToString) & ")"
-
-        '_Str &= vbCrLf & "   ORDER BY ISNULL(FDUpdDate,FDInsDate) DESC,ISNULL(FTUpdTime,FTInsTime) DESC"
-
-
-        '_FTUpdUser = HI.Conn.SQLConn.GetField(_Str, Conn.DB.DataBaseName.DB_MERCHAN, "")
-        'If CheckOwner(_FTUpdUser) = False Then
-        '    Exit Sub
-        'End If
-
-        '_Str = "SELECT TOP 1 FNHSysStyleDevId FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle_Mat WITH(NOLOCK) WHERE FNHSysStyleDevId =" & Val(FNHSysStyleDevId.Properties.Tag.ToString) & ""
-        'ExistingStyle = HI.Conn.SQLConn.GetField(_Str, Conn.DB.DataBaseName.DB_MERCHAN, "")
-
-        'If ExistingStyle.Trim() <> "" Then
-
-        '    If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
-        '        If MsgBox("StyleNo " & FNHSysStyleDevId.Text & " มีอยู่แล้ว คุณต้องการเขียนทับ Style No นี้ใช่หรือไม่?", MsgBoxStyle.YesNo, "ยืนยันการเขียนทับ") = vbNo Then Exit Sub
-        '    Else
-        '        If MsgBox("StyleNo " & FNHSysStyleDevId.Text & " is existing, Do you want to overwrite this StyleNo?", MsgBoxStyle.YesNo, "Comfirmation Orverwrite") = vbNo Then Exit Sub
-        '    End If
-
-        'End If
-
-        'If Me.ProcessCopy(FNHSysStyleIdF.Properties.Tag, FNHSysStyleDevId.Properties.Tag, FNHSysStyleDevId.Text, FTSeason.Text) Then
-        '    Me.ProcComplete = True
-        '    'HI.MG.ShowMsg.mInfo("Copy Style completed.", 1, "Copy Style", "")
-
-        '    If FTStateMergeData.Checked Then
-        '        HI.Auditor.CreateLog.CreateLogDelete(HI.ST.SysInfo.MenuName, Me.Name, "Copy not Delete Destination  (Style " & FNHSysStyleDevId.Text & " Season " & FTSeason.Text & " ")
-        '    Else
-        '        HI.Auditor.CreateLog.CreateLogDelete(HI.ST.SysInfo.MenuName, Me.Name, "Copy And Delete Destination  (Style " & FNHSysStyleDevId.Text & " Season " & FTSeason.Text & "  ")
-        '    End If
-
-        '    If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
-        '        MsgBox("คัดลอกสำเร็จ", vbOKOnly, "คัดลอก Style")
-        '    Else
-        '        MsgBox("Copy Style completed", vbOKOnly, "Copy Style")
-        '    End If
-
-        '    Me.Close()
-        'Else
-        '    If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
-        '        MsgBox("ไม่สามารถคัดลอกข้อมูลได้", vbOKOnly, "คัดลอก Style")
-        '    Else
-        '        MsgBox("Cannot Copy StyleNo", vbOKOnly, "Copy Style")
-        '    End If
-
-        'End If
     End Sub
 
     Private Function Verify() As Boolean
@@ -156,17 +70,31 @@ Public Class wCreateBomDev
         FTStyle.Text = ""
         FTStyleDetail.Text = ""
         FNBomDevType.Text = ""
+        FTProgram.Text = ""
+        FTProductDev.Text = ""
+        FTDimension.Text = ""
+        FTStyleSeniorDev.Text = ""
     End Function
 
     Private Sub FTStyle_Leave(sender As Object, e As EventArgs) Handles FTStyle.Leave
+        Dim _dt As DataTable
+        Dim _Qry As String = ""
         If FTStyle.Text <> "" Then
-            Dim _Qry As String = ""
-            _Qry = "SELECT ISNULL(s.FTStyleNameEN,'')  "
-            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle AS s WITH (NOLOCK) "
-            _Qry &= vbCrLf & "   WHERE s.FTStyleCode = '" & HI.UL.ULF.rpQuoted(FTStyle.Text) & "' "
-
-            FTStyleDetail.Text = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "")
-
+            _Qry = "SELECT ISNULL(s.FTStyleNameEN,'') AS 'FTStyleDetail', s.FTProductdeveloper "
+            _Qry &= vbCrLf & ", s.FTSeniordeveloper, s.FTDimension, s.FTProgram "
+            _Qry &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMStyle AS s WITH (NOLOCK) "
+            _Qry &= vbCrLf & "WHERE s.FTStyleCode = '" & HI.UL.ULF.rpQuoted(FTStyle.Text) & "' "
+            _dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
+            'FTStyleDetail.Text = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "")
+            If _dt.Rows.Count > 0 Then
+                For Each R As DataRow In _dt.Rows
+                    FTStyleDetail.Text = R!FTStyleDetail.ToString
+                    FTProgram.Text = R!FTProgram.ToString
+                    FTProductDev.Text = R!FTProductdeveloper.ToString
+                    FTDimension.Text = R!FTDimension.ToString
+                    FTStyleSeniorDev.Text = R!FTSeniordeveloper.ToString
+                Next
+            End If
         End If
     End Sub
 End Class

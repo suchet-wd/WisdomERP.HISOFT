@@ -228,7 +228,6 @@ Partial Class wGenerateStyleDevOriginal
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.FTImportTime = New DevExpress.XtraEditors.TextEdit()
         Me.FTPccDate = New DevExpress.XtraEditors.TextEdit()
-        Me.FTPccTime = New DevExpress.XtraEditors.TextEdit()
         Me.FTPccDate_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTImportBy = New DevExpress.XtraEditors.TextEdit()
         Me.FTStyleSeniorDev = New DevExpress.XtraEditors.TextEdit()
@@ -373,7 +372,6 @@ Partial Class wGenerateStyleDevOriginal
         CType(Me.FTProductDev.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTImportTime.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTPccDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTPccTime.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTImportBy.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStyleSeniorDev.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysSeasonId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -2107,7 +2105,6 @@ Partial Class wGenerateStyleDevOriginal
         Me.otpstyleinfo.Controls.Add(Me.LabelControl1)
         Me.otpstyleinfo.Controls.Add(Me.FTImportTime)
         Me.otpstyleinfo.Controls.Add(Me.FTPccDate)
-        Me.otpstyleinfo.Controls.Add(Me.FTPccTime)
         Me.otpstyleinfo.Controls.Add(Me.FTPccDate_lbl)
         Me.otpstyleinfo.Controls.Add(Me.FTImportBy)
         Me.otpstyleinfo.Controls.Add(Me.FTStyleSeniorDev)
@@ -2258,18 +2255,6 @@ Partial Class wGenerateStyleDevOriginal
         Me.FTPccDate.Size = New System.Drawing.Size(68, 20)
         Me.FTPccDate.TabIndex = 503
         Me.FTPccDate.Tag = "2|"
-        '
-        'FTPccTime
-        '
-        Me.FTPccTime.Enabled = False
-        Me.FTPccTime.Location = New System.Drawing.Point(849, 105)
-        Me.FTPccTime.Name = "FTPccTime"
-        Me.FTPccTime.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTPccTime.Properties.Appearance.Options.UseBackColor = True
-        Me.FTPccTime.Properties.ReadOnly = True
-        Me.FTPccTime.Size = New System.Drawing.Size(66, 20)
-        Me.FTPccTime.TabIndex = 504
-        Me.FTPccTime.Tag = "2|"
         '
         'FTPccDate_lbl
         '
@@ -3243,7 +3228,6 @@ Partial Class wGenerateStyleDevOriginal
         CType(Me.FTProductDev.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTImportTime.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTPccDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTPccTime.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTImportBy.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStyleSeniorDev.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysSeasonId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3494,7 +3478,6 @@ Partial Class wGenerateStyleDevOriginal
     Friend WithEvents FTStyleSeniorDev_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTImportBy As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FTPccDate As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTPccTime As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FTPccDate_lbl As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents FTImportTime As DevExpress.XtraEditors.TextEdit
