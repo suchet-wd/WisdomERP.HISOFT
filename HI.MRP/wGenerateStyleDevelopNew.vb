@@ -260,7 +260,7 @@ Public Class wGenerateStyleDevelopNew
             FTUpdTime.Text = "??:??:??"
             FDImportDate.Text = "??/??/????"
             FTImportTime.Text = "??:??:??"
-            FTPccDate.Text = "??/??/????"
+            'FTPccDate.Text = "??/??/????"
             FTConfirmedDate.Text = "??/??/????"
             FTConfirmedTime.Text = "??:??:??"
             FNHSysStyleDevId_Hide.Text = ""
@@ -294,30 +294,30 @@ Public Class wGenerateStyleDevelopNew
 
 #Region "MAIN PROC"
 
-    Private Function CheckOwner() As Boolean
+    'Private Function CheckOwner() As Boolean
 
-        If (HI.ST.UserInfo.UserName.ToUpper = FTUpdUser.Text.ToUpper) Or (HI.ST.SysInfo.Admin) Or FTUpdUser.Text.ToUpper = "" Then
-            Return True
-        Else
-            Dim _Qry As String = ""
-            Dim _Qry2 As String = ""
-            _Qry = "SELECT TOP 1  FNHSysMerTeamId  "
-            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.[TSEUserLogin] AS A WITH(NOLOCK) "
-            _Qry &= vbCrLf & "   WHERE  FTUserName = '" & HI.UL.ULF.rpQuoted(FTUpdUser.Text) & "' "
+    '    If (HI.ST.UserInfo.UserName.ToUpper = FTUpdUser.Text.ToUpper) Or (HI.ST.SysInfo.Admin) Or FTUpdUser.Text.ToUpper = "" Then
+    '        Return True
+    '    Else
+    '        Dim _Qry As String = ""
+    '        Dim _Qry2 As String = ""
+    '        _Qry = "SELECT TOP 1  FNHSysMerTeamId  "
+    '        _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.[TSEUserLogin] AS A WITH(NOLOCK) "
+    '        _Qry &= vbCrLf & "   WHERE  FTUserName = '" & HI.UL.ULF.rpQuoted(FTUpdUser.Text) & "' "
 
-            _Qry2 = "SELECT TOP 1  FNHSysMerTeamId  "
-            _Qry2 &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.[TSEUserLogin] AS A WITH(NOLOCK) "
-            _Qry2 &= vbCrLf & "   WHERE  FTUserName = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  "
+    '        _Qry2 = "SELECT TOP 1  FNHSysMerTeamId  "
+    '        _Qry2 &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.[TSEUserLogin] AS A WITH(NOLOCK) "
+    '        _Qry2 &= vbCrLf & "   WHERE  FTUserName = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  "
 
-            If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "") = HI.Conn.SQLConn.GetField(_Qry2, Conn.DB.DataBaseName.DB_SECURITY, "") Then
-                Return True
-            Else
-                HI.MG.ShowMsg.mProcessError(1411200101, "คุณไม่มีสิทธิ์ทำการลบหรือแก้ไข Style นี้ ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
-                Return False
-            End If
-        End If
+    '        If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "") = HI.Conn.SQLConn.GetField(_Qry2, Conn.DB.DataBaseName.DB_SECURITY, "") Then
+    '            Return True
+    '        Else
+    '            HI.MG.ShowMsg.mProcessError(1411200101, "คุณไม่มีสิทธิ์ทำการลบหรือแก้ไข Style นี้ ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
+    '            Return False
+    '        End If
+    '    End If
 
-    End Function
+    'End Function
 
     Private Sub Proc_Close(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ocmexit.Click
         Me.Close()
@@ -1336,7 +1336,7 @@ Public Class wGenerateStyleDevelopNew
                         FTUpdTime.Text = "??:??:??"
                         FDImportDate.Text = "??/??/????"
                         FTImportTime.Text = "??:??:??"
-                        FTPccDate.Text = "??/??/????"
+                        'FTPccDate.Text = "??/??/????"
                         FTConfirmedDate.Text = "??/??/????"
                         FTConfirmedTime.Text = "??:??:??"
                         FTNote.Text = R!FTNote.ToString
@@ -1403,6 +1403,7 @@ Public Class wGenerateStyleDevelopNew
         _Str &= vbCrLf & ", ISNULL(T2.FTStateNotShowBomSheet,'0') AS FTStateNotShowBomSheet,ISNULL(T2.FTStateLabel,'0') AS FTStateLabel,ISNULL(T2.FTUsed,'') As FTUsed ,ISNULL(T2.FNOrderSetType,0) As FNOrderSetType,T2.FTItemREfNo"
         _Str &= vbCrLf & ", ISNULL(T2.FTStateDTM,'0') AS FTStateDTM, T2.FTDTMNote, ISNULL( T2.FTStateHemNotOptiplan,'0') AS FTStateHemNotOptiplan, ISNULL(T2.FNRepeatLengthCM,0) AS FNRepeatLengthCM "
         _Str &= vbCrLf & ", ISNULL(T2.FNRepeatConvert,0) AS FNRepeatConvert, ISNULL(T2.FNPackPerCarton,0) AS FNPackPerCarton, ISNULL(T2.FNConSmpSplit,0) AS FNConSmpSplit, T2.FTBOMExcelSuplName "
+        _Str &= vbCrLf & ", T2.FNHSysCOFOId, T2.FTNikeSuplCode "
         _Str &= vbCrLf
         _Str &= vbCrLf & "FROM [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[TMERTDevelopStyle] AS T1 WITH(NOLOCK) "
         _Str &= vbCrLf & "INNER JOIN [" & HI.Conn.DB.GetDataBaseName(HI.Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[TMERTDevelopStyle_Mat] AS T2 WITH(NOLOCK) ON T1.FNHSysStyleDevId = T2.FNHSysStyleDevId "
@@ -1465,9 +1466,9 @@ Public Class wGenerateStyleDevelopNew
     End Function
 
     Private Sub ocmbomaddnew_Click(sender As System.Object, e As System.EventArgs) Handles ocmbomaddnew.Click
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
         'If sFNHSysStyleDevId = "" Then Return
         Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
@@ -1481,9 +1482,9 @@ Public Class wGenerateStyleDevelopNew
     End Sub
 
     Private Sub ocmbominsertrow_Click(sender As System.Object, e As System.EventArgs) Handles ocmbominsertrow.Click
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
         Dim crRow As Double, nxRow As String, nwRow As String
         Dim RowCount As Integer = 0
         View = Me.ogcmat.Views(0)
@@ -1538,9 +1539,9 @@ Public Class wGenerateStyleDevelopNew
 
     Private Sub ocmbomnewcolorway_Click(sender As System.Object, e As System.EventArgs) Handles ocmbomnewcolorway.Click
 
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
 
         'If sFNHSysStyleDevId = "" Then Return
         'InitNewRow(CType(ogcstylecolor.DataSource, DataTable), TabIndexs.Colorway)
@@ -1750,7 +1751,7 @@ Public Class wGenerateStyleDevelopNew
         FTUpdTime.Text = "??:??:??"
         FDImportDate.Text = "??/??/????"
         FTImportTime.Text = "??:??:??"
-        FTPccDate.Text = "??/??/????"
+        'FTPccDate.Text = "??/??/????"
         FTConfirmedDate.Text = "??/??/????"
         FTConfirmedTime.Text = "??:??:??"
         Me.FTImage1.Image = Nothing
@@ -1917,9 +1918,9 @@ Public Class wGenerateStyleDevelopNew
     End Sub
 
     Private Sub ocmbomdeleterow_Click(sender As System.Object, e As System.EventArgs) Handles ocmbomdeleterow.Click
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
 
         With ogvmat
 
@@ -1982,9 +1983,9 @@ Public Class wGenerateStyleDevelopNew
 
     Private Sub ocmdeletecolorway_Click(sender As System.Object, e As System.EventArgs) Handles ocmdeletecolorway.Click
 
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
 
         'If sFNHSysStyleDevId = "" Then Return
         Call LoadStylePostInfo()
@@ -2566,9 +2567,9 @@ Public Class wGenerateStyleDevelopNew
     End Function
     Private Sub ocmsave_Click(sender As System.Object, e As System.EventArgs) Handles ocmsave.Click
 
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
 
         If Me.VerifyData() Then
 
@@ -2635,9 +2636,9 @@ Public Class wGenerateStyleDevelopNew
 
     Private Sub ocmdelete_Click(sender As System.Object, e As System.EventArgs) Handles ocmdelete.Click
 
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
         '  If CType(ogcmat.DataSource, DataTable).Rows.Count > 0 Then
         Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
@@ -2659,9 +2660,9 @@ Public Class wGenerateStyleDevelopNew
     End Sub
 
     Private Sub ocmbomdiffpart_Click(sender As System.Object, e As System.EventArgs) Handles ocmbomdiffpart.Click
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
         Try
             CType(ogcmat.DataSource, DataTable).AcceptChanges()
         Catch ex As Exception
@@ -4466,9 +4467,9 @@ Public Class wGenerateStyleDevelopNew
     End Sub
 
     Private Sub ocmbomnewsize_Click(sender As Object, e As EventArgs) Handles ocmbomnewsize.Click
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
 
         'If sFNHSysStyleDevId = "" Then Return
         'InitNewRow(CType(ogcstylecolor.DataSource, DataTable), TabIndexs.Colorway)
@@ -4551,9 +4552,9 @@ Public Class wGenerateStyleDevelopNew
     End Sub
 
     Private Sub ocmbomdeletesize_Click(sender As Object, e As EventArgs) Handles ocmbomdeletesize.Click
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
 
         'If sFNHSysStyleDevId = "" Then Return
         Call LoadStylePostInfo()
@@ -6070,9 +6071,9 @@ Public Class wGenerateStyleDevelopNew
     Private Sub ocmchangematcolordes_Click(sender As Object, e As EventArgs) Handles ocmchangematcolordes.Click
         Try
 
-            If CheckOwner() = False Then
-                Exit Sub
-            End If
+            'If CheckOwner() = False Then
+            '    Exit Sub
+            'End If
 
             'If sFNHSysStyleDevId = "" Then Return
             Call LoadStylePostInfo()
@@ -6630,9 +6631,9 @@ Public Class wGenerateStyleDevelopNew
 
     Private Sub ocmposttobomsheet_Click(sender As Object, e As EventArgs) Handles ocmposttobomsheet.Click
         If Me.VerifyData() Then
-            If CheckOwner() = False Then
-                Exit Sub
-            End If
+            'If CheckOwner() = False Then
+            '    Exit Sub
+            'End If
             If ogcmat.DataSource Is Nothing Then
                 Exit Sub
             End If
@@ -6720,9 +6721,9 @@ Public Class wGenerateStyleDevelopNew
     Private Sub ocmbomchangecolorway_Click(sender As Object, e As EventArgs) Handles ocmbomchangecolorway.Click
         Try
 
-            If CheckOwner() = False Then
-                Exit Sub
-            End If
+            'If CheckOwner() = False Then
+            '    Exit Sub
+            'End If
 
             'If sFNHSysStyleDevId = "" Then Return
             Call LoadStylePostInfo()
@@ -7227,7 +7228,7 @@ Public Class wGenerateStyleDevelopNew
             .ShowDialog()
 
             If (.ProcComplete) Then
-                FNHSysStyleDevId_None.Text = ""
+
                 Dim _version As Integer = 1
                 Dim _Qry As String = ""
                 'b.FNHSysStyleDevId  , b.FTStyleDevCode, b.FTSeason , b.FNBomDevType ,
@@ -7253,12 +7254,12 @@ Public Class wGenerateStyleDevelopNew
                 Me.FNVersion.Text = _version
 
                 LoadImangeStyle()
-                'If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "") Then
-                '    '    Return True
-                '    'Else
-                '    '    HI.MG.ShowMsg.mProcessError(1411200101, "คุณไม่มีสิทธิ์ทำการลบหรือแก้ไข Style นี้ ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
-                '    '    Return False
-                'End If
+                If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "") Then
+                    '    Return True
+                    'Else
+                    '    HI.MG.ShowMsg.mProcessError(1411200101, "คุณไม่มีสิทธิ์ทำการลบหรือแก้ไข Style นี้ ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
+                    '    Return False
+                End If
             End If
 
         End With
@@ -7525,34 +7526,35 @@ Public Class wGenerateStyleDevelopNew
             '.ProcComplete = False
             .ShowDialog()
 
-            'If (.ProcComplete) Then
-            '    Dim _version As Integer = 1
-            '    Dim _Qry As String = ""
-            '    'b.FNHSysStyleDevId  , b.FTStyleDevCode, b.FTSeason , b.FNBomDevType ,
-            '    _Qry = "SELECT TOP 1  ISNULL(MAX(b.FNVersion),0) + 1  "
-            '    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle AS b WITH(NOLOCK) "
-            '    _Qry &= vbCrLf & "WHERE b.FTStyleDevCode = '" & .FTStyle.Text & "' "
-            '    _Qry &= vbCrLf & "AND b.FTSeason = '" & .FTSeason.Text & "' "
-            '    _Qry &= vbCrLf & "AND b.FNBomDevType = '" & Val(.FNBomDevType.SelectedIndex) & "'"
+            If (.ProcComplete) Then
+                FNHSysStyleDevId_Hide.Text = .FNHSysStyleDevId_Hide.Text
+                '    Dim _version As Integer = 1
+                '    Dim _Qry As String = ""
+                '    'b.FNHSysStyleDevId  , b.FTStyleDevCode, b.FTSeason , b.FNBomDevType ,
+                '    _Qry = "SELECT TOP 1  ISNULL(MAX(b.FNVersion),0) + 1  "
+                '    _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle AS b WITH(NOLOCK) "
+                '    _Qry &= vbCrLf & "WHERE b.FTStyleDevCode = '" & .oFTStyle.Text & "' "
+                '    _Qry &= vbCrLf & "AND b.FTSeason = '" & .oFTSeason.Text & "' "
+                '    _Qry &= vbCrLf & "AND b.FNBomDevType = '" & .oFNBomDevType.Text & "'"
 
-            '    _version = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "")
+                '    _version = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "")
 
-            '    Me.otb.SelectedTabPage = otpmatcode
-            '    Me.FTBomDevStyleCode.Text = .FTStyle.Text
-            '    Me.FNHSysStyleDevId.Text = .FTStyleDetail.Text
-            '    Me.FNHSysStyleDevId_None.Text = .FTStyle.Text + "-" + .FTSeason.Text + "-" + Format(_version, "0#") + "-" + .FNBomDevType.Text
-            '    Me.FNBomDevType.Text = .FNBomDevType.Text
-            '    Me.FTSeason.Text = .FTSeason.Text
-            '    Me.FNVersion.Text = _version
-            '    Me.FNHSysStyleDevId_Hide.Text = HI.SE.RunID.GetRunNoID("TMERTDevelopStyle", "FNHSysStyleDevId", Conn.DB.DataBaseName.DB_MERCHAN)
+                '    Me.otb.SelectedTabPage = otpmatcode
+                '    Me.FTBomDevStyleCode.Text = .FTStyle.Text
+                '    Me.FNHSysStyleDevId.Text = .FTStyleDetail.Text
+                '    Me.FNHSysStyleDevId_None.Text = .FTStyle.Text + "-" + .FTSeason.Text + "-" + Format(_version, "0#") + "-" + .FNBomDevType.Text
+                '    Me.FNBomDevType.Text = .FNBomDevType.Text
+                '    Me.FTSeason.Text = .FTSeason.Text
+                '    Me.FNVersion.Text = _version
+                '    Me.FNHSysStyleDevId_Hide.Text = HI.SE.RunID.GetRunNoID("TMERTDevelopStyle", "FNHSysStyleDevId", Conn.DB.DataBaseName.DB_MERCHAN)
 
-            '    'If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "") Then
-            '    '    '    Return True
-            '    '    'Else
-            '    '    '    HI.MG.ShowMsg.mProcessError(1411200101, "คุณไม่มีสิทธิ์ทำการลบหรือแก้ไข Style นี้ ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
-            '    '    '    Return False
-            '    'End If
-            'End If
+                '    'If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "") Then
+                '    '    '    Return True
+                '    '    'Else
+                '    '    '    HI.MG.ShowMsg.mProcessError(1411200101, "คุณไม่มีสิทธิ์ทำการลบหรือแก้ไข Style นี้ ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
+                '    '    '    Return False
+                '    'End If
+            End If
 
         End With
     End Sub

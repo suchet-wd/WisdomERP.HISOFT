@@ -436,8 +436,8 @@ Public Class wSMPCreateOrderSample
         Dim dt As DataTable
 
 
-        cmdstring = "  Select  FNHSysRawMatId,FNHSysRawMatId AS FNHSysRawMatId_Hide "
-        cmdstring &= vbCrLf & " 	, FTRawMatCode "
+        cmdstring = "Select  FNHSysRawMatId,FNHSysRawMatId AS FNHSysRawMatId_Hide "
+        cmdstring &= vbCrLf & ", FTRawMatCode "
         cmdstring &= vbCrLf & "	, FTDescription"
         cmdstring &= vbCrLf & ", FTRawMatColorName"
         cmdstring &= vbCrLf & ", FTRawMatColorCode"
@@ -446,15 +446,19 @@ Public Class wSMPCreateOrderSample
         cmdstring &= vbCrLf & ", FTUnitCode"
         cmdstring &= vbCrLf & ", FTFabricFrontSize"
         cmdstring &= vbCrLf & ",FTRawMatCode + '|'+ FTRawMatColorCode +'|' + FTRawMatSizeCode AS FTItemDataRef"
-        cmdstring &= vbCrLf & " FROM(Select        H.FNHSysRawMatId, H.FTRawMatCode, H.FTRawMatNameEN As FTDescription, H.FTRawMatColorNameEN As FTRawMatColorName, H.FNHSysRawMatColorId, H.FNHSysRawMatSizeId, ISNULL(C.FTRawMatColorCode, '') AS FTRawMatColorCode, ISNULL(S.FTRawMatSizeCode, '') AS FTRawMatSizeCode, H.FNHSysUnitId, U.FTUnitCode, H.FTFabricFrontSize"
-        cmdstring &= vbCrLf & "  From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMaterial As H With (NOLOCK) LEFT OUTER Join"
-        cmdstring &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit As U With (NOLOCK) On H.FNHSysUnitId = U.FNHSysUnitId LEFT OUTER Join"
-        cmdstring &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMatSize AS S WITH (NOLOCK) ON H.FNHSysRawMatSizeId = S.FNHSysRawMatSizeId LEFT OUTER Join"
-        cmdstring &= vbCrLf & "   [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMatColor As C With (NOLOCK) On H.FNHSysRawMatColorId = C.FNHSysRawMatColorId "
+        cmdstring &= vbCrLf & " FROM (Select H.FNHSysRawMatId, H.FTRawMatCode, H.FTRawMatNameEN As FTDescription "
+        cmdstring &= vbCrLf & " , H.FTRawMatColorNameEN As FTRawMatColorName, H.FNHSysRawMatColorId, H.FNHSysRawMatSizeId "
+        cmdstring &= vbCrLf & " , ISNULL(C.FTRawMatColorCode, '') AS FTRawMatColorCode "
+        cmdstring &= vbCrLf & " , ISNULL(S.FTRawMatSizeCode, '') AS FTRawMatSizeCode, H.FNHSysUnitId, U.FTUnitCode "
+        cmdstring &= vbCrLf & " , H.FTFabricFrontSize "
+        cmdstring &= vbCrLf & " From [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMaterial As H With (NOLOCK) "
+        cmdstring &= vbCrLf & "LEFT OUTER Join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TCNMUnit As U With (NOLOCK) On H.FNHSysUnitId = U.FNHSysUnitId "
+        cmdstring &= vbCrLf & "LEFT OUTER Join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMatSize AS S WITH (NOLOCK) ON H.FNHSysRawMatSizeId = S.FNHSysRawMatSizeId "
+        cmdstring &= vbCrLf & "LEFT OUTER Join [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TINVENMMatColor As C With (NOLOCK) On H.FNHSysRawMatColorId = C.FNHSysRawMatColorId "
         cmdstring &= vbCrLf & " INNER JOIN  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMMainMat As MM With (NOLOCK)  ON H.FTRawMatCode = MM.FTMainMatCode "
-        cmdstring &= vbCrLf & "  WHERE H.FTStateActive='1' AND MM.FNMerMatType <>0  "
+        cmdstring &= vbCrLf & "  WHERE H.FTStateActive='1' AND MM.FNMerMatType <> 0 "
         cmdstring &= vbCrLf & "  ) As A"
-        cmdstring &= vbCrLf & " ORDER BY FTRawMatCode,FTRawMatColorCode,FTRawMatSizeCode"
+        cmdstring &= vbCrLf & " ORDER BY FTRawMatCode, FTRawMatColorCode, FTRawMatSizeCode "
 
         dt = HI.Conn.SQLConn.GetDataTable(cmdstring, Conn.DB.DataBaseName.DB_MASTER)
 

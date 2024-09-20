@@ -247,29 +247,29 @@ Public Class wGenerateStyleDevOriginal
 
 #Region "MAIN PROC"
 
-    Private Function CheckOwner() As Boolean
+    'Private Function CheckOwner() As Boolean
 
-        If (HI.ST.UserInfo.UserName.ToUpper = FTUpdUser.Text.ToUpper) Or (HI.ST.SysInfo.Admin) Or FTUpdUser.Text.ToUpper = "" Then
-            Return True
-        Else
-            Dim _Qry As String = ""
-            Dim _Qry2 As String = ""
-            _Qry = "SELECT TOP 1  FNHSysMerTeamId "
-            _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.[TSEUserLogin] AS A WITH(NOLOCK) "
-            _Qry &= vbCrLf & "   WHERE  FTUserName = '" & HI.UL.ULF.rpQuoted(FTUpdUser.Text) & "' "
+    '    If (HI.ST.UserInfo.UserName.ToUpper = FTUpdUser.Text.ToUpper) Or (HI.ST.SysInfo.Admin) Or FTUpdUser.Text.ToUpper = "" Then
+    '        Return True
+    '    Else
+    '        Dim _Qry As String = ""
+    '        Dim _Qry2 As String = ""
+    '        _Qry = "SELECT TOP 1  FNHSysMerTeamId "
+    '        _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.[TSEUserLogin] AS A WITH(NOLOCK) "
+    '        _Qry &= vbCrLf & "   WHERE  FTUserName = '" & HI.UL.ULF.rpQuoted(FTUpdUser.Text) & "' "
 
-            _Qry2 = "SELECT TOP 1  FNHSysMerTeamId "
-            _Qry2 &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.[TSEUserLogin] AS A WITH(NOLOCK) "
-            _Qry2 &= vbCrLf & "   WHERE  FTUserName = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  "
+    '        _Qry2 = "SELECT TOP 1  FNHSysMerTeamId "
+    '        _Qry2 &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.[TSEUserLogin] AS A WITH(NOLOCK) "
+    '        _Qry2 &= vbCrLf & "   WHERE  FTUserName = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "'  "
 
-            If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "") = HI.Conn.SQLConn.GetField(_Qry2, Conn.DB.DataBaseName.DB_SECURITY, "") Then
-                Return True
-            Else
-                HI.MG.ShowMsg.mProcessError(1411200101, "คุณไม่มีสิทธิ์ทำการลบหรือแก้ไข Style นี้ ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
-                Return False
-            End If
-        End If
-    End Function
+    '        If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_SECURITY, "") = HI.Conn.SQLConn.GetField(_Qry2, Conn.DB.DataBaseName.DB_SECURITY, "") Then
+    '            Return True
+    '        Else
+    '            HI.MG.ShowMsg.mProcessError(1411200101, "คุณไม่มีสิทธิ์ทำการลบหรือแก้ไข Style นี้ ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
+    '            Return False
+    '        End If
+    '    End If
+    'End Function
 
     Private Function CheckPostDataToBomSheet() As Boolean
         'If FTStatePost.Checked Then
@@ -1195,11 +1195,10 @@ Public Class wGenerateStyleDevOriginal
 
         If _dt.Rows.Count > 0 Then
             For Each R As DataRow In _dt.Rows
-                FNHSysStyleDevId.Text = IIf(FNHSysStyleDevId.Text = "", R!FTStyleDevCode.ToString, "")
-                FNHSysStyleDevId_None.Text = IIf(FNHSysStyleDevId_None.Text = "", R!FTStyleDevNameEN.ToString, "")
-                FTBomDevStyleCode.Text = IIf(FTBomDevStyleCode.Text = "", R!FTBomDevStyleCode.ToString, "")
-                FTSeason.Text = IIf(FTSeason.Text = "", R!FTSeason.ToString, "")
-
+                FNHSysStyleDevId.Text = R!FTStyleDevCode.ToString
+                FNHSysStyleDevId_None.Text = R!FTStyleDevNameEN.ToString
+                FTBomDevStyleCode.Text = R!FTBomDevStyleCode.ToString
+                FTSeason.Text = R!FTSeason.ToString
                 'FNHSysStyleDevId_None.Text = R!FTStyleNameTH.ToString
                 FTStyleDevNameTH.Text = R!FTStyleDevNameTH.ToString
                 FTStyleDevNameEN.Text = R!FTStyleDevNameEN.ToString
@@ -1390,9 +1389,9 @@ Public Class wGenerateStyleDevOriginal
     End Function
 
     Private Sub ocmbomaddnew_Click(sender As System.Object, e As System.EventArgs) Handles ocmbomaddnew.Click
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
         If FNHSysStyleDevId_Hide.Text = "" Then Return
         'Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
@@ -1406,9 +1405,9 @@ Public Class wGenerateStyleDevOriginal
     End Sub
 
     Private Sub ocmbominsertrow_Click(sender As System.Object, e As System.EventArgs) Handles ocmbominsertrow.Click
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
         Dim crRow As Double, nxRow As String, nwRow As String
         Dim RowCount As Integer = 0
         View = Me.ogcmat.Views(0)
@@ -1459,9 +1458,9 @@ Public Class wGenerateStyleDevOriginal
     End Sub
     Private Sub ocmbomnewcolorway_Click(sender As System.Object, e As System.EventArgs) Handles ocmbomnewcolorway.Click
 
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
 
         If FNHSysStyleDevId_Hide.Text = "" Then Return
         'InitNewRow(CType(ogcstylecolor.DataSource, DataTable), TabIndexs.Colorway)
@@ -1805,9 +1804,9 @@ Public Class wGenerateStyleDevOriginal
     End Sub
 
     Private Sub ocmbomdeleterow_Click(sender As System.Object, e As System.EventArgs) Handles ocmbomdeleterow.Click
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
 
         With ogvmat
 
@@ -1866,9 +1865,9 @@ Public Class wGenerateStyleDevOriginal
 
     Private Sub ocmdeletecolorway_Click(sender As System.Object, e As System.EventArgs) Handles ocmdeletecolorway.Click
 
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
 
         If FNHSysStyleDevId_Hide.Text = "" Then Return
         'Call LoadStylePostInfo()
@@ -2457,9 +2456,9 @@ Public Class wGenerateStyleDevOriginal
         Return _Pass
     End Function
     Private Sub ocmsave_Click(sender As System.Object, e As System.EventArgs) Handles ocmsave.Click
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
 
         If Me.VerifyData() Then
             If ogcmat.DataSource Is Nothing Then
@@ -2519,9 +2518,9 @@ Public Class wGenerateStyleDevOriginal
 
     Private Sub ocmdelete_Click(sender As System.Object, e As System.EventArgs) Handles ocmdelete.Click
 
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
         '  If CType(ogcmat.DataSource, DataTable).Rows.Count > 0 Then
         'Call LoadStylePostInfo()
         If CheckPostDataToBomSheet() = False Then Exit Sub
@@ -2543,9 +2542,9 @@ Public Class wGenerateStyleDevOriginal
     End Sub
 
     Private Sub ocmbomdiffpart_Click(sender As System.Object, e As System.EventArgs) Handles ocmbomdiffpart.Click
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
         Try
             CType(ogcmat.DataSource, DataTable).AcceptChanges()
         Catch ex As Exception
@@ -4452,9 +4451,9 @@ Public Class wGenerateStyleDevOriginal
     End Sub
 
     Private Sub ocmbomnewsize_Click(sender As Object, e As EventArgs) Handles ocmbomnewsize.Click
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
 
         If FNHSysStyleDevId_Hide.Text = "" Then Return
         'InitNewRow(CType(ogcstylecolor.DataSource, DataTable), TabIndexs.Colorway)
@@ -4534,9 +4533,9 @@ Public Class wGenerateStyleDevOriginal
     End Sub
 
     Private Sub ocmbomdeletesize_Click(sender As Object, e As EventArgs) Handles ocmbomdeletesize.Click
-        If CheckOwner() = False Then
-            Exit Sub
-        End If
+        'If CheckOwner() = False Then
+        '    Exit Sub
+        'End If
 
         If FNHSysStyleDevId_Hide.Text = "" Then Return
         'Call LoadStylePostInfo()
@@ -6057,9 +6056,9 @@ Public Class wGenerateStyleDevOriginal
     Private Sub ocmchangematcolordes_Click(sender As Object, e As EventArgs) Handles ocmchangematcolordes.Click
         Try
 
-            If CheckOwner() = False Then
-                Exit Sub
-            End If
+            'If CheckOwner() = False Then
+            '    Exit Sub
+            'End If
 
             If FNHSysStyleDevId_Hide.Text = "" Then Return
             'Call LoadStylePostInfo()

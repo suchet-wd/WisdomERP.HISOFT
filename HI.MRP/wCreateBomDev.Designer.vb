@@ -20,6 +20,14 @@ Partial Class wCreateBomDev
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
+        Me.FTProductDev = New DevExpress.XtraEditors.TextEdit()
+        Me.FTProductDev_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FTStyleSeniorDev = New DevExpress.XtraEditors.TextEdit()
+        Me.FTStyleSeniorDev_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FTProgram = New DevExpress.XtraEditors.TextEdit()
+        Me.FTProgram_lbl = New DevExpress.XtraEditors.LabelControl()
+        Me.FTDimension = New DevExpress.XtraEditors.TextEdit()
+        Me.FTDimension_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTStyleDetail = New DevExpress.XtraEditors.TextEdit()
         Me.FTStyle = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
@@ -32,16 +40,12 @@ Partial Class wCreateBomDev
         Me.ocmClear = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcancel = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmok = New DevExpress.XtraEditors.SimpleButton()
-        Me.FTProgram = New DevExpress.XtraEditors.TextEdit()
-        Me.FTProgram_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTDimension = New DevExpress.XtraEditors.TextEdit()
-        Me.FTDimension_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTProductDev = New DevExpress.XtraEditors.TextEdit()
-        Me.FTProductDev_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTStyleSeniorDev = New DevExpress.XtraEditors.TextEdit()
-        Me.FTStyleSeniorDev_lbl = New DevExpress.XtraEditors.LabelControl()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
+        CType(Me.FTProductDev.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FTStyleSeniorDev.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FTProgram.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FTDimension.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStyleDetail.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTStyle.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNBomDevType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,10 +53,6 @@ Partial Class wCreateBomDev
         CType(Me.FTStateMergeData.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
-        CType(Me.FTProgram.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTDimension.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTProductDev.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTStyleSeniorDev.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupControl1
@@ -81,6 +81,102 @@ Partial Class wCreateBomDev
         Me.GroupControl1.Size = New System.Drawing.Size(519, 215)
         Me.GroupControl1.TabIndex = 287
         Me.GroupControl1.Text = "Style"
+        '
+        'FTProductDev
+        '
+        Me.FTProductDev.Location = New System.Drawing.Point(116, 133)
+        Me.FTProductDev.Name = "FTProductDev"
+        Me.FTProductDev.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTProductDev.Properties.Appearance.Options.UseBackColor = True
+        Me.FTProductDev.Properties.MaxLength = 200
+        Me.FTProductDev.Size = New System.Drawing.Size(391, 20)
+        Me.FTProductDev.TabIndex = 543
+        Me.FTProductDev.Tag = "2|"
+        '
+        'FTProductDev_lbl
+        '
+        Me.FTProductDev_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTProductDev_lbl.Appearance.Options.UseForeColor = True
+        Me.FTProductDev_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTProductDev_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTProductDev_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTProductDev_lbl.Location = New System.Drawing.Point(7, 134)
+        Me.FTProductDev_lbl.Name = "FTProductDev_lbl"
+        Me.FTProductDev_lbl.Size = New System.Drawing.Size(103, 16)
+        Me.FTProductDev_lbl.TabIndex = 546
+        Me.FTProductDev_lbl.Tag = "2|"
+        Me.FTProductDev_lbl.Text = "Product Developer :"
+        '
+        'FTStyleSeniorDev
+        '
+        Me.FTStyleSeniorDev.Location = New System.Drawing.Point(116, 159)
+        Me.FTStyleSeniorDev.Name = "FTStyleSeniorDev"
+        Me.FTStyleSeniorDev.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.FTStyleSeniorDev.Properties.Appearance.Options.UseBackColor = True
+        Me.FTStyleSeniorDev.Properties.MaxLength = 200
+        Me.FTStyleSeniorDev.Size = New System.Drawing.Size(391, 20)
+        Me.FTStyleSeniorDev.TabIndex = 544
+        Me.FTStyleSeniorDev.Tag = "2|"
+        '
+        'FTStyleSeniorDev_lbl
+        '
+        Me.FTStyleSeniorDev_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTStyleSeniorDev_lbl.Appearance.Options.UseForeColor = True
+        Me.FTStyleSeniorDev_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTStyleSeniorDev_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTStyleSeniorDev_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTStyleSeniorDev_lbl.Location = New System.Drawing.Point(7, 160)
+        Me.FTStyleSeniorDev_lbl.Name = "FTStyleSeniorDev_lbl"
+        Me.FTStyleSeniorDev_lbl.Size = New System.Drawing.Size(103, 16)
+        Me.FTStyleSeniorDev_lbl.TabIndex = 545
+        Me.FTStyleSeniorDev_lbl.Tag = "2|"
+        Me.FTStyleSeniorDev_lbl.Text = "Senior Developer :"
+        '
+        'FTProgram
+        '
+        Me.FTProgram.Location = New System.Drawing.Point(116, 107)
+        Me.FTProgram.Name = "FTProgram"
+        Me.FTProgram.Properties.MaxLength = 200
+        Me.FTProgram.Size = New System.Drawing.Size(391, 20)
+        Me.FTProgram.TabIndex = 536
+        Me.FTProgram.Tag = "2|"
+        '
+        'FTProgram_lbl
+        '
+        Me.FTProgram_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTProgram_lbl.Appearance.Options.UseForeColor = True
+        Me.FTProgram_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTProgram_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTProgram_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTProgram_lbl.Location = New System.Drawing.Point(9, 108)
+        Me.FTProgram_lbl.Name = "FTProgram_lbl"
+        Me.FTProgram_lbl.Size = New System.Drawing.Size(101, 16)
+        Me.FTProgram_lbl.TabIndex = 540
+        Me.FTProgram_lbl.Tag = "2|"
+        Me.FTProgram_lbl.Text = "Program :"
+        '
+        'FTDimension
+        '
+        Me.FTDimension.Location = New System.Drawing.Point(116, 81)
+        Me.FTDimension.Name = "FTDimension"
+        Me.FTDimension.Properties.MaxLength = 200
+        Me.FTDimension.Size = New System.Drawing.Size(391, 20)
+        Me.FTDimension.TabIndex = 535
+        Me.FTDimension.Tag = "2|"
+        '
+        'FTDimension_lbl
+        '
+        Me.FTDimension_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTDimension_lbl.Appearance.Options.UseForeColor = True
+        Me.FTDimension_lbl.Appearance.Options.UseTextOptions = True
+        Me.FTDimension_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.FTDimension_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.FTDimension_lbl.Location = New System.Drawing.Point(9, 82)
+        Me.FTDimension_lbl.Name = "FTDimension_lbl"
+        Me.FTDimension_lbl.Size = New System.Drawing.Size(101, 16)
+        Me.FTDimension_lbl.TabIndex = 539
+        Me.FTDimension_lbl.Tag = "2|"
+        Me.FTDimension_lbl.Text = "Dimension :"
         '
         'FTStyleDetail
         '
@@ -220,9 +316,9 @@ Partial Class wCreateBomDev
         '
         'ocmClear
         '
-        Me.ocmClear.Location = New System.Drawing.Point(148, 9)
+        Me.ocmClear.Location = New System.Drawing.Point(198, 9)
         Me.ocmClear.Name = "ocmClear"
-        Me.ocmClear.Size = New System.Drawing.Size(128, 25)
+        Me.ocmClear.Size = New System.Drawing.Size(145, 25)
         Me.ocmClear.TabIndex = 108
         Me.ocmClear.TabStop = False
         Me.ocmClear.Tag = "2|"
@@ -243,107 +339,11 @@ Partial Class wCreateBomDev
         '
         Me.ocmok.Location = New System.Drawing.Point(9, 9)
         Me.ocmok.Name = "ocmok"
-        Me.ocmok.Size = New System.Drawing.Size(133, 25)
+        Me.ocmok.Size = New System.Drawing.Size(145, 25)
         Me.ocmok.TabIndex = 106
         Me.ocmok.TabStop = False
         Me.ocmok.Tag = "2|"
         Me.ocmok.Text = "OK"
-        '
-        'FTProgram
-        '
-        Me.FTProgram.Location = New System.Drawing.Point(116, 107)
-        Me.FTProgram.Name = "FTProgram"
-        Me.FTProgram.Properties.MaxLength = 200
-        Me.FTProgram.Size = New System.Drawing.Size(391, 20)
-        Me.FTProgram.TabIndex = 536
-        Me.FTProgram.Tag = "2|"
-        '
-        'FTProgram_lbl
-        '
-        Me.FTProgram_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTProgram_lbl.Appearance.Options.UseForeColor = True
-        Me.FTProgram_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTProgram_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTProgram_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTProgram_lbl.Location = New System.Drawing.Point(9, 108)
-        Me.FTProgram_lbl.Name = "FTProgram_lbl"
-        Me.FTProgram_lbl.Size = New System.Drawing.Size(101, 16)
-        Me.FTProgram_lbl.TabIndex = 540
-        Me.FTProgram_lbl.Tag = "2|"
-        Me.FTProgram_lbl.Text = "Program :"
-        '
-        'FTDimension
-        '
-        Me.FTDimension.Location = New System.Drawing.Point(116, 81)
-        Me.FTDimension.Name = "FTDimension"
-        Me.FTDimension.Properties.MaxLength = 200
-        Me.FTDimension.Size = New System.Drawing.Size(391, 20)
-        Me.FTDimension.TabIndex = 535
-        Me.FTDimension.Tag = "2|"
-        '
-        'FTDimension_lbl
-        '
-        Me.FTDimension_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTDimension_lbl.Appearance.Options.UseForeColor = True
-        Me.FTDimension_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTDimension_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTDimension_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTDimension_lbl.Location = New System.Drawing.Point(9, 82)
-        Me.FTDimension_lbl.Name = "FTDimension_lbl"
-        Me.FTDimension_lbl.Size = New System.Drawing.Size(101, 16)
-        Me.FTDimension_lbl.TabIndex = 539
-        Me.FTDimension_lbl.Tag = "2|"
-        Me.FTDimension_lbl.Text = "Dimension :"
-        '
-        'FTProductDev
-        '
-        Me.FTProductDev.Location = New System.Drawing.Point(116, 133)
-        Me.FTProductDev.Name = "FTProductDev"
-        Me.FTProductDev.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FTProductDev.Properties.Appearance.Options.UseBackColor = True
-        Me.FTProductDev.Properties.MaxLength = 200
-        Me.FTProductDev.Size = New System.Drawing.Size(391, 20)
-        Me.FTProductDev.TabIndex = 543
-        Me.FTProductDev.Tag = "2|"
-        '
-        'FTProductDev_lbl
-        '
-        Me.FTProductDev_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTProductDev_lbl.Appearance.Options.UseForeColor = True
-        Me.FTProductDev_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTProductDev_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTProductDev_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTProductDev_lbl.Location = New System.Drawing.Point(7, 134)
-        Me.FTProductDev_lbl.Name = "FTProductDev_lbl"
-        Me.FTProductDev_lbl.Size = New System.Drawing.Size(103, 16)
-        Me.FTProductDev_lbl.TabIndex = 546
-        Me.FTProductDev_lbl.Tag = "2|"
-        Me.FTProductDev_lbl.Text = "Product Developer :"
-        '
-        'FTStyleSeniorDev
-        '
-        Me.FTStyleSeniorDev.Location = New System.Drawing.Point(116, 159)
-        Me.FTStyleSeniorDev.Name = "FTStyleSeniorDev"
-        Me.FTStyleSeniorDev.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.FTStyleSeniorDev.Properties.Appearance.Options.UseBackColor = True
-        Me.FTStyleSeniorDev.Properties.MaxLength = 200
-        Me.FTStyleSeniorDev.Size = New System.Drawing.Size(391, 20)
-        Me.FTStyleSeniorDev.TabIndex = 544
-        Me.FTStyleSeniorDev.Tag = "2|"
-        '
-        'FTStyleSeniorDev_lbl
-        '
-        Me.FTStyleSeniorDev_lbl.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTStyleSeniorDev_lbl.Appearance.Options.UseForeColor = True
-        Me.FTStyleSeniorDev_lbl.Appearance.Options.UseTextOptions = True
-        Me.FTStyleSeniorDev_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.FTStyleSeniorDev_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTStyleSeniorDev_lbl.Location = New System.Drawing.Point(7, 160)
-        Me.FTStyleSeniorDev_lbl.Name = "FTStyleSeniorDev_lbl"
-        Me.FTStyleSeniorDev_lbl.Size = New System.Drawing.Size(103, 16)
-        Me.FTStyleSeniorDev_lbl.TabIndex = 545
-        Me.FTStyleSeniorDev_lbl.Tag = "2|"
-        Me.FTStyleSeniorDev_lbl.Text = "Senior Developer :"
         '
         'wCreateBomDev
         '
@@ -359,6 +359,10 @@ Partial Class wCreateBomDev
         Me.Text = "Create BOM Develop Style"
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
+        CType(Me.FTProductDev.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTStyleSeniorDev.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTProgram.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTDimension.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStyleDetail.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTStyle.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNBomDevType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -366,10 +370,6 @@ Partial Class wCreateBomDev
         CType(Me.FTStateMergeData.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl2.ResumeLayout(False)
-        CType(Me.FTProgram.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTDimension.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTProductDev.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTStyleSeniorDev.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -253,16 +253,16 @@
     <Compile Include="wCompareBOM.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="wCreateBomDevByBomOriginal.Designer.vb">
-      <DependentUpon>wCreateBomDevByBomOriginal.vb</DependentUpon>
-    </Compile>
-    <Compile Include="wCreateBomDevByBomOriginal.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="wCreateBomDev.Designer.vb">
       <DependentUpon>wCreateBomDev.vb</DependentUpon>
     </Compile>
     <Compile Include="wCreateBomDev.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wCreateBomDevByBomOriginal.Designer.vb">
+      <DependentUpon>wCreateBomDevByBomOriginal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="wCreateBomDevByBomOriginal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="wFileBOMPDFTracking.Designer.vb">
@@ -591,11 +591,11 @@
     <EmbeddedResource Include="wCompareBOM.resx">
       <DependentUpon>wCompareBOM.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="wCreateBomDevByBomOriginal.resx">
-      <DependentUpon>wCreateBomDevByBomOriginal.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="wCreateBomDev.resx">
       <DependentUpon>wCreateBomDev.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wCreateBomDevByBomOriginal.resx">
+      <DependentUpon>wCreateBomDevByBomOriginal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wFileBOMPDFTracking.resx">
       <DependentUpon>wFileBOMPDFTracking.vb</DependentUpon>

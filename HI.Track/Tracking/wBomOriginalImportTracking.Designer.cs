@@ -79,7 +79,6 @@ namespace HI.Track
             this.FTPostBy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTPostDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTPostTime = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.FTDevelopDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FNHSysMSCId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTCustSeason = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FTCustYear = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -122,7 +121,7 @@ namespace HI.Track
             this.ogcCriteria.Controls.Add(this.lbStartImpDate);
             this.ogcCriteria.Location = new System.Drawing.Point(6, 12);
             this.ogcCriteria.Name = "ogcCriteria";
-            this.ogcCriteria.Size = new System.Drawing.Size(1059, 108);
+            this.ogcCriteria.Size = new System.Drawing.Size(1220, 108);
             this.ogcCriteria.TabIndex = 0;
             this.ogcCriteria.Text = "Bom Original Import Criteria";
             // 
@@ -266,7 +265,7 @@ namespace HI.Track
             this.ogbDetail.Controls.Add(this.ogcDetail);
             this.ogbDetail.Location = new System.Drawing.Point(6, 126);
             this.ogbDetail.Name = "ogbDetail";
-            this.ogbDetail.Size = new System.Drawing.Size(1059, 506);
+            this.ogbDetail.Size = new System.Drawing.Size(1220, 506);
             this.ogbDetail.TabIndex = 1;
             this.ogbDetail.Text = "BOM Original Import Detail";
             // 
@@ -318,7 +317,7 @@ namespace HI.Track
             this.ogcDetail.Name = "ogcDetail";
             this.ogcDetail.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rpStatePost});
-            this.ogcDetail.Size = new System.Drawing.Size(1055, 481);
+            this.ogcDetail.Size = new System.Drawing.Size(1216, 481);
             this.ogcDetail.TabIndex = 0;
             this.ogcDetail.TabStop = false;
             this.ogcDetail.Tag = "2|";
@@ -339,6 +338,8 @@ namespace HI.Track
             this.FTStyleDevNameEN,
             this.FTStyleDevNameTH,
             this.FTNikeDeveloperName,
+            this.FTDimension,
+            this.FTProgram,
             this.FTMSCCode,
             this.FTMSCLevel1,
             this.FTMSCLevel2,
@@ -360,13 +361,10 @@ namespace HI.Track
             this.FTPostBy,
             this.FTPostDate,
             this.FTPostTime,
-            this.FTDevelopDate,
             this.FNHSysMSCId,
             this.FTCustSeason,
             this.FTCustYear,
-            this.FNHSysStyleDevId,
-            this.FTDimension,
-            this.FTProgram});
+            this.FNHSysStyleDevId});
             this.ogvDetail.CustomizationFormBounds = new System.Drawing.Rectangle(759, 412, 252, 266);
             this.ogvDetail.GridControl = this.ogcDetail;
             this.ogvDetail.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
@@ -416,6 +414,7 @@ namespace HI.Track
             this.FTStyleDevCode.OptionsColumn.ReadOnly = true;
             this.FTStyleDevCode.Visible = true;
             this.FTStyleDevCode.VisibleIndex = 2;
+            this.FTStyleDevCode.Width = 93;
             // 
             // FTSeason
             // 
@@ -430,6 +429,7 @@ namespace HI.Track
             this.FTSeason.OptionsColumn.ReadOnly = true;
             this.FTSeason.Visible = true;
             this.FTSeason.VisibleIndex = 3;
+            this.FTSeason.Width = 60;
             // 
             // FNVersion
             // 
@@ -444,6 +444,7 @@ namespace HI.Track
             this.FNVersion.OptionsColumn.ReadOnly = true;
             this.FNVersion.Visible = true;
             this.FNVersion.VisibleIndex = 4;
+            this.FNVersion.Width = 64;
             // 
             // FNBomDevType
             // 
@@ -495,7 +496,7 @@ namespace HI.Track
             this.FTNikeDeveloperName.OptionsColumn.AllowEdit = false;
             this.FTNikeDeveloperName.OptionsColumn.ReadOnly = true;
             this.FTNikeDeveloperName.Visible = true;
-            this.FTNikeDeveloperName.VisibleIndex = 8;
+            this.FTNikeDeveloperName.VisibleIndex = 10;
             // 
             // FTMSCCode
             // 
@@ -509,7 +510,7 @@ namespace HI.Track
             this.FTMSCCode.OptionsColumn.AllowEdit = false;
             this.FTMSCCode.OptionsColumn.ReadOnly = true;
             this.FTMSCCode.Visible = true;
-            this.FTMSCCode.VisibleIndex = 9;
+            this.FTMSCCode.VisibleIndex = 11;
             // 
             // FTMSCLevel1
             // 
@@ -523,7 +524,7 @@ namespace HI.Track
             this.FTMSCLevel1.OptionsColumn.AllowEdit = false;
             this.FTMSCLevel1.OptionsColumn.ReadOnly = true;
             this.FTMSCLevel1.Visible = true;
-            this.FTMSCLevel1.VisibleIndex = 10;
+            this.FTMSCLevel1.VisibleIndex = 12;
             // 
             // FTMSCLevel2
             // 
@@ -537,7 +538,7 @@ namespace HI.Track
             this.FTMSCLevel2.OptionsColumn.AllowEdit = false;
             this.FTMSCLevel2.OptionsColumn.ReadOnly = true;
             this.FTMSCLevel2.Visible = true;
-            this.FTMSCLevel2.VisibleIndex = 11;
+            this.FTMSCLevel2.VisibleIndex = 13;
             // 
             // FTMSCLevel3
             // 
@@ -551,7 +552,7 @@ namespace HI.Track
             this.FTMSCLevel3.OptionsColumn.AllowEdit = false;
             this.FTMSCLevel3.OptionsColumn.ReadOnly = true;
             this.FTMSCLevel3.Visible = true;
-            this.FTMSCLevel3.VisibleIndex = 12;
+            this.FTMSCLevel3.VisibleIndex = 14;
             // 
             // FTSilhouette
             // 
@@ -565,7 +566,7 @@ namespace HI.Track
             this.FTSilhouette.OptionsColumn.AllowEdit = false;
             this.FTSilhouette.OptionsColumn.ReadOnly = true;
             this.FTSilhouette.Visible = true;
-            this.FTSilhouette.VisibleIndex = 13;
+            this.FTSilhouette.VisibleIndex = 15;
             // 
             // FTNote
             // 
@@ -577,7 +578,7 @@ namespace HI.Track
             this.FTNote.OptionsColumn.AllowEdit = false;
             this.FTNote.OptionsColumn.ReadOnly = true;
             this.FTNote.Visible = true;
-            this.FTNote.VisibleIndex = 14;
+            this.FTNote.VisibleIndex = 16;
             // 
             // FNHSysCustId
             // 
@@ -591,7 +592,7 @@ namespace HI.Track
             this.FNHSysCustId.OptionsColumn.AllowEdit = false;
             this.FNHSysCustId.OptionsColumn.ReadOnly = true;
             this.FNHSysCustId.Visible = true;
-            this.FNHSysCustId.VisibleIndex = 15;
+            this.FNHSysCustId.VisibleIndex = 17;
             // 
             // FNHSysVenderPramId
             // 
@@ -605,7 +606,7 @@ namespace HI.Track
             this.FNHSysVenderPramId.OptionsColumn.AllowEdit = false;
             this.FNHSysVenderPramId.OptionsColumn.ReadOnly = true;
             this.FNHSysVenderPramId.Visible = true;
-            this.FNHSysVenderPramId.VisibleIndex = 16;
+            this.FNHSysVenderPramId.VisibleIndex = 18;
             // 
             // FTImportBy
             // 
@@ -619,7 +620,7 @@ namespace HI.Track
             this.FTImportBy.OptionsColumn.AllowEdit = false;
             this.FTImportBy.OptionsColumn.ReadOnly = true;
             this.FTImportBy.Visible = true;
-            this.FTImportBy.VisibleIndex = 29;
+            this.FTImportBy.VisibleIndex = 22;
             // 
             // FTImportDate
             // 
@@ -633,7 +634,7 @@ namespace HI.Track
             this.FTImportDate.OptionsColumn.AllowEdit = false;
             this.FTImportDate.OptionsColumn.ReadOnly = true;
             this.FTImportDate.Visible = true;
-            this.FTImportDate.VisibleIndex = 30;
+            this.FTImportDate.VisibleIndex = 23;
             // 
             // FTImportTime
             // 
@@ -647,7 +648,7 @@ namespace HI.Track
             this.FTImportTime.OptionsColumn.AllowEdit = false;
             this.FTImportTime.OptionsColumn.ReadOnly = true;
             this.FTImportTime.Visible = true;
-            this.FTImportTime.VisibleIndex = 31;
+            this.FTImportTime.VisibleIndex = 24;
             // 
             // FTInsUser
             // 
@@ -660,8 +661,6 @@ namespace HI.Track
             this.FTInsUser.Name = "FTInsUser";
             this.FTInsUser.OptionsColumn.AllowEdit = false;
             this.FTInsUser.OptionsColumn.ReadOnly = true;
-            this.FTInsUser.Visible = true;
-            this.FTInsUser.VisibleIndex = 17;
             // 
             // FDInsDate
             // 
@@ -674,8 +673,6 @@ namespace HI.Track
             this.FDInsDate.Name = "FDInsDate";
             this.FDInsDate.OptionsColumn.AllowEdit = false;
             this.FDInsDate.OptionsColumn.ReadOnly = true;
-            this.FDInsDate.Visible = true;
-            this.FDInsDate.VisibleIndex = 18;
             // 
             // FTInsTime
             // 
@@ -688,8 +685,6 @@ namespace HI.Track
             this.FTInsTime.Name = "FTInsTime";
             this.FTInsTime.OptionsColumn.AllowEdit = false;
             this.FTInsTime.OptionsColumn.ReadOnly = true;
-            this.FTInsTime.Visible = true;
-            this.FTInsTime.VisibleIndex = 19;
             // 
             // FTUpdUser
             // 
@@ -703,7 +698,7 @@ namespace HI.Track
             this.FTUpdUser.OptionsColumn.AllowEdit = false;
             this.FTUpdUser.OptionsColumn.ReadOnly = true;
             this.FTUpdUser.Visible = true;
-            this.FTUpdUser.VisibleIndex = 20;
+            this.FTUpdUser.VisibleIndex = 25;
             // 
             // FDUpdDate
             // 
@@ -717,7 +712,7 @@ namespace HI.Track
             this.FDUpdDate.OptionsColumn.AllowEdit = false;
             this.FDUpdDate.OptionsColumn.ReadOnly = true;
             this.FDUpdDate.Visible = true;
-            this.FDUpdDate.VisibleIndex = 21;
+            this.FDUpdDate.VisibleIndex = 26;
             // 
             // FTUpdTime
             // 
@@ -731,7 +726,7 @@ namespace HI.Track
             this.FTUpdTime.OptionsColumn.AllowEdit = false;
             this.FTUpdTime.OptionsColumn.ReadOnly = true;
             this.FTUpdTime.Visible = true;
-            this.FTUpdTime.VisibleIndex = 22;
+            this.FTUpdTime.VisibleIndex = 27;
             // 
             // FTStatePost
             // 
@@ -746,7 +741,7 @@ namespace HI.Track
             this.FTStatePost.OptionsColumn.AllowEdit = false;
             this.FTStatePost.OptionsColumn.ReadOnly = true;
             this.FTStatePost.Visible = true;
-            this.FTStatePost.VisibleIndex = 23;
+            this.FTStatePost.VisibleIndex = 28;
             // 
             // rpStatePost
             // 
@@ -769,7 +764,7 @@ namespace HI.Track
             this.FTPostBy.OptionsColumn.AllowEdit = false;
             this.FTPostBy.OptionsColumn.ReadOnly = true;
             this.FTPostBy.Visible = true;
-            this.FTPostBy.VisibleIndex = 24;
+            this.FTPostBy.VisibleIndex = 29;
             // 
             // FTPostDate
             // 
@@ -783,7 +778,7 @@ namespace HI.Track
             this.FTPostDate.OptionsColumn.AllowEdit = false;
             this.FTPostDate.OptionsColumn.ReadOnly = true;
             this.FTPostDate.Visible = true;
-            this.FTPostDate.VisibleIndex = 25;
+            this.FTPostDate.VisibleIndex = 30;
             // 
             // FTPostTime
             // 
@@ -797,21 +792,7 @@ namespace HI.Track
             this.FTPostTime.OptionsColumn.AllowEdit = false;
             this.FTPostTime.OptionsColumn.ReadOnly = true;
             this.FTPostTime.Visible = true;
-            this.FTPostTime.VisibleIndex = 26;
-            // 
-            // FTDevelopDate
-            // 
-            this.FTDevelopDate.AppearanceCell.Options.UseTextOptions = true;
-            this.FTDevelopDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.FTDevelopDate.AppearanceHeader.Options.UseTextOptions = true;
-            this.FTDevelopDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.FTDevelopDate.Caption = "FTDevelopDate";
-            this.FTDevelopDate.FieldName = "FTDevelopDate";
-            this.FTDevelopDate.Name = "FTDevelopDate";
-            this.FTDevelopDate.OptionsColumn.AllowEdit = false;
-            this.FTDevelopDate.OptionsColumn.ReadOnly = true;
-            this.FTDevelopDate.Visible = true;
-            this.FTDevelopDate.VisibleIndex = 27;
+            this.FTPostTime.VisibleIndex = 31;
             // 
             // FNHSysMSCId
             // 
@@ -825,7 +806,7 @@ namespace HI.Track
             this.FNHSysMSCId.OptionsColumn.AllowEdit = false;
             this.FNHSysMSCId.OptionsColumn.ReadOnly = true;
             this.FNHSysMSCId.Visible = true;
-            this.FNHSysMSCId.VisibleIndex = 28;
+            this.FNHSysMSCId.VisibleIndex = 19;
             // 
             // FTCustSeason
             // 
@@ -839,7 +820,7 @@ namespace HI.Track
             this.FTCustSeason.OptionsColumn.AllowEdit = false;
             this.FTCustSeason.OptionsColumn.ReadOnly = true;
             this.FTCustSeason.Visible = true;
-            this.FTCustSeason.VisibleIndex = 32;
+            this.FTCustSeason.VisibleIndex = 20;
             // 
             // FTCustYear
             // 
@@ -853,7 +834,7 @@ namespace HI.Track
             this.FTCustYear.OptionsColumn.AllowEdit = false;
             this.FTCustYear.OptionsColumn.ReadOnly = true;
             this.FTCustYear.Visible = true;
-            this.FTCustYear.VisibleIndex = 33;
+            this.FTCustYear.VisibleIndex = 21;
             // 
             // FNHSysStyleDevId
             // 
@@ -875,7 +856,7 @@ namespace HI.Track
             this.FTDimension.OptionsColumn.AllowEdit = false;
             this.FTDimension.OptionsColumn.ReadOnly = true;
             this.FTDimension.Visible = true;
-            this.FTDimension.VisibleIndex = 34;
+            this.FTDimension.VisibleIndex = 8;
             // 
             // FTProgram
             // 
@@ -885,13 +866,13 @@ namespace HI.Track
             this.FTProgram.OptionsColumn.AllowEdit = false;
             this.FTProgram.OptionsColumn.ReadOnly = true;
             this.FTProgram.Visible = true;
-            this.FTProgram.VisibleIndex = 35;
+            this.FTProgram.VisibleIndex = 9;
             // 
             // wBomOriginalImportTracking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1070, 635);
+            this.ClientSize = new System.Drawing.Size(1231, 635);
             this.Controls.Add(this.ogbDetail);
             this.Controls.Add(this.ogcCriteria);
             this.Name = "wBomOriginalImportTracking";
@@ -947,7 +928,6 @@ namespace HI.Track
         private DevExpress.XtraGrid.Columns.GridColumn FTPostBy;
         private DevExpress.XtraGrid.Columns.GridColumn FTPostDate;
         private DevExpress.XtraGrid.Columns.GridColumn FTPostTime;
-        private DevExpress.XtraGrid.Columns.GridColumn FTDevelopDate;
         private DevExpress.XtraGrid.Columns.GridColumn FTNikeDeveloperName;
         private DevExpress.XtraGrid.Columns.GridColumn FTMSCCode;
         private DevExpress.XtraGrid.Columns.GridColumn FTMSCLevel1;

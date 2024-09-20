@@ -265,7 +265,6 @@ Partial Class wGenerateStyleDevOriginal
         Me.FTProgram_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FTDimension = New DevExpress.XtraEditors.TextEdit()
         Me.FTDimension_lbl = New DevExpress.XtraEditors.LabelControl()
-        Me.FTBomDevStyleCode = New DevExpress.XtraEditors.TextEdit()
         Me.FTSeason = New DevExpress.XtraEditors.TextEdit()
         Me.FNHSysVenderPramId = New DevExpress.XtraEditors.ButtonEdit()
         Me.FNVersion = New DevExpress.XtraEditors.TextEdit()
@@ -273,6 +272,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FTVersion_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNBomDevType_lbl = New DevExpress.XtraEditors.LabelControl()
         Me.FNBomDevType = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.FTBomDevStyleCode = New DevExpress.XtraEditors.ButtonEdit()
         Me.ogbdetail = New DevExpress.XtraEditors.GroupControl()
         Me.ogbmainprocbutton = New DevExpress.XtraEditors.PanelControl()
         Me.ocmcopy = New DevExpress.XtraEditors.SimpleButton()
@@ -397,11 +397,11 @@ Partial Class wGenerateStyleDevOriginal
         CType(Me.FTStateAdjust.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTProgram.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTDimension.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FTBomDevStyleCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FTSeason.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNHSysVenderPramId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNVersion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FNBomDevType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FTBomDevStyleCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ogbdetail, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ogbdetail.SuspendLayout()
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -458,7 +458,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FTSeason_lbl.Appearance.Options.UseTextOptions = True
         Me.FTSeason_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTSeason_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTSeason_lbl.Location = New System.Drawing.Point(221, 54)
+        Me.FTSeason_lbl.Location = New System.Drawing.Point(201, 54)
         Me.FTSeason_lbl.Name = "FTSeason_lbl"
         Me.FTSeason_lbl.Size = New System.Drawing.Size(77, 17)
         Me.FTSeason_lbl.TabIndex = 296
@@ -599,7 +599,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNHSysStyleDevId.Name = "FNHSysStyleDevId"
         Me.FNHSysStyleDevId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "707", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleDevId.Properties.Tag = ""
-        Me.FNHSysStyleDevId.Size = New System.Drawing.Size(120, 20)
+        Me.FNHSysStyleDevId.Size = New System.Drawing.Size(100, 20)
         Me.FNHSysStyleDevId.TabIndex = 0
         Me.FNHSysStyleDevId.Tag = "2|"
         '
@@ -1931,7 +1931,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FTDevelopDate.EditValue = Nothing
         Me.FTDevelopDate.Enabled = False
         Me.FTDevelopDate.EnterMoveNextControl = True
-        Me.FTDevelopDate.Location = New System.Drawing.Point(1068, 80)
+        Me.FTDevelopDate.Location = New System.Drawing.Point(1091, 56)
         Me.FTDevelopDate.Name = "FTDevelopDate"
         Me.FTDevelopDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.FTDevelopDate.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
@@ -1944,6 +1944,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FTDevelopDate.Size = New System.Drawing.Size(121, 20)
         Me.FTDevelopDate.TabIndex = 5
         Me.FTDevelopDate.Tag = "2|"
+        Me.FTDevelopDate.Visible = False
         '
         'FTDevelopDate_lbl
         '
@@ -2311,7 +2312,7 @@ Partial Class wGenerateStyleDevOriginal
         'FNHSysSeasonId
         '
         Me.FNHSysSeasonId.Enabled = False
-        Me.FNHSysSeasonId.Location = New System.Drawing.Point(938, 80)
+        Me.FNHSysSeasonId.Location = New System.Drawing.Point(1091, 82)
         Me.FNHSysSeasonId.Name = "FNHSysSeasonId"
         Me.FNHSysSeasonId.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FNHSysSeasonId.Properties.Appearance.Options.UseBackColor = True
@@ -2320,11 +2321,12 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNHSysSeasonId.Size = New System.Drawing.Size(121, 20)
         Me.FNHSysSeasonId.TabIndex = 492
         Me.FNHSysSeasonId.Tag = "2|"
+        Me.FNHSysSeasonId.Visible = False
         '
         'TextEdit7
         '
         Me.TextEdit7.Enabled = False
-        Me.TextEdit7.Location = New System.Drawing.Point(1047, 24)
+        Me.TextEdit7.Location = New System.Drawing.Point(1068, 4)
         Me.TextEdit7.Name = "TextEdit7"
         Me.TextEdit7.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.TextEdit7.Properties.Appearance.Options.UseBackColor = True
@@ -2332,6 +2334,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.TextEdit7.Size = New System.Drawing.Size(144, 20)
         Me.TextEdit7.TabIndex = 312
         Me.TextEdit7.Tag = "2|"
+        Me.TextEdit7.Visible = False
         '
         'FTChassis_lbl
         '
@@ -2340,17 +2343,18 @@ Partial Class wGenerateStyleDevOriginal
         Me.FTChassis_lbl.Appearance.Options.UseTextOptions = True
         Me.FTChassis_lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.FTChassis_lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.FTChassis_lbl.Location = New System.Drawing.Point(953, 25)
+        Me.FTChassis_lbl.Location = New System.Drawing.Point(979, 7)
         Me.FTChassis_lbl.Name = "FTChassis_lbl"
         Me.FTChassis_lbl.Size = New System.Drawing.Size(80, 17)
         Me.FTChassis_lbl.TabIndex = 313
         Me.FTChassis_lbl.Tag = "2|"
         Me.FTChassis_lbl.Text = "Chassis block :"
+        Me.FTChassis_lbl.Visible = False
         '
         'TextEdit5
         '
         Me.TextEdit5.Enabled = False
-        Me.TextEdit5.Location = New System.Drawing.Point(1062, 50)
+        Me.TextEdit5.Location = New System.Drawing.Point(1072, 30)
         Me.TextEdit5.Name = "TextEdit5"
         Me.TextEdit5.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.TextEdit5.Properties.Appearance.Options.UseBackColor = True
@@ -2358,6 +2362,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.TextEdit5.Size = New System.Drawing.Size(140, 20)
         Me.TextEdit5.TabIndex = 308
         Me.TextEdit5.Tag = "2|"
+        Me.TextEdit5.Visible = False
         '
         'FTParentBOM_lbl
         '
@@ -2582,7 +2587,6 @@ Partial Class wGenerateStyleDevOriginal
         Me.ogbStyleHeader.Controls.Add(Me.FTProgram_lbl)
         Me.ogbStyleHeader.Controls.Add(Me.FTDimension)
         Me.ogbStyleHeader.Controls.Add(Me.FTDimension_lbl)
-        Me.ogbStyleHeader.Controls.Add(Me.FTBomDevStyleCode)
         Me.ogbStyleHeader.Controls.Add(Me.FTSeason)
         Me.ogbStyleHeader.Controls.Add(Me.FNHSysVenderPramId)
         Me.ogbStyleHeader.Controls.Add(Me.FNVersion)
@@ -2595,6 +2599,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.ogbStyleHeader.Controls.Add(Me.FNHSysStyleDevId_None)
         Me.ogbStyleHeader.Controls.Add(Me.FNHSysStyleDevId_lbl)
         Me.ogbStyleHeader.Controls.Add(Me.FNHSysStyleDevId)
+        Me.ogbStyleHeader.Controls.Add(Me.FTBomDevStyleCode)
         Me.ogbStyleHeader.Dock = System.Windows.Forms.DockStyle.Top
         Me.ogbStyleHeader.Location = New System.Drawing.Point(0, 0)
         Me.ogbStyleHeader.Name = "ogbStyleHeader"
@@ -2755,24 +2760,10 @@ Partial Class wGenerateStyleDevOriginal
         Me.FTDimension_lbl.Tag = "2|"
         Me.FTDimension_lbl.Text = "Dimension :"
         '
-        'FTBomDevStyleCode
-        '
-        Me.FTBomDevStyleCode.Enabled = False
-        Me.FTBomDevStyleCode.Location = New System.Drawing.Point(221, 27)
-        Me.FTBomDevStyleCode.Name = "FTBomDevStyleCode"
-        Me.FTBomDevStyleCode.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
-        Me.FTBomDevStyleCode.Properties.Appearance.ForeColor = System.Drawing.Color.Blue
-        Me.FTBomDevStyleCode.Properties.Appearance.Options.UseBackColor = True
-        Me.FTBomDevStyleCode.Properties.Appearance.Options.UseForeColor = True
-        Me.FTBomDevStyleCode.Properties.ReadOnly = True
-        Me.FTBomDevStyleCode.Size = New System.Drawing.Size(131, 20)
-        Me.FTBomDevStyleCode.TabIndex = 499
-        Me.FTBomDevStyleCode.Tag = "2|"
-        '
         'FTSeason
         '
         Me.FTSeason.Enabled = False
-        Me.FTSeason.Location = New System.Drawing.Point(304, 53)
+        Me.FTSeason.Location = New System.Drawing.Point(284, 53)
         Me.FTSeason.Name = "FTSeason"
         Me.FTSeason.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
         Me.FTSeason.Properties.Appearance.Options.UseBackColor = True
@@ -2794,7 +2785,7 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNHSysVenderPramId.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysVenderPramId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions7, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject25, SerializableAppearanceObject26, SerializableAppearanceObject27, SerializableAppearanceObject28, "", "168", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysVenderPramId.Properties.Tag = ""
-        Me.FNHSysVenderPramId.Size = New System.Drawing.Size(120, 20)
+        Me.FNHSysVenderPramId.Size = New System.Drawing.Size(100, 20)
         Me.FNHSysVenderPramId.TabIndex = 314
         Me.FNHSysVenderPramId.Tag = "2|"
         '
@@ -2880,6 +2871,20 @@ Partial Class wGenerateStyleDevOriginal
         Me.FNBomDevType.Size = New System.Drawing.Size(67, 20)
         Me.FNBomDevType.TabIndex = 487
         Me.FNBomDevType.Tag = "2|"
+        '
+        'FTBomDevStyleCode
+        '
+        Me.FTBomDevStyleCode.Location = New System.Drawing.Point(201, 27)
+        Me.FTBomDevStyleCode.Name = "FTBomDevStyleCode"
+        Me.FTBomDevStyleCode.Properties.Appearance.BackColor = System.Drawing.Color.LightCyan
+        Me.FTBomDevStyleCode.Properties.Appearance.ForeColor = System.Drawing.Color.Blue
+        Me.FTBomDevStyleCode.Properties.Appearance.Options.UseBackColor = True
+        Me.FTBomDevStyleCode.Properties.Appearance.Options.UseForeColor = True
+        Me.FTBomDevStyleCode.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.FTBomDevStyleCode.Properties.ReadOnly = True
+        Me.FTBomDevStyleCode.Size = New System.Drawing.Size(151, 20)
+        Me.FTBomDevStyleCode.TabIndex = 499
+        Me.FTBomDevStyleCode.Tag = "2|"
         '
         'ogbdetail
         '
@@ -3253,11 +3258,11 @@ Partial Class wGenerateStyleDevOriginal
         CType(Me.FTStateAdjust.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTProgram.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTDimension.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FTBomDevStyleCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FTSeason.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNHSysVenderPramId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNVersion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FNBomDevType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FTBomDevStyleCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ogbdetail, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ogbdetail.ResumeLayout(False)
         CType(Me.ogbmainprocbutton, System.ComponentModel.ISupportInitialize).EndInit()
@@ -3443,7 +3448,6 @@ Partial Class wGenerateStyleDevOriginal
     Friend WithEvents FNHSysVenderPramId As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FNHSysSeasonId As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FTSeason As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents FTBomDevStyleCode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents ogbmainprocbutton As DevExpress.XtraEditors.PanelControl
     Friend WithEvents ocmcopy As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ocmbomdiffpart As DevExpress.XtraEditors.SimpleButton
@@ -3488,4 +3492,5 @@ Partial Class wGenerateStyleDevOriginal
     Friend WithEvents FNHSysParentBOMId As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents FNHSysParentBOMId_None As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FNHSysStyleDevId_Hide As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents FTBomDevStyleCode As DevExpress.XtraEditors.ButtonEdit
 End Class
