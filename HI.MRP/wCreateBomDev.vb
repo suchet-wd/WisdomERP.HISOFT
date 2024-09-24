@@ -20,7 +20,6 @@ Public Class wCreateBomDev
         If Verify() Then
             Me.ProcComplete = True
             Me.Close()
-
         End If
 
     End Sub

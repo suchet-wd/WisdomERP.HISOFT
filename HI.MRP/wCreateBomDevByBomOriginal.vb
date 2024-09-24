@@ -27,18 +27,19 @@ Public Class wCreateBomDevByBomOriginal
                 'b.FNHSysStyleDevId  , b.FTStyleDevCode, b.FTSeason , b.FNBomDevType ,
                 _Qry = "SELECT TOP 1  ISNULL(MAX(b.FNVersion),0) + 1  "
                 _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle AS b WITH(NOLOCK) "
-                _Qry &= vbCrLf & "WHERE b.FTStyleDevCode = '" & FTStyle.Text & "' "
-                _Qry &= vbCrLf & "AND b.FTSeason = '" & FTSeason.Text & "' "
-                _Qry &= vbCrLf & "AND b.FNBomDevType = '" & FNBomDevType_Hide.Text & "'"
+                _Qry &= vbCrLf & "WHERE b.FTStyleDevCode = '" & FTStyle.Text.Trim() & "' "
+                _Qry &= vbCrLf & "AND b.FTSeason = '" & FTSeason.Text.Trim() & "' "
+                _Qry &= vbCrLf & "AND b.FNBomDevType = '" & FNBomDevType_Hide.Text.Trim() & "'"
 
                 _version = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "")
+                FNHSysStyleDevId_Target.Text = HI.SE.RunID.GetRunNoID("TMERTDevelopStyle", "FNHSysStyleDevId", Conn.DB.DataBaseName.DB_MERCHAN)
 
                 Dim cmdstring As String = ""
                 cmdstring = "EXEC [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].[dbo].[Copy_BOMOriginal_to_BOMDev] "
-                cmdstring &= vbCrLf & "@BomOriginal = '" & FNHSysStyleDevId_Hide.Text & "' "
-                cmdstring &= vbCrLf & ",	@BomTarget = '" & HI.SE.RunID.GetRunNoID("TMERTDevelopStyle", "FNHSysStyleDevId", Conn.DB.DataBaseName.DB_MERCHAN) & "' "
-                cmdstring &= vbCrLf & ",	@Version = '" & _version & "' "
-                cmdstring &= vbCrLf & ",	@User = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName) & "' "
+                cmdstring &= vbCrLf & "@BomOriginal = '" & FNHSysStyleDevId_Hide.Text.Trim() & "' "
+                cmdstring &= vbCrLf & ", @BomTarget = '" & FNHSysStyleDevId_Target.Text.Trim() & "' "
+                cmdstring &= vbCrLf & ", @Version = '" & _version & "' "
+                cmdstring &= vbCrLf & ", @User = '" & HI.UL.ULF.rpQuoted(HI.ST.UserInfo.UserName).Trim() & "' "
                 HI.Conn.SQLConn.ExecuteOnly(cmdstring, Conn.DB.DataBaseName.DB_MERCHAN)
 
                 Me.ProcComplete = True

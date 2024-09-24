@@ -90,7 +90,7 @@ Partial Class wCreateBomDev
         Me.FTProductDev.Properties.Appearance.Options.UseBackColor = True
         Me.FTProductDev.Properties.MaxLength = 200
         Me.FTProductDev.Size = New System.Drawing.Size(391, 20)
-        Me.FTProductDev.TabIndex = 543
+        Me.FTProductDev.TabIndex = 7
         Me.FTProductDev.Tag = "2|"
         '
         'FTProductDev_lbl
@@ -115,7 +115,7 @@ Partial Class wCreateBomDev
         Me.FTStyleSeniorDev.Properties.Appearance.Options.UseBackColor = True
         Me.FTStyleSeniorDev.Properties.MaxLength = 200
         Me.FTStyleSeniorDev.Size = New System.Drawing.Size(391, 20)
-        Me.FTStyleSeniorDev.TabIndex = 544
+        Me.FTStyleSeniorDev.TabIndex = 8
         Me.FTStyleSeniorDev.Tag = "2|"
         '
         'FTStyleSeniorDev_lbl
@@ -138,7 +138,7 @@ Partial Class wCreateBomDev
         Me.FTProgram.Name = "FTProgram"
         Me.FTProgram.Properties.MaxLength = 200
         Me.FTProgram.Size = New System.Drawing.Size(391, 20)
-        Me.FTProgram.TabIndex = 536
+        Me.FTProgram.TabIndex = 6
         Me.FTProgram.Tag = "2|"
         '
         'FTProgram_lbl
@@ -161,7 +161,7 @@ Partial Class wCreateBomDev
         Me.FTDimension.Name = "FTDimension"
         Me.FTDimension.Properties.MaxLength = 200
         Me.FTDimension.Size = New System.Drawing.Size(391, 20)
-        Me.FTDimension.TabIndex = 535
+        Me.FTDimension.TabIndex = 5
         Me.FTDimension.Tag = "2|"
         '
         'FTDimension_lbl
@@ -316,10 +316,10 @@ Partial Class wCreateBomDev
         '
         'ocmClear
         '
-        Me.ocmClear.Location = New System.Drawing.Point(198, 9)
+        Me.ocmClear.Location = New System.Drawing.Point(5, 10)
         Me.ocmClear.Name = "ocmClear"
-        Me.ocmClear.Size = New System.Drawing.Size(145, 25)
-        Me.ocmClear.TabIndex = 108
+        Me.ocmClear.Size = New System.Drawing.Size(90, 25)
+        Me.ocmClear.TabIndex = 11
         Me.ocmClear.TabStop = False
         Me.ocmClear.Tag = "2|"
         Me.ocmClear.Text = "Clear"
@@ -327,20 +327,20 @@ Partial Class wCreateBomDev
         'ocmcancel
         '
         Me.ocmcancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmcancel.Location = New System.Drawing.Point(366, 9)
+        Me.ocmcancel.Location = New System.Drawing.Point(417, 9)
         Me.ocmcancel.Name = "ocmcancel"
-        Me.ocmcancel.Size = New System.Drawing.Size(145, 25)
-        Me.ocmcancel.TabIndex = 107
+        Me.ocmcancel.Size = New System.Drawing.Size(90, 25)
+        Me.ocmcancel.TabIndex = 12
         Me.ocmcancel.TabStop = False
         Me.ocmcancel.Tag = "2|"
         Me.ocmcancel.Text = "Cancel"
         '
         'ocmok
         '
-        Me.ocmok.Location = New System.Drawing.Point(9, 9)
+        Me.ocmok.Location = New System.Drawing.Point(321, 10)
         Me.ocmok.Name = "ocmok"
-        Me.ocmok.Size = New System.Drawing.Size(145, 25)
-        Me.ocmok.TabIndex = 106
+        Me.ocmok.Size = New System.Drawing.Size(90, 25)
+        Me.ocmok.TabIndex = 10
         Me.ocmok.TabStop = False
         Me.ocmok.Tag = "2|"
         Me.ocmok.Text = "OK"

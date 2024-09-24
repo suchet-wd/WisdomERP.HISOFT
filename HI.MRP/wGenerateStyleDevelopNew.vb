@@ -26,7 +26,8 @@ Public Class wGenerateStyleDevelopNew
     Private _wNewSize As wNewSize
     Private _wChangeDesc As wChangeColorDesc
     Private _wGenNewMaterial As wGenerateNewItem
-    Private _CopyStyle As wCopyDevStyle
+    'Private _CopyStyle As wCopyDevStyle
+    Private _CopyStyle As wCreateBomDevByCopy
     Private _CreateBomDev As wCreateBomDev
     Private _CreateBomDevImport As wCreateBomDevByBomOriginal
     Private _CompareBom As wCompareBOM
@@ -99,7 +100,8 @@ Public Class wGenerateStyleDevelopNew
 
         _wNewColorway = New wNewColorwayDevelop
         _AddFile = New wBomDevAddFile
-        _CopyStyle = New wCopyDevStyle
+        '_CopyStyle = New wCopyDevStyle
+        _CopyStyle = New wCreateBomDevByCopy
         _CreateBomDev = New wCreateBomDev
         _CompareBom = New wCompareBOM
         _wChangeColorway = New wNewChangeColorwayDevelop
@@ -113,7 +115,7 @@ Public Class wGenerateStyleDevelopNew
         HI.TL.HandlerControl.AddHandlerObj(_CopyStyle)
         HI.TL.HandlerControl.AddHandlerObj(_CreateBomDev)
         HI.TL.HandlerControl.AddHandlerObj(_CreateBomDevImport)
-        HI.TL.HandlerControl.AddHandlerObj(_CopyStyle)
+        'HI.TL.HandlerControl.AddHandlerObj(_CopyStyle)
         HI.TL.HandlerControl.AddHandlerObj(_wChangeColorway)
         HI.TL.HandlerControl.AddHandlerObj(_wNewSize)
         HI.TL.HandlerControl.AddHandlerObj(_wGenNewMaterial)
@@ -300,7 +302,7 @@ Public Class wGenerateStyleDevelopNew
     '        Return True
     '    Else
     '        Dim _Qry As String = ""
-    '        Dim _Qry2 As String = ""
+    '        Dim _Qry2 As String = ""90
     '        _Qry = "SELECT TOP 1  FNHSysMerTeamId  "
     '        _Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_SECURITY) & "].dbo.[TSEUserLogin] AS A WITH(NOLOCK) "
     '        _Qry &= vbCrLf & "   WHERE  FTUserName = '" & HI.UL.ULF.rpQuoted(FTUpdUser.Text) & "' "
@@ -6911,17 +6913,18 @@ Public Class wGenerateStyleDevelopNew
         Dim dt As DataTable
         Dim _Qry As String = ""
         Dim _RowIndex As Integer = 0
-        _Qry = "Select '0' AS FTSelect ,FNHSysPartId,FTPartCode"
+        _Qry = "Select '0' AS FTSelect ,FNHSysRDPositionPartId AS FNHSysPartId,FTRDPositionPartCode AS FTPartCode"
 
         If HI.ST.Lang.Language = ST.Lang.eLang.TH Then
-            _Qry &= vbCrLf & ",FTPartNameTH AS FTPartName"
+            _Qry &= vbCrLf & ",FTRDPositionPartTH AS FTPartName"
         Else
-            _Qry &= vbCrLf & ",FTPartNameEN AS FTPartName"
+            _Qry &= vbCrLf & ",FTRDPositionPartEN AS FTPartName"
         End If
 
-        _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMPart AS A With(NOLOCK) "
+        '_Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMPart AS A With(NOLOCK) "
+        _Qry &= vbCrLf & " FROM [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MASTER) & "].dbo.TMERMRDPositionPart AS A With(NOLOCK) "
         _Qry &= vbCrLf & " WHERE ISNULL(FTStateActive,'')='1'  "
-        _Qry &= vbCrLf & " ORDER BY FTPartCode "
+        _Qry &= vbCrLf & " ORDER BY FTRDPositionPartCode "
 
         dt = HI.Conn.SQLConn.GetDataTable(_Qry, Conn.DB.DataBaseName.DB_MASTER)
 
@@ -7020,40 +7023,90 @@ Public Class wGenerateStyleDevelopNew
     End Sub
 
     Private Sub ocmcopy_Click(sender As Object, e As EventArgs) Handles ocmcopy.Click
+        Call ClearForm()
 
-        If Me.FNHSysStyleDevId.Text <> "" Then
-            If "" & Me.FNHSysStyleDevId_Hide.Text <> "" Then
-                If FTSeason.Text <> "" Then
+        Call HI.ST.Lang.SP_SETxLanguage(_CopyStyle)
 
-                    Call HI.ST.Lang.SP_SETxLanguage(_CopyStyle)
+        With _CopyStyle
+            '.FNHSysStyleIdF.Text = Me.FNHSysStyleDevId.Text
+            '.FNHSysSeasonIdF.Text = FTSeason.Text.Trim
+            '.FNHSysStyleIdF_None.Text = FTStyleDevNameEN.Text
+            '.FNHSysStyleIdF.Properties.Tag = FNHSysStyleDevId.Properties.Tag.ToString
+            '.FNHSysStyleDevId.Text = ""
+            '.FTSeason.Text = ""
+            '.FNVersion.Value = 0
+            '.ProcComplete = False
+            .ShowDialog()
 
-                    With _CopyStyle
-                        .FNHSysStyleIdF.Text = Me.FNHSysStyleDevId.Text
-                        .FNHSysSeasonIdF.Text = FTSeason.Text.Trim
-                        .FNHSysStyleIdF_None.Text = FTStyleDevNameEN.Text
-                        .FNHSysStyleIdF.Properties.Tag = FNHSysStyleDevId_Hide.Text
-                        .FNHSysStyleDevId.Text = ""
-                        .FTSeason.Text = ""
-                        .FNVersion.Value = 0
-                        .ProcComplete = False
-                        .ShowDialog()
+            If (.ProcComplete) Then
 
-                        If (.ProcComplete) Then
-                            Me.otb.SelectedTabPage = otpmatcode
-                        End If
+                'Dim _version As Integer = 1
+                'Dim _Qry As String = ""
+                ''b.FNHSysStyleDevId  , b.FTStyleDevCode, b.FTSeason , b.FNBomDevType ,
+                '_Qry = "SELECT TOP 1  ISNULL(MAX(b.FNVersion),0) + 1  "
+                '_Qry &= vbCrLf & " FROM  [" & HI.Conn.DB.GetDataBaseName(Conn.DB.DataBaseName.DB_MERCHAN) & "].dbo.TMERTDevelopStyle AS b WITH(NOLOCK) "
+                '_Qry &= vbCrLf & "WHERE b.FTStyleDevCode = '" & .FTStyle.Text & "' "
+                '_Qry &= vbCrLf & "AND b.FTSeason = '" & .FTSeason.Text & "' "
+                '_Qry &= vbCrLf & "AND b.FNBomDevType = '" & Val(.FNBomDevType.SelectedIndex) & "'"
 
-                    End With
+                '_version = HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "")
 
-                End If
+                'Me.FNHSysStyleDevId_Hide.Text = HI.SE.RunID.GetRunNoID("TMERTDevelopStyle", "FNHSysStyleDevId", Conn.DB.DataBaseName.DB_MERCHAN)
+                'Me.otb.SelectedTabPage = otpmatcode
+                'Me.FTBomDevStyleCode.Text = .FTStyle.Text + "-" + .FTSeason.Text + "-" + Format(_version, "0#") + "-" + .FNBomDevType.Text
+                'Me.FNHSysStyleDevId.Text = .FTStyle.Text
+                'Me.FNHSysStyleDevId_None.Text = .FTStyleDetail.Text
+                'Me.FNBomDevType.Text = .FNBomDevType.Text
+                'Me.FTSeason.Text = .FTSeason.Text
+                'Me.FTDimension.Text = .FTDimension.Text
+                'Me.FTProgram.Text = .FTProgram.Text
+                'Me.FTProductDev.Text = .FTProductDev.Text
+                'Me.FTStyleSeniorDev.Text = .FTStyleSeniorDev.Text
+                'Me.FNVersion.Text = _version
 
-            Else
-                HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.SelectData, Me.FNHSysStyleDevId_lbl.Text)
-                FNHSysStyleDevId.Focus()
+                'LoadImangeStyle()
+                'If HI.Conn.SQLConn.GetField(_Qry, Conn.DB.DataBaseName.DB_MERCHAN, "") Then
+                '    '    Return True
+                '    'Else
+                '    '    HI.MG.ShowMsg.mProcessError(1411200101, "คุณไม่มีสิทธิ์ทำการลบหรือแก้ไข Style นี้ ", Me.Text, System.Windows.Forms.MessageBoxIcon.Warning)
+                '    '    Return False
+                'End If
             End If
-        Else
-            HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.SelectData, Me.FNHSysStyleDevId_lbl.Text)
-            FNHSysStyleDevId.Focus()
-        End If
+
+        End With
+        'If Me.FNHSysStyleDevId.Text <> "" Then
+        '    If "" & Me.FNHSysStyleDevId_Hide.Text <> "" Then
+        '        If FTSeason.Text <> "" Then
+
+        'Call HI.ST.Lang.SP_SETxLanguage(_CopyStyle)
+
+        'With _CopyStyle
+        '.FNHSysStyleIdF.Text = Me.FNHSysStyleDevId.Text
+        '.FNHSysSeasonIdF.Text = FTSeason.Text.Trim
+        '.FNHSysStyleIdF_None.Text = FTStyleDevNameEN.Text
+        '.FNHSysStyleIdF.Properties.Tag = FNHSysStyleDevId_Hide.Text
+        '.FNHSysStyleDevId.Text = ""
+        '.FTSeasonTarget.Text = ""
+        '.FNVersion.Value = 0
+        '.ProcComplete = False
+        '.ShowDialog()
+
+        '                If (.ProcComplete) Then
+        '                    Me.otb.SelectedTabPage = otpmatcode
+        '                End If
+
+        '            End With
+
+        '        End If
+
+        '    Else
+        '        HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.SelectData, Me.FNHSysStyleDevId_lbl.Text)
+        '        FNHSysStyleDevId.Focus()
+        '    End If
+        'Else
+        '    HI.MG.ShowMsg.mInvalidData(MG.ShowMsg.InvalidType.SelectData, Me.FNHSysStyleDevId_lbl.Text)
+        '    FNHSysStyleDevId.Focus()
+        'End If
 
     End Sub
 
@@ -7268,9 +7321,6 @@ Public Class wGenerateStyleDevelopNew
 
     Private Sub FNHSysStyleDevId_Hide_TextChanged(sender As Object, e As EventArgs) Handles FNHSysStyleDevId_Hide.TextChanged
         Dim _Spls As New HI.TL.SplashScreen("Loading Data to BOM Sheet.... ,Please Wait.")
-
-
-        'Dim _FNHSysStyleDevId As Integer = Integer.Parse(Val(FNHSysStyleDevId_Hide.Text.ToString))
 
         Try
 
@@ -7527,7 +7577,8 @@ Public Class wGenerateStyleDevelopNew
             .ShowDialog()
 
             If (.ProcComplete) Then
-                FNHSysStyleDevId_Hide.Text = .FNHSysStyleDevId_Hide.Text
+                FNHSysStyleDevId_Hide.Text = .FNHSysStyleDevId_Target.Text
+
                 '    Dim _version As Integer = 1
                 '    Dim _Qry As String = ""
                 '    'b.FNHSysStyleDevId  , b.FTStyleDevCode, b.FTSeason , b.FNBomDevType ,

@@ -19,11 +19,11 @@ Partial Class wCreateBomDevByBomOriginal
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
         Me.FNBomDevType_Hide = New DevExpress.XtraEditors.TextEdit()
         Me.FNBomDevType = New DevExpress.XtraEditors.TextEdit()
@@ -43,6 +43,7 @@ Partial Class wCreateBomDevByBomOriginal
         Me.ocmClear = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmcancel = New DevExpress.XtraEditors.SimpleButton()
         Me.ocmok = New DevExpress.XtraEditors.SimpleButton()
+        Me.FNHSysStyleDevId_Target = New DevExpress.XtraEditors.TextEdit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.FNBomDevType_Hide.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,6 +57,7 @@ Partial Class wCreateBomDevByBomOriginal
         CType(Me.FNHSysStyleDevId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
+        CType(Me.FNHSysStyleDevId_Target.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupControl1
@@ -63,6 +65,7 @@ Partial Class wCreateBomDevByBomOriginal
         Me.GroupControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupControl1.Controls.Add(Me.FNHSysStyleDevId_Target)
         Me.GroupControl1.Controls.Add(Me.FNBomDevType_Hide)
         Me.GroupControl1.Controls.Add(Me.FNBomDevType)
         Me.GroupControl1.Controls.Add(Me.FNHSysStyleDevId_lbl)
@@ -85,11 +88,11 @@ Partial Class wCreateBomDevByBomOriginal
         '
         'FNBomDevType_Hide
         '
-        Me.FNBomDevType_Hide.Location = New System.Drawing.Point(229, 83)
+        Me.FNBomDevType_Hide.Location = New System.Drawing.Point(198, 83)
         Me.FNBomDevType_Hide.Name = "FNBomDevType_Hide"
         Me.FNBomDevType_Hide.Properties.Appearance.BackColor = System.Drawing.Color.Gold
         Me.FNBomDevType_Hide.Properties.Appearance.Options.UseBackColor = True
-        Me.FNBomDevType_Hide.Size = New System.Drawing.Size(22, 20)
+        Me.FNBomDevType_Hide.Size = New System.Drawing.Size(53, 20)
         Me.FNBomDevType_Hide.TabIndex = 516
         Me.FNBomDevType_Hide.Visible = False
         '
@@ -223,12 +226,13 @@ Partial Class wCreateBomDevByBomOriginal
         '
         'FNHSysStyleDevId_Hide
         '
-        Me.FNHSysStyleDevId_Hide.Location = New System.Drawing.Point(447, 1)
+        Me.FNHSysStyleDevId_Hide.EditValue = "Source"
+        Me.FNHSysStyleDevId_Hide.Location = New System.Drawing.Point(427, 1)
         Me.FNHSysStyleDevId_Hide.Name = "FNHSysStyleDevId_Hide"
         Me.FNHSysStyleDevId_Hide.Properties.Appearance.BackColor = System.Drawing.Color.Gold
         Me.FNHSysStyleDevId_Hide.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysStyleDevId_Hide.Properties.ReadOnly = True
-        Me.FNHSysStyleDevId_Hide.Size = New System.Drawing.Size(26, 20)
+        Me.FNHSysStyleDevId_Hide.Size = New System.Drawing.Size(46, 20)
         Me.FNHSysStyleDevId_Hide.TabIndex = 506
         Me.FNHSysStyleDevId_Hide.Tag = "2|"
         Me.FNHSysStyleDevId_Hide.Visible = False
@@ -267,7 +271,7 @@ Partial Class wCreateBomDevByBomOriginal
         Me.FNHSysStyleDevId.Properties.Appearance.ForeColor = System.Drawing.Color.Blue
         Me.FNHSysStyleDevId.Properties.Appearance.Options.UseBackColor = True
         Me.FNHSysStyleDevId.Properties.Appearance.Options.UseForeColor = True
-        Me.FNHSysStyleDevId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", "709", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.FNHSysStyleDevId.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", "709", Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.FNHSysStyleDevId.Size = New System.Drawing.Size(129, 20)
         Me.FNHSysStyleDevId.TabIndex = 502
         Me.FNHSysStyleDevId.Tag = "2|"
@@ -288,9 +292,9 @@ Partial Class wCreateBomDevByBomOriginal
         '
         'ocmClear
         '
-        Me.ocmClear.Location = New System.Drawing.Point(170, 9)
+        Me.ocmClear.Location = New System.Drawing.Point(9, 8)
         Me.ocmClear.Name = "ocmClear"
-        Me.ocmClear.Size = New System.Drawing.Size(128, 25)
+        Me.ocmClear.Size = New System.Drawing.Size(90, 25)
         Me.ocmClear.TabIndex = 108
         Me.ocmClear.TabStop = False
         Me.ocmClear.Tag = "2|"
@@ -299,9 +303,9 @@ Partial Class wCreateBomDevByBomOriginal
         'ocmcancel
         '
         Me.ocmcancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ocmcancel.Location = New System.Drawing.Point(328, 9)
+        Me.ocmcancel.Location = New System.Drawing.Point(383, 8)
         Me.ocmcancel.Name = "ocmcancel"
-        Me.ocmcancel.Size = New System.Drawing.Size(145, 25)
+        Me.ocmcancel.Size = New System.Drawing.Size(90, 25)
         Me.ocmcancel.TabIndex = 107
         Me.ocmcancel.TabStop = False
         Me.ocmcancel.Tag = "2|"
@@ -309,13 +313,24 @@ Partial Class wCreateBomDevByBomOriginal
         '
         'ocmok
         '
-        Me.ocmok.Location = New System.Drawing.Point(9, 9)
+        Me.ocmok.Location = New System.Drawing.Point(287, 8)
         Me.ocmok.Name = "ocmok"
-        Me.ocmok.Size = New System.Drawing.Size(133, 25)
+        Me.ocmok.Size = New System.Drawing.Size(90, 25)
         Me.ocmok.TabIndex = 106
         Me.ocmok.TabStop = False
         Me.ocmok.Tag = "2|"
         Me.ocmok.Text = "OK"
+        '
+        'FNHSysStyleDevId_Target
+        '
+        Me.FNHSysStyleDevId_Target.EditValue = "Target"
+        Me.FNHSysStyleDevId_Target.Location = New System.Drawing.Point(379, 1)
+        Me.FNHSysStyleDevId_Target.Name = "FNHSysStyleDevId_Target"
+        Me.FNHSysStyleDevId_Target.Properties.Appearance.BackColor = System.Drawing.Color.Gold
+        Me.FNHSysStyleDevId_Target.Properties.Appearance.Options.UseBackColor = True
+        Me.FNHSysStyleDevId_Target.Size = New System.Drawing.Size(42, 20)
+        Me.FNHSysStyleDevId_Target.TabIndex = 517
+        Me.FNHSysStyleDevId_Target.Visible = False
         '
         'wCreateBomDevByBomOriginal
         '
@@ -342,6 +357,7 @@ Partial Class wCreateBomDevByBomOriginal
         CType(Me.FNHSysStyleDevId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl2.ResumeLayout(False)
+        CType(Me.FNHSysStyleDevId_Target.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -364,4 +380,5 @@ Partial Class wCreateBomDevByBomOriginal
     Friend WithEvents FTSeason As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FNBomDevType As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FNBomDevType_Hide As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents FNHSysStyleDevId_Target As DevExpress.XtraEditors.TextEdit
 End Class
